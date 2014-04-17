@@ -1,0 +1,10 @@
+ {
+ 	"patterns" : {
+ 		"source" : "/../../source/_patterns/",
+ 		"public" : "/../../public/patterns/"
+ 	},
+ 	"ignored-extensions" : ["scss", "DS_Store", "less"],
+ 	"ignored-directories" : ["scss"],
+ 	"contentSyncPort" : 8002,
+ 	"navSyncPort" : 8003
+ }

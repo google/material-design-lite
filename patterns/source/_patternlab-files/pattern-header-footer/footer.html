@@ -1,0 +1,30 @@
+	<!-- End of Pattern -->
+	
+	<!--
+		Remember that patterns are displayed from two-levels deep (e.g. patterns/patterntype-patternsubtype-patternname/patterntype-patternsubtype-patternname.html)
+		Therefore all calls to assets should have the ../../ in order to work in an apache-less environment
+	-->
+	
+	<!-- DO NOT MODIFY -->
+	<script>
+		// handle injection of items from PHP
+		var patternPartial = "{{ patternGroup }}-{{ patternName }}";
+		var lineage = "{{ lineage }}";
+	</script>
+	
+	<script type="text/html" id="sg-pattern-html">
+{{ patternHTML }}
+	</script>
+	
+	<script type="text/html" id="sg-pattern-css">
+{{ patternCSS }}
+	</script>
+	
+	<script src="../../styleguide/js/postmessage.js"></script>
+	<script src="../../data/annotations.js"></script>
+	<script src="../../styleguide/js/annotations-pattern.js"></script>
+	<script src="../../styleguide/js/code-pattern.js"></script>
+	<!-- /DO NOT MODIFY -->
+	
+</body>
+</html>

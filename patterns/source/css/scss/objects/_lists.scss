@@ -1,0 +1,63 @@
+.inline-list {
+	li {
+		display: inline-block;
+	}
+}
+
+/* Social List */
+.social-list {
+	li {
+		margin: 0 0.4rem $space 0;
+	}
+	
+	a {
+		font-size: 1.6em;
+	}
+}
+
+
+/* Headline List */
+.headline-list {
+	margin-bottom: $space;
+
+	&.flush {
+		margin: 0;
+	}
+
+	h4 {
+		font-weight: normal;
+	}
+
+	li {
+		padding: $pad-quarter 0;
+		border-top: 1px solid $gray-light-3;
+	}
+}
+
+/* Post List */
+.post-list {
+	li {
+		margin-bottom: $space;
+	}
+}
+
+/* Bullet List */
+.bullet-list {
+	list-style: square;
+	margin: 0 0 1em 1.2em;
+	line-height: 1.3;
+
+	li {
+		margin-bottom: $space;
+	}
+}
+
+/* Text List */
+.text-list {
+	margin: 0 0 1em;
+	line-height: 1.3;
+
+	li {
+		margin-bottom: $space;
+	}
+}

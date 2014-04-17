@@ -1,0 +1,50 @@
+{
+  "name": "grunt-legacy-util",
+  "version": "0.1.2",
+  "description": "Deprecated Grunt utils provided for backwards compatibility.",
+  "author": {
+    "name": "\"Cowboy\" Ben Alman",
+    "url": "http://benalman.com/"
+  },
+  "homepage": "http://gruntjs.com/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gruntjs/grunt-legacy-util.git"
+  },
+  "bugs": {
+    "url": "http://github.com/gruntjs/grunt-legacy-util/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/gruntjs/grunt-legacy-util/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "hooker": "~0.2.3",
+    "async": "~0.1.22",
+    "lodash": "~0.9.2",
+    "exit": "~0.1.1",
+    "underscore.string": "~2.2.1",
+    "getobject": "~0.1.0",
+    "which": "~1.0.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "0.4.2",
+    "temporary": "0.0.8"
+  },
+  "readme": "# grunt-legacy-util\n> Deprecated Grunt utils provided for backwards compatibility.\n\n`grunt.util.namespace` use [getobject]  \n`grunt.util.hooker` use [hooker]  \n`grunt.util.async` use [async]  \n`grunt.util._` use [lodash]  \n`grunt.util.exit` use [exit]  \n`grunt.util.callbackify`  \n`grunt.util.error`  \n`grunt.util.linefeed`  \n`grunt.util.normalizelf`  \n`grunt.util.kindOf` use [lodash]  \n`grunt.util.toArray`\n`grunt.util.repeat`  \n`grunt.util.pluralize`  \n`grunt.util.recurse` use [traverse]  \n`grunt.util.spawn`  \n\n\n[getobject]: https://www.npmjs.org/package/getobject\n[hooker]: https://www.npmjs.org/package/hooker\n[async]: https://www.npmjs.org/package/async\n[lodash]: https://www.npmjs.org/package/lodash\n[exit]: https://www.npmjs.org/package/exit\n[traverse]: https://www.npmjs.org/package/lodash\n",
+  "readmeFilename": "README.md",
+  "_id": "grunt-legacy-util@0.1.2",
+  "_from": "grunt-legacy-util@~0.1.2"
+}

@@ -1,0 +1,10 @@
+/* Links */ 
+a {
+	color: $gray-dark;
+	text-decoration: none;
+	outline: 0;
+	
+	&:hover, &:focus {
+		color: $gray;
+	}
+}

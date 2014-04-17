@@ -1,0 +1,404 @@
+/*
+colors
+red: $orange; rgb(229,24,55)
+gray: #808080;
+*/
+
+$orange : #bededf;
+
+$max-width: 60em;
+
+/************Reset**************/
+* { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+html, body, div, object, iframe, fieldset { 
+	margin: 0; 
+	padding: 0; 
+	border: 0;
+} 
+ol, ul { 
+	list-style: none;
+	margin: 0;
+	padding: 0;
+} 
+table { 
+	border-collapse: collapse; 
+	border-spacing: 0; 
+}
+header, footer, nav, section, article, hgroup, figure {
+	display: block;	
+}
+legend {
+	display: none;
+}
+/************End Reset**************/
+
+/************Global**************/
+body {
+	background: #fff;
+	color: #000;
+	font: 100%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	padding: 0;
+	-webkit-text-size-adjust: 100%;
+	border-top: 20px solid #000;
+	border-bottom: 20px solid #000;
+}
+a {
+	color: #808080;
+	text-decoration: none;
+}
+a:hover, a:focus {
+	color: $orange;
+}
+p {
+	margin: 0 0 1em;
+}
+img, object, video {
+	max-width: 100%;
+	border: 0;
+}
+a img {
+	border: 0;
+	outline: 0;
+}
+h1 {
+	font-size: 3em;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	margin-bottom: 0.2em;
+}
+h2 {
+	font-size: 2em;
+	line-height: 1.1;
+	margin-bottom: 0.2em;
+}
+h3 {
+	font-weight: normal;
+	line-height: 1.1;
+	padding-bottom: 0.4em;
+	border-bottom: 1px solid #ccc;
+}
+h1 a, h2 a, h3 a {
+	display: block;
+	color: #000;
+}
+h1 a:hover, h2 a:hover, h3 a:hover {
+	color: $orange;
+}
+blockquote {
+	border-left: 0.5em solid #ddd;
+	padding-left: 1em;
+	margin-left: 1em;
+}
+small {
+	color: $orange;
+}
+input[type=search] {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+::-webkit-input-placeholder {
+	color: #808080;
+}
+:-moz-placeholder {  
+    color: #808080;
+}
+/************End Global**************/
+
+/************Classes**************/
+.inactive {
+	color: #ddd;
+}
+/************End Classes**************/
+
+/************Structure**************/
+.container {
+	max-width: $max-width;
+	margin: 0 auto;
+	padding: 0 1em;
+	overflow: hidden;
+}
+
+[role=main] {
+	padding-bottom: 1em;
+}
+
+/*Footer*/
+[role=contentinfo] {
+	color: #fff;
+	background: #000;
+	margin: 0 -1em;
+	position: relative;
+	z-index: 2;
+
+	> div {
+		max-width: $max-width;
+		padding: 0 1em;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+}
+/*End Footer*/
+
+/*Grid*/
+.grid {
+	margin: 0 -1em;
+	overflow: hidden;
+}
+.grid:target {
+	-webkit-animation: fadeout 5s 1 ease-out;
+    -moz-animation: fadeout 5s 1 ease-out; 
+    -o-animation: fadeout 5s 1 ease-out;
+    animation: fadeout 5s 1 ease-out; 
+}
+.grid > h2 {
+	margin-left: 0.45em;
+}
+.grid > section {
+	padding: 1em 1em 0.5em;
+}
+.grid > section:target {
+	-webkit-animation: fadeout 5s 1 ease-out;
+    -moz-animation: fadeout 5s 1 ease-out; 
+    -o-animation: fadeout 5s 1 ease-out;
+    animation: fadeout 5s 1 ease-out; 
+}
+.grid ul {
+	overflow: hidden;
+}
+.grid ul li {
+	margin-bottom: 0.3em;
+}
+.featured:after {
+	content: "*";
+	color: $orange;
+}
+
+/*Fluid*/
+.fluid {
+	display: block;
+	margin: 0 auto;
+	max-width: 40em;
+}
+
+/*Homepage*/
+.home h1 {
+	margin-bottom: 0.2em;
+}
+.intro {
+	font-size: 1.8em;
+	line-height: 1.2;
+	margin: 0 auto;
+}
+.intro a:hover ,.intro a:focus {
+	color: #000;
+	border-bottom-color: #000;
+}
+
+.ani {
+	position: relative;
+	height: 15em;
+	margin: 1em 0 0;
+	width: 100%;
+	z-index: 0;
+}
+.ani div {
+	width: 100%;
+}
+.ani div b {
+	display: block;
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	bottom: 5%;
+	left: 5%;
+	background: rgba(229,24,55,0.22);
+}
+
+
+/*Patterns*/
+.mod {
+	padding: 1em;
+}
+.pattern {
+	background: #f7f7f7;
+	border-bottom: 1px solid #808080;
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+.pattern-description h1 {
+	font-size: 3.4em;
+	margin-bottom: 0.5em;
+}
+.pattern-description {
+	max-width: 40em;
+	margin: 0 auto;
+}
+.pattern-description ul, .pattern-description ol {
+	margin-bottom: 2em;
+}
+.pattern-description li {
+	margin-bottom: 1em;
+}
+
+
+/*Blog*/
+/*Blog Header*/
+.blog .container {
+	max-width: 62em;
+}
+.blog header[role=banner] {
+	overflow: hidden;
+	margin-bottom: 2em;
+	padding: 2em 0 1em;
+	border-bottom: 1px solid #000;
+}
+.blog-logo {
+	font-weight: normal;
+	font-size: 1.2em;
+	margin: 0 0 1em;
+}
+.blog-logo img {
+	width: 3.3em;
+}
+.blog-logo a {
+	color: #000;
+}
+.search-form {
+	width: 100%;
+	margin-bottom: 1em;
+}
+.search-field {
+	width: 100%;
+	padding: 0.5em 0;
+	border: 0;
+	border-bottom: 1px solid #808080;
+	outline: none;
+}
+.search-field:focus {
+	background: $orange;
+	color: #fff;
+}
+.search-field:focus::-webkit-input-placeholder {
+   color: #fff;
+}
+
+.search-field:focus :-moz-placeholder {  
+   color: #fff; 
+}
+
+.blog .nav {
+	clear: both;
+}
+.blog .nav a {
+	display: block;
+	font-weight: bold;
+	color: #000;
+}
+.blog .nav a:hover {
+	color: $orange;
+}
+
+/*Posts*/
+.posts ol > li {
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1em;
+	overflow: hidden;
+} 
+.posts h2 {
+	font-size: 1.4em;
+	margin: 0.28em 0 0.1em;
+	font-weight: normal;
+}
+.posts h2 a {
+	color: #000;
+}
+.posts h2 a:hover, .posts h2 a:focus {
+	color: $orange;
+}
+.permalink {
+	display: block;
+	font-size: 0.8em;
+	margin-bottom: 1.2em;
+}
+.post-body a {
+	border-bottom: 1px solid #ccc;
+}
+.posts blockquote {
+	margin: 0 0 1em;
+	color: #666;
+	border-left: 0.25em solid #ccc;
+	padding-left: 1em;
+}
+.tags {
+	float: left;
+}
+.tags li {
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 0.5em;
+}
+
+.posts ol > li .tags a, .permalink {
+	color: #ccc;
+	-webkit-transition: color 0.3s ease-out;  
+     -moz-transition: color 0.3s ease-out;  
+      -ms-transition: color 0.3s ease-out;  
+       -o-transition: color 0.3s ease-out;  
+          transition: color 0.3s ease-out;
+}
+.posts ol > li:hover .tags a, .posts ol > li:hover .permalink {
+	color: #808080;
+}
+.blog-nav {
+	text-align: center;
+	overflow: hidden;
+	padding: 1em 0;
+}
+.posts .blog-nav a {
+	border: 0;
+}
+.nav-next {
+	float: right;
+}
+.nav-prev {
+	float: left;
+}
+
+/* Sidebar */
+.sidebar {
+	font-size: 0.8em;
+	padding-bottom: 1.4em;
+}
+.sidebar div {
+	margin-bottom: 2em;
+}
+.sidebar h3 {
+	font-weight: bold;
+	font-size: 0.9em;
+	line-height: 1;
+	border-bottom: 1px solid #000;
+}
+.sidebar a {
+	color: #808080;
+}
+.sidebar a:hover, .sidebar a:focus {
+	color: $orange;
+}
+
+
+
+
+.top {
+	clear: both;
+	display: block;
+	padding: 1em 0;
+}
+.top:before {
+	content: '▲';
+}
+

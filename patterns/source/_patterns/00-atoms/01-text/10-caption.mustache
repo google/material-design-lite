@@ -1,0 +1,1 @@
+<p class="caption">A caption can be applied to an image, quote, form field, etc.</p>

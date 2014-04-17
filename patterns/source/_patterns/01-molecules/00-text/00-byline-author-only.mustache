@@ -1,0 +1,1 @@
+<div class="byline">by {{ author.first-name }} {{ author.last-name }}</div>

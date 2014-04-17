@@ -1,0 +1,1 @@
+<img src="{{ img.square.src }}" alt="{{ img.square.alt }}" />

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head id="patternlab-head">
+		<title>Pattern Lab Sub-type Style Guide</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="../../styleguide/css/styleguide.css" media="all" />
+		<link rel="stylesheet" href="../../css/style.css" media="all" />
+	</head>
+	<body class="sg-pattern-list">
+		
+		<!-- View All Patterns in a Pattern Sub-Type -->
+		<div class="sg-main" role="main">
+			
+			<!-- Patterns -->
+			<div id="sg-patterns">
+				{{# partials }}
+					<div class="sg-pattern">
+						<h2 class="sg-pattern-head" ><a href="../../patterns/{{ patternLink }}" class="patternLink" data-patternpartial="{{ patternPartialPath }}">{{ patternName }}</a></h2>
+						<div class="sg-pattern-body">
+							{{{ patternPartial }}}
+							<div class="sg-code" style="display: none">
+								{{# patternLineageExists }}
+									<div class="sg-code-contains">
+										This pattern contains: 
+										{{# patternLineages }}
+											<a href="{{ lineagePath }}"><code>{{ lineagePattern }}</code></a>
+										{{/ patternLineages }}
+									</div>
+								{{/ patternLineageExists }}
+								<h3 class="sg-code-head">HTML</h3>
+								<pre class="sg-code-html">
+									<code>
+										{{ patternPartial }}
+									</code>
+								</pre>
+								{{# patternCSSExists }}
+									<h3 class="sg-code-head">CSS</h3>
+									<pre class="sg-code-css">
+										<code>
+											{{ patternCSS }}
+										</code>
+									</pre>
+								{{/ patternCSSExists }}
+							</div>
+						</div>
+					</div>
+				{{/ partials }}
+			</div> <!--end #sg-patterns-->
+	
+		</div><!--end .sg-main-->
+		
+		<!-- JS to hook everything together and do annotations -->
+		<script>
+			// handle injection of items from PHP
+			var patternPartial = "{{ patternPartial }}";
+			var lineage = "";
+		</script>
+		<script src="../../styleguide/js/postmessage.js"></script>
+		<script src="../../data/annotations.js"></script>
+		<script src="../../styleguide/js/annotations-pattern.js"></script>
+		<script src="../../styleguide/js/code-pattern.js"></script>
+		
+	</body>
+</html>

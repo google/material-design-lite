@@ -1,0 +1,6 @@
+These are Mac OS X-compatible files to open up select command line scripts. Simply double-click on a file and it should run 
+the appropriate shell command. If you receive a permissions error you will need to use the command line to fix it. 
+Simply go to the command line, cd to the scripts/php directory and type chmod +x [filename]. Replace [filename] with the 
+appropriate filenames.
+
+That's confusing.

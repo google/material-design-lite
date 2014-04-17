@@ -17,4 +17,5 @@ We intend to give developers a high performance starting point for multi-device 
 ### Contains:
 
 * Customized Mobile HTML5 Boilerplate
-* PureCSS (with Normalize)
+* PatternLab (Node) - a static version is checked into the `css` directory. 
+

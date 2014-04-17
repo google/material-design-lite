@@ -1,0 +1,29 @@
+.comments {
+	li {
+		margin-bottom: $space;
+	}
+}
+
+.comment-container {
+	overflow: hidden;
+	margin-bottom: $space;
+}
+
+.comment-meta {
+	float: left;
+	width: 6.5em;
+
+	img {
+		display: block;
+		border: 1px solid $gray-light-2;
+		margin-bottom: $space-half;
+	}
+}
+
+.comment-name {
+	font-size: $font-size-sm;
+}
+
+.comment-text {
+	margin-left: 9em;
+}

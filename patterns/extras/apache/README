@@ -1,0 +1,37 @@
+# How to Set-up Apache on Mac OS X
+
+This document reviews how to (hopefully) easily set-up Apache on Mac OS X to support Pattern Lab. You'll need to open Terminal. Note that PHP may flake out with the default Apache install. I can modify directions in the future to account for that.
+
+## 1. Modify hosts
+
+First, you'll want to modify your hosts file so that you can use a specific hostname for the site rather than just `127.0.0.1` or `localhost`. To do so do the following:
+
+1. In Terminal type `sudo vi /etc/hosts`
+2. When prompted, enter the password you use to log-in
+3. When the file loads type `i`
+4. Using the arrow keys get to the end of the last line
+5. Hit `return` and type `127.0.0.1    patternlab.localhost`
+6. Hit the `esc` key and type `:wq`
+
+Your hosts should now be saved.
+
+## 2. Modify Apache
+
+Second, you'll want to add an Apache `VirtualHost` so that Apache will know to listen for your application at the correct hostname.
+
+1. In Terminal type `sudo vi /etc/apache2/extra/httpd-vhosts.conf`
+2. When prompted, enter the password you use to log-in
+3. When the file loads type `i`
+4. Using the arrow keys get to the end of the last line
+5. Hit `return` twice
+6. Copy and paste the info from the `vhost.txt` file in this directory.
+7. Modify `DocumentRoot` path to match the location of the your install of Pattern Lab
+7. Hit the `esc` key and type `:wq`
+
+## 3. Restart Apache
+
+Last, you'll want to restart Apache so your changes take effect. Simply open System Preferences and go to the "Sharing" panel. Untick the "Web Sharing" checkbox and tick it again to restart Apache.
+
+## 4. Test By Visiting patternlab.localhost
+
+In a browser try to visit http://patternlab.localhost. You should get the Pattern Lab styleguide by default. If you get Google Search results just make sure you enter the http://

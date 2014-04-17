@@ -1,0 +1,1 @@
+This is not a real pattern. It's simply the header and footer that patterns get sandwiched between when they're processed by the builder.

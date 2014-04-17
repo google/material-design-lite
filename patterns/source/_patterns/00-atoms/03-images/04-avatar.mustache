@@ -1,0 +1,1 @@
+<img src="{{img.avatar.src}}" alt="Avatar" />

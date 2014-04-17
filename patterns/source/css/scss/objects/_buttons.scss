@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+.btn {
+	display: inline-block;
+	background: $gray-dark;
+	color: $white;
+	line-height: 1;
+	font-weight: bold;
+	padding: $pad;
+	border: 0;
+	text-align: center;
+	
+	&:hover, &:focus {
+		color: $white;
+	}
+
+	&.disabled {
+		background: $gray-light-2;
+		color: $gray-light-4;
+	}
+}
+
+.btn-small {
+	padding: $pad-half;
+}
+
+.btn-large {
+	padding: $pad-half;
+	text-transform: uppercase;
+	background: $gray;
+	font-size: 1.4rem;
+	font-weight: normal;
+}
+
+
+.text-btn {
+	font-style: italic;
+}

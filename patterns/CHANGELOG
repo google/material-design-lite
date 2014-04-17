@@ -1,0 +1,33 @@
+THIS CHANGELOG IS AN ATTEMPT TO DOCUMENT CHANGES TO THIS PROJECT.
+
+PL-node-v0.1.0
+ - FIX: Links to patterns did not work when visited from a server
+ - FIX: Patterns with hyphens in the name were breaking the iframe messaging
+ - FIX: Added stlyeguide/js files that were ignored at one point
+ - FIX: Watch _data/*.json files too
+ - FIX: Copy images, in an attempt to exclude files like Thumbs.db
+ - FIX: Typos in CHANGELOG
+ - ADD: A banner to patternlab.js
+
+PL-node-v0.0.5
+ - FIX: typo in organisms global header
+ - FIX: flat-structured pattern items rendered as if they had sub-menus #4
+ - ADD: Load all grunt tasks using matchdep
+ - THX: thanks to @colynb for the typo heads up
+ - THX: shoutout to @joemcgill for better dependency loading
+
+PL-node-v0.0.4
+ - ADD: An explicit MIT license
+ - FIX: Clean public/patterns/ before build 
+
+PL-node-v0.0.3
+ - FIX: Install documentation was incomplete, should not have assumed grunt
+ - FIX: Remove SASS/SCSS dependency which was causing clean installs from failing
+
+PL-node-v0.0.2
+ - FIX: Sub Nav Items now strip hyphens and are styled like patternlab-php.
+ - FIX: Exclude patterns by using an underscore
+ - FIX: Grunt watching styleguide scss
+
+PL-node-v0.0.1
+ - Minimum Viable Product! At this point, I feel you could use Pattern Lab Node to build an atomic design-driven website.

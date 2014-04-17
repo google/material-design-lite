@@ -1,0 +1,40 @@
+Peakle is a tiny abstraction around lists that makes them more walkable.
+
+Peakle's constructor takes only one parameter, a list of values.
+
+	var peakled = new Peakle([ 1, 2, 3 ]);
+
+By default, the current position is always at the first element. If the
+initial list is empty, then the current position is 'null'.
+
+Properties:
+
+	* length: returns a number of elements in the underlying list.
+	* current: returns a value of the current element.
+
+Methods:
+
+	* next(): Moves to the next element and returns its value.
+	* prev(): Moves to the previous element and returns its value.
+	* peak(adv): Returns next element's value without moving its pointer.
+	  This method accepts an optional numeric parameter. Use it if you
+	  want to peak further.
+	* move(index): Moves to the specified element.
+
+All methods return 'null' if they can't return a value.
+
+Example:
+
+	var peakled = new Peakle([ 1, 2, 3 ]);
+
+	peakled.current;  // 1
+	peakled.peak();   // 2
+	peakled.peak(2);  // 3
+
+	peakled.next();   // 2
+	peakled.peak();   // 3
+	peakled.peak(2);  // null
+	peakled.peak(-1); // 1
+
+	peakled.prev();   // 1
+	peakled.move(2);  // 3

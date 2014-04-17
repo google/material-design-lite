@@ -1,0 +1,869 @@
+/*------------------------------------*\
+    $STYLE GUIDE CONTAINER STYLES
+\*------------------------------------*/
+/**
+ * NOTE: These styles are specific to the style guide container and should not be modified. 
+ * Use style.scss for all content styles that don't pertain to the style guide container.
+ * 
+ * Second note: Any important declarations are to prevent brand styles from overriding style guide 
+ */
+ 
+ 
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables 
+ * -----Font
+ * -----Colors
+ * -----Typography
+ * -----Defaults
+ * -----Breakpoints
+ * MIXINS---------------------------------Sass mixins 
+ * RESET----------------------------------Set reset defaults
+ * GLOBAL ELEMENTS------------------------Establish global styles
+ * -----Main
+ * -----Headings
+ * -----Text-related elements (p, blockquote, lists)
+ * -----Defaults
+ * -----Breakpoints
+ * STYLE GUIDE INTERFACE------------------CSS for the Style Guide Container. Should not influence the containing styles at all.
+ * -----Header
+ * -----Navigation
+ * -----Controls
+ * -----Main Container
+ * -----Viewport
+ * -----Section Headers
+ * -----Code View
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $STYLE GUIDE VARIABLES 
+\*------------------------------------*/
+/*Fonts*/
+$sg-font : "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+
+/* Style Guide Interface Colors */ 
+$sg-primary : #222;
+$sg-secondary : #808080;
+$sg-tertiary : #ddd;
+$sg-quaternary : #fff;
+$sg-quinary : #f7f7f7;
+$sg-tint : rgba(255,255,255,0.05);
+$sg-tint-2 : rgba(255,255,255,0.25);
+$sg-tone : rgba(0,0,0,0.1);
+$sg-tone-2 : rgba(0,0,0,0.3);
+
+/* Typography */
+$sg-font-size-norm : 100%;
+$sg-font-size-sm : 70%;
+$sg-font-size-large : 120%;
+
+/* Defaults */
+$sg-space : 1em;
+$sg-doublespace : $sg-space*2;
+$sg-pad : 1em;
+$sg-pad-half : $sg-pad/2;
+
+/* Dimensions */
+$offset-top: 2em;
+
+/* Breakpoints */
+$sg-bp-small : 24em;
+$sg-bp-small-2 : 30em;
+$sg-bp-med : 44em;
+$sg-bp-large : 65em;
+$sg-bp-xl : 80em;
+
+$animate-quick: 0.2s;
+
+
+
+
+
+/*------------------------------------*\
+    $STYLE GUIDE MIXINS 
+\*------------------------------------*/
+@mixin sg-transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    $STYLE GUIDE INTERFACE 
+\*------------------------------------*/
+
+#patternlab-html, #patternlab-body {
+	margin: 0;
+	padding: 0;
+	background: $sg-tertiary;
+	-webkit-text-size-adjust: 100%;
+}
+
+.sg-nav-wrapper {
+	overflow: hidden;
+	background: $sg-tertiary;
+}
+
+.is-vishidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px); 
+}
+
+
+
+
+/*------------------------------------*\
+    $STYLE GUIDE HEADER 
+\*------------------------------------*/
+/* Header */
+.sg-header {
+	background: $sg-primary;
+	color: $sg-quaternary;
+	font-family: $sg-font;
+	text-transform: uppercase;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+
+	-webkit-box-shadow: inset 0 1px 0 #5f6164,inset 0 -1px 0 #2e2f2f,0 1px 3px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0 1px 0 #5f6164,inset 0 -1px 0 #2e2f2f,0 1px 3px rgba(0,0,0,0.3);
+	box-shadow: inset 0 1px 0 #5f6164,inset 0 -1px 0 #2e2f2f,0 1px 3px rgba(0,0,0,0.3);
+
+	* {
+	  -moz-box-sizing: border-box;
+	  -webkit-box-sizing: border-box;
+	  box-sizing: border-box;
+	}
+	
+	ul, ol {
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		list-style: none;
+		border-bottom: 1px solid $sg-tint;
+	}
+	a {
+		font-size: $sg-font-size-sm;
+		color: $sg-secondary;
+		text-decoration: none;
+		display: block;
+		line-height: 1;
+		padding: $sg-pad;
+		@include sg-transition(background,0.15s,ease-out);
+		@include sg-transition(color,0.15s,ease-out);
+		
+		&:hover, &:focus, &.active {
+			color: $sg-quaternary;
+			background: $sg-tint;
+		}
+	}
+
+	ol{
+    li{
+      ol{
+        li{
+          ol{
+            li{
+              //3rd level nav item
+							a {
+								padding-left: 2em;
+								text-transform: none;
+							}
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+
+
+/* Navigation */
+.sg-header .sg-nav-toggle {
+	@extend .icon-menu;
+	padding: $sg-pad;
+	border-bottom: 1px solid rgba(0,0,0,0);
+	position: relative;
+	z-index: 2;
+	@media all and (min-width: $sg-bp-med) {
+		display: none;
+	}
+}
+
+.sg-nav-container {
+	@media all and (max-width: $sg-bp-med) {
+		overflow: hidden;
+		max-height: 0;
+		@include sg-transition(max-height,0.5s,ease-out);
+		
+		&.active {
+			max-height: 50em;
+		}
+	}
+}
+
+.sg-nav {
+	z-index: 1;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+	> li {
+		
+		@media all and (min-width: $sg-bp-med) {
+			border-bottom: 0;
+			border-right: 1px solid $sg-tint;
+			float: left;
+			position: relative;
+			
+			> ol {
+				position: absolute;
+				top: $offset-top;
+				left: 0;
+			}
+			
+		}
+	}
+}
+
+/* Accordion */
+.sg-acc-handle {
+	&:after {
+		content: ' +';
+		float: right;
+		font-size: $sg-font-size-sm;
+		
+		@media all and (min-width: $sg-bp-med) {
+			float: none;
+		}
+	}
+	
+	&.active {
+		color: $sg-quaternary;
+		background: $sg-tint;
+		&:after {
+			content: ' -';
+		}
+	}
+
+	&.sg-icon:after {
+		content: "";
+	}
+}
+
+.sg-header .sg-icon {
+	width: auto;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+}
+
+.sg-acc-panel {
+	overflow: hidden;
+	max-height: 0;
+	min-width: 10em;
+	background: $sg-primary;
+	@include sg-transition(max-height,0.5s,ease-out);
+
+	&.active {
+		max-height: 50em;
+	}
+
+	&.sg-right {
+		position: absolute;
+		left: auto;
+		right: 0;
+	}
+}
+
+/* Controls (sizing, view mode) */
+.sg-controls {
+	border: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	
+	.sg-acc-panel.active {
+		max-height: 17em;
+	}
+	
+	.sg-nav-phases .sg-acc-panel {
+	  min-width: 0;
+	  
+	  &.active {
+	  max-height: none;
+	  }
+	}
+}
+
+.sg-control-trigger {
+	border-bottom: 1px solid $sg-tint;
+	
+	@media all and (min-width: $sg-bp-med) {
+		border: 0;
+	}
+	
+	@media all and (min-width: $sg-bp-large) {
+		float: left;
+		width: 6em;
+	}
+}
+
+.sg-control {
+	> li {
+		@media all and (min-width: $sg-bp-med) {
+			float: left;
+			border-bottom: 0;
+			border-left: 1px solid $sg-tint;
+		}
+	}
+}
+
+
+
+
+.sg-control {
+	> li {
+		float: left;
+	}
+	
+	.sg-input {
+		padding: 0.1em;
+		-webkit-transition: all $animate-quick ease-out;
+	    -moz-transition: all $animate-quick ease-out;
+	    -ms-transition: all $animate-quick ease-out;
+	    -o-transition: all $animate-quick ease-out;
+	    transition: all $animate-quick ease-out;
+
+		&:active, &:focus {
+			outline: 0;
+			background: $sg-quinary;
+			color: #000;
+		}
+	}
+}
+
+.sg-quarter {
+	@media all and (max-width: $sg-bp-large) {
+		float: left;
+		width: 25%;
+		border-left: 1px solid $sg-tint;
+		text-align: center;
+
+		&:first-child {
+			border-left: 0;
+		}
+	}
+}
+
+.sg-half {
+	@media all and (max-width: $sg-bp-large) {
+		float: left;
+		width: 50%;
+		border-left: 1px solid $sg-tint;
+		text-align: center;
+
+		&:nth-child(odd) {
+			border-left: 0;
+		}
+	}
+}
+
+.sg-current-size {
+		font-size: 70%;
+		color: $sg-secondary;
+		padding: 0.8em 0.95em;
+
+		&:hover {
+			.sg-input {
+				background: $sg-quinary;
+				color: #000;
+			}
+		}
+
+		@media all and (min-width: $sg-bp-large) {
+			float: left;
+		}
+	}
+
+.sg-size-options {
+	max-width: 10em;
+
+	@media all and (min-width: $sg-bp-large) {
+		position: static;
+		max-height: none;
+		max-width: none;
+
+		> li {
+			float: left;
+			border: 0;
+			border-left: 1px solid $sg-tint;
+		}
+	}
+}
+
+#sg-form {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+.sg-input {
+	margin: -2px 0 0 0;
+	padding: 0;
+	border: 1px solid #222;
+	background-color: #222;
+	color: gray;
+	width: 35px;
+	text-align: right;
+}
+
+.sg-input-active {
+	background-color: #fff;
+	color: #000;
+}
+
+.sg-view {
+	position: relative;
+
+	> ul {
+		position: absolute;
+		top: $offset-top;
+		left: 0;
+	}
+}
+
+//Checklist dropdown lists
+.sg-checkbox {
+	@extend .icon-checkbox-unchecked;
+
+	&:before {
+		display: inline-block;
+		margin-right: 0.4em;
+	}
+
+	&.active {
+		@extend .icon-checkbox-checked;
+	}
+}
+
+
+
+/*------------------------------------*\
+    $STYLE GUIDE VIEWPORT
+\*------------------------------------*/
+
+/* Viewport */
+#sg-vp-wrap {
+	text-align: center;
+	width: 100%;
+
+	@media all and (min-width: $sg-bp-med) {
+	  position: fixed;
+	  top: $offset-top;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+	  z-index: 0;
+	}
+
+	&.wrap-animate {
+		-webkit-transition: left 0.3s ease-out;
+	    -moz-transition: left 0.3s ease-out;
+	    -ms-transition: left 0.3s ease-out;
+	    -o-transition: left 0.3s ease-out;
+	    transition: left 0.3s ease-out;
+	}
+
+}
+
+#sg-viewport {
+  border: 0;
+  x-margin: 0 auto;
+  height: 100%;
+  width: 100%; 
+
+  &.hay-mode {
+		-webkit-transition: all 40s linear;
+	    -moz-transition: all 40s linear;
+	    -ms-transition: all 40s linear;
+	    -o-transition: all 40s linear;
+	    transition: all 40s linear;
+	}
+}
+
+#sg-cover {
+	width: 100%; 
+	height: 100%; 
+	display: none; 
+	position: absolute; 
+	z-index: 20; 
+	cursor: col-resize;
+}
+
+#sg-gen-container {
+	height: 100%; 
+	text-align: center; 
+	margin: 0 auto;
+	-webkit-overflow-scrolling: touch;
+  	overflow: scroll;
+
+	&.hay-mode {
+		-webkit-transition: all 40s linear;
+	    -moz-transition: all 40s linear;
+	    -ms-transition: all 40s linear;
+	    -o-transition: all 40s linear;
+	    transition: all 40s linear;
+	}
+}
+
+#sg-rightpull-container {
+	width: 10px; 
+	float: right; 
+	margin: 0; 
+	height: 100%; 
+	cursor: col-resize;
+}
+
+#sg-rightpull {
+	margin: 0; 
+	width: 10px; 
+	height: 100%; 
+	background: #999;
+	-webkit-transition: background $animate-quick ease-out;
+    -moz-transition: background $animate-quick ease-out;
+    -ms-transition: background $animate-quick ease-out;
+    -o-transition: background $animate-quick ease-out;
+    transition: background $animate-quick ease-out;
+
+	&:hover {
+		background: #666;
+	}
+
+	&:active {
+		cursor: col-resize;
+		background: #444;
+	}
+}
+
+.vp-animate {
+  -webkit-transition: width 0.8s ease-out;
+  -moz-transition: width 0.8s ease-out;
+  -ms-transition: width 0.8s ease-out;
+  -o-transition: width 0.8s ease-out;
+  transition: width 0.8s ease-out;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $STYLE GUIDE CONTENT 
+\*------------------------------------*/
+
+/* Section Pattern */
+.sg-pattern {
+	margin-bottom: $sg-doublespace;
+	overflow: hidden;
+}
+
+/* Section Head */
+.sg-pattern-head {
+	margin: $sg-doublespace 0;
+	font-family: $sg-font;
+	font-size: $sg-font-size-sm;
+	font-weight: normal;
+	padding: $sg-pad 0;
+	border-bottom: 1px solid $sg-secondary;
+
+	a {
+		display: block;
+		color: $sg-secondary;
+		text-decoration: none;
+		cursor: pointer;
+		
+		&:hover {
+			color: $sg-primary;
+		}
+	}
+}
+
+/* Clean View */
+.sg-clean .sg-main {
+	padding: 0;
+}
+
+
+// Code View Blocks
+.sg-code, .sg-annotations {
+	clear: both;
+	background: $sg-tertiary;
+	color: $sg-primary;
+	padding: $sg-pad $sg-pad-half;
+	margin: $sg-space 0;
+
+	a {
+		text-decoration: underline;
+	}
+}
+
+.sg-code {
+	pre {
+		white-space: -moz-pre-line;
+		white-space: -pre-line;
+		white-space: -o-pre-line;
+		word-wrap: break-word; 
+		white-space: pre-line;
+		border: 1px solid $sg-tone;
+		padding: $sg-pad-half;
+	}
+}
+
+.sg-code-contains {
+	margin-bottom: 1rem;
+	font-size: 85%;
+	color: $sg-secondary;
+
+	code {
+		padding: 0.2em;
+		background: $sg-tone-2;
+		color: $sg-quinary;
+		position: relative;
+		top: -2px;
+	}
+}
+
+.sg-code-head {
+	color: $sg-secondary;
+	font-size: 1em;
+}
+
+// Demo to show grid system - in this stylesheet because it shouldn't be included in the production styles
+.demo {
+	overflow: hidden;
+	margin-bottom: 1rem;
+}
+.demo .gi, .demo .demo-block {
+	background: $sg-tertiary;
+	color: $sg-secondary;
+	text-align: center;
+	margin-bottom: $sg-pad-half;
+	padding: 1em !important;
+	
+	&:nth-of-type(2n) {
+		color: $sg-tertiary;
+		background: $sg-secondary;
+	}
+	
+	.gi {
+		background: $sg-tone;
+		color: $sg-tertiary;
+		
+		&:nth-of-type(2n) {
+			background: $sg-tone-2;
+		}
+	}
+}
+
+//Demo box for animation
+.demo-animate {
+	background: $sg-tertiary;
+	padding: $sg-pad;
+	margin-bottom: $sg-space;
+	text-align: center;
+}
+
+//Animate Demo to show 
+.animate-move {
+	position: relative;
+
+	.demo-shape {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 20px;
+		background: $sg-secondary;
+	}
+
+	&:hover {
+		> .demo-shape {
+			left: 100%;
+			margin-left: -20px;
+		}
+	}
+}
+
+// Style Guide color swatches
+.sg-colors {
+	overflow: hidden;
+
+	li {
+		overflow: hidden;
+		border: 1px solid $sg-tertiary;
+		padding: 0.3em;
+		margin: 0 0.2em 0.2em 0;
+
+		@media all and (min-width: $sg-bp-small-2) {
+			float: left;
+			width: 5em;
+		}
+	}
+}
+
+.sg-swatch {
+	display: block;
+	height: 1.5em;
+	width: 50%;
+	
+	@media all and (max-width: $sg-bp-small-2) {
+		float: left;
+		margin-right: 0.3em;
+	}
+
+	@media all and (min-width: $sg-bp-small-2) {
+		width: 100%;
+		height: 4em;
+		margin-bottom: 0.2em;
+	}
+	
+}
+
+.sg-label {
+	line-height: 1;
+}
+
+//Annotation
+#sg-annotation-container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	padding: $sg-pad;
+}
+
+
+/* Annotations */
+#sg-annotation-container, #sg-code-container {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: $sg-font;
+	font-size: 90%;
+	background: $sg-primary;
+	color: $sg-secondary;
+	position: fixed;
+	top: auto;
+	padding: 1rem 1rem 4rem;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
+	-webkit-transition: bottom 0.3s ease-out;
+	-moz-transition: bottom 0.3s ease-out;
+  	-webkit-transition: bottom 0.3s ease-out;
+  	-ms-transition: bottom 0.3s ease-out; 
+  	-o-transition: bottom 0.3s ease-out; 
+  	transition:  bottom 0.3s ease-out;
+
+  	a {
+    	color: $sg-tertiary;
+    }
+}
+
+#sg-code-container pre {
+	max-height: 300px;
+	padding: 0 1em;
+}
+
+#sg-code-container .with-css pre {
+	max-height: 200px;
+}
+
+#sg-annotation-close-btn, #sg-code-close-btn {
+	color: #fff;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: right;
+}
+
+.has-comment, .has-comment a {
+	cursor: help !important;
+}
+
+// Icon Font
+
+@font-face {
+	font-family: 'icons';
+	src:url('../assets/icons.eot');
+	src:url('../assets/icons.eot?#iefix') format('embedded-opentype'),
+		url('../assets/icons.woff') format('woff'),
+		url('../assets/icons.ttf') format('truetype'),
+		url('../assets/icons.svg#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Pattern Lab icon fonts */
+.icon-reload, .icon-cog, .icon-minus, .icon-plus, .icon-menu, .icon-checkbox-unchecked, .icon-checkbox-checked, .icon-eye {
+	font-family: 'icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-reload:before {
+	content: "\e002";
+}
+.icon-cog:before {
+	content: "\e000";
+}
+.icon-minus:before {
+	content: "\e003";
+}
+.icon-plus:before {
+	content: "\e004";
+}
+.icon-menu:before {
+	content: "\e005";
+}
+.icon-checkbox-unchecked:before {
+	content: "\e006";
+}
+.icon-checkbox-checked:before {
+	content: "\e007";
+}
+.icon-eye:before {
+	content: "\e001";
+}

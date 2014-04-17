@@ -1,0 +1,1 @@
+<img src="{{ img.landscape-16x9.src }}" alt="{{ img.landscape-16x9.alt }}" />

@@ -1,0 +1,61 @@
+{
+  "name": "grunt-contrib-concat",
+  "description": "Concatenate files.",
+  "version": "0.3.0",
+  "homepage": "https://github.com/gruntjs/grunt-contrib-concat",
+  "author": {
+    "name": "Grunt Team",
+    "url": "http://gruntjs.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gruntjs/grunt-contrib-concat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gruntjs/grunt-contrib-concat/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/gruntjs/grunt-contrib-concat/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-internal": "~0.4.2",
+    "grunt": "~0.4.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "contributors": [
+    {
+      "name": "\"Cowboy\" Ben Alman",
+      "url": "http://benalman.com/"
+    },
+    {
+      "name": "Tyler Kellen",
+      "url": "http://goingslowly.com/"
+    },
+    {
+      "name": "Dan Wolff",
+      "url": "http://danwolff.se/"
+    }
+  ],
+  "readme": "# grunt-contrib-concat [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-concat.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-concat)\n\n> Concatenate files.\n\n\n\n## Getting Started\nThis plugin requires Grunt `~0.4.0`\n\nIf you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-contrib-concat --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks('grunt-contrib-concat');\n```\n\n\n\n\n## Concat task\n_Run this task with the `grunt concat` command._\n\nTask targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.\n### Options\n\n#### separator\nType: `String`\nDefault: `grunt.util.linefeed`\n\nConcatenated files will be joined on this string. If you're post-processing concatenated JavaScript files with a minifier, you may need to use a semicolon `';'` as the separator.\n\n#### banner\nType: `String`\nDefault: empty string\n\nThis string will be prepended to the beginning of the concatenated output. It is processed using [grunt.template.process][], using the default options.\n\n_(Default processing options are explained in the [grunt.template.process][] documentation)_\n\n#### footer\nType: `String`\nDefault: empty string\n\nThis string will be appended to the end of the concatenated output. It is processed using [grunt.template.process][], using the default options.\n\n_(Default processing options are explained in the [grunt.template.process][] documentation)_\n\n#### stripBanners\nType: `Boolean` `Object`\nDefault: `false`\n\nStrip JavaScript banner comments from source files.\n\n* `false` - No comments are stripped.\n* `true` - `/* ... */` block comments are stripped, but _NOT_ `/*! ... */` comments.\n* `options` object:\n  * By default, behaves as if `true` were specified.\n  * `block` - If true, _all_ block comments are stripped.\n  * `line` - If true, any contiguous _leading_ `//` line comments are stripped.\n\n#### process\nType: `Boolean` `Object`\nDefault: `false`\n\nProcess source files as [templates][] before concatenating.\n\n* `false` - No processing will occur.\n* `true` - Process source files using [grunt.template.process][] defaults.\n* `options` object - Process source files using [grunt.template.process][], using the specified options.\n* `function(src, filepath)` - Process source files using the given function, called once for each file. The returned value will be used as source code.\n\n_(Default processing options are explained in the [grunt.template.process][] documentation)_\n\n  [templates]: https://github.com/gruntjs/grunt/wiki/grunt.template\n  [grunt.template.process]: https://github.com/gruntjs/grunt/wiki/grunt.template#wiki-grunt-template-process\n\n### Usage Examples\n\n#### Concatenating with a custom separator\n\nIn this example, running `grunt concat:dist` (or `grunt concat` because `concat` is a [multi task][]) will concatenate the three specified source files (in order), joining files with `;` and writing the output to `dist/built.js`.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  concat: {\n    options: {\n      separator: ';'\n    },\n    dist: {\n      src: ['src/intro.js', 'src/project.js', 'src/outro.js'],\n      dest: 'dist/built.js'\n    }\n  }\n});\n```\n\n#### Banner comments\n\nIn this example, running `grunt concat:dist` will first strip any preexisting banner comment from the `src/project.js` file, then concatenate the result with a newly-generated banner comment, writing the output to `dist/built.js`.\n\nThis generated banner will be the contents of the `banner` template string interpolated with the config object. In this case, those properties are the values imported from the `package.json` file (which are available via the `pkg` config property) plus today's date.\n\n_Note: you don't have to use an external JSON file. It's also valid to create the `pkg` object inline in the config. That being said, if you already have a JSON file, you might as well reference it._\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  pkg: grunt.file.readJSON('package.json'),\n  concat: {\n    options: {\n      stripBanners: true,\n      banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +\n        '<%= grunt.template.today(\"yyyy-mm-dd\") %> */'\n    },\n    dist: {\n      src: ['src/project.js'],\n      dest: 'dist/built.js'\n    }\n  }\n});\n```\n\n#### Multiple targets\n\nIn this example, running `grunt concat` will build two separate files. One \"basic\" version, with the main file essentially just copied to `dist/basic.js`, and another \"with_extras\" concatenated version written to `dist/with_extras.js`.\n\nWhile each concat target can be built individually by running `grunt concat:basic` or `grunt concat:extras`, running `grunt concat` will build all concat targets. This is because `concat` is a [multi task][].\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  concat: {\n    basic: {\n      src: ['src/main.js'],\n      dest: 'dist/basic.js'\n    },\n    extras: {\n      src: ['src/main.js', 'src/extras.js'],\n      dest: 'dist/with_extras.js'\n    }\n  }\n});\n```\n\n#### Multiple files per target\n\nLike the previous example, in this example running `grunt concat` will build two separate files. One \"basic\" version, with the main file essentially just copied to `dist/basic.js`, and another \"with_extras\" concatenated version written to `dist/with_extras.js`.\n\nThis example differs in that both files are built under the same target.\n\nUsing the `files` object, you can have list any number of source-destination pairs.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  concat: {\n    basic_and_extras: {\n      files: {\n        'dist/basic.js': ['src/main.js'],\n        'dist/with_extras.js': ['src/main.js', 'src/extras.js']\n      }\n    }\n  }\n});\n```\n\n#### Dynamic filenames\n\nFilenames can be generated dynamically by using `<%= %>` delimited underscore templates as filenames.\n\nIn this example, running `grunt concat:dist` generates a destination file whose name is generated from the `name` and `version` properties of the referenced `package.json` file (via the `pkg` config property).\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  pkg: grunt.file.readJSON('package.json'),\n  concat: {\n    dist: {\n      src: ['src/main.js'],\n      dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'\n    }\n  }\n});\n```\n\n#### Advanced dynamic filenames\n\nIn this more involved example, running `grunt concat` will build two separate files (because `concat` is a [multi task][]). The destination file paths will be expanded dynamically based on the specified templates, recursively if necessary.\n\nFor example, if the `package.json` file contained `{\"name\": \"awesome\", \"version\": \"1.0.0\"}`, the files `dist/awesome/1.0.0/basic.js` and `dist/awesome/1.0.0/with_extras.js` would be generated.\n\n```javascript\n// Project configuration.\ngrunt.initConfig({\n  pkg: grunt.file.readJSON('package.json'),\n  dirs: {\n    src: 'src/files',\n    dest: 'dist/<%= pkg.name %>/<%= pkg.version %>'\n  },\n  concat: {\n    basic: {\n      src: ['<%= dirs.src %>/main.js'],\n      dest: '<%= dirs.dest %>/basic.js'\n    },\n    extras: {\n      src: ['<%= dirs.src %>/main.js', '<%= dirs.src %>/extras.js'],\n      dest: '<%= dirs.dest %>/with_extras.js'\n    }\n  }\n});\n```\n\n#### Invalid or Missing Files Warning\nIf you would like the `concat` task to warn if a given file is missing or invalid be sure to set `nonull` to `true`:\n\n```js\ngrunt.initConfig({\n  concat: {\n    missing: {\n      src: ['src/invalid_or_missing_file'],\n      dest: 'compiled.js',\n      nonull: true,\n    },\n  },\n});\n```\n\nSee [configuring files for a task](http://gruntjs.com/configuring-tasks#files) for how to configure file globbing in Grunt.\n\n\n#### Custom process function\nIf you would like to do any custom processing before concatenating, use a custom process function:\n\n```js\nrunt.initConfig({\n  concat: {\n    dist: {\n      options: {\n        // Replace all 'use strict' statements in the code with a single one at the top\n        banner: \"'use strict';\\n\",\n        process: function(src, filepath) {\n          return '// Source: ' + filepath + '\\n' +\n            src.replace(/(^|\\n)[ \\t]*('use strict'|\"use strict\");?\\s*/g, '$1');\n        },\n      },\n      files: {\n        'dist/built.js': ['src/project.js'],\n      },\n    },\n  },\n});\n```\n\n## Release History\n\n * 2013-04-25   v0.3.0   Add option to process files with a custom function.\n * 2013-04-08   v0.2.0   Dont normalize separator to allow user to set LF even on a Windows environment.\n * 2013-02-22   v0.1.3   Support footer option.\n * 2013-02-15   v0.1.2   First official release for Grunt 0.4.0.\n * 2013-01-18   v0.1.2rc6   Updating grunt/gruntplugin dependencies to rc6. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.\n * 2013-01-09   v0.1.2rc5   Updating to work with grunt v0.4.0rc5. Switching back to this.files api.\n * 2012-11-13   v0.1.1   Switch to this.file api internally.\n * 2012-10-03   v0.1.0   Work in progress, not yet officially released.\n\n---\n\nTask submitted by [\"Cowboy\" Ben Alman](http://benalman.com/)\n\n*This file was generated on Thu Apr 25 2013 20:22:44.*\n",
+  "readmeFilename": "README.md",
+  "_id": "grunt-contrib-concat@0.3.0",
+  "_from": "grunt-contrib-concat@~0.3.0"
+}

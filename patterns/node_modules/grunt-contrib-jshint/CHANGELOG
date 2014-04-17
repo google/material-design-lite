@@ -1,0 +1,45 @@
+v0.4.3:
+  date: 2013-04-08
+  changes:
+    - Fix evaluation of predef option when it's an object.
+v0.4.2:
+  date: 2013-04-08
+  changes:
+    - Avoid wiping force option when jshintrc is used.
+v0.4.1:
+  date: 2013-04-06
+  changes:
+    - Fix to allow object type for deprecated predef.
+v0.4.0:
+  date: 2013-04-04
+  changes:
+    - Revert task level options to override jshintrc files.
+v0.3.0:
+  date: 2013-03-13
+  changes:
+    - Bump to JSHint 1.1.0.
+    - Add force option to report JSHint errors but not fail the task.
+    - Add error/warning code to message.
+    - Allow task level options to override jshintrc file.
+v0.2.0:
+  date: 2013-02-26
+  changes:
+    - Bump to JSHint 1.0
+v0.1.1:
+  date: 2013-02-15
+  changes:
+    - First official release for Grunt 0.4.0.
+v0.1.1rc6:
+  date: 2013-01-18
+  changes:
+    - Updating grunt/gruntplugin dependencies to rc6.
+    - Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
+v0.1.1rc5:
+  date: 2013-01-09
+  changes:
+    - Updating to work with grunt v0.4.0rc5.
+    - Switching to this.filesSrc api.
+v0.1.0:
+  date: 2012-10-18
+  changes:
+    - Work in progress, not yet officially released.

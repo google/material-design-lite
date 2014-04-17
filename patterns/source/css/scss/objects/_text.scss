@@ -1,0 +1,77 @@
+/* Global Font Classes */
+.font-secondary {
+	font-family: $font-secondary;
+}
+
+//Intro text
+.intro {
+	font-size: $font-size-slightly-larger;
+	font-weight: bold;
+}
+
+//Pullquote
+.pullquote {
+	font-family: $font-secondary;
+	font-size: $font-size-large;
+}
+
+//Text Passages
+.text {
+	a {
+		text-decoration: underline;
+	}
+
+	ul {
+		list-style: disc;
+		margin: 0 0 $space 1.2em;
+
+		ul {
+			margin-bottom: 0;
+		}
+	}
+
+	ol {
+		list-style: decimal;
+		margin: 0 0 $space 1.2em;
+
+		ol {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* Review Grade Tile */
+.grade {
+	display: block;
+	font-weight: bold;
+	background: $gray;
+	color: $white;
+	min-height: 4.5rem;
+	padding-top: 1.5rem;
+	text-align: center;
+}
+
+/* Eyebrow */
+.eyebrow {
+	background: $gray-dark;
+	color: $white;
+	padding: 0.2em;
+	display: inline-block;
+	margin-bottom: $space-half;
+}
+
+.eyebrow-image {
+	position: relative;
+	
+	img {
+		position: relative;
+		z-index: 0;
+	}
+
+	.eyebrow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+}
