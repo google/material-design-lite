@@ -16,6 +16,12 @@ We intend to give developers a high performance starting point for multi-device 
 
 ### Contains:
 
-* Customized Mobile HTML5 Boilerplate
-* PatternLab (Node) - a static version is checked into the `styles` directory. 
-* Gulp for the build process
+* Mobile-optimized HTML Boilerplate
+* Sexy mobile styles and style guide 
+* (Optional) Gulp build tooling
+  * LiveReload
+  * Cross-device syncronization of clicks, scrolls, navigation, form filling.
+  * Image optimization
+  * JavaScript minification and optimization
+  * CSS optimization
+  * PageSpeed integration (Todo)
