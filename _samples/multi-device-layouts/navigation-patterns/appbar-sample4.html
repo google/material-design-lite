@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cleartype" content="on">
+
+<link rel="stylesheet" href="/resources/samples/css/normalize.css">
+<link rel="stylesheet" href="/resources/samples/css/main.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link rel="stylesheet" href="/resources/samples/css/base.css">
+<!-- IE Specific to remove tap highlight -->
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+<title>App Bar Sample 3</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+    <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+
+      padding: 0;
+      margin: 0;
+    }
+
+      body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+
+  background-image: url('https://s3.amazonaws.com/ooomf-com-files/OwfYyiJXQ6qddLgTOBGX_Ariana%20Prestes%20photos%20(4).jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.app-bar {
+  display: flex;
+  
+  position: fixed;
+
+  width: 100%;
+  height: 60px;
+  
+  top: 0;
+  left: 0;
+
+  flex-direction: row;
+  
+  background-color: rgba(17, 17, 17, 0.8);
+}
+
+.app-bar .logo {
+  flex: 1;
+  
+  font-size: 20px;
+  line-height: 60px;
+  
+  margin: 0 16px;
+  
+  color: #fefefe;
+
+  float: none;
+  max-width: none;
+}
+
+.app-bar .logo a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: normal;
+}
+
+.app-bar button {
+  display: flex;
+
+  height: 44px;
+  
+  flex-direction: row;
+
+  background-image: none;
+  background-color: transparent;
+  
+  border: none;
+
+  padding: 4px;
+  margin: 8px 8px 8px 0px;
+
+  box-sizing: border-box;
+
+  font-size: 24px;
+  line-height: 32px;
+  color: rgb(254, 254, 254);
+
+  border-style: solid;
+  border-radius: 4px;
+  border-width: 2px;
+
+  -webkit-transition: border 300ms ease-in,background 300ms ease-in;
+  transition: border 300ms ease-in,background 300ms ease-in
+}
+
+.app-bar button:hover {
+  border-color: transparent;
+  background-color: rgba(254, 254, 254, 0.2);
+}
+
+.app-bar button:active {
+  border-color: transparent;
+  background-color: rgba(254, 254, 254, 0.4);
+}
+
+.app-bar button:focus {
+  border-color: transparent;
+  outline: 0;
+  background-color: rgba(254, 254, 254, 0.2);
+}
+
+.app-bar button:active:focus {
+  background-color: rgba(254, 254, 254, 0.4);
+}
+
+.app-bar button img {
+  width: 32px;
+  height: 32px;
+}
+
+.app-bar-actions  {
+  display: flex;
+  
+  flex-direction: row;
+}
+
+.search {
+  display: none;
+  
+  width: 400px;
+  height: 60px;
+  
+  padding: 16px;
+  margin: 0;
+  
+  box-sizing: border-box;
+  
+  border: none;
+  
+}
+
+nav {
+  display: none;
+}
+
+@media all and (min-width: 1200px) {
+  
+  body {
+    padding: 16px;
+  }
+  
+  .app-bar {
+    display: block;
+    
+    height: 130px;
+    
+    padding: 0 16px;
+    margin-bottom: 16px;
+    
+    box-sizing: border-box;
+    
+    background-color: transparent;
+  }
+  
+  .app-bar .logo {
+    float: left;
+    
+    margin: 0;
+    
+    font-size: 100px;  
+    line-height: 130px;
+  }
+
+  .app-bar-actions {
+    float: right;
+    
+    margin: 35px 0;
+  }
+  
+  .app-bar:after {
+    content: ' ';
+    
+    display:block;
+    height: 0;
+  overflow: hidden;
+    
+    clear: both;
+  }
+  
+  .search {
+    display: block;
+    
+    padding-left: 16px;
+  }
+  
+  button.menu {
+    display: none;
+  }
+  
+  nav {
+    display: block;
+
+    margin-top: 130px;
+  }
+}
+    </style>
+  </head>
+
+  <body>
+    <header class="app-bar">
+      <h1 class="logo"><a href="#">Logo</a></h1>
+      <section class="app-bar-actions">
+        <input class="search" placeholder="Search" />
+        <button><img src="./search.png" /></button>
+      </section>
+      <button class="menu"><img src="./hamburger.png" /> Menu</button>
+    </header>
+  
+    <nav>Navigation Placeholder</nav>
+
+    <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-24532603-1');ga('send','pageview');
+
+    var isCompleted = {};
+    function sampleCompleted(sampleName){
+      if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+        ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+        isCompleted[sampleName] = true;
+      }
+    }
+</script>  </body>
+</html>

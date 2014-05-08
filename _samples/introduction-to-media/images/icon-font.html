@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cleartype" content="on">
+
+<link rel="stylesheet" href="/resources/samples/css/normalize.css">
+<link rel="stylesheet" href="/resources/samples/css/main.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link rel="stylesheet" href="/resources/samples/css/base.css">
+    <title>Images: Replacing images with icon fonts</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <style>
+      .awesome {
+        font-family: FontAwesome;
+      }
+
+      table {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+
+      td {
+        width: 20%;
+        text-align: center;
+      }
+
+      tr.font {
+        font-family: FontAwesome;
+        font-size: xx-large;
+      }
+
+      tr.class {
+        font-family: monospace;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div role="main">
+      <h1>Icon Fonts Rock</h1>
+      <p>
+        <a href="http://fontawesome.io"><span class="awesome">&#xf024;</span> Font Awesome</a> 
+        is an icon font with more than 350 different icons that can be easily customized, 
+        including size, color, shadow, etc.
+        
+With Font Awesome, you can either add icons by using a unicode
+        entity, like this HTML5 logo (<span class="awesome">&#xf13b;</span>)
+        or by adding special classes to an &lt;i&gt; element like the CSS3
+        logo (<i class="fa fa-css3"></i>).
+        
+</p>
+
+
+      <div>
+        <table>
+          <tr class="font">
+            <td>&#xf083;</td>
+            <td>&#xf0c2;</td>
+            <td>&#xf0f4;</td>
+            <td>&#xf0e7;</td>
+          </tr>
+          <tr>
+            <td>&amp;#xf083;</td>
+            <td>&amp;#xf0c2;</td>
+            <td>&amp;#xf0f4;</td>
+            <td>&amp;#xf0e7;</td>
+          </tr>
+          <tr class="class">
+            <td>.fa-camera-retro</td>
+            <td>.fa-cloud</td>
+            <td>.fa-coffee</td>
+            <td>.fa-bolt</td>
+          </tr>
+        </table>
+
+        <table>
+          <tr class="font">
+            <td>&#xf108;</td>
+            <td>&#xf10a;</td>
+            <td>&#xf10b;</td>
+            <td>&#xf002;</td>
+            
+          </tr>
+          <tr>
+            <td>&amp;#xf108</td>
+            <td>&amp;#xf10a;</td>
+            <td>&amp;#xf10b;</td>
+            <td>&amp;#xf002;</td>
+            
+          </tr>
+          <tr class="class">
+            <td>.fa-desktop</td>
+            <td>.fa-tablet</td>
+            <td>.fa-mobile</td>
+            <td>.fa-search</td>
+            
+          </tr>
+        </table>
+
+        <table>
+          <tr class="font">
+            <td>&#xf0ac;</td>
+            <td>&#xf13b;</td>
+            <td>&#xf00c;</td>
+            <td>&#xf09d;</td>
+          </tr>
+          <tr>
+            <td>&amp;#xf0ac;</td>
+            <td>&amp;#xf13b;</td>
+            <td>&amp;#xf00c;</td>
+            <td>&amp;#xf09d;</td>
+          </tr>
+          <tr class="class">
+            <td>.fa-globe</td>
+            <td>.fa-html5</td>
+            <td>.fa-check</td>
+            <td>.fa-credit-card</td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+       <p>
+        <b>Font Awesome</b> by Dave Gandy -
+        <a href="http://fontawesome.io">http://fontawesome.io</a>.
+        <br>
+        <small>
+          Font Awesome is fully open source and is GPL compatible. You can 
+          use it for commercial projects, open source projects, or really 
+          just about whatever you want.
+        </small>
+      </p>
+      </div>
+      
+    </div>
+
+
+    <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-24532603-1');ga('send','pageview');
+
+    var isCompleted = {};
+    function sampleCompleted(sampleName){
+      if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+        ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+        isCompleted[sampleName] = true;
+      }
+    }
+</script>  </body>
+</html>
+
+

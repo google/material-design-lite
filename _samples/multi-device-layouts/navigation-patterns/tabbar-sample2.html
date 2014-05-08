@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cleartype" content="on">
+
+<link rel="stylesheet" href="/resources/samples/css/normalize.css">
+<link rel="stylesheet" href="/resources/samples/css/main.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link rel="stylesheet" href="/resources/samples/css/base.css">
+<!-- IE Specific to remove tap highlight -->
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+<title>Tab Bar Sample 2</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        display: block;
+
+        padding-bottom: 72px;
+
+        box-sizing: border-box;
+
+        background-image: url('unsplash-img-3.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .tab-bar {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        
+        width: 100%;
+        
+        position: fixed;
+
+        left: 0;
+        bottom: 0;
+        
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+
+        -ms-flex-pack: justify;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+
+        background-image: -o-linear-gradient(top, #000 0%, transparent 100%);
+        background-image: -moz-linear-gradient(top, #000 0%, transparent 100%);
+        background-image: -webkit-linear-gradient(top, #000 0%, transparent 100%);
+        background-image: -ms-linear-gradient(top, #000 0%, transparent 100%);
+        background-image: linear-gradient(to top, #000 0%, transparent 100%);
+
+        z-index: 2;
+      }
+
+      .tab-bar button {
+        width: 40px;
+        height:40px;
+        
+        margin: 16px;
+        
+        border: none;
+        
+        background-color: rgba(254, 254, 254, 0.7);
+        
+        border-radius: 100%;
+        
+        padding: 0;
+        
+        -webkit-transition: background-color 0.4s ease-out;
+        transition: background-color 0.4s ease-out;
+        
+        -webkit-tap-highlight-color: transparent;
+        
+        z-index: 2;
+      }
+
+      .tab-bar button img {
+        width: 32px;
+        height: auto;
+      }
+
+      .tab-selected-bg {
+        position: absolute;
+        
+        width: 60px;
+        height: 60px;
+        
+        border-style: solid;
+        border-radius: 100%;
+        border-width: 2px;
+        border-color: rgb(254, 254, 254);
+        
+        box-sizing: border-box;
+        
+        left: 0;
+        
+        -webkit-transform: translateX(-10px) translateY(6px);
+        transform: translateX(-10px) translateY(6px);
+        
+        opacity: 1;
+        
+        z-index: 1;
+      }
+
+      .tab-selected-bg.initialised {
+        -webkit-transition: -webkit-transform 0.4s ease-out;
+        transition: transform 0.4s ease-out;
+      }
+
+      .tab-bar button:hover {
+        background-color: rgba(254, 254, 254, 0.8);
+      }
+
+      .tab-bar button:focus {
+        background-color: rgba(254, 254, 254, 0.9);
+        outline: 0;
+      }
+
+      .tab-bar button:active {
+        background-color: rgba(255, 255, 255, 1.0);
+      }
+
+      .tab-bar button.selected {
+        background-color: rgba(254, 254, 254, 1.0);
+      }
+
+      .content-container {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        margin-bottom: 72px;
+
+        overflow-y: auto;
+      }
+
+      .tab-content {
+        position: absolute;
+
+        display: inline-block;
+
+        width: 100%;
+
+        padding: 16px 16px 16px 16px;
+
+        box-sizing: border-box;
+
+        opacity: 0;
+
+        -webkit-transition: opacity 0.2s ease-out;
+        transition: opacity 0.2s ease-out;
+
+        z-index: 1;
+      }
+
+      .tab-content.selected {
+        opacity: 1;
+
+        -webkit-transition: opacity 0.2s ease-out 0.2s;
+        transition: opacity 0.2s ease-out 0.2s;
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <nav class="tab-bar">
+      <div class="tab-selected-bg"></div>
+      <button class="tab-btn tab-1" data-tabsection="info-tab-content"><img src="about-icon.png" /></button>
+      <button class="tab-btn tab-2" data-tabsection="blog-tab-content"><img src="blog-icon.png" /></button>
+      <button class="tab-btn tab-3" data-tabsection="photo-tab-content"><img src="photo-icon.png" /></button>
+      <button class="tab-btn tab-4" data-tabsection="contact-tab-content"><img src="contact-icon.png" /></button>
+    </nav>
+
+    <div class="content-container">
+      <section class="info-tab-content tab-content">
+        <h1>About</h1>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+      </section>
+
+      <section class="blog-tab-content tab-content">
+        <h1>Blog</h1>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+      </section>
+
+      <section class="photo-tab-content tab-content">
+        <h1>Photo</h1>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+      </section>
+
+      <section class="contact-tab-content tab-content">
+        <h1>Contact</h1>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+      </section>
+    </div>
+
+    <script>
+      var currentSelectedTab = 0;
+      var tabSelectionBg = document.querySelector('.tab-selected-bg');
+      var bgRect = tabSelectionBg.getBoundingClientRect();
+      var tabBtns = document.querySelectorAll('.tab-bar > .tab-btn');
+
+      for(var i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].addEventListener('click', onTabClick(i, tabBtns[i]), true);
+      }
+
+      function onTabClick(index, btn) {
+        return function(e) {
+          currentSelectedTab = index;
+          selectTab(btn); 
+        };
+      }
+
+      function selectTab(tabBtn) {
+        var currentTab = document.querySelector('.tab-bar > .tab-btn.selected');
+        if(currentTab) {
+          currentTab.classList.remove('selected');
+          var contentClassName = getContentClassname(currentTab);
+          var sectionClass = document.querySelector('.'+contentClassName);
+          sectionClass.classList.remove('selected');
+        }
+        tabBtn.classList.add('selected');
+
+        var clientRect = tabBtn.getBoundingClientRect();
+
+        var center = {
+          x: clientRect.left + (clientRect.width / 2),
+          y: clientRect.top + (clientRect.height / 2)
+        };
+
+        var translateX = 'translateX('+(center.x - (bgRect.width / 2))+'px) translateY(6px)';
+
+        tabSelectionBg.style.msTransform = translateX;
+        tabSelectionBg.style.MozTransform = translateX;
+
+        tabSelectionBg.style.webkitTransform = translateX;
+        tabSelectionBg.style.tranform = translateX;
+
+        var contentClassName = getContentClassname(tabBtn);
+
+        var sectionClass = document.querySelector('.'+contentClassName);
+        sectionClass.classList.add('selected');
+      }
+
+      function getContentClassname(tabBtn) {
+        if(tabBtn.dataset) {
+          return tabBtn.dataset.tabsection;
+        } else {
+          return tabBtn.getAttribute('data-tabsection');
+        }
+      }
+
+      selectTab(tabBtns[currentSelectedTab]);
+
+      window.addEventListener('load', function() {
+        tabSelectionBg.classList.add('initialised');  
+      });
+
+      window.onresize = function() {
+       selectTab(tabBtns[currentSelectedTab]);
+      };
+    </script>
+
+    <script>
+      var tabBtns = document.querySelectorAll('.tab-bar > button');
+      for(var i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].addEventListener('click', tabBarBtnClick, true);
+      }
+
+      function tabBarBtnClick() {
+        sampleCompleted('tabbar-sample2.html-tabbtnclick');
+      }
+    </script>
+
+    <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-24532603-1');ga('send','pageview');
+
+    var isCompleted = {};
+    function sampleCompleted(sampleName){
+      if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+        ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+        isCompleted[sampleName] = true;
+      }
+    }
+</script>  </body>
+</html>

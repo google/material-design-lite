@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cleartype" content="on">
+
+<link rel="stylesheet" href="/resources/samples/css/normalize.css">
+<link rel="stylesheet" href="/resources/samples/css/main.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link rel="stylesheet" href="/resources/samples/css/base.css">
+    <title>Images: Compressive Image Technique Comparison</title>
+    <style>
+      .ada {
+        width: 300px;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      figure {
+        display: inline-block;
+        margin: 1em;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div role="main" class="container">
+      <figure>
+        <h2>1x Image</h2>
+        <a href="ada_lovelace-300-q90.jpg">
+          <img class="ada" src="ada_lovelace-300-q90.jpg">
+        </a>
+        <figcaption>
+          1x image (300&times;300px) @ quality 90<br>
+          File size 88kB
+        </figcaption> 
+      </figure>
+      <figure>
+        <h2>2x Image</h2>
+        <a href="ada_lovelace-600-q30.jpg">
+          <img class="ada" src="ada_lovelace-600-q30.jpg">
+        </a>
+        <figcaption>
+          2x image (600&times;600px) @ quality 30<br>
+          File size 47kB
+        </figcaption>
+      </figure>
+    </div>
+    <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-24532603-1');ga('send','pageview');
+
+    var isCompleted = {};
+    function sampleCompleted(sampleName){
+      if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+        ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+        isCompleted[sampleName] = true;
+      }
+    }
+</script>  </body>
+</html>
+
+

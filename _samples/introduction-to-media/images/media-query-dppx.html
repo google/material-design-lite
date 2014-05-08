@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cleartype" content="on">
+
+<link rel="stylesheet" href="/resources/samples/css/normalize.css">
+<link rel="stylesheet" href="/resources/samples/css/main.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link rel="stylesheet" href="/resources/samples/css/base.css">
+    <title>Images: Using media queries for high res images</title>
+    <style>
+      
+.sample {
+        width: 128px;
+        height: 128px;
+        background-image: url(icon1x.png);
+      }
+
+      @media (min-resolution: 2dppx), /* Standard syntax */ 
+      (-webkit-min-device-pixel-ratio: 2)  /* Safari & Android Browser */ 
+      {
+        .sample {
+          background-size: contain;
+          background-image: url(icon2x.png);
+        }
+      }
+      
+</style>
+  </head>
+  <body role="main">
+    <div class="sample"></div>
+    <div class="desc">
+      On a 1x display, a <a href="icon1x.png">monochrome 128x128px icon</a> will be shown.<br>
+      On a 2x display, a <a href="icon2x.png">color 256x256px icon</a> will be shown.
+    </div>
+    <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-24532603-1');ga('send','pageview');
+
+    var isCompleted = {};
+    function sampleCompleted(sampleName){
+      if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+        ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+        isCompleted[sampleName] = true;
+      }
+    }
+</script>  </body>
+</html>
+
+

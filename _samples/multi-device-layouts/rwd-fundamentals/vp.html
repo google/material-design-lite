@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cleartype" content="on">
+
+<link rel="stylesheet" href="/resources/samples/css/normalize.css">
+<link rel="stylesheet" href="/resources/samples/css/main.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link rel="stylesheet" href="/resources/samples/css/base.css">
+    <link rel="stylesheet" href="vpdemo.css">
+    <title>RWD Fundamentals: Viewport (2 - "width=device-width, initial-scale=1.0")</title>
+  </head>
+  <body>
+    <article role="main">
+      <h1><code>viewport</code> set</h1>
+
+      <p>
+        This page <b>DOES</b> have the <code>meta
+        viewport</code> set.
+      </p>
+
+      <p>
+        This is a test to show how the <code>meta viewport</code> tag
+        affects a page. To simplify this example as much as possible,
+        font boosting has been disabled.
+      </p>
+
+      <p>
+        <b>Note:</b> each box on the background is 50px wide. 
+      </p>
+    </article>
+    <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-24532603-1');ga('send','pageview');
+
+    var isCompleted = {};
+    function sampleCompleted(sampleName){
+      if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+        ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+        isCompleted[sampleName] = true;
+      }
+    }
+</script>  </body>
+</html>
