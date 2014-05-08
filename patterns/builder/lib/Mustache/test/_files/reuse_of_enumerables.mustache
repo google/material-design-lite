@@ -1,8 +1,0 @@
-{{#terms}}
-  {{name}}
-  {{index}}
-{{/terms}}
-{{#terms}}
-  {{name}}
-  {{index}}
-{{/terms}}

@@ -1,5 +1,0 @@
-<VirtualHost *:80>
-    DocumentRoot "/Users/dmolsen/Sites/patternlab/public"
-    ServerName patternlab.localhost
-    ServerAlias patternlab.*.xip.io
-</VirtualHost>

@@ -1,3 +1,0 @@
-({
-  html: "I like {{mustache}}"
-})

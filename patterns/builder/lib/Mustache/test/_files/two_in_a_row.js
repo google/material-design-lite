@@ -1,4 +1,0 @@
-({
-  name: "Joe",
-  greeting: "Welcome"
-})

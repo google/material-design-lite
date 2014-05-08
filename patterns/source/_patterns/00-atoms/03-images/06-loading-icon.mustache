@@ -1,1 +1,0 @@
-<img src="../../images/ajax-loader.gif" alt="Loading" />

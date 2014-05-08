@@ -1,3 +1,0 @@
-({
-  message: "Some <code>"
-})
