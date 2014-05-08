@@ -11,12 +11,12 @@ var $ = require('gulp-load-plugins')();
 var hostedUrl = '';
 
 gulp.task('styles', function () {
-    return gulp.src('app/styles/main.scss')
+    return gulp.src('app/styles/sass/styles.scss')
         .pipe($.rubySass({
             style: 'expanded'
         }))
         .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('.tmp/styles'))
+        .pipe(gulp.dest('dist/styles'))
         .pipe(reload({stream: true}))
         .pipe($.size());
 });
@@ -33,7 +33,7 @@ gulp.task('html', ['styles', 'scripts'], function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
 
-    return gulp.src('app/*.html')
+    return gulp.src('app/**/*.html')
         .pipe($.useref.assets())
         .pipe(jsFilter)
         .pipe($.uglify())
@@ -60,10 +60,9 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-    return $.bowerFiles()
-        .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+    return gulp.src('**/*.{eot,svg,ttf,woff}')
         .pipe($.flatten())
-        .pipe(gulp.dest('dist/fonts'))
+        .pipe(gulp.dest('dist/images/icons'))
         .pipe($.size());
 });
 
