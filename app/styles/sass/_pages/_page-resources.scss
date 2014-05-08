@@ -1,0 +1,29 @@
+/**
+*
+* Resources page
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.page--resources {
+  & .article-section__icon,
+  & .articles-count,
+  & .guides-list__item .secondary-content {
+    display: none;
+  }
+
+  & .primary-content {
+    padding-top: $lineHeight;
+    padding-bottom: $lineHeight*2;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+}

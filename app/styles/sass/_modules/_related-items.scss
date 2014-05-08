@@ -1,0 +1,26 @@
+/**
+*
+* Related items
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.related-items {
+  background-color: $colorGrayDark;
+  color: #ffffff;
+  padding-bottom: $lineHeight * 2;
+  margin-top: $lineHeight * 2;
+
+  .list-links {
+    a {
+      color: #ffffff;
+    }
+  }
+
+}
+

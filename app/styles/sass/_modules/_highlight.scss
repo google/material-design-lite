@@ -1,0 +1,212 @@
+/**
+*
+* Highlight
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.highlight-module {
+  overflow: hidden;
+  margin-top: $lineHeight*2;
+  margin-bottom: $lineHeight;
+  position: relative;
+
+  &:after {
+    background: $colorGrayBackground;
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+
+  ul,
+  ol {
+    padding-left: 0;
+  }
+}
+
+.highlight-module__container {
+  @include container;
+  padding-bottom: $lineHeight*3;
+  z-index: 1;
+  @include highlight-symbol();
+
+  @include medium {
+    padding-bottom: $lineHeight*2;
+  }
+
+  @include wide {
+    min-height: $lineHeight*8;
+  }
+}
+
+.highlight-module__title {
+  @include type--huge;
+  padding-top: $lineHeight;
+
+  @include wide {
+    @include type--xxlarge;
+  }
+}
+
+.highlight-module__cta {
+  display: block;
+}
+
+
+/*==========  LEARNING  ==========*/
+.highlight-module--learning {
+  color: #ffffff;
+
+  &:after {
+    background-color: $colorLearning;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+
+/*==========  REMEMBER  ==========*/
+.highlight-module--remember {
+  color: #ffffff;
+
+  &:after {
+    background-color: $colorRemember;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+
+/*==========  CODE  ==========*/
+.highlight-module--code {
+  overflow: visible;
+  margin-bottom: $lineHeight*2;
+
+  pre {
+    margin: 0;
+    padding-top: $lineHeight;
+    font-size: $fontBase - 2;
+    line-height: $lineHeight;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    span {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+  }
+
+  code {
+    margin: 0;
+    padding: 0;
+    word-spacing: -2px;
+    display: block;
+  }
+
+  .highlight-module__container {
+    padding-bottom: 0;
+  }
+
+  .highlight-module__cta {
+    position: absolute;
+    bottom: -$lineHeight;
+  }
+
+}
+
+
+/*==========  LEFT  ==========*/
+.highlight-module--left {
+  &:after {
+    @include wide {
+      width: 80%;
+      right: 20%;
+    }
+  }
+}
+
+
+/*==========  RIGHT  ==========*/
+.highlight-module--right {
+  &:after {
+    @include wide {
+      width: 80%;
+      left: 20%;
+    }
+  }
+
+  &.highlight-module--code {
+    &:after {
+      @include wide {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+
+/*==========  INLINE  ==========*/
+.highlight-module--inline {
+  color: $colorText;
+  overflow: visible;
+  margin: $lineHeight 0 0;
+
+  & .highlight-module__container {
+    padding-bottom: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  & .highlight-module__content {
+    border-color: $colorGrayKeyline;
+    border-style: solid;
+    border-width: 1px;
+    border-left-width: 0;
+    border-right-width: 0;
+    margin-bottom: -2px; // Offsetting 2px to considerate border top/bottom - baseline rules.
+    padding:  0 0 $lineHeight;
+  }
+
+  & .highlight-module__title {
+    @include type--large;
+  }
+
+  &.highlight-module--remember {
+    & .highlight-module__title,
+    & li:before {
+      color: $colorRemember;
+    }
+  }
+
+  &.highlight-module--learning {
+    & .highlight-module__title,
+    & li:before {
+      color: $colorLearning;
+    }
+  }
+
+  &:after {
+    display: none !important;
+  }
+}

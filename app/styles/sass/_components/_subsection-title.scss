@@ -1,0 +1,22 @@
+/**
+*
+* subsection__title
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.subsection-title {
+  color: $colorGrayDark;
+  margin-top: $lineHeight * 2;
+}
+
+.subsection-number {
+  @include type--base;
+  padding-top: 0;
+  display: block;
+}

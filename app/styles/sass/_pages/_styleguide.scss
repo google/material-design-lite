@@ -1,0 +1,57 @@
+/**
+*
+* Styleguide
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.page--styleguide {
+
+  .styleguide__module-title {
+    margin-bottom: $lineHeight;
+  }
+
+  section {
+    margin-bottom: $lineHeight*2;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: $lineHeight*3 - 1;
+
+  }
+
+  .styleguide__color-list {
+    text-align: center;
+
+    li {
+      border-bottom: $lineHeight*2 solid;
+      margin-bottom: $lineHeight;
+      position: relative;
+    }
+  }
+
+  .styleguide__breadcrumb .breadcrumbs{
+    display: block;
+  }
+
+  .styleguide__lists {
+    ul,
+    ol {
+      margin-bottom: $lineHeight;
+    }
+  }
+
+  .styleguide__inverted-block {
+    background: #e8e8e8;
+    padding: 0 13px;
+  }
+
+  .styleguide__theme-block {
+    background: $colorLayouts;
+    padding: 0 13px;
+  }
+
+}

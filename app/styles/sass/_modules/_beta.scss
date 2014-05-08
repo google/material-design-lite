@@ -1,0 +1,72 @@
+/**
+*
+* Beta banner
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.beta {
+  font-family: $fontHighlight;
+  padding: $lineHeight/2 40px $lineHeight/2 $lineHeight/2;
+  line-height: 19px;
+  margin-left: -5%;
+  margin-right: $lineHeight/2;
+  margin-top: 0;
+  background: $colorWarning;
+  text-align: center;
+  position: relative;
+  font-weight: 400;
+
+  &:before {
+    content: $icon-diamond;
+    font-family: $fontIcon;
+    font-size: 64px;
+    line-height: 0px;
+    color: $colorYellow;
+
+    position: absolute;
+    right: -32px;
+    top: 50%;
+  }
+
+  .icon {
+    font-family: $fontIcon;
+    font-size: 26px;
+    color: #ffffff;
+    position: absolute;
+    width: 64px;
+    right: -32px;
+    text-align: center;
+    line-height: 0px;
+    top: 50%;
+    display: block;
+
+    -webkit-animation: cog 4000ms ease-in-out;
+  }
+
+  @include medium {
+    float: right;
+    margin-top: 18px;
+    padding-left: 32px;
+    padding-right: (32px) + 26;
+  }
+
+  & a {
+    color: $colorText;
+  }
+}
+
+@-webkit-keyframes cog {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(1079deg);
+  }
+}

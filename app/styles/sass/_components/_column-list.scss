@@ -1,0 +1,48 @@
+/**
+*
+* Column list
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.columns-list-wrapper {
+  @include wide {
+    margin-right: $mediumColWidth;
+  }
+
+}
+
+.list--columns {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: $lineHeight - 1;
+  margin-bottom: 1px;
+
+  @include medium {
+    @include prefixr(column-count, 2);
+    @include prefixr(column-rule, 0 none transparent);
+    @include prefixr(column-gap, 0);
+  }
+
+  & li,
+  & .columns-list-item {
+    @include type--small;
+    padding: 0;
+  }
+
+  & a {
+    display:  block;
+    position: relative;
+    padding-left: 39px;
+
+    &:before {
+      line-height: 26px;
+    }
+  }
+
+}
+

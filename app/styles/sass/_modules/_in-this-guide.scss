@@ -1,0 +1,21 @@
+/**
+*
+* In this guide
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+.in-this-guide {
+  margin-top: - $lineHeight * 3;
+}
+
+.in-this-guide__title {
+  @include type--medium(true);
+  font-family: $fontHighlight;
+  margin-bottom: $lineHeight;
+}

@@ -1,0 +1,56 @@
+/**
+*
+* Google Developers footer bar
+*
+* Google Web Fundamentals
+*
+* R/GA 2014
+* @author Pedro Duarte
+* @author Antoine Grelard
+*
+**/
+
+
+#gc-footer {
+  font-size: $fontSmall;
+  background: $colorGrayDark;
+  font-weight: 400;
+
+  padding: 26px 0 52px;
+  overflow: hidden;
+  clear: both;
+
+  & ul {
+    margin: 0 0 0 52px;
+    padding: 0;
+  }
+
+  & li {
+    padding-left: 0;
+
+    @include medium {
+      margin-right: 30px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+
+    & a {
+      color: $colorGrayKeyline;
+      font-size: $fontBase;
+      display: block;
+
+      @include medium {
+        font-size: $fontSmall;
+      }
+    }
+
+    &:before { display:none; }
+  }
+
+  & img {
+    vertical-align: center;
+    float: left;
+    margin-top: 1px;
+  }
+}
