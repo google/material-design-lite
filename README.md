@@ -24,4 +24,4 @@ We intend to give developers a high performance starting point for multi-device 
   * Image optimization
   * JavaScript minification and optimization
   * CSS optimization
-  * PageSpeed integration (Todo)
+  * PageSpeed integration
