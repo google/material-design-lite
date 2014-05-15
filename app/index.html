@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js no-touch" itemscope itemtype="http://schema.org/Article">
     <head>
         <meta charset="utf-8">
         <title></title>
@@ -44,14 +44,62 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/styles.css">
     </head>
-    <body>
-        <!-- Add your site or application content here -->
-        <!-- Start by removing the placeholder text -->
-        <article>
-            <h1>Welcome to Sushi</h1>
-            <h2>The Multi-screen web development kit</h2>
-        </article>
-        <!-- end what you should remove -->
+    <body class="page--article">
+        <header class="summary-header">
+            <div class="container">
+                <h1 class="summary-header__title">Welcome To Sushi</h1>
+            </div>
+        </header>
+
+        <div class="container">
+
+            <article id="intro">
+                <div class="editorial-header">
+                    <h2 class="editorial-header__subtitle">The Multi-screen web development kit</h2>
+                    <p class="g-wide--pull-1">Sushi is a starter kit for multi-screen web development, encompassing opinionated 
+                        recommendations on boilerplate and tooling for building an experience that works 
+                        great across multiple devices.</p>
+                    <p class="g-wide--pull-1">The project aims to align with the mobile web recommendations made by 
+                        Google's Web Fundamentals team and will include UX pattern samples and best 
+                        practices that fall in line with some opinions we have about how multi-screen 
+                        webapps should be built.</p>
+
+                    <h3>What performance requirements does Sushi have?</h3>
+
+                    <p class="g-wide--pull-1">Sushi will be striving to ship with a 60fps experience and 100% PageSpeed score out 
+                        of the box.</p>
+
+                    <p class="g-wide--pull-1">We intend to give developers a high performance starting point for multi-device 
+                        development, paying close attention to this requirement when deciding on the 
+                        libraries and tools we prescribe. We will be employing use of PageSpeed Insights 
+                        and the Chromium Telemetry tools for helping us stay on top of this.</p>
+
+                    <h3>Tooling</h3>
+                    <p class="g-wide--pull-1">Sushi includes optional Gulp based build tooling, including features like:</p>
+                    <ul>
+                        <li>Gulp build tooling</li>
+                        <li>LiveReload</li>
+                        <li>Cross-device syncronization of clicks, scrolls, navigation, form filling.</li>
+                        <li>Image optimization</li>
+                        <li>JavaScript minification and optimization</li>
+                        <li>CSS optimization</li>
+                        <li>PageSpeed integration</li>
+                    </ul>
+                    <p>All of these are optional - you can get started with Sushi simply by copying this file or basic.html and
+                        editing styles.css directly.</p>
+                </div>
+            </article>
+        </div>
+        
+        <footer id="gc-footer">
+             <div id="gc-copyright" class="container">
+                <ul>
+                    <li><a href="https://github.com/yeoman/sushi">Sushi</a></li>
+                    <li><a href="http://www.google.com/">Google</a></li>
+                </ul>
+            </div>
+        </footer>
+
 
         <script src="scripts/main.js"></script>
 
