@@ -83,8 +83,6 @@ gulp.task('serve', ['styles'], function () {
         server: {
             baseDir: ['app', '.tmp']
         },
-    }, function (err, bs) {
-        console.log('Started web server on ' + bs.options.url);
     });
 });
 
