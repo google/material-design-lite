@@ -10,7 +10,7 @@ The project aims to align with the mobile web recommendations made by Google's W
 
 ### What performance requirements does Web Starter Kit have?
 
-Web Starter Kit will be striving to ship with a 60fps experience and 100% PageSpeed score out of the box. 
+Web Starter Kit will be striving to ship with a 60fps experience and a PageSpeed score of 100 out of the box. 
 
 We intend to give developers a high performance starting point for multi-device development, paying close attention to this requirement when deciding on the libraries and tools we prescribe. We will be employing use of PageSpeed Insights and the Chromium Telemetry tools for helping us stay on top of this.
 
