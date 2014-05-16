@@ -12,9 +12,7 @@ var hostedUrl = '';
 
 gulp.task('styles', function () {
     return gulp.src('app/styles/sass/styles.scss')
-        .pipe($.rubySass({
-            style: 'expanded'
-        }))
+        .pipe($.rubySass({style: 'expanded', precision: 10}))
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('dist/styles'))
         .pipe(reload({stream: true}))
@@ -24,7 +22,8 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
     return gulp.src('app/scripts/**/*.js')
         .pipe($.jshint())
-        .pipe($.jshint.reporter($.jshintStylish))
+        .pipe($.jshint.reporter('jshint-stylish'))
+        .pipe($.jshint.reporter('fail'))
         .pipe(reload({stream: true, once: true}))
         .pipe($.size());
 });
@@ -50,7 +49,6 @@ gulp.task('html', ['styles', 'scripts'], function () {
 gulp.task('images', function () {
     return gulp.src('app/images/**/*')
         .pipe($.cache($.imagemin({
-            optimizationLevel: 3,
             progressive: true,
             interlaced: true
         })))
@@ -67,11 +65,11 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('pagespeed', function () {
-    opn('https://developers.google.com/speed/pagespeed/insights/?url=' + encodeURIComponent(hostedUrl));
+    require('opn')('https://developers.google.com/speed/pagespeed/insights/?url=' + encodeURIComponent(hostedUrl));
 });
 
 gulp.task('clean', function () {
-    return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
+    return gulp.src(['.tmp', 'dist'], {read: false}).pipe($.clean());
 });
 
 gulp.task('build', ['html', 'images', 'fonts']);
@@ -83,24 +81,16 @@ gulp.task('default', ['clean'], function () {
 gulp.task('serve', ['styles'], function () {
     browserSync.init(null, {
         server: {
-            baseDir: ['app', '.tmp'],
-            directory: true
+            baseDir: ['app', '.tmp']
         },
-        debugInfo: false,
-        open: false,
-        host: 'localhost'
     }, function (err, bs) {
-        require('opn')(bs.options.url);
         console.log('Started web server on ' + bs.options.url);
     });
 });
 
 gulp.task('watch', ['serve'], function () {
-
     gulp.watch(['app/*.html'], reload);
- 
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/images/**/*', ['images']);
-    gulp.watch('bower.json', ['wiredep']);
 });
