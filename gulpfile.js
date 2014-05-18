@@ -8,7 +8,7 @@ var reload = browserSync.reload;
 var $ = require('gulp-load-plugins')();
 
 // hosted URL for your page
-var hostedUrl = '';
+var hostedUrl = 'https://example.com';
 
 gulp.task('styles', function () {
     return gulp.src('app/styles/sass/styles.scss')
