@@ -9,6 +9,23 @@ Web Starter Kit is a starter kit for multi-screen web development, encompassing 
 
 The project aims to align with the mobile web recommendations made by Google's Web Central team and will include UX pattern samples and best practices that fall in line with some opinions we have about how multi-screen webapps should be built.
 
+## Quickstart
+
+You can use Web Starter Kit just by cloning this repository and building on what we include in the `app` directory. If however you would like to use the optional tooling we provide:
+
+```
+# Run to install the dependencies needed (requires Node)
+$ sudo npm install 
+
+# Build the current project
+$ gulp
+
+# Watch files / LiveReload / Cross-device sync
+$ gulp watch
+
+# Run the deployed version of your app against PageSpeed
+$ gulp pagespeed
+```
 
 ## What performance requirements does Web Starter Kit have?
 
