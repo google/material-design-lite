@@ -15,6 +15,7 @@
         <link rel="apple-touch-icon-precomposed" href="images/touch/apple-touch-icon-57x57-precomposed.png">
         <link rel="shortcut icon" sizes="196x196" href="images/touch/touch-icon-196x196.png">
         <link rel="shortcut icon" href="images/touch/apple-touch-icon.png">
+        <meta name="msapplication-tap-highlight" content="no" />
 
         <!-- Tile icon for Win8 (144x144 + tile color) -->
         <meta name="msapplication-TileImage" content="images/touch/apple-touch-icon-144x144-precomposed.png">
@@ -44,50 +45,29 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/styles.css">
     </head>
-    <body class="page--article">
-        <header class="summary-header">
-            <div class="container">
-                <h1 class="summary-header__title">Welcome To Web Starter Kit</h1>
-            </div>
+    <body>
+        <header class="app-bar promote-layer">
+          <button class="menu"><img src="images/hamburger.png" /></button>
+
+          <h1 class="logo">Web Starter Kit</h1>
+          
+          <section class="app-bar-actions">
+            <input class="search" placeholder="Search" />
+            <button><img src="images/search.png" /></button>
+          </section>
         </header>
-
-        <div class="container">
-            <article id="intro">
-                <div class="editorial-header">
-                    <h2 class="editorial-header__subtitle">The Multi-screen web development kit</h2>
-                    <p class="g-wide--pull-1">Web Starter Kit is a starter point for multi-screen web development, encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices.</p>
-                    <p class="g-wide--pull-1">The project aims to align with the mobile web recommendations made by Google's Web Fundamentals team and will include UX pattern samples and best practices that fall in line with some opinions we have about how multi-screen webapps should be built.</p>
-
-                    <h3>What performance requirements does Web Starter Kit have?</h3>
-
-                    <p class="g-wide--pull-1">Web Starter Kit will be striving to ship with a 60fps experience and a PageSpeed score of 100 out of the box.</p>
-
-                    <p class="g-wide--pull-1">We intend to give developers a high performance starting point for multi-device development, paying close attention to this requirement when deciding on the libraries and tools we prescribe. We will be employing use of PageSpeed Insights and the Chromium Telemetry tools for helping us stay on top of this.</p>
-
-                    <h3>Tooling</h3>
-                    <p class="g-wide--pull-1">Web Starter Kit includes optional Gulp based build tooling, including features like:</p>
-                    <ul>
-                        <li>Gulp build tooling</li>
-                        <li>LiveReload</li>
-                        <li>Cross-device syncronization of clicks, scrolls, navigation, form filling.</li>
-                        <li>Image optimization</li>
-                        <li>JavaScript minification and optimization</li>
-                        <li>CSS optimization</li>
-                        <li>PageSpeed integration</li>
-                    </ul>
-                    <p>All of these are optional - you can get started with Web Starter Kit simply by copying this file or basic.html and editing styles.css directly.</p>
-                </div>
-            </article>
-        </div>
-
-        <footer id="gc-footer">
-            <div id="gc-copyright" class="container">
-                <ul>
-                    <li><a href="https://github.com/yeoman/web-starter-kit">Web Starter Kit</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                </ul>
-            </div>
-        </footer>
+      
+        <nav class="navdrawer-container promote-layer">
+          <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a></li>
+          </ul>
+        </nav>
+        
+        <section class="main-content">
+        </section>
 
         <script src="scripts/main.js"></script>
 
