@@ -15,7 +15,7 @@ You can use Web Starter Kit just by cloning this repository and building on what
 
 ```
 # Run to install the dependencies needed (requires Node)
-$ sudo npm install 
+$ npm install 
 
 # Build the current project
 $ gulp
