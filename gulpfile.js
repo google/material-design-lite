@@ -19,7 +19,7 @@ gulp.task('styles', function () {
         .pipe($.size());
 });
 
-gulp.task('scripts', function () {
+gulp.task('jshint', function () {
     return gulp.src('app/scripts/**/*.js')
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish'))
@@ -28,7 +28,7 @@ gulp.task('scripts', function () {
         .pipe($.size());
 });
 
-gulp.task('html', ['styles', 'scripts'], function () {
+gulp.task('html', ['styles'], function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
 
@@ -72,7 +72,7 @@ gulp.task('clean', function () {
     return gulp.src(['.tmp', 'dist'], {read: false}).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'images', 'fonts']);
+gulp.task('build', ['jshint', 'html', 'images', 'fonts']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
@@ -88,7 +88,7 @@ gulp.task('serve', ['styles'], function () {
 
 gulp.task('watch', ['serve'], function () {
     gulp.watch(['app/*.html'], reload);
-    gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch(['app/styles/**/*.scss','app/styles/**/*.css'], ['styles']);
+    gulp.watch('app/scripts/**/*.js', ['jshint']);
     gulp.watch('app/images/**/*', ['images']);
 });

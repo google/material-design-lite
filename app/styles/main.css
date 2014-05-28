@@ -1,207 +1,254 @@
 /*
- * HTML5 Boilerplate
+ * Web Starter Kit
  *
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
+ * Multi-screen layout styles for your page. Brought to you by the 
+ * Web Starter Kit team.
+ * 
  */
 
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html,
-button,
-input,
-select,
-textarea {
-    color: #222;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-size: 1em;
-    line-height: 1.4;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-color: #C9DAF8;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-a {
-    color: #00e;
+.app-bar {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #3C78D8;
 }
 
-a:visited {
-    color: #551a8b;
+.app-bar.open {
+  -webkit-transform: translate(250px,0);
+  transform: translate(250px,0);
 }
 
-a:hover {
-    color: #06e;
+.app-bar .logo {
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 20px;
+  line-height: 60px;
+  margin: 0 16px;
+  color: #fefefe;
+  float: none;
+  max-width: none;
 }
 
-/*
- * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
- */
-
-img {
-    vertical-align: middle;
+.app-bar .logo a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: normal;
 }
 
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+.app-bar-actions {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-    resize: vertical;
+.app-bar button {
+  width: 60px;
+  height: 60px;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/* Prevent callout */
-
-.nocallout {
-    -webkit-touch-callout: none;
+.app-bar button img {
+  width: 60px;
+  height: 60px;
 }
 
-.pressed {
-    background-color: rgba(0, 0, 0, 0.7);
+.app-bar button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* A hack for HTML5 contenteditable attribute on mobile */
-
-textarea[contenteditable] {
-    -webkit-appearance: none;
+.app-bar button:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: 0;
 }
 
-/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
-   they have been set as display: none */
-
-.gifhidden {
-    position: absolute;
-    left: -100%;
+.app-bar button:active {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
-/*
- * Image replacement
- */
+.search {
+  display: none;
+  width: 400px;
+  height: 60px;
+  padding: 16px;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+}
 
-.ir {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: 0;
-    direction: ltr;
+.promote-layer {
+  /*
+  This may promote the layer to a composited
+  layer.
+
+  Replace with will-change when available
+
+  #perfmatters
+  */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+@media all and (min-width: 1200px) {
+  
+  body {
+    padding: 16px;
+  }
+
+  .app-bar {
     display: block;
-    overflow: hidden;
-    text-align: left;
-    text-indent: -999em;
-}
+    height: 130px;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    background-color: transparent;
+  }
 
-.ir br {
-    display: none;
-}
-
-/*
- * Hide from both screenreaders and browsers: h5bp.com/u
- */
-
-.hidden {
-    display: none !important;
-    visibility: hidden;
-}
-
-/*
- * Hide only visually, but have it available for screenreaders: h5bp.com/v
- */
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
+  .app-bar .logo {
+    float: left;
     margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
+    font-size: 100px;
+    line-height: 130px;
+  }
 
-/*
- * Hide visually and from screenreaders, but maintain layout
- */
+  .app-bar-actions {
+    float: right;
+    margin: 35px 0;
+  }
 
-.invisible {
-    visibility: hidden;
-}
-
-/**
- * Clearfix helper
- * Used to contain floats: h5bp.com/q
- */
-
-.clearfix:before,
-.clearfix:after {
-    content: "";
-    display: table;
-}
-
-.clearfix:after {
+  .app-bar:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    overflow: hidden;
     clear: both;
+  }
+
+  .search {
+    display: block;
+    padding-left: 16px;
+  }
+
+  button.menu {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    margin-top: 130px;
+  }
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   Theses examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 800px) {
-    /* Style adjustments for viewports that meet the condition */
+.navdrawer-container {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background-color: #3C78D8;
+  color: #fefefe;
+  -webkit-transform: translate(-250px,0);
+  transform: translate(-250px,0);
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min-resolution: 144dpi) {
-    /* Style adjustments for viewports that meet the condition */
+.navdrawer-container.open {
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0);
+}
+
+.app-bar, .navdrawer-container {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+.navdrawer-container ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.navdrawer-container ul li a {
+  display: block;
+  height: 60px;
+  padding: 0 20px;
+  line-height: 60px;
+  text-decoration: none;
+  color: white;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+
+.navdrawer-container ul li {
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+.navdrawer-container ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navdrawer-container ul li a:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: 0;
+}
+
+.navdrawer-container ul li a:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media all and (min-width: 1200px) {
+  .navdrawer-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 130px;
+    -webkit-transform: none;
+    tranform: none;
+    -webkit-transition: none;
+    transition: none;
+  }
+
+  .navdrawer-container ul {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .navdrawer-container ul li {
+    border: none;
+  }
 }
