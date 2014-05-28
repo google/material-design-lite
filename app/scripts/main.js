@@ -1,4 +1,5 @@
 (function () {
+    'use strict';
     var navdrawerContainer = document.querySelector('.navdrawer-container');
     var appbarElement = document.querySelector('.app-bar');
     var menuBtn = document.querySelector('.menu');
