@@ -28,7 +28,7 @@ If you would like to use the optional tooling we provide:
 
 ```
 # Run to install the dependencies needed (requires Node)
-$ sudo npm install 
+$ npm install 
 
 # Build the current project
 $ gulp
