@@ -4,14 +4,15 @@
 
 ## Overview
 
-Web Starter Kit is a starter kit for multi-screen web development, encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices.
+Web Starter Kit is a starting point for multi-screen web development, encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices.
 
-The project aims to align with the mobile web recommendations made by Google's [Web Fundamentals](developers.google.com/web/fundamentals) and will include UX pattern samples and best practices that fall in line with some opinions we have about how multi-screen webapps should be built.
+The project aims to align with the mobile web recommendations made by Google's [Web Fundamentals](developers.google.com/web/fundamentals) and includes boilerplate, tooling and best practices that fall in line with how we think multi-screen webapps should be built.
 
 ## Features
 
 * Mobile-optimized HTML Boilerplate
-* Sexy minimalist layout and style guide
+* Sexy minimalist layout
+* Visual component style guide
 * Gulp build tooling *(Optional)*
   * LiveReload
   * Cross-device synchronization of clicks, scrolls, navigation, form filling.
