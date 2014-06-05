@@ -15,9 +15,9 @@ html, body {
 
 body {
   position: relative;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
-  background-color: #C9DAF8;
+  background-color: #FFFFFF;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -34,7 +34,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #3C78D8;
+  background-color: #3372df;
 }
 
 .app-bar.open {
@@ -46,12 +46,14 @@ body {
   -ms-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  font-size: 20px;
+  font-size: 38px;
   line-height: 60px;
   margin: 0 16px;
   color: #fefefe;
   float: none;
   max-width: none;
+  font-family: "Roboto Condensed", Helvetica, sans-serif;
+  font-weight: 300;
 }
 
 .app-bar .logo a {
@@ -175,7 +177,7 @@ body {
   position: fixed;
   width: 250px;
   height: 100%;
-  background-color: #3C78D8;
+  background-color: #3372df;
   color: #fefefe;
   -webkit-transform: translate(-250px,0);
   transform: translate(-250px,0);
