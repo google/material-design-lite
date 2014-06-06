@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
+var pagespeed = require('psi');
 var reload = browserSync.reload;
 
 // load plugins
@@ -67,8 +68,14 @@ gulp.task('fonts', function () {
         .pipe($.size());
 });
 
-gulp.task('pagespeed', function () {
-    require('opn')('https://developers.google.com/speed/pagespeed/insights/?url=' + encodeURIComponent(hostedUrl));
+gulp.task('pagespeed', function (cb) {
+    pagespeed({
+        // key: A developer API key if you have one
+        // See http://goo.gl/RkN0vE for more details
+        nokey: 'true',
+        url: hostedUrl,
+        strategy: 'mobile',
+    }, cb);
 });
 
 gulp.task('clean', function () {
