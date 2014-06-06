@@ -74,8 +74,8 @@ gulp.task('clean', function () {
 
 gulp.task('build', ['jshint', 'html', 'images', 'fonts']);
 
-gulp.task('default', ['clean'], function () {
-    gulp.start('build');
+gulp.task('default', ['clean'], function (cb) {
+    gulp.start('build', cb);
 });
 
 gulp.task('serve', ['styles'], function () {
