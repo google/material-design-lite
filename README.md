@@ -60,3 +60,9 @@ We intend to give developers a high performance starting point for multi-device 
 ## Inspiration
 
 Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp).
+
+
+## License
+
+Apache 2.0  
+Copyright 2014 Google Inc
