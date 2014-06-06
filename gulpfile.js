@@ -81,7 +81,7 @@ gulp.task('default', ['clean'], function (cb) {
 gulp.task('serve', ['styles'], function () {
     browserSync.init(null, {
         server: {
-            baseDir: ['app', '.tmp']
+            baseDir: [__dirname + '/app', __dirname + '/.tmp']
         },
     });
 });
