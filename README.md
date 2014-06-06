@@ -56,3 +56,7 @@ In addition to requiring [Node](http://nodejs.org), [Ruby](https://www.ruby-lang
 Web Starter Kit will be striving to ship with a 60fps experience and a PageSpeed score of 100 out of the box.
 
 We intend to give developers a high performance starting point for multi-device development, paying close attention to this requirement when deciding on the libraries and tools we prescribe. We will be employing use of PageSpeed Insights and the Chromium Telemetry tools for helping us stay on top of this.
+
+## Inspiration
+
+Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp).
