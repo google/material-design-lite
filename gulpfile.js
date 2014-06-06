@@ -66,7 +66,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('pagespeed', function (cb) {
-    return pagespeed({
+    pagespeed({
         // key: A developer API key if you have one
         // See http://goo.gl/RkN0vE for more details
         nokey: 'true',
