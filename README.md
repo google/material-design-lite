@@ -47,6 +47,9 @@ $ gulp watch
 $ gulp pagespeed
 ```
 
+## Requirements
+
+In addition to requiring [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/) and the [Sass gem](http://sass-lang.com/install) are also required.
 
 ## What performance requirements does Web Starter Kit have?
 
