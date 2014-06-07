@@ -74,9 +74,9 @@ gulp.task('serve', ['styles'], function () {
 
 gulp.task('watch', ['serve'], function () {
     gulp.watch(['app/*.html'], reload);
-    gulp.watch('app/styles/**/*.{css,scss}', ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['jshint']);
-    gulp.watch('app/images/**/*', ['images']);
+    gulp.watch(['app/styles/**/*.{css,scss}'], ['styles']);
+    gulp.watch(['app/scripts/**/*.js'], ['jshint']);
+    gulp.watch(['app/images/**/*'], ['images']);
 });
 
 gulp.task('build', ['jshint', 'html', 'images']);
