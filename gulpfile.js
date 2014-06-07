@@ -52,15 +52,13 @@ gulp.task('images', function () {
         .pipe($.size({title: 'images'}));
 });
 
-gulp.task('pagespeed', function (cb) {
-    pagespeed({
-        // key: A developer API key if you have one
-        // See http://goo.gl/RkN0vE for more details
-        nokey: 'true',
-        url: PUBLIC_URL,
-        strategy: 'mobile',
-    }, cb);
-});
+gulp.task('pagespeed', pagespeed.bind(null, {
+    // a developer API key if you have one
+    // key: '',
+    nokey: 'true', // see http://goo.gl/RkN0vE for more details
+    url: PUBLIC_URL,
+    strategy: 'mobile'
+}));
 
 gulp.task('clean', rimraf.bind(null, 'dist'));
 
