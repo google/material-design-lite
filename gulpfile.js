@@ -26,8 +26,7 @@ gulp.task('jshint', function () {
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish'))
         .pipe($.jshint.reporter('fail'))
-        .pipe(reload({stream: true, once: true}))
-        .pipe($.size({title: 'jshint'}));
+        .pipe(reload({stream: true, once: true}));
 });
 
 gulp.task('html', ['styles'], function () {
