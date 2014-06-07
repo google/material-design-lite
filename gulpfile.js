@@ -18,7 +18,7 @@ gulp.task('styles', function () {
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('dist/styles'))
         .pipe(reload({stream: true}))
-        .pipe($.size());
+        .pipe($.size({title: 'styles'}));
 });
 
 gulp.task('jshint', function () {
@@ -27,7 +27,7 @@ gulp.task('jshint', function () {
         .pipe($.jshint.reporter('jshint-stylish'))
         .pipe($.jshint.reporter('fail'))
         .pipe(reload({stream: true, once: true}))
-        .pipe($.size());
+        .pipe($.size({title: 'jshint'}));
 });
 
 gulp.task('html', ['styles'], function () {
@@ -38,7 +38,7 @@ gulp.task('html', ['styles'], function () {
         .pipe($.useref.restore())
         .pipe($.useref())
         .pipe(gulp.dest('dist'))
-        .pipe($.size());
+        .pipe($.size({title: 'html'}));
 });
 
 gulp.task('images', function () {
@@ -49,7 +49,7 @@ gulp.task('images', function () {
         })))
         .pipe(gulp.dest('dist/images'))
         .pipe(reload({stream: true, once: true}))
-        .pipe($.size());
+        .pipe($.size({title: 'images'}));
 });
 
 gulp.task('pagespeed', function (cb) {
