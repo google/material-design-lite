@@ -52,13 +52,6 @@ gulp.task('images', function () {
         .pipe($.size());
 });
 
-gulp.task('fonts', function () {
-    return gulp.src('**/*.{eot,svg,ttf,woff}')
-        .pipe($.flatten())
-        .pipe(gulp.dest('dist/images/icons'))
-        .pipe($.size());
-});
-
 gulp.task('pagespeed', function (cb) {
     pagespeed({
         // key: A developer API key if you have one
@@ -86,7 +79,7 @@ gulp.task('watch', ['serve'], function () {
     gulp.watch('app/images/**/*', ['images']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'fonts']);
+gulp.task('build', ['jshint', 'html', 'images']);
 
 gulp.task('default', ['clean'], function (cb) {
     gulp.start('build', cb);
