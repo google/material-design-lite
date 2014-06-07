@@ -1,15 +1,12 @@
 'use strict';
-
 var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
 
-// load plugins
-var $ = require('gulp-load-plugins')();
-
-// hosted URL for your page
-var hostedUrl = 'https://example.com';
+// public URL for your website
+var PUBLIC_URL = 'https://example.com';
 
 // enable use of relative paths even though gulp is run in sub-directories
 process.chdir(__dirname);
@@ -66,32 +63,32 @@ gulp.task('pagespeed', function (cb) {
         // key: A developer API key if you have one
         // See http://goo.gl/RkN0vE for more details
         nokey: 'true',
-        url: hostedUrl,
+        url: PUBLIC_URL,
         strategy: 'mobile',
     }, cb);
 });
 
 gulp.task('clean', function () {
-    return gulp.src(['.tmp', 'dist'], {read: false}).pipe($.clean());
+    return gulp.src(['dist'], {read: false}).pipe($.clean());
+});
+
+gulp.task('serve', ['styles'], function () {
+    browserSync.init(null, {
+        server: {
+            baseDir: ['app']
+        }
+    });
+});
+
+gulp.task('watch', ['serve'], function () {
+    gulp.watch(['app/*.html'], reload);
+    gulp.watch('app/styles/**/*.{css,scss}', ['styles']);
+    gulp.watch('app/scripts/**/*.js', ['jshint']);
+    gulp.watch('app/images/**/*', ['images']);
 });
 
 gulp.task('build', ['jshint', 'html', 'images', 'fonts']);
 
 gulp.task('default', ['clean'], function (cb) {
     gulp.start('build', cb);
-});
-
-gulp.task('serve', ['styles'], function () {
-    browserSync.init(null, {
-        server: {
-            baseDir: ['app', '.tmp']
-        },
-    });
-});
-
-gulp.task('watch', ['serve'], function () {
-    gulp.watch(['app/*.html'], reload);
-    gulp.watch(['app/styles/**/*.scss', 'app/styles/**/*.css'], ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['jshint']);
-    gulp.watch('app/images/**/*', ['images']);
 });
