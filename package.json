@@ -4,7 +4,6 @@
     "gulp": "^3.6.0",
     "gulp-autoprefixer": "^0.0.7",
     "gulp-cache": "^0.1.1",
-    "gulp-clean": "^0.3.0",
     "gulp-csso": "^0.2.6",
     "gulp-flatten": "^0.0.2",
     "gulp-if": "^1.2.1",
@@ -17,7 +16,8 @@
     "gulp-useref": "^0.4.3",
     "jshint-stylish": "^0.2.0",
     "opn": "^0.1.1",
-    "psi": "0.0.1"
+    "psi": "0.0.1",
+    "rimraf": "^2.2.8"
   },
   "engines": {
     "node": ">=0.10.0"

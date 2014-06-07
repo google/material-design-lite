@@ -1,6 +1,7 @@
 'use strict';
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var rimraf = require('rimraf');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
@@ -68,9 +69,7 @@ gulp.task('pagespeed', function (cb) {
     }, cb);
 });
 
-gulp.task('clean', function () {
-    return gulp.src(['dist'], {read: false}).pipe($.clean());
-});
+gulp.task('clean', rimraf.bind(null, 'dist'));
 
 gulp.task('serve', ['styles'], function () {
     browserSync.init(null, {
