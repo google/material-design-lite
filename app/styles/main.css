@@ -113,7 +113,7 @@ body {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.search {
+input[type=search] {
   display: none;
   width: 400px;
   height: 60px;
@@ -167,7 +167,7 @@ body {
     clear: both;
   }
 
-  .search {
+  input[type=search] {
     display: block;
     padding-left: 16px;
   }
