@@ -82,7 +82,8 @@ gulp.task('serve', ['styles'], function () {
     browserSync.init(null, {
         server: {
             baseDir: ['app']
-        }
+        },
+        notify: false
     });
 });
 
