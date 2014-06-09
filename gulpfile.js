@@ -52,9 +52,10 @@ gulp.task('images', function () {
 });
 
 gulp.task('pagespeed', pagespeed.bind(null, {
-    // a developer API key if you have one
-    // key: '',
-    nokey: 'true', // see http://goo.gl/RkN0vE for more details
+    // By default, we use the free (no API key) tier
+    // You can use a Google Developer API key if you
+    // have one. See http://goo.gl/RkN0vE for info
+    // key: 'YOUR_API_KEY'
     url: PUBLIC_URL,
     strategy: 'mobile'
 }));
