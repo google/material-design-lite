@@ -16,10 +16,14 @@
   </head>
 
   <body class="page--styleguide">
-    
+
+<div class="container">
+  <h1>Web Starter Kit</h1>
+</div>
+
 <div class="summary-header">
   <div class="container">
-    <h1 class="summary-header__title">Styleguide</h1>
+    <h2 class="summary-header__title">Visual Style Guide</h2>
     <ol class="summary-header__anchor-list  list-links">
       <li class="summary-header__anchors-item"><a href="#typography">Typography</a></li>
       <li class="summary-header__anchors-item"><a href="#buttons">Buttons</a></li>
@@ -36,13 +40,12 @@
       <li class="summary-header__anchors-item"><a href="#guides-section">Guides section</a></li>
       <li class="summary-header__anchors-item"><a href="#page-header">Page header</a></li>
       <li class="summary-header__anchors-item"><a href="#quote">Quote</a></li>
-      <li class="summary-header__anchors-item"><a href="#guides-intro">Guides Intro</a></li>
+      <li class="summary-header__anchors-item"><a href="#guides-intro">Featured icons</a></li>
       <li class="summary-header__anchors-item"><a href="#featured-spotlight">Featured spotlight</a></li>
       <li class="summary-header__anchors-item"><a href="#featured-list">Featured list</a></li>
+      <li class="summary-header__anchors-item"><a href="#next-lessons">Featured block</a></li>
       <li class="summary-header__anchors-item"><a href="#article-navigation">Article navigation</a></li>
-      <li class="summary-header__anchors-item"><a href="#next-lessons">Next lessons</a></li>
-      <li class="summary-header__anchors-item"><a href="#related-guides">Related guides</a></li>
-      <li class="summary-header__anchors-item"><a href="#did-you-know">Did you know</a></li>
+
     </ol>
   </div>
 </div>
@@ -921,7 +924,7 @@
 
 <div class="container">
   <a name="guides-intro"></a>
-  <h2 class="subsection-title"><strong class="subsection-number">#16</strong> Guides intro</h2>
+  <h2 class="subsection-title"><strong class="subsection-number">#16</strong> Featured icons</h2>
 </div>
 
 <section class="styleguide__centered-list">
@@ -1036,9 +1039,28 @@
   </div>
 </section>
 
+
+<div class="container">
+  <a name="next-lessons"></a>
+  <h2 class="subsection-title"><strong class="subsection-number">#19</strong> Featured block</h2>
+</div>
+
+<section class="styleguide__next-lessons">
+  <div class="next-lessons container-medium" data-current-lesson="03">
+    <h3><i class="icon icon-lessons"></i> Next Lessons</h3>
+    <ol class="list-lessons list-links">
+      <li><a href="#">Lesson title one</a></li>
+      <li class="current"><a href="#">Lesson title two <i class="icon icon-tick"></i></a></li>
+      <li><a href="#">Lesson title three</a></li>
+      <li><a href="#">Lesson title four</a></li>
+      <li><a href="#">Lesson title five</a></li>
+    </ol>
+  </div>
+</section>
+
 <div class="container">
   <a name="article-navigation"></a>
-  <h2 class="subsection-title"><strong class="subsection-number">#19</strong> Article navigation</h2>
+  <h2 class="subsection-title"><strong class="subsection-number">#20</strong> Article navigation</h2>
 </div>
 
 <section class="styleguide__article-nav">
@@ -1056,87 +1078,6 @@
   </div>
 </section>
 
-<div class="container">
-  <a name="next-lessons"></a>
-  <h2 class="subsection-title"><strong class="subsection-number">#20</strong> Next lessons</h2>
-</div>
-
-<section class="styleguide__next-lessons">
-  <div class="next-lessons container-medium" data-current-lesson="03">
-    <h3><i class="icon icon-lessons"></i> Next Lessons</h3>
-    <ol class="list-lessons list-links">
-      <li><a href="#">Lesson title one</a></li>
-      <li class="current"><a href="#">Lesson title two <i class="icon icon-tick"></i></a></li>
-      <li><a href="#">Lesson title three</a></li>
-      <li><a href="#">Lesson title four</a></li>
-      <li><a href="#">Lesson title five</a></li>
-    </ol>
-  </div>
-</section>
-
-<div class="container">
-  <a name="related-guides"></a>
-  <h2 class="subsection-title"><strong class="subsection-number">#21</strong> Related guides</h2>
-</div>
-
-<section class="styleguide__related-guides">
-  <div class="container">
-
-
-    <div class="related-guides clear">
-      <h3 class="related-guides__title g-wide--1 g-medium--full">Related guides</h3>
-      <div class="related-guides__section clear">
-
-        <ul class="related-guides-list list--reset">
-          <li class="g-medium--1 g-wide--1 theme--multi-device-layouts">
-            <p><a class="tag themed" href="#" title="Layout basics">Layout basics</a></p>
-            <p class="medium"><a href="#">Guides title which goes over two lines</a></p>
-          </li>
-          <li class="g-medium--1 g-wide--1 theme--introduction-to-media">
-            <p><a class="tag themed" href="#" title="Media">Introduction To Media</a></p>
-            <p class="medium"><a href="#">Guides completely device agnostic site created for the this website</a></p>
-          </li>
-          <li class="g-medium--1 g-medium--last g-wide--1 g-wide--last theme--performance">
-            <p><a class="tag themed" href="#" title="Performance">Performance</a></p>
-            <p class="medium"><a href="#">Guides new, completely device agnostic site created for the this website</a></p>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-
-
-  </div>
-</section>
-
-<div class="container">
-  <a name="did-you-know"></a>
-  <h2 class="subsection-title"><strong class="subsection-number">#22</strong> Did you know</h2>
-</div>
-
-<section class="styleguide__did-you-know">
-  <div class="container clear">
-    <div class="did-you-know">
-      <div class="g--half">
-
-        <h2 class="xlarge">Why mobile first</h2>
-        <p class="did-you-know__symbol">Body - It is really simple. We create a basic page and add a “viewport”. The viewport is the most critical component you need for building mobile-first experiences. Without it, your site will not work well on a mobile device.</p>
-
-        <div>
-          <p><i class="icon icon-lessons"></i> Lessons</p>
-          <ol class="list-links list-links--secondary">
-            <li><a href="#">Modern developer workflow</a></li>
-            <li><a href="#">Creating forms</a></li>
-            <li><a href="#">Touch input</a></li>
-          </ol>
-          <a href="#" class="cta--primary">See all lessons</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 
 
     <footer id="gc-footer">
@@ -1146,16 +1087,6 @@
     </ul>
   </div>
 </footer>
-
-
-<div class="grid-overlay clear">
-  <div class="g-medium--1 g-wide--1"></div>
-  <div class="g-medium--1 g-wide--1"></div>
-  <div class="g-medium--1 g-medium--last g-wide--1"></div>
-  <div class="g-wide--1 g-wide--last"></div>
-</div>
-
-
 
   </body>
 </html>
