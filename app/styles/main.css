@@ -49,6 +49,8 @@ body {
   width: 100%;
   height: 60px;
 
+  position: relative;
+
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
@@ -90,6 +92,8 @@ body {
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
+
+  z-index: 2;
 }
 
 .app-bar button {
@@ -121,16 +125,6 @@ body {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-input[type=search] {
-  display: none;
-  width: 400px;
-  height: 60px;
-  padding: 16px;
-  margin: 0;
-  box-sizing: border-box;
-  border: none;
-}
-
 .promote-layer {
   /*
   This may promote the layer to a composited
@@ -142,52 +136,6 @@ input[type=search] {
   */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-}
-
-@media all and (min-width: 1200px) {
-  
-  .app-bar-container {
-    display: block;
-    height: 130px;
-    max-width: 864px;
-    padding: 0 16px;
-    box-sizing: border-box;
-    background-color: #3372df;
-  }
-
-  .app-bar .logo {
-    float: left;
-    margin: 0;
-    padding: 0;
-    line-height: 130px;
-  }
-
-  .app-bar-actions {
-    float: right;
-    margin: 35px 0;
-  }
-
-  .app-bar:after {
-    content: ' ';
-    display: block;
-    height: 0;
-    overflow: hidden;
-    clear: both;
-  }
-
-  input[type=search] {
-    display: block;
-    padding-left: 16px;
-  }
-
-  button.menu {
-    display: none;
-  }
-
-  nav {
-    display: block;
-    margin-top: 130px;
-  }
 }
 
 .navdrawer-container {
@@ -252,7 +200,51 @@ input[type=search] {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-@media all and (min-width: 1200px) {
+main {
+  margin: 0 auto;
+  /* Height of the header */
+  padding: 60px 16px 16px 16px;
+}
+
+/** Larger Screens - desktops and tablets **/
+@media all and (min-device-width: 1200px) {
+  .app-bar-container {
+    display: block;
+    height: 130px;
+    max-width: 864px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    background-color: #3372df;
+  }
+
+  .app-bar .logo {
+    float: left;
+    margin: 0;
+    padding: 0;
+    line-height: 130px;
+  }
+
+  .app-bar-actions {
+    float: right;
+  }
+
+  .app-bar:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+  }
+
+  button.menu {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    margin-top: 130px;
+  }
+
   .navdrawer-container {
     position: relative;
     width: 100%;
@@ -280,18 +272,53 @@ input[type=search] {
   .navdrawer-container ul li {
     border: none;
   }
-}
 
-main {
-  margin: 0 auto;
-  /* Height of the header */
-  padding: 60px 16px 16px 16px;
-}
-
-@media all and (min-width: 1200px) {
   main {
     max-width: 864px;
 
     padding-top: 0;
+  }
+
+  body {
+    overflow-y: scroll;
+  }
+
+  .app-bar {
+    position: initial;
+  }
+
+  .navdrawer-container {
+    position: initial;
+
+    margin-top: 0;
+    
+  }
+}
+
+@media all and (min-device-width: 1200px) and (max-width: 800px) {
+
+  .app-bar .logo {
+    float: none;
+    width: 100%;
+    line-height: normal;
+    text-align: center;
+    padding-top: 36px;
+  }
+
+  .app-bar-container {
+    height: auto;
+  }
+
+  .app-bar-actions {
+    width: 100%;
+  }
+
+  .navdrawer-container {
+    padding: 0 16px 8px 16px;
+  }
+
+  .navdrawer-container li {
+    flex: 1;
+    text-align: center;
   }
 }
