@@ -50,6 +50,7 @@ gulp.task('html', ['styles'], function () {
         .pipe($.useref.assets())
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.csso()))
+        .pipe($.if('*.css', $.uncss({ html: ['app/index.html'] })))
         .pipe($.useref.restore())
         .pipe($.useref())
         .pipe(gulp.dest('dist'))
@@ -88,7 +89,7 @@ gulp.task('serve', ['styles'], function () {
 });
 
 gulp.task('watch', ['serve'], function () {
-    gulp.watch(['app/*.html'], reload);
+    gulp.watch(['app/**/*.html'], reload);
     gulp.watch(['app/styles/**/*.{css,scss}'], ['styles']);
     gulp.watch(['app/scripts/**/*.js'], ['jshint']);
     gulp.watch(['app/images/**/*'], ['images']);
