@@ -1,324 +1,310 @@
 /**
- * 
- * This content is licensed under Creative Commons Attribution 4.0. 
- * The full text of the license can be located at 
+ *
+ * This content is licensed under Creative Commons Attribution 4.0.
+ * The full text of the license can be located at
  * http://creativecommons.org/licenses/by/4.0/legalcode
- * 
+ *
  */
 
 /*
  * Web Starter Kit
  *
- * Multi-screen layout styles for your page. Brought to you by the 
+ * Multi-screen layout styles for your page. Brought to you by the
  * Web Starter Kit team.
- * 
+ *
  */
 
 html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  position: relative;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
-  background-color: #FFFFFF;
-  box-sizing: border-box;
-  overflow: hidden;
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .app-bar {
-  display: block;
-
-  width: 100%;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #3372df;
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #3372df;
 }
 
 .app-bar-container {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  width: 100%;
-  height: 60px;
-
-  position: relative;
-
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-
-  margin: 0 auto;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    position: relative;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin: 0 auto;
 }
 
 .app-bar.open {
-  -webkit-transform: translate(250px,0);
-  transform: translate(250px,0);
+    -webkit-transform: translate(250px, 0);
+    transform: translate(250px, 0);
 }
 
 .app-bar .logo {
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  font-size: 38px;
-  line-height: 60px;
-  margin: 0 16px;
-  padding: 0;
-  color: #fefefe;
-  float: none;
-  max-width: none;
-  font-family: "Roboto Condensed", Helvetica, sans-serif;
-  font-weight: 300;
-  line-height: 60px;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    font-size: 38px;
+    line-height: 60px;
+    margin: 0 16px;
+    padding: 0;
+    color: #fefefe;
+    float: none;
+    max-width: none;
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 60px;
 }
 
 .app-bar .logo a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: normal;
+    text-decoration: none;
+    color: inherit;
+    font-weight: normal;
 }
 
 .app-bar-actions {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-
-  z-index: 2;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    z-index: 2;
 }
 
 .app-bar button {
-  width: 60px;
-  height: 60px;
-  background-image: none;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  -webkit-transition: background-color 0.2s ease-out;
-  transition: background-color 0.2s ease-out;
+    width: 60px;
+    height: 60px;
+    background-image: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
 }
 
 .app-bar button img {
-  width: 60px;
-  height: 60px;
+    width: 60px;
+    height: 60px;
 }
 
 .app-bar button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .app-bar button:focus {
-  background-color: rgba(255, 255, 255, 0.2);
-  outline: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: 0;
 }
 
 .app-bar button:active {
-  background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .promote-layer {
-  /*
-  This may promote the layer to a composited
-  layer.
+    /*
+    This may promote the layer to a composited
+    layer.
 
-  Replace with will-change when available
+    Replace with will-change when available
 
-  #perfmatters
-  */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    #perfmatters
+    */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .navdrawer-container {
-  position: fixed;
-  width: 250px;
-  height: 100%;
-  background-color: #3372df;
-  color: #fefefe;
-  -webkit-transform: translate(-250px,0);
-  transform: translate(-250px,0);
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: #3372df;
+    color: #fefefe;
+    -webkit-transform: translate(-250px, 0);
+    transform: translate(-250px, 0);
 }
 
 .navdrawer-container.open {
-  -webkit-transform: translate(0,0);
-  transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
 }
 
 .app-bar, .navdrawer-container {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
 }
 
 .navdrawer-container ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 .navdrawer-container ul li a {
-  display: block;
-  height: 60px;
-  padding: 0 20px;
-  line-height: 60px;
-  text-decoration: none;
-  color: white;
-  -webkit-transition: background-color 0.2s ease-out;
-  transition: background-color 0.2s ease-out;
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
 }
 
 .navdrawer-container ul li {
-  border-bottom-style: solid;
-  border-width: 1px;
-  border-color: white;
-
-  padding: 0;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: white;
+    padding: 0;
 }
 
 .navdrawer-container ul li:before {
-  content: none;
+    content: none;
 }
 
 .navdrawer-container ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .navdrawer-container ul li a:focus {
-  background-color: rgba(255, 255, 255, 0.3);
-  outline: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: 0;
 }
 
 .navdrawer-container ul li a:active {
-  background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 main {
-  margin: 0 auto;
-  /* Height of the header */
-  padding: 60px 16px 16px 16px;
+    margin: 0 auto;
+    /* Height of the header */
+    padding: 60px 16px 16px 16px;
 }
 
 /** Larger Screens - desktops and tablets **/
 @media all and (min-device-width: 1200px) {
-  .app-bar-container {
-    display: block;
-    height: 130px;
-    max-width: 864px;
-    padding: 0 16px;
-    box-sizing: border-box;
-    background-color: #3372df;
-  }
+    .app-bar-container {
+        display: block;
+        height: 130px;
+        max-width: 864px;
+        padding: 0 16px;
+        box-sizing: border-box;
+        background-color: #3372df;
+    }
 
-  .app-bar .logo {
-    float: left;
-    margin: 0;
-    padding: 0;
-    line-height: 130px;
-  }
+    .app-bar .logo {
+        float: left;
+        margin: 0;
+        padding: 0;
+        line-height: 130px;
+    }
 
-  .app-bar-actions {
-    float: right;
-  }
+    .app-bar-actions {
+        float: right;
+    }
 
-  .app-bar:after {
-    content: ' ';
-    display: block;
-    height: 0;
-    overflow: hidden;
-    clear: both;
-  }
+    .app-bar:after {
+        content: ' ';
+        display: block;
+        height: 0;
+        overflow: hidden;
+        clear: both;
+    }
 
-  button.menu {
-    display: none;
-  }
+    button.menu {
+        display: none;
+    }
 
-  nav {
-    display: block;
-    margin-top: 130px;
-  }
+    nav {
+        display: block;
+        margin-top: 130px;
+    }
 
-  .navdrawer-container {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin-top: 130px;
-    -webkit-transform: none;
-    tranform: none;
-    -webkit-transition: none;
-    transition: none;
-  }
+    .navdrawer-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: 130px;
+        -webkit-transform: none;
+        tranform: none;
+        -webkit-transition: none;
+        transition: none;
+    }
 
-  .navdrawer-container ul {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
+    .navdrawer-container ul {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        max-width: 864px;
+        margin: 0 auto;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
 
-    max-width: 864px;
-    margin: 0 auto;
+    .navdrawer-container ul li {
+        border: none;
+    }
 
-    -ms-flex-direction: row;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-  }
+    main {
+        max-width: 864px;
+        padding-top: 0;
+    }
 
-  .navdrawer-container ul li {
-    border: none;
-  }
+    body {
+        overflow-y: scroll;
+    }
 
-  main {
-    max-width: 864px;
+    .app-bar {
+        position: initial;
+    }
 
-    padding-top: 0;
-  }
-
-  body {
-    overflow-y: scroll;
-  }
-
-  .app-bar {
-    position: initial;
-  }
-
-  .navdrawer-container {
-    position: initial;
-
-    margin-top: 0;
-    
-  }
+    .navdrawer-container {
+        position: initial;
+        margin-top: 0;
+    }
 }
 
 @media all and (min-device-width: 1200px) and (max-width: 800px) {
+    .app-bar .logo {
+        float: none;
+        width: 100%;
+        line-height: normal;
+        text-align: center;
+        padding-top: 36px;
+    }
 
-  .app-bar .logo {
-    float: none;
-    width: 100%;
-    line-height: normal;
-    text-align: center;
-    padding-top: 36px;
-  }
+    .app-bar-container {
+        height: auto;
+    }
 
-  .app-bar-container {
-    height: auto;
-  }
+    .app-bar-actions {
+        width: 100%;
+    }
 
-  .app-bar-actions {
-    width: 100%;
-  }
+    .navdrawer-container {
+        padding: 0 16px 8px 16px;
+    }
 
-  .navdrawer-container {
-    padding: 0 16px 8px 16px;
-  }
-
-  .navdrawer-container li {
-    flex: 1;
-    text-align: center;
-  }
+    .navdrawer-container li {
+        flex: 1;
+        text-align: center;
+    }
 }

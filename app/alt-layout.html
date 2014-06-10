@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
 This content is licensed under Creative Commons Attribution 4.0. The full text of the license can be located at http://creativecommons.org/licenses/by/4.0/legalcode
 -->
 <html class="no-js no-touch" itemscope itemtype="http://schema.org/Article">
     <head>
         <meta charset="utf-8">
-        <title>Web Starter Kit</title>
         <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
         <meta http-equiv="cleartype" content="on">
+        <title>Web Starter Kit</title>
 
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/touch/apple-touch-icon-144x144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/touch/apple-touch-icon-114x114-precomposed.png">
@@ -49,99 +49,89 @@ This content is licensed under Creative Commons Attribution 4.0. The full text o
         <link rel="stylesheet" href="styles/h5bp.css">
         <!-- endbuild -->
         <style>
-          html, body {
-            width: 100%;
-            height: 100%;
-            
-            margin: 0;
-            padding: 0;
-          }
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
 
-          body {
-            background-color: #C9DAF8;
-          }
+            body {
+                background-color: #C9DAF8;
+            }
 
-          .tab-bar {
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            
-            width: 100%;
-            
-            position: fixed;
+            .tab-bar {
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                width: 100%;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                -ms-flex-direction: row;
+                -webkit-flex-direction: row;
+                flex-direction: row;
+                -ms-flex-pack: justify;
+                -webkit-justify-content: space-around;
+                justify-content: space-around;
+                background: #3C78D8;
+            }
 
-            left: 0;
-            bottom: 0;
-            
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+            .tab-bar button {
+                width: 40px;
+                height:40px;
+                margin: 8px;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 100%;
+                -webkit-transition: background-color 0.4s ease-out;
+                transition: background-color 0.4s ease-out;
+                -webkit-tap-highlight-color: transparent;
+            }
 
-            -ms-flex-pack: justify;
-            -webkit-justify-content: space-around;
-            justify-content: space-around;
+            .tab-bar button:hover{
+                background-color: rgba(255, 255, 255, 0.5);
+            }
 
-            background: #3C78D8;
-          }
+            .tab-bar button:focus {
+                background-color: rgba(255, 255, 255, 0.7);
+                outline: 0;
+            }
 
-          .tab-bar button {
-            width: 40px;
-            height:40px;
-            
-            margin: 8px;
-            
-            border: none;
-            
-            background-color: rgba(255, 255, 255, 0.5);
-            
-            border-radius: 100%;
-            
-            -webkit-transition: background-color 0.4s ease-out;
-            transition: background-color 0.4s ease-out;
+            .tab-bar button:active {
+                background-color: rgba(255, 255, 255, 0.9);
+            }
 
-            -webkit-tap-highlight-color: transparent;
-          }
-
-          .tab-bar button:hover{
-            background-color: rgba(255, 255, 255, 0.5);
-          }
-
-          .tab-bar button:focus {
-            background-color: rgba(255, 255, 255, 0.7);
-            outline: 0;
-          }
-
-          .tab-bar button:active {
-            background-color: rgba(255, 255, 255, 0.9);
-          }
-
-          .tab-bar button.selected {
-            background-color: rgba(255, 255, 255, 1.0);
-          }        
+            .tab-bar button.selected {
+                background-color: rgba(255, 255, 255, 1.0);
+            }
         </style>
     </head>
     <body>
         <nav class="tab-bar">
-          <button class="tab-btn tab-1 selected"></button>
-          <button class="tab-btn tab-2"></button>
-          <button class="tab-btn tab-3"></button>
-          <button class="tab-btn tab-4"></button>
+            <button class="tab-btn tab-1 selected"></button>
+            <button class="tab-btn tab-2"></button>
+            <button class="tab-btn tab-3"></button>
+            <button class="tab-btn tab-4"></button>
         </nav>
 
         <script>
-          var tabBtns = document.querySelectorAll('.tab-bar > .tab-btn');
+            var tabBtns = document.querySelectorAll('.tab-bar > .tab-btn');
 
-          for(var i = 0; i < tabBtns.length; i++) {   tabBtns[i].addEventListener('click', onTabClick, true);
-          }
-
-          function onTabClick(e) {
-            var currentTab = document.querySelector('.tab-bar > .tab-btn.selected');
-            if(currentTab) {
-              currentTab.classList.remove('selected');
+            for(var i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].addEventListener('click', onTabClick, true);
             }
-            var btn = e.target;
-            btn.classList.add('selected');
-          }
+
+            function onTabClick(e) {
+              var currentTab = document.querySelector('.tab-bar > .tab-btn.selected');
+              var btn = e.target;
+
+              if (currentTab) {
+                currentTab.classList.remove('selected');
+              }
+
+              btn.classList.add('selected');
+            }
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
