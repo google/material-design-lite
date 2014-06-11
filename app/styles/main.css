@@ -200,6 +200,10 @@ main {
 
 /** Larger Screens - desktops and tablets **/
 @media all and (min-device-width: 1200px) {
+    .app-bar {
+        position: relative;
+    }
+
     .app-bar-container {
         display: block;
         height: 130px;
@@ -242,8 +246,8 @@ main {
         width: 100%;
         height: auto;
         margin-top: 130px;
-        -webkit-transform: none;
-        tranform: none;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
         -webkit-transition: none;
         transition: none;
     }
@@ -272,12 +276,8 @@ main {
         overflow-y: scroll;
     }
 
-    .app-bar {
-        position: initial;
-    }
-
     .navdrawer-container {
-        position: initial;
+        position: relative;
         margin-top: 0;
     }
 }
