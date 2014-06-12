@@ -22,7 +22,6 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var rimraf = require('rimraf');
 var browserSync = require('browser-sync');
-var minifyHTML = require('gulp-minify-html');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
 
@@ -54,7 +53,7 @@ gulp.task('html', ['styles'], function () {
         .pipe($.if('*.css', $.uncss({ html: ['app/index.html'] })))
         .pipe($.useref.restore())
         .pipe($.useref())
-        .pipe(minifyHTML({comments:true,spare:true}))
+        .pipe($.minifyHtml())
         .pipe(gulp.dest('dist'))
         .pipe($.size({title: 'html'}));
 });
