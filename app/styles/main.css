@@ -36,7 +36,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #3372df;
+    background-color: #4285f4;
 }
 
 .app-bar-container {
@@ -61,14 +61,14 @@ body {
     -ms-flex: 1;
     -webkit-flex: 1;
     flex: 1;
-    font-size: 38px;
+    font-size: 2em;
     line-height: 60px;
     margin: 0 16px;
     padding: 0;
     color: #fefefe;
     float: none;
     max-width: none;
-    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 300;
     line-height: 60px;
 }
@@ -118,6 +118,11 @@ body {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
+button.menu img {
+    height:24px;
+    width: 24px;
+}
+
 .promote-layer {
     /*
     This may promote the layer to a composited
@@ -135,7 +140,7 @@ body {
     position: fixed;
     width: 250px;
     height: 100%;
-    background-color: #3372df;
+    background-color: #3367D6;
     color: #fefefe;
     -webkit-transform: translate(-250px, 0);
     transform: translate(-250px, 0);
@@ -210,7 +215,7 @@ main {
         max-width: 864px;
         padding: 0 16px;
         box-sizing: border-box;
-        background-color: #3372df;
+        background-color: #4285f4;
     }
 
     .app-bar .logo {
@@ -218,6 +223,7 @@ main {
         margin: 0;
         padding: 0;
         line-height: 130px;
+        font-size: 46px;
     }
 
     .app-bar-actions {
