@@ -28,7 +28,9 @@ The project aims to align with the mobile web recommendations made by Google's [
 
 ## Quickstart
 
-You can use Web Starter Kit just by cloning this repository and building on what we include in the `app` directory. You will want to checkout `index.html` (the default starting point, slide-out menu), 'alt-layout.html' (if you prefer a horizontal nav) or `basic.html` (no layout).
+[Download](http://github.com/google/web-starter-kit/archive/master.zip) the kit or clone this repository and build on what we include in the `app` directory. 
+
+You will want to checkout `index.html` (the default starting point, slide-out menu), 'alt-layout.html' (if you prefer a horizontal nav) or `basic.html` (no layout).
 
 If you would like to use the optional tooling we provide:
 
