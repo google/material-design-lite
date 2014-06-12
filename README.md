@@ -1,4 +1,4 @@
-# Web Starter Kit
+# Google Web Starter Kit
 
 > A starting point for multi-device development
 
@@ -7,7 +7,7 @@
 
 Web Starter Kit is a starting point for multi-screen web development, encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices.
 
-The project aims to align with the mobile web recommendations made by Google's [Web Fundamentals](developers.google.com/web/fundamentals) and includes boilerplate, tooling and best practices that fall in line with how we think multi-screen webapps should be built.
+The project aims to align with the mobile web recommendations made by Google's [Web Fundamentals](http://developers.google.com/web/fundamentals) and includes boilerplate, tooling and best practices that fall in line with how we think multi-screen webapps should be built.
 
 
 ## Features
@@ -21,7 +21,9 @@ The project aims to align with the mobile web recommendations made by Google's [
   * Image optimization
   * JavaScript minification and optimization
   * CSS optimization
-  * PageSpeed integration
+  * HTML minification
+  * PageSpeed performance reporting
+  * CSS autoprefixing
 
 
 ## Quickstart
