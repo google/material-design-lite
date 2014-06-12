@@ -98,6 +98,8 @@ body {
     padding: 0;
     -webkit-transition: background-color 0.2s ease-out;
     transition: background-color 0.2s ease-out;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 .app-bar button img {
