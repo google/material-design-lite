@@ -53,6 +53,7 @@ gulp.task('html', ['styles'], function () {
         .pipe($.if('*.css', $.uncss({ html: ['app/index.html'] })))
         .pipe($.useref.restore())
         .pipe($.useref())
+        .pipe($.minifyHtml())
         .pipe(gulp.dest('dist'))
         .pipe($.size({title: 'html'}));
 });
