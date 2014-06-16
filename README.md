@@ -1,14 +1,13 @@
 # Google Web Starter Kit
 
-> A starting point for multi-device development
+> A starting point for multi-device web development
 
 
 ## Overview
 
-Web Starter Kit is a starting point for multi-screen web development, encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices.
+[Web Starter Kit](http://developers.google/com/web/starter-kit) is a starting point for multi-screen web development, encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices.
 
 The project aims to align with the mobile web recommendations made by Google's [Web Fundamentals](http://developers.google.com/web/fundamentals) and includes boilerplate, tooling and best practices that fall in line with how we think multi-screen webapps should be built.
-
 
 ## Features
 
@@ -24,7 +23,6 @@ The project aims to align with the mobile web recommendations made by Google's [
   * HTML minification
   * PageSpeed performance reporting
   * CSS autoprefixing
-
 
 ## Quickstart
 
@@ -55,16 +53,13 @@ $ gulp pagespeed
 
 In addition to requiring [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/) and the [Sass gem](http://sass-lang.com/install) are also required.
 
-## What performance requirements does Web Starter Kit have?
+## Web Performance
 
-Web Starter Kit will be striving to ship with a 60fps experience and a PageSpeed score of 100 out of the box.
-
-We intend to give developers a high performance starting point for multi-device development, paying close attention to this requirement when deciding on the libraries and tools we prescribe. We will be employing use of PageSpeed Insights and the Chromium Telemetry tools for helping us stay on top of this.
+Web Starter Kit strives to give you a high performance starting point out of the box and we actively work on delivering the best [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) score and frame-rate possible. 
 
 ## Inspiration
 
-Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp).
-
+Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp), having taken input from contributors to both projects during development. 
 
 ## License
 
