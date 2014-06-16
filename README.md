@@ -55,7 +55,24 @@ In addition to requiring [Node](http://nodejs.org), [Ruby](https://www.ruby-lang
 
 ## Web Performance
 
-Web Starter Kit strives to give you a high performance starting point out of the box and we actively work on delivering the best [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) score and frame-rate possible. 
+Web Starter Kit strives to give you a high performance starting point out of the box and we actively work on delivering the best [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) score and frame-rate possible.
+
+## Browser support
+
+At present, we officially aim to support the following browsers:
+
+* IE10, IE11, IE Mobile 10 
+* FF 30, 31
+* Chrome 34, 35
+* Safari 7, 8
+* Opera 23, 24
+* iOS Safari 7, 8
+* Opera Coast
+* Android / Chrome 4.4, 4.4.3
+* Blackberry 1.0
+
+This is not to say that Web Starter Kit cannot be used in browsers older than those reflected, but merely that our focus will be on ensuring our layouts work great in the
+above. 
 
 ## Inspiration
 
