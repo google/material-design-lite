@@ -61,6 +61,10 @@ Web Starter Kit strives to give you a high performance starting point out of the
 
 Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp), having taken input from contributors to both projects during development. 
 
+## Contributing
+
+Contributions, questions and comments are all welcomed and encouraged. For code contributions please see our [Contribution guide](https://github.com/google/web-starter-kit/wiki/Contributing) before submitting a patch.
+
 ## License
 
 Apache 2.0  
