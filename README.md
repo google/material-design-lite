@@ -37,7 +37,7 @@ We provide 3 HTML starting points, from which you can choose:
 If you would like to use the optional tooling we provide, make sure your system meets our [requirements](#requirements), then from your terminal:
 
 ```sh
-# Install gulp.js globally. You will only need to to this once
+# Install gulp.js globally. You will only need to do this once
 $ npm install --global gulp
 
 # Install the local dependencies from package.json
