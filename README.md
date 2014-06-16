@@ -11,12 +11,12 @@ The project aims to align with the mobile web recommendations made by Google's [
 
 ## Features
 
-* Mobile-optimized HTML Boilerplate
+* Mobile-optimized HTML boilerplate
 * Sexy minimalist layout
 * Visual component style guide
-* Gulp build tooling *(Optional)*
+* [gulp.js](http://gulpjs.com) build tooling *(optional)*
   * LiveReload
-  * Cross-device synchronization of clicks, scrolls, navigation, form filling.
+  * Cross-device synchronization of clicks, scrolls, navigation, and form-filling
   * Image optimization
   * JavaScript minification and optimization
   * CSS optimization
@@ -26,38 +26,42 @@ The project aims to align with the mobile web recommendations made by Google's [
 
 ## Quickstart
 
-[Download](http://github.com/google/web-starter-kit/archive/master.zip) the kit or clone this repository and build on what we include in the `app` directory. 
+[Download](http://github.com/google/web-starter-kit/archive/master.zip) the kit or clone this repository and build on what we include in the `app` directory.
 
-You will want to checkout `index.html` (the default starting point, slide-out menu), 'alt-layout.html' (if you prefer a horizontal nav) or `basic.html` (no layout).
+We provide 3 HTML starting points, from which you can choose:
 
-If you would like to use the optional tooling we provide:
+- `index.html` - the default starting point, containing a slide-out menu,
+- `alt-layout.html` - features a horizontal navigation menu, or
+- `basic.html` - includes no layout.
+
+If you would like to use the optional tooling we provide, make sure your system meets our [requirements](#requirements), then from your terminal:
 
 ```sh
-# Install the gulp globally so you can run it in the terminal. Only need to to this once.
+# Install gulp.js globally. You will only need to to this once
 $ npm install --global gulp
 
-# Install the local dependencies from package.json (requires Node)
-$ npm install 
+# Install the local dependencies from package.json
+$ npm install
 
-# Build the current project
-$ gulp
-
-# Watch files / LiveReload / Cross-device sync
+# Watch files / LiveReload / Cross-device sync as you develop
 $ gulp watch
 
 # Run the deployed version of your app against PageSpeed
 $ gulp pagespeed
+
+# Build the current project, ready for deployment
+$ gulp
 ```
 
 ## Requirements
 
-In addition to requiring [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/) and the [Sass gem](http://sass-lang.com/install) are also required.
+In addition to [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/) and the [Sass gem](http://sass-lang.com/install) are also required.
 
 ## Web Performance
 
 Web Starter Kit strives to give you a high performance starting point out of the box and we actively work on delivering the best [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) score and frame-rate possible.
 
-## Browser support
+## Browser Support
 
 At present, we officially aim to support the following browsers:
 
@@ -71,16 +75,15 @@ At present, we officially aim to support the following browsers:
 * Android / Chrome 4.4, 4.4.3
 * Blackberry 1.0
 
-This is not to say that Web Starter Kit cannot be used in browsers older than those reflected, but merely that our focus will be on ensuring our layouts work great in the
-above. 
+This is not to say that Web Starter Kit cannot be used in browsers older than those reflected, but merely that our focus will be on ensuring our layouts work great in the above.
 
 ## Inspiration
 
-Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp), having taken input from contributors to both projects during development. 
+Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp), having taken input from contributors to both projects during development.
 
 ## Contributing
 
-Contributions, questions and comments are all welcomed and encouraged. For code contributions please see our [Contribution guide](https://github.com/google/web-starter-kit/wiki/Contributing) before submitting a patch.
+Contributions, questions and comments are all welcome and encouraged. For code contributions, please see our [Contribution guide](https://github.com/google/web-starter-kit/wiki/Contributing) before submitting a patch.
 
 ## License
 
