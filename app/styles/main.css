@@ -15,11 +15,12 @@ html, body {
 
 body {
     position: relative;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Condensed', 'Helvetica', 'Arial', sans-serif;
     font-weight: 300;
     background-color: #FFFFFF;
     box-sizing: border-box;
     overflow: hidden;
+    min-height: 100%;
 }
 
 .app-bar {
@@ -29,6 +30,8 @@ body {
     top: 0;
     left: 0;
     background-color: #4285f4;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .app-bar-container {
@@ -138,6 +141,7 @@ button.menu img {
     color: #fefefe;
     -webkit-transform: translate(-250px, 0);
     transform: translate(-250px, 0);
+    z-index: 1;
 }
 
 .navdrawer-container.open {
