@@ -37,7 +37,7 @@ We provide 3 HTML starting points, from which you can choose:
 
 ## Tooling
 
-If you would like to use the optional tooling we provide, make sure your system has [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/) and the [Sass gem](http://sass-lang.com/install) installed.
+If you would like to use the optional tooling we provide, make sure your system has [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/), [Gulp](http://gulpjs.com) and the [Sass gem](http://sass-lang.com/install) installed.
 
 ### Node
 
@@ -47,18 +47,28 @@ Let's check to see if you already have Node installed. Bring up a terminal and t
 
 Let's check to see if you already have Ruby installed. Bring up a terminal and type `ruby -v`. If Ruby responds, and if it shows a version number at or above 1.8.7 then type `gem --version`. If you don't see any errors, proceed to installing the Sass gem. If you require Ruby, it can be installed from the [Ruby downloads](https://www.ruby-lang.org/en/downloads/) page.
 
+### Sass gem
+
+Let's check to see if you already have the Sass gem installed. Bring up a terminal and type `sass -v`. If installed it should return a version number at or above 3.3.x. If you don't see any errors, proceed to the Gulp installation. If you need to install Sass, see the command-line instructions on the [Sass installation](http://sass-lang.com/install) page.
+
 
 ### Using Gulp
 
-Next, from your terminal:
+From your terminal, install gulp.js globally. You will only need to do this once:
 
 ```sh
-# Install gulp.js globally. You will only need to do this once
 $ npm install --global gulp
+```
 
-# Install the local dependencies from package.json
+Next, install the local dependencies Web Starter Kit requires:
+
+```sh
 $ npm install
+```
 
+You can now use Gulp with the following commands to stay productive during development:
+
+```sh
 # Watch files / LiveReload / Cross-device sync as you develop
 $ gulp watch
 
