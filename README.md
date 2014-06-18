@@ -24,6 +24,7 @@ The project aims to align with the mobile web recommendations made by Google's [
   * PageSpeed performance reporting
   * CSS autoprefixing
 
+
 ## Quickstart
 
 [Download](http://github.com/google/web-starter-kit/archive/master.zip) the kit or clone this repository and build on what we include in the `app` directory.
@@ -34,7 +35,11 @@ We provide 3 HTML starting points, from which you can choose:
 - `alt-layout.html` - features a horizontal navigation menu, or
 - `basic.html` - includes no layout.
 
-If you would like to use the optional tooling we provide, make sure your system meets our [requirements](#requirements), then from your terminal:
+## Tooling
+
+If you would like to use the optional tooling we provide, make sure your system has [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/) and the [Sass gem](http://sass-lang.com/install) installed.
+
+Next, from your terminal:
 
 ```sh
 # Install gulp.js globally. You will only need to do this once
@@ -52,10 +57,6 @@ $ gulp pagespeed
 # Build the current project, ready for deployment
 $ gulp
 ```
-
-## Requirements
-
-In addition to [Node](http://nodejs.org), [Ruby](https://www.ruby-lang.org/) and the [Sass gem](http://sass-lang.com/install) are also required.
 
 ## Web Performance
 
