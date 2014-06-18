@@ -166,13 +166,8 @@ button.menu img {
 }
 
 .navdrawer-container h4 {
-    display: none;
     background-color: white;
     color: #3367D6;
-}
-
-.navdrawer-container.open h4 {
-    display: block;
 }
 
 .navdrawer-container ul {
@@ -273,6 +268,10 @@ main {
         transform: translate(0, 0);
         -webkit-transition: none;
         transition: none;
+    }
+
+    .navdrawer-container h4 {
+        display: none;
     }
 
     .navdrawer-container ul {
