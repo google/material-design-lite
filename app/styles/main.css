@@ -293,6 +293,7 @@ main {
     main {
         max-width: 864px;
         padding-top: 0;
+        min-height: initial;
     }
 
     body {
