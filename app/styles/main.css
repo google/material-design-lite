@@ -47,7 +47,8 @@ body {
     margin: 0 auto;
 }
 
-.app-bar.open {
+.app-bar.open,
+.app-bar.open ~ main {
     -webkit-transform: translate(250px, 0);
     transform: translate(250px, 0);
 }
@@ -134,14 +135,17 @@ button.menu img {
 }
 
 .navdrawer-container {
+    z-index: 1;
     position: fixed;
+    top: 0;
+    bottom: 0;
     width: 250px;
     height: 100%;
     background-color: #3367D6;
     color: #fefefe;
     -webkit-transform: translate(-250px, 0);
     transform: translate(-250px, 0);
-    z-index: 1;
+    overflow-y: scroll;
 }
 
 .navdrawer-container.open {
@@ -149,9 +153,21 @@ button.menu img {
     transform: translate(0, 0);
 }
 
-.app-bar, .navdrawer-container {
+.app-bar, .navdrawer-container, main {
     -webkit-transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
+}
+
+.navdrawer-container h4,
+.navdrawer-container ul li a {
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+}
+
+.navdrawer-container h4 {
+    background-color: white;
+    color: #3367D6;
 }
 
 .navdrawer-container ul {
@@ -162,9 +178,6 @@ button.menu img {
 
 .navdrawer-container ul li a {
     display: block;
-    height: 60px;
-    padding: 0 20px;
-    line-height: 60px;
     text-decoration: none;
     color: white;
     -webkit-transition: background-color 0.2s ease-out;

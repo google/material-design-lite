@@ -18,35 +18,28 @@
  */
 (function () {
     'use strict';
+
     var navdrawerContainer = document.querySelector('.navdrawer-container');
     var appbarElement = document.querySelector('.app-bar');
     var menuBtn = document.querySelector('.menu');
     var main = document.querySelector('main');
 
-    function closeMenu () {
+    function closeMenu() {
         appbarElement.classList.remove('open');
         navdrawerContainer.classList.remove('open');
     }
 
-    function toggleMenu () {
-        var isOpen = navdrawerContainer.classList.contains('open');
-        if (isOpen) {
-            closeMenu();
-        } else {
-            appbarElement.classList.add('open');
-            navdrawerContainer.classList.add('open');
-        }        
+    function toggleMenu() {
+        appbarElement.classList.toggle('open');
+        navdrawerContainer.classList.toggle('open');
     }
 
-    main.addEventListener('ontouchstart', function () {
-        closeMenu();
+    main.addEventListener('ontouchstart', closeMenu);
+    main.addEventListener('click', closeMenu);
+    menuBtn.addEventListener('click', toggleMenu);
+    navdrawerContainer.addEventListener('click', function (event) {
+        if (event.target.nodeName === 'A' || event.target.nodeName === 'LI') {
+            closeMenu();
+        }
     });
-
-    main.addEventListener('click', function () {
-        closeMenu();
-    });
-
-    menuBtn.addEventListener('click', function () {
-        toggleMenu();
-    }, true);
 })();
