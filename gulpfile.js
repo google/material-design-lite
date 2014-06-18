@@ -28,14 +28,23 @@ var reload = browserSync.reload;
 // public URL for your website
 var PUBLIC_URL = 'https://example.com';
 
-gulp.task('styles', function () {
-    return gulp.src('app/styles/sass/components.scss')
-        .pipe($.rubySass({style: 'expanded', precision: 10}))
-        .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('dist/styles'))
-        .pipe(reload({stream: true}))
-        .pipe($.size({title: 'styles'}));
-});
+function styles(destination) {
+    return function () {
+        return gulp.src('app/styles/**/*.{css,scss}')
+            .pipe($.if('*.scss', $.rubySass({
+                style: 'expanded',
+                precision: 10,
+                loadPath: ['app/styles', 'app/styles/components']
+            })))
+            .pipe($.if(destination === 'dist', $.autoprefixer('last 1 version')))
+            .pipe(gulp.dest(destination + '/styles'))
+            .pipe($.if('*.css', reload({stream: true})))
+            .pipe($.size({title: 'styles'}));
+    };
+}
+
+gulp.task('styles-app', styles('app'));
+gulp.task('styles-dist', styles('dist'));
 
 gulp.task('jshint', function () {
     return gulp.src('app/scripts/**/*.js')
@@ -45,7 +54,7 @@ gulp.task('jshint', function () {
         .pipe(reload({stream: true, once: true}));
 });
 
-gulp.task('html', ['styles'], function () {
+gulp.task('html', function () {
     return gulp.src('app/**/*.html')
         .pipe($.useref.assets())
         .pipe($.if('*.js', $.uglify()))
@@ -80,24 +89,22 @@ gulp.task('pagespeed', pagespeed.bind(null, {
 
 gulp.task('clean', rimraf.bind(null, 'dist'));
 
-gulp.task('serve', ['styles'], function () {
+gulp.task('serve', function () {
     browserSync.init(null, {
         server: {
             baseDir: ['app']
         },
         notify: false
     });
-});
 
-gulp.task('watch', ['serve'], function () {
     gulp.watch(['app/**/*.html'], reload);
-    gulp.watch(['app/styles/**/*.scss'], ['styles']);
+    gulp.watch(['app/styles/**/*.scss'], ['styles-app']);
     gulp.watch(['app/styles/**/*.css'], reload);
     gulp.watch(['app/scripts/**/*.js'], ['jshint']);
     gulp.watch(['app/images/**/*'], ['images']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images']);
+gulp.task('build', ['jshint', 'styles-dist', 'html', 'images']);
 
 gulp.task('default', ['clean'], function (cb) {
     gulp.start('build', cb);
