@@ -199,6 +199,7 @@ main {
     margin: 0 auto;
     /* Height of the header */
     padding: 60px 16px 16px 16px;
+    min-height: 100%;
 }
 
 /** Larger Screens - desktops and tablets **/
