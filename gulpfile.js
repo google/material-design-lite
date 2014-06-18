@@ -29,7 +29,7 @@ var reload = browserSync.reload;
 var PUBLIC_URL = 'https://example.com';
 
 gulp.task('styles', function () {
-    return gulp.src('app/styles/sass/styles.scss')
+    return gulp.src('app/styles/sass/components.scss')
         .pipe($.rubySass({style: 'expanded', precision: 10}))
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('dist/styles'))
