@@ -134,6 +134,10 @@ button.menu img {
     backface-visibility: hidden;
 }
 
+.base, p, ul, ol {
+    font-size: 19px;
+}
+
 .navdrawer-container {
     z-index: 1;
     position: fixed;
