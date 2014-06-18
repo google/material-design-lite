@@ -79,6 +79,8 @@ $ gulp watch
 $ gulp pagespeed
 
 # Build the current project, ready for deployment
+# This includes image, script, stylesheet and HTML
+# optimization and minification. 
 $ gulp
 ```
 
