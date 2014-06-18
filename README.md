@@ -59,7 +59,7 @@ Bring up a terminal and type `gulp -v`. If Gulp is installed it should return a 
 $ npm install --global gulp
 ```
 
-This will install Gulp globally. Next, install the local dependencies Web Starter Kit requires:
+This will install Gulp globally. Depending on your user account, you may need to gain elevated permissions using `sudo` (i.e `sudo npm install --global gulp`). Next, install the local dependencies Web Starter Kit requires:
 
 ```sh
 $ npm install
