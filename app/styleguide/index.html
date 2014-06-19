@@ -1165,16 +1165,19 @@
     'use strict';
 
     var snippetToggle = document.querySelector('#snippet-toggle');
+    var snippets;
 
     snippetToggle.addEventListener('click', function() {
-      var snippets = document.querySelectorAll('.auto-gen-code-snippet');
-      for(var i = 0; i < snippets.length; i++) {
-        snippets[i].classList.toggle('auto-gen-code-visible');
-      };
+      if(snippets){
+        for(var i = 0; i < snippets.length; i++) {
+          snippets[i].classList.toggle('auto-gen-code-visible');
+        };        
+      }
     }, true);
 
     window.onload = function() {
       createCodeSamples();
+      snippets = document.querySelectorAll('.auto-gen-code-snippet');
     }
 
     function createCodeSamples() {
