@@ -28,23 +28,23 @@ var reload = browserSync.reload;
 // public URL for your website
 var PUBLIC_URL = 'https://example.com';
 
-function styles(destination) {
-    return function () {
-        return gulp.src('app/styles/**/*.{css,scss}')
-            .pipe($.if('*.scss', $.rubySass({
-                style: 'expanded',
-                precision: 10,
-                loadPath: ['app/styles', 'app/styles/components']
-            })))
-            .pipe($.autoprefixer('last 1 version'))
-            .pipe(gulp.dest(destination + '/styles'))
-            .pipe($.if('*.css', reload({stream: true})))
-            .pipe($.size({title: 'styles'}));
-    };
-}
+gulp.task('styles', function () {
+    gulp.src('app/styles/**/*.scss')
+        .pipe($.rubySass({
+            style: 'expanded',
+            precision: 10,
+            loadPath: ['app/styles', 'app/styles/components']
+        }))
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('.tmp/styles'))
+        .pipe($.size({title: 'styles:scss'}));
 
-gulp.task('styles-app', styles('app'));
-gulp.task('styles-dist', styles('dist'));
+    return gulp.src('app/styles/**/*.css')
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('app/styles'))
+        .pipe(reload({stream: true}))
+        .pipe($.size({title: 'styles:css'}));
+});
 
 gulp.task('jshint', function () {
     return gulp.src('app/scripts/**/*.js')
@@ -56,7 +56,7 @@ gulp.task('jshint', function () {
 
 gulp.task('html', function () {
     return gulp.src('app/**/*.html')
-        .pipe($.useref.assets())
+        .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.csso()))
         .pipe($.if('*.css', $.uncss({ html: ['app/index.html'] })))
@@ -92,19 +92,19 @@ gulp.task('clean', rimraf.bind(null, 'dist'));
 gulp.task('serve', function () {
     browserSync.init(null, {
         server: {
-            baseDir: ['app']
+            baseDir: ['app', '.tmp']
         },
         notify: false
     });
 
     gulp.watch(['app/**/*.html'], reload);
-    gulp.watch(['app/styles/**/*.scss'], ['styles-app']);
-    gulp.watch(['app/styles/**/*.css'], reload);
+    gulp.watch(['app/styles/**/*.{css,scss}'], ['styles']);
+    gulp.watch(['.tmp/styles/**/*.css'], reload);
     gulp.watch(['app/scripts/**/*.js'], ['jshint']);
     gulp.watch(['app/images/**/*'], ['images']);
 });
 
-gulp.task('build', ['jshint', 'styles-dist', 'html', 'images']);
+gulp.task('build', ['jshint', 'styles', 'html', 'images']);
 
 gulp.task('default', ['clean'], function (cb) {
     gulp.start('build', cb);
