@@ -109,7 +109,7 @@ At present, we officially aim to support the following browsers:
 * iOS Safari 7, 8
 * Opera Coast
 * Android / Chrome 4.4, 4.4.3
-* Blackberry 1.0
+* BlackBerry 10
 
 This is not to say that Web Starter Kit cannot be used in browsers older than those reflected, but merely that our focus will be on ensuring our layouts work great in the above.
 
