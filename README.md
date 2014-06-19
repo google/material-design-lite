@@ -14,7 +14,7 @@
 * Visual component style guide
 * [gulp.js](http://gulpjs.com) build tooling *(optional)*
   * LiveReload
-  * Cross-device synchronization of clicks, scrolls, navigation, and form-filling
+  * Cross-device synchronization of clicks, scrolls, navigation, and form-filling (thanks to [BrowserSync](http://browsersync.io/))
   * Image optimization
   * JavaScript minification and optimization
   * CSS minification and optimization
@@ -22,10 +22,9 @@
   * PageSpeed Insights performance reporting
   * CSS auto-prefixing
 
-
 ## Quickstart
 
-[Download](http://github.com/google/web-starter-kit/archive/master.zip) the kit or clone this repository and build on what we include in the `app` directory.
+[Download](https://github.com/google/web-starter-kit/releases/tag/v0.2.0-beta) the kit or clone this repository and build on what we include in the `app` directory.
 
 We provide 2 HTML starting points, from which you can choose:
 
