@@ -79,7 +79,7 @@ gulp.task('html', function () {
         .pipe($.if('*.css', $.uncss({ html: ['app/index.html','app/styleguide/index.html'] })))
         .pipe($.useref.restore())
         .pipe($.useref())
-        .pipe($.replace('components/components.css','components/main.min.css'))
+        .pipe($.replace('components/components.css', 'components/main.min.css'))
         .pipe($.minifyHtml())
         .pipe(gulp.dest('dist'))
         .pipe($.size({title: 'html'}));
