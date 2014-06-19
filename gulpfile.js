@@ -21,6 +21,7 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var rimraf = require('rimraf');
+var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
@@ -28,23 +29,39 @@ var reload = browserSync.reload;
 // public URL for your website
 var PUBLIC_URL = 'https://example.com';
 
-gulp.task('styles', function () {
-    gulp.src('app/styles/**/*.scss')
+gulp.task('styles:components', function () {
+    return gulp.src('app/styles/components/components.scss')
         .pipe($.rubySass({
             style: 'expanded',
             precision: 10,
-            loadPath: ['app/styles', 'app/styles/components']
+            loadPath: ['app/styles/components']
+        }))
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('app/styles/components'))
+        .pipe($.size({title: 'styles:scss'}));
+})
+
+gulp.task('styles:scss', function () {
+    return gulp.src(['app/styles/**/*.scss', '!app/styles/components/components.scss'])
+        .pipe($.rubySass({
+            style: 'expanded',
+            precision: 10,
+            loadPath: ['app/styles']
         }))
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('.tmp/styles'))
         .pipe($.size({title: 'styles:scss'}));
+});
 
+gulp.task('styles:css', function () {
     return gulp.src('app/styles/**/*.css')
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('app/styles'))
         .pipe(reload({stream: true}))
         .pipe($.size({title: 'styles:css'}));
 });
+
+gulp.task('styles', ['styles:components', 'styles:scss', 'styles:css']);
 
 gulp.task('jshint', function () {
     return gulp.src('app/scripts/**/*.js')
@@ -87,7 +104,9 @@ gulp.task('pagespeed', pagespeed.bind(null, {
     strategy: 'mobile'
 }));
 
-gulp.task('clean', rimraf.bind(null, 'dist'));
+gulp.task('clean', function (cb) {
+    rimraf('dist', rimraf.bind({}, '.tmp', cb));
+});
 
 gulp.task('serve', function () {
     browserSync.init(null, {
@@ -104,7 +123,9 @@ gulp.task('serve', function () {
     gulp.watch(['app/images/**/*'], ['images']);
 });
 
-gulp.task('build', ['jshint', 'styles', 'html', 'images']);
+gulp.task('build', function (cb) {
+    runSequence('styles', ['jshint', 'html', 'images'], cb);
+});
 
 gulp.task('default', ['clean'], function (cb) {
     gulp.start('build', cb);
