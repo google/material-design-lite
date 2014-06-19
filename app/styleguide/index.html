@@ -11,6 +11,14 @@
         <meta itemprop="description" content="Visual style guide used by this site.">
         <link rel="stylesheet" href="../styles/components/components.css">
         <title>Visual Style Guide — Web Starter Kit</title>
+        <style>
+          .auto-gen-code-snippet {
+            display: none;
+          }
+          .auto-gen-code-visible {
+            display: block;
+          }
+        </style>
     </head>
     <body class="page--styleguide">
 
@@ -47,6 +55,9 @@
   </div>
 </div>
 
+<div class="container">
+  <button id="snippet-toggle" class="button--primary">Toggle Code Snippets</button>
+</div>
 <div class="container">
   <!-- Typography Start -->
   <a name="typography"></a>
@@ -1143,14 +1154,25 @@
 
 
     <footer id="gc-footer">
-  <div id="gc-copyright" class="container">
-    <ul>
-      <li><a href="http://www.google.com/">Google</a></li>
-    </ul>
-  </div>
-</footer>
+      <div id="gc-copyright" class="container">
+        <ul>
+          <li><a href="http://www.google.com/">Google</a></li>
+        </ul>
+      </div>
+  </footer>
   <script>
   (function(){
+    'use strict';
+
+    var snippetToggle = document.querySelector('#snippet-toggle');
+
+    snippetToggle.addEventListener('click', function() {
+      var snippets = document.querySelectorAll('.auto-gen-code-snippet');
+      for(var i = 0; i < snippets.length; i++) {
+        snippets[i].classList.toggle('auto-gen-code-visible');
+      };
+    }, true);
+
     window.onload = function() {
       createCodeSamples();
     }
@@ -1210,7 +1232,6 @@
 
     function beautifyNode(element, depth) {
       var childNodes = element.childNodes;
-
       var singleIndent = "    ";
       var currentDepthSpacing = "";
       for(var i = 0; i < depth; i++) {
@@ -1218,7 +1239,6 @@
       }
 
       var nextDepthSpacing = currentDepthSpacing+singleIndent;
-
       var subChildren = [];
 
       for(var i = 0; i < childNodes.length; i++) {
