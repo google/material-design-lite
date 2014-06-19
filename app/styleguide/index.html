@@ -1161,28 +1161,28 @@
       </div>
   </footer>
   <script>
-  (function() {
+  (function () {
     'use strict';
 
     var snippetToggle = document.querySelector('#snippet-toggle');
     var snippets;
 
     snippetToggle.addEventListener('click', function() {
-      if(snippets){
-        for(var i = 0; i < snippets.length; i++) {
+      if (snippets){
+        for (var i = 0; i < snippets.length; i++) {
           snippets[i].classList.toggle('auto-gen-code-visible');
         };
       }
     });
 
-    window.onload = function() {
+    window.onload = function () {
       createCodeSamples();
       snippets = document.querySelectorAll('.auto-gen-code-snippet');
     }
 
     function createCodeSamples() {
       var codeWrappers = document.querySelectorAll('.code-sample');
-      for(var i = 0; i < codeWrappers.length; i++) {
+      for (var i = 0; i < codeWrappers.length; i++) {
         var codeWrapper = codeWrappers[i];
         var clonedNodes = getClonedNonTextNodes(codeWrapper);
 
@@ -1190,9 +1190,9 @@
 
         var preElement = document.createElement('pre');
         var codeElement = document.createElement('code');
-        for(var j = 0; j < clonedNodes.length; j++) {
+        for (var j = 0; j < clonedNodes.length; j++) {
           codeElement.appendChild(document.createTextNode(clonedNodes[j].outerHTML));
-          if(j+1 < clonedNodes.length) {
+          if (j+1 < clonedNodes.length) {
             codeElement.appendChild(document.createTextNode('\n'));
           }
         }
@@ -1205,7 +1205,7 @@
         clearDiv.classList.add('clear');
 
         var parent = codeWrapper.parentNode;
-        if(codeWrapper.nextSibling) {
+        if (codeWrapper.nextSibling) {
           parent.insertBefore(preElement, codeWrapper.nextSibling);
         } else {
           parent.appendChild(preElement);
@@ -1217,9 +1217,9 @@
     function getClonedNonTextNodes(element) {
       var nonTextNodes = [];
       var childNodes = element.childNodes;
-      for(var i = 0; i < childNodes.length; i++) {
+      for (var i = 0; i < childNodes.length; i++) {
         var childElement = childNodes[i];
-        if(childElement.nodeType !== 3) {
+        if (childElement.nodeType !== 3) {
           // Found a valid child element
           nonTextNodes.push(childElement.cloneNode(true));
         }
@@ -1228,7 +1228,7 @@
     }
 
     function beautifyNodes(elements) {
-      for(var i = 0; i < elements.length; i++) {
+      for (var i = 0; i < elements.length; i++) {
         beautifyNode(elements[i], 0);
       }
     }
@@ -1237,19 +1237,19 @@
       var childNodes = element.childNodes;
       var singleIndent = "    ";
       var currentDepthSpacing = "";
-      for(var i = 0; i < depth; i++) {
+      for (var i = 0; i < depth; i++) {
         currentDepthSpacing += singleIndent;
       }
 
       var nextDepthSpacing = currentDepthSpacing+singleIndent;
       var subChildren = [];
 
-      for(var i = 0; i < childNodes.length; i++) {
+      for (var i = 0; i < childNodes.length; i++) {
         var childElement = childNodes[i];
-        if(childElement.nodeType === 3) {
+        if (childElement.nodeType === 3) {
           // Found a text node
-          if(childElement.nodeValue.indexOf('\n') >= 0) {
-            if((i+1) < childNodes.length) {
+          if (childElement.nodeValue.indexOf('\n') >= 0) {
+            if ((i+1) < childNodes.length) {
               childElement.nodeValue = '\n'+nextDepthSpacing;
             } else {
               childElement.nodeValue = '\n'+currentDepthSpacing;
@@ -1264,5 +1264,5 @@
   })();
   </script>
 
-    </body>
+  </body>
 </html>
