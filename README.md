@@ -5,7 +5,7 @@
 
 ## Overview
 
-[Web Starter Kit](http://developers.google.com/web/starter-kit) is a starting point for multi-screen web development. It encompasses opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices. We help you stay productive & aligned with the best practices outlined in Google's [Web Fundamentals](http://developers.google.com/web/fundamentals).
+[Web Starter Kit](http://developers.google.com/web/starter-kit) is a starting point for multi-screen web development. It encompasses opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices. We help you stay productive and aligned with the best practices outlined in Google's [Web Fundamentals](http://developers.google.com/web/fundamentals).
 
 ## Features
 
@@ -30,7 +30,7 @@
 We provide 2 HTML starting points, from which you can choose:
 
 - `index.html` - the default starting point, containing layout and a slide-out menu
-- `basic.html` - includes no layout.
+- `basic.html` - includes no layout
 
 ## Tooling
 
@@ -96,7 +96,7 @@ Runs the deployed (public) version of your site against the [PageSpeed Insights]
 
 Web Starter Kit strives to give you a high performance starting point out of the box and we actively work on delivering the best [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) score and frame-rate possible.
 
-In terms of CSS, opting to just use the minimal layout (main.css, h5bp.css) weighs in at ~7KB before modifications are made. Opting to use the Style Guide styles (the default) will take this up to ~39KB. It is your choice which path makes the most sense for your project, however notes on excluding Style Guide styles are in our Gulpfile.
+In terms of CSS, opting to just use the minimal layout (main.css, h5bp.css) weighs in at ~7KB before modifications are made. Opting to use the Style Guide styles (the default) will take this up to ~39KB. It is your choice which path makes the most sense for your project, however notes on excluding Style Guide styles are in our gulpfile.
 
 ## Browser Support
 
