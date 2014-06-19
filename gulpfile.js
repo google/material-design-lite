@@ -96,10 +96,12 @@ gulp.task('html', function () {
         // Concatenate And Minify Styles
         .pipe($.if('*.css', $.csso()))
         // Remove Any Unused CSS
+        // Note: If not using the Style Guide, you can delete it from
+        // the next line to only include styles your project uses.
         .pipe($.if('*.css', $.uncss({ html: ['app/index.html','app/styleguide/index.html'] })))
         .pipe($.useref.restore())
         .pipe($.useref())
-        // Update Production Styleguide Paths 
+        // Update Production Style Guide Paths 
         .pipe($.replace('components/components.css', 'components/main.min.css'))
         // Minify Any HTML
         .pipe($.minifyHtml())
