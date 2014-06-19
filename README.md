@@ -17,10 +17,10 @@
   * Cross-device synchronization of clicks, scrolls, navigation, and form-filling
   * Image optimization
   * JavaScript minification and optimization
-  * CSS optimization
+  * CSS minification and optimization
   * HTML minification
-  * PageSpeed performance reporting
-  * CSS autoprefixing
+  * PageSpeed Insights performance reporting
+  * CSS auto-prefixing
 
 
 ## Quickstart
