@@ -38,7 +38,7 @@ gulp.task('styles:components', function () {
         }))
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('app/styles/components'))
-        .pipe($.size({title: 'styles:scss'}));
+        .pipe($.size({title: 'styles:components'}));
 })
 
 gulp.task('styles:scss', function () {
