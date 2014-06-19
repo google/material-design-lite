@@ -96,6 +96,8 @@ Runs the deployed (public) version of your site against the [PageSpeed Insights]
 
 Web Starter Kit strives to give you a high performance starting point out of the box and we actively work on delivering the best [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) score and frame-rate possible.
 
+In terms of CSS, opting to just use the minimal layout (main.css, h5bp.css) weighs in at ~7KB before modifications are made. Opting to use the Style Guide styles (the default) will take this up to ~39KB. It is your choice which path makes the most sense for your project, however notes on excluding Style Guide styles are in our Gulpfile.
+
 ## Browser Support
 
 At present, we officially aim to support the following browsers:
@@ -116,7 +118,7 @@ This is not to say that Web Starter Kit cannot be used in browsers older than th
 
 If you find yourself running into issues during installation or running the tools, please check our [Troubleshooting](https://github.com/google/web-starter-kit) guide and then open an [issue](https://github.com/google/web-starter-kit/issues). We would be happy to discuss how they can be solved.
 
-## Opt-out Of Tooling
+## A Boilerplate-only Option
 
 If you would prefer not to use any of our tooling, delete the following files from the project: `package.json`, `gulpfile.js`, `.jshintrc`. You can now safely use the boilerplate with an alternative build-system or no build-system at all if you choose.
 
