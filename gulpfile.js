@@ -29,6 +29,14 @@ var reload = browserSync.reload;
 // public URL for your website
 var PUBLIC_URL = 'https://example.com';
 
+gulp.task('styles:css', function () {
+    return gulp.src('app/styles/**/*.css')
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('app/styles'))
+        .pipe(reload({stream: true}))
+        .pipe($.size({title: 'styles:css'}));
+});
+
 gulp.task('styles:components', function () {
     return gulp.src('app/styles/components/components.scss')
         .pipe($.rubySass({
@@ -53,14 +61,6 @@ gulp.task('styles:scss', function () {
         .pipe($.size({title: 'styles:scss'}));
 });
 
-gulp.task('styles:css', function () {
-    return gulp.src('app/styles/**/*.css')
-        .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('app/styles'))
-        .pipe(reload({stream: true}))
-        .pipe($.size({title: 'styles:css'}));
-});
-
 gulp.task('styles', ['styles:components', 'styles:scss', 'styles:css']);
 
 gulp.task('jshint', function () {
@@ -76,9 +76,10 @@ gulp.task('html', function () {
         .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.csso()))
-        .pipe($.if('*.css', $.uncss({ html: ['app/index.html'] })))
+        .pipe($.if('*.css', $.uncss({ html: ['app/index.html','app/styleguide/index.html'] })))
         .pipe($.useref.restore())
         .pipe($.useref())
+        .pipe($.replace('components/components.css','components/main.min.css'))
         .pipe($.minifyHtml())
         .pipe(gulp.dest('dist'))
         .pipe($.size({title: 'html'}));
