@@ -131,14 +131,9 @@ gulp.task('serve', function () {
     gulp.watch(['app/images/**/*'], ['images']);
 });
 
-// Build Production Files
-gulp.task('build', function (cb) {
-    runSequence('styles', ['jshint', 'html', 'images'], cb);
-});
-
-// Default Task
+// Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
-    gulp.start('build', cb);
+    runSequence('styles', ['jshint', 'html', 'images'], cb);
 });
 
 // Run PageSpeed Insights
