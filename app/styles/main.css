@@ -35,13 +35,11 @@ body {
 }
 
 .app-bar-container {
-    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     width: 100%;
     height: 60px;
     position: relative;
-    -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
     margin: 0 auto;
@@ -54,7 +52,6 @@ body {
 }
 
 .app-bar .logo {
-    -ms-flex: 1;
     -webkit-flex: 1;
     flex: 1;
     font-size: 2em;
@@ -76,10 +73,8 @@ body {
 }
 
 .app-bar-actions {
-    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
     z-index: 2;
@@ -92,7 +87,6 @@ body {
     background-color: transparent;
     border: none;
     padding: 0;
-    -webkit-transition: background-color 0.2s ease-out;
     transition: background-color 0.2s ease-out;
 
     -webkit-tap-highlight-color: transparent;
@@ -158,7 +152,7 @@ button.menu img {
 }
 
 .app-bar, .navdrawer-container, main {
-    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
 }
 
@@ -184,7 +178,6 @@ button.menu img {
     display: block;
     text-decoration: none;
     color: white;
-    -webkit-transition: background-color 0.2s ease-out;
     transition: background-color 0.2s ease-out;
 }
 
@@ -270,7 +263,6 @@ main {
         margin-top: 130px;
         -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
-        -webkit-transition: none;
         transition: none;
     }
 
@@ -279,12 +271,10 @@ main {
     }
 
     .navdrawer-container ul {
-        display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
         max-width: 864px;
         margin: 0 auto;
-        -ms-flex-direction: row;
         -webkit-flex-direction: row;
         flex-direction: row;
     }
@@ -331,6 +321,7 @@ main {
     }
 
     .navdrawer-container li {
+        -webkit-flex: 1;
         flex: 1;
         text-align: center;
     }

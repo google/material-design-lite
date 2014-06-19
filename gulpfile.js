@@ -36,7 +36,7 @@ function styles(destination) {
                 precision: 10,
                 loadPath: ['app/styles', 'app/styles/components']
             })))
-            .pipe($.if(destination === 'dist', $.autoprefixer('last 1 version')))
+            .pipe($.autoprefixer('last 1 version'))
             .pipe(gulp.dest(destination + '/styles'))
             .pipe($.if('*.css', reload({stream: true})))
             .pipe($.size({title: 'styles'}));

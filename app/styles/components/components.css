@@ -185,7 +185,6 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -326,8 +325,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
 }
@@ -395,8 +392,6 @@ blockquote {
 *
 **/
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -425,14 +420,7 @@ body:after {
   width: 100%;
   z-index: 9;
   display: none;
-  background-image: -moz-linear-gradient(top, transparent 95%, rgba(0, 0, 0, 0.15) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(95%, transparent), color-stop(100%, rgba(0, 0, 0, 0.15)));
-  background-image: -webkit-linear-gradient(top, transparent 95%, rgba(0, 0, 0, 0.15) 100%);
-  background-image: -o-linear-gradient(top, transparent 95%, rgba(0, 0, 0, 0.15) 100%);
-  background-image: -ms-linear-gradient(top, transparent 95%, rgba(0, 0, 0, 0.15) 100%);
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.15) 95%, rgba(0, 0, 0, 0.15) 100%);
-  -webkit-background-size: 100% 26px;
-  -moz-background-size: 100% 26px;
   -ms-background-size: 100% 26px;
   background-size: 100% 26px;
 }
@@ -447,8 +435,6 @@ pre {
 }
 
 .main-container {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   -ms-box-sizing: content-box;
   box-sizing: content-box;
   position: relative;
@@ -473,8 +459,6 @@ pre {
 }
 
 .container {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   -ms-box-sizing: content-box;
   box-sizing: content-box;
   position: relative;
@@ -500,8 +484,6 @@ pre {
 
 @media only screen and (min-width: 620px) {
   .container-medium {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
     -ms-box-sizing: content-box;
     box-sizing: content-box;
     position: relative;
@@ -528,8 +510,6 @@ pre {
 
 @media only screen and (max-width: 619px) {
   .container-small {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
     -ms-box-sizing: content-box;
     box-sizing: content-box;
     position: relative;
@@ -710,8 +690,6 @@ pre {
 }
 
 .highlight-module__container {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   -ms-box-sizing: content-box;
   box-sizing: content-box;
   padding-left: 5%;
@@ -1061,8 +1039,6 @@ pre {
   padding-bottom: 78px;
   color: #ffffff;
   margin-bottom: 26px;
-  -webkit-box-shadow: inset 0 2px 0 0 white;
-  -moz-box-shadow: inset 0 2px 0 0 white;
   -ms-box-shadow: inset 0 2px 0 0 white;
   box-shadow: inset 0 2px 0 0 white;
 }
@@ -1800,8 +1776,6 @@ pre {
   pointer-events: none;
 }
 .debug .grid-overlay {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   -ms-box-sizing: content-box;
   box-sizing: content-box;
   position: relative;
@@ -2004,9 +1978,6 @@ li > p {
   font-weight: 600;
   text-decoration: none;
   outline: 0;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -ms-transition: none;
   transition: none;
 }
 .button:hover, .button--primary:hover, .button--secondary:hover, .button--secondary-variation:hover {
@@ -2719,7 +2690,6 @@ object {
 }
 @media only screen and (min-width: 620px) {
   .guides-list {
-    display: -moz-box;
     display: -webkit-flex;
     display: flex;
     -webkit-justify-content: space-between;
@@ -2738,7 +2708,6 @@ object {
 }
 @media only screen and (min-width: 620px) {
   .guides-list__item {
-    display: -moz-box;
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
