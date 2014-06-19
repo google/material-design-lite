@@ -18,25 +18,17 @@
  */
 
 'use strict';
+
+// Include Gulp & Tools We'll Use
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var rimraf = require('rimraf');
+var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
 
-// public URL for your website
-var PUBLIC_URL = 'https://example.com';
-
-gulp.task('styles', function () {
-    return gulp.src('app/styles/sass/components.scss')
-        .pipe($.rubySass({style: 'expanded', precision: 10}))
-        .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('dist/styles'))
-        .pipe(reload({stream: true}))
-        .pipe($.size({title: 'styles'}));
-});
-
+// Lint JavaScript
 gulp.task('jshint', function () {
     return gulp.src('app/scripts/**/*.js')
         .pipe($.jshint())
@@ -45,19 +37,7 @@ gulp.task('jshint', function () {
         .pipe(reload({stream: true, once: true}));
 });
 
-gulp.task('html', ['styles'], function () {
-    return gulp.src('app/**/*.html')
-        .pipe($.useref.assets())
-        .pipe($.if('*.js', $.uglify()))
-        .pipe($.if('*.css', $.csso()))
-        .pipe($.if('*.css', $.uncss({ html: ['app/index.html'] })))
-        .pipe($.useref.restore())
-        .pipe($.useref())
-        .pipe($.minifyHtml())
-        .pipe(gulp.dest('dist'))
-        .pipe($.size({title: 'html'}));
-});
-
+// Optimize Images
 gulp.task('images', function () {
     return gulp.src('app/images/**/*')
         .pipe($.cache($.imagemin({
@@ -69,36 +49,105 @@ gulp.task('images', function () {
         .pipe($.size({title: 'images'}));
 });
 
-gulp.task('pagespeed', pagespeed.bind(null, {
-    // By default, we use the free (no API key) tier
-    // You can use a Google Developer API key if you
-    // have one. See http://goo.gl/RkN0vE for info
-    // key: 'YOUR_API_KEY'
-    url: PUBLIC_URL,
-    strategy: 'mobile'
-}));
+// Automatically Prefix CSS
+gulp.task('styles:css', function () {
+    return gulp.src('app/styles/**/*.css')
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('app/styles'))
+        .pipe(reload({stream: true}))
+        .pipe($.size({title: 'styles:css'}));
+});
 
-gulp.task('clean', rimraf.bind(null, 'dist'));
+// Compile Sass For Style Guide Components (app/styles/components)
+gulp.task('styles:components', function () {
+    return gulp.src('app/styles/components/components.scss')
+        .pipe($.rubySass({
+            style: 'expanded',
+            precision: 10,
+            loadPath: ['app/styles/components']
+        }))
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('app/styles/components'))
+        .pipe($.size({title: 'styles:components'}));
+})
 
-gulp.task('serve', ['styles'], function () {
+// Compile Any Other Sass Files You Added (app/styles)
+gulp.task('styles:scss', function () {
+    return gulp.src(['app/styles/**/*.scss', '!app/styles/components/components.scss'])
+        .pipe($.rubySass({
+            style: 'expanded',
+            precision: 10,
+            loadPath: ['app/styles']
+        }))
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('.tmp/styles'))
+        .pipe($.size({title: 'styles:scss'}));
+});
+
+// Output Final CSS Styles
+gulp.task('styles', ['styles:components', 'styles:scss', 'styles:css']);
+
+// Scan Your HTML For Assets & Optimize Them
+gulp.task('html', function () {
+    return gulp.src('app/**/*.html')
+        .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
+        // Concatenate And Minify JavaScript
+        .pipe($.if('*.js', $.uglify()))
+        // Concatenate And Minify Styles
+        .pipe($.if('*.css', $.csso()))
+        // Remove Any Unused CSS
+        // Note: If not using the Style Guide, you can delete it from
+        // the next line to only include styles your project uses.
+        .pipe($.if('*.css', $.uncss({ html: ['app/index.html','app/styleguide/index.html'] })))
+        .pipe($.useref.restore())
+        .pipe($.useref())
+        // Update Production Style Guide Paths 
+        .pipe($.replace('components/components.css', 'components/main.min.css'))
+        // Minify Any HTML
+        .pipe($.minifyHtml())
+        // Output Files
+        .pipe(gulp.dest('dist'))
+        .pipe($.size({title: 'html'}));
+});
+
+// Clean Output Directory
+gulp.task('clean', function (cb) {
+    rimraf('dist', rimraf.bind({}, '.tmp', cb));
+});
+
+// Watch Files For Changes & Reload
+gulp.task('serve', function () {
     browserSync.init(null, {
         server: {
-            baseDir: ['app']
+            baseDir: ['app', '.tmp']
         },
         notify: false
     });
-});
 
-gulp.task('watch', ['serve'], function () {
     gulp.watch(['app/**/*.html'], reload);
-    gulp.watch(['app/styles/**/*.scss'], ['styles']);
-    gulp.watch(['app/styles/**/*.css'], reload);
+    gulp.watch(['app/styles/**/*.{css,scss}'], ['styles']);
+    gulp.watch(['.tmp/styles/**/*.css'], reload);
     gulp.watch(['app/scripts/**/*.js'], ['jshint']);
     gulp.watch(['app/images/**/*'], ['images']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images']);
+// Build Production Files
+gulp.task('build', function (cb) {
+    runSequence('styles', ['jshint', 'html', 'images'], cb);
+});
 
+// Default Task
 gulp.task('default', ['clean'], function (cb) {
     gulp.start('build', cb);
 });
+
+// Run PageSpeed Insights 
+// Update `url` below to the public URL for your site
+gulp.task('pagespeed', pagespeed.bind(null, {
+    // By default, we use the PageSpeed Insights 
+    // free (no API key) tier. You can use a Google 
+    // Developer API key if you have one. See 
+    // http://goo.gl/RkN0vE for info key: 'YOUR_API_KEY'
+    url: 'https://example.com',
+    strategy: 'mobile'
+}));

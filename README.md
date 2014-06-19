@@ -5,14 +5,12 @@
 
 ## Overview
 
-[Web Starter Kit](http://developers.google.com/web/starter-kit) is a starting point for multi-screen web development, encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices.
-
-The project aims to align with the mobile web recommendations made by Google's [Web Fundamentals](http://developers.google.com/web/fundamentals) and includes boilerplate, tooling and best practices that fall in line with how we think multi-screen webapps should be built.
+[Web Starter Kit](http://developers.google.com/web/starter-kit) is a starting point for multi-screen web development. It encompasses opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices. We help you stay productive & aligned with the best practices outlined in Google's [Web Fundamentals](http://developers.google.com/web/fundamentals).
 
 ## Features
 
 * Mobile-optimized HTML boilerplate
-* Sexy minimalist layout
+* Responsive multi-device layout
 * Visual component style guide
 * [gulp.js](http://gulpjs.com) build tooling *(optional)*
   * LiveReload
@@ -29,10 +27,9 @@ The project aims to align with the mobile web recommendations made by Google's [
 
 [Download](http://github.com/google/web-starter-kit/archive/master.zip) the kit or clone this repository and build on what we include in the `app` directory.
 
-We provide 3 HTML starting points, from which you can choose:
+We provide 2 HTML starting points, from which you can choose:
 
-- `index.html` - the default starting point, containing a slide-out menu,
-- `alt-layout.html` - features a horizontal navigation menu, or
+- `index.html` - the default starting point, containing layout and a slide-out menu
 - `basic.html` - includes no layout.
 
 ## Tooling
@@ -67,32 +64,45 @@ $ npm install
 
 That's it! You should now have everything needed to use the Gulp tools in Web Starter Kit.
 
-### Gulp commands
+### Gulp Commands
 
 You can now use Gulp with the following commands to stay productive during development:
 
+#### Watch For Changes & Automatically Refresh Across Devices
+
 ```sh
-# Watch files / LiveReload / Cross-device sync as you develop
-$ gulp watch
+$ gulp serve
+```
 
-# Run the deployed version of your app against PageSpeed
-$ gulp pagespeed
+This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
 
-# Build the current project, ready for deployment
-# This includes image, script, stylesheet and HTML
-# optimization and minification. 
+### Build & Optimize
+
+```sh
 $ gulp
 ```
+
+Build and optimize the current project, ready for deployment. This includes linting as well as image, script, stylesheet and HTML optimization and minification.
+
+#### Performance Insights
+
+```sh
+$ gulp pagespeed
+```
+
+Runs the deployed (public) version of your site against the [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) API to help you stay on top of where you can improve.
 
 ## Web Performance
 
 Web Starter Kit strives to give you a high performance starting point out of the box and we actively work on delivering the best [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) score and frame-rate possible.
 
+In terms of CSS, opting to just use the minimal layout (main.css, h5bp.css) weighs in at ~7KB before modifications are made. Opting to use the Style Guide styles (the default) will take this up to ~39KB. It is your choice which path makes the most sense for your project, however notes on excluding Style Guide styles are in our Gulpfile.
+
 ## Browser Support
 
 At present, we officially aim to support the following browsers:
 
-* IE10, IE11, IE Mobile 10 
+* IE10, IE11, IE Mobile 10
 * FF 30, 31
 * Chrome 34, 35
 * Safari 7, 8
@@ -106,7 +116,11 @@ This is not to say that Web Starter Kit cannot be used in browsers older than th
 
 ## Troubleshooting
 
-If you find yourself running into issues during installation or running the tools, please check our [Troubleshooting](https://github.com/google/web-starter-kit) guide and then open an [issue](https://github.com/google/web-starter-kit/issues). We would be happy to discuss how they can be solved. 
+If you find yourself running into issues during installation or running the tools, please check our [Troubleshooting](https://github.com/google/web-starter-kit) guide and then open an [issue](https://github.com/google/web-starter-kit/issues). We would be happy to discuss how they can be solved.
+
+## A Boilerplate-only Option
+
+If you would prefer not to use any of our tooling, delete the following files from the project: `package.json`, `gulpfile.js`, `.jshintrc`. You can now safely use the boilerplate with an alternative build-system or no build-system at all if you choose.
 
 ## Inspiration
 
@@ -118,5 +132,5 @@ Contributions, questions and comments are all welcome and encouraged. For code c
 
 ## License
 
-Apache 2.0  
+Apache 2.0
 Copyright 2014 Google Inc
