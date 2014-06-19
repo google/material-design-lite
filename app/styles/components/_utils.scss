@@ -7,75 +7,75 @@
 /*==========  VARIABLES  ==========*/
 
   // Defining breakpoints
-  $medium: 620px;
-  $wide: 800px;
-  $huge: 1600px;
-  $mediumContainer: 688px;
-  $wideContainer: 864px;
+  $medium: 620px !default;
+  $wide: 800px !default;
+  $huge: 1600px !default;
+  $mediumContainer: 688px !default;
+  $wideContainer: 864px !default;
 
   // Defining grid sizes
-  $mediumColCount: 3;
-  $mediumColWidth: 30.3%;
-  $mediumGutterWidth: 4.5%;
-  $wideColCount: 4;
-  $wideColWidth: 22.2%;
-  $wideGutterWidth: 3.7%;
+  $mediumColCount: 3 !default;
+  $mediumColWidth: 30.3% !default;
+  $mediumGutterWidth: 4.5% !default;
+  $wideColCount: 4 !default;
+  $wideColWidth: 22.2% !default;
+  $wideGutterWidth: 3.7% !default;
 
   // Defining colors
-  $colorBlue: #3372df;
-  $colorBlueSecondary: lighten($colorBlue, 30%);
-  $colorGreen: #0f9d58;
-  $colorGreenSecondary: lighten($colorGreen, 30%);
-  $colorRed: #cb4437;
-  $colorRedSecondary: lighten($colorRed, 30%);
-  $colorYellow: #f4b400;
-  $colorYellowSecondary: lighten($colorYellow, 20%);
+  $colorBlue: #3372df !default;
+  $colorBlueSecondary: lighten($colorBlue, 30%) !default;
+  $colorGreen: #0f9d58 !default;
+  $colorGreenSecondary: lighten($colorGreen, 30%) !default;
+  $colorRed: #cb4437 !default;
+  $colorRedSecondary: lighten($colorRed, 30%) !default;
+  $colorYellow: #f4b400 !default;
+  $colorYellowSecondary: lighten($colorYellow, 20%) !default;
 
-  $colorRemember: #09829a;
-  $colorLearning: #da2e75;
+  $colorRemember: #09829a !default;
+  $colorLearning: #da2e75 !default;
 
-  $colorGrayBackground: #f0f0f0;
-  $colorGrayKeyline: #e0e0e0;
-  $colorGray: #737373;
-  $colorGrayDark: #404040;
+  $colorGrayBackground: #f0f0f0 !default;
+  $colorGrayKeyline: #e0e0e0 !default;
+  $colorGray: #737373 !default;
+  $colorGrayDark: #404040 !default;
 
-  $colorText: $colorGrayDark;
-  $colorHighlight: $colorBlue;
-  $colorWarning: $colorYellowSecondary;
-  $colorMuted: $colorGray;
-  $colorDanger: $colorRed;
+  $colorText: $colorGrayDark !default;
+  $colorHighlight: $colorBlue !default;
+  $colorWarning: $colorYellowSecondary !default;
+  $colorMuted: $colorGray !default;
+  $colorDanger: $colorRed !default;
 
-  $colorLayouts: #297ea9;
-  $colorLayoutsSecondary: lighten($colorLayouts, 30%);
-  $colorUser: #2c8566;
-  $colorUserSecondary: lighten($colorUser, 30%);
-  $colorMedia: #cf423a;
-  $colorMediaSecondary: lighten($colorMedia, 30%);
-  $colorPerformance: #7b5294;
-  $colorPerformanceSecondary: lighten($colorPerformance, 30%);
+  $colorLayouts: #297ea9 !default;
+  $colorLayoutsSecondary: lighten($colorLayouts, 30%) !default;
+  $colorUser: #2c8566 !default;
+  $colorUserSecondary: lighten($colorUser, 30%) !default;
+  $colorMedia: #cf423a !default;
+  $colorMediaSecondary: lighten($colorMedia, 30%) !default;
+  $colorPerformance: #7b5294 !default;
+  $colorPerformanceSecondary: lighten($colorPerformance, 30%) !default;
 
   // Defining font family
-  $fontDefault: Helvetica, Arial, sans-serif;
-  $fontHighlight: "Roboto Condensed", Helvetica, sans-serif;
-  $fontIcon: "icons";
+  $fontDefault: Helvetica, Arial, sans-serif !default;
+  $fontHighlight: "Roboto Condensed", Helvetica, sans-serif !default;
+  $fontIcon: "icons" !default;
 
   // Defining font sizes
-  $fontSmall: 13px;
-  $fontBase: 16px;
-  $fontMedium: 20px;
-  $fontLarge: 26px;
-  $fontXLarge: 42px;
-  $fontXXLarge: 68px;
-  $fontHuge: 110px;
+  $fontSmall: 13px !default;
+  $fontBase: 16px  !default;
+  $fontMedium: 20px !default;
+  $fontLarge: 26px !default;
+  $fontXLarge: 42px !default;
+  $fontXXLarge: 68px !default;
+  $fontHuge: 110px !default;
 
   // Defining baseline line height
-  $lineHeight: 26px;
+  $lineHeight: 26px !default;
 
   // Defining animation easings
-  $animationEasing: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  $animationEasing: cubic-bezier(0.455, 0.030, 0.515, 0.955) !default;
 
-	// Defining sidebar stuff
-	$sidebarWidth: 280px;
+  // Defining sidebar stuff
+  $sidebarWidth: 280px !default;
 
 
 /*==========  FUNCTIONS  ==========*/
@@ -165,7 +165,7 @@
     @include wide {
       padding-left: 4.4%;
       padding-right: 4.4%;
-    	max-width: $wideContainer;
+      max-width: $wideContainer;
     }
   }
 
