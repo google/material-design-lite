@@ -69,7 +69,7 @@ gulp.task('styles:components', function () {
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('app/styles/components'))
         .pipe($.size({title: 'styles:components'}));
-})
+});
 
 // Compile Any Other Sass Files You Added (app/styles)
 gulp.task('styles:scss', function () {
@@ -101,7 +101,7 @@ gulp.task('html', function () {
         .pipe($.if('*.css', $.uncss({ html: ['app/index.html','app/styleguide/index.html'] })))
         .pipe($.useref.restore())
         .pipe($.useref())
-        // Update Production Style Guide Paths 
+        // Update Production Style Guide Paths
         .pipe($.replace('components/components.css', 'components/main.min.css'))
         // Minify Any HTML
         .pipe($.minifyHtml())
@@ -141,12 +141,12 @@ gulp.task('default', ['clean'], function (cb) {
     gulp.start('build', cb);
 });
 
-// Run PageSpeed Insights 
+// Run PageSpeed Insights
 // Update `url` below to the public URL for your site
 gulp.task('pagespeed', pagespeed.bind(null, {
-    // By default, we use the PageSpeed Insights 
-    // free (no API key) tier. You can use a Google 
-    // Developer API key if you have one. See 
+    // By default, we use the PageSpeed Insights
+    // free (no API key) tier. You can use a Google
+    // Developer API key if you have one. See
     // http://goo.gl/RkN0vE for info key: 'YOUR_API_KEY'
     url: 'https://example.com',
     strategy: 'mobile'
