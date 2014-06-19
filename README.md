@@ -5,7 +5,7 @@
 
 ## Overview
 
-[Web Starter Kit](http://developers.google.com/web/starter-kit) is a starting point for multi-screen web development. It encompassing opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices. We help you stay aligned with the best practices outlined in Google's [Web Fundamentals](http://developers.google.com/web/fundamentals).
+[Web Starter Kit](http://developers.google.com/web/starter-kit) is a starting point for multi-screen web development. It encompasses opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices. We help you stay productive & aligned with the best practices outlined in Google's [Web Fundamentals](http://developers.google.com/web/fundamentals).
 
 ## Features
 
@@ -115,6 +115,10 @@ This is not to say that Web Starter Kit cannot be used in browsers older than th
 ## Troubleshooting
 
 If you find yourself running into issues during installation or running the tools, please check our [Troubleshooting](https://github.com/google/web-starter-kit) guide and then open an [issue](https://github.com/google/web-starter-kit/issues). We would be happy to discuss how they can be solved.
+
+## Opt-out Of Tooling
+
+If you would prefer not to use any of our tooling, delete the following files from the project: `package.json`, `gulpfile.js`, `.jshintrc`. You can now safely use the boilerplate with an alternative build-system or no build-system at all if you choose.
 
 ## Inspiration
 
