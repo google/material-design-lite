@@ -31,8 +31,7 @@ The project aims to align with the mobile web recommendations made by Google's [
 
 We provide 3 HTML starting points, from which you can choose:
 
-- `index.html` - the default starting point, containing a slide-out menu,
-- `alt-layout.html` - features a horizontal navigation menu, or
+- `index.html` - the default starting point, containing layout and a slide-out menu
 - `basic.html` - includes no layout.
 
 ## Tooling
