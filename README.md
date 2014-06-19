@@ -73,14 +73,13 @@ You can now use Gulp with the following commands to stay productive during devel
 
 ```sh
 # Watch files / LiveReload / Cross-device sync as you develop
-$ gulp watch
+$ gulp serve
 
 # Run the deployed version of your app against PageSpeed
 $ gulp pagespeed
 
-# Build the current project, ready for deployment
-# This includes image, script, stylesheet and HTML
-# optimization and minification. 
+# Build the current project, ready for deployment. This includes image, script,
+# stylesheet and HTML optimization and minification.
 $ gulp
 ```
 
@@ -92,7 +91,7 @@ Web Starter Kit strives to give you a high performance starting point out of the
 
 At present, we officially aim to support the following browsers:
 
-* IE10, IE11, IE Mobile 10 
+* IE10, IE11, IE Mobile 10
 * FF 30, 31
 * Chrome 34, 35
 * Safari 7, 8
@@ -106,7 +105,7 @@ This is not to say that Web Starter Kit cannot be used in browsers older than th
 
 ## Troubleshooting
 
-If you find yourself running into issues during installation or running the tools, please check our [Troubleshooting](https://github.com/google/web-starter-kit) guide and then open an [issue](https://github.com/google/web-starter-kit/issues). We would be happy to discuss how they can be solved. 
+If you find yourself running into issues during installation or running the tools, please check our [Troubleshooting](https://github.com/google/web-starter-kit) guide and then open an [issue](https://github.com/google/web-starter-kit/issues). We would be happy to discuss how they can be solved.
 
 ## Inspiration
 
@@ -118,5 +117,5 @@ Contributions, questions and comments are all welcome and encouraged. For code c
 
 ## License
 
-Apache 2.0  
+Apache 2.0
 Copyright 2014 Google Inc
