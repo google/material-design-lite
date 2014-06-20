@@ -1168,7 +1168,7 @@
         window.onload = function () {
           createCodeSamples();
           snippets = document.querySelectorAll('.auto-gen-code-snippet');
-        }
+        };
 
         function createCodeSamples() {
           var codeWrappers = document.querySelectorAll('.code-sample');
@@ -1241,15 +1241,14 @@
           }
 
           var nextDepthSpacing = currentDepthSpacing + singleIndent;
-          var subChildren = [];
 
-          for (var i = 0; i < childNodes.length; i++) {
-            var childElement = childNodes[i];
+          for (var j = 0; j < childNodes.length; j++) {
+            var childElement = childNodes[j];
 
             if (childElement.nodeType === 3) {
-              // Found a text node
+              // found a text node
               if (childElement.nodeValue.indexOf('\n') >= 0) {
-                if (i + 1 < childNodes.length) {
+                if (j + 1 < childNodes.length) {
                   childElement.nodeValue = '\n' + nextDepthSpacing;
                 } else {
                   childElement.nodeValue = '\n' + currentDepthSpacing;
