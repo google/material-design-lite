@@ -117,7 +117,7 @@ gulp.task('clean', function (cb) {
 
 // Watch Files For Changes & Reload
 gulp.task('serve', function () {
-    browserSync.init(null, {
+    browserSync.init({
         server: {
             baseDir: ['app', '.tmp']
         },
