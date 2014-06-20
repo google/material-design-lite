@@ -7,324 +7,324 @@
  */
 
 html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    position: relative;
-    font-family: 'Roboto Condensed', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 300;
-    background-color: #FFFFFF;
-    box-sizing: border-box;
-    overflow: hidden;
-    min-height: 100%;
+  position: relative;
+  font-family: 'Roboto Condensed', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 300;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 100%;
 }
 
 .app-bar {
-    display: block;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #4285f4;
-    overflow: hidden;
-    z-index: 1;
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #4285f4;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .app-bar-container {
-    display: -webkit-flex;
-    display: flex;
-    width: 100%;
-    height: 60px;
-    position: relative;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    margin: 0 auto;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  margin: 0 auto;
 }
 
 .app-bar.open,
 .app-bar.open ~ main {
-    -webkit-transform: translate(250px, 0);
-    transform: translate(250px, 0);
+  -webkit-transform: translate(250px, 0);
+  transform: translate(250px, 0);
 }
 
 .app-bar .logo {
-    -webkit-flex: 1;
-    flex: 1;
-    font-size: 2em;
-    line-height: 60px;
-    margin: 0 16px;
-    padding: 0;
-    color: #fefefe;
-    float: none;
-    max-width: none;
-    font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, sans-serif;
-    font-weight: 300;
-    line-height: 60px;
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 2em;
+  line-height: 60px;
+  margin: 0 16px;
+  padding: 0;
+  color: #fefefe;
+  float: none;
+  max-width: none;
+  font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 60px;
 }
 
 .app-bar .logo a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: normal;
+  text-decoration: none;
+  color: inherit;
+  font-weight: normal;
 }
 
 .app-bar-actions {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    z-index: 2;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  z-index: 2;
 }
 
 .app-bar button {
-    width: 60px;
-    height: 60px;
-    background-image: none;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    transition: background-color 0.2s ease-out;
+  width: 60px;
+  height: 60px;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  transition: background-color 0.2s ease-out;
 
-    -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .app-bar button img {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
 .app-bar button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .app-bar button:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    outline: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: 0;
 }
 
 .app-bar button:active {
-    background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 button.menu img {
-    height:24px;
-    width: 24px;
+  height:24px;
+  width: 24px;
 }
 
 .promote-layer {
-    /*
-    This may promote the layer to a composited
-    layer.
+  /*
+  This may promote the layer to a composited
+  layer.
 
-    Replace with will-change when available
+  Replace with will-change when available
 
-    #perfmatters
-    */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  #perfmatters
+  */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .base, p, ul, ol {
-    font-size: 19px;
+  font-size: 19px;
 }
 
 .navdrawer-container {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #3367D6;
-    color: #fefefe;
-    -webkit-transform: translate(-250px, 0);
-    transform: translate(-250px, 0);
-    overflow-y: scroll;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #3367D6;
+  color: #fefefe;
+  -webkit-transform: translate(-250px, 0);
+  transform: translate(-250px, 0);
+  overflow-y: scroll;
 }
 
 .navdrawer-container.open {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
 .app-bar, .navdrawer-container, main {
-    transition: -webkit-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .navdrawer-container h4,
 .navdrawer-container ul li a {
-    height: 60px;
-    padding: 0 20px;
-    line-height: 60px;
+  height: 60px;
+  padding: 0 20px;
+  line-height: 60px;
 }
 
 .navdrawer-container h4 {
-    background-color: white;
-    color: #3367D6;
+  background-color: white;
+  color: #3367D6;
 }
 
 .navdrawer-container ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 .navdrawer-container ul li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    transition: background-color 0.2s ease-out;
+  display: block;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.2s ease-out;
 }
 
 .navdrawer-container ul li {
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: white;
-    padding: 0;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: white;
+  padding: 0;
 }
 
 .navdrawer-container ul li:before {
-    content: none;
+  content: none;
 }
 
 .navdrawer-container ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .navdrawer-container ul li a:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    outline: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: 0;
 }
 
 .navdrawer-container ul li a:active {
-    background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 main {
-    margin: 0 auto;
-    /* Height of the header */
-    padding: 60px 16px 16px 16px;
-    min-height: 100%;
+  margin: 0 auto;
+  /* Height of the header */
+  padding: 60px 16px 16px 16px;
+  min-height: 100%;
 }
 
 /** Larger Screens - desktops and tablets **/
 @media all and (min-device-width: 1200px) {
-    .app-bar {
-        position: relative;
-    }
+  .app-bar {
+    position: relative;
+  }
 
-    .app-bar-container {
-        display: block;
-        height: 130px;
-        max-width: 864px;
-        padding: 0 16px;
-        box-sizing: border-box;
-        background-color: #4285f4;
-    }
+  .app-bar-container {
+    display: block;
+    height: 130px;
+    max-width: 864px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    background-color: #4285f4;
+  }
 
-    .app-bar .logo {
-        float: left;
-        margin: 0;
-        padding: 0;
-        line-height: 130px;
-        font-size: 46px;
-    }
+  .app-bar .logo {
+    float: left;
+    margin: 0;
+    padding: 0;
+    line-height: 130px;
+    font-size: 46px;
+  }
 
-    .app-bar-actions {
-        float: right;
-    }
+  .app-bar-actions {
+    float: right;
+  }
 
-    .app-bar:after {
-        content: ' ';
-        display: block;
-        height: 0;
-        overflow: hidden;
-        clear: both;
-    }
+  .app-bar:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+  }
 
-    button.menu {
-        display: none;
-    }
+  button.menu {
+    display: none;
+  }
 
-    nav {
-        display: block;
-        margin-top: 130px;
-    }
+  nav {
+    display: block;
+    margin-top: 130px;
+  }
 
-    .navdrawer-container {
-        position: relative;
-        width: 100%;
-        height: auto;
-        margin-top: 130px;
-        -webkit-transform: translate(0, 0);
-        transform: translate(0, 0);
-        transition: none;
-        overflow-y: auto;
-    }
+  .navdrawer-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 130px;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    transition: none;
+    overflow-y: auto;
+  }
 
-    .navdrawer-container h4 {
-        display: none;
-    }
+  .navdrawer-container h4 {
+    display: none;
+  }
 
-    .navdrawer-container ul {
-        display: -webkit-flex;
-        display: flex;
-        max-width: 864px;
-        margin: 0 auto;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-    }
+  .navdrawer-container ul {
+    display: -webkit-flex;
+    display: flex;
+    max-width: 864px;
+    margin: 0 auto;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
 
-    .navdrawer-container ul li {
-        border: none;
-    }
+  .navdrawer-container ul li {
+    border: none;
+  }
 
-    main {
-        max-width: 864px;
-        padding-top: 0;
-        min-height: initial;
-    }
+  main {
+    max-width: 864px;
+    padding-top: 0;
+    min-height: initial;
+  }
 
-    body {
-        overflow-y: scroll;
-    }
+  body {
+    overflow-y: scroll;
+  }
 
-    .navdrawer-container {
-        position: relative;
-        margin-top: 0;
-    }
+  .navdrawer-container {
+    position: relative;
+    margin-top: 0;
+  }
 }
 
 @media all and (min-device-width: 1200px) and (max-width: 800px) {
-    .app-bar .logo {
-        float: none;
-        width: 100%;
-        line-height: normal;
-        text-align: center;
-        padding-top: 36px;
-    }
+  .app-bar .logo {
+    float: none;
+    width: 100%;
+    line-height: normal;
+    text-align: center;
+    padding-top: 36px;
+  }
 
-    .app-bar-container {
-        height: auto;
-    }
+  .app-bar-container {
+    height: auto;
+  }
 
-    .app-bar-actions {
-        width: 100%;
-    }
+  .app-bar-actions {
+    width: 100%;
+  }
 
-    .navdrawer-container {
-        padding: 0 16px;
-        overflow-y: auto;
-    }
+  .navdrawer-container {
+    padding: 0 16px;
+    overflow-y: auto;
+  }
 
-    .navdrawer-container li {
-        -webkit-flex: 1;
-        flex: 1;
-        text-align: center;
-    }
+  .navdrawer-container li {
+    -webkit-flex: 1;
+    flex: 1;
+    text-align: center;
+  }
 }
