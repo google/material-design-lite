@@ -22,7 +22,7 @@
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
-var rimraf = require('rimraf');
+var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
@@ -111,9 +111,7 @@ gulp.task('html', function () {
 });
 
 // Clean Output Directory
-gulp.task('clean', function (cb) {
-  rimraf('dist', rimraf.bind({}, '.tmp', cb));
-});
+gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 // Watch Files For Changes & Reload
 gulp.task('serve', function () {
