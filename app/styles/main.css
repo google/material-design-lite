@@ -158,9 +158,9 @@ button.menu img {
 
 .navdrawer-container h4,
 .navdrawer-container ul li a {
-  height: 60px;
-  padding: 0 20px;
-  line-height: 60px;
+  height: auto;
+  padding: 17px 20px;
+  line-height: 1.4;
 }
 
 .navdrawer-container h4 {
