@@ -19,9 +19,7 @@
 (function () {
   'use strict';
 
-  var querySelector = function (selector) {
-    return document.querySelector(selector);
-  };
+  var querySelector = document.querySelector.bind(document);
 
   var navdrawerContainer = querySelector('.navdrawer-container');
   var appbarElement = querySelector('.app-bar');
