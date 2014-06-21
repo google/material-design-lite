@@ -26,5 +26,8 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "private": true
+  "private": true,
+  "scripts": {
+    "test": "gulp"
+  }
 }
