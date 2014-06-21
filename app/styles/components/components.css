@@ -1,6 +1,6 @@
 /**
 *
-* Main Stylesheet
+* Main Stylesheet For Visual Style Guide
 *
 **/
 @import url("//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,900");
@@ -1136,6 +1136,7 @@ pre {
 .articles-section {
   background: #f0f0f0;
   text-align: center;
+  padding: 26px 0 104px;
 }
 
 .articles-count {
@@ -2060,10 +2061,7 @@ ol > li:nth-child(10n) ~ li:before, ol > li:nth-child(10n):before {
   content: counter(list);
 }
 
-ul ol {
-  padding-top: 0;
-}
-
+ul ol,
 ol ul {
   padding-top: 0;
 }
