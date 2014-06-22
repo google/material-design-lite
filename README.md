@@ -25,7 +25,7 @@
 
 ## Quickstart
 
-[Download](https://github.com/google/web-starter-kit/releases/tag/v0.2.0-beta) the kit or clone this repository and build on what we include in the `app` directory.
+[Download](https://github.com/google/web-starter-kit/releases) the kit or clone this repository and build on what we include in the `app` directory.
 
 We provide 2 HTML starting points, from which you can choose:
 
