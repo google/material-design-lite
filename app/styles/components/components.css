@@ -1678,6 +1678,10 @@ pre {
     margin-right: 0;
   }
 
+  .g-medium--last + .g-medium--half {
+    clear: left;
+  }
+
   .g--pull-half {
     margin-right: 52.25%;
   }

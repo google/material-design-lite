@@ -72,6 +72,7 @@
   }
 
   .g-medium--last { margin-right: 0; }
+  .g-medium--last + .g-medium--half { clear: left; }
 
   .g--pull-half { margin-right: 50% + $mediumGutterWidth/2; }
 }
