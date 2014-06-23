@@ -18,7 +18,7 @@
 
   padding-left: 0;
 
-  &:before {
+  &::before {
     content: "";
     display: block;
     width: 40%;
@@ -46,7 +46,7 @@
       padding-top: $lineHeight - 2;
     }
 
-    &:before {
+    &::before {
       display: none;
     }
   }

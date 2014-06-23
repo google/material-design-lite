@@ -16,19 +16,19 @@
     margin-bottom: $lineHeight;
     min-height: $lineHeight*6;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       @include type--small;
       display: block;
       margin: 0 10px;
     }
 
-    &:before {
+    &::before {
       content: "HTML classes: ";
       font-weight: 700;
     }
 
-    &:after {
+    &::after {
       content: attr(class);
       word-spacing: 15px;
     }

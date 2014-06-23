@@ -19,8 +19,8 @@
     }
   }
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     color: rgba(255, 255, 255, 0.5);
     position: absolute;
     display: none;
@@ -30,7 +30,7 @@
     }
   }
 
-  &:before {
+  &::before {
     @include medium {
       content: attr(data-current-lesson);
 
@@ -60,7 +60,7 @@
 
   }
 
-  &:after {
+  &::after {
     @include medium {
       content: $icon-lessons;
       font-family: $fontIcon;

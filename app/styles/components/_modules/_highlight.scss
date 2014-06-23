@@ -10,7 +10,7 @@
   margin-bottom: $lineHeight;
   position: relative;
 
-  &:after {
+  &::after {
     background: $colorGrayBackground;
     content: "";
     height: 100%;
@@ -62,7 +62,7 @@
 .highlight-module--learning {
   color: #ffffff;
 
-  &:after {
+  &::after {
     background-color: $colorLearning;
   }
 
@@ -77,7 +77,7 @@
 .highlight-module--remember {
   color: #ffffff;
 
-  &:after {
+  &::after {
     background-color: $colorRemember;
   }
 
@@ -130,7 +130,7 @@
 
 /*==========  LEFT  ==========*/
 .highlight-module--left {
-  &:after {
+  &::after {
     @include wide {
       width: 80%;
       right: 20%;
@@ -141,7 +141,7 @@
 
 /*==========  RIGHT  ==========*/
 .highlight-module--right {
-  &:after {
+  &::after {
     @include wide {
       width: 80%;
       left: 20%;
@@ -149,7 +149,7 @@
   }
 
   &.highlight-module--code {
-    &:after {
+    &::after {
       @include wide {
         width: 100%;
         left: 0;
@@ -167,7 +167,7 @@
   & .highlight-module__container {
     padding-bottom: 0;
 
-    &:before {
+    &::before {
       display: none;
     }
   }
@@ -188,19 +188,19 @@
 
   &.highlight-module--remember {
     & .highlight-module__title,
-    & li:before {
+    & li::before {
       color: $colorRemember;
     }
   }
 
   &.highlight-module--learning {
     & .highlight-module__title,
-    & li:before {
+    & li::before {
       color: $colorLearning;
     }
   }
 
-  &:after {
+  &::after {
     display: none !important;
   }
 }

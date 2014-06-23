@@ -28,7 +28,7 @@
   padding-bottom: $lineHeight*12;
   @include medium {padding-bottom: $lineHeight}
 
-  &:after {
+  &::after {
     content: $icon-question;
     color: $colorBlue;
     font-family: $fontIcon;

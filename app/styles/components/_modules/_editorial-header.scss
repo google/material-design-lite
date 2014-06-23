@@ -21,7 +21,7 @@
       position: relative;
 
       // Pseudo elements to add the background characters
-      &:before {
+      &::before {
         content: $icon-chevron-large;
         font-family: $fontIcon;
         font-size: 1000px;

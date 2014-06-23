@@ -36,7 +36,7 @@ table {
     padding-bottom: $lineHeight/2;
 
     // This is to re-plicate the table-headers for mobile
-    &:before {
+    &::before {
       content: attr(data-th) " :";
       display: inline-block;
       color: #ffffff;
@@ -86,7 +86,7 @@ table {
   }
 }
 
-td:last-child:after {
+td:last-child::after {
   content: "";
   display: block;
   background: #ffffff;

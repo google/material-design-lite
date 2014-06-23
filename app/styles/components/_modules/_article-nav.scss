@@ -8,7 +8,7 @@
   overflow: hidden;
   position: relative;
 
-  &:before {
+  &::before {
     content: "";
     border-left: 2px solid $colorGrayKeyline;
     height: 100%;
@@ -24,7 +24,7 @@
   width: 50%;
   position: relative;
 
-  &:before{
+  &::before{
     position: absolute;
     top: 21px;
     font-family: $fontHighlight;
@@ -51,9 +51,9 @@
   text-align: right;
   // border-right-width: 1px;
 
-  &:before {
+  &::before {
     font-family: $fontIcon;
-    @extend .icon-chevron-left:before;
+    @extend .icon-chevron-left::before;
     left: 32px;
   }
 
@@ -67,9 +67,9 @@
 .article-nav-link--next {
   // border-left-width: 1px;
 
-  &:before {
+  &::before {
     font-family: $fontIcon;
-    @extend .icon-chevron-right:before;
+    @extend .icon-chevron-right::before;
     right: 32px;
   }
 

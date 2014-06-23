@@ -33,7 +33,7 @@
     position: relative;
     padding-left: 39px;
 
-    &:before {
+    &::before {
       line-height: 26px;
     }
   }
