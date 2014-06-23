@@ -33,7 +33,7 @@
 .related-guides__main-link {
   text-transform: uppercase;
 
-  &:before {
+  &::before {
     content: "#";
     display: inline-block;
     padding-right: 2px;

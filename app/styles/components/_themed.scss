@@ -19,16 +19,16 @@
 .themed--background {
 
   .theme--multi-device-layouts &,
-  .theme--multi-device-layouts &.next-lessons:before { background-color: $colorLayouts; }
+  .theme--multi-device-layouts &.next-lessons::before { background-color: $colorLayouts; }
 
   .theme--introduction-to-media &,
-  .theme--introduction-to-media &.next-lessons:before { background-color: $colorMedia; }
+  .theme--introduction-to-media &.next-lessons::before { background-color: $colorMedia; }
 
   .theme--user-input &,
-  .theme--user-input &.next-lessons:before { background-color: $colorUser; }
+  .theme--user-input &.next-lessons::before { background-color: $colorUser; }
 
   .theme--performance &,
-  .theme--performance &.next-lessons:before { background-color: $colorPerformance; }
+  .theme--performance &.next-lessons::before { background-color: $colorPerformance; }
 
 }
 

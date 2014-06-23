@@ -6,12 +6,12 @@
 
 
 .clear {
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content:"";
     display:table;
   }
-  &:after {
+  &::after {
     clear:both;
   }
 }
@@ -59,7 +59,7 @@
   position: relative;
   margin-bottom: $lineHeight;
 
-  &:after {
+  &::after {
     content: "";
     display: block;
     position: absolute;
@@ -73,7 +73,7 @@
   &.xlarge {
     margin-bottom: $lineHeight*2;
 
-    &:after {
+    &::after {
       bottom: -($lineHeight*2)/2;
     }
   }
@@ -81,7 +81,7 @@
   &.xxlarge {
     margin-bottom: $lineHeight*3;
 
-    &:after {
+    &::after {
       bottom: -($lineHeight*3)/2;
     }
   }
@@ -89,7 +89,7 @@
   &.huge {
     margin-bottom: $lineHeight*3;
 
-    &:after {
+    &::after {
       bottom: -($lineHeight*3)/2;
     }
   }
@@ -115,7 +115,7 @@
     color: $colorGrayDark;
   }
 
-  &:before {
+  &::before {
     content: "# ";
     display: inline-block;
   }

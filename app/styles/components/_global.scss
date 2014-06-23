@@ -4,7 +4,7 @@
 *
 **/
 
-*, *:before, *:after {
+*, *::before, *::after {
   @include prefixr(box-sizing, border-box);
 }
 

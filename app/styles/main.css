@@ -188,7 +188,7 @@ button.menu img {
   padding: 0;
 }
 
-.navdrawer-container ul li:before {
+.navdrawer-container ul li::before {
   content: none;
 }
 
@@ -239,7 +239,7 @@ main {
     float: right;
   }
 
-  .app-bar:after {
+  .app-bar::after {
     content: ' ';
     display: block;
     height: 0;
