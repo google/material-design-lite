@@ -179,6 +179,7 @@ button.menu img {
   text-decoration: none;
   color: white;
   transition: background-color 0.2s ease-out;
+  white-space: nowrap;
 }
 
 .navdrawer-container ul li {
