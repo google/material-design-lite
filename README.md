@@ -5,23 +5,8 @@
 
 [Web Starter Kit](http://developers.google.com/web/starter-kit) is a starting point for multi-screen web development. It encompasses opinionated recommendations on boilerplate and tooling for building an experience that works great across multiple devices. We help you stay productive and aligned with the best practices outlined in Google's [Web Fundamentals](http://developers.google.com/web/fundamentals).
 
-![Features](https://cloud.githubusercontent.com/assets/170270/3343033/ceee251e-f899-11e3-9dd9-e313cf2522ec.png)
+[![](https://cloud.githubusercontent.com/assets/170270/3343033/ceee251e-f899-11e3-9dd9-e313cf2522ec.png)](https://developers.google.com/web/starter-kit/ 'Features')
 
-
-## Features
-
-* Mobile-optimized HTML boilerplate
-* Responsive multi-device layout
-* Visual component style guide
-* [gulp.js](http://gulpjs.com) build tooling *(optional)*
-  * LiveReload
-  * Cross-device synchronization of clicks, scrolls, navigation, and form-filling (thanks to [BrowserSync](http://browsersync.io/))
-  * Image optimization
-  * JavaScript minification and optimization
-  * CSS minification and optimization
-  * HTML minification
-  * PageSpeed Insights performance reporting
-  * CSS auto-prefixing
 
 ## Quickstart
 
