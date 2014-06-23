@@ -390,7 +390,7 @@ blockquote {
 * Global
 *
 **/
-* {
+*, *:before, *:after {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -549,7 +549,6 @@ pre {
   font-weight: normal;
   font-style: normal;
 }
-
 .icon {
   font-family: "icons";
   display: inline-block;
