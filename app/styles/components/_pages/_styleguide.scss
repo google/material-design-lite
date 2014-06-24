@@ -49,3 +49,34 @@
   }
 
 }
+
+.demo {
+  margin-bottom: $lineHeight;
+  margin-top: $lineHeight;
+}
+
+.demo {
+  [class*="g-"] {
+    background-color: #eee;
+    position: relative;
+    margin-bottom: $lineHeight;
+    min-height: $lineHeight*6;
+
+    &::before,
+    &::after {
+      @include type--small;
+      display: block;
+      margin: 0 10px;
+    }
+
+    &::before {
+      content: "HTML classes: ";
+      font-weight: 700;
+    }
+
+    &::after {
+      content: attr(class);
+      word-spacing: 15px;
+    }
+  }
+}

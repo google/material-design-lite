@@ -1589,35 +1589,6 @@ pre {
 * Grid
 *
 **/
-.demo {
-  margin-bottom: 26px;
-  margin-top: 26px;
-}
-
-.demo [class*="g-"] {
-  background-color: #eee;
-  position: relative;
-  margin-bottom: 26px;
-  min-height: 156px;
-}
-.demo [class*="g-"]::before, .demo [class*="g-"]::after {
-  font-size: 13px;
-  line-height: 2.0000em;
-  /* 26px */
-  padding-top: 2.0000em;
-  padding-bottom: 0;
-  display: block;
-  margin: 0 10px;
-}
-.demo [class*="g-"]::before {
-  content: "HTML classes: ";
-  font-weight: 700;
-}
-.demo [class*="g-"]::after {
-  content: attr(class);
-  word-spacing: 15px;
-}
-
 @media only screen and (min-width: 620px) and (max-width: 799px) {
   .g-medium--1 {
     float: left;
@@ -3014,6 +2985,35 @@ object {
 .page--styleguide .styleguide__theme-block {
   background: #297ea9;
   padding: 0 13px;
+}
+
+.demo {
+  margin-bottom: 26px;
+  margin-top: 26px;
+}
+
+.demo [class*="g-"] {
+  background-color: #eee;
+  position: relative;
+  margin-bottom: 26px;
+  min-height: 156px;
+}
+.demo [class*="g-"]::before, .demo [class*="g-"]::after {
+  font-size: 13px;
+  line-height: 2.0000em;
+  /* 26px */
+  padding-top: 2.0000em;
+  padding-bottom: 0;
+  display: block;
+  margin: 0 10px;
+}
+.demo [class*="g-"]::before {
+  content: "HTML classes: ";
+  font-weight: 700;
+}
+.demo [class*="g-"]::after {
+  content: attr(class);
+  word-spacing: 15px;
 }
 
 /**
