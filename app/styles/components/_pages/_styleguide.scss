@@ -57,7 +57,7 @@
 
 .demo {
   [class*="g-"] {
-    background-color: #eee;
+    background-color: $colorGrayLight;
     position: relative;
     margin-bottom: $lineHeight;
     min-height: $lineHeight*6;
