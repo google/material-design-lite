@@ -116,11 +116,11 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 // Watch Files For Changes & Reload
 gulp.task('serve', function () {
-  bs = browserSync.init({
+  bs = browserSync({
+    notify: false,
     server: {
       baseDir: ['app', '.tmp']
-    },
-    notify: false
+    }
   });
 
   gulp.watch(['app/**/*.html'], reload);
