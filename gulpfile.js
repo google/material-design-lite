@@ -27,13 +27,14 @@ var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
+var bs; // reference to the running instance of browserSync
 
 // Lint JavaScript
 gulp.task('jshint', function () {
   return gulp.src('app/scripts/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.jshint.reporter('fail'))
+    .pipe($.if(!bs.active, $.jshint.reporter('fail')))
     .pipe(reload({stream: true}));
 });
 
@@ -115,7 +116,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 // Watch Files For Changes & Reload
 gulp.task('serve', function () {
-  browserSync.init({
+  bs = browserSync.init({
     server: {
       baseDir: ['app', '.tmp']
     },
