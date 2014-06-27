@@ -45,7 +45,6 @@ gulp.task('images', function () {
       interlaced: true
     })))
     .pipe(gulp.dest('dist/images'))
-    .pipe(reload({stream: true, once: true}))
     .pipe($.size({title: 'images'}));
 });
 
@@ -126,7 +125,7 @@ gulp.task('serve', function () {
   gulp.watch(['app/styles/**/*.{css,scss}'], ['styles']);
   gulp.watch(['.tmp/styles/**/*.css'], function (e) { reload(e.path); });
   gulp.watch(['app/scripts/**/*.js'], ['jshint']);
-  gulp.watch(['app/images/**/*'], ['images']);
+  gulp.watch(['app/images/**/*'], reload);
 });
 
 // Build Production Files, the Default Task
