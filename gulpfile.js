@@ -51,9 +51,9 @@ gulp.task('images', function () {
 // Automatically Prefix CSS
 gulp.task('styles:css', function () {
   return gulp.src('app/styles/**/*.css')
+    .pipe($.changed('app/styles'))
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('app/styles'))
-    .pipe(reload({stream: true}))
     .pipe($.size({title: 'styles:css'}));
 });
 
@@ -122,8 +122,8 @@ gulp.task('serve', function () {
   });
 
   gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/styles/**/*.{css,scss}'], ['styles']);
-  gulp.watch(['.tmp/styles/**/*.css'], function (e) { reload(e.path); });
+  gulp.watch(['app/styles/**/*.scss'], ['styles:components', 'styles:scss']);
+  gulp.watch(['{.tmp,app}/styles/**/*.css'], ['styles:css', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['jshint']);
   gulp.watch(['app/images/**/*'], reload);
 });
