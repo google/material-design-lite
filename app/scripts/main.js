@@ -1,4 +1,4 @@
-/**
+/*!
  *
  *  Web Starter Kit
  *  Copyright 2014 Google Inc. All rights reserved.
