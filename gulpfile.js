@@ -143,3 +143,7 @@ gulp.task('pagespeed', pagespeed.bind(null, {
   url: 'https://example.com',
   strategy: 'mobile'
 }));
+
+// Load custom tasks
+var requireDir = require('require-dir');
+var dir = requireDir('./tasks');
