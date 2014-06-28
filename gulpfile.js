@@ -48,6 +48,13 @@ gulp.task('images', function () {
     .pipe($.size({title: 'images'}));
 });
 
+// Copy All Files At The Root Level (app)
+gulp.task('copy', function() {
+  return gulp.src(['app/*', '!app/*.html'])
+    .pipe(gulp.dest('dist'))
+    .pipe($.size({title: 'copy'}));
+});
+
 // Automatically Prefix CSS
 gulp.task('styles:css', function () {
   return gulp.src('app/styles/**/*.css')
@@ -130,7 +137,7 @@ gulp.task('serve', function () {
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'images'], cb);
+  runSequence('styles', ['jshint', 'html', 'images', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
