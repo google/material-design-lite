@@ -95,10 +95,6 @@ gulp.task('styles', ['styles:components', 'styles:scss', 'styles:css']);
 
 // Scan Your HTML For Assets & Optimize Them
 gulp.task('html', function () {
-
-  // CSS Selectors for UnCSS to ignore
-  var ignore_css_selectors = [".navdrawer-container.open", /.app-bar.open/];
-
   return gulp.src('app/**/*.html')
     .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
     // Concatenate And Minify JavaScript
@@ -108,7 +104,17 @@ gulp.task('html', function () {
     // Remove Any Unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
-    .pipe($.if('*.css', $.uncss({ html: ['app/index.html','app/styleguide/index.html'], ignore: ignore_css_selectors })))
+    .pipe($.if('*.css', $.uncss({
+      html: [
+        'app/index.html',
+        'app/styleguide/index.html'
+      ],
+      // CSS Selectors for UnCSS to ignore
+      ignore: [
+        '.navdrawer-container.open',
+        /.app-bar.open/
+      ]
+    })))
     .pipe($.useref.restore())
     .pipe($.useref())
     // Update Production Style Guide Paths
