@@ -145,6 +145,15 @@ gulp.task('serve', function () {
   gulp.watch(['app/images/**/*'], reload);
 });
 
+// Build and serve the output from the dist build
+gulp.task('serve:dist', ['default'], function() {
+  browserSync.init(null, {
+    server: {
+      baseDir: "./dist/"
+    }
+  });
+});
+
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
   runSequence('styles', ['jshint', 'html', 'images', 'copy'], cb);
