@@ -72,6 +72,9 @@ gulp.task('styles:components', function () {
       precision: 10,
       loadPath: ['app/styles/components']
     }))
+    .on('error', function (err) {
+      console.log(err);
+    })
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('app/styles/components'))
     .pipe($.size({title: 'styles:components'}));
