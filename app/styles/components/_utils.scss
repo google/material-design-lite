@@ -88,13 +88,6 @@
 
 /*==========  MIXINS  ==========*/
 
-  @mixin prefixr($property, $value...) {
-    -webkit-#{$property}: $value;
-       -moz-#{$property}: $value;
-        -ms-#{$property}: $value;
-            #{$property}: $value;
-  }
-
   @mixin media-query($media-query) {
     @if $media-query == small {
       @media only screen and (max-width:$medium - 1) { @content; }
@@ -124,28 +117,9 @@
   @mixin wide { @include media-query(wide) { @content }; }
   @mixin huge { @include media-query(huge) { @content }; }
 
-
-  @mixin keyframes($animation-name){
-    @-webkit-keyframes $animation-name{
-      @content;
-    }
-
-    @-moz-keyframes $animation-name{
-      @content;
-    }
-
-    @-ms-keyframes $animation-name{
-      @content;
-    }
-
-    @keyframes $animation-name{
-      @content;
-    }
-  }
-
   // Mixin to constrain elements
   @mixin container($isRelative: false) {
-    @include prefixr(box-sizing, content-box);
+    box-sizing: content-box;
 
     @if $isRelative {
       position: relative;
@@ -188,14 +162,9 @@
       z-index: 9;
 
       display: none;
-      background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 95%, rgba(0,0,0,0.15) 100%);
-      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(95%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.15)));
-      background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 95%,rgba(0,0,0,0.15) 100%);
-      background-image: -o-linear-gradient(top, rgba(0,0,0,0) 95%, rgba(0,0,0,0.15) 100%);
-      background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 95%,rgba(0,0,0,0.15) 100%);
-      background-image: linear-gradient(top, rgba(0,0,0,0.15) 95%,rgba(0,0,0,0.15) 100%);
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.15) 95%,rgba(0,0,0,0.15) 100%);
 
-      @include prefixr(background-size, 100% 26px);
+      background-size: 100% 26px;
     }
 
     &.debug::after {
@@ -445,11 +414,4 @@
       float: left;
       margin-right: $wideGutterWidth;
     }
-  }
-
-  // Mixin for flexbox
-  @mixin flexbox {
-    display: -moz-box;
-    display: -webkit-flex;
-    display: flex;
   }

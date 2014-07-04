@@ -9,10 +9,8 @@
   overflow: hidden;
 
   @include medium {
-    @include flexbox;
-    -webkit-justify-content: space-between;
+    display: flex;
     justify-content: space-between;
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
 
     padding-top: $lineHeight*2;
@@ -26,12 +24,9 @@
   margin-bottom: 0;
 
   @include medium {
-    @include flexbox;
+    display: flex;
     flex-direction: column;
-    -webkit-flex-direction: column;
-
     flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
   }
 
   h3 {
@@ -45,7 +40,6 @@
   .primary-content {
     @include medium {
       flex: 1;
-      -webkit-flex: 1;
     }
   }
 

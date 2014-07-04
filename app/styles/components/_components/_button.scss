@@ -19,7 +19,7 @@
 
   outline: 0;
 
-  @include prefixr(transition, none);
+  transition: none;
 
   &:hover {
     background: #4d4d4d;

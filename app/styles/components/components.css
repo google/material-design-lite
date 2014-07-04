@@ -390,7 +390,6 @@ blockquote {
 *
 **/
 *, *::before, *::after {
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -418,8 +417,8 @@ body::after {
   width: 100%;
   z-index: 9;
   display: none;
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0.15) 95%, rgba(0, 0, 0, 0.15) 100%);
-  -ms-background-size: 100% 26px;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.15) 95%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 95%, rgba(0, 0, 0, 0.15) 100%);
   background-size: 100% 26px;
 }
 body.debug::after {
@@ -433,7 +432,6 @@ pre {
 }
 
 .main-container {
-  -ms-box-sizing: content-box;
   box-sizing: content-box;
   position: relative;
   padding-left: 5%;
@@ -457,7 +455,6 @@ pre {
 }
 
 .container {
-  -ms-box-sizing: content-box;
   box-sizing: content-box;
   position: relative;
   padding-left: 5%;
@@ -482,7 +479,6 @@ pre {
 
 @media only screen and (min-width: 620px) {
   .container-medium {
-    -ms-box-sizing: content-box;
     box-sizing: content-box;
     position: relative;
     padding-left: 5%;
@@ -508,7 +504,6 @@ pre {
 
 @media only screen and (max-width: 619px) {
   .container-small {
-    -ms-box-sizing: content-box;
     box-sizing: content-box;
     position: relative;
     padding-left: 5%;
@@ -688,7 +683,6 @@ pre {
 }
 
 .highlight-module__container {
-  -ms-box-sizing: content-box;
   box-sizing: content-box;
   padding-left: 5%;
   padding-right: 5%;
@@ -1314,8 +1308,7 @@ div.highlight > pre > code .il, code .highlight .il {
   padding-bottom: 78px;
   color: #ffffff;
   margin-bottom: 26px;
-  -ms-box-shadow: inset 0 2px 0 0 white;
-  box-shadow: inset 0 2px 0 0 white;
+  box-shadow: inset 0 2px 0 0 #fff;
 }
 .summary-header .breadcrumbs__link {
   color: #ffffff;
@@ -2026,7 +2019,6 @@ div.highlight > pre > code .il, code .highlight .il {
   pointer-events: none;
 }
 .debug .grid-overlay {
-  -ms-box-sizing: content-box;
   box-sizing: content-box;
   position: relative;
   padding-left: 5%;
@@ -2228,7 +2220,8 @@ li > p {
   font-weight: 600;
   text-decoration: none;
   outline: 0;
-  transition: none;
+  -webkit-transition: none;
+          transition: none;
 }
 .button:hover, .button--primary:hover, .button--secondary:hover, .button--secondary-variation:hover {
   background: #4d4d4d;
@@ -2938,11 +2931,14 @@ object {
 @media only screen and (min-width: 620px) {
   .guides-list {
     display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     -webkit-justify-content: space-between;
-    justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     padding-top: 52px;
   }
 }
@@ -2956,11 +2952,14 @@ object {
 @media only screen and (min-width: 620px) {
   .guides-list__item {
     display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
     -webkit-flex-direction: column;
-    flex-wrap: wrap;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
   }
 }
 .guides-list__item h3 {
@@ -2971,8 +2970,9 @@ object {
 }
 @media only screen and (min-width: 620px) {
   .guides-list__item .primary-content {
-    flex: 1;
     -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
 }
 .guides-list__item .secondary-content {
@@ -3071,11 +3071,14 @@ object {
     box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.42);
     border: 1px solid;
     -webkit-transition: all 100ms linear;
+            transition: all 100ms linear;
     -webkit-transform: translateZ(0);
+            transform: translateZ(0);
   }
   .no-touch a:hover .icon-circle--large {
     box-shadow: inset 0px 0px 0px 1px #ffffff;
     -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }
 

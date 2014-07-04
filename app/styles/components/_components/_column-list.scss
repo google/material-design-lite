@@ -17,9 +17,9 @@
   margin-bottom: 1px;
 
   @include medium {
-    @include prefixr(column-count, 2);
-    @include prefixr(column-rule, 0 none transparent);
-    @include prefixr(column-gap, 0);
+    column-count: 2;
+    column-rule: 0 none transparent;
+    column-gap: 0;
   }
 
   & li,
