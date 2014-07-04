@@ -28,6 +28,18 @@ var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
 
+var AUTOPREFIXER_BROWSERS = [
+  'ie >= 10',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4.4',
+  'bb >= 10'
+];
+
 // Lint JavaScript
 gulp.task('jshint', function () {
   return gulp.src('app/scripts/**/*.js')
@@ -59,7 +71,7 @@ gulp.task('copy', function() {
 gulp.task('styles:css', function () {
   return gulp.src('app/styles/**/*.css')
     .pipe($.changed('app/styles'))
-    .pipe($.autoprefixer('ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10'))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('app/styles'))
     .pipe($.size({title: 'styles:css'}));
 });
@@ -75,7 +87,7 @@ gulp.task('styles:components', function () {
     .on('error', function (err) {
       console.log(err);
     })
-    .pipe($.autoprefixer('ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10'))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('app/styles/components'))
     .pipe($.size({title: 'styles:components'}));
 });
@@ -88,7 +100,7 @@ gulp.task('styles:scss', function () {
       precision: 10,
       loadPath: ['app/styles']
     }))
-    .pipe($.autoprefixer('ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10'))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe($.size({title: 'styles:scss'}));
 });
