@@ -84,9 +84,7 @@ gulp.task('styles:components', function () {
       precision: 10,
       loadPath: ['app/styles/components']
     }))
-    .on('error', function (err) {
-      console.log(err);
-    })
+    .on('error', console.error.bind(console))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('app/styles/components'))
     .pipe($.size({title: 'styles:components'}));
