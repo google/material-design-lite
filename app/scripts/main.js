@@ -22,16 +22,19 @@
   var querySelector = document.querySelector.bind(document);
 
   var navdrawerContainer = querySelector('.navdrawer-container');
+  var body = querySelector('document.body');
   var appbarElement = querySelector('.app-bar');
   var menuBtn = querySelector('.menu');
   var main = querySelector('main');
 
   function closeMenu() {
+    body.classList.remove('open');
     appbarElement.classList.remove('open');
     navdrawerContainer.classList.remove('open');
   }
 
   function toggleMenu() {
+    body.classList.toggle('open');
     appbarElement.classList.toggle('open');
     navdrawerContainer.classList.toggle('open');
   }
