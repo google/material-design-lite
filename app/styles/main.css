@@ -228,9 +228,9 @@ main {
   .app-bar.open,
   .app-bar.open ~ main {
     -webkit-transform: translate(0px, 0);
-    transform: translate(0px, 0);
+            transform: translate(0px, 0);
   }
-  
+
   .app-bar-container {
     display: block;
     height: 130px;
