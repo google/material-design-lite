@@ -151,7 +151,7 @@ button.menu img {
   color: #fefefe;
   -webkit-transform: translate(-250px, 0);
           transform: translate(-250px, 0);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .navdrawer-container.open {
@@ -223,7 +223,7 @@ main {
 }
 
 /** Larger Screens - desktops and tablets **/
-@media all and (min-width: 1200px) {
+@media all and (min-width: 990px) {
   .app-bar {
     position: relative;
   }
@@ -316,35 +316,5 @@ main {
   .navdrawer-container {
     position: relative;
     margin-top: 0;
-  }
-}
-
-@media all and (min-width: 1200px) and (max-width: 800px) {
-  .app-bar .logo {
-    float: none;
-    width: 100%;
-    line-height: normal;
-    text-align: center;
-    padding-top: 36px;
-  }
-
-  .app-bar-container {
-    height: auto;
-  }
-
-  .app-bar-actions {
-    width: 100%;
-  }
-
-  .navdrawer-container {
-    padding: 0 16px;
-    overflow-y: auto;
-  }
-
-  .navdrawer-container li {
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    text-align: center;
   }
 }
