@@ -113,8 +113,6 @@ gulp.task('html', function () {
     .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
     // Concatenate And Minify JavaScript
     .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
-    // Concatenate And Minify Styles
-    .pipe($.if('*.css', $.csso()))
     // Remove Any Unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
@@ -129,6 +127,8 @@ gulp.task('html', function () {
         /.app-bar.open/
       ]
     })))
+    // Concatenate And Minify Styles
+    .pipe($.if('*.css', $.csso()))
     .pipe($.useref.restore())
     .pipe($.useref())
     // Update Production Style Guide Paths
