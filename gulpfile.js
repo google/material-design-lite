@@ -61,11 +61,19 @@ gulp.task('images', function () {
 });
 
 // Copy All Files At The Root Level (app)
-gulp.task('copy', function() {
-  return gulp.src(['app/*', '!app/*.html'])
+gulp.task('copy', function () {
+  return gulp.src(['app/*','!app/*.html'])
     .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'copy'}));
 });
+
+// Copy Web Fonts To Dist
+gulp.task('fonts', function () {
+  return gulp.src(['app/fonts/**'])
+    .pipe(gulp.dest('dist/fonts'))
+    .pipe($.size({title: 'fonts'}));
+});
+
 
 // Automatically Prefix CSS
 gulp.task('styles:css', function () {
@@ -171,7 +179,7 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'images', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
