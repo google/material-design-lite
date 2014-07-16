@@ -157,7 +157,8 @@ gulp.task('serve', function () {
     notify: false,
     server: {
       baseDir: ['.tmp', 'app']
-    }
+    },
+    https: true
   });
 
   gulp.watch(['app/**/*.html'], reload);
@@ -173,7 +174,8 @@ gulp.task('serve:dist', ['default'], function () {
     notify: false,
     server: {
       baseDir: 'dist'
-    }
+    },
+    https: true
   });
 });
 
