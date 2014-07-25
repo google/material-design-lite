@@ -152,7 +152,7 @@ gulp.task('html', function () {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 // Watch Files For Changes & Reload
-gulp.task('serve', function () {
+gulp.task('serve', ['styles:components', 'styles:scss'], function () {
   browserSync({
     notify: false,
     // Run as an https by uncommenting 'https: true'
@@ -182,7 +182,7 @@ gulp.task('serve:dist', ['default'], function () {
     server: {
       baseDir: 'dist'
     }
-    
+
   });
 });
 
