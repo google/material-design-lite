@@ -74,7 +74,6 @@ gulp.task('fonts', function () {
     .pipe($.size({title: 'fonts'}));
 });
 
-
 // Automatically Prefix CSS
 gulp.task('styles:css', function () {
   return gulp.src('app/styles/**/*.css')
