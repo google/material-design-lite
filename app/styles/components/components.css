@@ -543,6 +543,7 @@ pre {
   font-weight: normal;
   font-style: normal;
 }
+
 .icon {
   font-family: "icons";
   display: inline-block;
@@ -654,6 +655,15 @@ pre {
   content: "\e018";
 }
 
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Blacks  ========== */
+/* ==========  Color Palettes  ========== */
+/* ==========  Color definitions  ========== */
 /**
 *
 * Highlight
@@ -952,7 +962,7 @@ div.highlight > pre > code .cm, code .highlight .cm {
 
 /* Comment.Multiline */
 div.highlight > pre > code .cp, code .highlight .cp {
-  color: #737373;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 /* Comment.Preproc */
@@ -963,7 +973,7 @@ div.highlight > pre > code .c1, code .highlight .c1 {
 
 /* Comment.Single */
 div.highlight > pre > code .cs, code .highlight .cs {
-  color: #737373;
+  color: rgba(0, 0, 0, 0.54);
   font-style: italic;
 }
 
@@ -991,7 +1001,7 @@ div.highlight > pre > code .gr, code .highlight .gr {
 
 /* Generic.Error */
 div.highlight > pre > code .gh, code .highlight .gh {
-  color: #737373;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 /* Generic.Heading */
@@ -1179,7 +1189,7 @@ div.highlight > pre > code .ss, code .highlight .ss {
 
 /* Literal.String.Symbol */
 div.highlight > pre > code .bp, code .highlight .bp {
-  color: #737373;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 /* Name.Builtin.Pseudo */
@@ -1445,7 +1455,7 @@ div.highlight > pre > code .il, code .highlight .il {
   color: #3372df;
 }
 .page-header h3 {
-  color: #404040;
+  color: rgba(0, 0, 0, 0.87);
   padding-top: 52px;
 }
 
@@ -1472,7 +1482,7 @@ div.highlight > pre > code .il, code .highlight .il {
 *
 **/
 .featured-spotlight {
-  background: #404040;
+  background: rgba(0, 0, 0, 0.87);
   color: #ffffff;
   overflow: hidden;
   padding-bottom: 77px;
@@ -1791,7 +1801,7 @@ div.highlight > pre > code .il, code .highlight .il {
 *
 **/
 .next-lessons {
-  background: #404040;
+  background: rgba(0, 0, 0, 0.87);
   padding: 26px 26px 52px;
   margin-top: 26px;
   color: #ffffff;
@@ -1819,7 +1829,7 @@ div.highlight > pre > code .il, code .highlight .il {
     font-size: 16px;
     font-weight: 400;
     line-height: 1;
-    background: #404040;
+    background: rgba(0, 0, 0, 0.87);
     display: inline-block;
     padding: 5px 7px;
     right: 127px;
@@ -2619,7 +2629,7 @@ a:hover {
   text-decoration: none;
 }
 .cta--primary:hover {
-  color: #404040;
+  color: rgba(0, 0, 0, 0.87);
 }
 .cta--primary::before {
   display: inline-block;
@@ -2638,7 +2648,7 @@ a:hover {
   line-height: 1;
 }
 .cta--secondary:hover {
-  color: #404040;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /**
@@ -2862,7 +2872,7 @@ object {
 *
 **/
 .subsection-title {
-  color: #404040;
+  color: rgba(0, 0, 0, 0.87);
   margin-top: 52px;
 }
 
@@ -3013,7 +3023,7 @@ object {
 .icon-circle--large {
   height: 0;
   width: 0;
-  background: #737373;
+  background: rgba(0, 0, 0, 0.54);
   display: block;
   position: relative;
   border-radius: 100%;
@@ -3085,7 +3095,7 @@ object {
 .icon-circle--nav {
   height: 0;
   width: 0;
-  background: #737373;
+  background: rgba(0, 0, 0, 0.54);
   display: block;
   position: relative;
   border-radius: 100%;
@@ -3272,7 +3282,7 @@ object {
 }
 
 .demo [class*="g-"] {
-  background-color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0.26);
   position: relative;
   margin-bottom: 26px;
   min-height: 156px;
@@ -3366,11 +3376,11 @@ object {
 }
 
 .color--gray {
-  color: #737373;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .color--gray-dark {
-  color: #404040;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .color--text {
@@ -3486,7 +3496,7 @@ object {
   text-decoration: none;
 }
 .tag:hover {
-  color: #404040;
+  color: rgba(0, 0, 0, 0.87);
 }
 .tag::before {
   content: "# ";
