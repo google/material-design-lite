@@ -96,8 +96,10 @@ gulp.task('styles', function () {
 
 // Scan Your HTML For Assets & Optimize Them
 gulp.task('html', function () {
+  var assets = $.useref.assets({searchPath: '{.tmp,app}'});
+
   return gulp.src('app/**/*.html')
-    .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
+    .pipe(assets)
     // Concatenate And Minify JavaScript
     .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Remove Any Unused CSS
@@ -116,7 +118,7 @@ gulp.task('html', function () {
     })))
     // Concatenate And Minify Styles
     .pipe($.if('*.css', $.csso()))
-    .pipe($.useref.restore())
+    .pipe(assets.restore())
     .pipe($.useref())
     // Update Production Style Guide Paths
     .pipe($.replace('components/components.css', 'components/main.min.css'))
