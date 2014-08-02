@@ -37,6 +37,7 @@
     body.classList.toggle('open');
     appbarElement.classList.toggle('open');
     navdrawerContainer.classList.toggle('open');
+    navdrawerContainer.classList.add('opened');
   }
 
   main.addEventListener('click', closeMenu);
