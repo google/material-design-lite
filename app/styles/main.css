@@ -276,7 +276,7 @@ main {
     position: relative;
     width: 100%;
     height: auto;
-    margin-top: 130px;
+    margin-top: 0;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
     -webkit-transition: none;
@@ -311,11 +311,6 @@ main {
 
   body {
     overflow-y: scroll;
-  }
-
-  .navdrawer-container {
-    position: relative;
-    margin-top: 0;
   }
 }
 
