@@ -101,8 +101,8 @@ body.open {
 }
 
 .app-bar button img {
-  width: 60px;
-  height: 60px;
+  height: 24px;
+  width: 24px;
 }
 
 .app-bar button:hover {
@@ -116,11 +116,6 @@ body.open {
 
 .app-bar button:active {
   background-color: rgba(255, 255, 255, 0.4);
-}
-
-button.menu img {
-  height: 24px;
-  width: 24px;
 }
 
 .promote-layer {
