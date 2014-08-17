@@ -85,7 +85,7 @@ In terms of CSS, opting to just use the minimal layout (main.css, h5bp.css) weig
 
 At present, we officially aim to support the following browsers:
 
-* IE10, IE11, IE Mobile 10
+* IE9, IE10, IE11, IE Mobile 10
 * FF 30, 31
 * Chrome 34, 35
 * Safari 7, 8
