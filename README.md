@@ -113,6 +113,11 @@ If you find yourself running into issues during installation or running the tool
 
 If you would prefer not to use any of our tooling, delete the following files from the project: `package.json`, `gulpfile.js`, `.jshintrc` and `.travis.yml`. You can now safely use the boilerplate with an alternative build-system or no build-system at all if you choose.
 
+## Extras
+
+Optional additions, such as web server configurations, can be found at [WSK Extras
+repository](https://github.com/google/web-starter-kit-extras).
+
 ## Inspiration
 
 Web Starter Kit is inspired by [Mobile HTML5 Boilerplate](http://html5boilerplate.com/mobile/) and Yeoman's [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp), having taken input from contributors to both projects during development. Our [FAQs](https://github.com/google/web-starter-kit/wiki/FAQ) attempt to answer commonly asked questions about the project.
