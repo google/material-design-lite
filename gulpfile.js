@@ -87,13 +87,13 @@ gulp.task('styles', function () {
       'app/styles/**/*.css',
       'app/styles/components/components.scss'
     ])
-    .pipe($.changed('.tmp/styles', {extension: '.css'}))
-    .pipe($.if('*.scss', $.rubySass({
-      style: 'expanded',
-      precision: 10
-    })
-    .on('error', console.error.bind(console))
-    ))
+    .pipe($.changed('styles', {extension: '.scss'}))
+    .pipe($.rubySass({
+        style: 'expanded',
+        precision: 10
+      })
+      .on('error', console.error.bind(console))
+    )
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(gulp.dest('dist/styles'))
@@ -111,7 +111,7 @@ gulp.task('html', function () {
     // Remove Any Unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
-    /**.pipe($.if('*.css', $.uncss({
+    .pipe($.if('*.css', $.uncss({
       html: [
         'app/index.html',
         'app/styleguide.html'
@@ -121,7 +121,7 @@ gulp.task('html', function () {
         /.navdrawer-container.open/,
         /.app-bar.open/
       ]
-    })))**/
+    })))
     // Concatenate And Minify Styles
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
