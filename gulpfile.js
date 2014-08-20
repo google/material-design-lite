@@ -96,12 +96,13 @@ gulp.task('styles', function () {
     ))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('dist/styles'))
     .pipe($.size({title: 'styles'}));
 });
 
 // Scan Your HTML For Assets & Optimize Them
 gulp.task('html', function () {
-  var assets = $.useref.assets({searchPath: '{.tmp,app}'});
+  var assets = $.useref.assets({searchPath: '{.tmp,app}'}).on('error', function(err) {console.log('Ooop Error: ', err);});
 
   return gulp.src('app/**/*.html')
     .pipe(assets)
@@ -110,7 +111,7 @@ gulp.task('html', function () {
     // Remove Any Unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
-    .pipe($.if('*.css', $.uncss({
+    /**.pipe($.if('*.css', $.uncss({
       html: [
         'app/index.html',
         'app/styleguide.html'
@@ -120,7 +121,7 @@ gulp.task('html', function () {
         /.navdrawer-container.open/,
         /.app-bar.open/
       ]
-    })))
+    })))**/
     // Concatenate And Minify Styles
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
