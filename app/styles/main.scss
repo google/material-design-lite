@@ -5,7 +5,13 @@
  * Web Starter Kit team.
  *
  */
+@import "_h5bp";
 
+/*
+ * Visual Style Guide styles
+ * Remove if you prefer to use a CSS library, like Bootstrap
+ */
+@import "components/components";
 
 html,
 body {
@@ -161,7 +167,7 @@ body.open {
 
 .navdrawer-container h4,
 .navdrawer-container ul li a {
-  height: auto;
+  height: 60px;
   padding: 17px 20px;
   line-height: 1.4;
 }

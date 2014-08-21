@@ -87,15 +87,16 @@ gulp.task('styles', function () {
       'app/styles/**/*.css',
       'app/styles/components/components.scss'
     ])
-    .pipe($.changed('.tmp/styles', {extension: '.css'}))
-    .pipe($.if('*.scss', $.rubySass({
-      style: 'expanded',
-      precision: 10
-    })
-    .on('error', console.error.bind(console))
-    ))
+    .pipe($.changed('styles', {extension: '.scss'}))
+    .pipe($.rubySass({
+        style: 'expanded',
+        precision: 10
+      })
+      .on('error', console.error.bind(console))
+    )
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('dist/styles'))
     .pipe($.size({title: 'styles'}));
 });
 
@@ -113,7 +114,7 @@ gulp.task('html', function () {
     .pipe($.if('*.css', $.uncss({
       html: [
         'app/index.html',
-        'app/styleguide/index.html'
+        'app/styleguide.html'
       ],
       // CSS Selectors for UnCSS to ignore
       ignore: [
