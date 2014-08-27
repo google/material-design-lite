@@ -13,7 +13,7 @@
 There are two HTML starting points, from which you can choose:
 
 - `index.html` - the default starting point, containing layout and a slide-out menu
-- `basic.html` - includes no layout
+- `basic.html` - includes no layout (IE8 compatible, live-reload will also work fine)
 
 Be sure to look over the [installation docs](docs/install.md) to verify your environment is prepared to run WSK.
 Once you have verified that your system can run WSK, check out the [commands](docs/commands.md) available to get started.
