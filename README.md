@@ -8,14 +8,15 @@
 
 ## Quickstart
 
-[Download](https://github.com/google/web-starter-kit/releases/latest) the kit or clone this repository and build on what we include in the `app` directory.
+[Download](https://github.com/google/web-starter-kit/releases/latest) the kit or clone this repository and build on what is included in the `app` directory.
 
-We provide 2 HTML starting points, from which you can choose:
+There are two HTML starting points, from which you can choose:
 
 - `index.html` - the default starting point, containing layout and a slide-out menu
 - `basic.html` - includes no layout
 
-Be sure to look over the [Installation Docs](docs/install.md) to verify your environment is prepared to run WSK.
+Be sure to look over the [installation docs](docs/install.md) to verify your environment is prepared to run WSK.
+Once you have verified that your system can run WSK, check out the [commands](docs/commands.md) available to get started.
 
 ## Web Performance
 
