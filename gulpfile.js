@@ -96,6 +96,8 @@ gulp.task('styles', function () {
     )
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
+    // Concatenate And Minify Styles
+    .pipe($.if('*.css', $.csso()))
     .pipe(gulp.dest('dist/styles'))
     .pipe($.size({title: 'styles'}));
 });
@@ -123,6 +125,7 @@ gulp.task('html', function () {
       ]
     })))
     // Concatenate And Minify Styles
+    // In case you are still using useref build blocks
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
