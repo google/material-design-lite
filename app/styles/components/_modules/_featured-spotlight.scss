@@ -8,8 +8,8 @@
   background: $colorGrayDark;
   color: #ffffff;
   overflow: hidden;
-  padding-bottom: $lineHeight*3 - 1;
-  margin-top: $lineHeight*2;
+  padding-bottom: $lineHeight * 3 - 1;
+  margin-top: $lineHeight * 2;
 
   p {
     padding-bottom: $lineHeight;
@@ -51,11 +51,11 @@
     @include medium {
       width: auto;
       max-width: none;
-      left: 100% + $mediumGutterWidth*2;
+      left: 100% + $mediumGutterWidth * 2;
     }
 
     @include wide {
-      left: 100% + $wideGutterWidth*2;
+      left: 100% + $wideGutterWidth * 2;
     }
   }
 }

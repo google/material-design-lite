@@ -9,7 +9,7 @@
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     border-left: 2px solid $colorGrayKeyline;
     height: 100%;
     position: absolute;

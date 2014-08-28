@@ -5,13 +5,13 @@
  * Web Starter Kit team.
  *
  */
-@import "_h5bp";
+@import '_h5bp';
 
 /*
  * Visual Style Guide styles
  * Remove if you prefer to use a CSS library, like Bootstrap
  */
-@import "components/components";
+@import 'components/components';
 
 html,
 body {
@@ -23,9 +23,9 @@ body {
 
 body {
   position: relative;
-  font-family: 'Roboto Condensed', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
   font-weight: 300;
-  background-color: #FFFFFF;
+  background-color: #fff;
   box-sizing: border-box;
   min-height: 100%;
 }
@@ -139,7 +139,10 @@ body.open {
   backface-visibility: hidden;
 }
 
-.base, p, ul, ol {
+.base,
+p,
+ul,
+ol {
   font-size: 19px;
 }
 
@@ -162,7 +165,9 @@ body.open {
           transform: translate(0, 0);
 }
 
-.app-bar, .navdrawer-container.opened, main {
+.app-bar,
+.navdrawer-container.opened,
+main {
   -webkit-transition: -webkit-transform 0.3s ease-out;
           transition: transform 0.3s ease-out;
 }

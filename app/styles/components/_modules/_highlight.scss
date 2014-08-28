@@ -6,13 +6,13 @@
 
 .highlight-module {
   overflow: hidden;
-  margin-top: $lineHeight*2;
+  margin-top: $lineHeight * 2;
   margin-bottom: $lineHeight;
   position: relative;
 
   &::after {
     background: $colorGrayBackground;
-    content: "";
+    content: '';
     height: 100%;
     position: absolute;
     top: 0;
@@ -31,16 +31,16 @@
 
 .highlight-module__container {
   @include container;
-  padding-bottom: $lineHeight*3;
+  padding-bottom: $lineHeight * 3;
   z-index: 1;
   @include highlight-symbol();
 
   @include medium {
-    padding-bottom: $lineHeight*2;
+    padding-bottom: $lineHeight * 2;
   }
 
   @include wide {
-    min-height: $lineHeight*8;
+    min-height: $lineHeight * 8;
   }
 }
 
@@ -91,7 +91,7 @@
 /*==========  CODE  ==========*/
 .highlight-module--code {
   overflow: visible;
-  margin-bottom: $lineHeight*2;
+  margin-bottom: $lineHeight * 2;
 
   pre {
     margin: 0;

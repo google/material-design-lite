@@ -57,8 +57,8 @@
 
   // Defining font family
   $fontDefault: Helvetica, Arial, sans-serif !default;
-  $fontHighlight: "Roboto Condensed", Helvetica, sans-serif !default;
-  $fontIcon: "icons" !default;
+  $fontHighlight: 'Roboto Condensed', Helvetica, sans-serif !default;
+  $fontIcon: 'icons' !default;
 
   // Defining font sizes
   $fontSmall: 13px !default;
@@ -90,23 +90,23 @@
 
   @mixin media-query($media-query) {
     @if $media-query == small {
-      @media only screen and (max-width:$medium - 1) { @content; }
+      @media only screen and (max-width: $medium - 1) { @content; }
     }
 
     @if $media-query == medium {
-      @media only screen and (min-width:$medium) { @content; }
+      @media only screen and (min-width: $medium) { @content; }
     }
 
     @if $media-query == medium-only {
-      @media only screen and (min-width:$medium) and (max-width: $wide - 1) { @content; }
+      @media only screen and (min-width: $medium) and (max-width: $wide - 1) { @content; }
     }
 
     @if $media-query == wide {
-      @media only screen and (min-width:$wide) { @content; }
+      @media only screen and (min-width: $wide) { @content; }
     }
 
     @if $media-query == huge {
-      @media only screen and (min-width:$huge) { @content; }
+      @media only screen and (min-width: $huge) { @content; }
     }
   }
 
@@ -152,7 +152,7 @@
     position: relative;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -330,7 +330,7 @@
   @mixin numbered-list() {
     &::before {
       counter-increment: list;
-      content: "0" counter(list);
+      content: '0' counter(list);
       color: inherit;
       font-weight: 400;
       display: inline-block;

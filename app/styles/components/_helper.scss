@@ -8,11 +8,11 @@
 .clear {
   &::before,
   &::after {
-    content:"";
-    display:table;
+    content: '';
+    display: table;
   }
   &::after {
-    clear:both;
+    clear: both;
   }
 }
 
@@ -60,7 +60,7 @@
   margin-bottom: $lineHeight;
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     width: 40%;
@@ -116,7 +116,7 @@
   }
 
   &::before {
-    content: "# ";
+    content: '# ';
     display: inline-block;
   }
 }
