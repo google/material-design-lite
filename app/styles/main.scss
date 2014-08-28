@@ -76,6 +76,7 @@ body.open {
   float: none;
   max-width: none;
   font-weight: 300;
+  display: initial;
 }
 
 .app-bar .logo a {
@@ -101,6 +102,7 @@ body.open {
   background-color: transparent;
   border: none;
   padding: 0;
+  display: inline-block;
   -webkit-transition: background-color 0.2s ease-out;
           transition: background-color 0.2s ease-out;
   -webkit-tap-highlight-color: transparent;
