@@ -149,9 +149,7 @@ gulp.task('serve', ['styles'], function () {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: {
-      baseDir: ['.tmp', 'app']
-    }
+    server: ['.tmp', 'app']
   });
 
   gulp.watch(['app/**/*.html'], reload);
@@ -168,10 +166,7 @@ gulp.task('serve:dist', ['default'], function () {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: {
-      baseDir: 'dist'
-    }
-
+    server: 'dist'
   });
 });
 
