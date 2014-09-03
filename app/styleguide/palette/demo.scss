@@ -1,13 +1,5 @@
+@import "../styleguide_demo_bp";
 @import 'palette';
-
-.palette-group {
-
-}
-
-.palette-group div {
-  max-width: 300px;
-  height: 50px;
-}
 
 @mixin colorGroups($palette) {
   .color-50 {
@@ -67,6 +59,15 @@
       background-color: #{nth($palette, 14)};
     }
   }
+}
+
+.palette-group {
+
+}
+
+.palette-group div {
+  max-width: 300px;
+  padding: 15px;
 }
 
 .palette-group-red {

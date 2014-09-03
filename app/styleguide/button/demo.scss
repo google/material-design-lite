@@ -1,16 +1,7 @@
+@import "../styleguide_demo_bp";
 @import "_button";
 @import "../shadow/_shadow";
 
-body {
-  background: #FFF;
-  font-family: $font-family;
-}
-
 .paper-button {
   margin: 20px;
-}
-
-.preview-block {
-        background: #EEEEEE;
-        padding: 20px;
 }

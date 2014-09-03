@@ -1,30 +1,44 @@
-@import "../typography";
+@import "../typography/typography";
+
+$default-btn-bg-color: #FFFFFF;
+$default-btn-text-color: #000;
+$default-btn-outline-color: #CCC;
+$default-btn-hover-bg-color: #EAEAEA;
+
+$colored-btn-bg-color: #4A90E2;
+$colored-btn-text-color: #FFF;
+$colored-btn-hover-bg-color: #3367d6;
+
+$ripple-bg-color: #111;
+
+$disabled-btn-bg-color: #EAEAEA;
+$disabled-btn-text-color: #A8A8A8;
 
 .paper-button {
-        font-family: $font-family;
-        background: $color-accent;
-        color: #000;
-        border-radius: 2px;
-        border: none;
-        padding: 0.8em 1.6em;
-        overflow: hidden;
-        position: relative;
-        display: block;
-	outline-color: $outline-color;
+  font-family: $feature-font-family;
+  background: $default-btn-bg-color;
+  color: $default-btn-text-color;
+  border-radius: 2px;
+  border: none;
+  padding: 0.8em 1.6em;
+  overflow: hidden;
+  position: relative;
+  display: block;
+	outline-color: $default-btn-outline-color;
 	text-transform: uppercase;
 	font-size: 0.8em;
 	min-width: 124px;
 }
 
 .colored {
-  background: #4A90E2;
-  color: #FFF;
+  background: $colored-btn-bg-color;
+  color: $colored-btn-text-color;
 }
 
 .ripple {
         width: 50px;
         height: 50px;
-        background: #111;
+        background: $ripple-bg-color;
         position: absolute;
         left: 0;
         top: 0;
@@ -49,15 +63,15 @@
 }
 
 .paper-button[disabled] {
-    background-color: #EAEAEA !important;
-    color: #A8A8A8 !important;
+    background-color: $disabled-btn-bg-color !important;
+    color: $disabled-btn-text-color !important;
     cursor: auto;
 }
 
 .paper-button:hover{
-  background-color: #EAEAEA !important;
+  background-color: $default-btn-hover-bg-color !important;
 }
 
 .colored:hover{
-  background-color: #3367d6 !important;
+  background-color: $colored-btn-hover-bg-color !important;
 }

@@ -27,9 +27,38 @@
     -->
 
     <!-- Page styles -->
+    <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    
     <link rel="stylesheet" href="styleguide/styleguide.css">
   </head>
   <body>
+    <h1>Buttons</h1>
+    <iframe src="./styleguide/button/demo.html" scrolling="no"></iframe>
 
+    <h1>Palette</h1>
+    <iframe src="./styleguide/palette/demo.html" scrolling="no"></iframe>
+
+    <script>
+      sizeIframes();
+
+      function sizeIframes() {
+        var iframes = document.querySelectorAll('iframe');
+        console.log('Found '+iframes.length+' iframes');
+        /**iframes.forEach(function(iframe) {
+
+        });**/
+        for(var i = 0; i < iframes.length; i++) {
+          sizeIframe(iframes[i]);
+        }
+      }
+
+      function sizeIframe(iframe) {
+        iframe.onload = function(){
+          var contentHeight = iframe.contentDocument.documentElement.scrollHeight;
+          iframe.style.height = contentHeight+'px';
+          iframe.classList.add('heightSet');
+        };
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,19 @@
+@import 'typography/typography';
+
+$padding: 15px;
+
+h1 {
+  padding: $padding;
+}
+
+iframe {
+  display: block;
+
+  width: 100%;
+
+  border: none;
+}
+
+iframe.heightSet {
+  overflow: hidden;
+}
