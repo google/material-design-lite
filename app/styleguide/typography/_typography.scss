@@ -1,8 +1,161 @@
-$feature-font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
-$stock-font-family: 'Helvetica', 'Arial', sans-serif;
+//$feature-font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+//$stock-font-family: 'Helvetica', 'Arial', sans-serif;
+
+@mixin typo-display-4($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-3($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-2($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-1($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-headline($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-title($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-subhead($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-subhead-2($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-body-2($colorContrast:false) {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-body-1($colorContrast:false) {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-caption($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-menu($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-button($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
 
 html, body {
-	font-family: $feature-font-family;
+	font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 20px;
@@ -13,121 +166,92 @@ h1, h2, h3, h4, h5, h6, p {
 	padding: 0;
 }
 
+/**
+ * Styles for HTML elements
+ */
+
+h1 {
+  @include typo-display-3();
+}
+
+h2 {
+  @include typo-display-2();
+}
+
+h3 {
+  @include typo-display-1();
+}
+
+h4 {
+  @include typo-headline();
+}
+
+h5 {
+  @include typo-title();
+}
+
+h6 {
+  @include typo-subhead();
+}
+
 p {
-	margin: 0 0 16px 0;
+  @include typo-body-1();
+
+  margin: 0 0 16px 0;
 }
 
 a {
-	font-weight: bold;
+  font-weight: bold;
 }
 
-@mixin typo-display-4() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 112px;
-	font-weight: 300;
-	opacity: 0.54;
-	line-height: 1;
-	letter-spacing: -0.04em;
+/**
+ * Class Name Styles
+ */
+
+.display-4 {
+  @include typo-display-4();
 }
 
-@mixin typo-display-3() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 56px;
-	font-weight: 400;
-	opacity: 0.54;
-	line-height: 1;
-	letter-spacing: -0.02em;
+.display-3 {
+  @include typo-display-3();
 }
 
-@mixin typo-display-2() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 45px;
-	font-weight: 400;
-	opacity: 0.54;
-	line-height: 48px;
+.display-2 {
+  @include typo-display-2();
 }
 
-@mixin typo-display-1() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 34px;
-	font-weight: 400;
-	opacity: 0.54;
-	line-height: 40px;
+.display-1 {
+  @include typo-display-1();
 }
 
-@mixin typo-headline() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
-	font-weight: 400;
-	opacity: 0.87;
-	line-height: 32px;
-	-moz-osx-font-smoothing: grayscale;
+.headline {
+  @include typo-headline();
 }
 
-@mixin typo-title() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 20px;
-	font-weight: 500;
-	opacity: 0.87;
-	line-height: 1;
-	letter-spacing: 0.02em;
+.title {
+  @include typo-title();
 }
 
-@mixin typo-subhead() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	opacity: 0.87;
-	line-height: 24px;
-	letter-spacing: 0.04em;
+.subhead {
+  @include typo-subhead();
 }
 
-@mixin typo-subhead-2() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	opacity: 0.87;
-	line-height: 24px;
-	letter-spacing: 0.04em;
+.body-2 {
+  @include typo-body-2();
 }
 
-@mixin typo-subhead-2() {
-	font-family: 'Roboto', sans-serif;
-	line-height: 28px;
+.body-1 {
+  @include typo-body-1();
 }
 
-@mixin typo-body-2() {
-	font-size: 14px;
-	font-weight: 500;
-	opacity: 0.87;
-	line-height: 24px;
-	letter-spacing: 0.04em;
+.caption {
+  @include typo-caption();
 }
 
-@mixin typo-caption() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 12px;
-	font-weight: 400;
-	opacity: 0.54;
-	line-height: 1;
-	letter-spacing: 0.08em;
+.menu {
+  @include typo-menu();
 }
 
-@mixin typo-menu() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
-	font-weight: 500;
-	opacity: 0.87;
-	line-height: 1;
-	letter-spacing: 0.04em;
-}
-
-@mixin typo-button() {
-	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
-	font-weight: 500;
-	text-transform: uppercase;
-	opacity: 0.87;
-	line-height: 1;
-	letter-spacing: 0.04em;
+.button {
+  @include typo-button();
 }

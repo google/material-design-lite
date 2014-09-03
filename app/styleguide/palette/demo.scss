@@ -1,5 +1,6 @@
 @import "../styleguide_demo_bp";
 @import 'palette';
+@import "../typography/typography";
 
 @mixin colorGroups($palette) {
   .color-50 {
@@ -136,11 +137,11 @@
 }
 
 .palette-group div {
+  @include typo-caption();
+
   max-width: 300px;
   padding: 15px;
   color: white;
-  font-weight: 300;
-  font-size: 14px;
 }
 
 .palette-group div.dark-text, .heading.dark-text div.palette-name {

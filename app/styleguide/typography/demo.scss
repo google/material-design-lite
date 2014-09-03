@@ -1,0 +1,9 @@
+@import "../styleguide_demo_bp";
+@import 'typography';
+
+table th {
+  padding-right: 80px;
+
+  @include typo-body-1();
+  text-align: left;
+}

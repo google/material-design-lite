@@ -15,7 +15,8 @@ $disabled-btn-bg-color: #EAEAEA;
 $disabled-btn-text-color: #A8A8A8;
 
 .paper-button {
-  font-family: $feature-font-family;
+  @include typo-button();
+
   background: $default-btn-bg-color;
   color: $default-btn-text-color;
   border-radius: 2px;
@@ -25,8 +26,6 @@ $disabled-btn-text-color: #A8A8A8;
   position: relative;
   display: block;
 	outline-color: $default-btn-outline-color;
-	text-transform: uppercase;
-	font-size: 0.8em;
 	min-width: 124px;
 }
 
