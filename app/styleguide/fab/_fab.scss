@@ -1,0 +1,32 @@
+
+$fabBackgroundColor: #ff4081;
+$fabWidth: 56px;
+$fabHeight: 56px;
+$fabFontSize: 24px;
+
+.paper-fab {
+  border          : none;
+  border-radius   : 50%;
+  color           : black;
+  font-size       : $fabFontSize;
+  height          : $fabHeight;
+  margin          : auto;
+  min-width       : $fabWidth;
+  width           : $fabWidth;
+  padding         : 0;
+  overflow: hidden;
+}
+
+.paper-fab.colored {
+  background-color: $fabBackgroundColor;
+  color: white;
+}
+
+.paper-fab.colored:hover {
+  background-color: purple;
+}
+
+.paper-fab.small {
+  height: 40px;
+  width : 40px;
+}

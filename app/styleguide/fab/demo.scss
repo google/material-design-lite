@@ -1,0 +1,13 @@
+@import "../button/_button";
+@import "../shadow/_shadow";
+@import "_fab";
+body {
+  background : #fff;
+}
+.paper-button {
+  margin: 20px;
+}
+.preview-block {
+  background: #eee;
+  padding   : 20px;
+}
