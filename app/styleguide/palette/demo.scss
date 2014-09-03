@@ -1,0 +1,52 @@
+@import 'palette';
+
+.palette-group {
+
+}
+
+.palette-group div {
+  max-width: 300px;
+  height: 50px;
+}
+
+.palette-group-red {
+  .color-50 {
+    background-color: colorPalette--selector($paletteRed, 50);
+  }
+
+  .color-100 {
+    background-color: colorPalette--selector($paletteRed, 100);
+  }
+
+  .color-200 {
+    background-color: colorPalette--selector($paletteRed, 200);
+  }
+
+  .color-300 {
+    background-color: colorPalette--selector($paletteRed, 300);
+  }
+
+  .color-400 {
+    background-color: colorPalette--selector($paletteRed, 400);
+  }
+
+  .color-500 {
+    background-color: colorPalette--selector($paletteRed, 500);
+  }
+
+  .color-600 {
+    background-color: colorPalette--selector($paletteRed, 600);
+  }
+
+  .color-700 {
+    background-color: colorPalette--selector($paletteRed, 700);
+  }
+
+  .color-800 {
+    background-color: colorPalette--selector($paletteRed, 800);
+  }
+
+  .color-900 {
+    background-color: colorPalette--selector($paletteRed, 900);
+  }
+}
