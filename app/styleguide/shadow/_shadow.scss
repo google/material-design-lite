@@ -1,44 +1,32 @@
+@import '../typography/typography';
+
 @mixin shadow-z1() {
-        box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12),
-                                                        0px 1px 1px 0px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
 }
-
 @mixin shadow-z2() {
-        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),
-                                                        0px 2px 5px 0px rgba(0,0,0,0.23);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 5px 0 rgba(0,0,0,0.23);
 }
-
 @mixin shadow-z3() {
-        box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.19),
-                                                        0px 6px 3px 0px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.19), 0 6px 3px 0 rgba(0,0,0,0.23);
 }
-
 @mixin shadow-z4() {
-        box-shadow: 0px 14px 14px 0px rgba(0,0,0,0.25),
-                                                        0px 10px 5px 0px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 14px 0 rgba(0,0,0,0.25), 0 10px 5px 0 rgba(0,0,0,0.22);
 }
-
 @mixin shadow-z5() {
-        box-shadow: 0px 19px 19px 0px rgba(0,0,0,0.30),
-                                                        0px 15px 6px 0px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 19px 0 rgba(0,0,0,0.30), 0 15px 6px 0 rgba(0,0,0,0.22);
 }
-
 .shadow-z1 {
-        @include shadow-z1();
+  @include shadow-z1();
 }
-
 .shadow-z2 {
-        @include shadow-z2();
+  @include shadow-z2();
 }
-
 .shadow-z3 {
-        @include shadow-z3();
+  @include shadow-z3();
 }
-
 .shadow-z4 {
-        @include shadow-z4();
+  @include shadow-z4();
 }
-
 .shadow-z5 {
-        @include shadow-z5();
+  @include shadow-z5();
 }

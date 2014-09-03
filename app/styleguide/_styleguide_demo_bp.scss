@@ -1,0 +1,23 @@
+@import "resets/h5bp";
+@import "typography";
+
+$padding: 16px;
+
+html, body {
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: $padding;
+  box-sizing: border-box;
+  background: #FFF;
+}
+
+.preview-block {
+  background: #EEEEEE;
+  padding: 20px;
+}

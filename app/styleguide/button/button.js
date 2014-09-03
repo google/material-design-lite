@@ -12,7 +12,7 @@
       ripple = button.querySelector('.ripple');
       size = Math.max(bound.width, bound.height) * 2;
 
-      if(ripple !== null) {
+      if (ripple !== null) {
         ripple.style.width = size + 'px';
         ripple.style.height = size + 'px';
       }
@@ -36,7 +36,7 @@
 
       ripple = evt.currentTarget.querySelector('.ripple');
 
-      if(ripple !== null) {
+      if (ripple !== null) {
         ripple.style.webkitTransform = transformString;
         ripple.style.transform = transformString;
         ripple.style.opacity = '0.4';
@@ -55,10 +55,12 @@
           'translate(' + x + 'px, ' + y + 'px)' +
           'scale(1, 1)';
 
-        ripple.style.webkitTransform = transformString;
-        ripple.style.transform = transformString;
-        ripple.style.opacity = '0';
-        ripple.classList.add('animate');
+        if (ripple !== null) {
+          ripple.style.webkitTransform = transformString;
+          ripple.style.transform = transformString;
+          ripple.style.opacity = '0';
+          ripple.classList.add('animate');
+        }
       }
     }
   });
