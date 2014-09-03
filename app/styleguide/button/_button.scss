@@ -1,55 +1,46 @@
 @import "../typography/typography";
 
-$default-btn-bg-color: #FFFFFF;
+$default-btn-bg-color: #fff;
 $default-btn-text-color: #000;
-$default-btn-outline-color: #CCC;
-$default-btn-hover-bg-color: #EAEAEA;
-
-$colored-btn-bg-color: #4A90E2;
-$colored-btn-text-color: #FFF;
+$default-btn-outline-color: #ccc;
+$default-btn-hover-bg-color: #eaeaea;
+$colored-btn-bg-color: #4a90e2;
+$colored-btn-text-color: #fff;
 $colored-btn-hover-bg-color: #3367d6;
-
 $ripple-bg-color: #111;
-
-$disabled-btn-bg-color: #EAEAEA;
-$disabled-btn-text-color: #A8A8A8;
+$disabled-btn-bg-color: #eaeaea;
+$disabled-btn-text-color: #a8a8a8;
 
 .paper-button {
-  @include typo-button();
-
-  background: $default-btn-bg-color;
-  color: $default-btn-text-color;
+  background   : $default-btn-bg-color;
+  border       : none;
   border-radius: 2px;
-  border: none;
-  padding: 0.8em 1.6em;
-  overflow: hidden;
-  position: relative;
-  display: block;
-	outline-color: $default-btn-outline-color;
-	min-width: 124px;
+  color        : $default-btn-text-color;
+  display      : block;
+  min-width    : 124px;
+  outline-color: $default-btn-outline-color;
+  padding      : 0.8em 1.6em;
+  position     : relative;
+  @include typo-button();
+  overflow     : hidden;
 }
-
 .colored {
   background: $colored-btn-bg-color;
-  color: $colored-btn-text-color;
+  color     : $colored-btn-text-color;
 }
-
 .ripple {
-        width: 50px;
-        height: 50px;
-        background: $ripple-bg-color;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-        border-radius: 50%;
-        pointer-events: none;
-
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-
+  -webkit-transform: translate(-50%, -50%);
+  background       : $ripple-bg-color;
+  border-radius    : 50%;
+  height           : 50px;
+  left             : 0;
+  opacity          : 0;
+  pointer-events   : none;
+  position         : absolute;
+  top              : 0;
+  transform        : translate(-50%, -50%);
+  width            : 50px;
 }
-
 .ripple.animate {
   -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
   transition        : transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
@@ -58,15 +49,13 @@ $disabled-btn-text-color: #A8A8A8;
   background: #fff;
 }
 .paper-button[disabled] {
-    background-color: $disabled-btn-bg-color !important;
-    color: $disabled-btn-text-color !important;
-    cursor: auto;
+  background-color: $disabled-btn-bg-color !important;
+  color           : $disabled-btn-text-color !important;
+  cursor          : auto;
 }
-
-.paper-button:hover{
+.paper-button:hover {
   background-color: $default-btn-hover-bg-color !important;
 }
-
-.colored:hover{
+.colored:hover {
   background-color: $colored-btn-hover-bg-color !important;
 }
