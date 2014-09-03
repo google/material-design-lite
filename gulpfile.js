@@ -83,7 +83,7 @@ gulp.task('fonts', function () {
 gulp.task('styles', function () {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-      'app/styles/**/*.scss',
+      'app/**/*.scss',
       'app/styles/**/*.css'
     ])
     .pipe($.changed('styles', {extension: '.scss'}))
@@ -94,10 +94,10 @@ gulp.task('styles', function () {
       .on('error', console.error.bind(console))
     )
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('.tmp'))
     // Concatenate And Minify Styles
     .pipe($.if('*.css', $.csso()))
-    .pipe(gulp.dest('dist/styles'))
+    .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'styles'}));
 });
 
