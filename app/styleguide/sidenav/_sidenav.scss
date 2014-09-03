@@ -1,8 +1,32 @@
 $sidenav-bg-color: white;
 $sidenav-modal-bg-color: rgba(0, 0, 0, 0.5);
+$sidenav-width: 240px;
+.sidenav-button {
+  display: block;
+
+  width: 48px;
+  height: 48px;
+
+  position: fixed;
+  top: 4px;
+  left: 4px;
+
+  background-image: url(images/hamburger.svg);
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-color: transparent;
+  border: 0;
+
+  overflow: hidden;
+  text-indent: -9999px;
+
+  z-index: 2;
+}
+
 .sidenav-nav {
   display: block;
-  width: 240px;
+  width: $sidenav-width;
   height: 100%;
 
   max-height: 100%;
@@ -13,8 +37,11 @@ $sidenav-modal-bg-color: rgba(0, 0, 0, 0.5);
 
   background-color: $sidenav-bg-color;
   border-right: 1px solid #e0e0e0;
-  
-  transform: translateX(-240px);
+
+  // With this, we get a huge paint before it runs.
+  box-sizing: border-box;
+
+  transform: translateX(-$sidenav-width);
   transform-style: preserve-3d;
   transition-delay: 0.1s;
   transition-duration:0.2s;

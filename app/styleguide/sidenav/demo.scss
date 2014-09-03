@@ -4,30 +4,3 @@
 body {
   padding: 0;
 }
-
-.sidenav-header {
-  padding: 73px 16px 0 16px;
-}
-
-.sidenav-button {
-  display: block;
-
-  width: 48px;
-  height: 48px;
-
-  position: fixed;
-  top: 4px;
-  left: 4px;
-
-  background-image: url(images/hamburger.svg);
-  background-position:center center;
-  background-repeat: no-repeat;
-  background-size: 24px 24px;
-  background-color: transparent;
-  border: 0;
-
-  overflow: hidden;
-  text-indent: -9999px;
-
-  z-index: 2;
-}
