@@ -1,63 +1,51 @@
 @import "../typography";
-
 .paper-button {
-        font-family: $font-family;
-        background: $color-accent;
-        color: #000;
-        border-radius: 2px;
-        border: none;
-        padding: 0.8em 1.6em;
-        overflow: hidden;
-        position: relative;
-        display: block;
-	outline-color: $outline-color;
-	text-transform: uppercase;
-	font-size: 0.8em;
-	min-width: 124px;
+  background    : $color-accent;
+  border        : none;
+  border-radius : 2px;
+  color         : #000;
+  display       : block;
+  font-family   : $font-family;
+  font-size     : 0.8em;
+  min-width     : 124px;
+  outline-color : $outline-color;
+  overflow      : hidden;
+  padding       : 0.8em 1.6em;
+  position      : relative;
+  text-transform: uppercase;
 }
-
 .colored {
-  background: #4A90E2;
-  color: #FFF;
+  background: #4a90e2;
+  color     : #fff;
 }
-
 .ripple {
-        width: 50px;
-        height: 50px;
-        background: #111;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-        border-radius: 50%;
-        pointer-events: none;
-
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-
+  -webkit-transform: translate(-50%, -50%);
+  background       : #111;
+  border-radius    : 50%;
+  height           : 50px;
+  left             : 0;
+  opacity          : 0;
+  pointer-events   : none;
+  position         : absolute;
+  top              : 0;
+  transform        : translate(-50%, -50%);
+  width            : 50px;
 }
-
 .ripple.animate {
-        -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1),
-                        opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
-        transition: transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1),
-                        opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
+  transition        : transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-
 .paper-button.colored.ripple {
-        background: #FFF;
+  background: #fff;
 }
-
 .paper-button[disabled] {
-    background-color: #EAEAEA !important;
-    color: #A8A8A8 !important;
-    cursor: auto;
+  background-color: #eaeaea !important;
+  color           : #a8a8a8 !important;
+  cursor          : auto;
 }
-
-.paper-button:hover{
-  background-color: #EAEAEA !important;
+.paper-button:hover {
+  background-color: #eaeaea !important;
 }
-
-.colored:hover{
+.colored:hover {
   background-color: #3367d6 !important;
 }
