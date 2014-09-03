@@ -9,44 +9,134 @@
   height: 50px;
 }
 
-.palette-group-red {
+@mixin colorGroups($palette) {
   .color-50 {
-    background-color: colorPalette--selector($paletteRed, 50);
+    background-color: #{nth($palette, 1)};
   }
 
   .color-100 {
-    background-color: colorPalette--selector($paletteRed, 100);
+    background-color: #{nth($palette, 2)};
   }
 
   .color-200 {
-    background-color: colorPalette--selector($paletteRed, 200);
+    background-color: #{nth($palette, 3)};
   }
 
   .color-300 {
-    background-color: colorPalette--selector($paletteRed, 300);
+    background-color: #{nth($palette, 4)};
   }
 
   .color-400 {
-    background-color: colorPalette--selector($paletteRed, 400);
+    background-color: #{nth($palette, 5)};
   }
 
   .color-500 {
-    background-color: colorPalette--selector($paletteRed, 500);
+    background-color: #{nth($palette, 6)};
   }
 
   .color-600 {
-    background-color: colorPalette--selector($paletteRed, 600);
+    background-color: #{nth($palette, 7)};
   }
 
   .color-700 {
-    background-color: colorPalette--selector($paletteRed, 700);
+    background-color: #{nth($palette, 8)};
   }
 
   .color-800 {
-    background-color: colorPalette--selector($paletteRed, 800);
+    background-color: #{nth($palette, 9)};
   }
 
   .color-900 {
-    background-color: colorPalette--selector($paletteRed, 900);
+    background-color: #{nth($palette, 10)};
   }
+
+  @if length($palette) > 10 {
+    .color-A100 {
+      background-color: #{nth($palette, 11)};
+    }
+
+    .color-A200 {
+      background-color: #{nth($palette, 12)};
+    }
+
+    .color-A400 {
+      background-color: #{nth($palette, 13)};
+    }
+
+    .color-A700 {
+      background-color: #{nth($palette, 14)};
+    }
+  }
+}
+
+.palette-group-red {
+  @include colorGroups($paletteRed);
+}
+
+.palette-group-pink {
+  @include colorGroups($palettePink);
+}
+
+.palette-group-purple {
+  @include colorGroups($palettePurple);
+}
+
+.palette-group-deepPurple {
+  @include colorGroups($paletteDeepPurple);
+}
+
+.palette-group-indigo {
+  @include colorGroups($paletteIndigo);
+}
+
+.palette-group-blue {
+  @include colorGroups($paletteBlue);
+}
+
+.palette-group-lightBlue {
+  @include colorGroups($paletteLightBlue);
+}
+
+.palette-group-cyan {
+  @include colorGroups($paletteCyan);
+}
+
+.palette-group-teal {
+  @include colorGroups($paletteTeal);
+}
+
+.palette-group-green {
+  @include colorGroups($paletteGreen);
+}
+
+.palette-group-lightGreen {
+  @include colorGroups($paletteLightGreen);
+}
+
+.palette-group-lime {
+  @include colorGroups($paletteLime);
+}
+
+.palette-group-yellow {
+  @include colorGroups($paletteYellow);
+}
+
+.palette-group-amber {
+  @include colorGroups($paletteAmber);
+}
+
+.palette-group-orange {
+  @include colorGroups($paletteOrange);
+}
+
+.palette-group-deepOrange {
+  @include colorGroups($paletteDeepOrange);
+}
+
+.palette-group-brown {
+  @include colorGroups($paletteBrown);
+}
+
+.palette-group-blueGrey {
+  @include colorGroups($paletteBlueGrey);
 }
