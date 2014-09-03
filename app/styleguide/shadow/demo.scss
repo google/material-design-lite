@@ -1,14 +1,3 @@
+@import "../styleguide_demo_bp";
 @import "_shadow";
 @import '_card';
-
-body {
-  background : #fff;
-  font-family: $font-family;
-}
-.paper-button {
-  margin: 20px;
-}
-.preview-block {
-  background: #eee;
-  padding   : 20px;
-}
