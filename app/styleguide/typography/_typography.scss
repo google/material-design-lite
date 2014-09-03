@@ -212,46 +212,94 @@ a {
   @include typo-display-4();
 }
 
+.display-4.colorContrast {
+  @include typo-display-4($colorContrast:true);
+}
+
 .display-3 {
   @include typo-display-3();
+}
+
+.display-3.colorContrast {
+  @include typo-display-3($colorContrast:true);
 }
 
 .display-2 {
   @include typo-display-2();
 }
 
+.display-2.colorContrast {
+  @include typo-display-2($colorContrast:true);
+}
+
 .display-1 {
   @include typo-display-1();
+}
+
+.display-1.colorContrast {
+  @include typo-display-1($colorContrast:true);
 }
 
 .headline {
   @include typo-headline();
 }
 
+.headline.colorContrast {
+  @include typo-headline($colorContrast:true);
+}
+
 .title {
   @include typo-title();
+}
+
+.title.colorContrast {
+  @include typo-title($colorContrast:true);
 }
 
 .subhead {
   @include typo-subhead();
 }
 
+.subhead.colorContrast {
+  @include typo-subhead($colorContrast:true);
+}
+
 .body-2 {
   @include typo-body-2();
+}
+
+.body-2.colorContrast {
+  @include typo-body-2($colorContrast:true);
 }
 
 .body-1 {
   @include typo-body-1();
 }
 
+.body-1.colorContrast {
+  @include typo-body-1($colorContrast:true);
+}
+
 .caption {
   @include typo-caption();
+}
+
+.caption.colorContrast {
+  @include typo-caption($colorContrast:true);
 }
 
 .menu {
   @include typo-menu();
 }
 
+.menu.colorContrast {
+  @include typo-menu($colorContrast:true);
+}
+
 .button {
   @include typo-button();
+}
+
+.button.colorContrast {
+  @include typo-button($colorContrast:true);
 }
