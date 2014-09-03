@@ -1,6 +1,14 @@
 @import "../styleguide_demo_bp";
 @import 'sidenav';
 
+body {
+  padding: 0;
+}
+
+.sidenav-header {
+  padding: 73px 16px 0 16px;
+}
+
 .sidenav-button {
   display: block;
 
@@ -8,6 +16,8 @@
   height: 48px;
 
   position: fixed;
+  top: 4px;
+  left: 4px;
 
   background-image: url(images/hamburger.svg);
   background-position:center center;
