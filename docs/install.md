@@ -1,10 +1,11 @@
 # Installation
 
 To take advantage of Web Starter Kit you need to:
+
 1. Install the dependencies if you don't already have them.
-1. Get a copy of the code.
-1. Modify the application to your liking.
-1. Deploy your production code.
+2. Get a copy of the code.
+3. Modify the application to your liking.
+4. Deploy your production code.
 
 ## Dependencies
 
