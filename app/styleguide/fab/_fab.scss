@@ -1,13 +1,16 @@
+@import "../palette/palette";
 
-$fabBackgroundColor: #ff4081;
+$fabBackgroundColor: nth($accentPalette, 12);
+$fabHoverBackgroundColor: nth($accentPalette, 14);
+$fabIconColor: black;
+$fabColoredIconColor: white;
 $fabWidth: 56px;
 $fabHeight: 56px;
 $fabFontSize: 24px;
 
 .paper-fab {
-  border          : none;
   border-radius   : 50%;
-  color           : black;
+  color           : $fabIconColor;
   font-size       : $fabFontSize;
   height          : $fabHeight;
   margin          : auto;
@@ -19,11 +22,11 @@ $fabFontSize: 24px;
 
 .paper-fab.colored {
   background-color: $fabBackgroundColor;
-  color: white;
+  color: $fabColoredIconColor;
 }
 
 .paper-fab.colored:hover {
-  background-color: purple;
+  background-color: $fabHoverBackgroundColor !important;
 }
 
 .paper-fab.small {
