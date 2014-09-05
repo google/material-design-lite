@@ -2,7 +2,7 @@
 @import "typography/typography";
 @import "palette/palette";
 
-$padding: 16px;
+$padding: 24px;
 
 html, body {
   width: 100%;
@@ -16,6 +16,12 @@ body {
   padding: $padding;
   box-sizing: border-box;
   background: #FFF;
+}
+
+// We define h2 under body, so it doesn't bleed into typography styles
+body > h2 {
+  margin-top: $padding ;
+  margin-bottom: $padding / 2;
 }
 
 .preview-block {

@@ -1,9 +1,19 @@
 @import 'typography/typography';
 
-$padding: 15px;
+$padding: 24px;
 
 h1 {
-  padding: $padding;
+  margin: ($padding * 2) $padding 0 $padding;
+}
+
+h1:after {
+  content: '';
+
+  display: block;
+  width: 100%;
+
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  margin-top: $padding;
 }
 
 iframe {
@@ -16,4 +26,10 @@ iframe {
 
 iframe.heightSet {
   overflow: hidden;
+}
+
+.demo-wrapper {
+  margin: $padding;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,0.5);
 }
