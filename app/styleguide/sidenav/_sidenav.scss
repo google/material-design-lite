@@ -24,7 +24,7 @@ $sidenav-width: 240px;
   z-index: 2;
 }
 
-.sidenav-nav {
+.sidenav-container {
   display: block;
   width: $sidenav-width;
   height: 100%;
@@ -51,7 +51,7 @@ $sidenav-width: 240px;
   z-index: 4;
 }
 
-.sidenav-nav.visible {
+.sidenav-container.visible {
   transform: translateX(0px);
 }
 
