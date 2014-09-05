@@ -1,15 +1,23 @@
 @import "../typography/typography";
+@import "../palette/palette";
 
+// Default Button Colors
 $default-btn-bg-color: #fff;
 $default-btn-text-color: #000;
-$default-btn-outline-color: #ccc;
-$default-btn-hover-bg-color: #eaeaea;
-$colored-btn-bg-color: #4a90e2;
+$default-btn-outline-color: nth($secondaryPalette, 5);
+$default-btn-hover-bg-color: nth($secondaryPalette, 3);
+
+// Colored Button Colors
+$colored-btn-bg-color: nth($primaryPalette, 6);
 $colored-btn-text-color: #fff;
-$colored-btn-hover-bg-color: #3367d6;
-$ripple-bg-color: #111;
-$disabled-btn-bg-color: #eaeaea;
-$disabled-btn-text-color: #a8a8a8;
+$colored-btn-hover-bg-color: nth($primaryPalette, 8);
+
+// Ripple Color
+$ripple-bg-color: nth($paletteGrey, 10);
+
+// Disabled Button Colors
+$disabled-btn-bg-color: nth($disabledPalette, 3);
+$disabled-btn-text-color: nth($disabledPalette, 5);
 
 .paper-button {
   background   : $default-btn-bg-color;

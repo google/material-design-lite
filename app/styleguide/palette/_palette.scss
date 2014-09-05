@@ -5,14 +5,6 @@
 *
 **/
 
-/* ==========  Blacks  ========== */
-
-$colorBlack: #000;
-$colorGrayDark: rgba($colorBlack, .87);
-$colorGray: rgba($colorBlack, .54);
-$colorGrayLight: rgba($colorBlack, .26);
-$colorGrayLighter: rgba($colorBlack, .12);
-
 /* ==========  Color Palettes  ========== */
 
 $paletteRed: #fde0dc #f9bdbb #f69988 #f36c60 #e84e40 #e51c23 #dd191d
@@ -72,3 +64,8 @@ $paletteGrey: #fafafa #f5f5f5 #eeeeee #e0e0e0 #bdbdbd
 
 $paletteBlueGrey: #eceff1 #cfd8dc #b0bec5 #90a4ae #78909c
                 #607d8b #546e7a #455a64 #37474f #263238;
+
+/* ==========  Used Palettes  ========== */
+$primaryPalette: $paletteBlue;
+$secondaryPalette: $paletteGrey;
+$disabledPalette: $paletteGrey;

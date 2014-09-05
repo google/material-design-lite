@@ -1,5 +1,6 @@
 @import "resets/h5bp";
-@import "typography";
+@import "typography/typography";
+@import "palette/palette";
 
 $padding: 16px;
 
@@ -18,6 +19,6 @@ body {
 }
 
 .preview-block {
-  background: #EEEEEE;
+  background: nth($paletteGrey, 2);
   padding: 20px;
 }
