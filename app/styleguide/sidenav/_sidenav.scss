@@ -1,6 +1,10 @@
+@import "../palette/palette";
+
 $sidenav-bg-color: white;
 $sidenav-modal-bg-color: rgba(0, 0, 0, 0.5);
+$sidenav-border-color: nth($paletteGrey, 4);
 $sidenav-width: 240px;
+
 .sidenav-button {
   display: block;
 
@@ -36,7 +40,7 @@ $sidenav-width: 240px;
   left: 0px;
 
   background-color: $sidenav-bg-color;
-  border-right: 1px solid #e0e0e0;
+  border-right: 1px solid $sidenav-border-color;
 
   // With this, we get a huge paint before it runs.
   box-sizing: border-box;
