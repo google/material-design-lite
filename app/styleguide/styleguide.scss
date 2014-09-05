@@ -16,6 +16,16 @@ h1:after {
   margin-top: $padding;
 }
 
+.styleguide-demo {
+  opacity: 0;
+
+  transition: opacity 0.6s 0 ease;
+}
+
+.demosLoaded .styleguide-demo {
+  opacity: 1;
+}
+
 iframe {
   display: block;
 
@@ -30,6 +40,8 @@ iframe.heightSet {
 
 .demo-wrapper {
   margin: $padding;
-  box-sizing: border-box;
-  border: 1px solid rgba(0,0,0,0.5);
+
+  iframe {
+    border: 1px solid rgba(0,0,0,0.5);
+  }
 }

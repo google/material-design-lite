@@ -32,49 +32,68 @@
     <link rel="stylesheet" href="styleguide/styleguide.css">
   </head>
   <body>
-    <h1>Typograhpy</h1>
-    <iframe src="./styleguide/typography/demo.html" scrolling="no"></iframe>
+    <div class="styleguide-demo">
+      <h1>Typograhpy</h1>
+      <iframe src="./styleguide/typography/demo.html" scrolling="no"></iframe>
+    </div>
 
-    <h1>Shadows</h1>
-    <iframe src="./styleguide/shadow/demo.html" scrolling="no"></iframe>
+    <div class="styleguide-demo">
+      <h1>Shadows</h1>
+      <iframe src="./styleguide/shadow/demo.html" scrolling="no"></iframe>
+    </div>
 
-    <h1>Palette</h1>
-    <iframe src="./styleguide/palette/demo.html" scrolling="no"></iframe>
+    <div class="styleguide-demo">
+      <h1>Palette</h1>
+      <iframe src="./styleguide/palette/demo.html" scrolling="no"></iframe>
+    </div>
 
-    <h1>Button</h1>
-    <iframe src="./styleguide/button/demo.html" scrolling="no"></iframe>
+    <div class="styleguide-demo">
+      <h1>Button</h1>
+      <iframe src="./styleguide/button/demo.html" scrolling="no"></iframe>
+    </div>
 
-    <h1>Floating Action Button</h1>
-    <iframe src="./styleguide/fab/demo.html" scrolling="no"></iframe>
+    <div class="styleguide-demo">
+      <h1>Floating Action Button</h1>
+      <iframe src="./styleguide/fab/demo.html" scrolling="no"></iframe>
+    </div>
 
-    <h1>Text Field</h1>
-    <iframe src="./styleguide/textfield/demo.html" scrolling="no"></iframe>
+    <div class="styleguide-demo">
+      <h1>Text Field</h1>
+      <iframe src="./styleguide/textfield/demo.html" scrolling="no"></iframe>
+    </div>
 
-    <h1>Side Nav</h1>
-    <div class="demo-wrapper">
-      <iframe class="sidenavDemo" src="./styleguide/sidenav/demo.html" scrolling="no"></iframe>
+    <div class="styleguide-demo">
+      <h1>Side Nav</h1>
+      <div class="demo-wrapper">
+        <iframe class="sidenavDemo" src="./styleguide/sidenav/demo.html" scrolling="no"></iframe>
+      </div>
     </div>
 
     <!-- Script to handle sizing the iFrames -->
     <script>
-      sizeIframes();
+      'use strict';
 
-      function sizeIframes() {
-        var iframes = document.querySelectorAll('iframe');
-        console.log('Found '+iframes.length+' iframes');
-        /**iframes.forEach(function(iframe) {
+      var totalDemosPendingLoading = 0;
+      sizeDemos();
 
-        });**/
-        for(var i = 0; i < iframes.length; i++) {
-          sizeIframe(iframes[i]);
+      function sizeDemos() {
+        var demos = document.querySelectorAll('.styleguide-demo');
+        totalDemosPendingLoading = demos.length;
+        for(var i = 0; i < demos.length; i++) {
+          sizeDemo(demos[i]);
         }
       }
 
-      function sizeIframe(iframe) {
+      function sizeDemo(rootDemoElement) {
+        var iframe = rootDemoElement.querySelector('iframe');
         iframe.onload = function(){
           var contentHeight = iframe.contentDocument.documentElement.scrollHeight;
           iframe.style.height = contentHeight+'px';
           iframe.classList.add('heightSet');
+          totalDemosPendingLoading--;
+          if(totalDemosPendingLoading <= 0) {
+            document.body.classList.add('demosLoaded');
+          }
         };
       }
     </script>
