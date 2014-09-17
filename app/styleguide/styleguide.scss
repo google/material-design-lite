@@ -1,6 +1,11 @@
 @import 'typography/typography';
+@import "palette/palette";
 
 $padding: 24px;
+
+body {
+  margin: 0px;
+}
 
 h1 {
   margin: ($padding * 2) $padding 0 $padding;
@@ -20,6 +25,36 @@ h1:after {
   opacity: 0;
 
   transition: opacity 0.6s 0 ease;
+}
+
+.styleguide-masthead {
+  height: 256px;
+  background: nth($primaryPalette, 10);
+  padding: 115px 16px 0;
+}
+
+.styleguide-container {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+}
+
+.styleguide-title {
+  color: #fff;
+  bottom: auto;
+  position: relative;
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  &:after {
+    border-bottom: 0px;
+  }
+
+  span {
+    font-weight: 300;
+  }
 }
 
 .demosLoaded .styleguide-demo {
@@ -45,3 +80,11 @@ iframe.heightSet {
     border: 1px solid rgba(0,0,0,0.5);
   }
 }
+
+/*
+@media (max-width: 600px) {
+    .styleguide-masthead {
+        height:300px;
+    }
+}
+*/
