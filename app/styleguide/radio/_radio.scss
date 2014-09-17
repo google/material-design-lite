@@ -1,0 +1,80 @@
+@import "../typography/typography";
+
+.paper-radio__label {
+    position: relative;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 100%;
+    margin: 12px 0;
+
+    cursor: pointer;
+}
+
+.paper-radio__button {
+    display: none;
+    visibility: hidden;
+    box-sizing: border-box;
+}
+
+.paper-radio__outer-circle {
+    position: relative;
+    top: 0.125em;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    margin-right: 10px;
+
+    cursor: pointer;
+
+    border: 2px solid #5a5a5a;
+    border-radius: 50%;
+}
+
+.paper-radio__inner-circle {
+    position: absolute;
+    z-index: 1;
+    top: 0.125em;
+    left: -0.0625em;
+
+    box-sizing: border-box;
+    width: 1.125em;
+    height: 1.125em;
+
+    transition: all 0.3s ease-in;
+    -webkit-transform: scale3d(0, 0, 0);
+            transform: scale3d(0, 0, 0);
+
+    border-radius: 50%;
+    background: #0f9d58;
+}
+
+.paper-radio__button:checked ~ .paper-radio__inner-circle {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+}
+
+.paper-radio__ripple {
+    position: absolute;
+    z-index: 2;
+    top: -0.875em;
+    left: -1em;
+
+    box-sizing: border-box;
+    width: 3em;
+    height: 3em;
+
+    transition: opacity 0.2s ease-in-out;
+
+    opacity: 0;
+    border-radius: 50%;
+    background: #0f9d58;
+}
+
+.paper-radio__ripple.is-active {
+    opacity: 0.2;
+}
