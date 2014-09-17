@@ -129,6 +129,28 @@
   }
 }
 
+@mixin typo-blockquote($colorContrast:false) {
+  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  &:before {
+    content: '“';
+    opacity: 0.54;
+  }
+
+  &:after {
+    content: '”';
+    opacity: 0.54;
+  }
+
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
 @mixin typo-menu($colorContrast:false) {
   font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -262,6 +284,10 @@ a {
 
 .subhead.colorContrast {
   @include typo-subhead($colorContrast:true);
+}
+
+blockquote {
+  @include typo-blockquote();
 }
 
 .body-2 {
