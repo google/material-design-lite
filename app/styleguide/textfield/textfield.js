@@ -11,7 +11,7 @@
     var removeClass = function(el, cl) {
       if (hasClass(el, cl)) {
         el.className = el.className
-        .replace(new RegExp('(\\s|^)' + cl + '(\\s|$)'), ' ');
+          .replace(new RegExp('(\\s|^)' + cl + '(\\s|$)'), ' ');
       }
     }
 
