@@ -247,3 +247,7 @@
 .palette-group-blueGrey {
   @include colorGroups($paletteBlueGrey);
 }
+
+.palette-block {
+  display: inline-block;
+}
