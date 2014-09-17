@@ -1,0 +1,71 @@
+@import "../typography/typography";
+
+.paper-checkbox-label {
+  cursor: pointer;
+  font-size: 12pt;
+  display: block;
+  overflow: hidden;
+  padding-top: 20px;
+  position: relative;
+  min-height:40px;
+}
+
+.paper-checkbox {
+  border: 2px solid #5a5a5a;
+  color: #1d1d1d;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 14px;
+  margin: 0 20px 20px 20px;
+  outline-color: #eaeaea;
+  padding: 0;
+  position:relative;
+  width: 14px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index:1;
+}
+
+.paper-checkbox.checked {
+  border-left: 2px solid green;
+  border-bottom: 4px solid green;
+  border-top: 1px solid rgba(0,0,0,0);
+  border-right: 1px solid rgba(0,0,0,0);
+  -webkit-transform: rotate(-45deg) scaleY(0.5);
+  -moz-transform: rotate(-45deg) scaleY(0.5);
+  -ms-transform: rotate(-45deg) scaleY(0.5);
+  -o-transform: rotate(-45deg) scaleY(0.5);
+  transform: rotate(-45deg) scaleY(0.5);
+}
+
+input[type='checkbox'].paper-checkbox {
+   display: none;
+}
+
+.wskCircle {
+  background-color:#ccdffd;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+  height: 40px;
+  left: 9px;
+  opacity: 0;
+  position: absolute;
+  top: 9px;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  width: 40px;
+  z-index:0;
+}
+
+.wskCircle.show {
+  opacity: 1;
+}
+
+.wskCircle.flipColor {
+  background-color: #d2d3d2;
+}
