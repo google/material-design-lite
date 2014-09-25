@@ -1,0 +1,72 @@
+@import "../palette/palette";
+@import "../typography/typography";
+
+/*navigation component*/
+
+$sidenav-bg-color: #fff;
+$sidenav-modal-bg-color: rgba(0, 0, 0, 0.5);
+$sidenav-border-color: nth($paletteGrey, 4);
+
+.sidenav-button {
+  display: block;
+
+  width: 48px;
+  height: 48px;
+
+  position: fixed;
+  top: 4px;
+  left: 4px;
+
+  background-image: url(images/hamburger.svg);
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-color: transparent;
+  border: 0;
+
+  overflow: hidden;
+  text-indent: -9999px;
+
+  z-index: 2;
+}
+
+.sidenav-container {
+  display: block;
+  box-sizing: border-box;
+  z-index: 4;
+  background: $sidenav-bg-color;
+}
+
+.sidenav-container.visible {
+  transform: translateX(0px);
+}
+
+.sidenav-modal-bg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  will-change: opacity;
+
+  opacity: 0.1;
+
+  background-color: $sidenav-modal-bg-color;
+  pointer-events: none;
+
+  transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
+
+  z-index: 3;
+}
+
+.sidenav-modal-bg.visible {
+  opacity: 1;
+
+  pointer-events: all;
+
+  transition-delay: 0;
+}
