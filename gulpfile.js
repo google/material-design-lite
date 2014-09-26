@@ -151,8 +151,8 @@ gulp.task('serve', ['styles'], function () {
     server: ['.tmp', 'app']
   });
 
-  gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/**/*.{scss,css}'], ['styles', reload]);
+  gulp.watch(['app/**/**/**/*.html'], reload);
+  gulp.watch(['app/**/**/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['jshint']);
   gulp.watch(['app/images/**/*'], reload);
 });
