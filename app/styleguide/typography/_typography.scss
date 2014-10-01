@@ -192,6 +192,11 @@ h1, h2, h3, h4, h5, h6, p {
  * Styles for HTML elements
  */
 
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  @include typo-display-3($colorContrast:true);
+  font-size: 0.6em;
+}
+
 h1 {
   @include typo-display-3();
 }
@@ -328,4 +333,68 @@ blockquote {
 
 .button.colorContrast {
   @include typo-button($colorContrast:true);
+}
+
+mark {
+  background-color: #f4ff81;
+}
+
+
+.text-left {
+    text-align: left
+}
+
+.text-right {
+    text-align: right
+}
+
+.text-center {
+    text-align: center
+}
+
+.text-justify {
+    text-align: justify
+}
+
+.text-nowrap {
+    white-space: nowrap
+}
+
+
+.text-lowercase {
+    text-transform: lowercase
+}
+
+.text-uppercase {
+    text-transform: uppercase
+}
+
+.text-capitalize {
+    text-transform: capitalize
+}
+
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px
+}
+
+dt {
+  font-weight: 700;
+}
+
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #f9f9f9
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #f9f9f9
 }

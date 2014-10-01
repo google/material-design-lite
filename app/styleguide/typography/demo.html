@@ -72,12 +72,35 @@
   <h2>HTML Elements</h2>
 
   <div class="preview-block">
+
+    <h3>Headings</h3>
+
     <h1>&lt;h1&gt;</h1>
     <h2>&lt;h2&gt;</h2>
     <h3>&lt;h3&gt;</h3>
     <h4>&lt;h4&gt;</h4>
     <h5>&lt;h5&gt;</h5>
     <h6>&lt;h6&gt;</h6>
+
+    <h3>Formatting</h3>
+
+    <p><u>&lt;u&gt;Underlined&lt;u&gt;</u></p>
+
+    <p><b>&lt;b&gt;Bold&lt;b&gt;</b></p>
+
+    <p><strong>&lt;strong&gt;Strong&lt;strong&gt;</strong></p>
+
+    <p><i>&lt;italic&gt;Italic&lt;italic&gt;</i></p>
+
+    <p><em>&lt;em&gt;Em&lt;em&gt;</em></p>
+
+    <p><s>&lt;s&gt;Strikethrough&lt;s&gt;</s></p>
+
+    <p><small>&lt;small&gt;Small&lt;small&gt;</small></p>
+
+    <p><mark>&lt;mark&gt;Mark&lt;mark&gt;</mark></p>
+
+    <h3>Body Text</h3>
 
     <p>&lt;p&gt;</p>
 
@@ -89,6 +112,26 @@
 
     <p class="button">&lt;p class="button"&gt;</p>
 
+    <h3>Subtitles</h3>
+
+    <h1>&lt;h1&gt; <small>Subtitle</small></h1>
+    <h2>&lt;h2&gt; <small>Subtitle</small></h2>
+    <h3>&lt;h3&gt; <small>Subtitle</small></h3>
+    <h4>&lt;h4&gt; <small>Subtitle</small></h4>
+    <h5>&lt;h5&gt; <small>Subtitle</small></h5>
+    <h6>&lt;h6&gt; <small>Subtitle</small></h6>
+
+    <h3>Description</h3>
+
+    <dl>
+      <dt>Description lists</dt>
+      <dd>A description list is perfect for defining terms.</dd>
+      <dt>Euismod</dt>
+      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+      <dt>Malesuada porta</dt>
+      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+    </dl>
   </div>
 
   <h2>Quotes</h2>
@@ -96,6 +139,137 @@
   <div class="preview-block">
     <blockquote>&lt;blockquote&gt;</blockquote>
   </div>
+
+  <h2>Alignment</h2>
+
+  <p class="text-left">Left aligned text.</p>
+  <p class="text-center">Center aligned text.</p>
+  <p class="text-right">Right aligned text.</p>
+  <p class="text-justify">Justified text.</p>
+  <p class="text-nowrap">No wrap text.</p>
+
+  <h2>Transformations</h2>
+  <p class="text-lowercase">Lowercased text.</p>
+  <p class="text-uppercase">Uppercased text.</p>
+  <p class="text-capitalize">Capitalized text.</p>
+
+  <h2>Addresses</h2>
+
+  <address>
+    <strong>Googleplex</strong><br>
+    1600 Amphitheatre Pkwy<br>
+    Mountain View, CA 94043<br>
+    <abbr title="Phone">P:</abbr> (650) 253-0000
+  </address>
+
+  <h2>Lists</h2>
+
+  <h3>Ordered</h3>
+  <ol>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+  </ol>
+  <h3>Unordered</h3>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+  </ul>
+  <h3>Inlined</h3>
+  <ul class="list-inline">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+  </ul>
+
+  <h2>Code</h2>
+
+  <h3>Multi-line code blocks</h3>
+  <p>
+    Use &lt;pre&gt; for multi-line code blocks.
+    <pre>
+&lt;p&gt;This is the first line of code&lt;/p&gt;
+&lt;p&gt;This is the second line of code&lt;/p&gt;
+  </pre>
+  </p>
+
+  <h3>Inline code blocks</h3>
+  <p>Code blocks like <code>&lt;main&gt;</code> could be displayed inline.</p>
+
+  <h2>Tables</h2>
+
+  <h3>Basic table</h3>
+
+  <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Larry</td>
+          <td>Page</td>
+          <td>+LarryPage</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sergey</td>
+          <td>Brin</td>
+          <td>+SergeyBrin</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Eric</td>
+          <td>Schmidt</td>
+          <td>+EricSchmidt</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Striped Table</h3>
+
+    <table class="table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Larry</td>
+            <td>Page</td>
+            <td>+LarryPage</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Sergey</td>
+            <td>Brin</td>
+            <td>+SergeyBrin</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Eric</td>
+            <td>Schmidt</td>
+            <td>+EricSchmidt</td>
+          </tr>
+        </tbody>
+      </table>
 
   <h2>Color Contrasts</h2>
 
