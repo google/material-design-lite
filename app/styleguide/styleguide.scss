@@ -1,5 +1,6 @@
 @import 'typography/typography';
 @import "palette/palette";
+@import "navigation/sidenav";
 
 $padding: 24px;
 
@@ -7,11 +8,11 @@ body {
   margin: 0px;
 }
 
-h1 {
+.styleguide-demo h1 {
   margin: ($padding * 2) $padding 0 $padding;
 }
 
-h1:after {
+.styleguide-demo h1:after {
   content: '';
 
   display: block;

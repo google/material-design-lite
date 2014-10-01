@@ -33,6 +33,20 @@
   </head>
   <body>
 
+    <div class="nav-button">
+      <button class="sidenav-button">Show navigation</button>
+    </div>
+
+    <div class="sidenav-container">
+      <h1 class="logo">Web <strong>Starter Kit</strong></h1>
+      <nav class="sidenav-nav">
+        <ul>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="sidenav-modal-bg"></div>
+
     <header class="styleguide-masthead">
       <div class="styleguide-container">
         <h1 class="styleguide-title">Style Guide</h1>
@@ -92,7 +106,7 @@
     <!-- Script to handle sizing the iFrames -->
     <script>
       'use strict';
-
+      var sideNavList = document.querySelector('.sidenav-nav > ul');
       var totalDemosPendingLoading = 0;
       sizeDemos();
 
@@ -100,6 +114,23 @@
         var demos = document.querySelectorAll('.styleguide-demo');
         totalDemosPendingLoading = demos.length;
         for(var i = 0; i < demos.length; i++) {
+          var demoTitle = demos[i].querySelector('h1').innerText;
+          var anchorLink = 'demo-'+i;
+
+          // Add list item
+          var navAnchor = document.createElement('a');
+          navAnchor.href = '#'+anchorLink;
+          navAnchor.appendChild(document.createTextNode(demoTitle));
+
+          var listItem = document.createElement('li');
+          listItem.appendChild(navAnchor);
+          sideNavList.appendChild(listItem);
+
+          var anchor = document.createElement('a');
+          anchor.id = anchorLink;
+          demos[i].insertBefore(anchor,demos[i].querySelector('h1'));
+
+          // Size iframe
           sizeDemo(demos[i]);
         }
       }
