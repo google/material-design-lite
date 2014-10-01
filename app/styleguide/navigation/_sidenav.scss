@@ -2,14 +2,19 @@
 @import "../typography/typography";
 
 /* Colors */
-$sidenav-bg-color: nth($paletteGrey, 1);
+$palette: $primaryPalette;
+
+$sidenav-bg-color: nth($palette, 6);
+$sidenav-border-color: nth($palette, 4);
 $sidenav-modal-bg-color: rgba(0, 0, 0, 0.5);
-$sidenav-border-color: nth($paletteGrey, 4);
 
-$nav-link-color: nth($paletteGrey, 6);
-$nav-link-color-light: nth($paletteGrey, 1);
+$sidenav-container-h1-color: nth($palette, 1);
+$sidenav-container-shadow: 0 2px 5px rgba(0,0,0,.26);
 
-$sidenav-item-border-color: #e0e0e0;
+$nav-link-color: nth($palette, 3);
+$nav-link-color-light: nth($palette, 1);
+
+/*$sidenav-container-border-color: #e0e0e0;*/
 
 /* Positions */
 /* Set menu button position (left or right) to 0px */
@@ -70,11 +75,16 @@ $horizontal-padding: 24px;
 
 .sidenav-container {
   display: block;
-  border-bottom: 1px solid $sidenav-item-border-color;
+  box-shadow: $sidenav-container-shadow;
+  /*border-bottom: 1px solid $sidenav-container-border-color;*/
   height: 64px;
   box-sizing: border-box;
   z-index: 4;
   background: $sidenav-bg-color;
+
+  h1 {
+    color: $sidenav-container-h1-color;
+  }
 }
 
 .sidenav-container.visible {
