@@ -30,33 +30,34 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <header class="app-bar promote-layer">
-      <div class="app-bar-container">
-        <button class="menu"><img src="images/hamburger.svg" alt="Menu"></button>
-        <h1 class="logo">Web <strong>Starter Kit</strong></h1>
-        <section class="app-bar-actions">
-        <!-- Put App Bar Buttons Here -->
-        <!-- e.g <button><i class="icon icon-star"></i></button> -->
-        </section>
-      </div>
-    </header>
 
-    <nav class="navdrawer-container promote-layer">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#hello">Hello</a></li>
-        <li><a href="#get-started">Get Started</a></li>
-        <li><a href="material-styleguide.html">Style Guide</a></li>
-      </ul>
-    </nav>
+    <div class="nav-button">
+      <button class="sidenav-button">Show navigation</button>
+    </div>
+
+    <div class="sidenav-container">
+      <h1 class="logo">Web <strong>Starter Kit</strong></h1>
+      <nav class="sidenav-nav">
+        <ul>
+          <li><a href="#hello">Hello</a></li>
+          <li><a href="#get-started">Get Started</a></li>
+          <li><a href="material-styleguide.html">Style Guide</a></li>
+        </ul>
+      </nav>
+    </div>
 
     <main>
-      <h1 id="hello">Hello!</h1>
-      <p>Welcome to Web Starter Kit.</p>
+      <h2 id="hello">Welcome to Web Starter Kit!</h2>
+      <p>Good luck with your amazing new project.</p>
 
       <h2 id="get-started">Get Started.</h2>
-      <p>Read how to <a href="http://developers.google.com/web/starter-kit">Get Started</a> or check out the <a href="styleguide.html">Style Guide</a>.</p>
+      <p>Read how to <a href="http://developers.google.com/web/starter-kit">Get Started</a> or
+        check out the <a href="styleguide.html">Style Guide</a>.</p>
     </main>
+
+    <div class="sidenav-modal-bg"></div>
+
+    <script src="styleguide/navigation/sidenav.js"></script>
 
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/main.js"></script>
