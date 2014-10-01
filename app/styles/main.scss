@@ -10,4 +10,8 @@
  * Visual Style Guide styles
  * Remove if you prefer to use a CSS library, like Bootstrap
  */
-@import '../styleguide/styleguide';
+@import '../styleguide/navigation/demo';
+
+main {
+  padding: 20px;
+}
