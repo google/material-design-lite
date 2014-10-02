@@ -9,15 +9,13 @@
 
     <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="demo-horizontal.css">
   </head>
   <body>
 
-  <div class="nav-button">
-    <button class="sidenav-button">Show navigation</button>
-  </div>
+  <button class="nav-button">Show navigation</button>
 
-  <div class="sidenav-container">
+  <div class="sidenav sidenav-horizontal">
     <h1 class="logo">Web <strong>Starter Kit</strong></h1>
     <nav class="sidenav-nav">
       <ul>
@@ -32,14 +30,6 @@
 
   <div class="sidenav-modal-bg"></div>
 
-  <script src="sidenav.js"></script>
-  <script>
-    // Remove for your own app
-    // This auto-toggles the menu
-    window.addEventListener('load', function() {
-      var menuButton = document.querySelector('button.sidenav-button');
-      menuButton.click();
-    });
-  </script>
+  <script src="sidenav.js" async defer></script>
   </body>
 </html>

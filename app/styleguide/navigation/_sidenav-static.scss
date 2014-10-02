@@ -1,13 +1,41 @@
 @import "../palette/palette";
 @import "sidenav-shared";
 
+$nav-link-color: nth($paletteGrey, 3);
+$nav-link-color-light: nth($paletteGrey, 1);
+
 .sidenav-static {
 
 }
-
 
 @media screen and (min-width: 850px) {
   .sidenav-static {
     transform: translateX(0px);
   }
+
+  .sidenav-static.transparent {
+    background:none;
+    box-shadow: none;
+    border-right: none;
+  }
+
+  .sidenav-static.transparent h1 {
+    color: $nav-link-color-light;
+  }
+
+  .sidenav-static.transparent .sidenav-nav ul {
+    li a {
+      color: $nav-link-color;
+    }
+
+    li a:hover {
+      background-color: rgba(nth($paletteGrey, 8), 0.6);
+    }
+  }
+
+  .sidenav-static-content {
+    padding-left: $nav-width;
+  }
+
+
 }

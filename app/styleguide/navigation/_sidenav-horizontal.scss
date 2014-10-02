@@ -14,9 +14,17 @@ $nav-link-color-light: nth($paletteGrey, 1);
     width: 100%;
     height: auto;
 
+    position: initial;
+
     transform: translateX(0px);
 
     background: $toolbar-bg-color;
+    border-right: none;
+  }
+
+  .sidenav-horizontal.transparent {
+    background: none;
+    box-shadow: none;
   }
 
   .sidenav-horizontal::after {
@@ -45,6 +53,12 @@ $nav-link-color-light: nth($paletteGrey, 1);
 
     li a:hover {
       background-color: nth($primaryPalette, 14);
+    }
+  }
+
+  .sidenav-horizontal.transparent .sidenav-nav ul {
+    li a:hover {
+      background-color: rgba(nth($paletteGrey, 8), 0.6);
     }
   }
 }
