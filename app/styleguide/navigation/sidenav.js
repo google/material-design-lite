@@ -10,6 +10,8 @@
 
     var currentState = null;
 
+    console.log('sidenavElement = ', sidenavElement);
+
     sidenavElement.addEventListener('transitionend', function() {
       sidenavElement.classList.remove('animatable');
     });
@@ -70,6 +72,7 @@
 
   window.addEventListener('load', function() {
     var modalBg = document.querySelector('.sidenav-modal-bg');
+    var menuButton = document.querySelector('.nav-button');
     var sidenavs = document.querySelectorAll('.sidenav');
     var sidenav = new SideNav(sidenavs[0]);
 
@@ -101,7 +104,7 @@
       sidenav.close();
     });
 
-    var menuButton = document.querySelector('button.sidenav-button');
+
     menuButton.addEventListener('click', function(evt) {
       sidenav.toggle();
     });

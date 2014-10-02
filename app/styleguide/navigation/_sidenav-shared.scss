@@ -99,7 +99,7 @@ $horizontal-padding: 24px;
   }
 }
 
-.sidenav-button {
+.nav-button {
   display: block;
 
   width: 48px;
@@ -108,6 +108,7 @@ $horizontal-padding: 24px;
   position: fixed;
   left: $nav-button-left;
   right: $nav-button-right;
+  top: 0;
 
   background-image: url(/images/hamburger.svg);
   background-position:center center;
@@ -156,7 +157,7 @@ $horizontal-padding: 24px;
 }
 
 @media screen and (min-width: 850px) {
-  .sidenav-button {
+  .nav-button {
     display: none;
   }
 

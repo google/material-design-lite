@@ -1,15 +1,11 @@
 @import "../styleguide_demo_bp";
-@import 'sidenav';
-
+@import 'sidenav-horizontal';
 
 body {
   width: 100%;
-  padding: $padding;
+  padding:0px;
 }
 
 iframe {
-  width: 100%;
-  height: 300px;
-
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
