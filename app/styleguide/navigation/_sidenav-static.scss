@@ -1,0 +1,13 @@
+@import "../palette/palette";
+@import "sidenav-shared";
+
+.sidenav-static {
+
+}
+
+
+@media screen and (min-width: 850px) {
+  .sidenav-static {
+    transform: translateX(0px);
+  }
+}

@@ -8,21 +8,21 @@
     this.STATE_OPEN = 0;
     this.STATE_CLOSE = 1;
 
-    var isAnimating = false;
     var currentState = null;
 
-    this.changeState = function(newState) {
-      if (isAnimating) {
-        // If we are animating, wait until the animation is complete
-        return;
-      }
+    sidenavElement.addEventListener('transitionend', function() {
+      sidenavElement.classList.remove('animatable');
+    });
 
+    this.changeState = function(newState) {
       switch (newState) {
         case this.STATE_OPEN:
+          sidenavElement.classList.add('animatable');
           sidenavElement.classList.add('visible');
           this.sendEvent('onSideNavOpen');
           break;
         case this.STATE_CLOSE:
+          sidenavElement.classList.add('animatable');
           sidenavElement.classList.remove('visible');
           this.sendEvent('onSideNavClose');
           break;
@@ -70,7 +70,7 @@
 
   window.addEventListener('load', function() {
     var modalBg = document.querySelector('.sidenav-modal-bg');
-    var sidenavs = document.querySelectorAll('.sidenav-container');
+    var sidenavs = document.querySelectorAll('.sidenav');
     var sidenav = new SideNav(sidenavs[0]);
 
     sidenav.addEventListener('onSideNavOpen', function() {
@@ -79,6 +79,7 @@
         return;
       }
 
+      modalBg.classList.add('animatable');
       modalBg.classList.add('visible');
     });
 
@@ -88,7 +89,12 @@
         return;
       }
 
+      modalBg.classList.add('animatable');
       modalBg.classList.remove('visible');
+    });
+
+    modalBg.addEventListener('transitionend', function() {
+      modalBg.classList.remove('animatable');
     });
 
     modalBg.addEventListener('click', function(evt) {

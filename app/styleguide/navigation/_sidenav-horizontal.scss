@@ -1,0 +1,50 @@
+@import "../palette/palette";
+@import "sidenav-shared";
+
+$toolbar-bg-color: nth($primaryPalette, 6);
+$nav-link-color: nth($paletteGrey, 3);
+$nav-link-color-light: nth($paletteGrey, 1);
+
+.sidenav-horizontal {
+
+}
+
+@media screen and (min-width: 850px) {
+  .sidenav-horizontal {
+    width: 100%;
+    height: auto;
+
+    transform: translateX(0px);
+
+    background: $toolbar-bg-color;
+  }
+
+  .sidenav-horizontal::after {
+    content: '';
+
+    display: block;
+    clear: both;
+  }
+
+  .sidenav-horizontal h1 {
+    float: left;
+
+    color: $nav-link-color-light;
+  }
+
+  .sidenav-horizontal .sidenav-nav ul {
+    float: right;
+
+    li {
+      float: left;
+    }
+
+    li a {
+      color: $nav-link-color;
+    }
+
+    li a:hover {
+      background-color: nth($primaryPalette, 14);
+    }
+  }
+}
