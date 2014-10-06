@@ -1,10 +1,10 @@
 @import "../palette/palette";
 
 // Default Range Colors
-$default-range-bg-color: #ccc;
-$default-range-color: #F4B400;
+$default-range-bg-color: nth($secondaryPalette, 5);
+$default-range-color: nth($primaryPalette, 6);
 $default-range-slider-thumb-bg: #fff;
-$default-range-slider-thumb-border: #ccc;
+$default-range-slider-thumb-border: nth($secondaryPalette, 5);
 
 input[type="range"] {
   -webkit-appearance:none;
@@ -69,13 +69,12 @@ input[type="range"]:focus:not(:active)::-webkit-slider-thumb {
   width: 4rem;
 
   background: radial-gradient(circle at center,
-    rgb(244, 180, 0) 0%,
-    rgb(244, 180, 0) 15%,
-    rgba(244, 180, 0, 0.5)15%,
-    rgba(244, 180, 0, 0.5) 45%,
+    $default-range-color 0%,
+    $default-range-color 15%,
+    rgba($default-range-color, 0.26)15%,
+    rgba($default-range-color, 0.26) 45%,
     rgba(0, 0, 0, 0) 45%,
     rgba(0, 0, 0, 0) 100%); /* W3C */
-  border: 1px solid rgba(244, 180, 0, 0.5);
 }
 
 input[type="range"]:focus:not(:active)::-moz-range-thumb {
@@ -90,14 +89,14 @@ input[type="range"]:active::-webkit-slider-thumb {
   height: 2rem;
   width: 2rem;
   background-image:none;
-  background: rgb(244, 180, 0);
+  background: $default-range-color;
 }
 
 input[type="range"]:active::-moz-range-thumb {
   height: 2rem;
   width: 2rem;
   background-image:none;
-  background: rgb(244, 180, 0);
+  background: $default-range-color;
 }
 
 
@@ -121,7 +120,7 @@ input[type="range"].ring:focus:not(:active)::-webkit-slider-thumb {
     rgba(204, 204, 204, 0.5) 45%,
     rgba(0, 0, 0, 0) 45%,
     rgba(0, 0, 0, 0) 100%); /* W3C */
-  border: 1px solid rgba(204, 204, 204, 0.5);
+    border:none;
 }
 
 input[type="range"].ring:focus:not(:active)::-moz-range-thumb {
@@ -130,6 +129,7 @@ input[type="range"].ring:focus:not(:active)::-moz-range-thumb {
   box-shadow:
     0 0 0 1rem rgba(204, 204, 204, 0.5),
     0 0 0 2rem rgba(0, 0, 0, 0);
+  border:none;
 }
 
 
@@ -142,7 +142,7 @@ input[type="range"]:disabled::-webkit-slider-thumb {
   height: .5rem;
   background-color: $default-range-slider-thumb-border;
   background-image: none;
-  box-shadow: 0 0 0 2px $default-range-slider-thumb-bg;
+  //box-shadow: 0 0 0 2px $default-range-slider-thumb-bg;
 }
 
 input[type="range"]:disabled:focus::-moz-range-thumb,
@@ -152,21 +152,21 @@ input[type="range"]:disabled::-moz-range-thumb {
   height: .5rem;
   background-color: $default-range-slider-thumb-border;
   background-image: none;
-  box-shadow: 0 0 0 2px $default-range-slider-thumb-bg;
+  //box-shadow: 0 0 0 2px $default-range-slider-thumb-bg;
 }
 
 input[type="range"].ring:disabled:focus::-webkit-slider-thumb,
 input[type="range"].ring:disabled:active::-webkit-slider-thumb,
 input[type="range"].ring:disabled::-webkit-slider-thumb {
   background-color: $default-range-slider-thumb-bg;
-  border: 2px solid $default-range-slider-thumb-border;
+  //border: 2px solid $default-range-slider-thumb-border;
 }
 
 input[type="range"].ring:disabled:focus::-moz-range-thumb,
 input[type="range"].ring:disabled:active::-moz-range-thumb,
 input[type="range"].ring:disabled::-moz-range-thumb {
   background-color: $default-range-slider-thumb-bg;
-  border: 2px solid $default-range-slider-thumb-border;
+  //border: 2px solid $default-range-slider-thumb-border;
 }
 
 input[type="range"]:disabled:focus::-webkit-slider-runnable-track,
