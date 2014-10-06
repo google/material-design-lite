@@ -5,7 +5,15 @@ $nav-link-color: nth($paletteGrey, 3);
 $nav-link-color-light: nth($paletteGrey, 1);
 
 .sidenav-static {
+  display: flex;
 
+  flex-direction: column;
+
+  .sidenav-nav {
+    flex: 1;
+
+    overflow-y: auto;
+  }
 }
 
 @media screen and (min-width: 850px) {
