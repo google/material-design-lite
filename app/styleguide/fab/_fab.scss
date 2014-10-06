@@ -1,7 +1,9 @@
 @import "../palette/palette";
 
-$fabBackgroundColor: nth($accentPalette, 12);
-$fabHoverBackgroundColor: nth($accentPalette, 14);
+$fabBackgroundColor: nth($accentPalette, 5);
+$fabHoverBackgroundColor: nth($accentPalette, 7);
+$fabFocusBackgroundColor: nth($accentPalette, 12);
+$fabActiveBackgroundColor: nth($accentPalette, 13);
 $fabIconColor: black;
 $fabColoredIconColor: white;
 $fabWidth: 56px;
@@ -26,7 +28,15 @@ $fabFontSize: 24px;
 }
 
 .paper-fab.colored:hover {
-  background-color: $fabHoverBackgroundColor !important;
+  background-color: $fabHoverBackgroundColor;
+}
+
+.paper-fab.colored:focus {
+  background-color: $fabFocusBackgroundColor;
+}
+
+.paper-fab.colored:active {
+  background-color: $fabActiveBackgroundColor
 }
 
 .paper-fab.small {

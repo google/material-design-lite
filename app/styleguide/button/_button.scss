@@ -1,16 +1,21 @@
 @import "../typography/typography";
 @import "../palette/palette";
+@import "../shadow/shadow";
 
 // Default Button Colors
 $default-btn-bg-color: #fff;
 $default-btn-text-color: #000;
 $default-btn-outline-color: nth($secondaryPalette, 5);
 $default-btn-hover-bg-color: nth($secondaryPalette, 3);
+$default-btn-focus-bg-color: nth($secondaryPalette, 3);
+$default-btn-active-bg-color: nth($secondaryPalette, 4);
 
 // Colored Button Colors
 $colored-btn-bg-color: nth($primaryPalette, 6);
 $colored-btn-text-color: #fff;
 $colored-btn-hover-bg-color: nth($primaryPalette, 8);
+$colored-btn-focus-color: nth($primaryPalette, 12);
+$colored-btn-active-bg-color: nth($primaryPalette, 13);
 
 // Ripple Color
 $ripple-bg-color: nth($paletteGrey, 10);
@@ -31,6 +36,9 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   position     : relative;
   @include typo-button();
   overflow     : hidden;
+  @include shadow-z1();
+  will-change: box-shadow;
+  transition: box-shadow 0.2s ease-out;
 }
 .colored {
   background: $colored-btn-bg-color;
@@ -56,13 +64,28 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   background: #fff;
 }
 .paper-button[disabled] {
-  background-color: $disabled-btn-bg-color !important;
-  color           : $disabled-btn-text-color !important;
+  background-color: $disabled-btn-bg-color;
+  color           : $disabled-btn-text-color;
   cursor          : auto;
 }
 .paper-button:hover {
-  background-color: $default-btn-hover-bg-color !important;
+  background-color: $default-btn-hover-bg-color;
 }
 .colored:hover {
-  background-color: $colored-btn-hover-bg-color !important;
+  background-color: $colored-btn-hover-bg-color;
+}
+.paper-button:focus {
+  outline: none;
+  @include shadow-z3();
+  background-color: $default-btn-focus-bg-color;
+  transition: box-shadow 0.2s ease-in;
+}
+.paper-button.colored:focus {
+  background-color: $colored-btn-focus-color;
+}
+.paper-button:active {
+  background-color: $default-btn-active-bg-color;
+}
+.paper-button.colored:active {
+  background-color: $colored-btn-active-bg-color;
 }
