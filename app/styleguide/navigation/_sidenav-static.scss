@@ -16,6 +16,10 @@ $nav-link-color-light: nth($paletteGrey, 1);
   }
 }
 
+.sidenav-static-content {
+  @extend .sidenav-content;
+}
+
 @media screen and (min-width: 850px) {
   .sidenav-static {
     transform: translateX(0px);
@@ -42,7 +46,7 @@ $nav-link-color-light: nth($paletteGrey, 1);
   }
 
   .sidenav-static-content {
-    padding-left: $nav-width;
+    padding: $vertical-padding $nav-width + $horizontal-padding;
   }
 
 

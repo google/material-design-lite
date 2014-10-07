@@ -156,6 +156,10 @@ $horizontal-padding: 24px;
   transition-delay: 0;
 }
 
+.sidenav-content {
+  padding: $vertical-padding $horizontal-padding;
+}
+
 @media screen and (min-width: 850px) {
   .nav-button {
     display: none;

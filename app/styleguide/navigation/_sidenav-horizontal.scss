@@ -5,8 +5,14 @@ $toolbar-bg-color: nth($primaryPalette, 6);
 $nav-link-color: nth($paletteGrey, 3);
 $nav-link-color-light: nth($paletteGrey, 1);
 
+$nav-centered-side-width: 128px;
+
 .sidenav-horizontal {
 
+}
+
+.sidenav-centered-content {
+  @extend .sidenav-content;
 }
 
 @media screen and (min-width: 850px) {
@@ -27,6 +33,10 @@ $nav-link-color-light: nth($paletteGrey, 1);
     box-shadow: none;
   }
 
+  .sidenav-horizontal.centered {
+    box-shadow: none;
+  }
+
   .sidenav-horizontal::after {
     content: '';
 
@@ -38,6 +48,11 @@ $nav-link-color-light: nth($paletteGrey, 1);
     float: left;
 
     color: $nav-link-color-light;
+  }
+
+  .sidenav-horizontal.centered h1 {
+    float: none;
+    text-align:center;
   }
 
   .sidenav-horizontal .sidenav-nav ul {
@@ -60,5 +75,22 @@ $nav-link-color-light: nth($paletteGrey, 1);
     li a:hover {
       background-color: rgba(nth($paletteGrey, 8), 0.6);
     }
+  }
+
+  .sidenav-horizontal.centered .sidenav-nav ul {
+    float: none;
+    text-align: center;
+    overflow: hidden;
+
+    li {
+      float: none;
+      display: inline-block;
+    }
+  }
+
+  .sidenav-centered-content {
+    border-width: 0 $nav-centered-side-width;
+    border-style: solid;
+    border-color: $toolbar-bg-color;
   }
 }
