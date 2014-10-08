@@ -1,64 +1,86 @@
 @import "../typography/typography";
+@import "../palette/palette";
+
+$circleSize: 40px;
+$checkboxSize: 16px;
+
+$checkboxColor: nth($primaryPalette, 6);
+$checkedFocusColor: rgba($checkboxColor, 0.26);
+$focusColor: rgba(nth($secondaryPalette, 6), 0.12);
 
 .paper-checkbox-label {
   cursor: pointer;
   font-size: 12pt;
   display: block;
   overflow: hidden;
-  padding-top: 20px;
+  //padding-top: ($circleSize / 2);
+  padding-top: ($circleSize - $checkboxSize) / 2;
+  padding-left: $circleSize + 6px;
   position: relative;
-  min-height:40px;
+  min-height:$circleSize;
 }
 
 .paper-checkbox {
   border: 2px solid #5a5a5a;
   color: #1d1d1d;
   cursor: pointer;
-  display: inline-block;
-  float: left;
-  height: 14px;
-  margin: 0 20px 20px 20px;
-  outline-color: #eaeaea;
+  height: $checkboxSize;
+  outline: none;
   padding: 0;
-  position:relative;
-  width: 14px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
+  position:absolute;
+  width: $checkboxSize;
   transition: all 0.3s ease-in-out;
   z-index:1;
+  box-sizing: border-box;
+  top: ($circleSize - $checkboxSize) / 2;
+  left: ($circleSize - $checkboxSize) / 2;
 }
 
 .paper-checkbox.checked {
-  border-left: 2px solid green;
-  border-bottom: 4px solid green;
+  border-left: 2px solid $checkboxColor;
+  border-bottom: 4px solid $checkboxColor;
   border-top: 1px solid rgba(0,0,0,0);
   border-right: 1px solid rgba(0,0,0,0);
-  -webkit-transform: rotate(-45deg) scaleY(0.5);
-  -moz-transform: rotate(-45deg) scaleY(0.5);
-  -ms-transform: rotate(-45deg) scaleY(0.5);
-  -o-transform: rotate(-45deg) scaleY(0.5);
   transform: rotate(-45deg) scaleY(0.5);
+}
+
+.focusCircle {
+  background-color:$focusColor;
+  border-radius: 50%;
+  display: block;
+  height: $circleSize;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: all 0.15s ease-in-out;
+  width: $circleSize;
+  z-index:0;
+}
+
+.focusCircle.checked {
+  background-color: $checkedFocusColor;
+}
+
+.focusCircle.focused {
+  opacity: 1;
 }
 
 input[type='checkbox'].paper-checkbox {
    display: none;
 }
 
-.wskCircle {
+/**.wskCircle {
   background-color:#ccdffd;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   display: block;
-  height: 40px;
-  left: 9px;
+  height: $circleSize;
+  left: 0px;
   opacity: 0;
   position: absolute;
-  top: 9px;
-  -webkit-transition: all 0.15s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
+  top: 0px;
   transition: all 0.15s ease-in-out;
-  width: 40px;
+  width: $circleSize;
   z-index:0;
 }
 
@@ -68,4 +90,4 @@ input[type='checkbox'].paper-checkbox {
 
 .wskCircle.flipColor {
   background-color: #d2d3d2;
-}
+}**/
