@@ -1,0 +1,130 @@
+@import "../typography/typography";
+@import "../palette/palette";
+@import "../shadow/shadow";
+
+/* Card dimensions */
+$card-width: 330px;
+$card-height: 508px;
+
+/* Colors */
+$card-background-color: #ffffff;
+$heading-color: rgb(255, 255, 255);
+$heading-back-color: rgb(255, 255, 255);
+$heading-back-bgcolor: nth($primaryPalette, 8);
+$action-link-color: nth($primaryPalette, 10);
+$caption-color: rgb(255, 255, 255);
+$caption-bgcolor: nth($primaryPalette, 10);
+$image-placeholder-color: #effb41;
+$lower-text-color: rgb(68, 68, 68);
+
+/* Cover image */
+$cover-image-height: 186px;
+$background-image-url: '';
+
+/* Heading back */
+$heading-back-border: 0 none rgb(255, 255, 255);
+
+.card {
+  font-size: 16px;
+  height   : $card-height;
+  overflow : hidden;
+  width    : $card-width;
+  z-index  : 1;
+  .bottom {
+    font-size  : 16px;
+    height     : 50px;
+    line-height: normal;
+    width      : 100%;
+  }
+  position : relative;
+  .bottom a {
+    border-bottom     : 0 none rgb(48, 63, 159);
+    border-left       : 0 none rgb(48, 63, 159);
+    border-right      : 0 none rgb(48, 63, 159);
+    border-top        : 1px solid rgb(235, 235, 235);
+    box-sizing        : border-box;
+    color             : $action-link-color;
+    cursor            : pointer;
+    display           : inline-block;
+    font-size         : 13px;
+    font-weight       : normal;
+    height            : 50px;
+    line-height       : 50px;
+    outline           : rgb(48, 63, 159) none 0;
+    padding           : 0 16px;
+    perspective-origin: 165px 25px;
+    text-decoration   : none solid rgb(48, 63, 159);
+    text-transform    : uppercase;
+    transform-origin  : 165px 25px;
+    width             : 100%;
+  }
+  .caption {
+    background        : $caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
+    border            : 0 none rgb(255, 255, 255);
+    color             : $caption-color;
+    font-size         : 12px;
+    height            : 16px;
+    line-height       : normal;
+    outline           : rgb(255, 255, 255) none 0;
+    padding           : 8px 16px;
+    perspective-origin: 165px 16px;
+    text-decoration   : none solid rgb(255, 255, 255);
+    width             : 100%;
+  }
+  .heading {
+    align-self      : center;
+    border          : 0 none rgb(255, 255, 255);
+    color           : $heading-color;
+    display         : -webkit-box;
+    font-size       : 24px;
+    font-weight     : 300;
+    height          : 96px;
+    justify-self    : stretch;
+    line-height     : normal;
+    outline         : rgb(255, 255, 255) none 0;
+    overflow        : hidden;
+    text-decoration : none solid rgb(255, 255, 255);
+    transform-origin: 149px 48px;
+    width           : 90%;
+  }
+  .heading-back {
+    align-items       : center;
+    background        : $heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
+    border            : $heading-back-border;
+    color             : $heading-back-color;
+    display           : flex;
+    font-size         : 24px;
+    height            : 96px;
+    justify-items     : stretch;
+    line-height       : normal;
+    outline           : rgb(255, 255, 255) none 0;
+    padding           : 8px 16px;
+    perspective-origin: 165px 56px;
+    text-decoration   : none solid rgb(255, 255, 255);
+    transform-origin  : 165px 56px;
+    width             : 100%;
+  }
+  .image {
+    background         : $image-placeholder-color url("$background-image-url") repeat scroll 50% 50% / cover padding-box border-box;
+    background-position: 50% 50%;
+    height             : $cover-image-height;
+  }
+  .inset {
+    height: auto;
+    width : 100%;
+    background: $card-background-color;
+  }
+  .lower {
+    border         : 0 none rgb(68, 68, 68);
+    color          : $lower-text-color;
+    font-size      : 13px;
+    height         : 108px;
+    line-height    : 18px;
+    margin         : 10px 0;
+    outline        : rgb(68, 68, 68) none 0;
+    overflow       : hidden;
+    padding        : 0 16px;
+    text-decoration: none solid rgb(68, 68, 68);
+    width          : 90%;
+  }
+}

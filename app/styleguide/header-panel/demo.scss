@@ -1,0 +1,17 @@
+@import '../styleguide_demo_bp';
+@import '_header_panel';
+
+.demo-container {
+  width: 400px;
+  float: left;
+  margin: 0 40px 40px 0;
+}
+
+.demo-content {
+  height: 2000px;
+  background: linear-gradient(rgb(214, 227, 231), lightblue);
+}
+
+.header-panel {
+  max-height: 500px;
+}

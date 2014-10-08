@@ -1,0 +1,66 @@
+@import '../palette/palette';
+@import '../shadow/shadow';
+@import '../typography/typography';
+
+/* Colors */
+$panel-bg-color: nth($primaryPalette, 6);
+$panel-text-color: nth($pagePalette, 3);
+
+/* Sizes */
+$panel-small-height: 60px;
+$panel-medium-tall-height: 120px;
+$panel-tall-height: 180px;
+$panel-default-height: $panel-small-height;
+
+.header-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-panel > .header-panel-header {
+  margin: 0;
+  border: 0;
+  height: 60px;
+  min-height: $panel-default-height;
+  padding: 0 10px;
+  background-color: $panel-bg-color;
+  color: $panel-text-color;
+  z-index: 100;
+  transition: min-height 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  @include typo-title();
+  line-height: $panel-default-height;
+}
+
+.header-panel.header-panel-tall > .header-panel-header {
+  min-height: $panel-tall-height;
+}
+
+.header-panel.header-panel-medium-tall > .header-panel-header {
+  min-height: $panel-medium-tall-height;
+}
+
+.header-panel > .header-panel-header.header-panel-compact {
+  min-height: $panel-default-height;
+}
+
+.header-panel.header-panel-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.header-panel > .header-panel-header.header-panel-shadow {
+  @include shadow-z2();
+}
+
+.header-panel > .header-panel-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-grow: 1;
+}
+
+.header-panel.header-panel-scroll > .header-panel-content {
+  overflow: visible;
+}

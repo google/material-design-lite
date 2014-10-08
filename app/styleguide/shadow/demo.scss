@@ -1,3 +1,14 @@
 @import "../styleguide_demo_bp";
 @import "_shadow";
 @import '_card';
+
+.paper-card {
+  background-color   : #fff;
+  border-radius      : 2px;
+  display            : block;
+  height             : 300px;
+  margin             : 20px;
+  transition         : 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition-property: opacity, transform;
+  width              : 300px;
+}
