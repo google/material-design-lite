@@ -105,7 +105,7 @@ $heading-back-border: 0 none rgb(255, 255, 255);
     width             : 100%;
   }
   .image {
-    background         : $image-placeholder-color url("$background-image-url") repeat scroll 50% 50% / cover padding-box border-box;
+    background         : $image-placeholder-color url($background-image-url) repeat scroll 50% 50% / cover padding-box border-box;
     background-position: 50% 50%;
     height             : $cover-image-height;
   }
