@@ -11,6 +11,8 @@ $sidenav-container-shadow: 0 2px 5px rgba(0,0,0,.26);
 
 $nav-link-color: nth($primaryPalette, 3);
 
+$logo-border-color: nth($pagePalette, 4); /*#e0e0e0;*/
+
 $text-color: nth($pagePalette, 9);
 
 /* Positions */
@@ -60,6 +62,7 @@ $horizontal-padding: 24px;
   .logo {
     padding: 18px $horizontal-padding 18px $horizontal-padding;
     font-size: 24px;
+    border-bottom: 1px solid $logo-border-color;
   }
 }
 
@@ -85,13 +88,13 @@ $horizontal-padding: 24px;
 
   li > a {
     display: block;
-
-    padding: 1.6em 1.6em;
-
     font-size: 14px;
-    font-weight: 400;
-    color: $text-color;
     text-decoration: none;
+
+    color: $text-color;
+    font-weight: 700;
+    padding: 15px 0 15px 22px;
+
   }
 
   li a:hover {

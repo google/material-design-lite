@@ -10,8 +10,6 @@
 
     var currentState = null;
 
-    console.log('sidenavElement = ', sidenavElement);
-
     sidenavElement.addEventListener('transitionend', function() {
       sidenavElement.classList.remove('animatable');
     });
