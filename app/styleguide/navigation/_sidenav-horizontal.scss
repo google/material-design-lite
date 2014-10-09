@@ -28,6 +28,10 @@ $nav-centered-side-width: 128px;
     border-right: none;
   }
 
+  .sidenav-horizontal h1, .sidenav-horizontal .logo {
+    border-bottom: none;
+  }
+
   .sidenav-horizontal.transparent {
     background: none;
     box-shadow: none;
