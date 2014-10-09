@@ -25,6 +25,12 @@ $nav-link-color-light: nth($paletteGrey, 1);
     transform: translateX(0px);
   }
 
+  .sidenav {
+    ul li a {
+      padding: 1.1em 1.6em;
+    }
+  }
+
   .sidenav-static.transparent {
     background:none;
     box-shadow: none;
