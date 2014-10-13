@@ -1,6 +1,3 @@
-//$feature-font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
-//$stock-font-family: 'Helvetica', 'Arial', sans-serif;
-
 @mixin typo-display-4($colorContrast:false) {
   font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
   font-size: 112px;
@@ -231,157 +228,157 @@ a {
   font-weight: bold;
 }
 
-/**
- * Class Name Styles
- */
-
-.display-4 {
-  @include typo-display-4();
-}
-
-.display-4.colorContrast {
-  @include typo-display-4($colorContrast:true);
-}
-
-.display-3 {
-  @include typo-display-3();
-}
-
-.display-3.colorContrast {
-  @include typo-display-3($colorContrast:true);
-}
-
-.display-2 {
-  @include typo-display-2();
-}
-
-.display-2.colorContrast {
-  @include typo-display-2($colorContrast:true);
-}
-
-.display-1 {
-  @include typo-display-1();
-}
-
-.display-1.colorContrast {
-  @include typo-display-1($colorContrast:true);
-}
-
-.headline {
-  @include typo-headline();
-}
-
-.headline.colorContrast {
-  @include typo-headline($colorContrast:true);
-}
-
-.title {
-  @include typo-title();
-}
-
-.title.colorContrast {
-  @include typo-title($colorContrast:true);
-}
-
-.subhead {
-  @include typo-subhead();
-}
-
-.subhead.colorContrast {
-  @include typo-subhead($colorContrast:true);
-}
-
 blockquote {
   @include typo-blockquote();
-}
-
-.body-2 {
-  @include typo-body-2();
-}
-
-.body-2.colorContrast {
-  @include typo-body-2($colorContrast:true);
-}
-
-.body-1 {
-  @include typo-body-1();
-}
-
-.body-1.colorContrast {
-  @include typo-body-1($colorContrast:true);
-}
-
-.caption {
-  @include typo-caption();
-}
-
-.caption.colorContrast {
-  @include typo-caption($colorContrast:true);
-}
-
-.menu {
-  @include typo-menu();
-}
-
-.menu.colorContrast {
-  @include typo-menu($colorContrast:true);
-}
-
-.button {
-  @include typo-button();
-}
-
-.button.colorContrast {
-  @include typo-button($colorContrast:true);
 }
 
 mark {
   background-color: #f4ff81;
 }
 
-
-.text-left {
-    text-align: left
-}
-
-.text-right {
-    text-align: right
-}
-
-.text-center {
-    text-align: center
-}
-
-.text-justify {
-    text-align: justify
-}
-
-.text-nowrap {
-    white-space: nowrap
-}
-
-
-.text-lowercase {
-    text-transform: lowercase
-}
-
-.text-uppercase {
-    text-transform: uppercase
-}
-
-.text-capitalize {
-    text-transform: capitalize
-}
-
 dt {
   font-weight: 700;
 }
 
-.table-striped>tbody>tr:nth-child(odd)>td,
-.table-striped>tbody>tr:nth-child(odd)>th {
+/**
+ * Class Name Styles
+ */
+
+.Typography--display-4 {
+  @include typo-display-4();
+}
+
+.Typography--display-4--colorContrast {
+  @include typo-display-4($colorContrast:true);
+}
+
+.Typography--display-3 {
+  @include typo-display-3();
+}
+
+.Typography--display-3--colorContrast {
+  @include typo-display-3($colorContrast:true);
+}
+
+.Typography--display-2 {
+  @include typo-display-2();
+}
+
+.Typography--display-2--colorContrast {
+  @include typo-display-2($colorContrast:true);
+}
+
+.Typography--display-1 {
+  @include typo-display-1();
+}
+
+.Typography--display-1--colorContrast {
+  @include typo-display-1($colorContrast:true);
+}
+
+.Typography--headline {
+  @include typo-headline();
+}
+
+.Typography--headline--colorContrast {
+  @include typo-headline($colorContrast:true);
+}
+
+.Typography--title {
+  @include typo-title();
+}
+
+.Typography--title--colorContrast {
+  @include typo-title($colorContrast:true);
+}
+
+.Typography--subhead {
+  @include typo-subhead();
+}
+
+.Typography--subhead--colorContrast {
+  @include typo-subhead($colorContrast:true);
+}
+
+.Typography--body-2 {
+  @include typo-body-2();
+}
+
+.Typography--Body-2--colorContrast {
+  @include typo-body-2($colorContrast:true);
+}
+
+.Typography--body-1 {
+  @include typo-body-1();
+}
+
+.Typography--body-1--colorContrast {
+  @include typo-body-1($colorContrast:true);
+}
+
+.Typography--baption {
+  @include typo-caption();
+}
+
+.Typography--caption--colorContrast {
+  @include typo-caption($colorContrast:true);
+}
+
+.Typography--menu {
+  @include typo-menu();
+}
+
+.Typography--menu--colorContrast {
+  @include typo-menu($colorContrast:true);
+}
+
+.Typography--button {
+  @include typo-button();
+}
+
+.Typography--button--colorContrast {
+  @include typo-button($colorContrast:true);
+}
+
+.Typography--textLeft {
+    text-align: left
+}
+
+.Typography--textRight {
+    text-align: right
+}
+
+.Typography--textCenter {
+    text-align: center
+}
+
+.Typography--textJustify {
+    text-align: justify
+}
+
+.Typography--textNowrap {
+    white-space: nowrap
+}
+
+
+.Typography--textLowercase {
+    text-transform: lowercase
+}
+
+.Typography--textUppercase {
+    text-transform: uppercase
+}
+
+.Typography--textCapitalize {
+    text-transform: capitalize
+}
+
+.Typography--tableStriped > tbody > tr:nth-child(odd) > td,
+.Typography--tableStriped > tbody > tr:nth-child(odd) > th {
     background-color: #f9f9f9
 }
 
-.table-striped>tbody>tr:nth-child(odd)>td,.table-striped>tbody>tr:nth-child(odd)>th {
+.Typography--tableStriped > tbody > tr:nth-child(odd) > td,
+.Typography--tableStriped > tbody > tr:nth-child(odd) > th {
     background-color: #f9f9f9
 }
