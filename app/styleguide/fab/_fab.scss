@@ -10,7 +10,7 @@ $fabWidth: 56px;
 $fabHeight: 56px;
 $fabFontSize: 24px;
 
-.paper-fab {
+.PaperFab {
   border-radius   : 50%;
   color           : $fabIconColor;
   font-size       : $fabFontSize;
@@ -22,24 +22,19 @@ $fabFontSize: 24px;
   overflow: hidden;
 }
 
-.paper-fab.colored {
+.PaperFab--colored {
   background-color: $fabBackgroundColor;
   color: $fabColoredIconColor;
 }
 
-.paper-fab.colored:hover {
+.PaperFab--colored:hover {
   background-color: $fabHoverBackgroundColor;
 }
 
-.paper-fab.colored:focus {
+.PaperFab--colored:focus {
   background-color: $fabFocusBackgroundColor;
 }
 
-.paper-fab.colored:active {
+.PaperFab--colored:active {
   background-color: $fabActiveBackgroundColor
-}
-
-.paper-fab.small {
-  height: 40px;
-  width : 40px;
 }
