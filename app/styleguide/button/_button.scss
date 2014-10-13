@@ -24,7 +24,7 @@ $ripple-bg-color: nth($paletteGrey, 10);
 $disabled-btn-bg-color: nth($disabledPalette, 3);
 $disabled-btn-text-color: nth($disabledPalette, 5);
 
-.paper-button {
+.PaperButton {
   background   : $default-btn-bg-color;
   border       : none;
   border-radius: 2px;
@@ -40,11 +40,13 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   will-change: box-shadow;
   transition: box-shadow 0.2s ease-out;
 }
-.colored {
+
+.PaperButton--colored {
   background: $colored-btn-bg-color;
   color     : $colored-btn-text-color;
 }
-.ripple {
+
+.PaperButton-ripple {
   background       : $ripple-bg-color;
   border-radius    : 50%;
   height           : 50px;
@@ -57,35 +59,35 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   width            : 50px;
   overflow: hidden;
 }
-.ripple.animate {
+.PaperButton-ripple.is-animating {
   transition        : transform 0.6s cubic-bezier(0.0, 0.0, 0.2, 1), opacity 0.6s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-.paper-button.colored.ripple {
+.PaperButton--colored .PaperButton-ripple {
   background: #fff;
 }
-.paper-button[disabled] {
+.PaperButton[disabled] {
   background-color: $disabled-btn-bg-color;
   color           : $disabled-btn-text-color;
   cursor          : auto;
 }
-.paper-button:hover {
+.PaperButton:hover {
   background-color: $default-btn-hover-bg-color;
 }
-.colored:hover {
+.PaperButton--colored:hover {
   background-color: $colored-btn-hover-bg-color;
 }
-.paper-button:focus {
+.PaperButton:focus {
   outline: none;
   @include shadow-z3();
   background-color: $default-btn-focus-bg-color;
   transition: box-shadow 0.2s ease-in;
 }
-.paper-button.colored:focus {
+.PaperButton--colored:focus {
   background-color: $colored-btn-focus-color;
 }
-.paper-button:active {
+.PaperButton:active {
   background-color: $default-btn-active-bg-color;
 }
-.paper-button.colored:active {
+.PaperButton--colored:active {
   background-color: $colored-btn-active-bg-color;
 }

@@ -1,73 +1,90 @@
-(function() {
-  window.addEventListener('load', function() {
-    'use strict';
+'use strict';
 
-    var buttons = document.querySelectorAll('.paper-button');
-    var button, bound, x, y, ripple, size, transformString;
-    var frameCount = 0;
+function PaperButton(el) {
+  var buttonElement = el;
+  var rippleElement = buttonElement.querySelector('.PaperButton-ripple');
+  var frameCount = 0, x, y;
 
-    for (var b = 0; b < buttons.length; b++) {
-      button = buttons[b];
-      bound = button.getBoundingClientRect();
-      ripple = button.querySelector('.ripple');
-      size = Math.max(bound.width, bound.height) * 2;
+  if(rippleElement) {
+    var bound = buttonElement.getBoundingClientRect();
+    var rippleSize = Math.max(bound.width, bound.height) * 2;
 
-      if (ripple !== null) {
-        ripple.style.width = size + 'px';
-        ripple.style.height = size + 'px';
-      }
+    rippleElement.style.width = rippleSize + 'px';
+    rippleElement.style.height = rippleSize + 'px';
+  }
 
-      button.addEventListener('click', onClick);
-    }
+  buttonElement.addEventListener('click', this.onClickHandler.bind(this));
 
-    function onClick(evt) {
-      console.log('onClick');
-      if (frameCount > 0) {
-        return;
-      }
+  this.getFrameCount = function() {
+    return frameCount;
+  };
 
-      frameCount = 1;
-      bound = evt.currentTarget.getBoundingClientRect();
-      // Check if we are handling a keyboard click
-      if (event.clientX === 0 && event.clientY === 0) {
-        x = Math.round(bound.width / 2);
-        y = Math.round(bound.height / 2);
-      } else {
-        x = Math.round(evt.clientX - bound.left);
-        y = Math.round(evt.clientY - bound.top);
-      }
-      transformString = 'translate(-50%, -50%) ' +
-        'translate(' + x + 'px, ' + y + 'px) ' +
-        'scale(0.0001, 0.0001)';
-      ripple = evt.currentTarget.querySelector('.ripple');
+  this.setFrameCount = function(fC) {
+    frameCount = fC;
+  };
 
-      if (ripple !== null) {
-        ripple.style.webkitTransform = transformString;
-        ripple.style.transform = transformString;
-        ripple.style.opacity = '0.4';
-        ripple.classList.remove('animate');
-      }
-      requestAnimFrame(reset);
-    }
+  this.getRippleElement = function() {
+    return rippleElement;
+  };
 
-    function reset() {
+  this.setRippleXY = function(newX, newY) {
+    x = newX, y = newY;
+  };
 
-      if (frameCount-- > 0) {
-        requestAnimFrame(reset);
-      } else {
+  this.animFrameHandler = function() {
+    if (frameCount-- > 0) {
+      window.requestAnimFrame(this.animFrameHandler.bind(this));
+    } else {
+      var transformString = 'translate(-50%, -50%) ' +
+        'translate(' + x + 'px, ' + y + 'px)' +
+        'scale(1, 1)';
 
-        transformString = 'translate(-50%, -50%) ' +
-          'translate(' + x + 'px, ' + y + 'px)' +
-          'scale(1, 1)';
-
-        if (ripple !== null) {
-          ripple.style.webkitTransform = transformString;
-          ripple.style.transform = transformString;
-          ripple.style.opacity = '0';
-          ripple.classList.add('animate');
-        }
+      if (rippleElement !== null) {
+        rippleElement.style.webkitTransform = transformString;
+        rippleElement.style.transform = transformString;
+        rippleElement.style.opacity = '0';
+        rippleElement.classList.add('is-animating');
       }
     }
-  });
+  };
+}
 
-})();
+PaperButton.prototype.onClickHandler = function(evt) {
+  console.log('onClick');
+  var frameCount = this.getFrameCount();
+  if (frameCount > 0) {
+    return;
+  }
+
+  this.setFrameCount(1);
+  var bound = evt.currentTarget.getBoundingClientRect();
+  var x, y;
+  // Check if we are handling a keyboard click
+  if (event.clientX === 0 && event.clientY === 0) {
+    x = Math.round(bound.width / 2);
+    y = Math.round(bound.height / 2);
+  } else {
+    x = Math.round(evt.clientX - bound.left);
+    y = Math.round(evt.clientY - bound.top);
+  }
+  this.setRippleXY(x, y);
+  var transformString = 'translate(-50%, -50%) ' +
+    'translate(' + x + 'px, ' + y + 'px) ' +
+    'scale(0.0001, 0.0001)';
+  
+  var rippleElement = this.getRippleElement();
+  if (rippleElement) {
+    rippleElement.style.webkitTransform = transformString;
+    rippleElement.style.transform = transformString;
+    rippleElement.style.opacity = '0.4';
+    rippleElement.classList.remove('is-animating');
+  }
+  window.requestAnimFrame(this.animFrameHandler.bind(this));
+};
+
+window.addEventListener('load', function() {
+  var buttonElements = document.querySelectorAll('.PaperButton');
+  for (var i = 0; i < buttonElements.length; i++) {
+    new PaperButton(buttonElements[i]);
+  }
+});
