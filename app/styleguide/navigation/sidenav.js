@@ -102,7 +102,6 @@
       sidenav.close();
     });
 
-
     menuButton.addEventListener('click', function(evt) {
       sidenav.toggle();
     });

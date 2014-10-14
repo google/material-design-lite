@@ -8,8 +8,9 @@ function TextField(element) {
 
   if (inputElement.hasAttribute('maxrows')) {
     maxRows = parseInt(inputElement.getAttribute('maxrows'), 10);
-    if(isNaN(maxRows)) {
-      console.log('maxrows attribute provided, but wasn\'t a number: '+maxRows);
+    if (isNaN(maxRows)) {
+      console.log(
+          'maxrows attribute provided, but wasn\'t a number: ' + maxRows);
       maxRows = NO_MAX_ROWS;
     }
   }
@@ -24,15 +25,15 @@ function TextField(element) {
 
   this.onKeyDown = function(evt) {
     var currentRowCount = evt.target.value.split('\n').length;
-    if(evt.keyCode === 13) {
-      if(currentRowCount >= maxRows) {
+    if (evt.keyCode === 13) {
+      if (currentRowCount >= maxRows) {
         evt.preventDefault();
       }
     }
   };
 
   inputElement.addEventListener('input', this.onInputChange.bind(this));
-  if(maxRows !== NO_MAX_ROWS) {
+  if (maxRows !== NO_MAX_ROWS) {
     // TODO: This should handle pasting multi line text
     // Currently doesn't
     inputElement.addEventListener('keydown', this.onKeyDown.bind(this));

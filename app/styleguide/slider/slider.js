@@ -24,9 +24,9 @@ function Slider(element) {
   this.updateValue();
 }
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function() {
   var sliders =  document.querySelectorAll('input[type="range"]');
-  for(var i = 0; i < sliders.length; i++) {
+  for (var i = 0; i < sliders.length; i++) {
     new Slider(sliders[i]);
   }
 });

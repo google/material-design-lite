@@ -16,9 +16,8 @@
  *  limitations under the License
  *
  */
-(function () {
+(function() {
   'use strict';
 
-  var querySelector = document.querySelector.bind(document);
-
+  // TODO: Do we still need this file?
 })();
