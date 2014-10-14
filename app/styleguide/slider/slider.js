@@ -1,43 +1,32 @@
 'use strict';
 
-var wskSlider = function() {
+function Slider(element) {
+  var sliderElement = element;
+  sliderElement.addEventListener('input', function(e) {
+    this.updateValue();
+  }.bind(this));
+  sliderElement.addEventListener('mouseup', function(e) {
+    e.target.blur();
+  }.bind(this));
 
-  function displayValue(slider) {
-    slider.classList.toggle('ring', slider.value === '0');
-    if (!slider.disabled) {
+  this.updateValue = function() {
+    sliderElement.classList.toggle('ring', sliderElement.value === '0');
+
+    if (!sliderElement.disabled) {
       var color = window.getComputedStyle(
-        slider, null).getPropertyValue('color');
+        sliderElement, null).getPropertyValue('color');
       var val = 'linear-gradient(90deg, ' + color + ', ' + color+ ' ' +
-        slider.value + '%, #ccc ' + slider.value + '%, #ccc)';
-      slider.style.background = val;
+        sliderElement.value + '%, #ccc ' + sliderElement.value + '%, #ccc)';
+      sliderElement.style.background = val;
     }
-  }
-
-  function setupSlider(slider) {
-    displayValue(slider);
-    slider.addEventListener('input', function(e) {
-      displayValue(e.target);
-    });
-    slider.addEventListener('mouseup', function(e) {
-      e.target.blur();
-    });
-  }
-
-  function findSliders() {
-    var sliders =  document.querySelectorAll('input[type="range"]');
-    var i = sliders.length;
-    while (i--) {
-      var slider = sliders[i];
-      setupSlider(slider);
-    }
-  }
-
-  return {
-    init: findSliders
   };
 
-}();
+  this.updateValue();
+}
 
 window.addEventListener('load', function(){
-  wskSlider.init();
+  var sliders =  document.querySelectorAll('input[type="range"]');
+  for(var i = 0; i < sliders.length; i++) {
+    new Slider(sliders[i]);
+  }
 });
