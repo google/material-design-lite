@@ -1,72 +1,92 @@
-function PaperCheckbox(l) {
+function Checkbox(l) {
   'use strict';
 
-  this.labelElement = l;
-  this.checkboxElement = document.getElementById(
-    this.labelElement.getAttribute('for'));
+  var labelElement = l;
+  var checkboxElement = document.getElementById(
+    labelElement.getAttribute('for'));
+  checkboxElement.disabled = true;
 
   // Add additional elements
-  this.fakeCheckbox = document.createElement('span');
-  this.fakeCheckbox.className = 'paper-checkbox';
-  this.fakeCheckbox.tabIndex = 0;
-  this.focusCircle = document.createElement('span');
-  this.focusCircle.className = 'focusCircle';
-  this.labelElement.insertBefore(this.focusCircle,
-    this.labelElement.firstChild);
-  this.labelElement.insertBefore(this.fakeCheckbox,
-     this.labelElement.firstChild);
+  var fakeCheckbox = document.createElement('span');
+  fakeCheckbox.className = 'Checkbox';
+  fakeCheckbox.tabIndex = 0;
+  var focusCircle = document.createElement('span');
+  focusCircle.className = 'Checkbox-focusCircle';
 
-  this.fakeCheckbox.addEventListener('focus', function(evt) {
+  labelElement.insertBefore(focusCircle,
+    labelElement.firstChild);
+  labelElement.insertBefore(fakeCheckbox,
+     labelElement.firstChild);
+
+  fakeCheckbox.addEventListener('focus', function(evt) {
     this.onFocusChange(evt, true);
   }.bind(this));
-  this.fakeCheckbox.addEventListener('blur', function(evt) {
+  fakeCheckbox.addEventListener('blur', function(evt) {
     this.onFocusChange(evt, false);
   }.bind(this));
-  this.labelElement.addEventListener('focus', function(evt) {
+  labelElement.addEventListener('focus', function(evt) {
     this.onFocusChange(evt);
   }.bind(this));
-  this.labelElement.addEventListener('blur', function(evt) {
+  labelElement.addEventListener('blur', function(evt) {
     this.onFocusChange(evt);
   }.bind(this));
-  this.fakeCheckbox.addEventListener('click', function(evt) {
+  fakeCheckbox.addEventListener('click', function(evt) {
     this.onCheckChange(evt);
   }.bind(this));
-  this.labelElement.addEventListener('click', function(evt) {
+  labelElement.addEventListener('click', function(evt) {
     this.onCheckChange(evt);
   }.bind(this));
-  this.fakeCheckbox.addEventListener('keypress', function(evt) {
+  fakeCheckbox.addEventListener('keypress', function(evt) {
+    console.log('fakeCheckbox keypress');
     this.onKeyEvent(evt);
   }.bind(this));
-  this.labelElement.addEventListener('keypress', function(evt) {
+  labelElement.addEventListener('keypress', function(evt) {
     this.onKeyEvent(evt);
   }.bind(this));
+
+  this.getCheckboxElement = function() {
+    return checkboxElement;
+  };
+
+  this.getFakeCheckboxElement = function() {
+    return fakeCheckbox;
+  };
+
+  this.getFocusCircleElement = function() {
+    return focusCircle;
+  };
 }
 
-PaperCheckbox.prototype.onFocusChange = function(evt, isFocused) {
+Checkbox.prototype.onFocusChange = function(evt, isFocused) {
   'use strict';
-  console.log('onFocusChange');
+  var focusCircle = this.getFocusCircleElement();
   if (isFocused) {
-    this.focusCircle.classList.add('focused');
+    focusCircle.classList.add('Checkbox-isFocused');
   } else {
-    this.focusCircle.classList.remove('focused');
+    focusCircle.classList.remove('Checkbox-isFocused');
   }
 };
 
-PaperCheckbox.prototype.onCheckChange = function(evt) {
+Checkbox.prototype.onCheckChange = function(evt) {
   'use strict';
   evt.preventDefault();
+  evt.stopPropagation();
 
-  this.checkboxElement.checked = !this.checkboxElement.checked;
-  if (this.checkboxElement.checked) {
-    this.fakeCheckbox.classList.add('checked');
-    this.focusCircle.classList.add('checked');
+  var checkboxElement = this.getCheckboxElement();
+  var fakeCheckbox = this.getFakeCheckboxElement();
+  var focusCircle = this.getFocusCircleElement();
+
+  checkboxElement.checked = !checkboxElement.checked;
+  if (checkboxElement.checked) {
+    fakeCheckbox.classList.add('Checkbox-isChecked');
+    focusCircle.classList.add('Checkbox-isChecked');
   } else {
-    this.fakeCheckbox.classList.remove('checked');
-    this.focusCircle.classList.remove('checked');
+    fakeCheckbox.classList.remove('Checkbox-isChecked');
+    focusCircle.classList.remove('Checkbox-isChecked');
   }
 };
 
-PaperCheckbox.prototype.onKeyEvent = function(evt) {
+Checkbox.prototype.onKeyEvent = function(evt) {
   'use strict';
   var SPACE_KEY = 32;
 
@@ -81,6 +101,6 @@ window.addEventListener('load', function() {
 
   var labels =  document.getElementsByTagName('label');
   for (var i = 0; i < labels.length; i++) {
-    new PaperCheckbox(labels[i]);
+    new Checkbox(labels[i]);
   }
 });
