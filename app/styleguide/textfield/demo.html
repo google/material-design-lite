@@ -17,54 +17,56 @@
   <div class="preview-block">
     <form action="#">
       <div class="input-container">
-        <input class="text-input" type="text" name="sample" />
+        <input class="TextField" type="text" name="sample" />
         <label for="sample">Type Something...</label>
       </div>
 
       <div class="input-container">
-        <input class="text-input" type="text" pattern="[0-9]*" name="sample" />
+        <input class="TextField" type="text" pattern="[0-9]*" name="sample" />
         <label for="sample">Numbers Only</label>
         <span class="error">Input is not a number!</span>
       </div>
 
       <div class="input-container">
-        <input class="text-input" type="text" disabled name="sample" />
+        <input class="TextField" type="text" disabled name="sample" />
         <label for="sample">I'm Disabled</label>
       </div>
 
       <div class="input-container">
-        <input class="text-input floating-label" type="text" name="sample" />
+        <input class="TextField TextField-floatingLabel" type="text" name="sample" />
         <label for="sample">Text Input</label>
       </div>
 
       <div class="input-container">
-        <input class="floating-label text-input" type="text" pattern="[0-9]*" name="sample" />
+        <input class="TextField TextField-floatingLabel" type="text" pattern="[0-9]*" name="sample" />
         <label for="sample">Numbers Only</label>
         <span class="error">Input is not a number!</span>
       </div>
 
       <div class="input-container">
-        <textarea class="text-input" type="text" rows= "1" name="sample" ></textarea>
+        <textarea class="TextField" type="text" rows= "1" name="sample" ></textarea>
         <label for="sample">Type multiple lines here...</label>
       </div>
 
       <div class="input-container">
-        <textarea class="text-input" type="text" rows= "3" name="sample" ></textarea>
+        <textarea class="TextField" type="text" rows="3" name="sample" ></textarea>
         <label for="sample">This input is 3 rows high</label>
       </div>
 
       <div class="input-container">
-        <textarea class="text-input" type="text" maxrows=3 rows=1 name="sample" ></textarea>
+        <textarea class="TextField" type="text" maxrows="3" rows="1" name="sample" ></textarea>
         <label for="sample">This input is at most 3 rows high</label>
       </div>
 
       <div class="input-container">
-        <textarea class="floating-label text-input" type="text" rows= "1" name="sample" ></textarea>
+        <textarea class="TextField TextField-floatingLabel" type="text" rows= "1" name="sample" ></textarea>
         <label for="sample">Multiple lines and a floating label</label>
       </div>
     </form>
 
   </div>
+  
+  <script src="textfield.js"></script>
 
   </body>
 </html>
