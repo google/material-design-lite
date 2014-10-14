@@ -15,7 +15,7 @@ function Slider(element) {
     if (!sliderElement.disabled) {
       var color = window.getComputedStyle(
         sliderElement, null).getPropertyValue('color');
-      var val = 'linear-gradient(90deg, ' + color + ', ' + color+ ' ' +
+      var val = 'linear-gradient(90deg, ' + color + ', ' + color + ' ' +
         sliderElement.value + '%, #ccc ' + sliderElement.value + '%, #ccc)';
       sliderElement.style.background = val;
     }
