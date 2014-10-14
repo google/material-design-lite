@@ -1,44 +1,41 @@
-var paperRadio = function() {
+'use strict';
 
-  var radios = document.querySelectorAll('.paper-radio__label');
+function RadioButton(btnElement, labelElement) {
+  var outerCircle = document.createElement('span');
+  outerCircle.classList.add('RadioButton-outerCircle');
 
-  for(i = 0; i < radios.length; i++) {
-    var outer = document.createElement('span');
-    outer.classList.add('paper-radio__outer-circle');
+  var innerCircle = document.createElement('span');
+  innerCircle.classList.add('RadioButton-innerCircle');
 
-    var inner = document.createElement('span');
-    inner.classList.add('paper-radio__inner-circle');
+  var ripple = document.createElement('span');
+  ripple.classList.add('RadioButton-ripple');
 
-    var ripple = document.createElement('span');
-    ripple.classList.add('paper-radio__ripple');
+  labelElement.insertBefore(outerCircle, btnElement);
+  labelElement.appendChild(innerCircle);
+  labelElement.appendChild(ripple);
 
-    var radiobutton = radios[i].querySelector('.paper-radio__button');
-
-    radios[i].insertBefore(outer, radiobutton);
-    radios[i].appendChild(inner);
-    radios[i].appendChild(ripple);
-
-    radios[i].addEventListener('click', showEffect);
-  }
-
-  function showEffect(e) {
-    var ripple = this.querySelector('.paper-radio__ripple');
-
+  this.onClick = function(evt) {
     if (ripple === null) {
       return;
     }
 
-    ripple.classList.add('is-active');
-
-    var removeRip = function(e) {
-      this.classList.remove('is-active');
-    }
-
-    ripple.addEventListener('webkitTransitionEnd', removeRip);
-    ripple.addEventListener('oTransitionEnd', removeRip);
-    ripple.addEventListener('transitionEnd', removeRip);
+    ripple.classList.add('RadioButton-isRippling');
   };
 
-};
+  this.onEndOfRippleTransition = function() {
+    ripple.classList.remove('RadioButton-isRippling');
+  };
 
-window.addEventListener('load', paperRadio);
+  labelElement.addEventListener('click', this.onClick.bind(this));
+  ripple.addEventListener('webkitTransitionEnd', this.onEndOfRippleTransition.bind(this));
+  ripple.addEventListener('oTransitionEnd', this.onEndOfRippleTransition.bind(this));
+  ripple.addEventListener('transitionEnd', this.onEndOfRippleTransition.bind(this));
+}
+
+window.addEventListener('load', function() {
+  var radioLabels = document.querySelectorAll('.RadioButton-label');
+  for(var i = 0; i < radioLabels.length; i++) {
+    var radioButton = radioLabels[i].querySelector('.RadioButton');
+    new RadioButton(radioButton, radioLabels[i]);
+  }
+});

@@ -1,8 +1,9 @@
+'use strict';
 
 var wskSlider = function() {
 
   function displayValue(slider) {
-    slider.classList.toggle('ring', slider.value === "0");
+    slider.classList.toggle('ring', slider.value === '0');
     if (!slider.disabled) {
       var color = window.getComputedStyle(
         slider, null).getPropertyValue('color');
@@ -10,17 +11,17 @@ var wskSlider = function() {
         slider.value + '%, #ccc ' + slider.value + '%, #ccc)';
       slider.style.background = val;
     }
-  };
+  }
 
   function setupSlider(slider) {
     displayValue(slider);
     slider.addEventListener('input', function(e) {
-      displayValue(e.target)
-    })
+      displayValue(e.target);
+    });
     slider.addEventListener('mouseup', function(e) {
       e.target.blur();
-    })
-  };
+    });
+  }
 
   function findSliders() {
     var sliders =  document.querySelectorAll('input[type="range"]');
@@ -29,7 +30,7 @@ var wskSlider = function() {
       var slider = sliders[i];
       setupSlider(slider);
     }
-  };
+  }
 
   return {
     init: findSliders
