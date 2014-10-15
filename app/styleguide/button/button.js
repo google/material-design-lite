@@ -3,9 +3,11 @@
 function PaperButton(el) {
   var buttonElement = el;
   var rippleElement = buttonElement.querySelector('.PaperButton-ripple');
-  var frameCount = 0, x, y;
+  var frameCount = 0;
+  var x;
+  var y;
 
-  if(rippleElement) {
+  if (rippleElement) {
     var bound = buttonElement.getBoundingClientRect();
     var rippleSize = Math.max(bound.width, bound.height) * 2;
 
@@ -28,7 +30,8 @@ function PaperButton(el) {
   };
 
   this.setRippleXY = function(newX, newY) {
-    x = newX, y = newY;
+    x = newX;
+    y = newY;
   };
 
   this.animFrameHandler = function() {
@@ -58,7 +61,8 @@ PaperButton.prototype.onClickHandler = function(evt) {
 
   this.setFrameCount(1);
   var bound = evt.currentTarget.getBoundingClientRect();
-  var x, y;
+  var x;
+  var y;
   // Check if we are handling a keyboard click
   if (event.clientX === 0 && event.clientY === 0) {
     x = Math.round(bound.width / 2);
@@ -71,7 +75,7 @@ PaperButton.prototype.onClickHandler = function(evt) {
   var transformString = 'translate(-50%, -50%) ' +
     'translate(' + x + 'px, ' + y + 'px) ' +
     'scale(0.0001, 0.0001)';
-  
+
   var rippleElement = this.getRippleElement();
   if (rippleElement) {
     rippleElement.style.webkitTransform = transformString;

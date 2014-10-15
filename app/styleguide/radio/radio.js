@@ -27,14 +27,17 @@ function RadioButton(btnElement, labelElement) {
   };
 
   labelElement.addEventListener('click', this.onClick.bind(this));
-  ripple.addEventListener('webkitTransitionEnd', this.onEndOfRippleTransition.bind(this));
-  ripple.addEventListener('oTransitionEnd', this.onEndOfRippleTransition.bind(this));
-  ripple.addEventListener('transitionEnd', this.onEndOfRippleTransition.bind(this));
+  ripple.addEventListener('webkitTransitionEnd',
+      this.onEndOfRippleTransition.bind(this));
+  ripple.addEventListener('oTransitionEnd',
+      this.onEndOfRippleTransition.bind(this));
+  ripple.addEventListener('transitionEnd',
+      this.onEndOfRippleTransition.bind(this));
 }
 
 window.addEventListener('load', function() {
   var radioLabels = document.querySelectorAll('.RadioButton-label');
-  for(var i = 0; i < radioLabels.length; i++) {
+  for (var i = 0; i < radioLabels.length; i++) {
     var radioButton = radioLabels[i].querySelector('.RadioButton');
     new RadioButton(radioButton, radioLabels[i]);
   }
