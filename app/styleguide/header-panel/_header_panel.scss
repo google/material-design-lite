@@ -1,6 +1,7 @@
 @import '../palette/palette';
 @import '../shadow/shadow';
 @import '../typography/typography';
+@import '../animation/animation';
 
 /* Colors */
 $panel-bg-color: nth($primaryPalette, 6);
@@ -28,8 +29,8 @@ $panel-default-height: $panel-small-height;
   background-color: $panel-bg-color;
   color: $panel-text-color;
   z-index: 100;
-  transition: min-height 0.2s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: min-height;
+  @include material-animation-default();
   @include typo-title();
   line-height: $panel-default-height;
 }

@@ -1,0 +1,86 @@
+@import "../styleguide_demo_bp";
+@import "../card/card";
+@import "../shadow/shadow";
+@import "animation";
+
+.preview-block {
+  height: 200px;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.background {
+  line-height: 200px;
+  z-index: -100;
+}
+
+// Outside the view, on the left.
+// We leave the view when moving to this state, so we use fast-out-linear-in.
+.position-1 {
+  left: calc(-102px);
+  @include material-animation-fast-out-linear-in();
+}
+
+// Left side.
+// We enter the view when moving to this state, so we use linear-out-slow-in.
+.position-2 {
+  left: 20px;
+  @include material-animation-linear-out-slow-in();
+}
+
+// Right side.
+// We're always visible when moving to this state, so we use default.
+.position-3 {
+  left: calc(100% - 120px);
+  @include material-animation-default();
+}
+
+// Outside the view, on the right.
+// We leave the view when moving to this state, so we use fast-out-linear-in.
+.position-4 {
+  left: calc(100% + 2px);
+  @include material-animation-fast-out-linear-in();
+}
+
+// Right side.
+// We enter the view when moving to this state, so we use linear-out-slow-in.
+.position-5 {
+  left: calc(100% - 120px);
+  @include material-animation-linear-out-slow-in();
+}
+
+// Left side.
+// We're always visible when moving to this state, so we use default.
+.position-6 {
+  left: 20px;
+  @include material-animation-default();
+}
+
+.PaperCard {
+  background-color: red;
+  border-radius: 2px;
+  display: block;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 50px;
+  transition-property: left;
+}

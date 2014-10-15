@@ -1,6 +1,7 @@
 @import "../styleguide_demo_bp";
+@import "../card/card";
+@import "../animation/animation";
 @import "_shadow";
-@import '_card';
 
 .PaperCard {
   background-color   : #fff;
@@ -8,7 +9,7 @@
   display            : block;
   height             : 300px;
   margin             : 20px;
-  transition         : 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
   transition-property: opacity, transform;
+  @include material-animation-default(300ms);
   width              : 300px;
 }
