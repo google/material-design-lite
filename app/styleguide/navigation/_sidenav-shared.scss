@@ -1,5 +1,6 @@
 @import "../palette/palette";
 @import "../typography/typography";
+@import "../animation/animation";
 
 /* Colors */
 $sidenav-bg-color: nth($pagePalette, 1);
@@ -72,8 +73,7 @@ $horizontal-padding: 24px;
 
 .sidenav.animatable {
   transition-delay: 0.1s;
-  transition-duration:0.2s;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  @include material-animation-default();
 }
 
 .sidenav ul {
@@ -148,7 +148,7 @@ $horizontal-padding: 24px;
 }
 
 .sidenav-modal-bg.animatable {
-  transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
+  transition: visibility 0 linear .4s,opacity .4s $animation-curve-default;
 }
 
 .sidenav-modal-bg.visible {

@@ -1,4 +1,5 @@
 @import "../palette/palette";
+@import "../animation/animation";
 
 $sidenav-bg-color: white;
 $sidenav-modal-bg-color: rgba(0, 0, 0, 0.5);
@@ -48,8 +49,7 @@ $sidenav-width: 240px;
   transform: translateX(-$sidenav-width);
   transform-style: preserve-3d;
   transition-delay: 0.1s;
-  transition-duration:0.2s;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  @include material-animation-default();
   will-change: transform;
 
   z-index: 4;
@@ -76,7 +76,7 @@ $sidenav-width: 240px;
   background-color: $sidenav-modal-bg-color;
   pointer-events: none;
 
-  transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
+  transition: visibility 0 linear .4s,opacity .4s $animation_curve_default;
 
   z-index: 3;
 }

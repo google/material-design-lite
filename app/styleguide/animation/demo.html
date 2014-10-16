@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Animations</title>
+
+    <link rel="stylesheet" href="demo.css">
+
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+  </head>
+  <body>
+
+  <div id="clickable" class="preview-block">
+    <div class="container">
+      <div class="background">Click me to animate</div>
+      <div class="foreground"></div>
+      <div id="moveable" class="PaperCard Shadow--z1 position-1"></div>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    window.addEventListener('load', function() {
+      var clickable = document.getElementById('clickable');
+      var moveable = document.getElementById('moveable');
+      var position = 1;
+
+      clickable.addEventListener('click', function() {
+        moveable.classList.remove('position-' + position);
+        position++;
+        if (position > 6) {
+          position = 1;
+        }
+        moveable.classList.add('position-' + position);
+      });
+    });
+  </script>
+
+  </body>
+</html>
