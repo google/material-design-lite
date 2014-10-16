@@ -140,7 +140,7 @@
         var demos = document.querySelectorAll('.styleguide-demo');
         totalDemosPendingLoading = demos.length;
         for(var i = 0; i < demos.length; i++) {
-          var demoTitle = demos[i].querySelector('h1').innerText;
+          var demoTitle = demos[i].querySelector('h1').textContent;
           var anchorLink = 'demo-'+i;
 
           // Add list item

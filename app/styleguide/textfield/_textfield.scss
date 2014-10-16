@@ -1,4 +1,5 @@
 @import "../palette/palette";
+@import "../animation/animation";
 
 $textfieldBackgroundColor: transparent;
 $textfieldLabelColor: rgba(0, 0, 0, 0.26);
@@ -43,7 +44,7 @@ $floatingLabelFontSize: 12px;
   height            : 2px;
   left              : 45%;
   position          : absolute;
-  transition        : 0.2s ease all;
+  @include material-animation-default();
   visibility        : hidden;
   width             : 10px;
 }
@@ -72,7 +73,7 @@ $floatingLabelFontSize: 12px;
 /** TextField Error **/
 .TextField ~ .error {
   color     : $textfieldErrorColor;
-  float     : left;
+  position  : absolute;
   font-size : 12px;
   margin-top: 3px;
   visibility: hidden;
@@ -87,7 +88,7 @@ $floatingLabelFontSize: 12px;
 }
 
 .TextField-floatingLabel ~label {
-  transition : 0.2s ease all;
+  @include material-animation-default();
 }
 
 .TextField-floatingLabel:focus ~ label,
