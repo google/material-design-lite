@@ -1,5 +1,24 @@
-@mixin typo-display-4($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+$preferred_font: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+$performance_font: 'Helvetica', 'Arial', sans-serif;
+
+@mixin typo-preferred-font($usePreferred: true) {
+  @if $usePreferred {
+    font-family: $preferred_font;
+  }
+}
+
+@mixin typo-display-4($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 112px;
   font-weight: 300;
   line-height: 1;
@@ -10,8 +29,8 @@
   }
 }
 
-@mixin typo-display-3($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-display-3($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
@@ -22,8 +41,8 @@
   }
 }
 
-@mixin typo-display-2($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-display-2($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 45px;
   font-weight: 400;
   line-height: 48px;
@@ -33,8 +52,8 @@
   }
 }
 
-@mixin typo-display-1($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-display-1($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 34px;
   font-weight: 400;
   line-height: 40px;
@@ -44,8 +63,8 @@
   }
 }
 
-@mixin typo-headline($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-headline($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
@@ -56,8 +75,8 @@
   }
 }
 
-@mixin typo-title($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-title($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -68,8 +87,8 @@
   }
 }
 
-@mixin typo-subhead($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-subhead($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -80,8 +99,8 @@
   }
 }
 
-@mixin typo-subhead-2($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-subhead-2($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;
@@ -92,9 +111,14 @@
   }
 }
 
-@mixin typo-body-2($colorContrast:false) {
+@mixin typo-body-2($colorContrast: false, $usePreferred: false) {
+  @include typo-preferred-font($usePreferred);
   font-size: 14px;
-  font-weight: 500;
+  @if $usePreferred {
+    font-weight: 500;
+  } @else {
+    font-weight: bold;
+  }
   line-height: 24px;
   letter-spacing: 0.04em;
 
@@ -103,7 +127,8 @@
   }
 }
 
-@mixin typo-body-1($colorContrast:false) {
+@mixin typo-body-1($colorContrast: false, $usePreferred: false) {
+  @include typo-preferred-font($usePreferred);
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
@@ -114,8 +139,8 @@
   }
 }
 
-@mixin typo-caption($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-caption($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -126,8 +151,8 @@
   }
 }
 
-@mixin typo-blockquote($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-blockquote($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 24px;
   font-weight: 300;
   font-style: italic;
@@ -148,8 +173,8 @@
   }
 }
 
-@mixin typo-menu($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-menu($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
@@ -160,8 +185,8 @@
   }
 }
 
-@mixin typo-button($colorContrast:false) {
-  font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+@mixin typo-button($colorContrast: false, $usePreferred: true) {
+  @include typo-preferred-font($usePreferred);
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -174,7 +199,7 @@
 }
 
 html, body {
-	font-family: 'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
+	font-family: $performance_font;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 20px;
@@ -190,7 +215,7 @@ h1, h2, h3, h4, h5, h6, p {
  */
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  @include typo-display-3($colorContrast:true);
+  @include typo-display-3($colorContrast: true);
   font-size: 0.6em;
 }
 
@@ -249,7 +274,7 @@ dt {
 }
 
 .Typography--display-4--colorContrast {
-  @include typo-display-4($colorContrast:true);
+  @include typo-display-4($colorContrast: true);
 }
 
 .Typography--display-3 {
@@ -257,7 +282,7 @@ dt {
 }
 
 .Typography--display-3--colorContrast {
-  @include typo-display-3($colorContrast:true);
+  @include typo-display-3($colorContrast: true);
 }
 
 .Typography--display-2 {
@@ -265,7 +290,7 @@ dt {
 }
 
 .Typography--display-2--colorContrast {
-  @include typo-display-2($colorContrast:true);
+  @include typo-display-2($colorContrast: true);
 }
 
 .Typography--display-1 {
@@ -273,7 +298,7 @@ dt {
 }
 
 .Typography--display-1--colorContrast {
-  @include typo-display-1($colorContrast:true);
+  @include typo-display-1($colorContrast: true);
 }
 
 .Typography--headline {
@@ -281,7 +306,7 @@ dt {
 }
 
 .Typography--headline--colorContrast {
-  @include typo-headline($colorContrast:true);
+  @include typo-headline($colorContrast: true);
 }
 
 .Typography--title {
@@ -289,7 +314,7 @@ dt {
 }
 
 .Typography--title--colorContrast {
-  @include typo-title($colorContrast:true);
+  @include typo-title($colorContrast: true);
 }
 
 .Typography--subhead {
@@ -297,7 +322,7 @@ dt {
 }
 
 .Typography--subhead--colorContrast {
-  @include typo-subhead($colorContrast:true);
+  @include typo-subhead($colorContrast: true);
 }
 
 .Typography--body-2 {
@@ -305,7 +330,7 @@ dt {
 }
 
 .Typography--Body-2--colorContrast {
-  @include typo-body-2($colorContrast:true);
+  @include typo-body-2($colorContrast: true);
 }
 
 .Typography--body-1 {
@@ -313,15 +338,31 @@ dt {
 }
 
 .Typography--body-1--colorContrast {
-  @include typo-body-1($colorContrast:true);
+  @include typo-body-1($colorContrast: true);
 }
 
-.Typography--baption {
+.Typography--body-2--forcePreferredFont {
+  @include typo-body-2($usePreferred: true);
+}
+
+.Typography--Body-2--forcePreferredFont--colorContrast {
+  @include typo-body-2($colorContrast: true, $usePreferred: true);
+}
+
+.Typography--body-1--forcePreferredFont {
+  @include typo-body-1($usePreferred: true);
+}
+
+.Typography--body-1--forcePreferredFont--colorContrast {
+  @include typo-body-1($colorContrast: true, $usePreferred: true);
+}
+
+.Typography--caption {
   @include typo-caption();
 }
 
 .Typography--caption--colorContrast {
-  @include typo-caption($colorContrast:true);
+  @include typo-caption($colorContrast: true);
 }
 
 .Typography--menu {
@@ -329,7 +370,7 @@ dt {
 }
 
 .Typography--menu--colorContrast {
-  @include typo-menu($colorContrast:true);
+  @include typo-menu($colorContrast: true);
 }
 
 .Typography--button {
@@ -337,7 +378,7 @@ dt {
 }
 
 .Typography--button--colorContrast {
-  @include typo-button($colorContrast:true);
+  @include typo-button($colorContrast: true);
 }
 
 .Typography--textLeft {
