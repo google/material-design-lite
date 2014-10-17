@@ -1,4 +1,5 @@
 @import "../palette/palette";
+@import "../animation/animation";
 
 // Default Range Colors
 $default-range-bg-color: nth($secondaryPalette, 5);
@@ -26,7 +27,7 @@ input[type=range]::-moz-focus-outer {
 input[type="range"]::-webkit-slider-runnable-track {
   margin-left: -0.3rem;
   margin-right: -0.3rem;
-  transition: margin 0.18s ease;
+  transition: margin 0.18s $animation-curve-default;
 }
 
 input[type="range"]:active::-webkit-slider-runnable-track {
@@ -51,7 +52,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   background-color: $default-range-color;
   border: none;
-  transition: height 0.18s ease, width 0.18s ease, background-color 0.28s ease, border 0.28s ease;
+  transition: height 0.18s $animation-curve-default, width 0.18s $animation-curve-default, background-color 0.28s $animation-curve-default, border 0.28s $animation-curve-default;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -61,7 +62,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background-color: $default-range-color;
   border: none;
-  transition: height 0.18s ease, width 0.18s ease, background-color 0.28s ease, border 0.28s ease;
+  transition: height 0.18s $animation-curve-default, width 0.18s $animation-curve-default, background-color 0.28s $animation-curve-default, border 0.28s $animation-curve-default;
 }
 
 input[type="range"]:focus:not(:active)::-webkit-slider-thumb {

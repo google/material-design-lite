@@ -1,4 +1,5 @@
 @import "../palette/palette";
+@import "../animation/animation";
 
 $circleSize: 40px;
 $checkboxSize: 16px;
@@ -17,7 +18,7 @@ $focusColor: rgba(nth($secondaryPalette, 6), 0.12);
   padding: 0;
   position:absolute;
   width: $checkboxSize;
-  transition: all 0.3s ease-in-out;
+  @include material-animation-default();
   z-index:1;
   box-sizing: border-box;
   top: ($circleSize - $checkboxSize) / 2;
@@ -53,7 +54,7 @@ $focusColor: rgba(nth($secondaryPalette, 6), 0.12);
   opacity: 0;
   position: absolute;
   top: 0px;
-  transition: all 0.15s ease-in-out;
+  @include material-animation-default();
   width: $circleSize;
   z-index:0;
 }

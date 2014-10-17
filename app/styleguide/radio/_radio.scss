@@ -1,4 +1,5 @@
 @import "../palette/palette";
+@import "../animation/animation";
 
 $borderColor: nth($secondaryPalette, 8);
 $radioColor: nth($primaryPalette, 6);
@@ -58,7 +59,7 @@ $rippleSize: 42px;
   width: $radioButtonSize;
   height: $radioButtonSize;
 
-  transition: all 0.3s ease-in;
+  @include material-animation-default();
   transform: scale3d(0, 0, 0);
 
   border-radius: 50%;
@@ -79,7 +80,7 @@ $rippleSize: 42px;
   width: $rippleSize;
   height: $rippleSize;
 
-  transition: opacity 0.2s ease-in-out;
+  @include material-animation-default();
 
   opacity: 0;
   border-radius: 50%;
