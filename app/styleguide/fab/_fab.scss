@@ -20,6 +20,7 @@ $fabFontSize: 24px;
   width           : $fabWidth;
   padding         : 0;
   overflow: hidden;
+  will-change: transform;
 }
 
 .PaperFab--colored {

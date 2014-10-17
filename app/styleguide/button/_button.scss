@@ -62,7 +62,10 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   overflow: hidden;
 }
 .PaperButton-ripple.is-animating {
-  transition        : transform 0.6s $animation-curve-linear-out-slow-in, opacity 0.6s $animation-curve-linear-out-slow-in;
+  transition        : transform 0.6s $animation-curve-linear-out-slow-in,
+                      width 0.6s $animation-curve-linear-out-slow-in,
+                      height 0.6s $animation-curve-linear-out-slow-in,
+                      opacity 0.6s $animation-curve-linear-out-slow-in;
 }
 .PaperButton--colored .PaperButton-ripple {
   background: $color-ripple-bg-color;
@@ -83,6 +86,9 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   @include shadow-z3();
   background-color: $default-btn-focus-bg-color;
   transition: box-shadow 0.2s ease-in;
+}
+.PaperButton::-moz-focus-inner {
+  border: 0;
 }
 .PaperButton--colored:focus {
   background-color: $colored-btn-focus-color;
