@@ -88,8 +88,7 @@ gulp.task('styles', function () {
     'app/styles/components/components.scss'
   ])
     .pipe($.changed('styles', {extension: '.scss'}))
-    .pipe($.rubySass({
-      style: 'expanded',
+    .pipe($.sass({
       precision: 10
     }))
     .on('error', console.error.bind(console))
