@@ -10,7 +10,7 @@ To take advantage of Web Starter Kit you need to:
 ## Dependencies
 
 The dependencies are:
-* [Node.js](http://nodejs.org)
+* [Node.js](https://nodejs.org)
 * [Ruby](https://www.ruby-lang.org/)
 * [gulp.js](http://gulpjs.com)
 * [Sass](http://sass-lang.com/install)
@@ -19,7 +19,7 @@ The dependencies are:
 
 Bring up a terminal and type `node --version`.
 If Node responds with a version at or above v0.10.x then check for a [Ruby](#ruby) installation.
-If you require Node, go to [nodejs.org](http://nodejs.org/) and click on the big green Install button.
+If you require Node, go to [nodejs.org](https://nodejs.org/) and click on the big green Install button.
 
 ### Ruby
 
