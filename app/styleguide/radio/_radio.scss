@@ -1,9 +1,9 @@
 @import "../palette/palette";
 @import "../animation/animation";
+@import "../ripple/ripple";
 
 $borderColor: nth($secondaryPalette, 8);
 $radioColor: nth($primaryPalette, 6);
-$radioRippleColor: rgba($radioColor, 0.26);
 
 $labelHeight: 20px;
 $radioButtonSize: 14px;
@@ -20,6 +20,8 @@ $rippleSize: 42px;
 
 .RadioButton-label {
   position: relative;
+
+  font-size: 16px;
 
   display: inline-block;
 
@@ -59,7 +61,8 @@ $rippleSize: 42px;
   width: $radioButtonSize;
   height: $radioButtonSize;
 
-  @include material-animation-default();
+  @include material-animation-default(0.28s);
+  transition-property: transform;
   transform: scale3d(0, 0, 0);
 
   border-radius: 50%;
@@ -70,7 +73,7 @@ $rippleSize: 42px;
   transform: scale3d(1, 1, 1);
 }
 
-.RadioButton-ripple {
+.RadioButton-rippleContainer {
   position: absolute;
   z-index: 2;
   top: -((($rippleSize - $radioButtonSize) / 2) - $topOffset);
@@ -79,14 +82,12 @@ $rippleSize: 42px;
   box-sizing: border-box;
   width: $rippleSize;
   height: $rippleSize;
-
-  @include material-animation-default();
-
-  opacity: 0;
   border-radius: 50%;
-  background: $radioRippleColor;
+
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 }
 
-.RadioButton-ripple.RadioButton-isRippling {
-  opacity: 1;
+.RadioButton-rippleContainer .Ripple {
+  background: $radioColor;
 }

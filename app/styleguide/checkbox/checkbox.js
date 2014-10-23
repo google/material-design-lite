@@ -1,6 +1,6 @@
-function Checkbox(l) {
-  'use strict';
+'use strict';
 
+function Checkbox(l) {
   var labelElement = l;
   var checkboxElement = document.getElementById(
     labelElement.getAttribute('for'));
@@ -8,28 +8,24 @@ function Checkbox(l) {
 
   // Add additional elements
   var fakeCheckbox = document.createElement('span');
-  fakeCheckbox.className = 'Checkbox';
+  fakeCheckbox.classList.add('Checkbox');
   fakeCheckbox.tabIndex = 0;
-  var focusCircle = document.createElement('span');
-  focusCircle.className = 'Checkbox-focusCircle';
+  if (checkboxElement.classList.contains('RippleEffect')) {
+    checkboxElement.classList.add('RippleEffect--recentering');
+    var rippleContainer = document.createElement('span');
+    rippleContainer.classList.add('Checkbox-rippleContainer');
+    rippleContainer.classList.add('RippleEffect');
+    rippleContainer.classList.add('RippleEffect--recentering');
+    var ripple = document.createElement('span');
+    ripple.classList.add('Ripple');
 
-  labelElement.insertBefore(focusCircle,
-    labelElement.firstChild);
+    rippleContainer.appendChild(ripple);
+    labelElement.insertBefore(rippleContainer,
+      labelElement.firstChild);
+  }
   labelElement.insertBefore(fakeCheckbox,
      labelElement.firstChild);
 
-  fakeCheckbox.addEventListener('focus', function(evt) {
-    this.onFocusChange(evt, true);
-  }.bind(this));
-  fakeCheckbox.addEventListener('blur', function(evt) {
-    this.onFocusChange(evt, false);
-  }.bind(this));
-  labelElement.addEventListener('focus', function(evt) {
-    this.onFocusChange(evt);
-  }.bind(this));
-  labelElement.addEventListener('blur', function(evt) {
-    this.onFocusChange(evt);
-  }.bind(this));
   fakeCheckbox.addEventListener('click', function(evt) {
     this.onCheckChange(evt);
   }.bind(this));
@@ -52,42 +48,30 @@ function Checkbox(l) {
     return fakeCheckbox;
   };
 
-  this.getFocusCircleElement = function() {
-    return focusCircle;
+  this.getRippleElement = function() {
+    return rippleContainer;
   };
 }
 
-Checkbox.prototype.onFocusChange = function(evt, isFocused) {
-  'use strict';
-  var focusCircle = this.getFocusCircleElement();
-  if (isFocused) {
-    focusCircle.classList.add('Checkbox-isFocused');
-  } else {
-    focusCircle.classList.remove('Checkbox-isFocused');
-  }
-};
-
 Checkbox.prototype.onCheckChange = function(evt) {
-  'use strict';
   evt.preventDefault();
   evt.stopPropagation();
 
   var checkboxElement = this.getCheckboxElement();
   var fakeCheckbox = this.getFakeCheckboxElement();
-  var focusCircle = this.getFocusCircleElement();
+  var rippleContainer = this.getRippleElement();
 
   checkboxElement.checked = !checkboxElement.checked;
   if (checkboxElement.checked) {
     fakeCheckbox.classList.add('Checkbox-isChecked');
-    focusCircle.classList.add('Checkbox-isChecked');
+    rippleContainer.classList.add('Checkbox-isChecked');
   } else {
     fakeCheckbox.classList.remove('Checkbox-isChecked');
-    focusCircle.classList.remove('Checkbox-isChecked');
+    rippleContainer.classList.remove('Checkbox-isChecked');
   }
 };
 
 Checkbox.prototype.onKeyEvent = function(evt) {
-  'use strict';
   var SPACE_KEY = 32;
 
   if (evt.keyCode === SPACE_KEY) {
@@ -97,8 +81,6 @@ Checkbox.prototype.onKeyEvent = function(evt) {
 };
 
 window.addEventListener('load', function() {
-  'use strict';
-
   var labels =  document.getElementsByTagName('label');
   for (var i = 0; i < labels.length; i++) {
     new Checkbox(labels[i]);

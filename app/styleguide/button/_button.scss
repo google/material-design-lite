@@ -2,6 +2,7 @@
 @import "../palette/palette";
 @import "../shadow/shadow";
 @import "../animation/animation";
+@import "../ripple/ripple";
 
 // Default Button Colors
 $default-btn-bg-color: #fff;
@@ -18,8 +19,7 @@ $colored-btn-hover-bg-color: nth($primaryPalette, 8);
 $colored-btn-focus-color: nth($primaryPalette, 12);
 $colored-btn-active-bg-color: nth($primaryPalette, 13);
 
-// Ripple Color
-$ripple-bg-color: nth($paletteGrey, 10);
+// Ripple Color for colored buttons.
 $color-ripple-bg-color: white;
 
 // Disabled Button Colors
@@ -39,7 +39,7 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   @include typo-button();
   overflow     : hidden;
   @include shadow-z1();
-  will-change: box-shadow;
+  will-change: box-shadow, transform;
   transition: box-shadow 0.2s ease-out;
 }
 
@@ -47,27 +47,7 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
   background: $colored-btn-bg-color;
   color     : $colored-btn-text-color;
 }
-
-.PaperButton-ripple {
-  background       : $ripple-bg-color;
-  border-radius    : 50%;
-  height           : 50px;
-  left             : 0;
-  opacity          : 0;
-  pointer-events   : none;
-  position         : absolute;
-  top              : 0;
-  transform        : translate(-50%, -50%);
-  width            : 50px;
-  overflow: hidden;
-}
-.PaperButton-ripple.is-animating {
-  transition        : transform 0.6s $animation-curve-linear-out-slow-in,
-                      width 0.6s $animation-curve-linear-out-slow-in,
-                      height 0.6s $animation-curve-linear-out-slow-in,
-                      opacity 0.6s $animation-curve-linear-out-slow-in;
-}
-.PaperButton--colored .PaperButton-ripple {
+.PaperButton--colored .Ripple {
   background: $color-ripple-bg-color;
 }
 .PaperButton[disabled] {
@@ -98,4 +78,14 @@ $disabled-btn-text-color: nth($disabledPalette, 5);
 }
 .PaperButton--colored:active {
   background-color: $colored-btn-active-bg-color;
+}
+.PaperButton .PaperButton-rippleContainer {
+  display: block;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
 }
