@@ -6,6 +6,7 @@
 .preview-block {
   height: 200px;
   padding: 0;
+  background: none;
 }
 
 .container {
@@ -13,9 +14,10 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 300px;
   height: 100%;
   text-align: center;
+  background-color: #ddd;
 }
 
 .foreground {
@@ -35,7 +37,7 @@
 // Outside the view, on the left.
 // We leave the view when moving to this state, so we use fast-out-linear-in.
 .position-1 {
-  left: calc(-102px);
+  left: -102px;
   @include material-animation-fast-out-linear-in();
 }
 
@@ -49,21 +51,21 @@
 // Right side.
 // We're always visible when moving to this state, so we use default.
 .position-3 {
-  left: calc(100% - 120px);
+  left: 180px;
   @include material-animation-default();
 }
 
 // Outside the view, on the right.
 // We leave the view when moving to this state, so we use fast-out-linear-in.
 .position-4 {
-  left: calc(100% + 2px);
+  left: 302px;
   @include material-animation-fast-out-linear-in();
 }
 
 // Right side.
 // We enter the view when moving to this state, so we use linear-out-slow-in.
 .position-5 {
-  left: calc(100% - 120px);
+  left: 180px;
   @include material-animation-linear-out-slow-in();
 }
 
