@@ -39,3 +39,12 @@ $fabFontSize: 24px;
 .PaperFab--colored:active {
   background-color: $fabActiveBackgroundColor
 }
+
+.PaperFab--colored .Ripple {
+  background: $color-ripple-bg-color;
+}
+
+.PaperFab .PaperButton-rippleContainer {
+  border-radius: 50%;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+}

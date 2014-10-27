@@ -7,32 +7,22 @@ function RadioButton(btnElement, labelElement) {
   var innerCircle = document.createElement('span');
   innerCircle.classList.add('RadioButton-innerCircle');
 
-  var ripple = document.createElement('span');
-  ripple.classList.add('RadioButton-ripple');
-
   labelElement.insertBefore(outerCircle, btnElement);
   labelElement.appendChild(innerCircle);
-  labelElement.appendChild(ripple);
 
-  this.onClick = function(evt) {
-    if (ripple === null) {
-      return;
-    }
+  if (btnElement.classList.contains('RippleEffect')) {
+    btnElement.classList.add('RippleEffect--recentering');
+    var rippleContainer = document.createElement('span');
+    rippleContainer.classList.add('RadioButton-rippleContainer');
+    rippleContainer.classList.add('RippleEffect');
+    rippleContainer.classList.add('RippleEffect--recentering');
 
-    ripple.classList.add('RadioButton-isRippling');
-  };
+    var ripple = document.createElement('span');
+    ripple.classList.add('Ripple');
 
-  this.onEndOfRippleTransition = function() {
-    ripple.classList.remove('RadioButton-isRippling');
-  };
-
-  labelElement.addEventListener('click', this.onClick.bind(this));
-  ripple.addEventListener('webkitTransitionEnd',
-      this.onEndOfRippleTransition.bind(this));
-  ripple.addEventListener('oTransitionEnd',
-      this.onEndOfRippleTransition.bind(this));
-  ripple.addEventListener('transitionEnd',
-      this.onEndOfRippleTransition.bind(this));
+    rippleContainer.appendChild(ripple);
+    labelElement.appendChild(rippleContainer);
+  }
 }
 
 window.addEventListener('load', function() {
