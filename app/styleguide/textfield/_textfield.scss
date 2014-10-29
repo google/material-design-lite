@@ -123,6 +123,8 @@ $expandableIconWidth: 24px;
 
     // Safari (possibly others) need to be convinced that this field is actually
     // visible, otherwise it cannot be tabbed to nor focused via a <label>. 
+    // TODO: In some cases (Retina displays), this is big enough to render the
+    // inner element :(
     max-width: 0.1px;
 
     &:focus,
