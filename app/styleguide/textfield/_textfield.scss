@@ -120,7 +120,6 @@ $expandableIconWidth: 24px;
   }
 }
 .TextField-expandable ~ label {
-  @include material-animation-default();
   width: 0%;
 }
 .TextField-expandable:focus ~ label,
