@@ -14,6 +14,8 @@ $textfieldWidth: 100%;
 $inputPadding: 4px;
 $floatingLabelFontSize: 12px;
 
+$expandableIconWidth: 24px;
+
 .TextField {
   border       : none;
   border-bottom: 1px solid $textfieldBottomBorderColor;
@@ -87,6 +89,7 @@ $floatingLabelFontSize: 12px;
   visibility: hidden;
 }
 
+/** Floating Label */
 .TextField-floatingLabel ~label {
   @include material-animation-default();
 }
@@ -102,6 +105,71 @@ $floatingLabelFontSize: 12px;
 .TextField-floatingLabel:invalid ~ label {
   color    : $textfieldErrorColor;
   font-size: 12px;
+}
+
+/** Expandable Input Label */
+.TextField-expandable {
+  @include material-animation-default();
+  width: 0%;
+  overflow: hidden;
+  &:focus, &.dirty {
+//    width: calc(#{$textfieldWidth} - #{$expandableIconWidth});
+    width: 100%;
+  }
+  position: relative;
+}
+.TextField-expandable ~ label {
+  @include material-animation-default();
+  width: 0%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.TextField-expandable:focus ~ label,
+.TextField-expandable.dirty ~ label {
+//  width: calc(#{$textfieldWidth} - #{$expandableIconWidth});
+  width: 100%;
+}
+
+.ExpandableIcon {
+  display: inline-block;
+  width: $expandableIconWidth;
+  text-align: center;
+  border-color: #727272;  // inherits to .IconSearch
+  position: absolute;
+  margin-left: -$expandableIconWidth;
+  height: 100%;
+
+  &:hover {
+    background: gray;
+    border-color: #8cc44a;  // inherits to .IconSearch
+  }
+}
+
+.IconSearch {
+  border: 2px solid #000;
+  border-color: inherit;
+  border-radius: 100px;
+  position: relative;
+  box-sizing: border-box;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin: 1px 5px -2px 1px;
+  vertical-align: middle;
+}
+.IconSearch::after {
+  content: "";
+  transform: rotate(-45deg);
+  width: 0;
+  border-left: 2px solid #000;
+  border-color: inherit;
+  height: 5px;
+  position: absolute;
+  display: inline-block;
+  bottom: -5px;
+  right: -3px;
+}
+.IconSearch:hover {
 }
 
 /** Disabled Styling **/
