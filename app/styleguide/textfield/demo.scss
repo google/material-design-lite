@@ -9,6 +9,9 @@ form div.input-container {
   &.right {
     text-align: right;
   }
+  &.large {
+    width: 100%;
+  }
 }
 
 textarea {
