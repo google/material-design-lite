@@ -65,11 +65,32 @@
 
       <div class="input-container">
         <label class="ExpandableIcon" for="sample-expandable">
-          <span class="IconSearch">
-          </span>
+          <span class="IconSearch"></span>
         </label>
-        <input class="TextField TextField-expandable TextField-floatingLabel" type="text" name="sample" id="sample-expandable" />
-        <label for="sample-expandable">Expandable Input</label>
+        <div class="ExpandableHolder">
+          <input class="TextField TextField-expandable" type="text" name="sample" id="sample-expandable" />
+          <label for="sample">Expandable Input</label>
+        </div>
+
+        Inline Text
+
+        <label class="ExpandableIcon" for="sample-expandable-floating">
+          <span class="IconSearch"></span>
+        </label>
+        <div class="ExpandableHolder">
+          <input class="TextField TextField-expandable TextField-floatingLabel" type="text" name="sample" id="sample-expandable-floating" />
+          <label for="sample">Expandable &amp; Floating Input</label>
+        </div>
+      </div>
+
+      <div class="input-container right">
+        No Label:
+        <label class="ExpandableIcon" for="sample-expclean">
+          <span class="IconSearch"></span>
+        </label>
+        <div class="ExpandableHolder">
+          <input class="TextField TextField-expandable" type="text" name="sample" id="sample-expclean" />
+        </div>
       </div>
     </form>
 

@@ -25,6 +25,7 @@ $expandableIconWidth: 24px;
   padding      : $inputPadding 0;
   width        : $textfieldWidth;
   background   : $textfieldBackgroundColor;
+  text-align   : left;
 }
 
 .TextField ~ label {
@@ -39,6 +40,7 @@ $expandableIconWidth: 24px;
   width         : 100%;
   overflow      : hidden;
   white-space   : nowrap;
+  text-align    : left;
 }
 
 /** The after label is the colored underline for the TextField **/
@@ -110,64 +112,65 @@ $expandableIconWidth: 24px;
   font-size: 12px;
 }
 
-/** Expandable Input Label */
-.TextField-expandable {
-  @include material-animation-default();
-  width: 0%;
-  &:focus, &.dirty {
-//    width: calc(#{$textfieldWidth} - #{$expandableIconWidth});
-    width: 100%;
+/** Expandable Icon/Holder */
+.ExpandableHolder {
+  display      : inline-block;
+  position     : relative;
+
+  .TextField {
+    @include material-animation-default();
+    display  : inline-block;
+
+    // Safari (possibly others) need to be convinced that this field is actually
+    // visible, otherwise it cannot be tabbed to nor focused via a <label>. 
+    max-width: 0.1px;
+
+    &:focus,
+    &.dirty {
+      // This is an unforunate hack. Animating between widths in percent (%)
+      // in many browsers (Chrome, Firefox) only animates the inner visual style
+      // of the input - the outer bounding box still 'jumps'.
+      // Thus assume a sensible maximum, and animate to/from that value.
+      max-width: 600px;
+    }
   }
-}
-.TextField-expandable ~ label {
-  width: 0%;
-}
-.TextField-expandable:focus ~ label,
-.TextField-expandable.dirty ~ label {
-//  width: calc(#{$textfieldWidth} - #{$expandableIconWidth});
-  width: 100%;
 }
 
 .ExpandableIcon {
-  display: inline-block;
-  width: $expandableIconWidth;
-  text-align: center;
+  display     : inline-block;
+  width       : $expandableIconWidth;
+  text-align  : center;
   border-color: #727272;  // inherits to .IconSearch
-  position: absolute;
-  margin-left: -$expandableIconWidth;
-  height: 100%;
 
   &:hover {
-    background: gray;
     border-color: #8cc44a;  // inherits to .IconSearch
+    cursor      : pointer;
   }
-}
 
-.IconSearch {
-  border: 2px solid #000;
-  border-color: inherit;
-  border-radius: 100px;
-  position: relative;
-  box-sizing: border-box;
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  margin: 1px 5px -2px 1px;
-  vertical-align: middle;
-}
-.IconSearch::after {
-  content: "";
-  transform: rotate(-45deg);
-  width: 0;
-  border-left: 2px solid #000;
-  border-color: inherit;
-  height: 5px;
-  position: absolute;
-  display: inline-block;
-  bottom: -5px;
-  right: -3px;
-}
-.IconSearch:hover {
+  .IconSearch {
+    border        : 2px solid #000;
+    border-color  : inherit;
+    border-radius : 100px;
+    position      : relative;
+    box-sizing    : border-box;
+    width         : 10px;
+    height        : 10px;
+    display       : inline-block;
+    margin        : 1px 5px 5px 1px;
+    vertical-align: middle;
+  }
+  .IconSearch::after {
+    content     : '';
+    transform   : rotate(-45deg);
+    width       : 0;
+    border-left : 2px solid #000;
+    border-color: inherit;
+    height      : 5px;
+    position    : absolute;
+    display     : inline-block;
+    bottom      : -5px;
+    right       : -3px;
+  }
 }
 
 /** Disabled Styling **/
