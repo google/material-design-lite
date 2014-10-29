@@ -32,10 +32,13 @@ $expandableIconWidth: 24px;
   color         : $textfieldLabelColor;
   font-size     : $textfieldFontSize;
   left          : 0;
+  right         : 0;
   pointer-events: none;
   position      : absolute;
   top           : $inputPadding;
   width         : 100%;
+  overflow      : hidden;
+  white-space   : nowrap;
 }
 
 /** The after label is the colored underline for the TextField **/
@@ -111,18 +114,14 @@ $expandableIconWidth: 24px;
 .TextField-expandable {
   @include material-animation-default();
   width: 0%;
-  overflow: hidden;
   &:focus, &.dirty {
 //    width: calc(#{$textfieldWidth} - #{$expandableIconWidth});
     width: 100%;
   }
-  position: relative;
 }
 .TextField-expandable ~ label {
   @include material-animation-default();
   width: 0%;
-  overflow: hidden;
-  white-space: nowrap;
 }
 .TextField-expandable:focus ~ label,
 .TextField-expandable.dirty ~ label {
