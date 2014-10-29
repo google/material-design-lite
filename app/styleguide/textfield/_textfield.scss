@@ -15,6 +15,8 @@ $inputPadding: 4px;
 $floatingLabelFontSize: 12px;
 
 $expandableIconWidth: 24px;
+$expandableSearchIconColor: rgba(0, 0, 0, 0.45);
+$expandableSearchIconHighlightColor: $textfieldHighlightColor;
 
 .TextField {
   border       : none;
@@ -142,10 +144,10 @@ $expandableIconWidth: 24px;
   display     : inline-block;
   width       : $expandableIconWidth;
   text-align  : center;
-  border-color: #727272;  // inherits to .IconSearch
+  border-color: $expandableSearchIconColor;  // inherits to .IconSearch
 
   &:hover {
-    border-color: #8cc44a;  // inherits to .IconSearch
+    border-color: $expandableSearchIconHighlightColor;
     cursor      : pointer;
   }
 
