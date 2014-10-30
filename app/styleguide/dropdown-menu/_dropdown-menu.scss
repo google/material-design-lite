@@ -1,0 +1,28 @@
+@import "../typography/typography";
+@import "../palette/palette";
+@import "../shadow/shadow";
+
+// Default Dropdown Colors
+$default-dropdown-bg-color: #fff;
+
+.DropdownMenu {
+  list-style   : none;
+  background   : $default-dropdown-bg-color;
+  border       : none;
+  border-radius: 2px;
+  display      : inline-block;
+  min-width    : 124px;
+  position     : relative;
+  overflow     : hidden;
+  padding      : 0;
+  @include shadow-z1();
+  will-change: box-shadow, transform;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.DropdownMenu .PaperItem {
+  display: block;
+  width: 100%;
+}
+
+/** TODO: DropdownMenu attached to other elements. */

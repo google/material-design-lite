@@ -1,0 +1,61 @@
+@import "../typography/typography";
+@import "../palette/palette";
+@import "../ripple/ripple";
+
+// Default Item Colors
+$default-item-text-color: #000;
+$default-item-outline-color: nth($secondaryPalette, 5);
+$default-item-hover-bg-color: nth($secondaryPalette, 3);
+$default-item-focus-bg-color: nth($secondaryPalette, 3);
+$default-item-active-bg-color: nth($secondaryPalette, 4);
+
+// Disabled Button Colors
+$disabled-item-text-color: nth($disabledPalette, 5);
+
+.PaperItem {
+  border       : none;
+  color        : $default-item-text-color;
+  background   : transparent;
+  display      : inline-block;
+  text-align   : left;
+  margin       : 0;
+  padding      : 0.6em 1.2em;
+  outline-color: $default-item-outline-color;
+  position     : relative;
+  overflow     : hidden;
+  font         : inherit;
+  @include typo-body-1();
+  text-decoration: none;
+  cursor       : pointer;
+}
+
+.PaperItem[disabled] {
+  color           : $disabled-item-text-color;
+  cursor          : auto;
+}
+
+.PaperItem:hover {
+  background-color: $default-item-hover-bg-color;
+}
+
+.PaperItem:focus {
+  outline: none;
+  background-color: $default-item-focus-bg-color;
+}
+.PaperItem::-moz-focus-inner {
+  border: 0;
+}
+.PaperItem:active {
+  background-color: $default-item-active-bg-color;
+}
+
+.PaperItem .PaperItem-rippleContainer {
+  display: block;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
