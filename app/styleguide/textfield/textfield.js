@@ -40,10 +40,28 @@ function TextField(element) {
   }
 }
 
+function ExpandableIcon(iconElement) {
+  var container = document.createElement('span');
+  iconElement.appendChild(container);
+
+  container.classList.add('ExpandableIcon-rippleContainer');
+  container.classList.add('RippleEffect');
+  container.classList.add('RippleEffect--recentering');
+
+  var ripple = document.createElement('span');
+  ripple.classList.add('Ripple');
+  container.appendChild(ripple);
+}
+
 window.addEventListener('load', function() {
   var inputs = document.querySelectorAll('.TextField');
   for (var i = 0; i < inputs.length; i++) {
     var input = inputs[i];
     new TextField(input);
+  }
+  var expandableIcons = document.querySelectorAll('.ExpandableIcon');
+  for (var i = 0; i < expandableIcons.length; ++i) {
+    var expandableIcon = expandableIcons[i];
+    new ExpandableIcon(expandableIcon);
   }
 });

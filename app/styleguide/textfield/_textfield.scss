@@ -1,5 +1,6 @@
 @import "../palette/palette";
 @import "../animation/animation";
+@import "../ripple/ripple";
 
 $textfieldBackgroundColor: transparent;
 $textfieldLabelColor: rgba(0, 0, 0, 0.26);
@@ -14,9 +15,11 @@ $textfieldWidth: 100%;
 $inputPadding: 4px;
 $floatingLabelFontSize: 12px;
 
-$expandableIconWidth: 24px;
+$expandableIconDim: 24px;
 $expandableSearchIconColor: rgba(0, 0, 0, 0.45);
 $expandableSearchIconHighlightColor: $textfieldHighlightColor;
+
+$rippleSize: 32px;
 
 .TextField {
   border       : none;
@@ -142,9 +145,11 @@ $expandableSearchIconHighlightColor: $textfieldHighlightColor;
 
 .ExpandableIcon {
   display     : inline-block;
-  width       : $expandableIconWidth;
+  width       : $expandableIconDim;
+  height      : $expandableIconDim;
   text-align  : center;
   border-color: $expandableSearchIconColor;  // inherits to .IconSearch
+  position    : relative;
 
   &:hover {
     border-color: $expandableSearchIconHighlightColor;
@@ -160,7 +165,7 @@ $expandableSearchIconHighlightColor: $textfieldHighlightColor;
     width         : 10px;
     height        : 10px;
     display       : inline-block;
-    margin        : 1px 5px 5px 1px;
+    margin        : 1px 4px 4px 1px;
     vertical-align: middle;
   }
   .IconSearch::after {
@@ -175,6 +180,25 @@ $expandableSearchIconHighlightColor: $textfieldHighlightColor;
     bottom      : -5px;
     right       : -3px;
   }
+}
+
+.ExpandableIcon-rippleContainer {
+  position: absolute;
+  z-index: 2;
+  top: -((($rippleSize - $expandableIconDim) / 2) - 0px);
+  left: -(($rippleSize - $expandableIconDim) / 2);
+
+  box-sizing: border-box;
+  width: $rippleSize;
+  height: $rippleSize;
+  border-radius: 50%;
+
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+}
+
+.ExpandableIcon-rippleContainer .Ripple {
+  background: $expandableSearchIconHighlightColor;
 }
 
 /** Disabled Styling **/
