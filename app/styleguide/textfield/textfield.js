@@ -54,13 +54,14 @@ function ExpandableIcon(iconElement) {
 }
 
 window.addEventListener('load', function() {
+  var i;
   var inputs = document.querySelectorAll('.TextField');
-  for (var i = 0; i < inputs.length; i++) {
+  for (i = 0; i < inputs.length; i++) {
     var input = inputs[i];
     new TextField(input);
   }
   var expandableIcons = document.querySelectorAll('.ExpandableIcon');
-  for (var i = 0; i < expandableIcons.length; ++i) {
+  for (i = 0; i < expandableIcons.length; ++i) {
     var expandableIcon = expandableIcons[i];
     new ExpandableIcon(expandableIcon);
   }
