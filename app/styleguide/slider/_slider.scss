@@ -4,133 +4,345 @@
 // Default Range Colors
 $default-range-bg-color: nth($secondaryPalette, 5);
 $default-range-color: nth($primaryPalette, 6);
-$default-range-slider-thumb-bg: #fff;
-$default-range-slider-thumb-border: nth($secondaryPalette, 5);
 
 input[type="range"] {
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  width:100%;
-  height:2px;
-  background-color: $default-range-bg-color;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: calc(100% - 40px);
+  height: 2px;
+  background: transparent;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   outline: 0;
+  margin: 0 20px;
+  padding: 0;
   color: $default-range-color;
 }
 
+// Some CSS magic to target only IE.
+_:-ms-input-placeholder, :root input[type="range"] {
+  -ms-appearance: none;
+  // The thumb can't overflow the track or the rest of the control in IE, so we
+  // need to make it tall enough to contain the largest version of the thumb.
+  height: 52px;
+  margin: 0;
+}
+
+// Since we need to specify a height of 52px in IE, we add a class here for a
+// container that brings it back to a reasonable height.
+.Slider-IEContainer {
+  height: 18px;
+  overflow: visible;
+  border: none;
+  margin: none;
+  padding: none;
+}
+
+// Disable default focus on Firefox.
 input[type=range]::-moz-focus-outer {
   border: 0;
 }
 
+// Disable tooltip on IE.
+input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+// We use a set of divs behind the track to style it in all non-IE browsers.
+// This one contains both the background and the slider.
+.Slider-container {
+  position: relative;
+  background: none;
+}
+
+// This one sets up a flex box for the styled upper and lower portions of the
+// slider track.
+.Slider-backgroundFlex {
+  background: transparent;
+  position: absolute;
+  height: 2px;
+  width: calc(100% - 52px);
+  top: 12px;
+  margin: 0 26px;
+  z-index: -1;
+  display: flex;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+}
+
+// This one styles the lower part of the slider track.
+.Slider-backgroundLower {
+  background: $default-range-color;
+  flex: 0;
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+// This one styles the upper part of the slider track.
+.Slider-backgroundUpper {
+  background: $default-range-bg-color;
+  flex: 0;
+  position: relative;
+  border: 0;
+  padding: 0;
+  transition: left 0.18s $animation-curve-default
+}
+
+// Some CSS magic to apply some tweaks on Firefox only.
+_:-moz-tree-row(hover), .Slider-backgroundFlex {
+  top: 13px;
+}
+_:-moz-tree-row(hover), .Slider-backgroundUpper {
+  transition: none;
+}
+
+
+
+/* **** Tracks **** */
+
 input[type="range"]::-webkit-slider-runnable-track {
-  margin-left: -0.3rem;
-  margin-right: -0.3rem;
-  transition: margin 0.18s $animation-curve-default;
-}
-
-input[type="range"]:active::-webkit-slider-runnable-track {
-  margin-left: -1rem;
-  margin-right: -1rem;
-}
-
-input[type="range"]:focus:not(:active)::-webkit-slider-runnable-track {
-  margin-left: -2rem;
-  margin-right: -2rem;
+  background: transparent;
 }
 
 input[type="range"]::-moz-range-track {
-  background-color: inherit;
+  background: transparent;
   border: none;
 }
 
+input[type="range"]::-ms-track {
+  background: none;
+  color: transparent;
+  height: 2px;
+  width: 100%;
+  border-width: 25px 0;
+  border-color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  padding: 0;
+  // Margin on -ms-track doesn't work right, so we use gradients on the fills.
+  background: linear-gradient(to right,
+                              transparent,
+                              transparent 25px,
+                              $default-range-color 25px,
+                              $default-range-color 0);
+}
+
+input[type=range]::-ms-fill-upper {
+  padding: 0;
+  // Margin on -ms-track doesn't work right, so we use gradients on the fills.
+  background: linear-gradient(to left,
+                              transparent,
+                              transparent 25px,
+                              $default-range-bg-color 25px,
+                              $default-range-bg-color 0);
+}
+
+
+
+/* **** Thumbs **** */
+
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: .6rem;
-  height: .6rem;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
   border-radius: 50%;
-  background-color: $default-range-color;
+  background: $default-range-color;
   border: none;
-  transition: height 0.18s $animation-curve-default, width 0.18s $animation-curve-default, background-color 0.28s $animation-curve-default, border 0.28s $animation-curve-default;
+  transition: transform 0.18s $animation-curve-default,
+              border 0.18s $animation-curve-default,
+              background 0.28s $animation-curve-default;
 }
 
 input[type="range"]::-moz-range-thumb {
   -moz-appearance: none;
-  width: .6rem;
-  height: .6rem;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
   border-radius: 50%;
-  background-color: $default-range-color;
+  background-image: none;
+  background: $default-range-color;
   border: none;
-  transition: height 0.18s $animation-curve-default, width 0.18s $animation-curve-default, background-color 0.28s $animation-curve-default, border 0.28s $animation-curve-default;
+  // -moz-range-thumb doesn't currently support transitions.
 }
 
 input[type="range"]:focus:not(:active)::-webkit-slider-thumb {
-  height: 4rem;
-  width: 4rem;
-
-  background: radial-gradient(circle at center,
-    $default-range-color 0%,
-    $default-range-color 15%,
-    rgba($default-range-color, 0.26)15%,
-    rgba($default-range-color, 0.26) 45%,
-    rgba(0, 0, 0, 0) 45%,
-    rgba(0, 0, 0, 0) 100%); /* W3C */
+  background: radial-gradient(circle closest-side,
+                              $default-range-color 0%,
+                              $default-range-color 24%,
+                              rgba($default-range-color, 0.5) 27%,
+                              rgba($default-range-color, 0.5) 65%,
+                              rgba($default-range-color, 0) 68%,
+                              rgba($default-range-color, 0) 94%,
+                              $default-range-color 96%,
+                              $default-range-color 100%);
+  transform: scale(4.166);
 }
 
 input[type="range"]:focus:not(:active)::-moz-range-thumb {
-  height: 2rem;
-  width: 2rem;
-  box-shadow:
-    0 0 0 1rem rgba(244, 180, 0, 0.5),
-    0 0 0 2rem rgba(0, 0, 0, 0);
+  background: radial-gradient(circle closest-side,
+                              $default-range-color 0%,
+                              $default-range-color 24%,
+                              rgba($default-range-color, 0.5) 27%,
+                              rgba($default-range-color, 0.5) 65%,
+                              rgba($default-range-color, 0) 68%,
+                              rgba($default-range-color, 0) 94%,
+                              $default-range-color 96%,
+                              $default-range-color 100%);
+  transform: scale(4.166);
 }
 
 input[type="range"]:active::-webkit-slider-thumb {
-  height: 2rem;
-  width: 2rem;
-  background-image:none;
+  background-image: none;
   background: $default-range-color;
+  transform: scale(1.5);
 }
 
 input[type="range"]:active::-moz-range-thumb {
-  height: 2rem;
-  width: 2rem;
-  background-image:none;
+  background-image: none;
   background: $default-range-color;
+  transform: scale(1.5);
+}
+
+input[type="range"]::-ms-thumb {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: $default-range-color;
+  transform: scale(0.24);
+  // -ms-thumb doesn't currently support transitions, but leaving this here in
+  // case support ever gets added.
+  transition: transform 0.18s $animation-curve-default,
+              background 0.28s $animation-curve-default;
+}
+
+input[type="range"]:focus:not(:active)::-ms-thumb {
+  transform: scale(1);
+  background: radial-gradient(circle closest-side,
+                              $default-range-color 0px,
+                              $default-range-color 6px,
+                              rgba($default-range-color, 0.5) 7px,
+                              rgba($default-range-color, 0.5) 18px,
+                              transparent 19px,
+                              transparent 24px,
+                              $default-range-color 25px);
+}
+
+input[type="range"]:active::-ms-thumb {
+  background: $default-range-color;
+  transform: scale(0.36);
 }
 
 
 /* **** 0-value **** */
 
-input[type="range"].ring::-webkit-slider-thumb {
-  border: 2px solid $default-range-slider-thumb-border;
-  background-color: $default-range-slider-thumb-bg;
+input[type="range"].zero::-webkit-slider-thumb {
+  border: 2px solid $default-range-bg-color;
+  background: transparent;
 }
 
-input[type="range"].ring::-moz-range-thumb {
-  border: 2px solid $default-range-slider-thumb-border;
-  background-color: $default-range-slider-thumb-bg;
+input[type="range"].zero::-moz-range-thumb {
+  border: 2px solid $default-range-bg-color;
+  background: transparent;
 }
 
-input[type="range"].ring:focus:not(:active)::-webkit-slider-thumb {
-  background: radial-gradient(circle at center,
-    rgb(204, 204, 204) 0%,
-    rgb(204, 204, 204) 15%,
-    rgba(204, 204, 204, 0.5)15%,
-    rgba(204, 204, 204, 0.5) 45%,
-    rgba(0, 0, 0, 0) 45%,
-    rgba(0, 0, 0, 0) 100%); /* W3C */
-    border:none;
+input[type="range"].zero ~ .Slider-backgroundFlex > .Slider-backgroundUpper {
+  left: 5px;
 }
 
-input[type="range"].ring:focus:not(:active)::-moz-range-thumb {
-  height: 2rem;
-  width: 2rem;
-  box-shadow:
-    0 0 0 1rem rgba(204, 204, 204, 0.5),
-    0 0 0 2rem rgba(0, 0, 0, 0);
-  border:none;
+input[type="range"].zero:focus:not(:active)::-webkit-slider-thumb {
+  background: radial-gradient(circle closest-side,
+                              transparent 0%,
+                              transparent 16%,
+                              $default-range-bg-color 17%,
+                              $default-range-bg-color 24%,
+                              rgba($default-range-bg-color, 0.5) 27%,
+                              rgba($default-range-bg-color, 0.5) 65%,
+                              rgba($default-range-bg-color, 0) 68%,
+                              rgba($default-range-bg-color, 0) 94%,
+                              $default-range-bg-color 96%,
+                              $default-range-bg-color 100%);
+  border: none;
+  transform: scale(4.166);
+}
+
+input[type="range"].zero:focus:not(:active)::-moz-range-thumb {
+  background: radial-gradient(circle closest-side,
+                              transparent 0%,
+                              transparent 16%,
+                              $default-range-bg-color 17%,
+                              $default-range-bg-color 24%,
+                              rgba($default-range-bg-color, 0.5) 27%,
+                              rgba($default-range-bg-color, 0.5) 65%,
+                              rgba($default-range-bg-color, 0) 68%,
+                              rgba($default-range-bg-color, 0) 94%,
+                              $default-range-bg-color 96%,
+                              $default-range-bg-color 100%);
+  border: none;
+  transform: scale(4.166);
+}
+
+input[type="range"].zero:active::-webkit-slider-thumb {
+  border: 1.5px solid $default-range-bg-color;
+  transform: scale(1.5);
+}
+
+input[type="range"].zero:active ~ .Slider-backgroundFlex > .Slider-backgroundUpper {
+  left: 8px;
+}
+
+input[type="range"].zero:active::-moz-range-thumb {
+  border: 1.5px solid $default-range-bg-color;
+  transform: scale(1.5);
+}
+
+input[type="range"].zero::-ms-thumb {
+  background: radial-gradient(circle closest-side,
+                              transparent 0%,
+                              transparent 66.67%,
+                              $default-range-bg-color 66.67%,
+                              $default-range-bg-color 100%);
+}
+
+input[type="range"].zero:focus:not(:active)::-ms-thumb {
+  transform: scale(1);
+  background: radial-gradient(circle closest-side,
+                              transparent 0px,
+                              transparent 4px,
+                              $default-range-bg-color 5px,
+                              $default-range-bg-color 6px,
+                              rgba($default-range-bg-color, 0.5) 7px,
+                              rgba($default-range-bg-color, 0.5) 18px,
+                              transparent 19px,
+                              transparent 24px,
+                              $default-range-bg-color 25px);
+}
+
+input[type="range"].zero:active::-ms-thumb {
+  transform: scale(0.36);
+  background: radial-gradient(circle closest-side,
+                              transparent 0%,
+                              transparent 77.78%,
+                              $default-range-bg-color 77.78%,
+                              $default-range-bg-color 100%);
+}
+
+input[type=range].zero::-ms-fill-lower {
+  background: transparent;
+}
+
+input[type=range].zero::-ms-fill-upper {
+  margin-left: 6px;
+}
+
+input[type=range].zero:active::-ms-fill-upper {
+  margin-left: 8px;
 }
 
 
@@ -139,39 +351,77 @@ input[type="range"].ring:focus:not(:active)::-moz-range-thumb {
 input[type="range"]:disabled:focus::-webkit-slider-thumb,
 input[type="range"]:disabled:active::-webkit-slider-thumb,
 input[type="range"]:disabled::-webkit-slider-thumb {
-  width: .5rem;
-  height: .5rem;
-  background-color: $default-range-slider-thumb-border;
-  background-image: none;
-  //box-shadow: 0 0 0 2px $default-range-slider-thumb-bg;
+  transform: scale(0.667);
+  background: $default-range-bg-color;
 }
 
 input[type="range"]:disabled:focus::-moz-range-thumb,
 input[type="range"]:disabled:active::-moz-range-thumb,
 input[type="range"]:disabled::-moz-range-thumb {
-  width: .5rem;
-  height: .5rem;
-  background-color: $default-range-slider-thumb-border;
-  background-image: none;
-  //box-shadow: 0 0 0 2px $default-range-slider-thumb-bg;
+  transform: scale(0.667);
+  background: $default-range-bg-color;
 }
 
-input[type="range"].ring:disabled:focus::-webkit-slider-thumb,
-input[type="range"].ring:disabled:active::-webkit-slider-thumb,
-input[type="range"].ring:disabled::-webkit-slider-thumb {
-  background-color: $default-range-slider-thumb-bg;
-  //border: 2px solid $default-range-slider-thumb-border;
+input[type="range"]:disabled ~ .Slider-backgroundFlex > .Slider-backgroundLower {
+  background-color: $default-range-bg-color;
+  left: -6px;
 }
 
-input[type="range"].ring:disabled:focus::-moz-range-thumb,
-input[type="range"].ring:disabled:active::-moz-range-thumb,
-input[type="range"].ring:disabled::-moz-range-thumb {
-  background-color: $default-range-slider-thumb-bg;
-  //border: 2px solid $default-range-slider-thumb-border;
+input[type="range"]:disabled ~ .Slider-backgroundFlex > .Slider-backgroundUpper {
+  left: 6px;
 }
 
-input[type="range"]:disabled:focus::-webkit-slider-runnable-track,
-input[type="range"]:disabled:active::-webkit-slider-runnable-track {
-  margin-left: -0.3rem;
-  margin-right: -0.3rem;
+input[type="range"].zero:disabled:focus::-webkit-slider-thumb,
+input[type="range"].zero:disabled:active::-webkit-slider-thumb,
+input[type="range"].zero:disabled::-webkit-slider-thumb {
+  border: 3px solid $default-range-bg-color;
+  background: transparent;
+  transform: scale(0.667);
+}
+
+input[type="range"].zero:disabled:focus::-moz-range-thumb,
+input[type="range"].zero:disabled:active::-moz-range-thumb,
+input[type="range"].zero:disabled::-moz-range-thumb {
+  border: 3px solid $default-range-bg-color;
+  background: transparent;
+  transform: scale(0.667);
+}
+
+input[type="range"].zero:disabled:active ~ .Slider-backgroundFlex > .Slider-backgroundUpper {
+  left: 6px;
+}
+
+input[type="range"]:disabled:focus::-ms-thumb,
+input[type="range"]:disabled:active::-ms-thumb,
+input[type="range"]:disabled::-ms-thumb {
+  transform: scale(0.16);
+  background: $default-range-bg-color;
+}
+
+input[type="range"].zero:disabled:focus::-ms-thumb,
+input[type="range"].zero:disabled:active::-ms-thumb,
+input[type="range"].zero:disabled::-ms-thumb {
+  transform: scale(0.16);
+  background: radial-gradient(circle closest-side,
+                              transparent 0%,
+                              transparent 50%,
+                              $default-range-bg-color 50%,
+                              $default-range-bg-color 100%);
+}
+
+input[type=range]:disabled::-ms-fill-lower {
+  margin-right: 6px;
+  background: linear-gradient(to right,
+                              transparent,
+                              transparent 25px,
+                              $default-range-bg-color 25px,
+                              $default-range-bg-color 0);
+}
+
+input[type=range]:disabled::-ms-fill-upper {
+  margin-left: 6px;
+}
+
+input[type=range].zero:disabled:active::-ms-fill-upper {
+  margin-left: 6px;
 }
