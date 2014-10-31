@@ -1,5 +1,6 @@
 @import "../palette/palette";
 @import "../animation/animation";
+@import "../ripple/ripple";
 
 $textfieldBackgroundColor: transparent;
 $textfieldLabelColor: rgba(0, 0, 0, 0.26);
@@ -14,6 +15,12 @@ $textfieldWidth: 100%;
 $inputPadding: 4px;
 $floatingLabelFontSize: 12px;
 
+$expandableIconDim: 24px;
+$expandableSearchIconColor: rgba(0, 0, 0, 0.45);
+$expandableSearchIconHighlightColor: $textfieldHighlightColor;
+
+$rippleSize: 32px;
+
 .TextField {
   border       : none;
   border-bottom: 1px solid $textfieldBottomBorderColor;
@@ -23,6 +30,7 @@ $floatingLabelFontSize: 12px;
   padding      : $inputPadding 0;
   width        : $textfieldWidth;
   background   : $textfieldBackgroundColor;
+  text-align   : left;
 }
 
 .TextField ~ label {
@@ -30,10 +38,14 @@ $floatingLabelFontSize: 12px;
   color         : $textfieldLabelColor;
   font-size     : $textfieldFontSize;
   left          : 0;
+  right         : 0;
   pointer-events: none;
   position      : absolute;
   top           : $inputPadding;
   width         : 100%;
+  overflow      : hidden;
+  white-space   : nowrap;
+  text-align    : left;
 }
 
 /** The after label is the colored underline for the TextField **/
@@ -87,6 +99,7 @@ $floatingLabelFontSize: 12px;
   visibility: hidden;
 }
 
+/** Floating Label */
 .TextField-floatingLabel ~label {
   @include material-animation-default();
 }
@@ -102,6 +115,90 @@ $floatingLabelFontSize: 12px;
 .TextField-floatingLabel:invalid ~ label {
   color    : $textfieldErrorColor;
   font-size: 12px;
+}
+
+/** Expandable Icon/Holder */
+.ExpandableHolder {
+  display      : inline-block;
+  position     : relative;
+
+  .TextField {
+    @include material-animation-default();
+    display  : inline-block;
+
+    // Safari (possibly others) need to be convinced that this field is actually
+    // visible, otherwise it cannot be tabbed to nor focused via a <label>. 
+    // TODO: In some cases (Retina displays), this is big enough to render the
+    // inner element :(
+    max-width: 0.1px;
+
+    &:focus,
+    &.dirty {
+      // This is an unforunate hack. Animating between widths in percent (%)
+      // in many browsers (Chrome, Firefox) only animates the inner visual style
+      // of the input - the outer bounding box still 'jumps'.
+      // Thus assume a sensible maximum, and animate to/from that value.
+      max-width: 600px;
+    }
+  }
+}
+
+.ExpandableIcon {
+  display     : inline-block;
+  width       : $expandableIconDim;
+  height      : $expandableIconDim;
+  text-align  : center;
+  border-color: $expandableSearchIconColor;  // inherits to .IconSearch
+  position    : relative;
+
+  &:hover {
+    border-color: $expandableSearchIconHighlightColor;
+    cursor      : pointer;
+  }
+
+  .IconSearch {
+    border        : 2px solid #000;
+    border-color  : inherit;
+    border-radius : 100px;
+    position      : relative;
+    box-sizing    : border-box;
+    width         : 10px;
+    height        : 10px;
+    display       : inline-block;
+    margin        : 1px 4px 4px 1px;
+    vertical-align: middle;
+  }
+  .IconSearch::after {
+    content     : '';
+    transform   : rotate(-45deg);
+    width       : 0;
+    border-left : 2px solid #000;
+    border-color: inherit;
+    height      : 5px;
+    position    : absolute;
+    display     : inline-block;
+    bottom      : -5px;
+    right       : -3px;
+  }
+}
+
+.ExpandableIcon-rippleContainer {
+  position: absolute;
+  z-index: 2;
+  top: -((($rippleSize - $expandableIconDim) / 2) - 0px);
+  left: -(($rippleSize - $expandableIconDim) / 2);
+
+  box-sizing: border-box;
+  width: $rippleSize;
+  height: $rippleSize;
+  border-radius: 50%;
+
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+}
+
+.ExpandableIcon-rippleContainer .Ripple {
+  background: $expandableSearchIconHighlightColor;
 }
 
 /** Disabled Styling **/

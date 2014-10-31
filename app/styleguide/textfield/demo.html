@@ -62,11 +62,43 @@
         <textarea class="TextField TextField-floatingLabel" type="text" rows= "1" name="sample" ></textarea>
         <label for="sample">Multiple lines and a floating label</label>
       </div>
+
+      <div class="input-container">
+        <label class="ExpandableIcon" for="sample-expandable">
+          <span class="IconSearch"></span>
+        </label>
+        <div class="ExpandableHolder">
+          <input class="TextField TextField-expandable" type="text" name="sample" id="sample-expandable" />
+          <label for="sample">Expandable Input</label>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label class="ExpandableIcon" for="sample-expandable-floating">
+          <span class="IconSearch"></span>
+        </label>
+        <div class="ExpandableHolder">
+          <input class="TextField TextField-expandable TextField-floatingLabel" type="text" name="sample" id="sample-expandable-floating" />
+          <label for="sample">Expandable &amp; Floating Input</label>
+        </div>
+      </div>
+
+      <div class="input-container right large">
+        Right/No Label:
+        <label class="ExpandableIcon" for="sample-expclean">
+          <span class="IconSearch"></span>
+        </label>
+        <div class="ExpandableHolder">
+          <input class="TextField TextField-expandable" type="text" name="sample" id="sample-expclean" />
+        </div>
+      </div>
     </form>
 
   </div>
 
   <script src="textfield.js"></script>
+  <script src="../third_party/rAF.js"></script>
+  <script src="../ripple/ripple.js"></script>
 
   </body>
 </html>
