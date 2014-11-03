@@ -139,7 +139,7 @@ $performance_font: 'Helvetica', 'Arial', sans-serif;
   }
 }
 
-@mixin typo-caption($colorContrast: false, $usePreferred: true) {
+@mixin typo-caption($colorContrast: false, $usePreferred: false) {
   @include typo-preferred-font($usePreferred);
   font-size: 12px;
   font-weight: 400;
@@ -361,8 +361,16 @@ dt {
   @include typo-caption();
 }
 
+.Typography--caption--forcePreferredFont {
+  @include typo-caption($usePreferred: true);
+}
+
 .Typography--caption--colorContrast {
   @include typo-caption($colorContrast: true);
+}
+
+.Typography--caption--forcePreferredFont--colorContrast {
+  @include typo-caption($colorContrast: true, $usePreferred: true);
 }
 
 .Typography--menu {
