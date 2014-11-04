@@ -1,5 +1,9 @@
 # Install
 
+**tl;dr**: [Download WSK](https://github.com/google/web-starter-kit/releases/latest) and run `$ npm install --global gulp && npm install` in that directory to get started.
+
+-
+
 To take advantage of Web Starter Kit you need to:
 
 1. Get a copy of the code.
