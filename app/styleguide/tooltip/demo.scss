@@ -1,0 +1,31 @@
+@import "../styleguide_demo_bp";
+@import "_tooltip";
+
+body {
+  background : #fff;
+  padding: 20px;
+
+}
+
+.preview-block {
+  background: #eee;
+  padding   : 20px;
+  height: 120px;
+}
+
+.icon {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  height: 21px;
+  margin: 0 50px;
+  opacity: .7;
+  outline: none;
+  padding: 0;
+  position: relative;
+  width: 21px;
+}
+
+icon:hover {
+  opacity: 1;
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tooltip</title>
+
+    <link rel="stylesheet" href="demo.css">
+
+    <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <div class="preview-block">
+
+        <div id="el1" class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M0 0h24v24h-24z" fill="none" />
+                <path d="M14 2h-8c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.89 2 1.99 2h12.01c1.1 0 2-.9 2-2v-12l-6-6zm2 14h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm-3-7v-5.5l5.5 5.5h-5.5z" />
+            </svg>
+        </div>
+        <div class="tooltip" for="el1">
+            Simple tooltip
+        </div>
+
+        <div id="el2" class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path d="M0 0h18v18h-18z" fill="none" />
+                <path d="M6 8c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm6 0c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm-3 5.5c2.14 0 3.92-1.5 4.38-3.5h-8.76c.46 2 2.24 3.5 4.38 3.5zm0-12.5c-4.43 0-8 3.58-8 8s3.57 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5z" />
+            </svg>
+        </div>
+        <div class="tooltip" for="el2">
+            This is a
+            <strong>rich tooltip</strong>
+        </div>
+
+
+        <div id="el3" class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path d="M0 0h18v18h-18z" fill="none" />
+                <path d="M6 8c1.11 0 2-.9 2-2s-.89-2-2-2c-1.1 0-2 .9-2 2s.9 2 2 2zm6 0c1.11 0 2-.9 2-2s-.89-2-2-2c-1.11 0-2 .9-2 2s.9 2 2 2zm-6 1.2c-1.67 0-5 .83-5 2.5v1.3h10v-1.3c0-1.67-3.33-2.5-5-2.5zm6 0c-.25 0-.54.02-.84.06.79.6 1.34 1.4 1.34 2.44v1.3h4.5v-1.3c0-1.67-3.33-2.5-5-2.5z" />
+            </svg>
+        </div>
+
+        <div class="tooltip" for="el3" class="right">
+            This is an example of a long tooltip that wraps
+        </div>
+        <div id="el4" class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path d="M0 0h18v18h-18z" fill="none" />
+                <path d="M2 13.5h14v-1.5h-14v1.5zm0-4h14v-1.5h-14v1.5zm0-5.5v1.5h14v-1.5h-14z" />
+            </svg>
+        </div>
+        <div class="tooltip large" for="el4">
+            Element with a large tooltip
+        </div>
+    </div>
+
+    <script src="tooltip.js"></script>
+    <script src="../third_party/rAF.js"></script>
+</body>
+
+</html>
