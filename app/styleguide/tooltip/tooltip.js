@@ -1,8 +1,10 @@
+'use strict';
+
 document.addEventListener('DOMContentLoaded', function() {
 
   var tooltips = Array.prototype.slice.call(document.querySelectorAll('.tooltip'));
 
-  initializeCheckboxes = function(els) {
+  function initializeCheckboxes(els) {
 
     if (!!els) {
       Array.prototype.forEach.call(els, function(el, i) {
