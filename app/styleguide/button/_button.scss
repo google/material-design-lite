@@ -67,17 +67,8 @@ $fab-font-size: 24px;
   color: $colored-btn-color;
 }
 
-.PaperButton[disabled] {
-  color           : $disabled-btn-text-color;
-  cursor          : auto;
-}
-
 .PaperButton:hover {
   background-color: $default-btn-hover-color;
-}
-
-.PaperButton[disabled]:hover {
-  background-color: transparent;
 }
 
 .PaperButton:focus:not(:active) {
@@ -103,7 +94,7 @@ $fab-font-size: 24px;
 
 .PaperButton--raised.PaperButton--colored {
   background: $colored-btn-color;
-  color     : $colored-raised-btn-text-color;
+  color: $colored-raised-btn-text-color;
 }
 
 .PaperButton--raised.PaperButton--colored:hover {
@@ -124,16 +115,6 @@ $fab-font-size: 24px;
 .PaperFab:active {
   @include shadow-z3();
   background-color: $default-btn-active-color;
-}
-
-.PaperButton[disabled].PaperButton--raised,
-.PaperFab[disabled] {
-  background-color: $disabled-raised-btn-bg-color;
-}
-
-.PaperButton[disabled].PaperButton--raised:active,
-.PaperFab[disabled]:active {
-  @include shadow-z1();
 }
 
 .PaperButton[disabled].PaperButton--raised:hover,
@@ -197,6 +178,30 @@ $fab-font-size: 24px;
   background-color: $fab-active-color;
 }
 
+
+// Disabled buttons
+
+.PaperButton[disabled] {
+  color: $disabled-btn-text-color;
+  cursor: auto;
+}
+
+.PaperButton[disabled]:hover {
+  background-color: transparent;
+}
+
+.PaperButton[disabled].PaperButton--raised,
+.PaperFab[disabled],
+.PaperFab[disabled].PaperButton--colored,
+.PaperFab[disabled].PaperFab--colored {
+  background-color: $disabled-raised-btn-bg-color;
+  color: $disabled-btn-text-color;
+}
+
+.PaperButton[disabled].PaperButton--raised:active,
+.PaperFab[disabled]:active {
+  @include shadow-z1();
+}
 
 
 // Ripples
