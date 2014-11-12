@@ -5,11 +5,15 @@
    * SideNav Prototype Start
    */
   function SideNav(sidenavElement) {
+
+    if (sidenavElement === undefined || sidenavElement.nodeType === undefined) {
+      return;
+    }
+
     this.STATE_OPEN = 0;
     this.STATE_CLOSE = 1;
 
     var currentState = null;
-
     sidenavElement.addEventListener('transitionend', function() {
       sidenavElement.classList.remove('animatable');
     });
@@ -73,6 +77,10 @@
     var menuButton = document.querySelector('.nav-button');
     var sidenavs = document.querySelectorAll('.sidenav');
     var sidenav = new SideNav(sidenavs[0]);
+
+    if (sidenav === undefined || sidenav.nodeType === undefined) {
+      return;
+    }
 
     sidenav.addEventListener('onSideNavOpen', function() {
       if (!modalBg) {

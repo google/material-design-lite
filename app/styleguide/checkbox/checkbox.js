@@ -1,6 +1,10 @@
 'use strict';
 
 function Checkbox(l) {
+  if (l === undefined) {
+    return;
+  }
+
   var labelElement = l;
   var checkboxElement = document.getElementById(
     labelElement.getAttribute('for'));
