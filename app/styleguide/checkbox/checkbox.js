@@ -81,7 +81,7 @@ Checkbox.prototype.onKeyEvent = function(evt) {
 };
 
 window.addEventListener('load', function() {
-  var labels =  document.getElementsByTagName('label');
+  var labels =  document.querySelectorAll('.Checkbox-label');
   for (var i = 0; i < labels.length; i++) {
     new Checkbox(labels[i]);
   }
