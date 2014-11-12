@@ -19,6 +19,10 @@
 
 'use strict';
 
+/*
+TODO: Fix UnCSS support
+*/
+
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
@@ -72,6 +76,13 @@ gulp.task('copy', function() {
     .pipe($.size({title: 'copy'}));
 });
 
+// Copy image files from the Styleguide
+gulp.task('styleguide-images', function() {
+  return gulp.src('app/styleguide/**/*.{svg,png,jpg}')
+    .pipe(gulp.dest('dist/styleguide/'))
+    .pipe($.size({title: 'styleguide-images'}));
+});
+
 // Copy Web Fonts To Dist
 gulp.task('fonts', function() {
   return gulp.src(['app/fonts/**'])
@@ -100,18 +111,28 @@ gulp.task('styles', function() {
     .pipe($.size({title: 'styles'}));
 });
 
+
+// Concatenate And Minify JavaScript
+gulp.task('scripts', function() {
+  return gulp.src('app/styleguide/**/*.js')
+    .pipe($.concat('main.min.js'))
+    .pipe($.uglify({preserveComments: 'some'}))
+    // Output Files
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe($.size({title: 'scripts'}));
+});
+
 // Scan Your HTML For Assets & Optimize Them
 gulp.task('html', function() {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
-  return gulp.src('app/**/*.html')
+  return gulp.src('app/**/**/*.html')
     .pipe(assets)
-    // Concatenate And Minify JavaScript
-    .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Remove Any Unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
-    .pipe($.if('*.css', $.uncss({
+
+    /*.pipe($.if('*.css', $.uncss({
       html: [
         'app/index.html',
         'app/styleguide.html'
@@ -121,7 +142,8 @@ gulp.task('html', function() {
         /.navdrawer-container.open/,
         /.app-bar.open/
       ]
-    })))
+    })))*/
+
     // Concatenate And Minify Styles
     // In case you are still using useref build blocks
     .pipe($.if('*.css', $.csso()))
@@ -173,7 +195,7 @@ gulp.task('serve:dist', ['default'], function() {
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function(cb) {
-  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'scripts', 'images', 'styleguide-images', 'fonts', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
@@ -188,4 +210,4 @@ gulp.task('pagespeed', pagespeed.bind(null, {
 }));
 
 // Load custom tasks from the `tasks` directory
-try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
+// try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
