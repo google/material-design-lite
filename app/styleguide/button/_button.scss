@@ -4,81 +4,189 @@
 @import "../animation/animation";
 @import "../ripple/ripple";
 
-// Default Button Colors
-$default-btn-bg-color: #fff;
+// Default button colors
+$default-btn-color: rgba(#999999, 0.20);
+$default-btn-hover-color: $default-btn-color;
+$default-btn-active-color: rgba($default-btn-color, 0.40);
 $default-btn-text-color: #000;
-$default-btn-outline-color: nth($secondaryPalette, 5);
-$default-btn-hover-bg-color: nth($secondaryPalette, 3);
-$default-btn-focus-bg-color: nth($secondaryPalette, 3);
-$default-btn-active-bg-color: nth($secondaryPalette, 4);
+$default-flat-btn-focus-color: rgba(black, 0.12);
 
-// Colored Button Colors
-$colored-btn-bg-color: nth($primaryPalette, 6);
-$colored-btn-text-color: #fff;
-$colored-btn-hover-bg-color: nth($primaryPalette, 8);
-$colored-btn-focus-color: nth($primaryPalette, 12);
-$colored-btn-active-bg-color: nth($primaryPalette, 13);
+// Colored button colors
+$colored-btn-color: nth($primaryPalette, 6);
+$colored-btn-hover-color: nth($primaryPalette, 7);
+$colored-btn-active-color: nth($primaryPalette, 8);
+$colored-flat-btn-focus-color: $default-flat-btn-focus-color;
+$colored-raised-btn-text-color: #fff;
 
-// Ripple Color for colored buttons.
-$color-ripple-bg-color: white;
+// Ripple color for colored raised buttons
+$color-ripple-raised-bg-color: white;
 
-// Disabled Button Colors
-$disabled-btn-bg-color: nth($disabledPalette, 3);
-$disabled-btn-text-color: nth($disabledPalette, 5);
+// Disabled button colors
+$disabled-btn-text-color: rgba(#000, 0.26);
+$disabled-raised-btn-bg-color: rgba(#000, 0.12);
+
+// FAB colors and sizes
+$fab-bg-color: nth($accentPalette, 5);
+$fab-hover-color: nth($accentPalette, 6);
+$fab-active-color: nth($accentPalette, 7);
+$default-fab-size: 56px;
+$mini-fab-size: 40px;
+$fab-font-size: 24px;
+
+
+// Flat buttons (default)
 
 .PaperButton {
-  background   : $default-btn-bg-color;
-  border       : none;
+  background: transparent;
+  border: none;
   border-radius: 2px;
-  color        : $default-btn-text-color;
-  display      : block;
-  min-width    : 124px;
-  outline-color: $default-btn-outline-color;
-  padding      : 0.8em 1.6em;
-  position     : relative;
+  color: $default-btn-text-color;
+  display: block;
+  position: relative;
+  height: 36px;
+  min-width: 64px;
+  padding: 0 8px;
+  margin: 0 4px;
+  display: inline-block;
   @include typo-button();
-  overflow     : hidden;
-  @include shadow-z1();
+  overflow: hidden;
   will-change: box-shadow, transform;
-  transition: box-shadow 0.2s ease-out;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+              background-color 0.2s $animation-curve-default,
+              color 0.2s $animation-curve-default;
+  outline: none;
 }
 
-.PaperButton--colored {
-  background: $colored-btn-bg-color;
-  color     : $colored-btn-text-color;
-}
-.PaperButton--colored .Ripple {
-  background: $color-ripple-bg-color;
-}
-.PaperButton[disabled] {
-  background-color: $disabled-btn-bg-color;
-  color           : $disabled-btn-text-color;
-  cursor          : auto;
-}
-.PaperButton:hover {
-  background-color: $default-btn-hover-bg-color;
-}
-.PaperButton--colored:hover {
-  background-color: $colored-btn-hover-bg-color;
-}
-.PaperButton:focus {
-  outline: none;
-  @include shadow-z3();
-  background-color: $default-btn-focus-bg-color;
-  transition: box-shadow 0.2s ease-in;
-}
 .PaperButton::-moz-focus-inner {
   border: 0;
 }
-.PaperButton--colored:focus {
-  background-color: $colored-btn-focus-color;
+
+.PaperButton--colored {
+  color: $colored-btn-color;
 }
+
+.PaperButton[disabled] {
+  color           : $disabled-btn-text-color;
+  cursor          : auto;
+}
+
+.PaperButton:hover {
+  background-color: $default-btn-hover-color;
+}
+
+.PaperButton[disabled]:hover {
+  background-color: transparent;
+}
+
+.PaperButton:focus:not(:active) {
+  background-color: $default-flat-btn-focus-color;
+}
+
+.PaperButton.PaperButton--colored:focus:not(:active) {
+  background-color: $colored-flat-btn-focus-color;
+}
+
 .PaperButton:active {
-  background-color: $default-btn-active-bg-color;
+  background-color: $default-btn-active-color;
 }
-.PaperButton--colored:active {
-  background-color: $colored-btn-active-bg-color;
+
+
+// Raised buttons
+
+.PaperButton--raised,
+.PaperFab {
+  background: $default-btn-color;
+  @include shadow-z1();
 }
+
+.PaperButton--raised.PaperButton--colored {
+  background: $colored-btn-color;
+  color     : $colored-raised-btn-text-color;
+}
+
+.PaperButton--raised.PaperButton--colored:hover {
+  background-color: $colored-btn-hover-color;
+}
+
+.PaperButton--raised:focus:not(:active),
+.PaperFab:focus:not(:active) {
+  @include shadow-z3();
+}
+
+.PaperButton--raised.PaperButton--colored:focus:not(:active) {
+  background-color: $colored-btn-active-color;
+}
+
+.PaperButton--raised:active,
+.PaperFab--raised:active {
+  @include shadow-z3();
+}
+
+.PaperButton[disabled].PaperButton--raised,
+.PaperButton[disabled].PaperFab {
+  background-color: $disabled-raised-btn-bg-color;
+}
+
+.PaperButton[disabled].PaperButton--raised:active,
+.PaperButton[disabled].PaperFab:active {
+  @include shadow-z1();
+}
+
+.PaperButton--raised.PaperButton--colored:active {
+  background-color: $colored-btn-active-color;
+}
+
+.PaperButton--raised.PaperButton--colored .Ripple,
+.PaperFab.PaperButton--colored .Ripple {
+  background: $color-ripple-raised-bg-color;
+}
+
+
+// FABs
+
+.PaperFab {
+  border-radius: 50%;
+  font-size: $fab-font-size;
+  height: $default-fab-size;
+  margin: auto;
+  min-width: $default-fab-size;
+  width: $default-fab-size;
+  padding: 0;
+  overflow: hidden;
+}
+
+.PaperFab.PaperFab--mini {
+  height: $mini-fab-size;
+  min-width: $mini-fab-size;
+  width: $mini-fab-size;
+}
+
+.PaperFab .PaperButton-rippleContainer {
+  border-radius: 50%;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+}
+
+.PaperFab.PaperButton--colored {
+  background: $fab-bg-color;
+  color     : $colored-raised-btn-text-color;
+}
+
+.PaperFab.PaperButton--colored:hover {
+  background-color: $fab-hover-color;
+}
+
+.PaperFab.PaperButton--colored:focus:not(:active) {
+  background-color: $fab-active-color;
+}
+
+.PaperFab.PaperButton--colored:active {
+  background-color: $fab-active-color;
+}
+
+
+
+// Ripples
+
 .PaperButton .PaperButton-rippleContainer {
   display: block;
   height: 100%;
