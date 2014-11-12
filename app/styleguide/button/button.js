@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
     return function() { element.blur(); };
   };
 
-  var buttonElements = document.querySelectorAll('.PaperButton');
+  var buttonElements = document.querySelectorAll('.PaperButton, .PaperFab');
 
   for (var i = 0; i < buttonElements.length; i++) {
     var buttonElement = buttonElements[i];

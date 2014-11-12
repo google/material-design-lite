@@ -36,7 +36,8 @@ $fab-font-size: 24px;
 
 // Flat buttons (default)
 
-.PaperButton {
+.PaperButton,
+.PaperFab {
   background: transparent;
   border: none;
   border-radius: 2px;
@@ -57,7 +58,8 @@ $fab-font-size: 24px;
   outline: none;
 }
 
-.PaperButton::-moz-focus-inner {
+.PaperButton::-moz-focus-inner,
+.PaperFab::-moz-focus-inner {
   border: 0;
 }
 
@@ -111,6 +113,7 @@ $fab-font-size: 24px;
 .PaperButton--raised:focus:not(:active),
 .PaperFab:focus:not(:active) {
   @include shadow-z3();
+  background-color: $default-btn-active-color;
 }
 
 .PaperButton--raised.PaperButton--colored:focus:not(:active) {
@@ -118,18 +121,24 @@ $fab-font-size: 24px;
 }
 
 .PaperButton--raised:active,
-.PaperFab--raised:active {
+.PaperFab:active {
   @include shadow-z3();
+  background-color: $default-btn-active-color;
 }
 
 .PaperButton[disabled].PaperButton--raised,
-.PaperButton[disabled].PaperFab {
+.PaperFab[disabled] {
   background-color: $disabled-raised-btn-bg-color;
 }
 
 .PaperButton[disabled].PaperButton--raised:active,
-.PaperButton[disabled].PaperFab:active {
+.PaperFab[disabled]:active {
   @include shadow-z1();
+}
+
+.PaperButton[disabled].PaperButton--raised:hover,
+.PaperFab[disabled]:hover {
+  background-color: $disabled-raised-btn-bg-color;
 }
 
 .PaperButton--raised.PaperButton--colored:active {
@@ -137,7 +146,8 @@ $fab-font-size: 24px;
 }
 
 .PaperButton--raised.PaperButton--colored .Ripple,
-.PaperFab.PaperButton--colored .Ripple {
+.PaperFab.PaperButton--colored .Ripple,
+.PaperFab.PaperFab--colored .Ripple {
   background: $color-ripple-raised-bg-color;
 }
 
@@ -166,20 +176,24 @@ $fab-font-size: 24px;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 }
 
-.PaperFab.PaperButton--colored {
+.PaperFab.PaperButton--colored,
+.PaperFab.PaperFab--colored {
   background: $fab-bg-color;
   color     : $colored-raised-btn-text-color;
 }
 
-.PaperFab.PaperButton--colored:hover {
+.PaperFab.PaperButton--colored:hover,
+.PaperFab.PaperFab--colored:hover {
   background-color: $fab-hover-color;
 }
 
-.PaperFab.PaperButton--colored:focus:not(:active) {
+.PaperFab.PaperButton--colored:focus:not(:active),
+.PaperFab.PaperFab--colored:focus:not(:active) {
   background-color: $fab-active-color;
 }
 
-.PaperFab.PaperButton--colored:active {
+.PaperFab.PaperButton--colored:active,
+.PaperFab.PaperFab--colored:active {
   background-color: $fab-active-color;
 }
 
@@ -187,7 +201,7 @@ $fab-font-size: 24px;
 
 // Ripples
 
-.PaperButton .PaperButton-rippleContainer {
+.PaperButton-rippleContainer {
   display: block;
   height: 100%;
   left: 0px;
