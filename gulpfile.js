@@ -20,7 +20,16 @@
 'use strict';
 
 /*
-TODO: Fix UnCSS support
+TODOS:
+
+Before the next release, we need to do the following
+
+- Fix UnCSS support. It is currently commented out
+- Resolve all image tasks into a single task
+- Simplify the overall setup. One CSS & JS file output
+- P0 fix Navigation component. It currently only supports one instance
+of the navbar. Switching to a loop over qSA here isn't enough, we'll need
+to rewrite some of the code.
 */
 
 // Include Gulp & Tools We'll Use
