@@ -52,7 +52,7 @@ $nav-link-color-light: nth($paletteGrey, 1);
   }
 
   .sidenav-static-content {
-    padding: $vertical-padding $nav-width + $horizontal-padding;
+    padding: $vertical-padding $horizontal-padding $vertical-padding ($nav-width + $horizontal-padding);
   }
 
 
