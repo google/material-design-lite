@@ -33,6 +33,11 @@ $default-fab-size: 56px;
 $mini-fab-size: 40px;
 $fab-font-size: 24px;
 
+// Focus shadow
+@mixin focus-shadow() {
+  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
+}
+
 
 // Flat buttons (default)
 
@@ -103,7 +108,7 @@ $fab-font-size: 24px;
 
 .PaperButton--raised:focus:not(:active),
 .PaperFab:focus:not(:active) {
-  @include shadow-z3();
+  @include focus-shadow();
   background-color: $default-btn-active-color;
 }
 
