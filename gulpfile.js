@@ -20,6 +20,12 @@
 'use strict';
 
 /*
+NOTES:
+
+When you've run `gulp` please make sure to preview the contents
+from inside the `dist` directory, otherwise you'll run into path
+issues with assets like the hamburger.
+
 TODOS:
 
 Before the next release, we need to do the following
