@@ -20,11 +20,6 @@
 'use strict';
 
 /*
-NOTES:
-
-When you've run `gulp` please make sure to preview the contents
-from inside the `dist` directory, otherwise you'll run into path
-issues with assets like the hamburger.
 
 TODOS:
 
@@ -204,7 +199,8 @@ gulp.task('serve:dist', ['default'], function() {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: 'dist'
+    server: 'dist',
+    baseDir: "dist"
   });
 });
 
