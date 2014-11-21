@@ -93,6 +93,16 @@ gulp.task('styleguide-images', function() {
     .pipe($.size({title: 'styleguide-images'}));
 });
 
+// Copy material design icons to styleguide
+// Add as a task dep to gulp serve if you want it to run
+//gulp.task('icons', function() {
+//  return gulp.src('node_modules/material-design-icons/**/*.{svg,png,jpg}')
+//    .pipe(gulp.dest('.tmp/styleguide/material-design-icons'))
+//    .pipe(gulp.dest('dist/styleguide/material-design-icons'))
+//    .pipe($.size({title: 'icons'}));
+//});
+
+
 // Copy Web Fonts To Dist
 gulp.task('fonts', function() {
   return gulp.src(['app/fonts/**'])
