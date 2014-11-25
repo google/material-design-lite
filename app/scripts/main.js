@@ -19,5 +19,6 @@
 (function() {
   'use strict';
 
-  // TODO: Do we still need this file?
+  // Your custom JavaScript goes here
+
 })();
