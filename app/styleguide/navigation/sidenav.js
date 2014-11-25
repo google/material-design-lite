@@ -73,12 +73,13 @@
    */
 
   window.addEventListener('load', function() {
+
     var modalBg = document.querySelector('.sidenav-modal-bg');
     var menuButton = document.querySelector('.nav-button');
     var sidenavs = document.querySelectorAll('.sidenav');
     var sidenav = new SideNav(sidenavs[0]);
 
-    if (sidenav === undefined || sidenav.nodeType === undefined) {
+    if (sidenav === undefined) {
       return;
     }
 
