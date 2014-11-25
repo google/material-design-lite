@@ -159,13 +159,13 @@
       function sizeDemos() {
         var demos = document.querySelectorAll('.styleguide-demo');
         totalDemosPendingLoading = demos.length;
-        for(var i = 0; i < demos.length; i++) {
+        for (var i = 0; i < demos.length; i++) {
           var demoTitle = demos[i].querySelector('h1').textContent;
-          var anchorLink = 'demo-'+i;
+          var anchorLink = 'demo-' + i;
 
           // Add list item
           var navAnchor = document.createElement('a');
-          navAnchor.href = '#'+anchorLink;
+          navAnchor.href = '#' + anchorLink;
           navAnchor.appendChild(document.createTextNode(demoTitle));
 
           var listItem = document.createElement('li');
@@ -174,7 +174,7 @@
 
           var anchor = document.createElement('a');
           anchor.id = anchorLink;
-          demos[i].insertBefore(anchor,demos[i].querySelector('h1'));
+          demos[i].insertBefore(anchor , demos[i].querySelector('h1'));
 
           // Size iframe
           sizeDemo(demos[i]);
@@ -183,12 +183,16 @@
 
       function sizeDemo(rootDemoElement) {
         var iframe = rootDemoElement.querySelector('iframe');
-        iframe.onload = function(){
+        if (iframe === null) {
+          totalDemosPendingLoading--;
+          return;
+        }
+        iframe.onload = function() {
           var contentHeight = iframe.contentDocument.documentElement.scrollHeight;
-          iframe.style.height = contentHeight+'px';
+          iframe.style.height = contentHeight + 'px';
           iframe.classList.add('heightSet');
           totalDemosPendingLoading--;
-          if(totalDemosPendingLoading <= 0) {
+          if (totalDemosPendingLoading <= 0) {
             document.body.classList.add('demosLoaded');
           }
         };
