@@ -31,32 +31,31 @@
   </head>
   <body>
 
-    <button class="nav-button">Show navigation</button>
+    <div class="Layout Layout--fixedHeader">
+      <div class="Layout-header">
+        <span class="Layout-title">Web <strong>Starter Kit</strong></span>
+        <div class="Layout-spacer"></div>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="#hello">Hello</a></li>
+            <li><a href="#get-started">Get Started</a></li>
+            <li><a href="material-styleguide.html">Style Guide</a></li>
+          </ul>
+        </nav>
+      </div>
 
-    <div class="sidenav sidenav-horizontal">
-      <h1 class="logo">Web <strong>Starter Kit</strong></h1>
-      <nav class="sidenav-nav">
-        <ul>
-          <li><a href="#hello">Hello</a></li>
-          <li><a href="#get-started">Get Started</a></li>
-          <li><a href="material-styleguide.html">Style Guide</a></li>
-        </ul>
-      </nav>
+      <main class="Layout-content">
+        <h2 id="hello">Welcome to Web Starter Kit!</h2>
+        <p>Good luck with your amazing new project.</p>
+
+        <h2 id="get-started">Get Started.</h2>
+        <p>Read how to <a href="http://developers.google.com/web/starter-kit">Get Started</a> or
+          check out the <a href="material-styleguide.html">Style Guide</a>.</p>
+      </main>
     </div>
 
-    <main>
-      <h2 id="hello">Welcome to Web Starter Kit!</h2>
-      <p>Good luck with your amazing new project.</p>
-
-      <h2 id="get-started">Get Started.</h2>
-      <p>Read how to <a href="http://developers.google.com/web/starter-kit">Get Started</a> or
-        check out the <a href="material-styleguide.html">Style Guide</a>.</p>
-    </main>
-
-    <div class="sidenav-modal-bg"></div>
-
     <!-- build:remove -->
-    <script src="styleguide/navigation/sidenav.js"></script>
+    <script src="styleguide/layout/layout.js"></script>
     <!-- endbuild -->
 
     <!-- build:js(app/) ../../scripts/main.min.js -->
