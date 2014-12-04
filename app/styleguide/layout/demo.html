@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Layout</title>
+
+  <link href="//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel='stylesheet'>
+
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <h3>Default layout</h3>
+  <p>Uses a header for large screen sizes and a collapsible drawer for smaller
+    screens.</p>
+
+  <div class="demo-container">
+    <div class="Layout">
+      <div class="Layout-header">
+        <!-- Title -->
+        <span class="Layout-title">Web Starter Kit</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="Layout-spacer"></div>
+        <!-- Navigation -->
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+        <div class="demo-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Scrolling header</h3>
+  <p>Same as the standard layout, but the header scrolls with the content.</p>
+
+  <div class="demo-container">
+    <div class="Layout">
+      <div class="Layout-header Layout-header--scroll">
+        <!-- Title -->
+        <span class="Layout-title">Web Starter Kit</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="Layout-spacer"></div>
+        <!-- Navigation -->
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+        <div class="demo-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Fixed drawer with header</h3>
+  <p>The drawer is always open in large screen sizes, functioning as side
+    navigation.</p>
+
+  <div class="demo-container">
+    <div class="Layout Layout--fixedDrawer">
+      <div class="Layout-header">
+        <span class="Layout-title">Fixed drawer layout demo</span>
+        <div class="Layout-spacer"></div>
+        <div class="input-container right large">
+          <label class="ExpandableIcon" for="sample-expclean">
+            <span class="IconSearch"></span>
+          </label>
+          <div class="ExpandableHolder">
+            <input class="TextField TextField-expandable" type="text"
+              name="sample" id="sample-expclean" />
+          </div>
+        </div>
+      </div>
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+        <div class="demo-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Fixed drawer (no header)</h3>
+  <p>Same as the previous layout, but with no header.</p>
+
+  <div class="demo-container">
+    <div class="Layout Layout--fixedDrawer">
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+        <div class="demo-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Fixed header</h3>
+  <p>Always shows a header, even in smaller screens.</p>
+
+  <div class="demo-container">
+    <div class="Layout Layout--fixedHeader">
+      <div class="Layout-header">
+        <!-- Title -->
+        <span class="Layout-title">Web Starter Kit</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="Layout-spacer"></div>
+        <!-- Navigation. We use CSS to hide it in small screens. -->
+        <nav class="Layout-navigation" id="fixed_header_nav">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+        <div class="demo-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Fixed drawer and fixed header</h3>
+  <p>The drawer is always open in large screens. The header is always shown,
+    even in small screens.</p>
+
+  <div class="demo-container">
+    <div class="Layout Layout--fixedDrawer Layout--fixedHeader">
+      <div class="Layout-header">
+        <span class="Layout-title">Fixed drawer and header</span>
+        <div class="Layout-spacer"></div>
+        <div class="input-container right large">
+          <label class="ExpandableIcon" for="sample-expclean2">
+            <span class="IconSearch"></span>
+          </label>
+          <div class="ExpandableHolder">
+            <input class="TextField TextField-expandable" type="text"
+            name="sample" id="sample-expclean2" />
+          </div>
+        </div>
+      </div>
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+        <div class="demo-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Multi-row layout</h3>
+  <p>Example of a more complex waterfall header, with multiple rows.</p>
+
+  <div class="demo-container">
+    <div class="Layout">
+      <div class="Layout-header Layout-header--multiRow Layout-header--waterfall Layout-header--tall">
+        <!-- Top row -->
+        <div class="Layout-header-row">
+          <span id="my_text_changes">Web Starter Kit</span>
+          <div class="Layout-spacer"></div>
+          <!-- Only show when compact, check CSS -->
+          <nav class="Layout-navigation" id="compact_navigation">
+            <ul>
+              <li><a href="">Hello</a></li>
+              <li><a href="">World.</a></li>
+              <li><a href="">How</a></li>
+              <li><a href="">Are</a></li>
+              <li><a href="">You?</a></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Middle row, subtitle -->
+        <div class="Layout-header-row">
+          <span class="Typography--title">
+            Multi-row layout demo
+          </span>
+        </div>
+        <!-- Bottom row -->
+        <div class="Layout-header-row">
+          <div class="Layout-spacer"></div>
+          <!-- Only show when expanded, check CSS -->
+          <nav class="Layout-navigation" id="expanded_navigation">
+            <ul>
+              <li><a href="">Hello</a></li>
+              <li><a href="">World.</a></li>
+              <li><a href="">How</a></li>
+              <li><a href="">Are</a></li>
+              <li><a href="">You?</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+        <div class="demo-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Transparent header</h3>
+  <p>Uses a transparent header that draws on top of the layout's background.</p>
+
+  <div class="demo-container">
+    <div class="Layout" id="transparent_demo">
+      <div class="Layout-header Layout-header--transparent">
+        <!-- Title -->
+        <span class="Layout-title">Web Starter Kit</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="Layout-spacer"></div>
+        <!-- Navigation -->
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-drawer">
+        <span class="Layout-title">Web Starter Kit</span>
+        <nav class="Layout-navigation">
+          <ul>
+            <li><a href="">Hello</a></li>
+            <li><a href="">World.</a></li>
+            <li><a href="">How</a></li>
+            <li><a href="">Are</a></li>
+            <li><a href="">You?</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Layout-content">
+      </div>
+    </div>
+  </div>
+
+  <!-- build:js(app/styleguide/layout/) ../../scripts/main.min.js -->
+  <script src="layout.js"></script>
+  <script src="../textfield/textfield.js"></script>
+  <script src="../third_party/rAF.js"></script>
+  <!-- endbuild -->
+</body>
+</html>
