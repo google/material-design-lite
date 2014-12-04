@@ -99,7 +99,7 @@ window.addEventListener('load', function() {
       if (layout.classList.contains('Layout--fixedHeader')) {
         header.insertBefore(drawerButton, header.firstChild);
       } else {
-        layout.appendChild(drawerButton);
+        layout.insertBefore(drawerButton, content);
       }
 
       var obfuscator = document.createElement('div');

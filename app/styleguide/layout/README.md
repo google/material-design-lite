@@ -46,6 +46,9 @@ The container element.
 - `Layout--fixedDrawer`:
   By default, drawers are only shown in smaller screens. Using this option makes them always visible and open in larger screens, effectively functioning as side navigation. They still open and close normally in smaller screens, to save screen real estate.
 
+- `Layout--overlayDrawerButton`:
+  By default, the drawer button pushes down the content, to avoid overlapping issues. You can use this option if you'd like to overlay the drawer button directly on top of the content.
+
 ### State
 
 - `is-small-screen`:

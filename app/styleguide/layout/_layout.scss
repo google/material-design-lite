@@ -127,15 +127,18 @@ $screen-size-threshold: 850px;
 
 // TODO(sgomes): Replace with an icon button when we have that component.
 .Layout-drawerButton {
-  display: inline;
+  display: block;
 
-  position: absolute;
-  top: 8px;
-  left: 8px;
+  position: relative;
+  height: 32px;
+  width: 32px;
   border: 0;
+
+  flex-shrink: 0;
 
   overflow: hidden;
   font-size: 26px;
+  line-height: 32px;
   font-family: Helvetica, Arial, sans-serif;
   margin: 8px;
 
@@ -147,6 +150,12 @@ $screen-size-threshold: 850px;
 .Layout-drawerButton:after {
   // TODO(sgomes): Replace with proper menu icon once we have an icon font.
   content: '☰';
+}
+
+.Layout--overlayDrawerButton .Layout-drawerButton {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .Layout-header .Layout-drawerButton {
