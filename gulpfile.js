@@ -19,20 +19,6 @@
 
 'use strict';
 
-/*
-
-TODOS:
-
-Before the next release, we need to do the following
-
-- Fix UnCSS support. It is currently commented out
-- Resolve all image tasks into a single task
-- Simplify the overall setup. One CSS & JS file output
-- P0 fix Navigation component. It currently only supports one instance
-of the navbar. Switching to a loop over qSA here isn't enough, we'll need
-to rewrite some of the code.
-*/
-
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
@@ -93,16 +79,6 @@ gulp.task('styleguide-images', function() {
     .pipe($.size({title: 'styleguide-images'}));
 });
 
-// Copy material design icons to styleguide
-// Add as a task dep to gulp serve if you want it to run
-//gulp.task('icons', function() {
-//  return gulp.src('node_modules/material-design-icons/**/*.{svg,png,jpg}')
-//    .pipe(gulp.dest('.tmp/styleguide/material-design-icons'))
-//    .pipe(gulp.dest('dist/styleguide/material-design-icons'))
-//    .pipe($.size({title: 'icons'}));
-//});
-
-
 // Copy Web Fonts To Dist
 gulp.task('fonts', function() {
   return gulp.src(['app/fonts/**'])
@@ -130,7 +106,6 @@ gulp.task('styles', function() {
     .pipe($.size({title: 'styles'}));
 });
 
-
 // Concatenate And Minify JavaScript
 gulp.task('scripts', function() {
   return gulp.src('app/styleguide/**/*.js')
@@ -150,8 +125,7 @@ gulp.task('html', function() {
     // Remove Any Unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
-
-    /*.pipe($.if('*.css', $.uncss({
+    .pipe($.if('*.css', $.uncss({
       html: [
         'app/index.html',
         'app/styleguide.html'
@@ -161,7 +135,7 @@ gulp.task('html', function() {
         /.navdrawer-container.open/,
         /.app-bar.open/
       ]
-    })))*/
+    })))
 
     // Concatenate And Minify Styles
     // In case you are still using useref build blocks
