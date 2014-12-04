@@ -221,3 +221,8 @@ $fab-font-size: 24px;
   z-index: 0;
   overflow: hidden;
 }
+
+.PaperButton[disabled] .PaperButton-rippleContainer .Ripple,
+.PaperFab[disabled] .PaperButton-rippleContainer .Ripple, {
+  background-color: transparent;
+}
