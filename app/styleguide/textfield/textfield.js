@@ -44,7 +44,7 @@ function ExpandableIcon(iconElement) {
   var container = document.createElement('span');
   iconElement.appendChild(container);
 
-  container.classList.add('ExpandableIcon-rippleContainer');
+  container.classList.add('input__expandable__icon__ripple__container');
   container.classList.add('RippleEffect');
   container.classList.add('RippleEffect--recentering');
 
@@ -55,12 +55,12 @@ function ExpandableIcon(iconElement) {
 
 window.addEventListener('load', function() {
   var i;
-  var inputs = document.querySelectorAll('.TextField');
+  var inputs = document.querySelectorAll('.input__text');
   for (i = 0; i < inputs.length; i++) {
     var input = inputs[i];
     new TextField(input);
   }
-  var expandableIcons = document.querySelectorAll('.ExpandableIcon');
+  var expandableIcons = document.querySelectorAll('.input__expandable__icon');
   for (i = 0; i < expandableIcons.length; ++i) {
     var expandableIcon = expandableIcons[i];
     new ExpandableIcon(expandableIcon);

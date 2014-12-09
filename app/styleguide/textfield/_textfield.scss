@@ -2,46 +2,57 @@
 @import "../animation/animation";
 @import "../ripple/ripple";
 
-$textfieldBackgroundColor: transparent;
-$textfieldLabelColor: rgba(0, 0, 0, 0.26);
-$textfieldBottomBorderColor: rgba(0, 0, 0, 0.12);
-$textfieldHighlightColor: nth($primaryPalette, 6);
-$textfieldErrorColor: nth($paletteRed, 7);
-$textfieldDisabledColor: $textfieldBottomBorderColor;
+$input-text-font-size: 16px;
+$input-text-width: 100%:
+$input-text-padding: 4px;
+$input-text-ripple-size: 32px;
 
-$textfieldFontSize: 16px;
-$textfieldWidth: 100%;
+$input-text-background-color: transparent;
+$input-text-label-color: rgba(0, 0, 0, 0.26);
+$input-text-bottom-border-color: rgba(0, 0, 0, 0.12);
+$input-text-highlight-color: nth($primaryPalette, 6);
+$input-text-disabled-color: $input-text-bottom-border-color;
+$input-text-error-color: nth($paletteRed, 7);
 
-$inputPadding: 4px;
-$floatingLabelFontSize: 12px;
+$input-text-floating-label-fontsize: 12px;
+$input-text-expandable-icon-dim: 24px;
+$input-text-expandable-search-icon-color: rgba(0, 0, 0, 0.45);
+$input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
 
-$expandableIconDim: 24px;
-$expandableSearchIconColor: rgba(0, 0, 0, 0.45);
-$expandableSearchIconHighlightColor: $textfieldHighlightColor;
+.wsk-input {
+  margin  : 20px 0;
+  position: relative;
+  width   : 300px;
 
-$rippleSize: 32px;
+  &.right {
+    text-align: right;
+  }
+  &.large {
+    width: 100%;
+  }
+}
 
-.TextField {
+.wsk-input__text {
   border       : none;
-  border-bottom: 1px solid $textfieldBottomBorderColor;
+  border-bottom: 1px solid $input-text-bottom-border-color;
   display      : block;
-  font-size    : $textfieldFontSize;
+  font-size    : $input-text-font-size;
   margin       : 0;
-  padding      : $inputPadding 0;
-  width        : $textfieldWidth;
-  background   : $textfieldBackgroundColor;
+  padding      : $input-text-padding 0;
+  width        : $input-text-width;
+  background   : $input-text-font-size;
   text-align   : left;
 }
 
-.TextField ~ label {
+.wsk-input__text ~ label {
   bottom        : 0;
-  color         : $textfieldLabelColor;
-  font-size     : $textfieldFontSize;
+  color         : $input-text-label-color;
+  font-size     : $input-text-font-size;
   left          : 0;
   right         : 0;
   pointer-events: none;
   position      : absolute;
-  top           : $inputPadding;
+  top           : $input-text-padding;
   width         : 100%;
   overflow      : hidden;
   white-space   : nowrap;
@@ -49,8 +60,8 @@ $rippleSize: 32px;
 }
 
 /** The after label is the colored underline for the TextField **/
-.TextField ~ label:after {
-  background-color  : $textfieldHighlightColor;
+.wsk-input__text ~ label:after {
+  background-color  : $input-text-highlight-color;
   bottom            : 0;
   content           : '';
   height            : 2px;
@@ -62,67 +73,67 @@ $rippleSize: 32px;
 }
 
 /** TextField Focus Styles **/
-.TextField:focus {
+.wsk-input__text:focus {
   outline: none;
 }
 
-.TextField:focus ~ label:after {
+.wsk-input__text:focus ~ label:after {
   left      : 0;
   visibility: visible;
   width     : 100%;
 }
 
 /** TextField Invalid Styles **/
-.TextField:invalid {
-  border-color: $textfieldErrorColor;
+.wsk-input__text:invalid {
+  border-color: $input-text-error-color;
   box-shadow  : none;
 }
 
-.TextField:invalid ~label:after {
-  background-color: $textfieldErrorColor;
+.wsk-input__text:invalid ~label:after {
+  background-color: $input-text-error-color;
 }
 
 /** TextField Error **/
-.TextField ~ .error {
-  color     : $textfieldErrorColor;
+.wsk-input__text ~ .error {
+  color     : $input-text-error-color;
   position  : absolute;
   font-size : 12px;
   margin-top: 3px;
   visibility: hidden;
 }
 
-.TextField:invalid ~ .error {
+.wsk-input__text:invalid ~ .error {
   visibility: visible;
 }
 
-.TextField.dirty ~ label {
+.wsk-input__text.dirty ~ label {
   visibility: hidden;
 }
 
 /** Floating Label */
-.TextField-floatingLabel ~label {
+.wsk-input__text--floating-label ~label {
   @include material-animation-default();
 }
 
-.TextField-floatingLabel:focus ~ label,
-.TextField-floatingLabel.dirty ~ label {
-  color     : $textfieldHighlightColor;
-  font-size : $floatingLabelFontSize;
-  top       : -($floatingLabelFontSize+$inputPadding);
+.wsk-input__text--floating-label:focus ~ label,
+.wsk-input__text--floating-label.dirty ~ label {
+  color     : $input-text-highlight-color;
+  font-size : $input-text-floating-label-fontsize;
+  top       : -($input-text-floating-label-fontsize+$input-text-padding);
   visibility: visible;
 }
 
-.TextField-floatingLabel:invalid ~ label {
-  color    : $textfieldErrorColor;
+.wsk-input__text--floating-label:invalid ~ label {
+  color    : $input-text-error-color;
   font-size: 12px;
 }
 
 /** Expandable Icon/Holder */
-.ExpandableHolder {
+.wsk-input__expandable_holder{
   display      : inline-block;
   position     : relative;
 
-  .TextField {
+  .wsk-input__text {
     @include material-animation-default();
     display  : inline-block;
 
@@ -143,20 +154,20 @@ $rippleSize: 32px;
   }
 }
 
-.ExpandableIcon {
+.wsk-input__expandable__icon {
   display     : inline-block;
-  width       : $expandableIconDim;
-  height      : $expandableIconDim;
+  width       : $input-text-expandable-icon-dim;
+  height      : $input-text-expandable-icon-dim;
   text-align  : center;
-  border-color: $expandableSearchIconColor;  // inherits to .IconSearch
+  border-color: $input-text-expandable-search-icon-color;  // inherits to .icon__search
   position    : relative;
 
   &:hover {
-    border-color: $expandableSearchIconHighlightColor;
+    border-color: $input-text-expandable-search-icon-highlight-color;
     cursor      : pointer;
   }
 
-  .IconSearch {
+  .icon__search {
     border        : 2px solid #000;
     border-color  : inherit;
     border-radius : 100px;
@@ -168,7 +179,7 @@ $rippleSize: 32px;
     margin        : 1px 4px 4px 1px;
     vertical-align: middle;
   }
-  .IconSearch::after {
+  .icon__search::after {
     content     : '';
     transform   : rotate(-45deg);
     width       : 0;
@@ -182,27 +193,27 @@ $rippleSize: 32px;
   }
 }
 
-.ExpandableIcon-rippleContainer {
+.wsk-input__expandable__icon__ripple__container {
   position: absolute;
   z-index: 2;
-  top: -((($rippleSize - $expandableIconDim) / 2) - 0px);
-  left: -(($rippleSize - $expandableIconDim) / 2);
+  top: -((($input-text-ripple-size - $input-text-expandable-icon-dim) / 2) - 0px);
+  left: -(($input-text-ripple-size - $input-text-expandable-icon-dim) / 2);
 
   box-sizing: border-box;
-  width: $rippleSize;
-  height: $rippleSize;
+  width: $input-text-ripple-size;
+  height: $input-text-ripple-size;
   border-radius: 50%;
 
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 }
 
-.ExpandableIcon-rippleContainer .Ripple {
-  background: $expandableSearchIconHighlightColor;
+.wsk-input__expandable__icon__ripple__container .Ripple {
+  background: $input-text-expandable-search-icon-highlight-color;
 }
 
 /** Disabled Styling **/
-.TextField[disabled] {
+.wsk-input__text[disabled] {
   background-color: transparent;
   border-bottom   : 1px dashed $textfieldDisabledColor;
 }
