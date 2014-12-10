@@ -3,7 +3,7 @@
 @import "../ripple/ripple";
 
 $input-text-font-size: 16px;
-$input-text-width: 100%:
+$input-text-width: 100%;
 $input-text-padding: 4px;
 $input-text-ripple-size: 32px;
 
@@ -215,5 +215,5 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
 /** Disabled Styling **/
 .wsk-input__text[disabled] {
   background-color: transparent;
-  border-bottom   : 1px dashed $textfieldDisabledColor;
+  border-bottom   : 1px dashed $input-text-disabled-color;
 }
