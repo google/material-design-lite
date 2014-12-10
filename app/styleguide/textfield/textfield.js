@@ -55,12 +55,12 @@ function ExpandableIcon(iconElement) {
 
 window.addEventListener('load', function() {
   var i;
-  var inputs = document.querySelectorAll('.wsk-input__text');
+  var inputs = document.querySelectorAll('.wsk-textfield');
   for (i = 0; i < inputs.length; i++) {
     var input = inputs[i];
     new TextField(input);
   }
-  var expandableIcons = document.querySelectorAll('.wsk-input__text-expandable-icon');
+  var expandableIcons = document.querySelectorAll('.wsk-textfield-expandable-icon');
   for (i = 0; i < expandableIcons.length; ++i) {
     var expandableIcon = expandableIcons[i];
     new ExpandableIcon(expandableIcon);
