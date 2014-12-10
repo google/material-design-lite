@@ -44,7 +44,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   text-align   : left;
 }
 
-.wsk-input__text ~ label {
+.wsk-input__text ~ .wsk-label {
   bottom        : 0;
   color         : $input-text-label-color;
   font-size     : $input-text-font-size;
@@ -60,7 +60,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
 }
 
 /** The after label is the colored underline for the TextField **/
-.wsk-input__text ~ label:after {
+.wsk-input__text ~ .wsk-label:after {
   background-color  : $input-text-highlight-color;
   bottom            : 0;
   content           : '';
@@ -77,7 +77,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   outline: none;
 }
 
-.wsk-input__text:focus ~ label:after {
+.wsk-input__text:focus ~ .wsk-label:after {
   left      : 0;
   visibility: visible;
   width     : 100%;
@@ -89,7 +89,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   box-shadow  : none;
 }
 
-.wsk-input__text:invalid ~label:after {
+.wsk-input__text:invalid ~ .wsk-label:after {
   background-color: $input-text-error-color;
 }
 
@@ -106,24 +106,24 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   visibility: visible;
 }
 
-.wsk-input__text.is-dirty ~ label {
+.wsk-input__text.is-dirty ~ .wsk-label {
   visibility: hidden;
 }
 
 /** Floating Label */
-.wsk-input__text--floating-label ~label {
+.wsk-input__text--floating-label ~ .wsk-label {
   @include material-animation-default();
 }
 
-.wsk-input__text--floating-label:focus ~ label,
-.wsk-input__text--floating-label.is-dirty ~ label {
+.wsk-input__text--floating-label:focus ~ .wsk-label,
+.wsk-input__text--floating-label.is-dirty ~ .wsk-label {
   color     : $input-text-highlight-color;
   font-size : $input-text-floating-label-fontsize;
   top       : -($input-text-floating-label-fontsize+$input-text-padding);
   visibility: visible;
 }
 
-.wsk-input__text--floating-label:invalid ~ label {
+.wsk-input__text--floating-label:invalid ~ .wsk-label {
   color    : $input-text-error-color;
   font-size: 12px;
 }

@@ -18,18 +18,18 @@
     <form action="#">
       <div class="wsk-input">
         <input class="wsk-input__text" type="text" name="sample" />
-        <label for="sample">Type Something...</label>
+        <label class="wsk-label" for="sample">Type Something...</label>
       </div>
 
       <div class="wsk-input">
         <input class="wsk-input__text" type="text" pattern="[0-9]*" name="sample" />
-        <label for="sample">Numbers Only</label>
+        <label class="wsk-label" for="sample">Numbers Only</label>
         <span class="wsk-input__error">Input is not a number!</span>
       </div>
 
       <div class="wsk-input">
         <input class="wsk-input__text" type="text" disabled name="sample" />
-        <label for="sample">I'm Disabled</label>
+        <label class="wsk-label" class="wsk-label" for="sample">I'm Disabled</label>
       </div>
 
       <div class="wsk-input">
@@ -39,53 +39,53 @@
 
       <div class="wsk-input">
         <input class="wsk-input__text wsk-input__text--floating-label" type="text" pattern="[0-9]*" name="sample" />
-        <label for="sample">Numbers Only</label>
+        <label class="wsk-label" for="sample">Numbers Only</label>
         <span class="wsk-input__error">Input is not a number!</span>
       </div>
 
       <div class="wsk-input">
         <textarea class="wsk-input__text" type="text" rows= "1" name="sample" ></textarea>
-        <label for="sample">Type multiple lines here...</label>
+        <label class="wsk-label" for="sample">Type multiple lines here...</label>
       </div>
 
       <div class="wsk-input">
         <textarea class="wsk-input__text" type="text" rows="3" name="sample" ></textarea>
-        <label for="sample">This input is 3 rows high</label>
+        <label class="wsk-label" for="sample">This input is 3 rows high</label>
       </div>
 
       <div class="wsk-input">
         <textarea class="wsk-input__text" type="text" maxrows="3" rows="1" name="sample" ></textarea>
-        <label for="sample">This input is at most 3 rows high</label>
+        <label class="wsk-label" for="sample">This input is at most 3 rows high</label>
       </div>
 
       <div class="wsk-input">
         <textarea class="wsk-input__text wsk-input__text--floating-label" type="text" rows= "1" name="sample" ></textarea>
-        <label for="sample">Multiple lines and a floating label</label>
+        <label class="wsk-label" for="sample">Multiple lines and a floating label</label>
       </div>
 
       <div class="wsk-input">
-        <label class="wsk-input__text-expandable-icon" for="sample-expandable">
+        <label class="wsk-input__text-expandable-icon wsk-label" for="sample-expandable">
           <span class="wsk-input__text-expandable-icon-search"></span>
         </label>
         <div class="wsk-input__expandable-holder">
           <input class="wsk-input__text wsk-input__text--expandable" type="text" name="sample" id="sample-expandable" />
-          <label for="sample">Expandable Input</label>
+          <label class="wsk-label" for="sample">Expandable Input</label>
         </div>
       </div>
 
       <div class="wsk-input">
-        <label class="wsk-input__text-expandable-icon" for="sample-expandable-floating">
+        <label class="wsk-input__text-expandable-icon wsk-label" for="sample-expandable-floating">
           <span class="wsk-input__text-expandable-icon-search"></span>
         </label>
         <div class="wsk-input__expandable-holder">
           <input class="wsk-input__text wsk-input__text--expandable wsk-input__text--floating-label" type="text" name="sample" id="sample-expandable-floating" />
-          <label for="sample">Expandable &amp; Floating Input</label>
+          <label class="wsk-label" for="sample">Expandable &amp; Floating Input</label>
         </div>
       </div>
 
       <div class="wsk-input right large">
         Right/No Label:
-        <label class="wsk-input__text-expandable-icon" for="sample-expclean">
+        <label class="wsk-label" class="wsk-input__text-expandable-icon" for="sample-expclean">
           <span class="wsk-input__text-expandable-icon-search"></span>
         </label>
         <div class="wsk-input__expandable-holder">
