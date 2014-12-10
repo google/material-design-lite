@@ -17,9 +17,9 @@ function TextField(element) {
 
   this.onInputChange = function(evt) {
     if (evt.target.value && evt.target.value.length > 0) {
-      evt.target.classList.add('dirty');
+      evt.target.classList.add('is-dirty');
     } else {
-      evt.target.classList.remove('dirty');
+      evt.target.classList.remove('is-dirty');
     }
   };
 
@@ -55,12 +55,12 @@ function ExpandableIcon(iconElement) {
 
 window.addEventListener('load', function() {
   var i;
-  var inputs = document.querySelectorAll('.input__text');
+  var inputs = document.querySelectorAll('.wsk-input__text');
   for (i = 0; i < inputs.length; i++) {
     var input = inputs[i];
     new TextField(input);
   }
-  var expandableIcons = document.querySelectorAll('.input__expandable__icon');
+  var expandableIcons = document.querySelectorAll('.wsk-input__text-expandable-icon');
   for (i = 0; i < expandableIcons.length; ++i) {
     var expandableIcon = expandableIcons[i];
     new ExpandableIcon(expandableIcon);

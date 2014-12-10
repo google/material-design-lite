@@ -94,7 +94,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
 }
 
 /** TextField Error **/
-.wsk-input__text ~ .error {
+.wsk-input__text ~ .wsk-input__error {
   color     : $input-text-error-color;
   position  : absolute;
   font-size : 12px;
@@ -102,11 +102,11 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   visibility: hidden;
 }
 
-.wsk-input__text:invalid ~ .error {
+.wsk-input__text:invalid ~ .wsk-input__error {
   visibility: visible;
 }
 
-.wsk-input__text.dirty ~ label {
+.wsk-input__text.is-dirty ~ label {
   visibility: hidden;
 }
 
@@ -116,7 +116,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
 }
 
 .wsk-input__text--floating-label:focus ~ label,
-.wsk-input__text--floating-label.dirty ~ label {
+.wsk-input__text--floating-label.is-dirty ~ label {
   color     : $input-text-highlight-color;
   font-size : $input-text-floating-label-fontsize;
   top       : -($input-text-floating-label-fontsize+$input-text-padding);
@@ -144,7 +144,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
     max-width: 0.1px;
 
     &:focus,
-    &.dirty {
+    &.is-dirty {
       // This is an unforunate hack. Animating between widths in percent (%)
       // in many browsers (Chrome, Firefox) only animates the inner visual style
       // of the input - the outer bounding box still 'jumps'.
