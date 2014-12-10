@@ -2,7 +2,11 @@
 @import "../shadow/_shadow";
 @import "_button";
 
-.PaperButton {
+.wsk-button {
   margin-top: 24px;
   margin-bottom: 24px;
+}
+
+.wsk-button--fab {
+  margin-left: 8px;
 }
