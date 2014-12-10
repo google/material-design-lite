@@ -32,17 +32,15 @@
     <link rel="stylesheet" href="styleguide/styleguide.css">
   </head>
   <body>
-    <div class="Layout Layout--fixedDrawer">
+    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer">
 
-      <div class="Layout-drawer">
-        <span class="Layout-title">WSK <strong>Style Guide</strong></span>
-        <nav class="Layout-navigation">
-          <ul>
-          </ul>
+      <div class="wsk-layout__drawer">
+        <span class="wsk-layout-title">WSK <strong>Style Guide</strong></span>
+        <nav id="main-navigation" class="wsk-layout-navigation">
         </nav>
       </div>
 
-      <div class="Layout-content">
+      <div class="wsk-layout__content">
         <div class="styleguide-demo">
           <h1>Typography</h1>
           <iframe src="./styleguide/typography/demo.html" scrolling="no"></iframe>
@@ -140,7 +138,7 @@
     <!-- Script to handle sizing the iFrames -->
     <script>
       'use strict';
-      var navList = document.querySelector('.Layout-navigation > ul');
+      var navList = document.getElementById('main-navigation');
       var totalDemosPendingLoading = 0;
       sizeDemos();
 
@@ -153,12 +151,10 @@
 
           // Add list item
           var navAnchor = document.createElement('a');
+          navAnchor.classList.add('wsk-layout-navigation-link');
           navAnchor.href = '#' + anchorLink;
           navAnchor.appendChild(document.createTextNode(demoTitle));
-
-          var listItem = document.createElement('li');
-          listItem.appendChild(navAnchor);
-          navList.appendChild(listItem);
+          navList.appendChild(navAnchor);
 
           var anchor = document.createElement('a');
           anchor.id = anchorLink;
