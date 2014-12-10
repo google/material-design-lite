@@ -23,13 +23,14 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   margin  : 20px 0;
   position: relative;
   width   : 300px;
+}
 
-  &.right {
-    text-align: right;
-  }
-  &.large {
-    width: 100%;
-  }
+.wsk-input--right {
+  text-align: right;
+}
+
+.wsk-input--large {
+  width: 100%;
 }
 
 .wsk-input__text {
