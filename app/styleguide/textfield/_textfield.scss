@@ -136,14 +136,14 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
 }
 
 .wsk-input__expandable-holder .wsk-textfield {
-    @include material-animation-default();
-    display  : inline-block;
+  @include material-animation-default();
+  display  : inline-block;
 
-    // Safari (possibly others) need to be convinced that this field is actually
-    // visible, otherwise it cannot be tabbed to nor focused via a <label>. 
-    // TODO: In some cases (Retina displays), this is big enough to render the
-    // inner element :(
-    max-width: 0.1px;
+  // Safari (possibly others) need to be convinced that this field is actually
+  // visible, otherwise it cannot be tabbed to nor focused via a <label>. 
+  // TODO: In some cases (Retina displays), this is big enough to render the
+  // inner element :(
+  max-width: 0.1px;
 }
 
 .wsk-input__expandable-holder .wsk-textfield:focus,
@@ -155,7 +155,6 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   max-width: 600px;  
 }
 
-
 .wsk-textfield-expandable-icon {
   display     : inline-block;
   width       : $input-text-expandable-icon-dim;
@@ -163,36 +162,37 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   text-align  : center;
   border-color: $input-text-expandable-search-icon-color;  // inherits to .wsk-textfield-expandable-icon-search
   position    : relative;
+}
 
-  &:hover {
-    border-color: $input-text-expandable-search-icon-highlight-color;
-    cursor      : pointer;
-  }
+.wsk-textfield-expandable-icon:hover {
+  border-color: $input-text-expandable-search-icon-highlight-color;
+  cursor      : pointer;  
+}
 
-  .wsk-textfield-expandable-icon-search {
-    border        : 2px solid #000;
-    border-color  : inherit;
-    border-radius : 100px;
-    position      : relative;
-    box-sizing    : border-box;
-    width         : 10px;
-    height        : 10px;
-    display       : inline-block;
-    margin        : 1px 4px 4px 1px;
-    vertical-align: middle;
-  }
-  .wsk-textfield-expandable-icon-search::after {
-    content     : '';
-    transform   : rotate(-45deg);
-    width       : 0;
-    border-left : 2px solid #000;
-    border-color: inherit;
-    height      : 5px;
-    position    : absolute;
-    display     : inline-block;
-    bottom      : -5px;
-    right       : -3px;
-  }
+.wsk-textfield-expandable-icon .wsk-textfield-expandable-icon-search {
+  border        : 2px solid #000;
+  border-color  : inherit;
+  border-radius : 100px;
+  position      : relative;
+  box-sizing    : border-box;
+  width         : 10px;
+  height        : 10px;
+  display       : inline-block;
+  margin        : 1px 4px 4px 1px;
+  vertical-align: middle;
+}
+
+.wsk-textfield-expandable-icon .wsk-textfield-expandable-icon-search::after {
+  content     : '';
+  transform   : rotate(-45deg);
+  width       : 0;
+  border-left : 2px solid #000;
+  border-color: inherit;
+  height      : 5px;
+  position    : absolute;
+  display     : inline-block;
+  bottom      : -5px;
+  right       : -3px;
 }
 
 .wsk-textfield-expandable-icon__ripple__container {
