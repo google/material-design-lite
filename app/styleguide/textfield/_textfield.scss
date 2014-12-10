@@ -154,7 +154,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   }
 }
 
-.wsk-input__expandable__icon {
+.wsk-input__text-expandable-icon {
   display     : inline-block;
   width       : $input-text-expandable-icon-dim;
   height      : $input-text-expandable-icon-dim;
@@ -193,7 +193,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   }
 }
 
-.wsk-input__expandable__icon__ripple__container {
+.wsk-input__text-expandable-icon__ripple__container {
   position: absolute;
   z-index: 2;
   top: -((($input-text-ripple-size - $input-text-expandable-icon-dim) / 2) - 0px);
@@ -208,7 +208,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 }
 
-.wsk-input__expandable__icon__ripple__container .Ripple {
+.wsk-input__text-expandable-icon__ripple__container .Ripple {
   background: $input-text-expandable-search-icon-highlight-color;
 }
 
