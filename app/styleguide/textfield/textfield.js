@@ -55,7 +55,7 @@ function ExpandableIcon(iconElement) {
 
 window.addEventListener('load', function() {
   var i;
-  var inputs = document.querySelectorAll('.wsk-textfield');
+  var inputs = document.querySelectorAll('.wsk-js-textfield');
   for (i = 0; i < inputs.length; i++) {
     var input = inputs[i];
     new TextField(input);
