@@ -159,7 +159,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   width       : $input-text-expandable-icon-dim;
   height      : $input-text-expandable-icon-dim;
   text-align  : center;
-  border-color: $input-text-expandable-search-icon-color;  // inherits to .icon__search
+  border-color: $input-text-expandable-search-icon-color;  // inherits to .wsk-input__text-expandable-icon-search
   position    : relative;
 
   &:hover {
@@ -167,7 +167,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
     cursor      : pointer;
   }
 
-  .icon__search {
+  .wsk-input__text-expandable-icon-search {
     border        : 2px solid #000;
     border-color  : inherit;
     border-radius : 100px;
@@ -179,7 +179,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
     margin        : 1px 4px 4px 1px;
     vertical-align: middle;
   }
-  .icon__search::after {
+  .wsk-input__text-expandable-icon-search::after {
     content     : '';
     transform   : rotate(-45deg);
     width       : 0;
