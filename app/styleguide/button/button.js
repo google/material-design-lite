@@ -5,14 +5,14 @@ window.addEventListener('load', function() {
     return function() { element.blur(); };
   };
 
-  var buttonElements = document.querySelectorAll('.PaperButton, .PaperFab');
+  var buttonElements = document.querySelectorAll('.wsk-js-button');
 
   for (var i = 0; i < buttonElements.length; i++) {
     var buttonElement = buttonElements[i];
     var blurHandler = blurHandlerGenerator(buttonElement);
     if (buttonElement.classList.contains('RippleEffect')) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add('PaperButton-rippleContainer');
+      rippleContainer.classList.add('wsk-button__ripple-container');
       var ripple = document.createElement('span');
       ripple.classList.add('Ripple');
       rippleContainer.appendChild(ripple);

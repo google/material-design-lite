@@ -4,49 +4,47 @@
 @import "../animation/animation";
 @import "../ripple/ripple";
 
-// Default button colors
-$default-btn-color: rgba(#999999, 0.20);
-$default-btn-hover-color: $default-btn-color;
-$default-btn-active-color: rgba($default-btn-color, 0.40);
-$default-btn-text-color: #000;
-$default-flat-btn-focus-color: rgba(black, 0.12);
+// Default button colors.
+$button-primary-color: rgba(#999999, 0.20);
+$button-secondary-color: #000;
+$button-hover-color: $button-primary-color;
+$button-active-color: rgba($button-primary-color, 0.40);
+$button-focus-color: rgba(black, 0.12);
 
-// Colored button colors
-$colored-btn-color: nth($primaryPalette, 6);
-$colored-btn-hover-color: nth($primaryPalette, 7);
-$colored-btn-active-color: nth($primaryPalette, 8);
-$colored-flat-btn-focus-color: $default-flat-btn-focus-color;
-$colored-raised-btn-text-color: #fff;
+// Colored button colors.
+$button-primary-color-alt: nth($primaryPalette, 6);
+$button-secondary-color-alt: #fff;
+$button-hover-color-alt: nth($primaryPalette, 7);
+$button-active-color-alt: nth($primaryPalette, 8);
+$button-focus-color-alt: $button-focus-color;
 
-// Ripple color for colored raised buttons
-$color-ripple-raised-bg-color: white;
+// Ripple color for colored raised buttons and FABs.
+$button-ripple-color-alt: white;
 
-// Disabled button colors
-$disabled-btn-text-color: rgba(#000, 0.26);
-$disabled-raised-btn-bg-color: rgba(#000, 0.12);
+// Disabled button colors.
+$button-primary-color-disabled: rgba(#000, 0.12);
+$button-secondary-color-disabled: rgba(#000, 0.26);
 
-// FAB colors and sizes
-$fab-bg-color: nth($accentPalette, 5);
-$fab-hover-color: nth($accentPalette, 6);
-$fab-active-color: nth($accentPalette, 7);
-$default-fab-size: 56px;
-$mini-fab-size: 40px;
-$fab-font-size: 24px;
+// FAB colors and sizes.
+$button-fab-color-alt: nth($accentPalette, 5);
+$button-fab-hover-color-alt: nth($accentPalette, 6);
+$button-fab-active-color-alt: nth($accentPalette, 7);
+$button-fab-size: 56px;
+$button-fab-size-mini: 40px;
+$button-fab-font-size: 24px;
 
-// Focus shadow
+// Focus shadow mixin.
 @mixin focus-shadow() {
   box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
 }
 
 
-// Flat buttons (default)
-
-.PaperButton,
-.PaperFab {
+// The button component. Defaults to a flat button.
+.wsk-button {
   background: transparent;
   border: none;
   border-radius: 2px;
-  color: $default-btn-text-color;
+  color: $button-secondary-color;
   display: block;
   position: relative;
   height: 36px;
@@ -61,168 +59,162 @@ $fab-font-size: 24px;
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
   outline: none;
-}
 
-.PaperButton::-moz-focus-inner,
-.PaperFab::-moz-focus-inner {
-  border: 0;
-}
+  &::-moz-focus-inner {
+    border: 0;
+  }
 
-.PaperButton--colored {
-  color: $colored-btn-color;
-}
+  &:hover {
+    background-color: $button-hover-color;
+  }
 
-.PaperButton:hover {
-  background-color: $default-btn-hover-color;
-}
+  &:focus:not(:active) {
+    background-color: $button-focus-color;
+  }
 
-.PaperButton:focus:not(:active) {
-  background-color: $default-flat-btn-focus-color;
-}
+  &:active {
+    background-color: $button-active-color;
+  }
 
-.PaperButton.PaperButton--colored:focus:not(:active) {
-  background-color: $colored-flat-btn-focus-color;
-}
+  // Bump up specificity by using [disabled] twice.
+  &[disabled][disabled] {
+    color: $button-secondary-color-disabled;
+    cursor: auto;
+    background-color: transparent;
+  }
 
-.PaperButton:active {
-  background-color: $default-btn-active-color;
-}
+  &.wsk-button--colored {
+    color: $button-primary-color-alt;
 
-
-// Raised buttons
-
-.PaperButton--raised,
-.PaperFab {
-  background: $default-btn-color;
-  @include shadow-z1();
-}
-
-.PaperButton--raised.PaperButton--colored {
-  background: $colored-btn-color;
-  color: $colored-raised-btn-text-color;
-}
-
-.PaperButton--raised.PaperButton--colored:hover {
-  background-color: $colored-btn-hover-color;
-}
-
-.PaperButton--raised:focus:not(:active),
-.PaperFab:focus:not(:active) {
-  @include focus-shadow();
-  background-color: $default-btn-active-color;
-}
-
-.PaperButton--raised.PaperButton--colored:focus:not(:active) {
-  background-color: $colored-btn-active-color;
-}
-
-.PaperButton--raised:active,
-.PaperFab:active {
-  @include shadow-z3();
-  background-color: $default-btn-active-color;
-}
-
-.PaperButton[disabled].PaperButton--raised:hover,
-.PaperFab[disabled]:hover {
-  background-color: $disabled-raised-btn-bg-color;
-}
-
-.PaperButton--raised.PaperButton--colored:active {
-  background-color: $colored-btn-active-color;
-}
-
-.PaperButton--raised.PaperButton--colored .Ripple,
-.PaperFab.PaperButton--colored .Ripple,
-.PaperFab.PaperFab--colored .Ripple {
-  background: $color-ripple-raised-bg-color;
+    &:focus:not(:active) {
+      background-color: $button-focus-color-alt;
+    }
+  }
 }
 
 
-// FABs
+  // Raised buttons
+  .wsk-button--raised {
+    background: $button-primary-color;
+    @include shadow-z1();
 
-.PaperFab {
-  border-radius: 50%;
-  font-size: $fab-font-size;
-  height: $default-fab-size;
-  margin: auto;
-  min-width: $default-fab-size;
-  width: $default-fab-size;
-  padding: 0;
-  overflow: hidden;
-}
+    &:active {
+      @include shadow-z3();
+      background-color: $button-active-color;
+    }
 
-.PaperFab.PaperFab--mini {
-  height: $mini-fab-size;
-  min-width: $mini-fab-size;
-  width: $mini-fab-size;
-}
+    &:focus:not(:active) {
+      @include focus-shadow();
+      background-color: $button-active-color;
+    }
 
-.PaperFab .PaperButton-rippleContainer {
-  border-radius: 50%;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-}
+    &.wsk-button--colored {
+      background: $button-primary-color-alt;
+      color: $button-secondary-color-alt;
 
-.PaperFab.PaperButton--colored,
-.PaperFab.PaperFab--colored {
-  background: $fab-bg-color;
-  color     : $colored-raised-btn-text-color;
-}
+      &:hover {
+        background-color: $button-hover-color-alt;
+      }
 
-.PaperFab.PaperButton--colored:hover,
-.PaperFab.PaperFab--colored:hover {
-  background-color: $fab-hover-color;
-}
+      &:active {
+        background-color: $button-active-color-alt;
+      }
 
-.PaperFab.PaperButton--colored:focus:not(:active),
-.PaperFab.PaperFab--colored:focus:not(:active) {
-  background-color: $fab-active-color;
-}
+      &:focus:not(:active) {
+        background-color: $button-active-color-alt;
+      }
 
-.PaperFab.PaperButton--colored:active,
-.PaperFab.PaperFab--colored:active {
-  background-color: $fab-active-color;
-}
+      & .Ripple {
+        background: $button-ripple-color-alt;
+      }
+    }
 
-
-// Disabled buttons
-
-.PaperButton[disabled] {
-  color: $disabled-btn-text-color;
-  cursor: auto;
-}
-
-.PaperButton[disabled]:hover {
-  background-color: transparent;
-}
-
-.PaperButton[disabled].PaperButton--raised,
-.PaperFab[disabled],
-.PaperFab[disabled].PaperButton--colored,
-.PaperFab[disabled].PaperFab--colored {
-  background-color: $disabled-raised-btn-bg-color;
-  color: $disabled-btn-text-color;
-}
-
-.PaperButton[disabled].PaperButton--raised:active,
-.PaperFab[disabled]:active {
-  @include shadow-z1();
-}
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled] {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      @include shadow-z1();
+    }
+  }
 
 
-// Ripples
+  // FABs
+  .wsk-button--fab {
+    border-radius: 50%;
+    font-size: $button-fab-font-size;
+    height: $button-fab-size;
+    margin: auto;
+    min-width: $button-fab-size;
+    width: $button-fab-size;
+    padding: 0;
+    overflow: hidden;
+    background: $button-primary-color;
+    @include shadow-z1();
 
-.PaperButton-rippleContainer {
-  display: block;
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
+    &.wsk-button--mini-fab {
+      height: $button-fab-size-mini;
+      min-width: $button-fab-size-mini;
+      width: $button-fab-size-mini;
+    }
 
-.PaperButton[disabled] .PaperButton-rippleContainer .Ripple,
-.PaperFab[disabled] .PaperButton-rippleContainer .Ripple, {
-  background-color: transparent;
-}
+    & .wsk-button__ripple-container {
+      border-radius: 50%;
+      // Fixes clipping bug in Safari.
+      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+    }
+
+    &:active {
+      @include shadow-z3();
+      background-color: $button-active-color;
+    }
+
+    &:focus:not(:active) {
+      @include focus-shadow();
+      background-color: $button-active-color;
+    }
+
+    &.wsk-button--colored {
+      background: $button-fab-color-alt;
+      color: $button-secondary-color-alt;
+
+      &:hover {
+        background-color: $button-fab-hover-color-alt;
+      }
+
+      &:focus:not(:active) {
+        background-color: $button-fab-active-color-alt;
+      }
+
+      &:active {
+        background-color: $button-fab-active-color-alt;
+      }
+
+      & .Ripple {
+        background: $button-ripple-color-alt;
+      }
+    }
+
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled] {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      @include shadow-z1();
+    }
+  }
+
+
+  // Ripples
+  .wsk-button__ripple-container {
+    display: block;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+
+    .wsk-button[disabled] & .Ripple {
+      background-color: transparent;
+    }
+  }
