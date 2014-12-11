@@ -2,7 +2,7 @@
 
 function RippleOwner(el, recentering) {
   var parentElement = el;
-  var rippleElement = parentElement.querySelector('.Ripple');
+  var rippleElement = parentElement.querySelector('.wsk-ripple');
   var frameCount = 0;
   var rippleSize;
   var x;
@@ -118,11 +118,11 @@ RippleOwner.prototype.downHandler = function(evt) {
 };
 
 window.addEventListener('load', function() {
-  var rippleElements = document.querySelectorAll('.RippleEffect');
+  var rippleElements = document.querySelectorAll('.wsk-js-ripple-effect');
   for (var i = 0; i < rippleElements.length; i++) {
     var rippleElement = rippleElements[i];
     var recentering =
-        rippleElement.classList.contains('RippleEffect--recentering');
+        rippleElement.classList.contains('wsk-ripple--recentering');
     new RippleOwner(rippleElement, recentering);
   }
 });

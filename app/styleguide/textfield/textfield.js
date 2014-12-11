@@ -44,12 +44,12 @@ function ExpandableIcon(iconElement) {
   var container = document.createElement('span');
   iconElement.appendChild(container);
 
-  container.classList.add('input__expandable__icon__ripple__container');
-  container.classList.add('RippleEffect');
-  container.classList.add('RippleEffect--recentering');
+  container.classList.add('wsk-textfield-expandable-icon__ripple__container');
+  container.classList.add('wsk-js-ripple-effect');
+  container.classList.add('wsk-ripple--recentering');
 
   var ripple = document.createElement('span');
-  ripple.classList.add('Ripple');
+  ripple.classList.add('wsk-ripple');
   container.appendChild(ripple);
 }
 

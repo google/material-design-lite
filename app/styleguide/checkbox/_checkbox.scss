@@ -58,7 +58,7 @@ $checkboxColor: nth($primaryPalette, 6);
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 }
 
-.Checkbox-rippleContainer .Ripple {
+.Checkbox-rippleContainer .wsk-ripple {
   background: $checkboxColor;
 }
 
