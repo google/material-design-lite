@@ -46,7 +46,7 @@ function ExpandableIcon(iconElement) {
 
   container.classList.add('wsk-textfield-expandable-icon__ripple__container');
   container.classList.add('wsk-js-ripple-effect');
-  container.classList.add('wsk-ripple--recentering');
+  container.classList.add('wsk-ripple--center');
 
   var ripple = document.createElement('span');
   ripple.classList.add('wsk-ripple');

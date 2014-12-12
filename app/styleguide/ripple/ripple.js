@@ -122,7 +122,7 @@ window.addEventListener('load', function() {
   for (var i = 0; i < rippleElements.length; i++) {
     var rippleElement = rippleElements[i];
     var recentering =
-        rippleElement.classList.contains('wsk-ripple--recentering');
+        rippleElement.classList.contains('wsk-ripple--center');
     new RippleOwner(rippleElement, recentering);
   }
 });

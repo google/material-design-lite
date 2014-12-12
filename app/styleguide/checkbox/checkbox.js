@@ -15,11 +15,11 @@ function Checkbox(l) {
   fakeCheckbox.classList.add('Checkbox');
   fakeCheckbox.tabIndex = 0;
   if (checkboxElement.classList.contains('wsk-js-ripple-effect')) {
-    checkboxElement.classList.add('wsk-ripple--recentering');
+    checkboxElement.classList.add('wsk-ripple--center');
     var rippleContainer = document.createElement('span');
     rippleContainer.classList.add('Checkbox-rippleContainer');
     rippleContainer.classList.add('wsk-js-ripple-effect');
-    rippleContainer.classList.add('wsk-ripple--recentering');
+    rippleContainer.classList.add('wsk-ripple--center');
     var ripple = document.createElement('span');
     ripple.classList.add('wsk-ripple');
 
