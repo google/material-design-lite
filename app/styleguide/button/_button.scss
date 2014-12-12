@@ -33,6 +33,11 @@ $button-fab-size: 56px;
 $button-fab-size-mini: 40px;
 $button-fab-font-size: 24px;
 
+// Icon button colors and sizes.
+$button-icon-size: 32px;
+$button-icon-color: nth($paletteGrey, 8);
+$button-icon-focus-color: $button-focus-color;
+
 // Focus shadow mixin.
 @mixin focus-shadow() {
   box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
@@ -59,6 +64,7 @@ $button-fab-font-size: 24px;
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
   outline: none;
+  cursor: pointer;
 
   &::-moz-focus-inner {
     border: 0;
@@ -199,6 +205,26 @@ $button-fab-font-size: 24px;
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
       @include shadow-z1();
+    }
+  }
+
+
+  // Icon buttons
+  .wsk-button--icon {
+    border-radius: 50%;
+    font-size: $button-fab-font-size;
+    height: $button-icon-size;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: $button-icon-size;
+    width: $button-icon-size;
+    padding: 0;
+    overflow: hidden;
+
+    & .wsk-button__ripple-container {
+      border-radius: 50%;
+      // Fixes clipping bug in Safari.
+      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
     }
   }
 

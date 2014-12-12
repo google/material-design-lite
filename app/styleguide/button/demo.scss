@@ -2,11 +2,7 @@
 @import "../shadow/_shadow";
 @import "_button";
 
-.wsk-button {
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-
-.wsk-button--fab {
-  margin-left: 8px;
+.button-block {
+  display: inline-block;
+  margin: 20px 20px 20px 0;
 }
