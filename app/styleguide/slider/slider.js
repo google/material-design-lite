@@ -11,7 +11,7 @@ function Slider(element) {
     // limitations, we add a parent here that trims it down to a reasonable
     // size.
     var containerIE = document.createElement('div');
-    containerIE.classList.add('Slider-IEContainer');
+    containerIE.classList.add('wsk-slider__ie-container');
     sliderElement.parentElement.insertBefore(containerIE, sliderElement);
     sliderElement.parentElement.removeChild(sliderElement);
     containerIE.appendChild(sliderElement);
@@ -20,18 +20,18 @@ function Slider(element) {
     // and allows us to style the left and right sides of it with different
     // colors.
     var container = document.createElement('div');
-    container.classList.add('Slider-container');
+    container.classList.add('wsk-slider__container');
     sliderElement.parentElement.insertBefore(container, sliderElement);
     sliderElement.parentElement.removeChild(sliderElement);
     container.appendChild(sliderElement);
     var backgroundFlex = document.createElement('div');
-    backgroundFlex.classList.add('Slider-backgroundFlex');
+    backgroundFlex.classList.add('wsk-slider__background-flex');
     container.appendChild(backgroundFlex);
     var backgroundLower = document.createElement('div');
-    backgroundLower.classList.add('Slider-backgroundLower');
+    backgroundLower.classList.add('wsk-slider__background-lower');
     backgroundFlex.appendChild(backgroundLower);
     var backgroundUpper = document.createElement('div');
-    backgroundUpper.classList.add('Slider-backgroundUpper');
+    backgroundUpper.classList.add('wsk-slider__background-upper');
     backgroundFlex.appendChild(backgroundUpper);
   }
 
@@ -53,9 +53,9 @@ function Slider(element) {
         (sliderElement.max - sliderElement.min);
 
     if (fraction === 0) {
-      sliderElement.classList.add('zero');
+      sliderElement.classList.add('is-lowest-value');
     } else {
-      sliderElement.classList.remove('zero');
+      sliderElement.classList.remove('is-lowest-value');
     }
 
     if (!isIE) {
@@ -70,7 +70,7 @@ function Slider(element) {
 }
 
 window.addEventListener('load', function() {
-  var sliders =  document.querySelectorAll('input[type="range"]');
+  var sliders =  document.querySelectorAll('.wsk-js-slider');
   for (var i = 0; i < sliders.length; i++) {
     new Slider(sliders[i]);
   }
