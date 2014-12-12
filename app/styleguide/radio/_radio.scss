@@ -2,23 +2,23 @@
 @import "../animation/animation";
 @import "../ripple/ripple";
 
-$borderColor: nth($secondaryPalette, 8);
-$radioColor: nth($primaryPalette, 6);
+$radio-border-color: nth($secondaryPalette, 8);
+$radio-color: nth($primaryPalette, 6);
 
-$labelHeight: 20px;
-$radioButtonSize: 14px;
-$radioInnerMargin: 2px;
-$padding: 8px;
-$topOffset: ($labelHeight - $radioButtonSize) / 2;
-$rippleSize: 42px;
+$radio-label-height: 20px;
+$radio-button-size: 14px;
+$radio-inner-margin: 2px;
+$radio-padding: 8px;
+$radio-top-offset: ($radio-label-height - $radio-button-size) / 2;
+$radio-ripple-size: 42px;
 
-.RadioButton {
+.wsk-radio-button {
   display: none;
   visibility: hidden;
   box-sizing: border-box;
 }
 
-.RadioButton-label {
+.wsk-radio-button__label {
   position: relative;
 
   font-size: 16px;
@@ -28,66 +28,66 @@ $rippleSize: 42px;
   box-sizing: border-box;
   width: 100%;
   margin: 12px 0;
-  padding-left: $radioButtonSize + $padding;
+  padding-left: $radio-button-size + $radio-padding;
 
   cursor: pointer;
 }
 
-.RadioButton-outerCircle {
+.wsk-radio-button__outer-circle {
   position: absolute;
-  top: $topOffset;
+  top: $radio-top-offset;
   left: 0;
 
   display: inline-block;
 
   box-sizing: border-box;
-  width: $radioButtonSize - ($radioInnerMargin*2);
-  height: $radioButtonSize - ($radioInnerMargin*2);
-  margin: $radioInnerMargin;
+  width: $radio-button-size - ($radio-inner-margin*2);
+  height: $radio-button-size - ($radio-inner-margin*2);
+  margin: $radio-inner-margin;
 
   cursor: pointer;
 
-  border: 2px solid $borderColor;
+  border: 2px solid $radio-border-color;
   border-radius: 50%;
 }
 
-.RadioButton-innerCircle {
+.wsk-radio-button__inner-circle {
   position: absolute;
   z-index: 1;
-  top: $topOffset;
+  top: $radio-top-offset;
   left: 0;
 
   box-sizing: border-box;
-  width: $radioButtonSize;
-  height: $radioButtonSize;
+  width: $radio-button-size;
+  height: $radio-button-size;
 
   @include material-animation-default(0.28s);
   transition-property: transform;
   transform: scale3d(0, 0, 0);
 
   border-radius: 50%;
-  background: $radioColor;
+  background: $radio-color;
+
+  .wsk-radio-button:checked ~ & {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
-.RadioButton:checked ~ .RadioButton-innerCircle {
-  transform: scale3d(1, 1, 1);
-}
-
-.RadioButton-rippleContainer {
+.wsk-radio-button__ripple-container {
   position: absolute;
   z-index: 2;
-  top: -((($rippleSize - $radioButtonSize) / 2) - $topOffset);
-  left: -(($rippleSize - $radioButtonSize) / 2);
+  top: -((($radio-ripple-size - $radio-button-size) / 2) - $radio-top-offset);
+  left: -(($radio-ripple-size - $radio-button-size) / 2);
 
   box-sizing: border-box;
-  width: $rippleSize;
-  height: $rippleSize;
+  width: $radio-ripple-size;
+  height: $radio-ripple-size;
   border-radius: 50%;
 
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-}
 
-.RadioButton-rippleContainer .Ripple {
-  background: $radioColor;
+  & .Ripple {
+    background: $radio-color;
+  }
 }

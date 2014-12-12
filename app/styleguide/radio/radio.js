@@ -2,10 +2,10 @@
 
 function RadioButton(btnElement, labelElement) {
   var outerCircle = document.createElement('span');
-  outerCircle.classList.add('RadioButton-outerCircle');
+  outerCircle.classList.add('wsk-radio-button__outer-circle');
 
   var innerCircle = document.createElement('span');
-  innerCircle.classList.add('RadioButton-innerCircle');
+  innerCircle.classList.add('wsk-radio-button__inner-circle');
 
   labelElement.insertBefore(outerCircle, btnElement);
   labelElement.appendChild(innerCircle);
@@ -13,7 +13,7 @@ function RadioButton(btnElement, labelElement) {
   if (btnElement.classList.contains('RippleEffect')) {
     btnElement.classList.add('RippleEffect--recentering');
     var rippleContainer = document.createElement('span');
-    rippleContainer.classList.add('RadioButton-rippleContainer');
+    rippleContainer.classList.add('wsk-radio-button__ripple-container');
     rippleContainer.classList.add('RippleEffect');
     rippleContainer.classList.add('RippleEffect--recentering');
 
@@ -26,9 +26,9 @@ function RadioButton(btnElement, labelElement) {
 }
 
 window.addEventListener('load', function() {
-  var radioLabels = document.querySelectorAll('.RadioButton-label');
+  var radioLabels = document.querySelectorAll('.wsk-radio-button__label');
   for (var i = 0; i < radioLabels.length; i++) {
-    var radioButton = radioLabels[i].querySelector('.RadioButton');
+    var radioButton = radioLabels[i].querySelector('.wsk-radio-button');
     new RadioButton(radioButton, radioLabels[i]);
   }
 });
