@@ -14,14 +14,14 @@ function Checkbox(l) {
   var fakeCheckbox = document.createElement('span');
   fakeCheckbox.classList.add('Checkbox');
   fakeCheckbox.tabIndex = 0;
-  if (checkboxElement.classList.contains('RippleEffect')) {
-    checkboxElement.classList.add('RippleEffect--recentering');
+  if (checkboxElement.classList.contains('wsk-js-ripple-effect')) {
+    checkboxElement.classList.add('wsk-ripple--center');
     var rippleContainer = document.createElement('span');
     rippleContainer.classList.add('Checkbox-rippleContainer');
-    rippleContainer.classList.add('RippleEffect');
-    rippleContainer.classList.add('RippleEffect--recentering');
+    rippleContainer.classList.add('wsk-js-ripple-effect');
+    rippleContainer.classList.add('wsk-ripple--center');
     var ripple = document.createElement('span');
-    ripple.classList.add('Ripple');
+    ripple.classList.add('wsk-ripple');
 
     rippleContainer.appendChild(ripple);
     labelElement.insertBefore(rippleContainer,

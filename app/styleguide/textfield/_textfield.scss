@@ -140,7 +140,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   display  : inline-block;
 
   // Safari (possibly others) need to be convinced that this field is actually
-  // visible, otherwise it cannot be tabbed to nor focused via a <label>. 
+  // visible, otherwise it cannot be tabbed to nor focused via a <label>.
   // TODO: In some cases (Retina displays), this is big enough to render the
   // inner element :(
   max-width: 0.1px;
@@ -152,7 +152,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   // in many browsers (Chrome, Firefox) only animates the inner visual style
   // of the input - the outer bounding box still 'jumps'.
   // Thus assume a sensible maximum, and animate to/from that value.
-  max-width: 600px;  
+  max-width: 600px;
 }
 
 .wsk-textfield-expandable-icon {
@@ -166,7 +166,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
 
 .wsk-textfield-expandable-icon:hover {
   border-color: $input-text-expandable-search-icon-highlight-color;
-  cursor      : pointer;  
+  cursor      : pointer;
 }
 
 .wsk-textfield-expandable-icon .wsk-textfield-expandable-icon-search {
@@ -210,7 +210,7 @@ $input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 }
 
-.wsk-textfield-expandable-icon__ripple__container .Ripple {
+.wsk-textfield-expandable-icon__ripple__container .wsk-ripple {
   background: $input-text-expandable-search-icon-highlight-color;
 }
 

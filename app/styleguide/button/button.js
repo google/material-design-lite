@@ -10,11 +10,11 @@ window.addEventListener('load', function() {
   for (var i = 0; i < buttonElements.length; i++) {
     var buttonElement = buttonElements[i];
     var blurHandler = blurHandlerGenerator(buttonElement);
-    if (buttonElement.classList.contains('RippleEffect')) {
+    if (buttonElement.classList.contains('wsk-js-ripple-effect')) {
       var rippleContainer = document.createElement('span');
       rippleContainer.classList.add('wsk-button__ripple-container');
       var ripple = document.createElement('span');
-      ripple.classList.add('Ripple');
+      ripple.classList.add('wsk-ripple');
       rippleContainer.appendChild(ripple);
       ripple.addEventListener('mouseup', blurHandler);
       buttonElement.appendChild(rippleContainer);

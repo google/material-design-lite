@@ -130,7 +130,7 @@ $button-icon-focus-color: $button-focus-color;
         background-color: $button-active-color-alt;
       }
 
-      & .Ripple {
+      & .wsk-ripple {
         background: $button-ripple-color-alt;
       }
     }
@@ -195,7 +195,7 @@ $button-icon-focus-color: $button-focus-color;
         background-color: $button-fab-active-color-alt;
       }
 
-      & .Ripple {
+      & .wsk-ripple {
         background: $button-ripple-color-alt;
       }
     }
@@ -240,7 +240,7 @@ $button-icon-focus-color: $button-focus-color;
     z-index: 0;
     overflow: hidden;
 
-    .wsk-button[disabled] & .Ripple {
+    .wsk-button[disabled] & .wsk-ripple {
       background-color: transparent;
     }
   }

@@ -87,7 +87,7 @@ $radio-ripple-size: 42px;
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 
-  & .Ripple {
+  & .wsk-ripple {
     background: $radio-color;
   }
 }

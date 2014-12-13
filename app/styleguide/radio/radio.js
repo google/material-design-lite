@@ -10,15 +10,15 @@ function RadioButton(btnElement, labelElement) {
   labelElement.insertBefore(outerCircle, btnElement);
   labelElement.appendChild(innerCircle);
 
-  if (btnElement.classList.contains('RippleEffect')) {
-    btnElement.classList.add('RippleEffect--recentering');
+  if (btnElement.classList.contains('wsk-js-ripple-effect')) {
+    btnElement.classList.add('wsk-ripple--center');
     var rippleContainer = document.createElement('span');
     rippleContainer.classList.add('wsk-radio-button__ripple-container');
-    rippleContainer.classList.add('RippleEffect');
-    rippleContainer.classList.add('RippleEffect--recentering');
+    rippleContainer.classList.add('wsk-js-ripple-effect');
+    rippleContainer.classList.add('wsk-ripple--center');
 
     var ripple = document.createElement('span');
-    ripple.classList.add('Ripple');
+    ripple.classList.add('wsk-ripple');
 
     rippleContainer.appendChild(ripple);
     labelElement.appendChild(rippleContainer);

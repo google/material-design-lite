@@ -1,10 +1,9 @@
 @import "../palette/palette";
 @import "../animation/animation";
 
-// Ripple Color
 $ripple-bg-color: nth($paletteGrey, 10);
 
-.Ripple {
+.wsk-ripple {
   background       : $ripple-bg-color;
   border-radius    : 50%;
   height           : 50px;
@@ -15,12 +14,12 @@ $ripple-bg-color: nth($paletteGrey, 10);
   top              : 0;
   transform        : translate(-50%, -50%);
   width            : 50px;
-  overflow: hidden;
-}
+  overflow         : hidden;
 
-.Ripple.is-animating {
-  transition        : transform 0.6s $animation-curve-linear-out-slow-in,
-                      width 0.6s $animation-curve-linear-out-slow-in,
-                      height 0.6s $animation-curve-linear-out-slow-in,
-                      opacity 0.6s $animation-curve-linear-out-slow-in;
+  &.is-animating {
+    transition: transform 0.6s $animation-curve-linear-out-slow-in,
+    width 0.6s $animation-curve-linear-out-slow-in,
+    height 0.6s $animation-curve-linear-out-slow-in,
+    opacity 0.6s $animation-curve-linear-out-slow-in;
+  }
 }
