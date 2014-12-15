@@ -12,8 +12,8 @@ function Radio(btnElement, container) {
 
   var rippleContainer;
 
-  if (btnElement.classList.contains('wsk-js-ripple-effect')) {
-    btnElement.classList.add('wsk-ripple--center');
+  if (container.classList.contains('wsk-js-ripple-effect')) {
+    container.classList.add('wsk-js-ripple-effect--ignore-events');
     rippleContainer = document.createElement('span');
     rippleContainer.classList.add('wsk-radio__ripple-container');
     rippleContainer.classList.add('wsk-js-ripple-effect');

@@ -123,6 +123,9 @@ window.addEventListener('load', function() {
     var rippleElement = rippleElements[i];
     var recentering =
         rippleElement.classList.contains('wsk-ripple--center');
-    new RippleOwner(rippleElement, recentering);
+    if (!rippleElement.classList.contains(
+        'wsk-js-ripple-effect--ignore-events')) {
+      new RippleOwner(rippleElement, recentering);
+    }
   }
 });
