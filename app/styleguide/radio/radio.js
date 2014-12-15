@@ -31,7 +31,7 @@ function Radio(btnElement, container) {
 
     // Since other radio buttons don't get change events, we need to look for
     // them to update their classes.
-    var radios = document.querySelectorAll('.wsk-radio');
+    var radios = document.querySelectorAll('.wsk-js-radio');
     for (var i = 0; i < radios.length; i++) {
       var button = radios[i].querySelector('.wsk-radio__button');
       // Different name == different group, so no point updating those.
@@ -79,12 +79,13 @@ function Radio(btnElement, container) {
   };
 
   this.updateClasses(btnElement, container);
+  container.classList.add('is-upgraded');
 }
 
 window.addEventListener('load', function() {
   'use strict';
 
-  var radios = document.querySelectorAll('.wsk-radio');
+  var radios = document.querySelectorAll('.wsk-js-radio');
   for (var i = 0; i < radios.length; i++) {
     var button = radios[i].querySelector('.wsk-radio__button');
     new Radio(button, radios[i]);
