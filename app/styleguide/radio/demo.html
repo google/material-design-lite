@@ -13,22 +13,27 @@
   </head>
   <body>
 
-  <p>A radiobutton can either be a primary action or a secondary action.</p>
+  <p>A radio button can either be a primary action or a secondary action.</p>
 
   <section class="preview-block">
-    <label class="wsk-radio-button__label">
-      <input type="radio" class="wsk-radio-button wsk-js-ripple-effect" name="wifi[]" value="1" checked />
-      Always
+    <label class="wsk-radio wsk-js-radio" for="wifi1">
+      <input type="radio" id="wifi1" class="wsk-radio__button wsk-js-ripple-effect" name="wifi[]" value="1" checked />
+      <span class="wsk-radio__label">Always</span>
     </label>
 
-    <label class="wsk-radio-button__label">
-      <input type="radio" class="wsk-radio-button wsk-js-ripple-effect" name="wifi[]" value="2" />
-      Only when plugged in
+    <label class="wsk-radio wsk-js-radio" for="wifi2">
+      <input type="radio" id="wifi2" class="wsk-radio__button wsk-js-ripple-effect" name="wifi[]" value="2" />
+      <span class="wsk-radio__label">Only when plugged in</span>
     </label>
 
-    <label class="wsk-radio-button__label">
-      <input type="radio" class="wsk-radio-button wsk-js-ripple-effect" name="wifi[]" value="3" />
-      Never
+    <label class="wsk-radio wsk-js-radio" for="wifi3">
+      <input type="radio" id="wifi3" class="wsk-radio__button wsk-js-ripple-effect" name="wifi[]" value="3" />
+      <span class="wsk-radio__label">Never</span>
+    </label>
+
+    <label class="wsk-radio wsk-js-radio" for="wifi4">
+      <input type="radio" id="wifi4" class="wsk-radio__button wsk-js-ripple-effect" name="wifi[]" value="3" disabled />
+      <span class="wsk-radio__label">Unavailable option</span>
     </label>
   </section>
 
