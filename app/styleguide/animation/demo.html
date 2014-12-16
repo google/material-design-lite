@@ -10,29 +10,43 @@
     <link href="//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
   </head>
   <body>
-    <div id="clickable" class="PreviewBlock">
-      <div class="container">
-        <div class="background">Click me to animate</div>
-        <div class="foreground"></div>
-        <div id="moveable" class="PaperCard Shadow--z1 position-1"></div>
+    <div class="PreviewBlock demo-js-clickable-area">
+      <div class="demo-animate-container">
+        <div class="demo-animate-container--background">Click me to animate</div>
+        <div class="demo-animate-container--foreground"></div>
+        <div class="demo-paper-card wsk-shadow--z1 demo-position-1 demo-js-movable-area"></div>
       </div>
     </div>
+
     <script>
       'use strict';
 
-      window.addEventListener('load', function() {
-        var clickable = document.getElementById('clickable');
-        var moveable = document.getElementById('moveable');
+      function handleClickableElement(element) {
         var position = 1;
+        var moveable = element.querySelector('.demo-js-movable-area');
+        if (!moveable) {
+          console.error('Was expecting to find an element with class ' +
+            'name .demo-js-movable-area in side of: ', element);
+          return;
+        }
 
-        clickable.addEventListener('click', function() {
-          moveable.classList.remove('position-' + position);
+        element.addEventListener('click', function() {
+          moveable.classList.remove('demo-position-' + position);
           position++;
           if (position > 6) {
             position = 1;
           }
-          moveable.classList.add('position-' + position);
+          moveable.classList.add('demo-position-' + position);
         });
+      }
+
+      window.addEventListener('load', function() {
+        var clickableAreas = document.querySelectorAll(
+          '.demo-js-clickable-area');
+
+        for (var i = 0; i < clickableAreas.length; i++) {
+          handleClickableElement(clickableAreas[i]);
+        }
       });
     </script>
   </body>

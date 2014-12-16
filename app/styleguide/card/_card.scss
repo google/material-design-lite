@@ -24,7 +24,7 @@ $background-image-url: '';
 /* Heading back */
 $heading-back-border: 0 none rgb(255, 255, 255);
 
-.Card {
+.wsk-card {
   font-size: 16px;
   height   : $card-height;
   overflow : hidden;
@@ -34,13 +34,13 @@ $heading-back-border: 0 none rgb(255, 255, 255);
   background: $card-background-color;
 }
 
-.Card-imgContainer {
+.wsk-card--img-container {
   background         : $image-placeholder-color url($background-image-url) repeat scroll 50% 50% / cover padding-box border-box;
   background-position: 50% 50%;
   height             : $cover-image-height;
 }
 
-.Card-heading {
+.wsk-card--heading {
   align-items       : center;
   background        : $heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   border            : $heading-back-border;
@@ -58,7 +58,7 @@ $heading-back-border: 0 none rgb(255, 255, 255);
   width             : 100%;
 }
 
-.Card-heading span {
+.wsk-card--heading-text {
   align-self      : center;
   border          : 0 none rgb(255, 255, 255);
   color           : $heading-color;
@@ -75,7 +75,7 @@ $heading-back-border: 0 none rgb(255, 255, 255);
   width           : 90%;
 }
 
-.Card-caption {
+.wsk-card--caption {
   background        : $caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   border            : 0 none rgb(255, 255, 255);
   color             : $caption-color;
@@ -89,7 +89,7 @@ $heading-back-border: 0 none rgb(255, 255, 255);
   width             : 100%;
 }
 
-.Card-lower {
+.wsk-card--lower {
   border         : 0 none rgb(68, 68, 68);
   color          : $lower-text-color;
   font-size      : 13px;
@@ -103,14 +103,14 @@ $heading-back-border: 0 none rgb(255, 255, 255);
   width          : 90%;
 }
 
-.Card-bottom {
+.wsk-card--bottom {
   font-size  : 16px;
   height     : 50px;
   line-height: normal;
   width      : 100%;
 }
 
-.Card-bottom a {
+.wsk-card--bottom a {
   border-bottom     : 0 none rgb(48, 63, 159);
   border-left       : 0 none rgb(48, 63, 159);
   border-right      : 0 none rgb(48, 63, 159);

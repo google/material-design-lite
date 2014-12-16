@@ -9,7 +9,7 @@
   background: none;
 }
 
-.container {
+.demo-animate-container {
   position: relative;
   overflow: hidden;
   margin: 0;
@@ -20,7 +20,7 @@
   background-color: #ddd;
 }
 
-.foreground {
+.demo-animate-container--foreground {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -29,54 +29,54 @@
   z-index: 100;
 }
 
-.background {
+.demo-animate-container--background {
   line-height: 200px;
   z-index: -100;
 }
 
 // Outside the view, on the left.
 // We leave the view when moving to this state, so we use fast-out-linear-in.
-.position-1 {
+.demo-position-1 {
   left: -102px;
   @include material-animation-fast-out-linear-in();
 }
 
 // Left side.
 // We enter the view when moving to this state, so we use linear-out-slow-in.
-.position-2 {
+.demo-position-2 {
   left: 20px;
   @include material-animation-linear-out-slow-in();
 }
 
 // Right side.
 // We're always visible when moving to this state, so we use default.
-.position-3 {
+.demo-position-3 {
   left: 180px;
   @include material-animation-default();
 }
 
 // Outside the view, on the right.
 // We leave the view when moving to this state, so we use fast-out-linear-in.
-.position-4 {
+.demo-position-4 {
   left: 302px;
   @include material-animation-fast-out-linear-in();
 }
 
 // Right side.
 // We enter the view when moving to this state, so we use linear-out-slow-in.
-.position-5 {
+.demo-position-5 {
   left: 180px;
   @include material-animation-linear-out-slow-in();
 }
 
 // Left side.
 // We're always visible when moving to this state, so we use default.
-.position-6 {
+.demo-position-6 {
   left: 20px;
   @include material-animation-default();
 }
 
-.PaperCard {
+.demo-paper-card {
   background-color: red;
   border-radius: 2px;
   display: block;
