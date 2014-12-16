@@ -10,17 +10,20 @@ table th {
   text-align: left;
 }
 
-.preview-block-white {
+.PreviewBlock--white {
   background-color: white;
   color: black;
 }
 
-.preview-block-black {
+.PreviewBlock--black {
   background-color: black;
   color: white;
 }
 
-.preview-block-white, .preview-block-black, .preview-block-img-1, .preview-block-img-2 {
+.PreviewBlock--white,
+.PreviewBlock--black,
+.PreviewBlock--img-1,
+.PreviewBlock--img-2 {
   width: 360px;
   height: 272px;
 
@@ -28,12 +31,12 @@ table th {
   box-sizing: border-box;
 }
 
-.preview-block-img-1 {
+.PreviewBlock--img-1 {
   background-image: url(images/img-1.png);
   color: white;
 }
 
-.preview-block-img-2 {
+.PreviewBlock--img-2 {
   background-image: url(images/img-2.png);
   color: white;
 }
