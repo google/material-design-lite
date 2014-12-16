@@ -22,6 +22,28 @@ $layout-header-row-height: 60px;
 $layout-header-height: $layout-header-row-height;
 $layout-screen-size-threshold: 850px;
 
+
+// Navigation classes. Only used here for now, but we may at some point move
+// this to its own component.
+.wsk-navigation {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.wsk-navigation__link {
+  color: $layout-text-color;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0;
+}
+
+.wsk-navigation__link:hover {
+  background-color: nth($palette-page, 4);
+}
+
+
+// Main layout class.
 .wsk-layout {
   width: 100%;
   height: 100vh;
@@ -41,23 +63,6 @@ $layout-screen-size-threshold: 850px;
 
   .wsk-layout-spacer {
     flex-grow: 1;
-  }
-
-  .wsk-layout-navigation {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
-  .wsk-layout-navigation-link {
-    color: $layout-text-color;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .wsk-layout-navigation-link:hover {
-    background-color: nth($palette-page, 4);
   }
 
 
@@ -110,12 +115,12 @@ $layout-screen-size-threshold: 850px;
       border-bottom: 1px solid $layout-drawer-border-color;
     }
 
-    & .wsk-layout-navigation {
+    & .wsk-navigation {
       width: 100%;
       flex-direction: column;
     }
 
-    & .wsk-layout-navigation-link {
+    & .wsk-navigation__link {
       padding: 16px $layout-horizontal-padding;
       margin: 0;
     }
@@ -212,7 +217,7 @@ $layout-screen-size-threshold: 850px;
     }
 
     // ...unless it's a navigation area.
-    & > .wsk-layout-navigation:last-child {
+    & > .wsk-navigation:last-child {
       margin-right: 0;
     }
 
@@ -221,7 +226,7 @@ $layout-screen-size-threshold: 850px;
       @include typo-title();
     }
 
-    & .wsk-layout-navigation {
+    & .wsk-navigation {
       margin: 0;
       padding: 0;
       height: $layout-header-row-height;
@@ -229,13 +234,13 @@ $layout-screen-size-threshold: 850px;
       align-items: center;
     }
 
-    & .wsk-layout-navigation-link {
+    & .wsk-navigation__link {
       color: $layout-header-text-color;
       line-height: $layout-header-row-height;
       padding: 0 16px;
     }
 
-    & .wsk-layout-navigation-link:hover {
+    & .wsk-navigation__link:hover {
       background-color: rgba(nth($palette-grey, 8), 0.6);
     }
 
@@ -297,7 +302,7 @@ $layout-screen-size-threshold: 850px;
       }
 
       // ...unless it's a navigation area.
-      & > .wsk-layout-navigation:last-child {
+      & > .wsk-navigation:last-child {
         margin-right: 0;
       }
     }
