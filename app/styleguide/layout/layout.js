@@ -1,15 +1,13 @@
 window.addEventListener('load', function() {
   'use strict';
 
-  var layouts = document.querySelectorAll('.Layout');
+  var layouts = document.querySelectorAll('.wsk-js-layout');
   var MODE = {
     STANDARD: 0,
     SEAMED: 1,
     WATERFALL: 2,
     SCROLL: 3
   };
-
-  var DRAWER_BUTTON_CLASS = 'Layout-drawerButton';
 
   var SHADOW_CLASS = 'is-casting-shadow';
   var COMPACT_CLASS = 'is-compact';
@@ -51,9 +49,9 @@ window.addEventListener('load', function() {
 
   for (var i = 0; i < layouts.length; i++) {
     var layout = layouts[i];
-    var header = layout.querySelector('.Layout-header');
-    var drawer = layout.querySelector('.Layout-drawer');
-    var content = layout.querySelector('.Layout-content');
+    var header = layout.querySelector('.wsk-layout__header');
+    var drawer = layout.querySelector('.wsk-layout__drawer');
+    var content = layout.querySelector('.wsk-layout__content');
     var mode = MODE.STANDARD;
 
     // Keep an eye on screen size, and add/remove auxiliary class for styling
@@ -65,11 +63,11 @@ window.addEventListener('load', function() {
     screenSizeHandler();
 
     if (header) {
-      if (header.classList.contains('Layout-header--seamed')) {
+      if (header.classList.contains('wsk-layout__header--seamed')) {
         mode = MODE.SEAMED;
-      } else if (header.classList.contains('Layout-header--waterfall')) {
+      } else if (header.classList.contains('wsk-layout__header--waterfall')) {
         mode = MODE.WATERFALL;
-      } else if (layout.classList.contains('Layout-header--scroll')) {
+      } else if (layout.classList.contains('wsk-layout__header--scroll')) {
         mode = MODE.SCROLL;
       }
 
@@ -90,20 +88,20 @@ window.addEventListener('load', function() {
     // Add drawer toggling button to our layout, if we have an openable drawer.
     if (drawer) {
       var drawerButton = document.createElement('div');
-      drawerButton.classList.add(DRAWER_BUTTON_CLASS);
+      drawerButton.classList.add('wsk-layout__drawer-button');
       var clickHandler = drawerToggleHandlerGenerator(drawer);
       drawerButton.addEventListener('click', clickHandler);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.
-      if (layout.classList.contains('Layout--fixedHeader')) {
+      if (layout.classList.contains('wsk-layout--fixed-header')) {
         header.insertBefore(drawerButton, header.firstChild);
       } else {
         layout.insertBefore(drawerButton, content);
       }
 
       var obfuscator = document.createElement('div');
-      obfuscator.classList.add('Layout-obfuscator');
+      obfuscator.classList.add('wsk-layout__obfuscator');
       layout.appendChild(obfuscator);
       obfuscator.addEventListener('click', clickHandler);
     }

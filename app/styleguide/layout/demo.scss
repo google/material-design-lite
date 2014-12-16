@@ -17,57 +17,57 @@
   padding: 8px;
 }
 
-.Layout {
+.wsk-layout {
   height: 500px;
 }
 
 // Styles for fixed drawer demos.
-.Layout-header .ExpandableIcon {
+.wsk-layout__header .ExpandableIcon {
   border-color: nth($palette-page, 3);
   border-radius: 50%;
 }
 
-.Layout-header .ExpandableIcon:hover {
+.wsk-layout__header .ExpandableIcon:hover {
   background-color: rgba(nth($palette-grey, 8), 0.6);
 }
 
-.Layout-header .TextField {
+.wsk-layout__header .TextField {
   color: nth($palette-page, 3);
 }
 
 // Styles for fixed header demo.
-.Layout.is-small-screen .Layout-header #fixed_header_nav {
+.wsk-layout.is-small-screen #fixed_header_nav {
   visibility: hidden;
 }
 
 // Styles for multi-row layout demo.
-.Layout-header #my_text_changes {
+#my_text_changes {
   @include typo-display-1;
   transition-property: font-size;
   @include material-animation-default();
 }
 
-.Layout-header #compact_navigation {
+#compact_navigation {
   visibility: hidden;
 }
 
-.Layout-header #expanded_navigation {
+#expanded_navigation {
   visibility: visible;
 }
 
-.Layout-header.is-compact #my_text_changes {
+.wsk-layout__header.is-compact #my_text_changes {
   @include typo-title;
 }
 
-.Layout-header.is-compact #compact_navigation {
+.wsk-layout__header.is-compact #compact_navigation {
   visibility: visible;
 }
 
-.Layout-header.is-compact #expanded_navigation {
+.wsk-layout__header.is-compact #expanded_navigation {
   visibility: hidden;
 }
 
-.Layout-header.is-compact #my_text_changes:after {
+.wsk-layout__header.is-compact #my_text_changes:after {
   content: " \0000a0 > \0000a0 Multi-row layout demo";
 }
 
