@@ -3,7 +3,7 @@
 @import "../typography/typography";
 
 @mixin colorGroups($palette) {
-  .wsk-palette-color--50 {
+  .demo-palette-color--50 {
     background-color: #{nth($palette, 1)};
 
     &:after {
@@ -12,7 +12,7 @@
     }
   }
 
-  .wsk-palette-color--100 {
+  .demo-palette-color--100 {
     background-color: #{nth($palette, 2)};
 
     &:after {
@@ -21,7 +21,7 @@
     }
   }
 
-  .wsk-palette-color--200 {
+  .demo-palette-color--200 {
     background-color: #{nth($palette, 3)};
 
     &:after {
@@ -30,7 +30,7 @@
     }
   }
 
-  .wsk-palette-color--300 {
+  .demo-palette-color--300 {
     background-color: #{nth($palette, 4)};
 
     &:after {
@@ -39,7 +39,7 @@
     }
   }
 
-  .wsk-palette-color--400 {
+  .demo-palette-color--400 {
     background-color: #{nth($palette, 5)};
 
     &:after {
@@ -48,7 +48,7 @@
     }
   }
 
-  .wsk-palette-color--500 {
+  .demo-palette-color--500 {
     background-color: #{nth($palette, 6)};
 
     &:after {
@@ -57,7 +57,7 @@
     }
   }
 
-  .wsk-palette-color--600 {
+  .demo-palette-color--600 {
     background-color: #{nth($palette, 7)};
 
     &:after {
@@ -66,7 +66,7 @@
     }
   }
 
-  .wsk-palette-color--700 {
+  .demo-palette-color--700 {
     background-color: #{nth($palette, 8)};
 
     &:after {
@@ -75,7 +75,7 @@
     }
   }
 
-  .wsk-palette-color--800 {
+  .demo-palette-color--800 {
     background-color: #{nth($palette, 9)};
 
     &:after {
@@ -84,7 +84,7 @@
     }
   }
 
-  .wsk-palette-color--900 {
+  .demo-palette-color--900 {
     background-color: #{nth($palette, 10)};
 
     &:after {
@@ -94,7 +94,7 @@
   }
 
   @if length($palette) > 10 {
-    .wsk-palette-color--A100 {
+    .demo-palette-color--A100 {
       background-color: #{nth($palette, 11)};
 
       &:after {
@@ -103,7 +103,7 @@
       }
     }
 
-    .wsk-palette-color--A200 {
+    .demo-palette-color--A200 {
       background-color: #{nth($palette, 12)};
 
       &:after {
@@ -112,7 +112,7 @@
       }
     }
 
-    .wsk-palette-color--A400 {
+    .demo-palette-color--A400 {
       background-color: #{nth($palette, 13)};
 
       &:after {
@@ -121,7 +121,7 @@
       }
     }
 
-    .wsk-palette-color--A700 {
+    .demo-palette-color--A700 {
       background-color: #{nth($palette, 14)};
 
       &:after {
@@ -136,13 +136,13 @@
   display: inline-block;  
 }
 
-.wsk-palette-group {
+.demo-palette-group {
   margin-top: 15px;
   width: 360px;
   float: left;
 }
 
-.wsk-palette-group--color, .wsk-palette-group--heading {
+.demo-palette-group--color, .demo-palette-group--heading {
   @include typo-caption();
 
   max-width: 300px;
@@ -150,86 +150,86 @@
   color: white;
 }
 
-.wsk-palette-group .dark-text, .wsk-palette-group-heading.dark-text .wsk-palette-group-name {
+.demo-palette-group .dark-text, .demo-palette-group-heading.dark-text .demo-palette-group-name {
   color: #000;
 }
 
-.wsk-palette-group--name {
+.demo-palette-group--name {
   padding: 0 0 60px 0;
 }
 
-.wsk-palette-group__red {
+.demo-palette-group__red {
   @include colorGroups($palette-red);
 }
 
-.wsk-palette-group__pink {
+.demo-palette-group__pink {
   @include colorGroups($palette-pink);
 }
 
-.wsk-palette-group__purple {
+.demo-palette-group__purple {
   @include colorGroups($palette-purple);
 }
 
-.wsk-palette-group__deep-purple {
+.demo-palette-group__deep-purple {
   @include colorGroups($palette-deep-purple);
 }
 
-.wsk-palette-group__indigo {
+.demo-palette-group__indigo {
   @include colorGroups($palette-indigo);
 }
 
-.wsk-palette-group__blue {
+.demo-palette-group__blue {
   @include colorGroups($palette-blue);
 }
 
-.wsk-palette-group__light-blue {
+.demo-palette-group__light-blue {
   @include colorGroups($palette-light-blue);
 }
 
-.wsk-palette-group__cyan {
+.demo-palette-group__cyan {
   @include colorGroups($palette-cyan);
 }
 
-.wsk-palette-group__teal {
+.demo-palette-group__teal {
   @include colorGroups($palette-teal);
 }
 
-.wsk-palette-group__green {
+.demo-palette-group__green {
   @include colorGroups($palette-green);
 }
 
-.wsk-palette-group__light-green {
+.demo-palette-group__light-green {
   @include colorGroups($palette-light-green);
 }
 
-.wsk-palette-group__lime {
+.demo-palette-group__lime {
   @include colorGroups($palette-lime);
 }
 
-.wsk-palette-group__yellow {
+.demo-palette-group__yellow {
   @include colorGroups($palette-yellow);
 }
 
-.wsk-palette-group__amber {
+.demo-palette-group__amber {
   @include colorGroups($palette-amber);
 }
 
-.wsk-palette-group__orange {
+.demo-palette-group__orange {
   @include colorGroups($palette-orange);
 }
 
-.wsk-palette-group__deep-orange {
+.demo-palette-group__deep-orange {
   @include colorGroups($palette-deep-orange);
 }
 
-.wsk-palette-group__brown {
+.demo-palette-group__brown {
   @include colorGroups($palette-brown);
 }
 
-.wsk-palette-group__grey {
+.demo-palette-group__grey {
   @include colorGroups($palette-grey);
 
-  .wsk-palette-color--1000 {
+  .demo-palette-color--1000 {
     background-color: #000000;
 
     &:after {
@@ -238,7 +238,7 @@
     }
   }
 
-  .wsk-palette-color--1000-inverse {
+  .demo-palette-color--1000-inverse {
     background-color: #ffffff;
 
     &:after {
@@ -248,6 +248,6 @@
   }
 }
 
-.wsk-palette-group__blue-grey {
+.demo-palette-group__blue-grey {
   @include colorGroups($palette-blue-grey);
 }
