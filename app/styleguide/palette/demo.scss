@@ -3,7 +3,7 @@
 @import "../typography/typography";
 
 @mixin colorGroups($palette) {
-  .wsk-palettecolor--50 {
+  .wsk-palette-color--50 {
     background-color: #{nth($palette, 1)};
 
     &:after {
@@ -12,7 +12,7 @@
     }
   }
 
-  .wsk-palettecolor--100 {
+  .wsk-palette-color--100 {
     background-color: #{nth($palette, 2)};
 
     &:after {
@@ -21,7 +21,7 @@
     }
   }
 
-  .wsk-palettecolor--200 {
+  .wsk-palette-color--200 {
     background-color: #{nth($palette, 3)};
 
     &:after {
@@ -30,7 +30,7 @@
     }
   }
 
-  .wsk-palettecolor--300 {
+  .wsk-palette-color--300 {
     background-color: #{nth($palette, 4)};
 
     &:after {
@@ -39,7 +39,7 @@
     }
   }
 
-  .wsk-palettecolor--400 {
+  .wsk-palette-color--400 {
     background-color: #{nth($palette, 5)};
 
     &:after {
@@ -48,7 +48,7 @@
     }
   }
 
-  .wsk-palettecolor--500 {
+  .wsk-palette-color--500 {
     background-color: #{nth($palette, 6)};
 
     &:after {
@@ -57,7 +57,7 @@
     }
   }
 
-  .wsk-palettecolor--600 {
+  .wsk-palette-color--600 {
     background-color: #{nth($palette, 7)};
 
     &:after {
@@ -66,7 +66,7 @@
     }
   }
 
-  .wsk-palettecolor--700 {
+  .wsk-palette-color--700 {
     background-color: #{nth($palette, 8)};
 
     &:after {
@@ -75,7 +75,7 @@
     }
   }
 
-  .wsk-palettecolor--800 {
+  .wsk-palette-color--800 {
     background-color: #{nth($palette, 9)};
 
     &:after {
@@ -84,7 +84,7 @@
     }
   }
 
-  .wsk-palettecolor--900 {
+  .wsk-palette-color--900 {
     background-color: #{nth($palette, 10)};
 
     &:after {
@@ -94,7 +94,7 @@
   }
 
   @if length($palette) > 10 {
-    .wsk-palettecolor--A100 {
+    .wsk-palette-color--A100 {
       background-color: #{nth($palette, 11)};
 
       &:after {
@@ -103,7 +103,7 @@
       }
     }
 
-    .wsk-palettecolor--A200 {
+    .wsk-palette-color--A200 {
       background-color: #{nth($palette, 12)};
 
       &:after {
@@ -112,7 +112,7 @@
       }
     }
 
-    .wsk-palettecolor--A400 {
+    .wsk-palette-color--A400 {
       background-color: #{nth($palette, 13)};
 
       &:after {
@@ -121,7 +121,7 @@
       }
     }
 
-    .wsk-palettecolor--A700 {
+    .wsk-palette-color--A700 {
       background-color: #{nth($palette, 14)};
 
       &:after {
@@ -136,13 +136,13 @@
   display: inline-block;  
 }
 
-.wsk-palettegroup {
+.wsk-palette-group {
   margin-top: 15px;
   width: 360px;
   float: left;
 }
 
-.wsk-palettegroup--color, .wsk-palettegroup--heading {
+.wsk-palette-group--color, .wsk-palette-group--heading {
   @include typo-caption();
 
   max-width: 300px;
@@ -150,86 +150,86 @@
   color: white;
 }
 
-.wsk-palettegroup .dark-text, .wsk-palettegroup-heading.dark-text .wsk-palettegroup-name {
+.wsk-palette-group .dark-text, .wsk-palette-group-heading.dark-text .wsk-palette-group-name {
   color: #000;
 }
 
-.wsk-palettegroup--name {
+.wsk-palette-group--name {
   padding: 0 0 60px 0;
 }
 
-.wsk-palettegroup__red {
+.wsk-palette-group__red {
   @include colorGroups($palette-red);
 }
 
-.wsk-palettegroup__pink {
+.wsk-palette-group__pink {
   @include colorGroups($palette-pink);
 }
 
-.wsk-palettegroup__purple {
+.wsk-palette-group__purple {
   @include colorGroups($palette-purple);
 }
 
-.wsk-palettegroup__deepPurple {
+.wsk-palette-group__deep-purple {
   @include colorGroups($palette-deep-purple);
 }
 
-.wsk-palettegroup__indigo {
+.wsk-palette-group__indigo {
   @include colorGroups($palette-indigo);
 }
 
-.wsk-palettegroup__blue {
+.wsk-palette-group__blue {
   @include colorGroups($palette-blue);
 }
 
-.wsk-palettegroup__lightBlue {
+.wsk-palette-group__light-blue {
   @include colorGroups($palette-light-blue);
 }
 
-.wsk-palettegroup__cyan {
+.wsk-palette-group__cyan {
   @include colorGroups($palette-cyan);
 }
 
-.wsk-palettegroup__teal {
+.wsk-palette-group__teal {
   @include colorGroups($palette-teal);
 }
 
-.wsk-palettegroup__green {
+.wsk-palette-group__green {
   @include colorGroups($palette-green);
 }
 
-.wsk-palettegroup__lightGreen {
+.wsk-palette-group__light-green {
   @include colorGroups($palette-light-green);
 }
 
-.wsk-palettegroup__lime {
+.wsk-palette-group__lime {
   @include colorGroups($palette-lime);
 }
 
-.wsk-palettegroup__yellow {
+.wsk-palette-group__yellow {
   @include colorGroups($palette-yellow);
 }
 
-.wsk-palettegroup__amber {
+.wsk-palette-group__amber {
   @include colorGroups($palette-amber);
 }
 
-.wsk-palettegroup__orange {
+.wsk-palette-group__orange {
   @include colorGroups($palette-orange);
 }
 
-.wsk-palettegroup__deepOrange {
+.wsk-palette-group__deep-orange {
   @include colorGroups($palette-deep-orange);
 }
 
-.wsk-palettegroup__brown {
+.wsk-palette-group__brown {
   @include colorGroups($palette-brown);
 }
 
-.wsk-palettegroup__grey {
+.wsk-palette-group__grey {
   @include colorGroups($palette-grey);
 
-  .wsk-palettecolor--1000 {
+  .wsk-palette-color--1000 {
     background-color: #000000;
 
     &:after {
@@ -238,7 +238,7 @@
     }
   }
 
-  .wsk-palettecolor--1000-inverse {
+  .wsk-palette-color--1000-inverse {
     background-color: #ffffff;
 
     &:after {
@@ -248,6 +248,6 @@
   }
 }
 
-.wsk-palettegroup__blueGrey {
+.wsk-palette-group__blue-grey {
   @include colorGroups($palette-blue-grey);
 }
