@@ -269,165 +269,165 @@ dt {
  * Class Name Styles
  */
 
-.Typography--display-4 {
+.wsk-typography--display-4 {
   @include typo-display-4();
 }
 
-.Typography--display-4--colorContrast {
+.wsk-typography--display-4--colorContrast {
   @include typo-display-4($colorContrast: true);
 }
 
-.Typography--display-3 {
+.wsk-typography--display-3 {
   @include typo-display-3();
 }
 
-.Typography--display-3--colorContrast {
+.wsk-typography--display-3--colorContrast {
   @include typo-display-3($colorContrast: true);
 }
 
-.Typography--display-2 {
+.wsk-typography--display-2 {
   @include typo-display-2();
 }
 
-.Typography--display-2--colorContrast {
+.wsk-typography--display-2--colorContrast {
   @include typo-display-2($colorContrast: true);
 }
 
-.Typography--display-1 {
+.wsk-typography--display-1 {
   @include typo-display-1();
 }
 
-.Typography--display-1--colorContrast {
+.wsk-typography--display-1--colorContrast {
   @include typo-display-1($colorContrast: true);
 }
 
-.Typography--headline {
+.wsk-typography--headline {
   @include typo-headline();
 }
 
-.Typography--headline--colorContrast {
+.wsk-typography--headline--colorContrast {
   @include typo-headline($colorContrast: true);
 }
 
-.Typography--title {
+.wsk-typography--title {
   @include typo-title();
 }
 
-.Typography--title--colorContrast {
+.wsk-typography--title--colorContrast {
   @include typo-title($colorContrast: true);
 }
 
-.Typography--subhead {
+.wsk-typography--subhead {
   @include typo-subhead();
 }
 
-.Typography--subhead--colorContrast {
+.wsk-typography--subhead--colorContrast {
   @include typo-subhead($colorContrast: true);
 }
 
-.Typography--body-2 {
+.wsk-typography--body-2 {
   @include typo-body-2();
 }
 
-.Typography--Body-2--colorContrast {
+.wsk-typography--Body-2--colorContrast {
   @include typo-body-2($colorContrast: true);
 }
 
-.Typography--body-1 {
+.wsk-typography--body-1 {
   @include typo-body-1();
 }
 
-.Typography--body-1--colorContrast {
+.wsk-typography--body-1--colorContrast {
   @include typo-body-1($colorContrast: true);
 }
 
-.Typography--body-2--forcePreferredFont {
+.wsk-typography--body-2--forcePreferredFont {
   @include typo-body-2($usePreferred: true);
 }
 
-.Typography--Body-2--forcePreferredFont--colorContrast {
+.wsk-typography--Body-2--forcePreferredFont--colorContrast {
   @include typo-body-2($colorContrast: true, $usePreferred: true);
 }
 
-.Typography--body-1--forcePreferredFont {
+.wsk-typography--body-1--forcePreferredFont {
   @include typo-body-1($usePreferred: true);
 }
 
-.Typography--body-1--forcePreferredFont--colorContrast {
+.wsk-typography--body-1--forcePreferredFont--colorContrast {
   @include typo-body-1($colorContrast: true, $usePreferred: true);
 }
 
-.Typography--caption {
+.wsk-typography--caption {
   @include typo-caption();
 }
 
-.Typography--caption--forcePreferredFont {
+.wsk-typography--caption--forcePreferredFont {
   @include typo-caption($usePreferred: true);
 }
 
-.Typography--caption--colorContrast {
+.wsk-typography--caption--colorContrast {
   @include typo-caption($colorContrast: true);
 }
 
-.Typography--caption--forcePreferredFont--colorContrast {
+.wsk-typography--caption--forcePreferredFont--colorContrast {
   @include typo-caption($colorContrast: true, $usePreferred: true);
 }
 
-.Typography--menu {
+.wsk-typography--menu {
   @include typo-menu();
 }
 
-.Typography--menu--colorContrast {
+.wsk-typography--menu--colorContrast {
   @include typo-menu($colorContrast: true);
 }
 
-.Typography--button {
+.wsk-typography--button {
   @include typo-button();
 }
 
-.Typography--button--colorContrast {
+.wsk-typography--button--colorContrast {
   @include typo-button($colorContrast: true);
 }
 
-.Typography--textLeft {
+.wsk-typography--textLeft {
     text-align: left
 }
 
-.Typography--textRight {
+.wsk-typography--textRight {
     text-align: right
 }
 
-.Typography--textCenter {
+.wsk-typography--textCenter {
     text-align: center
 }
 
-.Typography--textJustify {
+.wsk-typography--textJustify {
     text-align: justify
 }
 
-.Typography--textNowrap {
+.wsk-typography--textNowrap {
     white-space: nowrap
 }
 
 
-.Typography--textLowercase {
+.wsk-typography--textLowercase {
     text-transform: lowercase
 }
 
-.Typography--textUppercase {
+.wsk-typography--textUppercase {
     text-transform: uppercase
 }
 
-.Typography--textCapitalize {
+.wsk-typography--textCapitalize {
     text-transform: capitalize
 }
 
-.Typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.Typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
     background-color: #f9f9f9
 }
 
-.Typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.Typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
     background-color: #f9f9f9
 }
