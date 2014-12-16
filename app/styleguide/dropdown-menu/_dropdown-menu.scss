@@ -5,7 +5,7 @@
 // Default Dropdown Colors
 $default-dropdown-bg-color: #fff;
 
-.DropdownMenu {
+.wsk-dropdown-menu {
   list-style   : none;
   background   : $default-dropdown-bg-color;
   border       : none;
@@ -20,7 +20,7 @@ $default-dropdown-bg-color: #fff;
   transition: box-shadow 0.2s ease-out;
 }
 
-.DropdownMenu .PaperItem {
+.wsk-dropdown-menu .wsk-item {
   display: block;
   width: 100%;
 }
