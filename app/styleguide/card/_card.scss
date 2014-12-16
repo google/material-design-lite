@@ -10,12 +10,12 @@ $card-height: 508px;
 $card-background-color: white;
 $heading-color: white;
 $heading-back-color: white;
-$heading-back-bgcolor: nth($primaryPalette, 8);
-$action-link-color: nth($primaryPalette, 10);
+$heading-back-bgcolor: nth($palette-primary, 8);
+$action-link-color: nth($palette-primary, 10);
 $caption-color: white;
-$caption-bgcolor: nth($primaryPalette, 10);
-$image-placeholder-color: nth($accentPalette, 5);
-$lower-text-color: nth($primaryPalette, 10);
+$caption-bgcolor: nth($palette-primary, 10);
+$image-placeholder-color: nth($palette-accent, 5);
+$lower-text-color: nth($palette-primary, 10);
 
 /* Cover image */
 $cover-image-height: 186px;

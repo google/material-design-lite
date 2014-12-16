@@ -12,10 +12,10 @@ $button-active-color: rgba($button-primary-color, 0.40);
 $button-focus-color: rgba(black, 0.12);
 
 // Colored button colors.
-$button-primary-color-alt: nth($primaryPalette, 6);
+$button-primary-color-alt: nth($palette-primary, 6);
 $button-secondary-color-alt: #fff;
-$button-hover-color-alt: nth($primaryPalette, 7);
-$button-active-color-alt: nth($primaryPalette, 8);
+$button-hover-color-alt: nth($palette-primary, 7);
+$button-active-color-alt: nth($palette-primary, 8);
 $button-focus-color-alt: $button-focus-color;
 
 // Ripple color for colored raised buttons and FABs.
@@ -26,16 +26,16 @@ $button-primary-color-disabled: rgba(#000, 0.12);
 $button-secondary-color-disabled: rgba(#000, 0.26);
 
 // FAB colors and sizes.
-$button-fab-color-alt: nth($accentPalette, 5);
-$button-fab-hover-color-alt: nth($accentPalette, 6);
-$button-fab-active-color-alt: nth($accentPalette, 7);
+$button-fab-color-alt: nth($palette-accent, 5);
+$button-fab-hover-color-alt: nth($palette-accent, 6);
+$button-fab-active-color-alt: nth($palette-accent, 7);
 $button-fab-size: 56px;
 $button-fab-size-mini: 40px;
 $button-fab-font-size: 24px;
 
 // Icon button colors and sizes.
 $button-icon-size: 32px;
-$button-icon-color: nth($paletteGrey, 8);
+$button-icon-color: nth($palette-grey, 8);
 $button-icon-focus-color: $button-focus-color;
 
 // Focus shadow mixin.

@@ -3,7 +3,7 @@
 @import "../typography/typography";
 
 @mixin colorGroups($palette) {
-  .PaletteColor--50 {
+  .wsk-palettecolor--50 {
     background-color: #{nth($palette, 1)};
 
     &:after {
@@ -12,7 +12,7 @@
     }
   }
 
-  .PaletteColor--100 {
+  .wsk-palettecolor--100 {
     background-color: #{nth($palette, 2)};
 
     &:after {
@@ -21,7 +21,7 @@
     }
   }
 
-  .PaletteColor--200 {
+  .wsk-palettecolor--200 {
     background-color: #{nth($palette, 3)};
 
     &:after {
@@ -30,7 +30,7 @@
     }
   }
 
-  .PaletteColor--300 {
+  .wsk-palettecolor--300 {
     background-color: #{nth($palette, 4)};
 
     &:after {
@@ -39,7 +39,7 @@
     }
   }
 
-  .PaletteColor--400 {
+  .wsk-palettecolor--400 {
     background-color: #{nth($palette, 5)};
 
     &:after {
@@ -48,7 +48,7 @@
     }
   }
 
-  .PaletteColor--500 {
+  .wsk-palettecolor--500 {
     background-color: #{nth($palette, 6)};
 
     &:after {
@@ -57,7 +57,7 @@
     }
   }
 
-  .PaletteColor--600 {
+  .wsk-palettecolor--600 {
     background-color: #{nth($palette, 7)};
 
     &:after {
@@ -66,7 +66,7 @@
     }
   }
 
-  .PaletteColor--700 {
+  .wsk-palettecolor--700 {
     background-color: #{nth($palette, 8)};
 
     &:after {
@@ -75,7 +75,7 @@
     }
   }
 
-  .PaletteColor--800 {
+  .wsk-palettecolor--800 {
     background-color: #{nth($palette, 9)};
 
     &:after {
@@ -84,7 +84,7 @@
     }
   }
 
-  .PaletteColor--900 {
+  .wsk-palettecolor--900 {
     background-color: #{nth($palette, 10)};
 
     &:after {
@@ -94,7 +94,7 @@
   }
 
   @if length($palette) > 10 {
-    .PaletteColor--A100 {
+    .wsk-palettecolor--A100 {
       background-color: #{nth($palette, 11)};
 
       &:after {
@@ -103,7 +103,7 @@
       }
     }
 
-    .PaletteColor--A200 {
+    .wsk-palettecolor--A200 {
       background-color: #{nth($palette, 12)};
 
       &:after {
@@ -112,7 +112,7 @@
       }
     }
 
-    .PaletteColor--A400 {
+    .wsk-palettecolor--A400 {
       background-color: #{nth($palette, 13)};
 
       &:after {
@@ -121,7 +121,7 @@
       }
     }
 
-    .PaletteColor--A700 {
+    .wsk-palettecolor--A700 {
       background-color: #{nth($palette, 14)};
 
       &:after {
@@ -136,13 +136,13 @@
   display: inline-block;  
 }
 
-.PaletteGroup {
+.wsk-palettegroup {
   margin-top: 15px;
   width: 360px;
   float: left;
 }
 
-.PaletteGroup--color, .PaletteGroup--heading {
+.wsk-palettegroup--color, .wsk-palettegroup--heading {
   @include typo-caption();
 
   max-width: 300px;
@@ -150,86 +150,86 @@
   color: white;
 }
 
-.PaletteGroup .dark-text, .PaletteGroup-heading.dark-text .PaletteGroup-name {
+.wsk-palettegroup .dark-text, .wsk-palettegroup-heading.dark-text .wsk-palettegroup-name {
   color: #000;
 }
 
-.PaletteGroup--name {
+.wsk-palettegroup--name {
   padding: 0 0 60px 0;
 }
 
-.PaletteGroup__red {
-  @include colorGroups($paletteRed);
+.wsk-palettegroup__red {
+  @include colorGroups($palette-red);
 }
 
-.PaletteGroup__pink {
-  @include colorGroups($palettePink);
+.wsk-palettegroup__pink {
+  @include colorGroups($palette-pink);
 }
 
-.PaletteGroup__purple {
-  @include colorGroups($palettePurple);
+.wsk-palettegroup__purple {
+  @include colorGroups($palette-purple);
 }
 
-.PaletteGroup__deepPurple {
-  @include colorGroups($paletteDeepPurple);
+.wsk-palettegroup__deepPurple {
+  @include colorGroups($palette-deep-purple);
 }
 
-.PaletteGroup__indigo {
-  @include colorGroups($paletteIndigo);
+.wsk-palettegroup__indigo {
+  @include colorGroups($palette-indigo);
 }
 
-.PaletteGroup__blue {
-  @include colorGroups($paletteBlue);
+.wsk-palettegroup__blue {
+  @include colorGroups($palette-blue);
 }
 
-.PaletteGroup__lightBlue {
-  @include colorGroups($paletteLightBlue);
+.wsk-palettegroup__lightBlue {
+  @include colorGroups($palette-light-blue);
 }
 
-.PaletteGroup__cyan {
-  @include colorGroups($paletteCyan);
+.wsk-palettegroup__cyan {
+  @include colorGroups($palette-cyan);
 }
 
-.PaletteGroup__teal {
-  @include colorGroups($paletteTeal);
+.wsk-palettegroup__teal {
+  @include colorGroups($palette-teal);
 }
 
-.PaletteGroup__green {
-  @include colorGroups($paletteGreen);
+.wsk-palettegroup__green {
+  @include colorGroups($palette-green);
 }
 
-.PaletteGroup__lightGreen {
-  @include colorGroups($paletteLightGreen);
+.wsk-palettegroup__lightGreen {
+  @include colorGroups($palette-light-green);
 }
 
-.PaletteGroup__lime {
-  @include colorGroups($paletteLime);
+.wsk-palettegroup__lime {
+  @include colorGroups($palette-lime);
 }
 
-.PaletteGroup__yellow {
-  @include colorGroups($paletteYellow);
+.wsk-palettegroup__yellow {
+  @include colorGroups($palette-yellow);
 }
 
-.PaletteGroup__amber {
-  @include colorGroups($paletteAmber);
+.wsk-palettegroup__amber {
+  @include colorGroups($palette-amber);
 }
 
-.PaletteGroup__orange {
-  @include colorGroups($paletteOrange);
+.wsk-palettegroup__orange {
+  @include colorGroups($palette-orange);
 }
 
-.PaletteGroup__deepOrange {
-  @include colorGroups($paletteDeepOrange);
+.wsk-palettegroup__deepOrange {
+  @include colorGroups($palette-deep-orange);
 }
 
-.PaletteGroup__brown {
-  @include colorGroups($paletteBrown);
+.wsk-palettegroup__brown {
+  @include colorGroups($palette-brown);
 }
 
-.PaletteGroup__grey {
-  @include colorGroups($paletteGrey);
+.wsk-palettegroup__grey {
+  @include colorGroups($palette-grey);
 
-  .PaletteColor--1000 {
+  .wsk-palettecolor--1000 {
     background-color: #000000;
 
     &:after {
@@ -238,7 +238,7 @@
     }
   }
 
-  .PaletteColor--1000-inverse {
+  .wsk-palettecolor--1000-inverse {
     background-color: #ffffff;
 
     &:after {
@@ -248,6 +248,6 @@
   }
 }
 
-.PaletteGroup__blueGrey {
-  @include colorGroups($paletteBlueGrey);
+.wsk-palettegroup__blueGrey {
+  @include colorGroups($palette-blue-grey);
 }

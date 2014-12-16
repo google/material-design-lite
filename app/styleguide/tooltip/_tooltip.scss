@@ -5,7 +5,7 @@
 .tooltip {
   -webkit-transform: scale(0);
   -webkit-transform-origin: top center;
-  background: nth($accentPalette, 7);
+  background: nth($palette-accent, 7);
   border-radius: 5px;
   color: #fff;
   display: none;

@@ -30,7 +30,7 @@ body {
 
 .styleguide-masthead {
   height: 256px;
-  background: nth($primaryPalette, 10);
+  background: nth($palette-primary, 10);
   padding: 115px 16px 0;
 }
 
