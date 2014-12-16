@@ -14,22 +14,22 @@
   box-shadow: 0 19px 19px 0 rgba(0,0,0,0.30), 0 15px 6px 0 rgba(0,0,0,0.22);
 }
 
-.Shadow--z1 {
+.wsk-shadow--z1 {
   @include shadow-z1();
 }
 
-.Shadow--z2 {
+.wsk-shadow--z2 {
   @include shadow-z2();
 }
 
-.Shadow--z3 {
+.wsk-shadow--z3 {
   @include shadow-z3();
 }
 
-.Shadow--z4 {
+.wsk-shadow--z4 {
   @include shadow-z4();
 }
 
-.Shadow--z5 {
+.wsk-shadow--z5 {
   @include shadow-z5();
 }
