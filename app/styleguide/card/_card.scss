@@ -3,33 +3,74 @@
 @import "../shadow/shadow";
 
 /* Card dimensions */
-$card-width: 330px;
-$card-height: 508px;
+$card-width: 330px !default;
+$card-height: 508px !default;
+$card-font-size: 16px !default;
+$card-heading-font-size: 24px !default;
+$card-heading-height: 96px !default;
+$card-horizontal-padding: 16px !default;
+$card-vertical-padding: 8px !default;
+
+$card-heading-perspective-origin-x: 165px !default;
+$card-heading-perspective-origin-y: 56px !default;
+
+$card-heading-transform-origin-x: 165px !default;
+$card-heading-transform-origin-y: 56px !default;
+
+$card-heading-text-transform-origin-x: 149px !default;
+$card-heading-text-transform-origin-y: 48px !default;
+
+$card-caption-perspective-origin-x: 165px !default;
+$card-caption-perspective-origin-y: 16px !default;
+
+$card-caption-font-size: 12px !default;
+$card-caption-height: 16px !default;
+
+$card-lower-font-size: 13px !default;
+$card-lower-line-height: 18px !default;
+$card-lower-height: 108px !default;
+$card-lower-vertical-margin: 10px !default;
+
+$card-bottom-height: 50px !default;
+$card-bottom-font-size: 16px !default;
+
+$card-bottom-anchor-height: 50px !default;
+$card-bottom-anchor-line-height: 50px !default;
+$card-bottom-anchor-font-size: 13px !default;
+
+$card-bottom-anchor-perspective-origin-x: 165px !default;
+$card-bottom-anchor-perspective-origin-y: 25px !default;
+
+$card-bottom-anchor-transform-origin-x: 165px !default;
+$card-bottom-anchor-transform-origin-y: 25px !default;
+
+$card-heading-text-font-weight: 300 !default;
+$card-z-index: 1 !default;
 
 /* Colors */
-$card-background-color: white;
-$heading-color: white;
-$heading-back-color: white;
-$heading-back-bgcolor: nth($palette-primary, 8);
-$action-link-color: nth($palette-primary, 10);
-$caption-color: white;
-$caption-bgcolor: nth($palette-primary, 10);
-$image-placeholder-color: nth($palette-accent, 5);
-$lower-text-color: nth($palette-primary, 10);
+$card-background-color: white !default;
+$heading-color: white !default;
+$heading-back-color: white !default;
+$heading-back-bgcolor: nth($palette-primary, 8) !default;
+$action-link-color: nth($palette-primary, 10) !default;
+$caption-color: white !default;
+$caption-bgcolor: nth($palette-primary, 10) !default;
+$image-placeholder-color: nth($palette-accent, 5) !default;
+$lower-text-color: nth($palette-primary, 10) !default;
 
 /* Cover image */
-$cover-image-height: 186px;
-$background-image-url: '';
+$cover-image-height: 186px !default;
+$background-image-url: '' !default;
 
 /* Heading back */
-$heading-back-border: 0 none rgb(255, 255, 255);
+$heading-back-border: 0 none rgb(255, 255, 255) !default;
 
 .wsk-card {
-  font-size: 16px;
+  font-size: $card-font-size;
   height   : $card-height;
   overflow : hidden;
   width    : $card-width;
-  z-index  : 1;
+  z-index  : $card-z-index;
   position : relative;
   background: $card-background-color;
 }
@@ -46,88 +87,102 @@ $heading-back-border: 0 none rgb(255, 255, 255);
   border            : $heading-back-border;
   color             : $heading-back-color;
   display           : flex;
-  font-size         : 24px;
-  height            : 96px;
+  font-size         : $card-heading-font-size;
+  height            : $card-heading-height;
   justify-items     : stretch;
   line-height       : normal;
+  // TODO: Does this need to be anything other than none?
   outline           : rgb(255, 255, 255) none 0;
-  padding           : 8px 16px;
-  perspective-origin: 165px 56px;
+  padding           : $card-vertical-padding $card-horizontal-padding;
+  perspective-origin: $card-heading-perspective-origin-x $card-heading-perspective-origin-y;
   text-decoration   : none solid rgb(255, 255, 255);
-  transform-origin  : 165px 56px;
+  transform-origin  : $card-heading-transform-origin-x $card-heading-transform-origin-y;
   width             : 100%;
 }
 
 .wsk-card--heading-text {
   align-self      : center;
+  // TODO: Does this need to be anything other than none?
   border          : 0 none rgb(255, 255, 255);
   color           : $heading-color;
   display         : flex;
-  font-size       : 24px;
-  font-weight     : 300;
-  height          : 96px;
+  font-size       : inherit;
+  font-weight     : $card-heading-text-font-weight;
+  height          : $card-heading-height;
   justify-self    : stretch;
   line-height     : normal;
+  // TODO: Does this need to be anything other than none?
   outline         : rgb(255, 255, 255) none 0;
   overflow        : hidden;
+  // TODO: Does this need to be anything other than none?
   text-decoration : none solid rgb(255, 255, 255);
-  transform-origin: 149px 48px;
+  transform-origin: $card-heading-text-transform-origin-x $card-heading-text-transform-origin-y;
   width           : 90%;
 }
 
 .wsk-card--caption {
   background        : $caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
+  // TODO: Does this need to be anything other than none?
   border            : 0 none rgb(255, 255, 255);
   color             : $caption-color;
-  font-size         : 12px;
-  height            : 16px;
+  font-size         : $card-caption-font-size;
+  height            : $card-caption-height;
   line-height       : normal;
+  // TODO: Does this need to be anything other than none?
   outline           : rgb(255, 255, 255) none 0;
-  padding           : 8px 16px;
-  perspective-origin: 165px 16px;
+  padding           : $card-vertical-padding $card-horizontal-padding;
+  perspective-origin: $card-caption-perspective-origin-x $card-caption-perspective-origin-y;
+  // TODO: Does this need to be anything other than none?
   text-decoration   : none solid rgb(255, 255, 255);
   width             : 100%;
 }
 
 .wsk-card--lower {
+  // TODO: Does this need to be anything other than none?
   border         : 0 none rgb(68, 68, 68);
   color          : $lower-text-color;
-  font-size      : 13px;
-  height         : 108px;
-  line-height    : 18px;
-  margin         : 10px 0;
+  font-size      : $card-lower-font-size;
+  height         : $card-lower-height;
+  line-height    : $card-lower-line-height;
+  margin         : $card-lower-vertical-margin 0;
+  // TODO: Does this need to be anything other than none?
   outline        : rgb(68, 68, 68) none 0;
   overflow       : hidden;
-  padding        : 0 16px;
+  padding        : 0 $card-horizontal-padding;
+  // TODO: Does this need to be anything other than none?
   text-decoration: none solid rgb(68, 68, 68);
   width          : 90%;
 }
 
 .wsk-card--bottom {
-  font-size  : 16px;
-  height     : 50px;
+  font-size  : $card-bottom-font-size;
+  height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
 }
 
 .wsk-card--bottom a {
+  // TODO: Does this need to be anything other than none?
   border-bottom     : 0 none rgb(48, 63, 159);
+  // TODO: Does this need to be anything other than none?
   border-left       : 0 none rgb(48, 63, 159);
+  // TODO: Does this need to be anything other than none?
   border-right      : 0 none rgb(48, 63, 159);
   border-top        : 1px solid rgb(235, 235, 235);
   box-sizing        : border-box;
   color             : $action-link-color;
   cursor            : pointer;
   display           : inline-block;
-  font-size         : 13px;
+  font-size         : $card-bottom-anchor-font-size;
   font-weight       : normal;
-  height            : 50px;
-  line-height       : 50px;
+  height            : $card-bottom-anchor-height;
+  line-height       : $card-bottom-anchor-line-height;
+  // TODO: Does this need to be anything other than none?
   outline           : rgb(48, 63, 159) none 0;
-  padding           : 0 16px;
-  perspective-origin: 165px 25px;
+  padding           : 0 $card-horizontal-padding;
+  perspective-origin: $card-bottom-anchor-perspective-origin-x $card-bottom-anchor-perspective-origin-y;
   text-decoration   : none solid rgb(48, 63, 159);
   text-transform    : uppercase;
-  transform-origin  : 165px 25px;
+  transform-origin  : $card-bottom-anchor-transform-origin-x $card-bottom-anchor-transform-origin-y;
   width             : 100%;
 }
