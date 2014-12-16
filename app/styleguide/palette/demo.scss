@@ -142,7 +142,7 @@
   float: left;
 }
 
-.PaletteGroup-color, .PaletteGroup-heading {
+.PaletteGroup--color, .PaletteGroup--heading {
   @include typo-caption();
 
   max-width: 300px;
@@ -154,79 +154,79 @@
   color: #000;
 }
 
-.PaletteGroup-name {
+.PaletteGroup--name {
   padding: 0 0 60px 0;
 }
 
-.PaletteGroup--red {
+.PaletteGroup__red {
   @include colorGroups($paletteRed);
 }
 
-.PaletteGroup--pink {
+.PaletteGroup__pink {
   @include colorGroups($palettePink);
 }
 
-.PaletteGroup--purple {
+.PaletteGroup__purple {
   @include colorGroups($palettePurple);
 }
 
-.PaletteGroup--deepPurple {
+.PaletteGroup__deepPurple {
   @include colorGroups($paletteDeepPurple);
 }
 
-.PaletteGroup--indigo {
+.PaletteGroup__indigo {
   @include colorGroups($paletteIndigo);
 }
 
-.PaletteGroup--blue {
+.PaletteGroup__blue {
   @include colorGroups($paletteBlue);
 }
 
-.PaletteGroup--lightBlue {
+.PaletteGroup__lightBlue {
   @include colorGroups($paletteLightBlue);
 }
 
-.PaletteGroup--cyan {
+.PaletteGroup__cyan {
   @include colorGroups($paletteCyan);
 }
 
-.PaletteGroup--teal {
+.PaletteGroup__teal {
   @include colorGroups($paletteTeal);
 }
 
-.PaletteGroup--green {
+.PaletteGroup__green {
   @include colorGroups($paletteGreen);
 }
 
-.PaletteGroup--lightGreen {
+.PaletteGroup__lightGreen {
   @include colorGroups($paletteLightGreen);
 }
 
-.PaletteGroup--lime {
+.PaletteGroup__lime {
   @include colorGroups($paletteLime);
 }
 
-.PaletteGroup--yellow {
+.PaletteGroup__yellow {
   @include colorGroups($paletteYellow);
 }
 
-.PaletteGroup--amber {
+.PaletteGroup__amber {
   @include colorGroups($paletteAmber);
 }
 
-.PaletteGroup--orange {
+.PaletteGroup__orange {
   @include colorGroups($paletteOrange);
 }
 
-.PaletteGroup--deepOrange {
+.PaletteGroup__deepOrange {
   @include colorGroups($paletteDeepOrange);
 }
 
-.PaletteGroup--brown {
+.PaletteGroup__brown {
   @include colorGroups($paletteBrown);
 }
 
-.PaletteGroup--grey {
+.PaletteGroup__grey {
   @include colorGroups($paletteGrey);
 
   .PaletteColor--1000 {
@@ -248,6 +248,6 @@
   }
 }
 
-.PaletteGroup--blueGrey {
+.PaletteGroup__blueGrey {
   @include colorGroups($paletteBlueGrey);
 }
