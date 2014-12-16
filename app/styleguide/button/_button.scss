@@ -4,88 +4,243 @@
 @import "../animation/animation";
 @import "../ripple/ripple";
 
-// Default Button Colors
-$default-btn-bg-color: #fff;
-$default-btn-text-color: #000;
-$default-btn-outline-color: nth($secondaryPalette, 5);
-$default-btn-hover-bg-color: nth($secondaryPalette, 3);
-$default-btn-focus-bg-color: nth($secondaryPalette, 3);
-$default-btn-active-bg-color: nth($secondaryPalette, 4);
+// Default button colors.
+$button-primary-color: rgba(#999999, 0.20);
+$button-secondary-color: #000;
+$button-hover-color: $button-primary-color;
+$button-active-color: rgba($button-primary-color, 0.40);
+$button-focus-color: rgba(black, 0.12);
 
-// Colored Button Colors
-$colored-btn-bg-color: nth($primaryPalette, 6);
-$colored-btn-text-color: #fff;
-$colored-btn-hover-bg-color: nth($primaryPalette, 8);
-$colored-btn-focus-color: nth($primaryPalette, 12);
-$colored-btn-active-bg-color: nth($primaryPalette, 13);
+// Colored button colors.
+$button-primary-color-alt: nth($primaryPalette, 6);
+$button-secondary-color-alt: #fff;
+$button-hover-color-alt: nth($primaryPalette, 7);
+$button-active-color-alt: nth($primaryPalette, 8);
+$button-focus-color-alt: $button-focus-color;
 
-// Ripple Color for colored buttons.
-$color-ripple-bg-color: white;
+// Ripple color for colored raised buttons and FABs.
+$button-ripple-color-alt: white;
 
-// Disabled Button Colors
-$disabled-btn-bg-color: nth($disabledPalette, 3);
-$disabled-btn-text-color: nth($disabledPalette, 5);
+// Disabled button colors.
+$button-primary-color-disabled: rgba(#000, 0.12);
+$button-secondary-color-disabled: rgba(#000, 0.26);
 
-.PaperButton {
-  background   : $default-btn-bg-color;
-  border       : none;
+// FAB colors and sizes.
+$button-fab-color-alt: nth($accentPalette, 5);
+$button-fab-hover-color-alt: nth($accentPalette, 6);
+$button-fab-active-color-alt: nth($accentPalette, 7);
+$button-fab-size: 56px;
+$button-fab-size-mini: 40px;
+$button-fab-font-size: 24px;
+
+// Icon button colors and sizes.
+$button-icon-size: 32px;
+$button-icon-color: nth($paletteGrey, 8);
+$button-icon-focus-color: $button-focus-color;
+
+// Focus shadow mixin.
+@mixin focus-shadow() {
+  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
+}
+
+
+// The button component. Defaults to a flat button.
+.wsk-button {
+  background: transparent;
+  border: none;
   border-radius: 2px;
-  color        : $default-btn-text-color;
-  display      : block;
-  min-width    : 124px;
-  outline-color: $default-btn-outline-color;
-  padding      : 0.8em 1.6em;
-  position     : relative;
+  color: $button-secondary-color;
+  display: block;
+  position: relative;
+  height: 36px;
+  min-width: 64px;
+  padding: 0 8px;
+  margin: 0 4px;
+  display: inline-block;
   @include typo-button();
-  overflow     : hidden;
-  @include shadow-z1();
+  overflow: hidden;
   will-change: box-shadow, transform;
-  transition: box-shadow 0.2s ease-out;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+              background-color 0.2s $animation-curve-default,
+              color 0.2s $animation-curve-default;
+  outline: none;
+  cursor: pointer;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+
+  &:focus:not(:active) {
+    background-color: $button-focus-color;
+  }
+
+  &:active {
+    background-color: $button-active-color;
+  }
+
+  // Bump up specificity by using [disabled] twice.
+  &[disabled][disabled] {
+    color: $button-secondary-color-disabled;
+    cursor: auto;
+    background-color: transparent;
+  }
+
+  &.wsk-button--colored {
+    color: $button-primary-color-alt;
+
+    &:focus:not(:active) {
+      background-color: $button-focus-color-alt;
+    }
+  }
 }
 
-.PaperButton--colored {
-  background: $colored-btn-bg-color;
-  color     : $colored-btn-text-color;
-}
-.PaperButton--colored .Ripple {
-  background: $color-ripple-bg-color;
-}
-.PaperButton[disabled] {
-  background-color: $disabled-btn-bg-color;
-  color           : $disabled-btn-text-color;
-  cursor          : auto;
-}
-.PaperButton:hover {
-  background-color: $default-btn-hover-bg-color;
-}
-.PaperButton--colored:hover {
-  background-color: $colored-btn-hover-bg-color;
-}
-.PaperButton:focus {
-  outline: none;
-  @include shadow-z3();
-  background-color: $default-btn-focus-bg-color;
-  transition: box-shadow 0.2s ease-in;
-}
-.PaperButton::-moz-focus-inner {
-  border: 0;
-}
-.PaperButton--colored:focus {
-  background-color: $colored-btn-focus-color;
-}
-.PaperButton:active {
-  background-color: $default-btn-active-bg-color;
-}
-.PaperButton--colored:active {
-  background-color: $colored-btn-active-bg-color;
-}
-.PaperButton .PaperButton-rippleContainer {
-  display: block;
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
+
+  // Raised buttons
+  .wsk-button--raised {
+    background: $button-primary-color;
+    @include shadow-z1();
+
+    &:active {
+      @include shadow-z3();
+      background-color: $button-active-color;
+    }
+
+    &:focus:not(:active) {
+      @include focus-shadow();
+      background-color: $button-active-color;
+    }
+
+    &.wsk-button--colored {
+      background: $button-primary-color-alt;
+      color: $button-secondary-color-alt;
+
+      &:hover {
+        background-color: $button-hover-color-alt;
+      }
+
+      &:active {
+        background-color: $button-active-color-alt;
+      }
+
+      &:focus:not(:active) {
+        background-color: $button-active-color-alt;
+      }
+
+      & .wsk-ripple {
+        background: $button-ripple-color-alt;
+      }
+    }
+
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled] {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      @include shadow-z1();
+    }
+  }
+
+
+  // FABs
+  .wsk-button--fab {
+    border-radius: 50%;
+    font-size: $button-fab-font-size;
+    height: $button-fab-size;
+    margin: auto;
+    min-width: $button-fab-size;
+    width: $button-fab-size;
+    padding: 0;
+    overflow: hidden;
+    background: $button-primary-color;
+    @include shadow-z1();
+
+    &.wsk-button--mini-fab {
+      height: $button-fab-size-mini;
+      min-width: $button-fab-size-mini;
+      width: $button-fab-size-mini;
+    }
+
+    & .wsk-button__ripple-container {
+      border-radius: 50%;
+      // Fixes clipping bug in Safari.
+      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+    }
+
+    &:active {
+      @include shadow-z3();
+      background-color: $button-active-color;
+    }
+
+    &:focus:not(:active) {
+      @include focus-shadow();
+      background-color: $button-active-color;
+    }
+
+    &.wsk-button--colored {
+      background: $button-fab-color-alt;
+      color: $button-secondary-color-alt;
+
+      &:hover {
+        background-color: $button-fab-hover-color-alt;
+      }
+
+      &:focus:not(:active) {
+        background-color: $button-fab-active-color-alt;
+      }
+
+      &:active {
+        background-color: $button-fab-active-color-alt;
+      }
+
+      & .wsk-ripple {
+        background: $button-ripple-color-alt;
+      }
+    }
+
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled] {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      @include shadow-z1();
+    }
+  }
+
+
+  // Icon buttons
+  .wsk-button--icon {
+    border-radius: 50%;
+    font-size: $button-fab-font-size;
+    height: $button-icon-size;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: $button-icon-size;
+    width: $button-icon-size;
+    padding: 0;
+    overflow: hidden;
+
+    & .wsk-button__ripple-container {
+      border-radius: 50%;
+      // Fixes clipping bug in Safari.
+      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+    }
+  }
+
+
+  // Ripples
+  .wsk-button__ripple-container {
+    display: block;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+
+    .wsk-button[disabled] & .wsk-ripple {
+      background-color: transparent;
+    }
+  }

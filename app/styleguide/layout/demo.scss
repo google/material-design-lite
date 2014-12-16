@@ -1,0 +1,82 @@
+@import '../styleguide_demo_bp';
+@import '_layout';
+@import '../textfield/_textfield';
+@import '../animation/animation';
+@import '../palette/palette';
+
+.demo-container {
+  width: 100%;
+  float: left;
+  margin: 0 40px 40px 0;
+  border: 1px solid #888888;
+}
+
+.demo-content {
+  height: 1000px;
+  background: linear-gradient(rgb(214, 227, 231), lightblue);
+  padding: 8px;
+}
+
+.Layout {
+  height: 500px;
+}
+
+// Styles for fixed drawer demos.
+.Layout-header .ExpandableIcon {
+  border-color: nth($pagePalette, 3);
+  border-radius: 50%;
+}
+
+.Layout-header .ExpandableIcon:hover {
+  background-color: rgba(nth($paletteGrey, 8), 0.6);
+}
+
+.Layout-header .TextField {
+  color: nth($pagePalette, 3);
+}
+
+// Styles for fixed header demo.
+.Layout.is-small-screen .Layout-header #fixed_header_nav {
+  visibility: hidden;
+}
+
+// Styles for multi-row layout demo.
+.Layout-header #my_text_changes {
+  @include typo-display-1;
+  transition-property: font-size;
+  @include material-animation-default();
+}
+
+.Layout-header #compact_navigation {
+  visibility: hidden;
+}
+
+.Layout-header #expanded_navigation {
+  visibility: visible;
+}
+
+.Layout-header.is-compact #my_text_changes {
+  @include typo-title;
+}
+
+.Layout-header.is-compact #compact_navigation {
+  visibility: visible;
+}
+
+.Layout-header.is-compact #expanded_navigation {
+  visibility: hidden;
+}
+
+.Layout-header.is-compact #my_text_changes:after {
+  content: " \0000a0 > \0000a0 Multi-row layout demo";
+}
+
+// Styles for transparent header demo.
+#transparent_demo {
+  background-color: #948d85;
+  background-image: url('images/desktop-handsfree-hero.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  background-position: center 0%;
+}

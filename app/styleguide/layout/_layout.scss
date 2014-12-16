@@ -1,0 +1,367 @@
+@import '../palette/palette';
+@import '../shadow/shadow';
+@import '../typography/typography';
+@import '../animation/animation';
+
+// Colors
+$sidenav-bg-color: nth($pagePalette, 1);
+$sidenav-border-color: nth($pagePalette, 4);
+$text-color: nth($pagePalette, 9);
+
+$panel-bg-color: nth($primaryPalette, 6);
+$panel-text-color: nth($pagePalette, 3);
+
+// Dimensions
+$nav-narrow: 240px;
+$nav-wide: 456px;
+$nav-width: $nav-narrow;
+
+$horizontal-padding: 24px;
+
+$panel-row-height: 60px;
+$panel-default-height: $panel-row-height;
+$screen-size-threshold: 850px;
+
+.Layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.Layout-drawer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  width: $nav-width;
+  height: 100%;
+  max-height: 100%;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  @include shadow-z1();
+
+  // With this, we get a huge paint before it runs.
+  box-sizing: border-box;
+
+  border-right: 1px solid $sidenav-border-color;
+  background: $sidenav-bg-color;
+
+  // Transform offscreen.
+  transform: translateX(-$nav-width - 10px);
+  transform-style: preserve-3d;
+
+  will-change: transform;
+
+  transition-property: transform;
+  @include material-animation-default();
+
+  color: nth($pagePalette, 9);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  z-index: 5;
+}
+
+.Layout-drawer > .Layout-title {
+  display: block;
+  @include typo-title();
+  box-sizing: border-box;
+  line-height: $panel-default-height;
+  padding-left: $horizontal-padding;
+  border-bottom: 1px solid $sidenav-border-color;
+}
+
+.Layout-drawer > * {
+  flex-shrink: 0;
+}
+
+.Layout-drawer.is-visible {
+  transform: translateX(0px);
+}
+
+.Layout-drawer .Layout-navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    height: 100%;
+  }
+
+  li {
+    display: block;
+    margin: 0;
+  }
+
+  a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: $text-color;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    height: 100%;
+    padding: 16px $horizontal-padding;
+    margin: 0;
+  }
+
+  a:hover {
+    background-color: nth($pagePalette, 4);
+  }
+}
+
+// TODO(sgomes): Replace with an icon button when we have that component.
+.Layout-drawerButton {
+  display: block;
+
+  position: relative;
+  height: 32px;
+  width: 32px;
+  border: 0;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+  font-size: 26px;
+  line-height: 32px;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 8px;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  z-index: 3;
+}
+
+.Layout-drawerButton:after {
+  // TODO(sgomes): Replace with proper menu icon once we have an icon font.
+  content: '☰';
+}
+
+.Layout--overlayDrawerButton .Layout-drawerButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Layout-header .Layout-drawerButton {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0 16px 0 0;
+  color: $panel-text-color;
+}
+
+@media screen and (min-width: $screen-size-threshold + 1px) {
+  .Layout-drawerButton {
+    display: none;
+  }
+
+  .Layout--fixedDrawer > .Layout-drawer {
+    transform: translateX(0px);
+    z-index: 2;
+  }
+
+  .Layout--fixedDrawer > .Layout-content {
+    margin-left: $nav-width;
+  }
+
+  .Layout--fixedDrawer > .Layout-header {
+    margin-left: $nav-width;
+  }
+}
+
+
+
+// Header
+
+.Layout-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0;
+  border: 0;
+  height: 60px;
+  min-height: $panel-default-height;
+  background-color: $panel-bg-color;
+  color: $panel-text-color;
+  z-index: 3;
+  transition-property: min-height, box-shadow;
+  @include material-animation-default();
+  padding-left: 16px;
+  overflow: hidden;
+}
+
+.Layout-header--transparent {
+  background-color: transparent;
+}
+
+.Layout-header--multiRow {
+  flex-direction: column;
+}
+
+.Layout-header-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  min-height: $panel-row-height;
+  width: 100%;
+}
+
+.Layout-header > *,
+.Layout-header-row > * {
+  flex-shrink: 0;
+}
+
+// Add a margin to the last entry...
+.Layout-header > *:last-child,
+.Layout-header-row > *:last-child {
+  margin-right: $horizontal-padding;
+}
+
+// ...unless it's a navigation area.
+.Layout-header > .Layout-navigation:last-child,
+.Layout-header-row > .Layout-navigation:last-child {
+  margin-right: 0;
+}
+
+// No margins on header rows, either.
+.Layout-header.Layout-header--multiRow > .Layout-header-row {
+  margin-right: 0;
+}
+
+.Layout-spacer {
+  flex-grow: 1;
+}
+
+.Layout-header .Layout-title {
+  display: block;
+  @include typo-title();
+}
+
+.Layout-header .Layout-navigation {
+  margin: 0;
+  padding: 0;
+  height: $panel-row-height;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    height: 100%;
+  }
+
+  li {
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+  }
+
+  a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: $panel-text-color;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    height: 100%;
+    padding: 0 16px;
+    margin: 0;
+  }
+
+  a:hover {
+    background-color: rgba(nth($paletteGrey, 8), 0.6);
+  }
+}
+
+.Layout-header.Layout-header--mediumTall {
+  min-height: 2 * $panel-row-height;
+}
+
+.Layout-header.Layout-header--tall {
+  min-height: 3 * $panel-row-height;
+}
+
+.Layout-header.is-compact {
+  min-height: $panel-row-height;
+}
+
+.Layout-header.is-casting-shadow {
+  @include shadow-z1();
+}
+
+.Layout-header.Layout-header--transparent.is-casting-shadow {
+  box-shadow: none;
+}
+
+.Layout-content {
+  // Fix IE10 bug.
+  -ms-flex: 0 1 auto;
+
+  display: inline-block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-grow: 1;
+  z-index: 1;
+}
+
+.Layout-header.Layout-header--scroll ~ .Layout-content {
+  overflow: visible;
+}
+
+.Layout-drawer.is-visible ~ .Layout-obfuscator {
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: visible;
+}
+
+@media screen and (max-width: $screen-size-threshold) {
+  .Layout-header {
+    display: none;
+  }
+
+  .Layout--fixedHeader > .Layout-header {
+    display: flex;
+  }
+
+  .Layout-header.Layout-header--scroll ~ .Layout-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .Layout-obfuscator {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    visibility: hidden;
+    transition-property: background-color;
+    @include material-animation-default();
+  }
+}

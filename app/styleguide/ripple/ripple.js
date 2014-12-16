@@ -2,11 +2,16 @@
 
 function RippleOwner(el, recentering) {
   var parentElement = el;
-  var rippleElement = parentElement.querySelector('.Ripple');
+  var rippleElement = parentElement.querySelector('.wsk-ripple');
   var frameCount = 0;
   var rippleSize;
   var x;
   var y;
+
+  // Touch start produces a compat mouse down event, which would cause a second
+  // ripples. To avoid that, we use this property to ignore the first mouse down
+  // after a touch start.
+  this.ignoringMouseDown = false;
 
   if (rippleElement) {
     var bound = parentElement.getBoundingClientRect();
@@ -16,7 +21,8 @@ function RippleOwner(el, recentering) {
     rippleElement.style.height = rippleSize + 'px';
   }
 
-  parentElement.addEventListener('click', this.onClickHandler.bind(this));
+  parentElement.addEventListener('mousedown', this.downHandler.bind(this));
+  parentElement.addEventListener('touchstart', this.downHandler.bind(this));
 
   this.getFrameCount = function() {
     return frameCount;
@@ -79,35 +85,47 @@ function RippleOwner(el, recentering) {
   };
 }
 
-RippleOwner.prototype.onClickHandler = function(evt) {
-  var frameCount = this.getFrameCount();
-  if (frameCount > 0) {
-    return;
-  }
-
-  this.setFrameCount(1);
-  var bound = evt.currentTarget.getBoundingClientRect();
-  var x;
-  var y;
-  // Check if we are handling a keyboard click
-  if (evt.clientX === 0 && evt.clientY === 0) {
-    x = Math.round(bound.width / 2);
-    y = Math.round(bound.height / 2);
+RippleOwner.prototype.downHandler = function(evt) {
+  if (evt.type === 'mousedown' && this.ignoringMouseDown) {
+    this.ignoringMouseDown = false;
   } else {
-    x = Math.round(evt.clientX - bound.left);
-    y = Math.round(evt.clientY - bound.top);
+    if (evt.type === 'touchstart') {
+      this.ignoringMouseDown = true;
+    }
+    var frameCount = this.getFrameCount();
+    if (frameCount > 0) {
+      return;
+    }
+
+    this.setFrameCount(1);
+    var bound = evt.currentTarget.getBoundingClientRect();
+    var x;
+    var y;
+    // Check if we are handling a keyboard click
+    if (evt.clientX === 0 && evt.clientY === 0) {
+      x = Math.round(bound.width / 2);
+      y = Math.round(bound.height / 2);
+    } else {
+      var clientX = evt.clientX ? evt.clientX : evt.touches[0].clientX;
+      var clientY = evt.clientY ? evt.clientY : evt.touches[0].clientY;
+      x = Math.round(clientX - bound.left);
+      y = Math.round(clientY - bound.top);
+    }
+    this.setRippleXY(x, y);
+    this.setRippleStyles(true);
+    window.requestAnimFrame(this.animFrameHandler.bind(this));
   }
-  this.setRippleXY(x, y);
-  this.setRippleStyles(true);
-  window.requestAnimFrame(this.animFrameHandler.bind(this));
 };
 
 window.addEventListener('load', function() {
-  var rippleElements = document.querySelectorAll('.RippleEffect');
+  var rippleElements = document.querySelectorAll('.wsk-js-ripple-effect');
   for (var i = 0; i < rippleElements.length; i++) {
     var rippleElement = rippleElements[i];
     var recentering =
-        rippleElement.classList.contains('RippleEffect--recentering');
-    new RippleOwner(rippleElement, recentering);
+        rippleElement.classList.contains('wsk-ripple--center');
+    if (!rippleElement.classList.contains(
+        'wsk-js-ripple-effect--ignore-events')) {
+      new RippleOwner(rippleElement, recentering);
+    }
   }
 });

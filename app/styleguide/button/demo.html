@@ -15,27 +15,45 @@
 
   <div class="PreviewBlock">
 
-    <button class="PaperButton">Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab">♥</button></div>
+    <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon">♥</button></div>
 
     <h2>With Ripples</h2>
 
-    <button class="PaperButton RippleEffect">Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect">♥</button></div>
+    <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect">♥</button></div>
 
-    <h2>.paper-button .colored</h2>
+    <h2>.wsk-button--colored</h2>
 
-    <button class="PaperButton PaperButton--colored">Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-button--colored">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored">♥</button></div>
 
     <h2>With Ripples</h2>
 
-    <button class="PaperButton PaperButton--colored RippleEffect">Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-button--colored wsk-js-ripple-effect">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored wsk-js-ripple-effect">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect">♥</button></div>
+
+    <h2>.wsk-button--mini-fab</h2>
+
+    <div class="button-block"><button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-button--mini-fab wsk-js-ripple-effect">♥</button></div>
 
     <h2>Disabled</h2>
 
-    <button class="PaperButton RippleEffect" disabled>Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect" disabled>Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect" disabled>Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect" disabled>♥</button></div>
+    <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect" disabled>♥</button></div>
   </div>
-
-    <script src="../button/button.js"></script>
+    <!-- build:js(app/styleguide/button/) ../../scripts/main.min.js -->
+    <script src="button.js"></script>
     <script src="../ripple/ripple.js"></script>
     <script src="../third_party/rAF.js"></script>
+    <!-- endbuild -->
   </body>
 </html>

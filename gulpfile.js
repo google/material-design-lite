@@ -7,7 +7,7 @@
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  *  Unless required by applicable law or agreed to in writing, software
  *  distributed under the License is distributed on an "AS IS" BASIS,
@@ -72,6 +72,13 @@ gulp.task('copy', function() {
     .pipe($.size({title: 'copy'}));
 });
 
+// Copy image files from the Styleguide
+gulp.task('styleguide-images', function() {
+  return gulp.src('app/styleguide/**/*.{svg,png,jpg}')
+    .pipe(gulp.dest('dist/styleguide/'))
+    .pipe($.size({title: 'styleguide-images'}));
+});
+
 // Copy Web Fonts To Dist
 gulp.task('fonts', function() {
   return gulp.src(['app/fonts/**'])
@@ -87,8 +94,7 @@ gulp.task('styles', function() {
     'app/styles/**/*.css'
   ])
     .pipe($.changed('styles', {extension: '.scss'}))
-    .pipe($.rubySass({
-      style: 'expanded',
+    .pipe($.sass({
       precision: 10
     })
     .on('error', console.error.bind(console)))
@@ -100,14 +106,22 @@ gulp.task('styles', function() {
     .pipe($.size({title: 'styles'}));
 });
 
+// Concatenate And Minify JavaScript
+gulp.task('scripts', function() {
+  return gulp.src('app/styleguide/**/*.js')
+    .pipe($.concat('main.min.js'))
+    .pipe($.uglify({preserveComments: 'some'}))
+    // Output Files
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe($.size({title: 'scripts'}));
+});
+
 // Scan Your HTML For Assets & Optimize Them
 gulp.task('html', function() {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
-  return gulp.src('app/**/*.html')
+  return gulp.src('app/**/**/*.html')
     .pipe(assets)
-    // Concatenate And Minify JavaScript
-    .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Remove Any Unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
@@ -122,6 +136,7 @@ gulp.task('html', function() {
         /.app-bar.open/
       ]
     })))
+
     // Concatenate And Minify Styles
     // In case you are still using useref build blocks
     .pipe($.if('*.css', $.csso()))
@@ -137,7 +152,7 @@ gulp.task('html', function() {
 });
 
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', del.bind(null, ['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch Files For Changes & Reload
 gulp.task('serve', ['styles'], function() {
@@ -154,7 +169,7 @@ gulp.task('serve', ['styles'], function() {
 
   gulp.watch(['app/**/**/**/*.html'], reload);
   gulp.watch(['app/**/**/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['app/scripts/**/*.js'], ['jshint']);
+  gulp.watch(['app/scripts/**/*.js','app/styleguide/**/*.js'], ['jshint']);
   gulp.watch(['app/images/**/*'], reload);
 });
 
@@ -167,13 +182,14 @@ gulp.task('serve:dist', ['default'], function() {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: 'dist'
+    server: 'dist',
+    baseDir: "dist"
   });
 });
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function(cb) {
-  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'scripts', 'images', 'styleguide-images', 'fonts', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
@@ -188,4 +204,4 @@ gulp.task('pagespeed', pagespeed.bind(null, {
 }));
 
 // Load custom tasks from the `tasks` directory
-try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
+// try { require('require-dir')('tasks'); } catch (err) { console.error(err); }

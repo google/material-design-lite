@@ -2,6 +2,7 @@
 @import "../shadow/_shadow";
 @import "_button";
 
-.PaperButton {
-  margin: 20px;
+.button-block {
+  display: inline-block;
+  margin: 20px 20px 20px 0;
 }

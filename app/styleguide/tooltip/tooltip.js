@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
 
   var tooltips = Array.prototype.slice.call(document.querySelectorAll('.tooltip'));
 

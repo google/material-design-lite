@@ -1,18 +1,7 @@
 @import "../styleguide_demo_bp";
 @import "_textfield";
 
-form div.input-container {
-  margin  : 20px 0;
-  position: relative;
-  width   : 300px;
 
-  &.right {
-    text-align: right;
-  }
-  &.large {
-    width: 100%;
-  }
-}
 
 textarea {
   overflow: auto;
