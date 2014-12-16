@@ -5,8 +5,8 @@
 $circleSize: 40px;
 $checkboxSize: 16px;
 
-$borderColor: nth($secondaryPalette, 8);
-$checkboxColor: nth($primaryPalette, 6);
+$borderColor: nth($palette-secondary, 8);
+$checkboxColor: nth($palette-primary, 6);
 
 .Checkbox {
   border: 2px solid $borderColor;

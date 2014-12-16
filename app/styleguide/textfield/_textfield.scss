@@ -10,9 +10,9 @@ $input-text-ripple-size: 32px;
 $input-text-background-color: transparent;
 $input-text-label-color: rgba(0, 0, 0, 0.26);
 $input-text-bottom-border-color: rgba(0, 0, 0, 0.12);
-$input-text-highlight-color: nth($primaryPalette, 6);
+$input-text-highlight-color: nth($palette-primary, 6);
 $input-text-disabled-color: $input-text-bottom-border-color;
-$input-text-error-color: nth($paletteRed, 7);
+$input-text-error-color: nth($palette-red, 7);
 
 $input-text-floating-label-fontsize: 12px;
 $input-text-expandable-icon-dim: 24px;

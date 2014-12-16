@@ -4,12 +4,12 @@
 @import '../animation/animation';
 
 // Colors
-$sidenav-bg-color: nth($pagePalette, 1);
-$sidenav-border-color: nth($pagePalette, 4);
-$text-color: nth($pagePalette, 9);
+$sidenav-bg-color: nth($palette-page, 1);
+$sidenav-border-color: nth($palette-page, 4);
+$text-color: nth($palette-page, 9);
 
-$panel-bg-color: nth($primaryPalette, 6);
-$panel-text-color: nth($pagePalette, 3);
+$panel-bg-color: nth($palette-primary, 6);
+$panel-text-color: nth($palette-page, 3);
 
 // Dimensions
 $nav-narrow: 240px;
@@ -62,7 +62,7 @@ $screen-size-threshold: 850px;
   transition-property: transform;
   @include material-animation-default();
 
-  color: nth($pagePalette, 9);
+  color: nth($palette-page, 9);
 
   overflow-x: hidden;
   overflow-y: auto;
@@ -121,7 +121,7 @@ $screen-size-threshold: 850px;
   }
 
   a:hover {
-    background-color: nth($pagePalette, 4);
+    background-color: nth($palette-page, 4);
   }
 }
 
@@ -294,7 +294,7 @@ $screen-size-threshold: 850px;
   }
 
   a:hover {
-    background-color: rgba(nth($paletteGrey, 8), 0.6);
+    background-color: rgba(nth($palette-grey, 8), 0.6);
   }
 }
 

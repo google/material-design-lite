@@ -23,16 +23,16 @@
 
 // Styles for fixed drawer demos.
 .Layout-header .ExpandableIcon {
-  border-color: nth($pagePalette, 3);
+  border-color: nth($palette-page, 3);
   border-radius: 50%;
 }
 
 .Layout-header .ExpandableIcon:hover {
-  background-color: rgba(nth($paletteGrey, 8), 0.6);
+  background-color: rgba(nth($palette-grey, 8), 0.6);
 }
 
 .Layout-header .TextField {
-  color: nth($pagePalette, 3);
+  color: nth($palette-page, 3);
 }
 
 // Styles for fixed header demo.

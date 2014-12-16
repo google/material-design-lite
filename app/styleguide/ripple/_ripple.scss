@@ -1,7 +1,7 @@
 @import "../palette/palette";
 @import "../animation/animation";
 
-$ripple-bg-color: nth($paletteGrey, 10);
+$ripple-bg-color: nth($palette-grey, 10);
 
 .wsk-ripple {
   background       : $ripple-bg-color;

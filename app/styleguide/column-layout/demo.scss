@@ -3,19 +3,19 @@
 @import '_column-layout';
 
 .column-layout {
-  background-color: nth($paletteGrey, 2);
+  background-color: nth($palette-grey, 2);
 }
 
 .column-layout > * {
   min-height: 300px;
-  background-color: nth($paletteGreen, 2);
+  background-color: nth($palette-green, 2);
   padding: 16px;
 }
 
 .column-layout > *:nth-of-type(3n+1) {
-  background-color: nth($paletteRed, 2);
+  background-color: nth($palette-red, 2);
 }
 
 .column-layout > *:nth-of-type(3n+2) {
-  background-color: nth($paletteBlue, 2);
+  background-color: nth($palette-blue, 2);
 }
