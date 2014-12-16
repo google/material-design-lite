@@ -12,7 +12,7 @@ $default-item-active-bg-color: nth($palette-secondary, 4);
 // Disabled Button Colors
 $disabled-item-text-color: nth($palette-disabled, 5);
 
-.PaperItem {
+.wsk-item {
   border       : none;
   color        : $default-item-text-color;
   background   : transparent;
@@ -29,27 +29,29 @@ $disabled-item-text-color: nth($palette-disabled, 5);
   cursor       : pointer;
 }
 
-.PaperItem[disabled] {
+.wsk-item[disabled] {
   color           : $disabled-item-text-color;
   cursor          : auto;
 }
 
-.PaperItem:hover {
+.wsk-item:hover {
   background-color: $default-item-hover-bg-color;
 }
 
-.PaperItem:focus {
+.wsk-item:focus {
   outline: none;
   background-color: $default-item-focus-bg-color;
 }
-.PaperItem::-moz-focus-inner {
+
+.wsk-item::-moz-focus-inner {
   border: 0;
 }
-.PaperItem:active {
+
+.wsk-item:active {
   background-color: $default-item-active-bg-color;
 }
 
-.PaperItem .PaperItem-rippleContainer {
+.wsk-item--ripple-container {
   display: block;
   height: 100%;
   left: 0px;
