@@ -2,7 +2,7 @@
 @import "../typography/typography";
 
 
-.tooltip {
+.wsk-tooltip {
   -webkit-transform: scale(0);
   -webkit-transform-origin: top center;
   background: nth($palette-accent, 7);
@@ -16,13 +16,13 @@
   position: absolute;
   text-align: center;
 }
-.tooltip.active {
+.wsk-tooltip.is-active {
   display: inline-block;
   -webkit-animation: pulse 200ms cubic-bezier(0, 0, .2, 1) forwards;
   animation: pulse 200ms cubic-bezier(0, 0, .2, 1) forwards;
 }
 
-.tooltip.large {
+.wsk-tooltip--large {
   line-height: 14px;
   font-size: 14px;
   padding: 16px;
