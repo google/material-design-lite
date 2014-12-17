@@ -1,92 +1,106 @@
-'use strict';
+function Checkbox(btnElement, container) {
+  'use strict';
 
-function Checkbox(l) {
-  if (l === undefined) {
-    return;
-  }
+  var boxOutline = document.createElement('span');
+  boxOutline.classList.add('wsk-checkbox__box-outline');
 
-  var labelElement = l;
-  var checkboxElement = document.getElementById(
-    labelElement.getAttribute('for'));
-  checkboxElement.disabled = true;
+  var tickContainer = document.createElement('span');
+  tickContainer.classList.add('wsk-checkbox__focus-helper');
 
-  // Add additional elements
-  var fakeCheckbox = document.createElement('span');
-  fakeCheckbox.classList.add('Checkbox');
-  fakeCheckbox.tabIndex = 0;
-  if (checkboxElement.classList.contains('wsk-js-ripple-effect')) {
-    checkboxElement.classList.add('wsk-ripple--center');
-    var rippleContainer = document.createElement('span');
-    rippleContainer.classList.add('Checkbox-rippleContainer');
+  var tickOutline = document.createElement('span');
+  tickOutline.classList.add('wsk-checkbox__tick-outline');
+
+  var bottomRight = document.createElement('span');
+  bottomRight.classList.add('wsk-checkbox__bottom-right');
+
+  var bottomLeft = document.createElement('span');
+  bottomLeft.classList.add('wsk-checkbox__bottom-left');
+
+  var bottom = document.createElement('span');
+  bottom.classList.add('wsk-checkbox__bottom');
+
+  var topLeft = document.createElement('span');
+  topLeft.classList.add('wsk-checkbox__top-left');
+
+  var topRight = document.createElement('span');
+  topRight.classList.add('wsk-checkbox__top-right');
+
+  boxOutline.appendChild(tickOutline);
+  boxOutline.appendChild(topLeft);
+  boxOutline.appendChild(topRight);
+  boxOutline.appendChild(bottomRight);
+  boxOutline.appendChild(bottomLeft);
+  boxOutline.appendChild(bottom);
+
+  container.appendChild(tickContainer);
+  container.appendChild(boxOutline);
+
+  var rippleContainer;
+
+  if (container.classList.contains('wsk-js-ripple-effect')) {
+    container.classList.add('wsk-js-ripple-effect--ignore-events');
+    rippleContainer = document.createElement('span');
+    rippleContainer.classList.add('wsk-checkbox__ripple-container');
     rippleContainer.classList.add('wsk-js-ripple-effect');
     rippleContainer.classList.add('wsk-ripple--center');
+
     var ripple = document.createElement('span');
     ripple.classList.add('wsk-ripple');
 
     rippleContainer.appendChild(ripple);
-    labelElement.insertBefore(rippleContainer,
-      labelElement.firstChild);
+    container.appendChild(rippleContainer);
   }
-  labelElement.insertBefore(fakeCheckbox,
-     labelElement.firstChild);
 
-  fakeCheckbox.addEventListener('click', function(evt) {
-    this.onCheckChange(evt);
-  }.bind(this));
-  labelElement.addEventListener('click', function(evt) {
-    this.onCheckChange(evt);
-  }.bind(this));
-  fakeCheckbox.addEventListener('keypress', function(evt) {
-    console.log('fakeCheckbox keypress');
-    this.onKeyEvent(evt);
-  }.bind(this));
-  labelElement.addEventListener('keypress', function(evt) {
-    this.onKeyEvent(evt);
+  btnElement.addEventListener('change', function(e) {
+    this.updateClasses(btnElement, container);
   }.bind(this));
 
-  this.getCheckboxElement = function() {
-    return checkboxElement;
+  btnElement.addEventListener('focus', function(e) {
+    container.classList.add('is-focused');
+  }.bind(this));
+
+  btnElement.addEventListener('blur', function(e) {
+    container.classList.remove('is-focused');
+  }.bind(this));
+
+  container.addEventListener('mouseup', function(e) {
+    this.blur();
+  }.bind(this));
+
+  rippleContainer.addEventListener('mouseup', function(e) {
+    this.blur();
+  }.bind(this));
+
+  this.updateClasses = function(button, label) {
+    if (button.disabled) {
+      label.classList.add('is-disabled');
+    } else {
+      label.classList.remove('is-disabled');
+    }
+
+    if (button.checked) {
+      label.classList.add('is-checked');
+    } else {
+      label.classList.remove('is-checked');
+    }
   };
 
-  this.getFakeCheckboxElement = function() {
-    return fakeCheckbox;
+  this.blur = function() {
+    // TODO: figure out why there's a focus event being fired after our blur,
+    // so that we can avoid this hack.
+    window.setTimeout(function() { btnElement.blur(); }, 0.001);
   };
 
-  this.getRippleElement = function() {
-    return rippleContainer;
-  };
+  this.updateClasses(btnElement, container);
+  container.classList.add('is-upgraded');
 }
 
-Checkbox.prototype.onCheckChange = function(evt) {
-  evt.preventDefault();
-  evt.stopPropagation();
-
-  var checkboxElement = this.getCheckboxElement();
-  var fakeCheckbox = this.getFakeCheckboxElement();
-  var rippleContainer = this.getRippleElement();
-
-  checkboxElement.checked = !checkboxElement.checked;
-  if (checkboxElement.checked) {
-    fakeCheckbox.classList.add('Checkbox-isChecked');
-    rippleContainer.classList.add('Checkbox-isChecked');
-  } else {
-    fakeCheckbox.classList.remove('Checkbox-isChecked');
-    rippleContainer.classList.remove('Checkbox-isChecked');
-  }
-};
-
-Checkbox.prototype.onKeyEvent = function(evt) {
-  var SPACE_KEY = 32;
-
-  if (evt.keyCode === SPACE_KEY) {
-    evt.stopPropagation();
-    this.onCheckChange(evt);
-  }
-};
-
 window.addEventListener('load', function() {
-  var labels =  document.querySelectorAll('.Checkbox-label');
-  for (var i = 0; i < labels.length; i++) {
-    new Checkbox(labels[i]);
+  'use strict';
+
+  var radios = document.querySelectorAll('.wsk-js-checkbox');
+  for (var i = 0; i < radios.length; i++) {
+    var button = radios[i].querySelector('.wsk-checkbox__input');
+    new Checkbox(button, radios[i]);
   }
 });
