@@ -1,26 +1,26 @@
 /* Cutoff points for devices */
-$min_tablet_size: 768px;
-$min_desktop_size: 1024px;
+$columns-tablet-size: 768px;
+$columns-desktop-size: 1024px;
 
 /* Web (desktop) layout. Columns are fixed width, and there's a maximum number
    of 3 columns, after which we just add padding to either side. */
-$web_columns: 3;
-$web_column_size: 360px;
-$web_gutter: 40px;
+$columns-web-count: 3;
+$columns-web-size: 360px;
+$columns-web-gutter: 40px;
 
 /* Tablet layout. There's a fixed number of columns, which grow to fill the
    entire container. */
-$tablet_columns: 2;
-$tablet_gutter: 24px;
+$columns-tablet-count: 2;
+$columns-tablet-gutter: 24px;
 
 /* Phone layout. There's a fixed number of columns, which grow to fill the
    entire container. */
-$phone_columns: 1;
-$phone_gutter: 16px;
+$columns-phone-count: 1;
+$columns-phone-gutter: 16px;
 
 
 /* Web layout */
-.column-layout {
+.wsk-column-layout {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -28,13 +28,13 @@ $phone_gutter: 16px;
 
   margin: 0;
   box-sizing: border-box;
-  padding: $web_gutter / 2;
+  padding: $columns-web-gutter / 2;
 }
 
-.column-layout > * {
-  min-width: $web_column_size;
-  width: $web_column_size;
-  margin: $web_gutter / 2;
+.wsk-column-layout > * {
+  min-width: $columns-web-size;
+  width: $columns-web-size;
+  margin: $columns-web-gutter / 2;
   box-sizing: border-box;
 }
 
@@ -44,7 +44,7 @@ $phone_gutter: 16px;
    last line to align correctly, while keeping the flexbox centered on its
    container.
    TODO(sgomes): Explore a different way of doing this. */
-.column-layout > .wrap-hack {
+.wsk-column-layout > .wsk-column-layout__wrap-hack {
   height: 0;
   min-height: 0;
   max-height: 0;
@@ -56,42 +56,43 @@ $phone_gutter: 16px;
 
 /* Add padding to avoid the flexbox growing beyond 3 columns.
    Yes, we use padding with calc. I promise this is the last hack. */
-$web_block_size: $web_column_size + $web_gutter;
-$web_padding_size: $web_columns * ($web_column_size + $web_gutter) / 2;
+$columns-web-block-size: $columns-web-size + $columns-web-gutter;
+$columns-web-padding-size: $columns-web-count *
+    ($columns-web-size + $columns-web-gutter) / 2;
 @media screen
-  and (min-width: ($web_columns + 1) * $web_block_size) {
-  .column-layout {
-    padding-left: calc(50% - #{$web_padding_size});
-    padding-right: calc(50% - #{$web_padding_size});
+  and (min-width: ($columns-web-count + 1) * $columns-web-block-size) {
+  .wsk-column-layout {
+    padding-left: calc(50% - #{$columns-web-padding-size});
+    padding-right: calc(50% - #{$columns-web-padding-size});
   }
 }
 
 /* Tablet layout */
-$tablet_column_percent: 100% / $tablet_columns;
+$columns-tablet-percent: 100% / $columns-tablet-count;
 @media screen
-  and (min-width: $min_tablet_size)
-  and (max-width: $min_desktop_size - 1px) {
-  .column-layout {
-    padding: $tablet_gutter / 2;
+  and (min-width: $columns-tablet-size)
+  and (max-width: $columns-desktop-size - 1px) {
+  .wsk-column-layout {
+    padding: $columns-tablet-gutter / 2;
   }
 
-  .column-layout > * {
-    margin: $tablet_gutter / 2;
-    min-width: calc(#{$tablet_column_percent} - #{$tablet_gutter});
-    width: calc(#{$tablet_column_percent} - #{$tablet_gutter});
+  .wsk-column-layout > * {
+    margin: $columns-tablet-gutter / 2;
+    min-width: calc(#{$columns-tablet-percent} - #{$columns-tablet-gutter});
+    width: calc(#{$columns-tablet-percent} - #{$columns-tablet-gutter});
   }
 }
 
 /* Phone layout */
-$phone_column_percent: 100% / $phone_columns;
-@media screen and (max-width: $min_tablet_size - 1px) {
-  .column-layout {
-    padding: $phone_gutter / 2;
+$columns-phone-percent: 100% / $columns-phone-count;
+@media screen and (max-width: $columns-tablet-size - 1px) {
+  .wsk-column-layout {
+    padding: $columns-phone-gutter / 2;
   }
 
-  .column-layout > * {
-    margin: $phone_gutter / 2;
-    width: calc(#{$phone_column_percent} - #{$phone_gutter});
-    min-width: calc(#{$phone_column_percent} - #{$phone_gutter});
+  .wsk-column-layout > * {
+    margin: $columns-phone-gutter / 2;
+    width: calc(#{$columns-phone-percent} - #{$columns-phone-gutter});
+    min-width: calc(#{$columns-phone-percent} - #{$columns-phone-gutter});
   }
 }

@@ -2,9 +2,9 @@
 
 (function() {
   window.addEventListener('load', function() {
-    var INVISIBLE_WRAPPING_ELEMENT_CLASS = 'wrap-hack';
+    var INVISIBLE_WRAPPING_ELEMENT_CLASS = 'wsk-column-layout__wrap-hack';
     var INVISIBLE_WRAPPING_ELEMENT_COUNT = 3;
-    var columnLayouts = document.querySelectorAll('.column-layout');
+    var columnLayouts = document.querySelectorAll('.wsk-column-layout');
 
     for (var i = 0; i < columnLayouts.length; i++) {
       var columnLayout = columnLayouts[i];
