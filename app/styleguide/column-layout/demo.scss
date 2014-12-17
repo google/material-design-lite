@@ -6,16 +6,16 @@
   background-color: nth($palette-grey, 2);
 }
 
-.wsk-column-layout > * {
+.wsk-column-layout__child {
   min-height: 300px;
   background-color: nth($palette-green, 2);
   padding: 16px;
 }
 
-.wsk-column-layout > *:nth-of-type(3n+1) {
+.wsk-column-layout__child:nth-of-type(3n+1) {
   background-color: nth($palette-red, 2);
 }
 
-.wsk-column-layout > *:nth-of-type(3n+2) {
+.wsk-column-layout__child:nth-of-type(3n+2) {
   background-color: nth($palette-blue, 2);
 }

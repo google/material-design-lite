@@ -1,26 +1,32 @@
-/* Cutoff points for devices */
+// Cutoff points for devices.
 $columns-tablet-size: 768px;
 $columns-desktop-size: 1024px;
 
-/* Web (desktop) layout. Columns are fixed width, and there's a maximum number
-   of 3 columns, after which we just add padding to either side. */
+// Web (desktop) layout. Columns are fixed width, and there's a maximum number
+// of 3 columns, after which we just add padding to either side.
 $columns-web-count: 3;
 $columns-web-size: 360px;
 $columns-web-gutter: 40px;
 
-/* Tablet layout. There's a fixed number of columns, which grow to fill the
-   entire container. */
+$columns-web-block-size: $columns-web-size + $columns-web-gutter;
+$columns-web-padding-size: $columns-web-count *
+    ($columns-web-size + $columns-web-gutter) / 2;
+
+// Tablet layout. There's a fixed number of columns, which grow to fill the
+// entire container.
 $columns-tablet-count: 2;
 $columns-tablet-gutter: 24px;
+$columns-tablet-percent: 100% / $columns-tablet-count;
 
-/* Phone layout. There's a fixed number of columns, which grow to fill the
-   entire container. */
+// Phone layout. There's a fixed number of columns, which grow to fill the
+// entire container.
 $columns-phone-count: 1;
 $columns-phone-gutter: 16px;
+$columns-phone-percent: 100% / $columns-phone-count;
 
 
-/* Web layout */
 .wsk-column-layout {
+  // Web layout.
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -29,22 +35,65 @@ $columns-phone-gutter: 16px;
   margin: 0;
   box-sizing: border-box;
   padding: $columns-web-gutter / 2;
+
+  // Add padding to avoid the flexbox growing beyond 3 columns.
+  // Yes, we use padding with calc. I promise this is the last hack.
+  @media screen
+      and (min-width: ($columns-web-count + 1) * $columns-web-block-size) {
+    padding-left: calc(50% - #{$columns-web-padding-size});
+    padding-right: calc(50% - #{$columns-web-padding-size});
+  }
+
+  // Tablet layout.
+  @media screen
+      and (min-width: $columns-tablet-size)
+      and (max-width: $columns-desktop-size - 1px) {
+    padding: $columns-tablet-gutter / 2;
+  }
+
+  // Phone layout.
+  @media screen and (max-width: $columns-tablet-size - 1px) {
+    padding: $columns-phone-gutter / 2;
+  }
 }
 
-.wsk-column-layout > * {
+// Mixin for both real child elements and the wrap hack.
+@mixin columns-child-element() {
+  // Web layout.
   min-width: $columns-web-size;
   width: $columns-web-size;
   margin: $columns-web-gutter / 2;
   box-sizing: border-box;
+
+  // Tablet layout.
+  @media screen
+  and (min-width: $columns-tablet-size)
+  and (max-width: $columns-desktop-size - 1px) {
+    margin: $columns-tablet-gutter / 2;
+    min-width: calc(#{$columns-tablet-percent} - #{$columns-tablet-gutter});
+    width: calc(#{$columns-tablet-percent} - #{$columns-tablet-gutter});
+  }
+
+  // Phone layout.
+  @media screen and (max-width: $columns-tablet-size - 1px) {
+    margin: $columns-phone-gutter / 2;
+    width: calc(#{$columns-phone-percent} - #{$columns-phone-gutter});
+    min-width: calc(#{$columns-phone-percent} - #{$columns-phone-gutter});
+  }
 }
 
-/* Alright, this is not pretty, but we need to add a number of invisible
-   elements to make sure that the flexbox elements align properly, even when
-   wrapping to less than 3 columns. It's the only way I've found to get the
-   last line to align correctly, while keeping the flexbox centered on its
-   container.
-   TODO(sgomes): Explore a different way of doing this. */
-.wsk-column-layout > .wsk-column-layout__wrap-hack {
+.wsk-column-layout__child {
+  @include columns-child-element();
+}
+
+// Alright, this is not pretty, but we need to add a number of invisible
+// elements to make sure that the flexbox elements align properly, even when
+// wrapping to less than 3 columns. It's the only way I've found to get the
+// last line to align correctly, while keeping the flexbox centered on its
+// container.
+// TODO(sgomes): Explore a different way of doing this.
+.wsk-column-layout__wrap-hack {
+  @include columns-child-element();
   height: 0;
   min-height: 0;
   max-height: 0;
@@ -52,47 +101,5 @@ $columns-phone-gutter: 16px;
   padding: 0;
   margin-bottom: 0;
   margin-top: 0;
-}
-
-/* Add padding to avoid the flexbox growing beyond 3 columns.
-   Yes, we use padding with calc. I promise this is the last hack. */
-$columns-web-block-size: $columns-web-size + $columns-web-gutter;
-$columns-web-padding-size: $columns-web-count *
-    ($columns-web-size + $columns-web-gutter) / 2;
-@media screen
-  and (min-width: ($columns-web-count + 1) * $columns-web-block-size) {
-  .wsk-column-layout {
-    padding-left: calc(50% - #{$columns-web-padding-size});
-    padding-right: calc(50% - #{$columns-web-padding-size});
-  }
-}
-
-/* Tablet layout */
-$columns-tablet-percent: 100% / $columns-tablet-count;
-@media screen
-  and (min-width: $columns-tablet-size)
-  and (max-width: $columns-desktop-size - 1px) {
-  .wsk-column-layout {
-    padding: $columns-tablet-gutter / 2;
-  }
-
-  .wsk-column-layout > * {
-    margin: $columns-tablet-gutter / 2;
-    min-width: calc(#{$columns-tablet-percent} - #{$columns-tablet-gutter});
-    width: calc(#{$columns-tablet-percent} - #{$columns-tablet-gutter});
-  }
-}
-
-/* Phone layout */
-$columns-phone-percent: 100% / $columns-phone-count;
-@media screen and (max-width: $columns-tablet-size - 1px) {
-  .wsk-column-layout {
-    padding: $columns-phone-gutter / 2;
-  }
-
-  .wsk-column-layout > * {
-    margin: $columns-phone-gutter / 2;
-    width: calc(#{$columns-phone-percent} - #{$columns-phone-gutter});
-    min-width: calc(#{$columns-phone-percent} - #{$columns-phone-gutter});
-  }
+  opacity: 0;
 }
