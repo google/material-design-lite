@@ -36,10 +36,16 @@ $radio-ripple-size: 42px;
 
   .wsk-radio.is-upgraded & {
     // Hide input element, while still making it respond to focus.
+    position: absolute;
     width: 0;
     height: 0;
     margin: 0;
     padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
     border: none;
   }
 }
