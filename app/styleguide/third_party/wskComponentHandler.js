@@ -3,7 +3,7 @@
  * pattern.
  * @author Jason Mayes.
  */
-var componentHandler = function() {
+var componentHandler = (function() {
   'use strict';
 
   var registeredComponents_ = [];
@@ -106,4 +106,4 @@ var componentHandler = function() {
     upgradeElement: upgradeElementInternal,
     register: registerInternal
   };
-}();
+})();
