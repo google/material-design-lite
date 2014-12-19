@@ -15,7 +15,7 @@ var componentHandler = function() {
    * Optionally replaces a match with passed object if specified.
    * @param {string} name The name of a class we want to use.
    * @param {object} opt_replace Optional object to replace match with.
-   * @return {Object | false}
+   * @return {object | false}
    * @private
    */
   function findRegisteredClass_(name, opt_replace) {
