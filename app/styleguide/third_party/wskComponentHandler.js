@@ -79,7 +79,7 @@ var componentHandler = (function() {
 
   /**
    * Registers a class for future use and attempts to upgrade existing DOM.
-   * @param {object} config An object containting:
+   * @param {object} config An object containing:
    * {constructor: Constructor, classAsString: string, cssClass: string}
    */
   function registerInternal(config) {
