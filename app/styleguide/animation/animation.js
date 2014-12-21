@@ -47,6 +47,7 @@ MaterialAnimation.prototype.CssClasses_ = {
 
 /**
  * Handle click of element.
+ * @param {Event} event The event that fired.
  * @private
  */
 MaterialAnimation.prototype.handleClick_ = function(event) {
