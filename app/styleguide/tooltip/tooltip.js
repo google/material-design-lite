@@ -1,7 +1,7 @@
 /**
  * Class constructor for Tooltip WSK component.
  * Implements WSK component design pattern defined at:
- * http://codepen.io/jasonmayes/pen/146b4483d870f79f4d33254311703ac2
+ * https://github.com/jasonmayes/wsk-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTooltip(element) {

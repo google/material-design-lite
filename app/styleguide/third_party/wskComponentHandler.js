@@ -1,6 +1,7 @@
 /**
- * A possible component handler interface using the revealing module design
- * pattern.
+ * A component handler interface using the revealing module design pattern.
+ * More details on this pattern design here:
+ * https://github.com/jasonmayes/wsk-component-design-pattern
  * @author Jason Mayes.
  */
 var componentHandler = (function() {
