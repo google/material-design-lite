@@ -40,7 +40,7 @@ MaterialButton.prototype.CssClasses_ = {
   WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
 
   WSK_BUTTON_RIPPLE_CONTAINER: 'wsk-button__ripple-container',
-  
+
   WSK_RIPPLE: 'wsk-ripple'
 };
 
@@ -65,9 +65,11 @@ MaterialButton.prototype.init = function() {
 
   if (this.element_) {
     var blurHandler = this.blurHandlerGenerator_(this.element_);
-    if (this.element_.classList.contains(this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+    if (this.element_.classList.contains(
+        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(this.CssClasses_.WSK_BUTTON_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(
+          this.CssClasses_.WSK_BUTTON_RIPPLE_CONTAINER);
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
       rippleContainer.appendChild(ripple);
