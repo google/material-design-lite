@@ -37,31 +37,31 @@ MaterialRadio.prototype.CssClasses_ = {
 
   // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
   // reduce conflict and convert to camelCase for consistency.
- 
+
   IS_FOCUSED: 'is-focused',
-  
+
   IS_DISABLED: 'is-disabled',
-  
+
   IS_CHECKED: 'is-checked',
-  
+
   IS_UPGRADED: 'is-upgraded',
-  
+
   WSK_JS_RADIO: 'wsk-js-radio',
 
   WSK_RADIO_BTN: 'wsk-radio__button',
-  
+
   WSK_RADIO_OUTER_CIRCLE: 'wsk-radio__outer-circle',
-  
+
   WSK_RADIO_INNER_CIRCLE: 'wsk-radio__inner-circle',
-  
+
   WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  
+
   WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  
+
   WSK_RADIO_RIPPLE_CONTAINER: 'wsk-radio__ripple-container',
-  
+
   WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-  
+
   WSK_RIPPLE: 'wsk-ripple'
 };
 
@@ -172,7 +172,7 @@ MaterialRadio.prototype.init = function() {
   if (this.element_) {
     this.btnElement_ = this.element_.querySelector('.' +
         this.CssClasses_.WSK_RADIO_BTN);
-    
+
     var outerCircle = document.createElement('span');
     outerCircle.classList.add(this.CssClasses_.WSK_RADIO_OUTER_CIRCLE);
 
@@ -181,7 +181,7 @@ MaterialRadio.prototype.init = function() {
 
     this.element_.appendChild(outerCircle);
     this.element_.appendChild(innerCircle);
-    
+
     var rippleContainer;
     if (this.element_.classList.contains(
         this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
@@ -201,7 +201,7 @@ MaterialRadio.prototype.init = function() {
     }
 
     this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    
+
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
 
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
@@ -211,7 +211,7 @@ MaterialRadio.prototype.init = function() {
     rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
-    this.element_.classList.add(this.CssClasses_.IS_UPGRADED); 
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
 
