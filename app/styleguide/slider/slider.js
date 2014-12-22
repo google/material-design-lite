@@ -1,77 +1,175 @@
-'use strict';
+/**
+ * Class constructor for Slider WSK component.
+ * Implements WSK component design pattern defined at:
+ * https://github.com/jasonmayes/wsk-component-design-pattern
+ * @param {HTMLElement} element The element that will be upgraded.
+ */
+function MaterialSlider(element) {
+  'use strict';
 
-function Slider(element) {
+  this.element_ = element;
   // Browser feature detection.
-  var isIE = window.navigator.msPointerEnabled;
-
-  var sliderElement = element;
-
-  if (isIE) {
-    // Since we need to specify a very large height in IE due to implementation
-    // limitations, we add a parent here that trims it down to a reasonable
-    // size.
-    var containerIE = document.createElement('div');
-    containerIE.classList.add('wsk-slider__ie-container');
-    sliderElement.parentElement.insertBefore(containerIE, sliderElement);
-    sliderElement.parentElement.removeChild(sliderElement);
-    containerIE.appendChild(sliderElement);
-  } else {
-    // For non-IE browsers, we need a div structure that sits behind the slider
-    // and allows us to style the left and right sides of it with different
-    // colors.
-    var container = document.createElement('div');
-    container.classList.add('wsk-slider__container');
-    sliderElement.parentElement.insertBefore(container, sliderElement);
-    sliderElement.parentElement.removeChild(sliderElement);
-    container.appendChild(sliderElement);
-    var backgroundFlex = document.createElement('div');
-    backgroundFlex.classList.add('wsk-slider__background-flex');
-    container.appendChild(backgroundFlex);
-    var backgroundLower = document.createElement('div');
-    backgroundLower.classList.add('wsk-slider__background-lower');
-    backgroundFlex.appendChild(backgroundLower);
-    var backgroundUpper = document.createElement('div');
-    backgroundUpper.classList.add('wsk-slider__background-upper');
-    backgroundFlex.appendChild(backgroundUpper);
-  }
-
-  sliderElement.addEventListener('input', function(e) {
-    this.updateValue();
-  }.bind(this));
-
-  sliderElement.addEventListener('change', function(e) {
-    this.updateValue();
-  }.bind(this));
-
-  sliderElement.addEventListener('mouseup', function(e) {
-    e.target.blur();
-  }.bind(this));
-
-  this.updateValue = function() {
-    // Calculate and apply percentages to div structure behind slider.
-    var fraction = (sliderElement.value - sliderElement.min) /
-        (sliderElement.max - sliderElement.min);
-
-    if (fraction === 0) {
-      sliderElement.classList.add('is-lowest-value');
-    } else {
-      sliderElement.classList.remove('is-lowest-value');
-    }
-
-    if (!isIE) {
-      backgroundLower.style.flex = fraction;
-      backgroundLower.style.webkitFlex = fraction;
-      backgroundUpper.style.flex = 1 - fraction;
-      backgroundUpper.style.webkitFlex = 1 - fraction;
-    }
-  };
-
-  this.updateValue();
+  this.isIE_ = window.navigator.msPointerEnabled;
+  // Initialize instance.
+  this.init();
 }
 
-window.addEventListener('load', function() {
-  var sliders =  document.querySelectorAll('.wsk-js-slider');
-  for (var i = 0; i < sliders.length; i++) {
-    new Slider(sliders[i]);
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+MaterialSlider.prototype.Constant_ = {
+  // None for now.
+};
+
+/**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+MaterialSlider.prototype.CssClasses_ = {
+  /**
+   * Class names should use camelCase and be prefixed with the word "material"
+   * to minimize conflict with 3rd party systems.
+   */
+
+  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
+  // reduce conflict and convert to camelCase for consistency.
+  WSK_SLIDER_IE_CONTAINER: 'wsk-slider__ie-container',
+
+  WSK_SLIDER_CONTAINER: 'wsk-slider__container',
+
+  WSK_SLIDER_BACKGROUND_FLEX: 'wsk-slider__background-flex',
+
+  WSK_SLIDER_BACKGROUND_LOW: 'wsk-slider__background-lower',
+
+  WSK_SLIDER_BACKGROUND_UP: 'wsk-slider__background-upper',
+  
+  IS_LOWEST_VALUE: 'is-lowest-value'
+};
+
+
+/**
+ * Handle input on element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialSlider.prototype.onInput_ = function(event) {
+  'use strict';
+
+  this.updateValue_();
+};
+
+
+/**
+ * Handle change on element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialSlider.prototype.onChange_ = function(event) {
+  'use strict';
+
+  this.updateValue_();
+};
+
+
+/**
+ * Handle mouseup on element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialSlider.prototype.onMouseUp_ = function(event) {
+  'use strict';
+
+   event.target.blur();
+};
+
+
+/**
+ * Handle updating of values.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialSlider.prototype.updateValue_ = function(event) {
+  'use strict';
+
+  // Calculate and apply percentages to div structure behind slider.
+  var fraction = (this.element_.value - this.element_.min) /
+      (this.element_.max - this.element_.min);
+
+  if (fraction === 0) {
+    this.element_.classList.add(this.CssClasses_.IS_LOWEST_VALUE);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_LOWEST_VALUE);
   }
+
+  if (!this.isIE_) {
+    this.backgroundLower_.style.flex = fraction;
+    this.backgroundLower_.style.webkitFlex = fraction;
+    this.backgroundUpper_.style.flex = 1 - fraction;
+    this.backgroundUpper_.style.webkitFlex = 1 - fraction;
+  }
+};
+
+
+/**
+ * Initialize element.
+ */
+MaterialSlider.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
+    if (this.isIE_) {
+      // Since we need to specify a very large height in IE due to
+      // implementation limitations, we add a parent here that trims it down to
+      // a reasonable size.
+      var containerIE = document.createElement('div');
+      containerIE.classList.add(this.CssClasses_.WSK_SLIDER_IE_CONTAINER);
+      this.element_.parentElement.insertBefore(containerIE, this.element_);
+      this.element_.parentElement.removeChild(this.element_);
+      containerIE.appendChild(this.element_);
+    } else {
+      // For non-IE browsers, we need a div structure that sits behind the
+      // slider and allows us to style the left and right sides of it with
+      // different colors.
+      var container = document.createElement('div');
+      container.classList.add(this.CssClasses_.WSK_SLIDER_CONTAINER);
+      this.element_.parentElement.insertBefore(container, this.element_);
+      this.element_.parentElement.removeChild(this.element_);
+      container.appendChild(this.element_);
+      var backgroundFlex = document.createElement('div');
+      backgroundFlex.classList.add(this.CssClasses_.WSK_SLIDER_BACKGROUND_FLEX);
+      container.appendChild(backgroundFlex);
+      this.backgroundLower_ = document.createElement('div');
+      this.backgroundLower_.classList.add(
+          this.CssClasses_.WSK_SLIDER_BACKGROUND_LOW);
+      backgroundFlex.appendChild(this.backgroundLower_);
+      this.backgroundUpper_ = document.createElement('div');
+      this.backgroundUpper_.classList.add(
+          this.CssClasses_.WSK_SLIDER_BACKGROUND_UP);
+      backgroundFlex.appendChild(this.backgroundUpper_);
+    }
+
+    this.element_.addEventListener('input', this.onInput_.bind(this));
+    this.element_.addEventListener('change', this.onChange_.bind(this));
+    this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
+
+    this.updateValue_();
+  }
+};
+
+
+window.addEventListener('load', function() {
+  'use strict';
+
+  // On document ready, the component registers itself. It can assume
+  // componentHandler is available in the global scope.
+  componentHandler.register({
+    constructor: MaterialSlider,
+    classAsString: 'MaterialSlider',
+    cssClass: 'wsk-js-slider'
+  });
 });
