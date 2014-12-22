@@ -19,7 +19,7 @@ function MaterialRadio(element) {
  * @private
  */
 MaterialRadio.prototype.Constant_ = {
-  STARTING_POSITION: 1
+  TINY_TIMEOUT: 0.001
 };
 
 /**
@@ -37,9 +37,32 @@ MaterialRadio.prototype.CssClasses_ = {
 
   // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
   // reduce conflict and convert to camelCase for consistency.
-  DEMO_JS_MOVABLE_AREA: 'demo-js-movable-area',
+ 
+  IS_FOCUSED: 'is-focused',
+  
+  IS_DISABLED: 'is-disabled',
+  
+  IS_CHECKED: 'is-checked',
+  
+  IS_UPGRADED: 'is-upgraded',
+  
+  WSK_JS_RADIO: 'wsk-js-radio',
 
-  DEMO_POSITION_PREFIX: 'demo-position-'
+  WSK_RADIO_BTN: 'wsk-radio__button',
+  
+  WSK_RADIO_OUTER_CIRCLE: 'wsk-radio__outer-circle',
+  
+  WSK_RADIO_INNER_CIRCLE: 'wsk-radio__inner-circle',
+  
+  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+  
+  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  
+  WSK_RADIO_RIPPLE_CONTAINER: 'wsk-radio__ripple-container',
+  
+  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
+  
+  WSK_RIPPLE: 'wsk-ripple'
 };
 
 
@@ -55,9 +78,9 @@ MaterialRadio.prototype.onChange_ = function(event) {
 
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
-  var radios = document.querySelectorAll('.wsk-js-radio');
+  var radios = document.getElementsByClassName(this.CssClasses_.WSK_JS_RADIO);
   for (var i = 0; i < radios.length; i++) {
-    var button = radios[i].querySelector('.wsk-radio__button');
+    var button = radios[i].querySelector('.' + this.CssClasses_.WSK_RADIO_BTN);
     // Different name == different group, so no point updating those.
     if (button.getAttribute('name') === this.btnElement_.getAttribute('name')) {
       this.updateClasses_(button, radios[i]);
@@ -74,7 +97,7 @@ MaterialRadio.prototype.onChange_ = function(event) {
 MaterialRadio.prototype.onFocus_ = function(event) {
   'use strict';
 
-  this.element_.classList.add('is-focused');
+  this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
 };
 
 
@@ -86,7 +109,7 @@ MaterialRadio.prototype.onFocus_ = function(event) {
 MaterialRadio.prototype.onBlur_ = function(event) {
   'use strict';
 
-  this.element_.classList.remove('is-focused');
+  this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
 };
 
 
@@ -112,15 +135,15 @@ MaterialRadio.prototype.updateClasses_ = function(button, label) {
   'use strict';
 
   if (button.disabled) {
-    label.classList.add('is-disabled');
+    label.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove('is-disabled');
+    label.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
   if (button.checked) {
-    label.classList.add('is-checked');
+    label.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove('is-checked');
+    label.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -134,7 +157,9 @@ MaterialRadio.prototype.blur_ = function(event) {
 
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
-  window.setTimeout(function() { this.btnElement_.blur(); }, 0.001);
+  window.setTimeout(function() {
+    this.btnElement_.blur();
+  }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
 
@@ -145,27 +170,31 @@ MaterialRadio.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ = this.element_.querySelector('.wsk-radio__button');
+    this.btnElement_ = this.element_.querySelector('.' +
+        this.CssClasses_.WSK_RADIO_BTN);
     
     var outerCircle = document.createElement('span');
-    outerCircle.classList.add('wsk-radio__outer-circle');
+    outerCircle.classList.add(this.CssClasses_.WSK_RADIO_OUTER_CIRCLE);
 
     var innerCircle = document.createElement('span');
-    innerCircle.classList.add('wsk-radio__inner-circle');
+    innerCircle.classList.add(this.CssClasses_.WSK_RADIO_INNER_CIRCLE);
 
     this.element_.appendChild(outerCircle);
     this.element_.appendChild(innerCircle);
     
     var rippleContainer;
-    if (this.element_.classList.contains('wsk-js-ripple-effect')) {
-      this.element_.classList.add('wsk-js-ripple-effect--ignore-events');
+    if (this.element_.classList.contains(
+        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+      this.element_.classList.add(
+          this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
       rippleContainer = document.createElement('span');
-      rippleContainer.classList.add('wsk-radio__ripple-container');
-      rippleContainer.classList.add('wsk-js-ripple-effect');
-      rippleContainer.classList.add('wsk-ripple--center');
+      rippleContainer.classList.add(
+          this.CssClasses_.WSK_RADIO_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
+      rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
 
       var ripple = document.createElement('span');
-      ripple.classList.add('wsk-ripple');
+      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
 
       rippleContainer.appendChild(ripple);
       this.element_.appendChild(rippleContainer);
@@ -182,7 +211,7 @@ MaterialRadio.prototype.init = function() {
     rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
-    this.element_.classList.add('is-upgraded'); 
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED); 
   }
 };
 
