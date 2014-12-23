@@ -104,9 +104,9 @@ MaterialRipple.prototype.init = function() {
       this.rippleElement_ = this.element_.querySelector('.' +
           this.CssClasses_.WSK_RIPPLE);
       this.frameCount_ = 0;
-      this.rippleSize_;
-      this.x_;
-      this.y_;
+      this.rippleSize_ = 0;
+      this.x_ = 0;
+      this.y_ = 0;
 
       // Touch start produces a compat mouse down event, which would cause a
       // second ripples. To avoid that, we use this property to ignore the first

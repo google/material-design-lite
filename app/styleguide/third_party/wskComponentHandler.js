@@ -4,6 +4,7 @@
  * https://github.com/jasonmayes/wsk-component-design-pattern
  * @author Jason Mayes.
  */
+ /* exported componentHandler */
 var componentHandler = (function() {
   'use strict';
 
@@ -15,15 +16,15 @@ var componentHandler = (function() {
    * Searches registered components for a class we are interested in using.
    * Optionally replaces a match with passed object if specified.
    * @param {string} name The name of a class we want to use.
-   * @param {object} opt_replace Optional object to replace match with.
+   * @param {object} optReplace Optional object to replace match with.
    * @return {object | false}
    * @private
    */
-  function findRegisteredClass_(name, opt_replace) {
+  function findRegisteredClass_(name, optReplace) {
     for (var i = 0; i < registeredComponents_.length; i++) {
       if (registeredComponents_[i].className === name) {
-        if (opt_replace !== undefined) {
-          registeredComponents_[i] = opt_replace;
+        if (optReplace !== undefined) {
+          registeredComponents_[i] = optReplace;
         }
         return registeredComponents_[i];
       }
