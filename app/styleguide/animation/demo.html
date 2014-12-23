@@ -17,37 +17,7 @@
         <div class="demo-paper-card wsk-shadow--z1 demo-position-1 demo-js-movable-area"></div>
       </div>
     </div>
-
-    <script>
-      'use strict';
-
-      function handleClickableElement(element) {
-        var position = 1;
-        var moveable = element.querySelector('.demo-js-movable-area');
-        if (!moveable) {
-          console.error('Was expecting to find an element with class ' +
-            'name .demo-js-movable-area in side of: ', element);
-          return;
-        }
-
-        element.addEventListener('click', function() {
-          moveable.classList.remove('demo-position-' + position);
-          position++;
-          if (position > 6) {
-            position = 1;
-          }
-          moveable.classList.add('demo-position-' + position);
-        });
-      }
-
-      window.addEventListener('load', function() {
-        var clickableAreas = document.querySelectorAll(
-          '.demo-js-clickable-area');
-
-        for (var i = 0; i < clickableAreas.length; i++) {
-          handleClickableElement(clickableAreas[i]);
-        }
-      });
-    </script>
+    <script src="../third_party/wskComponentHandler.js"></script>
+    <script src="animation.js"></script>
   </body>
 </html>

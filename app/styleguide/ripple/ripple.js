@@ -1,113 +1,85 @@
-'use strict';
+/**
+ * Class constructor for Ripple WSK component.
+ * Implements WSK component design pattern defined at:
+ * https://github.com/jasonmayes/wsk-component-design-pattern
+ * @param {HTMLElement} element The element that will be upgraded.
+ */
+function MaterialRipple(element) {
+  'use strict';
 
-function RippleOwner(el, recentering) {
-  var parentElement = el;
-  var rippleElement = parentElement.querySelector('.wsk-ripple');
-  var frameCount = 0;
-  var rippleSize;
-  var x;
-  var y;
+  this.element_ = element;
 
-  // Touch start produces a compat mouse down event, which would cause a second
-  // ripples. To avoid that, we use this property to ignore the first mouse down
-  // after a touch start.
-  this.ignoringMouseDown = false;
-
-  if (rippleElement) {
-    var bound = parentElement.getBoundingClientRect();
-    rippleSize = Math.max(bound.width, bound.height) * 2;
-
-    rippleElement.style.width = rippleSize + 'px';
-    rippleElement.style.height = rippleSize + 'px';
-  }
-
-  parentElement.addEventListener('mousedown', this.downHandler.bind(this));
-  parentElement.addEventListener('touchstart', this.downHandler.bind(this));
-
-  this.getFrameCount = function() {
-    return frameCount;
-  };
-
-  this.setFrameCount = function(fC) {
-    frameCount = fC;
-  };
-
-  this.getRippleElement = function() {
-    return rippleElement;
-  };
-
-  this.setRippleXY = function(newX, newY) {
-    x = newX;
-    y = newY;
-  };
-
-  this.setRippleStyles = function(start) {
-    if (rippleElement !== null) {
-      var transformString;
-      var scale;
-      var size;
-      var offset = 'translate(' + x + 'px, ' + y + 'px)';
-
-      if (start) {
-        scale = 'scale(0.0001, 0.0001)';
-        size = '1px';
-      } else {
-        scale = 'scale(1, 1)';
-        size = rippleSize + 'px';
-        if (recentering) {
-          offset = 'translate(' + bound.width / 2 + 'px, ' +
-            bound.height / 2 + 'px)';
-        }
-      }
-
-      transformString = 'translate(-50%, -50%) ' + offset + scale;
-
-      rippleElement.style.webkitTransform = transformString;
-      rippleElement.style.msTransform = transformString;
-      rippleElement.style.transform = transformString;
-
-      if (start) {
-        rippleElement.style.opacity = '0.4';
-        rippleElement.classList.remove('is-animating');
-      } else {
-        rippleElement.style.opacity = '0';
-        rippleElement.classList.add('is-animating');
-      }
-    }
-  };
-
-  this.animFrameHandler = function() {
-    if (frameCount-- > 0) {
-      window.requestAnimFrame(this.animFrameHandler.bind(this));
-    } else {
-      this.setRippleStyles(false);
-    }
-  };
+  // Initialize instance.
+  this.init();
 }
 
-RippleOwner.prototype.downHandler = function(evt) {
-  if (evt.type === 'mousedown' && this.ignoringMouseDown) {
-    this.ignoringMouseDown = false;
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+MaterialRipple.prototype.Constant_ = {
+  INITIAL_SCALE: 'scale(0.0001, 0.0001)',
+  INITIAL_SIZE: '1px',
+  INITIAL_OPACITY: '0.4',
+  FINAL_OPACITY: '0',
+  FINAL_SCALE: ''
+};
+
+/**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+MaterialRipple.prototype.CssClasses_ = {
+  /**
+   * Class names should use camelCase and be prefixed with the word "material"
+   * to minimize conflict with 3rd party systems.
+   */
+
+  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
+  // reduce conflict and convert to camelCase for consistency.
+  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
+
+  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+
+  WSK_RIPPLE: 'wsk-ripple',
+
+  IS_ANIMATING: 'is-animating'
+};
+
+
+/**
+ * Handle click of element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialRipple.prototype.downHandler_ = function(event) {
+  'use strict';
+
+  if (event.type === 'mousedown' && this.ignoringMouseDown_) {
+    this.ignoringMouseDown_ = false;
   } else {
-    if (evt.type === 'touchstart') {
-      this.ignoringMouseDown = true;
+    if (event.type === 'touchstart') {
+      this.ignoringMouseDown_ = true;
     }
     var frameCount = this.getFrameCount();
     if (frameCount > 0) {
       return;
     }
-
     this.setFrameCount(1);
-    var bound = evt.currentTarget.getBoundingClientRect();
+    var bound = event.currentTarget.getBoundingClientRect();
     var x;
     var y;
-    // Check if we are handling a keyboard click
-    if (evt.clientX === 0 && evt.clientY === 0) {
+    // Check if we are handling a keyboard click.
+    if (event.clientX === 0 && event.clientY === 0) {
       x = Math.round(bound.width / 2);
       y = Math.round(bound.height / 2);
     } else {
-      var clientX = evt.clientX ? evt.clientX : evt.touches[0].clientX;
-      var clientY = evt.clientY ? evt.clientY : evt.touches[0].clientY;
+      var clientX = event.clientX ? event.clientX : event.touches[0].clientX;
+      var clientY = event.clientY ? event.clientY : event.touches[0].clientY;
       x = Math.round(clientX - bound.left);
       y = Math.round(clientY - bound.top);
     }
@@ -117,15 +89,113 @@ RippleOwner.prototype.downHandler = function(evt) {
   }
 };
 
-window.addEventListener('load', function() {
-  var rippleElements = document.querySelectorAll('.wsk-js-ripple-effect');
-  for (var i = 0; i < rippleElements.length; i++) {
-    var rippleElement = rippleElements[i];
+
+/**
+ * Initialize element.
+ */
+MaterialRipple.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
     var recentering =
-        rippleElement.classList.contains('wsk-ripple--center');
-    if (!rippleElement.classList.contains(
-        'wsk-js-ripple-effect--ignore-events')) {
-      new RippleOwner(rippleElement, recentering);
+        this.element_.classList.contains(this.CssClasses_.WSK_RIPPLE_CENTER);
+    if (!this.element_.classList.contains(
+        this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
+      this.rippleElement_ = this.element_.querySelector('.' +
+          this.CssClasses_.WSK_RIPPLE);
+      this.frameCount_ = 0;
+      this.rippleSize_ = 0;
+      this.x_ = 0;
+      this.y_ = 0;
+
+      // Touch start produces a compat mouse down event, which would cause a
+      // second ripples. To avoid that, we use this property to ignore the first
+      // mouse down after a touch start.
+      this.ignoringMouseDown_ = false;
+
+      if (this.rippleElement_) {
+        var bound = this.element_.getBoundingClientRect();
+        this.rippleSize_ = Math.max(bound.width, bound.height) * 2;
+        this.rippleElement_.style.width = this.rippleSize_ + 'px';
+        this.rippleElement_.style.height = this.rippleSize_ + 'px';
+      }
+
+      this.element_.addEventListener('mousedown', this.downHandler_.bind(this));
+      this.element_.addEventListener('touchstart',
+          this.downHandler_.bind(this));
+
+      this.getFrameCount = function() {
+        return this.frameCount_;
+      };
+
+      this.setFrameCount = function(fC) {
+        this.frameCount_ = fC;
+      };
+
+      this.getRippleElement = function() {
+        return this.rippleElement_;
+      };
+
+      this.setRippleXY = function(newX, newY) {
+        this.x_ = newX;
+        this.y_ = newY;
+      };
+
+      this.setRippleStyles = function(start) {
+        if (this.rippleElement_ !== null) {
+          var transformString;
+          var scale;
+          var size;
+          var offset = 'translate(' + this.x_ + 'px, ' + this.y_ + 'px)';
+
+          if (start) {
+            scale = this.Constant_.INITIAL_SCALE;
+            size = this.Constant_.INITIAL_SIZE;
+          } else {
+            scale = this.Constant_.FINAL_SCALE;
+            size = this.rippleSize_ + 'px';
+            if (recentering) {
+              offset = 'translate(' + bound.width / 2 + 'px, ' +
+                bound.height / 2 + 'px)';
+            }
+          }
+
+          transformString = 'translate(-50%, -50%) ' + offset + scale;
+
+          this.rippleElement_.style.webkitTransform = transformString;
+          this.rippleElement_.style.msTransform = transformString;
+          this.rippleElement_.style.transform = transformString;
+
+          if (start) {
+            this.rippleElement_.style.opacity = this.Constant_.INITIAL_OPACITY;
+            this.rippleElement_.classList.remove(this.CssClasses_.IS_ANIMATING);
+          } else {
+            this.rippleElement_.style.opacity = this.Constant_.FINAL_OPACITY;
+            this.rippleElement_.classList.add(this.CssClasses_.IS_ANIMATING);
+          }
+        }
+      };
+
+      this.animFrameHandler = function() {
+        if (this.frameCount_-- > 0) {
+          window.requestAnimFrame(this.animFrameHandler.bind(this));
+        } else {
+          this.setRippleStyles(false);
+        }
+      };
     }
   }
+};
+
+
+window.addEventListener('load', function() {
+  'use strict';
+
+  // On document ready, the component registers itself. It can assume
+  // componentHandler is available in the global scope.
+  componentHandler.register({
+    constructor: MaterialRipple,
+    classAsString: 'MaterialRipple',
+    cssClass: 'wsk-js-ripple-effect'
+  });
 });

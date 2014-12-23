@@ -1,106 +1,250 @@
-function Checkbox(btnElement, container) {
+/**
+ * Class constructor for Checkbox WSK component.
+ * Implements WSK component design pattern defined at:
+ * https://github.com/jasonmayes/wsk-component-design-pattern
+ * @param {HTMLElement} element The element that will be upgraded.
+ */
+function MaterialCheckbox(element) {
   'use strict';
 
-  var boxOutline = document.createElement('span');
-  boxOutline.classList.add('wsk-checkbox__box-outline');
+  this.element_ = element;
 
-  var tickContainer = document.createElement('span');
-  tickContainer.classList.add('wsk-checkbox__focus-helper');
+  // Initialize instance.
+  this.init();
+}
 
-  var tickOutline = document.createElement('span');
-  tickOutline.classList.add('wsk-checkbox__tick-outline');
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+MaterialCheckbox.prototype.Constant_ = {
+  TINY_TIMEOUT: 0.001
+};
 
-  var bottomRight = document.createElement('span');
-  bottomRight.classList.add('wsk-checkbox__bottom-right');
+/**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+MaterialCheckbox.prototype.CssClasses_ = {
+  /**
+   * Class names should use camelCase and be prefixed with the word "material"
+   * to minimize conflict with 3rd party systems.
+   */
 
-  var bottomLeft = document.createElement('span');
-  bottomLeft.classList.add('wsk-checkbox__bottom-left');
+  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
+  // reduce conflict and convert to camelCase for consistency.
+  WSK_CHECKBOX_INPUT: 'wsk-checkbox__input',
 
-  var bottom = document.createElement('span');
-  bottom.classList.add('wsk-checkbox__bottom');
+  WSK_CHECKBOX_BOX_OUTLINE: 'wsk-checkbox__box-outline',
 
-  var topLeft = document.createElement('span');
-  topLeft.classList.add('wsk-checkbox__top-left');
+  WSK_CHECKBOX_FOCUS_HELPER: 'wsk-checkbox__focus-helper',
 
-  var topRight = document.createElement('span');
-  topRight.classList.add('wsk-checkbox__top-right');
+  WSK_CHECKBOX_TICK_OUTLINE: 'wsk-checkbox__tick-outline',
 
-  boxOutline.appendChild(tickOutline);
-  boxOutline.appendChild(topLeft);
-  boxOutline.appendChild(topRight);
-  boxOutline.appendChild(bottomRight);
-  boxOutline.appendChild(bottomLeft);
-  boxOutline.appendChild(bottom);
+  WSK_CHECKBOX_BOT_RIGHT: 'wsk-checkbox__bottom-right',
 
-  container.appendChild(tickContainer);
-  container.appendChild(boxOutline);
+  WSK_CHECKBOX_BOT_LEFT: 'wsk-checkbox__bottom-left',
 
-  var rippleContainer;
+  WSK_CHECKBOX_BOTTOM: 'wsk-checkbox__bottom',
 
-  if (container.classList.contains('wsk-js-ripple-effect')) {
-    container.classList.add('wsk-js-ripple-effect--ignore-events');
-    rippleContainer = document.createElement('span');
-    rippleContainer.classList.add('wsk-checkbox__ripple-container');
-    rippleContainer.classList.add('wsk-js-ripple-effect');
-    rippleContainer.classList.add('wsk-ripple--center');
+  WSK_CHECKBOX_TOP_LEFT: 'wsk-checkbox__top-left',
 
-    var ripple = document.createElement('span');
-    ripple.classList.add('wsk-ripple');
+  WSK_CHECKBOX_TOP_RIGHT: 'wsk-checkbox__top-right',
 
-    rippleContainer.appendChild(ripple);
-    container.appendChild(rippleContainer);
+  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+
+  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+
+  WSK_CHECKBOX_RIPPLE_CONTAINER: 'wsk-checkbox__ripple-container',
+
+  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
+
+  WSK_RIPPLE: 'wsk-ripple',
+
+  IS_FOCUSED: 'is-focused',
+
+  IS_DISABLED: 'is-disabled',
+
+  IS_CHECKED: 'is-checked'
+};
+
+
+/**
+ * Handle change of state.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialCheckbox.prototype.onChange_ = function(event) {
+  'use strict';
+
+  this.updateClasses_(this.btnElement_, this.element_);
+};
+
+
+/**
+ * Handle focus of element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialCheckbox.prototype.onFocus_ = function(event) {
+  'use strict';
+
+  this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+};
+
+
+/**
+ * Handle lost focus of element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialCheckbox.prototype.onBlur_ = function(event) {
+  'use strict';
+
+  this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+};
+
+
+/**
+ * Handle mouseup.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialCheckbox.prototype.onMouseUp_ = function(event) {
+  'use strict';
+
+  this.blur_();
+};
+
+
+/**
+ * Handle class updates.
+ * @param {HTMLElement} button The button whose classes we should update.
+ * @param {HTMLElement} label The label whose classes we should update.
+ * @private
+ */
+MaterialCheckbox.prototype.updateClasses_ = function(button, label) {
+  'use strict';
+
+  if (button.disabled) {
+    label.classList.add(this.CssClasses_.IS_DISABLED);
+  } else {
+    label.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  btnElement.addEventListener('change', function(e) {
-    this.updateClasses(btnElement, container);
-  }.bind(this));
+  if (button.checked) {
+    label.classList.add(this.CssClasses_.IS_CHECKED);
+  } else {
+    label.classList.remove(this.CssClasses_.IS_CHECKED);
+  }
+};
 
-  btnElement.addEventListener('focus', function(e) {
-    container.classList.add('is-focused');
-  }.bind(this));
 
-  btnElement.addEventListener('blur', function(e) {
-    container.classList.remove('is-focused');
-  }.bind(this));
+/**
+ * Add blur.
+ * @private
+ */
+MaterialCheckbox.prototype.blur_ = function(event) {
+  'use strict';
 
-  container.addEventListener('mouseup', function(e) {
-    this.blur();
-  }.bind(this));
+  // TODO: figure out why there's a focus event being fired after our blur,
+  // so that we can avoid this hack.
+  window.setTimeout(function() {
+    this.btnElement_.blur();
+  }.bind(this), this.Constant_.TINY_TIMEOUT);
+};
 
-  rippleContainer.addEventListener('mouseup', function(e) {
-    this.blur();
-  }.bind(this));
 
-  this.updateClasses = function(button, label) {
-    if (button.disabled) {
-      label.classList.add('is-disabled');
-    } else {
-      label.classList.remove('is-disabled');
+/**
+ * Initialize element.
+ */
+MaterialCheckbox.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
+    this.btnElement_ = this.element_.querySelector('.' +
+        this.CssClasses_.WSK_CHECKBOX_INPUT);
+
+    var boxOutline = document.createElement('span');
+    boxOutline.classList.add(this.CssClasses_.WSK_CHECKBOX_BOX_OUTLINE);
+
+    var tickContainer = document.createElement('span');
+    tickContainer.classList.add(this.CssClasses_.WSK_CHECKBOX_FOCUS_HELPER);
+
+    var tickOutline = document.createElement('span');
+    tickOutline.classList.add(this.CssClasses_.WSK_CHECKBOX_TICK_OUTLINE);
+
+    var bottomRight = document.createElement('span');
+    bottomRight.classList.add(this.CssClasses_.WSK_CHECKBOX_BOT_RIGHT);
+
+    var bottomLeft = document.createElement('span');
+    bottomLeft.classList.add(this.CssClasses_.WSK_CHECKBOX_BOT_LEFT);
+
+    var bottom = document.createElement('span');
+    bottom.classList.add(this.CssClasses_.WSK_CHECKBOX_BOTTOM);
+
+    var topLeft = document.createElement('span');
+    topLeft.classList.add(this.CssClasses_.WSK_CHECKBOX_TOP_LEFT);
+
+    var topRight = document.createElement('span');
+    topRight.classList.add(this.CssClasses_.WSK_CHECKBOX_TOP_RIGHT);
+
+    boxOutline.appendChild(tickOutline);
+    boxOutline.appendChild(topLeft);
+    boxOutline.appendChild(topRight);
+    boxOutline.appendChild(bottomRight);
+    boxOutline.appendChild(bottomLeft);
+    boxOutline.appendChild(bottom);
+
+    this.element_.appendChild(tickContainer);
+    this.element_.appendChild(boxOutline);
+
+    var rippleContainer;
+    if (this.element_.classList.contains(
+        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+      this.element_.classList.add(
+          this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+      rippleContainer = document.createElement('span');
+      rippleContainer.classList.add(
+          this.CssClasses_.WSK_CHECKBOX_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
+      rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+
+      var ripple = document.createElement('span');
+      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+
+      rippleContainer.appendChild(ripple);
+      this.element_.appendChild(rippleContainer);
     }
 
-    if (button.checked) {
-      label.classList.add('is-checked');
-    } else {
-      label.classList.remove('is-checked');
-    }
-  };
+    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
 
-  this.blur = function() {
-    // TODO: figure out why there's a focus event being fired after our blur,
-    // so that we can avoid this hack.
-    window.setTimeout(function() { btnElement.blur(); }, 0.001);
-  };
+    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
 
-  this.updateClasses(btnElement, container);
-  container.classList.add('is-upgraded');
-}
+    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+
+    this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
+
+    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
+
+    this.updateClasses_(this.btnElement_, this.element_);
+    this.element_.classList.add('is-upgraded');
+  }
+};
+
 
 window.addEventListener('load', function() {
   'use strict';
 
-  var radios = document.querySelectorAll('.wsk-js-checkbox');
-  for (var i = 0; i < radios.length; i++) {
-    var button = radios[i].querySelector('.wsk-checkbox__input');
-    new Checkbox(button, radios[i]);
-  }
+  // On document ready, the component registers itself. It can assume
+  // componentHandler is available in the global scope.
+  componentHandler.register({
+    constructor: MaterialCheckbox,
+    classAsString: 'MaterialCheckbox',
+    cssClass: 'wsk-js-checkbox'
+  });
 });

@@ -14,5 +14,7 @@
   "undef": true,
   "unused": "vars",
   "strict": true,
-  "globals": {}
+  "globals": {
+    "componentHandler": true
+  }
 }
