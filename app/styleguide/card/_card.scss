@@ -76,9 +76,16 @@ $heading-back-border: 0 none rgb(255, 255, 255) !default;
 }
 
 .wsk-card--img-container {
-  background         : $image-placeholder-color url($background-image-url) repeat scroll 50% 50% / cover padding-box border-box;
-  background-position: 50% 50%;
-  height             : $cover-image-height;
+  background-color     : $image-placeholder-color;
+  @if str_length($background-image-url) > 0 {
+  background-image     : url($background-image-url);
+  }
+  background-repeat    : repeat;
+  background-position  : 50% 50%;
+  background-size      : cover;
+  background-origin    : padding-box;
+  background-attachment: scroll;
+  height               : $cover-image-height;
 }
 
 .wsk-card--heading {
