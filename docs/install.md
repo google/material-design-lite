@@ -33,7 +33,7 @@ If you need to install/upgrade Gulp, open up a terminal and type in the followin
 $ npm install --global gulp
 ```
 
-*This will install Gulp globally. Depending on your user account, you may need to gain elevated permissions using `sudo` (i.e `sudo npm install --global gulp`).*
+*This will install Gulp globally. Depending on your user account, you may need to [configure your system](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md) to install packages globally without administrative privileges.*
 
 
 ### Local dependencies
