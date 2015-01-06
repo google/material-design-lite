@@ -109,7 +109,7 @@ gulp.task('styles', function() {
 
 // Concatenate And Minify JavaScript
 gulp.task('scripts', function() {
-  return gulp.src('app/styleguide/**/*.js')
+  return gulp.src(['app/scripts/**/*.js', 'app/styleguide/**/*.js'])
     .pipe($.concat('main.min.js'))
     .pipe($.uglify({preserveComments: 'some'}))
     // Output Files
