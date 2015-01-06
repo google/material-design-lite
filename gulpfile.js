@@ -143,8 +143,6 @@ gulp.task('html', function() {
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
-    // Update Production Style Guide Paths
-    .pipe($.replace('components/components.css', 'components/main.min.css'))
     // Minify Any HTML
     .pipe($.if('*.html', $.minifyHtml()))
     // Output Files
