@@ -132,10 +132,7 @@ gulp.task('html', function() {
         'app/styleguide.html'
       ],
       // CSS Selectors for UnCSS to ignore
-      ignore: [
-        /.navdrawer-container.open/,
-        /.app-bar.open/
-      ]
+      ignore: []
     })))
 
     // Concatenate And Minify Styles
