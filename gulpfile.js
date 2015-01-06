@@ -28,18 +28,6 @@ var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
 
-var AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4.4',
-  'bb >= 10'
-];
-
 // Lint JavaScript
 gulp.task('jshint', function() {
   return gulp.src(['app/scripts/**/*.js', 'app/styleguide/**/*.js'])
@@ -88,6 +76,19 @@ gulp.task('fonts', function() {
 
 // Compile and Automatically Prefix Stylesheets
 gulp.task('styles', function() {
+
+  var AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  ];
+
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'app/**/*.scss',
