@@ -1,5 +1,5 @@
 @import 'typography/typography';
-@import "palette/palette";
+@import "colors";
 @import "layout/layout";
 
 $padding: 24px;
@@ -81,11 +81,3 @@ iframe.heightSet {
     border: 1px solid rgba(0,0,0,0.5);
   }
 }
-
-/*
-@media (max-width: 600px) {
-    .styleguide-masthead {
-        height:300px;
-    }
-}
-*/
