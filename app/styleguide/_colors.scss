@@ -19,8 +19,8 @@ $palette-page: $palette-grey !default;
 
 $text-color-primary: nth($palette-grey, 9) !default;
 $text-color-secondary: nth($palette-grey, 6) !default;
-$text-color-primary-inverse: #fff !default;
-$text-color-secondary-inverse: #ccc !default;
+$text-color-primary-inverse: invert($text-color-primary) !default;
+$text-color-secondary-inverse: invert($text-color-secondary) !default;
 
 /* ==========  Components  ========== */
 
