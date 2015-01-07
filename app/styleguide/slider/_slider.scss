@@ -1,10 +1,6 @@
 @import "../colors";
 @import "../animation/animation";
 
-// Default Range Colors.
-$range-bg-color: rgba(0, 0, 0, 0.26);
-$range-color: nth($palette-primary, 6);
-
 // Some CSS magic to target only IE.
 _:-ms-input-placeholder, :root .wsk-slider.wsk-slider {
   -ms-appearance: none;

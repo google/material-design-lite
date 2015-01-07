@@ -2,9 +2,6 @@
 @import "../colors";
 @import "../shadow/shadow";
 
-// Default Dropdown Colors
-$default-dropdown-bg-color: #fff;
-
 .wsk-dropdown-menu {
   list-style   : none;
   background   : $default-dropdown-bg-color;

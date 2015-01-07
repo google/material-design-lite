@@ -1,13 +1,12 @@
 @import "../colors";
 @import "../typography/typography";
 
-
 .wsk-tooltip {
   -webkit-transform: scale(0);
   -webkit-transform-origin: top center;
-  background: nth($palette-accent, 7);
+  background: $tooltip-background-color;
   border-radius: 5px;
-  color: #fff;
+  color: $tooltip-text-color;
   display: none;
   font-size: 10px;
   line-height: 14px;
@@ -27,7 +26,6 @@
   font-size: 14px;
   padding: 16px;
 }
-
 
 @-webkit-keyframes pulse {
   0% {

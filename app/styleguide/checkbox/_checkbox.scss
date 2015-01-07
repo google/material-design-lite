@@ -2,10 +2,6 @@
 @import "../animation/animation";
 @import "../ripple/ripple";
 
-$checkbox-color: nth($palette-primary, 6);
-$checkbox-off-color: rgba(0, 0, 0, 0.54);
-$checkbox-disabled-color: rgba(0, 0, 0, 0.26);
-
 $checkbox-label-height: 24px;
 $checkbox-button-size: 16px;
 $checkbox-inner-margin: 2px;

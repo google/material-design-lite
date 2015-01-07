@@ -47,23 +47,9 @@ $card-bottom-anchor-transform-origin-y: 25px !default;
 $card-heading-text-font-weight: 300 !default;
 $card-z-index: 1 !default;
 
-/* Colors */
-$card-background-color: white !default;
-$heading-color: white !default;
-$heading-back-color: white !default;
-$heading-back-bgcolor: nth($palette-primary, 8) !default;
-$action-link-color: nth($palette-primary, 10) !default;
-$caption-color: white !default;
-$caption-bgcolor: nth($palette-primary, 10) !default;
-$image-placeholder-color: nth($palette-accent, 5) !default;
-$lower-text-color: nth($palette-primary, 10) !default;
-
 /* Cover image */
 $cover-image-height: 186px !default;
 $background-image-url: '' !default;
-
-/* Heading back */
-$heading-back-border: 0 none rgb(255, 255, 255) !default;
 
 .wsk-card {
   font-size: $card-font-size;

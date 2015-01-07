@@ -1,4 +1,5 @@
 @import "../styleguide_demo_bp";
+@import "../colors";
 @import 'typography';
 
 table th {
@@ -39,4 +40,9 @@ table th {
 .PreviewBlock--img-2 {
   background-image: url(images/img-2.png);
   color: white;
+}
+
+
+html {
+  color: $text-color-primary;
 }

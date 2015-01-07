@@ -2,16 +2,6 @@
 @import "../colors";
 @import "../ripple/ripple";
 
-// Default Item Colors
-$default-item-text-color: #000;
-$default-item-outline-color: nth($palette-secondary, 5);
-$default-item-hover-bg-color: nth($palette-secondary, 3);
-$default-item-focus-bg-color: nth($palette-secondary, 3);
-$default-item-active-bg-color: nth($palette-secondary, 4);
-
-// Disabled Button Colors
-$disabled-item-text-color: nth($palette-disabled, 5);
-
 .wsk-item {
   border       : none;
   color        : $default-item-text-color;

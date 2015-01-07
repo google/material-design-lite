@@ -3,14 +3,6 @@
 @import '../typography/typography';
 @import '../animation/animation';
 
-// Colors
-$layout-drawer-bg-color: nth($palette-page, 1);
-$layout-drawer-border-color: nth($palette-page, 4);
-$layout-text-color: nth($palette-page, 9);
-
-$layout-header-bg-color: nth($palette-primary, 6);
-$layout-header-text-color: nth($palette-page, 3);
-
 // Dimensions
 $layout-drawer-narrow: 240px;
 $layout-drawer-wide: 456px;

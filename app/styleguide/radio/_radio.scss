@@ -2,10 +2,6 @@
 @import "../animation/animation";
 @import "../ripple/ripple";
 
-$radio-color: nth($palette-primary, 6);
-$radio-off-color: rgba(0, 0, 0, 0.54);
-$radio-disabled-color: rgba(0, 0, 0, 0.26);
-
 $radio-label-height: 24px;
 $radio-button-size: 16px;
 $radio-inner-margin: $radio-button-size / 4;
