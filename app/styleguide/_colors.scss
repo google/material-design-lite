@@ -1,8 +1,139 @@
 @import "palette/palette";
 
-/* ==========  Used Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+
+// Use color primarily for emphasis. Choose colors that fit with
+// your brand and provide good contrast between visual components.
+
 $palette-primary: $palette-blue !default;
 $palette-accent: $palette-pink !default;
 $palette-secondary: $palette-grey !default;
 $palette-disabled: $palette-grey !default;
 $palette-page: $palette-grey !default;
+
+/* ==========  Typography  ========== */
+
+// We use the following default color styles: text-color-primary and
+// text-color-secondary. For light themes, use text-color-primary-inverse
+// and text-color-secondary-inverse.
+
+$text-color-primary: nth($palette-grey, 9) !default;
+$text-color-secondary: nth($palette-grey, 6) !default;
+$text-color-primary-inverse: #fff !default;
+$text-color-secondary-inverse: #ccc !default;
+
+/* ==========  Components  ========== */
+
+/* ==========  Standard Buttons  ========== */
+
+// Default button colors.
+$button-primary-color: rgba(#999999, 0.20) !default;
+$button-secondary-color: #000 !default;
+$button-hover-color: $button-primary-color !default;
+$button-active-color: rgba($button-primary-color, 0.40) !default;
+$button-focus-color: rgba(black, 0.12) !default;
+
+// Colored button colors.
+$button-primary-color-alt: nth($palette-primary, 6) !default;
+$button-secondary-color-alt: #fff !default;
+$button-hover-color-alt: nth($palette-primary, 7) !default;
+$button-active-color-alt: nth($palette-primary, 8) !default;
+$button-focus-color-alt: $button-focus-color !default;
+
+// Ripple color for colored raised buttons and FABs.
+$button-ripple-color-alt: white !default;
+
+// Disabled button colors.
+$button-primary-color-disabled: rgba(#000, 0.12) !default;
+$button-secondary-color-disabled: rgba(#000, 0.26) !default;
+
+// FAB colors and sizes.
+$button-fab-color-alt: nth($palette-accent, 5) !default;
+$button-fab-hover-color-alt: nth($palette-accent, 6) !default;
+$button-fab-active-color-alt: nth($palette-accent, 7) !default;
+
+// Icon button colors and sizes.
+$button-icon-color: nth($palette-grey, 8) !default;
+$button-icon-focus-color: $button-focus-color !default;
+
+/* ==========  Radio Buttons  ========== */
+
+$radio-color: nth($palette-primary, 6);
+$radio-off-color: rgba(0, 0, 0, 0.54);
+$radio-disabled-color: rgba(0, 0, 0, 0.26);
+
+/* ==========  Ripple effect  ========== */
+
+$ripple-bg-color: nth($palette-grey, 10);
+
+/* ==========  Layout  ========== */
+
+// Drawer
+$layout-drawer-bg-color: nth($palette-page, 1);
+$layout-drawer-border-color: nth($palette-page, 4);
+$layout-text-color: nth($palette-page, 9);
+
+// Header
+$layout-header-bg-color: nth($palette-primary, 6);
+$layout-header-text-color: nth($palette-page, 3);
+
+/* ==========  Checkboxes  ========== */
+
+$checkbox-color: nth($palette-primary, 6);
+$checkbox-off-color: rgba(0, 0, 0, 0.54);
+$checkbox-disabled-color: rgba(0, 0, 0, 0.26);
+
+/* ==========  Text fields  ========== */
+
+$input-text-background-color: transparent;
+$input-text-label-color: rgba(0, 0, 0, 0.26);
+$input-text-bottom-border-color: rgba(0, 0, 0, 0.12);
+$input-text-highlight-color: nth($palette-primary, 6);
+$input-text-disabled-color: $input-text-bottom-border-color;
+$input-text-error-color: nth($palette-red, 7);
+
+/* ==========  Card  ========== */
+
+$card-background-color: white !default;
+$heading-color: white !default;
+$heading-back-color: white !default;
+$heading-back-bgcolor: nth($palette-primary, 8) !default;
+$action-link-color: nth($palette-primary, 10) !default;
+$caption-color: white !default;
+$caption-bgcolor: nth($palette-primary, 10) !default;
+$image-placeholder-color: nth($palette-accent, 5) !default;
+$lower-text-color: nth($palette-primary, 10) !default;
+
+/* Heading back */
+$heading-back-border: 0 none rgb(255, 255, 255) !default;
+
+/* ==========  Sliders ========== */
+
+$range-bg-color: rgba(0, 0, 0, 0.26);
+$range-color: nth($palette-primary, 6);
+
+/* ==========  List ========== */
+
+$list-container-item-border-color: #ddd;
+$list-container-view-background: rgba(255,255,255,1);
+
+/* ==========  Item ========== */
+
+// Default Item Colors
+$default-item-text-color: #000;
+$default-item-outline-color: nth($palette-secondary, 5);
+$default-item-hover-bg-color: nth($palette-secondary, 3);
+$default-item-focus-bg-color: nth($palette-secondary, 3);
+$default-item-active-bg-color: nth($palette-secondary, 4);
+
+// Disabled Button Colors
+$disabled-item-text-color: nth($palette-disabled, 5);
+
+/* ==========  Dropdown menu ========== */
+
+$default-dropdown-bg-color: #fff;
+
+/* ==========  Tooltips  ========== */
+
+$tooltip-text-color: #fff;
+$tooltip-background-color: nth($palette-accent, 7);

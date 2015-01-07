@@ -20,3 +20,11 @@ body {
 main {
   padding: 20px;
 }
+
+html, body {
+  color: $text-color-secondary;
+}
+
+h1, h2, h3, h4, h5 {
+  color: $text-color-primary;
+}
