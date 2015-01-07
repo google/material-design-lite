@@ -25,7 +25,7 @@ body {
 .styleguide-demo {
   opacity: 0;
 
-  transition: opacity 0.6s 0 ease;
+  transition: opacity 0.6s ease;
 }
 
 .styleguide-masthead {
@@ -56,6 +56,10 @@ body {
   span {
     font-weight: 300;
   }
+}
+
+.wsk-styleguide .wsk-layout__drawer .wsk-navigation__link {
+  padding: 10px 24px;
 }
 
 .demosLoaded .styleguide-demo {
