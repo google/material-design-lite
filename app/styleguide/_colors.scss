@@ -77,6 +77,13 @@ $layout-text-color: nth($palette-page, 9) !default;
 $layout-header-bg-color: nth($palette-primary, 6) !default;
 $layout-header-text-color: nth($palette-page, 3) !default;
 
+/* ==========  Content Tabs  ========== */
+
+$tab-highlight-color: nth($palette-primary, 6) !default;
+$tab-text-color: rgba(0, 0, 0, 0.6) !default;
+$tab-active-text-color: black !default;
+$tab-border-color: nth($palette-grey, 4) !default;
+
 /* ==========  Checkboxes  ========== */
 
 $checkbox-color: nth($palette-primary, 6) !default;

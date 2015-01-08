@@ -1,0 +1,108 @@
+@import "../colors";
+@import "../animation/animation";
+@import "../typography/typography";
+@import "../ripple/ripple";
+
+.wsk-tabs {
+  display: block;
+  width: 100%;
+}
+
+.wsk-tabs__tab-bar {
+  height: 48px;
+  padding: 0 0 0 56px;
+  margin: 0;
+  border-bottom: 1px solid $tab-border-color;
+}
+
+.wsk-tabs__tab {
+  margin: 0;
+  border: none;
+  padding: 0 24px 0 24px;
+
+  float: left;
+  position: relative;
+  display: block;
+
+  color: red;
+  text-decoration: none;
+  height: 48px;
+  line-height: 48px;
+
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  color: $tab-text-color;
+  overflow: hidden;
+
+  .wsk-tabs.is-upgraded &.is-active {
+    color: $tab-active-text-color;
+  }
+
+  .wsk-tabs.is-upgraded &.is-active:after {
+    height: 2px;
+    width: 100%;
+    display: block;
+    content: " ";
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    background: $tab-highlight-color;
+    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
+    -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
+    transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
+  }
+
+  & .wsk-tabs__ripple-container {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    overflow: hidden;
+
+    & .wsk-ripple {
+      background: $tab-highlight-color;
+    }
+  }
+}
+
+.wsk-tabs__panel {
+  display: block;
+
+  .wsk-tabs.is-upgraded & {
+    display: none;
+  }
+
+  .wsk-tabs.is-upgraded &.is-active {
+    display: block;
+  }
+}
+
+@-webkit-keyframes border-expand {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@-moz-keyframes border-expand {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
