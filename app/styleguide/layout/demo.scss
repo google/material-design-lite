@@ -22,16 +22,16 @@
 }
 
 // Styles for fixed drawer demos.
-.wsk-layout__header .ExpandableIcon {
+.wsk-layout__header .wsk-textfield-expandable-icon {
   border-color: nth($palette-page, 3);
   border-radius: 50%;
 }
 
-.wsk-layout__header .ExpandableIcon:hover {
+.wsk-layout__header .wsk-textfield-expandable-icon:hover {
   background-color: rgba(nth($palette-grey, 8), 0.6);
 }
 
-.wsk-layout__header .TextField {
+.wsk-layout__header .wsk-textfield {
   color: nth($palette-page, 3);
 }
 
