@@ -1,0 +1,181 @@
+@import "../colors";
+@import "../animation/animation";
+@import "../shadow/shadow";
+@import "../ripple/ripple";
+
+$switch-label-height: 24px;
+$switch-track-height: 14px;
+$switch-track-length: 36px;
+$switch-thumb-size: 20px;
+$switch-track-top: ($switch-label-height - $switch-track-height) / 2;
+$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2;
+$switch-ripple-size: $switch-label-height * 2;
+
+.wsk-switch {
+  position: relative;
+
+  z-index: 1;
+
+  vertical-align: middle;
+
+  display: inline-block;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: $switch-label-height;
+  margin: 12px 0;
+  padding: 0;
+
+  overflow: visible;
+}
+
+.wsk-switch__input {
+  line-height: $switch-label-height;
+
+  .wsk-switch.is-upgraded & {
+    // Hide input element, while still making it respond to focus.
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+  }
+}
+
+.wsk-switch__track {
+  background: $switch-off-track-color;
+  position: absolute;
+  left: 0;
+  top: $switch-track-top;
+  height: $switch-track-height;
+  width: $switch-track-length;
+  border-radius: $switch-track-height;
+
+  cursor: pointer;
+
+  .wsk-switch.is-checked & {
+    background: $switch-track-color;
+  }
+
+  .wsk-switch.is-disabled & {
+    background: $switch-disabled-track-color;
+    cursor: auto;
+  }
+}
+
+.wsk-switch__thumb {
+  background: $switch-off-thumb-color;
+  position: absolute;
+  left: 0;
+  top: $switch-thumb-top;
+  height: $switch-thumb-size;
+  width: $switch-thumb-size;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  @include shadow-z1();
+
+  @include material-animation-default(0.28s);
+  transition-property: left;
+
+  .wsk-switch.is-checked & {
+    background: $switch-thumb-color;
+    left: $switch-track-length - $switch-thumb-size;
+
+    @include shadow-z2();
+  }
+
+  .wsk-switch.is-disabled & {
+    background: $switch-disabled-thumb-color;
+    cursor: auto;
+  }
+}
+
+.wsk-switch__focus-helper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-$switch-button-size / 2, -$switch-button-size / 2);
+
+  display: inline-block;
+
+  box-sizing: border-box;
+  width: $switch-button-size;
+  height: $switch-button-size;
+  border-radius: 50%;
+
+  background-color: transparent;
+
+  .wsk-switch.is-focused & {
+    box-shadow: 0 0 0px (($switch-ripple-size - $switch-button-size) / 2)
+        rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .wsk-switch.is-focused.is-checked & {
+    box-shadow: 0 0 0px (($switch-ripple-size - $switch-button-size) / 2)
+        rgba($switch-color, 0.26);
+    background-color: rgba($switch-color, 0.26);
+  }
+}
+
+.wsk-switch__label {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: $switch-label-height;
+  margin: 0;
+  left: 24px;
+
+  .wsk-switch.is-disabled & {
+    color: $switch-disabled-thumb-color;
+    cursor: auto;
+  }
+}
+
+.wsk-switch__ripple-container {
+  position: absolute;
+  z-index: 2;
+  top: -($switch-ripple-size - $switch-label-height) / 2;
+  left: $switch-thumb-size / 2 - $switch-ripple-size / 2;
+
+  box-sizing: border-box;
+  width: $switch-ripple-size;
+  height: $switch-ripple-size;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+
+  transition-duration: 0.40s;
+  transition-timing-function: step-end;
+  transition-property: left;
+
+  & .wsk-ripple {
+    background: $switch-color;
+  }
+
+  .wsk-switch.is-disabled & {
+    cursor: auto;
+  }
+
+  .wsk-switch.is-disabled & .wsk-ripple {
+    background: transparent;
+  }
+
+  .wsk-switch.is-checked & {
+    cursor: auto;
+    left: $switch-track-length - $switch-ripple-size / 2 -
+        $switch-thumb-size / 2;
+  }
+}

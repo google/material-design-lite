@@ -83,6 +83,17 @@ $checkbox-color: nth($palette-primary, 6);
 $checkbox-off-color: rgba(0, 0, 0, 0.54);
 $checkbox-disabled-color: rgba(0, 0, 0, 0.26);
 
+/* ==========  Switches  ========== */
+
+$switch-color: nth($palette-primary, 6);
+$switch-thumb-color: $switch-color;
+$switch-track-color: rgba($switch-color, 0.5);
+
+$switch-off-thumb-color: nth($palette-grey, 1);
+$switch-off-track-color: rgba(0, 0, 0, 0.26);
+$switch-disabled-thumb-color: nth($palette-grey, 5);
+$switch-disabled-track-color: rgba(0, 0, 0, 0.12);
+
 /* ==========  Text fields  ========== */
 
 $input-text-background-color: transparent;
