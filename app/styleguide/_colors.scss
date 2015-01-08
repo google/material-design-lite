@@ -58,50 +58,50 @@ $button-icon-focus-color: $button-focus-color !default;
 
 /* ==========  Radio Buttons  ========== */
 
-$radio-color: nth($palette-primary, 6);
-$radio-off-color: rgba(0, 0, 0, 0.54);
-$radio-disabled-color: rgba(0, 0, 0, 0.26);
+$radio-color: nth($palette-primary, 6) !default;
+$radio-off-color: rgba(0, 0, 0, 0.54) !default;
+$radio-disabled-color: rgba(0, 0, 0, 0.26) !default;
 
 /* ==========  Ripple effect  ========== */
 
-$ripple-bg-color: nth($palette-grey, 10);
+$ripple-bg-color: nth($palette-grey, 10) !default;
 
 /* ==========  Layout  ========== */
 
 // Drawer
-$layout-drawer-bg-color: nth($palette-page, 1);
-$layout-drawer-border-color: nth($palette-page, 4);
-$layout-text-color: nth($palette-page, 9);
+$layout-drawer-bg-color: nth($palette-page, 1) !default;
+$layout-drawer-border-color: nth($palette-page, 4) !default;
+$layout-text-color: nth($palette-page, 9) !default;
 
 // Header
-$layout-header-bg-color: nth($palette-primary, 6);
-$layout-header-text-color: nth($palette-page, 3);
+$layout-header-bg-color: nth($palette-primary, 6) !default;
+$layout-header-text-color: nth($palette-page, 3) !default;
 
 /* ==========  Checkboxes  ========== */
 
-$checkbox-color: nth($palette-primary, 6);
-$checkbox-off-color: rgba(0, 0, 0, 0.54);
-$checkbox-disabled-color: rgba(0, 0, 0, 0.26);
+$checkbox-color: nth($palette-primary, 6) !default;
+$checkbox-off-color: rgba(0, 0, 0, 0.54) !default;
+$checkbox-disabled-color: rgba(0, 0, 0, 0.26) !default;
 
 /* ==========  Switches  ========== */
 
-$switch-color: nth($palette-primary, 6);
-$switch-thumb-color: $switch-color;
-$switch-track-color: rgba($switch-color, 0.5);
+$switch-color: nth($palette-primary, 6) !default;
+$switch-thumb-color: $switch-color !default;
+$switch-track-color: rgba($switch-color, 0.5) !default;
 
-$switch-off-thumb-color: nth($palette-grey, 1);
-$switch-off-track-color: rgba(0, 0, 0, 0.26);
-$switch-disabled-thumb-color: nth($palette-grey, 5);
-$switch-disabled-track-color: rgba(0, 0, 0, 0.12);
+$switch-off-thumb-color: nth($palette-grey, 1) !default;
+$switch-off-track-color: rgba(0, 0, 0, 0.26) !default;
+$switch-disabled-thumb-color: nth($palette-grey, 5) !default;
+$switch-disabled-track-color: rgba(0, 0, 0, 0.12) !default;
 
 /* ==========  Text fields  ========== */
 
-$input-text-background-color: transparent;
-$input-text-label-color: rgba(0, 0, 0, 0.26);
-$input-text-bottom-border-color: rgba(0, 0, 0, 0.12);
-$input-text-highlight-color: nth($palette-primary, 6);
-$input-text-disabled-color: $input-text-bottom-border-color;
-$input-text-error-color: nth($palette-red, 7);
+$input-text-background-color: transparent !default;
+$input-text-label-color: rgba(0, 0, 0, 0.26) !default;
+$input-text-bottom-border-color: rgba(0, 0, 0, 0.12) !default;
+$input-text-highlight-color: nth($palette-primary, 6) !default;
+$input-text-disabled-color: $input-text-bottom-border-color !default;
+$input-text-error-color: nth($palette-red, 7) !default;
 
 /* ==========  Card  ========== */
 
@@ -120,31 +120,39 @@ $heading-back-border: 0 none rgb(255, 255, 255) !default;
 
 /* ==========  Sliders ========== */
 
-$range-bg-color: rgba(0, 0, 0, 0.26);
-$range-color: nth($palette-primary, 6);
+$range-bg-color: rgba(0, 0, 0, 0.26) !default;
+$range-color: nth($palette-primary, 6) !default;
 
 /* ==========  List ========== */
 
-$list-container-item-border-color: #ddd;
-$list-container-view-background: rgba(255,255,255,1);
+$list-container-item-border-color: #ddd !default;
+$list-container-view-background: rgba(255,255,255,1) !default;
 
 /* ==========  Item ========== */
 
 // Default Item Colors
 $default-item-text-color: #000;
-$default-item-outline-color: nth($palette-secondary, 5);
-$default-item-hover-bg-color: nth($palette-secondary, 3);
-$default-item-focus-bg-color: nth($palette-secondary, 3);
-$default-item-active-bg-color: nth($palette-secondary, 4);
+$default-item-outline-color: nth($palette-secondary, 5) !default;
+$default-item-hover-bg-color: nth($palette-secondary, 3) !default;
+$default-item-focus-bg-color: nth($palette-secondary, 3) !default;
+$default-item-active-bg-color: nth($palette-secondary, 4) !default;
 
 // Disabled Button Colors
-$disabled-item-text-color: nth($palette-disabled, 5);
+$disabled-item-text-color: nth($palette-disabled, 5) !default;
 
 /* ==========  Dropdown menu ========== */
 
-$default-dropdown-bg-color: #fff;
+$default-dropdown-bg-color: #fff !default;
 
 /* ==========  Tooltips  ========== */
 
-$tooltip-text-color: #fff;
-$tooltip-background-color: nth($palette-accent, 7);
+$tooltip-text-color: #fff !default;
+$tooltip-background-color: nth($palette-accent, 7) !default;
+
+/* ==========  Footer  ========== */
+
+$footer-bg-color: #454545 !default;
+$footer-color: #A0A0A0 !default;
+$footer-heading-color: #E2E2E2 !default;
+$footer-button-fill-color: $footer-color !default;
+$footer-underline-color: $footer-color;
