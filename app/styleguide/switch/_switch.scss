@@ -10,6 +10,7 @@ $switch-thumb-size: 20px;
 $switch-track-top: ($switch-label-height - $switch-track-height) / 2;
 $switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2;
 $switch-ripple-size: $switch-label-height * 2;
+$switch-helper-size: 8px;
 
 .wsk-switch {
   position: relative;
@@ -27,6 +28,10 @@ $switch-ripple-size: $switch-label-height * 2;
   padding: 0;
 
   overflow: visible;
+
+  &.is-upgraded {
+    padding-left: $switch-track-length - 8px;
+  }
 }
 
 .wsk-switch__input {
@@ -103,25 +108,25 @@ $switch-ripple-size: $switch-label-height * 2;
   top: 50%;
   left: 50%;
 
-  transform: translate(-$switch-button-size / 2, -$switch-button-size / 2);
+  transform: translate(-$switch-helper-size / 2, -$switch-helper-size / 2);
 
   display: inline-block;
 
   box-sizing: border-box;
-  width: $switch-button-size;
-  height: $switch-button-size;
+  width: $switch-helper-size;
+  height: $switch-helper-size;
   border-radius: 50%;
 
   background-color: transparent;
 
   .wsk-switch.is-focused & {
-    box-shadow: 0 0 0px (($switch-ripple-size - $switch-button-size) / 2)
+    box-shadow: 0 0 0px (($switch-ripple-size - $switch-helper-size) / 2)
         rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1);
   }
 
   .wsk-switch.is-focused.is-checked & {
-    box-shadow: 0 0 0px (($switch-ripple-size - $switch-button-size) / 2)
+    box-shadow: 0 0 0px (($switch-ripple-size - $switch-helper-size) / 2)
         rgba($switch-color, 0.26);
     background-color: rgba($switch-color, 0.26);
   }
