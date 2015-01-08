@@ -31,13 +31,6 @@ MaterialTextfield.prototype.Constant_ = {
  * @private
  */
 MaterialTextfield.prototype.CssClasses_ = {
-  /**
-   * Class names should use camelCase and be prefixed with the word "material"
-   * to minimize conflict with 3rd party systems.
-   */
-
-  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
-  // reduce conflict and convert to camelCase for consistency.
   WSK_TEXT_EXP_ICO_RIP_CONTAINER: 'wsk-textfield-expandable-icon__ripple__' +
       'container',
 

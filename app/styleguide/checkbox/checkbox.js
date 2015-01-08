@@ -30,13 +30,6 @@ MaterialCheckbox.prototype.Constant_ = {
  * @private
  */
 MaterialCheckbox.prototype.CssClasses_ = {
-  /**
-   * Class names should use camelCase and be prefixed with the word "material"
-   * to minimize conflict with 3rd party systems.
-   */
-
-  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
-  // reduce conflict and convert to camelCase for consistency.
   WSK_CHECKBOX_INPUT: 'wsk-checkbox__input',
 
   WSK_CHECKBOX_BOX_OUTLINE: 'wsk-checkbox__box-outline',

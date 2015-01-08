@@ -44,13 +44,6 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
-  /**
-   * Class names should use camelCase and be prefixed with the word "material"
-   * to minimize conflict with 3rd party systems.
-   */
-
-  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
-  // reduce conflict and convert to camelCase for consistency.
   WSK_LAYOUT_HEADER: 'wsk-layout__header',
 
   WSK_LAYOUT_DRAWER: 'wsk-layout__drawer',
