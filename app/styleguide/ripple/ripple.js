@@ -34,13 +34,6 @@ MaterialRipple.prototype.Constant_ = {
  * @private
  */
 MaterialRipple.prototype.CssClasses_ = {
-  /**
-   * Class names should use camelCase and be prefixed with the word "material"
-   * to minimize conflict with 3rd party systems.
-   */
-
-  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
-  // reduce conflict and convert to camelCase for consistency.
   WSK_RIPPLE_CENTER: 'wsk-ripple--center',
 
   WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
