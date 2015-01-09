@@ -208,14 +208,10 @@ MaterialLayout.prototype.init = function() {
 };
 
 
-window.addEventListener('load', function() {
-  'use strict';
-
-  // On document ready, the component registers itself. It can assume
-  // componentHandler is available in the global scope.
-  componentHandler.register({
-    constructor: MaterialLayout,
-    classAsString: 'MaterialLayout',
-    cssClass: 'wsk-js-layout'
-  });
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+  constructor: MaterialLayout,
+  classAsString: 'MaterialLayout',
+  cssClass: 'wsk-js-layout'
 });
