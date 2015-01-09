@@ -1,11 +1,4 @@
 /**
- * @license
- * Copyright 2014 Web Starter Kit.
- * https://github.com/google/web-starter-kit
- *
- * License: MIT
- * Author: Jason Mayes
- *
  * A component handler interface using the revealing module design pattern.
  * More details on this pattern design here:
  * https://github.com/jasonmayes/wsk-component-design-pattern
