@@ -1,6 +1,11 @@
 @import "../styleguide_demo_bp";
-@import "footer";
+@import "mega_footer";
+@import "mini_footer";
 
 body {
   padding: 0;
+}
+
+footer {
+  margin-bottom: 16px;
 }

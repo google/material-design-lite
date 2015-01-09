@@ -1,17 +1,17 @@
-@import "./../colors"
+@import "./../colors";
 
 /**************
  *
  * Sizes
  *
  *************/
-$padding: 16px;
-$footer-heading-font-size: 24px;
-$footer-heading-line-height: 1.5 * $footer-heading-font-size;
-$footer-btn-size: 36px;
+$padding: 16px !default;
+$footer-heading-font-size: 24px !default;
+$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
+$footer-btn-size: 36px  !default;
 
 .wsk-mega-footer {
-  padding: $padding * 2;
+  padding: ($padding * 2) $padding;
 
   color: $footer-color;
   background-color: $footer-bg-color;
@@ -33,15 +33,15 @@ $footer-btn-size: 36px;
   clear: both;
 }
 
-.wsk-mega-fotter--left-section {
+.wsk-mega-footer--left-section {
   margin-bottom: $padding;
 }
 
-.wsk-mega-fotter--right-section {
+.wsk-mega-footer--right-section {
   margin-bottom: $padding;
 }
 
-.wsk-mega-fotter--right-section a {
+.wsk-mega-footer--right-section a {
   display: block;
 
   margin-bottom: $padding;
@@ -51,15 +51,15 @@ $footer-btn-size: 36px;
 }
 
 @media screen and (min-width: 760px) {
-  .wsk-mega-fotter--left-section {
+  .wsk-mega-footer--left-section {
     float: left;
   }
 
-  .wsk-mega-fotter--right-section {
+  .wsk-mega-footer--right-section {
     float: right;
   }
 
-  .wsk-mega-fotter--right-section a {
+  .wsk-mega-footer--right-section a {
     display: inline-block;
 
     margin-left: $padding;

@@ -1,0 +1,88 @@
+@import "./../colors";
+
+/**************
+ *
+ * Sizes
+ *
+ *************/
+$padding: 16px !default;
+$footer-heading-font-size: 24px !default;
+$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
+$footer-btn-size: 36px  !default;
+
+.wsk-mini-footer {
+  padding: ($padding * 2) $padding;
+
+  color: $footer-color;
+  background-color: $footer-bg-color;
+}
+
+.wsk-mini-footer:after {
+  content: '';
+
+  display: block;
+
+  clear: both;
+}
+
+.wsk-mini-footer--link-list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.wsk-mini-footer--link-list li {
+  float: left;
+
+  margin-bottom: 0;
+  margin-right: $padding;
+}
+
+.wsk-mini-footer--link-list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wsk-mini-footer--left-section {
+  float: left;
+}
+
+.wsk-mini-footer--right-section {
+  float: right;
+}
+
+.wsk-mini-footer--social-btn {
+  width: $footer-btn-size;
+  height: $footer-btn-size;
+
+  padding: 0;
+  margin: 0;
+
+  background-color: $footer-button-fill-color;
+
+  border: none;
+}
+
+.wsk-mini-footer .wsk-logo {
+  float: left;
+
+  line-height: $footer-btn-size;
+}
+
+.wsk-mini-footer--link-list {
+  float: left;
+  clear: left;
+}
+
+
+
+@media screen and (min-width: 760px) {
+  .wsk-mini-footer--link-list {
+    clear: none;
+  }
+
+  .wsk-mini-footer--link-list li {
+    line-height: $footer-btn-size;
+  }
+}
