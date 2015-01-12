@@ -199,15 +199,10 @@ MaterialSwitch.prototype.init = function() {
   }
 };
 
-
-window.addEventListener('load', function() {
-  'use strict';
-
-  // On document ready, the component registers itself. It can assume
-  // componentHandler is available in the global scope.
-  componentHandler.register({
-    constructor: MaterialSwitch,
-    classAsString: 'MaterialSwitch',
-    cssClass: 'wsk-js-switch'
-  });
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+  constructor: MaterialSwitch,
+  classAsString: 'MaterialSwitch',
+  cssClass: 'wsk-js-switch'
 });
