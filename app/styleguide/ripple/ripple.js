@@ -181,14 +181,10 @@ MaterialRipple.prototype.init = function() {
 };
 
 
-window.addEventListener('load', function() {
-  'use strict';
-
-  // On document ready, the component registers itself. It can assume
-  // componentHandler is available in the global scope.
-  componentHandler.register({
-    constructor: MaterialRipple,
-    classAsString: 'MaterialRipple',
-    cssClass: 'wsk-js-ripple-effect'
-  });
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+  constructor: MaterialRipple,
+  classAsString: 'MaterialRipple',
+  cssClass: 'wsk-js-ripple-effect'
 });

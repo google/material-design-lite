@@ -230,14 +230,10 @@ MaterialCheckbox.prototype.init = function() {
 };
 
 
-window.addEventListener('load', function() {
-  'use strict';
-
-  // On document ready, the component registers itself. It can assume
-  // componentHandler is available in the global scope.
-  componentHandler.register({
-    constructor: MaterialCheckbox,
-    classAsString: 'MaterialCheckbox',
-    cssClass: 'wsk-js-checkbox'
-  });
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+  constructor: MaterialCheckbox,
+  classAsString: 'MaterialCheckbox',
+  cssClass: 'wsk-js-checkbox'
 });
