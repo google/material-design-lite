@@ -101,6 +101,15 @@ $switch-off-track-color: rgba(0, 0, 0, 0.26) !default;
 $switch-disabled-thumb-color: nth($palette-grey, 5) !default;
 $switch-disabled-track-color: rgba(0, 0, 0, 0.12) !default;
 
+/* ==========  Spinner  ========== */
+
+$spinner-color-1: #4285f4 !default;
+$spinner-color-2: #db4437 !default;
+$spinner-color-3: #f4b400 !default;
+$spinner-color-4: #0f9d58 !default;
+
+$spinner-single-color: nth($palette-primary, 6) !default;
+
 /* ==========  Text fields  ========== */
 
 $input-text-background-color: transparent !default;
