@@ -13,7 +13,19 @@
 
 .demo-content {
   height: 1000px;
-  background: linear-gradient(rgb(214, 227, 231), lightblue);
+  background: linear-gradient(nth($palette-primary, 2), nth($palette-primary, 1));
+  padding: 8px;
+}
+
+.demo-content-red {
+  height: 1000px;
+  background: linear-gradient(nth($palette-red, 2), nth($palette-red, 1));
+  padding: 8px;
+}
+
+.demo-content-green {
+  height: 1000px;
+  background: linear-gradient(nth($palette-green, 2), nth($palette-green, 1));
   padding: 8px;
 }
 

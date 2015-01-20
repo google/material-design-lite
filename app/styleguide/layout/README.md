@@ -131,6 +131,66 @@ None.
   This class is added to the drawer when it is currently visible.
 
 
+## wsk-layout__tab-bar
+
+Tabs (optional). Used for tabbing the entire layout.
+
+### Example
+
+```html
+  <div class="demo-container">
+    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
+      <div class="wsk-layout__header">
+        <!-- Icon -->
+        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <!-- Title -->
+        <span class="wsk-layout-title">Web Starter Kit</span>
+      </div>
+      <!-- Tab bar -->
+      <div class="wsk-layout__tab-bar wsk-js-ripple-effect">
+        <a href="#blue-panel" class="wsk-layout__tab is-active">Blue</a>
+        <a href="#green-panel" class="wsk-layout__tab">Green</a>
+        <a href="#red-panel" class="wsk-layout__tab">Red</a>
+      </div>
+      <div class="wsk-layout__content">
+        <!-- Panels -->
+        <div class="wsk-layout__tab-panel is-active" id="blue-panel">
+          (...)
+        </div>
+        <div class="wsk-layout__tab-panel" id="green-panel">
+          (...)
+        </div>
+        <div class="wsk-layout__tab-panel" id="red-panel">
+          (...)
+        </div>
+      </div>
+    </div>
+  </div>
+```
+
+### Options
+
+- `wsk-layout--fixed-tabs`:
+  Uses fixed tabs, rather than the default scrollable tabs.
+
+### State
+
+- `is-active`:
+  Used in tabs and panels to indicate which are active (i.e., selected/displayed).
+
+
+### Sub-elements
+
+-  `wsk-layout__tab-bar`:
+  Container element for the various tabs.
+
+-  `wsk-layout__tab`:
+  An individual tab. Should contain the tab title (or icon).
+
+-  `wsk-layout__tab-panel`:
+  An individual panel of tabbed content. Linked to the corresponding tab via its ID.
+
+
 ## wsk-layout__content
 
 Your content goes here :)
@@ -163,6 +223,14 @@ Your content goes here :)
     <span>Top-aligned text</span>
     <div class="wsk-layout-spacer"></div>
     <span>Bottom-aligned text</span>
+  </div>
+  ```
+
+- `wsk-layout-icon`:
+  Styles an image to serve as the application icon.
+  ```html
+  <div class="wsk-layout__header">
+    <img class="wsk-layout-icon" src="app-icon.svg">My Awesome Site</div>
   </div>
   ```
 

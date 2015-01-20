@@ -22,7 +22,6 @@ MaterialLayout.prototype.Constant_ = {
   MAX_WIDTH: '(max-width: 850px)'
 };
 
-
 /**
  * Modes.
  * @enum {number}
@@ -35,7 +34,6 @@ MaterialLayout.prototype.Mode_ = {
   SCROLL: 3
 };
 
-
 /**
  * Store strings for class names defined by this component that are used in
  * JavaScript. This allows us to simply change it in one place should we
@@ -44,92 +42,108 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
-  WSK_LAYOUT_HEADER: 'wsk-layout__header',
+  HEADER: 'wsk-layout__header',
+  DRAWER: 'wsk-layout__drawer',
+  CONTENT: 'wsk-layout__content',
+  DRAWER_BTN: 'wsk-layout__drawer-button',
 
-  WSK_LAYOUT_DRAWER: 'wsk-layout__drawer',
+  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+  RIPPLE_CONTAINER: 'wsk-layout__tab-ripple-container',
+  RIPPLE: 'wsk-ripple',
+  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
 
-  WSK_LAYOUT_CONTENT: 'wsk-layout__content',
+  HEADER_SEAMED: 'wsk-layout__header--seamed',
+  HEADER_WATERFALL: 'wsk-layout__header--waterfall',
+  HEADER_SCROLL: 'wsk-layout__header--scroll',
 
-  WSK_LAYOUT_HEADER_SEAMED: 'wsk-layout__header--seamed',
+  FIXED_HEADER: 'wsk-layout--fixed-header',
+  OBFUSCATOR: 'wsk-layout__obfuscator',
 
-  WSK_LAYOUT_HEADER_WATERFALL: 'wsk-layout__header--waterfall',
-
-  WSK_LAYOUT_HEADER_SCROLL: 'wsk-layout__header--scroll',
-
-  WSK_LAYOUT_DRAWER_BTN: 'wsk-layout__drawer-button',
-
-  WSK_LAYOUT_FIXED_HEADER: 'wsk-layout--fixed-header',
-
-  WSK_LAYOUT_OBFUSCATOR: 'wsk-layout__obfuscator',
+  TAB_BAR: 'wsk-layout__tab-bar',
+  TAB_CONTAINER: 'wsk-layout__tab-bar-container',
+  TAB: 'wsk-layout__tab',
+  TAB_BAR_BUTTON: 'wsk-layout__tab-bar-button',
+  TAB_BAR_LEFT_BUTTON: 'wsk-layout__tab-bar-left-button',
+  TAB_BAR_RIGHT_BUTTON: 'wsk-layout__tab-bar-right-button',
+  PANEL: 'wsk-layout__tab-panel',
 
   SHADOW_CLASS: 'is-casting-shadow',
-
   COMPACT_CLASS: 'is-compact',
-
   SMALL_SCREEN_CLASS: 'is-small-screen',
-
-  DRAWER_OPEN_CLASS: 'is-visible'
+  DRAWER_OPEN_CLASS: 'is-visible',
+  ACTIVE_CLASS: 'is-active',
+  UPGRADED_CLASS: 'is-upgraded'
 };
-
 
 /**
- * Generate a scroll handler function.
- * @param {Event} event The event that fired.
+ * Handles scrolling on the content.
  * @private
  */
-MaterialLayout.prototype.scrollHandlerGenerator_ = function(header, content) {
+MaterialLayout.prototype.contentScrollHandler_ = function() {
   'use strict';
 
-  return function() {
-    if (content.scrollTop > 0) {
-      header.classList.add(this.CssClasses_.SHADOW_CLASS);
-      header.classList.add(this.CssClasses_.COMPACT_CLASS);
-    } else {
-      header.classList.remove(this.CssClasses_.SHADOW_CLASS);
-      header.classList.remove(this.CssClasses_.COMPACT_CLASS);
-    }
-  }.bind(this);
+  if (this.content_.scrollTop > 0) {
+    this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
+    this.header_.classList.add(this.CssClasses_.COMPACT_CLASS);
+  } else {
+    this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
+    this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+  }
 };
-
 
 /**
- * Generate a screenSize handler function.
- * @param {Event} event The event that fired.
+ * Handles changes in screen size.
  * @private
  */
-MaterialLayout.prototype.screenSizeHandlerGenerator_ =
-    function(mediaQuery, layout, drawer) {
+MaterialLayout.prototype.screenSizeHandler_ = function() {
   'use strict';
 
-  return function() {
-    if (mediaQuery.matches) {
-      layout.classList.add(this.CssClasses_.SMALL_SCREEN_CLASS);
+  if (this.screenSizeMediaQuery_.matches) {
+    this.element_.classList.add(this.CssClasses_.SMALL_SCREEN_CLASS);
+  }
+  else {
+    this.element_.classList.remove(this.CssClasses_.SMALL_SCREEN_CLASS);
+    // Collapse drawer (if any) when moving to a large screen size.
+    if (this.drawer_) {
+      this.drawer_.classList.remove(this.CssClasses_.DRAWER_OPEN_CLASS);
     }
-    else {
-      layout.classList.remove(this.CssClasses_.SMALL_SCREEN_CLASS);
-      // Collapse drawer (if any) when moving to a large screen size.
-      if (drawer) {
-        drawer.classList.remove(this.CssClasses_.DRAWER_OPEN_CLASS);
-      }
-    }
-  }.bind(this);
+  }
 };
-
 
 /**
- * Generate a drawerToggle handler function.
- * @param {Event} event The event that fired.
+ * Handles toggling of the drawer.
+ * @param {Element} drawer The drawer container element.
  * @private
  */
-MaterialLayout.prototype.drawerToggleHandlerGenerator_ =
-    function(drawer) {
+MaterialLayout.prototype.drawerToggleHandler_ = function() {
   'use strict';
 
-  return function() {
-    drawer.classList.toggle(this.CssClasses_.DRAWER_OPEN_CLASS);
-  }.bind(this);
+  this.drawer_.classList.toggle(this.CssClasses_.DRAWER_OPEN_CLASS);
 };
 
+/**
+ * Reset tab state, dropping active classes
+ * @private
+ */
+MaterialLayout.prototype.resetTabState_ = function(tabBar) {
+  'use strict';
+
+  for (var k = 0; k < tabBar.length; k++) {
+    tabBar[k].classList.remove(this.CssClasses_.ACTIVE_CLASS);
+  }
+};
+
+/**
+ * Reset panel state, droping active classes
+ * @private
+ */
+MaterialLayout.prototype.resetPanelState_ = function(panels) {
+  'use strict';
+
+  for (var j = 0; j < panels.length; j++) {
+    panels[j].classList.remove(this.CssClasses_.ACTIVE_CLASS);
+  }
+};
 
 /**
  * Initialize element.
@@ -138,75 +152,167 @@ MaterialLayout.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    var header = this.element_.querySelector('.' +
-        this.CssClasses_.WSK_LAYOUT_HEADER);
-    var drawer = this.element_.querySelector('.' +
-        this.CssClasses_.WSK_LAYOUT_DRAWER);
-    var content = this.element_.querySelector('.' +
-        this.CssClasses_.WSK_LAYOUT_CONTENT);
+    var container = document.createElement('div');
+    container.classList.add('wsk-layout__container');
+    this.element_.parentElement.insertBefore(container, this.element_);
+    this.element_.parentElement.removeChild(this.element_);
+    container.appendChild(this.element_);
+
+    this.header_ = this.element_.querySelector('.' + this.CssClasses_.HEADER);
+    this.drawer_ = this.element_.querySelector('.' + this.CssClasses_.DRAWER);
+    this.tabBar_ = this.element_.querySelector('.' + this.CssClasses_.TAB_BAR);
+    this.content_ = this.element_.querySelector('.' + this.CssClasses_.CONTENT);
 
     var mode = this.Mode_.STANDARD;
 
     // Keep an eye on screen size, and add/remove auxiliary class for styling
     // of small screens.
-    var mediaQuery = window.matchMedia(this.Constant_.MAX_WIDTH);
-    var screenSizeHandler =
-        this.screenSizeHandlerGenerator_(mediaQuery, this.element_,
-        drawer).bind(this);
-    mediaQuery.addListener(screenSizeHandler);
-    screenSizeHandler();
+    this.screenSizeMediaQuery_ = window.matchMedia(this.Constant_.MAX_WIDTH);
+    this.screenSizeMediaQuery_.addListener(this.screenSizeHandler_.bind(this));
+    this.screenSizeHandler_();
 
-    if (header) {
-      if (header.classList.contains(
-          this.CssClasses_.WSK_LAYOUT_HEADER_SEAMED)) {
+    if (this.header_) {
+      if (this.header_.classList.contains(this.CssClasses_.HEADER_SEAMED)) {
         mode = this.Mode_.SEAMED;
-      } else if (header.classList.contains(
-          this.CssClasses_.WSK_LAYOUT_HEADER_WATERFALL)) {
+      } else if (this.header_.classList.contains(
+          this.CssClasses_.HEADER_WATERFALL)) {
         mode = this.Mode_.WATERFALL;
       } else if (this.element_.classList.contains(
-          this.CssClasses_.WSK_LAYOUT_HEADER_SCROLL)) {
+          this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
       }
 
       if (mode === this.Mode_.STANDARD) {
-        header.classList.add(this.CssClasses_.SHADOW_CLASS);
+        this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
+        if (this.tabBar_) {
+          this.tabBar_.classList.add(this.CssClasses_.SHADOW_CLASS);
+        }
       } else if (mode === this.Mode_.SEAMED || mode === this.Mode_.SCROLL) {
-        header.classList.remove(this.CssClasses_.SHADOW_CLASS);
+        this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
+        if (this.tabBar_) {
+          this.tabBar_.classList.remove(this.CssClasses_.SHADOW_CLASS);
+        }
       } else if (mode === this.Mode_.WATERFALL) {
         // Add and remove shadows depending on scroll position.
         // Also add/remove auxiliary class for styling of the compact version of
         // the header.
-        var scrollHandler = this.scrollHandlerGenerator_(header,
-            content).bind(this);
-        content.addEventListener('scroll', scrollHandler);
-        scrollHandler();
+        this.content_.addEventListener('scroll',
+            this.contentScrollHandler_.bind(this));
+        this.contentScrollHandler_();
       }
     }
 
     // Add drawer toggling button to our layout, if we have an openable drawer.
-    if (drawer) {
+    if (this.drawer_) {
       var drawerButton = document.createElement('div');
-      drawerButton.classList.add(this.CssClasses_.WSK_LAYOUT_DRAWER_BTN);
-      var clickHandler = this.drawerToggleHandlerGenerator_(drawer).bind(this);
-      drawerButton.addEventListener('click', clickHandler);
+      drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
+      drawerButton.addEventListener('click',
+          this.drawerToggleHandler_.bind(this));
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.
-      if (this.element_.classList.contains(
-          this.CssClasses_.WSK_LAYOUT_FIXED_HEADER)) {
-        header.insertBefore(drawerButton, header.firstChild);
+      if (this.element_.classList.contains(this.CssClasses_.FIXED_HEADER)) {
+        this.header_.insertBefore(drawerButton, this.header_.firstChild);
       } else {
-        this.element_.insertBefore(drawerButton, content);
+        this.element_.insertBefore(drawerButton, this.content_);
       }
 
       var obfuscator = document.createElement('div');
-      obfuscator.classList.add(this.CssClasses_.WSK_LAYOUT_OBFUSCATOR);
+      obfuscator.classList.add(this.CssClasses_.OBFUSCATOR);
       this.element_.appendChild(obfuscator);
-      obfuscator.addEventListener('click', clickHandler);
+      obfuscator.addEventListener('click',
+          this.drawerToggleHandler_.bind(this));
     }
+
+    // Initialize tabs, if any.
+    if (this.tabBar_) {
+      var tabContainer = document.createElement('div');
+      tabContainer.classList.add(this.CssClasses_.TAB_CONTAINER);
+      this.element_.insertBefore(tabContainer, this.tabBar_);
+      this.element_.removeChild(this.tabBar_);
+
+      var leftButton = document.createElement('div');
+      leftButton.classList.add(this.CssClasses_.TAB_BAR_BUTTON);
+      leftButton.classList.add(this.CssClasses_.TAB_BAR_LEFT_BUTTON);
+      leftButton.addEventListener('click', function() {
+        this.tabBar_.scrollLeft -= 100;
+      }.bind(this));
+
+      var rightButton = document.createElement('div');
+      rightButton.classList.add(this.CssClasses_.TAB_BAR_BUTTON);
+      rightButton.classList.add(this.CssClasses_.TAB_BAR_RIGHT_BUTTON);
+      rightButton.addEventListener('click', function() {
+        this.tabBar_.scrollLeft += 100;
+      }.bind(this));
+
+      tabContainer.appendChild(leftButton);
+      tabContainer.appendChild(this.tabBar_);
+      tabContainer.appendChild(rightButton);
+
+      // Add and remove buttons depending on scroll position.
+      var tabScrollHandler = function() {
+        if (this.tabBar_.scrollLeft > 0) {
+          leftButton.classList.add(this.CssClasses_.ACTIVE_CLASS);
+        } else {
+          leftButton.classList.remove(this.CssClasses_.ACTIVE_CLASS);
+        }
+
+        if (this.tabBar_.scrollLeft <
+            this.tabBar_.scrollWidth - this.tabBar_.offsetWidth) {
+          rightButton.classList.add(this.CssClasses_.ACTIVE_CLASS);
+        } else {
+          rightButton.classList.remove(this.CssClasses_.ACTIVE_CLASS);
+        }
+      }.bind(this);
+
+      this.tabBar_.addEventListener('scroll', tabScrollHandler);
+      tabScrollHandler();
+
+      if (this.tabBar_.classList.contains(this.CssClasses_.JS_RIPPLE_EFFECT)) {
+        this.tabBar_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
+      }
+
+      // Select element tabs, document panels
+      var tabs = this.tabBar_.querySelectorAll('.' + this.CssClasses_.TAB);
+      var panels = this.content_.querySelectorAll('.' + this.CssClasses_.PANEL);
+
+      // Create new tabs for each tab element
+      for (var i = 0; i < tabs.length; i++) {
+        new MaterialLayoutTab(tabs[i], tabs, panels, this);
+      }
+    }
+
+    this.element_.classList.add(this.CssClasses_.UPGRADED_CLASS);
   }
 };
 
+function MaterialLayoutTab(tab, tabs, panels, layout) {
+  'use strict';
+
+  if (tab) {
+    if (layout.tabBar_.classList.contains(
+        layout.CssClasses_.JS_RIPPLE_EFFECT)) {
+      var rippleContainer = document.createElement('span');
+      rippleContainer.classList.add(layout.CssClasses_.RIPPLE_CONTAINER);
+      rippleContainer.classList.add(layout.CssClasses_.JS_RIPPLE_EFFECT);
+      var ripple = document.createElement('span');
+      ripple.classList.add(layout.CssClasses_.RIPPLE);
+      rippleContainer.appendChild(ripple);
+      tab.appendChild(rippleContainer);
+    }
+
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      var href = tab.href.split('#')[1];
+      var panel = layout.content_.querySelector('#' + href);
+      layout.resetTabState_(tabs);
+      layout.resetPanelState_(panels);
+      tab.classList.add(layout.CssClasses_.ACTIVE_CLASS);
+      panel.classList.add(layout.CssClasses_.ACTIVE_CLASS);
+    });
+
+  }
+}
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.

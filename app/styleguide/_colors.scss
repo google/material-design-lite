@@ -77,6 +77,9 @@ $layout-text-color: nth($palette-page, 9) !default;
 $layout-header-bg-color: nth($palette-primary, 6) !default;
 $layout-header-text-color: nth($palette-page, 3) !default;
 
+// Tabs
+$layout-header-tab-highlight: nth($palette-secondary, 4) !default;
+
 /* ==========  Content Tabs  ========== */
 
 $tab-highlight-color: nth($palette-primary, 6) !default;

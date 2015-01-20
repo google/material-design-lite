@@ -8,11 +8,22 @@ $layout-drawer-narrow: 240px;
 $layout-drawer-wide: 456px;
 $layout-drawer-width: $layout-drawer-narrow;
 
-$layout-horizontal-padding: 24px;
-
-$layout-header-row-height: 60px;
-$layout-header-height: $layout-header-row-height;
+$layout-header-icon-size: 32px;
 $layout-screen-size-threshold: 850px;
+
+$layout-header-mobile-row-height: 56px;
+$layout-mobile-header-height: $layout-header-mobile-row-height;
+$layout-header-desktop-row-height: 64px;
+$layout-desktop-header-height: $layout-header-desktop-row-height;
+$layout-header-mobile-indent: 72px;
+$layout-header-desktop-indent: 80px;
+$layout-header-basic-mobile-indent: 16px;
+$layout-header-basic-desktop-indent: 24px;
+
+$layout-tab-bar-height: 48px;
+$layout-tab-mobile-padding: 12px;
+$layout-tab-desktop-padding: 24px;
+$layout-tab-highlight-thickness: 2px;
 
 
 // Navigation classes. Only used here for now, but we may at some point move
@@ -38,7 +49,7 @@ $layout-screen-size-threshold: 850px;
 // Main layout class.
 .wsk-layout {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -46,9 +57,17 @@ $layout-screen-size-threshold: 850px;
   position: relative;
 }
 
+.wsk-layout__container {
+  width: 100%;
+  height: 100%;
+}
+
+
   // Optional utility classes for formatting special blocks in this component.
   .wsk-layout-title {
     display: block;
+    position: relative;
+
     @include typo-title();
     box-sizing: border-box;
   }
@@ -69,8 +88,8 @@ $layout-screen-size-threshold: 850px;
     max-height: 100%;
 
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 
     @include shadow-z1();
 
@@ -94,7 +113,7 @@ $layout-screen-size-threshold: 850px;
     z-index: 5;
 
     &.is-visible {
-      transform: translateX(0px);
+      transform: translateX(0);
     }
 
     & > * {
@@ -102,9 +121,14 @@ $layout-screen-size-threshold: 850px;
     }
 
     & > .wsk-layout-title {
-      line-height: $layout-header-height;
-      padding-left: $layout-horizontal-padding;
+      line-height: $layout-desktop-header-height;
+      padding-left: $layout-header-basic-desktop-indent;
       border-bottom: 1px solid $layout-drawer-border-color;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        line-height: $layout-mobile-header-height;
+        padding-left: $layout-header-basic-mobile-indent;
+      }
     }
 
     & .wsk-navigation {
@@ -113,13 +137,17 @@ $layout-screen-size-threshold: 850px;
     }
 
     & .wsk-navigation__link {
-      padding: 16px $layout-horizontal-padding;
+      padding: 16px $layout-header-basic-desktop-indent;
       margin: 0;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        padding: 16px $layout-header-basic-mobile-indent;
+      }
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .wsk-layout--fixed-drawer > & {
-        transform: translateX(0px);
+        transform: translateX(0);
         z-index: 2;
       }
     }
@@ -148,7 +176,7 @@ $layout-screen-size-threshold: 850px;
 
     z-index: 3;
 
-    &:after {
+    &::after {
       // TODO(sgomes): Replace with proper menu icon once we have an icon font.
       content: '☰';
     }
@@ -160,11 +188,19 @@ $layout-screen-size-threshold: 850px;
     }
 
     .wsk-layout__header & {
-      position: relative;
-      top: 0;
-      left: 0;
-      margin: 0 16px 0 0;
+      position: absolute;
+      left: $layout-header-basic-desktop-indent;
+      top: ($layout-desktop-header-height - $layout-header-icon-size) / 2;
+      height: $layout-header-icon-size;
+      margin: 0;
+      width: $layout-header-icon-size;
       color: $layout-header-text-color;
+      background-color: $layout-header-bg-color;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        left: $layout-header-basic-mobile-indent;
+        top: ($layout-mobile-header-height - $layout-header-icon-size) / 2;
+      }
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
@@ -180,23 +216,48 @@ $layout-screen-size-threshold: 850px;
     flex-wrap: nowrap;
     align-items: center;
     margin: 0;
-    border: 0;
-    height: 60px;
-    min-height: $layout-header-height;
+    border: none;
+    height: $layout-desktop-header-height;
+    min-height: $layout-desktop-header-height;
     background-color: $layout-header-bg-color;
     color: $layout-header-text-color;
     z-index: 3;
     @include material-animation-default();
+    @include shadow-z1();
     transition-property: min-height, box-shadow;
-    padding-left: 16px;
+    padding-left: $layout-header-desktop-indent;
     overflow: hidden;
 
-    &.is-compact {
-      min-height: $layout-header-row-height;
+    @media screen and (max-width: $layout-screen-size-threshold) {
+      height: $layout-mobile-header-height;
+      min-height: $layout-mobile-header-height;
+      padding-left: $layout-header-mobile-indent;
     }
 
-    &.is-casting-shadow {
-      @include shadow-z1();
+    .wsk-layout--fixed-drawer:not(.is-small-screen) > & {
+      padding-left: $layout-header-basic-desktop-indent;
+    }
+
+    & > .wsk-layout-icon {
+      position: absolute;
+      left: $layout-header-basic-desktop-indent;
+      top: ($layout-desktop-header-height - $layout-header-icon-size) / 2;
+      height: $layout-header-icon-size;
+      width: $layout-header-icon-size;
+      overflow: hidden;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        left: $layout-header-basic-mobile-indent;
+        top: ($layout-mobile-header-height - $layout-header-icon-size) / 2;
+      }
+    }
+
+    &.is-compact {
+      min-height: $layout-header-desktop-row-height;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        min-height: $layout-header-mobile-row-height;
+      }
     }
 
     & > * {
@@ -205,7 +266,11 @@ $layout-screen-size-threshold: 850px;
 
     // Add a margin to the last entry...
     & > *:last-child {
-      margin-right: $layout-horizontal-padding;
+      margin-right: $layout-header-basic-desktop-indent;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        margin-right: $layout-header-basic-mobile-indent;
+      }
     }
 
     // ...unless it's a navigation area.
@@ -215,21 +280,29 @@ $layout-screen-size-threshold: 850px;
 
     & .wsk-layout-title {
       display: block;
-      @include typo-title();
     }
 
     & .wsk-navigation {
       margin: 0;
       padding: 0;
-      height: $layout-header-row-height;
+      height: $layout-header-desktop-row-height;
       flex-direction: row;
       align-items: center;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        height: $layout-header-mobile-row-height;
+      }
     }
 
     & .wsk-navigation__link {
       color: $layout-header-text-color;
-      line-height: $layout-header-row-height;
-      padding: 0 16px;
+      line-height: $layout-header-desktop-row-height;
+      padding: 0 $layout-header-basic-desktop-indent;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        line-height: $layout-header-mobile-row-height;
+        padding: 0 $layout-header-basic-mobile-indent;
+      }
     }
 
     & .wsk-navigation__link:hover {
@@ -253,24 +326,45 @@ $layout-screen-size-threshold: 850px;
     }
   }
 
-    .wsk-layout__header--transparent {
-      background-color: transparent;
-    }
-
     .wsk-layout__header--multi-row {
       flex-direction: column;
     }
 
     .wsk-layout__header--medium-tall {
-      min-height: 2 * $layout-header-row-height;
+      min-height: 2 * $layout-header-desktop-row-height;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        min-height: 2 * $layout-header-mobile-row-height;
+      }
     }
 
     .wsk-layout__header--tall {
-      min-height: 3 * $layout-header-row-height;
+      min-height: 3 * $layout-header-desktop-row-height;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        min-height: 3 * $layout-header-mobile-row-height;
+      }
     }
 
-    .wsk-layout__header--transparent.is-casting-shadow {
+    .wsk-layout__header--transparent.wsk-layout__header--transparent {
+      background-color: transparent;
       box-shadow: none;
+    }
+
+    .wsk-layout__header--seamed {
+      box-shadow: none;
+    }
+
+    .wsk-layout__header--scroll {
+      box-shadow: none;
+    }
+
+    .wsk-layout__header--waterfall {
+      box-shadow: none;
+
+      &.is-casting-shadow {
+        @include shadow-z1();
+      }
     }
 
     // Declared twice to bump rule priority.
@@ -280,9 +374,27 @@ $layout-screen-size-threshold: 850px;
       flex-wrap: nowrap;
       flex-shrink: 0;
       align-items: center;
-      min-height: $layout-header-row-height;
+      min-height: $layout-header-desktop-row-height;
       width: 100%;
       margin-right: 0;
+
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        min-height: $layout-header-mobile-row-height;
+      }
+
+      & > .wsk-layout-icon {
+        position: absolute;
+        left: $layout-header-basic-desktop-indent;
+        top: ($layout-header-desktop-row-height - $layout-header-icon-size) / 2;
+        height: $layout-header-icon-size;
+        width: $layout-header-icon-size;
+        overflow: hidden;
+
+        @media screen and (max-width: $layout-screen-size-threshold) {
+          left: $layout-header-basic-mobile-indent;
+          top: ($layout-header-mobile-row-height - $layout-header-icon-size) / 2;
+        }
+      }
 
       & > * {
         flex-shrink: 0;
@@ -290,7 +402,11 @@ $layout-screen-size-threshold: 850px;
 
       // Add a margin to the last entry...
       & > *:last-child {
-        margin-right: $layout-horizontal-padding;
+        margin-right: $layout-header-basic-desktop-indent;
+
+        @media screen and (max-width: $layout-screen-size-threshold) {
+          margin-right: $layout-header-basic-mobile-indent;
+        }
       }
 
       // ...unless it's a navigation area.
@@ -349,5 +465,179 @@ $layout-screen-size-threshold: 850px;
         overflow-y: auto;
         overflow-x: hidden;
       }
+    }
+  }
+
+  // Tabs.
+  .wsk-layout__tab-bar {
+    position: absolute;
+    top: 0;
+    height: $layout-tab-bar-height * 2;
+    width: calc(100% -
+        #{(($layout-header-desktop-indent - $layout-tab-desktop-padding) * 2)});
+    padding: 0 0 0 $layout-header-desktop-indent - $layout-tab-desktop-padding;
+    display: flex;
+    background-color: $layout-header-bg-color;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media screen and (max-width: $layout-screen-size-threshold) {
+      width: calc(100% -
+          #{($layout-header-mobile-indent - $layout-tab-mobile-padding)});
+      padding: 0 0 0 $layout-header-mobile-indent - $layout-tab-mobile-padding;
+    }
+
+    .wsk-layout--fixed-tabs & {
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    &.is-casting-shadow {
+      @include shadow-z1();
+    }
+  }
+
+  .wsk-layout__tab-bar-container {
+    position: relative;
+    overflow: hidden;
+    height: $layout-tab-bar-height;
+    width: 100%;
+    border: none;
+    margin: 0;
+    z-index: 3;
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include shadow-z1();
+
+    .wsk-layout__container > & {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .wsk-layout__tab-bar-button {
+    display: inline-block;
+    position: absolute;
+    height: $layout-tab-bar-height;
+    line-height: $layout-tab-bar-height;
+    width: $layout-header-desktop-indent - $layout-tab-desktop-padding;
+    z-index: 4;
+    text-align: center;
+    background-color: $layout-header-bg-color;
+    color: transparent;
+    cursor: pointer;
+
+    @media screen and (max-width: $layout-screen-size-threshold) {
+      display: none;
+      width: $layout-header-mobile-indent - $layout-tab-mobile-padding;
+    }
+
+    .wsk-layout--fixed-tabs & {
+      display: none;
+    }
+
+    &.is-active {
+      color: $layout-header-text-color;
+    }
+  }
+
+  .wsk-layout__tab-bar-left-button {
+    left: 0;
+
+    &::after {
+      // TODO(sgomes): replace with left chevron when we have an icon font.
+      font-size: 26px;
+      content: "<";
+    }
+  }
+
+  .wsk-layout__tab-bar-right-button {
+    right: 0;
+
+    &::after {
+      // TODO(sgomes): replace with left chevron when we have an icon font.
+      font-size: 26px;
+      content: ">";
+    }
+  }
+
+  .wsk-layout__tab {
+    margin: 0;
+    border: none;
+    padding: 0 $layout-tab-desktop-padding 0 $layout-tab-desktop-padding;
+
+    float: left;
+    position: relative;
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    text-decoration: none;
+    height: $layout-tab-bar-height;
+    line-height: $layout-tab-bar-height;
+
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    color: rgba($layout-header-text-color, 0.6);
+    overflow: hidden;
+
+    @media screen and (max-width: $layout-screen-size-threshold) {
+      padding: 0 $layout-tab-mobile-padding 0 $layout-tab-mobile-padding;
+    }
+
+    .wsk-layout--fixed-tabs & {
+      float: none;
+      flex-grow: 1;
+      padding: 0;
+    }
+
+    .wsk-layout.is-upgraded &.is-active {
+      color: $layout-header-text-color;
+    }
+
+    .wsk-layout.is-upgraded &.is-active::after {
+      height: $layout-tab-highlight-thickness;
+      width: 100%;
+      display: block;
+      content: " ";
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      background: $layout-header-tab-highlight;
+      -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
+      -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
+      transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
+    }
+
+    & .wsk-layout__tab-ripple-container {
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+  }
+
+  .wsk-layout__tab-panel {
+    display: block;
+
+    .wsk-layout.is-upgraded & {
+      display: none;
+    }
+
+    .wsk-layout.is-upgraded &.is-active {
+      display: block;
     }
   }
