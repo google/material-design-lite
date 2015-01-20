@@ -245,6 +245,7 @@ $layout-tab-highlight-thickness: 2px;
       height: $layout-header-icon-size;
       width: $layout-header-icon-size;
       overflow: hidden;
+      z-index: 3;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         left: $layout-header-basic-mobile-indent;
@@ -389,6 +390,7 @@ $layout-tab-highlight-thickness: 2px;
         height: $layout-header-icon-size;
         width: $layout-header-icon-size;
         overflow: hidden;
+        z-index: 3;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           left: $layout-header-basic-mobile-indent;
