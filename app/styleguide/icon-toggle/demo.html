@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Icon Toggles</title>
+
+  <link rel="stylesheet" href="demo.css">
+
+  <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="preview-block">
+
+    <div class="button-block">
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="checkbox-1">
+        <input type="checkbox" id="checkbox-1" class="wsk-icon-toggle__input" />
+        <span class="wsk-icon-toggle__label">♠</span>
+      </label>
+
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="checkbox-2">
+        <input type="checkbox" id="checkbox-2" class="wsk-icon-toggle__input" />
+        <span class="wsk-icon-toggle__label">♣</span>
+      </label>
+
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="checkbox-3">
+        <input type="checkbox" id="checkbox-3" class="wsk-icon-toggle__input" />
+        <span class="wsk-icon-toggle__label">♥</span>
+      </label>
+
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="checkbox-4">
+        <input type="checkbox" id="checkbox-4" class="wsk-icon-toggle__input" />
+        <span class="wsk-icon-toggle__label">♦</span>
+      </label>
+    </div>
+
+    <h2>Disabled</h2>
+
+    <div class="button-block">
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="disabled-checkbox-1">
+        <input type="checkbox" id="disabled-checkbox-1" class="wsk-icon-toggle__input" disabled />
+        <span class="wsk-icon-toggle__label">♠</span>
+      </label>
+
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="disabled-checkbox-2">
+        <input type="checkbox" id="disabled-checkbox-2" class="wsk-icon-toggle__input" disabled />
+        <span class="wsk-icon-toggle__label">♣</span>
+      </label>
+
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="disabled-checkbox-3">
+        <input type="checkbox" id="disabled-checkbox-3" class="wsk-icon-toggle__input" disabled />
+        <span class="wsk-icon-toggle__label">♥</span>
+      </label>
+
+      <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="disabled-checkbox-4">
+        <input type="checkbox" id="disabled-checkbox-4" class="wsk-icon-toggle__input" disabled />
+        <span class="wsk-icon-toggle__label">♦</span>
+      </label>
+    </div>
+  </div>
+  <!-- build:js(app/styleguide/icon-toggle/) ../../scripts/main.min.js -->
+  <script src="../wskComponentHandler.js"></script>
+  <script src="icon-toggle.js"></script>
+  <script src="../third_party/rAF.js"></script>
+  <script src="../ripple/ripple.js"></script>
+  <!-- endbuild -->
+</body>
+</html>

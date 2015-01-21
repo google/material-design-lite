@@ -56,6 +56,13 @@ $button-fab-active-color-alt: nth($palette-accent, 7) !default;
 $button-icon-color: nth($palette-grey, 8) !default;
 $button-icon-focus-color: $button-focus-color !default;
 
+/* ==========  Icon Toggles  ========== */
+
+$icon-toggle-color: nth($palette-grey, 8) !default;
+$icon-toggle-focus-color: $button-focus-color !default;
+$icon-toggle-checked-color: nth($palette-primary, 6) !default;
+$icon-toggle-disabled-color: rgba(#000, 0.26) !default;
+
 /* ==========  Radio Buttons  ========== */
 
 $radio-color: nth($palette-primary, 6) !default;

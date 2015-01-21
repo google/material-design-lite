@@ -1,0 +1,113 @@
+@import "../colors";
+@import "../shadow/shadow";
+@import "../animation/animation";
+@import "../ripple/ripple";
+
+$icon-toggle-size: 32px !default;
+$icon-toggle-font-size: 24px !default;
+$icon-toggle-ripple-size: 36px !default;
+
+.wsk-icon-toggle {
+  position: relative;
+
+  z-index: 1;
+
+  vertical-align: middle;
+
+  display: inline-block;
+  height: $icon-toggle-size;
+  margin: 0;
+  padding: 0;
+}
+
+.wsk-icon-toggle__input {
+  line-height: $icon-toggle-size;
+
+  .wsk-icon-toggle.is-upgraded & {
+    // Hide input element, while still making it respond to focus.
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+  }
+}
+
+.wsk-icon-toggle__label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  height: $icon-toggle-size;
+  width: $icon-toggle-size;
+  min-width: $icon-toggle-size;
+  line-height: $icon-toggle-size;
+  color: $icon-toggle-color;
+  border-radius: 50%;
+  font-size: $icon-toggle-font-size;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  background-color: transparent;
+  will-change: background-color;
+  transition: background-color 0.2s $animation-curve-default,
+  color 0.2s $animation-curve-default;
+
+  &:hover {
+    color: black;
+  }
+
+  .wsk-icon-toggle.is-checked & {
+    color: $icon-toggle-checked-color;
+  }
+
+  .wsk-icon-toggle.is-disabled & {
+    color: $icon-toggle-disabled-color;
+    cursor: auto;
+    transition: none;
+  }
+
+  .wsk-icon-toggle.is-focused & {
+    background-color: $icon-toggle-focus-color;
+  }
+
+  .wsk-icon-toggle.is-focused.is-checked & {
+    background-color: rgba($icon-toggle-checked-color, 0.26);
+  }
+}
+
+
+.wsk-icon-toggle__ripple-container {
+  position: absolute;
+  z-index: 2;
+  top: -($icon-toggle-ripple-size - $icon-toggle-size);
+  left: -(($icon-toggle-ripple-size - $icon-toggle-size) / 2);
+
+  box-sizing: border-box;
+  width: $icon-toggle-ripple-size;
+  height: $icon-toggle-ripple-size;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+
+  & .wsk-ripple {
+    background: $icon-toggle-color;
+  }
+
+  .wsk-icon-toggle.is-disabled & {
+    cursor: auto;
+  }
+
+  .wsk-icon-toggle.is-disabled & .wsk-ripple {
+    background: transparent;
+  }
+}
