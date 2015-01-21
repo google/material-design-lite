@@ -58,6 +58,7 @@ $layout-tab-highlight-thickness: 2px;
 }
 
 .wsk-layout__container {
+  position: absolute;
   width: 100%;
   height: 100%;
 }

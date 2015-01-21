@@ -9,6 +9,8 @@
   float: left;
   margin: 0 40px 40px 0;
   border: 1px solid #888888;
+  position: relative;
+  height: 500px;
 }
 
 .demo-content {
@@ -27,10 +29,6 @@
   height: 1000px;
   background: linear-gradient(nth($palette-green, 2), nth($palette-green, 1));
   padding: 8px;
-}
-
-.wsk-layout {
-  height: 500px;
 }
 
 // Styles for fixed drawer demos.
