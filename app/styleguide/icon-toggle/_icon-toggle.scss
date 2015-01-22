@@ -59,10 +59,6 @@ $icon-toggle-ripple-size: 36px !default;
   transition: background-color 0.2s $animation-curve-default,
   color 0.2s $animation-curve-default;
 
-  &:hover {
-    color: black;
-  }
-
   .wsk-icon-toggle.is-checked & {
     color: $icon-toggle-checked-color;
   }
@@ -86,7 +82,7 @@ $icon-toggle-ripple-size: 36px !default;
 .wsk-icon-toggle__ripple-container {
   position: absolute;
   z-index: 2;
-  top: -($icon-toggle-ripple-size - $icon-toggle-size);
+  top: -(($icon-toggle-ripple-size - $icon-toggle-size) / 2);
   left: -(($icon-toggle-ripple-size - $icon-toggle-size) / 2);
 
   box-sizing: border-box;
