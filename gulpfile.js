@@ -94,7 +94,7 @@ gulp.task('styles', function() {
     'app/**/*.scss',
     'app/styles/**/*.css'
   ])
-    .pipe($.changed('styles', {extension: '.scss'}))
+    .pipe($.changed('.tmp/styles', {extension: '.css'}))
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
