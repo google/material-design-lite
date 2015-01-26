@@ -161,6 +161,5 @@ window.addEventListener('load', function() {
   } else {
     componentHandler.register = function () { /*noop*/ };
     componentHandler.upgradeElement = function () { /*noop*/ };
-    componentHandler.upgradeElement = function () { /*noop*/ };
   }
 });
