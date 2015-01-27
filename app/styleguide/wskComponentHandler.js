@@ -11,7 +11,6 @@ var componentHandler = (function() {
   var registeredComponents_ = [];
   var createdComponents_ = [];
 
-
   /**
    * Searches registered components for a class we are interested in using.
    * Optionally replaces a match with passed object if specified.
@@ -151,5 +150,15 @@ var componentHandler = (function() {
 window.addEventListener('load', function() {
   'use strict';
 
-  componentHandler.upgradeAllRegistered();
+  /**
+   * Performs a "Cutting the mustard" test. If the browser supports the features
+   * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
+   * components requiring JavaScript.
+   */
+  if ('classList' in document.createElement('div') && 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
+    document.documentElement.classList.add('wsk-js');
+    componentHandler.upgradeAllRegistered();
+  } else {
+    componentHandler.upgradeElement = componentHandler.register = function () { };
+  }
 });
