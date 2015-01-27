@@ -156,10 +156,9 @@ window.addEventListener('load', function() {
    * components requiring JavaScript.
    */
   if ('classList' in document.createElement('div') && 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
-    document.documentElement.className += 'wsk-js';
+    document.documentElement.classList.add('wsk-js');
     componentHandler.upgradeAllRegistered();
   } else {
-    componentHandler.register = function () { /*noop*/ };
-    componentHandler.upgradeElement = function () { /*noop*/ };
+    componentHandler.upgradeElement = componentHandler.register = function () { };
   }
 });
