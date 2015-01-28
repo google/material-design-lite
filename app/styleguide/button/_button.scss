@@ -21,6 +21,7 @@ $button-fab-size-mini: 40px !default;
 $button-fab-font-size: 24px !default;
 
 $button-icon-size: 32px !default;
+$button-icon-size-mini: 24px !default;
 
 // Focus shadow mixin.
 @mixin focus-shadow() {
@@ -204,6 +205,12 @@ $button-icon-size: 32px !default;
     width: $button-icon-size;
     padding: 0;
     overflow: hidden;
+
+    &.wsk-button--mini-icon {
+      height: $button-icon-size-mini;
+      min-width: $button-icon-size-mini;
+      width: $button-icon-size-mini;
+    }
 
     & .wsk-button__ripple-container {
       border-radius: 50%;
