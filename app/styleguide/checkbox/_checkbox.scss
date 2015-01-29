@@ -6,7 +6,8 @@ $checkbox-label-height: 24px;
 $checkbox-button-size: 16px;
 $checkbox-inner-margin: 2px;
 $checkbox-padding: 8px;
-$checkbox-top-offset: ($checkbox-label-height - $checkbox-button-size) / 2;
+$checkbox-top-offset:
+  ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
 $checkbox-ripple-size: $checkbox-label-height * 1.5;
 
 .wsk-checkbox {
@@ -64,6 +65,7 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   overflow: hidden;
 
   border: 2px solid $checkbox-off-color;
+  border-radius: 2px;
 
   z-index: 2;
 
@@ -102,60 +104,25 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   }
 }
 
-@mixin checkbox-tick-component {
+.wsk-checkbox__tick-outline {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+  mask: url("tick-mask.svg#mask");
 
-  background-color: transparent;
+  background: transparent;
   @include material-animation-default(0.28s);
-  transition-property: background-color;
+  transition-property: background;
 
   .wsk-checkbox.is-checked & {
-    background-color: $checkbox-color;
+    background: $checkbox-color url("tick.svg");
   }
 
   .wsk-checkbox.is-checked.is-disabled & {
-    background-color: $checkbox-disabled-color;
+    background: $checkbox-disabled-color url("tick.svg");
   }
-}
-
-.wsk-checkbox__tick-outline {
-  transform: translate(-15%, -60%) rotate(45deg);
-  @include checkbox-tick-component();
-}
-
-.wsk-checkbox__bottom-right {
-  transform: translate(55%, 30%) rotate(45deg);
-  @include checkbox-tick-component();
-}
-
-.wsk-checkbox__bottom-left {
-  transform: translate(-55%, 60%) rotate(45deg);
-  @include checkbox-tick-component();
-}
-
-.wsk-checkbox__bottom {
-  transform: translate(0%, 80%);
-  @include checkbox-tick-component();
-  .wsk-checkbox.is-checked.is-disabled & {
-    background-color: transparent;
-  }
-}
-
-.wsk-checkbox__top-left {
-  transform: translate(-95%, -20%) rotate(45deg);
-  @include checkbox-tick-component();
-  .wsk-checkbox.is-checked.is-disabled & {
-    transform: translate(-105%, -10%) rotate(45deg);
-  }
-}
-
-.wsk-checkbox__top-right {
-  transform: translate(85%, -70%) rotate(45deg);
-  @include checkbox-tick-component();
 }
 
 .wsk-checkbox__label {

@@ -30,41 +30,20 @@ MaterialCheckbox.prototype.Constant_ = {
  * @private
  */
 MaterialCheckbox.prototype.CssClasses_ = {
-  WSK_CHECKBOX_INPUT: 'wsk-checkbox__input',
-
-  WSK_CHECKBOX_BOX_OUTLINE: 'wsk-checkbox__box-outline',
-
-  WSK_CHECKBOX_FOCUS_HELPER: 'wsk-checkbox__focus-helper',
-
-  WSK_CHECKBOX_TICK_OUTLINE: 'wsk-checkbox__tick-outline',
-
-  WSK_CHECKBOX_BOT_RIGHT: 'wsk-checkbox__bottom-right',
-
-  WSK_CHECKBOX_BOT_LEFT: 'wsk-checkbox__bottom-left',
-
-  WSK_CHECKBOX_BOTTOM: 'wsk-checkbox__bottom',
-
-  WSK_CHECKBOX_TOP_LEFT: 'wsk-checkbox__top-left',
-
-  WSK_CHECKBOX_TOP_RIGHT: 'wsk-checkbox__top-right',
-
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-
-  WSK_CHECKBOX_RIPPLE_CONTAINER: 'wsk-checkbox__ripple-container',
-
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_RIPPLE: 'wsk-ripple',
-
+  INPUT: 'wsk-checkbox__input',
+  BOX_OUTLINE: 'wsk-checkbox__box-outline',
+  FOCUS_HELPER: 'wsk-checkbox__focus-helper',
+  TICK_OUTLINE: 'wsk-checkbox__tick-outline',
+  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'wsk-checkbox__ripple-container',
+  RIPPLE_CENTER: 'wsk-ripple--center',
+  RIPPLE: 'wsk-ripple',
   IS_FOCUSED: 'is-focused',
-
   IS_DISABLED: 'is-disabled',
-
-  IS_CHECKED: 'is-checked'
+  IS_CHECKED: 'is-checked',
+  IS_UPGRADED: 'is-upgraded'
 };
-
 
 /**
  * Handle change of state.
@@ -77,7 +56,6 @@ MaterialCheckbox.prototype.onChange_ = function(event) {
   this.updateClasses_(this.btnElement_, this.element_);
 };
 
-
 /**
  * Handle focus of element.
  * @param {Event} event The event that fired.
@@ -88,7 +66,6 @@ MaterialCheckbox.prototype.onFocus_ = function(event) {
 
   this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
 };
-
 
 /**
  * Handle lost focus of element.
@@ -101,7 +78,6 @@ MaterialCheckbox.prototype.onBlur_ = function(event) {
   this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
 };
 
-
 /**
  * Handle mouseup.
  * @param {Event} event The event that fired.
@@ -112,7 +88,6 @@ MaterialCheckbox.prototype.onMouseUp_ = function(event) {
 
   this.blur_();
 };
-
 
 /**
  * Handle class updates.
@@ -136,7 +111,6 @@ MaterialCheckbox.prototype.updateClasses_ = function(button, label) {
   }
 };
 
-
 /**
  * Add blur.
  * @private
@@ -151,7 +125,6 @@ MaterialCheckbox.prototype.blur_ = function(event) {
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
-
 /**
  * Initialize element.
  */
@@ -160,75 +133,47 @@ MaterialCheckbox.prototype.init = function() {
 
   if (this.element_) {
     this.btnElement_ = this.element_.querySelector('.' +
-        this.CssClasses_.WSK_CHECKBOX_INPUT);
+        this.CssClasses_.INPUT);
 
     var boxOutline = document.createElement('span');
-    boxOutline.classList.add(this.CssClasses_.WSK_CHECKBOX_BOX_OUTLINE);
+    boxOutline.classList.add(this.CssClasses_.BOX_OUTLINE);
 
     var tickContainer = document.createElement('span');
-    tickContainer.classList.add(this.CssClasses_.WSK_CHECKBOX_FOCUS_HELPER);
+    tickContainer.classList.add(this.CssClasses_.FOCUS_HELPER);
 
     var tickOutline = document.createElement('span');
-    tickOutline.classList.add(this.CssClasses_.WSK_CHECKBOX_TICK_OUTLINE);
-
-    var bottomRight = document.createElement('span');
-    bottomRight.classList.add(this.CssClasses_.WSK_CHECKBOX_BOT_RIGHT);
-
-    var bottomLeft = document.createElement('span');
-    bottomLeft.classList.add(this.CssClasses_.WSK_CHECKBOX_BOT_LEFT);
-
-    var bottom = document.createElement('span');
-    bottom.classList.add(this.CssClasses_.WSK_CHECKBOX_BOTTOM);
-
-    var topLeft = document.createElement('span');
-    topLeft.classList.add(this.CssClasses_.WSK_CHECKBOX_TOP_LEFT);
-
-    var topRight = document.createElement('span');
-    topRight.classList.add(this.CssClasses_.WSK_CHECKBOX_TOP_RIGHT);
+    tickOutline.classList.add(this.CssClasses_.TICK_OUTLINE);
 
     boxOutline.appendChild(tickOutline);
-    boxOutline.appendChild(topLeft);
-    boxOutline.appendChild(topRight);
-    boxOutline.appendChild(bottomRight);
-    boxOutline.appendChild(bottomLeft);
-    boxOutline.appendChild(bottom);
 
     this.element_.appendChild(tickContainer);
     this.element_.appendChild(boxOutline);
 
     var rippleContainer;
-    if (this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
-      this.element_.classList.add(
-          this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+    if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
+      this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
       rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(
-          this.CssClasses_.WSK_CHECKBOX_RIPPLE_CONTAINER);
-      rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
-      rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
 
       var ripple = document.createElement('span');
-      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(this.CssClasses_.RIPPLE);
 
       rippleContainer.appendChild(ripple);
       this.element_.appendChild(rippleContainer);
     }
 
     this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
-
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-
     rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
-    this.element_.classList.add('is-upgraded');
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
-
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
