@@ -109,8 +109,32 @@ gulp.task('styles', function() {
 
 // Concatenate And Minify JavaScript
 gulp.task('scripts', function() {
-  var sources = ['app/scripts/**/*.js',
-      'app/styleguide/wskComponentHandler.js', 'app/styleguide/**/*.js'];
+  var sources = [
+    // Scripts
+    'app/scripts/**/*.js',
+    // Component handler
+    'app/styleguide/wskComponentHandler.js',
+    // Polyfills/dependencies
+    'app/styleguide/third_party/**/*.js',
+    // Base components
+    'app/styleguide/animation/animation.js',
+    'app/styleguide/button/button.js',
+    'app/styleguide/checkbox/checkbox.js',
+    'app/styleguide/column-layout/column-layout.js',
+    'app/styleguide/icon-toggle/icon-toggle.js',
+    'app/styleguide/item/item.js',
+    'app/styleguide/radio/radio.js',
+    'app/styleguide/slider/slider.js',
+    'app/styleguide/spinner/spinner.js',
+    'app/styleguide/switch/switch.js',
+    'app/styleguide/tabs/tabs.js',
+    'app/styleguide/textfield/textfield.js',
+    'app/styleguide/tooltip/tooltip.js',
+    // Complex components (which reuse base components)
+    'app/styleguide/layout/layout.js',
+    // And finally, the ripples
+    'app/styleguide/ripple/ripple.js'
+  ];
   return gulp.src(sources)
     .pipe($.concat('main.min.js'))
     .pipe($.uglify({preserveComments: 'some'}))
