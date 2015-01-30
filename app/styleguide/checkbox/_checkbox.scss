@@ -110,18 +110,18 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   left: 0;
   height: 100%;
   width: 100%;
-  mask: url("tick-mask.svg#mask");
+  mask: url("../checkbox/tick-mask.svg#mask");
 
   background: transparent;
   @include material-animation-default(0.28s);
   transition-property: background;
 
   .wsk-checkbox.is-checked & {
-    background: $checkbox-color url("tick.svg");
+    background: $checkbox-color url("../checkbox/tick.svg");
   }
 
   .wsk-checkbox.is-checked.is-disabled & {
-    background: $checkbox-disabled-color url("tick.svg");
+    background: $checkbox-disabled-color url("../checkbox/tick.svg");
   }
 }
 
