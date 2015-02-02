@@ -2,7 +2,7 @@
 @import "../animation/animation";
 
 // Some CSS magic to target only IE.
-_:-ms-input-placeholder, :root .wsk-slider.wsk-slider {
+_:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
   -ms-appearance: none;
   // The thumb can't overflow the track or the rest of the control in IE, so we
   // need to make it tall enough to contain the largest version of the thumb.
@@ -12,317 +12,323 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider {
 
 // Slider component (styled input[type=range]).
 .wsk-slider {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   width: calc(100% - 40px);
-  height: 2px;
-  background: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  outline: 0;
   margin: 0 20px;
-  padding: 0;
-  color: $range-color;
-  align-self: center;
 
-  // Disable default focus on Firefox.
-  &::-moz-focus-outer {
-    border: 0;
-  }
-
-  // Disable tooltip on IE.
-  &::-ms-tooltip {
-    display: none;
-  }
-
-
-  /**************************** Tracks ****************************/
-  &::-webkit-slider-runnable-track {
-    background: transparent;
-  }
-
-  &::-moz-range-track {
-    background: transparent;
-    border: none;
-  }
-
-  &::-ms-track {
-    background: none;
-    color: transparent;
-    height: 2px;
-    width: 100%;
-    border: none;
-  }
-
-  &::-ms-fill-lower {
-    padding: 0;
-    // Margin on -ms-track doesn't work right, so we use gradients on the fills.
-    background: linear-gradient(to right,
-    transparent,
-    transparent 16px,
-    $range-color 16px,
-    $range-color 0);
-  }
-
-  &::-ms-fill-upper {
-    padding: 0;
-    // Margin on -ms-track doesn't work right, so we use gradients on the fills.
-    background: linear-gradient(to left,
-    transparent,
-    transparent 16px,
-    $range-bg-color 16px,
-    $range-bg-color 0);
-  }
-
-
-  /**************************** Thumbs ****************************/
-  &::-webkit-slider-thumb {
+  &.is-upgraded {
     -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
-    box-sizing: border-box;
-    border-radius: 50%;
-    background: $range-color;
-    border: none;
-    transition: transform 0.18s $animation-curve-default,
-    border 0.18s $animation-curve-default,
-    box-shadow 0.18s $animation-curve-default,
-    background 0.28s $animation-curve-default;
-  }
-
-  &::-moz-range-thumb {
     -moz-appearance: none;
-    width: 12px;
-    height: 12px;
-    box-sizing: border-box;
-    border-radius: 50%;
-    background-image: none;
-    background: $range-color;
-    border: none;
-    // -moz-range-thumb doesn't currently support transitions.
-  }
-
-  &:focus:not(:active)::-webkit-slider-thumb {
-    box-shadow: 0 0 0 10px rgba($range-color, 0.26);
-  }
-
-  &:focus:not(:active)::-moz-range-thumb {
-    box-shadow: 0 0 0 10px rgba($range-color, 0.26);
-  }
-
-  &:active::-webkit-slider-thumb {
-    background-image: none;
-    background: $range-color;
-    transform: scale(1.5);
-  }
-
-  &:active::-moz-range-thumb {
-    background-image: none;
-    background: $range-color;
-    transform: scale(1.5);
-  }
-
-  &::-ms-thumb {
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 50%;
-    background: $range-color;
-    transform: scale(0.375);
-    // -ms-thumb doesn't currently support transitions, but leaving this here in
-    // case support ever gets added.
-    transition: transform 0.18s $animation-curve-default,
-    background 0.28s $animation-curve-default;
-  }
-
-  &:focus:not(:active)::-ms-thumb {
-    background: radial-gradient(circle closest-side,
-    $range-color 0%,
-    $range-color 37.5%,
-    rgba($range-color, 0.26) 37.5%,
-    rgba($range-color, 0.26) 100%);
-    transform: scale(1);
-  }
-
-  &:active::-ms-thumb {
-    background: $range-color;
-    transform: scale(0.5625);
-  }
-
-
-  /**************************** 0-value ****************************/
-  &.is-lowest-value::-webkit-slider-thumb {
-    border: 2px solid $range-bg-color;
+    appearance: none;
+    height: 2px;
     background: transparent;
-  }
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: 0;
+    padding: 0;
+    color: $range-color;
+    align-self: center;
 
-  &.is-lowest-value::-moz-range-thumb {
-    border: 2px solid $range-bg-color;
-    background: transparent;
-  }
 
-  &.is-lowest-value ~
-      .wsk-slider__background-flex > .wsk-slider__background-upper {
-    left: 6px;
-  }
+    // Disable default focus on Firefox.
+    &::-moz-focus-outer {
+      border: 0;
+    }
 
-  &.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
-    border: 1.8px solid $range-bg-color;
-    transform: scale(1.33);
-    box-shadow: none;
-  }
+    // Disable tooltip on IE.
+    &::-ms-tooltip {
+      display: none;
+    }
 
-  &.is-lowest-value:focus:not(:active)::-moz-range-thumb {
-    border: 1.8px solid $range-bg-color;
-    transform: scale(1.33);
-    box-shadow: none;
-  }
 
-  &.is-lowest-value:focus:not(:active) ~
-      .wsk-slider__background-flex > .wsk-slider__background-upper {
-    left: 8px;
-  }
+    /**************************** Tracks ****************************/
+    &::-webkit-slider-runnable-track {
+      background: transparent;
+    }
 
-  &.is-lowest-value:active::-webkit-slider-thumb {
-    border: 1.5px solid $range-bg-color;
-    transform: scale(1.5);
-  }
+    &::-moz-range-track {
+      background: transparent;
+      border: none;
+    }
 
-  &.is-lowest-value:active ~
-      .wsk-slider__background-flex > .wsk-slider__background-upper {
-    left: 9px;
-  }
+    &::-ms-track {
+      background: none;
+      color: transparent;
+      height: 2px;
+      width: 100%;
+      border: none;
+    }
 
-  &.is-lowest-value:active::-moz-range-thumb {
-    border: 1.5px solid $range-bg-color;
-    transform: scale(1.5);
-  }
+    &::-ms-fill-lower {
+      padding: 0;
+      // Margin on -ms-track doesn't work right, so we use gradients on the
+      // fills.
+      background: linear-gradient(to right,
+      transparent,
+      transparent 16px,
+      $range-color 16px,
+      $range-color 0);
+    }
 
-  &.is-lowest-value::-ms-thumb {
-    background: radial-gradient(circle closest-side,
-    transparent 0%,
-    transparent 66.67%,
-    $range-bg-color 66.67%,
-    $range-bg-color 100%);
-  }
+    &::-ms-fill-upper {
+      padding: 0;
+      // Margin on -ms-track doesn't work right, so we use gradients on the
+      // fills.
+      background: linear-gradient(to left,
+      transparent,
+      transparent 16px,
+      $range-bg-color 16px,
+      $range-bg-color 0);
+    }
 
-  &.is-lowest-value:focus:not(:active)::-ms-thumb {
-    transform: scale(0.5);
-    background: radial-gradient(circle closest-side,
-    transparent 0%,
-    transparent 75%,
-    $range-bg-color 75%,
-    $range-bg-color 100%);
-  }
 
-  &.is-lowest-value:active::-ms-thumb {
-    transform: scale(0.5625);
-    background: radial-gradient(circle closest-side,
-    transparent 0%,
-    transparent 77.78%,
-    $range-bg-color 77.78%,
-    $range-bg-color 100%);
-  }
+    /**************************** Thumbs ****************************/
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      background: $range-color;
+      border: none;
+      transition: transform 0.18s $animation-curve-default,
+      border 0.18s $animation-curve-default,
+      box-shadow 0.18s $animation-curve-default,
+      background 0.28s $animation-curve-default;
+    }
 
-  &.is-lowest-value::-ms-fill-lower {
-    background: transparent;
-  }
+    &::-moz-range-thumb {
+      -moz-appearance: none;
+      width: 12px;
+      height: 12px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      background-image: none;
+      background: $range-color;
+      border: none;
+      // -moz-range-thumb doesn't currently support transitions.
+    }
 
-  &.is-lowest-value::-ms-fill-upper {
-    margin-left: 6px;
-  }
+    &:focus:not(:active)::-webkit-slider-thumb {
+      box-shadow: 0 0 0 10px rgba($range-color, 0.26);
+    }
 
-  &.is-lowest-value:focus:not(:active)::-ms-fill-upper {
-    margin-left: 8px;
-  }
+    &:focus:not(:active)::-moz-range-thumb {
+      box-shadow: 0 0 0 10px rgba($range-color, 0.26);
+    }
 
-  &.is-lowest-value:active::-ms-fill-upper {
-    margin-left: 9px;
-  }
+    &:active::-webkit-slider-thumb {
+      background-image: none;
+      background: $range-color;
+      transform: scale(1.5);
+    }
 
-  /**************************** Disabled ****************************/
+    &:active::-moz-range-thumb {
+      background-image: none;
+      background: $range-color;
+      transform: scale(1.5);
+    }
 
-  &:disabled:focus::-webkit-slider-thumb,
-  &:disabled:active::-webkit-slider-thumb,
-  &:disabled::-webkit-slider-thumb {
-    transform: scale(0.667);
-    background: $range-bg-color;
-  }
+    &::-ms-thumb {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      background: $range-color;
+      transform: scale(0.375);
+      // -ms-thumb doesn't currently support transitions, but leaving this here
+      // in case support ever gets added.
+      transition: transform 0.18s $animation-curve-default,
+      background 0.28s $animation-curve-default;
+    }
 
-  &:disabled:focus::-moz-range-thumb,
-  &:disabled:active::-moz-range-thumb,
-  &:disabled::-moz-range-thumb {
-    transform: scale(0.667);
-    background: $range-bg-color;
-  }
+    &:focus:not(:active)::-ms-thumb {
+      background: radial-gradient(circle closest-side,
+      $range-color 0%,
+      $range-color 37.5%,
+      rgba($range-color, 0.26) 37.5%,
+      rgba($range-color, 0.26) 100%);
+      transform: scale(1);
+    }
 
-  &:disabled ~
-      .wsk-slider__background-flex > .wsk-slider__background-lower {
-    background-color: $range-bg-color;
-    left: -6px;
-  }
+    &:active::-ms-thumb {
+      background: $range-color;
+      transform: scale(0.5625);
+    }
 
-  &:disabled ~
-      .wsk-slider__background-flex > .wsk-slider__background-upper {
-    left: 6px;
-  }
 
-  &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
-  &.is-lowest-value:disabled:active::-webkit-slider-thumb,
-  &.is-lowest-value:disabled::-webkit-slider-thumb {
-    border: 3px solid $range-bg-color;
-    background: transparent;
-    transform: scale(0.667);
-  }
+    /**************************** 0-value ****************************/
+    &.is-lowest-value::-webkit-slider-thumb {
+      border: 2px solid $range-bg-color;
+      background: transparent;
+    }
 
-  &.is-lowest-value:disabled:focus::-moz-range-thumb,
-  &.is-lowest-value:disabled:active::-moz-range-thumb,
-  &.is-lowest-value:disabled::-moz-range-thumb {
-    border: 3px solid $range-bg-color;
-    background: transparent;
-    transform: scale(0.667);
-  }
+    &.is-lowest-value::-moz-range-thumb {
+      border: 2px solid $range-bg-color;
+      background: transparent;
+    }
 
-  &.is-lowest-value:disabled:active ~
-      .wsk-slider__background-flex > .wsk-slider__background-upper {
-    left: 6px;
-  }
+    &.is-lowest-value ~
+        .wsk-slider__background-flex > .wsk-slider__background-upper {
+      left: 6px;
+    }
 
-  &:disabled:focus::-ms-thumb,
-  &:disabled:active::-ms-thumb,
-  &:disabled::-ms-thumb {
-    transform: scale(0.25);
-    background: $range-bg-color;
-  }
+    &.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
+      border: 1.8px solid $range-bg-color;
+      transform: scale(1.33);
+      box-shadow: none;
+    }
 
-  &.is-lowest-value:disabled:focus::-ms-thumb,
-  &.is-lowest-value:disabled:active::-ms-thumb,
-  &.is-lowest-value:disabled::-ms-thumb {
-    transform: scale(0.25);
-    background: radial-gradient(circle closest-side,
-    transparent 0%,
-    transparent 50%,
-    $range-bg-color 50%,
-    $range-bg-color 100%);
-  }
+    &.is-lowest-value:focus:not(:active)::-moz-range-thumb {
+      border: 1.8px solid $range-bg-color;
+      transform: scale(1.33);
+      box-shadow: none;
+    }
 
-  &:disabled::-ms-fill-lower {
-    margin-right: 6px;
-    background: linear-gradient(to right,
-    transparent,
-    transparent 25px,
-    $range-bg-color 25px,
-    $range-bg-color 0);
-  }
+    &.is-lowest-value:focus:not(:active) ~
+        .wsk-slider__background-flex > .wsk-slider__background-upper {
+      left: 8px;
+    }
 
-  &:disabled::-ms-fill-upper {
-    margin-left: 6px;
-  }
+    &.is-lowest-value:active::-webkit-slider-thumb {
+      border: 1.5px solid $range-bg-color;
+      transform: scale(1.5);
+    }
 
-  &.is-lowest-value:disabled:active::-ms-fill-upper {
-    margin-left: 6px;
+    &.is-lowest-value:active ~
+        .wsk-slider__background-flex > .wsk-slider__background-upper {
+      left: 9px;
+    }
+
+    &.is-lowest-value:active::-moz-range-thumb {
+      border: 1.5px solid $range-bg-color;
+      transform: scale(1.5);
+    }
+
+    &.is-lowest-value::-ms-thumb {
+      background: radial-gradient(circle closest-side,
+      transparent 0%,
+      transparent 66.67%,
+      $range-bg-color 66.67%,
+      $range-bg-color 100%);
+    }
+
+    &.is-lowest-value:focus:not(:active)::-ms-thumb {
+      transform: scale(0.5);
+      background: radial-gradient(circle closest-side,
+      transparent 0%,
+      transparent 75%,
+      $range-bg-color 75%,
+      $range-bg-color 100%);
+    }
+
+    &.is-lowest-value:active::-ms-thumb {
+      transform: scale(0.5625);
+      background: radial-gradient(circle closest-side,
+      transparent 0%,
+      transparent 77.78%,
+      $range-bg-color 77.78%,
+      $range-bg-color 100%);
+    }
+
+    &.is-lowest-value::-ms-fill-lower {
+      background: transparent;
+    }
+
+    &.is-lowest-value::-ms-fill-upper {
+      margin-left: 6px;
+    }
+
+    &.is-lowest-value:focus:not(:active)::-ms-fill-upper {
+      margin-left: 8px;
+    }
+
+    &.is-lowest-value:active::-ms-fill-upper {
+      margin-left: 9px;
+    }
+
+    /**************************** Disabled ****************************/
+
+    &:disabled:focus::-webkit-slider-thumb,
+    &:disabled:active::-webkit-slider-thumb,
+    &:disabled::-webkit-slider-thumb {
+      transform: scale(0.667);
+      background: $range-bg-color;
+    }
+
+    &:disabled:focus::-moz-range-thumb,
+    &:disabled:active::-moz-range-thumb,
+    &:disabled::-moz-range-thumb {
+      transform: scale(0.667);
+      background: $range-bg-color;
+    }
+
+    &:disabled ~
+        .wsk-slider__background-flex > .wsk-slider__background-lower {
+      background-color: $range-bg-color;
+      left: -6px;
+    }
+
+    &:disabled ~
+        .wsk-slider__background-flex > .wsk-slider__background-upper {
+      left: 6px;
+    }
+
+    &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
+    &.is-lowest-value:disabled:active::-webkit-slider-thumb,
+    &.is-lowest-value:disabled::-webkit-slider-thumb {
+      border: 3px solid $range-bg-color;
+      background: transparent;
+      transform: scale(0.667);
+    }
+
+    &.is-lowest-value:disabled:focus::-moz-range-thumb,
+    &.is-lowest-value:disabled:active::-moz-range-thumb,
+    &.is-lowest-value:disabled::-moz-range-thumb {
+      border: 3px solid $range-bg-color;
+      background: transparent;
+      transform: scale(0.667);
+    }
+
+    &.is-lowest-value:disabled:active ~
+        .wsk-slider__background-flex > .wsk-slider__background-upper {
+      left: 6px;
+    }
+
+    &:disabled:focus::-ms-thumb,
+    &:disabled:active::-ms-thumb,
+    &:disabled::-ms-thumb {
+      transform: scale(0.25);
+      background: $range-bg-color;
+    }
+
+    &.is-lowest-value:disabled:focus::-ms-thumb,
+    &.is-lowest-value:disabled:active::-ms-thumb,
+    &.is-lowest-value:disabled::-ms-thumb {
+      transform: scale(0.25);
+      background: radial-gradient(circle closest-side,
+      transparent 0%,
+      transparent 50%,
+      $range-bg-color 50%,
+      $range-bg-color 100%);
+    }
+
+    &:disabled::-ms-fill-lower {
+      margin-right: 6px;
+      background: linear-gradient(to right,
+      transparent,
+      transparent 25px,
+      $range-bg-color 25px,
+      $range-bg-color 0);
+    }
+
+    &:disabled::-ms-fill-upper {
+      margin-left: 6px;
+    }
+
+    &.is-lowest-value:disabled:active::-ms-fill-upper {
+      margin-left: 6px;
+    }
   }
 }
 

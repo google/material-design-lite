@@ -31,19 +31,14 @@ MaterialSlider.prototype.Constant_ = {
  * @private
  */
 MaterialSlider.prototype.CssClasses_ = {
-  WSK_SLIDER_IE_CONTAINER: 'wsk-slider__ie-container',
-
-  WSK_SLIDER_CONTAINER: 'wsk-slider__container',
-
-  WSK_SLIDER_BACKGROUND_FLEX: 'wsk-slider__background-flex',
-
-  WSK_SLIDER_BACKGROUND_LOW: 'wsk-slider__background-lower',
-
-  WSK_SLIDER_BACKGROUND_UP: 'wsk-slider__background-upper',
-
-  IS_LOWEST_VALUE: 'is-lowest-value'
+  IE_CONTAINER: 'wsk-slider__ie-container',
+  SLIDER_CONTAINER: 'wsk-slider__container',
+  BACKGROUND_FLEX: 'wsk-slider__background-flex',
+  BACKGROUND_LOWER: 'wsk-slider__background-lower',
+  BACKGROUND_UPPER: 'wsk-slider__background-upper',
+  IS_LOWEST_VALUE: 'is-lowest-value',
+  IS_UPGRADED: 'is-upgraded'
 };
-
 
 /**
  * Handle input on element.
@@ -56,7 +51,6 @@ MaterialSlider.prototype.onInput_ = function(event) {
   this.updateValue_();
 };
 
-
 /**
  * Handle change on element.
  * @param {Event} event The event that fired.
@@ -68,7 +62,6 @@ MaterialSlider.prototype.onChange_ = function(event) {
   this.updateValue_();
 };
 
-
 /**
  * Handle mouseup on element.
  * @param {Event} event The event that fired.
@@ -77,9 +70,8 @@ MaterialSlider.prototype.onChange_ = function(event) {
 MaterialSlider.prototype.onMouseUp_ = function(event) {
   'use strict';
 
-   event.target.blur();
+  event.target.blur();
 };
-
 
 /**
  * Handle updating of values.
@@ -107,7 +99,6 @@ MaterialSlider.prototype.updateValue_ = function(event) {
   }
 };
 
-
 /**
  * Initialize element.
  */
@@ -120,7 +111,7 @@ MaterialSlider.prototype.init = function() {
       // implementation limitations, we add a parent here that trims it down to
       // a reasonable size.
       var containerIE = document.createElement('div');
-      containerIE.classList.add(this.CssClasses_.WSK_SLIDER_IE_CONTAINER);
+      containerIE.classList.add(this.CssClasses_.IE_CONTAINER);
       this.element_.parentElement.insertBefore(containerIE, this.element_);
       this.element_.parentElement.removeChild(this.element_);
       containerIE.appendChild(this.element_);
@@ -129,20 +120,18 @@ MaterialSlider.prototype.init = function() {
       // slider and allows us to style the left and right sides of it with
       // different colors.
       var container = document.createElement('div');
-      container.classList.add(this.CssClasses_.WSK_SLIDER_CONTAINER);
+      container.classList.add(this.CssClasses_.SLIDER_CONTAINER);
       this.element_.parentElement.insertBefore(container, this.element_);
       this.element_.parentElement.removeChild(this.element_);
       container.appendChild(this.element_);
       var backgroundFlex = document.createElement('div');
-      backgroundFlex.classList.add(this.CssClasses_.WSK_SLIDER_BACKGROUND_FLEX);
+      backgroundFlex.classList.add(this.CssClasses_.BACKGROUND_FLEX);
       container.appendChild(backgroundFlex);
       this.backgroundLower_ = document.createElement('div');
-      this.backgroundLower_.classList.add(
-          this.CssClasses_.WSK_SLIDER_BACKGROUND_LOW);
+      this.backgroundLower_.classList.add(this.CssClasses_.BACKGROUND_LOWER);
       backgroundFlex.appendChild(this.backgroundLower_);
       this.backgroundUpper_ = document.createElement('div');
-      this.backgroundUpper_.classList.add(
-          this.CssClasses_.WSK_SLIDER_BACKGROUND_UP);
+      this.backgroundUpper_.classList.add(this.CssClasses_.BACKGROUND_UPPER);
       backgroundFlex.appendChild(this.backgroundUpper_);
     }
 
@@ -151,9 +140,9 @@ MaterialSlider.prototype.init = function() {
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateValue_();
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
-
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
