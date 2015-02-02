@@ -76,6 +76,8 @@ MaterialSpinner.prototype.createLayer = function(index) {
 
 /**
 * Stops the spinner animation.
+* Public method for users who need to stop the spinner for any reason.
+* @public
 */
 MaterialSpinner.prototype.stop = function() {
   'use strict';
@@ -85,8 +87,11 @@ MaterialSpinner.prototype.stop = function() {
 
 /**
 * Starts the spinner animation.
+* Public method for users who need to manually start the spinner for any reason
+* (instead of just adding the 'is-active' class to their markup).
+* @public
 */
-MaterialSpinner.prototype.stop = function() {
+MaterialSpinner.prototype.start = function() {
   'use strict';
 
   this.element_.classlist.add('is-active');
