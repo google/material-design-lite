@@ -38,7 +38,8 @@ MaterialIconToggle.prototype.CssClasses_ = {
   RIPPLE: 'wsk-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
-  IS_CHECKED: 'is-checked'
+  IS_CHECKED: 'is-checked',
+  IS_UPGRADED: 'is-upgraded'
 };
 
 /**
@@ -144,16 +145,16 @@ MaterialIconToggle.prototype.init = function() {
 
       rippleContainer.appendChild(ripple);
       this.element_.appendChild(rippleContainer);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
     }
 
     this.btnElement_.addEventListener('change', this.onChange_.bind(this));
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
-    this.element_.classList.add('is-upgraded');
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
 
