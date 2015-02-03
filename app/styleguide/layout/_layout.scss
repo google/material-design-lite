@@ -2,6 +2,7 @@
 @import '../shadow/shadow';
 @import '../typography/typography';
 @import '../animation/animation';
+@import '../icons/icons';
 
 // Dimensions
 $layout-drawer-narrow: 240px;
@@ -178,8 +179,8 @@ $layout-tab-highlight-thickness: 2px;
     z-index: 3;
 
     &::after {
-      // TODO(sgomes): Replace with proper menu icon once we have an icon font.
-      content: '☰';
+      @include wsk-icon();
+      content: $icon-menu;
     }
 
     .wsk-layout--overlay-drawer-button > & {
@@ -197,6 +198,7 @@ $layout-tab-highlight-thickness: 2px;
       width: $layout-header-icon-size;
       color: $layout-header-text-color;
       background-color: $layout-header-bg-color;
+      z-index: 5;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         left: $layout-header-basic-mobile-indent;
@@ -554,9 +556,9 @@ $layout-tab-highlight-thickness: 2px;
     left: 0;
 
     &::after {
-      // TODO(sgomes): replace with left chevron when we have an icon font.
       font-size: 26px;
-      content: "<";
+      @include wsk-icon();
+      content: $icon-chevron-left;
     }
   }
 
@@ -564,9 +566,9 @@ $layout-tab-highlight-thickness: 2px;
     right: 0;
 
     &::after {
-      // TODO(sgomes): replace with left chevron when we have an icon font.
       font-size: 26px;
-      content: ">";
+      @include wsk-icon();
+      content: $icon-chevron-right;
     }
   }
 
