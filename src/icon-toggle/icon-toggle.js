@@ -1,10 +1,10 @@
 /**
- * Class constructor for Checkbox WSK component.
+ * Class constructor for icon toggle WSK component.
  * Implements WSK component design pattern defined at:
  * https://github.com/jasonmayes/wsk-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
-function MaterialCheckbox(element) {
+function MaterialIconToggle(element) {
   'use strict';
 
   this.element_ = element;
@@ -18,7 +18,7 @@ function MaterialCheckbox(element) {
  * @enum {string | number}
  * @private
  */
-MaterialCheckbox.prototype.Constant_ = {
+MaterialIconToggle.prototype.Constant_ = {
   TINY_TIMEOUT: 0.001
 };
 
@@ -29,20 +29,16 @@ MaterialCheckbox.prototype.Constant_ = {
  * @enum {string}
  * @private
  */
-MaterialCheckbox.prototype.CssClasses_ = {
-  INPUT: 'wsk-checkbox__input',
-  BOX_OUTLINE: 'wsk-checkbox__box-outline',
-  FOCUS_HELPER: 'wsk-checkbox__focus-helper',
-  TICK_OUTLINE: 'wsk-checkbox__tick-outline',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+MaterialIconToggle.prototype.CssClasses_ = {
+  INPUT: 'wsk-icon-toggle__input',
+  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
   RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-checkbox__ripple-container',
+  RIPPLE_CONTAINER: 'wsk-icon-toggle__ripple-container',
   RIPPLE_CENTER: 'wsk-ripple--center',
   RIPPLE: 'wsk-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
-  IS_CHECKED: 'is-checked',
-  IS_UPGRADED: 'is-upgraded'
+  IS_CHECKED: 'is-checked'
 };
 
 /**
@@ -50,7 +46,7 @@ MaterialCheckbox.prototype.CssClasses_ = {
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialCheckbox.prototype.onChange_ = function(event) {
+MaterialIconToggle.prototype.onChange_ = function(event) {
   'use strict';
 
   this.updateClasses_(this.btnElement_, this.element_);
@@ -61,7 +57,7 @@ MaterialCheckbox.prototype.onChange_ = function(event) {
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialCheckbox.prototype.onFocus_ = function(event) {
+MaterialIconToggle.prototype.onFocus_ = function(event) {
   'use strict';
 
   this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
@@ -72,7 +68,7 @@ MaterialCheckbox.prototype.onFocus_ = function(event) {
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialCheckbox.prototype.onBlur_ = function(event) {
+MaterialIconToggle.prototype.onBlur_ = function(event) {
   'use strict';
 
   this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
@@ -83,7 +79,7 @@ MaterialCheckbox.prototype.onBlur_ = function(event) {
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialCheckbox.prototype.onMouseUp_ = function(event) {
+MaterialIconToggle.prototype.onMouseUp_ = function(event) {
   'use strict';
 
   this.blur_();
@@ -95,7 +91,7 @@ MaterialCheckbox.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialCheckbox.prototype.updateClasses_ = function(button, label) {
+MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
   'use strict';
 
   if (button.disabled) {
@@ -115,7 +111,7 @@ MaterialCheckbox.prototype.updateClasses_ = function(button, label) {
  * Add blur.
  * @private
  */
-MaterialCheckbox.prototype.blur_ = function(event) {
+MaterialIconToggle.prototype.blur_ = function(event) {
   'use strict';
 
   // TODO: figure out why there's a focus event being fired after our blur,
@@ -128,33 +124,19 @@ MaterialCheckbox.prototype.blur_ = function(event) {
 /**
  * Initialize element.
  */
-MaterialCheckbox.prototype.init = function() {
+MaterialIconToggle.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ = this.element_.querySelector('.' +
-        this.CssClasses_.INPUT);
-
-    var boxOutline = document.createElement('span');
-    boxOutline.classList.add(this.CssClasses_.BOX_OUTLINE);
-
-    var tickContainer = document.createElement('span');
-    tickContainer.classList.add(this.CssClasses_.FOCUS_HELPER);
-
-    var tickOutline = document.createElement('span');
-    tickOutline.classList.add(this.CssClasses_.TICK_OUTLINE);
-
-    boxOutline.appendChild(tickOutline);
-
-    this.element_.appendChild(tickContainer);
-    this.element_.appendChild(boxOutline);
+    this.btnElement_ =
+        this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
     var rippleContainer;
-    if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
+    if (this.element_.classList.contains(this.CssClasses_.JS_RIPPLE_EFFECT)) {
       this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
       rippleContainer = document.createElement('span');
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
-      rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      rippleContainer.classList.add(this.CssClasses_.JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
 
       var ripple = document.createElement('span');
@@ -162,23 +144,23 @@ MaterialCheckbox.prototype.init = function() {
 
       rippleContainer.appendChild(ripple);
       this.element_.appendChild(rippleContainer);
-      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
     }
 
     this.btnElement_.addEventListener('change', this.onChange_.bind(this));
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
+    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
-    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
+    this.element_.classList.add('is-upgraded');
   }
 };
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
-  constructor: MaterialCheckbox,
-  classAsString: 'MaterialCheckbox',
-  cssClass: 'wsk-js-checkbox'
+  constructor: MaterialIconToggle,
+  classAsString: 'MaterialIconToggle',
+  cssClass: 'wsk-js-icon-toggle'
 });
