@@ -31,14 +31,15 @@ MaterialTabs.prototype.Constant_ = {
  * @private
  */
 MaterialTabs.prototype.CssClasses_ = {
-  TAB: 'wsk-tabs__tab',
-  PANEL: 'wsk-tabs__panel',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_CONTAINER: 'wsk-tabs__ripple-container',
-  RIPPLE: 'wsk-ripple',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  IS_ACTIVE: 'is-active',
-  IS_UPGRADED: 'is-upgraded',
+  TAB_CLASS: 'wsk-tabs__tab',
+  PANEL_CLASS: 'wsk-tabs__panel',
+  ACTIVE_CLASS: 'is-active',
+  UPGRADED_CLASS: 'is-upgraded',
+
+  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+  WSK_RIPPLE_CONTAINER: 'wsk-tabs__ripple-container',
+  WSK_RIPPLE: 'wsk-ripple',
+  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events'
 };
 
 /**
@@ -48,20 +49,22 @@ MaterialTabs.prototype.CssClasses_ = {
 MaterialTabs.prototype.initTabs_ = function(e) {
   'use strict';
 
-  if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
-    this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
+  if (this.element_.classList.contains(this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+    this.element_.classList.add(
+      this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
   }
 
   // Select element tabs, document panels
-  this.tabs_ = this.element_.querySelectorAll('.' + this.CssClasses_.TAB);
-  this.panels_ = this.element_.querySelectorAll('.' + this.CssClasses_.PANEL);
+  this.tabs_ = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
+  this.panels_ =
+      this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
 
   // Create new tabs for each tab element
   for (var i = 0; i < this.tabs_.length; i++) {
     new MaterialTab(this.tabs_[i], this);
   }
 
-  this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
+  this.element_.classList.add(this.CssClasses_.UPGRADED_CLASS);
 };
 
 /**
@@ -72,7 +75,7 @@ MaterialTabs.prototype.resetTabState_ = function() {
   'use strict';
 
   for (var k = 0; k < this.tabs_.length; k++) {
-    this.tabs_[k].classList.remove(this.CssClasses_.IS_ACTIVE);
+    this.tabs_[k].classList.remove(this.CssClasses_.ACTIVE_CLASS);
   }
 };
 
@@ -84,7 +87,7 @@ MaterialTabs.prototype.resetPanelState_ = function() {
   'use strict';
 
   for (var j = 0; j < this.panels_.length; j++) {
-    this.panels_[j].classList.remove(this.CssClasses_.IS_ACTIVE);
+    this.panels_[j].classList.remove(this.CssClasses_.ACTIVE_CLASS);
   }
 };
 
@@ -100,12 +103,12 @@ function MaterialTab(tab, ctx) {
   'use strict';
 
   if (tab) {
-    if (ctx.element_.classList.contains(ctx.CssClasses_.RIPPLE_EFFECT)) {
+    if (ctx.element_.classList.contains(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(ctx.CssClasses_.RIPPLE_CONTAINER);
-      rippleContainer.classList.add(ctx.CssClasses_.RIPPLE_EFFECT);
+      rippleContainer.classList.add(ctx.CssClasses_.WSK_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT);
       var ripple = document.createElement('span');
-      ripple.classList.add(ctx.CssClasses_.RIPPLE);
+      ripple.classList.add(ctx.CssClasses_.WSK_RIPPLE);
       rippleContainer.appendChild(ripple);
       tab.appendChild(rippleContainer);
     }
@@ -116,8 +119,8 @@ function MaterialTab(tab, ctx) {
       var panel = document.querySelector('#' + href);
       ctx.resetTabState_();
       ctx.resetPanelState_();
-      tab.classList.add(ctx.CssClasses_.IS_ACTIVE);
-      panel.classList.add(ctx.CssClasses_.IS_ACTIVE);
+      tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+      panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
     });
 
   }
