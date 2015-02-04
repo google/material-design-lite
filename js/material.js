@@ -1,7 +1,7 @@
 /**
- * material-styleguide - Material Design Library
+ * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.0.0
- * @link https://github.com/google/material-styleguide
+ * @link https://github.com/google/material-design-lite
  * @license Apache-2
  */
 /**

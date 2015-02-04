@@ -1,12 +1,12 @@
-# Material Design Style Guide
+# Material Design Lite
 
-A library offering Material Design components in CSS, JS and HTML.
+A library of [Material Design](www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML.
 
 ## Getting Started
 
 ### Clone / download
 
-Clone or [download](https://github.com/google/material-styleguide/archive/master.zip) this repository
+Clone or [download](https://github.com/google/material-design-lite/archive/master.zip) this repository
 and reference the following files in your project:
 
 ```html
@@ -20,13 +20,13 @@ included.
 ### Bower
 
 ```sh
-$ bower install material-styleguide
+$ bower install material-design-lite
 ```
 
 ### npm
 
 ```sh
-$ npm install material-styleguide
+$ npm install material-design-lite
 ```
 
 ## Development
