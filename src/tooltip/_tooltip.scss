@@ -1,9 +1,10 @@
 @import "../colors";
+@import "../animation/animation";
 @import "../typography/typography";
 
 .wsk-tooltip {
-  -webkit-transform: scale(0);
-  -webkit-transform-origin: top center;
+  transform: scale(0);
+  transform-origin: top center;
   background: $tooltip-background-color;
   border-radius: 5px;
   color: $tooltip-text-color;
@@ -17,8 +18,7 @@
 }
 .wsk-tooltip.is-active {
   display: inline-block;
-  -webkit-animation: pulse 200ms cubic-bezier(0, 0, .2, 1) forwards;
-  animation: pulse 200ms cubic-bezier(0, 0, .2, 1) forwards;
+  animation: pulse 200ms $animation-curve-linear-out-slow-in forwards;
 }
 
 .wsk-tooltip--large {
@@ -29,14 +29,19 @@
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-transform: scale(0);
+    transform: scale(0);
     opacity: 0;
   }
   50% {
-    -webkit-transform: scale(1);
+    // Fixes a weird bug with the interaction between Safari and the result of
+    // the SASS compilation for the animation.
+    // Essentially, we need to make sure that "50%" and "100%" don't get merged
+    // into a single "50%, 100%" entry, so we need to avoid them having any
+    // matching properties.
+    transform: scale(0.99);
   }
   100% {
-    -webkit-transform: scale(1);
+    transform: scale(1);
     opacity: 1;
     visibility: visible;
   }
