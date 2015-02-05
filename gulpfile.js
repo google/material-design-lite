@@ -83,7 +83,7 @@ gulp.task('styles:dev', function () {
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp/styles/css'))
+    .pipe(gulp.dest('.tmp/styles'))
     .pipe($.size({title: 'styles'}));
 });
 
@@ -162,7 +162,7 @@ gulp.task('serve', ['styles:dev'], function () {
     notify: false,
     // Customize the BrowserSync console logging prefix
     logPrefix: 'WSK',
-    server: ['.tmp', 'src']
+    server: ['.tmp', 'src', '.tmp/styles']
   });
 
   gulp.watch(['src/**/**/**/*.html'], reload);
