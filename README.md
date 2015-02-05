@@ -1,10 +1,11 @@
 # Material Design Lite
 
-A library of [Material Design](www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML.
+> A library of [Material Design](www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML
+
 
 ## Getting Started
 
-### Clone / download
+### Download
 
 Clone or [download](https://github.com/google/material-design-lite/archive/master.zip) this repository
 and reference the following files in your project:
@@ -17,30 +18,31 @@ and reference the following files in your project:
 You will want to include the entire package to ensure optional assets like images or fonts are correctly
 included.
 
-### Bower
-
-```sh
-$ bower install material-design-lite
-```
-
 ### npm
 
-```sh
-$ npm install material-design-lite
 ```
+$ npm install --save material-design-lite
+```
+
+### bower
+
+```
+$ bower install --save material-design-lite
+```
+
 
 ## Development
 
 The sources (JS, Sass) and demo files for all components can be found in the `src` directory. To get started
 modifying them, first install the necessary dependencies, from the root of the project:
 
-```sh
+```
 $ npm install && npm install -g gulp
 ```
 
 Next, run the following one-liner to preview the components:
 
-```sh
+```
 $ gulp serve
 ```
 
@@ -49,12 +51,13 @@ up on physical devices thanks to BrowserSync.
 
 To build a production version of the components, run:
 
-```sh
+```
 $ gulp
 ```
 
 This will clean and update the `css`, `js` and `images` directories in the root of the project with minified and
 concatenated versions of the component files. Namely, `css/material.min.css` and `js/material.min.js`.
+
 
 ## License
 
