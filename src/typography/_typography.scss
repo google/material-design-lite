@@ -273,7 +273,7 @@ dt {
   @include typo-display-4();
 }
 
-.wsk-typography--display-4--colorContrast {
+.wsk-typography--display-4-color-contrast {
   @include typo-display-4($colorContrast: true);
 }
 
@@ -281,7 +281,7 @@ dt {
   @include typo-display-3();
 }
 
-.wsk-typography--display-3--colorContrast {
+.wsk-typography--display-3-color-contrast {
   @include typo-display-3($colorContrast: true);
 }
 
@@ -289,7 +289,7 @@ dt {
   @include typo-display-2();
 }
 
-.wsk-typography--display-2--colorContrast {
+.wsk-typography--display-2-color-contrast {
   @include typo-display-2($colorContrast: true);
 }
 
@@ -297,7 +297,7 @@ dt {
   @include typo-display-1();
 }
 
-.wsk-typography--display-1--colorContrast {
+.wsk-typography--display-1-color-contrast {
   @include typo-display-1($colorContrast: true);
 }
 
@@ -305,7 +305,7 @@ dt {
   @include typo-headline();
 }
 
-.wsk-typography--headline--colorContrast {
+.wsk-typography--headline-color-contrast {
   @include typo-headline($colorContrast: true);
 }
 
@@ -313,7 +313,7 @@ dt {
   @include typo-title();
 }
 
-.wsk-typography--title--colorContrast {
+.wsk-typography--title-color-contrast {
   @include typo-title($colorContrast: true);
 }
 
@@ -321,7 +321,7 @@ dt {
   @include typo-subhead();
 }
 
-.wsk-typography--subhead--colorContrast {
+.wsk-typography--subhead-color-contrast {
   @include typo-subhead($colorContrast: true);
 }
 
@@ -329,7 +329,7 @@ dt {
   @include typo-body-2();
 }
 
-.wsk-typography--Body-2--colorContrast {
+.wsk-typography--body-2-color-contrast {
   @include typo-body-2($colorContrast: true);
 }
 
@@ -337,23 +337,23 @@ dt {
   @include typo-body-1();
 }
 
-.wsk-typography--body-1--colorContrast {
+.wsk-typography--body-1-color-contrast {
   @include typo-body-1($colorContrast: true);
 }
 
-.wsk-typography--body-2--forcePreferredFont {
+.wsk-typography--body-2-force-preferred-font {
   @include typo-body-2($usePreferred: true);
 }
 
-.wsk-typography--Body-2--forcePreferredFont--colorContrast {
+.wsk-typography--body-2-force-preferred-font-color-contrast {
   @include typo-body-2($colorContrast: true, $usePreferred: true);
 }
 
-.wsk-typography--body-1--forcePreferredFont {
+.wsk-typography--body-1-force-preferred-font {
   @include typo-body-1($usePreferred: true);
 }
 
-.wsk-typography--body-1--forcePreferredFont--colorContrast {
+.wsk-typography--body-1-force-preferred-font-color-contrast {
   @include typo-body-1($colorContrast: true, $usePreferred: true);
 }
 
@@ -361,15 +361,15 @@ dt {
   @include typo-caption();
 }
 
-.wsk-typography--caption--forcePreferredFont {
+.wsk-typography--caption-force-preferred-font {
   @include typo-caption($usePreferred: true);
 }
 
-.wsk-typography--caption--colorContrast {
+.wsk-typography--caption-color-contrast {
   @include typo-caption($colorContrast: true);
 }
 
-.wsk-typography--caption--forcePreferredFont--colorContrast {
+.wsk-typography--caption-force-preferred-font-color-contrast {
   @include typo-caption($colorContrast: true, $usePreferred: true);
 }
 
@@ -377,7 +377,7 @@ dt {
   @include typo-menu();
 }
 
-.wsk-typography--menu--colorContrast {
+.wsk-typography--menu-color-contrast {
   @include typo-menu($colorContrast: true);
 }
 
@@ -385,49 +385,73 @@ dt {
   @include typo-button();
 }
 
-.wsk-typography--button--colorContrast {
+.wsk-typography--button-color-contrast {
   @include typo-button($colorContrast: true);
 }
 
-.wsk-typography--textLeft {
-    text-align: left
+.wsk-typography--text-left {
+  text-align: left;
 }
 
-.wsk-typography--textRight {
-    text-align: right
+.wsk-typography--text-right {
+  text-align: right;
 }
 
-.wsk-typography--textCenter {
-    text-align: center
+.wsk-typography--text-center {
+  text-align: center;
 }
 
-.wsk-typography--textJustify {
-    text-align: justify
+.wsk-typography--text-justify {
+  text-align: justify;
 }
 
-.wsk-typography--textNowrap {
-    white-space: nowrap
+.wsk-typography--text-nowrap {
+  white-space: nowrap;
 }
 
 
-.wsk-typography--textLowercase {
-    text-transform: lowercase
+.wsk-typography--text-lowercase {
+  text-transform: lowercase;
 }
 
-.wsk-typography--textUppercase {
-    text-transform: uppercase
+.wsk-typography--text-uppercase {
+  text-transform: uppercase;
 }
 
-.wsk-typography--textCapitalize {
-    text-transform: capitalize
+.wsk-typography--text-capitalize {
+  text-transform: capitalize;
 }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
-    background-color: #f9f9f9
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td,
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
 }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
-    background-color: #f9f9f9
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td,
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+
+.wsk-typography--font-thin {
+  font-weight: 200 !important;
+}
+
+.wsk-typography--font-light {
+  font-weight: 300 !important;
+}
+
+.wsk-typography--font-regular {
+  font-weight: 400 !important;
+}
+
+.wsk-typography--font-medium {
+  font-weight: 500 !important;
+}
+
+.wsk-typography--font-bold {
+  font-weight: 700 !important;
+}
+
+.wsk-typography--font-black {
+  font-weight: 900 !important;
 }
