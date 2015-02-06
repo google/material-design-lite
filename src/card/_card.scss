@@ -59,6 +59,7 @@ $background-image-url: '' !default;
   z-index  : $card-z-index;
   position : relative;
   background: $card-background-color;
+  border-radius: 2px;
 }
 
 .wsk-card--img-container {
