@@ -2,6 +2,36 @@
 
 > A library of [Material Design](www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML
 
+## Quick start
+
+Four quick start options are available:
+
+- [Download the latest release](https://github.com/google/material-design-lite/archive/master.zip).
+- Clone the repo: `git clone https://github.com/google/material-design-lite.git`.
+- Install with [Bower](http://bower.io): `bower install material-design-lite`.
+- Install with [npm](https://www.npmjs.org): `npm install material-design-lite`.
+
+### What's included
+
+Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+
+```
+├── css
+│   ├── material.css
+│   └── material.min.css
+├── js
+│   ├── material.js
+│   ├── material.min.js
+│   └── material.min.js.map
+├── images
+├── src
+├── package.json
+├── bower.json
+├── gulpfile.js
+├── LICENSE
+├── README.md
+```
+
 
 ## Getting Started
 
