@@ -11,62 +11,334 @@
 // A400, A700.
 
 $palette-red: #ffebee #ffcdd2 #ef9a9a #e57373 #ef5350 #f44336 #e53935
-           #d32f2f #c62828 #b71c1c #ff8a80 #ff5252 #ff1744 #d50000;
+    #d32f2f #c62828 #b71c1c #ff8a80 #ff5252 #ff1744 #d50000;
+
+$palette-red-50: nth($palette-red, 1);
+$palette-red-100: nth($palette-red, 2);
+$palette-red-200: nth($palette-red, 3);
+$palette-red-300: nth($palette-red, 4);
+$palette-red-400: nth($palette-red, 5);
+$palette-red-500: nth($palette-red, 6);
+$palette-red-600: nth($palette-red, 7);
+$palette-red-700: nth($palette-red, 8);
+$palette-red-800: nth($palette-red, 9);
+$palette-red-900: nth($palette-red, 10);
+$palette-red-A100: nth($palette-red, 11);
+$palette-red-A200: nth($palette-red, 12);
+$palette-red-A400: nth($palette-red, 13);
+$palette-red-A700: nth($palette-red, 14);
 
 $palette-pink:   #fce4ec #f8bbd0 #f8bbd0 #f06292 #ec407a #e91e63 #d81b60
-              #c2185b #ad1457 #880e4f #ff80ab #ff4081 #f50057 #c51162;
+    #c2185b #ad1457 #880e4f #ff80ab #ff4081 #f50057 #c51162;
+
+$palette-pink-50: nth($palette-pink, 1);
+$palette-pink-100: nth($palette-pink, 2);
+$palette-pink-200: nth($palette-pink, 3);
+$palette-pink-300: nth($palette-pink, 4);
+$palette-pink-400: nth($palette-pink, 5);
+$palette-pink-500: nth($palette-pink, 6);
+$palette-pink-600: nth($palette-pink, 7);
+$palette-pink-700: nth($palette-pink, 8);
+$palette-pink-800: nth($palette-pink, 9);
+$palette-pink-900: nth($palette-pink, 10);
+$palette-pink-A100: nth($palette-pink, 11);
+$palette-pink-A200: nth($palette-pink, 12);
+$palette-pink-A400: nth($palette-pink, 13);
+$palette-pink-A700: nth($palette-pink, 14);
 
 $palette-purple: #f3e5f5 #e1bee7 #ce93d8 #ba68c8 #ab47bc #9c27b0 #8e24aa
-              #7b1fa2 #6a1b9a #4a148c #ea80fc #e040fb #d500f9 #aa00ff;
+    #7b1fa2 #6a1b9a #4a148c #ea80fc #e040fb #d500f9 #aa00ff;
 
-$palette-deep-purple: #ede7f6 #d1c4e9 #b39ddb #9575cd #7e57c2 #673ab7
-                  #5e35b1 #512da8 #4527a0 #311b92 #b388ff #7c4dff #651fff
-                  #6200ea;
+$palette-purple-50: nth($palette-purple, 1);
+$palette-purple-100: nth($palette-purple, 2);
+$palette-purple-200: nth($palette-purple, 3);
+$palette-purple-300: nth($palette-purple, 4);
+$palette-purple-400: nth($palette-purple, 5);
+$palette-purple-500: nth($palette-purple, 6);
+$palette-purple-600: nth($palette-purple, 7);
+$palette-purple-700: nth($palette-purple, 8);
+$palette-purple-800: nth($palette-purple, 9);
+$palette-purple-900: nth($palette-purple, 10);
+$palette-purple-A100: nth($palette-purple, 11);
+$palette-purple-A200: nth($palette-purple, 12);
+$palette-purple-A400: nth($palette-purple, 13);
+$palette-purple-A700: nth($palette-purple, 14);
+
+$palette-deep-purple: #ede7f6 #d1c4e9 #b39ddb #9575cd #7e57c2 #673ab7 #5e35b1
+    #512da8 #4527a0 #311b92 #b388ff #7c4dff #651fff #6200ea;
+
+$palette-deep-purple-50: nth($palette-deep-purple, 1);
+$palette-deep-purple-100: nth($palette-deep-purple, 2);
+$palette-deep-purple-200: nth($palette-deep-purple, 3);
+$palette-deep-purple-300: nth($palette-deep-purple, 4);
+$palette-deep-purple-400: nth($palette-deep-purple, 5);
+$palette-deep-purple-500: nth($palette-deep-purple, 6);
+$palette-deep-purple-600: nth($palette-deep-purple, 7);
+$palette-deep-purple-700: nth($palette-deep-purple, 8);
+$palette-deep-purple-800: nth($palette-deep-purple, 9);
+$palette-deep-purple-900: nth($palette-deep-purple, 10);
+$palette-deep-purple-A100: nth($palette-deep-purple, 11);
+$palette-deep-purple-A200: nth($palette-deep-purple, 12);
+$palette-deep-purple-A400: nth($palette-deep-purple, 13);
+$palette-deep-purple-A700: nth($palette-deep-purple, 14);
 
 $palette-indigo: #e8eaf6 #c5cae9 #9fa8da #7986cb #5c6bc0 #3f51b5 #3949ab
-              #303f9f #283593 #1a237e #8c9eff #536dfe #3d5afe #304ffe;
+    #303f9f #283593 #1a237e #8c9eff #536dfe #3d5afe #304ffe;
+
+$palette-indigo-50: nth($palette-indigo, 1);
+$palette-indigo-100: nth($palette-indigo, 2);
+$palette-indigo-200: nth($palette-indigo, 3);
+$palette-indigo-300: nth($palette-indigo, 4);
+$palette-indigo-400: nth($palette-indigo, 5);
+$palette-indigo-500: nth($palette-indigo, 6);
+$palette-indigo-600: nth($palette-indigo, 7);
+$palette-indigo-700: nth($palette-indigo, 8);
+$palette-indigo-800: nth($palette-indigo, 9);
+$palette-indigo-900: nth($palette-indigo, 10);
+$palette-indigo-A100: nth($palette-indigo, 11);
+$palette-indigo-A200: nth($palette-indigo, 12);
+$palette-indigo-A400: nth($palette-indigo, 13);
+$palette-indigo-A700: nth($palette-indigo, 14);
 
 $palette-blue: #e3f2fd #bbdefb #90caf9 #64b5f6 #42a5f5 #2196f3 #1e88e5
-            #1976d2 #1565c0 #0d47a1 #82b1ff #448aff #2979ff #2962ff;
+    #1976d2 #1565c0 #0d47a1 #82b1ff #448aff #2979ff #2962ff;
+
+$palette-blue-50: nth($palette-blue, 1);
+$palette-blue-100: nth($palette-blue, 2);
+$palette-blue-200: nth($palette-blue, 3);
+$palette-blue-300: nth($palette-blue, 4);
+$palette-blue-400: nth($palette-blue, 5);
+$palette-blue-500: nth($palette-blue, 6);
+$palette-blue-600: nth($palette-blue, 7);
+$palette-blue-700: nth($palette-blue, 8);
+$palette-blue-800: nth($palette-blue, 9);
+$palette-blue-900: nth($palette-blue, 10);
+$palette-blue-A100: nth($palette-blue, 11);
+$palette-blue-A200: nth($palette-blue, 12);
+$palette-blue-A400: nth($palette-blue, 13);
+$palette-blue-A700: nth($palette-blue, 14);
 
 $palette-light-blue: #e1f5fe #b3e5fc #81d4fa #4fc3f7 #29b6f6 #03a9f4 #039be5
-                 #0288d1 #0277bd #01579b #80d8ff #40c4ff #00b0ff #0091ea;
+    #0288d1 #0277bd #01579b #80d8ff #40c4ff #00b0ff #0091ea;
+
+$palette-light-blue-50: nth($palette-light-blue, 1);
+$palette-light-blue-100: nth($palette-light-blue, 2);
+$palette-light-blue-200: nth($palette-light-blue, 3);
+$palette-light-blue-300: nth($palette-light-blue, 4);
+$palette-light-blue-400: nth($palette-light-blue, 5);
+$palette-light-blue-500: nth($palette-light-blue, 6);
+$palette-light-blue-600: nth($palette-light-blue, 7);
+$palette-light-blue-700: nth($palette-light-blue, 8);
+$palette-light-blue-800: nth($palette-light-blue, 9);
+$palette-light-blue-900: nth($palette-light-blue, 10);
+$palette-light-blue-A100: nth($palette-light-blue, 11);
+$palette-light-blue-A200: nth($palette-light-blue, 12);
+$palette-light-blue-A400: nth($palette-light-blue, 13);
+$palette-light-blue-A700: nth($palette-light-blue, 14);
 
 $palette-cyan: #e0f7fa #b2ebf2 #80deea #4dd0e1 #26c6da #00bcd4 #00acc1
-            #0097a7 #00838f #006064 #84ffff #18ffff #00e5ff #00b8d4;
+    #0097a7 #00838f #006064 #84ffff #18ffff #00e5ff #00b8d4;
+
+$palette-cyan-50: nth($palette-cyan, 1);
+$palette-cyan-100: nth($palette-cyan, 2);
+$palette-cyan-200: nth($palette-cyan, 3);
+$palette-cyan-300: nth($palette-cyan, 4);
+$palette-cyan-400: nth($palette-cyan, 5);
+$palette-cyan-500: nth($palette-cyan, 6);
+$palette-cyan-600: nth($palette-cyan, 7);
+$palette-cyan-700: nth($palette-cyan, 8);
+$palette-cyan-800: nth($palette-cyan, 9);
+$palette-cyan-900: nth($palette-cyan, 10);
+$palette-cyan-A100: nth($palette-cyan, 11);
+$palette-cyan-A200: nth($palette-cyan, 12);
+$palette-cyan-A400: nth($palette-cyan, 13);
+$palette-cyan-A700: nth($palette-cyan, 14);
 
 $palette-teal: #e0f2f1 #b2dfdb #80cbc4 #4db6ac #26a69a #009688 #00897b
-            #00796b #00695c #004d40 #a7ffeb #64ffda #1de9b6 #00bfa5;
+    #00796b #00695c #004d40 #a7ffeb #64ffda #1de9b6 #00bfa5;
+
+$palette-teal-50: nth($palette-teal, 1);
+$palette-teal-100: nth($palette-teal, 2);
+$palette-teal-200: nth($palette-teal, 3);
+$palette-teal-300: nth($palette-teal, 4);
+$palette-teal-400: nth($palette-teal, 5);
+$palette-teal-500: nth($palette-teal, 6);
+$palette-teal-600: nth($palette-teal, 7);
+$palette-teal-700: nth($palette-teal, 8);
+$palette-teal-800: nth($palette-teal, 9);
+$palette-teal-900: nth($palette-teal, 10);
+$palette-teal-A100: nth($palette-teal, 11);
+$palette-teal-A200: nth($palette-teal, 12);
+$palette-teal-A400: nth($palette-teal, 13);
+$palette-teal-A700: nth($palette-teal, 14);
 
 $palette-green: #e8f5e9 #c8e6c9 #a5d6a7 #81c784 #66bb6a #4caf50 #43a047
-             #388e3c #2e7d32 #1b5e20 #b9f6ca #69f0ae #00e676 #00c853;
+    #388e3c #2e7d32 #1b5e20 #b9f6ca #69f0ae #00e676 #00c853;
+
+$palette-green-50: nth($palette-green, 1);
+$palette-green-100: nth($palette-green, 2);
+$palette-green-200: nth($palette-green, 3);
+$palette-green-300: nth($palette-green, 4);
+$palette-green-400: nth($palette-green, 5);
+$palette-green-500: nth($palette-green, 6);
+$palette-green-600: nth($palette-green, 7);
+$palette-green-700: nth($palette-green, 8);
+$palette-green-800: nth($palette-green, 9);
+$palette-green-900: nth($palette-green, 10);
+$palette-green-A100: nth($palette-green, 11);
+$palette-green-A200: nth($palette-green, 12);
+$palette-green-A400: nth($palette-green, 13);
+$palette-green-A700: nth($palette-green, 14);
 
 $palette-light-green: #f1f8e9 #dcedc8 #c5e1a5 #aed581 #9ccc65 #8bc34a #7cb342
-                  #689f38 #558b2f #33691e #ccff90 #b2ff59 #76ff03 #64dd17;
+    #689f38 #558b2f #33691e #ccff90 #b2ff59 #76ff03 #64dd17;
+
+$palette-light-green-50: nth($palette-light-green, 1);
+$palette-light-green-100: nth($palette-light-green, 2);
+$palette-light-green-200: nth($palette-light-green, 3);
+$palette-light-green-300: nth($palette-light-green, 4);
+$palette-light-green-400: nth($palette-light-green, 5);
+$palette-light-green-500: nth($palette-light-green, 6);
+$palette-light-green-600: nth($palette-light-green, 7);
+$palette-light-green-700: nth($palette-light-green, 8);
+$palette-light-green-800: nth($palette-light-green, 9);
+$palette-light-green-900: nth($palette-light-green, 10);
+$palette-light-green-A100: nth($palette-light-green, 11);
+$palette-light-green-A200: nth($palette-light-green, 12);
+$palette-light-green-A400: nth($palette-light-green, 13);
+$palette-light-green-A700: nth($palette-light-green, 14);
 
 $palette-lime: #f9fbe7 #f0f4c3 #e6ee9c #dce775 #d4e157 #cddc39 #c0ca33
-            #afb42b #9e9d24 #827717 #f4ff81 #eeff41 #c6ff00 #aeea00;
+    #afb42b #9e9d24 #827717 #f4ff81 #eeff41 #c6ff00 #aeea00;
+
+$palette-lime-50: nth($palette-lime, 1);
+$palette-lime-100: nth($palette-lime, 2);
+$palette-lime-200: nth($palette-lime, 3);
+$palette-lime-300: nth($palette-lime, 4);
+$palette-lime-400: nth($palette-lime, 5);
+$palette-lime-500: nth($palette-lime, 6);
+$palette-lime-600: nth($palette-lime, 7);
+$palette-lime-700: nth($palette-lime, 8);
+$palette-lime-800: nth($palette-lime, 9);
+$palette-lime-900: nth($palette-lime, 10);
+$palette-lime-A100: nth($palette-lime, 11);
+$palette-lime-A200: nth($palette-lime, 12);
+$palette-lime-A400: nth($palette-lime, 13);
+$palette-lime-A700: nth($palette-lime, 14);
 
 $palette-yellow: #fffde7 #fff9c4 #fff59d #fff176 #ffee58 #ffeb3b #fdd835
-              #fbc02d #f9a825 #f57f17 #ffff8d #ffff00 #ffea00 #ffd600;
+    #fbc02d #f9a825 #f57f17 #ffff8d #ffff00 #ffea00 #ffd600;
+
+$palette-yellow-50: nth($palette-yellow, 1);
+$palette-yellow-100: nth($palette-yellow, 2);
+$palette-yellow-200: nth($palette-yellow, 3);
+$palette-yellow-300: nth($palette-yellow, 4);
+$palette-yellow-400: nth($palette-yellow, 5);
+$palette-yellow-500: nth($palette-yellow, 6);
+$palette-yellow-600: nth($palette-yellow, 7);
+$palette-yellow-700: nth($palette-yellow, 8);
+$palette-yellow-800: nth($palette-yellow, 9);
+$palette-yellow-900: nth($palette-yellow, 10);
+$palette-yellow-A100: nth($palette-yellow, 11);
+$palette-yellow-A200: nth($palette-yellow, 12);
+$palette-yellow-A400: nth($palette-yellow, 13);
+$palette-yellow-A700: nth($palette-yellow, 14);
 
 $palette-amber: #fff8e1 #ffecb3 #ffe082 #ffd54f #ffca28 #ffc107 #ffb300
-             #ffa000 #ff8f00 #ff6f00 #ffe57f #ffd740 #ffc400 #ffab00;
+    #ffa000 #ff8f00 #ff6f00 #ffe57f #ffd740 #ffc400 #ffab00;
+
+$palette-amber-50: nth($palette-amber, 1);
+$palette-amber-100: nth($palette-amber, 2);
+$palette-amber-200: nth($palette-amber, 3);
+$palette-amber-300: nth($palette-amber, 4);
+$palette-amber-400: nth($palette-amber, 5);
+$palette-amber-500: nth($palette-amber, 6);
+$palette-amber-600: nth($palette-amber, 7);
+$palette-amber-700: nth($palette-amber, 8);
+$palette-amber-800: nth($palette-amber, 9);
+$palette-amber-900: nth($palette-amber, 10);
+$palette-amber-A100: nth($palette-amber, 11);
+$palette-amber-A200: nth($palette-amber, 12);
+$palette-amber-A400: nth($palette-amber, 13);
+$palette-amber-A700: nth($palette-amber, 14);
 
 $palette-orange: #fff3e0 #ffe0b2 #ffcc80 #ffb74d #ffa726 #ff9800 #fb8c00
-              #f57c00 #ef6c00 #e65100 #ffd180 #ffab40 #ff9100 #ff6d00;
+    #f57c00 #ef6c00 #e65100 #ffd180 #ffab40 #ff9100 #ff6d00;
+
+$palette-orange-50: nth($palette-orange, 1);
+$palette-orange-100: nth($palette-orange, 2);
+$palette-orange-200: nth($palette-orange, 3);
+$palette-orange-300: nth($palette-orange, 4);
+$palette-orange-400: nth($palette-orange, 5);
+$palette-orange-500: nth($palette-orange, 6);
+$palette-orange-600: nth($palette-orange, 7);
+$palette-orange-700: nth($palette-orange, 8);
+$palette-orange-800: nth($palette-orange, 9);
+$palette-orange-900: nth($palette-orange, 10);
+$palette-orange-A100: nth($palette-orange, 11);
+$palette-orange-A200: nth($palette-orange, 12);
+$palette-orange-A400: nth($palette-orange, 13);
+$palette-orange-A700: nth($palette-orange, 14);
 
 $palette-deep-orange: #fbe9e7 #ffccbc #ffab91 #ff8a65 #ff7043 #ff5722 #f4511e
-                  #e64a19 #d84315 #bf360c #ff9e80 #ff6e40 #ff3d00 #dd2c00;
+    #e64a19 #d84315 #bf360c #ff9e80 #ff6e40 #ff3d00 #dd2c00;
+
+$palette-deep-orange-50: nth($palette-deep-orange, 1);
+$palette-deep-orange-100: nth($palette-deep-orange, 2);
+$palette-deep-orange-200: nth($palette-deep-orange, 3);
+$palette-deep-orange-300: nth($palette-deep-orange, 4);
+$palette-deep-orange-400: nth($palette-deep-orange, 5);
+$palette-deep-orange-500: nth($palette-deep-orange, 6);
+$palette-deep-orange-600: nth($palette-deep-orange, 7);
+$palette-deep-orange-700: nth($palette-deep-orange, 8);
+$palette-deep-orange-800: nth($palette-deep-orange, 9);
+$palette-deep-orange-900: nth($palette-deep-orange, 10);
+$palette-deep-orange-A100: nth($palette-deep-orange, 11);
+$palette-deep-orange-A200: nth($palette-deep-orange, 12);
+$palette-deep-orange-A400: nth($palette-deep-orange, 13);
+$palette-deep-orange-A700: nth($palette-deep-orange, 14);
 
 
 // Color order: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
 
 $palette-brown: #efebe9 #d7ccc8 #bcaaa4 #a1887f #8d6e63
-             #795548 #6d4c41 #5d4037 #4e342e #3e2723;
+    #795548 #6d4c41 #5d4037 #4e342e #3e2723;
+
+$palette-brown-50: nth($palette-brown, 1);
+$palette-brown-100: nth($palette-brown, 2);
+$palette-brown-200: nth($palette-brown, 3);
+$palette-brown-300: nth($palette-brown, 4);
+$palette-brown-400: nth($palette-brown, 5);
+$palette-brown-500: nth($palette-brown, 6);
+$palette-brown-600: nth($palette-brown, 7);
+$palette-brown-700: nth($palette-brown, 8);
+$palette-brown-800: nth($palette-brown, 9);
+$palette-brown-900: nth($palette-brown, 10);
 
 $palette-grey: #fafafa #f5f5f5 #eeeeee #e0e0e0 #bdbdbd
-             #9e9e9e #757575 #616161 #424242 #212121;
+    #9e9e9e #757575 #616161 #424242 #212121;
+
+$palette-grey-50: nth($palette-grey, 1);
+$palette-grey-100: nth($palette-grey, 2);
+$palette-grey-200: nth($palette-grey, 3);
+$palette-grey-300: nth($palette-grey, 4);
+$palette-grey-400: nth($palette-grey, 5);
+$palette-grey-500: nth($palette-grey, 6);
+$palette-grey-600: nth($palette-grey, 7);
+$palette-grey-700: nth($palette-grey, 8);
+$palette-grey-800: nth($palette-grey, 9);
+$palette-grey-900: nth($palette-grey, 10);
 
 $palette-blue-grey: #eceff1 #cfd8dc #b0bec5 #90a4ae #78909c
-                #607d8b #546e7a #455a64 #37474f #263238;
+    #607d8b #546e7a #455a64 #37474f #263238;
+
+$palette-blue-grey-50: nth($palette-blue-grey, 1);
+$palette-blue-grey-100: nth($palette-blue-grey, 2);
+$palette-blue-grey-200: nth($palette-blue-grey, 3);
+$palette-blue-grey-300: nth($palette-blue-grey, 4);
+$palette-blue-grey-400: nth($palette-blue-grey, 5);
+$palette-blue-grey-500: nth($palette-blue-grey, 6);
+$palette-blue-grey-600: nth($palette-blue-grey, 7);
+$palette-blue-grey-700: nth($palette-blue-grey, 8);
+$palette-blue-grey-800: nth($palette-blue-grey, 9);
+$palette-blue-grey-900: nth($palette-blue-grey, 10);
