@@ -32,6 +32,7 @@ Within the download you'll find the following directories and files, logically g
 ├── README.md
 ```
 
+We provide compiled CSS and JS (`material.*`), as well as compiled and minified CSS and JS (`material.min.*`). JS source maps (`material.*.map`) are available for use with certain browsers' developer tools. 
 
 ## Getting Started
 
@@ -87,6 +88,10 @@ $ gulp
 
 This will clean and update the `css`, `js` and `images` directories in the root of the project with minified and
 concatenated versions of the component files. Namely, `css/material.min.css` and `js/material.min.js`.
+
+## Versioning
+
+For transparency into our release cycle and in striving to maintain backward compatibility, Material Design Lite is maintained under [the Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
 
 ## License
