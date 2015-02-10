@@ -153,6 +153,12 @@ gulp.task('scripts', function () {
     .pipe($.size({title: 'scripts'}));
 });
 
+// Run Unit Tests
+gulp.task('mocha', function () {
+  return gulp.src('./test/*.js', { read: false })
+    .pipe(mocha({reporter: 'list'}))
+});
+
 // Clean Output Directory
 gulp.task('clean', del.bind(null, ['.tmp', 'css/*', 'js/*', '!dist/.git'], {dot: true}));
 
