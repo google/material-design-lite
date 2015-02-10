@@ -50,13 +50,12 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 // Lint JavaScript
-// TODO: Fix linting
 gulp.task('jshint', function () {
   return gulp.src('src/**/*.js')
     .pipe(reload({stream: true, once: true}))
-  //.pipe($.jshint())
-  //.pipe($.jshint.reporter('jshint-stylish'))
-  //.pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
 
 // Optimize Images
