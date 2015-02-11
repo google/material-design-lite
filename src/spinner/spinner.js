@@ -82,7 +82,7 @@ MaterialSpinner.prototype.createLayer = function(index) {
 MaterialSpinner.prototype.stop = function() {
   'use strict';
 
-  this.element_.classlist.remove('is-active');
+  this.element_.classList.remove('is-active');
 };
 
 /**
@@ -94,7 +94,7 @@ MaterialSpinner.prototype.stop = function() {
 MaterialSpinner.prototype.start = function() {
   'use strict';
 
-  this.element_.classlist.add('is-active');
+  this.element_.classList.add('is-active');
 };
 
 /**
