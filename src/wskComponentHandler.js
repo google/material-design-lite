@@ -73,11 +73,16 @@ var componentHandler = (function() {
       element.setAttribute('data-upgraded', dataUpgraded + ',' + jsClass);
       var registeredClass = findRegisteredClass_(jsClass);
       if (registeredClass) {
-        createdComponents_.push(new registeredClass.classConstructor(element));
+        // new
+        var instance = new registeredClass.classConstructor(element);
+        createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
         registeredClass.callbacks.forEach(function (callback) {
           callback(element);
         });
+
+        // Assign per element instance for control over API
+        element.widget = instance;
       } else {
         // If component creator forgot to register, try and see if
         // it is in global scope.
