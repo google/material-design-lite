@@ -25,7 +25,6 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
-var mochaPhantomJS = require('gulp-mocha-phantomjs'); // TODO: Just use aliased $. form
 var reload = browserSync.reload;
 var fs = require('fs');
 var path = require('path');
@@ -156,7 +155,7 @@ gulp.task('scripts', function () {
 // Run Unit Tests
 gulp.task('mocha', function () {
   return gulp.src('./test/index.html')
-    .pipe(mochaPhantomJS({reporter: 'list'}))
+    .pipe($.mochaPhantomjs({reporter: 'list'}))
 });
 
 // Clean Output Directory
