@@ -42,7 +42,7 @@ Clone or [download](https://github.com/google/material-design-lite/archive/maste
 and reference the following files in your project:
 
 ```html
-<script src="js/material.min.js">
+<script src="js/material.min.js"></script>
 <link rel="stylesheet" href="css/material.min.css">
 ```
 
