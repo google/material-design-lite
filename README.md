@@ -1,6 +1,6 @@
 # Material Design Lite
 
-> A library of [Material Design](www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML
+> A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML
 
 ## Quick start
 
