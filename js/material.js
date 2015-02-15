@@ -47,16 +47,23 @@ var componentHandler = (function() {
    * will have.
    */
   function upgradeDomInternal(jsClass, cssClass) {
-    if (cssClass === undefined) {
-      var registeredClass = findRegisteredClass_(jsClass);
-      if (registeredClass) {
-        cssClass = registeredClass.cssClass;
+    if (jsClass === undefined && cssClass === undefined) {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        upgradeDomInternal(registeredComponents_[i].className,
+            registeredComponents_[i].cssClass);
       }
-    }
+    } else {
+      if (cssClass === undefined) {
+        var registeredClass = findRegisteredClass_(jsClass);
+        if (registeredClass) {
+          cssClass = registeredClass.cssClass;
+        }
+      }
 
-    var elements = document.querySelectorAll('.' + cssClass);
-    for (var n = 0; n < elements.length; n++) {
-      upgradeElementInternal(elements[n], jsClass);
+      var elements = document.querySelectorAll('.' + cssClass);
+      for (var n = 0; n < elements.length; n++) {
+        upgradeElementInternal(elements[n], jsClass);
+      }
     }
   }
 
