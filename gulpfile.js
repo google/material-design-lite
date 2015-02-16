@@ -70,9 +70,15 @@ gulp.task('images', function () {
     .pipe($.size({title: 'images'}));
 });
 
+// Copy fonts
+gulp.task('fonts', function () {
+  return gulp.src([
+    'fonts/*'
+  ]).pipe(gulp.dest('.tmp/fonts'));
+});
 
 // Compile and Automatically Prefix Stylesheets (dev)
-gulp.task('styles:dev', function () {
+gulp.task('styles:dev', ['fonts'], function () {
   return gulp.src([
     'src/**/**/*.scss'
   ])
@@ -181,7 +187,7 @@ gulp.task('serve:dist', ['default'], function () {
     notify: false,
     logPrefix: 'WSK',
     server: './',
-    baseDir: "src"
+    baseDir: 'src'
   });
 });
 

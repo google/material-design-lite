@@ -1,5 +1,6 @@
 @import "../styleguide_demo_bp";
 @import "../typography/typography";
+@import "_icons";
 
 $icon-border-color: #ccc;
 
@@ -8,30 +9,9 @@ h2 {
   display: block;
 }
 
-.preview {
-  min-width: 85px;
-  min-height: 85px;
-  max-width: 80px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  float: left;
-  text-align: center;
-  border: 1px solid $icon-border-color;
-}
-
-.preview a {
-  display: block;
-  text-transform: capitalize;
-  position: relative;
-  max-width: 80px;
-  overflow: hidden;
-}
-
-.preview img {
-  width: 48px;
-  position: relative;
+.wsk-icon {
   display: inline-block;
+  font-size: 24px;
+  min-width: 24px;
+  margin-right: 1em;
 }

@@ -1,4 +1,5 @@
 @import "../styleguide_demo_bp";
+@import "../icons/_icons";
 @import "_tooltip";
 
 body {
@@ -9,7 +10,7 @@ body {
 
 .preview-block {
   background: #eee;
-  padding   : 20px;
+  padding: 20px;
   height: 120px;
 }
 
@@ -19,13 +20,14 @@ body {
   display: inline-block;
   height: 21px;
   margin: 0 50px;
-  opacity: .7;
+  opacity: 0.7;
   outline: none;
   padding: 0;
   position: relative;
   width: 21px;
+  font-size: 24px;
 }
 
-icon:hover {
+.icon:hover {
   opacity: 1;
 }
