@@ -79,11 +79,16 @@ var componentHandler = (function() {
       element.setAttribute('data-upgraded', dataUpgraded + ',' + jsClass);
       var registeredClass = findRegisteredClass_(jsClass);
       if (registeredClass) {
-        createdComponents_.push(new registeredClass.classConstructor(element));
+        // new
+        var instance = new registeredClass.classConstructor(element);
+        createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
         registeredClass.callbacks.forEach(function (callback) {
           callback(element);
         });
+
+        // Assign per element instance for control over API
+        element.widget = instance;
       } else {
         // If component creator forgot to register, try and see if
         // it is in global scope.
@@ -1292,7 +1297,7 @@ MaterialSpinner.prototype.createLayer = function(index) {
 MaterialSpinner.prototype.stop = function() {
   'use strict';
 
-  this.element_.classlist.remove('is-active');
+  this.element_.classList.remove('is-active');
 };
 
 /**
@@ -1304,7 +1309,7 @@ MaterialSpinner.prototype.stop = function() {
 MaterialSpinner.prototype.start = function() {
   'use strict';
 
-  this.element_.classlist.add('is-active');
+  this.element_.classList.add('is-active');
 };
 
 /**
