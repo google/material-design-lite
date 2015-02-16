@@ -130,7 +130,7 @@ gulp.task('scripts', function () {
     'src/checkbox/checkbox.js',
     'src/column-layout/column-layout.js',
     'src/icon-toggle/icon-toggle.js',
-    'src/item/item.js',
+    'src/menu/menu.js',
     'src/radio/radio.js',
     'src/slider/slider.js',
     'src/spinner/spinner.js',
