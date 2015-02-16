@@ -537,6 +537,7 @@ $layout-tab-highlight-thickness: 2px;
     background-color: $layout-header-bg-color;
     color: transparent;
     cursor: pointer;
+    user-select: none;
 
     @media screen and (max-width: $layout-screen-size-threshold) {
       display: none;
