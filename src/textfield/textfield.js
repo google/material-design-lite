@@ -31,58 +31,14 @@ MaterialTextfield.prototype.Constant_ = {
  * @private
  */
 MaterialTextfield.prototype.CssClasses_ = {
-  WSK_TEXT_EXP_ICO_RIP_CONTAINER: 'wsk-textfield-expandable-icon__ripple__' +
-      'container',
-
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_RIPPLE: 'wsk-ripple',
-
-  IS_DIRTY: 'is-dirty'
+  LABEL: 'wsk-textfield__label',
+  INPUT: 'wsk-textfield__input',
+  IS_DIRTY: 'is-dirty',
+  IS_FOCUSED: 'is-focused',
+  IS_DISABLED: 'is-disabled',
+  IS_INVALID: 'is-invalid',
+  IS_UPGRADED: 'is-upgraded'
 };
-
-
-/**
- * Handle upgrade of icon element.
- * @param {HTMLElement} iconElement HTML element to contain icon.
- * @private
- */
-MaterialTextfield.prototype.expandableIcon_ = function(iconElement) {
-  'use strict';
-
-  if (!iconElement.getAttribute('data-upgraded')) {
-    var container = document.createElement('span');
-    container.classList.add(this.CssClasses_.WSK_TEXT_EXP_ICO_RIP_CONTAINER);
-    container.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
-    container.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
-
-    var ripple = document.createElement('span');
-    ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
-    container.appendChild(ripple);
-
-    iconElement.appendChild(container);
-    iconElement.setAttribute('data-upgraded', '');
-  }
-};
-
-
-/**
- * Handle input being entered.
- * @param {Event} event The event that fired.
- * @private
- */
-MaterialTextfield.prototype.onInputChange_ = function(event) {
-  'use strict';
-
-  if (event.target.value && event.target.value.length > 0) {
-    event.target.classList.add(this.CssClasses_.IS_DIRTY);
-  } else {
-    event.target.classList.remove(this.CssClasses_.IS_DIRTY);
-  }
-};
-
 
 /**
  * Handle input being entered.
@@ -100,6 +56,55 @@ MaterialTextfield.prototype.onKeyDown_ = function(event) {
   }
 };
 
+/**
+ * Handle focus.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialTextfield.prototype.onFocus_ = function(event) {
+  'use strict';
+
+  this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+};
+
+/**
+ * Handle lost focus.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialTextfield.prototype.onBlur_ = function(event) {
+  'use strict';
+
+  this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+};
+
+/**
+ * Handle class updates.
+ * @param {HTMLElement} button The button whose classes we should update.
+ * @param {HTMLElement} label The label whose classes we should update.
+ * @private
+ */
+MaterialTextfield.prototype.updateClasses_ = function() {
+  'use strict';
+
+  if (this.input_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
+  }
+
+  if (this.input_.validity.valid) {
+    this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+  } else {
+    this.element_.classList.add(this.CssClasses_.IS_INVALID);
+  }
+
+  if (this.input_.value && this.input_.value.length > 0) {
+    this.element_.classList.add(this.CssClasses_.IS_DIRTY);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
+  }
+};
 
 /**
  * Initialize element.
@@ -108,32 +113,33 @@ MaterialTextfield.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    var expandableIcons =
-        document.querySelectorAll('.wsk-textfield-expandable-icon');
-    for (var i = 0; i < expandableIcons.length; ++i) {
-      this.expandableIcon_(expandableIcons[i]);
-    }
+    this.label_ = this.element_.querySelector('.' + this.CssClasses_.LABEL);
+    this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
-    if (this.element_.hasAttribute(this.Constant_.MAX_ROWS_ATTRIBUTE)) {
-      this.maxRows = parseInt(this.element_.getAttribute(
-          this.Constant_.MAX_ROWS_ATTRIBUTE), 10);
-      if (isNaN(this.maxRows)) {
-        console.log(
-            'maxrows attribute provided, but wasn\'t a number: ' +
-            this.maxRows);
-        this.maxRows = this.Constant_.NO_MAX_ROWS;
+    if (this.input_) {
+      if (this.input_.hasAttribute(this.Constant_.MAX_ROWS_ATTRIBUTE)) {
+        this.maxRows = parseInt(this.input_.getAttribute(
+            this.Constant_.MAX_ROWS_ATTRIBUTE), 10);
+        if (isNaN(this.maxRows)) {
+          this.maxRows = this.Constant_.NO_MAX_ROWS;
+        }
       }
-    }
 
-    this.element_.addEventListener('input', this.onInputChange_.bind(this));
-    if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
-      // TODO: This should handle pasting multi line text.
-      // Currently doesn't.
-      this.element_.addEventListener('keydown', this.onKeyDown_.bind(this));
+      this.input_.addEventListener('input', this.updateClasses_.bind(this));
+      this.input_.addEventListener('focus', this.onFocus_.bind(this));
+      this.input_.addEventListener('blur', this.onBlur_.bind(this));
+
+      if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
+        // TODO: This should handle pasting multi line text.
+        // Currently doesn't.
+        this.input_.addEventListener('keydown', this.onKeyDown_.bind(this));
+      }
+
+      this.updateClasses_();
+      this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
     }
   }
 };
-
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.

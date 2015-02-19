@@ -1,9 +1,14 @@
 @import "../styleguide_demo_bp";
+@import "../button/button";
+@import "../icons/icons";
 @import "_textfield";
-
-
 
 textarea {
   overflow: auto;
-  resize  : none;
+  resize: none;
+}
+
+.wsk-textfield {
+  display: block;
+  margin: 30px 0;
 }

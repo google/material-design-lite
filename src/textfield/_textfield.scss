@@ -1,214 +1,172 @@
 @import "../colors";
 @import "../animation/animation";
-@import "../ripple/ripple";
 
 $input-text-font-size: 16px;
 $input-text-width: 100%;
 $input-text-padding: 4px;
 $input-text-ripple-size: 32px;
 
+$input-text-button-size: 32px;
 $input-text-floating-label-fontsize: 12px;
-$input-text-expandable-icon-dim: 24px;
-$input-text-expandable-search-icon-color: rgba(0, 0, 0, 0.45);
-$input-text-expandable-search-icon-highlight-color: $input-text-highlight-color;
+$input-text-expandable-icon-top: 16px;
 
-.wsk-input {
-  margin  : 20px 0;
+// The container for the whole component.
+.wsk-textfield {
   position: relative;
-  width   : 300px;
+
+  font-size: 16px;
+
+  display: inline-block;
+
+  box-sizing: border-box;
+  width: 300px;
+  margin: 0;
+
+  // Align buttons, if used.
+  & .wsk-button {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
-.wsk-input--right {
+// Optional class to align right.
+.wsk-textfield--align-right {
   text-align: right;
 }
 
-.wsk-input--large {
+// Optional class to display at full width.
+.wsk-textfield--full-width {
   width: 100%;
 }
 
-.wsk-textfield {
-  border       : none;
+// Optional class to make the text field expandable.
+.wsk-textfield--expandable {
+  min-width: $input-text-button-size;
+  min-height: $input-text-button-size;
+}
+
+// Styling for the input element.
+.wsk-textfield__input {
+  border: none;
   border-bottom: 1px solid $input-text-bottom-border-color;
-  display      : block;
-  font-size    : $input-text-font-size;
-  margin       : 0;
-  padding      : $input-text-padding 0;
-  width        : $input-text-width;
-  background   : $input-text-font-size;
-  text-align   : left;
+  display: block;
+  font-size: $input-text-font-size;
+  margin: 0;
+  padding: $input-text-padding 0;
+  width: $input-text-width;
+  background: $input-text-font-size;
+  text-align: left;
+
+  .wsk-textfield.is-focused & {
+    outline: none;
+  }
+
+  .wsk-textfield.is-invalid & {
+    border-color: $input-text-error-color;
+    box-shadow: none;
+  }
+
+  .wsk-textfield.is-disabled & {
+    background-color: transparent;
+    border-bottom: 1px dotted $input-text-disabled-color;
+  }
 }
 
-.wsk-textfield ~ .wsk-label {
-  bottom        : 0;
-  color         : $input-text-label-color;
-  font-size     : $input-text-font-size;
-  left          : 0;
-  right         : 0;
+// Styling for the label / floating label.
+.wsk-textfield__label {
+  bottom: 0;
+  color: $input-text-label-color;
+  font-size: $input-text-font-size;
+  left: 0;
+  right: 0;
   pointer-events: none;
-  position      : absolute;
-  top           : $input-text-padding;
-  width         : 100%;
-  overflow      : hidden;
-  white-space   : nowrap;
-  text-align    : left;
+  position: absolute;
+  top: $input-text-padding;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+
+  .wsk-textfield.is-dirty & {
+    visibility: hidden;
+  }
+
+  // Floating Label
+  .wsk-textfield--floating-label & {
+    @include material-animation-default();
+  }
+
+  .wsk-textfield--floating-label.is-focused &,
+  .wsk-textfield--floating-label.is-dirty & {
+    color: $input-text-highlight-color;
+    font-size : $input-text-floating-label-fontsize;
+    top: -($input-text-floating-label-fontsize + $input-text-padding);
+    visibility: visible;
+  }
+
+  .wsk-textfield--floating-label.is-invalid & {
+    color: $input-text-error-color;
+    font-size: 12px;
+  }
+
+  // The after label is the colored underline for the TextField.
+  &:after {
+    background-color: $input-text-highlight-color;
+    bottom: 0;
+    content: '';
+    height: 2px;
+    left: 45%;
+    position: absolute;
+    @include material-animation-default();
+    visibility: hidden;
+    width: 10px;
+  }
+
+  .wsk-textfield.is-focused &:after {
+    left: 0;
+    visibility: visible;
+    width: 100%;
+  }
+
+  .wsk-textfield.is-invalid &:after {
+    background-color: $input-text-error-color;
+  }
 }
 
-/** The after label is the colored underline for the TextField **/
-.wsk-textfield ~ .wsk-label:after {
-  background-color  : $input-text-highlight-color;
-  bottom            : 0;
-  content           : '';
-  height            : 2px;
-  left              : 45%;
-  position          : absolute;
-  @include material-animation-default();
-  visibility        : hidden;
-  width             : 10px;
-}
-
-/** TextField Focus Styles **/
-.wsk-textfield:focus {
-  outline: none;
-}
-
-.wsk-textfield:focus ~ .wsk-label:after {
-  left      : 0;
-  visibility: visible;
-  width     : 100%;
-}
-
-/** TextField Invalid Styles **/
-.wsk-textfield:invalid {
-  border-color: $input-text-error-color;
-  box-shadow  : none;
-}
-
-.wsk-textfield:invalid ~ .wsk-label:after {
-  background-color: $input-text-error-color;
-}
-
-/** TextField Error **/
-.wsk-textfield ~ .wsk-input__error {
-  color     : $input-text-error-color;
-  position  : absolute;
-  font-size : 12px;
+// TextField Error.
+.wsk-textfield__error {
+  color: $input-text-error-color;
+  position: absolute;
+  font-size: 12px;
   margin-top: 3px;
   visibility: hidden;
+
+  .wsk-textfield.is-invalid & {
+    visibility: visible;
+  }
 }
 
-.wsk-textfield:invalid ~ .wsk-input__error {
-  visibility: visible;
-}
+// Expandable Holder.
+.wsk-textfield__expandable-holder {
+  display: inline-block;
+  position: relative;
+  margin-left: $input-text-button-size;
 
-.wsk-textfield.is-dirty ~ .wsk-label {
-  visibility: hidden;
-}
-
-/** Floating Label */
-.wsk-textfield--floating-label ~ .wsk-label {
   @include material-animation-default();
-}
-
-.wsk-textfield--floating-label:focus ~ .wsk-label,
-.wsk-textfield--floating-label.is-dirty ~ .wsk-label {
-  color     : $input-text-highlight-color;
-  font-size : $input-text-floating-label-fontsize;
-  top       : -($input-text-floating-label-fontsize+$input-text-padding);
-  visibility: visible;
-}
-
-.wsk-textfield--floating-label:invalid ~ .wsk-label {
-  color    : $input-text-error-color;
-  font-size: 12px;
-}
-
-/** Expandable Icon/Holder */
-.wsk-input__expandable-holder{
-  display      : inline-block;
-  position     : relative;
-}
-
-.wsk-input__expandable-holder .wsk-textfield {
-  @include material-animation-default();
-  display  : inline-block;
+  display: inline-block;
 
   // Safari (possibly others) need to be convinced that this field is actually
   // visible, otherwise it cannot be tabbed to nor focused via a <label>.
   // TODO: In some cases (Retina displays), this is big enough to render the
   // inner element :(
   max-width: 0.1px;
-}
 
-.wsk-input__expandable-holder .wsk-textfield:focus,
-.wsk-input__expandable-holder .wsk-textfield .is-dirty {
-  // This is an unforunate hack. Animating between widths in percent (%)
-  // in many browsers (Chrome, Firefox) only animates the inner visual style
-  // of the input - the outer bounding box still 'jumps'.
-  // Thus assume a sensible maximum, and animate to/from that value.
-  max-width: 600px;
-}
+  .wsk-textfield.is-focused &, .wsk-textfield.is-dirty & {
+    // This is an unfortunate hack. Animating between widths in percent (%)
+    // in many browsers (Chrome, Firefox) only animates the inner visual style
+    // of the input - the outer bounding box still 'jumps'.
+    // Thus assume a sensible maximum, and animate to/from that value.
+    max-width: 600px;
+  }
 
-.wsk-textfield-expandable-icon {
-  display     : inline-block;
-  width       : $input-text-expandable-icon-dim;
-  height      : $input-text-expandable-icon-dim;
-  text-align  : center;
-  border-color: $input-text-expandable-search-icon-color;  // inherits to .wsk-textfield-expandable-icon-search
-  position    : relative;
-}
-
-.wsk-textfield-expandable-icon:hover {
-  border-color: $input-text-expandable-search-icon-highlight-color;
-  cursor      : pointer;
-}
-
-.wsk-textfield-expandable-icon .wsk-textfield-expandable-icon-search {
-  border        : 2px solid #000;
-  border-color  : inherit;
-  border-radius : 100px;
-  position      : relative;
-  box-sizing    : border-box;
-  width         : 10px;
-  height        : 10px;
-  display       : inline-block;
-  margin        : 1px 4px 4px 1px;
-  vertical-align: middle;
-}
-
-.wsk-textfield-expandable-icon .wsk-textfield-expandable-icon-search::after {
-  content     : '';
-  transform   : rotate(-45deg);
-  width       : 0;
-  border-left : 2px solid #000;
-  border-color: inherit;
-  height      : 5px;
-  position    : absolute;
-  display     : inline-block;
-  bottom      : -5px;
-  right       : -3px;
-}
-
-.wsk-textfield-expandable-icon__ripple__container {
-  position: absolute;
-  z-index: 2;
-  top: -((($input-text-ripple-size - $input-text-expandable-icon-dim) / 2) - 0px);
-  left: -(($input-text-ripple-size - $input-text-expandable-icon-dim) / 2);
-
-  box-sizing: border-box;
-  width: $input-text-ripple-size;
-  height: $input-text-ripple-size;
-  border-radius: 50%;
-
-  overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-}
-
-.wsk-textfield-expandable-icon__ripple__container .wsk-ripple {
-  background: $input-text-expandable-search-icon-highlight-color;
-}
-
-/** Disabled Styling **/
-.wsk-textfield[disabled] {
-  background-color: transparent;
-  border-bottom   : 1px dashed $input-text-disabled-color;
 }

@@ -16,80 +16,80 @@
 
   <div class="PreviewBlock">
     <form action="#">
-      <div class="wsk-input">
-        <input class="wsk-textfield wsk-js-textfield" type="text" name="sample" />
-        <label class="wsk-label" for="sample">Type Something...</label>
+      <div class="wsk-textfield wsk-js-textfield">
+        <input class="wsk-textfield__input" type="text" id="sample1" />
+        <label class="wsk-textfield__label" for="sample1">Type Something...</label>
       </div>
 
-      <div class="wsk-input">
-        <input class="wsk-textfield wsk-js-textfield" type="text" pattern="[0-9]*" name="sample" />
-        <label class="wsk-label" for="sample">Numbers Only</label>
-        <span class="wsk-input__error">Input is not a number!</span>
+      <div class="wsk-textfield wsk-js-textfield">
+        <input class="wsk-textfield__input" type="text" pattern="[0-9]*" id="sample2" />
+        <label class="wsk-textfield__label" for="sample2">Numbers Only</label>
+        <span class="wsk-textfield__error">Input is not a number!</span>
       </div>
 
-      <div class="wsk-input">
-        <input class="wsk-textfield wsk-js-textfield" type="text" disabled name="sample" />
-        <label class="wsk-label" class="wsk-label" for="sample">I'm Disabled</label>
+      <div class="wsk-textfield wsk-js-textfield">
+        <input class="wsk-textfield__input" type="text" disabled id="sample3" />
+        <label class="wsk-textfield__label" for="sample3">I'm Disabled</label>
       </div>
 
-      <div class="wsk-input">
-        <input class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label" type="text" name="sample" />
-        <label class="wsk-label" for="sample">Text Input</label>
+      <div class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label">
+        <input class="wsk-textfield__input" type="text" id="sample4" />
+        <label class="wsk-textfield__label" for="sample4">Text Input</label>
       </div>
 
-      <div class="wsk-input">
-        <input class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label" type="text" pattern="[0-9]*" name="sample" />
-        <label class="wsk-label" for="sample">Numbers Only</label>
-        <span class="wsk-input__error">Input is not a number!</span>
+      <div class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label">
+        <input class="wsk-textfield__input" type="text" pattern="[0-9]*" id="sample5" />
+        <label class="wsk-textfield__label" for="sample5">Numbers Only</label>
+        <span class="wsk-textfield__error">Input is not a number!</span>
       </div>
 
-      <div class="wsk-input">
-        <textarea class="wsk-textfield wsk-js-textfield" type="text" rows= "1" name="sample" ></textarea>
-        <label class="wsk-label" for="sample">Type multiple lines here...</label>
+      <div class="wsk-textfield wsk-js-textfield">
+        <textarea class="wsk-textfield__input" type="text" rows= "1" id="sample6" ></textarea>
+        <label class="wsk-textfield__label" for="sample6">Type multiple lines here...</label>
       </div>
 
-      <div class="wsk-input">
-        <textarea class="wsk-textfield wsk-js-textfield" type="text" rows="3" name="sample" ></textarea>
-        <label class="wsk-label" for="sample">This input is 3 rows high</label>
+      <div class="wsk-textfield wsk-js-textfield">
+        <textarea class="wsk-textfield__input" type="text" rows="3" id="sample7" ></textarea>
+        <label class="wsk-textfield__label" for="sample7">This input is 3 rows high</label>
       </div>
 
-      <div class="wsk-input">
-        <textarea class="wsk-textfield wsk-js-textfield" type="text" maxrows="3" rows="1" name="sample" ></textarea>
-        <label class="wsk-label" for="sample">This input is at most 3 rows high</label>
+      <div class="wsk-textfield wsk-js-textfield">
+        <textarea class="wsk-textfield__input" type="text" maxrows="3" rows="1" id="sample8" ></textarea>
+        <label class="wsk-textfield__label" for="sample8">This input is at most 3 rows high</label>
       </div>
 
-      <div class="wsk-input">
-        <textarea class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label" type="text" rows= "1" name="sample" ></textarea>
-        <label class="wsk-label" for="sample">Multiple lines and a floating label</label>
+      <div class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label">
+        <textarea class="wsk-textfield__input" type="text" rows="1" id="sample9" ></textarea>
+        <label class="wsk-textfield__label" for="sample9">Multiple lines and a floating label</label>
       </div>
 
-      <div class="wsk-input">
-        <label class="wsk-textfield-expandable-icon wsk-label" for="sample-expandable">
-          <span class="wsk-textfield-expandable-icon-search"></span>
+      <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable">
+        <label class="wsk-button wsk-js-button wsk-button--icon" for="sample-expandable">
+          <span class="wsk-icon wsk-icon--search"/>
         </label>
-        <div class="wsk-input__expandable-holder">
-          <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable" type="text" name="sample" id="sample-expandable" />
-          <label class="wsk-label" for="sample">Expandable Input</label>
+        <div class="wsk-textfield__expandable-holder">
+          <input class="wsk-textfield__input" type="text" id="sample-expandable" />
+          <label class="wsk-textfield__label" for="sample-expandable">Expandable Input</label>
         </div>
       </div>
 
-      <div class="wsk-input">
-        <label class="wsk-textfield-expandable-icon wsk-label" for="sample-expandable-floating">
-          <span class="wsk-textfield-expandable-icon-search"></span>
+      <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label">
+        <label class="wsk-button wsk-js-button wsk-button--icon" for="sample-expandable-floating">
+          <span class="wsk-icon wsk-icon--search"/>
         </label>
-        <div class="wsk-input__expandable-holder">
-          <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label" type="text" name="sample" id="sample-expandable-floating" />
-          <label class="wsk-label" for="sample">Expandable &amp; Floating Input</label>
+        <div class="wsk-textfield__expandable-holder">
+          <input class="wsk-textfield__input" type="text" id="sample-expandable-floating" />
+          <label class="wsk-textfield__label" for="sample-expandable-floating">Expandable &amp; Floating Input</label>
         </div>
       </div>
 
-      <div class="wsk-input wsk-input--right wsk-input--large">
+      <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label wsk-textfield--align-right wsk-textfield--full-width">
         Right/No Label:
-        <label class="wsk-textfield-expandable-icon wsk-label" for="sample-expclean">
-          <span class="wsk-textfield-expandable-icon-search"></span>
+        <label class="wsk-button wsk-js-button wsk-button--icon" for="sample-expclean">
+          <span class="wsk-icon wsk-icon--search"/>
         </label>
-        <div class="wsk-input__expandable-holder">
-          <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable" type="text" name="sample" id="sample-expclean" />
+        <div class="wsk-textfield__expandable-holder">
+          <input class="wsk-textfield__input" type="text" name="sample" id="sample-expclean" />
         </div>
       </div>
     </form>
@@ -98,6 +98,7 @@
   <!-- build:js(app/styleguide/textfield/) ../../scripts/main.min.js -->
   <script src="../wskComponentHandler.js"></script>
   <script src="textfield.js"></script>
+  <script src="../button/button.js"></script>
   <script src="../third_party/rAF.js"></script>
   <script src="../ripple/ripple.js"></script>
   <!-- endbuild -->
