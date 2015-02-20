@@ -47,23 +47,16 @@ var componentHandler = (function() {
    * will have.
    */
   function upgradeDomInternal(jsClass, cssClass) {
-    if (jsClass === undefined && cssClass === undefined) {
-      for (var i = 0; i < registeredComponents_.length; i++) {
-        upgradeDomInternal(registeredComponents_[i].className,
-            registeredComponents_[i].cssClass);
+    if (cssClass === undefined) {
+      var registeredClass = findRegisteredClass_(jsClass);
+      if (registeredClass) {
+        cssClass = registeredClass.cssClass;
       }
-    } else {
-      if (cssClass === undefined) {
-        var registeredClass = findRegisteredClass_(jsClass);
-        if (registeredClass) {
-          cssClass = registeredClass.cssClass;
-        }
-      }
+    }
 
-      var elements = document.querySelectorAll('.' + cssClass);
-      for (var n = 0; n < elements.length; n++) {
-        upgradeElementInternal(elements[n], jsClass);
-      }
+    var elements = document.querySelectorAll('.' + cssClass);
+    for (var n = 0; n < elements.length; n++) {
+      upgradeElementInternal(elements[n], jsClass);
     }
   }
 
@@ -784,12 +777,12 @@ componentHandler.register({
 });
 
 /**
- * Class constructor for Item WSK component.
+ * Class constructor for dropdown WSK component.
  * Implements WSK component design pattern defined at:
  * https://github.com/jasonmayes/wsk-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
-function MaterialItem(element) {
+function MaterialMenu(element) {
   'use strict';
 
   this.element_ = element;
@@ -803,8 +796,27 @@ function MaterialItem(element) {
  * @enum {string | number}
  * @private
  */
-MaterialItem.prototype.Constant_ = {
-  // None for now.
+MaterialMenu.prototype.Constant_ = {
+  // Total duration of the menu animation.
+  TRANSITION_DURATION_SECONDS: 0.3,
+  // The fraction of the total duration we want to use for menu item animations.
+  TRANSITION_DURATION_FRACTION: 0.8,
+  // How long the menu stays open after choosing an option (so the user can see
+  // the ripple).
+  CLOSE_TIMEOUT: 150
+};
+
+/**
+ * Keycodes, for code readability.
+ * @enum {number}
+ * @private
+ */
+MaterialMenu.prototype.Keycodes_ = {
+  ENTER: 13,
+  ESCAPE: 27,
+  SPACE: 32,
+  UP_ARROW: 38,
+  DOWN_ARROW: 40
 };
 
 /**
@@ -814,38 +826,403 @@ MaterialItem.prototype.Constant_ = {
  * @enum {string}
  * @private
  */
-MaterialItem.prototype.CssClasses_ = {
-  WSK_ITEM_RIPPLE_CONTAINER: 'wsk-item--ripple-container',
-
-  WSK_RIPPLE: 'wsk-ripple'
+MaterialMenu.prototype.CssClasses_ = {
+  CONTAINER: 'wsk-menu__container',
+  OUTLINE: 'wsk-menu__outline',
+  ITEM: 'wsk-menu__item',
+  ITEM_RIPPLE_CONTAINER: 'wsk-menu__item-ripple-container',
+  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  RIPPLE: 'wsk-ripple',
+  // Statuses
+  IS_UPGRADED: 'is-upgraded',
+  IS_VISIBLE: 'is-visible',
+  IS_ANIMATING: 'is-animating',
+  // Alignment options
+  BOTTOM_LEFT: 'wsk-menu--bottom-left',  // This is the default.
+  BOTTOM_RIGHT: 'wsk-menu--bottom-right',
+  TOP_LEFT: 'wsk-menu--top-left',
+  TOP_RIGHT: 'wsk-menu--top-right',
+  UNALIGNED: 'wsk-menu--unaligned'
 };
-
 
 /**
  * Initialize element.
  */
-MaterialItem.prototype.init = function() {
+MaterialMenu.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    var rippleContainer = document.createElement('span');
-    rippleContainer.classList.add(this.CssClasses_.WSK_ITEM_RIPPLE_CONTAINER);
+    // Create container for the menu.
+    var container = document.createElement('div');
+    container.classList.add(this.CssClasses_.CONTAINER);
+    this.element_.parentElement.insertBefore(container, this.element_);
+    this.element_.parentElement.removeChild(this.element_);
+    container.appendChild(this.element_);
+    this.container_ = container;
 
-    var ripple = document.createElement('span');
-    ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
-    rippleContainer.appendChild(ripple);
+    // Create outline for the menu (shadow and background).
+    var outline = document.createElement('div');
+    outline.classList.add(this.CssClasses_.OUTLINE);
+    this.outline_ = outline;
+    container.insertBefore(outline, this.element_);
 
-    this.element_.appendChild(rippleContainer);
+    // Find the "for" element and bind events to it.
+    var forElId = this.element_.getAttribute('for');
+    var forEl = null;
+    if (forElId) {
+      forEl = document.getElementById(forElId);
+      if (forEl) {
+        this.forElement_ = forEl;
+        forEl.addEventListener('click', this.handleForClick_.bind(this));
+        forEl.addEventListener('keydown',
+            this.handleForKeyboardEvent_.bind(this));
+      }
+    }
+
+    var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
+
+    for (var i = 0; i < items.length; i++) {
+      // Add a listener to each menu item.
+      items[i].addEventListener('click', this.handleItemClick_.bind(this));
+      // Add a tab index to each menu item.
+      items[i].tabIndex = '-1';
+      // Add a keyboard listener to each menu item.
+      items[i].addEventListener('keydown',
+          this.handleItemKeyboardEvent_.bind(this));
+    }
+
+    // Add ripple classes to each item, if the user has enabled ripples.
+    if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
+      this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
+
+      for (i = 0; i < items.length; i++) {
+        var item = items[i];
+
+        var rippleContainer = document.createElement('span');
+        rippleContainer.classList.add(this.CssClasses_.ITEM_RIPPLE_CONTAINER);
+
+        var ripple = document.createElement('span');
+        ripple.classList.add(this.CssClasses_.RIPPLE);
+        rippleContainer.appendChild(ripple);
+
+        item.appendChild(rippleContainer);
+        item.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      }
+    }
+
+    // Copy alignment classes to the container, so the outline can use them.
+    if (this.element_.classList.contains(this.CssClasses_.BOTTOM_LEFT)) {
+      this.outline_.classList.add(this.CssClasses_.BOTTOM_LEFT);
+    }
+    if (this.element_.classList.contains(this.CssClasses_.BOTTOM_RIGHT)) {
+      this.outline_.classList.add(this.CssClasses_.BOTTOM_RIGHT);
+    }
+    if (this.element_.classList.contains(this.CssClasses_.TOP_LEFT)) {
+      this.outline_.classList.add(this.CssClasses_.TOP_LEFT);
+    }
+    if (this.element_.classList.contains(this.CssClasses_.TOP_RIGHT)) {
+      this.outline_.classList.add(this.CssClasses_.TOP_RIGHT);
+    }
+    if (this.element_.classList.contains(this.CssClasses_.UNALIGNED)) {
+      this.outline_.classList.add(this.CssClasses_.UNALIGNED);
+    }
+
+    container.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
 
+/**
+ * Handles a click on the "for" element, by positioning the menu and then
+ * toggling it.
+ * @private
+ */
+MaterialMenu.prototype.handleForClick_ = function(evt) {
+  'use strict';
+
+  if (this.element_ && this.forElement_) {
+    var rect = this.forElement_.getBoundingClientRect();
+    var forRect = this.forElement_.parentElement.getBoundingClientRect();
+
+    if (this.element_.classList.contains(this.CssClasses_.UNALIGNED)) {
+      // Do not position the menu automatically. Requires the developer to
+      // manually specify position.
+    } else if (this.element_.classList.contains(
+        this.CssClasses_.BOTTOM_RIGHT)) {
+      // Position below the "for" element, aligned to its right.
+      this.container_.style.right = (forRect.right - rect.right) + 'px';
+      this.container_.style.top =
+          this.forElement_.offsetTop + this.forElement_.offsetHeight + 'px';
+    } else if (this.element_.classList.contains(this.CssClasses_.TOP_LEFT)) {
+      // Position above the "for" element, aligned to its left.
+      this.container_.style.left = this.forElement_.offsetLeft + 'px';
+      this.container_.style.bottom = (forRect.bottom - rect.top) + 'px';
+    } else if (this.element_.classList.contains(this.CssClasses_.TOP_RIGHT)) {
+      // Position above the "for" element, aligned to its right.
+      this.container_.style.right = (forRect.right - rect.right) + 'px';
+      this.container_.style.bottom = (forRect.bottom - rect.top) + 'px';
+    } else {
+      // Default: position below the "for" element, aligned to its left.
+      this.container_.style.left = this.forElement_.offsetLeft + 'px';
+      this.container_.style.top =
+          this.forElement_.offsetTop + this.forElement_.offsetHeight + 'px';
+    }
+  }
+
+  this.toggle(evt);
+};
+
+/**
+ * Handles a keyboard event on the "for" element.
+ * @private
+ */
+MaterialMenu.prototype.handleForKeyboardEvent_ = function(evt) {
+  'use strict';
+
+  if (this.element_ && this.container_ && this.forElement_) {
+    var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM +
+      ':not([disabled])');
+
+    if (items && items.length > 0 &&
+        this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+      if (evt.keyCode === this.Keycodes_.UP_ARROW) {
+        evt.preventDefault();
+        items[items.length - 1].focus();
+      } else if (evt.keyCode === this.Keycodes_.DOWN_ARROW) {
+        evt.preventDefault();
+        items[0].focus();
+      }
+    }
+  }
+};
+
+/**
+ * Handles a keyboard event on an item.
+ * @private
+ */
+MaterialMenu.prototype.handleItemKeyboardEvent_ = function(evt) {
+  'use strict';
+
+  if (this.element_ && this.container_) {
+    var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM +
+      ':not([disabled])');
+
+    if (items && items.length > 0 &&
+        this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+      var currentIndex = Array.prototype.slice.call(items).indexOf(evt.target);
+
+      if (evt.keyCode === this.Keycodes_.UP_ARROW) {
+        evt.preventDefault();
+        if (currentIndex > 0) {
+          items[currentIndex - 1].focus();
+        } else {
+          items[items.length - 1].focus();
+        }
+      } else if (evt.keyCode === this.Keycodes_.DOWN_ARROW) {
+        evt.preventDefault();
+        if (items.length > currentIndex + 1) {
+          items[currentIndex + 1].focus();
+        } else {
+          items[0].focus();
+        }
+      } else if (evt.keyCode === this.Keycodes_.SPACE ||
+            evt.keyCode === this.Keycodes_.ENTER) {
+        evt.preventDefault();
+        // Send mousedown and mouseup to trigger ripple.
+        var e = new MouseEvent('mousedown');
+        evt.target.dispatchEvent(e);
+        e = new MouseEvent('mouseup');
+        evt.target.dispatchEvent(e);
+        // Send click.
+        evt.target.click();
+      } else if (evt.keyCode === this.Keycodes_.ESCAPE) {
+        evt.preventDefault();
+        this.hide();
+      }
+    }
+  }
+};
+
+/**
+ * Handles a click event on an item.
+ * @private
+ */
+MaterialMenu.prototype.handleItemClick_ = function(evt) {
+  'use strict';
+
+  if (evt.target.getAttribute('disabled') !== null) {
+    evt.stopPropagation();
+  } else {
+    // Wait some time before closing menu, so the user can see the ripple.
+    this.closing_ = true;
+    window.setTimeout(function(evt) {
+      this.hide();
+      this.closing_ = false;
+    }.bind(this), this.Constant_.CLOSE_TIMEOUT);
+  }
+};
+
+/**
+ * Calculates the initial clip (for opening the menu) or final clip (for closing
+ * it), and applies it. This allows us to animate from or to the correct point,
+ * that is, the point it's aligned to in the "for" element.
+ * @private
+ */
+MaterialMenu.prototype.applyClip_ = function(height, width) {
+  'use strict';
+
+  if (this.element_.classList.contains(this.CssClasses_.UNALIGNED)) {
+    // Do not clip.
+    this.element_.style.clip = null;
+  } else if (this.element_.classList.contains(this.CssClasses_.BOTTOM_RIGHT)) {
+    // Clip to the top right corner of the menu.
+    this.element_.style.clip =
+        'rect(0 ' + width + 'px ' + '0 ' + width + 'px)';
+  } else if (this.element_.classList.contains(this.CssClasses_.TOP_LEFT)) {
+    // Clip to the bottom left corner of the menu.
+    this.element_.style.clip =
+        'rect(' + height + 'px 0 ' + height + 'px 0)';
+  } else if (this.element_.classList.contains(this.CssClasses_.TOP_RIGHT)) {
+    // Clip to the bottom right corner of the menu.
+    this.element_.style.clip = 'rect(' + height + 'px ' + width + 'px ' +
+        height + 'px ' + width + 'px)';
+  } else {
+    // Default: do not clip (same as clipping to the top left corner).
+    this.element_.style.clip = null;
+  }
+};
+
+/**
+ * Adds an event listener to clean up after the animation ends.
+ * @private
+ */
+MaterialMenu.prototype.addAnimationEndListener_ = function() {
+  'use strict';
+
+  var cleanup = function() {
+    this.element_.classList.remove(this.CssClasses_.IS_ANIMATING);
+  }.bind(this);
+
+  // Remove animation class once the transition is done.
+  this.element_.addEventListener('transitionend', cleanup);
+  this.element_.addEventListener('webkitTransitionEnd', cleanup);
+};
+
+/**
+ * Displays the menu.
+ * @public
+ */
+MaterialMenu.prototype.show = function(evt) {
+  'use strict';
+
+  if (this.element_ && this.container_ && this.outline_) {
+    // Measure the inner element.
+    var height = this.element_.getBoundingClientRect().height;
+    var width = this.element_.getBoundingClientRect().width;
+
+    // Apply the inner element's size to the container and outline.
+    this.container_.style.width = width + 'px';
+    this.container_.style.height = height + 'px';
+    this.outline_.style.width = width + 'px';
+    this.outline_.style.height = height + 'px';
+
+    var transitionDuration = this.Constant_.TRANSITION_DURATION_SECONDS *
+        this.Constant_.TRANSITION_DURATION_FRACTION;
+
+    // Calculate transition delays for individual menu items, so that they fade
+    // in one at a time.
+    var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
+    for (var i = 0; i < items.length; i++) {
+      var itemDelay = null;
+      if (this.element_.classList.contains(this.CssClasses_.TOP_LEFT) ||
+          this.element_.classList.contains(this.CssClasses_.TOP_RIGHT)) {
+        itemDelay = ((height - items[i].offsetTop - items[i].offsetHeight) /
+            height * transitionDuration) + 's';
+      } else {
+        itemDelay = (items[i].offsetTop / height * transitionDuration) + 's';
+      }
+      items[i].style.transitionDelay = itemDelay;
+    }
+
+    // Apply the initial clip to the text before we start animating.
+    this.applyClip_(height, width);
+
+    // Wait for the next frame, turn on animation, and apply the final clip.
+    // Also make it visible. This triggers the transitions.
+    window.requestAnimFrame(function() {
+      this.element_.classList.add(this.CssClasses_.IS_ANIMATING);
+      this.element_.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
+      this.container_.classList.add(this.CssClasses_.IS_VISIBLE);
+    }.bind(this));
+
+    // Clean up after the animation is complete.
+    this.addAnimationEndListener_();
+
+    // Add a click listener to the document, to close the menu.
+    var callback = function(e) {
+      // Check to see if the document is processing the same event that
+      // displayed the menu in the first place. If so, do nothing.
+      // Also check to see if the menu is in the process of closing itself, and
+      // do nothing in that case.
+      if (e !== evt && !this.closing_) {
+        document.removeEventListener('click', callback);
+        this.hide();
+      }
+    }.bind(this);
+    document.addEventListener('click', callback);
+  }
+};
+
+/**
+ * Hides the menu.
+ * @public
+ */
+MaterialMenu.prototype.hide = function(evt) {
+  'use strict';
+
+  if (this.element_ && this.container_ && this.outline_) {
+    var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
+
+    // Remove all transition delays; menu items fade out concurrently.
+    for (var i = 0; i < items.length; i++) {
+      items[i].style.transitionDelay = null;
+    }
+
+    // Measure the inner element.
+    var height = this.element_.getBoundingClientRect().height;
+    var width = this.element_.getBoundingClientRect().width;
+
+    // Turn on animation, and apply the final clip. Also make invisible.
+    // This triggers the transitions.
+    this.element_.classList.add(this.CssClasses_.IS_ANIMATING);
+    this.applyClip_(height, width);
+    this.container_.classList.remove(this.CssClasses_.IS_VISIBLE);
+
+    // Clean up after the animation is complete.
+    this.addAnimationEndListener_();
+  }
+};
+
+/**
+ * Displays or hides the menu, depending on current state.
+ * @public
+ */
+MaterialMenu.prototype.toggle = function(evt) {
+  'use strict';
+
+  if (this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+    this.hide(evt);
+  } else {
+    this.show(evt);
+  }
+};
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
-  constructor: MaterialItem,
-  classAsString: 'MaterialItem',
-  cssClass: 'wsk-js-ripple-effect'
+  constructor: MaterialMenu,
+  classAsString: 'MaterialMenu',
+  cssClass: 'wsk-js-menu'
 });
 
 /**
@@ -1720,58 +2097,14 @@ MaterialTextfield.prototype.Constant_ = {
  * @private
  */
 MaterialTextfield.prototype.CssClasses_ = {
-  WSK_TEXT_EXP_ICO_RIP_CONTAINER: 'wsk-textfield-expandable-icon__ripple__' +
-      'container',
-
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_RIPPLE: 'wsk-ripple',
-
-  IS_DIRTY: 'is-dirty'
+  LABEL: 'wsk-textfield__label',
+  INPUT: 'wsk-textfield__input',
+  IS_DIRTY: 'is-dirty',
+  IS_FOCUSED: 'is-focused',
+  IS_DISABLED: 'is-disabled',
+  IS_INVALID: 'is-invalid',
+  IS_UPGRADED: 'is-upgraded'
 };
-
-
-/**
- * Handle upgrade of icon element.
- * @param {HTMLElement} iconElement HTML element to contain icon.
- * @private
- */
-MaterialTextfield.prototype.expandableIcon_ = function(iconElement) {
-  'use strict';
-
-  if (!iconElement.getAttribute('data-upgraded')) {
-    var container = document.createElement('span');
-    container.classList.add(this.CssClasses_.WSK_TEXT_EXP_ICO_RIP_CONTAINER);
-    container.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
-    container.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
-
-    var ripple = document.createElement('span');
-    ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
-    container.appendChild(ripple);
-
-    iconElement.appendChild(container);
-    iconElement.setAttribute('data-upgraded', '');
-  }
-};
-
-
-/**
- * Handle input being entered.
- * @param {Event} event The event that fired.
- * @private
- */
-MaterialTextfield.prototype.onInputChange_ = function(event) {
-  'use strict';
-
-  if (event.target.value && event.target.value.length > 0) {
-    event.target.classList.add(this.CssClasses_.IS_DIRTY);
-  } else {
-    event.target.classList.remove(this.CssClasses_.IS_DIRTY);
-  }
-};
-
 
 /**
  * Handle input being entered.
@@ -1789,6 +2122,55 @@ MaterialTextfield.prototype.onKeyDown_ = function(event) {
   }
 };
 
+/**
+ * Handle focus.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialTextfield.prototype.onFocus_ = function(event) {
+  'use strict';
+
+  this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+};
+
+/**
+ * Handle lost focus.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialTextfield.prototype.onBlur_ = function(event) {
+  'use strict';
+
+  this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+};
+
+/**
+ * Handle class updates.
+ * @param {HTMLElement} button The button whose classes we should update.
+ * @param {HTMLElement} label The label whose classes we should update.
+ * @private
+ */
+MaterialTextfield.prototype.updateClasses_ = function() {
+  'use strict';
+
+  if (this.input_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
+  }
+
+  if (this.input_.validity.valid) {
+    this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+  } else {
+    this.element_.classList.add(this.CssClasses_.IS_INVALID);
+  }
+
+  if (this.input_.value && this.input_.value.length > 0) {
+    this.element_.classList.add(this.CssClasses_.IS_DIRTY);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
+  }
+};
 
 /**
  * Initialize element.
@@ -1797,32 +2179,33 @@ MaterialTextfield.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    var expandableIcons =
-        document.querySelectorAll('.wsk-textfield-expandable-icon');
-    for (var i = 0; i < expandableIcons.length; ++i) {
-      this.expandableIcon_(expandableIcons[i]);
-    }
+    this.label_ = this.element_.querySelector('.' + this.CssClasses_.LABEL);
+    this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
-    if (this.element_.hasAttribute(this.Constant_.MAX_ROWS_ATTRIBUTE)) {
-      this.maxRows = parseInt(this.element_.getAttribute(
-          this.Constant_.MAX_ROWS_ATTRIBUTE), 10);
-      if (isNaN(this.maxRows)) {
-        console.log(
-            'maxrows attribute provided, but wasn\'t a number: ' +
-            this.maxRows);
-        this.maxRows = this.Constant_.NO_MAX_ROWS;
+    if (this.input_) {
+      if (this.input_.hasAttribute(this.Constant_.MAX_ROWS_ATTRIBUTE)) {
+        this.maxRows = parseInt(this.input_.getAttribute(
+            this.Constant_.MAX_ROWS_ATTRIBUTE), 10);
+        if (isNaN(this.maxRows)) {
+          this.maxRows = this.Constant_.NO_MAX_ROWS;
+        }
       }
-    }
 
-    this.element_.addEventListener('input', this.onInputChange_.bind(this));
-    if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
-      // TODO: This should handle pasting multi line text.
-      // Currently doesn't.
-      this.element_.addEventListener('keydown', this.onKeyDown_.bind(this));
+      this.input_.addEventListener('input', this.updateClasses_.bind(this));
+      this.input_.addEventListener('focus', this.onFocus_.bind(this));
+      this.input_.addEventListener('blur', this.onBlur_.bind(this));
+
+      if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
+        // TODO: This should handle pasting multi line text.
+        // Currently doesn't.
+        this.input_.addEventListener('keydown', this.onKeyDown_.bind(this));
+      }
+
+      this.updateClasses_();
+      this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
     }
   }
 };
-
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
