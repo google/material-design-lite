@@ -16,7 +16,7 @@ describe('spinner tests', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
     el.widget.start();
-    expect(el.classList.contains('is-active')).to.be.true();
+    expect(el.classList.contains('is-active')).to.equal(true);
   });
 
   it('Should stop a MaterialSpinner successfully', function () {
@@ -24,7 +24,7 @@ describe('spinner tests', function () {
     componentHandler.upgradeElement(el, 'MaterialSpinner');
     el.widget.start();
     el.widget.stop();
-    expect(el.classList.contains('is-active')).to.be.false();
+    expect(el.classList.contains('is-active')).to.equal(false);
   });
 
   it('Creates MaterialSpinner layers successfully', function () {
