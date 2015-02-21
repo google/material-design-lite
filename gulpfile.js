@@ -192,7 +192,7 @@ gulp.task('serve:dist', ['default'], function () {
 });
 
 // Build Production Files, the Default Task
-gulp.task('default', ['clean'], function (cb) {
+gulp.task('default', ['clean','mocha'], function (cb) {
   runSequence(
     'styles',
     ['jshint', 'scripts', 'images'],
