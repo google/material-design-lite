@@ -89,6 +89,14 @@ $ gulp
 This will clean and update the `css`, `js` and `images` directories in the root of the project with minified and
 concatenated versions of the component files. Namely, `css/material.min.css` and `js/material.min.js`.
 
+## Browser Support
+
+| IE8 | IE9 | IE10 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
+|-----|-----|------|--------|-------|---------|--------|------------------|---------------|
+| B   | B   | A    | A      | A      | A       | A      | A                | A             |
+
+A-grade browsers are fully supported. B-grade browsers will gracefully degrade to our CSS-only experience.
+
 ## Versioning
 
 For transparency into our release cycle and in striving to maintain backward compatibility, Material Design Lite is maintained under [the Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
