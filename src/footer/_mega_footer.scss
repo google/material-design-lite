@@ -1,4 +1,5 @@
 @import "../colors";
+@import "../icons/icons";
 
 /**************
  *
@@ -143,7 +144,8 @@ $footer-btn-size: 36px  !default;
   opacity: 0;
 
   &~.wsk-mega-footer--heading:after {
-    background-image: url('images/up_arrow.svg');
+    @include wsk-icon();
+    content: $icon-expand-less;
   }
 }
 
@@ -153,7 +155,8 @@ $footer-btn-size: 36px  !default;
   }
 
   &~.wsk-mega-footer--heading:after {
-    background-image: url('images/down_arrow.svg');
+    @include wsk-icon();
+    content: $icon-expand-more;
   }
 }
 
