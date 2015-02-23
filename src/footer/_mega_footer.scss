@@ -228,7 +228,7 @@ $footer-btn-size: 36px  !default;
   }
 
   &~.wsk-mega-footer--heading:after {
-    background-image: none;
+    content: '';
   }
 }
 }
