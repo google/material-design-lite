@@ -1,8 +1,10 @@
 @import '../styleguide_demo_bp';
 @import '_layout';
-@import '../textfield/_textfield';
+@import '../textfield/textfield';
 @import '../animation/animation';
 @import '../palette/palette';
+@import '../icons/icons';
+@import '../button/button';
 
 .demo-container {
   width: 100%;
@@ -32,16 +34,12 @@
 }
 
 // Styles for fixed drawer demos.
-.wsk-layout__header .wsk-textfield-expandable-icon {
-  border-color: nth($palette-page, 3);
+.wsk-layout__header .wsk-button {
+  color: nth($palette-page, 3);
   border-radius: 50%;
 }
 
-.wsk-layout__header .wsk-textfield-expandable-icon:hover {
-  background-color: rgba(nth($palette-grey, 8), 0.6);
-}
-
-.wsk-layout__header .wsk-textfield {
+.wsk-layout__header .wsk-textfield__input {
   color: nth($palette-page, 3);
 }
 
