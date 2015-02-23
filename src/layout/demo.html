@@ -11,12 +11,12 @@
 
   <link rel="stylesheet" href="demo.css">
 </head>
-<body>
+<body class="demo-page demo-page--layout">
   <h3>Default layout</h3>
   <p>Uses a header for large screen sizes and a collapsible drawer for smaller
     screens.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
       <div class="wsk-layout__header">
         <!-- Icon -->
@@ -45,7 +45,7 @@
         </nav>
       </div>
       <div class="wsk-layout__content">
-        <div class="demo-content"></div>
+        <div class="demo-layout__content"></div>
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@
   <h3>Scrolling header</h3>
   <p>Same as the standard layout, but the header scrolls with the content.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
       <div class="wsk-layout__header wsk-layout__header--scroll">
         <!-- Icon -->
@@ -83,7 +83,7 @@
         </nav>
       </div>
       <div class="wsk-layout__content">
-        <div class="demo-content"></div>
+        <div class="demo-layout__content"></div>
       </div>
     </div>
   </div>
@@ -93,7 +93,7 @@
   <p>The drawer is always open in large screen sizes, functioning as side
     navigation.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--overlay-drawer-button">
       <div class="wsk-layout__header">
         <span class="wsk-layout-title">Fixed drawer layout demo</span>
@@ -118,7 +118,7 @@
         </nav>
       </div>
       <div class="wsk-layout__content">
-        <div class="demo-content"></div>
+        <div class="demo-layout__content"></div>
       </div>
     </div>
   </div>
@@ -127,7 +127,7 @@
   <h3>Fixed drawer (no header)</h3>
   <p>Same as the previous layout, but with no header.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--overlay-drawer-button">
       <div class="wsk-layout__drawer">
         <span class="wsk-layout-title">Web Starter Kit</span>
@@ -140,7 +140,7 @@
         </nav>
       </div>
       <div class="wsk-layout__content">
-        <div class="demo-content"></div>
+        <div class="demo-layout__content"></div>
       </div>
     </div>
   </div>
@@ -149,7 +149,7 @@
   <h3>Fixed header</h3>
   <p>Always shows a header, even in smaller screens.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
       <div class="wsk-layout__header">
         <!-- Icon -->
@@ -178,7 +178,7 @@
         </nav>
       </div>
       <div class="wsk-layout__content">
-        <div class="demo-content"></div>
+        <div class="demo-layout__content"></div>
       </div>
     </div>
   </div>
@@ -188,7 +188,7 @@
   <p>The drawer is always open in large screens. The header is always shown,
     even in small screens.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--fixed-header">
       <div class="wsk-layout__header">
         <span class="wsk-layout-title">Fixed drawer and header</span>
@@ -213,7 +213,7 @@
         </nav>
       </div>
       <div class="wsk-layout__content">
-        <div class="demo-content"></div>
+        <div class="demo-layout__content"></div>
       </div>
     </div>
   </div>
@@ -223,7 +223,7 @@
   <p>Example of a more complex waterfall header, with multiple rows (on large
     screens only).</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
       <div class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--waterfall wsk-layout__header--tall">
         <!-- Top row -->
@@ -272,7 +272,7 @@
         </nav>
       </div>
       <div class="wsk-layout__content">
-        <div class="demo-content"></div>
+        <div class="demo-layout__content"></div>
       </div>
     </div>
   </div>
@@ -281,7 +281,7 @@
   <h3>Transparent header</h3>
   <p>Uses a transparent header that draws on top of the layout's background.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout" id="transparent_demo">
       <div class="wsk-layout__header wsk-layout__header--transparent">
         <!-- Icon -->
@@ -317,7 +317,7 @@
   <h3>Scrollable tabs</h3>
   <p>Simple header with scrollable tabs.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
       <div class="wsk-layout__header">
         <!-- Icon -->
@@ -347,13 +347,13 @@
       </div>
       <div class="wsk-layout__content">
         <div class="wsk-layout__tab-panel is-active" id="blue-panel-scroll">
-          <div class="demo-content"></div>
+          <div class="demo-layout__content"></div>
         </div>
         <div class="wsk-layout__tab-panel" id="green-panel-scroll">
-          <div class="demo-content-green"></div>
+          <div class="demo-layout__content-green"></div>
         </div>
         <div class="wsk-layout__tab-panel" id="red-panel-scroll">
-          <div class="demo-content-red"></div>
+          <div class="demo-layout__content-red"></div>
         </div>
       </div>
     </div>
@@ -362,7 +362,7 @@
   <h3>Fixed tabs</h3>
   <p>Simple header with fixed tabs.</p>
 
-  <div class="demo-container">
+  <div class="demo-layout">
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header wsk-layout--fixed-tabs">
       <div class="wsk-layout__header">
         <!-- Icon -->
@@ -377,13 +377,13 @@
       </div>
       <div class="wsk-layout__content">
         <div class="wsk-layout__tab-panel is-active" id="blue-panel-fixed">
-          <div class="demo-content"></div>
+          <div class="demo-layout__content"></div>
         </div>
         <div class="wsk-layout__tab-panel" id="green-panel-fixed">
-          <div class="demo-content-green"></div>
+          <div class="demo-layout__content-green"></div>
         </div>
         <div class="wsk-layout__tab-panel" id="red-panel-fixed">
-          <div class="demo-content-red"></div>
+          <div class="demo-layout__content-red"></div>
         </div>
       </div>
     </div>

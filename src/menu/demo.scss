@@ -3,30 +3,30 @@
 @import "../icons/icons";
 @import "_menu";
 
-.PreviewBlock {
+.demo-page--menu .demo-preview-block {
   position: relative;
   height: 500px;
 }
 
-.demo-button-left {
+.demo-menu-button-left {
   position: absolute;
   left: 24px;
   top: 250px;
 }
 
-.demo-button-left2 {
+.demo-menu-button-left2 {
   position: absolute;
   left: 72px;
   top: 250px;
 }
 
-.demo-button-right {
+.demo-menu-button-right {
   position: absolute;
   right: 24px;
   top: 250px;
 }
 
-.demo-button-right2 {
+.demo-menu-button-right2 {
   position: absolute;
   right: 72px;
   top: 250px;

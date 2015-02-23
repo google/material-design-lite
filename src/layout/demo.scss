@@ -6,7 +6,7 @@
 @import '../icons/icons';
 @import '../button/button';
 
-.demo-container {
+.demo-layout {
   width: 100%;
   float: left;
   margin: 0 40px 40px 0;
@@ -15,72 +15,72 @@
   height: 500px;
 }
 
-.demo-content {
+.demo-layout__content {
   height: 1000px;
   background: linear-gradient(nth($palette-primary, 2), nth($palette-primary, 1));
   padding: 8px;
 }
 
-.demo-content-red {
+.demo-layout__content-red {
   height: 1000px;
   background: linear-gradient(nth($palette-red, 2), nth($palette-red, 1));
   padding: 8px;
 }
 
-.demo-content-green {
+.demo-layout__content-green {
   height: 1000px;
   background: linear-gradient(nth($palette-green, 2), nth($palette-green, 1));
   padding: 8px;
 }
 
 // Styles for fixed drawer demos.
-.wsk-layout__header .wsk-button {
+.demo-layout .wsk-layout__header .wsk-button {
   color: nth($palette-page, 3);
   border-radius: 50%;
 }
 
-.wsk-layout__header .wsk-textfield__input {
+.demo-layout .wsk-layout__header .wsk-textfield__input {
   color: nth($palette-page, 3);
 }
 
 // Styles for fixed header demo.
-.wsk-layout.is-small-screen #fixed_header_nav {
+.demo-page--layout .wsk-layout.is-small-screen #fixed_header_nav {
   visibility: hidden;
 }
 
 // Styles for multi-row layout demo.
-#my_text_changes {
+.demo-page--layout #my_text_changes {
   @include typo-display-1;
   transition-property: font-size;
   @include material-animation-default();
 }
 
-#compact_navigation {
+.demo-page--layout #compact_navigation {
   visibility: hidden;
 }
 
-#expanded_navigation {
+.demo-page--layout #expanded_navigation {
   visibility: visible;
 }
 
-.wsk-layout__header.is-compact #my_text_changes {
+.demo-page--layout .wsk-layout__header.is-compact #my_text_changes {
   @include typo-title;
 }
 
-.wsk-layout__header.is-compact #compact_navigation {
+.demo-page--layout .wsk-layout__header.is-compact #compact_navigation {
   visibility: visible;
 }
 
-.wsk-layout__header.is-compact #expanded_navigation {
+.demo-page--layout .wsk-layout__header.is-compact #expanded_navigation {
   visibility: hidden;
 }
 
-.wsk-layout__header.is-compact #my_text_changes:after {
+.demo-page--layout .wsk-layout__header.is-compact #my_text_changes:after {
   content: " \0000a0 > \0000a0 Multi-row layout demo";
 }
 
 // Styles for transparent header demo.
-#transparent_demo {
+.demo-page--layout #transparent_demo {
   background-color: #948d85;
   background-image: url('images/desktop-handsfree-hero.jpg');
   background-repeat: no-repeat;

@@ -2,19 +2,18 @@
 @import "../icons/_icons";
 @import "_tooltip";
 
-body {
+.demo-page--tooltip {
   background : #fff;
   padding: 20px;
-
 }
 
-.preview-block {
+.demo-page--tooltip .demo-preview-block {
   background: #eee;
   padding: 20px;
   height: 120px;
 }
 
-.icon {
+.demo-page--tooltip .icon {
   background-color: transparent;
   border: none;
   display: inline-block;
@@ -28,6 +27,6 @@ body {
   font-size: 24px;
 }
 
-.icon:hover {
+.demo-page--tooltip .icon:hover {
   opacity: 1;
 }

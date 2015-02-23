@@ -1,12 +1,10 @@
 @import "../styleguide_demo_bp";
 @import "_card";
 
-.wsk-card {
+.demo-page--card .wsk-card {
   margin: 20px;
 }
-.wsk-card:nth-child(1) {
-  width: 330px;
-}
-.wsk-card:nth-child(2) {
+
+.demo-card--wide {
   width: 600px;
 }

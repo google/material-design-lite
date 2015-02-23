@@ -3,12 +3,12 @@
 @import "../icons/icons";
 @import "_textfield";
 
-textarea {
+.demo-page--textfield textarea {
   overflow: auto;
   resize: none;
 }
 
-.wsk-textfield {
+.demo-page--textfield .wsk-textfield {
   display: block;
   margin: 30px 0;
 }

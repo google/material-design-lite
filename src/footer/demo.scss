@@ -2,10 +2,11 @@
 @import "mega_footer";
 @import "mini_footer";
 
-body {
+.demo-page--footer {
   padding: 0;
 }
 
-footer {
+.demo-page--footer .wsk-mega-footer,
+.demo-page--footer .wsk-mini-footer, {
   margin-bottom: 16px;
 }

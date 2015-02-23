@@ -2,7 +2,7 @@
 @import 'palette';
 @import "../typography/typography";
 
-@mixin colorGroups($palette) {
+@mixin demo-palette-color-groups($palette) {
   .demo-palette-color--50 {
     background-color: #{nth($palette, 1)};
 
@@ -132,17 +132,17 @@
   }
 }
 
-.PreviewBlock {
-  display: inline-block;  
+.demo-page--palette .demo-preview-block {
+  display: inline-block;
 }
 
-.demo-palette-group {
+.demo-palette {
   margin-top: 15px;
   width: 360px;
   float: left;
 }
 
-.demo-palette-group--color, .demo-palette-group--heading {
+.demo-palette-color, .demo-palette-heading {
   @include typo-caption();
 
   max-width: 300px;
@@ -150,84 +150,85 @@
   color: white;
 }
 
-.demo-palette-group .dark-text, .demo-palette-group-heading.dark-text .demo-palette-group-name {
+.demo-palette .demo-palette--dark-text,
+.demo-palette-heading.demo-palette--dark-text .demo-palette-name {
   color: #000;
 }
 
-.demo-palette-group--name {
+.demo-palette-name {
   padding: 0 0 60px 0;
 }
 
-.demo-palette-group__red {
-  @include colorGroups($palette-red);
+.demo-palette--red {
+  @include demo-palette-color-groups($palette-red);
 }
 
-.demo-palette-group__pink {
-  @include colorGroups($palette-pink);
+.demo-palette--pink {
+  @include demo-palette-color-groups($palette-pink);
 }
 
-.demo-palette-group__purple {
-  @include colorGroups($palette-purple);
+.demo-palette--purple {
+  @include demo-palette-color-groups($palette-purple);
 }
 
-.demo-palette-group__deep-purple {
-  @include colorGroups($palette-deep-purple);
+.demo-palette--deep-purple {
+  @include demo-palette-color-groups($palette-deep-purple);
 }
 
-.demo-palette-group__indigo {
-  @include colorGroups($palette-indigo);
+.demo-palette--indigo {
+  @include demo-palette-color-groups($palette-indigo);
 }
 
-.demo-palette-group__blue {
-  @include colorGroups($palette-blue);
+.demo-palette--blue {
+  @include demo-palette-color-groups($palette-blue);
 }
 
-.demo-palette-group__light-blue {
-  @include colorGroups($palette-light-blue);
+.demo-palette--light-blue {
+  @include demo-palette-color-groups($palette-light-blue);
 }
 
-.demo-palette-group__cyan {
-  @include colorGroups($palette-cyan);
+.demo-palette--cyan {
+  @include demo-palette-color-groups($palette-cyan);
 }
 
-.demo-palette-group__teal {
-  @include colorGroups($palette-teal);
+.demo-palette--teal {
+  @include demo-palette-color-groups($palette-teal);
 }
 
-.demo-palette-group__green {
-  @include colorGroups($palette-green);
+.demo-palette--green {
+  @include demo-palette-color-groups($palette-green);
 }
 
-.demo-palette-group__light-green {
-  @include colorGroups($palette-light-green);
+.demo-palette--light-green {
+  @include demo-palette-color-groups($palette-light-green);
 }
 
-.demo-palette-group__lime {
-  @include colorGroups($palette-lime);
+.demo-palette--lime {
+  @include demo-palette-color-groups($palette-lime);
 }
 
-.demo-palette-group__yellow {
-  @include colorGroups($palette-yellow);
+.demo-palette--yellow {
+  @include demo-palette-color-groups($palette-yellow);
 }
 
-.demo-palette-group__amber {
-  @include colorGroups($palette-amber);
+.demo-palette--amber {
+  @include demo-palette-color-groups($palette-amber);
 }
 
-.demo-palette-group__orange {
-  @include colorGroups($palette-orange);
+.demo-palette--orange {
+  @include demo-palette-color-groups($palette-orange);
 }
 
-.demo-palette-group__deep-orange {
-  @include colorGroups($palette-deep-orange);
+.demo-palette--deep-orange {
+  @include demo-palette-color-groups($palette-deep-orange);
 }
 
-.demo-palette-group__brown {
-  @include colorGroups($palette-brown);
+.demo-palette--brown {
+  @include demo-palette-color-groups($palette-brown);
 }
 
-.demo-palette-group__grey {
-  @include colorGroups($palette-grey);
+.demo-palette--grey {
+  @include demo-palette-color-groups($palette-grey);
 
   .demo-palette-color--1000 {
     background-color: #000000;
@@ -248,6 +249,6 @@
   }
 }
 
-.demo-palette-group__blue-grey {
-  @include colorGroups($palette-blue-grey);
+.demo-palette--blue-grey {
+  @include demo-palette-color-groups($palette-blue-grey);
 }

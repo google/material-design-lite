@@ -4,27 +4,25 @@
 
 $padding: 24px;
 
-html, body {
+.demo-page {
   width: 100%;
   height: auto;
 
   margin: 0;
   padding: 0;
-}
 
-body {
   padding: $padding;
   box-sizing: border-box;
   background: #FFF;
 }
 
 // We define h2 under body, so it doesn't bleed into typography styles
-body > h2 {
+.demo-page > h2 {
   margin-top: $padding ;
   margin-bottom: $padding / 2;
 }
 
-.PreviewBlock {
+.demo-preview-block {
   background: nth($palette-grey, 2);
   padding: 20px;
 }

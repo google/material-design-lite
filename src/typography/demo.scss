@@ -2,7 +2,11 @@
 @import "../colors";
 @import 'typography';
 
-table th {
+.demo-page--typography {
+  color: $text-color-primary;
+}
+
+.demo-page--typography table th {
   @include typo-caption($colorContrast: true);
 
   padding-right: 80px;
@@ -11,20 +15,20 @@ table th {
   text-align: left;
 }
 
-.PreviewBlock--white {
+.demo-typography--white {
   background-color: white;
   color: black;
 }
 
-.PreviewBlock--black {
+.demo-typography--black {
   background-color: black;
   color: white;
 }
 
-.PreviewBlock--white,
-.PreviewBlock--black,
-.PreviewBlock--img-1,
-.PreviewBlock--img-2 {
+.demo-typography--white,
+.demo-typography--black,
+.demo-typography--img-1,
+.demo-typography--img-2 {
   width: 360px;
   height: 272px;
 
@@ -32,17 +36,12 @@ table th {
   box-sizing: border-box;
 }
 
-.PreviewBlock--img-1 {
+.demo-typography--img-1 {
   background-image: url(images/img-1.png);
   color: white;
 }
 
-.PreviewBlock--img-2 {
+.demo-typography--img-2 {
   background-image: url(images/img-2.png);
   color: white;
-}
-
-
-html {
-  color: $text-color-primary;
 }
