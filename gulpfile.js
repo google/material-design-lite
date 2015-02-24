@@ -99,7 +99,8 @@ gulp.task('styles', function () {
   return gulp.src([
     'src/styleguide.scss'
   ])
-    //.pipe($.changed('.tmp/styles', {extension: '.css'}))
+    // Generate Source Maps
+    .pipe ($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -114,6 +115,7 @@ gulp.task('styles', function () {
     .pipe($.if('*.css', $.csso()))
     .pipe($.concat('material.min.css'))
     //.pipe($.header(banner, {pkg: pkg}))
+    .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./css'))
     .pipe($.size({title: 'styles'}));
 });
