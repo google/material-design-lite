@@ -1884,8 +1884,8 @@ dt {
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-mask: url("images/tick-mask.svg#mask");
-          mask: url("images/tick-mask.svg#mask");
+  -webkit-mask: url("../images/tick-mask.svg#mask");
+          mask: url("../images/tick-mask.svg#mask");
   background: transparent;
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
@@ -1894,9 +1894,9 @@ dt {
   -webkit-transition-property: background;
           transition-property: background; }
   .wsk-checkbox.is-checked .wsk-checkbox__tick-outline {
-    background: #3f51b5 url("images/tick.svg"); }
+    background: #3f51b5 url("../images/tick.svg"); }
   .wsk-checkbox.is-checked.is-disabled .wsk-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url("images/tick.svg"); }
+    background: rgba(0, 0, 0, 0.26) url("../images/tick.svg"); }
 
 .wsk-checkbox__label {
   position: relative;
@@ -2028,8 +2028,8 @@ dt {
 /* ==========  Footer  ========== */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url('fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
-  src: url('fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
+  src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
+  src: url('../fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('../fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('../fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -5707,8 +5707,8 @@ dt {
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url('fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
-  src: url('fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
+  src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
+  src: url('../fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('../fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('../fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -8615,8 +8615,7 @@ dt {
   font-smoothing: antialiased; }
 
 .wsk-list-view--avatar {
-  background: url("images/avatar.png");
-  background-size: 100%;
+  background: #ddd;
   border-radius: 50%;
   content: '';
   display: inline-block;
