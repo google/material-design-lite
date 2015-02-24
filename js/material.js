@@ -2,7 +2,7 @@
  * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.0.0
  * @link https://github.com/google/material-design-lite
- * @license Apache-2
+ * @license [object Object]
  */
 /**
  * A component handler interface using the revealing module design pattern.
@@ -192,13 +192,12 @@ window.requestAnimFrame = (function() {
  * https://github.com/jasonmayes/wsk-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
-function MaterialAnimation(element) {
+function DemoAnimation(element) {
   'use strict';
 
   this.element_ = element;
   this.position_ = this.Constant_.STARTING_POSITION;
-  this.moveable_ = this.element_.querySelector('.' +
-      this.CssClasses_.DEMO_JS_MOVABLE_AREA);
+  this.movable_ = this.element_.querySelector('.' + this.CssClasses_.MOVABLE);
   // Initialize instance.
   this.init();
 }
@@ -208,7 +207,7 @@ function MaterialAnimation(element) {
  * @enum {string | number}
  * @private
  */
-MaterialAnimation.prototype.Constant_ = {
+DemoAnimation.prototype.Constant_ = {
   STARTING_POSITION: 1
 };
 
@@ -219,42 +218,39 @@ MaterialAnimation.prototype.Constant_ = {
  * @enum {string}
  * @private
  */
-MaterialAnimation.prototype.CssClasses_ = {
-  DEMO_JS_MOVABLE_AREA: 'demo-js-movable-area',
-
-  DEMO_POSITION_PREFIX: 'demo-position-'
+DemoAnimation.prototype.CssClasses_ = {
+  MOVABLE: 'demo-animation__movable',
+  POSITION_PREFIX: 'demo-animation--position-'
 };
-
 
 /**
  * Handle click of element.
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialAnimation.prototype.handleClick_ = function(event) {
+DemoAnimation.prototype.handleClick_ = function(event) {
   'use strict';
 
-  this.moveable_.classList.remove(this.CssClasses_.DEMO_POSITION_PREFIX +
+  this.movable_.classList.remove(this.CssClasses_.POSITION_PREFIX +
       this.position_);
   this.position_++;
   if (this.position_ > 6) {
     this.position_ = 1;
   }
-  this.moveable_.classList.add(this.CssClasses_.DEMO_POSITION_PREFIX +
+  this.movable_.classList.add(this.CssClasses_.POSITION_PREFIX +
       this.position_);
 };
-
 
 /**
  * Initialize element.
  */
-MaterialAnimation.prototype.init = function() {
+DemoAnimation.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    if (!this.moveable_) {
-      console.error('Was expecting to find an element with class ' +
-          'name .demo-js-movable-area in side of: ', this.element_);
+    if (!this.movable_) {
+      console.error('Was expecting to find an element with class name ' +
+          this.CssClasses_.MOVABLE + ' inside of: ', this.element_);
       return;
     }
 
@@ -262,13 +258,12 @@ MaterialAnimation.prototype.init = function() {
   }
 };
 
-
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
-  constructor: MaterialAnimation,
-  classAsString: 'MaterialAnimation',
-  cssClass: 'demo-js-clickable-area'
+  constructor: DemoAnimation,
+  classAsString: 'DemoAnimation',
+  cssClass: 'demo-js-animation'
 });
 
 /**
