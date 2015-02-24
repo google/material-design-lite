@@ -62,6 +62,7 @@ gulp.task('jshint', function () {
 // TODO: Update image paths in final CSS to match root/images
 gulp.task('images', function () {
   return gulp.src('src/**/*.{svg,png,jpg}')
+    .pipe($.flatten())
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
