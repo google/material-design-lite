@@ -39,8 +39,7 @@ $list-container-item-height: 70px;
 }
 
 .wsk-list-view--avatar {
-  background     : url("images/avatar.png");
-  background-size: 100%;
+  background: $list-container-item-border-color;
   border-radius  : 50%;
   content        : '';
   display        : inline-block;
