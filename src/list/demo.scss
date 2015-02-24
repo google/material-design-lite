@@ -1,2 +1,7 @@
 @import "../styleguide_demo_bp";
 @import "_list";
+
+.demo-page--list .wsk-list-view--avatar {
+  background: url("../demo-images/avatar.png");
+  background-size: 100%;
+}
