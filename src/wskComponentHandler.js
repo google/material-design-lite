@@ -152,3 +152,21 @@ var componentHandler = (function() {
     register: registerInternal
   };
 })();
+
+
+window.addEventListener('load', function() {
+  'use strict';
+
+  /**
+   * Performs a "Cutting the mustard" test. If the browser supports the features
+   * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
+   * components requiring JavaScript.
+   */
+  if ('classList' in document.createElement('div') && 'querySelector' in document &&
+      'addEventListener' in window && Array.prototype.forEach) {
+    document.documentElement.classList.add('wsk-js');
+    componentHandler.upgradeAllRegistered();
+  } else {
+    componentHandler.upgradeElement = componentHandler.register = function () { };
+  }
+});
