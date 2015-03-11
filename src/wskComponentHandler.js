@@ -41,16 +41,23 @@ var componentHandler = (function() {
    * will have.
    */
   function upgradeDomInternal(jsClass, cssClass) {
-    if (cssClass === undefined) {
-      var registeredClass = findRegisteredClass_(jsClass);
-      if (registeredClass) {
-        cssClass = registeredClass.cssClass;
+    if (jsClass === undefined && cssClass === undefined) {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        upgradeDomInternal(registeredComponents_[i].className,
+            registeredComponents_[i].cssClass);
       }
-    }
+    } else {
+      if (cssClass === undefined) {
+        var registeredClass = findRegisteredClass_(jsClass);
+        if (registeredClass) {
+          cssClass = registeredClass.cssClass;
+        }
+      }
 
-    var elements = document.querySelectorAll('.' + cssClass);
-    for (var n = 0; n < elements.length; n++) {
-      upgradeElementInternal(elements[n], jsClass);
+      var elements = document.querySelectorAll('.' + cssClass);
+      for (var n = 0; n < elements.length; n++) {
+        upgradeElementInternal(elements[n], jsClass);
+      }
     }
   }
 
@@ -145,20 +152,3 @@ var componentHandler = (function() {
     register: registerInternal
   };
 })();
-
-
-window.addEventListener('load', function() {
-  'use strict';
-
-  /**
-   * Performs a "Cutting the mustard" test. If the browser supports the features
-   * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
-   * components requiring JavaScript.
-   */
-  if ('classList' in document.createElement('div') && 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
-    document.documentElement.classList.add('wsk-js');
-    componentHandler.upgradeAllRegistered();
-  } else {
-    componentHandler.upgradeElement = componentHandler.register = function () { };
-  }
-});
