@@ -197,7 +197,7 @@ $layout-tab-highlight-thickness: 2px;
       margin: 0;
       width: $layout-header-icon-size;
       color: $layout-header-text-color;
-      background-color: $layout-header-bg-color;
+      background-color: inherit;
       z-index: 5;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
