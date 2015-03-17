@@ -20,9 +20,9 @@
   // Only necessary for PhantomJS 1.x
   Function.prototype.bind = Function.prototype.bind || function(to){
     // Make an array of our arguments, starting from second argument
-    var	partial	= Array.prototype.splice.call(arguments, 1),
+    var partial = Array.prototype.splice.call(arguments, 1),
     // We'll need the original function.
-    fn	= this;
+    fn = this;
     var bound = function (){
       // Join the already applied arguments to the now called ones (after converting to an array again).
       var args = partial.concat(Array.prototype.splice.call(arguments, 0));
