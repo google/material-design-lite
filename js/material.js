@@ -2,7 +2,7 @@
  * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.0.0
  * @link https://github.com/google/material-design-lite
- * @license [object Object]
+ * @license Apache-2
  */
 /**
  * A component handler interface using the revealing module design pattern.
