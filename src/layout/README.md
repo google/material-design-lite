@@ -8,7 +8,7 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
 <div class="wsk-layout">
   <div class="wsk-layout__header">
     <!-- Title -->
-    <span class="wsk-layout-title">Web Starter Kit</span>
+    <span class="wsk-layout-title">Material Design Lite</span>
     <!-- Add spacer, to align navigation to the right -->
     <div class="wsk-layout-spacer"></div>
     <!-- Navigation -->
@@ -18,7 +18,7 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
     </nav>
   </div>
   <div class="wsk-layout__drawer">
-    <span class="wsk-layout-title">Web Starter Kit</span>
+    <span class="wsk-layout-title">Material Design Lite</span>
     <nav class="wsk-layout-navigation">
       <a class="wsk-layout-navigation-link" href="">Hello</a>
       (...)
@@ -144,7 +144,7 @@ Tabs (optional). Used for tabbing the entire layout.
         <!-- Icon -->
         <img class="wsk-layout-icon" src="images/app-icon.png"/>
         <!-- Title -->
-        <span class="wsk-layout-title">Web Starter Kit</span>
+        <span class="wsk-layout-title">Material Design Lite</span>
       </div>
       <!-- Tab bar -->
       <div class="wsk-layout__tab-bar wsk-js-ripple-effect">
