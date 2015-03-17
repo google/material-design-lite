@@ -138,6 +138,7 @@ MaterialIconToggle.prototype.init = function() {
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
@@ -150,7 +151,6 @@ MaterialIconToggle.prototype.init = function() {
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add('is-upgraded');

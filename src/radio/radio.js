@@ -184,6 +184,7 @@ MaterialRadio.prototype.init = function() {
           this.CssClasses_.WSK_RADIO_RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
@@ -200,7 +201,6 @@ MaterialRadio.prototype.init = function() {
 
     this.element_.addEventListener('mouseup', this.onMouseup_.bind(this));
 
-    rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
