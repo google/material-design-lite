@@ -1,15 +1,4 @@
-@import "../colors";
-@import "../icons/icons";
 
-/**************
- *
- * Sizes
- *
- *************/
-$padding: 16px !default;
-$footer-heading-font-size: 24px !default;
-$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
-$footer-btn-size: 36px  !default;
 
 .wsk-mega-footer {
   padding: ($padding * 2) $padding;

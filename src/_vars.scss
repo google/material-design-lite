@@ -1,0 +1,830 @@
+
+
+/*palette*/
+/* ==========  Color Palettes  ========== */
+
+// Color order: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200,
+// A400, A700.
+
+$palette-red: #ffebee #ffcdd2 #ef9a9a #e57373 #ef5350 #f44336 #e53935
+    #d32f2f #c62828 #b71c1c #ff8a80 #ff5252 #ff1744 #d50000;
+
+$palette-red-50: nth($palette-red, 1);
+$palette-red-100: nth($palette-red, 2);
+$palette-red-200: nth($palette-red, 3);
+$palette-red-300: nth($palette-red, 4);
+$palette-red-400: nth($palette-red, 5);
+$palette-red-500: nth($palette-red, 6);
+$palette-red-600: nth($palette-red, 7);
+$palette-red-700: nth($palette-red, 8);
+$palette-red-800: nth($palette-red, 9);
+$palette-red-900: nth($palette-red, 10);
+$palette-red-A100: nth($palette-red, 11);
+$palette-red-A200: nth($palette-red, 12);
+$palette-red-A400: nth($palette-red, 13);
+$palette-red-A700: nth($palette-red, 14);
+
+$palette-pink:   #fce4ec #f8bbd0 #f8bbd0 #f06292 #ec407a #e91e63 #d81b60
+    #c2185b #ad1457 #880e4f #ff80ab #ff4081 #f50057 #c51162;
+
+$palette-pink-50: nth($palette-pink, 1);
+$palette-pink-100: nth($palette-pink, 2);
+$palette-pink-200: nth($palette-pink, 3);
+$palette-pink-300: nth($palette-pink, 4);
+$palette-pink-400: nth($palette-pink, 5);
+$palette-pink-500: nth($palette-pink, 6);
+$palette-pink-600: nth($palette-pink, 7);
+$palette-pink-700: nth($palette-pink, 8);
+$palette-pink-800: nth($palette-pink, 9);
+$palette-pink-900: nth($palette-pink, 10);
+$palette-pink-A100: nth($palette-pink, 11);
+$palette-pink-A200: nth($palette-pink, 12);
+$palette-pink-A400: nth($palette-pink, 13);
+$palette-pink-A700: nth($palette-pink, 14);
+
+$palette-purple: #f3e5f5 #e1bee7 #ce93d8 #ba68c8 #ab47bc #9c27b0 #8e24aa
+    #7b1fa2 #6a1b9a #4a148c #ea80fc #e040fb #d500f9 #aa00ff;
+
+$palette-purple-50: nth($palette-purple, 1);
+$palette-purple-100: nth($palette-purple, 2);
+$palette-purple-200: nth($palette-purple, 3);
+$palette-purple-300: nth($palette-purple, 4);
+$palette-purple-400: nth($palette-purple, 5);
+$palette-purple-500: nth($palette-purple, 6);
+$palette-purple-600: nth($palette-purple, 7);
+$palette-purple-700: nth($palette-purple, 8);
+$palette-purple-800: nth($palette-purple, 9);
+$palette-purple-900: nth($palette-purple, 10);
+$palette-purple-A100: nth($palette-purple, 11);
+$palette-purple-A200: nth($palette-purple, 12);
+$palette-purple-A400: nth($palette-purple, 13);
+$palette-purple-A700: nth($palette-purple, 14);
+
+$palette-deep-purple: #ede7f6 #d1c4e9 #b39ddb #9575cd #7e57c2 #673ab7 #5e35b1
+    #512da8 #4527a0 #311b92 #b388ff #7c4dff #651fff #6200ea;
+
+$palette-deep-purple-50: nth($palette-deep-purple, 1);
+$palette-deep-purple-100: nth($palette-deep-purple, 2);
+$palette-deep-purple-200: nth($palette-deep-purple, 3);
+$palette-deep-purple-300: nth($palette-deep-purple, 4);
+$palette-deep-purple-400: nth($palette-deep-purple, 5);
+$palette-deep-purple-500: nth($palette-deep-purple, 6);
+$palette-deep-purple-600: nth($palette-deep-purple, 7);
+$palette-deep-purple-700: nth($palette-deep-purple, 8);
+$palette-deep-purple-800: nth($palette-deep-purple, 9);
+$palette-deep-purple-900: nth($palette-deep-purple, 10);
+$palette-deep-purple-A100: nth($palette-deep-purple, 11);
+$palette-deep-purple-A200: nth($palette-deep-purple, 12);
+$palette-deep-purple-A400: nth($palette-deep-purple, 13);
+$palette-deep-purple-A700: nth($palette-deep-purple, 14);
+
+$palette-indigo: #e8eaf6 #c5cae9 #9fa8da #7986cb #5c6bc0 #3f51b5 #3949ab
+    #303f9f #283593 #1a237e #8c9eff #536dfe #3d5afe #304ffe;
+
+$palette-indigo-50: nth($palette-indigo, 1);
+$palette-indigo-100: nth($palette-indigo, 2);
+$palette-indigo-200: nth($palette-indigo, 3);
+$palette-indigo-300: nth($palette-indigo, 4);
+$palette-indigo-400: nth($palette-indigo, 5);
+$palette-indigo-500: nth($palette-indigo, 6);
+$palette-indigo-600: nth($palette-indigo, 7);
+$palette-indigo-700: nth($palette-indigo, 8);
+$palette-indigo-800: nth($palette-indigo, 9);
+$palette-indigo-900: nth($palette-indigo, 10);
+$palette-indigo-A100: nth($palette-indigo, 11);
+$palette-indigo-A200: nth($palette-indigo, 12);
+$palette-indigo-A400: nth($palette-indigo, 13);
+$palette-indigo-A700: nth($palette-indigo, 14);
+
+$palette-blue: #e3f2fd #bbdefb #90caf9 #64b5f6 #42a5f5 #2196f3 #1e88e5
+    #1976d2 #1565c0 #0d47a1 #82b1ff #448aff #2979ff #2962ff;
+
+$palette-blue-50: nth($palette-blue, 1);
+$palette-blue-100: nth($palette-blue, 2);
+$palette-blue-200: nth($palette-blue, 3);
+$palette-blue-300: nth($palette-blue, 4);
+$palette-blue-400: nth($palette-blue, 5);
+$palette-blue-500: nth($palette-blue, 6);
+$palette-blue-600: nth($palette-blue, 7);
+$palette-blue-700: nth($palette-blue, 8);
+$palette-blue-800: nth($palette-blue, 9);
+$palette-blue-900: nth($palette-blue, 10);
+$palette-blue-A100: nth($palette-blue, 11);
+$palette-blue-A200: nth($palette-blue, 12);
+$palette-blue-A400: nth($palette-blue, 13);
+$palette-blue-A700: nth($palette-blue, 14);
+
+$palette-light-blue: #e1f5fe #b3e5fc #81d4fa #4fc3f7 #29b6f6 #03a9f4 #039be5
+    #0288d1 #0277bd #01579b #80d8ff #40c4ff #00b0ff #0091ea;
+
+$palette-light-blue-50: nth($palette-light-blue, 1);
+$palette-light-blue-100: nth($palette-light-blue, 2);
+$palette-light-blue-200: nth($palette-light-blue, 3);
+$palette-light-blue-300: nth($palette-light-blue, 4);
+$palette-light-blue-400: nth($palette-light-blue, 5);
+$palette-light-blue-500: nth($palette-light-blue, 6);
+$palette-light-blue-600: nth($palette-light-blue, 7);
+$palette-light-blue-700: nth($palette-light-blue, 8);
+$palette-light-blue-800: nth($palette-light-blue, 9);
+$palette-light-blue-900: nth($palette-light-blue, 10);
+$palette-light-blue-A100: nth($palette-light-blue, 11);
+$palette-light-blue-A200: nth($palette-light-blue, 12);
+$palette-light-blue-A400: nth($palette-light-blue, 13);
+$palette-light-blue-A700: nth($palette-light-blue, 14);
+
+$palette-cyan: #e0f7fa #b2ebf2 #80deea #4dd0e1 #26c6da #00bcd4 #00acc1
+    #0097a7 #00838f #006064 #84ffff #18ffff #00e5ff #00b8d4;
+
+$palette-cyan-50: nth($palette-cyan, 1);
+$palette-cyan-100: nth($palette-cyan, 2);
+$palette-cyan-200: nth($palette-cyan, 3);
+$palette-cyan-300: nth($palette-cyan, 4);
+$palette-cyan-400: nth($palette-cyan, 5);
+$palette-cyan-500: nth($palette-cyan, 6);
+$palette-cyan-600: nth($palette-cyan, 7);
+$palette-cyan-700: nth($palette-cyan, 8);
+$palette-cyan-800: nth($palette-cyan, 9);
+$palette-cyan-900: nth($palette-cyan, 10);
+$palette-cyan-A100: nth($palette-cyan, 11);
+$palette-cyan-A200: nth($palette-cyan, 12);
+$palette-cyan-A400: nth($palette-cyan, 13);
+$palette-cyan-A700: nth($palette-cyan, 14);
+
+$palette-teal: #e0f2f1 #b2dfdb #80cbc4 #4db6ac #26a69a #009688 #00897b
+    #00796b #00695c #004d40 #a7ffeb #64ffda #1de9b6 #00bfa5;
+
+$palette-teal-50: nth($palette-teal, 1);
+$palette-teal-100: nth($palette-teal, 2);
+$palette-teal-200: nth($palette-teal, 3);
+$palette-teal-300: nth($palette-teal, 4);
+$palette-teal-400: nth($palette-teal, 5);
+$palette-teal-500: nth($palette-teal, 6);
+$palette-teal-600: nth($palette-teal, 7);
+$palette-teal-700: nth($palette-teal, 8);
+$palette-teal-800: nth($palette-teal, 9);
+$palette-teal-900: nth($palette-teal, 10);
+$palette-teal-A100: nth($palette-teal, 11);
+$palette-teal-A200: nth($palette-teal, 12);
+$palette-teal-A400: nth($palette-teal, 13);
+$palette-teal-A700: nth($palette-teal, 14);
+
+$palette-green: #e8f5e9 #c8e6c9 #a5d6a7 #81c784 #66bb6a #4caf50 #43a047
+    #388e3c #2e7d32 #1b5e20 #b9f6ca #69f0ae #00e676 #00c853;
+
+$palette-green-50: nth($palette-green, 1);
+$palette-green-100: nth($palette-green, 2);
+$palette-green-200: nth($palette-green, 3);
+$palette-green-300: nth($palette-green, 4);
+$palette-green-400: nth($palette-green, 5);
+$palette-green-500: nth($palette-green, 6);
+$palette-green-600: nth($palette-green, 7);
+$palette-green-700: nth($palette-green, 8);
+$palette-green-800: nth($palette-green, 9);
+$palette-green-900: nth($palette-green, 10);
+$palette-green-A100: nth($palette-green, 11);
+$palette-green-A200: nth($palette-green, 12);
+$palette-green-A400: nth($palette-green, 13);
+$palette-green-A700: nth($palette-green, 14);
+
+$palette-light-green: #f1f8e9 #dcedc8 #c5e1a5 #aed581 #9ccc65 #8bc34a #7cb342
+    #689f38 #558b2f #33691e #ccff90 #b2ff59 #76ff03 #64dd17;
+
+$palette-light-green-50: nth($palette-light-green, 1);
+$palette-light-green-100: nth($palette-light-green, 2);
+$palette-light-green-200: nth($palette-light-green, 3);
+$palette-light-green-300: nth($palette-light-green, 4);
+$palette-light-green-400: nth($palette-light-green, 5);
+$palette-light-green-500: nth($palette-light-green, 6);
+$palette-light-green-600: nth($palette-light-green, 7);
+$palette-light-green-700: nth($palette-light-green, 8);
+$palette-light-green-800: nth($palette-light-green, 9);
+$palette-light-green-900: nth($palette-light-green, 10);
+$palette-light-green-A100: nth($palette-light-green, 11);
+$palette-light-green-A200: nth($palette-light-green, 12);
+$palette-light-green-A400: nth($palette-light-green, 13);
+$palette-light-green-A700: nth($palette-light-green, 14);
+
+$palette-lime: #f9fbe7 #f0f4c3 #e6ee9c #dce775 #d4e157 #cddc39 #c0ca33
+    #afb42b #9e9d24 #827717 #f4ff81 #eeff41 #c6ff00 #aeea00;
+
+$palette-lime-50: nth($palette-lime, 1);
+$palette-lime-100: nth($palette-lime, 2);
+$palette-lime-200: nth($palette-lime, 3);
+$palette-lime-300: nth($palette-lime, 4);
+$palette-lime-400: nth($palette-lime, 5);
+$palette-lime-500: nth($palette-lime, 6);
+$palette-lime-600: nth($palette-lime, 7);
+$palette-lime-700: nth($palette-lime, 8);
+$palette-lime-800: nth($palette-lime, 9);
+$palette-lime-900: nth($palette-lime, 10);
+$palette-lime-A100: nth($palette-lime, 11);
+$palette-lime-A200: nth($palette-lime, 12);
+$palette-lime-A400: nth($palette-lime, 13);
+$palette-lime-A700: nth($palette-lime, 14);
+
+$palette-yellow: #fffde7 #fff9c4 #fff59d #fff176 #ffee58 #ffeb3b #fdd835
+    #fbc02d #f9a825 #f57f17 #ffff8d #ffff00 #ffea00 #ffd600;
+
+$palette-yellow-50: nth($palette-yellow, 1);
+$palette-yellow-100: nth($palette-yellow, 2);
+$palette-yellow-200: nth($palette-yellow, 3);
+$palette-yellow-300: nth($palette-yellow, 4);
+$palette-yellow-400: nth($palette-yellow, 5);
+$palette-yellow-500: nth($palette-yellow, 6);
+$palette-yellow-600: nth($palette-yellow, 7);
+$palette-yellow-700: nth($palette-yellow, 8);
+$palette-yellow-800: nth($palette-yellow, 9);
+$palette-yellow-900: nth($palette-yellow, 10);
+$palette-yellow-A100: nth($palette-yellow, 11);
+$palette-yellow-A200: nth($palette-yellow, 12);
+$palette-yellow-A400: nth($palette-yellow, 13);
+$palette-yellow-A700: nth($palette-yellow, 14);
+
+$palette-amber: #fff8e1 #ffecb3 #ffe082 #ffd54f #ffca28 #ffc107 #ffb300
+    #ffa000 #ff8f00 #ff6f00 #ffe57f #ffd740 #ffc400 #ffab00;
+
+$palette-amber-50: nth($palette-amber, 1);
+$palette-amber-100: nth($palette-amber, 2);
+$palette-amber-200: nth($palette-amber, 3);
+$palette-amber-300: nth($palette-amber, 4);
+$palette-amber-400: nth($palette-amber, 5);
+$palette-amber-500: nth($palette-amber, 6);
+$palette-amber-600: nth($palette-amber, 7);
+$palette-amber-700: nth($palette-amber, 8);
+$palette-amber-800: nth($palette-amber, 9);
+$palette-amber-900: nth($palette-amber, 10);
+$palette-amber-A100: nth($palette-amber, 11);
+$palette-amber-A200: nth($palette-amber, 12);
+$palette-amber-A400: nth($palette-amber, 13);
+$palette-amber-A700: nth($palette-amber, 14);
+
+$palette-orange: #fff3e0 #ffe0b2 #ffcc80 #ffb74d #ffa726 #ff9800 #fb8c00
+    #f57c00 #ef6c00 #e65100 #ffd180 #ffab40 #ff9100 #ff6d00;
+
+$palette-orange-50: nth($palette-orange, 1);
+$palette-orange-100: nth($palette-orange, 2);
+$palette-orange-200: nth($palette-orange, 3);
+$palette-orange-300: nth($palette-orange, 4);
+$palette-orange-400: nth($palette-orange, 5);
+$palette-orange-500: nth($palette-orange, 6);
+$palette-orange-600: nth($palette-orange, 7);
+$palette-orange-700: nth($palette-orange, 8);
+$palette-orange-800: nth($palette-orange, 9);
+$palette-orange-900: nth($palette-orange, 10);
+$palette-orange-A100: nth($palette-orange, 11);
+$palette-orange-A200: nth($palette-orange, 12);
+$palette-orange-A400: nth($palette-orange, 13);
+$palette-orange-A700: nth($palette-orange, 14);
+
+$palette-deep-orange: #fbe9e7 #ffccbc #ffab91 #ff8a65 #ff7043 #ff5722 #f4511e
+    #e64a19 #d84315 #bf360c #ff9e80 #ff6e40 #ff3d00 #dd2c00;
+
+$palette-deep-orange-50: nth($palette-deep-orange, 1);
+$palette-deep-orange-100: nth($palette-deep-orange, 2);
+$palette-deep-orange-200: nth($palette-deep-orange, 3);
+$palette-deep-orange-300: nth($palette-deep-orange, 4);
+$palette-deep-orange-400: nth($palette-deep-orange, 5);
+$palette-deep-orange-500: nth($palette-deep-orange, 6);
+$palette-deep-orange-600: nth($palette-deep-orange, 7);
+$palette-deep-orange-700: nth($palette-deep-orange, 8);
+$palette-deep-orange-800: nth($palette-deep-orange, 9);
+$palette-deep-orange-900: nth($palette-deep-orange, 10);
+$palette-deep-orange-A100: nth($palette-deep-orange, 11);
+$palette-deep-orange-A200: nth($palette-deep-orange, 12);
+$palette-deep-orange-A400: nth($palette-deep-orange, 13);
+$palette-deep-orange-A700: nth($palette-deep-orange, 14);
+
+
+// Color order: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
+
+$palette-brown: #efebe9 #d7ccc8 #bcaaa4 #a1887f #8d6e63
+    #795548 #6d4c41 #5d4037 #4e342e #3e2723;
+
+$palette-brown-50: nth($palette-brown, 1);
+$palette-brown-100: nth($palette-brown, 2);
+$palette-brown-200: nth($palette-brown, 3);
+$palette-brown-300: nth($palette-brown, 4);
+$palette-brown-400: nth($palette-brown, 5);
+$palette-brown-500: nth($palette-brown, 6);
+$palette-brown-600: nth($palette-brown, 7);
+$palette-brown-700: nth($palette-brown, 8);
+$palette-brown-800: nth($palette-brown, 9);
+$palette-brown-900: nth($palette-brown, 10);
+
+$palette-grey: #fafafa #f5f5f5 #eeeeee #e0e0e0 #bdbdbd
+    #9e9e9e #757575 #616161 #424242 #212121;
+
+$palette-grey-50: nth($palette-grey, 1);
+$palette-grey-100: nth($palette-grey, 2);
+$palette-grey-200: nth($palette-grey, 3);
+$palette-grey-300: nth($palette-grey, 4);
+$palette-grey-400: nth($palette-grey, 5);
+$palette-grey-500: nth($palette-grey, 6);
+$palette-grey-600: nth($palette-grey, 7);
+$palette-grey-700: nth($palette-grey, 8);
+$palette-grey-800: nth($palette-grey, 9);
+$palette-grey-900: nth($palette-grey, 10);
+
+$palette-blue-grey: #eceff1 #cfd8dc #b0bec5 #90a4ae #78909c
+    #607d8b #546e7a #455a64 #37474f #263238;
+
+$palette-blue-grey-50: nth($palette-blue-grey, 1);
+$palette-blue-grey-100: nth($palette-blue-grey, 2);
+$palette-blue-grey-200: nth($palette-blue-grey, 3);
+$palette-blue-grey-300: nth($palette-blue-grey, 4);
+$palette-blue-grey-400: nth($palette-blue-grey, 5);
+$palette-blue-grey-500: nth($palette-blue-grey, 6);
+$palette-blue-grey-600: nth($palette-blue-grey, 7);
+$palette-blue-grey-700: nth($palette-blue-grey, 8);
+$palette-blue-grey-800: nth($palette-blue-grey, 9);
+$palette-blue-grey-900: nth($palette-blue-grey, 10);
+
+/*colors*/
+/* ==========  Color & Themes  ========== */
+
+// Use color primarily for emphasis. Choose colors that fit with
+// your brand and provide good contrast between visual components.
+
+$palette-primary: $palette-indigo !default;
+$palette-accent: $palette-pink !default;
+$palette-secondary: $palette-grey !default;
+$palette-disabled: $palette-grey !default;
+$palette-page: $palette-grey !default;
+
+$palette-primary-50: nth($palette-primary, 1);
+$palette-primary-100: nth($palette-primary, 2);
+$palette-primary-200: nth($palette-primary, 3);
+$palette-primary-300: nth($palette-primary, 4);
+$palette-primary-400: nth($palette-primary, 5);
+$palette-primary-500: nth($palette-primary, 6);
+$palette-primary-600: nth($palette-primary, 7);
+$palette-primary-700: nth($palette-primary, 8);
+$palette-primary-800: nth($palette-primary, 9);
+$palette-primary-900: nth($palette-primary, 10);
+@if length($palette-primary) > 10 {
+  $palette-primary-A100: nth($palette-primary, 11);
+  $palette-primary-A200: nth($palette-primary, 12);
+  $palette-primary-A400: nth($palette-primary, 13);
+  $palette-primary-A700: nth($palette-primary, 14);
+}
+
+$palette-accent-50: nth($palette-accent, 1);
+$palette-accent-100: nth($palette-accent, 2);
+$palette-accent-200: nth($palette-accent, 3);
+$palette-accent-300: nth($palette-accent, 4);
+$palette-accent-400: nth($palette-accent, 5);
+$palette-accent-500: nth($palette-accent, 6);
+$palette-accent-600: nth($palette-accent, 7);
+$palette-accent-700: nth($palette-accent, 8);
+$palette-accent-800: nth($palette-accent, 9);
+$palette-accent-900: nth($palette-accent, 10);
+@if length($palette-accent) > 10 {
+  $palette-accent-A100: nth($palette-accent, 11);
+  $palette-accent-A200: nth($palette-accent, 12);
+  $palette-accent-A400: nth($palette-accent, 13);
+  $palette-accent-A700: nth($palette-accent, 14);
+}
+
+$palette-secondary-50: nth($palette-secondary, 1);
+$palette-secondary-100: nth($palette-secondary, 2);
+$palette-secondary-200: nth($palette-secondary, 3);
+$palette-secondary-300: nth($palette-secondary, 4);
+$palette-secondary-400: nth($palette-secondary, 5);
+$palette-secondary-500: nth($palette-secondary, 6);
+$palette-secondary-600: nth($palette-secondary, 7);
+$palette-secondary-700: nth($palette-secondary, 8);
+$palette-secondary-800: nth($palette-secondary, 9);
+$palette-secondary-900: nth($palette-secondary, 10);
+@if length($palette-secondary) > 10 {
+  $palette-secondary-A100: nth($palette-secondary, 11);
+  $palette-secondary-A200: nth($palette-secondary, 12);
+  $palette-secondary-A400: nth($palette-secondary, 13);
+  $palette-secondary-A700: nth($palette-secondary, 14);
+}
+
+$palette-disabled-50: nth($palette-disabled, 1);
+$palette-disabled-100: nth($palette-disabled, 2);
+$palette-disabled-200: nth($palette-disabled, 3);
+$palette-disabled-300: nth($palette-disabled, 4);
+$palette-disabled-400: nth($palette-disabled, 5);
+$palette-disabled-500: nth($palette-disabled, 6);
+$palette-disabled-600: nth($palette-disabled, 7);
+$palette-disabled-700: nth($palette-disabled, 8);
+$palette-disabled-800: nth($palette-disabled, 9);
+$palette-disabled-900: nth($palette-disabled, 10);
+@if length($palette-disabled) > 10 {
+  $palette-disabled-A100: nth($palette-disabled, 11);
+  $palette-disabled-A200: nth($palette-disabled, 12);
+  $palette-disabled-A400: nth($palette-disabled, 13);
+  $palette-disabled-A700: nth($palette-disabled, 14);
+}
+
+$palette-page-50: nth($palette-page, 1);
+$palette-page-100: nth($palette-page, 2);
+$palette-page-200: nth($palette-page, 3);
+$palette-page-300: nth($palette-page, 4);
+$palette-page-400: nth($palette-page, 5);
+$palette-page-500: nth($palette-page, 6);
+$palette-page-600: nth($palette-page, 7);
+$palette-page-700: nth($palette-page, 8);
+$palette-page-800: nth($palette-page, 9);
+$palette-page-900: nth($palette-page, 10);
+@if length($palette-page) > 10 {
+  $palette-page-A100: nth($palette-page, 11);
+  $palette-page-A200: nth($palette-page, 12);
+  $palette-page-A400: nth($palette-page, 13);
+  $palette-page-A700: nth($palette-page, 14);
+}
+
+/* ==========  Typography  ========== */
+
+// We use the following default color styles: text-color-primary and
+// text-color-secondary. For light themes, use text-color-primary-inverse
+// and text-color-secondary-inverse.
+
+$text-color-primary: $palette-grey-800 !default;
+$text-color-secondary: $palette-grey-500 !default;
+$text-color-primary-inverse: invert($text-color-primary) !default;
+$text-color-secondary-inverse: invert($text-color-secondary) !default;
+
+/* ==========  Components  ========== */
+
+/* ==========  Standard Buttons  ========== */
+
+// Default button colors.
+$button-primary-color: rgba(#999999, 0.20) !default;
+$button-secondary-color: #000 !default;
+$button-hover-color: $button-primary-color !default;
+$button-active-color: rgba($button-primary-color, 0.40) !default;
+$button-focus-color: rgba(black, 0.12) !default;
+
+// Colored button colors.
+$button-primary-color-alt: $palette-primary-500 !default;
+$button-secondary-color-alt: #fff !default;
+$button-hover-color-alt: $palette-primary-600 !default;
+$button-active-color-alt: $palette-primary-700 !default;
+$button-focus-color-alt: $button-focus-color !default;
+
+// Ripple color for colored raised buttons and FABs.
+$button-ripple-color-alt: white !default;
+
+// Disabled button colors.
+$button-primary-color-disabled: rgba(#000, 0.12) !default;
+$button-secondary-color-disabled: rgba(#000, 0.26) !default;
+
+// FAB colors and sizes.
+$button-fab-color-alt: $palette-accent-400 !default;
+$button-fab-hover-color-alt: $palette-accent-500 !default;
+$button-fab-active-color-alt: $palette-accent-600 !default;
+
+// Icon button colors and sizes.
+$button-icon-color: $palette-grey-700 !default;
+$button-icon-focus-color: $button-focus-color !default;
+
+/* ==========  Icon Toggles  ========== */
+
+$icon-toggle-color: $palette-grey-700 !default;
+$icon-toggle-focus-color: $button-focus-color !default;
+$icon-toggle-checked-color: $palette-primary-500 !default;
+$icon-toggle-disabled-color: rgba(#000, 0.26) !default;
+
+/* ==========  Radio Buttons  ========== */
+
+$radio-color: $palette-primary-500 !default;
+$radio-off-color: rgba(0, 0, 0, 0.54) !default;
+$radio-disabled-color: rgba(0, 0, 0, 0.26) !default;
+
+/* ==========  Ripple effect  ========== */
+
+$ripple-bg-color: $palette-grey-900 !default;
+
+/* ==========  Layout  ========== */
+
+// Drawer
+$layout-drawer-bg-color: $palette-page-50 !default;
+$layout-drawer-border-color: $palette-page-300 !default;
+$layout-text-color: $palette-page-800 !default;
+
+// Header
+$layout-header-bg-color: $palette-primary-500 !default;
+$layout-header-text-color: $palette-page-200 !default;
+
+// Tabs
+$layout-header-tab-highlight: $palette-secondary-300 !default;
+
+/* ==========  Content Tabs  ========== */
+
+$tab-highlight-color: $palette-primary-500 !default;
+$tab-text-color: rgba(0, 0, 0, 0.6) !default;
+$tab-active-text-color: black !default;
+$tab-border-color: $palette-grey-300 !default;
+
+/* ==========  Checkboxes  ========== */
+
+$checkbox-color: $palette-primary-500 !default;
+$checkbox-off-color: rgba(0, 0, 0, 0.54) !default;
+$checkbox-disabled-color: rgba(0, 0, 0, 0.26) !default;
+
+/* ==========  Switches  ========== */
+
+$switch-color: $palette-primary-500 !default;
+$switch-thumb-color: $switch-color !default;
+$switch-track-color: rgba($switch-color, 0.5) !default;
+
+$switch-off-thumb-color: $palette-grey-50 !default;
+$switch-off-track-color: rgba(0, 0, 0, 0.26) !default;
+$switch-disabled-thumb-color: $palette-grey-400 !default;
+$switch-disabled-track-color: rgba(0, 0, 0, 0.12) !default;
+
+/* ==========  Spinner  ========== */
+
+$spinner-color-1: #4285f4 !default;
+$spinner-color-2: #db4437 !default;
+$spinner-color-3: #f4b400 !default;
+$spinner-color-4: #0f9d58 !default;
+
+$spinner-single-color: $palette-primary-500 !default;
+
+/* ==========  Text fields  ========== */
+
+$input-text-background-color: transparent !default;
+$input-text-label-color: rgba(0, 0, 0, 0.26) !default;
+$input-text-bottom-border-color: rgba(0, 0, 0, 0.12) !default;
+$input-text-highlight-color: $palette-primary-500 !default;
+$input-text-disabled-color: $input-text-bottom-border-color !default;
+$input-text-error-color: $palette-red-600 !default;
+
+/* ==========  Card  ========== */
+
+$card-background-color: white !default;
+$heading-color: white !default;
+$heading-back-color: white !default;
+$heading-back-bgcolor: $palette-primary-700 !default;
+$action-link-color: $palette-primary-900 !default;
+$caption-color: white !default;
+$caption-bgcolor: $palette-primary-900 !default;
+$image-placeholder-color: $palette-accent-400 !default;
+$lower-text-color: $palette-primary-900 !default;
+
+/* Heading back */
+$heading-back-border: 0 none white !default;
+
+/* ==========  Sliders ========== */
+
+$range-bg-color: rgba(0, 0, 0, 0.26) !default;
+$range-color: $palette-primary-500 !default;
+
+/* ==========  List ========== */
+
+$list-container-item-border-color: #ddd !default;
+$list-container-view-background: white !default;
+
+/* ==========  Item ========== */
+
+// Default Item Colors
+$default-item-text-color: #000;
+$default-item-outline-color: $palette-secondary-400 !default;
+$default-item-hover-bg-color: $palette-secondary-200 !default;
+$default-item-focus-bg-color: $palette-secondary-200 !default;
+$default-item-active-bg-color: $palette-secondary-300 !default;
+
+// Disabled Button Colors
+$disabled-item-text-color: $palette-disabled-400 !default;
+
+/* ==========  Dropdown menu ========== */
+
+$default-dropdown-bg-color: #fff !default;
+
+/* ==========  Tooltips  ========== */
+
+$tooltip-text-color: #fff !default;
+$tooltip-background-color: $palette-accent-600 !default;
+
+/* ==========  Footer  ========== */
+
+$footer-bg-color: #454545 !default;
+$footer-color: #A0A0A0 !default;
+$footer-heading-color: #E2E2E2 !default;
+$footer-button-fill-color: $footer-color !default;
+$footer-underline-color: $footer-color;
+
+/*textfield*/
+$input-text-font-size: 16px;
+$input-text-width: 100%;
+$input-text-padding: 4px;
+$input-text-ripple-size: 32px;
+
+$input-text-button-size: 32px;
+$input-text-floating-label-fontsize: 12px;
+$input-text-expandable-icon-top: 16px;
+
+
+/*switch*/
+$switch-label-height: 24px;
+$switch-track-height: 14px;
+$switch-track-length: 36px;
+$switch-thumb-size: 20px;
+$switch-track-top: ($switch-label-height - $switch-track-height) / 2;
+$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2;
+$switch-ripple-size: $switch-label-height * 2;
+$switch-helper-size: 8px;
+
+/*spinner*/
+
+$spinner-size: 28px !default;
+$spinner-stroke-width: 3px !default;
+
+// Amount of circle the arc takes up.
+$spinner-arc-size: 270deg;
+// Time it takes to expand and contract arc.
+$spinner-arc-time: 1333ms;
+// How much the start location of the arc should rotate each time.
+$spinner-arc-start-rot: 216deg;
+
+$spinner-duration: 360deg * $spinner-arc-time / (
+    $spinner-arc-start-rot + (360deg - $spinner-arc-size));
+
+/*radio*/
+$radio-label-height: 24px;
+$radio-button-size: 16px;
+$radio-inner-margin: $radio-button-size / 4;
+$radio-padding: 8px;
+$radio-top-offset: ($radio-label-height - $radio-button-size) / 2 - 2px;
+$radio-ripple-size: 42px;
+
+/*menu*/
+$menu-expand-duration: 0.3s;
+$menu-fade-duration: 0.2s;
+
+/*list*/
+$list-container-height: 500px;
+$list-container-width: 400px;
+$list-container-item-height: 70px;
+
+/*layout*/
+// Dimensions
+$layout-drawer-narrow: 240px;
+$layout-drawer-wide: 456px;
+$layout-drawer-width: $layout-drawer-narrow;
+
+$layout-header-icon-size: 32px;
+$layout-screen-size-threshold: 850px;
+
+$layout-header-mobile-row-height: 56px;
+$layout-mobile-header-height: $layout-header-mobile-row-height;
+$layout-header-desktop-row-height: 64px;
+$layout-desktop-header-height: $layout-header-desktop-row-height;
+$layout-header-mobile-indent: 72px;
+$layout-header-desktop-indent: 80px;
+$layout-header-basic-mobile-indent: 16px;
+$layout-header-basic-desktop-indent: 24px;
+
+$layout-tab-bar-height: 48px;
+$layout-tab-mobile-padding: 12px;
+$layout-tab-desktop-padding: 24px;
+$layout-tab-highlight-thickness: 2px;
+
+/*icon toggle*/
+$icon-toggle-size: 32px !default;
+$icon-toggle-font-size: 24px !default;
+$icon-toggle-ripple-size: 36px !default;
+
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+$padding: 16px !default;
+$footer-heading-font-size: 24px !default;
+$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
+$footer-btn-size: 36px  !default;
+
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+$padding: 16px !default;
+$footer-heading-font-size: 24px !default;
+$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
+$footer-btn-size: 36px !default;
+
+/*column-layout*/
+// Cutoff points for devices.
+$columns-tablet-size: 768px;
+$columns-desktop-size: 1024px;
+
+// Web (desktop) layout. Columns are fixed width, and there's a maximum number
+// of 3 columns, after which we just add padding to either side.
+$columns-web-count: 3;
+$columns-web-size: 360px;
+$columns-web-gutter: 40px;
+
+$columns-web-block-size: $columns-web-size + $columns-web-gutter;
+$columns-web-padding-size: $columns-web-count *
+    ($columns-web-size + $columns-web-gutter) / 2;
+
+// Tablet layout. There's a fixed number of columns, which grow to fill the
+// entire container.
+$columns-tablet-count: 2;
+$columns-tablet-gutter: 24px;
+$columns-tablet-percent: 100% / $columns-tablet-count;
+
+// Phone layout. There's a fixed number of columns, which grow to fill the
+// entire container.
+$columns-phone-count: 1;
+$columns-phone-gutter: 16px;
+$columns-phone-percent: 100% / $columns-phone-count;
+
+
+/*checkbox*/
+$checkbox-label-height: 24px;
+$checkbox-button-size: 16px;
+$checkbox-inner-margin: 2px;
+$checkbox-padding: 8px;
+$checkbox-top-offset:
+  ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
+$checkbox-ripple-size: $checkbox-label-height * 1.5;
+
+/*card*/
+/* Card dimensions */
+$card-width: 330px !default;
+$card-height: 508px !default;
+$card-font-size: 16px !default;
+$card-heading-font-size: 24px !default;
+$card-heading-height: 96px !default;
+$card-horizontal-padding: 16px !default;
+$card-vertical-padding: 8px !default;
+
+$card-heading-perspective-origin-x: 165px !default;
+$card-heading-perspective-origin-y: 56px !default;
+
+$card-heading-transform-origin-x: 165px !default;
+$card-heading-transform-origin-y: 56px !default;
+
+$card-heading-text-transform-origin-x: 149px !default;
+$card-heading-text-transform-origin-y: 48px !default;
+
+$card-caption-perspective-origin-x: 165px !default;
+$card-caption-perspective-origin-y: 16px !default;
+
+$card-caption-font-size: 12px !default;
+$card-caption-height: 16px !default;
+
+$card-lower-font-size: 13px !default;
+$card-lower-line-height: 18px !default;
+$card-lower-height: 108px !default;
+$card-lower-vertical-margin: 10px !default;
+
+$card-bottom-height: 50px !default;
+$card-bottom-font-size: 16px !default;
+
+$card-bottom-anchor-height: 50px !default;
+$card-bottom-anchor-line-height: 50px !default;
+$card-bottom-anchor-font-size: 13px !default;
+
+$card-bottom-anchor-perspective-origin-x: 165px !default;
+$card-bottom-anchor-perspective-origin-y: 25px !default;
+
+$card-bottom-anchor-transform-origin-x: 165px !default;
+$card-bottom-anchor-transform-origin-y: 25px !default;
+
+$card-heading-text-font-weight: 300 !default;
+$card-z-index: 1 !default;
+
+/* Cover image */
+$cover-image-height: 186px !default;
+$background-image-url: '' !default;
+
+
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+$button-min-width: 64px !default;
+$button-height: 36px !default;
+$button-padding: 8px !default;
+$button-margin: 4px !default;
+$button-border-radius: 2px !default;
+
+$button-fab-size: 56px !default;
+$button-fab-size-mini: 40px !default;
+$button-fab-font-size: 24px !default;
+
+$button-icon-size: 32px !default;
+$button-icon-size-mini: 24px !default;
+
+
+/*animation*/
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+
+$animation-curve-default: $animation-curve-fast-out-slow-in !default;
+
+
+

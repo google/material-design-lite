@@ -1,11 +1,3 @@
-@import "../typography/typography";
-@import "../animation/animation";
-@import "../colors";
-@import "../shadow/shadow";
-@import "../ripple/ripple";
-
-$menu-expand-duration: 0.3s;
-$menu-fade-duration: 0.2s;
 
 .wsk-menu__container {
   display: block;

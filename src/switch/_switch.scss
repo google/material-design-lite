@@ -1,16 +1,4 @@
-@import "../colors";
-@import "../animation/animation";
-@import "../shadow/shadow";
-@import "../ripple/ripple";
 
-$switch-label-height: 24px;
-$switch-track-height: 14px;
-$switch-track-length: 36px;
-$switch-thumb-size: 20px;
-$switch-track-top: ($switch-label-height - $switch-track-height) / 2;
-$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2;
-$switch-ripple-size: $switch-label-height * 2;
-$switch-helper-size: 8px;
 
 .wsk-switch {
   position: relative;

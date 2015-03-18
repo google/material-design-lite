@@ -1,8 +1,3 @@
-$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
-$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
-$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
-
-$animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 @mixin material-animation-fast-out-slow-in($duration:0.2s) {
   transition-duration: $duration;
