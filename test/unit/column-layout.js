@@ -8,7 +8,6 @@
     it('Should be upgraded to a MaterialColumnLayout successfully', function () {
       var el = document.createElement('div');
       componentHandler.upgradeElement(el, 'MaterialColumnLayout');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialColumnLayout');
+      expect($(el)).to.have.data('upgraded', ',MaterialColumnLayout');
     });
   });
