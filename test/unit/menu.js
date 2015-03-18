@@ -11,8 +11,7 @@
       parent.appendChild(el)
 
       componentHandler.upgradeElement(el, 'MaterialMenu');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialMenu');
+      expect($(el)).to.have.data('upgraded', ',MaterialMenu');
     });
 
     describe ('visibility API', function () {
@@ -22,10 +21,10 @@
       componentHandler.upgradeElement(el, 'MaterialMenu');
 
       it('should start the showing animation on show()', function(done) {
-        expect(el.widget.container_.className).to.not.contain('is-visible');
+        expect($(el.widget.container_)).to.not.have.class('is-visible');
         el.widget.show();
         window.setTimeout(function() {
-          expect(el.widget.container_.className).to.contain('is-visible');
+          expect($(el.widget.container_)).to.have.class('is-visible');
 
           var ev = document.createEvent('HTMLEvents');
           ev.initEvent('transitionend', true, true)
@@ -35,10 +34,10 @@
       });
 
       it('should start the hiding animation on hide()', function(done) {
-        expect(el.widget.container_.className).to.contain('is-visible');
+        expect($(el.widget.container_)).to.have.class('is-visible');
         el.widget.hide();
         window.setTimeout(function() {
-          expect(el.widget.container_.className).to.not.contain('is-visible');
+          expect($(el.widget.container_)).to.not.have.class('is-visible');
 
           var ev = document.createEvent('HTMLEvents');
           ev.initEvent('transitionend', true, true)
@@ -48,10 +47,10 @@
       });
 
       it('should start the showing animating on toggle() when invisible', function(done) {
-        expect(el.widget.container_.className).to.not.contain('is-visible');
+        expect($(el.widget.container_)).to.not.have.class('is-visible');
         el.widget.toggle();
         window.setTimeout(function() {
-          expect(el.widget.container_.className).to.contain('is-visible');
+          expect($(el.widget.container_)).to.have.class('is-visible');
 
           var ev = document.createEvent('HTMLEvents');
           ev.initEvent('transitionend', true, true)
@@ -61,10 +60,10 @@
       });
 
       it('should start the hiding animating on toggle() when visible', function(done) {
-        expect(el.widget.container_.className).to.contain('is-visible');
+        expect($(el.widget.container_)).to.have.class('is-visible');
         el.widget.toggle();
         window.setTimeout(function() {
-          expect(el.widget.container_.className).to.not.contain('is-visible');
+          expect($(el.widget.container_)).to.not.have.class('is-visible');
 
           var ev = document.createEvent('HTMLEvents');
           ev.initEvent('transitionend', true, true)
@@ -94,7 +93,7 @@
       ev.initEvent('click', true, true);
       button.dispatchEvent(ev);
       window.setTimeout(function() {
-        expect(el.widget.container_.className).to.contain('is-visible');
+        expect($(el.widget.container_)).to.have.class('is-visible');
         document.body.removeChild(ctr);
         done();
       }, 100);
