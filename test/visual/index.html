@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual tests</title>
+
+  <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel='stylesheet'>
+
+  <link rel="stylesheet" href="../../css/material.css">
+  <style>
+    .demo-container {
+      width: 100%;
+      float: left;
+      margin: 0 40px 40px 0;
+      border: 1px solid #888888;
+      position: relative;
+      height: 500px;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    .demo-content {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+
+    .wsk-layout__content {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--overlay-drawer-button">
+      <div class="wsk-layout__header">
+        <span class="wsk-layout-title">Components</span>
+        <div class="wsk-layout-spacer"></div>
+        <div class="wsk-input wsk-input--right">
+          <label class="wsk-textfield-expandable-icon wsk-label" for="sample-expandable">
+            <span class="wsk-textfield-expandable-icon-search"></span>
+          </label>
+          <div class="wsk-input__expandable-holder">
+            <label class="wsk-label" for="sample"></label>
+          </div>
+        </div>
+      </div>
+      <div class="wsk-layout__drawer">
+        <span class="wsk-layout-title">Material Design Lite</span>
+        <nav class="wsk-navigation">
+          <a class="wsk-navigation__link" target="preview" href="button.html">Buttons</a>
+          <a class="wsk-navigation__link" target="preview" href="card.html">Card</a>
+          <a class="wsk-navigation__link" target="preview" href="checkbox.html">Checkbox</a>
+          <a class="wsk-navigation__link" target="preview" href="footer.html">Footer</a>
+          <a class="wsk-navigation__link" target="preview" href="icon-toggle.html">Icon toggle</a>
+          <a class="wsk-navigation__link" target="preview" href="layout.html">Layout</a>
+          <a class="wsk-navigation__link" target="preview" href="list.html">List</a>
+          <a class="wsk-navigation__link" target="preview" href="menu.html">Menu</a>
+          <a class="wsk-navigation__link" target="preview" href="radio.html">Radio</a>
+          <a class="wsk-navigation__link" target="preview" href="spinner.html">Spinner</a>
+          <a class="wsk-navigation__link" target="preview" href="slider.html">Slider</a>
+          <a class="wsk-navigation__link" target="preview" href="switch.html">Switch</a>
+          <a class="wsk-navigation__link" target="preview" href="tabs.html">Tabs</a>
+          <a class="wsk-navigation__link" target="preview" href="textfield.html">Textfield</a>
+          <a class="wsk-navigation__link" target="preview" href="tooltip.html">Tooltip</a>
+          <a class="wsk-navigation__link" target="preview" href="typography.html">Typography</a>
+        </nav>
+      </div>
+      <div class="wsk-layout__content">
+      <p>Material Design Lite is a light-weight implementation of Material Design targeted at static content-sites. Select a component on the left to preview it.</p>
+        <div class="demo-content">
+          <iframe name="preview"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../../js/material.js"></script>
+
+</body>
+</html>
