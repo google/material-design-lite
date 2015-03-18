@@ -72,11 +72,16 @@ MaterialTooltip.prototype.init = function() {
 
   if (this.element_) {
     var forElId = this.element_.getAttribute('for');
-    var forEl = document.getElementById(forElId);
+      forEl = null;
+    if (forElId) {
+      forEl = document.getElementById(forElId);
+    }
 
-    forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
-        false);
-    forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    if (forEl) {
+      forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
+          false);
+      forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    }
   }
 };
 
