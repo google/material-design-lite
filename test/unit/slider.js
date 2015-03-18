@@ -10,9 +10,8 @@
         parent = document.createElement('div');
       el.type = 'range';
       parent.appendChild(el);
-      
+
       componentHandler.upgradeElement(el, 'MaterialSlider');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialSlider');
+      expect($(el)).to.have.data('upgraded', ',MaterialSlider');
     });
   });
