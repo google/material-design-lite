@@ -33,7 +33,7 @@ var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
   ' * @link <%= pkg.homepage %>',
-  ' * @license <%= pkg.license %>',
+  ' * @license <%= pkg.license.type %>',
   ' */',
   ''].join('\n');
 
