@@ -9,7 +9,6 @@
       var el = document.createElement('div');
       el.innerHTML = '<input type="text" class="wsk-checkbox__input">';
       componentHandler.upgradeElement(el, 'MaterialTextfield');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialTextfield');
+      expect($(el)).to.have.data('upgraded', ',MaterialTextfield');
     });
   });
