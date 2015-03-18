@@ -73,11 +73,11 @@ MaterialTooltip.prototype.init = function() {
   if (this.element_) {
     var forElId = this.element_.getAttribute('for');
       forEl;
-    if(forElId) {
+    if (forElId) {
       forEl = document.getElementById(forElId);
     }
 
-    if(forEl) {
+    if (forEl) {
       forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
           false);
       forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
