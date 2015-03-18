@@ -9,7 +9,6 @@
       var el = document.createElement('div');
       el.innerHTML = '<input type="radio" class="wsk-radio__button">';
       componentHandler.upgradeElement(el, 'MaterialRadio');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialRadio');
+      expect($(el)).to.have.data('upgraded', ',MaterialRadio');
     });
   });
