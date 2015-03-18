@@ -116,7 +116,7 @@ function MaterialTab(tab, ctx) {
     tab.addEventListener('click', function(e) {
       e.preventDefault();
       var href = tab.href.split('#')[1];
-      var panel = document.querySelector('#' + href);
+      var panel = ctx.element_.querySelector('#' + href);
       ctx.resetTabState_();
       ctx.resetPanelState_();
       tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
