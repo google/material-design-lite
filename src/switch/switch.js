@@ -176,6 +176,7 @@ MaterialSwitch.prototype.init = function() {
           this.CssClasses_.WSK_SWITCH_RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
@@ -192,7 +193,6 @@ MaterialSwitch.prototype.init = function() {
 
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add('is-upgraded');
