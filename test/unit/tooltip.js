@@ -13,7 +13,6 @@
       document.body.appendChild(parent);
       el = parent.querySelector('#tooltip')
       componentHandler.upgradeElement(el, 'MaterialTooltip');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialTooltip');
+      expect($(el)).to.have.data('upgraded', ',MaterialTooltip');
     });
   });
