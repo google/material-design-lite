@@ -14,8 +14,7 @@
       '</div>';
 
       componentHandler.upgradeElement(el, 'MaterialTabs');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialTabs');
+      expect($(el)).to.have.data('upgraded', ',MaterialTabs');
     });
 
     describe('Click on the tabs', function () {
@@ -51,8 +50,8 @@
         tab1.dispatchEvent(el);
 
         window.setTimeout(function () {
-          expect(tab1.className).to.contain('is-active');
-          expect(content1.className).to.contain('is-active');
+          expect($(tab1)).to.have.class('is-active');
+          expect($(content1)).to.have.class('is-active');
           done();
         }, 100);
       });
@@ -63,10 +62,10 @@
         tab2.dispatchEvent(el);
 
         window.setTimeout(function () {
-          expect(tab1.className).to.not.contain('is-active');
-          expect(content1.className).to.not.contain('is-active');
-          expect(tab2.className).to.contain('is-active');
-          expect(content2.className).to.contain('is-active');
+          expect($(tab1)).to.not.have.class('is-active');
+          expect($(content1)).to.not.have.class('is-active');
+          expect($(tab2)).to.have.class('is-active');
+          expect($(content2)).to.have.class('is-active');
           done();
         }, 100);
       });
