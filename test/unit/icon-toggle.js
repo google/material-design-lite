@@ -9,7 +9,6 @@
       var el = document.createElement('div');
       el.innerHTML = '<input type="checkbox" class="wsk-icon-toggle__input">';
       componentHandler.upgradeElement(el, 'MaterialIconToggle');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialIconToggle');
+      expect($(el)).to.have.data('upgraded', ',MaterialIconToggle');
     });
   });
