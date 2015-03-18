@@ -43,7 +43,7 @@ $layout-tab-highlight-thickness: 2px;
 }
 
 .wsk-navigation__link:hover {
-  background-color: nth($palette-page, 4);
+  background-color: $layout-nav-color;
 }
 
 
@@ -107,7 +107,7 @@ $layout-tab-highlight-thickness: 2px;
     @include material-animation-default();
     transition-property: transform;
 
-    color: nth($palette-page, 9);
+    color: $layout-text-color;
 
     overflow-x: hidden;
     overflow-y: auto;
@@ -310,7 +310,7 @@ $layout-tab-highlight-thickness: 2px;
     }
 
     & .wsk-navigation__link:hover {
-      background-color: rgba(nth($palette-grey, 8), 0.6);
+      background-color: $layout-header-nav-hover-color;
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
@@ -593,7 +593,7 @@ $layout-tab-highlight-thickness: 2px;
     font-size: 14px;
     text-transform: uppercase;
 
-    color: rgba($layout-header-text-color, 0.6);
+    color: $layout-header-tab-text-color;
     overflow: hidden;
 
     @media screen and (max-width: $layout-screen-size-threshold) {

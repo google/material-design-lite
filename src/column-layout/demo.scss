@@ -3,19 +3,19 @@
 @import '_column-layout';
 
 .demo-page--column-layout .wsk-column-layout {
-  background-color: nth($palette-grey, 2);
+  background-color: #eee;
 }
 
 .demo-page--column-layout .wsk-column-layout__child {
   min-height: 300px;
-  background-color: nth($palette-green, 2);
+  background-color: rgb(200,230,201);
   padding: 16px;
 }
 
 .demo-page--column-layout .wsk-column-layout__child:nth-of-type(3n+1) {
-  background-color: nth($palette-red, 2);
+  background-color: rgb(255,205,210);
 }
 
 .demo-page--column-layout .wsk-column-layout__child:nth-of-type(3n+2) {
-  background-color: nth($palette-blue, 2);
+  background-color: rgb(187,222,251);
 }

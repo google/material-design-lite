@@ -110,11 +110,11 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
     }
 
     &:focus:not(:active)::-webkit-slider-thumb {
-      box-shadow: 0 0 0 10px rgba($range-color, 0.26);
+      box-shadow: 0 0 0 10px $range-faded-color;
     }
 
     &:focus:not(:active)::-moz-range-thumb {
-      box-shadow: 0 0 0 10px rgba($range-color, 0.26);
+      box-shadow: 0 0 0 10px $range-faded-color;
     }
 
     &:active::-webkit-slider-thumb {
@@ -146,8 +146,8 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
       background: radial-gradient(circle closest-side,
       $range-color 0%,
       $range-color 37.5%,
-      rgba($range-color, 0.26) 37.5%,
-      rgba($range-color, 0.26) 100%);
+      $range-faded-color 37.5%,
+      $range-faded-color 100%);
       transform: scale(1);
     }
 
