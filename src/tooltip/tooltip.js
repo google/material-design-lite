@@ -72,7 +72,7 @@ MaterialTooltip.prototype.init = function() {
 
   if (this.element_) {
     var forElId = this.element_.getAttribute('for');
-      forEl;
+      forEl = null;
     if (forElId) {
       forEl = document.getElementById(forElId);
     }
