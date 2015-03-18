@@ -15,7 +15,6 @@
       parent.appendChild(el); // MaterialLayout.init() expects a parent
 
       componentHandler.upgradeElement(el, 'MaterialLayout');
-      var upgraded = el.getAttribute('data-upgraded');
-      expect(upgraded).to.contain('MaterialLayout');
+      expect($(el)).to.have.data('upgraded', ',MaterialLayout');
     });
   });
