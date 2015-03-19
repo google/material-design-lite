@@ -10235,7 +10235,8 @@ dt {
   padding: 4px 0;
   width: 100%;
   background: 16px;
-  text-align: left; }
+  text-align: left;
+  color: inherit; }
   .wsk-textfield.is-focused .wsk-textfield__input {
     outline: none; }
   .wsk-textfield.is-invalid .wsk-textfield__input {
