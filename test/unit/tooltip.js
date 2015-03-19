@@ -6,12 +6,11 @@
     });
 
     it('Should be upgraded to a MaterialTooltip successfully', function () {
-      var parent = document.createElement('div'),
-        el;
-
+      var parent = document.createElement('div');
       parent.innerHTML = '<div id="target"></div><div id="tooltip" for="target"></div>';
       document.body.appendChild(parent);
-      el = parent.querySelector('#tooltip')
+
+      var el = parent.querySelector('#tooltip');
       componentHandler.upgradeElement(el, 'MaterialTooltip');
       expect($(el)).to.have.data('upgraded', ',MaterialTooltip');
     });

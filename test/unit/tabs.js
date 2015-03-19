@@ -18,8 +18,7 @@
     });
 
     describe('Click on the tabs', function () {
-      var el = document.createElement('div'),
-        tab1, tab2, content1, content2;
+      var el = document.createElement('div');
       el.innerHTML = '' +
       '<div class="wsk-tabs wsk-js-tabs wsk-js-ripple-effect">' +
       '  <div class="wsk-tabs__tab-bar">' +
@@ -32,10 +31,11 @@
       ' <div class="wsk-tabs__panel" id="content3"></div>' +
       '</div>';
       componentHandler.upgradeElement(el, 'MaterialTabs');
-      tab1 = el.querySelector('#tab1');
-      tab2 = el.querySelector('#tab2');
-      content1 = el.querySelector('#content1');
-      content2 = el.querySelector('#content2');
+
+      var tab1 = el.querySelector('#tab1');
+      var tab2 = el.querySelector('#tab2');
+      var content1 = el.querySelector('#content1');
+      var content2 = el.querySelector('#content2');
 
       it('Should activate no tab by default', function (done) {
         window.setTimeout(function () {

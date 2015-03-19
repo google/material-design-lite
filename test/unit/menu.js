@@ -15,8 +15,8 @@
     });
 
     describe ('visibility API', function () {
-      var parent = document.createElement('div'), // parent must exist for MaterialMenu.init()
-        el = document.createElement('ul');
+      var parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
+      var el = document.createElement('ul');
       parent.appendChild(el)
       componentHandler.upgradeElement(el, 'MaterialMenu');
 
@@ -85,13 +85,12 @@
                       '</ul>';
       document.body.appendChild(ctr); // `for` only works in document
 
-      var el = ctr.querySelector('ul'),
-        button = ctr.querySelector('#clickable'),
-        ev = document.createEvent('MouseEvents');
-
+      var el = ctr.querySelector('ul');
       componentHandler.upgradeElement(el, 'MaterialMenu');
+      
+      var ev = document.createEvent('MouseEvents');
       ev.initEvent('click', true, true);
-      button.dispatchEvent(ev);
+      ctr.querySelector('#clickable').dispatchEvent(ev);
       window.setTimeout(function() {
         expect($(el.widget.container_)).to.have.class('is-visible');
         document.body.removeChild(ctr);

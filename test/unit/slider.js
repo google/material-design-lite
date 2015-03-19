@@ -6,9 +6,10 @@
     });
 
     it('Should be upgraded to a MaterialSlider successfully', function () {
-      var el = document.createElement('input'),
-        parent = document.createElement('div');
+      var el = document.createElement('input');
       el.type = 'range';
+
+      var parent = document.createElement('div');
       parent.appendChild(el);
 
       componentHandler.upgradeElement(el, 'MaterialSlider');
