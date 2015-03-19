@@ -5254,7 +5254,7 @@ dt {
   text-align: left;
   margin: 0;
   padding: 0 16px;
-  outline-color: rgb($palette-secondary-400);
+  outline-color: rgb(189,189,189);
   position: relative;
   overflow: hidden;
   font-size: 14px;
@@ -5288,12 +5288,12 @@ dt {
     .wsk-menu__item[disabled] .wsk-ripple {
       background: transparent; }
   .wsk-menu__item:hover {
-    background-color: rgb($palette-secondary-200); }
+    background-color: rgb(238,238,238); }
   .wsk-menu__item:focus {
     outline: none;
-    background-color: rgb($palette-secondary-200); }
+    background-color: rgb(238,238,238); }
   .wsk-menu__item:active {
-    background-color: rgb($palette-secondary-300); }
+    background-color: rgb(224,224,224); }
 
 .wsk-menu__item--ripple-container {
   display: block;
@@ -8548,7 +8548,7 @@ dt {
     bottom: 0;
     left: 0;
     position: absolute;
-    background: rgb($palette-secondary-300);
+    background: rgb(224,224,224);
     -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);

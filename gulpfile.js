@@ -112,7 +112,7 @@ gulp.task('styletemplates', function () {
     .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./css'))
     // Minify Styles
-    .pipe($.if('*.css', $.csso()))
+    .pipe($.if('*.css.template', $.csso()))
     .pipe($.concat('material.min.css.template'))
     .pipe(gulp.dest('./css'))
     .pipe($.size({title: 'styles'}));

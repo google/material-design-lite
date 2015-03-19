@@ -10,7 +10,6 @@ $styleguide-generate-template: false !default;
 @if $styleguide-generate-template == false {
   $palette-primary: $palette-indigo !default;
   $palette-accent: $palette-pink !default;
-  $palette-secondary: $palette-grey !default;
 } @else {
   $palette-primary:
     '$palette-primary-50'
@@ -42,25 +41,10 @@ $styleguide-generate-template: false !default;
     '$palette-accent-A200'
     '$palette-accent-A400'
     '$palette-accent-A700';
-  $palette-secondary:
-    '$palette-secondary-50'
-    '$palette-secondary-100'
-    '$palette-secondary-200'
-    '$palette-secondary-300'
-    '$palette-secondary-400'
-    '$palette-secondary-500'
-    '$palette-secondary-600'
-    '$palette-secondary-700'
-    '$palette-secondary-800'
-    '$palette-secondary-900'
-    '$palette-secondary-A100'
-    '$palette-secondary-A200'
-    '$palette-secondary-A400'
-    '$palette-secondary-A700';
 }
 
-$palette-disabled: $palette-grey !default;
-$palette-page: $palette-grey !default;
+$palette-disabled: $palette-grey;
+$palette-page: $palette-grey;
 
 $palette-primary-50: nth($palette-primary, 1);
 $palette-primary-100: nth($palette-primary, 2);
@@ -96,21 +80,21 @@ $palette-accent-900: nth($palette-accent, 10);
   $palette-accent-A700: nth($palette-accent, 14);
 }
 
-$palette-secondary-50: nth($palette-secondary, 1);
-$palette-secondary-100: nth($palette-secondary, 2);
-$palette-secondary-200: nth($palette-secondary, 3);
-$palette-secondary-300: nth($palette-secondary, 4);
-$palette-secondary-400: nth($palette-secondary, 5);
-$palette-secondary-500: nth($palette-secondary, 6);
-$palette-secondary-600: nth($palette-secondary, 7);
-$palette-secondary-700: nth($palette-secondary, 8);
-$palette-secondary-800: nth($palette-secondary, 9);
-$palette-secondary-900: nth($palette-secondary, 10);
-@if length($palette-secondary) > 10 {
-  $palette-secondary-A100: nth($palette-secondary, 11);
-  $palette-secondary-A200: nth($palette-secondary, 12);
-  $palette-secondary-A400: nth($palette-secondary, 13);
-  $palette-secondary-A700: nth($palette-secondary, 14);
+$palette-grey-50: nth($palette-grey, 1);
+$palette-grey-100: nth($palette-grey, 2);
+$palette-grey-200: nth($palette-grey, 3);
+$palette-grey-300: nth($palette-grey, 4);
+$palette-grey-400: nth($palette-grey, 5);
+$palette-grey-500: nth($palette-grey, 6);
+$palette-grey-600: nth($palette-grey, 7);
+$palette-grey-700: nth($palette-grey, 8);
+$palette-grey-800: nth($palette-grey, 9);
+$palette-grey-900: nth($palette-grey, 10);
+@if length($palette-grey) > 10 {
+  $palette-grey-A100: nth($palette-grey, 11);
+  $palette-grey-A200: nth($palette-grey, 12);
+  $palette-grey-A400: nth($palette-grey, 13);
+  $palette-grey-A700: nth($palette-grey, 14);
 }
 
 $palette-disabled-50: nth($palette-disabled, 1);
@@ -226,7 +210,7 @@ $layout-header-nav-hover-color: unquote("rgba(#{nth($palette-grey, 8)}, 0.6)") !
 $layout-header-tab-text-color: unquote("rgba(#{$palette-page-200}, 0.6)") !default;
 
 // Tabs
-$layout-header-tab-highlight: unquote("rgb(#{$palette-secondary-300})") !default;
+$layout-header-tab-highlight: unquote("rgb(#{$palette-grey-300})") !default;
 
 /* ==========  Content Tabs  ========== */
 
@@ -302,10 +286,10 @@ $list-container-view-background: white !default;
 
 // Default Item Colors
 $default-item-text-color: #000;
-$default-item-outline-color: unquote("rgb(#{$palette-secondary-400})") !default;
-$default-item-hover-bg-color: unquote("rgb(#{$palette-secondary-200})") !default;
-$default-item-focus-bg-color: unquote("rgb(#{$palette-secondary-200})") !default;
-$default-item-active-bg-color: unquote("rgb(#{$palette-secondary-300})") !default;
+$default-item-outline-color: unquote("rgb(#{$palette-grey-400})") !default;
+$default-item-hover-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
+$default-item-focus-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
+$default-item-active-bg-color: unquote("rgb(#{$palette-grey-300})") !default;
 
 // Disabled Button Colors
 $disabled-item-text-color: unquote("rgb(#{$palette-disabled-400})") !default;
