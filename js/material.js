@@ -47,16 +47,23 @@ var componentHandler = (function() {
    * will have.
    */
   function upgradeDomInternal(jsClass, cssClass) {
-    if (cssClass === undefined) {
-      var registeredClass = findRegisteredClass_(jsClass);
-      if (registeredClass) {
-        cssClass = registeredClass.cssClass;
+    if (jsClass === undefined && cssClass === undefined) {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        upgradeDomInternal(registeredComponents_[i].className,
+            registeredComponents_[i].cssClass);
       }
-    }
+    } else {
+      if (cssClass === undefined) {
+        var registeredClass = findRegisteredClass_(jsClass);
+        if (registeredClass) {
+          cssClass = registeredClass.cssClass;
+        }
+      }
 
-    var elements = document.querySelectorAll('.' + cssClass);
-    for (var n = 0; n < elements.length; n++) {
-      upgradeElementInternal(elements[n], jsClass);
+      var elements = document.querySelectorAll('.' + cssClass);
+      for (var n = 0; n < elements.length; n++) {
+        upgradeElementInternal(elements[n], jsClass);
+      }
     }
   }
 
@@ -166,7 +173,8 @@ window.addEventListener('load', function() {
    * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
    * components requiring JavaScript.
    */
-  if ('classList' in document.createElement('div') && 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
+  if ('classList' in document.createElement('div') && 'querySelector' in document &&
+      'addEventListener' in window && Array.prototype.forEach) {
     document.documentElement.classList.add('wsk-js');
     componentHandler.upgradeAllRegistered();
   } else {
@@ -508,6 +516,7 @@ MaterialCheckbox.prototype.init = function() {
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
@@ -520,7 +529,6 @@ MaterialCheckbox.prototype.init = function() {
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
@@ -744,6 +752,7 @@ MaterialIconToggle.prototype.init = function() {
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
@@ -756,7 +765,6 @@ MaterialIconToggle.prototype.init = function() {
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add('is-upgraded');
@@ -1406,6 +1414,7 @@ MaterialRadio.prototype.init = function() {
           this.CssClasses_.WSK_RADIO_RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
@@ -1422,7 +1431,6 @@ MaterialRadio.prototype.init = function() {
 
     this.element_.addEventListener('mouseup', this.onMouseup_.bind(this));
 
-    rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
@@ -1892,6 +1900,7 @@ MaterialSwitch.prototype.init = function() {
           this.CssClasses_.WSK_SWITCH_RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
@@ -1908,7 +1917,6 @@ MaterialSwitch.prototype.init = function() {
 
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add('is-upgraded');
@@ -2041,7 +2049,7 @@ function MaterialTab(tab, ctx) {
     tab.addEventListener('click', function(e) {
       e.preventDefault();
       var href = tab.href.split('#')[1];
-      var panel = document.querySelector('#' + href);
+      var panel = ctx.element_.querySelector('#' + href);
       ctx.resetTabState_();
       ctx.resetPanelState_();
       tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
@@ -2284,11 +2292,17 @@ MaterialTooltip.prototype.init = function() {
 
   if (this.element_) {
     var forElId = this.element_.getAttribute('for');
-    var forEl = document.getElementById(forElId);
+    var forEl = null;
 
-    forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
-        false);
-    forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    if (forElId) {
+      forEl = document.getElementById(forElId);
+    }
+
+    if (forEl) {
+      forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
+          false);
+      forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    }
   }
 };
 

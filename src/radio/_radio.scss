@@ -1,13 +1,5 @@
-@import "../colors";
-@import "../animation/animation";
-@import "../ripple/ripple";
+@import "../_vars";
 
-$radio-label-height: 24px;
-$radio-button-size: 16px;
-$radio-inner-margin: $radio-button-size / 4;
-$radio-padding: 8px;
-$radio-top-offset: ($radio-label-height - $radio-button-size) / 2 - 2px;
-$radio-ripple-size: 42px;
 
 .wsk-radio {
   position: relative;

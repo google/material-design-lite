@@ -1,8 +1,4 @@
-@import "../colors";
-
-$list-container-height: 500px;
-$list-container-width: 400px;
-$list-container-item-height: 70px;
+@import "../_vars";
 
 .wsk-list {
   display : block;

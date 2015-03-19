@@ -1,14 +1,5 @@
-@import "../colors";
-@import "../animation/animation";
-@import "../ripple/ripple";
+@import "../_vars";
 
-$checkbox-label-height: 24px;
-$checkbox-button-size: 16px;
-$checkbox-inner-margin: 2px;
-$checkbox-padding: 8px;
-$checkbox-top-offset:
-  ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
-$checkbox-ripple-size: $checkbox-label-height * 1.5;
 
 .wsk-checkbox {
   position: relative;

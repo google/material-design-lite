@@ -6,6 +6,76 @@
  */
 @charset "UTF-8";
 /* Material Design Lite */
+/*TODO: everything must import vars*/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
+/* ==========  Color Palettes  ========== */
+/*colors*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -181,13 +251,19 @@ textarea {
   h2, h3 {
     page-break-after: avoid; } }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -209,866 +285,647 @@ textarea {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
-/**
- * Styles for HTML elements
- */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
-
-/**
- * Class Name Styles
- */
-.wsk-typography--display-4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em; }
-
-.wsk-typography--display-4-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.54; }
-
-.wsk-typography--display-3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-.wsk-typography--display-3-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54; }
-
-.wsk-typography--display-2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-.wsk-typography--display-2-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0.54; }
-
-.wsk-typography--display-1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-.wsk-typography--display-1-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-  opacity: 0.54; }
-
-.wsk-typography--headline {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-.wsk-typography--headline-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.87; }
-
-.wsk-typography--title {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-.wsk-typography--title-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  opacity: 0.87; }
-
-.wsk-typography--subhead {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--subhead-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2 {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-color-contrast {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-color-contrast {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--caption {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-color-contrast {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--caption-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--menu {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--menu-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--button {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--button-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--text-left {
-  text-align: left; }
-
-.wsk-typography--text-right {
-  text-align: right; }
-
-.wsk-typography--text-center {
-  text-align: center; }
-
-.wsk-typography--text-justify {
-  text-align: justify; }
-
-.wsk-typography--text-nowrap {
-  white-space: nowrap; }
-
-.wsk-typography--text-lowercase {
-  text-transform: lowercase; }
-
-.wsk-typography--text-uppercase {
-  text-transform: uppercase; }
-
-.wsk-typography--text-capitalize {
-  text-transform: capitalize; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--font-thin {
-  font-weight: 200 !important; }
-
-.wsk-typography--font-light {
-  font-weight: 300 !important; }
-
-.wsk-typography--font-regular {
-  font-weight: 400 !important; }
-
-.wsk-typography--font-medium {
-  font-weight: 500 !important; }
-
-.wsk-typography--font-bold {
-  font-weight: 700 !important; }
-
-.wsk-typography--font-black {
-  font-weight: 900 !important; }
-
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.wsk-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.wsk-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
-/**
- * Styles for HTML elements
- */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
-
-/**
- * Class Name Styles
- */
-.wsk-typography--display-4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em; }
-
-.wsk-typography--display-4-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.54; }
-
-.wsk-typography--display-3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-.wsk-typography--display-3-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54; }
-
-.wsk-typography--display-2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-.wsk-typography--display-2-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0.54; }
-
-.wsk-typography--display-1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-.wsk-typography--display-1-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-  opacity: 0.54; }
-
-.wsk-typography--headline {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-.wsk-typography--headline-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.87; }
-
-.wsk-typography--title {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-.wsk-typography--title-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  opacity: 0.87; }
-
-.wsk-typography--subhead {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--subhead-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2 {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-color-contrast {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-color-contrast {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--caption {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-color-contrast {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--caption-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--menu {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--menu-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--button {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--button-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--text-left {
-  text-align: left; }
-
-.wsk-typography--text-right {
-  text-align: right; }
-
-.wsk-typography--text-center {
-  text-align: center; }
-
-.wsk-typography--text-justify {
-  text-align: justify; }
-
-.wsk-typography--text-nowrap {
-  white-space: nowrap; }
-
-.wsk-typography--text-lowercase {
-  text-transform: lowercase; }
-
-.wsk-typography--text-uppercase {
-  text-transform: uppercase; }
-
-.wsk-typography--text-capitalize {
-  text-transform: capitalize; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--font-thin {
-  font-weight: 200 !important; }
-
-.wsk-typography--font-light {
-  font-weight: 300 !important; }
-
-.wsk-typography--font-regular {
-  font-weight: 400 !important; }
-
-.wsk-typography--font-medium {
-  font-weight: 500 !important; }
-
-.wsk-typography--font-bold {
-  font-weight: 700 !important; }
-
-.wsk-typography--font-black {
-  font-weight: 900 !important; }
-
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-.wsk-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.wsk-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.wsk-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
  *
  * Dimensions
  *
  */
+/*animation*/
+html, body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Styles for HTML elements
+ */
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0.54;
+  font-size: 0.6em; }
+
+h1 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em; }
+
+h2 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px; }
+
+h3 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px; }
+
+h4 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale; }
+
+h5 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em; }
+
+h6 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  margin: 0 0 16px 0; }
+
+a {
+  font-weight: bold; }
+
+blockquote {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.08em; }
+  blockquote:before {
+    content: '“';
+    opacity: 0.54; }
+  blockquote:after {
+    content: '”';
+    opacity: 0.54; }
+
+mark {
+  background-color: #f4ff81; }
+
+dt {
+  font-weight: 700; }
+
+/**
+ * Class Name Styles
+ */
+.wsk-typography--display-4 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em; }
+
+.wsk-typography--display-4-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  opacity: 0.54; }
+
+.wsk-typography--display-3 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em; }
+
+.wsk-typography--display-3-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0.54; }
+
+.wsk-typography--display-2 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px; }
+
+.wsk-typography--display-2-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px;
+  opacity: 0.54; }
+
+.wsk-typography--display-1 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px; }
+
+.wsk-typography--display-1-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+  opacity: 0.54; }
+
+.wsk-typography--headline {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.wsk-typography--headline-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0.87; }
+
+.wsk-typography--title {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em; }
+
+.wsk-typography--title-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.87; }
+
+.wsk-typography--subhead {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--subhead-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-2 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--body-2-color-contrast {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-1 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--body-1-color-contrast {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-2-force-preferred-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--body-2-force-preferred-font-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-1-force-preferred-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--body-1-force-preferred-font-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em; }
+
+.wsk-typography--caption-force-preferred-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em; }
+
+.wsk-typography--caption-color-contrast {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  opacity: 0.54; }
+
+.wsk-typography--caption-force-preferred-font-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  opacity: 0.54; }
+
+.wsk-typography--menu {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--menu-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--button {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--button-color-contrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--text-left {
+  text-align: left; }
+
+.wsk-typography--text-right {
+  text-align: right; }
+
+.wsk-typography--text-center {
+  text-align: center; }
+
+.wsk-typography--text-justify {
+  text-align: justify; }
+
+.wsk-typography--text-nowrap {
+  white-space: nowrap; }
+
+.wsk-typography--text-lowercase {
+  text-transform: lowercase; }
+
+.wsk-typography--text-uppercase {
+  text-transform: uppercase; }
+
+.wsk-typography--text-capitalize {
+  text-transform: capitalize; }
+
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9; }
+
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9; }
+
+.wsk-typography--font-thin {
+  font-weight: 200 !important; }
+
+.wsk-typography--font-light {
+  font-weight: 300 !important; }
+
+.wsk-typography--font-regular {
+  font-weight: 400 !important; }
+
+.wsk-typography--font-medium {
+  font-weight: 500 !important; }
+
+.wsk-typography--font-bold {
+  font-weight: 700 !important; }
+
+.wsk-typography--font-black {
+  font-weight: 900 !important; }
+
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
+/* ==========  Color Palettes  ========== */
+/*colors*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
+.wsk-shadow--z1 {
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+
+.wsk-shadow--z2 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+
+.wsk-shadow--z3 {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
+
+.wsk-shadow--z4 {
+  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
+
+.wsk-shadow--z5 {
+  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
+/* ==========  Color Palettes  ========== */
+/*colors*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
+.wsk-ripple {
+  background: #212121;
+  border-radius: 50%;
+  height: 50px;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50px;
+  overflow: hidden; }
+  .wsk-ripple.is-animating {
+    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
+/* ==========  Color Palettes  ========== */
+/*colors*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-button {
   background: transparent;
   border: none;
@@ -1230,373 +1087,9 @@ dt {
    We should be able to improve on this once CSS Font Loading L3 becomes more
    widely available.
 */
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
-/**
- * Styles for HTML elements
- */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
-
-/**
- * Class Name Styles
- */
-.wsk-typography--display-4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em; }
-
-.wsk-typography--display-4-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.54; }
-
-.wsk-typography--display-3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-.wsk-typography--display-3-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54; }
-
-.wsk-typography--display-2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-.wsk-typography--display-2-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0.54; }
-
-.wsk-typography--display-1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-.wsk-typography--display-1-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-  opacity: 0.54; }
-
-.wsk-typography--headline {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-.wsk-typography--headline-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.87; }
-
-.wsk-typography--title {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-.wsk-typography--title-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  opacity: 0.87; }
-
-.wsk-typography--subhead {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--subhead-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2 {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-color-contrast {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-color-contrast {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--caption {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-color-contrast {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--caption-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--menu {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--menu-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--button {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--button-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--text-left {
-  text-align: left; }
-
-.wsk-typography--text-right {
-  text-align: right; }
-
-.wsk-typography--text-center {
-  text-align: center; }
-
-.wsk-typography--text-justify {
-  text-align: justify; }
-
-.wsk-typography--text-nowrap {
-  white-space: nowrap; }
-
-.wsk-typography--text-lowercase {
-  text-transform: lowercase; }
-
-.wsk-typography--text-uppercase {
-  text-transform: uppercase; }
-
-.wsk-typography--text-capitalize {
-  text-transform: capitalize; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--font-thin {
-  font-weight: 200 !important; }
-
-.wsk-typography--font-light {
-  font-weight: 300 !important; }
-
-.wsk-typography--font-regular {
-  font-weight: 400 !important; }
-
-.wsk-typography--font-medium {
-  font-weight: 500 !important; }
-
-.wsk-typography--font-bold {
-  font-weight: 700 !important; }
-
-.wsk-typography--font-black {
-  font-weight: 900 !important; }
-
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -1618,23 +1111,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-.wsk-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.wsk-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.wsk-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
 /* Card dimensions */
 /* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-card {
   font-size: 16px;
   height: 508px;
@@ -1760,13 +1271,19 @@ dt {
           transform-origin: 165px 25px;
   width: 100%; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -1788,31 +1305,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-checkbox {
   position: relative;
   z-index: 1;
@@ -1927,6 +1454,75 @@ dt {
   .wsk-checkbox.is-disabled .wsk-checkbox__ripple-container .wsk-ripple {
     background: transparent; }
 
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
+/* ==========  Color Palettes  ========== */
+/*colors*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-column-layout {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1998,13 +1594,19 @@ dt {
       width: calc(100% - 16px);
       min-width: calc(100% - 16px); } }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2026,6 +1628,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -4315,11 +3952,75 @@ dt {
 .wsk-icon--star-outline:before {
   content: "\f2e7"; }
 
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
+/* ==========  Color Palettes  ========== */
+/*colors*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
 /**************
  *
  * Sizes
  *
  *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-mega-footer {
   padding: 32px 16px;
   color: #A0A0A0;
@@ -4486,13 +4187,19 @@ dt {
     margin-bottom: 0;
     margin-right: 16px; } }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -4514,6 +4221,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 /**************
  *
  * Sizes
@@ -4583,13 +4325,19 @@ dt {
   background-color: #A0A0A0;
   border: none; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -4611,46 +4359,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-.wsk-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.wsk-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.wsk-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-icon-toggle {
   position: relative;
   z-index: 1;
@@ -4735,373 +4478,9 @@ dt {
    We should be able to improve on this once CSS Font Loading L3 becomes more
    widely available.
 */
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
-/**
- * Styles for HTML elements
- */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
-
-/**
- * Class Name Styles
- */
-.wsk-typography--display-4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em; }
-
-.wsk-typography--display-4-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.54; }
-
-.wsk-typography--display-3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-.wsk-typography--display-3-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54; }
-
-.wsk-typography--display-2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-.wsk-typography--display-2-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0.54; }
-
-.wsk-typography--display-1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-.wsk-typography--display-1-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-  opacity: 0.54; }
-
-.wsk-typography--headline {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-.wsk-typography--headline-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.87; }
-
-.wsk-typography--title {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-.wsk-typography--title-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  opacity: 0.87; }
-
-.wsk-typography--subhead {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--subhead-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2 {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-color-contrast {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-color-contrast {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--caption {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-color-contrast {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--caption-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--menu {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--menu-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--button {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--button-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--text-left {
-  text-align: left; }
-
-.wsk-typography--text-right {
-  text-align: right; }
-
-.wsk-typography--text-center {
-  text-align: center; }
-
-.wsk-typography--text-justify {
-  text-align: justify; }
-
-.wsk-typography--text-nowrap {
-  white-space: nowrap; }
-
-.wsk-typography--text-lowercase {
-  text-transform: lowercase; }
-
-.wsk-typography--text-uppercase {
-  text-transform: uppercase; }
-
-.wsk-typography--text-capitalize {
-  text-transform: capitalize; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--font-thin {
-  font-weight: 200 !important; }
-
-.wsk-typography--font-light {
-  font-weight: 300 !important; }
-
-.wsk-typography--font-regular {
-  font-weight: 400 !important; }
-
-.wsk-typography--font-medium {
-  font-weight: 500 !important; }
-
-.wsk-typography--font-bold {
-  font-weight: 700 !important; }
-
-.wsk-typography--font-black {
-  font-weight: 900 !important; }
-
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5123,46 +4502,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-.wsk-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.wsk-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.wsk-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-menu__container {
   display: block;
   margin: 0;
@@ -5304,13 +4678,19 @@ dt {
   z-index: 0;
   overflow: hidden; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5332,21 +4712,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-.wsk-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.wsk-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.wsk-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
@@ -5357,366 +4757,65 @@ dt {
    We should be able to improve on this once CSS Font Loading L3 becomes more
    widely available.
 */
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
+/*palette*/
+/* ==========  Color Palettes  ========== */
+/*colors*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
- * Styles for HTML elements
+ *
+ * Dimensions
+ *
  */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
-
-/**
- * Class Name Styles
- */
-.wsk-typography--display-4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em; }
-
-.wsk-typography--display-4-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.54; }
-
-.wsk-typography--display-3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-.wsk-typography--display-3-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54; }
-
-.wsk-typography--display-2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-.wsk-typography--display-2-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0.54; }
-
-.wsk-typography--display-1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-.wsk-typography--display-1-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-  opacity: 0.54; }
-
-.wsk-typography--headline {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-.wsk-typography--headline-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.87; }
-
-.wsk-typography--title {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-.wsk-typography--title-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  opacity: 0.87; }
-
-.wsk-typography--subhead {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--subhead-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2 {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-color-contrast {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-color-contrast {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--caption {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-color-contrast {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--caption-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--menu {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--menu-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--button {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--button-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--text-left {
-  text-align: left; }
-
-.wsk-typography--text-right {
-  text-align: right; }
-
-.wsk-typography--text-center {
-  text-align: center; }
-
-.wsk-typography--text-justify {
-  text-align: justify; }
-
-.wsk-typography--text-nowrap {
-  white-space: nowrap; }
-
-.wsk-typography--text-lowercase {
-  text-transform: lowercase; }
-
-.wsk-typography--text-uppercase {
-  text-transform: uppercase; }
-
-.wsk-typography--text-capitalize {
-  text-transform: capitalize; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--font-thin {
-  font-weight: 200 !important; }
-
-.wsk-typography--font-light {
-  font-weight: 300 !important; }
-
-.wsk-typography--font-regular {
-  font-weight: 400 !important; }
-
-.wsk-typography--font-medium {
-  font-weight: 500 !important; }
-
-.wsk-typography--font-bold {
-  font-weight: 700 !important; }
-
-.wsk-typography--font-black {
-  font-weight: 900 !important; }
-
+/*animation*/
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -8170,7 +7269,7 @@ dt {
     margin: 0;
     width: 32px;
     color: #eeeeee;
-    background-color: #3f51b5;
+    background-color: inherit;
     z-index: 5; }
     @media screen and (max-width: 850px) {
       .wsk-layout__header .wsk-layout__drawer-button {
@@ -8569,13 +7668,19 @@ dt {
   .wsk-layout.is-upgraded .wsk-layout__tab-panel.is-active {
     display: block; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8597,6 +7702,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-list {
   display: block;
   height: 500px;
@@ -8646,13 +7786,19 @@ dt {
   padding-left: 5px;
   padding-right: 5px; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8674,31 +7820,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-radio {
   position: relative;
   font-size: 16px;
@@ -8799,13 +7955,19 @@ dt {
   .wsk-radio.is-disabled .wsk-radio__ripple-container .wsk-ripple {
     background: transparent; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8827,6 +7989,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9076,13 +8273,19 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
 _:-moz-tree-row(hover), .wsk-slider__background-upper {
   transition: none; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9104,6 +8307,41 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-spinner {
   display: inline-block;
   position: relative;
@@ -9487,13 +8725,19 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
     -webkit-transform: rotate(-130deg);
             transform: rotate(-130deg); } }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9515,46 +8759,41 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-.wsk-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.wsk-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.wsk-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.wsk-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-switch {
   position: relative;
   z-index: 1;
@@ -9682,13 +8921,19 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
     cursor: auto;
     left: 2px; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9710,401 +8955,41 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
- * Styles for HTML elements
+ *
+ * Dimensions
+ *
  */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
-
-/**
- * Class Name Styles
- */
-.wsk-typography--display-4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em; }
-
-.wsk-typography--display-4-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.54; }
-
-.wsk-typography--display-3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-.wsk-typography--display-3-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54; }
-
-.wsk-typography--display-2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-.wsk-typography--display-2-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0.54; }
-
-.wsk-typography--display-1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-.wsk-typography--display-1-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-  opacity: 0.54; }
-
-.wsk-typography--headline {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-.wsk-typography--headline-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.87; }
-
-.wsk-typography--title {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-.wsk-typography--title-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  opacity: 0.87; }
-
-.wsk-typography--subhead {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--subhead-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2 {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-color-contrast {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-color-contrast {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--caption {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-color-contrast {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--caption-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--menu {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--menu-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--button {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--button-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--text-left {
-  text-align: left; }
-
-.wsk-typography--text-right {
-  text-align: right; }
-
-.wsk-typography--text-center {
-  text-align: center; }
-
-.wsk-typography--text-justify {
-  text-align: justify; }
-
-.wsk-typography--text-nowrap {
-  white-space: nowrap; }
-
-.wsk-typography--text-lowercase {
-  text-transform: lowercase; }
-
-.wsk-typography--text-uppercase {
-  text-transform: uppercase; }
-
-.wsk-typography--text-capitalize {
-  text-transform: capitalize; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--font-thin {
-  font-weight: 200 !important; }
-
-.wsk-typography--font-light {
-  font-weight: 300 !important; }
-
-.wsk-typography--font-regular {
-  font-weight: 400 !important; }
-
-.wsk-typography--font-medium {
-  font-weight: 500 !important; }
-
-.wsk-typography--font-bold {
-  font-weight: 700 !important; }
-
-.wsk-typography--font-black {
-  font-weight: 900 !important; }
-
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-.wsk-ripple {
-  background: #212121;
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-
+/*animation*/
 .wsk-tabs {
   display: block;
   width: 100%; }
@@ -10175,13 +9060,19 @@ dt {
     opacity: 1;
     width: 100%; } }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -10203,6 +9094,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
+/**
+ *
+ * Dimensions
+ *
+ */
+/*animation*/
 .wsk-textfield {
   position: relative;
   font-size: 16px;
@@ -10313,13 +9239,19 @@ dt {
   .wsk-textfield.is-focused .wsk-textfield__expandable-holder, .wsk-textfield.is-dirty .wsk-textfield__expandable-holder {
     max-width: 600px; }
 
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/*palette*/
 /* ==========  Color Palettes  ========== */
+/*colors*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -10341,376 +9273,41 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
+/*typography*/
+/*shadows*/
+/*animations*/
+/*textfield*/
+/*switch*/
+/*spinner*/
+/*radio*/
+/*menu*/
+/*list*/
+/*layout*/
+/*icon toggle*/
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*column-layout*/
+/*checkbox*/
+/*card*/
+/* Card dimensions */
+/* Cover image */
+/*button*/
 /**
- * Styles for HTML elements
+ *
+ * Dimensions
+ *
  */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
-
-/**
- * Class Name Styles
- */
-.wsk-typography--display-4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em; }
-
-.wsk-typography--display-4-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.54; }
-
-.wsk-typography--display-3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-.wsk-typography--display-3-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54; }
-
-.wsk-typography--display-2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-.wsk-typography--display-2-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-  opacity: 0.54; }
-
-.wsk-typography--display-1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-.wsk-typography--display-1-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-  opacity: 0.54; }
-
-.wsk-typography--headline {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-.wsk-typography--headline-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.87; }
-
-.wsk-typography--title {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-.wsk-typography--title-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  opacity: 0.87; }
-
-.wsk-typography--subhead {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--subhead-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2 {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-color-contrast {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1 {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-color-contrast {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-2-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-2-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--body-1-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--body-1-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--caption {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-force-preferred-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-
-.wsk-typography--caption-color-contrast {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--caption-force-preferred-font-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  opacity: 0.54; }
-
-.wsk-typography--menu {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--menu-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--button {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em; }
-
-.wsk-typography--button-color-contrast {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  opacity: 0.87; }
-
-.wsk-typography--text-left {
-  text-align: left; }
-
-.wsk-typography--text-right {
-  text-align: right; }
-
-.wsk-typography--text-center {
-  text-align: center; }
-
-.wsk-typography--text-justify {
-  text-align: justify; }
-
-.wsk-typography--text-nowrap {
-  white-space: nowrap; }
-
-.wsk-typography--text-lowercase {
-  text-transform: lowercase; }
-
-.wsk-typography--text-uppercase {
-  text-transform: uppercase; }
-
-.wsk-typography--text-capitalize {
-  text-transform: capitalize; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.wsk-typography--font-thin {
-  font-weight: 200 !important; }
-
-.wsk-typography--font-light {
-  font-weight: 300 !important; }
-
-.wsk-typography--font-regular {
-  font-weight: 400 !important; }
-
-.wsk-typography--font-medium {
-  font-weight: 500 !important; }
-
-.wsk-typography--font-bold {
-  font-weight: 700 !important; }
-
-.wsk-typography--font-black {
-  font-weight: 900 !important; }
-
+/*animation*/
 .wsk-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);

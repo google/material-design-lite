@@ -1,14 +1,4 @@
-@import "../colors";
-@import "../animation/animation";
-
-$input-text-font-size: 16px;
-$input-text-width: 100%;
-$input-text-padding: 4px;
-$input-text-ripple-size: 32px;
-
-$input-text-button-size: 32px;
-$input-text-floating-label-fontsize: 12px;
-$input-text-expandable-icon-top: 16px;
+@import "../_vars";
 
 // The container for the whole component.
 .wsk-textfield {
