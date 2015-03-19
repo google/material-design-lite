@@ -40,13 +40,8 @@
 }
 
 // Styles for fixed drawer demos.
-.demo-layout .wsk-layout__header .wsk-button {
-  color: unquote("rgb(#{nth($palette-page, 3)})");
-  border-radius: 50%;
-}
-
 .demo-layout .wsk-layout__header .wsk-textfield__input {
-  color: unquote("rgb(#{nth($palette-page, 3)})");
+  color: unquote("rgb(#{$text-color-primary-contrast})");
 }
 
 // Styles for fixed header demo.

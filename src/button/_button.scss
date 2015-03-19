@@ -178,7 +178,7 @@ $button-icon-size-mini: 24px !default;
 
     &.wsk-button--colored {
       background: $button-fab-color-alt;
-      color: $button-secondary-color-alt;
+      color: $button-fab-text-color-alt;
 
       &:hover {
         background-color: $button-fab-hover-color-alt;
@@ -217,6 +217,7 @@ $button-icon-size-mini: 24px !default;
     width: $button-icon-size;
     padding: 0;
     overflow: hidden;
+    color: inherit;
 
     & .wsk-icon {
       position: absolute;

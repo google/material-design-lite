@@ -1121,13 +1121,13 @@ dt {
     background-color: rgba(153, 153, 153, 0.4); }
   .wsk-button--raised.wsk-button--colored {
     background: rgb(63,81,181);
-    color: #fff; }
+    color: rgb(255,255,255); }
     .wsk-button--raised.wsk-button--colored:hover {
       background-color: rgb(57,73,171); }
     .wsk-button--raised.wsk-button--colored:active {
-      background-color: rgb(48,63,159); }
+      background-color: rgb(57,73,171); }
     .wsk-button--raised.wsk-button--colored:focus:not(:active) {
-      background-color: rgb(48,63,159); }
+      background-color: rgb(57,73,171); }
     .wsk-button--raised.wsk-button--colored .wsk-ripple {
       background: white; }
   .wsk-button--raised[disabled][disabled] {
@@ -1169,7 +1169,7 @@ dt {
     background-color: rgba(153, 153, 153, 0.4); }
   .wsk-button--fab.wsk-button--colored {
     background: rgb(236,64,122);
-    color: #fff; }
+    color: rgb(255,255,255); }
     .wsk-button--fab.wsk-button--colored:hover {
       background-color: rgb(233,30,99); }
     .wsk-button--fab.wsk-button--colored:focus:not(:active) {
@@ -1192,7 +1192,8 @@ dt {
   min-width: 32px;
   width: 32px;
   padding: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  color: inherit; }
   .wsk-button--icon .wsk-icon {
     position: absolute;
     top: 4px;
@@ -8169,7 +8170,7 @@ dt {
     height: 32px;
     margin: 0;
     width: 32px;
-    color: rgb(238,238,238);
+    color: rgb(255,255,255);
     background-color: inherit;
     z-index: 5; }
     @media screen and (max-width: 850px) {
@@ -8202,7 +8203,7 @@ dt {
   height: 64px;
   min-height: 64px;
   background-color: rgb(63,81,181);
-  color: rgb(238,238,238);
+  color: rgb(255,255,255);
   z-index: 3;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
@@ -8267,7 +8268,7 @@ dt {
       .wsk-layout__header .wsk-navigation {
         height: 56px; } }
   .wsk-layout__header .wsk-navigation__link {
-    color: rgb(238,238,238);
+    color: rgb(255,255,255);
     line-height: 64px;
     padding: 0 24px; }
     @media screen and (max-width: 850px) {
@@ -8484,7 +8485,7 @@ dt {
   .wsk-layout--fixed-tabs .wsk-layout__tab-bar-button {
     display: none; }
   .wsk-layout__tab-bar-button.is-active {
-    color: rgb(238,238,238); }
+    color: rgb(255,255,255); }
 
 .wsk-layout__tab-bar-left-button {
   left: 0; }
@@ -8525,7 +8526,7 @@ dt {
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
-  color: rgba(238,238,238, 0.6);
+  color: rgba(255,255,255, 0.6);
   overflow: hidden; }
   @media screen and (max-width: 850px) {
     .wsk-layout__tab {
@@ -8538,7 +8539,7 @@ dt {
             flex-grow: 1;
     padding: 0; }
   .wsk-layout.is-upgraded .wsk-layout__tab.is-active {
-    color: rgb(238,238,238); }
+    color: rgb(255,255,255); }
   .wsk-layout.is-upgraded .wsk-layout__tab.is-active::after {
     height: 2px;
     width: 100%;
