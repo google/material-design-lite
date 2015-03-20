@@ -74,7 +74,7 @@ $icon-toggle-ripple-size: 36px !default;
   }
 
   .wsk-icon-toggle.is-focused.is-checked & {
-    background-color: rgba($icon-toggle-checked-color, 0.26);
+    background-color: $icon-toggle-checked-focus-color;
   }
 }
 

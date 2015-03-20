@@ -99,8 +99,8 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   }
 
   .wsk-checkbox.is-focused.is-checked & {
-    box-shadow: 0 0 0px ($checkbox-button-size / 2) rgba($checkbox-color, 0.26);
-    background-color: rgba($checkbox-color, 0.26);
+    box-shadow: 0 0 0px ($checkbox-button-size / 2) $checkbox-focus-color;
+    background-color: $checkbox-focus-color;
   }
 }
 

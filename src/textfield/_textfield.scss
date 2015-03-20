@@ -56,6 +56,7 @@ $input-text-expandable-icon-top: 16px;
   width: $input-text-width;
   background: $input-text-font-size;
   text-align: left;
+  color: inherit;
 
   .wsk-textfield.is-focused & {
     outline: none;

@@ -127,8 +127,8 @@ $switch-helper-size: 8px;
 
   .wsk-switch.is-focused.is-checked & {
     box-shadow: 0 0 0px (($switch-ripple-size - $switch-helper-size) / 2)
-        rgba($switch-color, 0.26);
-    background-color: rgba($switch-color, 0.26);
+        $switch-faded-color;
+    background-color: $switch-faded-color;
   }
 }
 

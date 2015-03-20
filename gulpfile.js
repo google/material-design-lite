@@ -93,8 +93,33 @@ gulp.task('styles:dev', ['fonts'], function () {
     .pipe($.size({title: 'styles'}));
 });
 
+// Compile and Automatically Prefix Stylesheet Templates (production)
+gulp.task('styletemplates', function () {
+  // For best performance, don't add Sass partials to `gulp.src`
+  return gulp.src([
+    'src/template.scss'
+  ])
+    // Generate Source Maps
+    .pipe ($.sourcemaps.init())
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(gulp.dest('.tmp'))
+    // Concatenate Styles
+    .pipe($.concat('material.css.template'))
+    .pipe($.header(banner, {pkg: pkg}))
+    .pipe(gulp.dest('./css'))
+    // Minify Styles
+    .pipe($.if('*.css.template', $.csso()))
+    .pipe($.concat('material.min.css.template'))
+    .pipe(gulp.dest('./css'))
+    .pipe($.size({title: 'styles'}));
+});
+
 // Compile and Automatically Prefix Stylesheets (production)
-gulp.task('styles', function () {
+gulp.task('styles', ['styletemplates'], function () {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'src/styleguide.scss'
