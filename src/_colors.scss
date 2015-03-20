@@ -4,137 +4,29 @@ $styleguide-generate-template: false !default;
 
 /* ==========  Color & Themes  ========== */
 
+// The two possible colors for overlayed text.
+$color-dark-contrast: "255,255,255" !default;
+$color-light-contrast: "66,66,66" !default;
+
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
+$color-primary: $palette-indigo-500 !default;
+$color-primary-dark: $palette-indigo-700 !default;
+$color-accent: $palette-pink-A200 !default;
 
-@if $styleguide-generate-template == false {
-  $palette-primary: $palette-indigo !default;
-  $palette-accent: $palette-pink !default;
-} @else {
-  $palette-primary:
-    '$palette-primary-50'
-    '$palette-primary-100'
-    '$palette-primary-200'
-    '$palette-primary-300'
-    '$palette-primary-400'
-    '$palette-primary-500'
-    '$palette-primary-600'
-    '$palette-primary-700'
-    '$palette-primary-800'
-    '$palette-primary-900'
-    '$palette-primary-A100'
-    '$palette-primary-A200'
-    '$palette-primary-A400'
-    '$palette-primary-A700';
-  $palette-accent:
-    '$palette-accent-50'
-    '$palette-accent-100'
-    '$palette-accent-200'
-    '$palette-accent-300'
-    '$palette-accent-400'
-    '$palette-accent-500'
-    '$palette-accent-600'
-    '$palette-accent-700'
-    '$palette-accent-800'
-    '$palette-accent-900'
-    '$palette-accent-A100'
-    '$palette-accent-A200'
-    '$palette-accent-A400'
-    '$palette-accent-A700';
+// Our primary is dark, so use $color-dark-contrast for overlaid text.
+$color-primary-contrast: $color-dark-contrast !default;
+// Our accent is dark, so use $color-dark-contrast for overlaid text.
+$color-accent-contrast: $color-dark-contrast !default;
+
+// Replace all colors with placeholders if we're generating a template.
+@if $styleguide-generate-template == true {
+  $color-primary: '$color-primary';
+  $color-primary-dark: '$color-primary-dark';
+  $color-accent: '$color-accent';
+  $color-primary-contrast: '$color-primary-contrast';
+  $color-accent-contrast: '$color-accent-contrast';
 }
-
-$palette-disabled: $palette-grey;
-$palette-page: $palette-grey;
-
-$palette-primary-50: nth($palette-primary, 1);
-$palette-primary-100: nth($palette-primary, 2);
-$palette-primary-200: nth($palette-primary, 3);
-$palette-primary-300: nth($palette-primary, 4);
-$palette-primary-400: nth($palette-primary, 5);
-$palette-primary-500: nth($palette-primary, 6);
-$palette-primary-600: nth($palette-primary, 7);
-$palette-primary-700: nth($palette-primary, 8);
-$palette-primary-800: nth($palette-primary, 9);
-$palette-primary-900: nth($palette-primary, 10);
-@if length($palette-primary) > 10 {
-  $palette-primary-A100: nth($palette-primary, 11);
-  $palette-primary-A200: nth($palette-primary, 12);
-  $palette-primary-A400: nth($palette-primary, 13);
-  $palette-primary-A700: nth($palette-primary, 14);
-}
-
-$palette-accent-50: nth($palette-accent, 1);
-$palette-accent-100: nth($palette-accent, 2);
-$palette-accent-200: nth($palette-accent, 3);
-$palette-accent-300: nth($palette-accent, 4);
-$palette-accent-400: nth($palette-accent, 5);
-$palette-accent-500: nth($palette-accent, 6);
-$palette-accent-600: nth($palette-accent, 7);
-$palette-accent-700: nth($palette-accent, 8);
-$palette-accent-800: nth($palette-accent, 9);
-$palette-accent-900: nth($palette-accent, 10);
-@if length($palette-accent) > 10 {
-  $palette-accent-A100: nth($palette-accent, 11);
-  $palette-accent-A200: nth($palette-accent, 12);
-  $palette-accent-A400: nth($palette-accent, 13);
-  $palette-accent-A700: nth($palette-accent, 14);
-}
-
-$palette-grey-50: nth($palette-grey, 1);
-$palette-grey-100: nth($palette-grey, 2);
-$palette-grey-200: nth($palette-grey, 3);
-$palette-grey-300: nth($palette-grey, 4);
-$palette-grey-400: nth($palette-grey, 5);
-$palette-grey-500: nth($palette-grey, 6);
-$palette-grey-600: nth($palette-grey, 7);
-$palette-grey-700: nth($palette-grey, 8);
-$palette-grey-800: nth($palette-grey, 9);
-$palette-grey-900: nth($palette-grey, 10);
-@if length($palette-grey) > 10 {
-  $palette-grey-A100: nth($palette-grey, 11);
-  $palette-grey-A200: nth($palette-grey, 12);
-  $palette-grey-A400: nth($palette-grey, 13);
-  $palette-grey-A700: nth($palette-grey, 14);
-}
-
-$palette-disabled-50: nth($palette-disabled, 1);
-$palette-disabled-100: nth($palette-disabled, 2);
-$palette-disabled-200: nth($palette-disabled, 3);
-$palette-disabled-300: nth($palette-disabled, 4);
-$palette-disabled-400: nth($palette-disabled, 5);
-$palette-disabled-500: nth($palette-disabled, 6);
-$palette-disabled-600: nth($palette-disabled, 7);
-$palette-disabled-700: nth($palette-disabled, 8);
-$palette-disabled-800: nth($palette-disabled, 9);
-$palette-disabled-900: nth($palette-disabled, 10);
-@if length($palette-disabled) > 10 {
-  $palette-disabled-A100: nth($palette-disabled, 11);
-  $palette-disabled-A200: nth($palette-disabled, 12);
-  $palette-disabled-A400: nth($palette-disabled, 13);
-  $palette-disabled-A700: nth($palette-disabled, 14);
-}
-
-$palette-page-50: nth($palette-page, 1);
-$palette-page-100: nth($palette-page, 2);
-$palette-page-200: nth($palette-page, 3);
-$palette-page-300: nth($palette-page, 4);
-$palette-page-400: nth($palette-page, 5);
-$palette-page-500: nth($palette-page, 6);
-$palette-page-600: nth($palette-page, 7);
-$palette-page-700: nth($palette-page, 8);
-$palette-page-800: nth($palette-page, 9);
-$palette-page-900: nth($palette-page, 10);
-@if length($palette-page) > 10 {
-  $palette-page-A100: nth($palette-page, 11);
-  $palette-page-A200: nth($palette-page, 12);
-  $palette-page-A400: nth($palette-page, 13);
-  $palette-page-A700: nth($palette-page, 14);
-}
-
-$palette-color-primary: $palette-primary-500;
-$palette-color-primary-darker: $palette-primary-600;
-$palette-color-primary-lighter: $palette-primary-400;
-$palette-color-accent: $palette-accent-A400;
 
 /* ==========  Typography  ========== */
 
@@ -143,24 +35,6 @@ $palette-color-accent: $palette-accent-A400;
 // and text-color-secondary-inverse.
 
 $text-color-primary: rgb(66,66,66) !default;
-$text-color-secondary: rgb(158,158,158) !default;
-$text-color-primary-inverse: invert($text-color-primary) !default;
-$text-color-secondary-inverse: invert($text-color-secondary) !default;
-
-$text-color-dark-contrast: "255,255,255";
-$text-color-light-contrast: "66,66,66";
-
-@if $styleguide-generate-template == false {
-  $text-color-primary-contrast: $text-color-dark-contrast;
-} @else {
-  $text-color-primary-contrast: '$text-color-primary-contrast';
-}
-
-@if $styleguide-generate-template == false {
-  $text-color-accent-contrast: $text-color-dark-contrast;
-} @else {
-  $text-color-accent-contrast: '$text-color-accent-contrast';
-}
 
 /* ==========  Components  ========== */
 
@@ -174,24 +48,25 @@ $button-active-color: rgba(#999999, 0.40) !default;
 $button-focus-color: rgba(black, 0.12) !default;
 
 // Colored button colors.
-$button-primary-color-alt: unquote("rgb(#{$palette-color-primary})") !default;
-$button-secondary-color-alt: unquote("rgb(#{$text-color-primary-contrast})") !default;
-$button-hover-color-alt: unquote("rgb(#{$palette-color-primary-darker})") !default;
-$button-active-color-alt: unquote("rgb(#{$palette-color-primary-darker})") !default;
+$button-primary-color-alt: unquote("rgb(#{$color-primary})") !default;
+$button-secondary-color-alt: unquote("rgb(#{$color-primary-contrast})") !default;
+$button-hover-color-alt: unquote("rgb(#{$color-primary})") !default;
+$button-active-color-alt: unquote("rgb(#{$color-primary})") !default;
 $button-focus-color-alt: $button-focus-color !default;
 
-// Ripple color for colored raised buttons and FABs.
-$button-ripple-color-alt: white !default;
+// Ripple color for colored raised buttons.
+$button-ripple-color-alt: unquote("rgb(#{$color-primary-contrast})") !default;
 
 // Disabled button colors.
 $button-primary-color-disabled: rgba(#000, 0.12) !default;
 $button-secondary-color-disabled: rgba(#000, 0.26) !default;
 
 // FAB colors and sizes.
-$button-fab-color-alt: unquote("rgb(#{$palette-accent-400})") !default;
-$button-fab-hover-color-alt: unquote("rgb(#{$palette-accent-500})") !default;
-$button-fab-active-color-alt: unquote("rgb(#{$palette-accent-600})") !default;
-$button-fab-text-color-alt: unquote("rgb(#{$text-color-accent-contrast})") !default;
+$button-fab-color-alt: unquote("rgb(#{$color-accent})") !default;
+$button-fab-hover-color-alt: unquote("rgb(#{$color-accent})") !default;
+$button-fab-active-color-alt: unquote("rgb(#{$color-accent})") !default;
+$button-fab-text-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
+$button-fab-ripple-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
 
 // Icon button colors and sizes.
 $button-icon-color: unquote("rgb(#{$palette-grey-700})") !default;
@@ -201,58 +76,58 @@ $button-icon-focus-color: $button-focus-color !default;
 
 $icon-toggle-color: unquote("rgb(#{$palette-grey-700})") !default;
 $icon-toggle-focus-color: $button-focus-color !default;
-$icon-toggle-checked-color: unquote("rgb(#{$palette-primary-500})") !default;
-$icon-toggle-checked-focus-color: unquote("rgba(#{$palette-primary-500}, 0.26)") !default;
+$icon-toggle-checked-color: unquote("rgb(#{$color-primary})") !default;
+$icon-toggle-checked-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 $icon-toggle-disabled-color: rgba(#000, 0.26) !default;
 
 /* ==========  Radio Buttons  ========== */
 
-$radio-color: unquote("rgb(#{$palette-primary-500})") !default;
+$radio-color: unquote("rgb(#{$color-primary})") !default;
 $radio-off-color: rgba(0, 0, 0, 0.54) !default;
 $radio-disabled-color: rgba(0, 0, 0, 0.26) !default;
 
 /* ==========  Ripple effect  ========== */
 
-$ripple-bg-color: unquote("rgb(#{$palette-grey-900})") !default;
+$ripple-bg-color: unquote("rgb(#{$color-light-contrast})") !default;
 
 /* ==========  Layout  ========== */
 
-$layout-nav-color: unquote("rgb(#{nth($palette-page, 4)})") !default;
+$layout-nav-color: unquote("rgb(#{nth($palette-grey, 4)})") !default;
 
 // Drawer
-$layout-drawer-bg-color: unquote("rgb(#{$palette-page-50})") !default;
-$layout-drawer-border-color: unquote("rgb(#{$palette-page-300})") !default;
-$layout-text-color: unquote("rgb(#{$palette-page-800})") !default;
+$layout-drawer-bg-color: unquote("rgb(#{$palette-grey-50})") !default;
+$layout-drawer-border-color: unquote("rgb(#{$palette-grey-300})") !default;
+$layout-text-color: unquote("rgb(#{$palette-grey-800})") !default;
 
 // Header
-$layout-header-bg-color: unquote("rgb(#{$palette-primary-500})") !default;
-$layout-header-text-color: unquote("rgb(#{$text-color-primary-contrast})") !default;
+$layout-header-bg-color: unquote("rgb(#{$color-primary})") !default;
+$layout-header-text-color: unquote("rgb(#{$color-primary-contrast})") !default;
 $layout-header-nav-hover-color: unquote("rgba(#{nth($palette-grey, 8)}, 0.6)") !default;
-$layout-header-tab-text-color: unquote("rgba(#{$text-color-primary-contrast}, 0.6)") !default;
+$layout-header-tab-text-color: unquote("rgba(#{$color-primary-contrast}, 0.6)") !default;
 
 // Tabs
 $layout-header-tab-highlight: unquote("rgb(#{$palette-grey-300})") !default;
 
 /* ==========  Content Tabs  ========== */
 
-$tab-highlight-color: unquote("rgb(#{$palette-primary-500})") !default;
+$tab-highlight-color: unquote("rgb(#{$color-primary})") !default;
 $tab-text-color: rgba(0, 0, 0, 0.6) !default;
 $tab-active-text-color: black !default;
 $tab-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 
 /* ==========  Checkboxes  ========== */
 
-$checkbox-color: unquote("rgb(#{$palette-primary-500})") !default;
+$checkbox-color: unquote("rgb(#{$color-primary})") !default;
 $checkbox-off-color: rgba(0, 0, 0, 0.54) !default;
 $checkbox-disabled-color: rgba(0, 0, 0, 0.26) !default;
-$checkbox-focus-color: unquote("rgba(#{$palette-primary-500}, 0.26)") !default;
+$checkbox-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 
 /* ==========  Switches  ========== */
 
-$switch-color: unquote("rgb(#{$palette-primary-500})") !default;
-$switch-faded-color: unquote("rgba(#{$palette-primary-500}, 0.26)") !default;
+$switch-color: unquote("rgb(#{$color-primary})") !default;
+$switch-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 $switch-thumb-color: $switch-color !default;
-$switch-track-color: unquote("rgba(#{$switch-color}, 0.5)") !default;
+$switch-track-color: unquote("rgba(#{$color-primary}, 0.5)") !default;
 
 $switch-off-thumb-color: unquote("rgb(#{$palette-grey-50})") !default;
 $switch-off-track-color: rgba(0, 0, 0, 0.26) !default;
@@ -266,14 +141,14 @@ $spinner-color-2: #db4437 !default;
 $spinner-color-3: #f4b400 !default;
 $spinner-color-4: #0f9d58 !default;
 
-$spinner-single-color: unquote("rgb(#{$palette-primary-500})") !default;
+$spinner-single-color: unquote("rgb(#{$color-primary})") !default;
 
 /* ==========  Text fields  ========== */
 
 $input-text-background-color: transparent !default;
 $input-text-label-color: rgba(0, 0, 0, 0.26) !default;
 $input-text-bottom-border-color: rgba(0, 0, 0, 0.12) !default;
-$input-text-highlight-color: unquote("rgb(#{$palette-primary-500})") !default;
+$input-text-highlight-color: unquote("rgb(#{$color-primary})") !default;
 $input-text-disabled-color: $input-text-bottom-border-color !default;
 $input-text-error-color: unquote("rgb(#{$palette-red-600})") !default;
 
@@ -282,12 +157,12 @@ $input-text-error-color: unquote("rgb(#{$palette-red-600})") !default;
 $card-background-color: white !default;
 $heading-color: white !default;
 $heading-back-color: white !default;
-$heading-back-bgcolor: unquote("rgb(#{$palette-primary-700})") !default;
-$action-link-color: unquote("rgb(#{$palette-primary-900})") !default;
+$heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
+$action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
 $caption-color: white !default;
-$caption-bgcolor: unquote("rgb(#{$palette-primary-900})") !default;
-$image-placeholder-color: unquote("rgb(#{$palette-accent-400})") !default;
-$lower-text-color: unquote("rgb(#{$palette-primary-900})") !default;
+$caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
+$image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
+$lower-text-color: unquote("rgb(#{$color-primary})") !default;
 
 /* Heading back */
 $heading-back-border: 0 none white !default;
@@ -295,8 +170,8 @@ $heading-back-border: 0 none white !default;
 /* ==========  Sliders ========== */
 
 $range-bg-color: rgba(0, 0, 0, 0.26) !default;
-$range-color: unquote("rgb(#{$palette-primary-500})") !default;
-$range-faded-color: unquote("rgba(#{$palette-primary-500}, 0.26)") !default;
+$range-color: unquote("rgb(#{$color-primary})") !default;
+$range-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 
 /* ==========  List ========== */
 
@@ -313,7 +188,7 @@ $default-item-focus-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
 $default-item-active-bg-color: unquote("rgb(#{$palette-grey-300})") !default;
 
 // Disabled Button Colors
-$disabled-item-text-color: unquote("rgb(#{$palette-disabled-400})") !default;
+$disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
 
 /* ==========  Dropdown menu ========== */
 
@@ -322,7 +197,7 @@ $default-dropdown-bg-color: #fff !default;
 /* ==========  Tooltips  ========== */
 
 $tooltip-text-color: #fff !default;
-$tooltip-background-color: unquote("rgb(#{$palette-accent-600})") !default;
+$tooltip-background-color: unquote("rgb(#{$palette-grey-600})") !default;
 
 /* ==========  Footer  ========== */
 

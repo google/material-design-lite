@@ -54,7 +54,7 @@ body {
 
 .styleguide-masthead {
   height: 256px;
-  background: unquote("rgb(#{nth($palette-primary, 10)})");
+  background: unquote("rgb(#{nth($palette-grey, 10)})");
   padding: 115px 16px 0;
 }
 
