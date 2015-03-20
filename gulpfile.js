@@ -81,9 +81,8 @@ gulp.task('fonts', function () {
 // Compile and Automatically Prefix Stylesheets (dev)
 gulp.task('styles:dev', ['fonts'], function () {
   return gulp.src([
-    'src/**/**/*.scss'
+    'src/**/*.scss'
   ])
-    .pipe($.changed('.tmp/styles', {extension: '.css'}))
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -204,8 +203,8 @@ gulp.task('serve', ['styles:dev'], function () {
     server: ['.tmp', 'src', '.tmp/styles']
   });
 
-  gulp.watch(['src/**/**/**/*.html'], reload);
-  gulp.watch(['src/**/**/*.{scss,css}'], ['styles:dev', reload]);
+  gulp.watch(['src/**/*.html'], reload);
+  gulp.watch(['src/**/*.{scss,css}'], ['styles:dev', reload]);
   gulp.watch(['src/**/*.js'], ['jshint']);
 });
 
