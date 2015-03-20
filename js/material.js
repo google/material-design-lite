@@ -47,16 +47,23 @@ var componentHandler = (function() {
    * will have.
    */
   function upgradeDomInternal(jsClass, cssClass) {
-    if (cssClass === undefined) {
-      var registeredClass = findRegisteredClass_(jsClass);
-      if (registeredClass) {
-        cssClass = registeredClass.cssClass;
+    if (jsClass === undefined && cssClass === undefined) {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        upgradeDomInternal(registeredComponents_[i].className,
+            registeredComponents_[i].cssClass);
       }
-    }
+    } else {
+      if (cssClass === undefined) {
+        var registeredClass = findRegisteredClass_(jsClass);
+        if (registeredClass) {
+          cssClass = registeredClass.cssClass;
+        }
+      }
 
-    var elements = document.querySelectorAll('.' + cssClass);
-    for (var n = 0; n < elements.length; n++) {
-      upgradeElementInternal(elements[n], jsClass);
+      var elements = document.querySelectorAll('.' + cssClass);
+      for (var n = 0; n < elements.length; n++) {
+        upgradeElementInternal(elements[n], jsClass);
+      }
     }
   }
 
@@ -166,7 +173,8 @@ window.addEventListener('load', function() {
    * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
    * components requiring JavaScript.
    */
-  if ('classList' in document.createElement('div') && 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
+  if ('classList' in document.createElement('div') && 'querySelector' in document &&
+      'addEventListener' in window && Array.prototype.forEach) {
     document.documentElement.classList.add('wsk-js');
     componentHandler.upgradeAllRegistered();
   } else {
@@ -508,6 +516,7 @@ MaterialCheckbox.prototype.init = function() {
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
@@ -520,7 +529,6 @@ MaterialCheckbox.prototype.init = function() {
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
@@ -744,6 +752,7 @@ MaterialIconToggle.prototype.init = function() {
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
@@ -756,7 +765,6 @@ MaterialIconToggle.prototype.init = function() {
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add('is-upgraded');
@@ -1406,6 +1414,7 @@ MaterialRadio.prototype.init = function() {
           this.CssClasses_.WSK_RADIO_RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
@@ -1422,7 +1431,6 @@ MaterialRadio.prototype.init = function() {
 
     this.element_.addEventListener('mouseup', this.onMouseup_.bind(this));
 
-    rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
@@ -1892,6 +1900,7 @@ MaterialSwitch.prototype.init = function() {
           this.CssClasses_.WSK_SWITCH_RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
@@ -1908,7 +1917,6 @@ MaterialSwitch.prototype.init = function() {
 
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add('is-upgraded');
@@ -2041,7 +2049,7 @@ function MaterialTab(tab, ctx) {
     tab.addEventListener('click', function(e) {
       e.preventDefault();
       var href = tab.href.split('#')[1];
-      var panel = document.querySelector('#' + href);
+      var panel = ctx.element_.querySelector('#' + href);
       ctx.resetTabState_();
       ctx.resetPanelState_();
       tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
@@ -2284,11 +2292,17 @@ MaterialTooltip.prototype.init = function() {
 
   if (this.element_) {
     var forElId = this.element_.getAttribute('for');
-    var forEl = document.getElementById(forElId);
+    var forEl = null;
 
-    forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
-        false);
-    forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    if (forElId) {
+      forEl = document.getElementById(forElId);
+    }
+
+    if (forEl) {
+      forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
+          false);
+      forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    }
   }
 };
 
@@ -2661,23 +2675,23 @@ MaterialRipple.prototype.Constant_ = {
  * @private
  */
 MaterialRipple.prototype.CssClasses_ = {
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-
-  WSK_RIPPLE: 'wsk-ripple',
-
-  IS_ANIMATING: 'is-animating'
+  RIPPLE_CENTER: 'wsk-ripple--center',
+  RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  RIPPLE: 'wsk-ripple',
+  IS_ANIMATING: 'is-animating',
+  IS_VISIBLE: 'is-visible'
 };
 
-
 /**
- * Handle click of element.
+ * Handle mouse / finger down on element.
  * @param {Event} event The event that fired.
  * @private
  */
 MaterialRipple.prototype.downHandler_ = function(event) {
   'use strict';
+
+  console.log(event);
+  this.rippleElement_.classList.add(this.CssClasses_.IS_VISIBLE);
 
   if (event.type === 'mousedown' && this.ignoringMouseDown_) {
     this.ignoringMouseDown_ = false;
@@ -2709,6 +2723,18 @@ MaterialRipple.prototype.downHandler_ = function(event) {
   }
 };
 
+/**
+ * Handle mouse / finger up on element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialRipple.prototype.upHandler_ = function(event) {
+  'use strict';
+
+  console.log(2, event);
+
+  this.rippleElement_.classList.remove(this.CssClasses_.IS_VISIBLE);
+};
 
 /**
  * Initialize element.
@@ -2718,11 +2744,11 @@ MaterialRipple.prototype.init = function() {
 
   if (this.element_) {
     var recentering =
-        this.element_.classList.contains(this.CssClasses_.WSK_RIPPLE_CENTER);
+        this.element_.classList.contains(this.CssClasses_.RIPPLE_CENTER);
     if (!this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
+        this.CssClasses_.RIPPLE_EFFECT_IGNORE_EVENTS)) {
       this.rippleElement_ = this.element_.querySelector('.' +
-          this.CssClasses_.WSK_RIPPLE);
+          this.CssClasses_.RIPPLE);
       this.frameCount_ = 0;
       this.rippleSize_ = 0;
       this.x_ = 0;
@@ -2735,7 +2761,8 @@ MaterialRipple.prototype.init = function() {
 
       if (this.rippleElement_) {
         var bound = this.element_.getBoundingClientRect();
-        this.rippleSize_ = Math.max(bound.width, bound.height) * 2;
+        this.rippleSize_ = Math.sqrt(bound.width * bound.width +
+            bound.height * bound.height) * 2 + 2;
         this.rippleElement_.style.width = this.rippleSize_ + 'px';
         this.rippleElement_.style.height = this.rippleSize_ + 'px';
       }
@@ -2743,6 +2770,10 @@ MaterialRipple.prototype.init = function() {
       this.element_.addEventListener('mousedown', this.downHandler_.bind(this));
       this.element_.addEventListener('touchstart',
           this.downHandler_.bind(this));
+
+      this.element_.addEventListener('mouseup', this.upHandler_.bind(this));
+      this.element_.addEventListener('touchend', this.upHandler_.bind(this));
+      this.element_.addEventListener('blur', this.upHandler_.bind(this));
 
       this.getFrameCount = function() {
         return this.frameCount_;
@@ -2787,10 +2818,8 @@ MaterialRipple.prototype.init = function() {
           this.rippleElement_.style.transform = transformString;
 
           if (start) {
-            this.rippleElement_.style.opacity = this.Constant_.INITIAL_OPACITY;
             this.rippleElement_.classList.remove(this.CssClasses_.IS_ANIMATING);
           } else {
-            this.rippleElement_.style.opacity = this.Constant_.FINAL_OPACITY;
             this.rippleElement_.classList.add(this.CssClasses_.IS_ANIMATING);
           }
         }
@@ -2806,7 +2835,6 @@ MaterialRipple.prototype.init = function() {
     }
   }
 };
-
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.

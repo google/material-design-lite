@@ -16,9 +16,13 @@
   overflow         : hidden;
 
   &.is-animating {
-    transition: transform 0.6s $animation-curve-linear-out-slow-in,
-    width 0.6s $animation-curve-linear-out-slow-in,
-    height 0.6s $animation-curve-linear-out-slow-in,
+    transition: transform 0.3s $animation-curve-linear-out-slow-in,
+    width 0.3s $animation-curve-linear-out-slow-in,
+    height 0.3s $animation-curve-linear-out-slow-in,
     opacity 0.6s $animation-curve-linear-out-slow-in;
+  }
+
+  &.is-visible {
+    opacity: 0.3;
   }
 }
