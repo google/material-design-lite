@@ -13,14 +13,14 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
     <div class="wsk-layout-spacer"></div>
     <!-- Navigation -->
     <nav class="wsk-layout-navigation">
-      <a class="wsk-layout-navigation-link" href="">Hello</a>
+      <a class="wsk-navigation__link" href="">Hello</a>
       (...)
     </nav>
   </div>
   <div class="wsk-layout__drawer">
     <span class="wsk-layout-title">Material Design Lite</span>
     <nav class="wsk-layout-navigation">
-      <a class="wsk-layout-navigation-link" href="">Hello</a>
+      <a class="wsk-navigation__link" href="">Hello</a>
       (...)
     </nav>
   </div>
@@ -248,14 +248,14 @@ Your content goes here :)
   </div>
   ```
 
-- `wsk-layout-navigation` and `wsk-layout-navigation-link`:
+- `wsk-layout-navigation` and `wsk-navigation__link`:
   Used to place a navigation section and navigation links, respectively. They're
   styled differently depending on whether they're placed in the header or the
   drawer.
   ```html
   <div class="wsk-layout__header">
     <nav class="wsk-layout-navigation">
-      <a class="wsk-layout-navigation-link" href="">Hello</a>
+      <a class="wsk-navigation__link" href="">Hello</a>
       (...)
     </nav>
   </div>
@@ -263,7 +263,7 @@ Your content goes here :)
   ```html
   <div class="wsk-layout__drawer">
     <nav class="wsk-layout-navigation">
-      <a class="wsk-layout-navigation-link" href="">Hello</a>
+      <a class="wsk-navigation__link" href="">Hello</a>
       (...)
     </nav>
   </div>
