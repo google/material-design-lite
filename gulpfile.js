@@ -227,3 +227,13 @@ gulp.task('default', ['clean','mocha'], function (cb) {
 });
 
 gulp.task('test', ['jshint', 'mocha']);
+
+gulp.task('test:visual', function() {
+  browserSync({
+    notify: false,
+    server: './',
+    startPath: 'test/visual/index.html'
+  });
+
+  gulp.watch(['test/visual/**'], reload);
+});
