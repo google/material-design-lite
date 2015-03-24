@@ -609,7 +609,7 @@ dt {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -623,8 +623,10 @@ dt {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
@@ -1047,7 +1049,7 @@ dt {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -1061,8 +1063,10 @@ dt {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 /**
  *
@@ -1123,13 +1127,13 @@ dt {
     background: rgb(63,81,181);
     color: rgb(255,255,255); }
     .wsk-button--raised.wsk-button--colored:hover {
-      background-color: rgb(57,73,171); }
+      background-color: rgb(63,81,181); }
     .wsk-button--raised.wsk-button--colored:active {
-      background-color: rgb(57,73,171); }
+      background-color: rgb(63,81,181); }
     .wsk-button--raised.wsk-button--colored:focus:not(:active) {
-      background-color: rgb(57,73,171); }
+      background-color: rgb(63,81,181); }
     .wsk-button--raised.wsk-button--colored .wsk-ripple {
-      background: white; }
+      background: rgb(255,255,255); }
   .wsk-button--raised[disabled][disabled] {
     background-color: rgba(0, 0, 0, 0.12);
     color: rgba(0, 0, 0, 0.26);
@@ -1168,16 +1172,16 @@ dt {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
     background-color: rgba(153, 153, 153, 0.4); }
   .wsk-button--fab.wsk-button--colored {
-    background: rgb(236,64,122);
+    background: rgb(255,64,129);
     color: rgb(255,255,255); }
     .wsk-button--fab.wsk-button--colored:hover {
-      background-color: rgb(233,30,99); }
+      background-color: rgb(255,64,129); }
     .wsk-button--fab.wsk-button--colored:focus:not(:active) {
-      background-color: rgb(216,27,96); }
+      background-color: rgb(255,64,129); }
     .wsk-button--fab.wsk-button--colored:active {
-      background-color: rgb(216,27,96); }
+      background-color: rgb(255,64,129); }
     .wsk-button--fab.wsk-button--colored .wsk-ripple {
-      background: white; }
+      background: rgb(255,255,255); }
   .wsk-button--fab[disabled][disabled] {
     background-color: rgba(0, 0, 0, 0.12);
     color: rgba(0, 0, 0, 0.26);
@@ -1647,7 +1651,7 @@ dt {
   border-radius: 2px; }
 
 .wsk-card--img-container {
-  background-color: rgb(236,64,122);
+  background-color: rgb(255,64,129);
   background-repeat: repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -1705,7 +1709,7 @@ dt {
   width: 90%; }
 
 .wsk-card--caption {
-  background: rgb(26,35,126) none repeat scroll 0 0/auto padding-box border-box;
+  background: rgb(48,63,159) none repeat scroll 0 0/auto padding-box border-box;
   border: 0 none white;
   color: white;
   font-size: 12px;
@@ -1720,7 +1724,7 @@ dt {
 
 .wsk-card--lower {
   border: 0 none #444444;
-  color: rgb(26,35,126);
+  color: rgb(63,81,181);
   font-size: 13px;
   height: 108px;
   line-height: 18px;
@@ -1743,7 +1747,7 @@ dt {
   border-right: 0 none #303f9f;
   border-top: 1px solid #ebebeb;
   box-sizing: border-box;
-  color: rgb(26,35,126);
+  color: rgb(48,63,159);
   cursor: pointer;
   display: inline-block;
   font-size: 13px;
@@ -1797,7 +1801,7 @@ dt {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -1811,8 +1815,10 @@ dt {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 .wsk-checkbox {
   position: relative;
@@ -4635,7 +4641,7 @@ dt {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -4649,8 +4655,10 @@ dt {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 .wsk-icon-toggle {
   position: relative;
@@ -5147,7 +5155,7 @@ dt {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -5161,8 +5169,10 @@ dt {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 .wsk-menu__container {
   display: block;
@@ -8683,7 +8693,7 @@ dt {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -8697,8 +8707,10 @@ dt {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 .wsk-radio {
   position: relative;
@@ -9539,7 +9551,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -9553,8 +9565,10 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 .wsk-switch {
   position: relative;
@@ -9595,7 +9609,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   border-radius: 14px;
   cursor: pointer; }
   .wsk-switch.is-checked .wsk-switch__track {
-    background: rgba(rgb(63,81,181), 0.5); }
+    background: rgba(63,81,181, 0.5); }
   .wsk-switch.is-disabled .wsk-switch__track {
     background: rgba(0, 0, 0, 0.12);
     cursor: auto; }
@@ -10089,7 +10103,7 @@ dt {
 **/
 /* ==========  Color Palettes  ========== */
 .wsk-ripple {
-  background: rgb(33,33,33);
+  background: rgb(66,66,66);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -10103,8 +10117,10 @@ dt {
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .wsk-ripple.is-visible {
+    opacity: 0.3; }
 
 .wsk-tabs {
   display: block;
@@ -10720,7 +10736,7 @@ dt {
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
-  background: rgb(216,27,96);
+  background: rgb(117,117,117);
   border-radius: 5px;
   color: #fff;
   display: none;
@@ -10777,7 +10793,7 @@ body {
 
 .styleguide-masthead {
   height: 256px;
-  background: rgb(26,35,126);
+  background: rgb(33,33,33);
   padding: 115px 16px 0; }
 
 .styleguide-container {

@@ -17,31 +17,26 @@
 
 .demo-layout__content {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-primary-100})"), unquote("rgb(#{$palette-primary-50})"));
+  background: linear-gradient(unquote("rgb(#{$palette-grey-50})"), unquote("rgb(#{$palette-grey-300})"));
   padding: 8px;
 }
 
 .demo-layout__content-red {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-red-100})"), unquote("rgb(#{$palette-red-50})"));
+  background: linear-gradient(unquote("rgb(#{$palette-red-50})"), unquote("rgb(#{$palette-red-100})"));
   padding: 8px;
 }
 
 .demo-layout__content-green {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-green-100})"), unquote("rgb(#{$palette-green-50})"));
+  background: linear-gradient(unquote("rgb(#{$palette-green-50})"), unquote("rgb(#{$palette-green-100})"));
   padding: 8px;
 }
 
 .demo-layout__content-blue {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-blue-100})"), unquote("rgb(#{$palette-blue-50})"));
+  background: linear-gradient(unquote("rgb(#{$palette-blue-50})"), unquote("rgb(#{$palette-blue-100})"));
   padding: 8px;
-}
-
-// Styles for fixed drawer demos.
-.demo-layout .wsk-layout__header .wsk-textfield__input {
-  color: unquote("rgb(#{$text-color-primary-contrast})");
 }
 
 // Styles for fixed header demo.
