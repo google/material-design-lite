@@ -237,3 +237,13 @@ gulp.task('test:visual', function() {
 
   gulp.watch(['test/visual/**'], reload);
 });
+
+gulp.task('test:templates', function() {
+  browserSync({
+    notify: false,
+    server: './',
+    startPath: 'templates/starter/index.html'
+  });
+
+  gulp.watch(['test/visual/**'], reload);
+})
