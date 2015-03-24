@@ -11,13 +11,16 @@ $layout-drawer-width: $layout-drawer-narrow;
 
 $layout-header-icon-size: 32px;
 $layout-screen-size-threshold: 850px;
+$layout-header-icon-margin: 24px;
+$layout-drawer-button-mobile-size: 32px;
+$layout-drawer-button-desktop-size: 48px;
 
 $layout-header-mobile-row-height: 56px;
 $layout-mobile-header-height: $layout-header-mobile-row-height;
 $layout-header-desktop-row-height: 64px;
 $layout-desktop-header-height: $layout-header-desktop-row-height;
-$layout-header-mobile-indent: 72px;
-$layout-header-desktop-indent: 80px;
+$layout-header-mobile-indent: 56px;
+$layout-header-desktop-indent: 72px;
 $layout-header-basic-mobile-indent: 16px;
 $layout-header-basic-desktop-indent: 24px;
 
@@ -161,53 +164,50 @@ $layout-tab-highlight-thickness: 2px;
   .wsk-layout__drawer-button {
     display: block;
 
-    position: relative;
-    height: 32px;
-    width: 32px;
+    position: absolute;
+    height: $layout-drawer-button-desktop-size;
+    width: $layout-drawer-button-desktop-size;
     border: 0;
 
     flex-shrink: 0;
 
     overflow: hidden;
+    text-align: center;
+    cursor: pointer;
     font-size: 26px;
-    line-height: 32px;
+    line-height: $layout-drawer-button-desktop-size + 2;
     font-family: Helvetica, Arial, sans-serif;
-    margin: 8px;
+    margin: 8px 12px;
+    top: 0;
+    left: 0;
+    color: $layout-header-text-color;
 
-    color: rgba(0, 0, 0, 0.5);
-
-    z-index: 3;
+    z-index: 4;
 
     &::after {
       @include wsk-icon();
       content: $icon-menu;
     }
 
-    .wsk-layout--overlay-drawer-button > & {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
     .wsk-layout__header & {
       position: absolute;
-      left: $layout-header-basic-desktop-indent;
-      top: ($layout-desktop-header-height - $layout-header-icon-size) / 2;
-      height: $layout-header-icon-size;
-      margin: 0;
-      width: $layout-header-icon-size;
       color: $layout-header-text-color;
       background-color: inherit;
-      z-index: 5;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        left: $layout-header-basic-mobile-indent;
-        top: ($layout-mobile-header-height - $layout-header-icon-size) / 2;
+        margin: 4px;
       }
     }
 
+    @media screen and (max-width: $layout-screen-size-threshold) {
+      margin: 4px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      display: none;
+      .wsk-layout--fixed-drawer > & {
+        display: none;
+      }
     }
   }
 
@@ -228,13 +228,21 @@ $layout-tab-highlight-thickness: 2px;
     @include material-animation-default();
     @include shadow-z1();
     transition-property: min-height, box-shadow;
-    padding-left: $layout-header-desktop-indent;
+    padding-left: $layout-header-basic-desktop-indent;
     overflow: hidden;
+
+    .wsk-layout.has-drawer & {
+      padding-left: $layout-header-desktop-indent;
+    }
 
     @media screen and (max-width: $layout-screen-size-threshold) {
       height: $layout-mobile-header-height;
       min-height: $layout-mobile-header-height;
-      padding-left: $layout-header-mobile-indent;
+      padding-left: $layout-header-basic-mobile-indent;
+
+      .wsk-layout.has-drawer & {
+        padding-left: $layout-header-mobile-indent;
+      }
     }
 
     .wsk-layout--fixed-drawer:not(.is-small-screen) > & {
@@ -242,15 +250,17 @@ $layout-tab-highlight-thickness: 2px;
     }
 
     & > .wsk-layout-icon {
-      position: absolute;
+      margin-right: $layout-header-icon-margin;
       left: $layout-header-basic-desktop-indent;
       top: ($layout-desktop-header-height - $layout-header-icon-size) / 2;
       height: $layout-header-icon-size;
       width: $layout-header-icon-size;
       overflow: hidden;
       z-index: 3;
+      display: block;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
+        margin-right: $layout-header-basic-mobile-indent;
         left: $layout-header-basic-mobile-indent;
         top: ($layout-mobile-header-height - $layout-header-icon-size) / 2;
       }
@@ -387,13 +397,11 @@ $layout-tab-highlight-thickness: 2px;
       }
 
       & > .wsk-layout-icon {
-        position: absolute;
-        left: $layout-header-basic-desktop-indent;
-        top: ($layout-header-desktop-row-height - $layout-header-icon-size) / 2;
+        margin-right: $layout-header-icon-margin;
         height: $layout-header-icon-size;
         width: $layout-header-icon-size;
         overflow: hidden;
-        z-index: 3;
+        display: block;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           left: $layout-header-basic-mobile-indent;
@@ -421,23 +429,21 @@ $layout-tab-highlight-thickness: 2px;
     }
 
   // Obfuscator.
-  @media screen and (max-width: $layout-screen-size-threshold) {
-    .wsk-layout__obfuscator {
-      background-color: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 4;
-      visibility: hidden;
-      transition-property: background-color;
-      @include material-animation-default();
+  .wsk-layout__obfuscator {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    visibility: hidden;
+    transition-property: background-color;
+    @include material-animation-default();
 
-      .wsk-layout__drawer.is-visible ~ & {
-        background-color: rgba(0, 0, 0, 0.5);
-        visibility: visible;
-      }
+    .wsk-layout__drawer.is-visible ~ & {
+      background-color: rgba(0, 0, 0, 0.5);
+      visibility: visible;
     }
   }
 
@@ -480,7 +486,7 @@ $layout-tab-highlight-thickness: 2px;
     height: $layout-tab-bar-height * 2;
     width: calc(100% -
         #{(($layout-header-desktop-indent - $layout-tab-desktop-padding) * 2)});
-    padding: 0 0 0 $layout-header-desktop-indent - $layout-tab-desktop-padding;
+    padding: 0 0 0 $layout-header-desktop-indent;
     display: flex;
     background-color: $layout-header-bg-color;
     overflow-y: hidden;
@@ -493,7 +499,7 @@ $layout-tab-highlight-thickness: 2px;
     @media screen and (max-width: $layout-screen-size-threshold) {
       width: calc(100% -
           #{($layout-header-mobile-indent - $layout-tab-mobile-padding)});
-      padding: 0 0 0 $layout-header-mobile-indent - $layout-tab-mobile-padding;
+      padding: 0 0 0 $layout-header-mobile-indent;
     }
 
     .wsk-layout--fixed-tabs & {
@@ -531,7 +537,7 @@ $layout-tab-highlight-thickness: 2px;
     position: absolute;
     height: $layout-tab-bar-height;
     line-height: $layout-tab-bar-height;
-    width: $layout-header-desktop-indent - $layout-tab-desktop-padding;
+    width: $layout-header-desktop-indent;
     z-index: 4;
     text-align: center;
     background-color: $layout-header-bg-color;
