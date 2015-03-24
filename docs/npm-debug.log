@@ -1,0 +1,89 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/Users/ewag/.node/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'gulp-through2' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 warn package.json gulp-marked@1.0.0 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'gulp-through2', null ]
+7 verbose cache add name=undefined spec="gulp-through2" args=["gulp-through2",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'gulp-through2',
+8 verbose parsed url   path: 'gulp-through2',
+8 verbose parsed url   href: 'gulp-through2' }
+9 silly lockFile b6af8d96-gulp-through2 gulp-through2
+10 verbose lock gulp-through2 /Users/ewag/.npm/b6af8d96-gulp-through2.lock
+11 silly lockFile b6af8d96-gulp-through2 gulp-through2
+12 silly lockFile b6af8d96-gulp-through2 gulp-through2
+13 verbose addNamed [ 'gulp-through2', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 54c26716-gulp-through2 gulp-through2@
+16 verbose lock gulp-through2@ /Users/ewag/.npm/54c26716-gulp-through2.lock
+17 silly addNameRange { name: 'gulp-through2', range: '*', hasData: false }
+18 verbose request where is /gulp-through2
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id eb25d4917c6b5d6b
+21 verbose url raw /gulp-through2
+22 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-through2' ]
+23 verbose url resolved https://registry.npmjs.org/gulp-through2
+24 verbose request where is https://registry.npmjs.org/gulp-through2
+25 info trying registry request attempt 1 at 11:35:57
+26 http GET https://registry.npmjs.org/gulp-through2
+27 http 404 https://registry.npmjs.org/gulp-through2
+28 verbose headers { date: 'Mon, 23 Mar 2015 11:35:58 GMT',
+28 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 verbose headers   'content-type': 'application/json',
+28 verbose headers   'cache-control': 'max-age=0',
+28 verbose headers   'content-length': '51',
+28 verbose headers   'accept-ranges': 'bytes',
+28 verbose headers   via: '1.1 varnish',
+28 verbose headers   age: '0',
+28 verbose headers   'x-served-by': 'cache-lcy1123-LCY',
+28 verbose headers   'x-cache': 'MISS',
+28 verbose headers   'x-cache-hits': '0',
+28 verbose headers   'x-timer': 'S1427110558.217679,VS0,VE358',
+28 verbose headers   'keep-alive': 'timeout=10, max=50',
+28 verbose headers   connection: 'Keep-Alive' }
+29 silly registry.get cb [ 404,
+29 silly registry.get   { date: 'Mon, 23 Mar 2015 11:35:58 GMT',
+29 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=0',
+29 silly registry.get     'content-length': '51',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '0',
+29 silly registry.get     'x-served-by': 'cache-lcy1123-LCY',
+29 silly registry.get     'x-cache': 'MISS',
+29 silly registry.get     'x-cache-hits': '0',
+29 silly registry.get     'x-timer': 'S1427110558.217679,VS0,VE358',
+29 silly registry.get     'keep-alive': 'timeout=10, max=50',
+29 silly registry.get     connection: 'Keep-Alive' } ]
+30 silly lockFile 54c26716-gulp-through2 gulp-through2@
+31 silly lockFile 54c26716-gulp-through2 gulp-through2@
+32 error 404 404 Not Found: gulp-through2
+32 error 404
+32 error 404 'gulp-through2' is not in the npm registry.
+32 error 404 You should bug the author to publish it
+32 error 404 It was specified as a dependency of 'material-design-lite'
+32 error 404
+32 error 404 Note that you can also install from a
+32 error 404 tarball, folder, or http url, or git url.
+33 error System Darwin 13.4.0
+34 error command "node" "/Users/ewag/.node/bin/npm" "install" "--save-dev" "gulp-through2"
+35 error cwd /Users/ewag/projects/wsk/material-design-lite/docs
+36 error node -v v0.10.35
+37 error npm -v 1.4.28
+38 error code E404
+39 verbose exit [ 1, true ]
