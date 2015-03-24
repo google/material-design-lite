@@ -609,6 +609,22 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -628,6 +644,22 @@ dt {
             transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
   .wsk-ripple.is-visible {
     opacity: 0.3; }
+
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
@@ -1042,6 +1074,22 @@ dt {
 .wsk-shadow--z5 {
   box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
 
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 /**
 *
 * Material design color palettes.
@@ -1049,6 +1097,22 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -1794,6 +1858,22 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 /**
 *
 * Material design color palettes.
@@ -1801,6 +1881,22 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -4634,6 +4730,22 @@ dt {
 .wsk-shadow--z5 {
   box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
 
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 /**
 *
 * Material design color palettes.
@@ -4641,6 +4753,22 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -5105,6 +5233,22 @@ dt {
 .wsk-typography--font-black {
   font-weight: 900 !important; }
 
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 /**
 *
 * Material design color palettes.
@@ -5155,6 +5299,22 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -5728,6 +5888,22 @@ dt {
 
 .wsk-typography--font-black {
   font-weight: 900 !important; }
+
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
@@ -8686,6 +8862,22 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 /**
 *
 * Material design color palettes.
@@ -8693,6 +8885,22 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -8841,6 +9049,22 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9118,6 +9342,22 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-spinner {
   display: inline-block;
   position: relative;
@@ -9529,6 +9769,22 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-shadow--z1 {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
@@ -9551,6 +9807,22 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -9726,6 +9998,22 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
@@ -10103,6 +10391,22 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-ripple {
   background: rgb(66,66,66);
   border-radius: 50%;
@@ -10221,6 +10525,22 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .wsk-textfield {
   position: relative;
   font-size: 16px;
@@ -10360,6 +10680,22 @@ dt {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+.wsk-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wsk-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
