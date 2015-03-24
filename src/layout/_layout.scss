@@ -266,6 +266,10 @@ $layout-tab-highlight-thickness: 2px;
       }
     }
 
+    .wsk-layout.has-drawer & > .wsk-layout-icon {
+      display: none;
+    }
+
     &.is-compact {
       min-height: $layout-header-desktop-row-height;
 
@@ -407,6 +411,10 @@ $layout-tab-highlight-thickness: 2px;
           left: $layout-header-basic-mobile-indent;
           top: ($layout-header-mobile-row-height - $layout-header-icon-size) / 2;
         }
+      }
+
+      .wsk-layout.has-drawer & > .wsk-layout-icon {
+        display: none;
       }
 
       & > * {
