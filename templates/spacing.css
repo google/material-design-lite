@@ -1,0 +1,21 @@
+h1, h2, h3 {
+  margin-bottom: 30px;
+}
+
+.wsk-card h1, .wsk-card h2, .wsk-card h3 {
+  margin-bottom: inherit;
+}
+
+p {
+  margin-bottom: 20px;
+  letter-spacing: .1px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 30px;
+}
+
+.demo-layout__content {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  max-width: 1160px;
+  margin: auto;
+}

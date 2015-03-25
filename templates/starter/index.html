@@ -28,6 +28,7 @@
 
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../material.min.css">
+    <link rel="stylesheet" href="../spacing.css">
     <style>
     #view-source {
       position: fixed;
@@ -46,28 +47,51 @@
       display: inline-block;
       margin-right: 20px;
     }
+
+    header > .wsk-layout__header-row:nth-of-type(1) > span {
+       font-size: 1em;
+    }
+
+    header > .wsk-layout__header-row:nth-of-type(2) > span {
+       font-size: 3em;
+    }
+
+    .wsk-layout__header.is-compact #my_text_changes:after {
+      content: " \0000a0 > \0000a0 Starter Template";
+    }
+
     </style>
   </head>
   <body>
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--overlay-drawer-button">
-      <header class="wsk-layout__header">
+      <header class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--waterfall wsk-layout__header--tall">
+        <!-- Top row -->
         <div class="wsk-layout__header-row">
-          <span class="wsk-layout-title">Starter Template</span>
+          <!-- Icon -->
+          <img class="wsk-layout-icon" src="../demo-images/app-icon.png"/>
+          <!-- Title -->
+          <span id="my_text_changes">Material Design Lite</span>
+          <div class="wsk-layout-spacer"></div>
         </div>
+        <!-- Middle row, subtitle -->
+        <div class="wsk-layout__header-row">
+          <span class="wsk-typography--title">
+            Starter Template
+          </span>
+        </div>
+        <!-- Bottom row -->
         <div class="wsk-layout__header-row">
           <div class="wsk-layout-spacer"></div>
-          <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label wsk-textfield--align-right">
-            <label class="wsk-button wsk-js-button wsk-button--icon" for="sample-expclean">
-              <span class="wsk-icon wsk-icon--search"/>
-            </label>
-            <div class="wsk-textfield__expandable-holder">
-              <input class="wsk-textfield__input" type="text" name="sample" id="sample-expclean" />
-            </div>
-          </div>
+          <!-- Only show when expanded, check CSS -->
+          <nav class="wsk-navigation" id="expanded_navigation">
+            <a class="wsk-navigation__link" href="#">Twitter</a>
+            <a class="wsk-navigation__link" href="#">Facebook</a>
+            <a class="wsk-navigation__link" href="#">LinkedIn</a>
+          </nav>
         </div>
       </header>
       <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Material Design Lite</span>
+        <span class="wsk-layout-title">MDL</span>
         <nav class="wsk-navigation">
           <a class="wsk-navigation__link" href="#">Lorem</a>
           <a class="wsk-navigation__link" href="#">Ipsum</a>
@@ -117,7 +141,7 @@
             Quis deserunt dolore laborum ex aute ipsum fugiat. Consectetur dolore voluptate sunt sit elit laboris aliqua laborum esse in enim nostrud. Proident do eu sit sunt ea et mollit aliquip ea et laboris voluptate. Lorem occaecat reprehenderit elit ea minim qui qui laborum ea veniam tempor fugiat sit nostrud. Ex laborum sit aliquip veniam duis ea laboris veniam excepteur commodo exercitation consequat cupidatat. Veniam irure excepteur adipisicing esse aliqua dolore. Magna minim sit excepteur veniam elit nisi commodo adipisicing elit labore et.
             Veniam cupidatat ad ullamco sint sint adipisicing dolor. Aliqua ex incididunt qui ipsum consectetur. Aute eiusmod nostrud laboris occaecat culpa in. Duis reprehenderit est et ipsum non consectetur ex laboris et nisi sunt. Nisi esse officia qui proident est ut proident. Lorem labore culpa dolore anim aute officia. Minim esse eu voluptate laborum ex proident ea nulla esse do.
           </p>
-
+          <h3>Cards</h3>
           <div class="wsk-card wsk-shadow--z1">
             <div class="wsk-card--img-container">
             </div>
