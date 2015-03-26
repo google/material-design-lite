@@ -73,7 +73,8 @@ MaterialLayout.prototype.CssClasses_ = {
   SMALL_SCREEN_CLASS: 'is-small-screen',
   DRAWER_OPEN_CLASS: 'is-visible',
   ACTIVE_CLASS: 'is-active',
-  UPGRADED_CLASS: 'is-upgraded'
+  UPGRADED_CLASS: 'is-upgraded',
+  ANIMATING_CLASS: 'is-animating'
 };
 
 /**
@@ -83,12 +84,18 @@ MaterialLayout.prototype.CssClasses_ = {
 MaterialLayout.prototype.contentScrollHandler_ = function() {
   'use strict';
 
-  if (this.content_.scrollTop > 0) {
+  if(this.header_.classList.contains(this.CssClasses_.ANIMATING_CLASS)) {
+    return;
+  }
+
+  if (this.content_.scrollTop > 0 && !this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.add(this.CssClasses_.COMPACT_CLASS);
-  } else {
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  } else if (this.content_.scrollTop <= 0 && this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
   }
 };
 
@@ -119,6 +126,19 @@ MaterialLayout.prototype.drawerToggleHandler_ = function() {
   'use strict';
 
   this.drawer_.classList.toggle(this.CssClasses_.DRAWER_OPEN_CLASS);
+};
+
+/**
+ *
+ */
+MaterialLayout.prototype.headerTransitionEndHandler = function() {
+  'use strict';
+
+  this.header_.classList.remove(this.CssClasses_.ANIMATING_CLASS);
+  // If, after contraction, we are at the top, avoid re-expansion
+  // if(this.content_.scrollTop == 0 && this.element_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
+  //   this.noExpand = true;
+  // }
 };
 
 /**
@@ -177,6 +197,8 @@ MaterialLayout.prototype.init = function() {
       } else if (this.header_.classList.contains(
           this.CssClasses_.HEADER_WATERFALL)) {
         mode = this.Mode_.WATERFALL;
+        this.header_.addEventListener('transitionend',
+          this.headerTransitionEndHandler.bind(this));
       } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
