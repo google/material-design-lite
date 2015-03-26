@@ -66,6 +66,7 @@ MaterialButton.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
     this.element_.addEventListener('mouseup', this.blurHandler.bind(this));
+    this.element_.addEventListener('mouseleave', this.blurHandler.bind(this));
   }
 };
 
