@@ -129,16 +129,24 @@ MaterialLayout.prototype.drawerToggleHandler_ = function() {
 };
 
 /**
- *
+ * Handles (un)setting the `is-animating` class
  */
 MaterialLayout.prototype.headerTransitionEndHandler = function() {
   'use strict';
 
   this.header_.classList.remove(this.CssClasses_.ANIMATING_CLASS);
-  // If, after contraction, we are at the top, avoid re-expansion
-  // if(this.content_.scrollTop == 0 && this.element_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
-  //   this.noExpand = true;
-  // }
+};
+
+/**
+ * Handles expanding the header on click
+ */
+MaterialLayout.prototype.headerClickHandler = function() {
+  'use strict';
+
+  if(this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
+    this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  }
 };
 
 /**
@@ -199,6 +207,8 @@ MaterialLayout.prototype.init = function() {
         mode = this.Mode_.WATERFALL;
         this.header_.addEventListener('transitionend',
           this.headerTransitionEndHandler.bind(this));
+        this.header_.addEventListener('click',
+          this.headerClickHandler.bind(this));
       } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
