@@ -8327,45 +8327,42 @@ dt {
 
 .wsk-layout__drawer-button {
   display: block;
-  position: relative;
-  height: 32px;
-  width: 32px;
+  position: absolute;
+  height: 48px;
+  width: 48px;
   border: 0;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
   overflow: hidden;
+  text-align: center;
+  cursor: pointer;
   font-size: 26px;
-  line-height: 32px;
+  line-height: 50px;
   font-family: Helvetica, Arial, sans-serif;
-  margin: 8px;
-  color: rgba(0, 0, 0, 0.5);
-  z-index: 3; }
+  margin: 8px 12px;
+  top: 0;
+  left: 0;
+  color: rgb($color-primary-contrast);
+  z-index: 4; }
   .wsk-layout__drawer-button::after {
     font-family: 'Material-Design-Iconic-Font';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     content: "\f2a1"; }
-  .wsk-layout--overlay-drawer-button > .wsk-layout__drawer-button {
-    position: absolute;
-    top: 0;
-    left: 0; }
   .wsk-layout__header .wsk-layout__drawer-button {
     position: absolute;
-    left: 24px;
-    top: 16px;
-    height: 32px;
-    margin: 0;
-    width: 32px;
     color: rgb($color-primary-contrast);
-    background-color: inherit;
-    z-index: 5; }
+    background-color: inherit; }
     @media screen and (max-width: 850px) {
       .wsk-layout__header .wsk-layout__drawer-button {
-        left: 16px;
-        top: 12px; } }
-  @media screen and (min-width: 851px) {
+        margin: 4px; } }
+  @media screen and (max-width: 850px) {
     .wsk-layout__drawer-button {
+      margin: 4px;
+      color: rgba(0, 0, 0, 0.5); } }
+  @media screen and (min-width: 851px) {
+    .wsk-layout--fixed-drawer > .wsk-layout__drawer-button {
       display: none; } }
 
 .wsk-layout__header {
@@ -8399,27 +8396,35 @@ dt {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
   -webkit-transition-property: min-height, box-shadow;
           transition-property: min-height, box-shadow;
-  padding-left: 80px;
+  padding-left: 24px;
   overflow: hidden; }
+  .wsk-layout.has-drawer .wsk-layout__header {
+    padding-left: 72px; }
   @media screen and (max-width: 850px) {
     .wsk-layout__header {
       height: 56px;
       min-height: 56px;
-      padding-left: 72px; } }
+      padding-left: 16px; }
+      .wsk-layout.has-drawer .wsk-layout__header {
+        padding-left: 56px; } }
   .wsk-layout--fixed-drawer:not(.is-small-screen) > .wsk-layout__header {
     padding-left: 24px; }
   .wsk-layout__header > .wsk-layout-icon {
-    position: absolute;
+    margin-right: 24px;
     left: 24px;
     top: 16px;
     height: 32px;
     width: 32px;
     overflow: hidden;
-    z-index: 3; }
+    z-index: 3;
+    display: block; }
     @media screen and (max-width: 850px) {
       .wsk-layout__header > .wsk-layout-icon {
+        margin-right: 16px;
         left: 16px;
         top: 12px; } }
+  .wsk-layout.has-drawer .wsk-layout__header > .wsk-layout-icon {
+    display: none; }
   .wsk-layout__header.is-compact {
     min-height: 64px; }
     @media screen and (max-width: 850px) {
@@ -8537,17 +8542,17 @@ dt {
     .wsk-layout__header-row.wsk-layout__header-row {
       min-height: 56px; } }
   .wsk-layout__header-row.wsk-layout__header-row > .wsk-layout-icon {
-    position: absolute;
-    left: 24px;
-    top: 16px;
+    margin-right: 24px;
     height: 32px;
     width: 32px;
     overflow: hidden;
-    z-index: 3; }
+    display: block; }
     @media screen and (max-width: 850px) {
       .wsk-layout__header-row.wsk-layout__header-row > .wsk-layout-icon {
         left: 16px;
         top: 12px; } }
+  .wsk-layout.has-drawer .wsk-layout__header-row.wsk-layout__header-row > .wsk-layout-icon {
+    display: none; }
   .wsk-layout__header-row.wsk-layout__header-row > * {
     -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
@@ -8560,25 +8565,24 @@ dt {
   .wsk-layout__header-row.wsk-layout__header-row > .wsk-navigation:last-child {
     margin-right: 0; }
 
-@media screen and (max-width: 850px) {
-  .wsk-layout__obfuscator {
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 4;
-    visibility: hidden;
-    -webkit-transition-property: background-color;
-            transition-property: background-color;
-    -webkit-transition-duration: 0.2s;
-            transition-duration: 0.2s;
-    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-    .wsk-layout__drawer.is-visible ~ .wsk-layout__obfuscator {
-      background-color: rgba(0, 0, 0, 0.5);
-      visibility: visible; } }
+.wsk-layout__obfuscator {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  visibility: hidden;
+  -webkit-transition-property: background-color;
+          transition-property: background-color;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .wsk-layout__drawer.is-visible ~ .wsk-layout__obfuscator {
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: visible; }
 
 .wsk-layout__content {
   -ms-flex: 0 1 auto;
@@ -8606,8 +8610,8 @@ dt {
   top: 0;
   height: 96px;
   width: calc(100% -
-        112px);
-  padding: 0 0 0 56px;
+        96px);
+  padding: 0 0 0 72px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8620,8 +8624,8 @@ dt {
   @media screen and (max-width: 850px) {
     .wsk-layout__tab-bar {
       width: calc(100% -
-          60px);
-      padding: 0 0 0 60px; } }
+          44px);
+      padding: 0 0 0 56px; } }
   .wsk-layout--fixed-tabs .wsk-layout__tab-bar {
     padding: 0;
     overflow: hidden;
@@ -8655,7 +8659,7 @@ dt {
   position: absolute;
   height: 48px;
   line-height: 48px;
-  width: 56px;
+  width: 72px;
   z-index: 4;
   text-align: center;
   background-color: rgb($color-primary);
@@ -8668,7 +8672,7 @@ dt {
   @media screen and (max-width: 850px) {
     .wsk-layout__tab-bar-button {
       display: none;
-      width: 60px; } }
+      width: 44px; } }
   .wsk-layout--fixed-tabs .wsk-layout__tab-bar-button {
     display: none; }
   .wsk-layout__tab-bar-button.is-active {
