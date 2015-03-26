@@ -131,6 +131,7 @@ MaterialRipple.prototype.init = function() {
           this.downHandler_.bind(this));
 
       this.element_.addEventListener('mouseup', this.upHandler_.bind(this));
+      this.element_.addEventListener('mouseleave', this.upHandler_.bind(this));
       this.element_.addEventListener('touchend', this.upHandler_.bind(this));
       this.element_.addEventListener('blur', this.upHandler_.bind(this));
 
