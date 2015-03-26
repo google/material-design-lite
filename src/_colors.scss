@@ -173,6 +173,10 @@ $range-bg-color: rgba(0, 0, 0, 0.26) !default;
 $range-color: unquote("rgb(#{$color-primary})") !default;
 $range-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 
+/* ========== Progress ========== */
+$progress-primary-color: unquote("rgb(#{$color-primary})") !default;
+$progress-background-color: unquote("rgb(#{$color-primary-dark})") !default;
+
 /* ==========  List ========== */
 
 $list-container-item-border-color: #ddd !default;

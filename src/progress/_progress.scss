@@ -1,0 +1,22 @@
+@import "../colors";
+@import "../animation/animation";
+
+$bar-height: 4px !default;
+
+.wsk-js-progress {
+  display: block;
+  position: relative;
+  height: $bar-height;
+  background-color: $progress-background-color;
+}
+
+.wsk-js-progress > div {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background-color: $progress-primary-color;
+  transition: width 0.2s $animation-curve-default;
+}
