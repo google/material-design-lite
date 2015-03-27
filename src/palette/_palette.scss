@@ -2239,3 +2239,25 @@
 .wsk-color--blue-grey-900 {
   background-color: unquote("rgb(#{$palette-blue-grey-900})");
 }
+
+
+// Black
+
+.wsk-color-text--black {
+  color: unquote("rgb(#{$palette-black})");
+}
+
+.wsk-color--black {
+  background-color: unquote("rgb(#{$palette-black})");
+}
+
+
+// White
+
+.wsk-color-text--white {
+  color: unquote("rgb(#{$palette-white})");
+}
+
+.wsk-color--white {
+  background-color: unquote("rgb(#{$palette-white})");
+}

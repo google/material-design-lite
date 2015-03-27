@@ -159,6 +159,15 @@
   padding: 0 0 60px 0;
 }
 
+.demo-palette-single {
+  padding: 15px 15px 25px;
+
+  .demo-palette-name {
+    padding: 0;
+    float: left;    
+  }
+}
+
 .demo-palette--red {
   @include demo-palette-color-groups($palette-red);
 }
@@ -229,8 +238,14 @@
 
 .demo-palette--grey {
   @include demo-palette-color-groups($palette-grey);
+}
 
-  .demo-palette-color--1000 {
+.demo-palette--blue-grey {
+  @include demo-palette-color-groups($palette-blue-grey);
+}
+
+.demo-palette--black {
+  .demo-palette-color {
     background-color: #000000;
 
     &:after {
@@ -238,8 +253,10 @@
       float: right;
     }
   }
+}
 
-  .demo-palette-color--1000-inverse {
+.demo-palette--white {
+  .demo-palette-color {
     background-color: #ffffff;
 
     &:after {
@@ -247,8 +264,4 @@
       float: right;
     }
   }
-}
-
-.demo-palette--blue-grey {
-  @include demo-palette-color-groups($palette-blue-grey);
 }
