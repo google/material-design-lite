@@ -3,6 +3,7 @@
 
 $bar-height: 4px !default;
 
+
 .wsk-js-progress {
   display: block;
   position: relative;
@@ -20,40 +21,38 @@ $bar-height: 4px !default;
 
 .wsk-js-progress > .progressbar {
   background-color: $progress-main-color;
-  background-color: red;
   z-index: 1;
   left: 0;
 }
 
 .wsk-js-progress > .bufferbar {
-  background-color: $progress-buffer-color;
-  background-color: green;
+  background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+    linear-gradient(to right, $progress-main-color, $progress-main-color);
   z-index: 0;
   left: 0;
 }
 
 .wsk-js-progress > .auxbar {
-  background-color: $progress-aux-color;
-  background-color: blue;
+  background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+    linear-gradient(to right, $progress-main-color, $progress-main-color);
   right: 0;
 }
 
 .wsk-js-progress.wsk-progress__indeterminate > .bar1 {
-  background-color: red;
+  background-color: $progress-main-color;
   animation-name: indeterminate1;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;//$animation-curve-default;
+  animation-timing-function: linear;
 }
-.wsk-js-progress.wsk-progress__indeterminate > .bar2 {
-  background-color: green;
-}
+
 .wsk-js-progress.wsk-progress__indeterminate > .bar3 {
-  background-color: blue;
+  background-image: none;
+  background-color: $progress-main-color;
   animation-name: indeterminate2;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;//$animation-curve-default;
+  animation-timing-function: linear;
 }
 
 @keyframes indeterminate1 {
