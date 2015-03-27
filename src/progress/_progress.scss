@@ -33,9 +33,13 @@ $bar-height: 4px !default;
 }
 
 .wsk-js-progress > .auxbar {
+  right: 0;
+}
+
+.wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
   background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
-  right: 0;
+  mask-image: url(circle.svg);
 }
 
 .wsk-js-progress.wsk-progress__indeterminate > .bar1 {
