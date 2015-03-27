@@ -8,33 +8,25 @@ Text fields are a common feature of most user interfaces, regardless of a site's
 The enhanced text field component has a more vivid visual look than a standard text field, and may be initially or programmatically *disabled*.
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 There are three main types of text fields in the text field component, each with its own basic coding requirements. The types are *single-line*, *multi-line*, and *expandable*.
 
 ###To include a *single-line* MDL **text field** component:
 
-&nbsp;1. Code a standard HTML `<div>...</div>` container to hold the text field.
+&nbsp;1. Code a `<div>` element to hold the text field.
 ```html
 <div>
 ...
 </div>
 ```
-&nbsp;2. Inside the div container, code a standard HTML `<input>` element with a `type` attribute of `"text"` (the text field), and an `id` attribute of your choice.
+&nbsp;2. Inside the div, code an `<input>` element with a `type` attribute of `"text"` (the text field), and an `id` attribute of your choice.
 ```html
 <div>
   <input type="text" id="user" />
 </div>
 ```
-&nbsp;3. Also inside the div container, after the text field, code a standard HTML `<label>` element with a `for` attribute whose value matches the `input` element's `id` value, and a short string to be used as the field's placeholder text.
+&nbsp;3. Also inside the div, after the text field, code a `<label>` element with a `for` attribute whose value matches the `input` element's `id` value, and a short string to be used as the field's placeholder text.
 ```html
 <div>
   <input type="text" id="user" />
@@ -49,7 +41,7 @@ There are three main types of text fields in the text field component, each with
   <span>Letters and spaces only</span>
 </div>
 ```
-&nbsp;5. Add one or more MDL-specific CSS classes, separated by spaces, to the div container, text field, field label, and error message using the HTML `class` attribute.
+&nbsp;5. Add one or more MDL classes, separated by spaces, to the div container, text field, field label, and error message using the `class` attribute.
 ```html
 <div class="wsk-input">
   <input class="wsk-textfield wsk-js-textfield" type="text" id="user" pattern="[A-Z,a-z, ]*" />
@@ -89,26 +81,26 @@ Single-line text field with a standard label, pattern matching, and error messag
 
 ###To include a *multi-line* MDL **text field** component:
 
-&nbsp;1. Code a standard HTML `<div>...</div>` container to hold the text field.
+&nbsp;1. Code a `<div>` element to hold the text field.
 ```html
 <div>
 ...
 </div>
 ```
-&nbsp;2. Inside the div container, code a standard HTML `<textarea>` element with a `type` attribute of `"text"` (the multi-line text field), and an `id` attribute of your choice. Include a `rows` attribute with a value of `"1"` (this attribute sets the number of *concurrently visible* input rows).
+&nbsp;2. Inside the div, code a `<textarea>` element with a `type` attribute of `"text"` (the multi-line text field), and an `id` attribute of your choice. Include a `rows` attribute with a value of `"1"` (this attribute sets the number of *concurrently visible* input rows).
 ```html
 <div>
   <textarea type="text" rows="1" id="address"></textarea>
 </div>
 ```
-&nbsp;3. Also inside the div container, after the text field, code a standard HTML `<label>` element with a `for` attribute whose value matches the `<textarea>` element's `id` value, and a short string to be used as the field's placeholder text.
+&nbsp;3. Also inside the div, after the text field, code a `<label>` element with a `for` attribute whose value matches the `<textarea>` element's `id` value, and a short string to be used as the field's placeholder text.
 ```html
 <div>
   <textarea type="text" rows="1" id="address"></textarea>
   <label for="address">Full address</label>
 </div>
 ```
-&nbsp;4. Add one or more MDL-specific CSS classes, separated by spaces, to the div container, text field, and field label using the HTML `class` attribute.
+&nbsp;4. Add one or more MDL classes, separated by spaces, to the div container, text field, and field label using the `class` attribute.
 ```html
 <div class="wsk-input">
   <textarea class="wsk-textfield wsk-js-textfield" type="text" rows="1" id="address"></textarea>
@@ -146,13 +138,13 @@ Multi-line text field with multiple visible input lines and a maximum number of 
 
 ###To include an *expandable* MDL **text field** component:
 
-&nbsp;1. Code an "outer" HTML `<div>...</div>` container to hold the expandable text field.
+&nbsp;1. Code an "outer" `<div>` element to hold the expandable text field.
 ```html
 <div>
 ...
 </div>
 ```
-&nbsp;2. Inside the div container, code a standard HTML `<label>` element with a `for` attribute whose value will match the `<input>` element's `id` value (to be coded in step 5).
+&nbsp;2. Inside the div, code a `<label>` element with a `for` attribute whose value will match the `<input>` element's `id` value (to be coded in step 5).
 ```html
 <div>
   <label for="expando1">
@@ -160,7 +152,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
   </label>
 </div>
 ```
-&nbsp;3. Inside the label, code a standard HTML `<span>` element; the span should be empty, and should be the label's only content. This element will contain the expandable text field's icon.
+&nbsp;3. Inside the label, code a `<span>` element; the span should be empty, and should be the label's only content. This element will contain the expandable text field's icon.
 ```html
 <div>
   <label for="expando1">
@@ -168,7 +160,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
   </label>
 </div>
 ```
-&nbsp;4. Still inside the "outer" div, after the label containing the span, code an "inner" (nested) `<div>...</div>` container.
+&nbsp;4. Still inside the "outer" div, after the label containing the span, code an "inner" (nested) `<div>` element.
 ```html
 <div>
   <label for="expando1">
@@ -179,7 +171,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
   </div>
 </div>
 ```
-&nbsp;5. Inside the "inner" div, code a standard HTML `<input>` element with a `type` attribute of `"text"` (the text field), and an `id` attribute whose value matches that of the `for` attribute in step 2.
+&nbsp;5. Inside the "inner" div, code an `<input>` element with a `type` attribute of `"text"` (the text field), and an `id` attribute whose value matches that of the `for` attribute in step 2.
 ```html
 <div>
   <label for="expando1">
@@ -190,7 +182,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
   </div>
 </div>
 ```
-&nbsp;6. Still inside the "inner" div, after the text field, code a standard HTML `<label>` element with a `for` attribute whose value also matches the `<input>` element's `id` value (coded in step 5), and a short string to be used as the field's placeholder text.
+&nbsp;6. Still inside the "inner" div, after the text field, code a `<label>` element with a `for` attribute whose value also matches the `<input>` element's `id` value (coded in step 5), and a short string to be used as the field's placeholder text.
 ```html
 <div>
   <label for="expando1">
@@ -202,7 +194,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
   </div>
 </div>
 ```
-&nbsp;7. Add one or more MDL-specific CSS classes, separated by spaces, to the "outer" div container, label, and span, and to the "inner" div container, text field, and field label using the HTML `class` attribute.
+&nbsp;7. Add one or more MDL classes, separated by spaces, to the "outer" div container, label, and span, and to the "inner" div container, text field, and field label using the `class` attribute.
 ```html
 <div class="wsk-input">
   <label class="wsk-textfield-expandable-icon wsk-label" for="expando1">

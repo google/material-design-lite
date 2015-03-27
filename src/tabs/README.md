@@ -6,24 +6,16 @@ The Material Design Lite (MDL) **tab** component is a user interface element tha
 Tabs are an established but non-standardized feature in user interfaces, and allow users to view different, but often related, blocks of content (often called *panels*). Tabs save screen real estate and provide intuitive and logical access to data while reducing navigation and associated user confusion. Their design and use is an important factor in the overall user experience. See the tab component's [Material Design specifications page](http://www.google.com/design/spec/components/tabs.html) for details. 
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include a set of MDL **tab** components:
 
-&nbsp;1. Code a standard HTML `<div>...</div>` container; this is the "outer" div, intended to hold all of the tabs and their content.
+&nbsp;1. Code a `<div>` element; this is the "outer" div, intended to contain all of the tabs and their content.
 ```html
 <div>
 </div>
 ```
-&nbsp;2. Inside the "outer" div, code an "inner" div for the tabs themselves, and one for each tab's content, all siblings. That is, for three content tabs, you would code four "inner" divs.
+&nbsp;2. Inside the "outer" div, code one "inner" div for the tabs themselves, and one for each tab's content, all siblings. That is, for three content tabs, you would code four "inner" divs.
 ```html
 <div>
   <div>
@@ -40,7 +32,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </div>
 ```
-&nbsp;3. Inside the first "inner" div (the tabs), code one HTML anchor `<a>` (link) tag for each tab. Include `href` attributes with values to match the tabs' `id` attribute values, and some brief link text. On the remaining "inner" divs (the content), code `id` attributes whose values match the links' `href`s.
+&nbsp;3. Inside the first "inner" div (the tabs), code one anchor `<a>` (link) tag for each tab. Include `href` attributes with values to match the tabs' `id` attribute values, and some brief link text. On the remaining "inner" divs (the content), code `id` attributes whose values match the links' `href`s.
 ```html
 <div>
   <div>
@@ -78,7 +70,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </div>
 ```
-&nbsp;5. Add one or more MDL-specific CSS classes, separated by spaces, to the "outer" and "inner" divs using the HTML `class` attribute; be sure to include the `is-active` class on the tab you want to be displayed by default.
+&nbsp;5. Add one or more MDL classes, separated by spaces, to the "outer" and "inner" divs using the `class` attribute; be sure to include the `is-active` class on the tab you want to be displayed by default.
 ```html
 <div class="wsk-tabs wsk-js-tabs">
   <div class="wsk-tabs__tab-bar">

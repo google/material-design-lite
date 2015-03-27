@@ -8,31 +8,23 @@ Sliders are a fairly new feature in user interfaces, and allow users to choose a
 The enhanced slider component may be initially or programmatically *disabled*.
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **slider** component:
 
-&nbsp;1. Code a standard HTML paragraph `<p>...</p>` container and style it as desired. Include a CSS `width` property (directly or via a CSS class), which determines the slider's size.
+&nbsp;1. Code a `<p>` paragraph element and style it as desired. Include a CSS `width` property (directly or via a CSS class), which determines the slider's size.
 ```html
 <p style="width:300px">
 ...
 </p>
 ```
-&nbsp;2. Inside the paragraph container, code a standard HTML `<input>` element and give it a `type` attribute whose value is `"range"`. Also give it an `id` attribute to make it available for scripting, and `min` and `max` attributes whose values specify the slider's range. Give it a `value` attribute whose value sets the initial thumb position (optional; if omitted, defaults to 50% of the maximum), and a `step` attribute whose value specifies the increment by which the thumb moves (also optional; if omitted, defaults to 1). Finally, give it an event handler to be executed when the user changes the slider's value.
+&nbsp;2. Inside the paragraph container, code an `<input>` element and give it a `type` attribute whose value is `"range"`. Also give it an `id` attribute to make it available for scripting, and `min` and `max` attributes whose values specify the slider's range. Give it a `value` attribute whose value sets the initial thumb position (optional; if omitted, defaults to 50% of the maximum), and a `step` attribute whose value specifies the increment by which the thumb moves (also optional; if omitted, defaults to 1). Finally, give it an event handler to be executed when the user changes the slider's value.
 ```html
 <p style="width:300px">
   <input type="range" id="s1" min="0" max="10" value="4" step="2" />
 </p>
 ```
-&nbsp;3. Add one or more MDL-specific CSS classes, separated by spaces, to the slider using the HTML `class` attribute.
+&nbsp;3. Add one or more MDL classes, separated by spaces, to the slider using the `class` attribute.
 ```html
 <p style="width:300px">
   <input class="wsk-slider wsk-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />

@@ -8,38 +8,30 @@ Checkboxes are a common feature of most user interfaces, regardless of a site's 
 The enhanced checkbox component has a more vivid visual look than a standard checkbox, and may be initially or programmatically *disabled*.
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **checkbox** component:
 
-&nbsp;1. Code a standard HTML `<label>...</label>` container and give it a `for` attribute whose value is the unique id of the checkbox it will contain. (The `for` attribute is optional when the `<input>` element is contained inside the `<label>` element, but is recommended for clarity.)
+&nbsp;1. Code a `<label>` element and give it a `for` attribute whose value is the unique id of the checkbox it will contain. The `for` attribute is optional when the `<input>` element is contained inside the `<label>` element, but is recommended for clarity.
 ```html
 <label for="chkbox1">
 ...
 </label>
 ```
-&nbsp;2. Inside the label container, code a standard HTML `<input>` element and give it a `type` attribute whose value is `"checkbox"`. Also give it an `id` attribute whose value matches the label's `for` attribute value.
+&nbsp;2. Inside the label, code an `<input>` element and give it a `type` attribute whose value is `"checkbox"`. Also give it an `id` attribute whose value matches the label's `for` attribute value.
 ```html
 <label for="chkbox1">
   <input type="checkbox" id="chkbox1" />
 </label>
 ```
-&nbsp;3. Also inside the label container, after the checkbox, code a standard HTML `<span>` element containing the checkbox's text caption.
+&nbsp;3. Also inside the label, after the checkbox, code a `<span>` element containing the checkbox's text caption.
 ```html
 <label for="chkbox1">
   <input type="checkbox" id="chkbox1" />
   <span>Enable AutoSave</span>
 </label>
 ```
-&nbsp;4. Add one or more MDL-specific CSS classes, separated by spaces, to the label, checkbox, and caption using the HTML `class` attribute.
+&nbsp;4. Add one or more MDL classes, separated by spaces, to the label, checkbox, and caption using the `class` attribute.
 ```html
 <label for="chkbox1" class="wsk-checkbox wsk-js-checkbox">
   <input type="checkbox" id="chkbox1" class="wsk-checkbox__input" />

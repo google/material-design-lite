@@ -8,23 +8,15 @@ Buttons are a ubiquitous feature of most user interfaces, regardless of a site's
 The available button display types are *flat* (default), *raised*, *fab*, *mini-fab*, and *icon*; any of these types may be plain (light gray) or *colored*, and may be initially or programmatically *disabled*. The *fab*, *mini-fab*, and *icon* button types typically use a small image as their caption rather than text.
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **button** component:
 
-&nbsp;1. Code a standard HTML `<button>` element. Include any desired attributes and values, such as an id or event handler, and add a text caption or image as appropriate.
+&nbsp;1. Code a `<button>` element. Include any desired attributes and values, such as an id or event handler, and add a text caption or image as appropriate.
 ```html
 <button>Save</button>
 ```
-&nbsp;2. Add one or more MDL-specific CSS classes, separated by spaces, to the button using the HTML `class` attribute.
+&nbsp;2. Add one or more MDL classes, separated by spaces, to the button using the `class` attribute.
 ```html
 <button class="wsk-button wsk-js-button wsk-button--raised">Save</button>
 ```

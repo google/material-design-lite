@@ -8,19 +8,11 @@ An MDL-enhanced list takes two basic forms: *inline* and *styled-view*. An inlin
 Lists are a common feature in user interfaces, and allow users to view (and sometimes choose) an item from the series. Their design and use is an important factor in the overall user experience. See the list component's [Material Design specifications page](http://www.google.com/design/spec/components/lists.html) for details. 
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **inline list** component:
 
-&nbsp;1. Code a standard HTML `<ul>...</ul>` container. Inside the unordered list, include one `<li>...</li>` element for each list item to be presented horizontally. That is, for four list items, you would code four `<li>`s.
+&nbsp;1. Code a `<ul>` element. Inside the unordered list, include one `<li>` element for each list item to be presented horizontally. That is, for four list items, you would code four `<li>`s.
 ```html
 <ul>
   <li></li>
@@ -29,7 +21,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <li></li>
 </ul>
 ```
-&nbsp;2. Inside the list item elements, place whatever content you want, in the order you want it to appear. Typically, this will be short text strings, but might include small images, links, or other valid HTML content. Remember that the items will be presented horizontally on their own text line, without bullets or other intervening marks.
+&nbsp;2. Inside the list item elements, place whatever content you want, in the order you want it to appear. Typically, this will be short text strings, but might include small images, links, or other valid HTML content. Remember that the items will be presented inline (horizontally), without bullets or other intervening marks.
 ```html
 <ul>
   <li>Item1</li>
@@ -38,7 +30,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <li>Item4</li>
 </ul>
 ```
-&nbsp;3. Add the MDL-specific CSS class to the list container using the HTML `class` attribute.
+&nbsp;3. Add the MDL class to the list using the `class` attribute.
 ```html
 <ul class="wsk-list--inline">
   <li>Item1</li>
@@ -77,7 +69,7 @@ An inline list with links.
 
 ###To include an MDL **styled-view list** component:
 
-&nbsp;1. Code a standard HTML `<div>...</div>` container; this will hold the styled list. Inside the div, code a standard HTML `<ul>...</ul>` unordered list; inside the unordered list, include one `<li>...</li>` element for each styled list item to be presented. That is, for four list items, you would code four `<li>`s.
+&nbsp;1. Code a `<div>` element; this will hold the styled list. Inside the div, code a `<ul>` element; inside this unordered list, include one `<li>` element for each styled list item to be presented. That is, for four list items, you would code four `<li>`s.
 ```html
 <div>
   <ul>
@@ -96,7 +88,7 @@ An inline list with links.
   </ul>
 </div>
 ```
-&nbsp;2. Inside each list item, code two HTML `<span>...</span>` elements. The first span should have no content (although it can &mdash; see **Examples** below), and the second should contain whatever content you want to display. Typically, this will be short text strings.
+&nbsp;2. Inside each list item, code two `<span>` elements. The first span should have no content (although it can &mdash; see **Examples** below), and the second should contain whatever content you want to display. Typically, this will be short text strings.
 ```html
 <div>
   <ul>
@@ -119,7 +111,7 @@ An inline list with links.
   </ul>
 </div>
 ```
-&nbsp;3. Add MDL-specific CSS classes to the div and the spans using the HTML `class` attribute.
+&nbsp;3. Add MDL classes to the div and the spans using the `class` attribute.
 ```html
 <div class="wsk-list--styled-view">
   <ul>

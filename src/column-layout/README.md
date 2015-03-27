@@ -8,19 +8,11 @@ The MDL column-layout is best suited for short lines of content, such as those t
 Column-layouts are an established but non-standardized feature in most user interfaces, and provide users with a way to conveniently access content that might otherwise take up too much screen space. Their design and use is an important factor in the overall user experience. See the column-layout component's [Material Design specifications page](http://www.google.com/design/spec/components/column-layouts.html) for details. 
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **column-layout** component:
 
-&nbsp;1. Code a standard HTML `<div>` container element; this is the "outer" div, intended to hold all of the columns' text items.
+&nbsp;1. Code a `<div>` element; this is the "outer" container, intended to hold all of the columns' text items.
 ```html
 <div>
 </div>
@@ -40,7 +32,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <div>etc.</div>
 </div>
 ```
-&nbsp;3. Add one or more MDL-specific CSS classes, separated by spaces, to the "outer" and "inner" divs using the HTML `class` attribute.
+&nbsp;3. Add one or more MDL classes, separated by spaces, to the "outer" and "inner" divs using the `class` attribute.
 ```html
 <div class="wsk-column-layout">
   <div class="wsk-column-layout__child">Apples</div>

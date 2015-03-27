@@ -8,19 +8,11 @@ Cards are a convenient means of coherently displaying related content that is co
 Cards are a fairly new feature in user interfaces, and allow users an access point to more complex and detailed information. Their design and use is an important factor in the overall user experience. See the card component's [Material Design specifications page](http://www.google.com/design/spec/components/cards.html) for details. 
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **card** component:
 
-&nbsp;1. Code a standard HTML div `<div>...</div>` container; this is the "outer" div, intended to hold all of the card's content.
+&nbsp;1. Code a `<div>` element; this is the "outer" container, intended to hold all of the card's content.
 ```html
 <div>
 </div>
@@ -42,7 +34,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </div>
 ```
-&nbsp;3. Add one or more MDL-specific CSS classes, separated by spaces, to the "outer" div and the "inner" divs (depending on their intended use) using the HTML `class` attribute.
+&nbsp;3. Add one or more MDL classes, separated by spaces, to the "outer" div and the "inner" divs (depending on their intended use) using the `class` attribute.
 ```html
 <div class="wsk-card">
   <div class="wsk-card--heading">
@@ -59,7 +51,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </div>
 ```
-&nbsp;4. Add content to each "inner" div, again depending on its intended use, using standard HTML elements and, optionally, additional MDL-specific classes.
+&nbsp;4. Add content to each "inner" div, again depending on its intended use, using standard HTML elements and, optionally, additional MDL classes.
 ```html
 <div class="wsk-card">
   <div class="wsk-card--heading">

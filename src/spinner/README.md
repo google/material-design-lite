@@ -8,23 +8,15 @@ A spinner performs no action itself, either by its display nor when the user cli
 Spinners are a fairly new feature of most user interfaces, and provide users with a consistent visual cue about ongoing activity, regardless of hardware device,  operating system, or browser environment. Their design and use is an important factor in the overall user experience.
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **spinner** component:
 
-&nbsp;1. Code a standard HTML container element, such as a `<div>`, `<p>`, or `<span>`; the container should have no content of its own.
+&nbsp;1. Code an element, such as a `<div>`, `<p>`, or `<span>`, to contain the spinner; the element should have no content of its own.
 ```html
 <div></div>
 ```
-&nbsp;2. Add one or more MDL-specific CSS classes, separated by spaces, to the container using the HTML `class` attribute.
+&nbsp;2. Add one or more MDL classes, separated by spaces, to the container using the `class` attribute.
 ```html
 <div class="wsk-spinner wsk-js-spinner is-active"></div>
 ```

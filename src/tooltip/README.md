@@ -6,28 +6,20 @@ The Material Design Lite (MDL) **tooltip** component is an enhanced version of t
 Tooltips are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is an important factor in the overall user experience. See the tooltip component's [Material Design specifications page](http://www.google.com/design/spec/components/tooltips.html) for details. 
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **tooltip** component:
 
-&nbsp;1. Code a standard HTML container element, such as a `<div>`, `<p>`, or `<span>`, and style it as desired; this will be the tooltip's target. Include an `id` attribute and unique value to link the container to its tooltip.
+&nbsp;1. Code an element, such as a `<div>`, `<p>`, or `<span>`, and style it as desired; this will be the tooltip's target. Include an `id` attribute and unique value to link the container to its tooltip.
 ```html
 <p id="tt1">HTML</p>
 ```
-&nbsp;2. Following the target container, code a second standard HTML container, such as a `<div>`, `<p>`, or `<span>`; this will be the tooltip itself. Include a `for` attribute whose value matches that of the target's `id`. 
+&nbsp;2. Following the target element, code a second element, such as a `<div>`, `<p>`, or `<span>`; this will be the tooltip itself. Include a `for` attribute whose value matches that of the target's `id`. 
 ```html
 <p id="tt1">HTML</p>
 <span for="tt1">HyperText Markup Language</span>
 ```
-&nbsp;3. Add one or more MDL-specific CSS classes, separated by spaces, to the tooltip container using the HTML `class` attribute.
+&nbsp;3. Add one or more MDL classes, separated by spaces, to the tooltip element using the `class` attribute.
 ```html
 <p id="tt1">HTML</p>
 <span for="tt1" class="wsk-tooltip">HyperText Markup Language</span>

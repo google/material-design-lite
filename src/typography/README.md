@@ -18,11 +18,11 @@ MDL typography does not require the inclusion of the minified CSS and JavaScript
 
 ###To include an MDL **typography** component:
 
-&nbsp;1. Code virtually any standard HTML element (`<div>`,`<p>`,`<span>`, etc.) that can contain text, including whatever content is appropriate.
+&nbsp;1. Code any element (`<div>`,`<p>`,`<span>`, etc.) that can contain text, including whatever content is appropriate.
 ```html
 <p>This is a standard paragraph.</p>
 ```
-&nbsp;2. Add one or more MDL-specific CSS classes, separated by spaces, to the element using the HTML `class` attribute.
+&nbsp;2. Add one or more MDL classes, separated by spaces, to the element using the `class` attribute.
 ```html
 <p class="wsk-typography--body-1">This is a standard paragraph.</p>
 ```

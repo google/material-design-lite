@@ -8,19 +8,11 @@ An MDL footer component takes two basic forms: *mega-footer* and *mini-footer*. 
 Footers, as represented by this component, are a fairly new feature in user interfaces, and allow users to view discrete blocks of content in a coherent and consistently organized way. Their design and use is an important factor in the overall user experience. 
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **mega-footer** component:
 
-&nbsp;1a. Code a standard HTML5 `<footer>...</footer>` container. Inside the footer, include one `<div>...</div>` container for each content section, typically three: *top*, *middle*, and *bottom*.
+&nbsp;1a. Code a `<footer>` element. Inside the footer, include one `<div>` element for each content section, typically three: *top*, *middle*, and *bottom*.
 ```html
 <footer>
   <div>
@@ -34,7 +26,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </footer>
 ```
-&nbsp;1b. Add the appropriate MDL-specific CSS classes to the footer and divs using the HTML `class` attribute.
+&nbsp;1b. Add the appropriate MDL classes to the footer and divs using the `class` attribute.
 ```html
 <footer class="wsk-mega-footer">
   <div class="wsk-mega-footer--top-section">
@@ -67,7 +59,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </footer>
 ```
-&nbsp;2b. Add the appropriate MDL-specific CSS classes to the two "inner" left and right divs using the HTML `class` attribute.
+&nbsp;2b. Add the appropriate MDL classes to the two "inner" left and right divs using the `class` attribute.
 ```html
 <footer class="wsk-mega-footer">
   <div class="wsk-mega-footer--top-section">
@@ -110,7 +102,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </footer>
 ```
-&nbsp;3b. Add the appropriate MDL-specific CSS classes to the two "inner" drop-down divs using the HTML `class` attribute.
+&nbsp;3b. Add the appropriate MDL classes to the two "inner" drop-down divs using the `class` attribute.
 ```html
 <footer class="wsk-mega-footer">
   <div class="wsk-mega-footer--top-section">
@@ -163,7 +155,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </footer>
 ```
-&nbsp;4b. Add the appropriate MDL-specific CSS classes to the "inner" div heading and list using the HTML `class` attribute.
+&nbsp;4b. Add the appropriate MDL classes to the "inner" div heading and list using the `class` attribute.
 ```html
 <footer class="wsk-mega-footer">
   <div class="wsk-mega-footer--top-section">
@@ -191,7 +183,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   </div>
 </footer>
 ```
-&nbsp;5. Add content to the top (left and right), middle (drop-downs), and bottom (text and links) sections of the footer; include any appropriate MDL-specific CSS classes using the HTML `class` attribute.
+&nbsp;5. Add content to the top (left and right), middle (drop-downs), and bottom (text and links) sections of the footer; include any appropriate MDL classes using the `class` attribute.
 ```html
 <footer class="wsk-mega-footer">
   <div class="wsk-mega-footer--top-section">
@@ -292,7 +284,7 @@ A mega-footer component with three sections and two drop-down sections in the mi
 
 ###To include an MDL **mini-footer** component:
 
-&nbsp;1a. Code a standard HTML5 `<footer>...</footer>` container. Inside the footer, code two `<div>...</div>` containers, one for the *left* section and one for the *right* section.
+&nbsp;1a. Code a `<footer>` element. Inside the footer, code two `<div>` elements, one for the *left* section and one for the *right* section.
 ```html
 <footer>
   <div>
@@ -303,7 +295,7 @@ A mega-footer component with three sections and two drop-down sections in the mi
   </div>
 </footer>
 ```
-&nbsp;1b. Add the appropriate MDL-specific CSS classes to the footer and divs using the HTML `class` attribute.
+&nbsp;1b. Add the appropriate MDL classes to the footer and divs using the `class` attribute.
 ```html
 <footer class="wsk-mini-footer">
   <div class="wsk-mini-footer--left-section">
@@ -330,7 +322,7 @@ A mega-footer component with three sections and two drop-down sections in the mi
   </div>
 </footer>
 ```
-&nbsp;2b. Add the appropriate MDL-specific CSS classes to the "inner" div and list using the HTML `class` attribute.
+&nbsp;2b. Add the appropriate MDL classes to the "inner" div and list using the `class` attribute.
 ```html
 <footer class="wsk-mini-footer">
   <div class="wsk-mini-footer--left-section">
@@ -346,7 +338,7 @@ A mega-footer component with three sections and two drop-down sections in the mi
   </div>
 </footer>
 ```
-&nbsp;3. Add content to the left (text and links) and right (text or decoration) sections of the footer; include any appropriate MDL-specific CSS classes using the HTML `class` attribute.
+&nbsp;3. Add content to the left (text and links) and right (text or decoration) sections of the footer; include any appropriate MDL classes using the `class` attribute.
 ```html
 <footer class="wsk-mini-footer">
   <div class="wsk-mini-footer--left-section">

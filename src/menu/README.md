@@ -6,24 +6,16 @@ The Material Design Lite (MDL) **menu** component is a user interface element th
 Menus are an established but non-standardized feature in user interfaces, and allow users to make choices that direct the activity, progress, or characteristics of software. Their design and use is an important factor in the overall user experience. See the menu component's [Material Design specifications page](http://www.google.com/design/spec/components/menus.html) for details. 
 
 ##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page. As always, this assumes that a copy of the MDL package folders resides in your project folder.
-
-```html
-<head>
-<link rel="stylesheet" href="css/material.min.css">
-<script src="js/material.min.js"></script>
-...
-</head>
-```
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ###To include an MDL **menu** component:
 
-&nbsp;1. Code a standard HTML unordered list `<ul>...</ul>`; this is the container that holds the options.
+&nbsp;1. Code a `<ul>` unordered list element; this is the container that holds the options.
 ```html
 <ul>
 </ul>
 ```
-&nbsp;2. Inside the unordered list, code one HTML `<button>` element for each option. Include any desired attributes and values, such as an id or event handler, and add a text caption as appropriate.
+&nbsp;2. Inside the unordered list, code one `<button>` element for each option. Include any desired attributes and values, such as an id or event handler, and add a text caption as appropriate.
 ```html
 <ul>
   <button>Continue</button>
@@ -31,7 +23,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <button>Pause</button>
 </ul>
 ```
-&nbsp;3. Add one or more MDL-specific CSS classes, separated by spaces, to the unordered list and the buttons using the HTML `class` attribute.
+&nbsp;3. Add one or more MDL classes, separated by spaces, to the unordered list and the buttons using the `class` attribute.
 ```html
 <ul class="wsk-dropdown-menu">
   <button class="wsk-item">Continue</button>
