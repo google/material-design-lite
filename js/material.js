@@ -342,6 +342,7 @@ MaterialButton.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
     this.element_.addEventListener('mouseup', this.blurHandler.bind(this));
+    this.element_.addEventListener('mouseleave', this.blurHandler.bind(this));
   }
 };
 
@@ -2379,6 +2380,7 @@ MaterialLayout.prototype.CssClasses_ = {
   TAB_BAR_RIGHT_BUTTON: 'wsk-layout__tab-bar-right-button',
   PANEL: 'wsk-layout__tab-panel',
 
+  HAS_DRAWER_CLASS: 'has-drawer',
   SHADOW_CLASS: 'is-casting-shadow',
   COMPACT_CLASS: 'is-compact',
   SMALL_SCREEN_CLASS: 'is-small-screen',
@@ -2412,8 +2414,7 @@ MaterialLayout.prototype.screenSizeHandler_ = function() {
 
   if (this.screenSizeMediaQuery_.matches) {
     this.element_.classList.add(this.CssClasses_.SMALL_SCREEN_CLASS);
-  }
-  else {
+  } else {
     this.element_.classList.remove(this.CssClasses_.SMALL_SCREEN_CLASS);
     // Collapse drawer (if any) when moving to a large screen size.
     if (this.drawer_) {
@@ -2520,6 +2521,11 @@ MaterialLayout.prototype.init = function() {
       drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
       drawerButton.addEventListener('click',
           this.drawerToggleHandler_.bind(this));
+
+      // Add a class if the layout has a drawer, for altering the left padding.
+      // Adds the HAS_DRAWER_CLASS to the elements since this.header_ may or may
+      // not be present.
+      this.element_.classList.add(this.CssClasses_.HAS_DRAWER_CLASS);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.
@@ -2767,6 +2773,7 @@ MaterialRipple.prototype.init = function() {
           this.downHandler_.bind(this));
 
       this.element_.addEventListener('mouseup', this.upHandler_.bind(this));
+      this.element_.addEventListener('mouseleave', this.upHandler_.bind(this));
       this.element_.addEventListener('touchend', this.upHandler_.bind(this));
       this.element_.addEventListener('blur', this.upHandler_.bind(this));
 
