@@ -174,8 +174,9 @@ $range-color: unquote("rgb(#{$color-primary})") !default;
 $range-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 
 /* ========== Progress ========== */
-$progress-primary-color: unquote("rgb(#{$color-primary})") !default;
-$progress-background-color: unquote("rgb(#{$color-primary-dark})") !default;
+$progress-main-color: unquote("rgb(#{$color-primary})") !default;
+$progress-buffer-color: unquote("rgb(#{$color-primary-contrast})") !default;
+$progress-aux-color: unquote("rgb(#{$color-primary-contrast})") !default;
 
 /* ==========  List ========== */
 

@@ -7,16 +7,35 @@ $bar-height: 4px !default;
   display: block;
   position: relative;
   height: $bar-height;
-  background-color: $progress-background-color;
 }
 
-.wsk-js-progress > div {
+.wsk-js-progress > .bar {
   display: block;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
   width: 0%;
-  background-color: $progress-primary-color;
   transition: width 0.2s $animation-curve-default;
 }
+
+.wsk-js-progress > .progressbar {
+  background-color: $progress-main-color;
+  background-color: red;
+  z-index: 1;
+  left: 0;
+}
+
+.wsk-js-progress > .bufferbar {
+  background-color: $progress-buffer-color;
+  background-color: green;
+  z-index: 0;
+  left: 0;
+}
+
+.wsk-js-progress > .auxbar {
+  background-color: $progress-aux-color;
+  background-color: blue;
+  right: 0;
+}
+
+/* @keyframes indeterminate */
