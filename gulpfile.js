@@ -29,6 +29,7 @@ var reload = browserSync.reload;
 var fs = require('fs');
 var path = require('path');
 var pkg = require('./package.json');
+var through = require('through2');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -49,6 +50,9 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
+
+// ***** Development tasks ****** //
+
 // Lint JavaScript
 gulp.task('jshint', function () {
   return gulp.src('src/**/*.js')
@@ -57,6 +61,9 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
+
+
+// ***** Production build tasks ****** //
 
 // Optimize Images
 // TODO: Update image paths in final CSS to match root/images
@@ -185,38 +192,8 @@ gulp.task('scripts', function () {
     .pipe($.size({title: 'scripts'}));
 });
 
-// Run Unit Tests
-gulp.task('mocha', function () {
-  return gulp.src('./test/index.html')
-    .pipe($.mochaPhantomjs({reporter: 'list'}))
-});
-
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['.tmp', 'css/*', 'js/*', '!dist/.git'], {dot: true}));
-
-// Watch Files For Changes & Reload
-gulp.task('serve', ['styles:dev'], function () {
-  browserSync({
-    notify: false,
-    // Customize the BrowserSync console logging prefix
-    logPrefix: 'WSK',
-    server: ['.tmp', 'src', '.tmp/styles']
-  });
-
-  gulp.watch(['src/**/*.html'], reload);
-  gulp.watch(['src/**/*.{scss,css}'], ['styles:dev', reload]);
-  gulp.watch(['src/**/*.js'], ['jshint']);
-});
-
-// Build and serve the output from the dist build
-gulp.task('serve:dist', ['default'], function () {
-  browserSync({
-    notify: false,
-    logPrefix: 'WSK',
-    server: './',
-    baseDir: 'src'
-  });
-});
+gulp.task('clean', del.bind(null, ['css/*', 'js/*'], {dot: true}));
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean','mocha'], function (cb) {
@@ -224,6 +201,14 @@ gulp.task('default', ['clean','mocha'], function (cb) {
     'styles',
     ['jshint', 'scripts', 'images'],
     cb);
+});
+
+
+// ***** Testing tasks ***** //
+
+gulp.task('mocha', function () {
+  return gulp.src('./test/index.html')
+    .pipe($.mochaPhantomjs({reporter: 'list'}))
 });
 
 gulp.task('test', ['jshint', 'mocha']);
@@ -239,34 +224,7 @@ gulp.task('test:visual', function() {
 });
 
 
-/* ******************************************** */
-
-
-var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync');
-var frontMatter = require('gulp-front-matter');
-var gulp = require('gulp');
-var gulpif = require('gulp-if');
-var header = require('gulp-header');
-var marked = require('gulp-marked');
-var path = require('path');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
-var swig = require('swig');
-var through = require('through2');
-
-
-var AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4.4',
-  'bb >= 10'
-];
+// ***** Landing page tasks ***** //
 
 /**
  * Site metadata for use with templates.
@@ -280,9 +238,6 @@ var site = {};
  * @type {Object}
  */
 var templates = {};
-
-
-var gutil = require('gulp-util');
 
 
 /**
@@ -299,8 +254,8 @@ function applyTemplate() {
     if (!templates[file.page.layout]) {
       var templateFile = path.join(
           __dirname, '_templates', file.page.layout + '.html');
-      gutil.log('Compiling template:', gutil.colors.yellow(file.page.layout));
-      templates[file.page.layout] = swig.compileFile(templateFile);
+      $.util.log('Compiling template:', $.util.colors.yellow(file.page.layout));
+      templates[file.page.layout] = $.swig.compileFile(templateFile);
     }
     var tpl = templates[file.page.layout];
     file.contents = new Buffer(tpl(data), 'utf8');
@@ -316,9 +271,9 @@ function applyTemplate() {
 gulp.task('components', function() {
   return gulp.src('../src/**/README.md', {base: '../src'})
     // Add basic front matter.
-    .pipe(header('---\nlayout: component\n---\n\n'))
-    .pipe(frontMatter({property: 'page', remove: true}))
-    .pipe(marked())
+    .pipe($.header('---\nlayout: component\n---\n\n'))
+    .pipe($.frontMatter({property: 'page', remove: true}))
+    .pipe($.marked())
     .pipe((function () {
       var componentPages = [];
       return through.obj(function(file, enc, cb) {
@@ -333,7 +288,7 @@ gulp.task('components', function() {
       })
     })())
     .pipe(applyTemplate())
-    .pipe(rename(function (path) {
+    .pipe($.rename(function (path) {
         path.basename = "index";
     }))
     .pipe(gulp.dest('out/components'));
@@ -347,11 +302,11 @@ gulp.task('demos', function () {
     return gulp.src([
         '../src/**/demo.*'
       ], {base: '../src'})
-      .pipe(gulpif('*.scss', sass({
+      .pipe($.if('*.scss', $.sass({
         precision: 10,
         onError: console.error.bind(console, 'Sass error:')
       })))
-      .pipe(gulpif('*.css', autoprefixer(AUTOPREFIXER_BROWSERS)))
+      .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
       .pipe(gulp.dest('out/components'));
 });
 
@@ -361,10 +316,10 @@ gulp.task('demos', function () {
  */
 gulp.task('pages', ['components'], function() {
   return gulp.src(['_pages/*.md'])
-    .pipe(frontMatter({property: 'page', remove: true}))
-    .pipe(marked())
+    .pipe($.frontMatter({property: 'page', remove: true}))
+    .pipe($.marked())
     .pipe(applyTemplate())
-    .pipe(rename(function(path) {
+    .pipe($.rename(function(path) {
       if (path.basename !== 'index') {
         path.dirname = path.basename;
         path.basename = 'index';
@@ -387,12 +342,12 @@ gulp.task('assets', function () {
 });
 
 
-gulp.task('default', ['assets', 'pages', 'demos', 'components']);
-
-
-gulp.task('serve', ['assets', 'pages'], function () {
+/**
+ * Serves the landing page from "out" directory.
+ */
+gulp.task('serve', ['assets', 'pages', 'demos'], function () {
   browserSync({
     notify: false,
-    server: ['out']
+    server: ['docs/out']
   });
 });
