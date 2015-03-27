@@ -38,4 +38,54 @@ $bar-height: 4px !default;
   right: 0;
 }
 
-/* @keyframes indeterminate */
+.wsk-js-progress.wsk-progress__indeterminate > .bar1 {
+  background-color: red;
+  animation-name: indeterminate1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;//$animation-curve-default;
+}
+.wsk-js-progress.wsk-progress__indeterminate > .bar2 {
+  background-color: green;
+}
+.wsk-js-progress.wsk-progress__indeterminate > .bar3 {
+  background-color: blue;
+  animation-name: indeterminate2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;//$animation-curve-default;
+}
+
+@keyframes indeterminate1 {
+  0% {
+    left: 0%;
+    width: 0%;
+  }
+  50% {
+    left: 25%;
+    width: 75%;
+  }
+  75% {
+    left: 100%;
+    width: 0%;
+  }
+}
+
+@keyframes indeterminate2 {
+  0% {
+    left: 0%;
+    width: 0%;
+  }
+  50% {
+    left: 0%;
+    width: 0%;
+  }
+  75% {
+    left: 0%;
+    width: 25%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
