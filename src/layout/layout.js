@@ -143,7 +143,7 @@ MaterialLayout.prototype.headerTransitionEndHandler = function() {
 MaterialLayout.prototype.headerClickHandler = function() {
   'use strict';
 
-  if(this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
+  if (this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
     this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
   }
