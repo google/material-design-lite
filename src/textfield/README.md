@@ -1,7 +1,7 @@
 #Text field
 
 ##Introduction
-The Material Design Lite (MDL) **text field** component is an enhanced version of the standard HTML `<input type="text">` and `<input type="textarea">` elements. A text field consists of a horizontal line indicating where keyboard input can occur, and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.
+The Material Design Lite (MDL) **text field** component is an enhanced version of the standard HTML `<input type="text">` and `<input type="textarea">` elements. A text field consists of a horizontal line indicating where keyboard input can occur and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.
 
 Text fields are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the text field component's [Material Design specifications page](http://www.google.com/design/spec/components/text-fields.html) for details. 
 
@@ -43,39 +43,38 @@ There are three main types of text fields in the text field component, each with
 ```
 &nbsp;5. Add one or more MDL classes, separated by spaces, to the div container, text field, field label, and error message using the `class` attribute.
 ```html
-<div class="wsk-input">
-  <input class="wsk-textfield wsk-js-textfield" type="text" id="user" pattern="[A-Z,a-z, ]*" />
-  <label class="wsk-label" for="user">User name</label>
-  <span class="wsk-input__error">Letters and spaces only</span>
+<div class="wsk-textfield wsk-js-textfield">
+  <input class="wsk-textfield__input" type="text" id="user" pattern="[A-Z,a-z, ]*" />
+  <label class="wsk-textfield__label" for="user">User name</label>
+  <span class="wsk-textfield__error">Letters and spaces only</span>
 </div>
 ```
-
 The single-line text field component is ready for use.
 
 ####Examples
 
 Single-line text field with a standard label.
 ```html
-<div class="wsk-input">
-  <input class="wsk-textfield wsk-js-textfield" type="text" id="fname" />
-  <label class="wsk-label" for="fname">First name</label>
+<div class="wsk-textfield wsk-js-textfield">
+  <input class="wsk-textfield__input" type="text" id="fname" />
+  <label class="wsk-textfield__label" for="fname">First name</label>
 </div>
 ```
 
 Single-line text field with a floating label.
 ```html
-<div class="wsk-input">
-  <input class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label" type="text" id="addr1" />
-  <label class="wsk-label" for="addr1">Address line 1</label>
+<div class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label">
+  <input class="wsk-textfield__input" type="text" id="addr1" />
+  <label class="wsk-textfield__label" for="addr1">Address line 1</label>
 </div>
 ```
 
 Single-line text field with a standard label, pattern matching, and error message.
 ```html
-<div class="wsk-input">
-  <input class="wsk-textfield wsk-js-textfield" type="text" pattern="[0-9]*" id="phone" />
-  <label class="wsk-label" for="phone">Phone</label>
-  <span class="wsk-input__error">Digits only</span>
+<div class="wsk-textfield wsk-js-textfield">
+  <input class="wsk-textfield__input" type="text" pattern="[0-9]*" id="phone" />
+  <label class="wsk-textfield__label" for="phone">Phone</label>
+  <span class="wsk-textfield__error">Digits only</span>
 </div>
 ```
 
@@ -102,9 +101,9 @@ Single-line text field with a standard label, pattern matching, and error messag
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the div container, text field, and field label using the `class` attribute.
 ```html
-<div class="wsk-input">
-  <textarea class="wsk-textfield wsk-js-textfield" type="text" rows="1" id="address"></textarea>
-  <label class="wsk-label" for="address">Full address</label>
+<div class="wsk-textfield wsk-js-textfield">
+  <textarea class="wsk-textfield__input" type="text" rows="1" id="address"></textarea>
+  <label class="wsk-textfield__label" for="address">Full address</label>
 </div>
 ```
 
@@ -114,25 +113,25 @@ The multi-line text field component is ready for use.
 
 Multi-line text field with one visible input line.
 ```html
-<div class="wsk-input">
-  <textarea class="wsk-textfield wsk-js-textfield" type="text" rows="1" id="schools"></textarea>
-  <label class="wsk-label" for="schools">Schools attended</label>
+<div class="wsk-textfield wsk-js-textfield">
+  <textarea class="wsk-textfield__input" type="text" rows="1" id="schools"></textarea>
+  <label class="wsk-textfield__label" for="schools">Schools attended</label>
 </div>
 ```
 
 Multi-line text field with one visible input line and floating label.
 ```html
-<div class="wsk-input">
-  <textarea class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label" type="text" rows= "1" id="schools"></textarea>
-  <label class="wsk-label" for="schools">Schools attended</label>
+<div class="wsk-textfield wsk-js-textfield wsk-textfield--floating-label">
+  <textarea class="wsk-textfield__input" type="text" rows= "1" id="schools"></textarea>
+  <label class="wsk-textfield__label" for="schools">Schools attended</label>
 </div>
 ```
 
 Multi-line text field with multiple visible input lines and a maximum number of lines.
 ```html
-<div class="wsk-input">
-  <textarea class="wsk-textfield wsk-js-textfield" type="text" rows="3" maxrows="6" id="schools"></textarea>
-  <label class="wsk-label" for="schools">Schools attended (max. 6)</label>
+<div class="wsk-textfield wsk-js-textfield">
+  <textarea class="wsk-textfield__input" type="text" rows="3" maxrows="6" id="schools"></textarea>
+  <label class="wsk-textfield__label" for="schools">Schools attended (max. 6)</label>
 </div>
 ```
 
@@ -196,13 +195,13 @@ Multi-line text field with multiple visible input lines and a maximum number of 
 ```
 &nbsp;7. Add one or more MDL classes, separated by spaces, to the "outer" div container, label, and span, and to the "inner" div container, text field, and field label using the `class` attribute.
 ```html
-<div class="wsk-input">
-  <label class="wsk-textfield-expandable-icon wsk-label" for="expando1">
+<div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable">
+  <label class="wsk-button wsk-js-button wsk-button--icon" for="expando1">
     <span class="wsk-icon--search"></span>
   </label>
-  <div class="wsk-input__expandable-holder">
-    <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable" type="text" id="expando1" />
-    <label class="wsk-label" for="expando1">Expandable text field</label>
+  <div class="wsk-textfield__expandable-holder">
+    <input class="wsk-textfield__input" type="text" id="expando1" />
+    <label class="wsk-textfield__label" for="expando1">Expandable text field</label>
   </div>
 </div>
 ```
@@ -213,26 +212,26 @@ The expandable text field component is ready for use. It will expand when the ic
 
 Expandable text field with a standard label.
 ```html
-<div class="wsk-input">
-  <label class="wsk-textfield-expandable-icon wsk-label" for="search-expandable">
+<div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable">
+  <label class="wsk-button wsk-js-button wsk-button--icon" for="search-expandable">
     <span class="wsk-icon--search"></span>
   </label>
-  <div class="wsk-input__expandable-holder">
-    <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable" type="text" id="search-expandable" />
-    <label class="wsk-label" for="search-expandable">Search text</label>
+  <div class="wsk-textfield__expandable-holder">
+    <input class="wsk-textfield__input" type="text" id="search-expandable" />
+    <label class="wsk-textfield__label" for="search-expandable">Search text</label>
   </div>
 </div>
 ```
 
 Expandable text field with a floating label.
 ```html
-<div class="wsk-input">
-  <label class="wsk-textfield-expandable-icon wsk-label" for="search-expandable2">
+<div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label">
+  <label class="wsk-button wsk-js-button wsk-button--icon" for="search-expandable2">
     <span class="wsk-icon--search"></span>
   </label>
-  <div class="wsk-input__expandable-holder">
-    <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label" type="text" id="search-expandable2" />
-    <label class="wsk-label" for="search-expandable2">Enter search text below</label>
+  <div class="wsk-textfield__expandable-holder">
+    <input class="wsk-textfield__input" type="text" id="search-expandable2" />
+    <label class="wsk-textfield__label" for="search-expandable2">Enter search text below</label>
   </div>
 </div>
 ```
@@ -241,16 +240,18 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-input` | Defines a container as an MDL component | Required on "outer" div element|
-| `wsk-textfield` | Defines input as an MDL component | Required on input or textarea element|
-| `wsk-js-textfield` | Assigns basic MDL behavior to input | Required on input or textarea element|
-| `wsk-textfield--floating-label` | Applies *floating label* effect | Optional; goes on input or textarea element |
-| `wsk-label` | Defines label as an MDL component | Required on labels for MDL input or textarea elements |
-| `wsk-input__error` | Defines span as an MDL error message | Optional; goes on span element for MDL input element with *pattern*|
-| `wsk-textfield-expandable-icon` | Defines label as an MDL icon container | For expandable input fields, required on "outer" div's label element |
+| `wsk-textfield` | Defines container as an MDL component | Required on "outer" div element|
+| `wsk-js-textfield` | Assigns basic MDL behavior to input | Required on "outer" div element |
+| `wsk-textfield__input` | Defines element as textfield input | Required on input or textarea element |
+| `wsk-textfield__label` | Defines element as textfield label | Required on label element for input or textarea elements |
+| `wsk-textfield--floating-label` | Applies *floating label* effect | Optional; goes on "outer" div element |
+| `wsk-textfield__error` | Defines span as an MDL error message | Optional; goes on span element for MDL input element with *pattern*|
+| `wsk-textfield--expandable` | Defines a div as an MDL expandable text field container | For expandable input fields, required on "outer" div element |
+| `wsk-button` | Defines label as an MDL icon button | For expandable input fields, required on "outer" div's label element |
+| `wsk-js-button` | Assigns basic behavior to icon container | For expandable input fields, required on "outer" div's label element |
+| `wsk-button--icon` | Defines label as an MDL icon container | For expandable input fields, required on "outer" div's label element |
 | `wsk-icon--search` | Defines span as an MDL search icon(1) | For expandable input fields, required on "outer" div's label's span element |
 | `wsk-input__expandable-holder` | Defines a container as an MDL component | For expandable input fields, required on "inner" div element |
-| `wsk-textfield--expandable` | Defines input element as an MDL expandable text field | For expandable input fields, required on input element |
 
 (1) The "search" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
 
