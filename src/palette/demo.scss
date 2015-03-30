@@ -164,7 +164,7 @@
 
   .demo-palette-name {
     padding: 0;
-    float: left;    
+    float: left;
   }
 }
 
@@ -255,12 +255,104 @@
   }
 }
 
-.demo-palette--white {
+.demo-palette--black-text {
+  .demo-palette-color {
+    background-color: #000000;
+
+    &:after {
+      content: '#000000';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--100 {
+    background-color: unquote("rgb(#{nth($palette-black, 1)})");
+
+    &:after {
+      content: '#000000';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--12 {
+    background-color: unquote("rgba(#{nth($palette-black, 5)})");
+
+    &:after {
+      content: 'Dividers';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--26 {
+    background-color: unquote("rgba(#{nth($palette-black, 4)})");
+
+    &:after {
+      content: 'Disabled / Hint Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--54 {
+    background-color: unquote("rgba(#{nth($palette-black, 3)})");
+
+    &:after {
+      content: 'Secondary Text / Icons';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--87 {
+    background-color: unquote("rgba(#{nth($palette-black, 2)})");
+
+    &:after {
+      content: 'Text';
+      float: right;
+    }
+  }
+}
+
+.demo-palette--white-text {
   .demo-palette-color {
     background-color: #ffffff;
 
     &:after {
-      content: '#ffffff';
+      content: '#FFFFFF';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--12 {
+    background-color: unquote("rgba(#{nth($palette-white, 4)})");
+
+    &:after {
+      content: 'Dividers';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--30 {
+    background-color: unquote("rgba(#{nth($palette-white, 3)})");
+
+    &:after {
+      content: 'Disabled / Hint Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--70 {
+    background-color: unquote("rgba(#{nth($palette-white, 2)})");
+
+    &:after {
+      content: 'Secondary Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--100 {
+    background-color: unquote("rgba(#{nth($palette-white, 1)})");
+
+    &:after {
+      content: 'Text / Icons';
       float: right;
     }
   }

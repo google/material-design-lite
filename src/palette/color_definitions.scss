@@ -579,7 +579,25 @@ $palette-blue-grey-800: nth($palette-blue-grey, 9);
 $palette-blue-grey-900: nth($palette-blue-grey, 10);
 
 $palette-black:
-  "0,0,0";
+  "0,0,0"
+  "0,0,0,.87"
+  "0,0,0,.54"
+  "0,0,0,.26"
+  "0,0,0,.12";
+
+$palette-black-100: nth($palette-black, 1);
+$palette-black-87: nth($palette-black, 2);
+$palette-black-54: nth($palette-black, 3);
+$palette-black-26: nth($palette-black, 4);
+$palette-black-12: nth($palette-black, 5);
 
 $palette-white:
-  "255,255,255";
+  "255,255,255"
+  "255,255,255,.70"
+  "255,255,255,.30"
+  "255,255,255,.12";
+
+$palette-white-100: nth($palette-white, 1);
+$palette-white-70: nth($palette-white, 2);
+$palette-white-30: nth($palette-white, 3);
+$palette-white-12: nth($palette-white, 4);
