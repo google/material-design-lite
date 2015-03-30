@@ -2239,3 +2239,53 @@
 .wsk-color--blue-grey-900 {
   background-color: unquote("rgb(#{$palette-blue-grey-900})");
 }
+
+
+// Black
+
+.wsk-color-text--black-12 {
+  color: unquote("rgba(#{$palette-black-12})");
+}
+
+.wsk-color-text--black-26 {
+  color: unquote("rgba(#{$palette-black-26})");
+}
+
+.wsk-color-text--black-54 {
+  color: unquote("rgba(#{$palette-black-54})");
+}
+
+.wsk-color-text--black {
+  color: unquote("rgba(#{$palette-black-87})");
+}
+
+.wsk-color-text--black-100 {
+  color: unquote("rgba(#{$palette-black-100})");
+}
+
+.wsk-color--black {
+  background-color: unquote("rgb(#{$palette-black})");
+}
+
+
+// White
+
+.wsk-color-text--white-12 {
+  color: unquote("rgb(#{$palette-white-12})");
+}
+
+.wsk-color-text--white-30 {
+  color: unquote("rgb(#{$palette-white-30})");
+}
+
+.wsk-color-text--white-70 {
+  color: unquote("rgb(#{$palette-white-70})");
+}
+
+.wsk-color-text--white {
+  color: unquote("rgb(#{$palette-white-100})");
+}
+
+.wsk-color--white {
+  background-color: unquote("rgb(#{$palette-white})");
+}
