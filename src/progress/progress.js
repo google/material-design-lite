@@ -39,14 +39,14 @@ MaterialProgress.prototype.setProgress = function(p) {
     return;
   }
 
-  this.progressbar_.style.width = p+'%';
+  this.progressbar_.style.width = p + '%';
 };
 
 MaterialProgress.prototype.setBuffer = function(p) {
   'use strict';
 
-  this.bufferbar_.style.width = p+'%';
-  this.auxbar_.style.width = (100-p)+'%';
+  this.bufferbar_.style.width = p + '%';
+  this.auxbar_.style.width = (100-p) + '%';
 };
 
 /**
