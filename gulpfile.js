@@ -30,6 +30,7 @@ var fs = require('fs');
 var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
+var swig = require('swig');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -253,9 +254,9 @@ function applyTemplate() {
     // If template not in template cache, compile and add it.
     if (!templates[file.page.layout]) {
       var templateFile = path.join(
-          __dirname, '_templates', file.page.layout + '.html');
+          __dirname, 'docs', '_templates', file.page.layout + '.html');
       $.util.log('Compiling template:', $.util.colors.yellow(file.page.layout));
-      templates[file.page.layout] = $.swig.compileFile(templateFile);
+      templates[file.page.layout] = swig.compileFile(templateFile);
     }
     var tpl = templates[file.page.layout];
     file.contents = new Buffer(tpl(data), 'utf8');
@@ -269,7 +270,7 @@ function applyTemplate() {
  * Generates an index.html file for each README in MDL/src directory.
  */
 gulp.task('components', function() {
-  return gulp.src('../src/**/README.md', {base: '../src'})
+  return gulp.src('./src/**/README.md', {base: '../src'})
     // Add basic front matter.
     .pipe($.header('---\nlayout: component\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
@@ -291,7 +292,7 @@ gulp.task('components', function() {
     .pipe($.rename(function (path) {
         path.basename = "index";
     }))
-    .pipe(gulp.dest('out/components'));
+    .pipe(gulp.dest('docs/out/components'));
 });
 
 
@@ -300,14 +301,14 @@ gulp.task('components', function() {
  */
 gulp.task('demos', function () {
     return gulp.src([
-        '../src/**/demo.*'
+        './src/**/demo.*'
       ], {base: '../src'})
       .pipe($.if('*.scss', $.sass({
         precision: 10,
         onError: console.error.bind(console, 'Sass error:')
       })))
       .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
-      .pipe(gulp.dest('out/components'));
+      .pipe(gulp.dest('docs/out/components'));
 });
 
 
@@ -315,7 +316,7 @@ gulp.task('demos', function () {
  * Generates an HTML file for each md file in _pages directory.
  */
 gulp.task('pages', ['components'], function() {
-  return gulp.src(['_pages/*.md'])
+  return gulp.src(['docs/_pages/*.md'])
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
     .pipe(applyTemplate())
@@ -325,7 +326,7 @@ gulp.task('pages', ['components'], function() {
         path.basename = 'index';
       }
     }))
-    .pipe(gulp.dest('out'));
+    .pipe(gulp.dest('docs/out'));
 });
 
 
@@ -334,11 +335,11 @@ gulp.task('pages', ['components'], function() {
  */
 gulp.task('assets', function () {
     return gulp.src([
-      '../js/material.min.*',
-      '../css/material.min.*',
-      '_assets/**'
+      './js/material.min.*',
+      './css/material.min.*',
+      'docs/_assets/**'
     ])
-    .pipe(gulp.dest('out/assets'));
+    .pipe(gulp.dest('docs/out/assets'));
 });
 
 
