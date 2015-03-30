@@ -101,6 +101,9 @@ A-grade browsers are fully supported. B-grade browsers will gracefully degrade t
 
 For transparency into our release cycle and in striving to maintain backward compatibility, Material Design Lite is maintained under [the Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
+## Feature requests
+
+If you find MDL doesn't contain a particular component you think would be useful, please check the issue tracker in case work has already started on it. If not, you can request new component in the [following](https://github.com/google/material-design-lite/issues/92) thread. Please be sure to include justification for why you think the component should be implemented to help us with planning.
 
 ## License
 
