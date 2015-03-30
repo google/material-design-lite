@@ -351,4 +351,6 @@ gulp.task('serve', ['assets', 'pages', 'demos'], function () {
     notify: false,
     server: ['docs/out']
   });
+
+  gulp.watch(['src/**/demo.*'], ['demos', reload]);
 });
