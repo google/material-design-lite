@@ -270,7 +270,7 @@ function applyTemplate() {
  * Generates an index.html file for each README in MDL/src directory.
  */
 gulp.task('components', function() {
-  return gulp.src('./src/**/README.md', {base: '../src'})
+  return gulp.src('./src/**/README.md', {base: './src'})
     // Add basic front matter.
     .pipe($.header('---\nlayout: component\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
@@ -302,7 +302,7 @@ gulp.task('components', function() {
 gulp.task('demos', function () {
     return gulp.src([
         './src/**/demo.*'
-      ], {base: '../src'})
+      ], {base: './src'})
       .pipe($.if('*.scss', $.sass({
         precision: 10,
         onError: console.error.bind(console, 'Sass error:')
