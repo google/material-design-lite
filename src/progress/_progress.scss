@@ -42,6 +42,13 @@ $bar-height: 4px !default;
   mask: url('../images/buffer.svg');
 }
 
+html.firefox, html.ie {
+  .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
+    background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color);
+    mask: none;
+  }
+}
+
 .wsk-js-progress.wsk-progress__indeterminate > .bar1 {
   background-color: $progress-main-color;
   animation-name: indeterminate1;
