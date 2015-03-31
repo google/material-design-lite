@@ -106,6 +106,44 @@ MaterialTextfield.prototype.updateClasses_ = function() {
   }
 };
 
+// Public methods.
+
+/**
+ * Disable text field.
+ * @public
+ */
+MaterialTextfield.prototype.disable = function() {
+  'use strict';
+
+  this.input_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable text field.
+ * @public
+ */
+MaterialTextfield.prototype.enable = function() {
+  'use strict';
+
+  this.input_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Update text field value.
+ * @param {String} value The value to which to set the control (optional).
+ * @public
+ */
+MaterialTextfield.prototype.change = function(value) {
+  'use strict';
+
+  if (value) {
+    this.input_.value = value;
+  }
+  this.updateValueStyles_();
+};
+
 /**
  * Initialize element.
  */

@@ -121,6 +121,52 @@ MaterialIconToggle.prototype.blur_ = function(event) {
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
+// Public methods.
+
+/**
+ * Disable icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.disable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.enable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Check icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.check = function() {
+  'use strict';
+
+  this.btnElement_.checked = true;
+  this.updateClasses_();
+};
+
+/**
+ * Uncheck icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.uncheck = function() {
+  'use strict';
+
+  this.btnElement_.checked = false;
+  this.updateClasses_();
+};
+
 /**
  * Initialize element.
  */
