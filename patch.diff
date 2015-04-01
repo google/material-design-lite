@@ -1,0 +1,27 @@
+From 1b08d36573929746f3b1b74fe46e7f6a1e7c2f0d Mon Sep 17 00:00:00 2001
+From: Mike Mitterer <office@mikemitterer.at>
+Date: Wed, 1 Apr 2015 12:20:51 +0200
+Subject: [PATCH] Added media query for with on mobile
+
+---
+ src/palette/demo.scss | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/palette/demo.scss b/src/palette/demo.scss
+index cc1ed9a..1513a99 100644
+--- a/src/palette/demo.scss
++++ b/src/palette/demo.scss
+@@ -140,6 +140,10 @@
+   margin-top: 15px;
+   width: 360px;
+   float: left;
++
++    @media screen and (max-width: 360px ) {
++        width: 272px;
++    }
+ }
+ 
+ .demo-palette-color, .demo-palette-heading {
+-- 
+2.2.1
+
