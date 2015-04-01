@@ -50,6 +50,10 @@ $button-icon-size-mini: 24px !default;
               color 0.2s $animation-curve-default;
   outline: none;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: $button-height;
+  vertical-align: middle;
 
   &::-moz-focus-inner {
     border: 0;
@@ -142,6 +146,7 @@ $button-icon-size-mini: 24px !default;
     background: $button-primary-color;
     @include shadow-z1();
     position: relative;
+    line-height: normal;
 
     & .wsk-icon {
       position: absolute;
@@ -218,6 +223,7 @@ $button-icon-size-mini: 24px !default;
     padding: 0;
     overflow: hidden;
     color: inherit;
+    line-height: normal;
 
     & .wsk-icon {
       position: absolute;

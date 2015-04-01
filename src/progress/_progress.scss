@@ -1,0 +1,101 @@
+@import "../colors";
+@import "../animation/animation";
+
+$bar-height: 4px !default;
+
+
+.wsk-js-progress {
+  display: block;
+  position: relative;
+  height: $bar-height;
+}
+
+.wsk-js-progress > .bar {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  transition: width 0.2s $animation-curve-default;
+}
+
+.wsk-js-progress > .progressbar {
+  background-color: $progress-main-color;
+  z-index: 1;
+  left: 0;
+}
+
+.wsk-js-progress > .bufferbar {
+  background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+    linear-gradient(to right, $progress-main-color, $progress-main-color);
+  z-index: 0;
+  left: 0;
+}
+
+.wsk-js-progress > .auxbar {
+  right: 0;
+}
+
+// Webkit only
+@supports (-webkit-appearance:none) {
+  .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
+    background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+      linear-gradient(to right, $progress-main-color, $progress-main-color);
+    mask: url('../images/buffer.svg');
+  }
+}
+
+.wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
+  background-color: $progress-fallback-buffer-color;
+}
+
+.wsk-js-progress.wsk-progress__indeterminate > .bar1 {
+  background-color: $progress-main-color;
+  animation-name: indeterminate1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.wsk-js-progress.wsk-progress__indeterminate > .bar3 {
+  background-image: none;
+  background-color: $progress-main-color;
+  animation-name: indeterminate2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes indeterminate1 {
+  0% {
+    left: 0%;
+    width: 0%;
+  }
+  50% {
+    left: 25%;
+    width: 75%;
+  }
+  75% {
+    left: 100%;
+    width: 0%;
+  }
+}
+
+@keyframes indeterminate2 {
+  0% {
+    left: 0%;
+    width: 0%;
+  }
+  50% {
+    left: 0%;
+    width: 0%;
+  }
+  75% {
+    left: 0%;
+    width: 25%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
