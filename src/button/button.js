@@ -11,7 +11,7 @@ function MaterialButton(element) {
 
   // Initialize instance.
   this.init();
-}
+};
 
 /**
  * Store constants in one place so they can be updated easily.

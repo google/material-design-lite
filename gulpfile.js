@@ -301,7 +301,8 @@ gulp.task('components', function() {
  */
 gulp.task('demos', function () {
     return gulp.src([
-        './src/**/demo.*'
+        './src/**/demo.*',
+        './src/**/*.js'
       ], {base: './src'})
       .pipe($.if('*.scss', $.sass({
         precision: 10,
@@ -334,11 +335,7 @@ gulp.task('pages', ['components'], function() {
  * Copies assets from MDL and _assets directory.
  */
 gulp.task('assets', function () {
-    return gulp.src([
-      './js/material.min.*',
-      './css/material.min.*',
-      'docs/_assets/**'
-    ])
+  return gulp.src(['docs/_assets/**'])
     .pipe(gulp.dest('docs/out/assets'));
 });
 
@@ -349,9 +346,10 @@ gulp.task('assets', function () {
 gulp.task('serve', ['assets', 'pages', 'demos'], function () {
   browserSync({
     notify: false,
-    server: ['docs/out']
+    server: ['docs/out', 'js', 'css']
   });
 
-  gulp.watch(['src/**/*', '!src/**/README.md'], ['demos', reload]);
+  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['demos', reload]);
+  gulp.watch(['src/**/*.js'], ['scripts', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
 });
