@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1>{{page.title}}</h1>
+
+{{content|safe}}
+
+<label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="wifi1">
+  <input type="radio" id="wifi1" class="wsk-radio__button" name="wifi[]" value="1" checked />
+  <span class="wsk-radio__label">Always</span>
+</label>
+
+<label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="wifi2">
+  <input type="radio" id="wifi2" class="wsk-radio__button" name="wifi[]" value="2" />
+  <span class="wsk-radio__label">Only when plugged in</span>
+</label>
+
+<label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="wifi3">
+  <input type="radio" id="wifi3" class="wsk-radio__button" name="wifi[]" value="3" />
+  <span class="wsk-radio__label">Never</span>
+</label>
+
+<label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="wifi4">
+  <input type="radio" id="wifi4" class="wsk-radio__button" name="wifi[]" value="3" disabled />
+  <span class="wsk-radio__label">Unavailable option</span>
+</label>
+
+
+
+{% endblock %}
+
+
