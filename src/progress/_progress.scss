@@ -36,29 +36,17 @@ $bar-height: 4px !default;
   right: 0;
 }
 
+// Webkit only
+@supports (-webkit-appearance:none) {
+  .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
+    background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+      linear-gradient(to right, $progress-main-color, $progress-main-color);
+    mask: url('../images/buffer.svg');
+  }
+}
+
 .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
-  background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
-    linear-gradient(to right, $progress-main-color, $progress-main-color);
-  mask: url('../images/buffer.svg');
-}
-
-// Firefox only
-_:-moz-tree-row(hover), .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
-  background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color);
-  mask: none;
-}
-
-// IE >= 10 only
-_:-ms-input-placeholder, :root .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
-  background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color);
-  mask: none;
-}
-
-// IE <= 9 only
-html[lang='\
-en'] .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
-  background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color);
-  mask: none;
+  background-color: $progress-fallback-buffer-color;
 }
 
 .wsk-js-progress.wsk-progress__indeterminate > .bar1 {
