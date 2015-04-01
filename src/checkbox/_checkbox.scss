@@ -10,6 +10,19 @@ $checkbox-top-offset:
   ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
 $checkbox-ripple-size: $checkbox-label-height * 1.5;
 
+@function svg-tick() {
+    // URL-Encoded tick.svg
+    @return url('data:image/svg+xml;charset=utf-8,' +
+        '%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E%0A');
+}
+
+// ToDo: Not sure about this one - I don't know what it should do. Could see no difference...
+@function svg-tickmask() {
+    // URL-Encoded tickmask.svg#mask
+    @return url('data:image/svg+xml;charset=utf-8,' +
+        '%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%20%20%3Cmask%20id%3D%22mask%22%20maskUnits%3D%22objectBoundingBox%22%20maskContentUnits%3D%22objectBoundingBox%22%3E%0A%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20%20d%3D%22M%200%2C0%200%2C1%201%2C1%201%2C0%200%2C0%20z%20M%200.8534375%2C0.1671875%200.9596875%2C0.273125%200.429375%2C0.8034375%200.323125%2C0.9096875%200.2171875%2C0.8034375%200.0403125%2C0.626875%200.1465625%2C0.520625%200.323125%2C0.6975%200.8534375%2C0.1671875%20z%22%0A%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%20%20%20%20%3C%2Fmask%3E%0A%3C%2Fsvg%3E%0A');
+}
+
 .wsk-checkbox {
   position: relative;
 
@@ -110,18 +123,18 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   left: 0;
   height: 100%;
   width: 100%;
-  mask: url("../images/tick-mask.svg#mask");
+  mask: svg-tickmask();
 
   background: transparent;
   @include material-animation-default(0.28s);
   transition-property: background;
 
   .wsk-checkbox.is-checked & {
-    background: $checkbox-color url("../images/tick.svg");
+    background: $checkbox-color svg-tick();
   }
 
   .wsk-checkbox.is-checked.is-disabled & {
-    background: $checkbox-disabled-color url("../images/tick.svg");
+    background: $checkbox-disabled-color svg-tick();;
   }
 }
 
