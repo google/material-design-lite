@@ -158,6 +158,7 @@ gulp.task('scripts', function () {
     'src/column-layout/column-layout.js',
     'src/icon-toggle/icon-toggle.js',
     'src/menu/menu.js',
+    'src/progress/progress.js',
     'src/radio/radio.js',
     'src/slider/slider.js',
     'src/spinner/spinner.js',
