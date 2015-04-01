@@ -9516,7 +9516,11 @@ dt {
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle; }
   .wsk-button::-moz-focus-inner {
     border: 0; }
   .wsk-button:hover {
@@ -9570,7 +9574,8 @@ dt {
   overflow: hidden;
   background: rgba(153, 153, 153, 0.2);
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
-  position: relative; }
+  position: relative;
+  line-height: normal; }
   .wsk-button--fab .wsk-icon {
     position: absolute;
     top: 16px;
@@ -9617,7 +9622,8 @@ dt {
   width: 32px;
   padding: 0;
   overflow: hidden;
-  color: inherit; }
+  color: inherit;
+  line-height: normal; }
   .wsk-button--icon .wsk-icon {
     position: absolute;
     top: 4px;
