@@ -48,7 +48,7 @@ MaterialSlider.prototype.CssClasses_ = {
 MaterialSlider.prototype.onInput_ = function(event) {
   'use strict';
 
-  this.updateValue_();
+  this.updateValueStyles_();
 };
 
 /**
@@ -59,7 +59,7 @@ MaterialSlider.prototype.onInput_ = function(event) {
 MaterialSlider.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateValue_();
+  this.updateValueStyles_();
 };
 
 /**
@@ -78,7 +78,7 @@ MaterialSlider.prototype.onMouseUp_ = function(event) {
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialSlider.prototype.updateValue_ = function(event) {
+MaterialSlider.prototype.updateValueStyles_ = function(event) {
   'use strict';
 
   // Calculate and apply percentages to div structure behind slider.
@@ -97,6 +97,42 @@ MaterialSlider.prototype.updateValue_ = function(event) {
     this.backgroundUpper_.style.flex = 1 - fraction;
     this.backgroundUpper_.style.webkitFlex = 1 - fraction;
   }
+};
+
+// Public methods.
+
+/**
+ * Disable slider.
+ * @public
+ */
+MaterialSlider.prototype.disable = function() {
+  'use strict';
+
+  this.element_.disabled = true;
+};
+
+/**
+ * Enable slider.
+ * @public
+ */
+MaterialSlider.prototype.enable = function() {
+  'use strict';
+
+  this.element_.disabled = false;
+};
+
+/**
+ * Update slider value.
+ * @param {Number} value The value to which to set the control (optional).
+ * @public
+ */
+MaterialSlider.prototype.change = function(value) {
+  'use strict';
+
+  if (value) {
+    this.element_.value = value;
+  }
+  this.updateValueStyles_();
 };
 
 /**
@@ -139,7 +175,7 @@ MaterialSlider.prototype.init = function() {
     this.element_.addEventListener('change', this.onChange_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateValue_();
+    this.updateValueStyles_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };

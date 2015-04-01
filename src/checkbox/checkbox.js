@@ -125,6 +125,52 @@ MaterialCheckbox.prototype.blur_ = function(event) {
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
+// Public methods.
+
+/**
+ * Disable checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.disable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.enable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Check checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.check = function() {
+  'use strict';
+
+  this.btnElement_.checked = true;
+  this.updateClasses_();
+};
+
+/**
+ * Uncheck checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.uncheck = function() {
+  'use strict';
+
+  this.btnElement_.checked = false;
+  this.updateClasses_();
+};
+
 /**
  * Initialize element.
  */
