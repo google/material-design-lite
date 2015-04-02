@@ -38,7 +38,8 @@ MaterialIconToggle.prototype.CssClasses_ = {
   RIPPLE: 'wsk-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
-  IS_CHECKED: 'is-checked'
+  IS_CHECKED: 'is-checked',
+  IS_UPGRADED: 'is-upgraded'
 };
 
 /**
@@ -199,7 +200,7 @@ MaterialIconToggle.prototype.init = function() {
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
-    this.element_.classList.add('is-upgraded');
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
 
