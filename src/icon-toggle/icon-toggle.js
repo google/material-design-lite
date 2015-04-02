@@ -49,7 +49,7 @@ MaterialIconToggle.prototype.CssClasses_ = {
 MaterialIconToggle.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -91,19 +91,19 @@ MaterialIconToggle.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
+MaterialIconToggle.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -117,7 +117,7 @@ MaterialIconToggle.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
@@ -130,7 +130,7 @@ MaterialIconToggle.prototype.blur_ = function(event) {
 MaterialIconToggle.prototype.disable = function() {
   'use strict';
 
-  this.btnElement_.disabled = true;
+  this.inputElement_.disabled = true;
   this.updateClasses_();
 };
 
@@ -141,7 +141,7 @@ MaterialIconToggle.prototype.disable = function() {
 MaterialIconToggle.prototype.enable = function() {
   'use strict';
 
-  this.btnElement_.disabled = false;
+  this.inputElement_.disabled = false;
   this.updateClasses_();
 };
 
@@ -152,7 +152,7 @@ MaterialIconToggle.prototype.enable = function() {
 MaterialIconToggle.prototype.check = function() {
   'use strict';
 
-  this.btnElement_.checked = true;
+  this.inputElement_.checked = true;
   this.updateClasses_();
 };
 
@@ -163,7 +163,7 @@ MaterialIconToggle.prototype.check = function() {
 MaterialIconToggle.prototype.uncheck = function() {
   'use strict';
 
-  this.btnElement_.checked = false;
+  this.inputElement_.checked = false;
   this.updateClasses_();
 };
 
@@ -174,7 +174,7 @@ MaterialIconToggle.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ =
+    this.inputElement_ =
         this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
     var rippleContainer;
@@ -193,12 +193,12 @@ MaterialIconToggle.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add('is-upgraded');
   }
 };

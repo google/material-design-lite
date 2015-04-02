@@ -146,7 +146,7 @@ MaterialRadio.prototype.disable = function() {
   'use strict';
 
   this.btnElement_.disabled = true;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
@@ -157,7 +157,7 @@ MaterialRadio.prototype.enable = function() {
   'use strict';
 
   this.btnElement_.disabled = false;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
@@ -168,7 +168,7 @@ MaterialRadio.prototype.check = function() {
   'use strict';
 
   this.btnElement_.checked = true;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
@@ -179,7 +179,7 @@ MaterialRadio.prototype.uncheck = function() {
   'use strict';
 
   this.btnElement_.checked = false;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
