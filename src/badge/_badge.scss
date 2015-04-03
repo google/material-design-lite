@@ -1,0 +1,56 @@
+@import "../colors";
+
+$badge-color: #fff !default;
+$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
+$badge-background: unquote("rgb(#{$color-accent})") !default;
+$badge-background-inverse: #fff !default;
+$badge-size : 20px;
+$badge-padding: 2px;
+
+.wsk-badge {
+    position : relative;
+    white-space: nowrap;
+    margin-right: ($badge-size + $badge-padding);
+
+    &:not([data-badge]) {
+        margin-right: auto;
+    }
+
+    &[data-badge]:after {
+        content       : attr(data-badge);
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; // ⇾
+        align-content: space-between; // ||
+        align-items: center; // ↓
+
+        position    : absolute;
+        top         : -($badge-size / 2);
+        right       : -($badge-size + $badge-padding);
+
+        .wsk-button & {
+            top           : -10px;
+            right         : -5px;
+        }
+
+        font-size     : 10px;
+        width         : $badge-size;
+        height        : $badge-size;
+        border-radius : 50%;
+
+        background    : $badge-background;
+        color         : $badge-color;
+    }
+
+    &.wsk-badge--no-background {
+        &[data-badge]:after {
+            color         : $badge-color-inverse;
+            background    : rgba($badge-background-inverse,0.2);
+
+            box-shadow:0 0 1px gray;
+            //border: 1px solid $badge-color-inverse;
+        }
+    }
+}
