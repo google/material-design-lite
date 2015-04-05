@@ -2,6 +2,8 @@
 
 > A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML
 
+Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript frameworks and aims to optimise for cross-device use, gracefully degrade in older browsers and offer an experience that is accessible from the get-go.
+
 ## Quick start
 
 Four quick start options are available:
@@ -112,6 +114,11 @@ Here, you can find early live previews of our work for testing or demo purposes.
 * [Visual tests](http://google.github.io/material-design-lite/test/visual/) for components
 * [Android.com](http://google.github.io/material-lite-samples/android-dot-com/) Material Design Lite demo
 * [Theme customiser prototype](http://google.github.io/material-design-lite/customizer/customizer.html)
+
+## Do you include any features that a framework comes with?
+
+Material Design Lite is focused on delivering a vanilla CSS/JS/HTML library of components. We are not a framework. If you are building a single-page app and require features like two-way data-binding, templating, CSS scoping and so forth, we recommend trying out the excellent [Polymer](http://polymer-project.org) project. 
+
 
 ## License
 
