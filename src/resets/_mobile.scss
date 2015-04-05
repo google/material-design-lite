@@ -1,9 +1,9 @@
 
-// removes the ugly box around buttons!
-// More: http://goo.gl/IPwKi
+/* Remove the unwanted box around FAB buttons */
+/* More info: http://goo.gl/IPwKi */
 a, .wsk-accordion, .wsk-button, .wsk-card, .wsk-checkbox, .wsk-dropdown-menu,
 .wsk-icon-toggle, .wsk-item, .wsk-radio, .wsk-slider, .wsk-switch, .wsk-tabs__tab {
 
-    -webkit-tap-highlight-color: transparent; /* For some Androids */
-    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
