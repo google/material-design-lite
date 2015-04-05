@@ -43,10 +43,6 @@ project.
 
  *[Website](https://developers.google.com/web/mdl/) related issues should be filed on the [Web Fundamentals](https://github.com/google/WebFundamentals/issues/new) issue tracker.*
 
-Material Design Lite is an open source project. It is licensed using the
-[Apache Software License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
-We appreciate pull requests, here are our guidelines:
-
 ## <a name="submit"></a> Submission Guidelines
 
 ### Submitting an Issue
