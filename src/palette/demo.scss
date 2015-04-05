@@ -140,6 +140,10 @@
   margin-top: 15px;
   width: 360px;
   float: left;
+
+  @media screen and (max-width: 360px ) {
+      width: 272px;
+  }
 }
 
 .demo-palette-color, .demo-palette-heading {
