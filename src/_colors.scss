@@ -106,7 +106,7 @@ $layout-header-nav-hover-color: unquote("rgba(#{$palette-grey-700}, 0.6)") !defa
 $layout-header-tab-text-color: unquote("rgba(#{$color-primary-contrast}, 0.6)") !default;
 
 // Tabs
-$layout-header-tab-highlight: unquote("rgb(#{$palette-grey-300})") !default;
+$layout-header-tab-highlight: unquote("rgb(#{$color-accent})") !default;
 
 /* ==========  Content Tabs  ========== */
 
