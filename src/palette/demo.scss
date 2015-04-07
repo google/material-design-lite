@@ -140,6 +140,10 @@
   margin-top: 15px;
   width: 360px;
   float: left;
+
+  @media screen and (max-width: 360px ) {
+      width: 272px;
+  }
 }
 
 .demo-palette-color, .demo-palette-heading {
@@ -157,6 +161,15 @@
 
 .demo-palette-name {
   padding: 0 0 60px 0;
+}
+
+.demo-palette-single {
+  padding: 15px 15px 25px;
+
+  .demo-palette-name {
+    padding: 0;
+    float: left;
+  }
 }
 
 .demo-palette--red {
@@ -229,8 +242,25 @@
 
 .demo-palette--grey {
   @include demo-palette-color-groups($palette-grey);
+}
 
-  .demo-palette-color--1000 {
+.demo-palette--blue-grey {
+  @include demo-palette-color-groups($palette-blue-grey);
+}
+
+.demo-palette--black {
+  .demo-palette-color {
+    background-color: #000000;
+
+    &:after {
+      content: '#000000';
+      float: right;
+    }
+  }
+}
+
+.demo-palette--black-text {
+  .demo-palette-color {
     background-color: #000000;
 
     &:after {
@@ -239,16 +269,95 @@
     }
   }
 
-  .demo-palette-color--1000-inverse {
-    background-color: #ffffff;
+  .demo-palette-color--100 {
+    background-color: unquote("rgb(#{nth($palette-black, 1)})");
 
     &:after {
-      content: '#ffffff';
+      content: '#000000';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--12 {
+    background-color: unquote("rgba(#{nth($palette-black, 5)})");
+
+    &:after {
+      content: 'Dividers';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--26 {
+    background-color: unquote("rgba(#{nth($palette-black, 4)})");
+
+    &:after {
+      content: 'Disabled / Hint Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--54 {
+    background-color: unquote("rgba(#{nth($palette-black, 3)})");
+
+    &:after {
+      content: 'Secondary Text / Icons';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--87 {
+    background-color: unquote("rgba(#{nth($palette-black, 2)})");
+
+    &:after {
+      content: 'Text';
       float: right;
     }
   }
 }
 
-.demo-palette--blue-grey {
-  @include demo-palette-color-groups($palette-blue-grey);
+.demo-palette--white-text {
+  .demo-palette-color {
+    background-color: #ffffff;
+
+    &:after {
+      content: '#FFFFFF';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--12 {
+    background-color: unquote("rgba(#{nth($palette-white, 4)})");
+
+    &:after {
+      content: 'Dividers';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--30 {
+    background-color: unquote("rgba(#{nth($palette-white, 3)})");
+
+    &:after {
+      content: 'Disabled / Hint Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--70 {
+    background-color: unquote("rgba(#{nth($palette-white, 2)})");
+
+    &:after {
+      content: 'Secondary Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--100 {
+    background-color: unquote("rgba(#{nth($palette-white, 1)})");
+
+    &:after {
+      content: 'Text / Icons';
+      float: right;
+    }
+  }
 }

@@ -67,12 +67,14 @@ MaterialLayout.prototype.CssClasses_ = {
   TAB_BAR_RIGHT_BUTTON: 'wsk-layout__tab-bar-right-button',
   PANEL: 'wsk-layout__tab-panel',
 
+  HAS_DRAWER_CLASS: 'has-drawer',
   SHADOW_CLASS: 'is-casting-shadow',
   COMPACT_CLASS: 'is-compact',
   SMALL_SCREEN_CLASS: 'is-small-screen',
   DRAWER_OPEN_CLASS: 'is-visible',
   ACTIVE_CLASS: 'is-active',
-  UPGRADED_CLASS: 'is-upgraded'
+  UPGRADED_CLASS: 'is-upgraded',
+  ANIMATING_CLASS: 'is-animating'
 };
 
 /**
@@ -82,12 +84,18 @@ MaterialLayout.prototype.CssClasses_ = {
 MaterialLayout.prototype.contentScrollHandler_ = function() {
   'use strict';
 
-  if (this.content_.scrollTop > 0) {
+  if(this.header_.classList.contains(this.CssClasses_.ANIMATING_CLASS)) {
+    return;
+  }
+
+  if (this.content_.scrollTop > 0 && !this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.add(this.CssClasses_.COMPACT_CLASS);
-  } else {
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  } else if (this.content_.scrollTop <= 0 && this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
   }
 };
 
@@ -100,8 +108,7 @@ MaterialLayout.prototype.screenSizeHandler_ = function() {
 
   if (this.screenSizeMediaQuery_.matches) {
     this.element_.classList.add(this.CssClasses_.SMALL_SCREEN_CLASS);
-  }
-  else {
+  } else {
     this.element_.classList.remove(this.CssClasses_.SMALL_SCREEN_CLASS);
     // Collapse drawer (if any) when moving to a large screen size.
     if (this.drawer_) {
@@ -119,6 +126,27 @@ MaterialLayout.prototype.drawerToggleHandler_ = function() {
   'use strict';
 
   this.drawer_.classList.toggle(this.CssClasses_.DRAWER_OPEN_CLASS);
+};
+
+/**
+ * Handles (un)setting the `is-animating` class
+ */
+MaterialLayout.prototype.headerTransitionEndHandler = function() {
+  'use strict';
+
+  this.header_.classList.remove(this.CssClasses_.ANIMATING_CLASS);
+};
+
+/**
+ * Handles expanding the header on click
+ */
+MaterialLayout.prototype.headerClickHandler = function() {
+  'use strict';
+
+  if (this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
+    this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  }
 };
 
 /**
@@ -177,6 +205,10 @@ MaterialLayout.prototype.init = function() {
       } else if (this.header_.classList.contains(
           this.CssClasses_.HEADER_WATERFALL)) {
         mode = this.Mode_.WATERFALL;
+        this.header_.addEventListener('transitionend',
+          this.headerTransitionEndHandler.bind(this));
+        this.header_.addEventListener('click',
+          this.headerClickHandler.bind(this));
       } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
@@ -208,6 +240,11 @@ MaterialLayout.prototype.init = function() {
       drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
       drawerButton.addEventListener('click',
           this.drawerToggleHandler_.bind(this));
+
+      // Add a class if the layout has a drawer, for altering the left padding.
+      // Adds the HAS_DRAWER_CLASS to the elements since this.header_ may or may
+      // not be present.
+      this.element_.classList.add(this.CssClasses_.HAS_DRAWER_CLASS);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.

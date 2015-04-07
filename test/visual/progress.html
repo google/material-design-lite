@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spinner</title>
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/material.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="demo-preview-block">
+
+    <p>
+      Default:
+      <div id="p1" class="wsk-js-progress"></div>
+    </p>
+
+    <p>
+      Indeterminate:
+      <div id="p2" class="wsk-js-progress wsk-progress__indeterminate"></div>
+    </p>
+
+    <p>
+      Buffering:
+      <div id="p3" class="wsk-js-progress"></div>
+    </p>
+  </div>
+  <script>
+    window.setTimeout(function() {
+      document.querySelector('#p1').widget.setProgress(44);
+      document.querySelector('#p3').widget.setProgress(33);
+      document.querySelector('#p3').widget.setBuffer(87);
+    }, 1000);
+  </script>
+  <script src="../../js/material.js"></script>
+
+</body>
+</html>

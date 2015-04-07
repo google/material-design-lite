@@ -6,7 +6,7 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
 
 ```html
 <div class="wsk-layout">
-  <div class="wsk-layout__header">
+  <header class="wsk-layout__header">
     <!-- Title -->
     <span class="wsk-layout-title">Material Design Lite</span>
     <!-- Add spacer, to align navigation to the right -->
@@ -16,7 +16,7 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
       <a class="wsk-navigation__link" href="">Hello</a>
       (...)
     </nav>
-  </div>
+  </header>
   <div class="wsk-layout__drawer">
     <span class="wsk-layout-title">Material Design Lite</span>
     <nav class="wsk-layout-navigation">
@@ -24,9 +24,9 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
       (...)
     </nav>
   </div>
-  <div class="wsk-layout__content">
+  <main class="wsk-layout__content">
     <div class="demo-content"></div>
-  </div>
+  </main>
 </div>
 ```
 
@@ -69,18 +69,18 @@ The header element (optional). By default, it's only shown in large screens.
 - `wsk-layout__header--multi-row`:
   Allows stacking of multiple rows inside the header (by default, it only has one). Example:
   ```html
-  <div class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--tall">
-  <!-- Top row -->
-  <div class="wsk-layout__header-row">
-    <span>Upper row</span>
-  </div>
-  <div class="wsk-layout__header-row">
-    <span>Middle row</span>
-  </div>
+  <header class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--tall">
+    <!-- Top row -->
     <div class="wsk-layout__header-row">
-    <span>Bottom row</span>
-  </div>
-</div>
+      <span>Upper row</span>
+    </div>
+    <div class="wsk-layout__header-row">
+      <span>Middle row</span>
+    </div>
+      <div class="wsk-layout__header-row">
+      <span>Bottom row</span>
+    </div>
+  </header>
   ```
 
 - `wsk-layout__header--seamed`:
@@ -104,7 +104,7 @@ The header element (optional). By default, it's only shown in large screens.
   Used when stacking multiple rows inside the header (by default, it only has one). Example:
 
   ```html
-  <div class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--tall">
+  <header class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--tall">
     <div class="wsk-layout__header-row">
       <span>Upper row</span>
     </div>
@@ -114,7 +114,7 @@ The header element (optional). By default, it's only shown in large screens.
     <div class="wsk-layout__header-row">
       <span>Bottom row</span>
     </div>
-  </div>
+  </header>
   ```
 
 ## wsk-layout__drawer
@@ -140,19 +140,19 @@ Tabs (optional). Used for tabbing the entire layout.
 ```html
   <div class="demo-container">
     <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
-      <div class="wsk-layout__header">
+      <header class="wsk-layout__header">
         <!-- Icon -->
         <img class="wsk-layout-icon" src="images/app-icon.png"/>
         <!-- Title -->
         <span class="wsk-layout-title">Material Design Lite</span>
-      </div>
+      </header>
       <!-- Tab bar -->
       <div class="wsk-layout__tab-bar wsk-js-ripple-effect">
         <a href="#blue-panel" class="wsk-layout__tab is-active">Blue</a>
         <a href="#green-panel" class="wsk-layout__tab">Green</a>
         <a href="#red-panel" class="wsk-layout__tab">Red</a>
       </div>
-      <div class="wsk-layout__content">
+      <main class="wsk-layout__content">
         <!-- Panels -->
         <div class="wsk-layout__tab-panel is-active" id="blue-panel">
           (...)
@@ -163,7 +163,7 @@ Tabs (optional). Used for tabbing the entire layout.
         <div class="wsk-layout__tab-panel" id="red-panel">
           (...)
         </div>
-      </div>
+      </main>
     </div>
   </div>
 ```
@@ -203,19 +203,19 @@ Your content goes here :)
   grow, so you can use it to align elements to the right in a header, for
   example:
   ```html
-  <div class="wsk-layout__header">
+  <header class="wsk-layout__header">
     <span>Left-aligned text</span>
     <div class="wsk-layout-spacer"></div>
     <span>Right-aligned text</span>
-  </div>
+  </header>
   ```
   or to the center:
   ```html
-  <div class="wsk-layout__header">
+  <header class="wsk-layout__header">
     <div class="wsk-layout-spacer"></div>
     <span>Center-aligned text</span>
     <div class="wsk-layout-spacer"></div>
-  </div>
+  </header>
   ```
   You can also use it to align to bottom in a drawer:
   ```html
@@ -229,18 +229,18 @@ Your content goes here :)
 - `wsk-layout-icon`:
   Styles an image to serve as the application icon.
   ```html
-  <div class="wsk-layout__header">
+  <header class="wsk-layout__header">
     <img class="wsk-layout-icon" src="app-icon.svg">My Awesome Site</div>
-  </div>
+  </header>
   ```
 
 - `wsk-layout-title`:
   Styles the text inside to look like a title (slightly different styling
   depending on container).
   ```html
-  <div class="wsk-layout__header">
+  <header class="wsk-layout__header">
     <div class="wsk-layout-title">My Awesome Site</div>
-  </div>
+  </header>
   ```
   ```html
   <div class="wsk-layout__drawer">
@@ -253,12 +253,12 @@ Your content goes here :)
   styled differently depending on whether they're placed in the header or the
   drawer.
   ```html
-  <div class="wsk-layout__header">
+  <header class="wsk-layout__header">
     <nav class="wsk-layout-navigation">
       <a class="wsk-navigation__link" href="">Hello</a>
       (...)
     </nav>
-  </div>
+  </header>
   ```
   ```html
   <div class="wsk-layout__drawer">
