@@ -399,7 +399,7 @@ MaterialMenu.prototype.show = function(evt) {
  * Hides the menu.
  * @public
  */
-MaterialMenu.prototype.hide = function(evt) {
+MaterialMenu.prototype.hide = function() {
   'use strict';
 
   if (this.element_ && this.container_ && this.outline_) {
@@ -433,7 +433,7 @@ MaterialMenu.prototype.toggle = function(evt) {
   'use strict';
 
   if (this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
-    this.hide(evt);
+    this.hide();
   } else {
     this.show(evt);
   }
