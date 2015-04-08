@@ -1,8 +1,4 @@
-@import "../colors";
-@import "../animation/animation";
-
-$bar-height: 4px !default;
-
+@import "../vars";
 
 .wsk-js-progress {
   display: block;

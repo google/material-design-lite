@@ -1,20 +1,4 @@
-@import "../colors";
-@import "../animation/animation";
-
-// This file is largely adapted from https://github.com/Polymer/paper-spinner.
-
-$spinner-size: 28px !default;
-$spinner-stroke-width: 3px !default;
-
-// Amount of circle the arc takes up.
-$spinner-arc-size: 270deg;
-// Time it takes to expand and contract arc.
-$spinner-arc-time: 1333ms;
-// How much the start location of the arc should rotate each time.
-$spinner-arc-start-rot: 216deg;
-
-$spinner-duration: 360deg * $spinner-arc-time / (
-    $spinner-arc-start-rot + (360deg - $spinner-arc-size));
+@import "../vars";
 
 
 .wsk-spinner {

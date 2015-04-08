@@ -1,11 +1,4 @@
-@import "../colors";
-@import "../shadow/shadow";
-@import "../animation/animation";
-@import "../ripple/ripple";
-
-$icon-toggle-size: 32px !default;
-$icon-toggle-font-size: 24px !default;
-$icon-toggle-ripple-size: 36px !default;
+@import "../vars";
 
 .wsk-icon-toggle {
   position: relative;

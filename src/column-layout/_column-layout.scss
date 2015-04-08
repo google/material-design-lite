@@ -1,29 +1,4 @@
-// Cutoff points for devices.
-$columns-tablet-size: 768px;
-$columns-desktop-size: 1024px;
-
-// Web (desktop) layout. Columns are fixed width, and there's a maximum number
-// of 3 columns, after which we just add padding to either side.
-$columns-web-count: 3;
-$columns-web-size: 360px;
-$columns-web-gutter: 40px;
-
-$columns-web-block-size: $columns-web-size + $columns-web-gutter;
-$columns-web-padding-size: $columns-web-count *
-    ($columns-web-size + $columns-web-gutter) / 2;
-
-// Tablet layout. There's a fixed number of columns, which grow to fill the
-// entire container.
-$columns-tablet-count: 2;
-$columns-tablet-gutter: 24px;
-$columns-tablet-percent: 100% / $columns-tablet-count;
-
-// Phone layout. There's a fixed number of columns, which grow to fill the
-// entire container.
-$columns-phone-count: 1;
-$columns-phone-gutter: 16px;
-$columns-phone-percent: 100% / $columns-phone-count;
-
+@import "../vars";
 
 .wsk-column-layout {
   // Web layout.

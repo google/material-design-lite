@@ -1,0 +1,34 @@
+/* Material Design Lite */
+
+// Variables and mixins
+@import "vars";
+
+// Resets and dependencies
+@import "resets/resets";
+@import "colors";
+@import "typography/typography";
+@import 'icons/icons';
+
+// Components
+@import "palette/palette";
+@import "shadow/shadow";
+@import "ripple/ripple";
+@import "animation/animation";
+@import "button/button";
+@import "card/card";
+@import "checkbox/checkbox";
+@import "column-layout/column-layout";
+@import "footer/mega_footer";
+@import "footer/mini_footer";
+@import "icon-toggle/icon-toggle";
+@import "menu/menu";
+@import "progress/progress";
+@import "layout/layout";
+@import "list/list";
+@import "radio/radio";
+@import "slider/slider";
+@import "spinner/spinner";
+@import "switch/switch";
+@import "tabs/tabs";
+@import "textfield/textfield";
+@import "tooltip/tooltip";

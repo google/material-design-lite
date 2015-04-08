@@ -1,6 +1,4 @@
-@import "../styleguide_demo_bp";
-@import 'palette';
-@import "../typography/typography";
+@import "../material-design-lite";
 
 @mixin demo-palette-color-groups($palette) {
   .demo-palette-color--50 {
