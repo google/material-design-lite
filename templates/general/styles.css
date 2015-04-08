@@ -6,7 +6,7 @@ header.wsk-layout__header {
   height: 40vh;
   width: 100%;
   max-height: 400px;
-  background: url('http://placehold.it/2048x700/263238/FFFFFF') center center;
+  background: url('http://placehold.it/2048x700/263238/37474F') center center;
   background-size: cover;
   flex-shrink: 0;
   position: relative;
@@ -44,14 +44,14 @@ main > .wsk-layout__tab-panel > header > *:last-child {
   margin-bottom: 0;
 }
 
-.squares {
+#squares {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
 }
-.squares > .square {
+#squares > .square {
   min-width: 25vw;
   min-height: 25vw;
   flex-grow: 1;
@@ -61,33 +61,33 @@ main > .wsk-layout__tab-panel > header > *:last-child {
 }
 
 @media (max-width: 1280px) {
-  .squares > .square {
+  #squares > .square {
     min-width: 50vw;
     min-height: 50vw;
   }
 }
 
 @media (max-width: 640px) {
-  .squares > .square {
+  #squares > .square {
     min-width: 100vw;
     min-height: 100vw;
   }
 }
 
-.squares > .square:nth-child(1) {
-  background: url('http://placehold.it/500/D81B60/FFFFFF') center center;
+#squares > .square:nth-child(1) {
+  background: url('http://placehold.it/500/D81B60/C2185B') center center;
   background-size: cover;
 }
-.squares > .square:nth-child(2) {
-  background: url('http://placehold.it/500/C2185B/FFFFFF') center center;
+#squares > .square:nth-child(2) {
+  background: url('http://placehold.it/500/C2185B/AD1457') center center;
   background-size: cover;
 }
-.squares > .square:nth-child(3) {
-  background: url('http://placehold.it/500/AD1457/FFFFFF') center center;
+#squares > .square:nth-child(3) {
+  background: url('http://placehold.it/500/AD1457/880E4F') center center;
   background-size: cover;
 }
-.squares > .square:nth-child(4) {
-  background: url('http://placehold.it/500/880E4F/FFFFFF') center center;
+#squares > .square:nth-child(4) {
+  background: url('http://placehold.it/500/880E4F/AD1457') center center;
   background-size: cover;
 }
 .square > footer {
@@ -108,4 +108,15 @@ main > .wsk-layout__tab-panel > header > *:last-child {
 }
 .square > footer > *:last-child {
   margin-bottom: 0;
+}
+
+#cta {
+  width: 100%;
+  height: 40vh;
+  background: url('http://placehold.it/2048x700/263238/37474F') center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
