@@ -141,7 +141,7 @@ MaterialTextfield.prototype.change = function(value) {
   if (value) {
     this.input_.value = value;
   }
-  this.updateValueStyles_();
+  this.updateClasses_();
 };
 
 /**
