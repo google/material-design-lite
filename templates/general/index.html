@@ -49,14 +49,17 @@
       background: url('http://placekitten.com/2048/700') center center;
       background-size: cover;
       flex-shrink: 0;
+      position: relative;
     }
     .wsk-layout__tab-bar-container {
+      overflow: visible;
       height: 96px;
     }
     .wsk-layout__tab-bar-button {
       display: none;
     }
     .wsk-layout__tab-bar {
+      overflow: visible;
       position: static;
       height: 100%;
       width: 100%;
@@ -64,6 +67,12 @@
     .wsk-layout__tab-bar a {
       height: 100%;
       line-height: 96px;
+    }
+    #mail {
+      position: absolute;
+      right: 40px;
+      top: -28px;
+      z-index: 999;
     }
     </style>
   </head>
@@ -76,6 +85,7 @@
         <a href="#experience-panel" class="wsk-layout__tab">Experience</a>
         <a href="#contact-panel" class="wsk-layout__tab">Contact Us</a>
         <a href="#blog-panel" class="wsk-layout__tab">Our Blog</a>
+        <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect wsk-button--colored wsk-shadow--z3" id="mail"><span class="wsk-icon wsk-icon--email"></span></button>
       </div>
       <main class="wsk-layout__content">
         <div class="wsk-layout__tab-panel is-active" id="about-panel">
