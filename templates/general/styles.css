@@ -49,15 +49,31 @@ main > .wsk-layout__tab-panel > header > *:last-child {
   flex-direction: row;
   align-items: flex-start;
   align-content: flex-start;
+  flex-wrap: wrap;
 }
 .squares > .square {
-  width: 25vw;
+  min-width: 25vw;
   min-height: 25vw;
   flex-grow: 1;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 }
+
+@media (max-width: 1280px) {
+  .squares > .square {
+    min-width: 50vw;
+    min-height: 50vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .squares > .square {
+    min-width: 100vw;
+    min-height: 100vw;
+  }
+}
+
 .squares > .square:nth-child(1) {
   background: url('http://placehold.it/500/D81B60/FFFFFF') center center;
   background-size: cover;
