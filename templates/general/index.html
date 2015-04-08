@@ -39,13 +39,31 @@
       margin-bottom: 20px;
       z-index: 900;
     }
+    body {
+      font-family: 'Roboto';
+    }
     header.wsk-layout__header {
       height: 40vh;
       width: 100%;
       max-height: 400px;
       background: url('http://placekitten.com/2048/700') center center;
       background-size: cover;
-
+      flex-shrink: 0;
+    }
+    .wsk-layout__tab-bar-container {
+      height: 96px;
+    }
+    .wsk-layout__tab-bar-button {
+      display: none;
+    }
+    .wsk-layout__tab-bar {
+      position: static;
+      height: 100%;
+      width: 100%;
+    }
+    .wsk-layout__tab-bar a {
+      height: 100%;
+      line-height: 96px;
     }
     </style>
   </head>
