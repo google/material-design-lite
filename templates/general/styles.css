@@ -120,3 +120,35 @@ main > .wsk-layout__tab-panel > header > *:last-child {
   align-content: center;
   justify-content: center;
 }
+
+#authors{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  background-color: white;
+}
+
+#authors > .author {
+  width: 300px;
+  margin: 0 40px;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.author h4 {
+  margin-bottom: 20px;
+}
+
+.author img {
+  border-radius: 100px;
+  margin-bottom: 40px;
+}
