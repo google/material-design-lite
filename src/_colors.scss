@@ -118,7 +118,7 @@ $tab-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 /* ==========  Checkboxes  ========== */
 
 $checkbox-color: unquote("rgb(#{$color-primary})") !default;
-$checkbox-off-color: unquote("rgb(#{$palette-black-54})") !default;
+$checkbox-off-color: unquote("rgba(#{$palette-black-54})") !default;
 $checkbox-disabled-color: unquote("rgba(#{$palette-black-26})") !default;
 $checkbox-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 
