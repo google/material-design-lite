@@ -2289,3 +2289,25 @@
 .wsk-color--white {
   background-color: unquote("rgb(#{$palette-white})");
 }
+
+// Primary and accent
+
+.wsk-color--primary {
+  background-color: $color-primary;
+}
+.wsk-color--primary-dark {
+  background-color: $color-primary-dark;
+}
+.wsk-color--accent {
+  background-color: $color-accent;
+}
+
+.wsk-color-text--primary {
+  color: $color-primary;
+}
+.wsk-color-text--primary-dark {
+  color: $color-primary-dark;
+}
+.wsk-color-text--accent {
+  color: $color-accent;  
+}
