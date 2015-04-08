@@ -430,7 +430,7 @@ MaterialCheckbox.prototype.CssClasses_ = {
 MaterialCheckbox.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -472,19 +472,19 @@ MaterialCheckbox.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialCheckbox.prototype.updateClasses_ = function(button, label) {
+MaterialCheckbox.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -498,7 +498,7 @@ MaterialCheckbox.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
@@ -511,7 +511,7 @@ MaterialCheckbox.prototype.blur_ = function(event) {
 MaterialCheckbox.prototype.disable = function() {
   'use strict';
 
-  this.btnElement_.disabled = true;
+  this.inputElement_.disabled = true;
   this.updateClasses_();
 };
 
@@ -522,7 +522,7 @@ MaterialCheckbox.prototype.disable = function() {
 MaterialCheckbox.prototype.enable = function() {
   'use strict';
 
-  this.btnElement_.disabled = false;
+  this.inputElement_.disabled = false;
   this.updateClasses_();
 };
 
@@ -533,7 +533,7 @@ MaterialCheckbox.prototype.enable = function() {
 MaterialCheckbox.prototype.check = function() {
   'use strict';
 
-  this.btnElement_.checked = true;
+  this.inputElement_.checked = true;
   this.updateClasses_();
 };
 
@@ -544,7 +544,7 @@ MaterialCheckbox.prototype.check = function() {
 MaterialCheckbox.prototype.uncheck = function() {
   'use strict';
 
-  this.btnElement_.checked = false;
+  this.inputElement_.checked = false;
   this.updateClasses_();
 };
 
@@ -555,7 +555,7 @@ MaterialCheckbox.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ = this.element_.querySelector('.' +
+    this.inputElement_ = this.element_.querySelector('.' +
         this.CssClasses_.INPUT);
 
     var boxOutline = document.createElement('span');
@@ -588,12 +588,12 @@ MaterialCheckbox.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
@@ -726,7 +726,7 @@ MaterialIconToggle.prototype.CssClasses_ = {
 MaterialIconToggle.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -768,19 +768,19 @@ MaterialIconToggle.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
+MaterialIconToggle.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -794,7 +794,7 @@ MaterialIconToggle.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
@@ -807,7 +807,7 @@ MaterialIconToggle.prototype.blur_ = function(event) {
 MaterialIconToggle.prototype.disable = function() {
   'use strict';
 
-  this.btnElement_.disabled = true;
+  this.inputElement_.disabled = true;
   this.updateClasses_();
 };
 
@@ -818,7 +818,7 @@ MaterialIconToggle.prototype.disable = function() {
 MaterialIconToggle.prototype.enable = function() {
   'use strict';
 
-  this.btnElement_.disabled = false;
+  this.inputElement_.disabled = false;
   this.updateClasses_();
 };
 
@@ -829,7 +829,7 @@ MaterialIconToggle.prototype.enable = function() {
 MaterialIconToggle.prototype.check = function() {
   'use strict';
 
-  this.btnElement_.checked = true;
+  this.inputElement_.checked = true;
   this.updateClasses_();
 };
 
@@ -840,7 +840,7 @@ MaterialIconToggle.prototype.check = function() {
 MaterialIconToggle.prototype.uncheck = function() {
   'use strict';
 
-  this.btnElement_.checked = false;
+  this.inputElement_.checked = false;
   this.updateClasses_();
 };
 
@@ -851,7 +851,7 @@ MaterialIconToggle.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ =
+    this.inputElement_ =
         this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
     var rippleContainer;
@@ -870,12 +870,12 @@ MaterialIconToggle.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add('is-upgraded');
   }
 };
@@ -1289,7 +1289,7 @@ MaterialMenu.prototype.show = function(evt) {
  * Hides the menu.
  * @public
  */
-MaterialMenu.prototype.hide = function(evt) {
+MaterialMenu.prototype.hide = function() {
   'use strict';
 
   if (this.element_ && this.container_ && this.outline_) {
@@ -1323,7 +1323,7 @@ MaterialMenu.prototype.toggle = function(evt) {
   'use strict';
 
   if (this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
-    this.hide(evt);
+    this.hide();
   } else {
     this.show(evt);
   }
@@ -1335,6 +1335,95 @@ componentHandler.register({
   constructor: MaterialMenu,
   classAsString: 'MaterialMenu',
   cssClass: 'wsk-js-menu'
+});
+
+/**
+ * Class constructor for Progress WSK component.
+ * Implements WSK component design pattern defined at:
+ * https://github.com/jasonmayes/wsk-component-design-pattern
+ * @param {HTMLElement} element The element that will be upgraded.
+ */
+function MaterialProgress(element) {
+  'use strict';
+
+  this.element_ = element;
+
+  // Initialize instance.
+  this.init();
+}
+
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+MaterialProgress.prototype.Constant_ = {
+};
+
+/**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+MaterialProgress.prototype.CssClasses_ = {
+  INDETERMINATE_CLASS: 'wsk-progress__indeterminate'
+};
+
+MaterialProgress.prototype.setProgress = function(p) {
+  'use strict';
+
+  if (this.element_.classList.contains(this.CssClasses_.INDETERMINATE_CLASS)) {
+    return;
+  }
+
+  this.progressbar_.style.width = p + '%';
+};
+
+MaterialProgress.prototype.setBuffer = function(p) {
+  'use strict';
+
+  this.bufferbar_.style.width = p + '%';
+  this.auxbar_.style.width = (100-p) + '%';
+};
+
+/**
+ * Initialize element.
+ */
+MaterialProgress.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
+    var el = document.createElement('div');
+    el.className = 'progressbar bar bar1';
+    this.element_.appendChild(el);
+    this.progressbar_ = el;
+
+    el = document.createElement('div');
+    el.className = 'bufferbar bar bar2';
+    this.element_.appendChild(el);
+    this.bufferbar_ = el;
+
+    el = document.createElement('div');
+    el.className = 'auxbar bar bar3';
+    this.element_.appendChild(el);
+    this.auxbar_ = el;
+
+    this.progressbar_.style.width = '0%';
+    this.bufferbar_.style.width = '100%';
+    this.auxbar_.style.width = '0%';
+
+    this.element_.classList.add('is-upgraded');
+  }
+};
+
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+  constructor: MaterialProgress,
+  classAsString: 'MaterialProgress',
+  cssClass: 'wsk-js-progress'
 });
 
 /**
@@ -1485,7 +1574,7 @@ MaterialRadio.prototype.disable = function() {
   'use strict';
 
   this.btnElement_.disabled = true;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
@@ -1496,7 +1585,7 @@ MaterialRadio.prototype.enable = function() {
   'use strict';
 
   this.btnElement_.disabled = false;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
@@ -1507,7 +1596,7 @@ MaterialRadio.prototype.check = function() {
   'use strict';
 
   this.btnElement_.checked = true;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
@@ -1518,7 +1607,7 @@ MaterialRadio.prototype.uncheck = function() {
   'use strict';
 
   this.btnElement_.checked = false;
-  this.updateClasses_();
+  this.updateClasses_(this.btnElement_, this.element_);
 };
 
 /**
@@ -1943,7 +2032,7 @@ MaterialSwitch.prototype.CssClasses_ = {
 MaterialSwitch.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -1985,19 +2074,19 @@ MaterialSwitch.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialSwitch.prototype.updateClasses_ = function(button, label) {
+MaterialSwitch.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -2011,7 +2100,7 @@ MaterialSwitch.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
@@ -2024,7 +2113,7 @@ MaterialSwitch.prototype.blur_ = function(event) {
 MaterialSwitch.prototype.disable = function() {
   'use strict';
 
-  this.btnElement_.disabled = true;
+  this.inputElement_.disabled = true;
   this.updateClasses_();
 };
 
@@ -2035,7 +2124,7 @@ MaterialSwitch.prototype.disable = function() {
 MaterialSwitch.prototype.enable = function() {
   'use strict';
 
-  this.btnElement_.disabled = false;
+  this.inputElement_.disabled = false;
   this.updateClasses_();
 };
 
@@ -2046,7 +2135,7 @@ MaterialSwitch.prototype.enable = function() {
 MaterialSwitch.prototype.on = function() {
   'use strict';
 
-  this.btnElement_.checked = true;
+  this.inputElement_.checked = true;
   this.updateClasses_();
 };
 
@@ -2057,7 +2146,7 @@ MaterialSwitch.prototype.on = function() {
 MaterialSwitch.prototype.off = function() {
   'use strict';
 
-  this.btnElement_.checked = false;
+  this.inputElement_.checked = false;
   this.updateClasses_();
 };
 
@@ -2068,7 +2157,7 @@ MaterialSwitch.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ = this.element_.querySelector('.' +
+    this.inputElement_ = this.element_.querySelector('.' +
         this.CssClasses_.INPUT);
 
     var track = document.createElement('div');
@@ -2104,12 +2193,12 @@ MaterialSwitch.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add('is-upgraded');
   }
 };

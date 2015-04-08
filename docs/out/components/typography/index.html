@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Starter Kit</title>
+
+    <!-- Add to homescreen -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fallback to homescreen for Chrome <39 on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Web Starter Kit">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <meta name="theme-color" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="/material.min.css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <script src="/material.min.js" />
+  </head>
+  <body>
+
+  <div class="demo-layout">
+    <div class="wsk-layout__container">
+      <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
+      <header class="wsk-layout__header is-casting-shadow">
+        <!-- Icon -->
+        <img class="wsk-layout-icon" src="/assets/app-icon.png">
+        <!-- Title -->
+        <span class="wsk-layout-title"><a href="/">Material Design Lite</a></span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="wsk-layout-spacer"></div>
+        <!-- Navigation -->
+        <nav class="wsk-navigation">
+          <a class="wsk-navigation__link" href="/about">About</a>
+          <a class="wsk-navigation__link" href="/getting_started">Getting started
+</a>
+          <a class="wsk-navigation__link" href="/components">Components</a>
+          <a class="wsk-navigation__link" href="/customize">Customize</a>
+
+        </nav>
+      </header>
+      <div class="wsk-layout__drawer">
+        <span class="wsk-layout-title">Material Design Lite</span>
+        <nav class="wsk-navigation">
+          <a class="wsk-navigation__link" href="/about">About</a>
+          <a class="wsk-navigation__link" href="/getting_started">Getting started
+</a>
+          <a class="wsk-navigation__link" href="/components">Components</a>
+          <a class="wsk-navigation__link" href="/customize">Customize</a>
+        </nav>
+      </div>
+      <div class="wsk-layout__drawer-button"></div><main class="wsk-layout__content">
+          
+
+<div>
+  <a href="../">back to all </a>
+</div>
+
+<div>
+  <button class="wsk-button wsk-js-button wsk-button--raised">
+    <a href="demo.html">demo</a></button>
+</div>
+
+
+
+<h1 id="typography">Typography</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The Material Design Lite (MDL) <strong>typography</strong> component is a comprehensive approach to standardizing the use of typefaces in applications and page displays. MDL typography elements are intended to replace the myriad fonts used by developers (which vary significantly in appearance) and provide a robust, uniform library of text styles from which developers can choose. </p>
+<p>The &quot;Roboto&quot; typeface is the standard for MDL display; it can easily be integrated into a web page using the CSS3 <code>@font-face</code> rule. However, Roboto is most simply accessed and included using a single standard HTML <code>&lt;link&gt;</code> element, which can be obtained at <a href="http://www.google.com/fonts#UsePlace:use/Collection:Roboto">this Google fonts page</a>.</p>
+<p>Because of the many possible variations in font display characteristics in HTML and CSS, MDL typography aims to provide simple and intuitive styles that use the Roboto font and produce visually attractive and internally consistent text results. See the typography component&#39;s <a href="http://www.google.com/design/spec/style/typography.html">Material Design specifications page</a> for details. </p>
+<h2 id="basic-use">Basic use</h2>
+<p>MDL typography does not require the inclusion of the minified CSS and JavaScript files that drive the other MDL components. Instead, just include a link to the Google stylesheet that accesses the font and its desired variations.</p>
+<pre><code class="lang-html">&lt;head&gt;
+&lt;link href=&#39;http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+...
+&lt;/head&gt;
+</code></pre>
+<h3 id="to-include-an-mdl-typography-component-">To include an MDL <strong>typography</strong> component:</h3>
+<p>&nbsp;1. Code any element (<code>&lt;div&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;span&gt;</code>, etc.) that can contain text, including whatever content is appropriate.</p>
+<pre><code class="lang-html">&lt;p&gt;This is a standard paragraph.&lt;/p&gt;
+</code></pre>
+<p>&nbsp;2. Add one or more MDL classes, separated by spaces, to the element using the <code>class</code> attribute.</p>
+<pre><code class="lang-html">&lt;p class=&quot;wsk-typography--body-1&quot;&gt;This is a standard paragraph.&lt;/p&gt;
+</code></pre>
+<p>The typography component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A &quot;headline&quot; paragraph.</p>
+<pre><code class="lang-html">&lt;p class=&quot;wsk-typography--headline&quot;&gt;Regular 24px&lt;/p&gt;
+</code></pre>
+<p>A &quot;title&quot; paragraph.</p>
+<pre><code class="lang-html">&lt;p class=&quot;wsk-typography--title&quot;&gt;Medium 20px&lt;/p&gt;
+</code></pre>
+<p>A &quot;caption&quot; span.</p>
+<pre><code class="lang-html">&lt;span class=&quot;wsk-typography--caption&quot;&gt;Regular 12px&lt;/span&gt;
+</code></pre>
+<p>A &quot;button&quot; span.</p>
+<pre><code class="lang-html">&lt;span class=&quot;wsk-typography--button&quot;&gt;Medium (All Caps) 14px&lt;/span&gt;
+</code></pre>
+<p>A &quot;display 1&quot; table cell.</p>
+<pre><code class="lang-html">&lt;td class=&quot;wsk-typography--display-1&quot;&gt;Regular 34px&lt;/td&gt;
+</code></pre>
+<p>A &quot;body-1&quot; paragraph, also uppercased.</p>
+<pre><code class="lang-html">&lt;p class=&quot;wsk-typography--body-1 wsk-typography--text-uppercase&quot;&gt;This is a standard paragraph, but uppercased.&lt;/p&gt;
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Because the Roboto font is intended to apply to the entire page, standard &quot;unclassed&quot; HTML elements (e.g., heading levels, divs, paragraphs, spans, tables, etc. with no <code>class</code> attribute) and text modifiers (e.g., strong, em, small, etc.) will use Roboto, while also retaining their inherent and/or inherited characteristics.</p>
+<p>Also note that MDL typography provides some automatic adjustments based on its display environment. For example, the <code>body-1</code> style renders at 14px on a mobile device, but 13px on a desktop. You need not do anything to activate these self-modifiers; they are built into the MDL styles.</p>
+</blockquote>
+<h2 id="configuration-options">Configuration options</h2>
+<p>The MDL CSS classes specify the style to use. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr>
+<th>MDL class</th>
+<th>Effect</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wsk-typography--body-1</code></td>
+<td>Regular 14px (Device), Regular 13px (Desktop)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--body-1-force-preferred-font</code></td>
+<td>Regular 14px (Device), Regular 13px (Desktop)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--body-2</code></td>
+<td>Medium 14px (Device), Medium 13px (Desktop)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--body-2</code></td>
+<td>wsk-typography-body-2</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--body-2-color-contrast</code></td>
+<td>Body with color contrast</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--body-2-force-preferred-font</code></td>
+<td>Medium 14px (Device), Medium 13px (Desktop)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--button</code></td>
+<td>Medium (All Caps) 14px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--caption</code></td>
+<td>Regular 12px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--caption-color-contrast</code></td>
+<td>Caption with color contrast</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--display-1</code></td>
+<td>Regular 34px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--display-1-color-contrast</code></td>
+<td>Display with color contrast</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--display-2</code></td>
+<td>Regular 45px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--display-3</code></td>
+<td>Regular 56px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--display-4</code></td>
+<td>Light 112px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--headline</code></td>
+<td>Regular 24px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--menu</code></td>
+<td>Medium 14px (Device), Medium 13px (Desktop)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--subhead</code></td>
+<td>Regular 16px (Device), Regular 15px (Desktop)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--subhead-color-contrast</code></td>
+<td>Subhead with color contrast</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--table-striped</code></td>
+<td>Striped table</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-capitalize</code></td>
+<td>Capitalized text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-center</code></td>
+<td>Center aligned text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-justify</code></td>
+<td>Justified text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-left</code></td>
+<td>Left aligned text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-lowercase</code></td>
+<td>Lowercased text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-nowrap</code></td>
+<td>No wrap text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-right</code></td>
+<td>Right aligned text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--text-uppercase</code></td>
+<td>Uppercased text</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--title</code></td>
+<td>Medium 20px</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>wsk-typography--title-color-contrast</code></td>
+<td>Title with color contrast</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h2 id="more-information">More information</h2>
+<p>For working examples of the <strong>typography</strong> component, see the MDL <a href="http://google.github.io/web-starter-kit/latest/styleguide/typography/demo.html">typography demo page</a>.</p>
+<h2 id="license">License</h2>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>
+
+
+
+      </main>
+    <div class="wsk-layout__obfuscator"></div></div></div>
+  </div>
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-XXXXX-X', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!-- Built with love using Web Starter Kit -->
+  </body>
+</html>

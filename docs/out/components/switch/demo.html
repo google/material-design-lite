@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switch</title>
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page demo-page--switch">
+
+  <div class="demo-preview-block">
+
+    <label class="wsk-switch wsk-js-switch wsk-js-ripple-effect" for="switch-1">
+      <input type="checkbox" id="switch-1" class="wsk-switch__input" />
+      <span class="wsk-switch__label">Switch me</span>
+    </label>
+
+    <label class="wsk-switch wsk-js-switch wsk-js-ripple-effect" for="switch-2">
+      <input type="checkbox" id="switch-2" class="wsk-switch__input" />
+      <span class="wsk-switch__label">Flip me left and right</span>
+    </label>
+
+    <label class="wsk-switch wsk-js-switch wsk-js-ripple-effect" for="switch-4">
+      <input type="checkbox" id="switch-4" class="wsk-switch__input" />
+      <span class="wsk-switch__label">Me too</span>
+    </label>
+
+    <label class="wsk-switch wsk-js-switch wsk-js-ripple-effect" for="switch-5">
+      <input type="checkbox" id="switch-5" class="wsk-switch__input" disabled />
+      <span class="wsk-switch__label">Can't touch this</span>
+    </label>
+
+  </div>
+  <!-- build:js(app/styleguide/switch/) ../../scripts/main.min.js -->
+  <script src="../wskComponentHandler.js"></script>
+  <script src="switch.js"></script>
+  <script src="../third_party/rAF.js"></script>
+  <script src="../ripple/ripple.js"></script>
+  <!-- endbuild -->
+</body>
+</html>
