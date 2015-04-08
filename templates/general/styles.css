@@ -131,24 +131,59 @@ main > .wsk-layout__tab-panel > header > *:last-child {
   padding-top: 40px;
   background-color: white;
 }
-
 #authors > .author {
   width: 300px;
   margin: 0 40px;
 }
-
 .author {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
-
 .author h4 {
   margin-bottom: 20px;
 }
-
 .author img {
   border-radius: 100px;
   margin-bottom: 40px;
+}
+
+footer.wsk-mega-footer {
+  background-color: transparent;
+  padding: 0;
+}
+footer.wsk-mega-footer > * {
+  padding: 32px 16px;
+  padding-left: 80px;
+}
+.wsk-mega-footer--top-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.wsk-mega-footer--middle-section > span {
+  display: inline-block;
+  margin-right: 20px;
+}
+.wsk-mega-footer--bottom-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.8em;
+  padding-top: 0 !important;
+}
+.wsk-mega-footer--social-btn {
+  margin-right: 40px;
+}
+.wsk-mega-footer--top-section:after {
+  border: 0;
+}
+.wsk-mega-footer--middle-section:after {
+  border: 0;
+}
+.wsk-mega-footer--link-list {
+  margin: 0;
 }
