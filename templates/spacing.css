@@ -9,8 +9,6 @@ h1, h2, h3 {
 p {
   margin-bottom: 20px;
   letter-spacing: .1px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 30px;
 }
 
 .demo-layout__content {

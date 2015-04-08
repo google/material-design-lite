@@ -29,54 +29,20 @@
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="material.min.css">
     <link rel="stylesheet" href="../spacing.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
     #view-source {
       position: fixed;
       display: block;
       right: 0;
       bottom: 0;
-      margin-right: 20px;
-      margin-bottom: 20px;
+      margin-right: 40px;
+      margin-bottom: 40px;
       z-index: 900;
-    }
-    body {
-      font-family: 'Roboto';
-    }
-    header.wsk-layout__header {
-      height: 40vh;
-      width: 100%;
-      max-height: 400px;
-      background: url('http://placekitten.com/2048/700') center center;
-      background-size: cover;
-      flex-shrink: 0;
-      position: relative;
-    }
-    .wsk-layout__tab-bar-container {
-      overflow: visible;
-      height: 96px;
-    }
-    .wsk-layout__tab-bar-button {
-      display: none;
-    }
-    .wsk-layout__tab-bar {
-      overflow: visible;
-      position: static;
-      height: 100%;
-      width: 100%;
-    }
-    .wsk-layout__tab-bar a {
-      height: 100%;
-      line-height: 96px;
-    }
-    #mail {
-      position: absolute;
-      right: 40px;
-      top: -28px;
-      z-index: 999;
     }
     </style>
   </head>
-  <body>
+  <body class="wsk-color--blue-grey-700">
     <div class="wsk-layout wsk-js-layout">
       <header class="wsk-layout__header wsk-layout__header--scroll">
       </header>
@@ -89,7 +55,40 @@
       </div>
       <main class="wsk-layout__content">
         <div class="wsk-layout__tab-panel is-active" id="about-panel">
-          <h1>About</h1>
+          <header>
+            <h1>Call of the Wild</h1>
+            <h2>Experience the new</h2>
+          </header>
+          <section class="squares">
+            <div class="square">
+              <footer class="wsk-color--blue-grey-700">
+                <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--arrow-forward"></span></button>
+                <h3>Escape</h3>
+                <p>Lorem commodo do eiusmod anim quis.</p>
+              </footer>
+            </div>
+            <div class="square">
+              <footer class="wsk-color--blue-grey-700">
+                <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--arrow-forward"></span></button>
+                <h3>Action</h3>
+                <p>Lorem commodo do eiusmod anim quis.</p>
+              </footer>
+            </div>
+            <div class="square">
+              <footer class="wsk-color--blue-grey-700">
+                <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--arrow-forward"></span></button>
+                <h3>Nature</h3>
+                <p>Lorem commodo do eiusmod anim quis.</p>
+              </footer>
+            </div>
+            <div class="square">
+              <footer class="wsk-color--blue-grey-700">
+                <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--arrow-forward"></span></button>
+                <h3>Discovery</h3>
+                <p>Lorem commodo do eiusmod anim quis.</p>
+              </footer>
+            </div>
+          </section>
         </div>
         <div class="wsk-layout__tab-panel" id="experience-panel">
           <h1>Experience</h1>
