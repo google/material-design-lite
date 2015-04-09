@@ -1,18 +1,16 @@
-@import "../colors";
-@import "../animation/animation";
-@import "../typography/typography";
+@import "../variables";
 
 .wsk-tooltip {
   transform: scale(0);
   transform-origin: top center;
   background: $tooltip-background-color;
-  border-radius: 5px;
+  border-radius: 2px;
   color: $tooltip-text-color;
   display: none;
   font-size: 10px;
   line-height: 14px;
   max-width: 170px;
-  padding: 5px 8px;
+  padding: 4px 8px;
   position: absolute;
   text-align: center;
 }
@@ -24,7 +22,7 @@
 .wsk-tooltip--large {
   line-height: 14px;
   font-size: 14px;
-  padding: 16px;
+  padding: 15px 16px;
 }
 
 @-webkit-keyframes pulse {

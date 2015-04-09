@@ -121,6 +121,7 @@ gulp.task('styletemplates', function () {
     // Minify Styles
     .pipe($.if('*.css.template', $.csso()))
     .pipe($.concat('material.min.css.template'))
+    .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./css'))
     .pipe($.size({title: 'styles'}));
 });
@@ -356,8 +357,9 @@ gulp.task('serve', ['assets', 'pages', 'demos'], function () {
     }
   });
 
-  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['demos', reload]);
+  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['demos', 'images', reload]);
   gulp.watch(['src/**/*.js'], ['scripts', reload]);
+  gulp.watch(['src/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
 });
 

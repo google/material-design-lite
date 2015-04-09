@@ -40,9 +40,8 @@
   <body>
 
   <div class="demo-layout">
-    <div class="wsk-layout__container">
-      <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
-      <header class="wsk-layout__header is-casting-shadow">
+    <div class="wsk-layout wsk-js-layout">
+      <header class="wsk-layout__header">
         <!-- Icon -->
         <img class="wsk-layout-icon" src="/assets/app-icon.png">
         <!-- Title -->
@@ -69,10 +68,10 @@
           <a class="wsk-navigation__link" href="/customize">Customize</a>
         </nav>
       </div>
-      <div class="wsk-layout__drawer-button"></div><main class="wsk-layout__content">
-          {% block content %}{% endblock %}
+      <main class="wsk-layout__content">
+        {% block content %}{% endblock %}
       </main>
-    <div class="wsk-layout__obfuscator"></div></div></div>
+    </div>
   </div>
 
 

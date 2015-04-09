@@ -1,15 +1,17 @@
-@import "../styleguide_demo_bp";
-@import "../card/card";
-@import "../animation/animation";
-@import "_shadow";
+@import "../material-design-lite";
 
 .demo-shadow-card {
   background-color   : #fff;
   border-radius      : 2px;
   display            : block;
   height             : 300px;
-  margin             : 20px;
+  margin-bottom      : 20px;
+
   transition-property: opacity, transform;
   @include material-animation-default(300ms);
   width              : 300px;
+
+  @media screen and (max-width: 360px ) {
+    width: 272px;
+  }
 }

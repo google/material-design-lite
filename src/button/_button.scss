@@ -1,33 +1,4 @@
-@import "../typography/typography";
-@import "../colors";
-@import "../shadow/shadow";
-@import "../animation/animation";
-@import "../ripple/ripple";
-
-
-/**
- *
- * Dimensions
- *
- */
-$button-min-width: 64px !default;
-$button-height: 36px !default;
-$button-padding: 8px !default;
-$button-margin: 4px !default;
-$button-border-radius: 2px !default;
-
-$button-fab-size: 56px !default;
-$button-fab-size-mini: 40px !default;
-$button-fab-font-size: 24px !default;
-
-$button-icon-size: 32px !default;
-$button-icon-size-mini: 24px !default;
-
-// Focus shadow mixin.
-@mixin focus-shadow() {
-  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
-}
-
+@import "../variables";
 
 // The button component. Defaults to a flat button.
 .wsk-button {
@@ -144,25 +115,25 @@ $button-icon-size-mini: 24px !default;
     padding: 0;
     overflow: hidden;
     background: $button-primary-color;
-    @include shadow-z1();
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
     position: relative;
     line-height: normal;
 
     & .wsk-icon {
       position: absolute;
-      top: ($button-fab-size - $button-fab-font-size) / 2;
-      left: ($button-fab-size - $button-fab-font-size) / 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
+      /*top: ($button-fab-size - $button-fab-font-size) / 2;
+      left: ($button-fab-size - $button-fab-font-size) / 2;*/
+      line-height: $button-fab-font-size;
+      width: $button-fab-font-size;
     }
 
     &.wsk-button--mini-fab {
       height: $button-fab-size-mini;
       min-width: $button-fab-size-mini;
       width: $button-fab-size-mini;
-
-      & .wsk-icon {
-        top: ($button-fab-size-mini - $button-fab-font-size) / 2;
-        left: ($button-fab-size-mini - $button-fab-font-size) / 2;
-      }
     }
 
     & .wsk-button__ripple-container {

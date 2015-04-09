@@ -1,34 +1,4 @@
-@import '../colors';
-@import '../shadow/shadow';
-@import '../typography/typography';
-@import '../animation/animation';
-@import '../icons/icons';
-
-// Dimensions
-$layout-drawer-narrow: 240px;
-$layout-drawer-wide: 456px;
-$layout-drawer-width: $layout-drawer-narrow;
-
-$layout-header-icon-size: 32px;
-$layout-screen-size-threshold: 850px;
-$layout-header-icon-margin: 24px;
-$layout-drawer-button-mobile-size: 32px;
-$layout-drawer-button-desktop-size: 48px;
-
-$layout-header-mobile-row-height: 56px;
-$layout-mobile-header-height: $layout-header-mobile-row-height;
-$layout-header-desktop-row-height: 64px;
-$layout-desktop-header-height: $layout-header-desktop-row-height;
-$layout-header-mobile-indent: 56px;
-$layout-header-desktop-indent: 72px;
-$layout-header-basic-mobile-indent: 16px;
-$layout-header-basic-desktop-indent: 24px;
-
-$layout-tab-bar-height: 48px;
-$layout-tab-mobile-padding: 12px;
-$layout-tab-desktop-padding: 24px;
-$layout-tab-highlight-thickness: 2px;
-
+@import "../variables";
 
 // Navigation classes. Only used here for now, but we may at some point move
 // this to its own component.

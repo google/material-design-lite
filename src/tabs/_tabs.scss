@@ -1,7 +1,5 @@
-@import "../colors";
-@import "../animation/animation";
-@import "../typography/typography";
-@import "../ripple/ripple";
+@import "../variables";
+
 
 .wsk-tabs {
   display: block;
@@ -9,10 +7,17 @@
 }
 
 .wsk-tabs__tab-bar {
-  height: 48px;
-  padding: 0 0 0 56px;
-  margin: 0;
-  border-bottom: 1px solid $tab-border-color;
+    display         : flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;
+    justify-content : center; // ⇾
+    align-content   : space-between; // ||
+    align-items     : flex-start; // ↓
+
+    height          : 48px;
+    padding         : 0 0 0 0;
+    margin          : 0;
+    border-bottom   : 1px solid $tab-border-color;
 }
 
 .wsk-tabs__tab {
