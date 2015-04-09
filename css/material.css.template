@@ -5388,7 +5388,7 @@ dt {
   background: transparent;
   border: none;
   border-radius: 2px;
-  color: rgb(0,0,0);
+  color: rgba(0,0,0);
   display: block;
   position: relative;
   height: 36px;
@@ -5421,7 +5421,7 @@ dt {
   .wsk-button:active {
     background-color: rgba(158,158,158, 0.40); }
   .wsk-button[disabled][disabled] {
-    color: rgb(0,0,0,.26);
+    color: rgba(0,0,0,.26);
     cursor: auto;
     background-color: transparent; }
   .wsk-button.wsk-button--colored {
@@ -5451,7 +5451,7 @@ dt {
       background: rgb($color-primary-contrast); }
   .wsk-button--raised[disabled][disabled] {
     background-color: rgba(0,0,0,.12);
-    color: rgb(0,0,0,.26);
+    color: rgba(0,0,0,.26);
     box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
 .wsk-button--fab {
@@ -5469,15 +5469,19 @@ dt {
   line-height: normal; }
   .wsk-button--fab .wsk-icon {
     position: absolute;
-    top: 16px;
-    left: 16px; }
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-12px, -12px);
+        -ms-transform: translate(-12px, -12px);
+            transform: translate(-12px, -12px);
+    /*top: ($button-fab-size - $button-fab-font-size) / 2;
+      left: ($button-fab-size - $button-fab-font-size) / 2;*/
+    line-height: 24px;
+    width: 24px; }
   .wsk-button--fab.wsk-button--mini-fab {
     height: 40px;
     min-width: 40px;
     width: 40px; }
-    .wsk-button--fab.wsk-button--mini-fab .wsk-icon {
-      top: 8px;
-      left: 8px; }
   .wsk-button--fab .wsk-button__ripple-container {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
@@ -5500,7 +5504,7 @@ dt {
       background: rgb($color-accent-contrast); }
   .wsk-button--fab[disabled][disabled] {
     background-color: rgba(0,0,0,.12);
-    color: rgb(0,0,0,.26);
+    color: rgba(0,0,0,.26);
     box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
 .wsk-button--icon {
@@ -6722,7 +6726,7 @@ dt {
   .wsk-icon-toggle.is-checked .wsk-icon-toggle__label {
     color: rgb($color-primary); }
   .wsk-icon-toggle.is-disabled .wsk-icon-toggle__label {
-    color: rgb(0,0,0,.26);
+    color: rgba(0,0,0,.26);
     cursor: auto;
     -webkit-transition: none;
             transition: none; }

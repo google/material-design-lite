@@ -115,25 +115,25 @@
     padding: 0;
     overflow: hidden;
     background: $button-primary-color;
-    @include shadow-z1();
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
     position: relative;
     line-height: normal;
 
     & .wsk-icon {
       position: absolute;
-      top: ($button-fab-size - $button-fab-font-size) / 2;
-      left: ($button-fab-size - $button-fab-font-size) / 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
+      /*top: ($button-fab-size - $button-fab-font-size) / 2;
+      left: ($button-fab-size - $button-fab-font-size) / 2;*/
+      line-height: $button-fab-font-size;
+      width: $button-fab-font-size;
     }
 
     &.wsk-button--mini-fab {
       height: $button-fab-size-mini;
       min-width: $button-fab-size-mini;
       width: $button-fab-size-mini;
-
-      & .wsk-icon {
-        top: ($button-fab-size-mini - $button-fab-font-size) / 2;
-        left: ($button-fab-size-mini - $button-fab-font-size) / 2;
-      }
     }
 
     & .wsk-button__ripple-container {

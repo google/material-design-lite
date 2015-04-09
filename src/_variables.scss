@@ -688,7 +688,7 @@ $text-color-primary: unquote("rgba(#{$palette-black-87})") !default;
 
 // Default button colors.
 $button-primary-color: unquote("rgba(#{$palette-grey-500}, 0.20)") !default;
-$button-secondary-color: unquote("rgb(#{$palette-black-100})") !default;
+$button-secondary-color: unquote("rgba(#{$palette-black-100})") !default;
 $button-hover-color: $button-primary-color !default;
 $button-active-color: unquote("rgba(#{$palette-grey-500}, 0.40)") !default;
 $button-focus-color: unquote("rgba(#{$palette-black-12})") !default;
@@ -705,7 +705,7 @@ $button-ripple-color-alt: unquote("rgb(#{$color-primary-contrast})") !default;
 
 // Disabled button colors.
 $button-primary-color-disabled: unquote("rgba(#{$palette-black-12})") !default;
-$button-secondary-color-disabled: unquote("rgb(#{$palette-black-26})") !default;
+$button-secondary-color-disabled: unquote("rgba(#{$palette-black-26})") !default;
 
 // FAB colors and sizes.
 $button-fab-color-alt: unquote("rgb(#{$color-accent})") !default;
@@ -724,7 +724,7 @@ $icon-toggle-color: unquote("rgb(#{$palette-grey-700})") !default;
 $icon-toggle-focus-color: $button-focus-color !default;
 $icon-toggle-checked-color: unquote("rgb(#{$color-primary})") !default;
 $icon-toggle-checked-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
-$icon-toggle-disabled-color: unquote("rgb(#{$palette-black-26})") !default;
+$icon-toggle-disabled-color: unquote("rgba(#{$palette-black-26})") !default;
 
 /* ==========  Radio Buttons  ========== */
 
@@ -1100,4 +1100,3 @@ $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 /* PROGRESS */
 $bar-height: 4px !default;
-
