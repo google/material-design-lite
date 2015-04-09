@@ -95,6 +95,10 @@ var componentHandler = (function() {
         // it is in global scope.
         createdComponents_.push(new window[jsClass](element));
       }
+
+      var ev = document.createEvent('Events');
+      ev.initEvent('componentupgraded', true, true);
+      element.dispatchEvent(ev);
     }
   }
 
