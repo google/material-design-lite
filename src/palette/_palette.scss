@@ -1,7 +1,5 @@
 @import "../vars";
 
-//@import "color_definitions";
-
 // Red
 
 .wsk-color-text--red {
@@ -2290,4 +2288,38 @@
 
 .wsk-color--white {
   background-color: unquote("rgb(#{$palette-white})");
+}
+
+// Primary and accent
+
+.wsk-color--primary {
+  background-color: unquote("rgb(#{$color-primary})");
+}
+.wsk-color--primary-contrast {
+  background-color: unquote("rgb(#{$color-primary-contrast})");
+}
+.wsk-color--primary-dark {
+  background-color: unquote("rgb(#{$color-primary-dark})");
+}
+.wsk-color--accent {
+  background-color: unquote("rgb(#{$color-accent})");
+}
+.wsk-color--accent-contrast {
+  background-color: unquote("rgb(#{$color-accent-contrast})");
+}
+
+.wsk-color-text--primary {
+  color: unquote("rgb(#{$color-primary})");
+}
+.wsk-color-text--primary-contrast {
+  color: unquote("rgb(#{$color-primary-contrast})");
+}
+.wsk-color-text--primary-dark {
+  color: unquote("rgb(#{$color-primary-dark})");
+}
+.wsk-color-text--accent {
+  color: unquote("rgb(#{$color-accent})");
+}
+.wsk-color-text--accent-contrast {
+  color: unquote("rgb(#{$color-accent-contrast})");
 }

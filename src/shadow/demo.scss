@@ -5,8 +5,13 @@
   border-radius      : 2px;
   display            : block;
   height             : 300px;
-  margin             : 20px;
+  margin-bottom      : 20px;
+
   transition-property: opacity, transform;
   @include material-animation-default(300ms);
   width              : 300px;
+
+  @media screen and (max-width: 360px ) {
+    width: 272px;
+  }
 }

@@ -48,6 +48,7 @@
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -328,6 +329,7 @@ a, .wsk-accordion, .wsk-button, .wsk-card, .wsk-checkbox, .wsk-dropdown-menu, .w
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -787,6 +789,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3175,6 +3178,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -4903,6 +4907,36 @@ dt {
 .wsk-color--white {
   background-color: rgb(255,255,255" "255,255,255,.70" "255,255,255,.30" "255,255,255,.12); }
 
+.wsk-color--primary {
+  background-color: rgb(63,81,181); }
+
+.wsk-color--primary-contrast {
+  background-color: rgb(255,255,255); }
+
+.wsk-color--primary-dark {
+  background-color: rgb(48,63,159); }
+
+.wsk-color--accent {
+  background-color: rgb(255,64,129); }
+
+.wsk-color--accent-contrast {
+  background-color: rgb(255,255,255); }
+
+.wsk-color-text--primary {
+  color: rgb(63,81,181); }
+
+.wsk-color-text--primary-contrast {
+  color: rgb(255,255,255); }
+
+.wsk-color-text--primary-dark {
+  color: rgb(48,63,159); }
+
+.wsk-color-text--accent {
+  color: rgb(255,64,129); }
+
+.wsk-color-text--accent-contrast {
+  color: rgb(255,255,255); }
+
 /*------------------------------------*\
     $CONTENTS
 \*------------------------------------*/
@@ -4945,6 +4979,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5059,6 +5094,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5178,6 +5214,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5293,6 +5330,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5550,6 +5588,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5774,6 +5813,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5870,7 +5910,7 @@ dt {
   margin: 0;
   cursor: pointer;
   overflow: hidden;
-  border: 2px solid rgb(0,0,0,.54);
+  border: 2px solid rgba(0,0,0,.54);
   border-radius: 2px;
   z-index: 2; }
   .wsk-checkbox.is-checked .wsk-checkbox__box-outline {
@@ -5987,6 +6027,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6157,6 +6198,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6422,6 +6464,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6585,6 +6628,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6758,6 +6802,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6998,6 +7043,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7218,6 +7264,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7820,7 +7867,7 @@ dt {
     bottom: 0;
     left: 0;
     position: absolute;
-    background: rgb(224,224,224);
+    background: rgb(255,64,129);
     -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
@@ -7884,6 +7931,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8032,6 +8080,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8231,6 +8280,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8579,6 +8629,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9061,6 +9112,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9287,6 +9339,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9349,8 +9402,31 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   width: 100%; }
 
 .wsk-tabs__tab-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   height: 48px;
-  padding: 0 0 0 56px;
+  padding: 0 0 0 0;
   margin: 0;
   border-bottom: 1px solid rgb(224,224,224); }
 
@@ -9456,6 +9532,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9666,6 +9743,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9730,14 +9808,14 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
-  background: rgb(117,117,117);
-  border-radius: 5px;
+  background: rgba(0,0,0, .9);
+  border-radius: 2px;
   color: rgb(255,255,255);
   display: none;
   font-size: 10px;
   line-height: 14px;
   max-width: 170px;
-  padding: 5px 8px;
+  padding: 4px 8px;
   position: absolute;
   text-align: center; }
 
@@ -9749,7 +9827,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 .wsk-tooltip--large {
   line-height: 14px;
   font-size: 14px;
-  padding: 16px; }
+  padding: 15px 16px; }
 
 @-webkit-keyframes pulse {
   0% {
