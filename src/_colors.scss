@@ -202,7 +202,7 @@ $default-dropdown-bg-color: unquote("rgb(#{$palette-white-100})") !default;
 /* ==========  Tooltips  ========== */
 
 $tooltip-text-color: unquote("rgb(#{$palette-white-100})") !default;
-$tooltip-background-color: unquote("rgb(#{$palette-grey-600})") !default;
+$tooltip-background-color: unquote("rgba(#{$palette-black-100}, .9)") !default;
 
 /* ==========  Footer  ========== */
 
