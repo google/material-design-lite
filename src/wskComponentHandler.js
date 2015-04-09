@@ -97,7 +97,7 @@ var componentHandler = (function() {
       }
 
       var ev = document.createEvent('Events');
-      ev.initEvent('componentupgraded', true, true);
+      ev.initEvent('wsk-componentupgraded', true, true);
       element.dispatchEvent(ev);
     }
   }
