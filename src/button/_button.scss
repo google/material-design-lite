@@ -1,33 +1,4 @@
-@import "../typography/typography";
-@import "../colors";
-@import "../shadow/shadow";
-@import "../animation/animation";
-@import "../ripple/ripple";
-
-
-/**
- *
- * Dimensions
- *
- */
-$button-min-width: 64px !default;
-$button-height: 36px !default;
-$button-padding: 8px !default;
-$button-margin: 4px !default;
-$button-border-radius: 2px !default;
-
-$button-fab-size: 56px !default;
-$button-fab-size-mini: 40px !default;
-$button-fab-font-size: 24px !default;
-
-$button-icon-size: 32px !default;
-$button-icon-size-mini: 24px !default;
-
-// Focus shadow mixin.
-@mixin focus-shadow() {
-  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
-}
-
+@import "../variables";
 
 // The button component. Defaults to a flat button.
 .wsk-button {
