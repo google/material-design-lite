@@ -106,7 +106,9 @@
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
+/* Typography */
+/* Shadows */
+/* Animations */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -387,7 +389,6 @@ a, .wsk-accordion, .wsk-button, .wsk-card, .wsk-checkbox, .wsk-dropdown-menu, .w
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -847,7 +848,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -3236,7 +3236,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-color-text--red {
   color: rgb(244,67,54); }
 
@@ -5037,7 +5036,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-shadow--z1 {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
@@ -5152,7 +5150,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-ripple {
   background: rgba(0,0,0,.87);
   border-radius: 50%;
@@ -5272,7 +5269,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -5388,7 +5384,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-button {
   background: transparent;
   border: none;
@@ -5646,7 +5641,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-card {
   font-size: 16px;
   height: 508px;
@@ -5871,7 +5865,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-checkbox {
   position: relative;
   z-index: 1;
@@ -6085,7 +6078,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-column-layout {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6256,7 +6248,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-mega-footer {
   padding: 32px 16px;
   color: rgb(158,158,158);
@@ -6522,7 +6513,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6686,7 +6676,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-icon-toggle {
   position: relative;
   z-index: 1;
@@ -6860,7 +6849,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-menu__container {
   display: block;
   margin: 0;
@@ -7101,7 +7089,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-js-progress {
   display: block;
   position: relative;
@@ -7322,7 +7309,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7989,7 +7975,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-list {
   display: block;
   height: 500px;
@@ -8138,7 +8123,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-radio {
   position: relative;
   font-size: 16px;
@@ -8338,7 +8322,6 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -8687,7 +8670,6 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-spinner {
   display: inline-block;
   position: relative;
@@ -9170,7 +9152,6 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-switch {
   position: relative;
   z-index: 1;
@@ -9397,7 +9378,6 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-tabs {
   display: block;
   width: 100%; }
@@ -9590,7 +9570,6 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-textfield {
   position: relative;
   font-size: 16px;
@@ -9801,7 +9780,6 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
-/*SHADOW*/
 .wsk-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
