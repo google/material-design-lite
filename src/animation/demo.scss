@@ -1,8 +1,5 @@
-//@import "../styleguide_demo_bp";
-//@import "../shadow/shadow";
-//@import "animation";
-@import "../vars";
-
+@import "../variables";
+@import "../mixins";
 
 .demo-animation {
   height: 200px;
