@@ -30,6 +30,30 @@ header.wsk-layout__header {
   height: 100%;
   line-height: 96px;
 }
+@media (max-width: 850px) {
+  .wsk-layout__header {
+    display: block;
+  }
+  .wsk-layout__content {
+    overflow: visible !important;
+  }
+}
+@media (max-width: 600px) {
+  .wsk-layout__tab-bar {
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+  }
+  .wsk-layout__tab-bar-container {
+    height: auto;
+  }
+  a.wsk-layout__tab {
+    height: auto;
+    line-height: 4em;
+    text-align: left;
+    padding-left: 20px;
+  }
+}
 #mail {
   position: absolute;
   right: 40px;
@@ -37,6 +61,7 @@ header.wsk-layout__header {
   z-index: 999;
 }
 main > .wsk-layout__tab-panel > header {
+  box-sizing: border-box;
   width: 100%;
   padding: 72px;
 }
@@ -120,6 +145,11 @@ main > .wsk-layout__tab-panel > header > *:last-child {
   align-items: center;
   align-content: center;
   justify-content: center;
+}
+
+#cta h3 {
+  margin: 30px;
+  text-align: center;
 }
 
 #authors{
