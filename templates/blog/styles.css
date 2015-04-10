@@ -9,6 +9,18 @@ body {
   z-index: 999;
 }
 
+header.wsk-layout__header {
+  margin-bottom: 30vh;
+}
+main.wsk-layout__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 900px;
+  width: 900px;
+  margin: 0 auto;
+}
+
 .wsk-card {
   margin: 12px 15px;
   display: flex;
@@ -21,6 +33,9 @@ main .wsk-card:nth-child(2n+1) {
 main .wsk-card:nth-child(2n) {
   width: 300px;
 }
+.wsk-card--header {
+  padding: 16px;
+}
 .wsk-card--img-container {
   box-sizing: border-box;
   background-size: cover;
@@ -32,8 +47,13 @@ main .wsk-card:nth-child(2n) {
 }
 .wsk-card--lower {
   width: auto;
+  flex-grow: 1;
 }
-.wsk-card--lower + .wsk-card--bottom {
+.wsk-card--img-container ~ .wsk-card--lower {
+  flex-grow: 0;
+}
+
+.wsk-card--lower ~ .wsk-card--bottom {
   border-top: 1px solid #CCC;
 }
 .wsk-card--bottom {
@@ -45,17 +65,16 @@ main .wsk-card:nth-child(2n) {
   justify-content: flex-start;
   height: auto;
 }
+.wsk-card:nth-child(2n) .wsk-card--bottom {
+  justify-content: space-between;
+}
 .wsk-card--bottom > *:first-child {
   margin-right: 16px;
-}
-main .wsk-card:nth-child(2n) .wsk-card--bottom {
-  justify-content: space-between;
 }
 .wsk-card--bottom > div {
   display: flex;
   flex-direction: column;
 }
-
 
 .coffee-pic .wsk-card--img-container {
   background-image: url('http://placehold.it/900x600/F57C00/EF6C00');
@@ -67,15 +86,13 @@ main .wsk-card:nth-child(2n) .wsk-card--bottom {
   background-image: url('http://placehold.it/900x600/EF6C00/F57C00');
 }
 
-header.wsk-layout__header {
-  margin-bottom: 30vh;
-}
-
-main.wsk-layout__content {
+ul.social {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 900px;
-  width: 900px;
-  margin: 0 auto;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+ul.social button {
+  margin-right: 10px;
 }
