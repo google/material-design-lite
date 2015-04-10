@@ -21,6 +21,13 @@
   &.is-upgraded {
     padding-left: $switch-track-length - 8px;
   }
+
+  // avoids blue box around switch
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .wsk-switch__input {
