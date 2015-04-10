@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="../spacing.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wsk-layout__container">
+      <div class="wsk-layout wsk-js-layout has-drawer is-upgraded">
+        <header class="wsk-layout__header wsk-layout__header--scroll wsk-layout__header--transparent is-casting-shadow">
+          <!-- Title -->
+          <span class="wsk-layout-title">The Newist</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="wsk-layout-spacer"></div>
+          <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label wsk-textfield--align-right">
+            <label class="wsk-button wsk-js-button wsk-button--icon" for="search">
+              <span class="wsk-icon wsk-icon--search"></span>
+            </label>
+            <div class="wsk-textfield__expandable-holder">
+              <input class="wsk-textfield__input" type="text" id="search">
+            </div>
+          </div>
+        </header>
+        <ul class="wsk-menu wsk-js-menu" for="menubtn">
+          <button class="wsk-menu__item wsk-js-ripple-effect">New Article</button>
+          <button class="wsk-menu__item wsk-js-ripple-effect">Spam Readers</button>
+          <button class="wsk-menu__item wsk-js-ripple-effect">Pointless Button</button>
+        </ul>
+        <main class="wsk-layout__content">
+          <div class="wsk-card coffee-pic">
+            <div class="wsk-card--img-container" data-img="">
+              <h3>Coffee Pic</h3>
+            </div>
+            <div class="wsk-card--bottom">
+              <span class="wsk-icon wsk-icon--share"></span>
+              <div>
+                <strong>The Newist</strong>
+                <span>2 days ago</span>
+              </div>
+            </div>
+          </div>
+          <div class="wsk-card something-else">
+            <div class="wsk-card--img-container">
+            </div>
+            <div class="wsk-card--bottom">
+              <div>
+                <strong>The Newist</strong>
+                <span>2 days ago</span>
+              </div>
+              <button id="menubtn" class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon">
+                <span class="wsk-icon wsk-icon--menu"></span>
+              </button>
+            </div>
+          </div>
+          <div class="wsk-card on-the-road-again">
+            <div class="wsk-card--img-container">
+              <h3>On the road again</h3>
+            </div>
+            <div class="wsk-color-text--primary-contrast wsk-card--lower">
+              Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
+            </div>
+            <div class="wsk-card--bottom">
+              <span class="wsk-icon wsk-icon--share"></span>
+              <div>
+                <strong>The Newist</strong>
+                <span>2 days ago</span>
+              </div>
+            </div>
+          </div>
+        </main>
+        <div class="wsk-layout__obfuscator"></div>
+      </div>
+    </div>
+    <a href="https://github.com/google/material-design-lite/blob/master/templates/starter/index.html" target="_blank" id="view-source" class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--pageview"/></a>
+    <script src="/js/material.min.js"></script>
+  </body>
+</html>
