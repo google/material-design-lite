@@ -20,6 +20,12 @@ main.wsk-layout__content {
   width: 900px;
   margin: 0 auto;
 }
+.wsk-layout__container {
+  overflow: visible;
+}
+.wsk-layout {
+  overflow: visible;
+}
 
 .wsk-card {
   margin: 12px 15px;
@@ -91,6 +97,18 @@ main .wsk-card:nth-child(2n) {
 }
 .shopping .wsk-card--img-container {
   background-image: url('http://placehold.it/900x600/F57C00/EF6C00');
+}
+
+main > nav {
+  width: 500px;
+  margin: 12px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+main > nav button.wsk-button {
+  margin-left: 10px;
 }
 
 ul.social {

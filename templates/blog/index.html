@@ -43,117 +43,119 @@
     </style>
   </head>
   <body>
-    <div class="wsk-layout__container">
-      <div class="wsk-layout wsk-js-layout has-drawer is-upgraded">
-        <header class="wsk-layout__header wsk-layout__header--scroll wsk-layout__header--transparent is-casting-shadow">
-          <!-- Title -->
-          <span class="wsk-layout-title">The Newist</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="wsk-layout-spacer"></div>
-          <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label wsk-textfield--align-right">
-            <label class="wsk-button wsk-js-button wsk-button--icon" for="search">
-              <span class="wsk-icon wsk-icon--search"></span>
-            </label>
-            <div class="wsk-textfield__expandable-holder">
-              <input class="wsk-textfield__input" type="text" id="search">
+    <div class="wsk-layout wsk-js-layout has-drawer is-upgraded">
+      <header class="wsk-layout__header wsk-layout__header--scroll wsk-layout__header--transparent is-casting-shadow">
+        <!-- Title -->
+        <span class="wsk-layout-title">The Newist</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="wsk-layout-spacer"></div>
+        <div class="wsk-textfield wsk-js-textfield wsk-textfield--expandable wsk-textfield--floating-label wsk-textfield--align-right">
+          <label class="wsk-button wsk-js-button wsk-button--icon" for="search">
+            <span class="wsk-icon wsk-icon--search"></span>
+          </label>
+          <div class="wsk-textfield__expandable-holder">
+            <input class="wsk-textfield__input" type="text" id="search">
+          </div>
+        </div>
+      </header>
+      <ul class="wsk-menu wsk-js-menu" for="menubtn">
+        <button class="wsk-menu__item wsk-js-ripple-effect">New Article</button>
+        <button class="wsk-menu__item wsk-js-ripple-effect">Spam Readers</button>
+        <button class="wsk-menu__item wsk-js-ripple-effect">Pointless Button</button>
+      </ul>
+      <main class="wsk-layout__content">
+        <div class="wsk-card coffee-pic">
+          <div class="wsk-card--img-container wsk-color-text--accent-contrast">
+            <h3>Coffee Pic</h3>
+          </div>
+          <div class="wsk-card--bottom">
+            <span class="wsk-icon wsk-icon--face-unlock"></span>
+            <div>
+              <strong>The Newist</strong>
+              <span>2 days ago</span>
             </div>
           </div>
-        </header>
-        <ul class="wsk-menu wsk-js-menu" for="menubtn">
-          <button class="wsk-menu__item wsk-js-ripple-effect">New Article</button>
-          <button class="wsk-menu__item wsk-js-ripple-effect">Spam Readers</button>
-          <button class="wsk-menu__item wsk-js-ripple-effect">Pointless Button</button>
-        </ul>
-        <main class="wsk-layout__content">
-          <div class="wsk-card coffee-pic">
-            <div class="wsk-card--img-container wsk-color-text--accent-contrast">
-              <h3>Coffee Pic</h3>
+        </div>
+        <div class="wsk-card something-else">
+          <div class="wsk-card--img-container">
+          </div>
+          <div class="wsk-card--bottom">
+            <div>
+              <strong>The Newist</strong>
             </div>
-            <div class="wsk-card--bottom">
-              <span class="wsk-icon wsk-icon--face-unlock"></span>
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
+            <button id="menubtn" class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon">
+              <span class="wsk-icon wsk-icon--menu"></span>
+            </button>
+          </div>
+        </div>
+        <div class="wsk-card on-the-road-again">
+          <div class="wsk-card--img-container wsk-color-text--accent-contrast">
+            <h3>On the road again</h3>
+          </div>
+          <div class="wsk-color-text--primary-contrast wsk-card--lower">
+            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
+          </div>
+          <div class="wsk-card--bottom">
+            <span class="wsk-icon wsk-icon--face-unlock"></span>
+            <div>
+              <strong>The Newist</strong>
+              <span>2 days ago</span>
             </div>
           </div>
-          <div class="wsk-card something-else">
-            <div class="wsk-card--img-container">
-            </div>
-            <div class="wsk-card--bottom">
-              <div>
-                <strong>The Newist</strong>
-              </div>
-              <button id="menubtn" class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon">
-                <span class="wsk-icon wsk-icon--menu"></span>
-              </button>
+        </div>
+        <div class="wsk-card subscribe">
+          <div class="wsk-card--header">
+            <h3>About</h3>
+          </div>
+          <div class="wsk-card--lower">
+            Elit ullamco pariatur irure quis Lorem consectetur dolor tempor minim ullamco velit. Dolor enim proident aliquip quis sit ullamco cupidatat aliqua ullamco proident ex non culpa. In laboris cillum ipsum adipisicing mollit. Irure ea et non anim labore exercitation consectetur cupidatat ea. Adipisicing eu pariatur commodo quis aute et consequat labore occaecat. Occaecat et cupidatat esse dolore officia incididunt ad in labore proident cupidatat. Ipsum ad qui quis occaecat culpa consequat minim. Ipsum culpa enim elit pariatur incididunt ad anim. Mollit laboris eu officia ipsum sit sit exercitation dolor adipisicing nulla. Ea eu consectetur eu laboris fugiat irure deserunt veniam in esse nulla et.
+          </div>
+          <div class="wsk-card--bottom">
+            <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--share"></span></button>
+            <ul class="social">
+              <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--grade"></span></button>
+              <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--invert-colors"></span></button>
+              <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--language"></span></button>
+            </ul>
+          </div>
+        </div>
+        <div class="wsk-card amazing">
+          <div class="wsk-card--header wsk-color--accent wsk-color-text--accent-contrast">
+            <h3 class="quote">I couldn’t take any pictures but this was an amazing thing…</h3>
+          </div>
+          <div class="wsk-color-text--primary-contrast wsk-card--lower">
+            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
+          </div>
+          <div class="wsk-card--bottom">
+            <span class="wsk-icon wsk-icon--face-unlock"></span>
+            <div>
+              <strong>The Newist</strong>
+              <span>2 days ago</span>
             </div>
           </div>
-          <div class="wsk-card on-the-road-again">
-            <div class="wsk-card--img-container wsk-color-text--accent-contrast">
-              <h3>On the road again</h3>
-            </div>
-            <div class="wsk-color-text--primary-contrast wsk-card--lower">
-              Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
-            </div>
-            <div class="wsk-card--bottom">
-              <span class="wsk-icon wsk-icon--face-unlock"></span>
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
+        </div>
+        <div class="empty"></div>
+        <div class="wsk-card shopping">
+          <div class="wsk-card--img-container wsk-color-text--accent-contrast">
+            <h3>Shopping</h3>
+          </div>
+          <div class="wsk-color-text--primary-contrast wsk-card--lower">
+            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
+          </div>
+          <div class="wsk-card--bottom">
+            <span class="wsk-icon wsk-icon--face-unlock"></span>
+            <div>
+              <strong>The Newist</strong>
+              <span>2 days ago</span>
             </div>
           </div>
-          <div class="wsk-card subscribe">
-            <div class="wsk-card--header">
-              <h3>About</h3>
-            </div>
-            <div class="wsk-card--lower">
-              Elit ullamco pariatur irure quis Lorem consectetur dolor tempor minim ullamco velit. Dolor enim proident aliquip quis sit ullamco cupidatat aliqua ullamco proident ex non culpa. In laboris cillum ipsum adipisicing mollit. Irure ea et non anim labore exercitation consectetur cupidatat ea. Adipisicing eu pariatur commodo quis aute et consequat labore occaecat. Occaecat et cupidatat esse dolore officia incididunt ad in labore proident cupidatat. Ipsum ad qui quis occaecat culpa consequat minim. Ipsum culpa enim elit pariatur incididunt ad anim. Mollit laboris eu officia ipsum sit sit exercitation dolor adipisicing nulla. Ea eu consectetur eu laboris fugiat irure deserunt veniam in esse nulla et.
-            </div>
-            <div class="wsk-card--bottom">
-              <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--share"></span></button>
-              <ul class="social">
-                <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--grade"></span></button>
-                <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--invert-colors"></span></button>
-                <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--language"></span></button>
-              </ul>
-            </div>
-          </div>
-          <div class="wsk-card amazing">
-            <div class="wsk-card--header wsk-color--accent wsk-color-text--accent-contrast">
-              <h3 class="quote">I couldn’t take any pictures but this was an amazing thing…</h3>
-            </div>
-            <div class="wsk-color-text--primary-contrast wsk-card--lower">
-              Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
-            </div>
-            <div class="wsk-card--bottom">
-              <span class="wsk-icon wsk-icon--face-unlock"></span>
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
-            </div>
-          </div>
-          <div class="empty"></div>
-          <div class="wsk-card shopping">
-            <div class="wsk-card--img-container wsk-color-text--accent-contrast">
-              <h3>Shopping</h3>
-            </div>
-            <div class="wsk-color-text--primary-contrast wsk-card--lower">
-              Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
-            </div>
-            <div class="wsk-card--bottom">
-              <span class="wsk-icon wsk-icon--face-unlock"></span>
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
-            </div>
-          </div>
-        </main>
-        <div class="wsk-layout__obfuscator"></div>
-      </div>
+        </div>
+        <div class="empty"></div>
+        <nav>
+          More <button class="wsk-button wsk-js-button wsk-js-ripple-effect wsk-button--icon"><span class="wsk-icon wsk-icon--arrow-forward"></span></button>
+        </nav>
+      </main>
+      <div class="wsk-layout__obfuscator"></div>
     </div>
     <a href="https://github.com/google/material-design-lite/blob/master/templates/starter/index.html" target="_blank" id="view-source" class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--pageview"/></a>
     <script src="/js/material.min.js"></script>
