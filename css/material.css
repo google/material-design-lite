@@ -9165,7 +9165,12 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   height: 24px;
   margin: 12px 0;
   padding: 0;
-  overflow: visible; }
+  overflow: visible;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .mdl-switch.is-upgraded {
     padding-left: 28px; }
 
