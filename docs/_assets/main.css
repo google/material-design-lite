@@ -20,6 +20,7 @@
   margin: .67em 0;
 }
 
+
 .mdl-layout__content h2 {
   padding-top: 48px;
   font-size: 24px;
@@ -33,6 +34,11 @@
   color: #c2185b;
   font-weight: bold;
   text-decoration: none;
+}
+
+.mdl-layout__content .mdl-download {
+  color: #000;
+  font-weight: normal;
 }
 
 .mdl-layout-title a,
