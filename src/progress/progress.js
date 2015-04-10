@@ -1,7 +1,7 @@
 /**
  * Class constructor for Progress WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialProgress(element) {
@@ -29,7 +29,7 @@ MaterialProgress.prototype.Constant_ = {
  * @private
  */
 MaterialProgress.prototype.CssClasses_ = {
-  INDETERMINATE_CLASS: 'wsk-progress__indeterminate'
+  INDETERMINATE_CLASS: 'mdl-progress__indeterminate'
 };
 
 MaterialProgress.prototype.setProgress = function(p) {
@@ -84,5 +84,5 @@ MaterialProgress.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialProgress,
   classAsString: 'MaterialProgress',
-  cssClass: 'wsk-js-progress'
+  cssClass: 'mdl-js-progress'
 });

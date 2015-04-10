@@ -1,7 +1,7 @@
 /**
  * Class constructor for Column Layout WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialColumnLayout(element) {
@@ -37,7 +37,7 @@ MaterialColumnLayout.prototype.CssClasses_ = {
 
   // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
   // reduce conflict and convert to camelCase for consistency.
-  INVISIBLE_WRAPPING_ELEMENT: 'wsk-column-layout__wrap-hack'
+  INVISIBLE_WRAPPING_ELEMENT: 'mdl-column-layout__wrap-hack'
 };
 
 
@@ -64,5 +64,5 @@ MaterialColumnLayout.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialColumnLayout,
   classAsString: 'MaterialColumnLayout',
-  cssClass: 'wsk-column-layout'
+  cssClass: 'mdl-column-layout'
 });

@@ -34,17 +34,17 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the "outer" and "inner" divs using the `class` attribute.
 ```html
-<div class="wsk-column-layout">
-  <div class="wsk-column-layout__child">Apples</div>
-  <div class="wsk-column-layout__child">Bananas</div>
-  <div class="wsk-column-layout__child">Cherries</div>
-  <div class="wsk-column-layout__child">Dill seeds</div>
-  <div class="wsk-column-layout__child">Eggplant</div>
-  <div class="wsk-column-layout__child">Figs</div>
-  <div class="wsk-column-layout__child">Ginger root</div>
-  <div class="wsk-column-layout__child">Horseradish</div>
-  <div class="wsk-column-layout__child">Iceberg lettuce</div>
-  <div class="wsk-column-layout__child">etc.</div>
+<div class="mdl-column-layout">
+  <div class="mdl-column-layout__child">Apples</div>
+  <div class="mdl-column-layout__child">Bananas</div>
+  <div class="mdl-column-layout__child">Cherries</div>
+  <div class="mdl-column-layout__child">Dill seeds</div>
+  <div class="mdl-column-layout__child">Eggplant</div>
+  <div class="mdl-column-layout__child">Figs</div>
+  <div class="mdl-column-layout__child">Ginger root</div>
+  <div class="mdl-column-layout__child">Horseradish</div>
+  <div class="mdl-column-layout__child">Iceberg lettuce</div>
+  <div class="mdl-column-layout__child">etc.</div>
 </div>
 ```
 
@@ -55,33 +55,33 @@ The column-layout component is ready for use.
 A list of NATO phonetic alphabet words in a column-layout div.
 
 ```html
-<div class="wsk-column-layout">
-  <div class="wsk-column-layout__child">Alpha</div>
-  <div class="wsk-column-layout__child">Bravo</div>
-  <div class="wsk-column-layout__child">Charlie</div>
-  <div class="wsk-column-layout__child">Delta</div>
-  <div class="wsk-column-layout__child">Echo</div>
-  <div class="wsk-column-layout__child">Foxtrot</div>
-  <div class="wsk-column-layout__child">Golf</div>
-  <div class="wsk-column-layout__child">Hotel</div>
-  <div class="wsk-column-layout__child">India</div>
-  <div class="wsk-column-layout__child">Juliet</div>
-  <div class="wsk-column-layout__child">Kilo</div>
-  <div class="wsk-column-layout__child">Lima</div>
-  <div class="wsk-column-layout__child">Mike</div>
-  <div class="wsk-column-layout__child">November</div>
-  <div class="wsk-column-layout__child">Oscar</div>
-  <div class="wsk-column-layout__child">Papa</div>
-  <div class="wsk-column-layout__child">Quebec</div>
-  <div class="wsk-column-layout__child">Romeo</div>
-  <div class="wsk-column-layout__child">Sierra</div>
-  <div class="wsk-column-layout__child">Tango</div>
-  <div class="wsk-column-layout__child">Uniform</div>
-  <div class="wsk-column-layout__child">Victor</div>
-  <div class="wsk-column-layout__child">Whiskey</div>
-  <div class="wsk-column-layout__child">X-ray</div>
-  <div class="wsk-column-layout__child">Yankee</div>
-  <div class="wsk-column-layout__child">Zulu</div>
+<div class="mdl-column-layout">
+  <div class="mdl-column-layout__child">Alpha</div>
+  <div class="mdl-column-layout__child">Bravo</div>
+  <div class="mdl-column-layout__child">Charlie</div>
+  <div class="mdl-column-layout__child">Delta</div>
+  <div class="mdl-column-layout__child">Echo</div>
+  <div class="mdl-column-layout__child">Foxtrot</div>
+  <div class="mdl-column-layout__child">Golf</div>
+  <div class="mdl-column-layout__child">Hotel</div>
+  <div class="mdl-column-layout__child">India</div>
+  <div class="mdl-column-layout__child">Juliet</div>
+  <div class="mdl-column-layout__child">Kilo</div>
+  <div class="mdl-column-layout__child">Lima</div>
+  <div class="mdl-column-layout__child">Mike</div>
+  <div class="mdl-column-layout__child">November</div>
+  <div class="mdl-column-layout__child">Oscar</div>
+  <div class="mdl-column-layout__child">Papa</div>
+  <div class="mdl-column-layout__child">Quebec</div>
+  <div class="mdl-column-layout__child">Romeo</div>
+  <div class="mdl-column-layout__child">Sierra</div>
+  <div class="mdl-column-layout__child">Tango</div>
+  <div class="mdl-column-layout__child">Uniform</div>
+  <div class="mdl-column-layout__child">Victor</div>
+  <div class="mdl-column-layout__child">Whiskey</div>
+  <div class="mdl-column-layout__child">X-ray</div>
+  <div class="mdl-column-layout__child">Yankee</div>
+  <div class="mdl-column-layout__child">Zulu</div>
 </div>
 ```
 
@@ -90,8 +90,8 @@ The MDL CSS classes apply various predefined visual enhancements and behavioral 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-column-layout` | Defines a container as an MDL column-layout component | Required on "outer" div element|
-| `wsk-column-layout__child` | Defines a container as a column-layout item | Required on "inner" div elements|
+| `mdl-column-layout` | Defines a container as an MDL column-layout component | Required on "outer" div element|
+| `mdl-column-layout__child` | Defines a container as a column-layout item | Required on "inner" div elements|
 
 ##More information
 For working examples of the **column-layout** component, see the MDL [column-layout demo page](www.github.com/google/material-design-lite/src/column-layout/demo.html).

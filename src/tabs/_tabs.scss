@@ -1,12 +1,12 @@
 @import "../variables";
 
 
-.wsk-tabs {
+.mdl-tabs {
   display: block;
   width: 100%;
 }
 
-.wsk-tabs__tab-bar {
+.mdl-tabs__tab-bar {
     display         : flex;
     flex-direction  : row;
     flex-wrap       : wrap;
@@ -20,7 +20,7 @@
     border-bottom   : 1px solid $tab-border-color;
 }
 
-.wsk-tabs__tab {
+.mdl-tabs__tab {
   margin: 0;
   border: none;
   padding: 0 24px 0 24px;
@@ -42,11 +42,11 @@
   color: $tab-text-color;
   overflow: hidden;
 
-  .wsk-tabs.is-upgraded &.is-active {
+  .mdl-tabs.is-upgraded &.is-active {
     color: $tab-active-text-color;
   }
 
-  .wsk-tabs.is-upgraded &.is-active:after {
+  .mdl-tabs.is-upgraded &.is-active:after {
     height: 2px;
     width: 100%;
     display: block;
@@ -60,7 +60,7 @@
     transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
   }
 
-  & .wsk-tabs__ripple-container {
+  & .mdl-tabs__ripple-container {
     display: block;
     position: absolute;
     height: 100%;
@@ -70,20 +70,20 @@
     z-index: 1;
     overflow: hidden;
 
-    & .wsk-ripple {
+    & .mdl-ripple {
       background: $tab-highlight-color;
     }
   }
 }
 
-.wsk-tabs__panel {
+.mdl-tabs__panel {
   display: block;
 
-  .wsk-tabs.is-upgraded & {
+  .mdl-tabs.is-upgraded & {
     display: none;
   }
 
-  .wsk-tabs.is-upgraded &.is-active {
+  .mdl-tabs.is-upgraded &.is-active {
     display: block;
   }
 }

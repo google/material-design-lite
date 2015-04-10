@@ -157,7 +157,7 @@ gulp.task('styles', ['styletemplates'], function () {
 gulp.task('scripts', function () {
   var sources = [
     // Component handler
-    'src/wskComponentHandler.js',
+    'src/mdlComponentHandler.js',
     // Polyfills/dependencies
     'src/third_party/**/*.js',
     // Base components

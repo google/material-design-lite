@@ -1,7 +1,7 @@
 /**
  * Class constructor for Spinner WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSpinner(element) {
@@ -30,12 +30,12 @@ MaterialSpinner.prototype.Constant_ = {
  * @private
  */
 MaterialSpinner.prototype.CssClasses_ = {
-  WSK_SPINNER_LAYER: 'wsk-spinner__layer',
-  WSK_SPINNER_CIRCLE_CLIPPER: 'wsk-spinner__circle-clipper',
-  WSK_SPINNER_CIRCLE: 'wsk-spinner__circle',
-  WSK_SPINNER_GAP_PATCH: 'wsk-spinner__gap-patch',
-  WSK_SPINNER_LEFT: 'wsk-spinner__left',
-  WSK_SPINNER_RIGHT: 'wsk-spinner__right'
+  WSK_SPINNER_LAYER: 'mdl-spinner__layer',
+  WSK_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+  WSK_SPINNER_CIRCLE: 'mdl-spinner__circle',
+  WSK_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+  WSK_SPINNER_LEFT: 'mdl-spinner__left',
+  WSK_SPINNER_RIGHT: 'mdl-spinner__right'
 };
 
 /**
@@ -117,5 +117,5 @@ MaterialSpinner.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSpinner,
   classAsString: 'MaterialSpinner',
-  cssClass: 'wsk-js-spinner'
+  cssClass: 'mdl-js-spinner'
 });

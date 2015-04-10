@@ -34,7 +34,7 @@
 }
 
 // Styles for fixed header demo.
-.demo-page--layout .wsk-layout.is-small-screen #fixed_header_nav {
+.demo-page--layout .mdl-layout.is-small-screen #fixed_header_nav {
   visibility: hidden;
 }
 
@@ -53,19 +53,19 @@
   visibility: visible;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #my_text_changes {
+.demo-page--layout .mdl-layout__header.is-compact #my_text_changes {
   @include typo-title;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #compact_navigation {
+.demo-page--layout .mdl-layout__header.is-compact #compact_navigation {
   visibility: visible;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #expanded_navigation {
+.demo-page--layout .mdl-layout__header.is-compact #expanded_navigation {
   visibility: hidden;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #my_text_changes:after {
+.demo-page--layout .mdl-layout__header.is-compact #my_text_changes:after {
   content: " \0000a0 > \0000a0 Multi-row layout demo";
 }
 

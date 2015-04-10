@@ -1,6 +1,6 @@
 @import "../variables";
 
-.wsk-mini-footer {
+.mdl-mini-footer {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -15,12 +15,12 @@
     display: block;
   }
 
-  & .wsk-logo {
+  & .mdl-logo {
     line-height: $footer-btn-size;
   }
 }
 
-.wsk-mini-footer--link-list {
+.mdl-mini-footer--link-list {
   display: flex;
   flex-flow: row nowrap;
 
@@ -44,17 +44,17 @@
   }
 }
 
-.wsk-mini-footer--left-section {
+.mdl-mini-footer--left-section {
   display: inline-block;
   order: 0;
 }
 
-.wsk-mini-footer--right-section {
+.mdl-mini-footer--right-section {
   display: inline-block;
   order: 1;
 }
 
-.wsk-mini-footer--social-btn {
+.mdl-mini-footer--social-btn {
   width: $footer-btn-size;
   height: $footer-btn-size;
 

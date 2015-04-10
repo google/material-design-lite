@@ -1,6 +1,6 @@
 @import "../variables";
 
-.wsk-card {
+.mdl-card {
   font-size: $card-font-size;
   height   : $card-height;
   overflow : hidden;
@@ -11,7 +11,7 @@
   border-radius: 2px;
 }
 
-.wsk-card--img-container {
+.mdl-card--img-container {
   background-color     : $image-placeholder-color;
   @if str_length($background-image-url) > 0 {
   background-image     : url($background-image-url);
@@ -24,7 +24,7 @@
   height               : $cover-image-height;
 }
 
-.wsk-card--heading {
+.mdl-card--heading {
   align-items       : center;
   background        : $heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   border            : $heading-back-border;
@@ -43,7 +43,7 @@
   width             : 100%;
 }
 
-.wsk-card--heading-text {
+.mdl-card--heading-text {
   align-self      : center;
   // TODO: Does this need to be anything other than none?
   border          : 0 none rgb(255, 255, 255);
@@ -63,7 +63,7 @@
   width           : 90%;
 }
 
-.wsk-card--caption {
+.mdl-card--caption {
   background        : $caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   // TODO: Does this need to be anything other than none?
   border            : 0 none rgb(255, 255, 255);
@@ -80,7 +80,7 @@
   width             : 100%;
 }
 
-.wsk-card--lower {
+.mdl-card--lower {
   // TODO: Does this need to be anything other than none?
   border         : 0 none rgb(68, 68, 68);
   color          : $lower-text-color;
@@ -97,14 +97,14 @@
   width          : 90%;
 }
 
-.wsk-card--bottom {
+.mdl-card--bottom {
   font-size  : $card-bottom-font-size;
   height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
 }
 
-.wsk-card--bottom a {
+.mdl-card--bottom a {
   // TODO: Does this need to be anything other than none?
   border-bottom     : 0 none rgb(48, 63, 159);
   // TODO: Does this need to be anything other than none?

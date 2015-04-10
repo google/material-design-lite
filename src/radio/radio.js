@@ -1,7 +1,7 @@
 /**
  * Class constructor for Radio WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialRadio(element) {
@@ -34,15 +34,15 @@ MaterialRadio.prototype.CssClasses_ = {
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked',
   IS_UPGRADED: 'is-upgraded',
-  JS_RADIO: 'wsk-js-radio',
-  RADIO_BTN: 'wsk-radio__button',
-  RADIO_OUTER_CIRCLE: 'wsk-radio__outer-circle',
-  RADIO_INNER_CIRCLE: 'wsk-radio__inner-circle',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-radio__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple'
+  JS_RADIO: 'mdl-js-radio',
+  RADIO_BTN: 'mdl-radio__button',
+  RADIO_OUTER_CIRCLE: 'mdl-radio__outer-circle',
+  RADIO_INNER_CIRCLE: 'mdl-radio__inner-circle',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-radio__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple'
 };
 
 /**
@@ -235,5 +235,5 @@ MaterialRadio.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialRadio,
   classAsString: 'MaterialRadio',
-  cssClass: 'wsk-js-radio'
+  cssClass: 'mdl-js-radio'
 });

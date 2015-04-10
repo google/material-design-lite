@@ -1,7 +1,7 @@
 /**
  * Class constructor for Button WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialButton(element) {
@@ -30,9 +30,9 @@ MaterialButton.prototype.Constant_ = {
  * @private
  */
 MaterialButton.prototype.CssClasses_ = {
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_CONTAINER: 'wsk-button__ripple-container',
-  RIPPLE: 'wsk-ripple'
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-button__ripple-container',
+  RIPPLE: 'mdl-ripple'
 };
 
 /**
@@ -96,5 +96,5 @@ MaterialButton.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialButton,
   classAsString: 'MaterialButton',
-  cssClass: 'wsk-js-button'
+  cssClass: 'mdl-js-button'
 });

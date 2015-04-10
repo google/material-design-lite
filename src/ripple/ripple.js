@@ -1,7 +1,7 @@
 /**
  * Class constructor for Ripple WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialRipple(element) {
@@ -34,9 +34,9 @@ MaterialRipple.prototype.Constant_ = {
  * @private
  */
 MaterialRipple.prototype.CssClasses_ = {
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE: 'wsk-ripple',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE: 'mdl-ripple',
   IS_ANIMATING: 'is-animating',
   IS_VISIBLE: 'is-visible'
 };
@@ -201,5 +201,5 @@ MaterialRipple.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialRipple,
   classAsString: 'MaterialRipple',
-  cssClass: 'wsk-js-ripple-effect'
+  cssClass: 'mdl-js-ripple-effect'
 });

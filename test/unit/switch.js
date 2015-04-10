@@ -7,7 +7,7 @@
 
     it('Should be upgraded to a MaterialSwitch successfully', function () {
       var el = document.createElement('div');
-      el.innerHTML = '<input type="checkbox" class="wsk-switch__input">';
+      el.innerHTML = '<input type="checkbox" class="mdl-switch__input">';
       componentHandler.upgradeElement(el, 'MaterialSwitch');
       expect($(el)).to.have.data('upgraded', ',MaterialSwitch');
     });

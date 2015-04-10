@@ -1,7 +1,7 @@
 /**
  * Class constructor for Slider WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSlider(element) {
@@ -31,11 +31,11 @@ MaterialSlider.prototype.Constant_ = {
  * @private
  */
 MaterialSlider.prototype.CssClasses_ = {
-  IE_CONTAINER: 'wsk-slider__ie-container',
-  SLIDER_CONTAINER: 'wsk-slider__container',
-  BACKGROUND_FLEX: 'wsk-slider__background-flex',
-  BACKGROUND_LOWER: 'wsk-slider__background-lower',
-  BACKGROUND_UPPER: 'wsk-slider__background-upper',
+  IE_CONTAINER: 'mdl-slider__ie-container',
+  SLIDER_CONTAINER: 'mdl-slider__container',
+  BACKGROUND_FLEX: 'mdl-slider__background-flex',
+  BACKGROUND_LOWER: 'mdl-slider__background-lower',
+  BACKGROUND_UPPER: 'mdl-slider__background-upper',
   IS_LOWEST_VALUE: 'is-lowest-value',
   IS_UPGRADED: 'is-upgraded'
 };
@@ -185,5 +185,5 @@ MaterialSlider.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSlider,
   classAsString: 'MaterialSlider',
-  cssClass: 'wsk-js-slider'
+  cssClass: 'mdl-js-slider'
 });

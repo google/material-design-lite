@@ -5,7 +5,7 @@ The Material Design Lite (MDL) **icon** component is an effort to standardize th
 
 MDL icons are individual glyphs (characters) from a specific MDL web font, accessed via the CSS3 `@font-face` rule. As such, they may be styled and manipulated as freely as any other characters: size, foreground and background color, weight, and other characteristics can be specified, inherited, or modified via script to achieve the desired appearance. An icon performs no action itself, either by its display nor when the user clicks or touches it, unless scripted to do so. The MDL icon font provides over seven hundred glyphs, all immediately available once the web font is referenced.
 
-To view the complete list of icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html). The icons are organized by general usage (action, communication, navigation, etc.); hover the mouse pointer over an icon to see the class name required to reference it (explained below).
+To view the complete list of icons, see [this page](http://google.github.io/material-design-lite/latest/styleguide/icons/demo.html). The icons are organized by general usage (action, communication, navigation, etc.); hover the mouse pointer over an icon to see the class name required to reference it (explained below).
 
 Icons are an established but non-standardized feature of most user interfaces, and provide users with non-textual cues about application options, content, or activity, regardless of hardware device, operating system, or browser environment. Their design and use is an important factor in the overall user experience. See the icon component's [Material Design specifications page](http://www.google.com/design/spec/style/icons.html) for details. 
 
@@ -20,7 +20,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;2. Add the MDL classes, separated by spaces, to the span using the `class` attribute.
 ```html
-<span class="wsk-icon wsk-icon--alarm"></span>
+<span class="mdl-icon mdl-icon--alarm"></span>
 ```
 
 The icon component is ready for use.
@@ -30,19 +30,19 @@ The icon component is ready for use.
 A warning icon.
 
 ```html
-<span class="wsk-icon wsk-icon--warning"></span>
+<span class="mdl-icon mdl-icon--warning"></span>
 ```
 
 A fast-forward icon.
 
 ```html
-<span class="wsk-icon wsk-icon--fast-forward"></span>
+<span class="mdl-icon mdl-icon--fast-forward"></span>
 ```
 
 A cut icon.
 
 ```html
-<span class="wsk-icon wsk-icon--content-cut"></span>
+<span class="mdl-icon mdl-icon--content-cut"></span>
 ```
 
 ##Configuration options
@@ -50,11 +50,11 @@ The MDL CSS classes define and specify the icon to use. The table below lists th
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-icon` | Defines the container as an MDL icon component | Required on span element |
-| `wsk-icon--ICON_CLASS_NAME` | Assigns a specific icon to the container | Required on span element (see icon demo page for complete list) |
+| `mdl-icon` | Defines the container as an MDL icon component | Required on span element |
+| `mdl-icon--ICON_CLASS_NAME` | Assigns a specific icon to the container | Required on span element (see icon demo page for complete list) |
 
 ##More information
-For working examples of the **icon** component, see the MDL [icon demo page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html).
+For working examples of the **icon** component, see the MDL [icon demo page](http://google.github.io/material-design-lite/latest/styleguide/icons/demo.html).
 
 ## License
 

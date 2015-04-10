@@ -18,7 +18,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;2. Add one or more MDL classes, separated by spaces, to the container using the `class` attribute.
 ```html
-<div class="wsk-spinner wsk-js-spinner is-active"></div>
+<div class="mdl-spinner mdl-js-spinner is-active"></div>
 ```
 
 The spinner component is ready for use.
@@ -28,13 +28,13 @@ The spinner component is ready for use.
 A default spinner in a div.
 
 ```html
-<div class="wsk-spinner wsk-js-spinner is-active"></div>
+<div class="mdl-spinner mdl-js-spinner is-active"></div>
 ```
 
 A single-color spinner in a paragraph.
 
 ```html
-<p class="wsk-spinner wsk-js-spinner wsk-spinner--single-color is-active"></p>
+<p class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active"></p>
 ```
 
 ##Configuration options
@@ -42,12 +42,12 @@ The MDL CSS classes apply various predefined visual enhancements to the spinner.
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-spinner` | Defines the container as an MDL spinner component | Required |
-| `wsk-js-spinner` | Assigns basic MDL behavior to spinner | Required |
+| `mdl-spinner` | Defines the container as an MDL spinner component | Required |
+| `mdl-js-spinner` | Assigns basic MDL behavior to spinner | Required |
 | `is-active` | Makes the spinner visible and animated | Optional |
-| `wsk-spinner--single-color` | Uses a single (primary palette) color instead of changing colors | Optional
+| `mdl-spinner--single-color` | Uses a single (primary palette) color instead of changing colors | Optional
 
->**Note:** There is no specific *disabled* version of a spinner; the presence or absence of the `is-active` class determines whether the spinner is visible. For example, this spinner is inactive and invisible: `<div class="wsk-spinner wsk-js-spinner"></div>`
+>**Note:** There is no specific *disabled* version of a spinner; the presence or absence of the `is-active` class determines whether the spinner is visible. For example, this spinner is inactive and invisible: `<div class="mdl-spinner mdl-js-spinner"></div>`
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information

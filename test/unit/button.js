@@ -13,19 +13,19 @@
 
     it('Should be upgraded to a raised MaterialButton button with ripples successfully', function () {
       var el = document.createElement('div');
-      el.innerHTML = '<button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect">Raised</button>';
+      el.innerHTML = '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Raised</button>';
       var btn = el.firstChild;
       componentHandler.upgradeElement(btn, 'MaterialButton');
-      expect($(btn.childNodes[1])).to.have.class('wsk-button__ripple-container');
-      expect($(btn.childNodes[1].firstChild)).to.have.class('wsk-ripple');
+      expect($(btn.childNodes[1])).to.have.class('mdl-button__ripple-container');
+      expect($(btn.childNodes[1].firstChild)).to.have.class('mdl-ripple');
     });
 
     it('Should be upgraded to a MaterialButton FAB with ripples successfully', function () {
       var el = document.createElement('div');
-      el.innerHTML = '<button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect">♥</button>';
+      el.innerHTML = '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">♥</button>';
       var btn = el.firstChild;
       componentHandler.upgradeElement(btn, 'MaterialButton');
-      expect($(btn.childNodes[1])).to.have.class('wsk-button__ripple-container');
-      expect($(btn.childNodes[1].firstChild)).to.have.class('wsk-ripple');
+      expect($(btn.childNodes[1])).to.have.class('mdl-button__ripple-container');
+      expect($(btn.childNodes[1].firstChild)).to.have.class('mdl-ripple');
     });
   });

@@ -7,7 +7,7 @@
 /**
  * A component handler interface using the revealing module design pattern.
  * More details on this pattern design here:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
  /* exported componentHandler */
@@ -101,6 +101,10 @@ var componentHandler = (function() {
         // it is in global scope.
         createdComponents_.push(new window[jsClass](element));
       }
+
+      var ev = document.createEvent('Events');
+      ev.initEvent('mdl-componentupgraded', true, true);
+      element.dispatchEvent(ev);
     }
   }
 
@@ -170,12 +174,12 @@ window.addEventListener('load', function() {
 
   /**
    * Performs a "Cutting the mustard" test. If the browser supports the features
-   * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
+   * tested, adds a mdl-js class to the <html> element. It then upgrades all WSK
    * components requiring JavaScript.
    */
   if ('classList' in document.createElement('div') && 'querySelector' in document &&
       'addEventListener' in window && Array.prototype.forEach) {
-    document.documentElement.classList.add('wsk-js');
+    document.documentElement.classList.add('mdl-js');
     componentHandler.upgradeAllRegistered();
   } else {
     componentHandler.upgradeElement = componentHandler.register = function () { };
@@ -197,7 +201,7 @@ window.requestAnimFrame = (function() {
 /**
  * Class constructor for Animation WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function DemoAnimation(element) {
@@ -277,7 +281,7 @@ componentHandler.register({
 /**
  * Class constructor for Button WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialButton(element) {
@@ -306,9 +310,9 @@ MaterialButton.prototype.Constant_ = {
  * @private
  */
 MaterialButton.prototype.CssClasses_ = {
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_CONTAINER: 'wsk-button__ripple-container',
-  RIPPLE: 'wsk-ripple'
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-button__ripple-container',
+  RIPPLE: 'mdl-ripple'
 };
 
 /**
@@ -372,13 +376,13 @@ MaterialButton.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialButton,
   classAsString: 'MaterialButton',
-  cssClass: 'wsk-js-button'
+  cssClass: 'mdl-js-button'
 });
 
 /**
  * Class constructor for Checkbox WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialCheckbox(element) {
@@ -407,15 +411,15 @@ MaterialCheckbox.prototype.Constant_ = {
  * @private
  */
 MaterialCheckbox.prototype.CssClasses_ = {
-  INPUT: 'wsk-checkbox__input',
-  BOX_OUTLINE: 'wsk-checkbox__box-outline',
-  FOCUS_HELPER: 'wsk-checkbox__focus-helper',
-  TICK_OUTLINE: 'wsk-checkbox__tick-outline',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-checkbox__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-checkbox__input',
+  BOX_OUTLINE: 'mdl-checkbox__box-outline',
+  FOCUS_HELPER: 'mdl-checkbox__focus-helper',
+  TICK_OUTLINE: 'mdl-checkbox__tick-outline',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-checkbox__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked',
@@ -603,13 +607,13 @@ MaterialCheckbox.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialCheckbox,
   classAsString: 'MaterialCheckbox',
-  cssClass: 'wsk-js-checkbox'
+  cssClass: 'mdl-js-checkbox'
 });
 
 /**
  * Class constructor for Column Layout WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialColumnLayout(element) {
@@ -645,7 +649,7 @@ MaterialColumnLayout.prototype.CssClasses_ = {
 
   // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
   // reduce conflict and convert to camelCase for consistency.
-  INVISIBLE_WRAPPING_ELEMENT: 'wsk-column-layout__wrap-hack'
+  INVISIBLE_WRAPPING_ELEMENT: 'mdl-column-layout__wrap-hack'
 };
 
 
@@ -672,13 +676,13 @@ MaterialColumnLayout.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialColumnLayout,
   classAsString: 'MaterialColumnLayout',
-  cssClass: 'wsk-column-layout'
+  cssClass: 'mdl-column-layout'
 });
 
 /**
  * Class constructor for icon toggle WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialIconToggle(element) {
@@ -707,12 +711,12 @@ MaterialIconToggle.prototype.Constant_ = {
  * @private
  */
 MaterialIconToggle.prototype.CssClasses_ = {
-  INPUT: 'wsk-icon-toggle__input',
-  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-icon-toggle__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-icon-toggle__input',
+  JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-icon-toggle__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked'
@@ -885,13 +889,13 @@ MaterialIconToggle.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialIconToggle,
   classAsString: 'MaterialIconToggle',
-  cssClass: 'wsk-js-icon-toggle'
+  cssClass: 'mdl-js-icon-toggle'
 });
 
 /**
  * Class constructor for dropdown WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialMenu(element) {
@@ -939,23 +943,23 @@ MaterialMenu.prototype.Keycodes_ = {
  * @private
  */
 MaterialMenu.prototype.CssClasses_ = {
-  CONTAINER: 'wsk-menu__container',
-  OUTLINE: 'wsk-menu__outline',
-  ITEM: 'wsk-menu__item',
-  ITEM_RIPPLE_CONTAINER: 'wsk-menu__item-ripple-container',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE: 'wsk-ripple',
+  CONTAINER: 'mdl-menu__container',
+  OUTLINE: 'mdl-menu__outline',
+  ITEM: 'mdl-menu__item',
+  ITEM_RIPPLE_CONTAINER: 'mdl-menu__item-ripple-container',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE: 'mdl-ripple',
   // Statuses
   IS_UPGRADED: 'is-upgraded',
   IS_VISIBLE: 'is-visible',
   IS_ANIMATING: 'is-animating',
   // Alignment options
-  BOTTOM_LEFT: 'wsk-menu--bottom-left',  // This is the default.
-  BOTTOM_RIGHT: 'wsk-menu--bottom-right',
-  TOP_LEFT: 'wsk-menu--top-left',
-  TOP_RIGHT: 'wsk-menu--top-right',
-  UNALIGNED: 'wsk-menu--unaligned'
+  BOTTOM_LEFT: 'mdl-menu--bottom-left',  // This is the default.
+  BOTTOM_RIGHT: 'mdl-menu--bottom-right',
+  TOP_LEFT: 'mdl-menu--top-left',
+  TOP_RIGHT: 'mdl-menu--top-right',
+  UNALIGNED: 'mdl-menu--unaligned'
 };
 
 /**
@@ -1334,13 +1338,13 @@ MaterialMenu.prototype.toggle = function(evt) {
 componentHandler.register({
   constructor: MaterialMenu,
   classAsString: 'MaterialMenu',
-  cssClass: 'wsk-js-menu'
+  cssClass: 'mdl-js-menu'
 });
 
 /**
  * Class constructor for Progress WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialProgress(element) {
@@ -1368,7 +1372,7 @@ MaterialProgress.prototype.Constant_ = {
  * @private
  */
 MaterialProgress.prototype.CssClasses_ = {
-  INDETERMINATE_CLASS: 'wsk-progress__indeterminate'
+  INDETERMINATE_CLASS: 'mdl-progress__indeterminate'
 };
 
 MaterialProgress.prototype.setProgress = function(p) {
@@ -1423,13 +1427,13 @@ MaterialProgress.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialProgress,
   classAsString: 'MaterialProgress',
-  cssClass: 'wsk-js-progress'
+  cssClass: 'mdl-js-progress'
 });
 
 /**
  * Class constructor for Radio WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialRadio(element) {
@@ -1462,15 +1466,15 @@ MaterialRadio.prototype.CssClasses_ = {
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked',
   IS_UPGRADED: 'is-upgraded',
-  JS_RADIO: 'wsk-js-radio',
-  RADIO_BTN: 'wsk-radio__button',
-  RADIO_OUTER_CIRCLE: 'wsk-radio__outer-circle',
-  RADIO_INNER_CIRCLE: 'wsk-radio__inner-circle',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-radio__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple'
+  JS_RADIO: 'mdl-js-radio',
+  RADIO_BTN: 'mdl-radio__button',
+  RADIO_OUTER_CIRCLE: 'mdl-radio__outer-circle',
+  RADIO_INNER_CIRCLE: 'mdl-radio__inner-circle',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-radio__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple'
 };
 
 /**
@@ -1663,13 +1667,13 @@ MaterialRadio.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialRadio,
   classAsString: 'MaterialRadio',
-  cssClass: 'wsk-js-radio'
+  cssClass: 'mdl-js-radio'
 });
 
 /**
  * Class constructor for Slider WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSlider(element) {
@@ -1699,11 +1703,11 @@ MaterialSlider.prototype.Constant_ = {
  * @private
  */
 MaterialSlider.prototype.CssClasses_ = {
-  IE_CONTAINER: 'wsk-slider__ie-container',
-  SLIDER_CONTAINER: 'wsk-slider__container',
-  BACKGROUND_FLEX: 'wsk-slider__background-flex',
-  BACKGROUND_LOWER: 'wsk-slider__background-lower',
-  BACKGROUND_UPPER: 'wsk-slider__background-upper',
+  IE_CONTAINER: 'mdl-slider__ie-container',
+  SLIDER_CONTAINER: 'mdl-slider__container',
+  BACKGROUND_FLEX: 'mdl-slider__background-flex',
+  BACKGROUND_LOWER: 'mdl-slider__background-lower',
+  BACKGROUND_UPPER: 'mdl-slider__background-upper',
   IS_LOWEST_VALUE: 'is-lowest-value',
   IS_UPGRADED: 'is-upgraded'
 };
@@ -1853,13 +1857,13 @@ MaterialSlider.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSlider,
   classAsString: 'MaterialSlider',
-  cssClass: 'wsk-js-slider'
+  cssClass: 'mdl-js-slider'
 });
 
 /**
  * Class constructor for Spinner WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSpinner(element) {
@@ -1888,12 +1892,12 @@ MaterialSpinner.prototype.Constant_ = {
  * @private
  */
 MaterialSpinner.prototype.CssClasses_ = {
-  WSK_SPINNER_LAYER: 'wsk-spinner__layer',
-  WSK_SPINNER_CIRCLE_CLIPPER: 'wsk-spinner__circle-clipper',
-  WSK_SPINNER_CIRCLE: 'wsk-spinner__circle',
-  WSK_SPINNER_GAP_PATCH: 'wsk-spinner__gap-patch',
-  WSK_SPINNER_LEFT: 'wsk-spinner__left',
-  WSK_SPINNER_RIGHT: 'wsk-spinner__right'
+  WSK_SPINNER_LAYER: 'mdl-spinner__layer',
+  WSK_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+  WSK_SPINNER_CIRCLE: 'mdl-spinner__circle',
+  WSK_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+  WSK_SPINNER_LEFT: 'mdl-spinner__left',
+  WSK_SPINNER_RIGHT: 'mdl-spinner__right'
 };
 
 /**
@@ -1975,13 +1979,13 @@ MaterialSpinner.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSpinner,
   classAsString: 'MaterialSpinner',
-  cssClass: 'wsk-js-spinner'
+  cssClass: 'mdl-js-spinner'
 });
 
 /**
  * Class constructor for Checkbox WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSwitch(element) {
@@ -2010,15 +2014,15 @@ MaterialSwitch.prototype.Constant_ = {
  * @private
  */
 MaterialSwitch.prototype.CssClasses_ = {
-  INPUT: 'wsk-switch__input',
-  TRACK: 'wsk-switch__track',
-  THUMB: 'wsk-switch__thumb',
-  FOCUS_HELPER: 'wsk-switch__focus-helper',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-switch__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-switch__input',
+  TRACK: 'mdl-switch__track',
+  THUMB: 'mdl-switch__thumb',
+  FOCUS_HELPER: 'mdl-switch__focus-helper',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-switch__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked'
@@ -2208,13 +2212,13 @@ MaterialSwitch.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSwitch,
   classAsString: 'MaterialSwitch',
-  cssClass: 'wsk-js-switch'
+  cssClass: 'mdl-js-switch'
 });
 
 /**
  * Class constructor for Tabs WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTabs(element) {
@@ -2244,15 +2248,15 @@ MaterialTabs.prototype.Constant_ = {
  * @private
  */
 MaterialTabs.prototype.CssClasses_ = {
-  TAB_CLASS: 'wsk-tabs__tab',
-  PANEL_CLASS: 'wsk-tabs__panel',
+  TAB_CLASS: 'mdl-tabs__tab',
+  PANEL_CLASS: 'mdl-tabs__panel',
   ACTIVE_CLASS: 'is-active',
   UPGRADED_CLASS: 'is-upgraded',
 
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  WSK_RIPPLE_CONTAINER: 'wsk-tabs__ripple-container',
-  WSK_RIPPLE: 'wsk-ripple',
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events'
+  WSK_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  WSK_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
+  WSK_RIPPLE: 'mdl-ripple',
+  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
 };
 
 /**
@@ -2344,13 +2348,13 @@ function MaterialTab(tab, ctx) {
 componentHandler.register({
   constructor: MaterialTabs,
   classAsString: 'MaterialTabs',
-  cssClass: 'wsk-js-tabs'
+  cssClass: 'mdl-js-tabs'
 });
 
 /**
  * Class constructor for Textfield WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTextfield(element) {
@@ -2380,8 +2384,8 @@ MaterialTextfield.prototype.Constant_ = {
  * @private
  */
 MaterialTextfield.prototype.CssClasses_ = {
-  LABEL: 'wsk-textfield__label',
-  INPUT: 'wsk-textfield__input',
+  LABEL: 'mdl-textfield__label',
+  INPUT: 'mdl-textfield__input',
   IS_DIRTY: 'is-dirty',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
@@ -2533,13 +2537,13 @@ MaterialTextfield.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialTextfield,
   classAsString: 'MaterialTextfield',
-  cssClass: 'wsk-js-textfield'
+  cssClass: 'mdl-js-textfield'
 });
 
 /**
  * Class constructor for Tooltip WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTooltip(element) {
@@ -2630,13 +2634,13 @@ MaterialTooltip.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialTooltip,
   classAsString: 'MaterialTooltip',
-  cssClass: 'wsk-tooltip'
+  cssClass: 'mdl-tooltip'
 });
 
 /**
  * Class constructor for Layout WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialLayout(element) {
@@ -2677,30 +2681,30 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
-  HEADER: 'wsk-layout__header',
-  DRAWER: 'wsk-layout__drawer',
-  CONTENT: 'wsk-layout__content',
-  DRAWER_BTN: 'wsk-layout__drawer-button',
+  HEADER: 'mdl-layout__header',
+  DRAWER: 'mdl-layout__drawer',
+  CONTENT: 'mdl-layout__content',
+  DRAWER_BTN: 'mdl-layout__drawer-button',
 
-  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_CONTAINER: 'wsk-layout__tab-ripple-container',
-  RIPPLE: 'wsk-ripple',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-layout__tab-ripple-container',
+  RIPPLE: 'mdl-ripple',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
 
-  HEADER_SEAMED: 'wsk-layout__header--seamed',
-  HEADER_WATERFALL: 'wsk-layout__header--waterfall',
-  HEADER_SCROLL: 'wsk-layout__header--scroll',
+  HEADER_SEAMED: 'mdl-layout__header--seamed',
+  HEADER_WATERFALL: 'mdl-layout__header--waterfall',
+  HEADER_SCROLL: 'mdl-layout__header--scroll',
 
-  FIXED_HEADER: 'wsk-layout--fixed-header',
-  OBFUSCATOR: 'wsk-layout__obfuscator',
+  FIXED_HEADER: 'mdl-layout--fixed-header',
+  OBFUSCATOR: 'mdl-layout__obfuscator',
 
-  TAB_BAR: 'wsk-layout__tab-bar',
-  TAB_CONTAINER: 'wsk-layout__tab-bar-container',
-  TAB: 'wsk-layout__tab',
-  TAB_BAR_BUTTON: 'wsk-layout__tab-bar-button',
-  TAB_BAR_LEFT_BUTTON: 'wsk-layout__tab-bar-left-button',
-  TAB_BAR_RIGHT_BUTTON: 'wsk-layout__tab-bar-right-button',
-  PANEL: 'wsk-layout__tab-panel',
+  TAB_BAR: 'mdl-layout__tab-bar',
+  TAB_CONTAINER: 'mdl-layout__tab-bar-container',
+  TAB: 'mdl-layout__tab',
+  TAB_BAR_BUTTON: 'mdl-layout__tab-bar-button',
+  TAB_BAR_LEFT_BUTTON: 'mdl-layout__tab-bar-left-button',
+  TAB_BAR_RIGHT_BUTTON: 'mdl-layout__tab-bar-right-button',
+  PANEL: 'mdl-layout__tab-panel',
 
   HAS_DRAWER_CLASS: 'has-drawer',
   SHADOW_CLASS: 'is-casting-shadow',
@@ -2816,7 +2820,7 @@ MaterialLayout.prototype.init = function() {
 
   if (this.element_) {
     var container = document.createElement('div');
-    container.classList.add('wsk-layout__container');
+    container.classList.add('mdl-layout__container');
     this.element_.parentElement.insertBefore(container, this.element_);
     this.element_.parentElement.removeChild(this.element_);
     container.appendChild(this.element_);
@@ -2991,13 +2995,13 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
 componentHandler.register({
   constructor: MaterialLayout,
   classAsString: 'MaterialLayout',
-  cssClass: 'wsk-js-layout'
+  cssClass: 'mdl-js-layout'
 });
 
 /**
  * Class constructor for Ripple WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialRipple(element) {
@@ -3030,9 +3034,9 @@ MaterialRipple.prototype.Constant_ = {
  * @private
  */
 MaterialRipple.prototype.CssClasses_ = {
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE: 'wsk-ripple',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE: 'mdl-ripple',
   IS_ANIMATING: 'is-animating',
   IS_VISIBLE: 'is-visible'
 };
@@ -3197,5 +3201,5 @@ MaterialRipple.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialRipple,
   classAsString: 'MaterialRipple',
-  cssClass: 'wsk-js-ripple-effect'
+  cssClass: 'mdl-js-ripple-effect'
 });

@@ -27,7 +27,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the slider using the `class` attribute.
 ```html
 <p style="width:300px">
-  <input class="wsk-slider wsk-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+  <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
 </p>
 ```
 
@@ -37,7 +37,7 @@ The slider component is ready for use.
 A slider that controls volume.
 ```html
 <p style="width:300px">
-<input class="wsk-slider wsk-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
 </p>
 ```
 
@@ -46,10 +46,10 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-slider` | Defines input element as an MDL component | Required |
-| `wsk-js-slider` | Assigns basic MDL behavior to input element | Required |
+| `mdl-slider` | Defines input element as an MDL component | Required |
+| `mdl-js-slider` | Assigns basic MDL behavior to input element | Required |
 
->**Note:** A disabled version of the slider is provided, and is invoked with the standard HTML boolean attribute `disabled`. `<input class="wsk-slider wsk-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" disabled />`
+>**Note:** A disabled version of the slider is provided, and is invoked with the standard HTML boolean attribute `disabled`. `<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" disabled />`
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
