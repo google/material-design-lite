@@ -1,6 +1,6 @@
 @import "../variables";
 
-.wsk-menu__container {
+.mdl-menu__container {
   display: block;
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@
   width: 0;
 }
 
-.wsk-menu__outline {
+.mdl-menu__outline {
   display: block;
   background: $default-dropdown-bg-color;
   margin: 0;
@@ -30,25 +30,25 @@
   transition: transform $menu-expand-duration $animation-curve-default,
       opacity $menu-fade-duration $animation-curve-default;
 
-  .wsk-menu__container.is-visible & {
+  .mdl-menu__container.is-visible & {
     opacity: 1;
     transform: scale(1);
   }
 
-  &.wsk-menu--bottom-right {
+  &.mdl-menu--bottom-right {
     transform-origin: 100% 0;
   }
 
-  &.wsk-menu--top-left {
+  &.mdl-menu--top-left {
     transform-origin: 0 100%;
   }
 
-  &.wsk-menu--top-right {
+  &.mdl-menu--top-right {
     transform-origin: 100% 100%;
   }
 }
 
-.wsk-menu {
+.mdl-menu {
   position: absolute;
   list-style: none;
   top: 0;
@@ -61,7 +61,7 @@
   opacity: 0;
   clip: rect(0 0 0 0);
 
-  .wsk-menu__container.is-visible & {
+  .mdl-menu__container.is-visible & {
     opacity: 1;
   }
 
@@ -70,30 +70,30 @@
         clip $menu-expand-duration $animation-curve-default;
   }
 
-  &.wsk-menu--bottom-right {
+  &.mdl-menu--bottom-right {
     left: auto;
     right: 0;
   }
 
-  &.wsk-menu--top-left {
+  &.mdl-menu--top-left {
     top: auto;
     bottom: 0;
   }
 
-  &.wsk-menu--top-right {
+  &.mdl-menu--top-right {
     top: auto;
     left: auto;
     bottom: 0;
     right: 0;
   }
 
-  &.wsk-menu--unaligned {
+  &.mdl-menu--unaligned {
     top: auto;
     left: auto;
   }
 }
 
-.wsk-menu__item {
+.mdl-menu__item {
   display: block;
   border: none;
   color: $default-item-text-color;
@@ -114,7 +114,7 @@
   transition: opacity $menu-fade-duration $animation-curve-default;
   user-select: none;
 
-  .wsk-menu__container.is-visible & {
+  .mdl-menu__container.is-visible & {
     opacity: 1;
   }
 
@@ -135,7 +135,7 @@
       background-color: transparent;
     }
 
-    & .wsk-ripple {
+    & .mdl-ripple {
       background: transparent;
     }
   }
@@ -155,7 +155,7 @@
 }
 
 
-.wsk-menu__item--ripple-container {
+.mdl-menu__item--ripple-container {
   display: block;
   height: 100%;
   left: 0px;

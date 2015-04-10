@@ -77,11 +77,11 @@
     it('Should be made visible on button click', function (done) {
       var ctr = document.createElement('div')
       ctr.innerHTML = '<button id="clickable">Menu</button>' +
-                      '<ul class="wsk-menu wsk-js-menu wsk-js-ripple-effect" for="clickable">' +
-                      '  <li class="wsk-menu__item">5.0 Lollipop</li>' +
-                      '  <li class="wsk-menu__item">4.4 KitKat</li>' +
-                      '  <li disabled class="wsk-menu__item">4.3 Jelly Bean</li>' +
-                      '  <li class="wsk-menu__item">Android History</li>' +
+                      '<ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="clickable">' +
+                      '  <li class="mdl-menu__item">5.0 Lollipop</li>' +
+                      '  <li class="mdl-menu__item">4.4 KitKat</li>' +
+                      '  <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>' +
+                      '  <li class="mdl-menu__item">Android History</li>' +
                       '</ul>';
       document.body.appendChild(ctr); // `for` only works in document
 

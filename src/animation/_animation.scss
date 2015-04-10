@@ -1,18 +1,18 @@
 @import "../variables";
 
 
-.wsk-animation--default {
+.mdl-animation--default {
   transition-timing-function: $animation-curve-default;
 }
 
-.wsk-animation--fast-out-slow-in {
+.mdl-animation--fast-out-slow-in {
   transition-timing-function: $animation-curve-fast-out-slow-in;
 }
 
-.wsk-animation--linear-out-slow-in {
+.mdl-animation--linear-out-slow-in {
   transition-timing-function: $animation-curve-linear-out-slow-in;
 }
 
-.wsk-animation--fast-out-linear-in {
+.mdl-animation--fast-out-linear-in {
   transition-timing-function: $animation-curve-fast-out-linear-in;
 }

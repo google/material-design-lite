@@ -32,15 +32,15 @@
     <link rel="stylesheet" href="styleguide.css">
   </head>
   <body>
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-styleguide">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-styleguide">
 
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Material Design Lite</span>
-        <nav id="main-navigation" class="wsk-navigation">
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav id="main-navigation" class="mdl-navigation">
         </nav>
       </div>
 
-      <div class="wsk-layout__content">
+      <div class="mdl-layout__content">
         <div class="styleguide-demo">
           <h1>Typography</h1>
           <iframe src="./typography/demo.html" scrolling="no"></iframe>
@@ -154,7 +154,7 @@
       </div>
     </div>
     <!-- build:js scripts/main.min.js -->
-    <script src="wskComponentHandler.js"></script>
+    <script src="mdlComponentHandler.js"></script>
     <script src="layout/layout.js" async defer></script>
     <!-- endbuild -->
 
@@ -174,7 +174,7 @@
 
           // Add list item
           var navAnchor = document.createElement('a');
-          navAnchor.classList.add('wsk-navigation__link');
+          navAnchor.classList.add('mdl-navigation__link');
           navAnchor.href = '#' + anchorLink;
           navAnchor.appendChild(document.createTextNode(demoTitle));
           navList.appendChild(navAnchor);

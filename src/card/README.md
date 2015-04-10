@@ -36,34 +36,34 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the "outer" div and the "inner" divs (depending on their intended use) using the `class` attribute.
 ```html
-<div class="wsk-card">
-  <div class="wsk-card--heading">
+<div class="mdl-card">
+  <div class="mdl-card--heading">
   ...
   </div>
-  <div class="wsk-card--img-container">
+  <div class="mdl-card--img-container">
   ...
   </div>
-  <div class="wsk-card--lower">
+  <div class="mdl-card--lower">
   ...
   </div>
-  <div class="wsk-card--bottom">
+  <div class="mdl-card--bottom">
   ...
   </div>
 </div>
 ```
 &nbsp;4. Add content to each "inner" div, again depending on its intended use, using standard HTML elements and, optionally, additional MDL classes.
 ```html
-<div class="wsk-card">
-  <div class="wsk-card--heading">
-    <h2 class="wsk-card--heading-text">Heading Text Goes Here</h2>
+<div class="mdl-card">
+  <div class="mdl-card--heading">
+    <h2 class="mdl-card--heading-text">Heading Text Goes Here</h2>
   </div>
-  <div class="wsk-card--img-container">
+  <div class="mdl-card--img-container">
     <img src="photo.jpg" width="220" height="140" border="0" alt="" style="padding:20px;">
   </div>
-  <div class="wsk-card--lower">
+  <div class="mdl-card--lower">
     This text might describe the photo and provide further information, such as where and when it was taken.
   </div>
-  <div class="wsk-card--bottom">
+  <div class="mdl-card--bottom">
     <a href="(URL or function)">Related Action</a>
   </div>
 </div>
@@ -76,16 +76,16 @@ The card component is ready for use.
 A card (no shadow) with a heading, image, text, and action.
 
 ```html
-<div class="wsk-card">
-  <div class="wsk-card--heading">
-     <h2 class="wsk-card--heading-text">Auckland Sky Tower<br/>Auckland, New Zealand</h2>
+<div class="mdl-card">
+  <div class="mdl-card--heading">
+     <h2 class="mdl-card--heading-text">Auckland Sky Tower<br/>Auckland, New Zealand</h2>
   </div>
-  <div class="wsk-card--img-container"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
+  <div class="mdl-card--img-container"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
   </div>
-  <div class="wsk-card--lower">
+  <div class="mdl-card--lower">
   The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
   </div>
-  <div class="wsk-card--bottom">
+  <div class="mdl-card--bottom">
      <a href="http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29">Wikipedia entry</a>
   </div>
 </div>
@@ -94,13 +94,13 @@ A card (no shadow) with a heading, image, text, and action.
 Card (level-3 shadow) with an image, caption, and text:
 
 ```html
-<div class="wsk-card wsk-shadow--z3">
-  <div class="wsk-card--img-container"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
+<div class="mdl-card mdl-shadow--z3">
+  <div class="mdl-card--img-container"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
   </div>
-  <div class="wsk-card--caption">
+  <div class="mdl-card--caption">
     Auckland Sky Tower, taken March 24th, 2014
   </div>
-  <div class="wsk-card--lower">
+  <div class="mdl-card--lower">
   The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
   </div>
 </div>
@@ -111,14 +111,14 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-card` | Defines div element as an MDL card container | Required on "outer" div |
-| `wsk-shadow--z1 through wsk-shadow--z5` | Assigns variable shadow depths (1-5) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
-| `wsk-card--heading` | Defines div as a card heading container(1) | Required on "inner" heading div |
-| `wsk-card--heading-text` | Assigns appropriate text characteristics to card heading | Required on head tag (H1 - H6) inside heading div |
-| `wsk-card--img-container` | Defines div as a card image container | Required on "inner" image div |
-| `wsk-card--lower` | Defines div as a card body text container(1) and assigns appropriate text characteristics to body text | Required on "inner" body text div; text goes directly inside the div with no intervening containers |
-| `wsk-card--caption` | Defines div as a card caption container and assigns appropriate text characteristics to caption text | Required on "inner" caption div; text goes directly inside the div with no intervening containers |
-| `wsk-card--bottom` | Defines div as a card bottom text container(1) (typically an action bar) and assigns appropriate text characteristics to bottom text | Required on "inner" bottom div; content goes directly inside the div with no intervening containers |
+| `mdl-card` | Defines div element as an MDL card container | Required on "outer" div |
+| `mdl-shadow--z1 through mdl-shadow--z5` | Assigns variable shadow depths (1-5) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
+| `mdl-card--heading` | Defines div as a card heading container(1) | Required on "inner" heading div |
+| `mdl-card--heading-text` | Assigns appropriate text characteristics to card heading | Required on head tag (H1 - H6) inside heading div |
+| `mdl-card--img-container` | Defines div as a card image container | Required on "inner" image div |
+| `mdl-card--lower` | Defines div as a card body text container(1) and assigns appropriate text characteristics to body text | Required on "inner" body text div; text goes directly inside the div with no intervening containers |
+| `mdl-card--caption` | Defines div as a card caption container and assigns appropriate text characteristics to caption text | Required on "inner" caption div; text goes directly inside the div with no intervening containers |
+| `mdl-card--bottom` | Defines div as a card bottom text container(1) (typically an action bar) and assigns appropriate text characteristics to bottom text | Required on "inner" bottom div; content goes directly inside the div with no intervening containers |
 
 (1) Although some class names imply positioning, they really just semantically define the styling of the content. The actual positions of the "inner" divs within the card are determined by order of appearance (i.e., top-down). You may use them in any order, so long as they maintain their relationships as siblings and as direct children of the "outer" container div.
 

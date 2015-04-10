@@ -1,7 +1,7 @@
 /**
  * Class constructor for Checkbox WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialCheckbox(element) {
@@ -30,15 +30,15 @@ MaterialCheckbox.prototype.Constant_ = {
  * @private
  */
 MaterialCheckbox.prototype.CssClasses_ = {
-  INPUT: 'wsk-checkbox__input',
-  BOX_OUTLINE: 'wsk-checkbox__box-outline',
-  FOCUS_HELPER: 'wsk-checkbox__focus-helper',
-  TICK_OUTLINE: 'wsk-checkbox__tick-outline',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-checkbox__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-checkbox__input',
+  BOX_OUTLINE: 'mdl-checkbox__box-outline',
+  FOCUS_HELPER: 'mdl-checkbox__focus-helper',
+  TICK_OUTLINE: 'mdl-checkbox__tick-outline',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-checkbox__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked',
@@ -226,5 +226,5 @@ MaterialCheckbox.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialCheckbox,
   classAsString: 'MaterialCheckbox',
-  cssClass: 'wsk-js-checkbox'
+  cssClass: 'mdl-js-checkbox'
 });

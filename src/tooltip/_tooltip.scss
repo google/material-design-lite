@@ -1,6 +1,6 @@
 @import "../variables";
 
-.wsk-tooltip {
+.mdl-tooltip {
   transform: scale(0);
   transform-origin: top center;
   background: $tooltip-background-color;
@@ -14,12 +14,12 @@
   position: absolute;
   text-align: center;
 }
-.wsk-tooltip.is-active {
+.mdl-tooltip.is-active {
   display: inline-block;
   animation: pulse 200ms $animation-curve-linear-out-slow-in forwards;
 }
 
-.wsk-tooltip--large {
+.mdl-tooltip--large {
   line-height: 14px;
   font-size: 14px;
   padding: 15px 16px;

@@ -20,7 +20,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;2. Add the MDL classes, separated by spaces, to the span using the `class` attribute.
 ```html
-<span class="wsk-icon wsk-icon--alarm"></span>
+<span class="mdl-icon mdl-icon--alarm"></span>
 ```
 
 The icon component is ready for use.
@@ -30,19 +30,19 @@ The icon component is ready for use.
 A warning icon.
 
 ```html
-<span class="wsk-icon wsk-icon--warning"></span>
+<span class="mdl-icon mdl-icon--warning"></span>
 ```
 
 A fast-forward icon.
 
 ```html
-<span class="wsk-icon wsk-icon--fast-forward"></span>
+<span class="mdl-icon mdl-icon--fast-forward"></span>
 ```
 
 A cut icon.
 
 ```html
-<span class="wsk-icon wsk-icon--content-cut"></span>
+<span class="mdl-icon mdl-icon--content-cut"></span>
 ```
 
 ##Configuration options
@@ -50,8 +50,8 @@ The MDL CSS classes define and specify the icon to use. The table below lists th
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-icon` | Defines the container as an MDL icon component | Required on span element |
-| `wsk-icon--ICON_CLASS_NAME` | Assigns a specific icon to the container | Required on span element (see icon demo page for complete list) |
+| `mdl-icon` | Defines the container as an MDL icon component | Required on span element |
+| `mdl-icon--ICON_CLASS_NAME` | Assigns a specific icon to the container | Required on span element (see icon demo page for complete list) |
 
 ##More information
 For working examples of the **icon** component, see the MDL [icon demo page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html).

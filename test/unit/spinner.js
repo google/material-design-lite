@@ -30,11 +30,11 @@ describe('spinner tests', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
     var html = el.innerHTML;
-    expect(html).to.contain('wsk-spinner__layer');
-    expect(html).to.contain('wsk-spinner__layer-1');
-    expect(html).to.contain('wsk-spinner__layer-2');
-    expect(html).to.contain('wsk-spinner__layer-3');
-    expect(html).to.contain('wsk-spinner__layer-4');
-    expect(html).to.contain('wsk-spinner__circle');
+    expect(html).to.contain('mdl-spinner__layer');
+    expect(html).to.contain('mdl-spinner__layer-1');
+    expect(html).to.contain('mdl-spinner__layer-2');
+    expect(html).to.contain('mdl-spinner__layer-3');
+    expect(html).to.contain('mdl-spinner__layer-4');
+    expect(html).to.contain('mdl-spinner__circle');
   });
 });

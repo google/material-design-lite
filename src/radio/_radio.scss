@@ -1,6 +1,6 @@
 @import "../variables";
 
-.wsk-radio {
+.mdl-radio {
   position: relative;
 
   font-size: 16px;
@@ -18,10 +18,10 @@
   }
 }
 
-.wsk-radio__button {
+.mdl-radio__button {
   line-height: $radio-label-height;
 
-  .wsk-radio.is-upgraded & {
+  .mdl-radio.is-upgraded & {
     // Hide input element, while still making it respond to focus.
     position: absolute;
     width: 0;
@@ -37,7 +37,7 @@
   }
 }
 
-.wsk-radio__outer-circle {
+.mdl-radio__outer-circle {
   position: absolute;
   top: $radio-top-offset;
   left: 0;
@@ -56,17 +56,17 @@
 
   z-index: 2;
 
-  .wsk-radio.is-checked & {
+  .mdl-radio.is-checked & {
     border: 2px solid $radio-color;
   }
 
-  .wsk-radio.is-disabled & {
+  .mdl-radio.is-disabled & {
     border: 2px solid $radio-disabled-color;
     cursor: auto;
   }
 }
 
-.wsk-radio__inner-circle {
+.mdl-radio__inner-circle {
   position: absolute;
   z-index: 1;
   margin: 0;
@@ -86,30 +86,30 @@
   border-radius: 50%;
   background: $radio-color;
 
-  .wsk-radio.is-checked & {
+  .mdl-radio.is-checked & {
     transform: scale3d(1, 1, 1);
   }
 
-  .wsk-radio.is-disabled & {
+  .mdl-radio.is-disabled & {
     background: $radio-disabled-color;
     cursor: auto;
   }
 
-  .wsk-radio.is-focused & {
+  .mdl-radio.is-focused & {
     box-shadow: 0 0 0px 10px rgba(0, 0, 0, 0.1);
   }
 }
 
-.wsk-radio__label {
+.mdl-radio__label {
   cursor: pointer;
 
-  .wsk-radio.is-disabled & {
+  .mdl-radio.is-disabled & {
     color: $radio-disabled-color;
     cursor: auto;
   }
 }
 
-.wsk-radio__ripple-container {
+.mdl-radio__ripple-container {
   position: absolute;
   z-index: 2;
   top: -(($radio-ripple-size - $radio-label-height) / 2);
@@ -125,15 +125,15 @@
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 
-  & .wsk-ripple {
+  & .mdl-ripple {
     background: $radio-color;
   }
 
-  .wsk-radio.is-disabled & {
+  .mdl-radio.is-disabled & {
     cursor: auto;
   }
 
-  .wsk-radio.is-disabled & .wsk-ripple {
+  .mdl-radio.is-disabled & .mdl-ripple {
     background: transparent;
   }
 }

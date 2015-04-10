@@ -1,7 +1,7 @@
 /**
  * Class constructor for Textfield WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTextfield(element) {
@@ -31,8 +31,8 @@ MaterialTextfield.prototype.Constant_ = {
  * @private
  */
 MaterialTextfield.prototype.CssClasses_ = {
-  LABEL: 'wsk-textfield__label',
-  INPUT: 'wsk-textfield__input',
+  LABEL: 'mdl-textfield__label',
+  INPUT: 'mdl-textfield__input',
   IS_DIRTY: 'is-dirty',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
@@ -184,5 +184,5 @@ MaterialTextfield.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialTextfield,
   classAsString: 'MaterialTextfield',
-  cssClass: 'wsk-js-textfield'
+  cssClass: 'mdl-js-textfield'
 });

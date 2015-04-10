@@ -1,7 +1,7 @@
 /**
  * A component handler interface using the revealing module design pattern.
  * More details on this pattern design here:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
  /* exported componentHandler */
@@ -97,7 +97,7 @@ var componentHandler = (function() {
       }
 
       var ev = document.createEvent('Events');
-      ev.initEvent('wsk-componentupgraded', true, true);
+      ev.initEvent('mdl-componentupgraded', true, true);
       element.dispatchEvent(ev);
     }
   }
@@ -168,12 +168,12 @@ window.addEventListener('load', function() {
 
   /**
    * Performs a "Cutting the mustard" test. If the browser supports the features
-   * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
+   * tested, adds a mdl-js class to the <html> element. It then upgrades all WSK
    * components requiring JavaScript.
    */
   if ('classList' in document.createElement('div') && 'querySelector' in document &&
       'addEventListener' in window && Array.prototype.forEach) {
-    document.documentElement.classList.add('wsk-js');
+    document.documentElement.classList.add('mdl-js');
     componentHandler.upgradeAllRegistered();
   } else {
     componentHandler.upgradeElement = componentHandler.register = function () { };

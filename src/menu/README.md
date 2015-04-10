@@ -25,10 +25,10 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the unordered list and the buttons using the `class` attribute.
 ```html
-<ul class="wsk-dropdown-menu">
-  <button class="wsk-item">Continue</button>
-  <button class="wsk-item">Stop</button>
-  <button class="wsk-item">Pause</button>
+<ul class="mdl-dropdown-menu">
+  <button class="mdl-item">Continue</button>
+  <button class="mdl-item">Stop</button>
+  <button class="mdl-item">Pause</button>
 </ul>
 ```
 
@@ -38,10 +38,10 @@ The menu component is ready for use.
 A menu with three options, with ripple effect on option links.
 
 ```html
-<ul class="wsk-menu">
-  <button class="wsk-menu__item wsk-js-ripple-effect">Fast</button>
-  <button class="wsk-menu__item wsk-js-ripple-effect">Medium</button>
-  <button class="wsk-menu__item wsk-js-ripple-effect">Slow</button>
+<ul class="mdl-menu">
+  <button class="mdl-menu__item mdl-js-ripple-effect">Fast</button>
+  <button class="mdl-menu__item mdl-js-ripple-effect">Medium</button>
+  <button class="mdl-menu__item mdl-js-ripple-effect">Slow</button>
 </ul>
 ```
 
@@ -50,11 +50,11 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-menu` | Defines an unordered list container as an MDL component | Required on ul element |
-| `wsk-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on button elements |
-| `wsk-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on button elements |
+| `mdl-menu` | Defines an unordered list container as an MDL component | Required on ul element |
+| `mdl-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on button elements |
+| `mdl-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on button elements |
 
->**Note:** Disabled versions of the menu buttons are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<button class="wsk-menu__item" disabled>Medium</button>`
+>**Note:** Disabled versions of the menu buttons are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<button class="mdl-menu__item" disabled>Medium</button>`
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information

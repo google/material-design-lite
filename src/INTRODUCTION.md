@@ -28,7 +28,7 @@ That's it! You are now ready to use the MDL components.
 In general, follow these basic steps to use an MDL component in your HTML page.
 
 1. Start with a standard HTML element, such as `<button>`, `<div>`, or `<ul>`, depending on the MDL component you want to use. This establishes the element in the page and readies it for MDL modification.<br/><br/>
-2. Add one or more MDL-specific CSS classes to the element, such as `wsk-button`,   `wsk-tabs__panel`, or `wsk-list--inline`, again depending on the component. The classes apply the MDL enhancements to the element and effectively turn it into an MDL component.<br/><br/>
+2. Add one or more MDL-specific CSS classes to the element, such as `mdl-button`,   `mdl-tabs__panel`, or `mdl-list--inline`, again depending on the component. The classes apply the MDL enhancements to the element and effectively turn it into an MDL component.<br/><br/>
 3. View the page, preferably in multiple browsers on multiple devices, to ensure that the component looks and behaves as expected.
 
 >**A note about HTML elements and MDL CSS classes** 

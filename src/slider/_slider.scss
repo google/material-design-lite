@@ -1,7 +1,7 @@
 @import "../variables";
 
 // Some CSS magic to target only IE.
-_:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
+_:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   // The thumb can't overflow the track or the rest of the control in IE, so we
   // need to make it tall enough to contain the largest version of the thumb.
@@ -10,7 +10,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
 }
 
 // Slider component (styled input[type=range]).
-.wsk-slider {
+.mdl-slider {
   width: calc(100% - 40px);
   margin: 0 20px;
 
@@ -168,7 +168,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
     }
 
     &.is-lowest-value ~
-        .wsk-slider__background-flex > .wsk-slider__background-upper {
+        .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px;
     }
 
@@ -185,7 +185,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
     }
 
     &.is-lowest-value:focus:not(:active) ~
-        .wsk-slider__background-flex > .wsk-slider__background-upper {
+        .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 8px;
     }
 
@@ -195,7 +195,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
     }
 
     &.is-lowest-value:active ~
-        .wsk-slider__background-flex > .wsk-slider__background-upper {
+        .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 9px;
     }
 
@@ -263,13 +263,13 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
     }
 
     &:disabled ~
-        .wsk-slider__background-flex > .wsk-slider__background-lower {
+        .mdl-slider__background-flex > .mdl-slider__background-lower {
       background-color: $range-bg-color;
       left: -6px;
     }
 
     &:disabled ~
-        .wsk-slider__background-flex > .wsk-slider__background-upper {
+        .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px;
     }
 
@@ -290,7 +290,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
     }
 
     &.is-lowest-value:disabled:active ~
-        .wsk-slider__background-flex > .wsk-slider__background-upper {
+        .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px;
     }
 
@@ -333,7 +333,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
 
   // Since we need to specify a height of 32px in IE, we add a class here for a
   // container that brings it back to a reasonable height.
-  .wsk-slider__ie-container {
+  .mdl-slider__ie-container {
     height: 18px;
     overflow: visible;
     border: none;
@@ -343,7 +343,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
 
   // We use a set of divs behind the track to style it in all non-IE browsers.
   // This one contains both the background and the slider.
-  .wsk-slider__container {
+  .mdl-slider__container {
     height: 18px;
     position: relative;
     background: none;
@@ -353,7 +353,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
 
   // This one sets up a flex box for the styled upper and lower portions of the
   // the slider track.
-  .wsk-slider__background-flex {
+  .mdl-slider__background-flex {
     background: transparent;
     position: absolute;
     height: 2px;
@@ -370,7 +370,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
   }
 
   // This one styles the lower part of the slider track.
-  .wsk-slider__background-lower {
+  .mdl-slider__background-lower {
     background: $range-color;
     flex: 0;
     position: relative;
@@ -379,7 +379,7 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
   }
 
   // This one styles the upper part of the slider track.
-  .wsk-slider__background-upper {
+  .mdl-slider__background-upper {
     background: $range-bg-color;
     flex: 0;
     position: relative;
@@ -390,6 +390,6 @@ _:-ms-input-placeholder, :root .wsk-slider.wsk-slider.is-upgraded {
 
   // Some CSS magic to disable track animations in Firefox, since the thumb
   // doesn't animate.
-  _:-moz-tree-row(hover), .wsk-slider__background-upper {
+  _:-moz-tree-row(hover), .mdl-slider__background-upper {
     transition: none;
   }

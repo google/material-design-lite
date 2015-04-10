@@ -1,6 +1,6 @@
 @import "../variables";
 
-.wsk-column-layout {
+.mdl-column-layout {
   // Web layout.
   display: flex;
   flex-direction: row;
@@ -57,7 +57,7 @@
   }
 }
 
-.wsk-column-layout__child {
+.mdl-column-layout__child {
   @include columns-child-element();
 }
 
@@ -67,7 +67,7 @@
 // last line to align correctly, while keeping the flexbox centered on its
 // container.
 // TODO(sgomes): Explore a different way of doing this.
-.wsk-column-layout__wrap-hack {
+.mdl-column-layout__wrap-hack {
   @include columns-child-element();
   height: 0;
   min-height: 0;

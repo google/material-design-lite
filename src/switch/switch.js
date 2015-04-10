@@ -1,7 +1,7 @@
 /**
  * Class constructor for Checkbox WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSwitch(element) {
@@ -30,15 +30,15 @@ MaterialSwitch.prototype.Constant_ = {
  * @private
  */
 MaterialSwitch.prototype.CssClasses_ = {
-  INPUT: 'wsk-switch__input',
-  TRACK: 'wsk-switch__track',
-  THUMB: 'wsk-switch__thumb',
-  FOCUS_HELPER: 'wsk-switch__focus-helper',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-switch__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-switch__input',
+  TRACK: 'mdl-switch__track',
+  THUMB: 'mdl-switch__thumb',
+  FOCUS_HELPER: 'mdl-switch__focus-helper',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-switch__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked'
@@ -228,5 +228,5 @@ MaterialSwitch.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSwitch,
   classAsString: 'MaterialSwitch',
-  cssClass: 'wsk-js-switch'
+  cssClass: 'mdl-js-switch'
 });

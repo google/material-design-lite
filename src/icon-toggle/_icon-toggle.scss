@@ -1,6 +1,6 @@
 @import "../variables";
 
-.wsk-icon-toggle {
+.mdl-icon-toggle {
   position: relative;
 
   z-index: 1;
@@ -13,10 +13,10 @@
   padding: 0;
 }
 
-.wsk-icon-toggle__input {
+.mdl-icon-toggle__input {
   line-height: $icon-toggle-size;
 
-  .wsk-icon-toggle.is-upgraded & {
+  .mdl-icon-toggle.is-upgraded & {
     // Hide input element, while still making it respond to focus.
     position: absolute;
     width: 0;
@@ -32,7 +32,7 @@
   }
 }
 
-.wsk-icon-toggle__label {
+.mdl-icon-toggle__label {
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -52,27 +52,27 @@
   transition: background-color 0.2s $animation-curve-default,
   color 0.2s $animation-curve-default;
 
-  .wsk-icon-toggle.is-checked & {
+  .mdl-icon-toggle.is-checked & {
     color: $icon-toggle-checked-color;
   }
 
-  .wsk-icon-toggle.is-disabled & {
+  .mdl-icon-toggle.is-disabled & {
     color: $icon-toggle-disabled-color;
     cursor: auto;
     transition: none;
   }
 
-  .wsk-icon-toggle.is-focused & {
+  .mdl-icon-toggle.is-focused & {
     background-color: $icon-toggle-focus-color;
   }
 
-  .wsk-icon-toggle.is-focused.is-checked & {
+  .mdl-icon-toggle.is-focused.is-checked & {
     background-color: $icon-toggle-checked-focus-color;
   }
 }
 
 
-.wsk-icon-toggle__ripple-container {
+.mdl-icon-toggle__ripple-container {
   position: absolute;
   z-index: 2;
   top: -(($icon-toggle-ripple-size - $icon-toggle-size) / 2);
@@ -88,15 +88,15 @@
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 
-  & .wsk-ripple {
+  & .mdl-ripple {
     background: $icon-toggle-color;
   }
 
-  .wsk-icon-toggle.is-disabled & {
+  .mdl-icon-toggle.is-disabled & {
     cursor: auto;
   }
 
-  .wsk-icon-toggle.is-disabled & .wsk-ripple {
+  .mdl-icon-toggle.is-disabled & .mdl-ripple {
     background: transparent;
   }
 }

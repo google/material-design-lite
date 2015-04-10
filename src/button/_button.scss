@@ -1,7 +1,7 @@
 @import "../variables";
 
 // The button component. Defaults to a flat button.
-.wsk-button {
+.mdl-button {
   background: transparent;
   border: none;
   border-radius: $button-border-radius;
@@ -49,7 +49,7 @@
     background-color: transparent;
   }
 
-  &.wsk-button--colored {
+  &.mdl-button--colored {
     color: $button-primary-color-alt;
 
     &:focus:not(:active) {
@@ -60,7 +60,7 @@
 
 
   // Raised buttons
-  .wsk-button--raised {
+  .mdl-button--raised {
     background: $button-primary-color;
     @include shadow-z1();
 
@@ -74,7 +74,7 @@
       background-color: $button-active-color;
     }
 
-    &.wsk-button--colored {
+    &.mdl-button--colored {
       background: $button-primary-color-alt;
       color: $button-secondary-color-alt;
 
@@ -90,7 +90,7 @@
         background-color: $button-active-color-alt;
       }
 
-      & .wsk-ripple {
+      & .mdl-ripple {
         background: $button-ripple-color-alt;
       }
     }
@@ -105,7 +105,7 @@
 
 
   // FABs
-  .wsk-button--fab {
+  .mdl-button--fab {
     border-radius: 50%;
     font-size: $button-fab-font-size;
     height: $button-fab-size;
@@ -119,7 +119,7 @@
     position: relative;
     line-height: normal;
 
-    & .wsk-icon {
+    & .mdl-icon {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -130,13 +130,13 @@
       width: $button-fab-font-size;
     }
 
-    &.wsk-button--mini-fab {
+    &.mdl-button--mini-fab {
       height: $button-fab-size-mini;
       min-width: $button-fab-size-mini;
       width: $button-fab-size-mini;
     }
 
-    & .wsk-button__ripple-container {
+    & .mdl-button__ripple-container {
       border-radius: 50%;
       // Fixes clipping bug in Safari.
       -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
@@ -152,7 +152,7 @@
       background-color: $button-active-color;
     }
 
-    &.wsk-button--colored {
+    &.mdl-button--colored {
       background: $button-fab-color-alt;
       color: $button-fab-text-color-alt;
 
@@ -168,7 +168,7 @@
         background-color: $button-fab-active-color-alt;
       }
 
-      & .wsk-ripple {
+      & .mdl-ripple {
         background: $button-fab-ripple-color-alt;
       }
     }
@@ -183,7 +183,7 @@
 
 
   // Icon buttons
-  .wsk-button--icon {
+  .mdl-button--icon {
     border-radius: 50%;
     font-size: $button-fab-font-size;
     height: $button-icon-size;
@@ -196,24 +196,24 @@
     color: inherit;
     line-height: normal;
 
-    & .wsk-icon {
+    & .mdl-icon {
       position: absolute;
       top: ($button-icon-size - $button-fab-font-size) / 2;
       left: ($button-icon-size - $button-fab-font-size) / 2;
     }
 
-    &.wsk-button--mini-icon {
+    &.mdl-button--mini-icon {
       height: $button-icon-size-mini;
       min-width: $button-icon-size-mini;
       width: $button-icon-size-mini;
 
-      & .wsk-icon {
+      & .mdl-icon {
         top: ($button-icon-size-mini - $button-fab-font-size) / 2;
         left: ($button-icon-size-mini - $button-fab-font-size) / 2;
       }
     }
 
-    & .wsk-button__ripple-container {
+    & .mdl-button__ripple-container {
       border-radius: 50%;
       // Fixes clipping bug in Safari.
       -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
@@ -222,7 +222,7 @@
 
 
   // Ripples
-  .wsk-button__ripple-container {
+  .mdl-button__ripple-container {
     display: block;
     height: 100%;
     left: 0px;
@@ -232,7 +232,7 @@
     z-index: 0;
     overflow: hidden;
 
-    .wsk-button[disabled] & .wsk-ripple {
+    .mdl-button[disabled] & .mdl-ripple {
       background-color: transparent;
     }
   }

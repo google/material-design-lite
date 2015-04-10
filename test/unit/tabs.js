@@ -8,8 +8,8 @@
     it('Should be upgraded to a MaterialTabs successfully', function () {
       var el = document.createElement('div');
       el.innerHTML = '' +
-      '<div class="wsk-tabs wsk-js-tabs wsk-js-ripple-effect">' +
-      '  <div class="wsk-tabs__tab-bar">' +
+      '<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">' +
+      '  <div class="mdl-tabs__tab-bar">' +
       '  </div>' +
       '</div>';
 
@@ -20,15 +20,15 @@
     describe('Click on the tabs', function () {
       var el = document.createElement('div');
       el.innerHTML = '' +
-      '<div class="wsk-tabs wsk-js-tabs wsk-js-ripple-effect">' +
-      '  <div class="wsk-tabs__tab-bar">' +
-      '   <a href="#content1" id="tab1" class="wsk-tabs__tab">1</a>' +
-      '   <a href="#content2" id="tab2" class="wsk-tabs__tab">2</a>' +
-      '   <a href="#content3" id="tab3" class="wsk-tabs__tab">3</a>' +
+      '<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">' +
+      '  <div class="mdl-tabs__tab-bar">' +
+      '   <a href="#content1" id="tab1" class="mdl-tabs__tab">1</a>' +
+      '   <a href="#content2" id="tab2" class="mdl-tabs__tab">2</a>' +
+      '   <a href="#content3" id="tab3" class="mdl-tabs__tab">3</a>' +
       ' </div>' +
-      ' <div class="wsk-tabs__panel" id="content1"></div>' +
-      ' <div class="wsk-tabs__panel" id="content2"></div>' +
-      ' <div class="wsk-tabs__panel" id="content3"></div>' +
+      ' <div class="mdl-tabs__panel" id="content1"></div>' +
+      ' <div class="mdl-tabs__panel" id="content2"></div>' +
+      ' <div class="mdl-tabs__panel" id="content3"></div>' +
       '</div>';
       componentHandler.upgradeElement(el, 'MaterialTabs');
 

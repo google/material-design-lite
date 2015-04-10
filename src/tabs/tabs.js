@@ -1,7 +1,7 @@
 /**
  * Class constructor for Tabs WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTabs(element) {
@@ -31,15 +31,15 @@ MaterialTabs.prototype.Constant_ = {
  * @private
  */
 MaterialTabs.prototype.CssClasses_ = {
-  TAB_CLASS: 'wsk-tabs__tab',
-  PANEL_CLASS: 'wsk-tabs__panel',
+  TAB_CLASS: 'mdl-tabs__tab',
+  PANEL_CLASS: 'mdl-tabs__panel',
   ACTIVE_CLASS: 'is-active',
   UPGRADED_CLASS: 'is-upgraded',
 
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  WSK_RIPPLE_CONTAINER: 'wsk-tabs__ripple-container',
-  WSK_RIPPLE: 'wsk-ripple',
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events'
+  WSK_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  WSK_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
+  WSK_RIPPLE: 'mdl-ripple',
+  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
 };
 
 /**
@@ -131,5 +131,5 @@ function MaterialTab(tab, ctx) {
 componentHandler.register({
   constructor: MaterialTabs,
   classAsString: 'MaterialTabs',
-  cssClass: 'wsk-js-tabs'
+  cssClass: 'mdl-js-tabs'
 });

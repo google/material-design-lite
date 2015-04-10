@@ -7,7 +7,7 @@
 
     it('Should be upgraded to a MaterialCheckbox successfully', function () {
       var el = document.createElement('div');
-      el.innerHTML = '<input type="checkbox" class="wsk-checkbox__input">';
+      el.innerHTML = '<input type="checkbox" class="mdl-checkbox__input">';
       componentHandler.upgradeElement(el, 'MaterialCheckbox');
       expect($(el)).to.have.data('upgraded', ',MaterialCheckbox');
     });
