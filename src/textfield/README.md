@@ -253,7 +253,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-icon--search` | Defines span as an MDL search icon(1) | For expandable input fields, required on "outer" div's label's span element |
 | `mdl-input__expandable-holder` | Defines a container as an MDL component | For expandable input fields, required on "inner" div element |
 
-(1) The "search" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
+(1) The "search" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/material-design-lite/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
 
 >**Note:** Disabled versions of each text field type are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input class="mdl-textfield mdl-js-textfield" type="text" disabled />`
 >This attribute may be added or removed programmatically via scripting.

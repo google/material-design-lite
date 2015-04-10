@@ -100,7 +100,7 @@ The MDL CSS classes specify the style to use. The table below lists the availabl
 | `mdl-typography--title-color-contrast` | Title with color contrast | Optional |
 
 ##More information
-For working examples of the **typography** component, see the MDL [typography demo page](http://google.github.io/web-starter-kit/latest/styleguide/typography/demo.html).
+For working examples of the **typography** component, see the MDL [typography demo page](http://google.github.io/material-design-lite/latest/styleguide/typography/demo.html).
 
 ## License
 
