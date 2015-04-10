@@ -1,5 +1,5 @@
 body {
-  background-image: url('http://placehold.it/2048/FFE0B2/FFF3E0');
+  background-image: url('images/bg.jpg');
   background-size: cover;
   background-attachment: fixed;
   /* position: relative; */
@@ -75,6 +75,10 @@ main .wsk-card:nth-child(2n) {
   justify-content: flex-start;
   height: auto;
 }
+.wsk-card--bottom .logo {
+  width: 32px;
+  heigth: 32px;
+}
 .wsk-card:nth-child(2n) .wsk-card--bottom {
   justify-content: space-between;
 }
@@ -87,16 +91,24 @@ main .wsk-card:nth-child(2n) {
 }
 
 .coffee-pic .wsk-card--img-container {
-  background-image: url('http://placehold.it/900x600/F57C00/EF6C00');
+  background-image: url('images/coffee.jpg');
 }
 .something-else .wsk-card--img-container {
-  background-image: url('http://placehold.it/900x600/EF6C00/F57C00');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.something-else .wsk-card--img-container img {
+  width: 33%;
+  height: 33;
+  margin-bottom: 10px;
 }
 .on-the-road-again .wsk-card--img-container {
-  background-image: url('http://placehold.it/900x600/EF6C00/F57C00');
+  background-image: url('images/road.jpg');
 }
 .shopping .wsk-card--img-container {
-  background-image: url('http://placehold.it/900x600/F57C00/EF6C00');
+  background-image: url('images/shopping.jpg');
 }
 
 main > nav {
@@ -132,4 +144,8 @@ h3.quote:before {
 }
 h3.quote:after {
   content: '”';
+}
+
+.something-else {
+  overflow: visible;
 }
