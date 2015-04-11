@@ -47,3 +47,32 @@ button a {
   text-decoration: none;
 }
 
+/* TOC */
+
+.chapter-toc h1 {
+  font-size: 15px;
+  line-height: 16px;
+  padding-bottom: 12px;
+  font-weight: 400;
+  color: #757575;
+}
+
+.chapter-toc {
+  border-left: 5px solid #e1bee7;
+  padding-left: 20px;
+}
+
+.chapter-toc ul {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.chapter-toc li:last-child {
+  line-height: 20px;
+  padding-top: 10px;
+}
+
+.chapter-toc li {
+  line-height: 40px;
+}

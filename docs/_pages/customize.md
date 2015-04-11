@@ -1,6 +1,6 @@
 ---
 layout: customize
-title: Customize
+title: Customize &amp; Download
 ---
 
 
