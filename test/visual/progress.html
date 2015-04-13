@@ -31,11 +31,13 @@
     </p>
   </div>
   <script>
-    window.setTimeout(function() {
-      document.querySelector('#p1').widget.setProgress(44);
-      document.querySelector('#p3').widget.setProgress(33);
-      document.querySelector('#p3').widget.setBuffer(87);
-    }, 1000);
+    document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+      this.widget.setProgress(44);
+    });
+    document.querySelector('#p3').addEventListener('mdl-componentupgraded', function() {
+      this.widget.setProgress(33);
+      this.widget.setBuffer(87);
+    });
   </script>
   <script src="../../js/material.js"></script>
 

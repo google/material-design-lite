@@ -34,12 +34,13 @@
   <script src="../mdlComponentHandler.js"></script>
   <script src="progress.js"></script>
   <script>
-    // FIXME: What IS the recommended way to wait for the upgrade to be done?
-    window.setTimeout(function() {
-      document.querySelector('#p1').widget.setProgress(44);
-      document.querySelector('#p3').widget.setProgress(33);
-      document.querySelector('#p3').widget.setBuffer(87);
-    }, 1000);
+    document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+      this.widget.setProgress(44);
+    });
+    document.querySelector('#p3').addEventListener('mdl-componentupgraded', function() {
+      this.widget.setProgress(33);
+      this.widget.setBuffer(87);
+    });
   </script>
   <!-- endbuild -->
 </body>
