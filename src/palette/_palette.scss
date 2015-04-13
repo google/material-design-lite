@@ -2276,34 +2276,34 @@
 }
 
 .mdl-color-text--black-100 {
-  color: unquote("rgba(#{$palette-black-100})") !important;
+  color: unquote("rgba(#{$palette-black-100}, 1)") !important;
 }
 
 .mdl-color--black {
-  background-color: unquote("rgb(#{$palette-black-100}, 1)") !important;
+  background-color: unquote("rgba(#{$palette-black-100}, 1)") !important;
 }
 
 
 // White
 
 .mdl-color-text--white-12 {
-  color: unquote("rgb(#{$palette-white-12})") !important;
+  color: unquote("rgba(#{$palette-white-12})") !important;
 }
 
 .mdl-color-text--white-30 {
-  color: unquote("rgb(#{$palette-white-30})") !important;
+  color: unquote("rgba(#{$palette-white-30})") !important;
 }
 
 .mdl-color-text--white-70 {
-  color: unquote("rgb(#{$palette-white-70})") !important;
+  color: unquote("rgba(#{$palette-white-70})") !important;
 }
 
 .mdl-color-text--white {
-  color: unquote("rgb(#{$palette-white-100})") !important;
+  color: unquote("rgba(#{$palette-white-100}, 1)") !important;
 }
 
 .mdl-color--white {
-  background-color: unquote("rgb(#{$palette-white-100},1)") !important;
+  background-color: unquote("rgba(#{$palette-white-100}, 1)") !important;
 }
 
 // Primary and accent
