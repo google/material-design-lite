@@ -66,7 +66,7 @@ main .wsk-card:nth-child(2n) {
 .wsk-card--lower ~ .wsk-card--bottom {
   border-top: 1px solid #CCC;
 }
-.wsk-card--bottom {
+.meta {
   box-sizing: border-box;
   padding: 16px;
   display: flex;
@@ -75,17 +75,17 @@ main .wsk-card:nth-child(2n) {
   justify-content: flex-start;
   height: auto;
 }
-.wsk-card--bottom .logo {
+.meta .logo {
   width: 32px;
   heigth: 32px;
 }
-.wsk-card:nth-child(2n) .wsk-card--bottom {
+.wsk-card:nth-child(2n) .meta {
   justify-content: space-between;
 }
-.wsk-card--bottom > *:first-child {
+.meta > *:first-child {
   margin-right: 16px;
 }
-.wsk-card--bottom > div {
+.meta > div {
   display: flex;
   flex-direction: column;
 }
@@ -118,9 +118,7 @@ main > nav {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-}
-main > nav button.wsk-button {
-  margin-left: 10px;
+  margin-bottom: 30vh;
 }
 
 ul.social {
@@ -146,6 +144,33 @@ h3.quote:after {
   content: '”';
 }
 
+.blogpost main > .wsk-card {
+  width: 100%;
+  height: auto;
+}
+.blogpost main > .wsk-card > .wsk-card--bottom {
+  box-sizing: border-box;
+  height: auto;
+  padding: 80px 120px;
+}
+.blogpost main > .wsk-card .wsk-card--img-container {
+  background-image: url('images/road_big.jpg');
+}
+.blogpost main .wsk-card--bottom {
+  border: 0 !important;
+}
+.blogpost .comments {
+  padding-top: 0;
+  background-color: #EEE;
+}
+.blogpost main > nav {
+  width: 100%;
+  margin-top: 0;
+}
+
+.spacer {
+  flex-grow: 1;
+}
 .something-else {
   overflow: visible;
 }
