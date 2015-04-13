@@ -2280,7 +2280,7 @@
 }
 
 .mdl-color--black {
-  background-color: unquote("rgb(#{$palette-black-100})") !important;
+  background-color: unquote("rgb(#{$palette-black})") !important;
 }
 
 
@@ -2303,7 +2303,7 @@
 }
 
 .mdl-color--white {
-  background-color: unquote("rgb(#{$palette-white-100})") !important;
+  background-color: unquote("rgb(#{$palette-white})") !important;
 }
 
 // Primary and accent
