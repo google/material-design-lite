@@ -80,6 +80,17 @@ main .mdl-card:nth-child(2n) {
   width: 32px;
   heigth: 32px;
 }
+.meta > .spacer ~ div {
+  flex-direction: row;
+  margin: 0 8px;
+}
+.meta > .spacer ~ div span.mdl-icon {
+  font-size: 2em;
+  cursor: pointer;
+}
+.meta .mdl-icon--favorite {
+  margin-left: 8px;
+}
 .mdl-card:nth-child(2n) .meta {
   justify-content: space-between;
 }
@@ -133,6 +144,12 @@ ul.social button {
   margin-right: 10px;
 }
 
+h3 > a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
 h3.quote:before, h3.quote:after {
   display: block;
   font-size: 3em;
@@ -167,6 +184,61 @@ h3.quote:after {
 .blogpost main > nav {
   width: 100%;
   margin-top: 0;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.comments > form {
+  display: flex;
+  flex-diretion: row;
+  margin-bottom: 16px;
+}
+.comments > form .mdl-textfield {
+  flex-grow: 1;
+  margin-right: 32px;
+}
+.comments .comment {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.comments .comment > header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.comments .comment > header > img {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  margin-right: 16px;
+}
+.comments .comment > header > div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.comments .comment > .text {
+  line-height: 1.5em;
+}
+.comments .comment > nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.8em;
+}
+.comments .comment > nav button {
+  margin-right: 16px;
+}
+.comments .comment > .answers {
+  padding-top: 32px;
+  padding-left: 48px;
 }
 
 .spacer {
