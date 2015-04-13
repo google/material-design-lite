@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web Starter Kit</title>
+    <title>Material Design Lite</title>
 
     <!-- Add to homescreen -->
     <link rel="manifest" href="manifest.json">
 
     <!-- Fallback to homescreen for Chrome <39 on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Web Starter Kit">
+    <meta name="application-name" content="Material Design Lite">
     <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
     <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -40,35 +40,37 @@
   <body>
 
   <div class="demo-layout">
-    <div class="wsk-layout wsk-js-layout">
-      <header class="wsk-layout__header">
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header">
         <!-- Icon -->
-        <img class="wsk-layout-icon" src="/assets/app-icon.png">
+        <img class="mdl-layout-icon" src="/assets/app-icon.png">
         <!-- Title -->
-        <span class="wsk-layout-title"><a href="/">Material Design Lite</a></span>
+        <span class="mdl-layout-title"><a href="/">Material Design Lite</a></span>
         <!-- Add spacer, to align navigation to the right -->
-        <div class="wsk-layout-spacer"></div>
+        <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="/about">About</a>
-          <a class="wsk-navigation__link" href="/getting_started">Getting started
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/">Home
+          <a class="mdl-navigation__link" href="/getting_started">Getting started
 </a>
-          <a class="wsk-navigation__link" href="/components">Components</a>
-          <a class="wsk-navigation__link" href="/customize">Customize</a>
-
+          <a class="mdl-navigation__link" href="/components">Components</a>
+          <a class="mdl-navigation__link" href="/customize">Customize</a>
+          <a class="mdl-navigation__link" href="http://github.com/google/material-design-lite">Github</a>
         </nav>
       </header>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Material Design Lite</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="/about">About</a>
-          <a class="wsk-navigation__link" href="/getting_started">Getting started
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/">Home
 </a>
-          <a class="wsk-navigation__link" href="/components">Components</a>
-          <a class="wsk-navigation__link" href="/customize">Customize</a>
+          <a class="mdl-navigation__link" href="/getting_started">Getting started
+</a>
+          <a class="mdl-navigation__link" href="/components">Components</a>
+          <a class="mdl-navigation__link" href="/customize">Customize</a>
+          <a class="mdl-navigation__link" href="http://github.com/google/material-design-lite">Github</a>
         </nav>
       </div>
-      <main class="wsk-layout__content">
+      <main class="mdl-layout__content">
         {% block content %}{% endblock %}
       </main>
     </div>
@@ -85,6 +87,6 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
     </script>
-    <!-- Built with love using Web Starter Kit -->
+    <!-- Built with love using Material Design Lite -->
   </body>
 </html>

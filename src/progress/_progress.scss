@@ -1,12 +1,28 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 @import "../variables";
 
-.wsk-js-progress {
+.mdl-js-progress {
   display: block;
   position: relative;
   height: $bar-height;
 }
 
-.wsk-js-progress > .bar {
+.mdl-js-progress > .bar {
   display: block;
   position: absolute;
   top: 0;
@@ -15,37 +31,37 @@
   transition: width 0.2s $animation-curve-default;
 }
 
-.wsk-js-progress > .progressbar {
+.mdl-js-progress > .progressbar {
   background-color: $progress-main-color;
   z-index: 1;
   left: 0;
 }
 
-.wsk-js-progress > .bufferbar {
+.mdl-js-progress > .bufferbar {
   background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
   z-index: 0;
   left: 0;
 }
 
-.wsk-js-progress > .auxbar {
+.mdl-js-progress > .auxbar {
   right: 0;
 }
 
 // Webkit only
 @supports (-webkit-appearance:none) {
-  .wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
+  .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
     background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
       linear-gradient(to right, $progress-main-color, $progress-main-color);
     mask: url('../images/buffer.svg');
   }
 }
 
-.wsk-js-progress:not(.wsk-progress__indeterminate) > .auxbar {
+.mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-color: $progress-fallback-buffer-color;
 }
 
-.wsk-js-progress.wsk-progress__indeterminate > .bar1 {
+.mdl-js-progress.mdl-progress__indeterminate > .bar1 {
   background-color: $progress-main-color;
   animation-name: indeterminate1;
   animation-duration: 2s;
@@ -53,7 +69,7 @@
   animation-timing-function: linear;
 }
 
-.wsk-js-progress.wsk-progress__indeterminate > .bar3 {
+.mdl-js-progress.mdl-progress__indeterminate > .bar3 {
   background-image: none;
   background-color: $progress-main-color;
   animation-name: indeterminate2;

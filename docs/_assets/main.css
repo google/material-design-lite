@@ -1,9 +1,78 @@
-.wsk-layout__content {
+.mdl-layout__content {
   padding: 20px;
 }
 
-.wsk-layout-title a,
+.mdl-layout__content p {
+  font-size: 15px;
+  margin-bottom: 32px;
+
+  /* Override */
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.mdl-layout__content ol li {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.mdl-layout__content h1 {
+  color: #c2185b;
+  font-size: 2.5em;
+  margin: .67em 0;
+}
+
+
+.mdl-layout__content h2 {
+  padding-top: 48px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 30px;
+  color: #c2185b;
+}
+
+.mdl-layout__content a {
+  color: #c2185b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.mdl-layout__content .mdl-download {
+  color: #000;
+  font-weight: normal;
+}
+
+.mdl-layout-title a,
 button a {
   color: inherit;
   text-decoration: none;
+}
+
+/* TOC */
+
+.chapter-toc h1 {
+  font-size: 15px;
+  line-height: 16px;
+  padding-bottom: 12px;
+  font-weight: 400;
+  color: #757575;
+}
+
+.chapter-toc {
+  border-left: 5px solid #e1bee7;
+  padding-left: 20px;
+}
+
+.chapter-toc ul {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.chapter-toc li:last-child {
+  line-height: 20px;
+  padding-top: 10px;
+}
+
+.chapter-toc li {
+  line-height: 40px;
 }

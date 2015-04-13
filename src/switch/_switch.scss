@@ -1,7 +1,23 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 
 @import "../variables";
 
-.wsk-switch {
+.mdl-switch {
   position: relative;
 
   z-index: 1;
@@ -21,12 +37,19 @@
   &.is-upgraded {
     padding-left: $switch-track-length - 8px;
   }
+
+  // avoids blue box around switch
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.wsk-switch__input {
+.mdl-switch__input {
   line-height: $switch-label-height;
 
-  .wsk-switch.is-upgraded & {
+  .mdl-switch.is-upgraded & {
     // Hide input element, while still making it respond to focus.
     position: absolute;
     width: 0;
@@ -42,7 +65,7 @@
   }
 }
 
-.wsk-switch__track {
+.mdl-switch__track {
   background: $switch-off-track-color;
   position: absolute;
   left: 0;
@@ -53,17 +76,17 @@
 
   cursor: pointer;
 
-  .wsk-switch.is-checked & {
+  .mdl-switch.is-checked & {
     background: $switch-track-color;
   }
 
-  .wsk-switch.is-disabled & {
+  .mdl-switch.is-disabled & {
     background: $switch-disabled-track-color;
     cursor: auto;
   }
 }
 
-.wsk-switch__thumb {
+.mdl-switch__thumb {
   background: $switch-off-thumb-color;
   position: absolute;
   left: 0;
@@ -79,20 +102,20 @@
   @include material-animation-default(0.28s);
   transition-property: left;
 
-  .wsk-switch.is-checked & {
+  .mdl-switch.is-checked & {
     background: $switch-thumb-color;
     left: $switch-track-length - $switch-thumb-size;
 
     @include shadow-z2();
   }
 
-  .wsk-switch.is-disabled & {
+  .mdl-switch.is-disabled & {
     background: $switch-disabled-thumb-color;
     cursor: auto;
   }
 }
 
-.wsk-switch__focus-helper {
+.mdl-switch__focus-helper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -108,20 +131,20 @@
 
   background-color: transparent;
 
-  .wsk-switch.is-focused & {
+  .mdl-switch.is-focused & {
     box-shadow: 0 0 0px (($switch-ripple-size - $switch-helper-size) / 2)
         rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1);
   }
 
-  .wsk-switch.is-focused.is-checked & {
+  .mdl-switch.is-focused.is-checked & {
     box-shadow: 0 0 0px (($switch-ripple-size - $switch-helper-size) / 2)
         $switch-faded-color;
     background-color: $switch-faded-color;
   }
 }
 
-.wsk-switch__label {
+.mdl-switch__label {
   position: relative;
   cursor: pointer;
   font-size: 16px;
@@ -129,13 +152,13 @@
   margin: 0;
   left: 24px;
 
-  .wsk-switch.is-disabled & {
+  .mdl-switch.is-disabled & {
     color: $switch-disabled-thumb-color;
     cursor: auto;
   }
 }
 
-.wsk-switch__ripple-container {
+.mdl-switch__ripple-container {
   position: absolute;
   z-index: 2;
   top: -($switch-ripple-size - $switch-label-height) / 2;
@@ -155,19 +178,19 @@
   transition-timing-function: step-end;
   transition-property: left;
 
-  & .wsk-ripple {
+  & .mdl-ripple {
     background: $switch-color;
   }
 
-  .wsk-switch.is-disabled & {
+  .mdl-switch.is-disabled & {
     cursor: auto;
   }
 
-  .wsk-switch.is-disabled & .wsk-ripple {
+  .mdl-switch.is-disabled & .mdl-ripple {
     background: transparent;
   }
 
-  .wsk-switch.is-checked & {
+  .mdl-switch.is-checked & {
     cursor: auto;
     left: $switch-track-length - $switch-ripple-size / 2 -
         $switch-thumb-size / 2;

@@ -22,7 +22,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the tooltip element using the `class` attribute.
 ```html
 <p id="tt1">HTML</p>
-<span for="tt1" class="wsk-tooltip">HyperText Markup Language</span>
+<span for="tt1" class="mdl-tooltip">HyperText Markup Language</span>
 ```
 
 The tooltip component is ready for use.
@@ -32,31 +32,31 @@ The tooltip component is ready for use.
 A target with a simple text tooltip.
 ```html
 <p>HTML is related to but different from <span id="xml"><i>XML</i></span>.</p>
-<span class="wsk-tooltip" for="xml">eXtensible Markup Language</span>
+<span class="mdl-tooltip" for="xml">eXtensible Markup Language</span>
 ```
 
 A target with "rich" (containing HTML markup) tooltip text.
 ```html
 <p>HTML is related to but different from <span id="xml"><i>XML</i></span>.</p>
-<span class="wsk-tooltip" for="xml">e<b>X</b>tensible <b>M</b>arkup <b>L</b>anguage</span>
+<span class="mdl-tooltip" for="xml">e<b>X</b>tensible <b>M</b>arkup <b>L</b>anguage</span>
 ```
 
 A target with a long text tooltip that automatically wraps.
 ```html
 <p>HTML is related to but different from <span id="xml"><i>XML</i></span>.</p>
-<span class="wsk-tooltip" for="xml">XML is an acronym for eXtensible Markup Language</span>
+<span class="mdl-tooltip" for="xml">XML is an acronym for eXtensible Markup Language</span>
 ```
 
 A target with tooltip text in a larger font size.
 ```html
 <p>HTML is related to but different from <span id="xml"><i>XML</i></span>.</p>
-<span class="wsk-tooltip wsk-tooltip--large" for="xml">eXtensible Markup Language</span>
+<span class="mdl-tooltip mdl-tooltip--large" for="xml">eXtensible Markup Language</span>
 ```
 
 A target with a tooltip containing both an image and text.
 ```html
 <p>HTML is related to but different from <span id="xml"><i>XML</i></span>.</p>
-<span class="wsk-tooltip" for="xml"><img src="xml-logo-small.png" width="20" height="10"> eXtensible Markup Language</span>
+<span class="mdl-tooltip" for="xml"><img src="xml-logo-small.png" width="20" height="10"> eXtensible Markup Language</span>
 ```
 
 ##Configuration options
@@ -64,8 +64,8 @@ The MDL CSS classes apply various predefined visual enhancements to the tooltip.
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-tooltip` | Defines a container as an MDL tooltip | Required on tooltip container element |
-| `wsk-tooltip--large` | Applies large-font effect | Optional; goes on tooltip container element |
+| `mdl-tooltip` | Defines a container as an MDL tooltip | Required on tooltip container element |
+| `mdl-tooltip--large` | Applies large-font effect | Optional; goes on tooltip container element |
 
 ##More information
 For working examples of the **tooltip** component, see the MDL [tooltip demo page](www.github.com/google/material-design-lite/src/tooltip/demo.html).

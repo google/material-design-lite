@@ -72,19 +72,19 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;5. Add one or more MDL classes, separated by spaces, to the "outer" and "inner" divs using the `class` attribute; be sure to include the `is-active` class on the tab you want to be displayed by default.
 ```html
-<div class="wsk-tabs wsk-js-tabs">
-  <div class="wsk-tabs__tab-bar">
-    <a href="#tab1" class="wsk-tabs__tab">Tab One</a>
-    <a href="#tab2" class="wsk-tabs__tab">Tab Two</a>
-    <a href="#tab3" class="wsk-tabs__tab">Tab Three</a>
+<div class="mdl-tabs mdl-js-tabs">
+  <div class="mdl-tabs__tab-bar">
+    <a href="#tab1" class="mdl-tabs__tab">Tab One</a>
+    <a href="#tab2" class="mdl-tabs__tab">Tab Two</a>
+    <a href="#tab3" class="mdl-tabs__tab">Tab Three</a>
   </div>
-  <div class="wsk-tabs__panel is-active" id="tab1">
+  <div class="mdl-tabs__panel is-active" id="tab1">
     <p>First tab's content.</p>
   </div>
-  <div class="wsk-tabs__panel" id="tab2">
+  <div class="mdl-tabs__panel" id="tab2">
     <p>Second tab's content.</p>
   </div>
-  <div class="wsk-tabs__panel" id="tab3">
+  <div class="mdl-tabs__panel" id="tab3">
     <p>Third tab's content.</p>
   </div>
 </div>
@@ -96,17 +96,17 @@ The tab components are ready for use.
 Three tabs, with ripple effect on tab links.
 
 ```html
-<div class="wsk-tabs wsk-js-tabs wsk-js-ripple-effect">
-  <div class="wsk-tabs__tab-bar">
-    <a href="#about-panel" class="wsk-tabs__tab is-active">About the Beatles</a>
-    <a href="#members-panel" class="wsk-tabs__tab">Members</a>
-    <a href="#albums-panel" class="wsk-tabs__tab">Discography</a>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+    <a href="#about-panel" class="mdl-tabs__tab is-active">About the Beatles</a>
+    <a href="#members-panel" class="mdl-tabs__tab">Members</a>
+    <a href="#albums-panel" class="mdl-tabs__tab">Discography</a>
   </div>
-  <div class="wsk-tabs__panel is-active" id="about-panel">
+  <div class="mdl-tabs__panel is-active" id="about-panel">
     <p><b>The Beatles</b> were a four-piece musical group from Liverpool, England. Formed in 1960, their career spanned just over a decade, yet they are widely regarded as the most influential band in history.</p>
     <p>Their songs are among the best-loved music of all time. It is said that every minute of every day, a radio station somewhere is playing a Beatles song.
   </div>
-  <div class="wsk-tabs__panel" id="members-panel">
+  <div class="mdl-tabs__panel" id="members-panel">
     <p>The Beatles' members were:
     <ul>
       <li>John Lennon (1940-1980)</li>
@@ -115,7 +115,7 @@ Three tabs, with ripple effect on tab links.
       <li>Ringo Starr (1940-)</li>
     </ul>
   </div>
-  <div class="wsk-tabs__panel" id="albums-panel">
+  <div class="mdl-tabs__panel" id="albums-panel">
     <p>The Beatles' original UK LPs, in order of release:</p>
     <ol>
       <li>Please Please Me (1963)</li>
@@ -140,13 +140,13 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-tabs` | Defines a tabs container as an MDL component | Required on "outer" div element |
-| `wsk-js-tabs` | Assigns basic MDL behavior to tabs container | Required on "outer" div element|
-| `wsk-js-ripple-effect` | Applies *ripple* click effect to tab links | Optional; goes on "outer" div element|
-| `wsk-tabs__tab-bar` | Defines a container as an MDL tabs link bar | Required on first "inner" div element |
-| `wsk-tabs__tab` | Defines an anchor (link) as an MDL tab activator | Required on all links in first "inner" div element |
+| `mdl-tabs` | Defines a tabs container as an MDL component | Required on "outer" div element |
+| `mdl-js-tabs` | Assigns basic MDL behavior to tabs container | Required on "outer" div element|
+| `mdl-js-ripple-effect` | Applies *ripple* click effect to tab links | Optional; goes on "outer" div element|
+| `mdl-tabs__tab-bar` | Defines a container as an MDL tabs link bar | Required on first "inner" div element |
+| `mdl-tabs__tab` | Defines an anchor (link) as an MDL tab activator | Required on all links in first "inner" div element |
 | `is-active` | Defines a tab as the default display tab | Required on one (and only one) of the "inner" div (tab) elements |
-| `wsk-tabs__panel` | Defines a container as tab content | Required on each of the "inner" div (tab) elements |
+| `mdl-tabs__panel` | Defines a container as tab content | Required on each of the "inner" div (tab) elements |
 
 ##More information
 For working examples of the **tab** component, see the MDL [tab demo page](www.github.com/google/material-design-lite/src/tabs/demo.html).

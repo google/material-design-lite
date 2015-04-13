@@ -1,6 +1,22 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 @import "../variables";
 
-.wsk-mini-footer {
+.mdl-mini-footer {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -15,12 +31,12 @@
     display: block;
   }
 
-  & .wsk-logo {
+  & .mdl-logo {
     line-height: $footer-btn-size;
   }
 }
 
-.wsk-mini-footer--link-list {
+.mdl-mini-footer--link-list {
   display: flex;
   flex-flow: row nowrap;
 
@@ -44,17 +60,17 @@
   }
 }
 
-.wsk-mini-footer--left-section {
+.mdl-mini-footer--left-section {
   display: inline-block;
   order: 0;
 }
 
-.wsk-mini-footer--right-section {
+.mdl-mini-footer--right-section {
   display: inline-block;
   order: 1;
 }
 
-.wsk-mini-footer--social-btn {
+.mdl-mini-footer--social-btn {
   width: $footer-btn-size;
   height: $footer-btn-size;
 

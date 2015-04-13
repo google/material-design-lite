@@ -32,7 +32,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;3. Add the MDL class to the list using the `class` attribute.
 ```html
-<ul class="wsk-list--inline">
+<ul class="mdl-list--inline">
   <li>Item1</li>
   <li>Item2</li>
   <li>Item3</li>
@@ -47,7 +47,7 @@ The inline list component is ready for use.
 A simple inline list.
 
 ```html
-<ul class="wsk-list--inline">
+<ul class="mdl-list--inline">
   <li>Aardvarks</li>
   <li>Butterflies</li>
   <li>Canaries</li>
@@ -59,7 +59,7 @@ An inline list with links.
 
 ```html
     <p>Australian animals that might kill you include:</p>
-    <ul class="wsk-list--inline">
+    <ul class="mdl-list--inline">
       <li><a href="http://www.australiananimals.com/jellies">Box jellyfish</a></li>
       <li><a href="http://www.australiananimals.com/spiders">Spiders</a></li>
       <li><a href="http://www.australiananimals.com/snakes">Snakes</a></li>
@@ -113,23 +113,23 @@ An inline list with links.
 ```
 &nbsp;3. Add MDL classes to the div and the spans using the `class` attribute.
 ```html
-<div class="wsk-list--styled-view">
+<div class="mdl-list--styled-view">
   <ul>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Item1</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Item1</span>
     </li>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Item2</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Item2</span>
     </li>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Item3</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Item3</span>
     </li>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Item4</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Item4</span>
     </li>
   </ul>
 </div>
@@ -142,23 +142,23 @@ The styled-view list component is ready for use.
 A styled-view list of people's names, with default "avatar" images.
 
 ```html
-<div class="wsk-list--styled-view">
+<div class="mdl-list--styled-view">
   <ul>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Allen Anderson</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Allen Anderson</span>
     </li>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Barbara Barnes</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Barbara Barnes</span>
     </li>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Charlie Connors</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Charlie Connors</span>
     </li>
     <li>
-      <span class="wsk-list-view--avatar"></span>
-      <span class="wsk-list-view--name">Darlene Davis</span>
+      <span class="mdl-list-view--avatar"></span>
+      <span class="mdl-list-view--name">Darlene Davis</span>
     </li>
   </ul>
 </div>
@@ -167,24 +167,24 @@ A styled-view list of people's names, with default "avatar" images.
 A styled-view list with custom images.
 
 ```html
-<div class="wsk-list--styled-view">
+<div class="mdl-list--styled-view">
   <p>Australian animals that can kill you include:</p>  
   <ul>
     <li>
       <span><img src="jellies.png" style="height:50px; width:50px; margin:10px 15px;" /></span>
-      <span class="wsk-list-view--name">Box jellyfish</span>
+      <span class="mdl-list-view--name">Box jellyfish</span>
     </li>
     <li>
       <span><img src="spiders.png" style="height:50px; width:50px; margin:10px 15px;" /></span>
-      <span class="wsk-list-view--name">Spiders</span>
+      <span class="mdl-list-view--name">Spiders</span>
     </li>
     <li>
       <span><img src="snakes.png" style="height:50px; width:50px; margin:10px 15px;" /></span>
-      <span class="wsk-list-view--name">Snakes</span>
+      <span class="mdl-list-view--name">Snakes</span>
     </li>
     <li>
       <span><img src="salties.png" style="height:50px; width:50px; margin:10px 15px;" /></span>
-      <span class="wsk-list-view--name">Saltwater crocodiles</span>
+      <span class="mdl-list-view--name">Saltwater crocodiles</span>
     </li>
   </ul>
 </div>
@@ -195,10 +195,10 @@ The MDL CSS classes apply various predefined visual enhancements to the list. Th
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-list--inline` | Defines list as an MDL inline list | Required on ul element |
-| `wsk-list--styled-view` | Defines div as an MDL styled-view list container | Required on div element|
-| `wsk-list-view--avatar` | Defines span as an MDL *avatar* image | Required on the first of two span elements for default styled-view list; omit if using custom images |
-| `wsk-list-view--name` | Defines span as an MDL styled-list text item | Required on the second of two span elements |
+| `mdl-list--inline` | Defines list as an MDL inline list | Required on ul element |
+| `mdl-list--styled-view` | Defines div as an MDL styled-view list container | Required on div element|
+| `mdl-list-view--avatar` | Defines span as an MDL *avatar* image | Required on the first of two span elements for default styled-view list; omit if using custom images |
+| `mdl-list-view--name` | Defines span as an MDL styled-list text item | Required on the second of two span elements |
 
 ##More information
 For working examples of the **list** component, see the MDL [list demo page](www.github.com/google/material-design-lite/src/lists/demo.html).

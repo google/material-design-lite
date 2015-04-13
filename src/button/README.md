@@ -18,7 +18,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;2. Add one or more MDL classes, separated by spaces, to the button using the `class` attribute.
 ```html
-<button class="wsk-button wsk-js-button wsk-button--raised">Save</button>
+<button class="mdl-button mdl-js-button mdl-button--raised">Save</button>
 ```
 
 The button component is ready for use.
@@ -26,17 +26,17 @@ The button component is ready for use.
 ####Examples
 A button with the "raised" effect.
 ```html
-<button class="wsk-button wsk-js-button wsk-button--raised">Save</button>
+<button class="mdl-button mdl-js-button mdl-button--raised">Save</button>
 ```
 
 A button with the "fab" effect.
 ```html
-<button class="wsk-button wsk-js-button wsk-button--fab">Help</button>
+<button class="mdl-button mdl-js-button mdl-button--fab">Help</button>
 ```
 
 A button with the "icon" and "colored" effects.
 ```html
-<button class="wsk-button wsk-js-button wsk-button--icon wsk-button--colored">?</button>
+<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">?</button>
 ```
 
 
@@ -45,17 +45,17 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-button` | Defines button as an MDL component | Required |
-| `wsk-js-button` | Assigns basic MDL behavior to button | Required |
+| `mdl-button` | Defines button as an MDL component | Required |
+| `mdl-js-button` | Assigns basic MDL behavior to button | Required |
 | (none) | Applies *flat* display effect to button (default) |  |
-| `wsk-button--raised` | Applies *raised* display effect | Mutually exclusive with *fab*, *mini-fab*, and *icon* |
-| `wsk-button--fab` | Applies *fab* (circular) display effect | Mutually exclusive with *raised*, *mini-fab*, and *icon* |
-| `wsk-button--mini-fab` | Applies *mini-fab* (small fab circular) display effect | Mutually exclusive with *raised*, *fab*, and *icon* |
-| `wsk-button--icon` | Applies *icon* (small plain circular) display effect | Mutually exclusive with *raised*, *fab*, and *mini-fab*  |
-| `wsk-button--colored` | Applies *colored* display effect | Colors are defined in `material.min.css` |
-| `wsk-js-ripple-effect` | Applies *ripple* click effect | May be used in combination with any other classes |
+| `mdl-button--raised` | Applies *raised* display effect | Mutually exclusive with *fab*, *mini-fab*, and *icon* |
+| `mdl-button--fab` | Applies *fab* (circular) display effect | Mutually exclusive with *raised*, *mini-fab*, and *icon* |
+| `mdl-button--mini-fab` | Applies *mini-fab* (small fab circular) display effect | Mutually exclusive with *raised*, *fab*, and *icon* |
+| `mdl-button--icon` | Applies *icon* (small plain circular) display effect | Mutually exclusive with *raised*, *fab*, and *mini-fab*  |
+| `mdl-button--colored` | Applies *colored* display effect | Colors are defined in `material.min.css` |
+| `mdl-js-ripple-effect` | Applies *ripple* click effect | May be used in combination with any other classes |
 
->**Note:** Disabled versions of all the available button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect" disabled>Raised Ripples Disabled</button>`
+>**Note:** Disabled versions of all the available button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" disabled>Raised Ripples Disabled</button>`
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information

@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for dropdown WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialMenu(element) {
@@ -49,23 +65,23 @@ MaterialMenu.prototype.Keycodes_ = {
  * @private
  */
 MaterialMenu.prototype.CssClasses_ = {
-  CONTAINER: 'wsk-menu__container',
-  OUTLINE: 'wsk-menu__outline',
-  ITEM: 'wsk-menu__item',
-  ITEM_RIPPLE_CONTAINER: 'wsk-menu__item-ripple-container',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE: 'wsk-ripple',
+  CONTAINER: 'mdl-menu__container',
+  OUTLINE: 'mdl-menu__outline',
+  ITEM: 'mdl-menu__item',
+  ITEM_RIPPLE_CONTAINER: 'mdl-menu__item-ripple-container',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE: 'mdl-ripple',
   // Statuses
   IS_UPGRADED: 'is-upgraded',
   IS_VISIBLE: 'is-visible',
   IS_ANIMATING: 'is-animating',
   // Alignment options
-  BOTTOM_LEFT: 'wsk-menu--bottom-left',  // This is the default.
-  BOTTOM_RIGHT: 'wsk-menu--bottom-right',
-  TOP_LEFT: 'wsk-menu--top-left',
-  TOP_RIGHT: 'wsk-menu--top-right',
-  UNALIGNED: 'wsk-menu--unaligned'
+  BOTTOM_LEFT: 'mdl-menu--bottom-left',  // This is the default.
+  BOTTOM_RIGHT: 'mdl-menu--bottom-right',
+  TOP_LEFT: 'mdl-menu--top-left',
+  TOP_RIGHT: 'mdl-menu--top-right',
+  UNALIGNED: 'mdl-menu--unaligned'
 };
 
 /**
@@ -444,5 +460,5 @@ MaterialMenu.prototype.toggle = function(evt) {
 componentHandler.register({
   constructor: MaterialMenu,
   classAsString: 'MaterialMenu',
-  cssClass: 'wsk-js-menu'
+  cssClass: 'mdl-js-menu'
 });

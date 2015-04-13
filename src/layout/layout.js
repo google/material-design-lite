@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Layout WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialLayout(element) {
@@ -42,30 +58,30 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
-  HEADER: 'wsk-layout__header',
-  DRAWER: 'wsk-layout__drawer',
-  CONTENT: 'wsk-layout__content',
-  DRAWER_BTN: 'wsk-layout__drawer-button',
+  HEADER: 'mdl-layout__header',
+  DRAWER: 'mdl-layout__drawer',
+  CONTENT: 'mdl-layout__content',
+  DRAWER_BTN: 'mdl-layout__drawer-button',
 
-  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_CONTAINER: 'wsk-layout__tab-ripple-container',
-  RIPPLE: 'wsk-ripple',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-layout__tab-ripple-container',
+  RIPPLE: 'mdl-ripple',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
 
-  HEADER_SEAMED: 'wsk-layout__header--seamed',
-  HEADER_WATERFALL: 'wsk-layout__header--waterfall',
-  HEADER_SCROLL: 'wsk-layout__header--scroll',
+  HEADER_SEAMED: 'mdl-layout__header--seamed',
+  HEADER_WATERFALL: 'mdl-layout__header--waterfall',
+  HEADER_SCROLL: 'mdl-layout__header--scroll',
 
-  FIXED_HEADER: 'wsk-layout--fixed-header',
-  OBFUSCATOR: 'wsk-layout__obfuscator',
+  FIXED_HEADER: 'mdl-layout--fixed-header',
+  OBFUSCATOR: 'mdl-layout__obfuscator',
 
-  TAB_BAR: 'wsk-layout__tab-bar',
-  TAB_CONTAINER: 'wsk-layout__tab-bar-container',
-  TAB: 'wsk-layout__tab',
-  TAB_BAR_BUTTON: 'wsk-layout__tab-bar-button',
-  TAB_BAR_LEFT_BUTTON: 'wsk-layout__tab-bar-left-button',
-  TAB_BAR_RIGHT_BUTTON: 'wsk-layout__tab-bar-right-button',
-  PANEL: 'wsk-layout__tab-panel',
+  TAB_BAR: 'mdl-layout__tab-bar',
+  TAB_CONTAINER: 'mdl-layout__tab-bar-container',
+  TAB: 'mdl-layout__tab',
+  TAB_BAR_BUTTON: 'mdl-layout__tab-bar-button',
+  TAB_BAR_LEFT_BUTTON: 'mdl-layout__tab-bar-left-button',
+  TAB_BAR_RIGHT_BUTTON: 'mdl-layout__tab-bar-right-button',
+  PANEL: 'mdl-layout__tab-panel',
 
   HAS_DRAWER_CLASS: 'has-drawer',
   SHADOW_CLASS: 'is-casting-shadow',
@@ -181,7 +197,7 @@ MaterialLayout.prototype.init = function() {
 
   if (this.element_) {
     var container = document.createElement('div');
-    container.classList.add('wsk-layout__container');
+    container.classList.add('mdl-layout__container');
     this.element_.parentElement.insertBefore(container, this.element_);
     this.element_.parentElement.removeChild(this.element_);
     container.appendChild(this.element_);
@@ -356,5 +372,5 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
 componentHandler.register({
   constructor: MaterialLayout,
   classAsString: 'MaterialLayout',
-  cssClass: 'wsk-js-layout'
+  cssClass: 'mdl-js-layout'
 });

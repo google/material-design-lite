@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Spinner WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSpinner(element) {
@@ -30,12 +46,12 @@ MaterialSpinner.prototype.Constant_ = {
  * @private
  */
 MaterialSpinner.prototype.CssClasses_ = {
-  WSK_SPINNER_LAYER: 'wsk-spinner__layer',
-  WSK_SPINNER_CIRCLE_CLIPPER: 'wsk-spinner__circle-clipper',
-  WSK_SPINNER_CIRCLE: 'wsk-spinner__circle',
-  WSK_SPINNER_GAP_PATCH: 'wsk-spinner__gap-patch',
-  WSK_SPINNER_LEFT: 'wsk-spinner__left',
-  WSK_SPINNER_RIGHT: 'wsk-spinner__right'
+  WSK_SPINNER_LAYER: 'mdl-spinner__layer',
+  WSK_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+  WSK_SPINNER_CIRCLE: 'mdl-spinner__circle',
+  WSK_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+  WSK_SPINNER_LEFT: 'mdl-spinner__left',
+  WSK_SPINNER_RIGHT: 'mdl-spinner__right'
 };
 
 /**
@@ -117,5 +133,5 @@ MaterialSpinner.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSpinner,
   classAsString: 'MaterialSpinner',
-  cssClass: 'wsk-js-spinner'
+  cssClass: 'mdl-js-spinner'
 });
