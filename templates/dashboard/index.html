@@ -42,9 +42,9 @@
     }
     </style>
   </head>
-  <body class="mdl-color--grey-100">
+  <body>
     <div class="mdl-layout mdl-layout--fixed-drawer">
-      <header class="mdl-layout__header mdl-color--white mdl-color-text--grey-500">
+      <header class="mdl-layout__header mdl-color--blue-grey-100 mdl-color-text--black">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
           <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
             <span class="mdl-icon--search"></span>
@@ -55,18 +55,75 @@
           </div>
         </div>
         <span class="mdl-layout-title">Home</span>
-        <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"><span class="mdl-icon mdl-icon--more-vert"></span></button>
+        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="hdrbtn">
+          <button class="mdl-menu__item">What is </button>
+          <button class="mdl-menu__item">supposed to </button>
+          <button class="mdl-menu__item">be here?</button>
+        </ul>
       </header>
-      <div class="mdl-layout__drawer">
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Hello</a>
+      <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header>
+          <img src="images/user.jpg" class="avatar">
+          <div>
+            <span>hello@email.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--arrow-drop-down"></span></button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <button class="mdl-menu__item">hello@email.com</button>
+              <button class="mdl-menu__item">info@domain.net</button>
+              <button class="mdl-menu__item"><span class="mdl-icon mdl-icon--add"></span> Add another account...</button>
+            </ul>
+          </div>
+        </header>
+        <nav class="mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--home"></span>Home</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--inbox"></span>Inbox</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--delete"></span>Trash</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--report"></span>Spam</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--forum"></span>Forums</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--flag"></span>Updates</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--local-offer"></span>Promos</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--shopping-cart"></span>Purchases</a>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--people"></span>Social</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--help"></span></a>
         </nav>
       </div>
-      <main class="mdl-layout__content">
-        <div class="demo-content"></div>
+      <main class="mdl-layout__content mdl-color--blue-grey-50">
+        <div class="charts mdl-color--blue-grey-50 mdl-shadow--z1">
+          <svg width="200px" height="200px" viewBox="0 0 1 1">
+            <use xlink:href="#piechart" mask="url(#piemask)" />
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" alignment-baseline="middle">82%</text>
+          </svg>
+          <svg width="200px" height="200px" viewBox="0 0 1 1">
+            <use xlink:href="#piechart" mask="url(#piemask)"></use>
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" alignment-baseline="middle">82%</text>
+          </svg>
+          <svg width="200px" height="200px" viewBox="0 0 1 1">
+            <use xlink:href="#piechart" mask="url(#piemask)"></use>
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" alignment-baseline="middle">82%</text>
+          </svg>
+          <svg width="200px" height="200px" viewBox="0 0 1 1">
+            <use xlink:href="#piechart" mask="url(#piemask)"></use>
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" alignment-baseline="middle">82%</text>
+          </svg>
+        </div>
       </main>
     </div>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="position: fixed; left: -1000px; height: -1000px;">
+        <defs>
+          <mask id="piemask" maskContentUnits="objectBoundingBox">
+            <circle cx=0.5 cy=0.5 r=0.49 fill="white" />
+            <circle cx=0.5 cy=0.5 r=0.40 fill="black" />
+          </mask>
+          <g id="piechart">
+            <circle cx=0.5 cy=0.5 r=0.5 />
+            <path d="M 0.5 0.5 0.5 0 A 0.5 0.5 0 0 1 0.95 0.28 z" stroke="none" fill="rgba(255, 255, 255, 0.75)" />
+          </g>
+        </defs>
+      </svg>
     <a href="https://github.com/google/material-design-lite/blob/master/templates/starter/index.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect"><span class="mdl-icon mdl-icon--pageview"/></a>
     <script src="/js/material.min.js"></script>
   </body>
