@@ -729,7 +729,7 @@ $radio-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 
 /* ==========  Ripple effect  ========== */
 
-$ripple-bg-color: unquote("rgba(#{$color-light-contrast})") !default;
+$ripple-bg-color: unquote("rgb(#{$color-light-contrast})") !default;
 
 /* ==========  Layout  ========== */
 
