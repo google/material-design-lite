@@ -12,14 +12,14 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
     <!-- Add spacer, to align navigation to the right -->
     <div class="mdl-layout-spacer"></div>
     <!-- Navigation -->
-    <nav class="mdl-layout-navigation">
+    <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="">Hello</a>
       (...)
     </nav>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Material Design Lite</span>
-    <nav class="mdl-layout-navigation">
+    <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="">Hello</a>
       (...)
     </nav>
@@ -248,13 +248,13 @@ Your content goes here :)
   </div>
   ```
 
-- `mdl-layout-navigation` and `mdl-navigation__link`:
+- `mdl-navigation` and `mdl-navigation__link`:
   Used to place a navigation section and navigation links, respectively. They're
   styled differently depending on whether they're placed in the header or the
   drawer.
   ```html
   <header class="mdl-layout__header">
-    <nav class="mdl-layout-navigation">
+    <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="">Hello</a>
       (...)
     </nav>
@@ -262,7 +262,7 @@ Your content goes here :)
   ```
   ```html
   <div class="mdl-layout__drawer">
-    <nav class="mdl-layout-navigation">
+    <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="">Hello</a>
       (...)
     </nav>
