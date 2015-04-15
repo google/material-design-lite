@@ -1,0 +1,249 @@
+body {
+  background-image: url('images/bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  /* position: relative; */
+}
+
+.mdl-menu {
+  z-index: 999;
+}
+
+header.mdl-layout__header {
+  margin-bottom: 30vh;
+}
+main.mdl-layout__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 900px;
+  width: 900px;
+  margin: 0 auto;
+}
+.mdl-layout__container {
+  overflow: visible;
+}
+.mdl-layout {
+  overflow: visible;
+}
+
+.mdl-card {
+  margin: 12px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+main .mdl-card:nth-child(2n+1) {
+  width: 500px;
+}
+main .mdl-card:nth-child(2n) {
+  width: 300px;
+}
+.mdl-card--header {
+  padding: 16px;
+  flex-grow: 1;
+}
+.mdl-card--img-container {
+  box-sizing: border-box;
+  background-size: cover;
+  padding: 40px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.mdl-card--lower {
+  width: auto;
+  flex-grow: 1;
+  color: rgba(0, 0, 0, 0.87);
+}
+.mdl-card--header ~ .mdl-card--lower {
+  flex-grow: 0;
+}
+.mdl-card--img-container ~ .mdl-card--lower {
+  flex-grow: 0;
+}
+
+.mdl-card--lower ~ .mdl-card--bottom {
+  border-top: 1px solid #CCC;
+}
+.meta {
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+}
+.meta .logo {
+  width: 32px;
+  heigth: 32px;
+}
+.meta > .spacer ~ div {
+  flex-direction: row;
+  margin: 0 8px;
+}
+.meta > .spacer ~ div span.mdl-icon {
+  font-size: 2em;
+  cursor: pointer;
+}
+.meta .mdl-icon--favorite {
+  margin-left: 8px;
+}
+.mdl-card:nth-child(2n) .meta {
+  justify-content: space-between;
+}
+.meta > *:first-child {
+  margin-right: 16px;
+}
+.meta > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.coffee-pic .mdl-card--img-container {
+  background-image: url('images/coffee.jpg');
+}
+.something-else .mdl-card--img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.something-else .mdl-card--img-container img {
+  width: 33%;
+  height: 33;
+  margin-bottom: 10px;
+}
+.on-the-road-again .mdl-card--img-container {
+  background-image: url('images/road.jpg');
+}
+.shopping .mdl-card--img-container {
+  background-image: url('images/shopping.jpg');
+}
+
+main > nav {
+  width: 500px;
+  margin: 12px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30vh;
+}
+
+ul.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+ul.social button {
+  margin-right: 10px;
+}
+
+h3 > a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+h3.quote:before, h3.quote:after {
+  display: block;
+  font-size: 3em;
+  margin-top: 0.5em;
+}
+h3.quote:before {
+  content: '“';
+}
+h3.quote:after {
+  content: '”';
+}
+
+.blogpost main > .mdl-card {
+  width: 100%;
+  height: auto;
+}
+.blogpost main > .mdl-card > .mdl-card--bottom {
+  box-sizing: border-box;
+  height: auto;
+  padding: 80px 120px;
+}
+.blogpost main > .mdl-card .mdl-card--img-container {
+  background-image: url('images/road_big.jpg');
+}
+.blogpost main .mdl-card--bottom {
+  border: 0 !important;
+}
+.blogpost .comments {
+  padding-top: 0;
+  background-color: #EEE;
+}
+.blogpost main > nav {
+  width: 100%;
+  margin-top: 0;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.comments > form {
+  display: flex;
+  flex-diretion: row;
+  margin-bottom: 16px;
+}
+.comments > form .mdl-textfield {
+  flex-grow: 1;
+  margin-right: 32px;
+}
+.comments .comment {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.comments .comment > header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.comments .comment > header > img {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  margin-right: 16px;
+}
+.comments .comment > header > div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.comments .comment > .text {
+  line-height: 1.5em;
+}
+.comments .comment > nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.8em;
+}
+.comments .comment > nav button {
+  margin-right: 16px;
+}
+.comments .comment > .answers {
+  padding-top: 32px;
+  padding-left: 48px;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+.something-else {
+  overflow: visible;
+}
