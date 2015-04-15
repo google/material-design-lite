@@ -44,7 +44,7 @@
   </head>
   <body>
     <div class="mdl-layout mdl-layout--fixed-drawer">
-      <header class="mdl-layout__header mdl-color--white mdl-color-text--black">
+      <header class="mdl-layout__header mdl-color--white mdl-color-text--grey-600">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
           <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
             <span class="mdl-icon--search"></span>
@@ -57,7 +57,7 @@
         <span class="mdl-layout-title">Home</span>
         <div class="mdl-layout-spacer"></div>
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"><span class="mdl-icon mdl-icon--more-vert"></span></button>
-        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="hdrbtn">
+        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
           <button class="mdl-menu__item">What is </button>
           <button class="mdl-menu__item">supposed to </button>
           <button class="mdl-menu__item">be here?</button>
@@ -92,7 +92,7 @@
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="charts mdl-color--blue-grey-50 mdl-shadow--z1">
+        <div class="charts mdl-color--white mdl-shadow--z1">
           <svg width="200px" height="200px" viewBox="0 0 1 1">
             <use xlink:href="#piechart" mask="url(#piemask)" />
             <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" alignment-baseline="middle">82%</text>
@@ -110,30 +110,48 @@
             <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" alignment-baseline="middle">82%</text>
           </svg>
         </div>
-        <div class="graphs mdl-shadow--z1 mdl-color--blue-grey-50">
+        <div class="graphs mdl-shadow--z1 mdl-color--white">
           <img src="images/graph1.png">
           <img src="images/graph2.png">
         </div>
         <div class="cards">
           <div class="mdl-card mdl-shadow--z1">
-            <div class="mdl-card--heading mdl-color--teal-300">
+            <div class="mdl-card--heading mdl-color--teal-300 dog">
               <h2 class="mdl-card--heading-text">Updates</h2>
             </div>
             <div class="mdl-card--lower mdl-color-text--grey-600">
               Non dolore elit adipisicing ea reprehenderit consectetur culpa.
             </div>
-            <div class="mdl-card--bottom">
+            <div class="mdl-card--bottom ">
               <a href="#">Read More</a>
             </div>
           </div>
           <div class="mdl-card mdl-color--deep-purple-500 mdl-shadow--z1">
-            <div class="mdl-card--lower">
-              This text might describe the photo and provide further information, such as where and when it was taken.
+            <div class="mdl-card--lower mdl-color-text--blue-grey-50">
+              <h3>View options</h3>
+              <ul>
+                <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                  <input type="checkbox" id="chkbox1" class="mdl-checkbox__input" />
+                  <span class="mdl-checkbox__label">Click per object</span>
+                </label>
+                <label for="chkbox2" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                  <input type="checkbox" id="chkbox2" class="mdl-checkbox__input" />
+                  <span class="mdl-checkbox__label">Views per object</span>
+                </label>
+                <label for="chkbox3" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                  <input type="checkbox" id="chkbox3" class="mdl-checkbox__input" />
+                  <span class="mdl-checkbox__label">Objects selected</span>
+                </label>
+                <label for="chkbox4" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                  <input type="checkbox" id="chkbox4" class="mdl-checkbox__input" />
+                  <span class="mdl-checkbox__label">Objects viewed</span>
+                </label>
+              </ul>
             </div>
             <div class="mdl-card--bottom">
-              <a href="#">Change location</a>
+              <a href="#" class=" mdl-color-text--blue-grey-50">Change location</a>
               <div class="mdl-layout-spacer"></div>
-              <span class="mdl-icon mdl-icon--location"></span>
+              <span class="mdl-icon mdl-icon--location-on"></span>
             </div>
           </div>
         </div>

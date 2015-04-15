@@ -73,13 +73,13 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px;
+  padding: 32px;
   margin-bottom: 16px;
   margin-right: 16px;
   flex-grow: 1;
 }
 .graphs img {
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 .cards .mdl-card {
   height: auto;
@@ -100,4 +100,16 @@ html, body {
 .cards .mdl-card--heading h2 {
   height: auto;
   align-self: flex-end;
+}
+.cards ul {
+  padding: 0;
+}
+.cards h3 {
+  font-size: 1em;
+}
+.cards .dog {
+  height: 200px;
+  background-image: url('images/dog.png');
+  background-position: 90% 100%;
+  background-repeat: no-repeat;
 }

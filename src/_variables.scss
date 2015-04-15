@@ -651,9 +651,9 @@ $color-light-contrast: $color-black !default;
 
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
-$color-primary: $palette-indigo-500 !default;
-$color-primary-dark: $palette-indigo-700 !default;
-$color-accent: $palette-pink-A200 !default;
+$color-primary: $palette-blue-grey-800 !default;
+$color-primary-dark: $palette-blue-grey-900 !default;
+$color-accent: $palette-cyan-600 !default;
 
 // Our primary is dark, so use $color-dark-contrast for overlaid text.
 $color-primary-contrast: $color-dark-contrast !default;
