@@ -362,3 +362,13 @@ gulp.task('serve', ['assets', 'pages', 'demos'], function () {
   gulp.watch(['src/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
 });
+
+gulp.task('test:templates', function() {
+  browserSync({
+    notify: false,
+    server: './',
+    startPath: 'templates/starter/index.html'
+  });
+
+  gulp.watch(['test/visual/**'], reload);
+})
