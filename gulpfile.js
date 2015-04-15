@@ -31,6 +31,7 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
+var merge = require('merge-stream');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -361,4 +362,25 @@ gulp.task('serve', ['assets', 'pages', 'demos'], function () {
   gulp.watch(['src/**/*.js'], ['scripts', reload]);
   gulp.watch(['src/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
+});
+
+gulp.task('publish', ['default', 'assets', 'pages', 'demos'], function() {
+  var push = !!process.env.GH_PUSH;
+  if (!push) {
+    console.log('Dry run! To push set $GH_PUSH to true');
+  }
+
+  var s1 = gulp.src([
+    'docs/out/**/*',
+    'css/material.min.css',
+    'js/material.min.js'
+  ]);
+  var s2 = gulp.src([
+    'fonts/**/*'
+  ], {base: '.'});
+
+  return merge(s1, s2)
+  .pipe($.ghPages({
+    push: push,
+  }));
 });
