@@ -636,29 +636,8 @@ $palette-blue-grey-700: nth($palette-blue-grey, 8);
 $palette-blue-grey-800: nth($palette-blue-grey, 9);
 $palette-blue-grey-900: nth($palette-blue-grey, 10);
 
-$palette-black:
-"0,0,0"
-"0,0,0,.87"
-"0,0,0,.54"
-"0,0,0,.26"
-"0,0,0,.12";
-
-$palette-black-100: nth($palette-black, 1);
-$palette-black-87: nth($palette-black, 2);
-$palette-black-54: nth($palette-black, 3);
-$palette-black-26: nth($palette-black, 4);
-$palette-black-12: nth($palette-black, 5);
-
-$palette-white:
-"255,255,255"
-"255,255,255,.70"
-"255,255,255,.30"
-"255,255,255,.12";
-
-$palette-white-100: nth($palette-white, 1);
-$palette-white-70: nth($palette-white, 2);
-$palette-white-30: nth($palette-white, 3);
-$palette-white-12: nth($palette-white, 4);
+$color-black: "0,0,0";
+$color-white: "255,255,255";
 
 
 /* colors.scss */
@@ -667,8 +646,8 @@ $styleguide-generate-template: false !default;
 /* ==========  Color & Themes  ========== */
 
 // The two possible colors for overlayed text.
-$color-dark-contrast: "#{$palette-white-100}" !default;
-$color-light-contrast: "#{$palette-black-87}" !default;
+$color-dark-contrast: $color-white !default;
+$color-light-contrast: $color-black !default;
 
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
@@ -696,7 +675,7 @@ $color-accent-contrast: $color-dark-contrast !default;
 // text-color-secondary. For light themes, use text-color-primary-inverse
 // and text-color-secondary-inverse.
 
-$text-color-primary: unquote("rgba(#{$palette-black-87})") !default;
+$text-color-primary: unquote("rgba(#{$color-black}, 0.87)") !default;
 
 /* ==========  Components  ========== */
 
@@ -704,10 +683,10 @@ $text-color-primary: unquote("rgba(#{$palette-black-87})") !default;
 
 // Default button colors.
 $button-primary-color: unquote("rgba(#{$palette-grey-500}, 0.20)") !default;
-$button-secondary-color: unquote("rgba(#{$palette-black-100})") !default;
+$button-secondary-color: unquote("rgb(#{$color-black})") !default;
 $button-hover-color: $button-primary-color !default;
 $button-active-color: unquote("rgba(#{$palette-grey-500}, 0.40)") !default;
-$button-focus-color: unquote("rgba(#{$palette-black-12})") !default;
+$button-focus-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 
 // Colored button colors.
 $button-primary-color-alt: unquote("rgb(#{$color-primary})") !default;
@@ -720,8 +699,8 @@ $button-focus-color-alt: $button-focus-color !default;
 $button-ripple-color-alt: unquote("rgb(#{$color-primary-contrast})") !default;
 
 // Disabled button colors.
-$button-primary-color-disabled: unquote("rgba(#{$palette-black-12})") !default;
-$button-secondary-color-disabled: unquote("rgba(#{$palette-black-26})") !default;
+$button-primary-color-disabled: unquote("rgba(#{$color-black}, 0.12)") !default;
+$button-secondary-color-disabled: unquote("rgba(#{$color-black}, 0.26)") !default;
 
 // FAB colors and sizes.
 $button-fab-color-alt: unquote("rgb(#{$color-accent})") !default;
@@ -740,17 +719,17 @@ $icon-toggle-color: unquote("rgb(#{$palette-grey-700})") !default;
 $icon-toggle-focus-color: $button-focus-color !default;
 $icon-toggle-checked-color: unquote("rgb(#{$color-primary})") !default;
 $icon-toggle-checked-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
-$icon-toggle-disabled-color: unquote("rgba(#{$palette-black-26})") !default;
+$icon-toggle-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 
 /* ==========  Radio Buttons  ========== */
 
 $radio-color: unquote("rgb(#{$color-primary})") !default;
-$radio-off-color: unquote("rgba(#{$palette-black-54})") !default;
-$radio-disabled-color: unquote("rgba(#{$palette-black-26})") !default;
+$radio-off-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$radio-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 
 /* ==========  Ripple effect  ========== */
 
-$ripple-bg-color: unquote("rgba(#{$color-light-contrast})") !default;
+$ripple-bg-color: unquote("rgb(#{$color-light-contrast})") !default;
 
 /* ==========  Layout  ========== */
 
@@ -773,15 +752,15 @@ $layout-header-tab-highlight: unquote("rgb(#{$color-accent})") !default;
 /* ==========  Content Tabs  ========== */
 
 $tab-highlight-color: unquote("rgb(#{$color-primary})") !default;
-$tab-text-color: unquote("rgba(#{$palette-black-54})") !default;
-$tab-active-text-color: unquote("rgba(#{$palette-black-87})") !default;
+$tab-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$tab-active-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
 $tab-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 
 /* ==========  Checkboxes  ========== */
 
 $checkbox-color: unquote("rgb(#{$color-primary})") !default;
-$checkbox-off-color: unquote("rgba(#{$palette-black-54})") !default;
-$checkbox-disabled-color: unquote("rgba(#{$palette-black-26})") !default;
+$checkbox-off-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$checkbox-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 $checkbox-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 
 /* ==========  Switches  ========== */
@@ -792,9 +771,9 @@ $switch-thumb-color: $switch-color !default;
 $switch-track-color: unquote("rgba(#{$color-primary}, 0.5)") !default;
 
 $switch-off-thumb-color: unquote("rgb(#{$palette-grey-50})") !default;
-$switch-off-track-color: unquote("rgba(#{$palette-black-26})") !default;
+$switch-off-track-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 $switch-disabled-thumb-color: unquote("rgb(#{$palette-grey-400})") !default;
-$switch-disabled-track-color: unquote("rgba(#{$palette-black-12})") !default;
+$switch-disabled-track-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 
 /* ==========  Spinner  ========== */
 
@@ -808,47 +787,47 @@ $spinner-single-color: unquote("rgb(#{$color-primary})") !default;
 /* ==========  Text fields  ========== */
 
 $input-text-background-color: transparent !default;
-$input-text-label-color: unquote("rgba(#{$palette-black-26})") !default;
-$input-text-bottom-border-color: unquote("rgba(#{$palette-black-12})") !default;
+$input-text-label-color: unquote("rgba(#{$color-black}, 0.26)") !default;
+$input-text-bottom-border-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 $input-text-highlight-color: unquote("rgb(#{$color-primary})") !default;
 $input-text-disabled-color: $input-text-bottom-border-color !default;
 $input-text-error-color: unquote("rgb(#{$palette-red-600})") !default;
 
 /* ==========  Card  ========== */
 
-$card-background-color: unquote("rgb(#{$palette-white-100})") !default;
-$heading-color: unquote("rgb(#{$palette-white-100})") !default;
-$heading-back-color: unquote("rgb(#{$palette-white-100})") !default;
+$card-background-color: unquote("rgb(#{$color-white})") !default;
+$heading-color: unquote("rgb(#{$color-white})") !default;
+$heading-back-color: unquote("rgb(#{$color-white})") !default;
 $heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
 $action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
-$caption-color: unquote("rgb(#{$palette-white-100})") !default;
+$caption-color: unquote("rgb(#{$color-white})") !default;
 $caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
 $image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
 $lower-text-color: unquote("rgb(#{$color-primary})") !default;
 
 /* Heading back */
-$heading-back-border: 0 none unquote("rgb(#{$palette-white-100})") !default;
+$heading-back-border: 0 none unquote("rgb(#{$color-white})") !default;
 
 /* ==========  Sliders ========== */
 
-$range-bg-color: unquote("rgba(#{$palette-black-26})") !default;
+$range-bg-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 $range-color: unquote("rgb(#{$color-primary})") !default;
 $range-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 
 /* ========== Progress ========== */
 $progress-main-color: unquote("rgb(#{$color-primary})") !default;
 $progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
-$progress-fallback-buffer-color: unquote("rgba(#{$palette-black-26})") !default;
+$progress-fallback-buffer-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 
 /* ==========  List ========== */
 
 $list-container-item-border-color: unquote("rgb(#{$palette-grey-300})") !default;
-$list-container-view-background: unquote("rgb(#{$palette-white-100})") !default;
+$list-container-view-background: unquote("rgb(#{$color-white})") !default;
 
 /* ==========  Item ========== */
 
 // Default Item Colors
-$default-item-text-color: unquote("rgba(#{$palette-black-87})");
+$default-item-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
 $default-item-outline-color: unquote("rgb(#{$palette-grey-400})") !default;
 $default-item-hover-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
 $default-item-focus-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
@@ -859,12 +838,12 @@ $disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
 
 /* ==========  Dropdown menu ========== */
 
-$default-dropdown-bg-color: unquote("rgb(#{$palette-white-100})") !default;
+$default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
 
 /* ==========  Tooltips  ========== */
 
-$tooltip-text-color: unquote("rgb(#{$palette-white-100})") !default;
-$tooltip-background-color: unquote("rgba(#{$palette-black-100}, .9)") !default;
+$tooltip-text-color: unquote("rgb(#{$color-white})") !default;
+$tooltip-background-color: unquote("rgba(#{$color-black}, 0.9)") !default;
 
 /* ==========  Footer  ========== */
 

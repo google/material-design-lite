@@ -2259,51 +2259,15 @@
 
 // Black
 
-.mdl-color-text--black-12 {
-  color: unquote("rgba(#{$palette-black-12})") !important;
-}
-
-.mdl-color-text--black-26 {
-  color: unquote("rgba(#{$palette-black-26})") !important;
-}
-
-.mdl-color-text--black-54 {
-  color: unquote("rgba(#{$palette-black-54})") !important;
-}
-
-.mdl-color-text--black {
-  color: unquote("rgba(#{$palette-black-87})") !important;
-}
-
-.mdl-color-text--black-100 {
-  color: unquote("rgba(#{$palette-black-100})") !important;
-}
-
 .mdl-color--black {
-  background-color: unquote("rgb(#{$palette-black})") !important;
+  background-color: unquote("rgb(#{$color-black})") !important;
 }
 
 
 // White
 
-.mdl-color-text--white-12 {
-  color: unquote("rgb(#{$palette-white-12})") !important;
-}
-
-.mdl-color-text--white-30 {
-  color: unquote("rgb(#{$palette-white-30})") !important;
-}
-
-.mdl-color-text--white-70 {
-  color: unquote("rgb(#{$palette-white-70})") !important;
-}
-
-.mdl-color-text--white {
-  color: unquote("rgb(#{$palette-white-100})") !important;
-}
-
 .mdl-color--white {
-  background-color: unquote("rgb(#{$palette-white})") !important;
+  background-color: unquote("rgb(#{$color-white})") !important;
 }
 
 // Primary and accent
