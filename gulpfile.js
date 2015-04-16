@@ -406,6 +406,9 @@ gulp.task('templates:styles', function() {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
+    }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe($.if('*.css', $.csso()))
     .pipe($.rename({suffix: '.min'}))
