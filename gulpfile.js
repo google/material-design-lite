@@ -419,4 +419,11 @@ gulp.task('templates:images', function() {
   .pipe(gulp.dest('docs/out/templates'));
 });
 
-gulp.task('templates', ['templates:static', 'templates:images', 'templates:styles']);
+gulp.task('templates:fonts', function() {
+  return gulp.src([
+    'fonts/**/*'
+  ], {base: '.'})
+  .pipe(gulp.dest('docs/out/templates/'));
+})
+
+gulp.task('templates', ['templates:static', 'templates:images', 'templates:styles', 'templates:fonts']);
