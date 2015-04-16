@@ -346,7 +346,7 @@ gulp.task('assets', function () {
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve', ['assets', 'pages', 'demos'], function () {
+gulp.task('serve', ['assets', 'pages', 'demos', 'templates'], function () {
   browserSync({
     notify: false,
     server: {
@@ -362,9 +362,10 @@ gulp.task('serve', ['assets', 'pages', 'demos'], function () {
   gulp.watch(['src/**/*.js'], ['scripts', reload]);
   gulp.watch(['src/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
+  gulp.watch(['templates/**/*'], ['templates', reload]);
 });
 
-gulp.task('publish', ['default', 'assets', 'pages', 'demos'], function() {
+gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], function() {
   var push = !!process.env.GH_PUSH;
   if (!push) {
     console.log('Dry run! To push set $GH_PUSH to true');
@@ -385,12 +386,37 @@ gulp.task('publish', ['default', 'assets', 'pages', 'demos'], function() {
   }));
 });
 
-gulp.task('test:templates', function() {
-  browserSync({
-    notify: false,
-    server: './',
-    startPath: 'templates/starter/index.html'
-  });
+gulp.task('templates:styles', function() {
+  return gulp.src([
+    'templates/**/*.scss'
+  ])
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.if('*.css', $.csso()))
+    .pipe($.rename({suffix: '.min'}))
+    .pipe(gulp.dest('docs/out/templates'))
+});
 
-  gulp.watch(['test/visual/**'], reload);
-})
+gulp.task('templates:static', function() {
+  return gulp.src([
+    'templates/**/*.html',
+    'templates/**/*.css'
+  ])
+  .pipe(gulp.dest('docs/out/templates'));
+});
+
+gulp.task('templates:images', function() {
+  return gulp.src([
+    'templates/*/images/**/*'
+  ])
+  .pipe($.imagemin({
+    progressive: true,
+    interlaced: true
+  }))
+  .pipe(gulp.dest('docs/out/templates'));
+});
+
+gulp.task('templates', ['templates:static', 'templates:images', 'templates:styles']);
