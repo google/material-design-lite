@@ -25,6 +25,7 @@ Within the download you'll find the following directories and files, logically g
 │   ├── material.js
 │   ├── material.min.js
 │   └── material.min.js.map
+├── templates
 ├── images
 ├── src
 ├── package.json
@@ -34,7 +35,7 @@ Within the download you'll find the following directories and files, logically g
 ├── README.md
 ```
 
-We provide compiled CSS and JS (`material.*`), as well as compiled and minified CSS and JS (`material.min.*`). JS source maps (`material.*.map`) are available for use with certain browsers' developer tools. 
+We provide compiled CSS and JS (`material.*`), as well as compiled and minified CSS and JS (`material.min.*`). JS source maps (`material.*.map`) are available for use with certain browsers' developer tools.
 
 ## Getting Started
 
@@ -91,6 +92,13 @@ $ gulp
 This will clean and update the `css`, `js` and `images` directories in the root of the project with minified and
 concatenated versions of the component files. Namely, `css/material.min.css` and `js/material.min.js`.
 
+## Templates
+
+The `templates/` subdirectory contains a few exemplary usages of MDL. Templates have their own, quasi-separate
+gulp pipeline and can be compiled with `gulp templates`. The templates use the vanilla MDL JS and
+[themed](http://google.github.io/material-design-lite/customizer/customizer.html) CSS files. Extraneous
+styles are kept in a separate CSS file.
+
 ## Browser Support
 
 | IE8 | IE9 | IE10 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
@@ -117,7 +125,7 @@ Here, you can find early live previews of our work for testing or demo purposes.
 
 ## Do you include any features that a framework comes with?
 
-Material Design Lite is focused on delivering a vanilla CSS/JS/HTML library of components. We are not a framework. If you are building a single-page app and require features like two-way data-binding, templating, CSS scoping and so forth, we recommend trying out the excellent [Polymer](http://polymer-project.org) project. 
+Material Design Lite is focused on delivering a vanilla CSS/JS/HTML library of components. We are not a framework. If you are building a single-page app and require features like two-way data-binding, templating, CSS scoping and so forth, we recommend trying out the excellent [Polymer](http://polymer-project.org) project.
 
 
 ## License
