@@ -139,6 +139,9 @@ gulp.task('styles', ['styletemplates'], function () {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
+    .pipe($.cssBase64({
+      extensionsAllowed: ['.svg']
+    }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
