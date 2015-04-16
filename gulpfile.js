@@ -96,6 +96,9 @@ gulp.task('styles:dev', ['fonts'], function () {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
+    }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe($.size({title: 'styles'}));
@@ -112,6 +115,9 @@ gulp.task('styletemplates', function () {
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
@@ -138,6 +144,9 @@ gulp.task('styles', ['styletemplates'], function () {
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
@@ -311,6 +320,9 @@ gulp.task('demos', function () {
         precision: 10,
         onError: console.error.bind(console, 'Sass error:')
       })))
+      .pipe($.base64({
+        extensionsAllowed: ['.svg'],
+      }))
       .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
       .pipe(gulp.dest('docs/out/components'));
 });
