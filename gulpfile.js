@@ -370,9 +370,9 @@ gulp.task('serve', ['assets', 'pages', 'demos', 'templates'], function () {
     }
   });
 
-  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['demos', 'images', reload]);
-  gulp.watch(['src/**/*.js'], ['scripts', reload]);
-  gulp.watch(['src/**/*.{scss,css}'], ['styles', reload]);
+  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['scripts', 'demos', 'components', reload]);
+  gulp.watch(['src/**/*.{scss,css}'], ['styles', 'demos', reload]);
+  gulp.watch(['src/**/*.html'], ['demos', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
   gulp.watch(['templates/**/*'], ['templates', reload]);
 });
