@@ -1,0 +1,8 @@
+@import '../../src/_variables.scss';
+$color-primary: $palette-red-500;
+$color-primary-dark: $palette-red-800;
+$color-accent: $palette-red-A200;
+$color-primary-contrast: $color-dark-contrast;
+$color-accent-contrast: $color-dark-contrast;
+
+@import '../../src/material-design-lite';
