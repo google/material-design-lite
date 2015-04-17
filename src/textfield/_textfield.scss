@@ -48,6 +48,7 @@
 // Optional class to make the text field expandable.
 .mdl-textfield--expandable {
   min-width: $input-text-button-size;
+  width: auto;
   min-height: $input-text-button-size;
 }
 
