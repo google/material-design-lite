@@ -245,14 +245,6 @@ gulp.task('test:visual', function() {
  */
 var site = {};
 
-
-/**
- * Compiled swig templates cache.
- * @type {Object}
- */
-var templates = {};
-
-
 /**
  * Generates an HTML file based on a template and file metadata.
  */
@@ -263,14 +255,10 @@ function applyTemplate() {
       page: file.page,
       content: file.contents.toString()
     };
-    // If template not in template cache, compile and add it.
-    if (!templates[file.page.layout]) {
-      var templateFile = path.join(
-          __dirname, 'docs', '_templates', file.page.layout + '.html');
-      $.util.log('Compiling template:', $.util.colors.yellow(file.page.layout));
-      templates[file.page.layout] = swig.compileFile(templateFile);
-    }
-    var tpl = templates[file.page.layout];
+
+    var templateFile = path.join(
+        __dirname, 'docs', '_templates', file.page.layout + '.html');
+    var tpl = swig.compileFile(templateFile, {cache: false});
     file.contents = new Buffer(tpl(data), 'utf8');
     this.push(file);
     cb();
@@ -358,7 +346,7 @@ gulp.task('assets', function () {
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve', ['assets', 'pages', 'demos', 'templates'], function () {
+gulp.task('serve', ['scripts', 'styles', 'assets', 'pages', 'demos', 'templates'], function () {
   browserSync({
     notify: false,
     server: {
@@ -375,6 +363,7 @@ gulp.task('serve', ['assets', 'pages', 'demos', 'templates'], function () {
   gulp.watch(['src/**/*.html'], ['demos', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
   gulp.watch(['templates/**/*'], ['templates', reload]);
+  gulp.watch(['docs/**/*', '!docs/out/**/*'], ['pages', 'assets', reload]);
 });
 
 gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], function() {
