@@ -1,6 +1,87 @@
-.mdl-layout__content {
-  padding: 20px;
+html {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
 }
+.mdl-layout__header {
+  height: 50vh;
+  align-items: flex-start;
+  padding: 32px;
+  flex-shrink: 0;
+}
+.mdl-layout-title {
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  font-size: 1rem;
+}
+.mdl-layout-title a {
+  font-weight: inherit;
+}
+.mdl-layout__header img.logo {
+  width: 12vmin;
+  height: 12vmin;
+  align-self: center;
+  user-select: none;
+}
+.mdl-layout__tab-bar {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.mdl-layout__tab-bar-button {
+  display: none;
+}
+.mdl-layout__tab-bar a {
+  font-weight: 300;
+}
+.mdl-layout__tab-bar a.download {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 24px;
+}
+.mdl-layout__tab-bar a.download button {
+  margin-left: 8px;
+}
+.mdl-layout__tab-bar a.download .mdl-icon {
+  color: black;
+  opacity: 0.5;
+}
+.mdl-layout__content {
+  overflow: visible;
+}
+.mdl-layout__content .content {
+  padding: 24px;
+}
+.mdl-layout__content > section.download {
+  width: 100%;
+  height: 6rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mdl-layout__content > section.download > a {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.mdl-layout__content > footer {
+  height: 120px;
+}
+.mdl-mini-footer {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+.mdl-mini-footer ul {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.mdl-mini-footer ul > * {
+  margin: 0 8px;
+}
+
 
 .mdl-layout__content p {
   font-size: 15px;
