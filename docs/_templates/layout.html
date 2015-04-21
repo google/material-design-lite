@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="/assets/main.css">
     <script src="/material.min.js"></script>
   </head>
-  <body>
+  <body class="{{page.bodyclass}}">
 
   <div class="mdl-layout mdl-js-layout">
     <header class="mdl-layout__header mdl-color-text--grey-300">
@@ -67,9 +67,11 @@
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200"><span class="mdl-icon mdl-icon--file-download"></span></button>
       </a>
     </div>
-    <main class="mdl-layout__content">
+    <main class="mdl-layout__content mdl-color-text--grey-600">
       <div class="content">
-        {% block content %}{% endblock %}
+        {% block content %}
+          {{content|safe}}
+        {% endblock %}
       </div>
       <section class="download mdl-color--grey-800">
         <a href="#" class="mdl-color-text--grey-50">Download Kit</a>
