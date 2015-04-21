@@ -15,9 +15,9 @@ Material Design Lite lets you add a [Material Design](http://google.com/design/s
 
 Develop with a single underlying system for your site that allows for a unified experience across platforms and device sizes. Mobile precepts are fundamental, but touch, mouse, and keyboard are all ﬁrst-class input methods.
 
-## Built with BEM &amp; Sass
+## Built with <abbr title="Block Element Modifier">BEM</abbr> &amp; Sass
 
-Material Design Lite provides vanilla CSS. Our source utilises Sass, the popular CSS preprocessor and BEM - the front-end naming methodology. Quickly get started with the pre-built CSS or build the source yourself.
+Material Design Lite provides vanilla CSS. Our source utilises Sass, the popular CSS preprocessor and BEM - [the front-end naming methodology](https://github.com/google/material-design-lite/wiki/Understanding-BEM). Quickly get started with the pre-built CSS or build the source yourself.
 
 ## Components
 
