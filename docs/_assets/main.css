@@ -139,19 +139,31 @@ html > body {
 }
 .frontpage-panel--templates {
   background-color: #B3E0E1;
-  background-image: url(/assets/logo.svg);
+  background-image: url(/assets/templates.svg);
+}
+.frontpage-panel--templates:hover {
+  background-image: url(/assets/templates_mo.svg);
 }
 .frontpage-panel--components {
   background-color: #E90974;
-  background-image: url(/assets/logo.svg);
+  background-image: url(/assets/components.svg);
+}
+.frontpage-panel--components:hover {
+  background-image: url(/assets/components_mo.svg);
 }
 .frontpage-panel--styles {
   background-color: #8F4099;
-  background-image: url(/assets/logo.svg);
+  background-image: url(/assets/styles.svg);
+}
+.frontpage-panel--styles:hover {
+  background-image: url(/assets/styles_mo.svg);
 }
 .frontpage-panel--customize {
   background-color: #191E80;
-  background-image: url(/assets/logo.svg);
+  background-image: url(/assets/customize.svg);
+}
+.frontpage-panel--customize:hover {
+  background-image: url(/assets/customize_mo.svg);
 }
 .frontpage main .content {
   display: flex;
