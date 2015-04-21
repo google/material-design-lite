@@ -1,0 +1,173 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+$grid-desktop-columns: 12;
+$grid-desktop-gutter: 16px;
+$grid-desktop-margin: 16px;
+
+$grid-desktop-breakpoint: 840px;
+
+$grid-tablet-columns: 8;
+$grid-tablet-gutter: $grid-desktop-gutter;
+$grid-tablet-margin: $grid-desktop-margin;
+
+$grid-tablet-breakpoint: 480px;
+
+$grid-phone-columns: 4;
+$grid-phone-gutter: $grid-desktop-gutter;
+$grid-phone-margin: $grid-desktop-margin;
+
+$grid-cell-default-columns: $grid-phone-columns;
+
+
+.mdl-grid {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto 0 auto;
+  align-items: stretch;
+  
+  &.mdl-grid--no-spacing {
+    padding: 0;
+  }
+}
+
+
+.mdl-cell--top {
+  align-self: flex-start;
+}
+
+.mdl-cell--middle {
+  align-self: center;
+}
+
+.mdl-cell--bottom {
+  align-self: flex-end;
+}
+
+.mdl-cell--stretch {
+  align-self: stretch;
+}
+
+.mdl-grid.mdl-grid--no-spacing > .mdl-cell {
+  margin: 0;
+}
+
+
+////////// Phone //////////
+
+.mdl-grid {
+  padding: $grid-phone-margin - ($grid-phone-gutter / 2);
+}
+
+.mdl-cell {
+  margin: $grid-phone-gutter / 2;
+  width: calc(#{($grid-cell-default-columns / $grid-phone-columns) * 100}% - #{$grid-phone-gutter});
+
+  .mdl-grid--no-spacing > & {
+    width: calc(#{($grid-cell-default-columns / $grid-phone-columns) * 100}%);
+  }
+}
+
+// Define partial sizes for columnNumber < totalColumns.
+@for $i from 1 through ($grid-phone-columns - 1) {
+  .mdl-cell--#{$i}-col {
+    width: calc(#{($i / $grid-phone-columns) * 100}% - #{$grid-phone-gutter});
+
+    .mdl-grid--no-spacing > & {
+      width: #{($i / $grid-phone-columns) * 100}%;
+    }
+  }
+}
+
+// Define 100% for everything else.
+@for $i from $grid-phone-columns through $grid-desktop-columns {
+  .mdl-cell--#{$i}-col {
+    width: calc(100% - #{$grid-phone-gutter});
+
+    .mdl-grid--no-spacing > & {
+      width: 100%;
+    }
+  }
+}
+
+
+////////// Tablet //////////
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+  .mdl-grid {
+    padding: $grid-tablet-margin - ($grid-tablet-gutter / 2);
+  }
+
+  .mdl-cell {
+    margin: $grid-tablet-gutter / 2;
+    width: calc(#{($grid-cell-default-columns / $grid-tablet-columns) * 100}% - #{$grid-tablet-gutter});
+
+    .mdl-grid--no-spacing > & {
+      width: calc(#{($grid-cell-default-columns / $grid-tablet-columns) * 100}%);
+    }
+  }
+
+  // Define partial sizes for columnNumber < totalColumns.
+  @for $i from 1 through ($grid-tablet-columns - 1) {
+    .mdl-cell--#{$i}-col {
+      width: calc(#{($i / $grid-tablet-columns) * 100}% - #{$grid-tablet-gutter});
+
+      .mdl-grid--no-spacing > & {
+        width: #{($i / $grid-tablet-columns) * 100}%;
+      }
+    }
+  }
+
+  // Define 100% for everything else.
+  @for $i from $grid-tablet-columns through $grid-desktop-columns {
+    .mdl-cell--#{$i}-col {
+      width: calc(100% - #{$grid-tablet-gutter});
+
+      .mdl-grid--no-spacing > & {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+////////// Desktop //////////
+
+@media (min-width: $grid-desktop-breakpoint) {
+  .mdl-grid {
+    padding: $grid-desktop-margin - ($grid-desktop-gutter / 2);
+  }
+
+  .mdl-cell {
+    margin: $grid-desktop-gutter / 2;
+    width: calc(#{($grid-cell-default-columns / $grid-desktop-columns) * 100}% - #{$grid-desktop-gutter});
+
+    .mdl-grid--no-spacing > & {
+      width: calc(#{($grid-cell-default-columns / $grid-desktop-columns) * 100}%);
+    }
+  }
+
+  // Define partial sizes for all numbers of columns.
+  @for $i from 1 through $grid-desktop-columns {
+    .mdl-cell--#{$i}-col {
+      width: calc(#{($i / $grid-desktop-columns) * 100}% - #{$grid-desktop-gutter});
+
+      .mdl-grid--no-spacing > & {
+        width: #{($i / $grid-desktop-columns) * 100}%;
+      }
+    }
+  }
+}
