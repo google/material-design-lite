@@ -13,11 +13,12 @@ header.mdl-layout__header {
   margin-bottom: 30vh;
 }
 main.mdl-layout__content {
+  padding: 0;
+}
+main.mdl-layout__content {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   max-width: 900px;
-  width: 900px;
+  width: 100%;
   margin: 0 auto;
 }
 .mdl-layout__container {
@@ -28,16 +29,10 @@ main.mdl-layout__content {
 }
 
 .mdl-card {
-  margin: 12px 15px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-}
-main .mdl-card:nth-child(2n+1) {
-  width: 500px;
-}
-main .mdl-card:nth-child(2n) {
-  width: 300px;
 }
 .mdl-card--header {
   padding: 16px;
@@ -181,9 +176,8 @@ h3.quote:after {
   padding-top: 0;
   background-color: #EEE;
 }
-.blogpost main > nav {
-  width: 100%;
-  margin-top: 0;
+.blogpost main > nav > div:last-child {
+  text-align: right;
 }
 
 .comments {
