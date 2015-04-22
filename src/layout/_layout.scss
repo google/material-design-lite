@@ -138,7 +138,7 @@
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .mdl-layout--fixed-drawer > & {
         transform: translateX(0);
-        z-index: 2;
+        z-index: 3;
       }
     }
   }
