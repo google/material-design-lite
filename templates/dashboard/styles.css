@@ -45,19 +45,12 @@ html, body {
 }
 
 .mdl-layout__content {
-  padding: 16px;
+  padding: 0;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
-.charts {
-  width: 100%;
+
+.mdl-cell {
   box-sizing: border-box;
-  padding: 32px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 16px;
 }
 .charts svg:nth-child(1) {
   fill: #ACEC00;
@@ -72,22 +65,20 @@ html, body {
   fill: #EF3C79;
 }
 .graphs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 32px;
-  margin-bottom: 16px;
-  margin-right: 16px;
-  flex-grow: 1;
 }
 .graphs img {
+  width: 100%;
+  height: auto;
   margin-bottom: 80px;
+}
+.cards {
+  padding: 0;
 }
 .cards .mdl-card {
   height: auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
 }
 .cards .mdl-card--heading {
   display: flex;
