@@ -98,6 +98,10 @@ $grid-cell-default-columns: $grid-phone-columns;
         $grid-phone-gutter);
   }
 
+  .mdl-cell--hide-phone {
+    display: none;
+  }
+
   // Define partial sizes for columnNumber < totalColumns.
   @for $i from 1 through ($grid-phone-columns - 1) {
     .mdl-cell--#{$i}-col {
@@ -135,6 +139,10 @@ $grid-cell-default-columns: $grid-phone-columns;
         $grid-tablet-gutter);
   }
 
+  .mdl-cell--hide-tablet {
+    display: none;
+  }
+
   // Define partial sizes for columnNumber < totalColumns.
   @for $i from 1 through ($grid-tablet-columns - 1) {
     .mdl-cell--#{$i}-col {
@@ -170,6 +178,10 @@ $grid-cell-default-columns: $grid-phone-columns;
     margin: $grid-desktop-gutter / 2;
     @include partial-size($grid-cell-default-columns, $grid-desktop-columns,
         $grid-desktop-gutter);
+  }
+
+  .mdl-cell--hide-desktop {
+    display: none;
   }
 
   // Define partial sizes for all numbers of columns.
