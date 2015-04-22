@@ -7083,6 +7083,8 @@ dt {
     width: calc(100% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell {
       width: 100%; }
+  .mdl-cell--hide-phone {
+    display: none; }
   .mdl-cell--1-col {
     width: calc(25% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--1-col {
@@ -7188,6 +7190,8 @@ dt {
     width: calc(50% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell {
       width: 50%; }
+  .mdl-cell--hide-tablet {
+    display: none; }
   .mdl-cell--1-col {
     width: calc(12.5% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--1-col {
@@ -7293,6 +7297,8 @@ dt {
     width: calc(33.3333333333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell {
       width: 33.3333333333%; }
+  .mdl-cell--hide-desktop {
+    display: none; }
   .mdl-cell--1-col {
     width: calc(8.3333333333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--1-col {
