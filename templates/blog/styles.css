@@ -164,6 +164,11 @@ h3.quote:after {
   height: auto;
   padding: 80px 120px;
 }
+@media (max-width: 480px) {
+  .blogpost main > .mdl-card > .mdl-card--bottom {
+    padding: 20px 30px;
+  }
+}
 .blogpost main > .mdl-card .mdl-card--img-container {
   background-image: url('images/road_big.jpg');
 }

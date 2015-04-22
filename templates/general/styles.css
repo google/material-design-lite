@@ -78,6 +78,16 @@ main > .mdl-layout__tab-panel > header > *:last-child {
   flex-direction: row;
   align-items: flex-end;
 }
+@media (max-width: 840px) {
+  #squares > .square {
+    min-height: 50vw;
+  }
+}
+@media (max-width: 480px) {
+  #squares > .square {
+    min-height: 100vw;
+  }
+}
 
 #squares > .square:nth-child(1) {
   background: url('images/sq1.jpg') center center;
