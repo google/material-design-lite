@@ -66,41 +66,17 @@ header.mdl-layout__header {
 }
 main > .mdl-layout__tab-panel > header {
   box-sizing: border-box;
-  width: 100%;
   padding: 72px;
 }
 main > .mdl-layout__tab-panel > header > *:last-child {
   margin-bottom: 0;
 }
 
-#squares {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
-}
 #squares > .square {
-  min-width: 24vw;
   min-height: 25vw;
-  flex-grow: 1;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-}
-
-@media (max-width: 1280px) {
-  #squares > .square {
-    min-width: 49vw;
-    min-height: 50vw;
-  }
-}
-
-@media (max-width: 640px) {
-  #squares > .square {
-    min-width: 100vw;
-    min-height: 100vw;
-  }
 }
 
 #squares > .square:nth-child(1) {
@@ -140,15 +116,9 @@ main > .mdl-layout__tab-panel > header > *:last-child {
 }
 
 #cta {
-  width: 100%;
   height: 40vh;
   background: url('images/cta.jpg') center center;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
 }
 
 #cta h3 {
@@ -157,18 +127,12 @@ main > .mdl-layout__tab-panel > header > *:last-child {
 }
 
 #authors{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
   padding-top: 40px;
   background-color: white;
 }
 #authors > .author {
-  width: 300px;
-  margin: 0 40px;
+  box-sizing: border-box;
+  padding: 0 40px;
 }
 .author {
   display: flex;
@@ -192,21 +156,11 @@ footer.mdl-mega-footer > * {
   padding: 32px 16px;
   padding-left: 80px;
 }
-.mdl-mega-footer--top-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
 .mdl-mega-footer--middle-section > span {
   display: inline-block;
   margin-right: 20px;
 }
 .mdl-mega-footer--bottom-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   font-size: 0.8em;
   padding-top: 0 !important;
 }
