@@ -99,7 +99,7 @@ $grid-cell-default-columns: $grid-phone-columns;
   }
 
   .mdl-cell--hide-phone {
-    display: none;
+    display: none !important;
   }
 
   // Define partial sizes for columnNumber < totalColumns.
@@ -140,7 +140,7 @@ $grid-cell-default-columns: $grid-phone-columns;
   }
 
   .mdl-cell--hide-tablet {
-    display: none;
+    display: none !important;
   }
 
   // Define partial sizes for columnNumber < totalColumns.
@@ -181,7 +181,7 @@ $grid-cell-default-columns: $grid-phone-columns;
   }
 
   .mdl-cell--hide-desktop {
-    display: none;
+    display: none !important;
   }
 
   // Define partial sizes for all numbers of columns.
