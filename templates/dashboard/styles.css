@@ -49,9 +49,6 @@ html, body {
   display: flex;
 }
 
-.mdl-cell {
-  box-sizing: border-box;
-}
 .charts svg:nth-child(1) {
   fill: #ACEC00;
 }

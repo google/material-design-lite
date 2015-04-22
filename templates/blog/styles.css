@@ -2,7 +2,6 @@ body {
   background-image: url('images/bg.jpg');
   background-size: cover;
   background-attachment: fixed;
-  /* position: relative; */
 }
 
 .mdl-menu {
@@ -29,7 +28,6 @@ main.mdl-layout__content {
 }
 
 .mdl-card {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: stretch;
