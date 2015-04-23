@@ -539,15 +539,16 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  */
 /* ANIMATION */
 /* PROGRESS */
+html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; }
+
 .mdl-typography, .mdl-base {
   /**
 	 * Styles for HTML elements
 	 */ }
-  .mdl-typography html, .mdl-base html, .mdl-typography body, .mdl-base body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px; }
   .mdl-typography h1, .mdl-base h1, .mdl-typography h2, .mdl-base h2, .mdl-typography h3, .mdl-base h3, .mdl-typography h4, .mdl-base h4, .mdl-typography h5, .mdl-base h5, .mdl-typography h6, .mdl-base h6, .mdl-typography p, .mdl-base p {
     margin: 0;
     padding: 0; }
@@ -7298,27 +7299,27 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
     padding: 8px; }
   .mdl-cell {
     margin: 8px;
-    width: calc(33.3333333333% - 16px); }
+    width: calc(33.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell {
-      width: 33.3333333333%; }
+      width: 33.33333%; }
   .mdl-cell--hide-desktop {
     display: none !important; }
   .mdl-cell--1-col {
-    width: calc(8.3333333333% - 16px); }
+    width: calc(8.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--1-col {
-      width: 8.3333333333%; }
+      width: 8.33333%; }
   .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
-    width: calc(8.3333333333% - 16px); }
+    width: calc(8.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
-      width: 8.3333333333%; }
+      width: 8.33333%; }
   .mdl-cell--2-col {
-    width: calc(16.6666666667% - 16px); }
+    width: calc(16.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--2-col {
-      width: 16.6666666667%; }
+      width: 16.66667%; }
   .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
-    width: calc(16.6666666667% - 16px); }
+    width: calc(16.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
-      width: 16.6666666667%; }
+      width: 16.66667%; }
   .mdl-cell--3-col {
     width: calc(25% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--3-col {
@@ -7328,21 +7329,21 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
     .mdl-grid--no-spacing > .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
       width: 25%; }
   .mdl-cell--4-col {
-    width: calc(33.3333333333% - 16px); }
+    width: calc(33.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--4-col {
-      width: 33.3333333333%; }
+      width: 33.33333%; }
   .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
-    width: calc(33.3333333333% - 16px); }
+    width: calc(33.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
-      width: 33.3333333333%; }
+      width: 33.33333%; }
   .mdl-cell--5-col {
-    width: calc(41.6666666667% - 16px); }
+    width: calc(41.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--5-col {
-      width: 41.6666666667%; }
+      width: 41.66667%; }
   .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
-    width: calc(41.6666666667% - 16px); }
+    width: calc(41.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
-      width: 41.6666666667%; }
+      width: 41.66667%; }
   .mdl-cell--6-col {
     width: calc(50% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--6-col {
@@ -7352,21 +7353,21 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
     .mdl-grid--no-spacing > .mdl-cell--6-col-desktop.mdl-cell--6-col-desktop {
       width: 50%; }
   .mdl-cell--7-col {
-    width: calc(58.3333333333% - 16px); }
+    width: calc(58.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--7-col {
-      width: 58.3333333333%; }
+      width: 58.33333%; }
   .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
-    width: calc(58.3333333333% - 16px); }
+    width: calc(58.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
-      width: 58.3333333333%; }
+      width: 58.33333%; }
   .mdl-cell--8-col {
-    width: calc(66.6666666667% - 16px); }
+    width: calc(66.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--8-col {
-      width: 66.6666666667%; }
+      width: 66.66667%; }
   .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
-    width: calc(66.6666666667% - 16px); }
+    width: calc(66.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
-      width: 66.6666666667%; }
+      width: 66.66667%; }
   .mdl-cell--9-col {
     width: calc(75% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--9-col {
@@ -7376,21 +7377,21 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
     .mdl-grid--no-spacing > .mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
       width: 75%; }
   .mdl-cell--10-col {
-    width: calc(83.3333333333% - 16px); }
+    width: calc(83.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--10-col {
-      width: 83.3333333333%; }
+      width: 83.33333%; }
   .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
-    width: calc(83.3333333333% - 16px); }
+    width: calc(83.33333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
-      width: 83.3333333333%; }
+      width: 83.33333%; }
   .mdl-cell--11-col {
-    width: calc(91.6666666667% - 16px); }
+    width: calc(91.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--11-col {
-      width: 91.6666666667%; }
+      width: 91.66667%; }
   .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
-    width: calc(91.6666666667% - 16px); }
+    width: calc(91.66667% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
-      width: 91.6666666667%; }
+      width: 91.66667%; }
   .mdl-cell--12-col {
     width: calc(100% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell--12-col {
