@@ -2,7 +2,8 @@ body {
   background-image: url('images/bg.jpg');
   background-size: cover;
   background-attachment: fixed;
-  /* position: relative; */
+  /* FIXME: Temp. workaround for vertical scrollbars */
+  margin: 0;
 }
 
 .mdl-menu {
@@ -13,11 +14,12 @@ header.mdl-layout__header {
   margin-bottom: 30vh;
 }
 main.mdl-layout__content {
+  padding: 0;
+}
+main.mdl-layout__content {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   max-width: 900px;
-  width: 900px;
+  width: 100%;
   margin: 0 auto;
 }
 .mdl-layout__container {
@@ -28,16 +30,9 @@ main.mdl-layout__content {
 }
 
 .mdl-card {
-  margin: 12px 15px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-}
-main .mdl-card:nth-child(2n+1) {
-  width: 500px;
-}
-main .mdl-card:nth-child(2n) {
-  width: 300px;
 }
 .mdl-card--header {
   padding: 16px;
@@ -171,6 +166,11 @@ h3.quote:after {
   height: auto;
   padding: 80px 120px;
 }
+@media (max-width: 480px) {
+  .blogpost main > .mdl-card > .mdl-card--bottom {
+    padding: 20px 30px;
+  }
+}
 .blogpost main > .mdl-card .mdl-card--img-container {
   background-image: url('images/road_big.jpg');
 }
@@ -181,9 +181,8 @@ h3.quote:after {
   padding-top: 0;
   background-color: #EEE;
 }
-.blogpost main > nav {
-  width: 100%;
-  margin-top: 0;
+.blogpost main > nav > div:last-child {
+  text-align: right;
 }
 
 .comments {
