@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header.mdl-layout__header {
+  padding-top: 30%;
+  max-height: 100%;
+  padding-left: 0;
+  background: url('images/top.jpg') center center;
+  background-size: cover;
+  position: relative;
+}
+
+header.mdl-layout__header #logo {
+  width: 70px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -35px;
+  margin-left: -35px;
+  fill: #fff;
+}
+
+header.mdl-layout__header .menu {
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+}
+
+.paragraph {
+  padding: 7% 0;
+}
+
+.mdl-mega-footer {
+  text-align: center;
+  padding: 0 0 32px;
+}
+
+.mdl-mega-footer div {
+  padding: 0 16px;
+}
+
+.mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after {
+  border: none;
+  margin: 0;
+}
+
+.mdl-mega-footer .mdl-mega-footer--top-section {
+  padding: 16px 0;
+}
+
+.mdl-mega-footer .mdl-mega-footer--middle-section {
+  padding: 16px 0 0;
+}
+
+.mdl-mega-footer .mdl-mega-footer--bottom-section {
+  padding: 0 0 16px;
+  font-size: 14px;
+}
+
+#view-source {
+  position: fixed;
+  display: block;
+  right: 0;
+  top: 0;
+  z-index: 900;
+  margin: 40px;
+}
+
+@media (max-width: 850px) {
+  header.mdl-layout__header {
+    padding-top: 15%;
+  }
+  #view-source {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  header.mdl-layout__header {
+    padding-top: 20%;
+  }
+}
