@@ -98,6 +98,7 @@ $color-accent-contrast: $color-dark-contrast !default;
 // and text-color-secondary-inverse.
 
 $text-color-primary: unquote("rgba(#{$color-black}, 0.87)") !default;
+$text-link-color: unquote("rgb(#{$color-accent})") !default;
 
 /* ==========  Components  ========== */
 
