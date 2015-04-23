@@ -72,10 +72,10 @@ $grid-cell-default-columns: $grid-phone-columns;
 
 // Mixins for width calculation.
 @mixin partial-size($size, $columns, $gutter) {
-  width: calc(#{($size / $columns) * 100}% - #{$gutter});
+  width: calc(#{(($size / $columns) * 100)+"%"} - #{$gutter});
 
   .mdl-grid--no-spacing > & {
-    width: #{($size / $columns) * 100}%;
+    width: #{(($size / $columns) * 100)+"%"};
   }
 }
 
