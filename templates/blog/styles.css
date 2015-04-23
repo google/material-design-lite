@@ -2,6 +2,8 @@ body {
   background-image: url('images/bg.jpg');
   background-size: cover;
   background-attachment: fixed;
+  /* FIXME: Temp. workaround for vertical scrollbars */
+  margin: 0;
 }
 
 .mdl-menu {
