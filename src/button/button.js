@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Button WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialButton(element) {
@@ -30,25 +46,45 @@ MaterialButton.prototype.Constant_ = {
  * @private
  */
 MaterialButton.prototype.CssClasses_ = {
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_BUTTON_RIPPLE_CONTAINER: 'wsk-button__ripple-container',
-
-  WSK_RIPPLE: 'wsk-ripple'
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-button__ripple-container',
+  RIPPLE: 'mdl-ripple'
 };
-
 
 /**
  * Handle blur of element.
  * @param {HTMLElement} element The instance of a button we want to blur.
  * @private
  */
-MaterialButton.prototype.blurHandlerGenerator_ = function(element) {
+MaterialButton.prototype.blurHandler = function(event) {
   'use strict';
 
-  return function() {element.blur();};
+  if (event) {
+    this.element_.blur();
+  }
 };
 
+// Public methods.
+
+/**
+ * Disable button.
+ * @public
+ */
+MaterialButton.prototype.disable = function() {
+  'use strict';
+
+  this.element_.disabled = true;
+};
+
+/**
+ * Enable button.
+ * @public
+ */
+MaterialButton.prototype.enable = function() {
+  'use strict';
+
+  this.element_.disabled = false;
+};
 
 /**
  * Initialize element.
@@ -57,27 +93,24 @@ MaterialButton.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    var blurHandler = this.blurHandlerGenerator_(this.element_);
-    if (this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+    if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(
-          this.CssClasses_.WSK_BUTTON_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       var ripple = document.createElement('span');
-      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(this.CssClasses_.RIPPLE);
       rippleContainer.appendChild(ripple);
-      ripple.addEventListener('mouseup', blurHandler);
+      ripple.addEventListener('mouseup', this.blurHandler.bind(this));
       this.element_.appendChild(rippleContainer);
     }
-    this.element_.addEventListener('mouseup', blurHandler);
+    this.element_.addEventListener('mouseup', this.blurHandler.bind(this));
+    this.element_.addEventListener('mouseleave', this.blurHandler.bind(this));
   }
 };
-
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
   constructor: MaterialButton,
   classAsString: 'MaterialButton',
-  cssClass: 'wsk-js-button'
+  cssClass: 'mdl-js-button'
 });

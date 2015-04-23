@@ -1,17 +1,23 @@
-@import "../colors";
-@import "../animation/animation";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-$input-text-font-size: 16px;
-$input-text-width: 100%;
-$input-text-padding: 4px;
-$input-text-ripple-size: 32px;
-
-$input-text-button-size: 32px;
-$input-text-floating-label-fontsize: 12px;
-$input-text-expandable-icon-top: 16px;
+@import "../variables";
 
 // The container for the whole component.
-.wsk-textfield {
+.mdl-textfield {
   position: relative;
 
   font-size: 16px;
@@ -23,30 +29,31 @@ $input-text-expandable-icon-top: 16px;
   margin: 0;
 
   // Align buttons, if used.
-  & .wsk-button {
+  & .mdl-button {
     position: absolute;
     bottom: 0;
   }
 }
 
 // Optional class to align right.
-.wsk-textfield--align-right {
+.mdl-textfield--align-right {
   text-align: right;
 }
 
 // Optional class to display at full width.
-.wsk-textfield--full-width {
+.mdl-textfield--full-width {
   width: 100%;
 }
 
 // Optional class to make the text field expandable.
-.wsk-textfield--expandable {
+.mdl-textfield--expandable {
   min-width: $input-text-button-size;
+  width: auto;
   min-height: $input-text-button-size;
 }
 
 // Styling for the input element.
-.wsk-textfield__input {
+.mdl-textfield__input {
   border: none;
   border-bottom: 1px solid $input-text-bottom-border-color;
   display: block;
@@ -58,23 +65,23 @@ $input-text-expandable-icon-top: 16px;
   text-align: left;
   color: inherit;
 
-  .wsk-textfield.is-focused & {
+  .mdl-textfield.is-focused & {
     outline: none;
   }
 
-  .wsk-textfield.is-invalid & {
+  .mdl-textfield.is-invalid & {
     border-color: $input-text-error-color;
     box-shadow: none;
   }
 
-  .wsk-textfield.is-disabled & {
+  .mdl-textfield.is-disabled & {
     background-color: transparent;
     border-bottom: 1px dotted $input-text-disabled-color;
   }
 }
 
 // Styling for the label / floating label.
-.wsk-textfield__label {
+.mdl-textfield__label {
   bottom: 0;
   color: $input-text-label-color;
   font-size: $input-text-font-size;
@@ -88,24 +95,24 @@ $input-text-expandable-icon-top: 16px;
   white-space: nowrap;
   text-align: left;
 
-  .wsk-textfield.is-dirty & {
+  .mdl-textfield.is-dirty & {
     visibility: hidden;
   }
 
   // Floating Label
-  .wsk-textfield--floating-label & {
+  .mdl-textfield--floating-label & {
     @include material-animation-default();
   }
 
-  .wsk-textfield--floating-label.is-focused &,
-  .wsk-textfield--floating-label.is-dirty & {
+  .mdl-textfield--floating-label.is-focused &,
+  .mdl-textfield--floating-label.is-dirty & {
     color: $input-text-highlight-color;
     font-size : $input-text-floating-label-fontsize;
     top: -($input-text-floating-label-fontsize + $input-text-padding);
     visibility: visible;
   }
 
-  .wsk-textfield--floating-label.is-invalid & {
+  .mdl-textfield--floating-label.is-invalid & {
     color: $input-text-error-color;
     font-size: 12px;
   }
@@ -123,32 +130,32 @@ $input-text-expandable-icon-top: 16px;
     width: 10px;
   }
 
-  .wsk-textfield.is-focused &:after {
+  .mdl-textfield.is-focused &:after {
     left: 0;
     visibility: visible;
     width: 100%;
   }
 
-  .wsk-textfield.is-invalid &:after {
+  .mdl-textfield.is-invalid &:after {
     background-color: $input-text-error-color;
   }
 }
 
 // TextField Error.
-.wsk-textfield__error {
+.mdl-textfield__error {
   color: $input-text-error-color;
   position: absolute;
   font-size: 12px;
   margin-top: 3px;
   visibility: hidden;
 
-  .wsk-textfield.is-invalid & {
+  .mdl-textfield.is-invalid & {
     visibility: visible;
   }
 }
 
 // Expandable Holder.
-.wsk-textfield__expandable-holder {
+.mdl-textfield__expandable-holder {
   display: inline-block;
   position: relative;
   margin-left: $input-text-button-size;
@@ -162,7 +169,7 @@ $input-text-expandable-icon-top: 16px;
   // inner element :(
   max-width: 0.1px;
 
-  .wsk-textfield.is-focused &, .wsk-textfield.is-dirty & {
+  .mdl-textfield.is-focused &, .mdl-textfield.is-dirty & {
     // This is an unfortunate hack. Animating between widths in percent (%)
     // in many browsers (Chrome, Firefox) only animates the inner visual style
     // of the input - the outer bounding box still 'jumps'.

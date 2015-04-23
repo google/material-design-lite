@@ -1,40 +1,29 @@
-@import '../colors';
-@import '../shadow/shadow';
-@import '../typography/typography';
-@import '../animation/animation';
-@import '../icons/icons';
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-// Dimensions
-$layout-drawer-narrow: 240px;
-$layout-drawer-wide: 456px;
-$layout-drawer-width: $layout-drawer-narrow;
-
-$layout-header-icon-size: 32px;
-$layout-screen-size-threshold: 850px;
-
-$layout-header-mobile-row-height: 56px;
-$layout-mobile-header-height: $layout-header-mobile-row-height;
-$layout-header-desktop-row-height: 64px;
-$layout-desktop-header-height: $layout-header-desktop-row-height;
-$layout-header-mobile-indent: 72px;
-$layout-header-desktop-indent: 80px;
-$layout-header-basic-mobile-indent: 16px;
-$layout-header-basic-desktop-indent: 24px;
-
-$layout-tab-bar-height: 48px;
-$layout-tab-mobile-padding: 12px;
-$layout-tab-desktop-padding: 24px;
-$layout-tab-highlight-thickness: 2px;
-
+@import "../variables";
 
 // Navigation classes. Only used here for now, but we may at some point move
 // this to its own component.
-.wsk-navigation {
+.mdl-navigation {
   display: flex;
   flex-wrap: nowrap;
 }
 
-.wsk-navigation__link {
+.mdl-navigation__link {
   color: $layout-text-color;
   text-decoration: none;
   font-weight: 700;
@@ -42,13 +31,13 @@ $layout-tab-highlight-thickness: 2px;
   margin: 0;
 }
 
-.wsk-navigation__link:hover {
+.mdl-navigation__link:hover {
   background-color: $layout-nav-color;
 }
 
 
 // Main layout class.
-.wsk-layout {
+.mdl-layout {
   width: 100%;
   height: 100%;
   display: flex;
@@ -58,7 +47,7 @@ $layout-tab-highlight-thickness: 2px;
   position: relative;
 }
 
-.wsk-layout__container {
+.mdl-layout__container {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -66,7 +55,7 @@ $layout-tab-highlight-thickness: 2px;
 
 
   // Optional utility classes for formatting special blocks in this component.
-  .wsk-layout-title {
+  .mdl-layout-title {
     display: block;
     position: relative;
 
@@ -74,13 +63,13 @@ $layout-tab-highlight-thickness: 2px;
     box-sizing: border-box;
   }
 
-  .wsk-layout-spacer {
+  .mdl-layout-spacer {
     flex-grow: 1;
   }
 
 
   // Drawer.
-  .wsk-layout__drawer {
+  .mdl-layout__drawer {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -109,8 +98,7 @@ $layout-tab-highlight-thickness: 2px;
 
     color: $layout-text-color;
 
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: visible;
 
     z-index: 5;
 
@@ -122,7 +110,7 @@ $layout-tab-highlight-thickness: 2px;
       flex-shrink: 0;
     }
 
-    & > .wsk-layout-title {
+    & > .mdl-layout-title {
       line-height: $layout-desktop-header-height;
       padding-left: $layout-header-basic-desktop-indent;
       border-bottom: 1px solid $layout-drawer-border-color;
@@ -133,12 +121,12 @@ $layout-tab-highlight-thickness: 2px;
       }
     }
 
-    & .wsk-navigation {
+    & .mdl-navigation {
       width: 100%;
       flex-direction: column;
     }
 
-    & .wsk-navigation__link {
+    & .mdl-navigation__link {
       padding: 16px $layout-header-basic-desktop-indent;
       margin: 0;
 
@@ -148,7 +136,7 @@ $layout-tab-highlight-thickness: 2px;
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      .wsk-layout--fixed-drawer > & {
+      .mdl-layout--fixed-drawer > & {
         transform: translateX(0);
         z-index: 2;
       }
@@ -158,62 +146,59 @@ $layout-tab-highlight-thickness: 2px;
 
   // Drawer button.
   // TODO(sgomes): Replace with an icon button when we have that component.
-  .wsk-layout__drawer-button {
+  .mdl-layout__drawer-button {
     display: block;
 
-    position: relative;
-    height: 32px;
-    width: 32px;
+    position: absolute;
+    height: $layout-drawer-button-desktop-size;
+    width: $layout-drawer-button-desktop-size;
     border: 0;
 
     flex-shrink: 0;
 
     overflow: hidden;
+    text-align: center;
+    cursor: pointer;
     font-size: 26px;
-    line-height: 32px;
+    line-height: $layout-drawer-button-desktop-size + 2;
     font-family: Helvetica, Arial, sans-serif;
-    margin: 8px;
+    margin: 8px 12px;
+    top: 0;
+    left: 0;
+    color: $layout-header-text-color;
 
-    color: rgba(0, 0, 0, 0.5);
-
-    z-index: 3;
+    z-index: 4;
 
     &::after {
-      @include wsk-icon();
+      @include mdl-icon();
       content: $icon-menu;
     }
 
-    .wsk-layout--overlay-drawer-button > & {
+    .mdl-layout__header & {
       position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .wsk-layout__header & {
-      position: absolute;
-      left: $layout-header-basic-desktop-indent;
-      top: ($layout-desktop-header-height - $layout-header-icon-size) / 2;
-      height: $layout-header-icon-size;
-      margin: 0;
-      width: $layout-header-icon-size;
       color: $layout-header-text-color;
       background-color: inherit;
-      z-index: 5;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        left: $layout-header-basic-mobile-indent;
-        top: ($layout-mobile-header-height - $layout-header-icon-size) / 2;
+        margin: 4px;
       }
     }
 
+    @media screen and (max-width: $layout-screen-size-threshold) {
+      margin: 4px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      display: none;
+      .mdl-layout--fixed-drawer > & {
+        display: none;
+      }
     }
   }
 
 
   // Header.
-  .wsk-layout__header {
+  .mdl-layout__header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -228,32 +213,46 @@ $layout-tab-highlight-thickness: 2px;
     @include material-animation-default();
     @include shadow-z1();
     transition-property: min-height, box-shadow;
-    padding-left: $layout-header-desktop-indent;
-    overflow: hidden;
+    padding-left: $layout-header-basic-desktop-indent;
+    overflow: visible;
+
+    .mdl-layout.has-drawer & {
+      padding-left: $layout-header-desktop-indent;
+    }
 
     @media screen and (max-width: $layout-screen-size-threshold) {
       height: $layout-mobile-header-height;
       min-height: $layout-mobile-header-height;
-      padding-left: $layout-header-mobile-indent;
+      padding-left: $layout-header-basic-mobile-indent;
+
+      .mdl-layout.has-drawer & {
+        padding-left: $layout-header-mobile-indent;
+      }
     }
 
-    .wsk-layout--fixed-drawer:not(.is-small-screen) > & {
+    .mdl-layout--fixed-drawer:not(.is-small-screen) > & {
       padding-left: $layout-header-basic-desktop-indent;
     }
 
-    & > .wsk-layout-icon {
-      position: absolute;
+    & > .mdl-layout-icon {
+      margin-right: $layout-header-icon-margin;
       left: $layout-header-basic-desktop-indent;
       top: ($layout-desktop-header-height - $layout-header-icon-size) / 2;
       height: $layout-header-icon-size;
       width: $layout-header-icon-size;
       overflow: hidden;
       z-index: 3;
+      display: block;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
+        margin-right: $layout-header-basic-mobile-indent;
         left: $layout-header-basic-mobile-indent;
         top: ($layout-mobile-header-height - $layout-header-icon-size) / 2;
       }
+    }
+
+    .mdl-layout.has-drawer & > .mdl-layout-icon {
+      display: none;
     }
 
     &.is-compact {
@@ -278,15 +277,15 @@ $layout-tab-highlight-thickness: 2px;
     }
 
     // ...unless it's a navigation area.
-    & > .wsk-navigation:last-child {
+    & > .mdl-navigation:last-child {
       margin-right: 0;
     }
 
-    & .wsk-layout-title {
+    & .mdl-layout-title {
       display: block;
     }
 
-    & .wsk-navigation {
+    & .mdl-navigation {
       margin: 0;
       padding: 0;
       height: $layout-header-desktop-row-height;
@@ -298,7 +297,7 @@ $layout-tab-highlight-thickness: 2px;
       }
     }
 
-    & .wsk-navigation__link {
+    & .mdl-navigation__link {
       color: $layout-header-text-color;
       line-height: $layout-header-desktop-row-height;
       padding: 0 $layout-header-basic-desktop-indent;
@@ -309,12 +308,12 @@ $layout-tab-highlight-thickness: 2px;
       }
     }
 
-    & .wsk-navigation__link:hover {
+    & .mdl-navigation__link:hover {
       background-color: $layout-header-nav-hover-color;
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      .wsk-layout--fixed-drawer > & {
+      .mdl-layout--fixed-drawer > & {
         margin-left: $layout-drawer-width;
       }
     }
@@ -324,17 +323,17 @@ $layout-tab-highlight-thickness: 2px;
         display: none;
       }
 
-      .wsk-layout--fixed-header > & {
+      .mdl-layout--fixed-header > & {
         display: flex;
       }
     }
   }
 
-    .wsk-layout__header--multi-row {
+    .mdl-layout__header--multi-row {
       flex-direction: column;
     }
 
-    .wsk-layout__header--medium-tall {
+    .mdl-layout__header--medium-tall {
       min-height: 2 * $layout-header-desktop-row-height;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
@@ -342,7 +341,7 @@ $layout-tab-highlight-thickness: 2px;
       }
     }
 
-    .wsk-layout__header--tall {
+    .mdl-layout__header--tall {
       min-height: 3 * $layout-header-desktop-row-height;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
@@ -350,20 +349,20 @@ $layout-tab-highlight-thickness: 2px;
       }
     }
 
-    .wsk-layout__header--transparent.wsk-layout__header--transparent {
+    .mdl-layout__header--transparent.mdl-layout__header--transparent {
       background-color: transparent;
       box-shadow: none;
     }
 
-    .wsk-layout__header--seamed {
+    .mdl-layout__header--seamed {
       box-shadow: none;
     }
 
-    .wsk-layout__header--scroll {
+    .mdl-layout__header--scroll {
       box-shadow: none;
     }
 
-    .wsk-layout__header--waterfall {
+    .mdl-layout__header--waterfall {
       box-shadow: none;
 
       &.is-casting-shadow {
@@ -372,7 +371,7 @@ $layout-tab-highlight-thickness: 2px;
     }
 
     // Declared twice to bump rule priority.
-    .wsk-layout__header-row.wsk-layout__header-row {
+    .mdl-layout__header-row.mdl-layout__header-row {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
@@ -386,19 +385,21 @@ $layout-tab-highlight-thickness: 2px;
         min-height: $layout-header-mobile-row-height;
       }
 
-      & > .wsk-layout-icon {
-        position: absolute;
-        left: $layout-header-basic-desktop-indent;
-        top: ($layout-header-desktop-row-height - $layout-header-icon-size) / 2;
+      & > .mdl-layout-icon {
+        margin-right: $layout-header-icon-margin;
         height: $layout-header-icon-size;
         width: $layout-header-icon-size;
         overflow: hidden;
-        z-index: 3;
+        display: block;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           left: $layout-header-basic-mobile-indent;
           top: ($layout-header-mobile-row-height - $layout-header-icon-size) / 2;
         }
+      }
+
+      .mdl-layout.has-drawer & > .mdl-layout-icon {
+        display: none;
       }
 
       & > * {
@@ -415,35 +416,33 @@ $layout-tab-highlight-thickness: 2px;
       }
 
       // ...unless it's a navigation area.
-      & > .wsk-navigation:last-child {
+      & > .mdl-navigation:last-child {
         margin-right: 0;
       }
     }
 
   // Obfuscator.
-  @media screen and (max-width: $layout-screen-size-threshold) {
-    .wsk-layout__obfuscator {
-      background-color: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 4;
-      visibility: hidden;
-      transition-property: background-color;
-      @include material-animation-default();
+  .mdl-layout__obfuscator {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    visibility: hidden;
+    transition-property: background-color;
+    @include material-animation-default();
 
-      .wsk-layout__drawer.is-visible ~ & {
-        background-color: rgba(0, 0, 0, 0.5);
-        visibility: visible;
-      }
+    .mdl-layout__drawer.is-visible ~ & {
+      background-color: rgba(0, 0, 0, 0.5);
+      visibility: visible;
     }
   }
 
 
   // Content.
-  .wsk-layout__content {
+  .mdl-layout__content {
     // Fix IE10 bug.
     -ms-flex: 0 1 auto;
 
@@ -453,20 +452,20 @@ $layout-tab-highlight-thickness: 2px;
     flex-grow: 1;
     z-index: 1;
 
-    .wsk-layout--fixed-drawer > & {
+    .mdl-layout--fixed-drawer > & {
       margin-left: $layout-drawer-width;
     }
 
-    .wsk-layout__header--scroll ~ & {
+    .mdl-layout__header--scroll ~ & {
       overflow: visible;
     }
 
     @media screen and (max-width: $layout-screen-size-threshold) {
-      .wsk-layout--fixed-drawer > & {
+      .mdl-layout--fixed-drawer > & {
         margin-left: 0;
       }
 
-      .wsk-layout__header--scroll ~ & {
+      .mdl-layout__header--scroll ~ & {
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -474,13 +473,13 @@ $layout-tab-highlight-thickness: 2px;
   }
 
   // Tabs.
-  .wsk-layout__tab-bar {
+  .mdl-layout__tab-bar {
     position: absolute;
     top: 0;
     height: $layout-tab-bar-height * 2;
     width: calc(100% -
         #{(($layout-header-desktop-indent - $layout-tab-desktop-padding) * 2)});
-    padding: 0 0 0 $layout-header-desktop-indent - $layout-tab-desktop-padding;
+    padding: 0 0 0 $layout-header-desktop-indent;
     display: flex;
     background-color: $layout-header-bg-color;
     overflow-y: hidden;
@@ -493,10 +492,10 @@ $layout-tab-highlight-thickness: 2px;
     @media screen and (max-width: $layout-screen-size-threshold) {
       width: calc(100% -
           #{($layout-header-mobile-indent - $layout-tab-mobile-padding)});
-      padding: 0 0 0 $layout-header-mobile-indent - $layout-tab-mobile-padding;
+      padding: 0 0 0 $layout-header-mobile-indent;
     }
 
-    .wsk-layout--fixed-tabs & {
+    .mdl-layout--fixed-tabs & {
       padding: 0;
       overflow: hidden;
       width: 100%;
@@ -507,7 +506,7 @@ $layout-tab-highlight-thickness: 2px;
     }
   }
 
-  .wsk-layout__tab-bar-container {
+  .mdl-layout__tab-bar-container {
     position: relative;
     overflow: hidden;
     height: $layout-tab-bar-height;
@@ -519,19 +518,19 @@ $layout-tab-highlight-thickness: 2px;
     flex-shrink: 0;
     @include shadow-z1();
 
-    .wsk-layout__container > & {
+    .mdl-layout__container > & {
       position: absolute;
       top: 0;
       left: 0;
     }
   }
 
-  .wsk-layout__tab-bar-button {
+  .mdl-layout__tab-bar-button {
     display: inline-block;
     position: absolute;
     height: $layout-tab-bar-height;
     line-height: $layout-tab-bar-height;
-    width: $layout-header-desktop-indent - $layout-tab-desktop-padding;
+    width: $layout-header-desktop-indent;
     z-index: 4;
     text-align: center;
     background-color: $layout-header-bg-color;
@@ -544,7 +543,7 @@ $layout-tab-highlight-thickness: 2px;
       width: $layout-header-mobile-indent - $layout-tab-mobile-padding;
     }
 
-    .wsk-layout--fixed-tabs & {
+    .mdl-layout--fixed-tabs & {
       display: none;
     }
 
@@ -553,27 +552,27 @@ $layout-tab-highlight-thickness: 2px;
     }
   }
 
-  .wsk-layout__tab-bar-left-button {
+  .mdl-layout__tab-bar-left-button {
     left: 0;
 
     &::after {
       font-size: 26px;
-      @include wsk-icon();
+      @include mdl-icon();
       content: $icon-chevron-left;
     }
   }
 
-  .wsk-layout__tab-bar-right-button {
+  .mdl-layout__tab-bar-right-button {
     right: 0;
 
     &::after {
       font-size: 26px;
-      @include wsk-icon();
+      @include mdl-icon();
       content: $icon-chevron-right;
     }
   }
 
-  .wsk-layout__tab {
+  .mdl-layout__tab {
     margin: 0;
     border: none;
     padding: 0 $layout-tab-desktop-padding 0 $layout-tab-desktop-padding;
@@ -600,17 +599,17 @@ $layout-tab-highlight-thickness: 2px;
       padding: 0 $layout-tab-mobile-padding 0 $layout-tab-mobile-padding;
     }
 
-    .wsk-layout--fixed-tabs & {
+    .mdl-layout--fixed-tabs & {
       float: none;
       flex-grow: 1;
       padding: 0;
     }
 
-    .wsk-layout.is-upgraded &.is-active {
+    .mdl-layout.is-upgraded &.is-active {
       color: $layout-header-text-color;
     }
 
-    .wsk-layout.is-upgraded &.is-active::after {
+    .mdl-layout.is-upgraded &.is-active::after {
       height: $layout-tab-highlight-thickness;
       width: 100%;
       display: block;
@@ -624,7 +623,7 @@ $layout-tab-highlight-thickness: 2px;
       transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
     }
 
-    & .wsk-layout__tab-ripple-container {
+    & .mdl-layout__tab-ripple-container {
       display: block;
       position: absolute;
       height: 100%;
@@ -636,14 +635,14 @@ $layout-tab-highlight-thickness: 2px;
     }
   }
 
-  .wsk-layout__tab-panel {
+  .mdl-layout__tab-panel {
     display: block;
 
-    .wsk-layout.is-upgraded & {
+    .mdl-layout.is-upgraded & {
       display: none;
     }
 
-    .wsk-layout.is-upgraded &.is-active {
+    .mdl-layout.is-upgraded &.is-active {
       display: block;
     }
   }

@@ -38,9 +38,9 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;5. Add one or more MDL classes, separated by spaces, to the unordered list and the list items using the `class` attribute.
 ```html
 <ul class="wsk-menu wsk-js-menu" for="menu1">
-  <li class="wsk-menu__item">Continue</button>
-  <li class="wsk-menu__item">Stop</button>
-  <li class="wsk-menu__item">Pause</button>
+  <li class="wsk-menu__item">Continue</li>
+  <li class="wsk-menu__item">Stop</li>
+  <li class="wsk-menu__item">Pause</li>
 </ul>
 ```
 
@@ -110,4 +110,3 @@ For working examples of the **menu** component, see the MDL [menu demo page](www
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

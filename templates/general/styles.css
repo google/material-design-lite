@@ -1,0 +1,224 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Roboto';
+  color: white;
+}
+header.mdl-layout__header {
+  height: 40vh;
+  width: 100%;
+  max-height: 400px;
+  background: url('images/wolf.jpg') center center;
+  background-size: cover;
+  flex-shrink: 0;
+  position: relative;
+}
+.mdl-layout__tab-bar-container {
+  overflow: visible;
+  height: 96px;
+  box-shadow: none !important;
+}
+.mdl-layout__tab-bar-button {
+  display: none;
+}
+.mdl-layout__tab-bar {
+  overflow: visible;
+  position: static;
+  height: 100%;
+  width: 100%;
+  box-shadow: none !important;
+}
+.mdl-layout__tab-bar a {
+  height: 100%;
+  line-height: 96px;
+}
+@media (max-width: 850px) {
+  .mdl-layout__header {
+    display: block;
+  }
+  .mdl-layout__content {
+    overflow: visible !important;
+  }
+}
+@media (max-width: 600px) {
+  .mdl-layout__tab-bar {
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+  }
+  .mdl-layout__tab-bar-container {
+    height: auto;
+  }
+  a.mdl-layout__tab {
+    height: auto;
+    line-height: 4em;
+    text-align: left;
+    padding-left: 20px;
+  }
+}
+#mail {
+  position: absolute;
+  right: 40px;
+  top: -28px;
+  z-index: 999;
+}
+main > .mdl-layout__tab-panel > header {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 72px;
+}
+main > .mdl-layout__tab-panel > header > *:last-child {
+  margin-bottom: 0;
+}
+
+#squares {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+#squares > .square {
+  min-width: 24vw;
+  min-height: 25vw;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+@media (max-width: 1280px) {
+  #squares > .square {
+    min-width: 49vw;
+    min-height: 50vw;
+  }
+}
+
+@media (max-width: 640px) {
+  #squares > .square {
+    min-width: 100vw;
+    min-height: 100vw;
+  }
+}
+
+#squares > .square:nth-child(1) {
+  background: url('images/sq1.jpg') center center;
+  background-size: cover;
+}
+#squares > .square:nth-child(2) {
+  background: url('images/sq2.jpg') center center;
+  background-size: cover;
+}
+#squares > .square:nth-child(3) {
+  background: url('images/sq3.jpg') center center;
+  background-size: cover;
+}
+#squares > .square:nth-child(4) {
+  background: url('images/sq4.jpg') center center;
+  background-size: cover;
+}
+.square > footer {
+  position: relative;
+  height: 20%;
+  width: 100%;
+  opacity: 0.7;
+  padding: 20px;
+}
+.square > footer > button {
+  position: absolute;
+  top: 20px;
+  right: 20px;;
+}
+.square > footer h3 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.square > footer > *:last-child {
+  margin-bottom: 0;
+}
+
+#cta {
+  width: 100%;
+  height: 40vh;
+  background: url('images/cta.jpg') center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+#cta h3 {
+  margin: 30px;
+  text-align: center;
+}
+
+#authors{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  background-color: white;
+}
+#authors > .author {
+  width: 300px;
+  margin: 0 40px;
+}
+.author {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.author h4 {
+  margin-bottom: 20px;
+}
+.author img {
+  border-radius: 100px;
+  margin-bottom: 40px;
+}
+
+footer.mdl-mega-footer {
+  background-color: transparent;
+  padding: 0;
+}
+footer.mdl-mega-footer > * {
+  padding: 32px 16px;
+  padding-left: 80px;
+}
+.mdl-mega-footer--top-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mdl-mega-footer--middle-section > span {
+  display: inline-block;
+  margin-right: 20px;
+}
+.mdl-mega-footer--bottom-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.8em;
+  padding-top: 0 !important;
+}
+.mdl-mega-footer--social-btn {
+  margin-right: 40px;
+}
+.mdl-mega-footer--top-section:after {
+  border: 0;
+}
+.mdl-mega-footer--middle-section:after {
+  border: 0;
+}
+.mdl-mega-footer--link-list {
+  margin: 0;
+}

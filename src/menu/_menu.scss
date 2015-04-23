@@ -1,13 +1,22 @@
-@import "../typography/typography";
-@import "../animation/animation";
-@import "../colors";
-@import "../shadow/shadow";
-@import "../ripple/ripple";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-$menu-expand-duration: 0.3s;
-$menu-fade-duration: 0.2s;
+@import "../variables";
 
-.wsk-menu__container {
+.mdl-menu__container {
   display: block;
   margin: 0;
   padding: 0;
@@ -18,7 +27,7 @@ $menu-fade-duration: 0.2s;
   width: 0;
 }
 
-.wsk-menu__outline {
+.mdl-menu__outline {
   display: block;
   background: $default-dropdown-bg-color;
   margin: 0;
@@ -37,25 +46,25 @@ $menu-fade-duration: 0.2s;
   transition: transform $menu-expand-duration $animation-curve-default,
       opacity $menu-fade-duration $animation-curve-default;
 
-  .wsk-menu__container.is-visible & {
+  .mdl-menu__container.is-visible & {
     opacity: 1;
     transform: scale(1);
   }
 
-  &.wsk-menu--bottom-right {
+  &.mdl-menu--bottom-right {
     transform-origin: 100% 0;
   }
 
-  &.wsk-menu--top-left {
+  &.mdl-menu--top-left {
     transform-origin: 0 100%;
   }
 
-  &.wsk-menu--top-right {
+  &.mdl-menu--top-right {
     transform-origin: 100% 100%;
   }
 }
 
-.wsk-menu {
+.mdl-menu {
   position: absolute;
   list-style: none;
   top: 0;
@@ -68,7 +77,7 @@ $menu-fade-duration: 0.2s;
   opacity: 0;
   clip: rect(0 0 0 0);
 
-  .wsk-menu__container.is-visible & {
+  .mdl-menu__container.is-visible & {
     opacity: 1;
   }
 
@@ -77,30 +86,30 @@ $menu-fade-duration: 0.2s;
         clip $menu-expand-duration $animation-curve-default;
   }
 
-  &.wsk-menu--bottom-right {
+  &.mdl-menu--bottom-right {
     left: auto;
     right: 0;
   }
 
-  &.wsk-menu--top-left {
+  &.mdl-menu--top-left {
     top: auto;
     bottom: 0;
   }
 
-  &.wsk-menu--top-right {
+  &.mdl-menu--top-right {
     top: auto;
     left: auto;
     bottom: 0;
     right: 0;
   }
 
-  &.wsk-menu--unaligned {
+  &.mdl-menu--unaligned {
     top: auto;
     left: auto;
   }
 }
 
-.wsk-menu__item {
+.mdl-menu__item {
   display: block;
   border: none;
   color: $default-item-text-color;
@@ -115,13 +124,14 @@ $menu-fade-duration: 0.2s;
   text-decoration: none;
   cursor: pointer;
   height: 48px;
+  width: 100%;
   line-height: 48px;
   white-space: nowrap;
   opacity: 0;
   transition: opacity $menu-fade-duration $animation-curve-default;
   user-select: none;
 
-  .wsk-menu__container.is-visible & {
+  .mdl-menu__container.is-visible & {
     opacity: 1;
   }
 
@@ -142,7 +152,7 @@ $menu-fade-duration: 0.2s;
       background-color: transparent;
     }
 
-    & .wsk-ripple {
+    & .mdl-ripple {
       background: transparent;
     }
   }
@@ -162,7 +172,7 @@ $menu-fade-duration: 0.2s;
 }
 
 
-.wsk-menu__item--ripple-container {
+.mdl-menu__item--ripple-container {
   display: block;
   height: 100%;
   left: 0px;

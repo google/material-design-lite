@@ -1,13 +1,22 @@
-@import "../colors";
-@import "../shadow/shadow";
-@import "../animation/animation";
-@import "../ripple/ripple";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-$icon-toggle-size: 32px !default;
-$icon-toggle-font-size: 24px !default;
-$icon-toggle-ripple-size: 36px !default;
+@import "../variables";
 
-.wsk-icon-toggle {
+.mdl-icon-toggle {
   position: relative;
 
   z-index: 1;
@@ -20,10 +29,10 @@ $icon-toggle-ripple-size: 36px !default;
   padding: 0;
 }
 
-.wsk-icon-toggle__input {
+.mdl-icon-toggle__input {
   line-height: $icon-toggle-size;
 
-  .wsk-icon-toggle.is-upgraded & {
+  .mdl-icon-toggle.is-upgraded & {
     // Hide input element, while still making it respond to focus.
     position: absolute;
     width: 0;
@@ -39,7 +48,7 @@ $icon-toggle-ripple-size: 36px !default;
   }
 }
 
-.wsk-icon-toggle__label {
+.mdl-icon-toggle__label {
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -59,27 +68,27 @@ $icon-toggle-ripple-size: 36px !default;
   transition: background-color 0.2s $animation-curve-default,
   color 0.2s $animation-curve-default;
 
-  .wsk-icon-toggle.is-checked & {
+  .mdl-icon-toggle.is-checked & {
     color: $icon-toggle-checked-color;
   }
 
-  .wsk-icon-toggle.is-disabled & {
+  .mdl-icon-toggle.is-disabled & {
     color: $icon-toggle-disabled-color;
     cursor: auto;
     transition: none;
   }
 
-  .wsk-icon-toggle.is-focused & {
+  .mdl-icon-toggle.is-focused & {
     background-color: $icon-toggle-focus-color;
   }
 
-  .wsk-icon-toggle.is-focused.is-checked & {
+  .mdl-icon-toggle.is-focused.is-checked & {
     background-color: $icon-toggle-checked-focus-color;
   }
 }
 
 
-.wsk-icon-toggle__ripple-container {
+.mdl-icon-toggle__ripple-container {
   position: absolute;
   z-index: 2;
   top: -(($icon-toggle-ripple-size - $icon-toggle-size) / 2);
@@ -95,15 +104,15 @@ $icon-toggle-ripple-size: 36px !default;
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 
-  & .wsk-ripple {
+  & .mdl-ripple {
     background: $icon-toggle-color;
   }
 
-  .wsk-icon-toggle.is-disabled & {
+  .mdl-icon-toggle.is-disabled & {
     cursor: auto;
   }
 
-  .wsk-icon-toggle.is-disabled & .wsk-ripple {
+  .mdl-icon-toggle.is-disabled & .mdl-ripple {
     background: transparent;
   }
 }

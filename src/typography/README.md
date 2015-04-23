@@ -24,7 +24,7 @@ MDL typography does not require the inclusion of the minified CSS and JavaScript
 ```
 &nbsp;2. Add one or more MDL classes, separated by spaces, to the element using the `class` attribute.
 ```html
-<p class="wsk-typography--body-1">This is a standard paragraph.</p>
+<p class="mdl-typography--body-1">This is a standard paragraph.</p>
 ```
 
 The typography component is ready for use.
@@ -34,30 +34,30 @@ The typography component is ready for use.
 A "headline" paragraph.
 
 ```html
-<p class="wsk-typography--headline">Regular 24px</p>
+<p class="mdl-typography--headline">Regular 24px</p>
 ```
 
 A "title" paragraph.
 ```html
-<p class="wsk-typography--title">Medium 20px</p>
+<p class="mdl-typography--title">Medium 20px</p>
 ```
 
 A "caption" span.
 ```html
-<span class="wsk-typography--caption">Regular 12px</span>
+<span class="mdl-typography--caption">Regular 12px</span>
 ```
 
 A "button" span.
 ```html
-<span class="wsk-typography--button">Medium (All Caps) 14px</span>
+<span class="mdl-typography--button">Medium (All Caps) 14px</span>
 ```
 A "display 1" table cell.
 ```html
-<td class="wsk-typography--display-1">Regular 34px</td>
+<td class="mdl-typography--display-1">Regular 34px</td>
 ```
 A "body-1" paragraph, also uppercased.
 ```html
-<p class="wsk-typography--body-1 wsk-typography--text-uppercase">This is a standard paragraph, but uppercased.</p>
+<p class="mdl-typography--body-1 mdl-typography--text-uppercase">This is a standard paragraph, but uppercased.</p>
 ```
 
 >**Note:** Because the Roboto font is intended to apply to the entire page, standard "unclassed" HTML elements (e.g., heading levels, divs, paragraphs, spans, tables, etc. with no `class` attribute) and text modifiers (e.g., strong, em, small, etc.) will use Roboto, while also retaining their inherent and/or inherited characteristics.
@@ -69,38 +69,38 @@ The MDL CSS classes specify the style to use. The table below lists the availabl
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-typography--body-1` | Regular 14px (Device), Regular 13px (Desktop) | Optional |
-| `wsk-typography--body-1-force-preferred-font` | Regular 14px (Device), Regular 13px (Desktop) | Optional |
-| `wsk-typography--body-2` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
-| `wsk-typography--body-2` | wsk-typography-body-2 | Optional |
-| `wsk-typography--body-2-color-contrast` | Body with color contrast | Optional |
-| `wsk-typography--body-2-force-preferred-font` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
-| `wsk-typography--button` | Medium (All Caps) 14px | Optional |
-| `wsk-typography--caption` | Regular 12px | Optional |
-| `wsk-typography--caption-color-contrast` | Caption with color contrast | Optional |
-| `wsk-typography--display-1` | Regular 34px | Optional |
-| `wsk-typography--display-1-color-contrast` | Display with color contrast | Optional |
-| `wsk-typography--display-2` | Regular 45px | Optional |
-| `wsk-typography--display-3` | Regular 56px | Optional |
-| `wsk-typography--display-4` | Light 112px | Optional |
-| `wsk-typography--headline` | Regular 24px | Optional |
-| `wsk-typography--menu` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
-| `wsk-typography--subhead` | Regular 16px (Device), Regular 15px (Desktop) | Optional |
-| `wsk-typography--subhead-color-contrast` | Subhead with color contrast | Optional |
-| `wsk-typography--table-striped` | Striped table| Optional |
-| `wsk-typography--text-capitalize` | Capitalized text | Optional |
-| `wsk-typography--text-center` | Center aligned text | Optional |
-| `wsk-typography--text-justify` | Justified text | Optional |
-| `wsk-typography--text-left` | Left aligned text | Optional |
-| `wsk-typography--text-lowercase` | Lowercased text | Optional |
-| `wsk-typography--text-nowrap` | No wrap text | Optional |
-| `wsk-typography--text-right` | Right aligned text | Optional |
-| `wsk-typography--text-uppercase` | Uppercased text | Optional |
-| `wsk-typography--title` | Medium 20px | Optional |
-| `wsk-typography--title-color-contrast` | Title with color contrast | Optional |
+| `mdl-typography--body-1` | Regular 14px (Device), Regular 13px (Desktop) | Optional |
+| `mdl-typography--body-1-force-preferred-font` | Regular 14px (Device), Regular 13px (Desktop) | Optional |
+| `mdl-typography--body-2` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
+| `mdl-typography--body-2` | mdl-typography-body-2 | Optional |
+| `mdl-typography--body-2-color-contrast` | Body with color contrast | Optional |
+| `mdl-typography--body-2-force-preferred-font` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
+| `mdl-typography--button` | Medium (All Caps) 14px | Optional |
+| `mdl-typography--caption` | Regular 12px | Optional |
+| `mdl-typography--caption-color-contrast` | Caption with color contrast | Optional |
+| `mdl-typography--display-1` | Regular 34px | Optional |
+| `mdl-typography--display-1-color-contrast` | Display with color contrast | Optional |
+| `mdl-typography--display-2` | Regular 45px | Optional |
+| `mdl-typography--display-3` | Regular 56px | Optional |
+| `mdl-typography--display-4` | Light 112px | Optional |
+| `mdl-typography--headline` | Regular 24px | Optional |
+| `mdl-typography--menu` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
+| `mdl-typography--subhead` | Regular 16px (Device), Regular 15px (Desktop) | Optional |
+| `mdl-typography--subhead-color-contrast` | Subhead with color contrast | Optional |
+| `mdl-typography--table-striped` | Striped table| Optional |
+| `mdl-typography--text-capitalize` | Capitalized text | Optional |
+| `mdl-typography--text-center` | Center aligned text | Optional |
+| `mdl-typography--text-justify` | Justified text | Optional |
+| `mdl-typography--text-left` | Left aligned text | Optional |
+| `mdl-typography--text-lowercase` | Lowercased text | Optional |
+| `mdl-typography--text-nowrap` | No wrap text | Optional |
+| `mdl-typography--text-right` | Right aligned text | Optional |
+| `mdl-typography--text-uppercase` | Uppercased text | Optional |
+| `mdl-typography--title` | Medium 20px | Optional |
+| `mdl-typography--title-color-contrast` | Title with color contrast | Optional |
 
 ##More information
-For working examples of the **typography** component, see the MDL [typography demo page](http://google.github.io/web-starter-kit/latest/styleguide/typography/demo.html).
+For working examples of the **typography** component, see the MDL [typography demo page](http://google.github.io/material-design-lite/latest/styleguide/typography/demo.html).
 
 ## License
 

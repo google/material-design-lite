@@ -33,9 +33,9 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the label, checkbox, and caption using the `class` attribute.
 ```html
-<label for="radio1" class="wsk-radio wsk-js-radio">
-  <input type="radio" id="radio1" name="flash" value="on" class="wsk-radio__button" />
-  <span class="wsk-radio__label">Always on</span>
+<label for="radio1" class="mdl-radio mdl-js-radio">
+  <input type="radio" id="radio1" name="flash" value="on" class="mdl-radio__button" />
+  <span class="mdl-radio__label">Always on</span>
 </label>
 ```
 &nbsp;5. Repeat steps 1 through 4 for the other radio components in the group. For each one:
@@ -49,17 +49,17 @@ The radio components are ready for use.
 ####Example
 A group of radio buttons to control a camera's flash setting.
 ```html
-<label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="flash1">
-  <input checked class="wsk-radio__button" id="flash1" name="flash" type="radio" value="on"> 
-  <span class="wsk-radio__label">Always on</span>
+<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="flash1">
+  <input checked class="mdl-radio__button" id="flash1" name="flash" type="radio" value="on"> 
+  <span class="mdl-radio__label">Always on</span>
 </label>
-<label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="flash2">
-  <input class="wsk-radio__button" id="flash2" name="flash" type="radio" value="off"> 
-  <span class="wsk-radio__label">Always off</span>
+<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="flash2">
+  <input class="mdl-radio__button" id="flash2" name="flash" type="radio" value="off"> 
+  <span class="mdl-radio__label">Always off</span>
 </label> 
-<label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="flash3">
-  <input class="wsk-radio__button" id="flash3" name="flash" type="radio" value="auto"> 
-  <span class="wsk-radio__label">Automatic</span>
+<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="flash3">
+  <input class="mdl-radio__button" id="flash3" name="flash" type="radio" value="auto"> 
+  <span class="mdl-radio__label">Automatic</span>
 </label> 
 ```
 ##Configuration options
@@ -67,13 +67,13 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-radio` | Defines label as an MDL component | Required on label element|
-| `wsk-js-radio` | Assigns basic MDL behavior to label | Required on label element |
-| `wsk-radio__button` | Applies basic MDL behavior to radio | Required on input element (radio button) |
-| `wsk-radio__label` | Applies basic MDL behavior to caption | Required on span element (caption) |
-| `wsk-js-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (radio button) |
+| `mdl-radio` | Defines label as an MDL component | Required on label element|
+| `mdl-js-radio` | Assigns basic MDL behavior to label | Required on label element |
+| `mdl-radio__button` | Applies basic MDL behavior to radio | Required on input element (radio button) |
+| `mdl-radio__label` | Applies basic MDL behavior to caption | Required on span element (caption) |
+| `mdl-js-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (radio button) |
 
->**Note:** Disabled versions of all the available radio button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="radio" id="radio5" name="flash" class="wsk-radio__button" disabled />`
+>**Note:** Disabled versions of all the available radio button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="radio" id="radio5" name="flash" class="mdl-radio__button" disabled />`
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information

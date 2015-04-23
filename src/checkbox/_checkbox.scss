@@ -1,16 +1,22 @@
-@import "../colors";
-@import "../animation/animation";
-@import "../ripple/ripple";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-$checkbox-label-height: 24px;
-$checkbox-button-size: 16px;
-$checkbox-inner-margin: 2px;
-$checkbox-padding: 8px;
-$checkbox-top-offset:
-  ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
-$checkbox-ripple-size: $checkbox-label-height * 1.5;
+@import "../variables";
 
-.wsk-checkbox {
+.mdl-checkbox {
   position: relative;
 
   z-index: 1;
@@ -30,10 +36,10 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   }
 }
 
-.wsk-checkbox__input {
+.mdl-checkbox__input {
   line-height: $checkbox-label-height;
 
-  .wsk-checkbox.is-upgraded & {
+  .mdl-checkbox.is-upgraded & {
     // Hide input element, while still making it respond to focus.
     position: absolute;
     width: 0;
@@ -49,7 +55,7 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   }
 }
 
-.wsk-checkbox__box-outline {
+.mdl-checkbox__box-outline {
   position: absolute;
   top: $checkbox-top-offset;
   left: 0;
@@ -69,17 +75,17 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
 
   z-index: 2;
 
-  .wsk-checkbox.is-checked & {
+  .mdl-checkbox.is-checked & {
     border: 2px solid $checkbox-color;
   }
 
-  .wsk-checkbox.is-disabled & {
+  .mdl-checkbox.is-disabled & {
     border: 2px solid $checkbox-disabled-color;
     cursor: auto;
   }
 }
 
-.wsk-checkbox__focus-helper {
+.mdl-checkbox__focus-helper {
   position: absolute;
   top: $checkbox-top-offset;
   left: 0;
@@ -93,52 +99,52 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
 
   background-color: transparent;
 
-  .wsk-checkbox.is-focused & {
+  .mdl-checkbox.is-focused & {
     box-shadow: 0 0 0px ($checkbox-button-size / 2) rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1);
   }
 
-  .wsk-checkbox.is-focused.is-checked & {
+  .mdl-checkbox.is-focused.is-checked & {
     box-shadow: 0 0 0px ($checkbox-button-size / 2) $checkbox-focus-color;
     background-color: $checkbox-focus-color;
   }
 }
 
-.wsk-checkbox__tick-outline {
+.mdl-checkbox__tick-outline {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  mask: url("../images/tick-mask.svg#mask");
+  mask: url("/images/tick-mask.svg#mask");
 
   background: transparent;
   @include material-animation-default(0.28s);
   transition-property: background;
 
-  .wsk-checkbox.is-checked & {
-    background: $checkbox-color url("../images/tick.svg");
+  .mdl-checkbox.is-checked & {
+    background: $checkbox-color url("/images/tick.svg");
   }
 
-  .wsk-checkbox.is-checked.is-disabled & {
-    background: $checkbox-disabled-color url("../images/tick.svg");
+  .mdl-checkbox.is-checked.is-disabled & {
+    background: $checkbox-disabled-color url("/images/tick.svg");
   }
 }
 
-.wsk-checkbox__label {
+.mdl-checkbox__label {
   position: relative;
   cursor: pointer;
   font-size: 16px;
   line-height: $checkbox-label-height;
   margin: 0;
 
-  .wsk-checkbox.is-disabled & {
+  .mdl-checkbox.is-disabled & {
     color: $checkbox-disabled-color;
     cursor: auto;
   }
 }
 
-.wsk-checkbox__ripple-container {
+.mdl-checkbox__ripple-container {
   position: absolute;
   z-index: 2;
   top: -(($checkbox-ripple-size - $checkbox-label-height) / 2);
@@ -154,15 +160,15 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
 
-  & .wsk-ripple {
+  & .mdl-ripple {
     background: $checkbox-color;
   }
 
-  .wsk-checkbox.is-disabled & {
+  .mdl-checkbox.is-disabled & {
     cursor: auto;
   }
 
-  .wsk-checkbox.is-disabled & .wsk-ripple {
+  .mdl-checkbox.is-disabled & .mdl-ripple {
     background: transparent;
   }
 }

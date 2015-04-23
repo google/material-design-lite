@@ -29,6 +29,9 @@ var reload = browserSync.reload;
 var fs = require('fs');
 var path = require('path');
 var pkg = require('./package.json');
+var through = require('through2');
+var swig = require('swig');
+var merge = require('merge-stream');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -49,6 +52,9 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
+
+// ***** Development tasks ****** //
+
 // Lint JavaScript
 gulp.task('jshint', function () {
   return gulp.src('src/**/*.js')
@@ -57,6 +63,9 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
+
+
+// ***** Production build tasks ****** //
 
 // Optimize Images
 // TODO: Update image paths in final CSS to match root/images
@@ -87,6 +96,9 @@ gulp.task('styles:dev', ['fonts'], function () {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
+    }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe($.size({title: 'styles'}));
@@ -104,6 +116,9 @@ gulp.task('styletemplates', function () {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
+    }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
@@ -113,6 +128,7 @@ gulp.task('styletemplates', function () {
     // Minify Styles
     .pipe($.if('*.css.template', $.csso()))
     .pipe($.concat('material.min.css.template'))
+    .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./css'))
     .pipe($.size({title: 'styles'}));
 });
@@ -128,6 +144,9 @@ gulp.task('styles', ['styletemplates'], function () {
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
@@ -148,7 +167,7 @@ gulp.task('styles', ['styletemplates'], function () {
 gulp.task('scripts', function () {
   var sources = [
     // Component handler
-    'src/wskComponentHandler.js',
+    'src/mdlComponentHandler.js',
     // Polyfills/dependencies
     'src/third_party/**/*.js',
     // Base components
@@ -158,6 +177,7 @@ gulp.task('scripts', function () {
     'src/column-layout/column-layout.js',
     'src/icon-toggle/icon-toggle.js',
     'src/menu/menu.js',
+    'src/progress/progress.js',
     'src/radio/radio.js',
     'src/slider/slider.js',
     'src/spinner/spinner.js',
@@ -185,38 +205,8 @@ gulp.task('scripts', function () {
     .pipe($.size({title: 'scripts'}));
 });
 
-// Run Unit Tests
-gulp.task('mocha', function () {
-  return gulp.src('./test/index.html')
-    .pipe($.mochaPhantomjs({reporter: 'list'}))
-});
-
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['.tmp', 'css/*', 'js/*', '!dist/.git'], {dot: true}));
-
-// Watch Files For Changes & Reload
-gulp.task('serve', ['styles:dev'], function () {
-  browserSync({
-    notify: false,
-    // Customize the BrowserSync console logging prefix
-    logPrefix: 'WSK',
-    server: ['.tmp', 'src', '.tmp/styles']
-  });
-
-  gulp.watch(['src/**/*.html'], reload);
-  gulp.watch(['src/**/*.{scss,css}'], ['styles:dev', reload]);
-  gulp.watch(['src/**/*.js'], ['jshint']);
-});
-
-// Build and serve the output from the dist build
-gulp.task('serve:dist', ['default'], function () {
-  browserSync({
-    notify: false,
-    logPrefix: 'WSK',
-    server: './',
-    baseDir: 'src'
-  });
-});
+gulp.task('clean', del.bind(null, ['css/*', 'js/*'], {dot: true}));
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean','mocha'], function (cb) {
@@ -226,4 +216,229 @@ gulp.task('default', ['clean','mocha'], function (cb) {
     cb);
 });
 
+
+// ***** Testing tasks ***** //
+
+gulp.task('mocha', function () {
+  return gulp.src('./test/index.html')
+    .pipe($.mochaPhantomjs({reporter: 'list'}))
+});
+
 gulp.task('test', ['jshint', 'mocha']);
+
+gulp.task('test:visual', function() {
+  browserSync({
+    notify: false,
+    server: './',
+    startPath: 'test/visual/index.html'
+  });
+
+  gulp.watch(['test/visual/**'], reload);
+});
+
+
+// ***** Landing page tasks ***** //
+
+/**
+ * Site metadata for use with templates.
+ * @type {Object}
+ */
+var site = {};
+
+
+/**
+ * Compiled swig templates cache.
+ * @type {Object}
+ */
+var templates = {};
+
+
+/**
+ * Generates an HTML file based on a template and file metadata.
+ */
+function applyTemplate() {
+  return through.obj(function(file, enc, cb) {
+    var data = {
+      site: site,
+      page: file.page,
+      content: file.contents.toString()
+    };
+    // If template not in template cache, compile and add it.
+    if (!templates[file.page.layout]) {
+      var templateFile = path.join(
+          __dirname, 'docs', '_templates', file.page.layout + '.html');
+      $.util.log('Compiling template:', $.util.colors.yellow(file.page.layout));
+      templates[file.page.layout] = swig.compileFile(templateFile);
+    }
+    var tpl = templates[file.page.layout];
+    file.contents = new Buffer(tpl(data), 'utf8');
+    this.push(file);
+    cb();
+  })
+}
+
+
+/**
+ * Generates an index.html file for each README in MDL/src directory.
+ */
+gulp.task('components', function() {
+  return gulp.src('./src/**/README.md', {base: './src'})
+    // Add basic front matter.
+    .pipe($.header('---\nlayout: component\n---\n\n'))
+    .pipe($.frontMatter({property: 'page', remove: true}))
+    .pipe($.marked())
+    .pipe((function () {
+      var componentPages = [];
+      return through.obj(function(file, enc, cb) {
+        file.page.component = file.relative.split('/')[0];
+        componentPages.push(file.page);
+        this.push(file);
+        cb();
+      },
+      function(cb) {
+        site.components = componentPages;
+        cb();
+      })
+    })())
+    .pipe(applyTemplate())
+    .pipe($.rename(function (path) {
+        path.basename = "index";
+    }))
+    .pipe(gulp.dest('docs/out/components'));
+});
+
+
+/**
+ * Copies demo files from MDL/src directory.
+ */
+gulp.task('demos', function () {
+    return gulp.src([
+        './src/**/demo.*',
+        './src/**/*.js'
+      ], {base: './src'})
+      .pipe($.if('*.scss', $.sass({
+        precision: 10,
+        onError: console.error.bind(console, 'Sass error:')
+      })))
+      .pipe($.base64({
+        extensionsAllowed: ['.svg'],
+      }))
+      .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+      .pipe(gulp.dest('docs/out/components'));
+});
+
+
+/**
+ * Generates an HTML file for each md file in _pages directory.
+ */
+gulp.task('pages', ['components'], function() {
+  return gulp.src(['docs/_pages/*.md'])
+    .pipe($.frontMatter({property: 'page', remove: true}))
+    .pipe($.marked())
+    .pipe(applyTemplate())
+    .pipe($.rename(function(path) {
+      if (path.basename !== 'index') {
+        path.dirname = path.basename;
+        path.basename = 'index';
+      }
+    }))
+    .pipe(gulp.dest('docs/out'));
+});
+
+
+/**
+ * Copies assets from MDL and _assets directory.
+ */
+gulp.task('assets', function () {
+  return gulp.src(['docs/_assets/**'])
+    .pipe(gulp.dest('docs/out/assets'));
+});
+
+
+/**
+ * Serves the landing page from "out" directory.
+ */
+gulp.task('serve', ['assets', 'pages', 'demos', 'templates'], function () {
+  browserSync({
+    notify: false,
+    server: {
+      baseDir: ['docs/out', 'js', 'css', 'fonts'],
+      routes: {
+        '/fonts': 'fonts',
+        '/components/fonts': 'fonts'
+      }
+    }
+  });
+
+  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['scripts', 'demos', 'components', reload]);
+  gulp.watch(['src/**/*.{scss,css}'], ['styles', 'demos', reload]);
+  gulp.watch(['src/**/*.html'], ['demos', reload]);
+  gulp.watch(['src/**/README.md'], ['components', reload]);
+  gulp.watch(['templates/**/*'], ['templates', reload]);
+});
+
+gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], function() {
+  var push = !!process.env.GH_PUSH;
+  if (!push) {
+    console.log('Dry run! To push set $GH_PUSH to true');
+  }
+
+  var s1 = gulp.src([
+    'docs/out/**/*',
+    'css/material.min.css',
+    'js/material.min.js'
+  ]);
+  var s2 = gulp.src([
+    'fonts/**/*'
+  ], {base: '.'});
+
+  return merge(s1, s2)
+  .pipe($.ghPages({
+    push: push,
+  }));
+});
+
+gulp.task('templates:styles', function() {
+  return gulp.src([
+    'templates/**/*.scss'
+  ])
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.base64({
+      extensionsAllowed: ['.svg'],
+    }))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.if('*.css', $.csso()))
+    .pipe($.rename({suffix: '.min'}))
+    .pipe(gulp.dest('docs/out/templates'))
+});
+
+gulp.task('templates:static', function() {
+  return gulp.src([
+    'templates/**/*.html',
+    'templates/**/*.css'
+  ])
+  .pipe(gulp.dest('docs/out/templates'));
+});
+
+gulp.task('templates:images', function() {
+  return gulp.src([
+    'templates/*/images/**/*'
+  ])
+  .pipe($.imagemin({
+    progressive: true,
+    interlaced: true
+  }))
+  .pipe(gulp.dest('docs/out/templates'));
+});
+
+gulp.task('templates:fonts', function() {
+  return gulp.src([
+    'fonts/**/*'
+  ], {base: '.'})
+  .pipe(gulp.dest('docs/out/templates/'));
+})
+
+gulp.task('templates', ['templates:static', 'templates:images', 'templates:styles', 'templates:fonts']);

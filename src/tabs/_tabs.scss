@@ -1,21 +1,42 @@
-@import "../colors";
-@import "../animation/animation";
-@import "../typography/typography";
-@import "../ripple/ripple";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-.wsk-tabs {
+@import "../variables";
+
+
+.mdl-tabs {
   display: block;
   width: 100%;
 }
 
-.wsk-tabs__tab-bar {
-  height: 48px;
-  padding: 0 0 0 56px;
-  margin: 0;
-  border-bottom: 1px solid $tab-border-color;
+.mdl-tabs__tab-bar {
+    display         : flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;
+    justify-content : center; // ⇾
+    align-content   : space-between; // ||
+    align-items     : flex-start; // ↓
+
+    height          : 48px;
+    padding         : 0 0 0 0;
+    margin          : 0;
+    border-bottom   : 1px solid $tab-border-color;
 }
 
-.wsk-tabs__tab {
+.mdl-tabs__tab {
   margin: 0;
   border: none;
   padding: 0 24px 0 24px;
@@ -37,11 +58,11 @@
   color: $tab-text-color;
   overflow: hidden;
 
-  .wsk-tabs.is-upgraded &.is-active {
+  .mdl-tabs.is-upgraded &.is-active {
     color: $tab-active-text-color;
   }
 
-  .wsk-tabs.is-upgraded &.is-active:after {
+  .mdl-tabs.is-upgraded &.is-active:after {
     height: 2px;
     width: 100%;
     display: block;
@@ -55,7 +76,7 @@
     transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
   }
 
-  & .wsk-tabs__ripple-container {
+  & .mdl-tabs__ripple-container {
     display: block;
     position: absolute;
     height: 100%;
@@ -65,20 +86,20 @@
     z-index: 1;
     overflow: hidden;
 
-    & .wsk-ripple {
+    & .mdl-ripple {
       background: $tab-highlight-color;
     }
   }
 }
 
-.wsk-tabs__panel {
+.mdl-tabs__panel {
   display: block;
 
-  .wsk-tabs.is-upgraded & {
+  .mdl-tabs.is-upgraded & {
     display: none;
   }
 
-  .wsk-tabs.is-upgraded &.is-active {
+  .mdl-tabs.is-upgraded &.is-active {
     display: block;
   }
 }

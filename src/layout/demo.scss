@@ -1,10 +1,20 @@
-@import '../styleguide_demo_bp';
-@import '_layout';
-@import '../textfield/textfield';
-@import '../animation/animation';
-@import '../palette/palette';
-@import '../icons/icons';
-@import '../button/button';
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "../material-design-lite";
 
 .demo-layout {
   width: 100%;
@@ -40,7 +50,7 @@
 }
 
 // Styles for fixed header demo.
-.demo-page--layout .wsk-layout.is-small-screen #fixed_header_nav {
+.demo-page--layout .mdl-layout.is-small-screen #fixed_header_nav {
   visibility: hidden;
 }
 
@@ -59,19 +69,19 @@
   visibility: visible;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #my_text_changes {
+.demo-page--layout .mdl-layout__header.is-compact #my_text_changes {
   @include typo-title;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #compact_navigation {
+.demo-page--layout .mdl-layout__header.is-compact #compact_navigation {
   visibility: visible;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #expanded_navigation {
+.demo-page--layout .mdl-layout__header.is-compact #expanded_navigation {
   visibility: hidden;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #my_text_changes:after {
+.demo-page--layout .mdl-layout__header.is-compact #my_text_changes:after {
   content: " \0000a0 > \0000a0 Multi-row layout demo";
 }
 

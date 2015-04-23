@@ -1,0 +1,117 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.mdl-layout__header {
+  padding: 0 16px;
+  overflow: visible;
+}
+.mdl-layout__drawer {
+  overflow: visible;
+}
+.mdl-layout__drawer .avatar {
+  margin-bottom: 16px;
+}
+.mdl-layout__drawer > header {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.mdl-layout__drawer > header > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.mdl-layout__drawer nav a {
+  color: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.mdl-layout__drawer nav a .mdl-icon {
+  font-size: 1.5em;
+  margin-right: 16px;
+}
+.mdl-layout__drawer .mdl-navigation {
+  flex-grow: 1;
+}
+
+.mdl-layout__content {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.charts {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+.charts svg:nth-child(1) {
+  fill: #ACEC00;
+}
+.charts svg:nth-child(2) {
+  fill: #00BBD6;
+}
+.charts svg:nth-child(3) {
+  fill: #BA65C9;
+}
+.charts svg:nth-child(4) {
+  fill: #EF3C79;
+}
+.graphs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  flex-grow: 1;
+}
+.graphs img {
+  margin-bottom: 80px;
+}
+.cards .mdl-card {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.cards .mdl-card--heading {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+.cards .mdl-card--lower {
+  height: auto;
+  flex-grow: 0;
+}
+.cards .mdl-card--heading h2 {
+  height: auto;
+  align-self: flex-end;
+}
+.cards ul {
+  padding: 0;
+}
+.cards h3 {
+  font-size: 1em;
+}
+.cards .dog {
+  height: 200px;
+  background-image: url('images/dog.png');
+  background-position: 90% 100%;
+  background-repeat: no-repeat;
+}

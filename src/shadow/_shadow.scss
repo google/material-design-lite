@@ -1,35 +1,37 @@
-@mixin shadow-z1() {
-  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
-}
-@mixin shadow-z2() {
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 5px 0 rgba(0,0,0,0.23);
-}
-@mixin shadow-z3() {
-  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.19), 0 6px 3px 0 rgba(0,0,0,0.23);
-}
-@mixin shadow-z4() {
-  box-shadow: 0 14px 14px 0 rgba(0,0,0,0.25), 0 10px 5px 0 rgba(0,0,0,0.22);
-}
-@mixin shadow-z5() {
-  box-shadow: 0 19px 19px 0 rgba(0,0,0,0.30), 0 15px 6px 0 rgba(0,0,0,0.22);
-}
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-.wsk-shadow--z1 {
+@import "../variables";
+
+.mdl-shadow--z1 {
   @include shadow-z1();
 }
 
-.wsk-shadow--z2 {
+.mdl-shadow--z2 {
   @include shadow-z2();
 }
 
-.wsk-shadow--z3 {
+.mdl-shadow--z3 {
   @include shadow-z3();
 }
 
-.wsk-shadow--z4 {
+.mdl-shadow--z4 {
   @include shadow-z4();
 }
 
-.wsk-shadow--z5 {
+.mdl-shadow--z5 {
   @include shadow-z5();
 }

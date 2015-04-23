@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Slider WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSlider(element) {
@@ -31,11 +47,11 @@ MaterialSlider.prototype.Constant_ = {
  * @private
  */
 MaterialSlider.prototype.CssClasses_ = {
-  IE_CONTAINER: 'wsk-slider__ie-container',
-  SLIDER_CONTAINER: 'wsk-slider__container',
-  BACKGROUND_FLEX: 'wsk-slider__background-flex',
-  BACKGROUND_LOWER: 'wsk-slider__background-lower',
-  BACKGROUND_UPPER: 'wsk-slider__background-upper',
+  IE_CONTAINER: 'mdl-slider__ie-container',
+  SLIDER_CONTAINER: 'mdl-slider__container',
+  BACKGROUND_FLEX: 'mdl-slider__background-flex',
+  BACKGROUND_LOWER: 'mdl-slider__background-lower',
+  BACKGROUND_UPPER: 'mdl-slider__background-upper',
   IS_LOWEST_VALUE: 'is-lowest-value',
   IS_UPGRADED: 'is-upgraded'
 };
@@ -48,7 +64,7 @@ MaterialSlider.prototype.CssClasses_ = {
 MaterialSlider.prototype.onInput_ = function(event) {
   'use strict';
 
-  this.updateValue_();
+  this.updateValueStyles_();
 };
 
 /**
@@ -59,7 +75,7 @@ MaterialSlider.prototype.onInput_ = function(event) {
 MaterialSlider.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateValue_();
+  this.updateValueStyles_();
 };
 
 /**
@@ -78,7 +94,7 @@ MaterialSlider.prototype.onMouseUp_ = function(event) {
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialSlider.prototype.updateValue_ = function(event) {
+MaterialSlider.prototype.updateValueStyles_ = function(event) {
   'use strict';
 
   // Calculate and apply percentages to div structure behind slider.
@@ -97,6 +113,42 @@ MaterialSlider.prototype.updateValue_ = function(event) {
     this.backgroundUpper_.style.flex = 1 - fraction;
     this.backgroundUpper_.style.webkitFlex = 1 - fraction;
   }
+};
+
+// Public methods.
+
+/**
+ * Disable slider.
+ * @public
+ */
+MaterialSlider.prototype.disable = function() {
+  'use strict';
+
+  this.element_.disabled = true;
+};
+
+/**
+ * Enable slider.
+ * @public
+ */
+MaterialSlider.prototype.enable = function() {
+  'use strict';
+
+  this.element_.disabled = false;
+};
+
+/**
+ * Update slider value.
+ * @param {Number} value The value to which to set the control (optional).
+ * @public
+ */
+MaterialSlider.prototype.change = function(value) {
+  'use strict';
+
+  if (value) {
+    this.element_.value = value;
+  }
+  this.updateValueStyles_();
 };
 
 /**
@@ -139,7 +191,7 @@ MaterialSlider.prototype.init = function() {
     this.element_.addEventListener('change', this.onChange_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateValue_();
+    this.updateValueStyles_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
@@ -149,5 +201,5 @@ MaterialSlider.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSlider,
   classAsString: 'MaterialSlider',
-  cssClass: 'wsk-js-slider'
+  cssClass: 'mdl-js-slider'
 });

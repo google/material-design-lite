@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Layout WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialLayout(element) {
@@ -42,37 +58,39 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
-  HEADER: 'wsk-layout__header',
-  DRAWER: 'wsk-layout__drawer',
-  CONTENT: 'wsk-layout__content',
-  DRAWER_BTN: 'wsk-layout__drawer-button',
+  HEADER: 'mdl-layout__header',
+  DRAWER: 'mdl-layout__drawer',
+  CONTENT: 'mdl-layout__content',
+  DRAWER_BTN: 'mdl-layout__drawer-button',
 
-  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_CONTAINER: 'wsk-layout__tab-ripple-container',
-  RIPPLE: 'wsk-ripple',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-layout__tab-ripple-container',
+  RIPPLE: 'mdl-ripple',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
 
-  HEADER_SEAMED: 'wsk-layout__header--seamed',
-  HEADER_WATERFALL: 'wsk-layout__header--waterfall',
-  HEADER_SCROLL: 'wsk-layout__header--scroll',
+  HEADER_SEAMED: 'mdl-layout__header--seamed',
+  HEADER_WATERFALL: 'mdl-layout__header--waterfall',
+  HEADER_SCROLL: 'mdl-layout__header--scroll',
 
-  FIXED_HEADER: 'wsk-layout--fixed-header',
-  OBFUSCATOR: 'wsk-layout__obfuscator',
+  FIXED_HEADER: 'mdl-layout--fixed-header',
+  OBFUSCATOR: 'mdl-layout__obfuscator',
 
-  TAB_BAR: 'wsk-layout__tab-bar',
-  TAB_CONTAINER: 'wsk-layout__tab-bar-container',
-  TAB: 'wsk-layout__tab',
-  TAB_BAR_BUTTON: 'wsk-layout__tab-bar-button',
-  TAB_BAR_LEFT_BUTTON: 'wsk-layout__tab-bar-left-button',
-  TAB_BAR_RIGHT_BUTTON: 'wsk-layout__tab-bar-right-button',
-  PANEL: 'wsk-layout__tab-panel',
+  TAB_BAR: 'mdl-layout__tab-bar',
+  TAB_CONTAINER: 'mdl-layout__tab-bar-container',
+  TAB: 'mdl-layout__tab',
+  TAB_BAR_BUTTON: 'mdl-layout__tab-bar-button',
+  TAB_BAR_LEFT_BUTTON: 'mdl-layout__tab-bar-left-button',
+  TAB_BAR_RIGHT_BUTTON: 'mdl-layout__tab-bar-right-button',
+  PANEL: 'mdl-layout__tab-panel',
 
+  HAS_DRAWER_CLASS: 'has-drawer',
   SHADOW_CLASS: 'is-casting-shadow',
   COMPACT_CLASS: 'is-compact',
   SMALL_SCREEN_CLASS: 'is-small-screen',
   DRAWER_OPEN_CLASS: 'is-visible',
   ACTIVE_CLASS: 'is-active',
-  UPGRADED_CLASS: 'is-upgraded'
+  UPGRADED_CLASS: 'is-upgraded',
+  ANIMATING_CLASS: 'is-animating'
 };
 
 /**
@@ -82,12 +100,18 @@ MaterialLayout.prototype.CssClasses_ = {
 MaterialLayout.prototype.contentScrollHandler_ = function() {
   'use strict';
 
-  if (this.content_.scrollTop > 0) {
+  if(this.header_.classList.contains(this.CssClasses_.ANIMATING_CLASS)) {
+    return;
+  }
+
+  if (this.content_.scrollTop > 0 && !this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.add(this.CssClasses_.COMPACT_CLASS);
-  } else {
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  } else if (this.content_.scrollTop <= 0 && this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
   }
 };
 
@@ -100,8 +124,7 @@ MaterialLayout.prototype.screenSizeHandler_ = function() {
 
   if (this.screenSizeMediaQuery_.matches) {
     this.element_.classList.add(this.CssClasses_.SMALL_SCREEN_CLASS);
-  }
-  else {
+  } else {
     this.element_.classList.remove(this.CssClasses_.SMALL_SCREEN_CLASS);
     // Collapse drawer (if any) when moving to a large screen size.
     if (this.drawer_) {
@@ -119,6 +142,27 @@ MaterialLayout.prototype.drawerToggleHandler_ = function() {
   'use strict';
 
   this.drawer_.classList.toggle(this.CssClasses_.DRAWER_OPEN_CLASS);
+};
+
+/**
+ * Handles (un)setting the `is-animating` class
+ */
+MaterialLayout.prototype.headerTransitionEndHandler = function() {
+  'use strict';
+
+  this.header_.classList.remove(this.CssClasses_.ANIMATING_CLASS);
+};
+
+/**
+ * Handles expanding the header on click
+ */
+MaterialLayout.prototype.headerClickHandler = function() {
+  'use strict';
+
+  if (this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
+    this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  }
 };
 
 /**
@@ -153,7 +197,7 @@ MaterialLayout.prototype.init = function() {
 
   if (this.element_) {
     var container = document.createElement('div');
-    container.classList.add('wsk-layout__container');
+    container.classList.add('mdl-layout__container');
     this.element_.parentElement.insertBefore(container, this.element_);
     this.element_.parentElement.removeChild(this.element_);
     container.appendChild(this.element_);
@@ -177,6 +221,10 @@ MaterialLayout.prototype.init = function() {
       } else if (this.header_.classList.contains(
           this.CssClasses_.HEADER_WATERFALL)) {
         mode = this.Mode_.WATERFALL;
+        this.header_.addEventListener('transitionend',
+          this.headerTransitionEndHandler.bind(this));
+        this.header_.addEventListener('click',
+          this.headerClickHandler.bind(this));
       } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
@@ -208,6 +256,11 @@ MaterialLayout.prototype.init = function() {
       drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
       drawerButton.addEventListener('click',
           this.drawerToggleHandler_.bind(this));
+
+      // Add a class if the layout has a drawer, for altering the left padding.
+      // Adds the HAS_DRAWER_CLASS to the elements since this.header_ may or may
+      // not be present.
+      this.element_.classList.add(this.CssClasses_.HAS_DRAWER_CLASS);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.
@@ -319,5 +372,5 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
 componentHandler.register({
   constructor: MaterialLayout,
   classAsString: 'MaterialLayout',
-  cssClass: 'wsk-js-layout'
+  cssClass: 'mdl-js-layout'
 });

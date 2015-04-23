@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for icon toggle WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialIconToggle(element) {
@@ -30,12 +46,12 @@ MaterialIconToggle.prototype.Constant_ = {
  * @private
  */
 MaterialIconToggle.prototype.CssClasses_ = {
-  INPUT: 'wsk-icon-toggle__input',
-  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-icon-toggle__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-icon-toggle__input',
+  JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-icon-toggle__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked'
@@ -49,7 +65,7 @@ MaterialIconToggle.prototype.CssClasses_ = {
 MaterialIconToggle.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -91,19 +107,19 @@ MaterialIconToggle.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
+MaterialIconToggle.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -117,8 +133,54 @@ MaterialIconToggle.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
+};
+
+// Public methods.
+
+/**
+ * Disable icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.disable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.enable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Check icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.check = function() {
+  'use strict';
+
+  this.inputElement_.checked = true;
+  this.updateClasses_();
+};
+
+/**
+ * Uncheck icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.uncheck = function() {
+  'use strict';
+
+  this.inputElement_.checked = false;
+  this.updateClasses_();
 };
 
 /**
@@ -128,7 +190,7 @@ MaterialIconToggle.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ =
+    this.inputElement_ =
         this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
     var rippleContainer;
@@ -147,12 +209,12 @@ MaterialIconToggle.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add('is-upgraded');
   }
 };
@@ -162,5 +224,5 @@ MaterialIconToggle.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialIconToggle,
   classAsString: 'MaterialIconToggle',
-  cssClass: 'wsk-js-icon-toggle'
+  cssClass: 'mdl-js-icon-toggle'
 });

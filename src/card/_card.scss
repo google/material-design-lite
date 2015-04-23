@@ -1,57 +1,22 @@
-@import "../typography/typography";
-@import "../colors";
-@import "../shadow/shadow";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-/* Card dimensions */
-$card-width: 330px !default;
-$card-height: 508px !default;
-$card-font-size: 16px !default;
-$card-heading-font-size: 24px !default;
-$card-heading-height: 96px !default;
-$card-horizontal-padding: 16px !default;
-$card-vertical-padding: 8px !default;
+@import "../variables";
 
-$card-heading-perspective-origin-x: 165px !default;
-$card-heading-perspective-origin-y: 56px !default;
-
-$card-heading-transform-origin-x: 165px !default;
-$card-heading-transform-origin-y: 56px !default;
-
-$card-heading-text-transform-origin-x: 149px !default;
-$card-heading-text-transform-origin-y: 48px !default;
-
-$card-caption-perspective-origin-x: 165px !default;
-$card-caption-perspective-origin-y: 16px !default;
-
-$card-caption-font-size: 12px !default;
-$card-caption-height: 16px !default;
-
-$card-lower-font-size: 13px !default;
-$card-lower-line-height: 18px !default;
-$card-lower-height: 108px !default;
-$card-lower-vertical-margin: 10px !default;
-
-$card-bottom-height: 50px !default;
-$card-bottom-font-size: 16px !default;
-
-$card-bottom-anchor-height: 50px !default;
-$card-bottom-anchor-line-height: 50px !default;
-$card-bottom-anchor-font-size: 13px !default;
-
-$card-bottom-anchor-perspective-origin-x: 165px !default;
-$card-bottom-anchor-perspective-origin-y: 25px !default;
-
-$card-bottom-anchor-transform-origin-x: 165px !default;
-$card-bottom-anchor-transform-origin-y: 25px !default;
-
-$card-heading-text-font-weight: 300 !default;
-$card-z-index: 1 !default;
-
-/* Cover image */
-$cover-image-height: 186px !default;
-$background-image-url: '' !default;
-
-.wsk-card {
+.mdl-card {
   font-size: $card-font-size;
   height   : $card-height;
   overflow : hidden;
@@ -62,7 +27,7 @@ $background-image-url: '' !default;
   border-radius: 2px;
 }
 
-.wsk-card--img-container {
+.mdl-card--img-container {
   background-color     : $image-placeholder-color;
   @if str_length($background-image-url) > 0 {
   background-image     : url($background-image-url);
@@ -75,7 +40,7 @@ $background-image-url: '' !default;
   height               : $cover-image-height;
 }
 
-.wsk-card--heading {
+.mdl-card--heading {
   align-items       : center;
   background        : $heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   border            : $heading-back-border;
@@ -94,7 +59,7 @@ $background-image-url: '' !default;
   width             : 100%;
 }
 
-.wsk-card--heading-text {
+.mdl-card--heading-text {
   align-self      : center;
   // TODO: Does this need to be anything other than none?
   border          : 0 none rgb(255, 255, 255);
@@ -114,7 +79,7 @@ $background-image-url: '' !default;
   width           : 90%;
 }
 
-.wsk-card--caption {
+.mdl-card--caption {
   background        : $caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   // TODO: Does this need to be anything other than none?
   border            : 0 none rgb(255, 255, 255);
@@ -131,7 +96,7 @@ $background-image-url: '' !default;
   width             : 100%;
 }
 
-.wsk-card--lower {
+.mdl-card--lower {
   // TODO: Does this need to be anything other than none?
   border         : 0 none rgb(68, 68, 68);
   color          : $lower-text-color;
@@ -148,14 +113,14 @@ $background-image-url: '' !default;
   width          : 90%;
 }
 
-.wsk-card--bottom {
+.mdl-card--bottom {
   font-size  : $card-bottom-font-size;
   height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
 }
 
-.wsk-card--bottom a {
+.mdl-card--bottom a {
   // TODO: Does this need to be anything other than none?
   border-bottom     : 0 none rgb(48, 63, 159);
   // TODO: Does this need to be anything other than none?

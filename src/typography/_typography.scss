@@ -1,202 +1,20 @@
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-$performance_font: 'Helvetica', 'Arial', sans-serif;
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-@mixin typo-preferred-font($usePreferred: true) {
-  @if $usePreferred {
-    font-family: $preferred_font;
-  }
-}
-
-@mixin typo-display-4($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 112px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-
-  @if $colorContrast {
-    opacity: 0.54;
-  }
-}
-
-@mixin typo-display-3($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-
-  @if $colorContrast {
-    opacity: 0.54;
-  }
-}
-
-@mixin typo-display-2($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px;
-
-  @if $colorContrast {
-    opacity: 0.54;
-  }
-}
-
-@mixin typo-display-1($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px;
-
-  @if $colorContrast {
-    opacity: 0.54;
-  }
-}
-
-@mixin typo-headline($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
-@mixin typo-title($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
-@mixin typo-subhead($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
-@mixin typo-subhead-2($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 0.04em;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
-@mixin typo-body-2($colorContrast: false, $usePreferred: false) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 14px;
-  @if $usePreferred {
-    font-weight: 500;
-  } @else {
-    font-weight: bold;
-  }
-  line-height: 24px;
-  letter-spacing: 0.04em;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
-@mixin typo-body-1($colorContrast: false, $usePreferred: false) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
-@mixin typo-caption($colorContrast: false, $usePreferred: false) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.08em;
-
-  @if $colorContrast {
-    opacity: 0.54;
-  }
-}
-
-@mixin typo-blockquote($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  &:before {
-    content: '“';
-    opacity: 0.54;
-  }
-
-  &:after {
-    content: '”';
-    opacity: 0.54;
-  }
-
-  @if $colorContrast {
-    opacity: 0.54;
-  }
-}
-
-@mixin typo-menu($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
-@mixin typo-button($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
+@import "../variables";
 
 html, body {
 	font-family: $performance_font;
@@ -269,189 +87,189 @@ dt {
  * Class Name Styles
  */
 
-.wsk-typography--display-4 {
+.mdl-typography--display-4 {
   @include typo-display-4();
 }
 
-.wsk-typography--display-4-color-contrast {
+.mdl-typography--display-4-color-contrast {
   @include typo-display-4($colorContrast: true);
 }
 
-.wsk-typography--display-3 {
+.mdl-typography--display-3 {
   @include typo-display-3();
 }
 
-.wsk-typography--display-3-color-contrast {
+.mdl-typography--display-3-color-contrast {
   @include typo-display-3($colorContrast: true);
 }
 
-.wsk-typography--display-2 {
+.mdl-typography--display-2 {
   @include typo-display-2();
 }
 
-.wsk-typography--display-2-color-contrast {
+.mdl-typography--display-2-color-contrast {
   @include typo-display-2($colorContrast: true);
 }
 
-.wsk-typography--display-1 {
+.mdl-typography--display-1 {
   @include typo-display-1();
 }
 
-.wsk-typography--display-1-color-contrast {
+.mdl-typography--display-1-color-contrast {
   @include typo-display-1($colorContrast: true);
 }
 
-.wsk-typography--headline {
+.mdl-typography--headline {
   @include typo-headline();
 }
 
-.wsk-typography--headline-color-contrast {
+.mdl-typography--headline-color-contrast {
   @include typo-headline($colorContrast: true);
 }
 
-.wsk-typography--title {
+.mdl-typography--title {
   @include typo-title();
 }
 
-.wsk-typography--title-color-contrast {
+.mdl-typography--title-color-contrast {
   @include typo-title($colorContrast: true);
 }
 
-.wsk-typography--subhead {
+.mdl-typography--subhead {
   @include typo-subhead();
 }
 
-.wsk-typography--subhead-color-contrast {
+.mdl-typography--subhead-color-contrast {
   @include typo-subhead($colorContrast: true);
 }
 
-.wsk-typography--body-2 {
+.mdl-typography--body-2 {
   @include typo-body-2();
 }
 
-.wsk-typography--body-2-color-contrast {
+.mdl-typography--body-2-color-contrast {
   @include typo-body-2($colorContrast: true);
 }
 
-.wsk-typography--body-1 {
+.mdl-typography--body-1 {
   @include typo-body-1();
 }
 
-.wsk-typography--body-1-color-contrast {
+.mdl-typography--body-1-color-contrast {
   @include typo-body-1($colorContrast: true);
 }
 
-.wsk-typography--body-2-force-preferred-font {
+.mdl-typography--body-2-force-preferred-font {
   @include typo-body-2($usePreferred: true);
 }
 
-.wsk-typography--body-2-force-preferred-font-color-contrast {
+.mdl-typography--body-2-force-preferred-font-color-contrast {
   @include typo-body-2($colorContrast: true, $usePreferred: true);
 }
 
-.wsk-typography--body-1-force-preferred-font {
+.mdl-typography--body-1-force-preferred-font {
   @include typo-body-1($usePreferred: true);
 }
 
-.wsk-typography--body-1-force-preferred-font-color-contrast {
+.mdl-typography--body-1-force-preferred-font-color-contrast {
   @include typo-body-1($colorContrast: true, $usePreferred: true);
 }
 
-.wsk-typography--caption {
+.mdl-typography--caption {
   @include typo-caption();
 }
 
-.wsk-typography--caption-force-preferred-font {
+.mdl-typography--caption-force-preferred-font {
   @include typo-caption($usePreferred: true);
 }
 
-.wsk-typography--caption-color-contrast {
+.mdl-typography--caption-color-contrast {
   @include typo-caption($colorContrast: true);
 }
 
-.wsk-typography--caption-force-preferred-font-color-contrast {
+.mdl-typography--caption-force-preferred-font-color-contrast {
   @include typo-caption($colorContrast: true, $usePreferred: true);
 }
 
-.wsk-typography--menu {
+.mdl-typography--menu {
   @include typo-menu();
 }
 
-.wsk-typography--menu-color-contrast {
+.mdl-typography--menu-color-contrast {
   @include typo-menu($colorContrast: true);
 }
 
-.wsk-typography--button {
+.mdl-typography--button {
   @include typo-button();
 }
 
-.wsk-typography--button-color-contrast {
+.mdl-typography--button-color-contrast {
   @include typo-button($colorContrast: true);
 }
 
-.wsk-typography--text-left {
+.mdl-typography--text-left {
   text-align: left;
 }
 
-.wsk-typography--text-right {
+.mdl-typography--text-right {
   text-align: right;
 }
 
-.wsk-typography--text-center {
+.mdl-typography--text-center {
   text-align: center;
 }
 
-.wsk-typography--text-justify {
+.mdl-typography--text-justify {
   text-align: justify;
 }
 
-.wsk-typography--text-nowrap {
+.mdl-typography--text-nowrap {
   white-space: nowrap;
 }
 
 
-.wsk-typography--text-lowercase {
+.mdl-typography--text-lowercase {
   text-transform: lowercase;
 }
 
-.wsk-typography--text-uppercase {
+.mdl-typography--text-uppercase {
   text-transform: uppercase;
 }
 
-.wsk-typography--text-capitalize {
+.mdl-typography--text-capitalize {
   text-transform: capitalize;
 }
 
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
+.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td,
+.mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9;
 }
 
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
+.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td,
+.mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9;
 }
 
-.wsk-typography--font-thin {
+.mdl-typography--font-thin {
   font-weight: 200 !important;
 }
 
-.wsk-typography--font-light {
+.mdl-typography--font-light {
   font-weight: 300 !important;
 }
 
-.wsk-typography--font-regular {
+.mdl-typography--font-regular {
   font-weight: 400 !important;
 }
 
-.wsk-typography--font-medium {
+.mdl-typography--font-medium {
   font-weight: 500 !important;
 }
 
-.wsk-typography--font-bold {
+.mdl-typography--font-bold {
   font-weight: 700 !important;
 }
 
-.wsk-typography--font-black {
+.mdl-typography--font-black {
   font-weight: 900 !important;
 }

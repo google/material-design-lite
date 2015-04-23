@@ -1,30 +1,20 @@
-/* Material Design Lite */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-@import "resets/_h5bp";
-@import "colors";
-@import "typography/typography";
-@import "palette/palette";
-@import "shadow/shadow";
-@import "ripple/ripple";
-@import "animation/animation";
-@import "button/button";
-@import "card/card";
-@import "checkbox/checkbox";
-@import "column-layout/column-layout";
-@import "footer/mega_footer";
-@import "footer/mini_footer";
-@import "icon-toggle/icon-toggle";
-@import "menu/menu";
-@import "layout/layout";
-@import "list/list";
-@import "radio/radio";
-@import "slider/slider";
-@import "spinner/spinner";
-@import "switch/switch";
-@import "tabs/tabs";
-@import "textfield/textfield";
-@import "tooltip/tooltip";
-
+@import "material-design-lite";
 
 $padding: 24px;
 
@@ -82,7 +72,7 @@ body {
   }
 }
 
-.wsk-styleguide .wsk-layout__drawer .wsk-navigation__link {
+.mdl-styleguide .mdl-layout__drawer .mdl-navigation__link {
   padding: 10px 24px;
 }
 

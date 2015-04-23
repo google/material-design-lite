@@ -5,9 +5,25 @@
  * @license Apache-2
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * A component handler interface using the revealing module design pattern.
  * More details on this pattern design here:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
  /* exported componentHandler */
@@ -47,16 +63,23 @@ var componentHandler = (function() {
    * will have.
    */
   function upgradeDomInternal(jsClass, cssClass) {
-    if (cssClass === undefined) {
-      var registeredClass = findRegisteredClass_(jsClass);
-      if (registeredClass) {
-        cssClass = registeredClass.cssClass;
+    if (jsClass === undefined && cssClass === undefined) {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        upgradeDomInternal(registeredComponents_[i].className,
+            registeredComponents_[i].cssClass);
       }
-    }
+    } else {
+      if (cssClass === undefined) {
+        var registeredClass = findRegisteredClass_(jsClass);
+        if (registeredClass) {
+          cssClass = registeredClass.cssClass;
+        }
+      }
 
-    var elements = document.querySelectorAll('.' + cssClass);
-    for (var n = 0; n < elements.length; n++) {
-      upgradeElementInternal(elements[n], jsClass);
+      var elements = document.querySelectorAll('.' + cssClass);
+      for (var n = 0; n < elements.length; n++) {
+        upgradeElementInternal(elements[n], jsClass);
+      }
     }
   }
 
@@ -94,6 +117,10 @@ var componentHandler = (function() {
         // it is in global scope.
         createdComponents_.push(new window[jsClass](element));
       }
+
+      var ev = document.createEvent('Events');
+      ev.initEvent('mdl-componentupgraded', true, true);
+      element.dispatchEvent(ev);
     }
   }
 
@@ -163,11 +190,12 @@ window.addEventListener('load', function() {
 
   /**
    * Performs a "Cutting the mustard" test. If the browser supports the features
-   * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
+   * tested, adds a mdl-js class to the <html> element. It then upgrades all WSK
    * components requiring JavaScript.
    */
-  if ('classList' in document.createElement('div') && 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
-    document.documentElement.classList.add('wsk-js');
+  if ('classList' in document.createElement('div') && 'querySelector' in document &&
+      'addEventListener' in window && Array.prototype.forEach) {
+    document.documentElement.classList.add('mdl-js');
     componentHandler.upgradeAllRegistered();
   } else {
     componentHandler.upgradeElement = componentHandler.register = function () { };
@@ -187,9 +215,25 @@ window.requestAnimFrame = (function() {
 })();
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Animation WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function DemoAnimation(element) {
@@ -267,9 +311,25 @@ componentHandler.register({
 });
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Button WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialButton(element) {
@@ -298,25 +358,45 @@ MaterialButton.prototype.Constant_ = {
  * @private
  */
 MaterialButton.prototype.CssClasses_ = {
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_BUTTON_RIPPLE_CONTAINER: 'wsk-button__ripple-container',
-
-  WSK_RIPPLE: 'wsk-ripple'
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-button__ripple-container',
+  RIPPLE: 'mdl-ripple'
 };
-
 
 /**
  * Handle blur of element.
  * @param {HTMLElement} element The instance of a button we want to blur.
  * @private
  */
-MaterialButton.prototype.blurHandlerGenerator_ = function(element) {
+MaterialButton.prototype.blurHandler = function(event) {
   'use strict';
 
-  return function() {element.blur();};
+  if (event) {
+    this.element_.blur();
+  }
 };
 
+// Public methods.
+
+/**
+ * Disable button.
+ * @public
+ */
+MaterialButton.prototype.disable = function() {
+  'use strict';
+
+  this.element_.disabled = true;
+};
+
+/**
+ * Enable button.
+ * @public
+ */
+MaterialButton.prototype.enable = function() {
+  'use strict';
+
+  this.element_.disabled = false;
+};
 
 /**
  * Initialize element.
@@ -325,35 +405,48 @@ MaterialButton.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    var blurHandler = this.blurHandlerGenerator_(this.element_);
-    if (this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+    if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(
-          this.CssClasses_.WSK_BUTTON_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       var ripple = document.createElement('span');
-      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(this.CssClasses_.RIPPLE);
       rippleContainer.appendChild(ripple);
-      ripple.addEventListener('mouseup', blurHandler);
+      ripple.addEventListener('mouseup', this.blurHandler.bind(this));
       this.element_.appendChild(rippleContainer);
     }
-    this.element_.addEventListener('mouseup', blurHandler);
+    this.element_.addEventListener('mouseup', this.blurHandler.bind(this));
+    this.element_.addEventListener('mouseleave', this.blurHandler.bind(this));
   }
 };
-
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
   constructor: MaterialButton,
   classAsString: 'MaterialButton',
-  cssClass: 'wsk-js-button'
+  cssClass: 'mdl-js-button'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Checkbox WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialCheckbox(element) {
@@ -382,15 +475,15 @@ MaterialCheckbox.prototype.Constant_ = {
  * @private
  */
 MaterialCheckbox.prototype.CssClasses_ = {
-  INPUT: 'wsk-checkbox__input',
-  BOX_OUTLINE: 'wsk-checkbox__box-outline',
-  FOCUS_HELPER: 'wsk-checkbox__focus-helper',
-  TICK_OUTLINE: 'wsk-checkbox__tick-outline',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-checkbox__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-checkbox__input',
+  BOX_OUTLINE: 'mdl-checkbox__box-outline',
+  FOCUS_HELPER: 'mdl-checkbox__focus-helper',
+  TICK_OUTLINE: 'mdl-checkbox__tick-outline',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-checkbox__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked',
@@ -405,7 +498,7 @@ MaterialCheckbox.prototype.CssClasses_ = {
 MaterialCheckbox.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -447,19 +540,19 @@ MaterialCheckbox.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialCheckbox.prototype.updateClasses_ = function(button, label) {
+MaterialCheckbox.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -473,8 +566,54 @@ MaterialCheckbox.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
+};
+
+// Public methods.
+
+/**
+ * Disable checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.disable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.enable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Check checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.check = function() {
+  'use strict';
+
+  this.inputElement_.checked = true;
+  this.updateClasses_();
+};
+
+/**
+ * Uncheck checkbox.
+ * @public
+ */
+MaterialCheckbox.prototype.uncheck = function() {
+  'use strict';
+
+  this.inputElement_.checked = false;
+  this.updateClasses_();
 };
 
 /**
@@ -484,7 +623,7 @@ MaterialCheckbox.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ = this.element_.querySelector('.' +
+    this.inputElement_ = this.element_.querySelector('.' +
         this.CssClasses_.INPUT);
 
     var boxOutline = document.createElement('span');
@@ -508,6 +647,7 @@ MaterialCheckbox.prototype.init = function() {
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
@@ -516,13 +656,12 @@ MaterialCheckbox.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
@@ -532,13 +671,29 @@ MaterialCheckbox.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialCheckbox,
   classAsString: 'MaterialCheckbox',
-  cssClass: 'wsk-js-checkbox'
+  cssClass: 'mdl-js-checkbox'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Column Layout WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialColumnLayout(element) {
@@ -574,7 +729,7 @@ MaterialColumnLayout.prototype.CssClasses_ = {
 
   // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
   // reduce conflict and convert to camelCase for consistency.
-  INVISIBLE_WRAPPING_ELEMENT: 'wsk-column-layout__wrap-hack'
+  INVISIBLE_WRAPPING_ELEMENT: 'mdl-column-layout__wrap-hack'
 };
 
 
@@ -601,13 +756,29 @@ MaterialColumnLayout.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialColumnLayout,
   classAsString: 'MaterialColumnLayout',
-  cssClass: 'wsk-column-layout'
+  cssClass: 'mdl-column-layout'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for icon toggle WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialIconToggle(element) {
@@ -636,12 +807,12 @@ MaterialIconToggle.prototype.Constant_ = {
  * @private
  */
 MaterialIconToggle.prototype.CssClasses_ = {
-  INPUT: 'wsk-icon-toggle__input',
-  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE_CONTAINER: 'wsk-icon-toggle__ripple-container',
-  RIPPLE_CENTER: 'wsk-ripple--center',
-  RIPPLE: 'wsk-ripple',
+  INPUT: 'mdl-icon-toggle__input',
+  JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-icon-toggle__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
   IS_CHECKED: 'is-checked'
@@ -655,7 +826,7 @@ MaterialIconToggle.prototype.CssClasses_ = {
 MaterialIconToggle.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -697,19 +868,19 @@ MaterialIconToggle.prototype.onMouseUp_ = function(event) {
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
+MaterialIconToggle.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
 
@@ -723,8 +894,54 @@ MaterialIconToggle.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
+};
+
+// Public methods.
+
+/**
+ * Disable icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.disable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.enable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Check icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.check = function() {
+  'use strict';
+
+  this.inputElement_.checked = true;
+  this.updateClasses_();
+};
+
+/**
+ * Uncheck icon toggle.
+ * @public
+ */
+MaterialIconToggle.prototype.uncheck = function() {
+  'use strict';
+
+  this.inputElement_.checked = false;
+  this.updateClasses_();
 };
 
 /**
@@ -734,7 +951,7 @@ MaterialIconToggle.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ =
+    this.inputElement_ =
         this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
     var rippleContainer;
@@ -744,6 +961,7 @@ MaterialIconToggle.prototype.init = function() {
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(this.CssClasses_.JS_RIPPLE_EFFECT);
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
@@ -752,13 +970,12 @@ MaterialIconToggle.prototype.init = function() {
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add('is-upgraded');
   }
 };
@@ -768,13 +985,29 @@ MaterialIconToggle.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialIconToggle,
   classAsString: 'MaterialIconToggle',
-  cssClass: 'wsk-js-icon-toggle'
+  cssClass: 'mdl-js-icon-toggle'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for dropdown WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialMenu(element) {
@@ -822,23 +1055,23 @@ MaterialMenu.prototype.Keycodes_ = {
  * @private
  */
 MaterialMenu.prototype.CssClasses_ = {
-  CONTAINER: 'wsk-menu__container',
-  OUTLINE: 'wsk-menu__outline',
-  ITEM: 'wsk-menu__item',
-  ITEM_RIPPLE_CONTAINER: 'wsk-menu__item-ripple-container',
-  RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-  RIPPLE: 'wsk-ripple',
+  CONTAINER: 'mdl-menu__container',
+  OUTLINE: 'mdl-menu__outline',
+  ITEM: 'mdl-menu__item',
+  ITEM_RIPPLE_CONTAINER: 'mdl-menu__item-ripple-container',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE: 'mdl-ripple',
   // Statuses
   IS_UPGRADED: 'is-upgraded',
   IS_VISIBLE: 'is-visible',
   IS_ANIMATING: 'is-animating',
   // Alignment options
-  BOTTOM_LEFT: 'wsk-menu--bottom-left',  // This is the default.
-  BOTTOM_RIGHT: 'wsk-menu--bottom-right',
-  TOP_LEFT: 'wsk-menu--top-left',
-  TOP_RIGHT: 'wsk-menu--top-right',
-  UNALIGNED: 'wsk-menu--unaligned'
+  BOTTOM_LEFT: 'mdl-menu--bottom-left',  // This is the default.
+  BOTTOM_RIGHT: 'mdl-menu--bottom-right',
+  TOP_LEFT: 'mdl-menu--top-left',
+  TOP_RIGHT: 'mdl-menu--top-right',
+  UNALIGNED: 'mdl-menu--unaligned'
 };
 
 /**
@@ -1172,7 +1405,7 @@ MaterialMenu.prototype.show = function(evt) {
  * Hides the menu.
  * @public
  */
-MaterialMenu.prototype.hide = function(evt) {
+MaterialMenu.prototype.hide = function() {
   'use strict';
 
   if (this.element_ && this.container_ && this.outline_) {
@@ -1206,7 +1439,7 @@ MaterialMenu.prototype.toggle = function(evt) {
   'use strict';
 
   if (this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
-    this.hide(evt);
+    this.hide();
   } else {
     this.show(evt);
   }
@@ -1217,13 +1450,134 @@ MaterialMenu.prototype.toggle = function(evt) {
 componentHandler.register({
   constructor: MaterialMenu,
   classAsString: 'MaterialMenu',
-  cssClass: 'wsk-js-menu'
+  cssClass: 'mdl-js-menu'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Class constructor for Progress WSK component.
+ * Implements WSK component design pattern defined at:
+ * https://github.com/jasonmayes/mdl-component-design-pattern
+ * @param {HTMLElement} element The element that will be upgraded.
+ */
+function MaterialProgress(element) {
+  'use strict';
+
+  this.element_ = element;
+
+  // Initialize instance.
+  this.init();
+}
+
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+MaterialProgress.prototype.Constant_ = {
+};
+
+/**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+MaterialProgress.prototype.CssClasses_ = {
+  INDETERMINATE_CLASS: 'mdl-progress__indeterminate'
+};
+
+MaterialProgress.prototype.setProgress = function(p) {
+  'use strict';
+
+  if (this.element_.classList.contains(this.CssClasses_.INDETERMINATE_CLASS)) {
+    return;
+  }
+
+  this.progressbar_.style.width = p + '%';
+};
+
+MaterialProgress.prototype.setBuffer = function(p) {
+  'use strict';
+
+  this.bufferbar_.style.width = p + '%';
+  this.auxbar_.style.width = (100-p) + '%';
+};
+
+/**
+ * Initialize element.
+ */
+MaterialProgress.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
+    var el = document.createElement('div');
+    el.className = 'progressbar bar bar1';
+    this.element_.appendChild(el);
+    this.progressbar_ = el;
+
+    el = document.createElement('div');
+    el.className = 'bufferbar bar bar2';
+    this.element_.appendChild(el);
+    this.bufferbar_ = el;
+
+    el = document.createElement('div');
+    el.className = 'auxbar bar bar3';
+    this.element_.appendChild(el);
+    this.auxbar_ = el;
+
+    this.progressbar_.style.width = '0%';
+    this.bufferbar_.style.width = '100%';
+    this.auxbar_.style.width = '0%';
+
+    this.element_.classList.add('is-upgraded');
+  }
+};
+
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+  constructor: MaterialProgress,
+  classAsString: 'MaterialProgress',
+  cssClass: 'mdl-js-progress'
+});
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Radio WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialRadio(element) {
@@ -1253,32 +1607,19 @@ MaterialRadio.prototype.Constant_ = {
  */
 MaterialRadio.prototype.CssClasses_ = {
   IS_FOCUSED: 'is-focused',
-
   IS_DISABLED: 'is-disabled',
-
   IS_CHECKED: 'is-checked',
-
   IS_UPGRADED: 'is-upgraded',
-
-  WSK_JS_RADIO: 'wsk-js-radio',
-
-  WSK_RADIO_BTN: 'wsk-radio__button',
-
-  WSK_RADIO_OUTER_CIRCLE: 'wsk-radio__outer-circle',
-
-  WSK_RADIO_INNER_CIRCLE: 'wsk-radio__inner-circle',
-
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-
-  WSK_RADIO_RIPPLE_CONTAINER: 'wsk-radio__ripple-container',
-
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_RIPPLE: 'wsk-ripple'
+  JS_RADIO: 'mdl-js-radio',
+  RADIO_BTN: 'mdl-radio__button',
+  RADIO_OUTER_CIRCLE: 'mdl-radio__outer-circle',
+  RADIO_INNER_CIRCLE: 'mdl-radio__inner-circle',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-radio__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple'
 };
-
 
 /**
  * Handle change of state.
@@ -1292,16 +1633,15 @@ MaterialRadio.prototype.onChange_ = function(event) {
 
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
-  var radios = document.getElementsByClassName(this.CssClasses_.WSK_JS_RADIO);
+  var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
   for (var i = 0; i < radios.length; i++) {
-    var button = radios[i].querySelector('.' + this.CssClasses_.WSK_RADIO_BTN);
+    var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
     // Different name == different group, so no point updating those.
     if (button.getAttribute('name') === this.btnElement_.getAttribute('name')) {
       this.updateClasses_(button, radios[i]);
     }
   }
 };
-
 
 /**
  * Handle focus.
@@ -1314,7 +1654,6 @@ MaterialRadio.prototype.onFocus_ = function(event) {
   this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
 };
 
-
 /**
  * Handle lost focus.
  * @param {Event} event The event that fired.
@@ -1326,7 +1665,6 @@ MaterialRadio.prototype.onBlur_ = function(event) {
   this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
 };
 
-
 /**
  * Handle mouseup.
  * @param {Event} event The event that fired.
@@ -1337,7 +1675,6 @@ MaterialRadio.prototype.onMouseup_ = function(event) {
 
   this.blur_();
 };
-
 
 /**
  * Update classes.
@@ -1361,7 +1698,6 @@ MaterialRadio.prototype.updateClasses_ = function(button, label) {
   }
 };
 
-
 /**
  * Add blur.
  * @private
@@ -1376,6 +1712,51 @@ MaterialRadio.prototype.blur_ = function(event) {
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
+// Public methods.
+
+/**
+ * Disable radio.
+ * @public
+ */
+MaterialRadio.prototype.disable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = true;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
+
+/**
+ * Enable radio.
+ * @public
+ */
+MaterialRadio.prototype.enable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = false;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
+
+/**
+ * Check radio.
+ * @public
+ */
+MaterialRadio.prototype.check = function() {
+  'use strict';
+
+  this.btnElement_.checked = true;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
+
+/**
+ * Uncheck radio.
+ * @public
+ */
+MaterialRadio.prototype.uncheck = function() {
+  'use strict';
+
+  this.btnElement_.checked = false;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
 
 /**
  * Initialize element.
@@ -1385,63 +1766,74 @@ MaterialRadio.prototype.init = function() {
 
   if (this.element_) {
     this.btnElement_ = this.element_.querySelector('.' +
-        this.CssClasses_.WSK_RADIO_BTN);
+        this.CssClasses_.RADIO_BTN);
 
     var outerCircle = document.createElement('span');
-    outerCircle.classList.add(this.CssClasses_.WSK_RADIO_OUTER_CIRCLE);
+    outerCircle.classList.add(this.CssClasses_.RADIO_OUTER_CIRCLE);
 
     var innerCircle = document.createElement('span');
-    innerCircle.classList.add(this.CssClasses_.WSK_RADIO_INNER_CIRCLE);
+    innerCircle.classList.add(this.CssClasses_.RADIO_INNER_CIRCLE);
 
     this.element_.appendChild(outerCircle);
     this.element_.appendChild(innerCircle);
 
     var rippleContainer;
     if (this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+        this.CssClasses_.RIPPLE_EFFECT)) {
       this.element_.classList.add(
-          this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+          this.CssClasses_.RIPPLE_IGNORE_EVENTS);
       rippleContainer = document.createElement('span');
       rippleContainer.classList.add(
-          this.CssClasses_.WSK_RADIO_RIPPLE_CONTAINER);
-      rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
-      rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+          this.CssClasses_.RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
       var ripple = document.createElement('span');
-      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(this.CssClasses_.RIPPLE);
 
       rippleContainer.appendChild(ripple);
       this.element_.appendChild(rippleContainer);
     }
 
     this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
-
     this.element_.addEventListener('mouseup', this.onMouseup_.bind(this));
-
-    rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
 
-
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
   constructor: MaterialRadio,
   classAsString: 'MaterialRadio',
-  cssClass: 'wsk-js-radio'
+  cssClass: 'mdl-js-radio'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Slider WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSlider(element) {
@@ -1471,11 +1863,11 @@ MaterialSlider.prototype.Constant_ = {
  * @private
  */
 MaterialSlider.prototype.CssClasses_ = {
-  IE_CONTAINER: 'wsk-slider__ie-container',
-  SLIDER_CONTAINER: 'wsk-slider__container',
-  BACKGROUND_FLEX: 'wsk-slider__background-flex',
-  BACKGROUND_LOWER: 'wsk-slider__background-lower',
-  BACKGROUND_UPPER: 'wsk-slider__background-upper',
+  IE_CONTAINER: 'mdl-slider__ie-container',
+  SLIDER_CONTAINER: 'mdl-slider__container',
+  BACKGROUND_FLEX: 'mdl-slider__background-flex',
+  BACKGROUND_LOWER: 'mdl-slider__background-lower',
+  BACKGROUND_UPPER: 'mdl-slider__background-upper',
   IS_LOWEST_VALUE: 'is-lowest-value',
   IS_UPGRADED: 'is-upgraded'
 };
@@ -1488,7 +1880,7 @@ MaterialSlider.prototype.CssClasses_ = {
 MaterialSlider.prototype.onInput_ = function(event) {
   'use strict';
 
-  this.updateValue_();
+  this.updateValueStyles_();
 };
 
 /**
@@ -1499,7 +1891,7 @@ MaterialSlider.prototype.onInput_ = function(event) {
 MaterialSlider.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateValue_();
+  this.updateValueStyles_();
 };
 
 /**
@@ -1518,7 +1910,7 @@ MaterialSlider.prototype.onMouseUp_ = function(event) {
  * @param {Event} event The event that fired.
  * @private
  */
-MaterialSlider.prototype.updateValue_ = function(event) {
+MaterialSlider.prototype.updateValueStyles_ = function(event) {
   'use strict';
 
   // Calculate and apply percentages to div structure behind slider.
@@ -1537,6 +1929,42 @@ MaterialSlider.prototype.updateValue_ = function(event) {
     this.backgroundUpper_.style.flex = 1 - fraction;
     this.backgroundUpper_.style.webkitFlex = 1 - fraction;
   }
+};
+
+// Public methods.
+
+/**
+ * Disable slider.
+ * @public
+ */
+MaterialSlider.prototype.disable = function() {
+  'use strict';
+
+  this.element_.disabled = true;
+};
+
+/**
+ * Enable slider.
+ * @public
+ */
+MaterialSlider.prototype.enable = function() {
+  'use strict';
+
+  this.element_.disabled = false;
+};
+
+/**
+ * Update slider value.
+ * @param {Number} value The value to which to set the control (optional).
+ * @public
+ */
+MaterialSlider.prototype.change = function(value) {
+  'use strict';
+
+  if (value) {
+    this.element_.value = value;
+  }
+  this.updateValueStyles_();
 };
 
 /**
@@ -1579,7 +2007,7 @@ MaterialSlider.prototype.init = function() {
     this.element_.addEventListener('change', this.onChange_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    this.updateValue_();
+    this.updateValueStyles_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
@@ -1589,13 +2017,29 @@ MaterialSlider.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSlider,
   classAsString: 'MaterialSlider',
-  cssClass: 'wsk-js-slider'
+  cssClass: 'mdl-js-slider'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Spinner WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSpinner(element) {
@@ -1624,12 +2068,12 @@ MaterialSpinner.prototype.Constant_ = {
  * @private
  */
 MaterialSpinner.prototype.CssClasses_ = {
-  WSK_SPINNER_LAYER: 'wsk-spinner__layer',
-  WSK_SPINNER_CIRCLE_CLIPPER: 'wsk-spinner__circle-clipper',
-  WSK_SPINNER_CIRCLE: 'wsk-spinner__circle',
-  WSK_SPINNER_GAP_PATCH: 'wsk-spinner__gap-patch',
-  WSK_SPINNER_LEFT: 'wsk-spinner__left',
-  WSK_SPINNER_RIGHT: 'wsk-spinner__right'
+  WSK_SPINNER_LAYER: 'mdl-spinner__layer',
+  WSK_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+  WSK_SPINNER_CIRCLE: 'mdl-spinner__circle',
+  WSK_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+  WSK_SPINNER_LEFT: 'mdl-spinner__left',
+  WSK_SPINNER_RIGHT: 'mdl-spinner__right'
 };
 
 /**
@@ -1711,13 +2155,29 @@ MaterialSpinner.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSpinner,
   classAsString: 'MaterialSpinner',
-  cssClass: 'wsk-js-spinner'
+  cssClass: 'mdl-js-spinner'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Checkbox WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialSwitch(element) {
@@ -1746,31 +2206,19 @@ MaterialSwitch.prototype.Constant_ = {
  * @private
  */
 MaterialSwitch.prototype.CssClasses_ = {
-  WSK_SWITCH_INPUT: 'wsk-switch__input',
-
-  WSK_SWITCH_TRACK: 'wsk-switch__track',
-
-  WSK_SWITCH_THUMB: 'wsk-switch__thumb',
-
-  WSK_SWITCH_FOCUS_HELPER: 'wsk-switch__focus-helper',
-
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-
-  WSK_SWITCH_RIPPLE_CONTAINER: 'wsk-switch__ripple-container',
-
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_RIPPLE: 'wsk-ripple',
-
+  INPUT: 'mdl-switch__input',
+  TRACK: 'mdl-switch__track',
+  THUMB: 'mdl-switch__thumb',
+  FOCUS_HELPER: 'mdl-switch__focus-helper',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-switch__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple',
   IS_FOCUSED: 'is-focused',
-
   IS_DISABLED: 'is-disabled',
-
   IS_CHECKED: 'is-checked'
 };
-
 
 /**
  * Handle change of state.
@@ -1780,9 +2228,8 @@ MaterialSwitch.prototype.CssClasses_ = {
 MaterialSwitch.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
-
 
 /**
  * Handle focus of element.
@@ -1795,7 +2242,6 @@ MaterialSwitch.prototype.onFocus_ = function(event) {
   this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
 };
 
-
 /**
  * Handle lost focus of element.
  * @param {Event} event The event that fired.
@@ -1806,7 +2252,6 @@ MaterialSwitch.prototype.onBlur_ = function(event) {
 
   this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
 };
-
 
 /**
  * Handle mouseup.
@@ -1819,29 +2264,27 @@ MaterialSwitch.prototype.onMouseUp_ = function(event) {
   this.blur_();
 };
 
-
 /**
  * Handle class updates.
  * @param {HTMLElement} button The button whose classes we should update.
  * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialSwitch.prototype.updateClasses_ = function(button, label) {
+MaterialSwitch.prototype.updateClasses_ = function() {
   'use strict';
 
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
   } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
   }
 };
-
 
 /**
  * Add blur.
@@ -1853,10 +2296,55 @@ MaterialSwitch.prototype.blur_ = function(event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout(function() {
-    this.btnElement_.blur();
+    this.inputElement_.blur();
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
+// Public methods.
+
+/**
+ * Disable switch.
+ * @public
+ */
+MaterialSwitch.prototype.disable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable switch.
+ * @public
+ */
+MaterialSwitch.prototype.enable = function() {
+  'use strict';
+
+  this.inputElement_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Activate switch.
+ * @public
+ */
+MaterialSwitch.prototype.on = function() {
+  'use strict';
+
+  this.inputElement_.checked = true;
+  this.updateClasses_();
+};
+
+/**
+ * Deactivate switch.
+ * @public
+ */
+MaterialSwitch.prototype.off = function() {
+  'use strict';
+
+  this.inputElement_.checked = false;
+  this.updateClasses_();
+};
 
 /**
  * Initialize element.
@@ -1865,17 +2353,17 @@ MaterialSwitch.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.btnElement_ = this.element_.querySelector('.' +
-        this.CssClasses_.WSK_SWITCH_INPUT);
+    this.inputElement_ = this.element_.querySelector('.' +
+        this.CssClasses_.INPUT);
 
     var track = document.createElement('div');
-    track.classList.add(this.CssClasses_.WSK_SWITCH_TRACK);
+    track.classList.add(this.CssClasses_.TRACK);
 
     var thumb = document.createElement('div');
-    thumb.classList.add(this.CssClasses_.WSK_SWITCH_THUMB);
+    thumb.classList.add(this.CssClasses_.THUMB);
 
     var focusHelper = document.createElement('span');
-    focusHelper.classList.add(this.CssClasses_.WSK_SWITCH_FOCUS_HELPER);
+    focusHelper.classList.add(this.CssClasses_.FOCUS_HELPER);
 
     thumb.appendChild(focusHelper);
 
@@ -1884,33 +2372,29 @@ MaterialSwitch.prototype.init = function() {
 
     var rippleContainer;
     if (this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+        this.CssClasses_.RIPPLE_EFFECT)) {
       this.element_.classList.add(
-          this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+          this.CssClasses_.RIPPLE_IGNORE_EVENTS);
       rippleContainer = document.createElement('span');
       rippleContainer.classList.add(
-          this.CssClasses_.WSK_SWITCH_RIPPLE_CONTAINER);
-      rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
-      rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+          this.CssClasses_.RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
       var ripple = document.createElement('span');
-      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(this.CssClasses_.RIPPLE);
 
       rippleContainer.appendChild(ripple);
       this.element_.appendChild(rippleContainer);
     }
 
-    this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-
-    this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-
-    this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
-
+    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
+    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
+    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
 
-    rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
-
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add('is-upgraded');
   }
 };
@@ -1920,13 +2404,29 @@ MaterialSwitch.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialSwitch,
   classAsString: 'MaterialSwitch',
-  cssClass: 'wsk-js-switch'
+  cssClass: 'mdl-js-switch'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Tabs WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTabs(element) {
@@ -1956,15 +2456,15 @@ MaterialTabs.prototype.Constant_ = {
  * @private
  */
 MaterialTabs.prototype.CssClasses_ = {
-  TAB_CLASS: 'wsk-tabs__tab',
-  PANEL_CLASS: 'wsk-tabs__panel',
+  TAB_CLASS: 'mdl-tabs__tab',
+  PANEL_CLASS: 'mdl-tabs__panel',
   ACTIVE_CLASS: 'is-active',
   UPGRADED_CLASS: 'is-upgraded',
 
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  WSK_RIPPLE_CONTAINER: 'wsk-tabs__ripple-container',
-  WSK_RIPPLE: 'wsk-ripple',
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events'
+  WSK_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  WSK_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
+  WSK_RIPPLE: 'mdl-ripple',
+  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
 };
 
 /**
@@ -2041,7 +2541,7 @@ function MaterialTab(tab, ctx) {
     tab.addEventListener('click', function(e) {
       e.preventDefault();
       var href = tab.href.split('#')[1];
-      var panel = document.querySelector('#' + href);
+      var panel = ctx.element_.querySelector('#' + href);
       ctx.resetTabState_();
       ctx.resetPanelState_();
       tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
@@ -2056,13 +2556,29 @@ function MaterialTab(tab, ctx) {
 componentHandler.register({
   constructor: MaterialTabs,
   classAsString: 'MaterialTabs',
-  cssClass: 'wsk-js-tabs'
+  cssClass: 'mdl-js-tabs'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Textfield WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTextfield(element) {
@@ -2092,8 +2608,8 @@ MaterialTextfield.prototype.Constant_ = {
  * @private
  */
 MaterialTextfield.prototype.CssClasses_ = {
-  LABEL: 'wsk-textfield__label',
-  INPUT: 'wsk-textfield__input',
+  LABEL: 'mdl-textfield__label',
+  INPUT: 'mdl-textfield__input',
   IS_DIRTY: 'is-dirty',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
@@ -2167,6 +2683,44 @@ MaterialTextfield.prototype.updateClasses_ = function() {
   }
 };
 
+// Public methods.
+
+/**
+ * Disable text field.
+ * @public
+ */
+MaterialTextfield.prototype.disable = function() {
+  'use strict';
+
+  this.input_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable text field.
+ * @public
+ */
+MaterialTextfield.prototype.enable = function() {
+  'use strict';
+
+  this.input_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Update text field value.
+ * @param {String} value The value to which to set the control (optional).
+ * @public
+ */
+MaterialTextfield.prototype.change = function(value) {
+  'use strict';
+
+  if (value) {
+    this.input_.value = value;
+  }
+  this.updateClasses_();
+};
+
 /**
  * Initialize element.
  */
@@ -2207,13 +2761,29 @@ MaterialTextfield.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialTextfield,
   classAsString: 'MaterialTextfield',
-  cssClass: 'wsk-js-textfield'
+  cssClass: 'mdl-js-textfield'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Tooltip WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTooltip(element) {
@@ -2284,11 +2854,17 @@ MaterialTooltip.prototype.init = function() {
 
   if (this.element_) {
     var forElId = this.element_.getAttribute('for');
-    var forEl = document.getElementById(forElId);
+    var forEl = null;
 
-    forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
-        false);
-    forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    if (forElId) {
+      forEl = document.getElementById(forElId);
+    }
+
+    if (forEl) {
+      forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
+          false);
+      forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+    }
   }
 };
 
@@ -2298,13 +2874,29 @@ MaterialTooltip.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialTooltip,
   classAsString: 'MaterialTooltip',
-  cssClass: 'wsk-tooltip'
+  cssClass: 'mdl-tooltip'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Layout WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialLayout(element) {
@@ -2345,37 +2937,39 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
-  HEADER: 'wsk-layout__header',
-  DRAWER: 'wsk-layout__drawer',
-  CONTENT: 'wsk-layout__content',
-  DRAWER_BTN: 'wsk-layout__drawer-button',
+  HEADER: 'mdl-layout__header',
+  DRAWER: 'mdl-layout__drawer',
+  CONTENT: 'mdl-layout__content',
+  DRAWER_BTN: 'mdl-layout__drawer-button',
 
-  JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-  RIPPLE_CONTAINER: 'wsk-layout__tab-ripple-container',
-  RIPPLE: 'wsk-ripple',
-  RIPPLE_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
+  JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_CONTAINER: 'mdl-layout__tab-ripple-container',
+  RIPPLE: 'mdl-ripple',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
 
-  HEADER_SEAMED: 'wsk-layout__header--seamed',
-  HEADER_WATERFALL: 'wsk-layout__header--waterfall',
-  HEADER_SCROLL: 'wsk-layout__header--scroll',
+  HEADER_SEAMED: 'mdl-layout__header--seamed',
+  HEADER_WATERFALL: 'mdl-layout__header--waterfall',
+  HEADER_SCROLL: 'mdl-layout__header--scroll',
 
-  FIXED_HEADER: 'wsk-layout--fixed-header',
-  OBFUSCATOR: 'wsk-layout__obfuscator',
+  FIXED_HEADER: 'mdl-layout--fixed-header',
+  OBFUSCATOR: 'mdl-layout__obfuscator',
 
-  TAB_BAR: 'wsk-layout__tab-bar',
-  TAB_CONTAINER: 'wsk-layout__tab-bar-container',
-  TAB: 'wsk-layout__tab',
-  TAB_BAR_BUTTON: 'wsk-layout__tab-bar-button',
-  TAB_BAR_LEFT_BUTTON: 'wsk-layout__tab-bar-left-button',
-  TAB_BAR_RIGHT_BUTTON: 'wsk-layout__tab-bar-right-button',
-  PANEL: 'wsk-layout__tab-panel',
+  TAB_BAR: 'mdl-layout__tab-bar',
+  TAB_CONTAINER: 'mdl-layout__tab-bar-container',
+  TAB: 'mdl-layout__tab',
+  TAB_BAR_BUTTON: 'mdl-layout__tab-bar-button',
+  TAB_BAR_LEFT_BUTTON: 'mdl-layout__tab-bar-left-button',
+  TAB_BAR_RIGHT_BUTTON: 'mdl-layout__tab-bar-right-button',
+  PANEL: 'mdl-layout__tab-panel',
 
+  HAS_DRAWER_CLASS: 'has-drawer',
   SHADOW_CLASS: 'is-casting-shadow',
   COMPACT_CLASS: 'is-compact',
   SMALL_SCREEN_CLASS: 'is-small-screen',
   DRAWER_OPEN_CLASS: 'is-visible',
   ACTIVE_CLASS: 'is-active',
-  UPGRADED_CLASS: 'is-upgraded'
+  UPGRADED_CLASS: 'is-upgraded',
+  ANIMATING_CLASS: 'is-animating'
 };
 
 /**
@@ -2385,12 +2979,18 @@ MaterialLayout.prototype.CssClasses_ = {
 MaterialLayout.prototype.contentScrollHandler_ = function() {
   'use strict';
 
-  if (this.content_.scrollTop > 0) {
+  if(this.header_.classList.contains(this.CssClasses_.ANIMATING_CLASS)) {
+    return;
+  }
+
+  if (this.content_.scrollTop > 0 && !this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.add(this.CssClasses_.COMPACT_CLASS);
-  } else {
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  } else if (this.content_.scrollTop <= 0 && this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
     this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
     this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
   }
 };
 
@@ -2403,8 +3003,7 @@ MaterialLayout.prototype.screenSizeHandler_ = function() {
 
   if (this.screenSizeMediaQuery_.matches) {
     this.element_.classList.add(this.CssClasses_.SMALL_SCREEN_CLASS);
-  }
-  else {
+  } else {
     this.element_.classList.remove(this.CssClasses_.SMALL_SCREEN_CLASS);
     // Collapse drawer (if any) when moving to a large screen size.
     if (this.drawer_) {
@@ -2422,6 +3021,27 @@ MaterialLayout.prototype.drawerToggleHandler_ = function() {
   'use strict';
 
   this.drawer_.classList.toggle(this.CssClasses_.DRAWER_OPEN_CLASS);
+};
+
+/**
+ * Handles (un)setting the `is-animating` class
+ */
+MaterialLayout.prototype.headerTransitionEndHandler = function() {
+  'use strict';
+
+  this.header_.classList.remove(this.CssClasses_.ANIMATING_CLASS);
+};
+
+/**
+ * Handles expanding the header on click
+ */
+MaterialLayout.prototype.headerClickHandler = function() {
+  'use strict';
+
+  if (this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
+    this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
+    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  }
 };
 
 /**
@@ -2456,7 +3076,7 @@ MaterialLayout.prototype.init = function() {
 
   if (this.element_) {
     var container = document.createElement('div');
-    container.classList.add('wsk-layout__container');
+    container.classList.add('mdl-layout__container');
     this.element_.parentElement.insertBefore(container, this.element_);
     this.element_.parentElement.removeChild(this.element_);
     container.appendChild(this.element_);
@@ -2480,6 +3100,10 @@ MaterialLayout.prototype.init = function() {
       } else if (this.header_.classList.contains(
           this.CssClasses_.HEADER_WATERFALL)) {
         mode = this.Mode_.WATERFALL;
+        this.header_.addEventListener('transitionend',
+          this.headerTransitionEndHandler.bind(this));
+        this.header_.addEventListener('click',
+          this.headerClickHandler.bind(this));
       } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
@@ -2511,6 +3135,11 @@ MaterialLayout.prototype.init = function() {
       drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
       drawerButton.addEventListener('click',
           this.drawerToggleHandler_.bind(this));
+
+      // Add a class if the layout has a drawer, for altering the left padding.
+      // Adds the HAS_DRAWER_CLASS to the elements since this.header_ may or may
+      // not be present.
+      this.element_.classList.add(this.CssClasses_.HAS_DRAWER_CLASS);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.
@@ -2622,13 +3251,29 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
 componentHandler.register({
   constructor: MaterialLayout,
   classAsString: 'MaterialLayout',
-  cssClass: 'wsk-js-layout'
+  cssClass: 'mdl-js-layout'
 });
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * Class constructor for Ripple WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialRipple(element) {
@@ -2661,23 +3306,22 @@ MaterialRipple.prototype.Constant_ = {
  * @private
  */
 MaterialRipple.prototype.CssClasses_ = {
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-
-  WSK_RIPPLE: 'wsk-ripple',
-
-  IS_ANIMATING: 'is-animating'
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE: 'mdl-ripple',
+  IS_ANIMATING: 'is-animating',
+  IS_VISIBLE: 'is-visible'
 };
 
-
 /**
- * Handle click of element.
+ * Handle mouse / finger down on element.
  * @param {Event} event The event that fired.
  * @private
  */
 MaterialRipple.prototype.downHandler_ = function(event) {
   'use strict';
+
+  this.rippleElement_.classList.add(this.CssClasses_.IS_VISIBLE);
 
   if (event.type === 'mousedown' && this.ignoringMouseDown_) {
     this.ignoringMouseDown_ = false;
@@ -2709,6 +3353,19 @@ MaterialRipple.prototype.downHandler_ = function(event) {
   }
 };
 
+/**
+ * Handle mouse / finger up on element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialRipple.prototype.upHandler_ = function(event) {
+  'use strict';
+
+  // Don't fire for the artificial "mouseup" generated by a double-click.
+  if (event && event.detail !== 2) {
+    this.rippleElement_.classList.remove(this.CssClasses_.IS_VISIBLE);
+  }
+};
 
 /**
  * Initialize element.
@@ -2718,11 +3375,11 @@ MaterialRipple.prototype.init = function() {
 
   if (this.element_) {
     var recentering =
-        this.element_.classList.contains(this.CssClasses_.WSK_RIPPLE_CENTER);
+        this.element_.classList.contains(this.CssClasses_.RIPPLE_CENTER);
     if (!this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
+        this.CssClasses_.RIPPLE_EFFECT_IGNORE_EVENTS)) {
       this.rippleElement_ = this.element_.querySelector('.' +
-          this.CssClasses_.WSK_RIPPLE);
+          this.CssClasses_.RIPPLE);
       this.frameCount_ = 0;
       this.rippleSize_ = 0;
       this.x_ = 0;
@@ -2735,7 +3392,8 @@ MaterialRipple.prototype.init = function() {
 
       if (this.rippleElement_) {
         var bound = this.element_.getBoundingClientRect();
-        this.rippleSize_ = Math.max(bound.width, bound.height) * 2;
+        this.rippleSize_ = Math.sqrt(bound.width * bound.width +
+            bound.height * bound.height) * 2 + 2;
         this.rippleElement_.style.width = this.rippleSize_ + 'px';
         this.rippleElement_.style.height = this.rippleSize_ + 'px';
       }
@@ -2743,6 +3401,11 @@ MaterialRipple.prototype.init = function() {
       this.element_.addEventListener('mousedown', this.downHandler_.bind(this));
       this.element_.addEventListener('touchstart',
           this.downHandler_.bind(this));
+
+      this.element_.addEventListener('mouseup', this.upHandler_.bind(this));
+      this.element_.addEventListener('mouseleave', this.upHandler_.bind(this));
+      this.element_.addEventListener('touchend', this.upHandler_.bind(this));
+      this.element_.addEventListener('blur', this.upHandler_.bind(this));
 
       this.getFrameCount = function() {
         return this.frameCount_;
@@ -2787,10 +3450,8 @@ MaterialRipple.prototype.init = function() {
           this.rippleElement_.style.transform = transformString;
 
           if (start) {
-            this.rippleElement_.style.opacity = this.Constant_.INITIAL_OPACITY;
             this.rippleElement_.classList.remove(this.CssClasses_.IS_ANIMATING);
           } else {
-            this.rippleElement_.style.opacity = this.Constant_.FINAL_OPACITY;
             this.rippleElement_.classList.add(this.CssClasses_.IS_ANIMATING);
           }
         }
@@ -2807,11 +3468,10 @@ MaterialRipple.prototype.init = function() {
   }
 };
 
-
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
   constructor: MaterialRipple,
   classAsString: 'MaterialRipple',
-  cssClass: 'wsk-js-ripple-effect'
+  cssClass: 'mdl-js-ripple-effect'
 });

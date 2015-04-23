@@ -7,7 +7,7 @@ The MDL components are created with CSS, JavaScript, and HTML. You can use the c
 
 The MDL component library includes new versions of common user interface controls such as buttons, check boxes, and text fields, adapted to follow Material Design concepts. The library also includes enhanced and specialized features like cards, column layouts, sliders, spinners, tabs, typography, and more.
 
-MDL is free to download and use, and may be used with or without any build library or development environment (such as [Web Starter Kit](https://developers.google.com/web/starter-kit/)). It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, portable, and &mdash; most importantly &mdash; usable web pages.
+MDL is free to download and use, and may be used with or without any build library or development environment (such as [Material Design Lite](https://developers.google.com/web/starter-kit/)). It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, portable, and &mdash; most importantly &mdash; usable web pages.
 
 ## Getting started
 
@@ -28,7 +28,7 @@ That's it! You are now ready to use the MDL components.
 In general, follow these basic steps to use an MDL component in your HTML page.
 
 1. Start with a standard HTML element, such as `<button>`, `<div>`, or `<ul>`, depending on the MDL component you want to use. This establishes the element in the page and readies it for MDL modification.<br/><br/>
-2. Add one or more MDL-specific CSS classes to the element, such as `wsk-button`,   `wsk-tabs__panel`, or `wsk-list--inline`, again depending on the component. The classes apply the MDL enhancements to the element and effectively turn it into an MDL component.<br/><br/>
+2. Add one or more MDL-specific CSS classes to the element, such as `mdl-button`,   `mdl-tabs__panel`, or `mdl-list--inline`, again depending on the component. The classes apply the MDL enhancements to the element and effectively turn it into an MDL component.<br/><br/>
 3. View the page, preferably in multiple browsers on multiple devices, to ensure that the component looks and behaves as expected.
 
 >**A note about HTML elements and MDL CSS classes** 

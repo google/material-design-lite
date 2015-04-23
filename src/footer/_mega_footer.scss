@@ -1,24 +1,29 @@
-@import "../colors";
-@import "../icons/icons";
-
-/**************
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
  *
- * Sizes
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *************/
-$padding: 16px !default;
-$footer-heading-font-size: 24px !default;
-$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
-$footer-btn-size: 36px  !default;
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-.wsk-mega-footer {
+@import "../variables";
+
+.mdl-mega-footer {
   padding: ($padding * 2) $padding;
 
   color: $footer-color;
   background-color: $footer-bg-color;
 }
 
-.wsk-mega-footer--top-section:after, .wsk-mega-footer--middle-section:after {
+.mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after {
   content: '';
 
   display: block;
@@ -34,15 +39,15 @@ $footer-btn-size: 36px  !default;
   clear: both;
 }
 
-.wsk-mega-footer--left-section {
+.mdl-mega-footer--left-section {
   margin-bottom: $padding;
 }
 
-.wsk-mega-footer--right-section {
+.mdl-mega-footer--right-section {
   margin-bottom: $padding;
 }
 
-.wsk-mega-footer--right-section a {
+.mdl-mega-footer--right-section a {
   display: block;
 
   margin-bottom: $padding;
@@ -52,15 +57,15 @@ $footer-btn-size: 36px  !default;
 }
 
 @media screen and (min-width: 760px) {
-  .wsk-mega-footer--left-section {
+  .mdl-mega-footer--left-section {
     float: left;
   }
 
-  .wsk-mega-footer--right-section {
+  .mdl-mega-footer--right-section {
     float: right;
   }
 
-  .wsk-mega-footer--right-section a {
+  .mdl-mega-footer--right-section a {
     display: inline-block;
 
     margin-left: $padding;
@@ -70,7 +75,7 @@ $footer-btn-size: 36px  !default;
   }
 }
 
-.wsk-mega-footer--social-btn {
+.mdl-mega-footer--social-btn {
   width: $footer-btn-size;
   height: $footer-btn-size;
 
@@ -82,23 +87,23 @@ $footer-btn-size: 36px  !default;
   border: none;
 }
 
-.wsk-mega-footer--drop-down-section {
+.mdl-mega-footer--drop-down-section {
   display: block;
 
   position: relative;
 }
 
 @media screen and (min-width: 760px) {
-  .wsk-mega-footer--drop-down-section {
+  .mdl-mega-footer--drop-down-section {
     width: 33%;
   }
 
-  .wsk-mega-footer--drop-down-section:nth-child(1),
-  .wsk-mega-footer--drop-down-section:nth-child(2) {
+  .mdl-mega-footer--drop-down-section:nth-child(1),
+  .mdl-mega-footer--drop-down-section:nth-child(2) {
     float: left;
   }
 
-  .wsk-mega-footer--drop-down-section:nth-child(3) {
+  .mdl-mega-footer--drop-down-section:nth-child(3) {
     float: right;
 
     &:after {
@@ -106,11 +111,11 @@ $footer-btn-size: 36px  !default;
     }
   }
 
-  .wsk-mega-footer--drop-down-section:nth-child(4) {
+  .mdl-mega-footer--drop-down-section:nth-child(4) {
     float: right;
   }
 
-  .wsk-mega-footer--middle-section:after {
+  .mdl-mega-footer--middle-section:after {
     content: '';
 
     display: block;
@@ -120,16 +125,16 @@ $footer-btn-size: 36px  !default;
 }
 
 @media screen and (min-width: 1024px) {
-  .wsk-mega-footer--drop-down-section,
-  .wsk-mega-footer--drop-down-section:nth-child(3),
-  .wsk-mega-footer--drop-down-section:nth-child(4) {
+  .mdl-mega-footer--drop-down-section,
+  .mdl-mega-footer--drop-down-section:nth-child(3),
+  .mdl-mega-footer--drop-down-section:nth-child(4) {
     width: 24%;
 
     float: left;
   }
 }
 
-.wsk-mega-footer--heading-checkbox {
+.mdl-mega-footer--heading-checkbox {
   position: absolute;
   width: 100%;
   height: $footer-heading-line-height + ($padding * 2);
@@ -143,24 +148,24 @@ $footer-btn-size: 36px  !default;
   z-index: 1;
   opacity: 0;
 
-  &~.wsk-mega-footer--heading:after {
-    @include wsk-icon();
+  &~.mdl-mega-footer--heading:after {
+    @include mdl-icon();
     content: $icon-expand-less;
   }
 }
 
-.wsk-mega-footer--heading-checkbox:checked {
+.mdl-mega-footer--heading-checkbox:checked {
   &~ul {
     display:none;
   }
 
-  &~.wsk-mega-footer--heading:after {
-    @include wsk-icon();
+  &~.mdl-mega-footer--heading:after {
+    @include mdl-icon();
     content: $icon-expand-more;
   }
 }
 
-.wsk-mega-footer--heading {
+.mdl-mega-footer--heading {
   position: relative;
 
   width: 100%;
@@ -181,7 +186,7 @@ $footer-btn-size: 36px  !default;
   color: $footer-heading-color;
 }
 
-.wsk-mega-footer--heading:after {
+.mdl-mega-footer--heading:after {
   content: '';
 
   position: absolute;
@@ -196,7 +201,7 @@ $footer-btn-size: 36px  !default;
   background-size: cover;
 }
 
-.wsk-mega-footer--link-list {
+.mdl-mega-footer--link-list {
   list-style: none;
 
   margin: 0;
@@ -205,51 +210,51 @@ $footer-btn-size: 36px  !default;
   margin-bottom: $padding * 2;
 }
 
-.wsk-mega-footer--link-list li {
+.mdl-mega-footer--link-list li {
   margin-bottom: $padding;
 }
 
-.wsk-mega-footer--link-list a {
+.mdl-mega-footer--link-list a {
   color: inherit;
   text-decoration: none;
 }
 
 @media screen and (min-width: 760px) {
-  .wsk-mega-footer--heading-checkbox {
+  .mdl-mega-footer--heading-checkbox {
     display: none;
 
-    &~.wsk-mega-footer--heading:after {
+    &~.mdl-mega-footer--heading:after {
       background-image: none;
     }
   }
-  .wsk-mega-footer--heading-checkbox:checked {
+  .mdl-mega-footer--heading-checkbox:checked {
   &~ul {
     display: block;
   }
 
-  &~.wsk-mega-footer--heading:after {
+  &~.mdl-mega-footer--heading:after {
     content: '';
   }
 }
 }
 
-.wsk-mega-footer--bottom-section {
+.mdl-mega-footer--bottom-section {
   margin-bottom: $padding;
 }
 
-.wsk-mega-footer--bottom-section:after {
+.mdl-mega-footer--bottom-section:after {
   content: '';
 
   display: block;
   clear: both;
 }
 
-.wsk-logo {
+.mdl-logo {
   margin-bottom: $padding;
   font-size: 24px;
 }
 
-.wsk-mega-footer--bottom-section .wsk-mega-footer--link-list li {
+.mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li {
   float: left;
 
   margin-bottom: 0;
@@ -259,7 +264,7 @@ $footer-btn-size: 36px  !default;
 
 
 @media screen and (min-width: 760px) {
-  .wsk-logo {
+  .mdl-logo {
     float: left;
 
     margin-bottom: 0;

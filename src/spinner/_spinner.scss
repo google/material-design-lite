@@ -1,23 +1,23 @@
-@import "../colors";
-@import "../animation/animation";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-// This file is largely adapted from https://github.com/Polymer/paper-spinner.
-
-$spinner-size: 28px !default;
-$spinner-stroke-width: 3px !default;
-
-// Amount of circle the arc takes up.
-$spinner-arc-size: 270deg;
-// Time it takes to expand and contract arc.
-$spinner-arc-time: 1333ms;
-// How much the start location of the arc should rotate each time.
-$spinner-arc-start-rot: 216deg;
-
-$spinner-duration: 360deg * $spinner-arc-time / (
-    $spinner-arc-start-rot + (360deg - $spinner-arc-size));
+@import "../variables";
 
 
-.wsk-spinner {
+.mdl-spinner {
   display: inline-block;
   position: relative;
   width: $spinner-size;
@@ -28,86 +28,86 @@ $spinner-duration: 360deg * $spinner-arc-time / (
   }
 
   &.is-upgraded.is-active {
-    animation: wsk-spinner__container-rotate $spinner-duration linear infinite;
+    animation: mdl-spinner__container-rotate $spinner-duration linear infinite;
   }
 }
 
-@keyframes wsk-spinner__container-rotate {
+@keyframes mdl-spinner__container-rotate {
   to { transform: rotate(360deg) }
 }
 
-.wsk-spinner__layer {
+.mdl-spinner__layer {
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
 }
 
-.wsk-spinner__layer-1 {
+.mdl-spinner__layer-1 {
   border-color: $spinner-color-1;
 
-  .wsk-spinner--single-color & {
+  .mdl-spinner--single-color & {
     border-color: $spinner-single-color;
   }
 
-  .wsk-spinner.is-active & {
+  .mdl-spinner.is-active & {
     animation:
-        wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
+        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both,
-        wsk-spinner__layer-1-fade-in-out (4 * $spinner-arc-time)
+        mdl-spinner__layer-1-fade-in-out (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both;
   }
 }
 
-.wsk-spinner__layer-2 {
+.mdl-spinner__layer-2 {
   border-color: $spinner-color-2;
 
-  .wsk-spinner--single-color & {
+  .mdl-spinner--single-color & {
     border-color: $spinner-single-color;
   }
 
-  .wsk-spinner.is-active & {
+  .mdl-spinner.is-active & {
     animation:
-        wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
+        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both,
-        wsk-spinner__layer-2-fade-in-out (4 * $spinner-arc-time)
+        mdl-spinner__layer-2-fade-in-out (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both;
   }
 }
 
-.wsk-spinner__layer-3 {
+.mdl-spinner__layer-3 {
   border-color: $spinner-color-3;
 
-  .wsk-spinner--single-color & {
+  .mdl-spinner--single-color & {
     border-color: $spinner-single-color;
   }
 
-  .wsk-spinner.is-active & {
+  .mdl-spinner.is-active & {
     animation:
-        wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
+        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both,
-        wsk-spinner__layer-3-fade-in-out (4 * $spinner-arc-time)
+        mdl-spinner__layer-3-fade-in-out (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both;
   }
 }
 
-.wsk-spinner__layer-4 {
+.mdl-spinner__layer-4 {
   border-color: $spinner-color-4;
 
-  .wsk-spinner--single-color & {
+  .mdl-spinner--single-color & {
     border-color: $spinner-single-color;
   }
 
-  .wsk-spinner.is-active & {
+  .mdl-spinner.is-active & {
     animation:
-        wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
+        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both,
-        wsk-spinner__layer-4-fade-in-out (4 * $spinner-arc-time)
+        mdl-spinner__layer-4-fade-in-out (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both;
   }
 }
 
-@keyframes wsk-spinner__fill-unfill-rotate {
+@keyframes mdl-spinner__fill-unfill-rotate {
   12.5% { transform: rotate(0.5 * $spinner-arc-size);  }
   25%   { transform: rotate($spinner-arc-size);  }
   37.5% { transform: rotate(1.5 * $spinner-arc-size);  }
@@ -119,7 +119,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 }
 
 /**
-* HACK: Even though the intention is to have the current .wsk-spinner__layer-N
+* HACK: Even though the intention is to have the current .mdl-spinner__layer-N
 * at `opacity: 1`, we set it to `opacity: 0.99` instead since this forces Chrome
 * to do proper subpixel rendering for the elements being animated. This is
 * especially visible in Chrome 39 on Ubuntu 14.04. See:
@@ -127,7 +127,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 * - https://github.com/Polymer/paper-spinner/issues/9
 * - https://code.google.com/p/chromium/issues/detail?id=436255
 */
-@keyframes wsk-spinner__layer-1-fade-in-out {
+@keyframes mdl-spinner__layer-1-fade-in-out {
   from { opacity: 0.99; }
   25% { opacity: 0.99; }
   26% { opacity: 0; }
@@ -136,7 +136,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
   100% { opacity: 0.99; }
 }
 
-@keyframes wsk-spinner__layer-2-fade-in-out {
+@keyframes mdl-spinner__layer-2-fade-in-out {
   from { opacity: 0; }
   15% { opacity: 0; }
   25% { opacity: 0.99; }
@@ -144,7 +144,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
   51% { opacity: 0; }
 }
 
-@keyframes wsk-spinner__layer-3-fade-in-out {
+@keyframes mdl-spinner__layer-3-fade-in-out {
   from { opacity: 0; }
   40% { opacity: 0; }
   50% { opacity: 0.99; }
@@ -152,7 +152,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
   76% { opacity: 0; }
 }
 
-@keyframes wsk-spinner__layer-4-fade-in-out {
+@keyframes mdl-spinner__layer-4-fade-in-out {
   from { opacity: 0; }
   65% { opacity: 0; }
   75% { opacity: 0.99; }
@@ -162,13 +162,13 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
 /**
 * Patch the gap that appear between the two adjacent
-* div.wsk-spinner__circle-clipper while the spinner is rotating
+* div.mdl-spinner__circle-clipper while the spinner is rotating
 * (appears on Chrome 38, Safari 7.1, and IE 11).
 *
-* Update: the gap no longer appears on Chrome when .wsk-spinner__layer-N's
+* Update: the gap no longer appears on Chrome when .mdl-spinner__layer-N's
 * opacity is 0.99, but still does on Safari and IE.
 */
-.wsk-spinner__gap-patch {
+.mdl-spinner__gap-patch {
   position: absolute;
   box-sizing: border-box;
   top: 0;
@@ -178,13 +178,13 @@ $spinner-duration: 360deg * $spinner-arc-time / (
   overflow: hidden;
   border-color: inherit;
 
-  & .wsk-spinner__circle {
+  & .mdl-spinner__circle {
     width: 1000%;
     left: -450%;
   }
 }
 
-.wsk-spinner__circle-clipper {
+.mdl-spinner__circle-clipper {
   display: inline-block;
   position: relative;
   width: 50%;
@@ -192,12 +192,12 @@ $spinner-duration: 360deg * $spinner-arc-time / (
   overflow: hidden;
   border-color: inherit;
 
-  & .wsk-spinner__circle {
+  & .mdl-spinner__circle {
     width: 200%;
   }
 }
 
-.wsk-spinner__circle {
+.mdl-spinner__circle {
   box-sizing: border-box;
   height: 100%;
   border-width: $spinner-stroke-width;
@@ -213,35 +213,35 @@ $spinner-duration: 360deg * $spinner-arc-time / (
   bottom: 0;
   left: 0;
 
-  .wsk-spinner__left & {
+  .mdl-spinner__left & {
     border-right-color: transparent !important;
     transform: rotate(129deg);
 
-    .wsk-spinner.is-active & {
-      animation: wsk-spinner__left-spin $spinner-arc-time
+    .mdl-spinner.is-active & {
+      animation: mdl-spinner__left-spin $spinner-arc-time
           $animation-curve-fast-out-slow-in infinite both;
     }
   }
 
-  .wsk-spinner__right & {
+  .mdl-spinner__right & {
     left: -100%;
     border-left-color: transparent !important;
     transform: rotate(-129deg);
 
-    .wsk-spinner.is-active & {
-      animation: wsk-spinner__right-spin $spinner-arc-time
+    .mdl-spinner.is-active & {
+      animation: mdl-spinner__right-spin $spinner-arc-time
           $animation-curve-fast-out-slow-in infinite both;
     }
   }
 }
 
-@keyframes wsk-spinner__left-spin {
+@keyframes mdl-spinner__left-spin {
   from { transform: rotate(130deg); }
   50% { transform: rotate(-5deg); }
   to { transform: rotate(130deg); }
 }
 
-@keyframes wsk-spinner__right-spin {
+@keyframes mdl-spinner__right-spin {
   from { transform: rotate(-130deg); }
   50% { transform: rotate(5deg); }
   to { transform: rotate(-130deg); }

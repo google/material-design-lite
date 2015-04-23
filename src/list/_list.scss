@@ -1,44 +1,56 @@
-@import "../colors";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-$list-container-height: 500px;
-$list-container-width: 400px;
-$list-container-item-height: 70px;
+@import "../variables";
 
-.wsk-list {
+.mdl-list {
   display : block;
   height  : $list-container-height;
   overflow: scroll;
   width   : $list-container-width;
 }
 
-.wsk-list--styled-view {
+.mdl-list--styled-view {
   background: $list-container-view-background;
   transition: background 0.3s 0.1s;
   z-index   : 1;
 }
 
-.wsk-list--styled-view ul {
+.mdl-list--styled-view ul {
   display        : inline;
   list-style-type: none;
 }
 
-.wsk-list--styled-view li {
+.mdl-list--styled-view li {
   border-bottom: 1px solid $list-container-item-border-color;
   height       : $list-container-item-height;
   left         : 0;
   right        : 0;
 }
 
-.wsk-list--styled-view li:hover {
+.mdl-list--styled-view li:hover {
   background: #efefef;
 }
 
-.wsk-list-view--name {
+.mdl-list-view--name {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
 
-.wsk-list-view--avatar {
+.mdl-list-view--avatar {
   background: $list-container-item-border-color;
   border-radius  : 50%;
   content        : '';
@@ -49,13 +61,13 @@ $list-container-item-height: 70px;
   width          : 50px;
 }
 
-.wsk-list--inline {
+.mdl-list--inline {
   list-style  : none;
   margin-left : -5px;
   padding-left: 0;
 }
 
-.wsk-list--inline > li {
+.mdl-list--inline > li {
   display      : inline-block;
   padding-left : 5px;
   padding-right: 5px;

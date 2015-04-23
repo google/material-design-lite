@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Textfield WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialTextfield(element) {
@@ -31,8 +47,8 @@ MaterialTextfield.prototype.Constant_ = {
  * @private
  */
 MaterialTextfield.prototype.CssClasses_ = {
-  LABEL: 'wsk-textfield__label',
-  INPUT: 'wsk-textfield__input',
+  LABEL: 'mdl-textfield__label',
+  INPUT: 'mdl-textfield__input',
   IS_DIRTY: 'is-dirty',
   IS_FOCUSED: 'is-focused',
   IS_DISABLED: 'is-disabled',
@@ -106,6 +122,44 @@ MaterialTextfield.prototype.updateClasses_ = function() {
   }
 };
 
+// Public methods.
+
+/**
+ * Disable text field.
+ * @public
+ */
+MaterialTextfield.prototype.disable = function() {
+  'use strict';
+
+  this.input_.disabled = true;
+  this.updateClasses_();
+};
+
+/**
+ * Enable text field.
+ * @public
+ */
+MaterialTextfield.prototype.enable = function() {
+  'use strict';
+
+  this.input_.disabled = false;
+  this.updateClasses_();
+};
+
+/**
+ * Update text field value.
+ * @param {String} value The value to which to set the control (optional).
+ * @public
+ */
+MaterialTextfield.prototype.change = function(value) {
+  'use strict';
+
+  if (value) {
+    this.input_.value = value;
+  }
+  this.updateClasses_();
+};
+
 /**
  * Initialize element.
  */
@@ -146,5 +200,5 @@ MaterialTextfield.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialTextfield,
   classAsString: 'MaterialTextfield',
-  cssClass: 'wsk-js-textfield'
+  cssClass: 'mdl-js-textfield'
 });

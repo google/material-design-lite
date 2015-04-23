@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * A component handler interface using the revealing module design pattern.
  * More details on this pattern design here:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
  /* exported componentHandler */
@@ -95,6 +111,10 @@ var componentHandler = (function() {
         // it is in global scope.
         createdComponents_.push(new window[jsClass](element));
       }
+
+      var ev = document.createEvent('Events');
+      ev.initEvent('mdl-componentupgraded', true, true);
+      element.dispatchEvent(ev);
     }
   }
 
@@ -164,12 +184,12 @@ window.addEventListener('load', function() {
 
   /**
    * Performs a "Cutting the mustard" test. If the browser supports the features
-   * tested, adds a wsk-js class to the <html> element. It then upgrades all WSK
+   * tested, adds a mdl-js class to the <html> element. It then upgrades all WSK
    * components requiring JavaScript.
    */
   if ('classList' in document.createElement('div') && 'querySelector' in document &&
       'addEventListener' in window && Array.prototype.forEach) {
-    document.documentElement.classList.add('wsk-js');
+    document.documentElement.classList.add('mdl-js');
     componentHandler.upgradeAllRegistered();
   } else {
     componentHandler.upgradeElement = componentHandler.register = function () { };

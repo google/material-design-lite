@@ -22,21 +22,10 @@
     }
 
     iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: none;
-      margin-left: 20px;
-      margin-top: 20px;
+      width: auto;
     }
 
-    .demo-content {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-    }
-
-    .wsk-layout__content {
+    .mdl-layout__content {
       padding: 10px;
     }
   </style>
@@ -44,46 +33,42 @@
 <body>
 
 
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--overlay-drawer-button">
-      <div class="wsk-layout__header">
-        <span class="wsk-layout-title">Components</span>
-        <div class="wsk-layout-spacer"></div>
-        <div class="wsk-input wsk-input--right">
-          <label class="wsk-textfield-expandable-icon wsk-label" for="sample-expandable">
-            <span class="wsk-textfield-expandable-icon-search"></span>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+      <div class="mdl-layout__header">
+        <span class="mdl-layout-title">Components</span>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-input mdl-input--right">
+          <label class="mdl-textfield-expandable-icon mdl-label" for="sample-expandable">
+            <span class="mdl-textfield-expandable-icon-search"></span>
           </label>
-          <div class="wsk-input__expandable-holder">
-            <label class="wsk-label" for="sample"></label>
+          <div class="mdl-input__expandable-holder">
+            <label class="mdl-label" for="sample"></label>
           </div>
         </div>
       </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Material Design Lite</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" target="preview" href="test/visual/button.html">Buttons</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/card.html">Card</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/checkbox.html">Checkbox</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/footer.html">Footer</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/icon-toggle.html">Icon toggle</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/layout.html">Layout</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/list.html">List</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/menu.html">Menu</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/radio.html">Radio</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/spinner.html">Spinner</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/slider.html">Slider</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/switch.html">Switch</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/tabs.html">Tabs</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/textfield.html">Textfield</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/tooltip.html">Tooltip</a>
-          <a class="wsk-navigation__link" target="preview" href="test/visual/typography.html">Typography</a>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" target="preview" href="test/visual/button.html">Buttons</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/card.html">Card</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/checkbox.html">Checkbox</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/footer.html">Footer</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/icon-toggle.html">Icon toggle</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/layout.html">Layout</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/list.html">List</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/menu.html">Menu</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/progress.html">Progress</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/radio.html">Radio</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/spinner.html">Spinner</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/slider.html">Slider</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/switch.html">Switch</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/tabs.html">Tabs</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/textfield.html">Textfield</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/tooltip.html">Tooltip</a>
+          <a class="mdl-navigation__link" target="preview" href="test/visual/typography.html">Typography</a>
         </nav>
       </div>
-      <div class="wsk-layout__content">
-      <p>Material Design Lite is a light-weight implementation of Material Design targeted at static content-sites. Select a component on the left to preview it.</p>
-        <div class="demo-content">
-          <iframe name="preview"></iframe>
-        </div>
-      </div>
+      <iframe name="preview" class="mdl-layout__content" src="test/visual/welcome.html"></iframe>
     </div>
   </div>
 

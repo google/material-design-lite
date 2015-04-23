@@ -8,10 +8,14 @@
   <title>Layout</title>
 
   <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel='stylesheet'>
-
   <base href="../../">
+
   <link rel="stylesheet" href="css/material.css">
+  <link rel="stylesheet" href="test/visual/style.css">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     .demo-container {
       width: 100%;
       float: left;
@@ -28,36 +32,36 @@
     screens.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
-      <div class="wsk-layout__header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+      <header class="mdl-layout__header">
         <!-- Icon -->
-        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <img class="mdl-layout-icon" src="../images/app-icon.png"/>
         <!-- Title -->
-        <span class="wsk-layout-title">Web Starter Kit</span>
+        <span class="mdl-layout-title">Material Design Lite</span>
         <!-- Add spacer, to align navigation to the right -->
-        <div class="wsk-layout-spacer"></div>
+        <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
+        </nav>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
-        </nav>
-      </div>
-      <div class="wsk-layout__content">
-        <div class="demo-content"></div>
-      </div>
+      <main class="mdl-layout__content">
+        <div class="demo-layout__content"></div>
+      </main>
     </div>
   </div>
 
@@ -66,36 +70,36 @@
   <p>Same as the standard layout, but the header scrolls with the content.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
-      <div class="wsk-layout__header wsk-layout__header--scroll">
+    <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
         <!-- Icon -->
-        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <img class="mdl-layout-icon" src="../images/app-icon.png"/>
         <!-- Title -->
-        <span class="wsk-layout-title">Web Starter Kit</span>
+        <span class="mdl-layout-title">Material Design Lite</span>
         <!-- Add spacer, to align navigation to the right -->
-        <div class="wsk-layout-spacer"></div>
+        <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
+        </nav>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
-        </nav>
-      </div>
-      <div class="wsk-layout__content">
-        <div class="demo-content"></div>
-      </div>
+      <main class="mdl-layout__content">
+        <div class="demo-layout__content"></div>
+      </main>
     </div>
   </div>
 
@@ -105,33 +109,32 @@
     navigation.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--overlay-drawer-button">
-      <div class="wsk-layout__header">
-        <span class="wsk-layout-title">Fixed drawer layout demo</span>
-        <div class="wsk-layout-spacer"></div>
-        <div class="wsk-input wsk-input--right">
-          <label class="wsk-textfield-expandable-icon wsk-label" for="sample-expandable">
-            <span class="wsk-textfield-expandable-icon-search"></span>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+      <header class="mdl-layout__header">
+        <span class="mdl-layout-title">Fixed drawer layout demo</span>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean">
+            <span class="mdl-icon mdl-icon--search"/>
           </label>
-          <div class="wsk-input__expandable-holder">
-            <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable" type="text" name="sample" id="sample-expandable" />
-            <label class="wsk-label" for="sample"></label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample" id="sample-expclean" />
           </div>
         </div>
-      </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__content">
-        <div class="demo-content"></div>
-      </div>
+      <main class="mdl-layout__content">
+        <div class="demo-layout__content"></div>
+      </main>
     </div>
   </div>
 
@@ -140,20 +143,20 @@
   <p>Same as the previous layout, but with no header.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--overlay-drawer-button">
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__content">
-        <div class="demo-content"></div>
-      </div>
+      <main class="mdl-layout__content">
+        <div class="demo-layout__content"></div>
+      </main>
     </div>
   </div>
 
@@ -162,36 +165,36 @@
   <p>Always shows a header, even in smaller screens.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
-      <div class="wsk-layout__header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
         <!-- Icon -->
-        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <img class="mdl-layout-icon" src="../images/app-icon.png"/>
         <!-- Title -->
-        <span class="wsk-layout-title">Web Starter Kit</span>
+        <span class="mdl-layout-title">Material Design Lite</span>
         <!-- Add spacer, to align navigation to the right -->
-        <div class="wsk-layout-spacer"></div>
+        <div class="mdl-layout-spacer"></div>
         <!-- Navigation. We use CSS to hide it in small screens. -->
-        <nav class="wsk-navigation" id="fixed_header_nav">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+        <nav class="mdl-navigation" id="fixed_header_nav">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
+        </nav>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
-        </nav>
-      </div>
-      <div class="wsk-layout__content">
-        <div class="demo-content"></div>
-      </div>
+      <main class="mdl-layout__content">
+        <div class="demo-layout__content"></div>
+      </main>
     </div>
   </div>
 
@@ -201,33 +204,32 @@
     even in small screens.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-layout--fixed-header">
-      <div class="wsk-layout__header">
-        <span class="wsk-layout-title">Fixed drawer and header</span>
-        <div class="wsk-layout-spacer"></div>
-        <div class="wsk-input wsk-input--right">
-          <label class="wsk-textfield-expandable-icon wsk-label" for="sample-expandable2">
-            <span class="wsk-textfield-expandable-icon-search"></span>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <span class="mdl-layout-title">Fixed drawer and header</span>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean2">
+            <span class="mdl-icon mdl-icon--search"/>
           </label>
-          <div class="wsk-input__expandable-holder">
-            <input class="wsk-textfield wsk-js-textfield wsk-textfield--expandable" type="text" name="sample" id="sample-expandable2" />
-            <label class="wsk-label" for="sample"></label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample" id="sample-expclean2" />
           </div>
         </div>
-      </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__content">
-        <div class="demo-content"></div>
-      </div>
+      <main class="mdl-layout__content">
+        <div class="demo-layout__content"></div>
+      </main>
     </div>
   </div>
 
@@ -237,56 +239,56 @@
     screens only).</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--overlay-drawer-button">
-      <div class="wsk-layout__header wsk-layout__header--multi-row wsk-layout__header--waterfall wsk-layout__header--tall">
+    <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+      <header class="mdl-layout__header mdl-layout__header--multi-row mdl-layout__header--waterfall mdl-layout__header--tall">
         <!-- Top row -->
-        <div class="wsk-layout__header-row">
+        <div class="mdl-layout__header-row">
           <!-- Icon -->
-          <img class="wsk-layout-icon" src="images/app-icon.png"/>
+          <img class="mdl-layout-icon" src="../images/app-icon.png"/>
           <!-- Title -->
-          <span id="my_text_changes">Web Starter Kit</span>
-          <div class="wsk-layout-spacer"></div>
+          <span id="my_text_changes">Material Design Lite</span>
+          <div class="mdl-layout-spacer"></div>
           <!-- Only show when compact, check CSS -->
-          <nav class="wsk-navigation" id="compact_navigation">
-            <a class="wsk-navigation__link" href="">Hello</a>
-            <a class="wsk-navigation__link" href="">World.</a>
-            <a class="wsk-navigation__link" href="">How</a>
-            <a class="wsk-navigation__link" href="">Are</a>
-            <a class="wsk-navigation__link" href="">You?</a>
+          <nav class="mdl-navigation" id="compact_navigation">
+            <a class="mdl-navigation__link" href="#">Hello</a>
+            <a class="mdl-navigation__link" href="#">World.</a>
+            <a class="mdl-navigation__link" href="#">How</a>
+            <a class="mdl-navigation__link" href="#">Are</a>
+            <a class="mdl-navigation__link" href="#">You?</a>
           </nav>
         </div>
         <!-- Middle row, subtitle -->
-        <div class="wsk-layout__header-row">
-          <span class="wsk-typography--title">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-typography--title">
             Multi-row layout demo
           </span>
         </div>
         <!-- Bottom row -->
-        <div class="wsk-layout__header-row">
-          <div class="wsk-layout-spacer"></div>
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-spacer"></div>
           <!-- Only show when expanded, check CSS -->
-          <nav class="wsk-navigation" id="expanded_navigation">
-            <a class="wsk-navigation__link" href="">Hello</a>
-            <a class="wsk-navigation__link" href="">World.</a>
-            <a class="wsk-navigation__link" href="">How</a>
-            <a class="wsk-navigation__link" href="">Are</a>
-            <a class="wsk-navigation__link" href="">You?</a>
+          <nav class="mdl-navigation" id="expanded_navigation">
+            <a class="mdl-navigation__link" href="#">Hello</a>
+            <a class="mdl-navigation__link" href="#">World.</a>
+            <a class="mdl-navigation__link" href="#">How</a>
+            <a class="mdl-navigation__link" href="#">Are</a>
+            <a class="mdl-navigation__link" href="#">You?</a>
           </nav>
         </div>
-      </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__content">
-        <div class="demo-content"></div>
-      </div>
+      <main class="mdl-layout__content">
+        <div class="demo-layout__content"></div>
+      </main>
     </div>
   </div>
 
@@ -295,35 +297,35 @@
   <p>Uses a transparent header that draws on top of the layout's background.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout" id="transparent_demo">
-      <div class="wsk-layout__header wsk-layout__header--transparent">
+    <div class="mdl-layout mdl-js-layout" id="transparent_demo">
+      <header class="mdl-layout__header mdl-layout__header--transparent">
         <!-- Icon -->
-        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <img class="mdl-layout-icon" src="../images/app-icon.png"/>
         <!-- Title -->
-        <span class="wsk-layout-title">Web Starter Kit</span>
+        <span class="mdl-layout-title">Material Design Lite</span>
         <!-- Add spacer, to align navigation to the right -->
-        <div class="wsk-layout-spacer"></div>
+        <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
+        </nav>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="#">Hello</a>
+          <a class="mdl-navigation__link" href="#">World.</a>
+          <a class="mdl-navigation__link" href="#">How</a>
+          <a class="mdl-navigation__link" href="#">Are</a>
+          <a class="mdl-navigation__link" href="#">You?</a>
         </nav>
       </div>
-      <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Web Starter Kit</span>
-        <nav class="wsk-navigation">
-          <a class="wsk-navigation__link" href="">Hello</a>
-          <a class="wsk-navigation__link" href="">World.</a>
-          <a class="wsk-navigation__link" href="">How</a>
-          <a class="wsk-navigation__link" href="">Are</a>
-          <a class="wsk-navigation__link" href="">You?</a>
-        </nav>
-      </div>
-      <div class="wsk-layout__content">
-      </div>
+      <main class="mdl-layout__content">
+      </main>
     </div>
   </div>
 
@@ -331,44 +333,44 @@
   <p>Simple header with scrollable tabs.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
-      <div class="wsk-layout__header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
         <!-- Icon -->
-        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <img class="mdl-layout-icon" src="../images/app-icon.png"/>
         <!-- Title -->
-        <span class="wsk-layout-title">Web Starter Kit</span>
+        <span class="mdl-layout-title">Material Design Lite</span>
+      </header>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#blue-panel-scroll" class="mdl-layout__tab is-active">Blue</a>
+        <a href="#green-panel-scroll" class="mdl-layout__tab">Green</a>
+        <a href="#red-panel-scroll" class="mdl-layout__tab">Red</a>
+        <a href="#blue-panel-scroll" class="mdl-layout__tab">Blue Two</a>
+        <a href="#green-panel-scroll" class="mdl-layout__tab">Green Two</a>
+        <a href="#red-panel-scroll" class="mdl-layout__tab">Red Two</a>
+        <a href="#blue-panel-scroll" class="mdl-layout__tab">Blue Three</a>
+        <a href="#green-panel-scroll" class="mdl-layout__tab">Green Three</a>
+        <a href="#red-panel-scroll" class="mdl-layout__tab">Red Three</a>
+        <a href="#blue-panel-scroll" class="mdl-layout__tab">Blue Four</a>
+        <a href="#green-panel-scroll" class="mdl-layout__tab">Green Four</a>
+        <a href="#red-panel-scroll" class="mdl-layout__tab">Red Four</a>
+        <a href="#blue-panel-scroll" class="mdl-layout__tab">Blue Five</a>
+        <a href="#green-panel-scroll" class="mdl-layout__tab">Green Five</a>
+        <a href="#red-panel-scroll" class="mdl-layout__tab">Red Five</a>
+        <a href="#blue-panel-scroll" class="mdl-layout__tab">Blue Six</a>
+        <a href="#green-panel-scroll" class="mdl-layout__tab">Green Six</a>
+        <a href="#red-panel-scroll" class="mdl-layout__tab">Red Six</a>
       </div>
-      <div class="wsk-layout__tab-bar wsk-js-ripple-effect">
-        <a href="#blue-panel-scroll" class="wsk-layout__tab is-active">Blue</a>
-        <a href="#green-panel-scroll" class="wsk-layout__tab">Green</a>
-        <a href="#red-panel-scroll" class="wsk-layout__tab">Red</a>
-        <a href="#blue-panel-scroll" class="wsk-layout__tab">Blue Two</a>
-        <a href="#green-panel-scroll" class="wsk-layout__tab">Green Two</a>
-        <a href="#red-panel-scroll" class="wsk-layout__tab">Red Two</a>
-        <a href="#blue-panel-scroll" class="wsk-layout__tab">Blue Three</a>
-        <a href="#green-panel-scroll" class="wsk-layout__tab">Green Three</a>
-        <a href="#red-panel-scroll" class="wsk-layout__tab">Red Three</a>
-        <a href="#blue-panel-scroll" class="wsk-layout__tab">Blue Four</a>
-        <a href="#green-panel-scroll" class="wsk-layout__tab">Green Four</a>
-        <a href="#red-panel-scroll" class="wsk-layout__tab">Red Four</a>
-        <a href="#blue-panel-scroll" class="wsk-layout__tab">Blue Five</a>
-        <a href="#green-panel-scroll" class="wsk-layout__tab">Green Five</a>
-        <a href="#red-panel-scroll" class="wsk-layout__tab">Red Five</a>
-        <a href="#blue-panel-scroll" class="wsk-layout__tab">Blue Six</a>
-        <a href="#green-panel-scroll" class="wsk-layout__tab">Green Six</a>
-        <a href="#red-panel-scroll" class="wsk-layout__tab">Red Six</a>
-      </div>
-      <div class="wsk-layout__content">
-        <div class="wsk-layout__tab-panel is-active" id="blue-panel-scroll">
-          <div class="demo-content"></div>
-        </div>
-        <div class="wsk-layout__tab-panel" id="green-panel-scroll">
-          <div class="demo-content-green"></div>
-        </div>
-        <div class="wsk-layout__tab-panel" id="red-panel-scroll">
-          <div class="demo-content-red"></div>
-        </div>
-      </div>
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="blue-panel-scroll">
+          <div class="demo-layout__content-blue"></div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="green-panel-scroll">
+          <div class="demo-layout__content-green"></div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="red-panel-scroll">
+          <div class="demo-layout__content-red"></div>
+        </section>
+      </main>
     </div>
   </div>
 
@@ -376,29 +378,29 @@
   <p>Simple header with fixed tabs.</p>
 
   <div class="demo-container">
-    <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header wsk-layout--fixed-tabs">
-      <div class="wsk-layout__header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header">
         <!-- Icon -->
-        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <img class="mdl-layout-icon" src="../images/app-icon.png"/>
         <!-- Title -->
-        <span class="wsk-layout-title">Web Starter Kit</span>
+        <span class="mdl-layout-title">Material Design Lite</span>
+      </header>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#blue-panel-fixed" class="mdl-layout__tab is-active">Blue</a>
+        <a href="#green-panel-fixed" class="mdl-layout__tab">Green</a>
+        <a href="#red-panel-fixed" class="mdl-layout__tab">Red</a>
       </div>
-      <div class="wsk-layout__tab-bar wsk-js-ripple-effect">
-        <a href="#blue-panel-fixed" class="wsk-layout__tab is-active">Blue</a>
-        <a href="#green-panel-fixed" class="wsk-layout__tab">Green</a>
-        <a href="#red-panel-fixed" class="wsk-layout__tab">Red</a>
-      </div>
-      <div class="wsk-layout__content">
-        <div class="wsk-layout__tab-panel is-active" id="blue-panel-fixed">
-          <div class="demo-content"></div>
-        </div>
-        <div class="wsk-layout__tab-panel" id="green-panel-fixed">
-          <div class="demo-content-green"></div>
-        </div>
-        <div class="wsk-layout__tab-panel" id="red-panel-fixed">
-          <div class="demo-content-red"></div>
-        </div>
-      </div>
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="blue-panel-fixed">
+          <div class="demo-layout__content-blue"></div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="green-panel-fixed">
+          <div class="demo-layout__content-green"></div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="red-panel-fixed">
+          <div class="demo-layout__content-red"></div>
+        </section>
+      </main>
     </div>
   </div>
 

@@ -1,7 +1,23 @@
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Class constructor for Radio WSK component.
  * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function MaterialRadio(element) {
@@ -31,32 +47,19 @@ MaterialRadio.prototype.Constant_ = {
  */
 MaterialRadio.prototype.CssClasses_ = {
   IS_FOCUSED: 'is-focused',
-
   IS_DISABLED: 'is-disabled',
-
   IS_CHECKED: 'is-checked',
-
   IS_UPGRADED: 'is-upgraded',
-
-  WSK_JS_RADIO: 'wsk-js-radio',
-
-  WSK_RADIO_BTN: 'wsk-radio__button',
-
-  WSK_RADIO_OUTER_CIRCLE: 'wsk-radio__outer-circle',
-
-  WSK_RADIO_INNER_CIRCLE: 'wsk-radio__inner-circle',
-
-  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
-
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'wsk-js-ripple-effect--ignore-events',
-
-  WSK_RADIO_RIPPLE_CONTAINER: 'wsk-radio__ripple-container',
-
-  WSK_RIPPLE_CENTER: 'wsk-ripple--center',
-
-  WSK_RIPPLE: 'wsk-ripple'
+  JS_RADIO: 'mdl-js-radio',
+  RADIO_BTN: 'mdl-radio__button',
+  RADIO_OUTER_CIRCLE: 'mdl-radio__outer-circle',
+  RADIO_INNER_CIRCLE: 'mdl-radio__inner-circle',
+  RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+  RIPPLE_CONTAINER: 'mdl-radio__ripple-container',
+  RIPPLE_CENTER: 'mdl-ripple--center',
+  RIPPLE: 'mdl-ripple'
 };
-
 
 /**
  * Handle change of state.
@@ -70,16 +73,15 @@ MaterialRadio.prototype.onChange_ = function(event) {
 
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
-  var radios = document.getElementsByClassName(this.CssClasses_.WSK_JS_RADIO);
+  var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
   for (var i = 0; i < radios.length; i++) {
-    var button = radios[i].querySelector('.' + this.CssClasses_.WSK_RADIO_BTN);
+    var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
     // Different name == different group, so no point updating those.
     if (button.getAttribute('name') === this.btnElement_.getAttribute('name')) {
       this.updateClasses_(button, radios[i]);
     }
   }
 };
-
 
 /**
  * Handle focus.
@@ -92,7 +94,6 @@ MaterialRadio.prototype.onFocus_ = function(event) {
   this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
 };
 
-
 /**
  * Handle lost focus.
  * @param {Event} event The event that fired.
@@ -104,7 +105,6 @@ MaterialRadio.prototype.onBlur_ = function(event) {
   this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
 };
 
-
 /**
  * Handle mouseup.
  * @param {Event} event The event that fired.
@@ -115,7 +115,6 @@ MaterialRadio.prototype.onMouseup_ = function(event) {
 
   this.blur_();
 };
-
 
 /**
  * Update classes.
@@ -139,7 +138,6 @@ MaterialRadio.prototype.updateClasses_ = function(button, label) {
   }
 };
 
-
 /**
  * Add blur.
  * @private
@@ -154,6 +152,51 @@ MaterialRadio.prototype.blur_ = function(event) {
   }.bind(this), this.Constant_.TINY_TIMEOUT);
 };
 
+// Public methods.
+
+/**
+ * Disable radio.
+ * @public
+ */
+MaterialRadio.prototype.disable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = true;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
+
+/**
+ * Enable radio.
+ * @public
+ */
+MaterialRadio.prototype.enable = function() {
+  'use strict';
+
+  this.btnElement_.disabled = false;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
+
+/**
+ * Check radio.
+ * @public
+ */
+MaterialRadio.prototype.check = function() {
+  'use strict';
+
+  this.btnElement_.checked = true;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
+
+/**
+ * Uncheck radio.
+ * @public
+ */
+MaterialRadio.prototype.uncheck = function() {
+  'use strict';
+
+  this.btnElement_.checked = false;
+  this.updateClasses_(this.btnElement_, this.element_);
+};
 
 /**
  * Initialize element.
@@ -163,55 +206,50 @@ MaterialRadio.prototype.init = function() {
 
   if (this.element_) {
     this.btnElement_ = this.element_.querySelector('.' +
-        this.CssClasses_.WSK_RADIO_BTN);
+        this.CssClasses_.RADIO_BTN);
 
     var outerCircle = document.createElement('span');
-    outerCircle.classList.add(this.CssClasses_.WSK_RADIO_OUTER_CIRCLE);
+    outerCircle.classList.add(this.CssClasses_.RADIO_OUTER_CIRCLE);
 
     var innerCircle = document.createElement('span');
-    innerCircle.classList.add(this.CssClasses_.WSK_RADIO_INNER_CIRCLE);
+    innerCircle.classList.add(this.CssClasses_.RADIO_INNER_CIRCLE);
 
     this.element_.appendChild(outerCircle);
     this.element_.appendChild(innerCircle);
 
     var rippleContainer;
     if (this.element_.classList.contains(
-        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+        this.CssClasses_.RIPPLE_EFFECT)) {
       this.element_.classList.add(
-          this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+          this.CssClasses_.RIPPLE_IGNORE_EVENTS);
       rippleContainer = document.createElement('span');
       rippleContainer.classList.add(
-          this.CssClasses_.WSK_RADIO_RIPPLE_CONTAINER);
-      rippleContainer.classList.add(this.CssClasses_.WSK_JS_RIPPLE_EFFECT);
-      rippleContainer.classList.add(this.CssClasses_.WSK_RIPPLE_CENTER);
+          this.CssClasses_.RIPPLE_CONTAINER);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
       rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
 
       var ripple = document.createElement('span');
-      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(this.CssClasses_.RIPPLE);
 
       rippleContainer.appendChild(ripple);
       this.element_.appendChild(rippleContainer);
     }
 
     this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-
     this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
-
     this.element_.addEventListener('mouseup', this.onMouseup_.bind(this));
-
 
     this.updateClasses_(this.btnElement_, this.element_);
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
 
-
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
   constructor: MaterialRadio,
   classAsString: 'MaterialRadio',
-  cssClass: 'wsk-js-radio'
+  cssClass: 'mdl-js-radio'
 });
