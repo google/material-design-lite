@@ -403,9 +403,3 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     padding: 0;
     transition: left 0.18s $animation-curve-default
   }
-
-  // Some CSS magic to disable track animations in Firefox, since the thumb
-  // doesn't animate.
-  _:-moz-tree-row(hover), .mdl-slider__background-upper {
-    transition: none;
-  }
