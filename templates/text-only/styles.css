@@ -1,0 +1,129 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.mdl-layout__tab-bar-button, .mdl-layout__drawer-button {
+  display: none;
+}
+.mdl-layout__tab-bar-container {
+  overflow: visible;
+}
+.mdl-layout__tab-bar {
+  overflow: visible;
+  position: relative;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+main {
+  padding: 48px 0;
+}
+
+#add {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  z-index: 999;
+}
+
+.mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+section.section--center {
+  max-width: 840px;
+}
+section > header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section > header > .mdl-icon {
+  font-size: 3rem;
+}
+section > button {
+  position: absolute !important;
+  z-index: 99;
+  top: 8px;
+  right: 8px;
+}
+section .section__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section .section__circle img {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  margin: 8px;
+}
+section .section__circle--big img {
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+}
+section .section__text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+section.section--center .section__text:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,.13);
+}
+.mdl-card .mdl-card--lower > h3:first-child {
+  margin-bottom: 24px !important;
+}
+
+#features .mdl-card {
+  padding: 72px;
+}
+#features section {
+  margin-bottom: 72px;
+}
+#features h3, #features h4 {
+  margin-bottom: 8px;
+}
+
+.toc {
+  border-left: 2px solid #C1EEF4;
+  margin: 24px;
+  padding: 0;
+  padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.toc h4 {
+  font-size: 0.8rem;
+}
+.toc a {
+  @extend mdl-color-text--cyan-300;
+  text-decoration: none;
+  line-height: 1.5em;
+}
+
+.mdl-card {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.mdl-card > * {
+  height: auto;
+}
+.mdl-card--bottom {
+  color: inherit;
+}
+.mdl-card--bottom a {
+  color: inherit;
+}
+.mdl-card--lower {
+  flex-grow: 1;
+  margin: 32px;
+  padding: 0;
+  color: inherit;
+}
+.mdl-menu__container {
+  z-index: 99;
+}
