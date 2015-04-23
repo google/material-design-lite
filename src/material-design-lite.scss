@@ -49,3 +49,8 @@
 @import "tabs/tabs";
 @import "textfield/textfield";
 @import "tooltip/tooltip";
+
+// Base class definition.
+.mdl-base {
+  @extend .mdl-typography;
+}

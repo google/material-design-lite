@@ -523,97 +523,85 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  */
 /* ANIMATION */
 /* PROGRESS */
-html, body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px; }
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
-/**
- * Styles for HTML elements
- */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
+.mdl-typography, .mdl-base {
+  /**
+	 * Styles for HTML elements
+	 */ }
+  .mdl-typography html, .mdl-base html, .mdl-typography body, .mdl-base body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px; }
+  .mdl-typography h1, .mdl-base h1, .mdl-typography h2, .mdl-base h2, .mdl-typography h3, .mdl-base h3, .mdl-typography h4, .mdl-base h4, .mdl-typography h5, .mdl-base h5, .mdl-typography h6, .mdl-base h6, .mdl-typography p, .mdl-base p {
+    margin: 0;
+    padding: 0; }
+  .mdl-typography h1 small, .mdl-base h1 small, .mdl-typography h2 small, .mdl-base h2 small, .mdl-typography h3 small, .mdl-base h3 small, .mdl-typography h4 small, .mdl-base h4 small, .mdl-typography h5 small, .mdl-base h5 small, .mdl-typography h6 small, .mdl-base h6 small {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    opacity: 0.54;
+    font-size: 0.6em; }
+  .mdl-typography h1, .mdl-base h1 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em; }
+  .mdl-typography h2, .mdl-base h2 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 48px; }
+  .mdl-typography h3, .mdl-base h3 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 40px; }
+  .mdl-typography h4, .mdl-base h4 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    -moz-osx-font-smoothing: grayscale; }
+  .mdl-typography h5, .mdl-base h5 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.02em; }
+  .mdl-typography h6, .mdl-base h6 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em; }
+  .mdl-typography p, .mdl-base p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    margin: 0 0 16px 0; }
+  .mdl-typography a, .mdl-base a {
+    color: rgb(0,172,193); }
+  .mdl-typography blockquote, .mdl-base blockquote {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: 0.08em; }
+    .mdl-typography blockquote:before, .mdl-base blockquote:before {
+      content: '“';
+      opacity: 0.54; }
+    .mdl-typography blockquote:after, .mdl-base blockquote:after {
+      content: '”';
+      opacity: 0.54; }
+  .mdl-typography mark, .mdl-base mark {
+    background-color: #f4ff81; }
+  .mdl-typography dt, .mdl-base dt {
+    font-weight: 700; }
 
 /**
  * Class Name Styles
@@ -9597,9 +9585,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -webkit-transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1);
           transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1); }
 
-_:-moz-tree-row(hover), .mdl-slider__background-upper {
-  transition: none; }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10516,9 +10501,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
