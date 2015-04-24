@@ -16,6 +16,11 @@
 
 @import "../variables";
 
+::selection {
+    background: $color-primary; 
+    color: $color-primary-contrast;
+}
+
 html, body {
 	&.mdl-typography {
 		font-family: $performance_font;
