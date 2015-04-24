@@ -36,6 +36,7 @@
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 
 
@@ -517,3 +518,11 @@ $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 /* PROGRESS */
 $bar-height: 4px !default;
+
+/* BADGE */
+$badge-color: unquote("rgb(#{$color-white})") !default;
+$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
+$badge-background: unquote("rgb(#{$color-accent})") !default;
+$badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
+$badge-size : 20px;
+$badge-padding: 2px;
