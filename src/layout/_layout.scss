@@ -23,7 +23,7 @@
   flex-wrap: nowrap;
 }
 
-.mdl-navigation__link {
+.mdl-navigation__link.mdl-navigation__link {
   color: $layout-text-color;
   text-decoration: none;
   font-weight: 700;
@@ -591,8 +591,6 @@
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
-
-    color: $layout-header-tab-text-color;
     overflow: hidden;
 
     @media screen and (max-width: $layout-screen-size-threshold) {
@@ -633,6 +631,10 @@
       z-index: 1;
       overflow: hidden;
     }
+  }
+
+  .mdl-layout__tab.mdl-layout__tab {
+    color: $layout-header-tab-text-color;
   }
 
   .mdl-layout__tab-panel {
