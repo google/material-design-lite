@@ -27,7 +27,7 @@
   border-radius: 2px;
 }
 
-.mdl-card--img-container {
+.mdl-card--img-container.mdl-card--img-container {
   background-color     : $image-placeholder-color;
   @if str_length($background-image-url) > 0 {
   background-image     : url($background-image-url);
@@ -40,7 +40,7 @@
   height               : $cover-image-height;
 }
 
-.mdl-card--heading {
+.mdl-card--heading.mdl-card--heading {
   align-items       : center;
   background        : $heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   border            : $heading-back-border;
@@ -59,7 +59,7 @@
   width             : 100%;
 }
 
-.mdl-card--heading-text {
+.mdl-card--heading-text.mdl-card--heading-text {
   align-self      : center;
   // TODO: Does this need to be anything other than none?
   border          : 0 none rgb(255, 255, 255);
@@ -79,7 +79,7 @@
   width           : 90%;
 }
 
-.mdl-card--caption {
+.mdl-card--caption.mdl-card--caption {
   background        : $caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   // TODO: Does this need to be anything other than none?
   border            : 0 none rgb(255, 255, 255);
@@ -96,7 +96,7 @@
   width             : 100%;
 }
 
-.mdl-card--lower {
+.mdl-card--lower.mdl-card--lower {
   // TODO: Does this need to be anything other than none?
   border         : 0 none rgb(68, 68, 68);
   color          : $lower-text-color;
@@ -113,35 +113,34 @@
   width          : 90%;
 }
 
-.mdl-card--bottom {
+.mdl-card--bottom.mdl-card--bottom {
   font-size  : $card-bottom-font-size;
   height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
-}
-
-.mdl-card--bottom a {
-  // TODO: Does this need to be anything other than none?
-  border-bottom     : 0 none rgb(48, 63, 159);
-  // TODO: Does this need to be anything other than none?
-  border-left       : 0 none rgb(48, 63, 159);
-  // TODO: Does this need to be anything other than none?
-  border-right      : 0 none rgb(48, 63, 159);
-  border-top        : 1px solid rgb(235, 235, 235);
-  box-sizing        : border-box;
-  color             : $action-link-color;
-  cursor            : pointer;
-  display           : inline-block;
-  font-size         : $card-bottom-anchor-font-size;
-  font-weight       : normal;
-  height            : $card-bottom-anchor-height;
-  line-height       : $card-bottom-anchor-line-height;
-  // TODO: Does this need to be anything other than none?
-  outline           : rgb(48, 63, 159) none 0;
-  padding           : 0 $card-horizontal-padding;
-  perspective-origin: $card-bottom-anchor-perspective-origin-x $card-bottom-anchor-perspective-origin-y;
-  text-decoration   : none solid rgb(48, 63, 159);
-  text-transform    : uppercase;
-  transform-origin  : $card-bottom-anchor-transform-origin-x $card-bottom-anchor-transform-origin-y;
-  width             : 100%;
+    & a {
+    // TODO: Does this need to be anything other than none?
+    border-bottom     : 0 none rgb(48, 63, 159);
+    // TODO: Does this need to be anything other than none?
+    border-left       : 0 none rgb(48, 63, 159);
+    // TODO: Does this need to be anything other than none?
+    border-right      : 0 none rgb(48, 63, 159);
+    border-top        : 1px solid rgb(235, 235, 235);
+    box-sizing        : border-box;
+    color             : $action-link-color;
+    cursor            : pointer;
+    display           : inline-block;
+    font-size         : $card-bottom-anchor-font-size;
+    font-weight       : normal;
+    height            : $card-bottom-anchor-height;
+    line-height       : $card-bottom-anchor-line-height;
+    // TODO: Does this need to be anything other than none?
+    outline           : rgb(48, 63, 159) none 0;
+    padding           : 0 $card-horizontal-padding;
+    perspective-origin: $card-bottom-anchor-perspective-origin-x $card-bottom-anchor-perspective-origin-y;
+    text-decoration   : none solid rgb(48, 63, 159);
+    text-transform    : uppercase;
+    transform-origin  : $card-bottom-anchor-transform-origin-x $card-bottom-anchor-transform-origin-y;
+    width             : 100%;
+  }
 }
