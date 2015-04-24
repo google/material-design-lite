@@ -38,6 +38,9 @@ section > header{
   align-items: center;
   justify-content: center;
 }
+section > .section__play-btn {
+  min-height: 200px;
+}
 section > header > .mdl-icon {
   font-size: 3rem;
 }
