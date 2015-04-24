@@ -13,7 +13,6 @@ html, body {
 
 header.mdl-layout__header {
   padding-top: 30%;
-  max-height: 100%;
   padding-left: 0;
   background: url('images/top.jpg') center center;
   background-size: cover;
@@ -25,7 +24,7 @@ header.mdl-layout__header #logo {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-top: -35px;
+  margin-top: -40px;
   margin-left: -35px;
   fill: #fff;
 }
@@ -37,6 +36,17 @@ header.mdl-layout__header #logo img {
 header.mdl-layout__header .menu {
   width: 100%;
   background: rgba(0,0,0,0.2);
+}
+
+header.mdl-layout__header #title {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 50px;
+  line-height: 20px;
+  font-size: 13px;
 }
 
 .extra-spacing {
@@ -105,19 +115,19 @@ header.mdl-layout__header .menu {
 }
 
 .heading.products {
-  background: url('images/products.png') center center no-repeat;
+  background: url('images/products.jpg') center center no-repeat;
   background-size: cover;
 }
 
 .heading.feature-one {
   padding-top: 40%;
-  background: url('images/feature_one.png') center center no-repeat;
+  background: url('images/feature_one.jpg') center center no-repeat;
   background-size: cover;
 }
 
 .heading.feature-two {
   padding-top: 40%;
-  background: url('images/feature_two.png') center center no-repeat;
+  background: url('images/feature_two.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -145,6 +155,10 @@ header.mdl-layout__header .menu {
   header.mdl-layout__header #logo {
     width: 40px;
     margin-left: -20px;
+  }
+  header.mdl-layout__header #title {
+    font-size: 12px;
+    line-height: 16px;
   }
   .mdl-layout__header .mdl-navigation__link {
     line-height: 52px;
