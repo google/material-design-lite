@@ -5,6 +5,7 @@ html, body {
 
 .mdl-layout__header .mdl-navigation__link {
   line-height: 60px;
+  position: relative;
 }
 
 .mdl-layout__header .mdl-navigation__link.active {

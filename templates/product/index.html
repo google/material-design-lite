@@ -37,11 +37,11 @@
         <a href="/" id="title" class="mdl-color-text--white">Your Product Site</a>
         <div class="menu">
           <nav class="mdl-navigation">
-            <a href="#about" class="mdl-navigation__link active">About</a>
-            <a href="#products" class="mdl-navigation__link">Products</a>
-            <a href="#faqs" class="mdl-navigation__link">FAQ</a>
-            <a href="#support" class="mdl-navigation__link">Support</a>
-            <a href="#blog" class="mdl-navigation__link">Blog</a>
+            <a href="#about" class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect active">About</a>
+            <a href="#products" class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect">Products</a>
+            <a href="#faqs" class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect">FAQ</a>
+            <a href="#support" class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect">Support</a>
+            <a href="#blog" class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect">Blog</a>
           </nav>
         </div>
       </header>
@@ -124,5 +124,34 @@
       <span class="mdl-icon mdl-icon--search"/>
     </a>
     <script src="/material.min.js"></script>
+    <script>
+      (function() {
+        'use strict';
+
+        function setActiveState(link) {
+          removeActiveState();
+          link.classList.add('active');
+        }
+
+        function removeActiveState() {
+          var active = document.getElementsByClassName('mdl-navigation__link active');
+          if (active.length) {
+            active[0].classList.remove('active');
+          }
+        }
+
+        var links = document.getElementsByClassName('mdl-navigation')[0].children;
+
+        for (var i = 0, link; link = links[i]; i++) {
+          if (link.getAttribute('href') === location.hash) {
+            setActiveState(link);
+          }
+
+          link.addEventListener('click', function() {
+            setActiveState(this);
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
