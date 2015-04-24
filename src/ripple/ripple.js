@@ -15,8 +15,8 @@
  */
 
 /**
- * Class constructor for Ripple WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Ripple MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */

@@ -15,8 +15,8 @@
  */
 
 /**
- * Class constructor for Spinner WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Spinner MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -35,7 +35,7 @@ function MaterialSpinner(element) {
  * @private
  */
 MaterialSpinner.prototype.Constant_ = {
-  WSK_SPINNER_LAYER_COUNT: 4
+  MDL_SPINNER_LAYER_COUNT: 4
 };
 
 /**
@@ -46,12 +46,12 @@ MaterialSpinner.prototype.Constant_ = {
  * @private
  */
 MaterialSpinner.prototype.CssClasses_ = {
-  WSK_SPINNER_LAYER: 'mdl-spinner__layer',
-  WSK_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
-  WSK_SPINNER_CIRCLE: 'mdl-spinner__circle',
-  WSK_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
-  WSK_SPINNER_LEFT: 'mdl-spinner__left',
-  WSK_SPINNER_RIGHT: 'mdl-spinner__right'
+  MDL_SPINNER_LAYER: 'mdl-spinner__layer',
+  MDL_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+  MDL_SPINNER_CIRCLE: 'mdl-spinner__circle',
+  MDL_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+  MDL_SPINNER_LEFT: 'mdl-spinner__left',
+  MDL_SPINNER_RIGHT: 'mdl-spinner__right'
 };
 
 /**
@@ -61,25 +61,25 @@ MaterialSpinner.prototype.createLayer = function(index) {
   'use strict';
 
   var layer = document.createElement('div');
-  layer.classList.add(this.CssClasses_.WSK_SPINNER_LAYER);
-  layer.classList.add(this.CssClasses_.WSK_SPINNER_LAYER + '-' + index);
+  layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
+  layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
 
   var leftClipper = document.createElement('div');
-  leftClipper.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE_CLIPPER);
-  leftClipper.classList.add(this.CssClasses_.WSK_SPINNER_LEFT);
+  leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+  leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
 
   var gapPatch = document.createElement('div');
-  gapPatch.classList.add(this.CssClasses_.WSK_SPINNER_GAP_PATCH);
+  gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
 
   var rightClipper = document.createElement('div');
-  rightClipper.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE_CLIPPER);
-  rightClipper.classList.add(this.CssClasses_.WSK_SPINNER_RIGHT);
+  rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+  rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
 
   var circleOwners = [leftClipper, gapPatch, rightClipper];
 
   for (var i = 0; i < circleOwners.length; i++) {
     var circle = document.createElement('div');
-    circle.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE);
+    circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
     circleOwners[i].appendChild(circle);
   }
 
@@ -120,7 +120,7 @@ MaterialSpinner.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    for (var i = 1; i <= this.Constant_.WSK_SPINNER_LAYER_COUNT; i++) {
+    for (var i = 1; i <= this.Constant_.MDL_SPINNER_LAYER_COUNT; i++) {
       this.createLayer(i);
     }
 
