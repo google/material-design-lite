@@ -94,7 +94,7 @@ The MDL CSS classes apply various predefined visual enhancements and behavioral 
 | `mdl-column-layout__child` | Defines a container as a column-layout item | Required on "inner" div elements|
 
 ##More information
-For working examples of the **column-layout** component, see the MDL [column-layout demo page](www.github.com/google/material-design-lite/src/column-layout/demo.html).
+For working examples of the **column-layout** component, see the MDL [column-layout demo page](www.github.com/google/material-design-lite/src/column-layout/demo.html). For related information, also see the [layout component documentation](https://github.com/google/material-design-lite/blob/master/src/layout/README.md).
 
 ## License
 
