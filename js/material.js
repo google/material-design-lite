@@ -202,17 +202,44 @@ window.addEventListener('load', function() {
   }
 });
 
-// From: http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-// shim layer with setTimeout fallback
-window.requestAnimFrame = (function() {
-  'use strict';
-  return window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    function(callback) {
-      window.setTimeout(callback, 1000 / 60);
+// Source: https://github.com/darius/requestAnimationFrame/blob/master/requestAnimationFrame.js
+// Adapted from https://gist.github.com/paulirish/1579671 which derived from
+// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+
+// requestAnimationFrame polyfill by Erik Möller.
+// Fixes from Paul Irish, Tino Zijdel, Andrew Mao, Klemen Slavič, Darius Bacon
+
+// MIT license
+
+(function() {
+'use strict';
+
+if (!Date.now) {
+  Date.now = function() { return new Date().getTime(); };
+}
+
+var vendors = ['webkit', 'moz'];
+for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+  var vp = vendors[i];
+  window.requestAnimationFrame = window[vp + 'RequestAnimationFrame'];
+  window.cancelAnimationFrame = (window[vp + 'CancelAnimationFrame'] ||
+  window[vp + 'CancelRequestAnimationFrame']);
+}
+
+if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
+  var lastTime = 0;
+  window.requestAnimationFrame = function(callback) {
+      var now = Date.now();
+      var nextTime = Math.max(lastTime + 16, now);
+      return setTimeout(function() { callback(lastTime = nextTime); },
+                        nextTime - now);
     };
+  window.cancelAnimationFrame = clearTimeout;
+}
+
 })();
+
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -1377,7 +1404,7 @@ MaterialMenu.prototype.show = function(evt) {
 
     // Wait for the next frame, turn on animation, and apply the final clip.
     // Also make it visible. This triggers the transitions.
-    window.requestAnimFrame(function() {
+    window.requestAnimationFrame(function() {
       this.element_.classList.add(this.CssClasses_.IS_ANIMATING);
       this.element_.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
       this.container_.classList.add(this.CssClasses_.IS_VISIBLE);
@@ -3349,7 +3376,7 @@ MaterialRipple.prototype.downHandler_ = function(event) {
     }
     this.setRippleXY(x, y);
     this.setRippleStyles(true);
-    window.requestAnimFrame(this.animFrameHandler.bind(this));
+    window.requestAnimationFrame(this.animFrameHandler.bind(this));
   }
 };
 
@@ -3459,7 +3486,7 @@ MaterialRipple.prototype.init = function() {
 
       this.animFrameHandler = function() {
         if (this.frameCount_-- > 0) {
-          window.requestAnimFrame(this.animFrameHandler.bind(this));
+          window.requestAnimationFrame(this.animFrameHandler.bind(this));
         } else {
           this.setRippleStyles(false);
         }

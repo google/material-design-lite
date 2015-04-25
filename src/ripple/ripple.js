@@ -93,7 +93,7 @@ MaterialRipple.prototype.downHandler_ = function(event) {
     }
     this.setRippleXY(x, y);
     this.setRippleStyles(true);
-    window.requestAnimFrame(this.animFrameHandler.bind(this));
+    window.requestAnimationFrame(this.animFrameHandler.bind(this));
   }
 };
 
@@ -203,7 +203,7 @@ MaterialRipple.prototype.init = function() {
 
       this.animFrameHandler = function() {
         if (this.frameCount_-- > 0) {
-          window.requestAnimFrame(this.animFrameHandler.bind(this));
+          window.requestAnimationFrame(this.animFrameHandler.bind(this));
         } else {
           this.setRippleStyles(false);
         }
