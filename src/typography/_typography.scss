@@ -17,8 +17,8 @@
 @import "../variables";
 
 ::selection {
-    background: $color-primary; 
-    color: $color-primary-contrast;
+    background: unquote("rgb(#{$color-primary})"); 
+    color: unquote("rgb(#{$color-primary-contrast})");
 }
 
 html, body {
