@@ -133,15 +133,7 @@ html > body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 50%;
-}
-.frontpage-panel--components,
-.frontpage-panel--styles,
-.frontpage-panel--customize {
-  min-width: 500px;
-}
-.frontpage-panel--components,
-.frontpage-panel--styles {
-  width: 49%;
+  cursor: pointer;
 }
 .frontpage-panel--templates {
   background-color: #B3E0E1;
@@ -170,13 +162,6 @@ html > body {
 }
 .frontpage-panel--customize:hover {
   background-image: url(/assets/customize_mo.svg);
-}
-.frontpage main .content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .mdl-layout__content p {
