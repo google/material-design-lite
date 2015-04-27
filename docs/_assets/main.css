@@ -22,7 +22,13 @@ html > body {
   align-self: center;
   user-select: none;
 }
+.mdl-layout__tab-bar-container {
+  box-shadow: none !important;
+  border: 0 !important;
+}
 .mdl-layout__tab-bar {
+  box-shadow: none !important;
+  border: 0 !important;
   padding: 0;
   width: 100%;
   height: 100%;
