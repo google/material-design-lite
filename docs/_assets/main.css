@@ -216,6 +216,8 @@ html > body {
 }
 .template {
   width: 100%;
+  max-width: 840px;
+  margin-bottom: 72px;
 }
 .template > .template__meta a {
   color:inherit;
