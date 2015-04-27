@@ -2262,6 +2262,9 @@
 .mdl-color--black {
   background-color: unquote("rgb(#{$color-black})") !important;
 }
+.mdl-color-text--black {
+  color: unquote("rgb(#{$color-black})") !important;
+}
 
 
 // White
@@ -2269,6 +2272,10 @@
 .mdl-color--white {
   background-color: unquote("rgb(#{$color-white})") !important;
 }
+.mdl-color-text--white {
+  color: unquote("rgb(#{$color-white})") !important;
+}
+
 
 // Primary and accent
 

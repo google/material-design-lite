@@ -17,13 +17,13 @@
 @import "../variables";
 
 .mdl-card {
-  font-size: $card-font-size;
-  height   : $card-height;
-  overflow : hidden;
-  width    : $card-width;
-  z-index  : $card-z-index;
-  position : relative;
-  background: $card-background-color;
+  font-size    : $card-font-size;
+  height       : $card-height;
+  overflow     : hidden;
+  width        : $card-width;
+  z-index      : $card-z-index;
+  position     : relative;
+  background   : $card-background-color;
   border-radius: 2px;
 }
 

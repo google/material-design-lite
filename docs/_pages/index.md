@@ -2,7 +2,6 @@
 layout: layout
 bodyclass: about
 ---
-
 <section class="about-panel about-panel--text mdl-cell mdl-cell--12-col">
 	<dl>
 		<dt>

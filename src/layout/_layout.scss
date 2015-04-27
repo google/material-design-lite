@@ -98,8 +98,7 @@
 
     color: $layout-text-color;
 
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: visible;
 
     z-index: 5;
 
@@ -139,7 +138,7 @@
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .mdl-layout--fixed-drawer > & {
         transform: translateX(0);
-        z-index: 2;
+        z-index: 3;
       }
     }
   }
@@ -215,7 +214,7 @@
     @include shadow-z1();
     transition-property: min-height, box-shadow;
     padding-left: $layout-header-basic-desktop-indent;
-    overflow: hidden;
+    overflow: visible;
 
     .mdl-layout.has-drawer & {
       padding-left: $layout-header-desktop-indent;

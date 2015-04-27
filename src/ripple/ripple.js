@@ -15,8 +15,8 @@
  */
 
 /**
- * Class constructor for Ripple WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Ripple MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -93,7 +93,7 @@ MaterialRipple.prototype.downHandler_ = function(event) {
     }
     this.setRippleXY(x, y);
     this.setRippleStyles(true);
-    window.requestAnimFrame(this.animFrameHandler.bind(this));
+    window.requestAnimationFrame(this.animFrameHandler.bind(this));
   }
 };
 
@@ -203,7 +203,7 @@ MaterialRipple.prototype.init = function() {
 
       this.animFrameHandler = function() {
         if (this.frameCount_-- > 0) {
-          window.requestAnimFrame(this.animFrameHandler.bind(this));
+          window.requestAnimationFrame(this.animFrameHandler.bind(this));
         } else {
           this.setRippleStyles(false);
         }
