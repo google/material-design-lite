@@ -22,11 +22,11 @@ html > body {
   background-position: center center;
   box-shadow: none !important;
 }
-.frontpage .mdl-layout__header {
+.about .mdl-layout__header {
   background-color: #37474f;
   background-image: url('logo.svg');
 }
-.frontpage .mdl-navigation {
+.about .mdl-navigation {
   background-color: #37474f;
 }
 .templates .mdl-layout__header {
@@ -90,7 +90,7 @@ html > body {
   color: black;
   opacity: 0.5;
 }
-.frontpage .mdl-navigation .frontpage,
+.about .mdl-navigation .about,
 .templates .mdl-navigation .templates,
 .components .mdl-navigation .components,
 .styles .mdl-navigation .styles,
@@ -132,41 +132,41 @@ html > body {
   margin: 0 8px;
 }
 
-.frontpage-panel {
+.about-panel {
   box-sizing: border-box;
   width: 100%;
   flex-grow: 1;
 }
-.frontpage-panel--text {
+.about-panel--text {
   padding: 100px;
   margin: 0 auto;
   width: 100%;
   line-height: 2em;
 }
-.frontpage-panel--text dl {
+.about-panel--text dl {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
 }
-.frontpage-panel--text dl dt {
+.about-panel--text dl dt {
   text-align: right;
   vertical-align: top;
   width: 33%;
   margin-right: 24px;
 }
-.frontpage-panel--text dl dd {
+.about-panel--text dl dd {
   text-align: left;
   vertical-align: top;
   width: 66%;
   margin: 0;
   margin-left: 24px;
 }
-.frontpage-panel--components,
-.frontpage-panel--styles,
-.frontpage-panel--customize,
-.frontpage-panel--templates {
+.about-panel--components,
+.about-panel--styles,
+.about-panel--customize,
+.about-panel--templates {
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -182,34 +182,56 @@ html > body {
   background-size: auto 50%;
   cursor: pointer;
 }
-.frontpage-panel--templates {
+.about-panel--templates {
   background-color: #B3E0E1;
   background-image: url(/assets/templates.svg);
 }
-.frontpage-panel--templates:hover {
+.about-panel--templates:hover {
   background-image: url(/assets/templates_mo.svg);
 }
-.frontpage-panel--components {
+.about-panel--components {
   background-color: #E90974;
   background-image: url(/assets/components.svg);
 }
-.frontpage-panel--components:hover {
+.about-panel--components:hover {
   background-image: url(/assets/components_mo.svg);
 }
-.frontpage-panel--styles {
+.about-panel--styles {
   background-color: #8F4099;
   background-image: url(/assets/styles.svg);
 }
-.frontpage-panel--styles:hover {
+.about-panel--styles:hover {
   background-image: url(/assets/styles_mo.svg);
 }
-.frontpage-panel--customize {
+.about-panel--customize {
   background-color: #191E80;
   background-image: url(/assets/customize.svg);
 }
-.frontpage-panel--customize:hover {
+.about-panel--customize:hover {
   background-image: url(/assets/customize_mo.svg);
 }
+
+.templates .mdl-layout__content .content {
+  padding: 72px 0;
+}
+.template {
+  width: 100%;
+}
+.template > .template__meta a {
+  color:inherit;
+}
+.template > .template__preview {
+  background-position: center center;
+  background-size: cover;
+  min-height: 30vh;
+}
+.template.template--product > .template__preview {
+  background-image: url('/assets/template_product.jpg');
+}
+.template.template--general > .template__preview {
+  background-image: url('/assets/template_general.jpg');
+}
+
 
 .mdl-layout__content p {
   font-size: 15px;
@@ -254,34 +276,4 @@ html > body {
 button a {
   color: inherit;
   text-decoration: none;
-}
-
-/* TOC */
-
-.chapter-toc h1 {
-  font-size: 15px;
-  line-height: 16px;
-  padding-bottom: 12px;
-  font-weight: 400;
-  color: #757575;
-}
-
-.chapter-toc {
-  border-left: 5px solid #e1bee7;
-  padding-left: 20px;
-}
-
-.chapter-toc ul {
-  list-style: none;
-  margin-top: 0;
-  padding-left: 0;
-}
-
-.chapter-toc li:last-child {
-  line-height: 20px;
-  padding-top: 10px;
-}
-
-.chapter-toc li {
-  line-height: 40px;
 }
