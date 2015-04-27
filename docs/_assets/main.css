@@ -16,40 +16,87 @@ html > body {
 .mdl-layout-title a {
   font-weight: inherit;
 }
-.mdl-layout__header img.logo {
-  width: 12vmin;
-  height: 12vmin;
-  align-self: center;
-  user-select: none;
-}
-.mdl-layout__tab-bar-container {
+.mdl-layout__header {
+  background-size: auto 30%;
+  background-repeat: no-repeat;
+  background-position: center center;
   box-shadow: none !important;
-  border: 0 !important;
 }
-.mdl-layout__tab-bar {
+.frontpage .mdl-layout__header {
+  background-color: #37474f;
+  background-image: url('logo.svg');
+}
+.frontpage .mdl-navigation {
+  background-color: #37474f;
+}
+.templates .mdl-layout__header {
+  background-color: #B3E0E1;
+  background-image: url('templates.svg');
+}
+.templates .mdl-navigation {
+  background-color: #B3E0E1;
+}
+.components .mdl-layout__header {
+  background-color: #E90974;
+  background-image: url('components.svg');
+}
+.components .mdl-navigation {
+  background-color: #E90974;
+}
+.styles .mdl-layout__header {
+  background-color: #8F4099;
+  background-image: url('styles.svg');
+}
+.styles .mdl-navigation {
+  background-color: #8F4099;
+}
+.customize .mdl-layout__header {
+  background-color: #191E80;
+  background-image: url('customize.svg');
+}
+.customize .mdl-navigation {
+  background-color: #191E80;
+}
+.mdl-navigation {
   box-shadow: none !important;
   border: 0 !important;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 64px;
+  flex-shrink: 0;
 }
-.mdl-layout__tab-bar-button {
-  display: none;
-}
-.mdl-layout__tab-bar a {
+.mdl-navigation a {
   font-weight: 300;
+  line-height: 64px;
+  padding: 0 24px;
+  color: white;
+  box-sizing: border-box;
+  border-bottom: 3px solid transparent;
 }
-.mdl-layout__tab-bar a.download {
+.mdl-navigation a:hover {
+  background-color: inherit;
+}
+.mdl-navigation a:not(.download) {
+  opacity: 0.65;
+}
+.mdl-navigation a.download {
   text-decoration: none;
-  color: inherit;
   margin-right: 24px;
 }
-.mdl-layout__tab-bar a.download button {
+.mdl-navigation a.download button {
   margin-left: 8px;
 }
-.mdl-layout__tab-bar a.download .mdl-icon {
+.mdl-navigation a.download .mdl-icon {
   color: black;
   opacity: 0.5;
+}
+.frontpage .mdl-navigation .frontpage,
+.templates .mdl-navigation .templates,
+.components .mdl-navigation .components,
+.styles .mdl-navigation .styles,
+.customize .mdl-navigation .customize {
+  opacity: 1;
+  border-bottom-color: #18FFFF;
 }
 .mdl-layout__content {
   overflow: visible;

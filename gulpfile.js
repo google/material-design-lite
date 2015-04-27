@@ -272,7 +272,7 @@ function applyTemplate() {
 gulp.task('components', function() {
   return gulp.src('./src/**/README.md', {base: './src'})
     // Add basic front matter.
-    .pipe($.header('---\nlayout: component\n---\n\n'))
+    .pipe($.header('---\nlayout: component\nbodyclass: components\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
     .pipe((function () {

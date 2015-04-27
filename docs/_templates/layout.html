@@ -40,10 +40,8 @@
   <body class="{{page.bodyclass}}">
 
   <div class="mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-color-text--grey-300">
+    <header class="mdl-layout__header">
       <span class="mdl-layout-title"><a href="/">Material<br>Design<br>Lite</a></span>
-      <div class="mdl-layout-spacer"></div>
-      <img src="assets/logo.svg" class="logo" />
       <div class="mdl-layout-spacer"></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
         <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -55,18 +53,18 @@
         </div>
       </div>
     </header>
-    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-text-color--grey-500">
-      <a href="/" class="mdl-layout__tab is-active">About</a>
-      <a href="/templates" class="mdl-layout__tab">Templates</a>
-      <a href="/components" class="mdl-layout__tab">Components</a>
-      <a href="/styles" class="mdl-layout__tab">Styles</a>
-      <a href="/customize" class="mdl-layout__tab">Customize</a>
+    <nav class="mdl-navigation mdl-js-ripple-effect">
+      <a href="/" class="mdl-navigation__link frontpage">About</a>
+      <a href="/templates" class="mdl-navigation__link templates">Templates</a>
+      <a href="/components" class="mdl-navigation__link components">Components</a>
+      <a href="/styles" class="mdl-navigation__link styles">Styles</a>
+      <a href="/customize" class="mdl-navigation__link customize">Customize</a>
       <div class="mdl-layout-spacer"></div>
-      <a href="#" class="download mdl-color-text--grey-500">
+      <a href="#" class="download">
         Download
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200"><span class="mdl-icon mdl-icon--file-download"></span></button>
       </a>
-    </div>
+    </nav>
     <main class="mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
         {% block content %}
