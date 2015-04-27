@@ -33,6 +33,7 @@ main.mdl-layout__content {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  min-height: 460px;
 }
 .mdl-card--header {
   padding: 16px;
@@ -46,6 +47,10 @@ main.mdl-layout__content {
   flex-grow: 1;
   flex-direction: row;
   align-items: flex-end;
+}
+.mdl-card--img-container a,
+.mdl-card--header a {
+  color: inherit;
 }
 .mdl-card--lower {
   width: auto;
