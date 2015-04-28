@@ -526,3 +526,9 @@ $badge-background: unquote("rgb(#{$color-accent})") !default;
 $badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
 $badge-size : 20px;
 $badge-padding: 2px;
+
+/*SHADOWS*/
+
+$key-umbra-opacity: 0.2;
+$key-penumbra-opacity: 0.14;
+$ambient-shadow-opacity: 0.12;
