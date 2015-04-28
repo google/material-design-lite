@@ -38,7 +38,7 @@
   @include typo-preferred-font($usePreferred);
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.02em;
 
   @if $colorContrast {
@@ -125,7 +125,7 @@
     font-weight: bold;
   }
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 
   @if $colorContrast {
     opacity: 0.87;
@@ -137,7 +137,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 
   @if $colorContrast {
     opacity: 0.87;
@@ -149,7 +149,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 
   @if $colorContrast {
     opacity: 0.54;
@@ -158,19 +158,22 @@
 
 @mixin typo-blockquote($colorContrast: false, $usePreferred: true) {
   @include typo-preferred-font($usePreferred);
+  position: relative;
   font-size: 24px;
   font-weight: 300;
   font-style: italic;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: 0.08em;
+
   &:before {
+    position: absolute;
+    left: -0.5em;
     content: '“';
-    opacity: 0.54;
   }
 
   &:after {
     content: '”';
-    opacity: 0.54;
+    margin-left: -0.05em;
   }
 
   @if $colorContrast {
@@ -183,7 +186,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 
   @if $colorContrast {
     opacity: 0.87;
@@ -193,10 +196,10 @@
 @mixin typo-button($colorContrast: false, $usePreferred: true) {
   @include typo-preferred-font($usePreferred);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 
   @if $colorContrast {
     opacity: 0.87;
@@ -247,5 +250,3 @@
   transition-duration: $duration;
   transition-timing-function: $animation-curve-default;
 }
-
-
