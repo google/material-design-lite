@@ -216,6 +216,122 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -225,7 +341,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: #222;
+  color: rgba(0,0,0, 0.87);
   font-size: 1em;
   line-height: 1.4; }
 
@@ -554,13 +670,13 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0; }
 
 /**
- * Styles for HTML elements
- */
+* Styles for HTML elements
+*/
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.02em;
   opacity: 0.54;
   font-size: 0.6em; }
@@ -569,70 +685,98 @@ h1 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-top: 24px;
+  margin-bottom: 24px; }
 
 h2 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
-  line-height: 48px; }
+  line-height: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px; }
 
 h3 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
-  line-height: 40px; }
+  line-height: 40px;
+  margin-top: 24px;
+  margin-bottom: 24px; }
 
 h4 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 24px;
+  margin-bottom: 16px; }
 
 h5 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.02em; }
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+  margin-bottom: 16px; }
 
 h6 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0.04em;
+  margin-top: 24px;
+  margin-bottom: 16px; }
 
 p {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 a {
-  color: rgb($color-accent); }
+  color: rgb($color-accent);
+  font-weight: 500; }
 
 blockquote {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  position: relative;
   font-size: 24px;
   font-weight: 300;
   font-style: italic;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: 0.08em; }
   blockquote:before {
-    content: '“';
-    opacity: 0.54; }
+    position: absolute;
+    left: -0.5em;
+    content: '“'; }
   blockquote:after {
     content: '”';
-    opacity: 0.54; }
+    margin-left: -0.05em; }
 
 mark {
   background-color: #f4ff81; }
 
 dt {
   font-weight: 700; }
+
+address {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  font-style: normal; }
+
+ul, ol {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0; }
 
 /**
  * Class Name Styles
@@ -656,14 +800,14 @@ dt {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.02em; }
 
 .mdl-typography--display-3-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.02em;
   opacity: 0.54; }
 
@@ -742,26 +886,26 @@ dt {
   font-size: 14px;
   font-weight: bold;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-2-color-contrast {
   font-size: 14px;
   font-weight: bold;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--body-1 {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-1-color-contrast {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--body-2-force-preferred-font {
@@ -769,14 +913,14 @@ dt {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-2-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--body-1-force-preferred-font {
@@ -784,34 +928,34 @@ dt {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-1-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--caption {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em; }
+  letter-spacing: 0; }
 
 .mdl-typography--caption-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em; }
+  letter-spacing: 0; }
 
 .mdl-typography--caption-color-contrast {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   opacity: 0.54; }
 
 .mdl-typography--caption-force-preferred-font-color-contrast {
@@ -819,7 +963,7 @@ dt {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   opacity: 0.54; }
 
 .mdl-typography--menu {
@@ -827,31 +971,31 @@ dt {
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--menu-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--button {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--button-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--text-left {
@@ -877,12 +1021,6 @@ dt {
 
 .mdl-typography--text-capitalize {
   text-transform: capitalize; }
-
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td, .mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td, .mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
 
 .mdl-typography--font-thin {
   font-weight: 200 !important; }
@@ -5886,10 +6024,10 @@ dt {
   display: inline-block;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   overflow: hidden;
   will-change: box-shadow, transform;
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -6534,208 +6672,6 @@ dt {
     cursor: auto; }
   .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container .mdl-ripple {
     background: transparent; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*------------------------------------*\
-    $CONTENTS
-\*------------------------------------*/
-/**
- * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
- * -----Typography
- * -----Colors
- * -----Textfield
- * -----Switch
- * -----Spinner
- * -----Radio
- * -----Menu
- * -----List
- * -----Layout
- * -----Icon toggles
- * -----Footer
- * -----Column
- * -----Checkbox
- * -----Card
- * -----Button
- * -----Animation
- * -----Progress
- * -----Badge
- */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-/* BADGE */
-.mdl-column-layout {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 0;
-  box-sizing: border-box;
-  padding: 20px; }
-  @media screen and (min-width: 1600px) {
-    .mdl-column-layout {
-      padding-left: calc(50% - 600px);
-      padding-right: calc(50% - 600px); } }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout {
-      padding: 12px; } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout {
-      padding: 8px; } }
-
-.mdl-column-layout__child {
-  min-width: 360px;
-  width: 360px;
-  margin: 20px;
-  box-sizing: border-box; }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout__child {
-      margin: 12px;
-      min-width: calc(50% - 24px);
-      width: calc(50% - 24px); } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout__child {
-      margin: 8px;
-      width: calc(100% - 16px);
-      min-width: calc(100% - 16px); } }
-
-.mdl-column-layout__wrap-hack {
-  min-width: 360px;
-  width: 360px;
-  margin: 20px;
-  box-sizing: border-box;
-  height: 0;
-  min-height: 0;
-  max-height: 0;
-  border: none;
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 0;
-  opacity: 0; }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout__wrap-hack {
-      margin: 12px;
-      min-width: calc(50% - 24px);
-      width: calc(50% - 24px); } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout__wrap-hack {
-      margin: 8px;
-      width: calc(100% - 16px);
-      min-width: calc(100% - 16px); } }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -8039,7 +7975,7 @@ dt {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   text-decoration: none;
   cursor: pointer;
   height: 48px;
