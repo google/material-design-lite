@@ -89,6 +89,7 @@
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -166,6 +167,7 @@
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -462,6 +464,7 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -539,86 +542,97 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  */
 /* ANIMATION */
 /* PROGRESS */
-html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
+/* BADGE */
+html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px; }
 
-.mdl-typography, .mdl-base {
-  /**
-	 * Styles for HTML elements
-	 */ }
-  .mdl-typography h1, .mdl-base h1, .mdl-typography h2, .mdl-base h2, .mdl-typography h3, .mdl-base h3, .mdl-typography h4, .mdl-base h4, .mdl-typography h5, .mdl-base h5, .mdl-typography h6, .mdl-base h6, .mdl-typography p, .mdl-base p {
-    margin: 0;
-    padding: 0; }
-  .mdl-typography h1 small, .mdl-base h1 small, .mdl-typography h2 small, .mdl-base h2 small, .mdl-typography h3 small, .mdl-base h3 small, .mdl-typography h4 small, .mdl-base h4 small, .mdl-typography h5 small, .mdl-base h5 small, .mdl-typography h6 small, .mdl-base h6 small {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 56px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    opacity: 0.54;
-    font-size: 0.6em; }
-  .mdl-typography h1, .mdl-base h1 {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 56px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.02em; }
-  .mdl-typography h2, .mdl-base h2 {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 45px;
-    font-weight: 400;
-    line-height: 48px; }
-  .mdl-typography h3, .mdl-base h3 {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 34px;
-    font-weight: 400;
-    line-height: 40px; }
-  .mdl-typography h4, .mdl-base h4 {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 32px;
-    -moz-osx-font-smoothing: grayscale; }
-  .mdl-typography h5, .mdl-base h5 {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.02em; }
-  .mdl-typography h6, .mdl-base h6 {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0.04em; }
-  .mdl-typography p, .mdl-base p {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0.04em;
-    margin: 0 0 16px 0; }
-  .mdl-typography a, .mdl-base a {
-    color: rgb($color-accent); }
-  .mdl-typography blockquote, .mdl-base blockquote {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-size: 24px;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1;
-    letter-spacing: 0.08em; }
-    .mdl-typography blockquote:before, .mdl-base blockquote:before {
-      content: '“';
-      opacity: 0.54; }
-    .mdl-typography blockquote:after, .mdl-base blockquote:after {
-      content: '”';
-      opacity: 0.54; }
-  .mdl-typography mark, .mdl-base mark {
-    background-color: #f4ff81; }
-  .mdl-typography dt, .mdl-base dt {
-    font-weight: 700; }
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Styles for HTML elements
+ */
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0.54;
+  font-size: 0.6em; }
+
+h1 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em; }
+
+h2 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px; }
+
+h3 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px; }
+
+h4 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale; }
+
+h5 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em; }
+
+h6 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+a {
+  color: rgb($color-accent); }
+
+blockquote {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.08em; }
+  blockquote:before {
+    content: '“';
+    opacity: 0.54; }
+  blockquote:after {
+    content: '”';
+    opacity: 0.54; }
+
+mark {
+  background-color: #f4ff81; }
+
+dt {
+  font-weight: 700; }
 
 /**
  * Class Name Styles
@@ -940,6 +954,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -1017,6 +1032,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -3358,6 +3374,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -3435,6 +3452,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
@@ -5167,6 +5185,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5244,6 +5263,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-shadow--z1 {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
 
@@ -5311,6 +5331,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5388,6 +5409,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -5460,6 +5482,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5537,6 +5560,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -5552,6 +5576,170 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
 .mdl-animation--fast-out-linear-in {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+.mdl-badge {
+  position: relative;
+  white-space: nowrap;
+  margin-right: 22px; }
+  .mdl-badge:not([data-badge]) {
+    margin-right: auto; }
+  .mdl-badge[data-badge]:after {
+    content: attr(data-badge);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    top: -10px;
+    right: -22px;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb($color-accent);
+    color: rgb(255,255,255); }
+    .mdl-button .mdl-badge[data-badge]:after {
+      top: -10px;
+      right: -5px; }
+  .mdl-badge.mdl-badge--no-background[data-badge]:after {
+    color: rgb($color-accent);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 0 1px gray; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5605,6 +5793,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5682,6 +5871,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-button {
   background: transparent;
   border: none;
@@ -5896,6 +6086,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5973,6 +6164,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-card {
   font-size: 16px;
   height: 200px;
@@ -6150,6 +6342,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6227,6 +6420,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -6393,6 +6587,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6470,6 +6665,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-column-layout {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6593,6 +6789,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6670,6 +6867,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-mega-footer {
   padding: 32px 16px;
   color: rgb(158,158,158);
@@ -6888,6 +7086,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6965,6 +7164,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7459,6 +7659,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7536,6 +7737,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -7662,6 +7864,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7739,6 +7942,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -7933,6 +8137,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8010,6 +8215,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -8183,6 +8389,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8260,6 +8467,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8878,6 +9086,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8955,6 +9164,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-list {
   display: block;
   height: 500px;
@@ -9056,6 +9266,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9133,6 +9344,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -9285,6 +9497,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9362,6 +9575,7 @@ html.mdl-typography, html.mdl-base, body.mdl-typography, body.mdl-base {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9660,6 +9874,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9737,6 +9952,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -10172,6 +10388,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10249,6 +10466,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -10433,6 +10651,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10510,6 +10729,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -10652,6 +10872,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10729,6 +10950,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -10893,6 +11115,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10970,6 +11193,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);

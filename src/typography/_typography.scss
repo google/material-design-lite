@@ -63,6 +63,7 @@ h6 {
 
 p {
   @include typo-body-1();
+}
 
 a {
   color: $text-link-color;

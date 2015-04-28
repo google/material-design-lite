@@ -149,7 +149,7 @@ var componentHandler = (function() {
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
    * component type
-   * @param {string} jsClass The class name of the WSK component we wish
+   * @param {string} jsClass The class name of the MDL component we wish
    * to hook into for any upgrades performed.
    * @param {function} callback The function to call upon an upgrade. This
    * function should expect 1 parameter - the HTMLElement which got upgraded.
@@ -190,7 +190,7 @@ window.addEventListener('load', function() {
 
   /**
    * Performs a "Cutting the mustard" test. If the browser supports the features
-   * tested, adds a mdl-js class to the <html> element. It then upgrades all WSK
+   * tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
    * components requiring JavaScript.
    */
   if ('classList' in document.createElement('div') && 'querySelector' in document &&
@@ -258,8 +258,8 @@ if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAn
  */
 
 /**
- * Class constructor for Animation WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Animation MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -354,8 +354,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Button WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Button MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -471,8 +471,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Checkbox WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Checkbox MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -718,8 +718,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Column Layout WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Column Layout MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -803,8 +803,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for icon toggle WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for icon toggle MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1032,8 +1032,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for dropdown WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for dropdown MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1497,8 +1497,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Progress WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Progress MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1602,8 +1602,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Radio WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Radio MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1858,8 +1858,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Slider WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Slider MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2064,8 +2064,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Spinner WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Spinner MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2084,7 +2084,7 @@ function MaterialSpinner(element) {
  * @private
  */
 MaterialSpinner.prototype.Constant_ = {
-  WSK_SPINNER_LAYER_COUNT: 4
+  MDL_SPINNER_LAYER_COUNT: 4
 };
 
 /**
@@ -2095,12 +2095,12 @@ MaterialSpinner.prototype.Constant_ = {
  * @private
  */
 MaterialSpinner.prototype.CssClasses_ = {
-  WSK_SPINNER_LAYER: 'mdl-spinner__layer',
-  WSK_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
-  WSK_SPINNER_CIRCLE: 'mdl-spinner__circle',
-  WSK_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
-  WSK_SPINNER_LEFT: 'mdl-spinner__left',
-  WSK_SPINNER_RIGHT: 'mdl-spinner__right'
+  MDL_SPINNER_LAYER: 'mdl-spinner__layer',
+  MDL_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+  MDL_SPINNER_CIRCLE: 'mdl-spinner__circle',
+  MDL_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+  MDL_SPINNER_LEFT: 'mdl-spinner__left',
+  MDL_SPINNER_RIGHT: 'mdl-spinner__right'
 };
 
 /**
@@ -2110,25 +2110,25 @@ MaterialSpinner.prototype.createLayer = function(index) {
   'use strict';
 
   var layer = document.createElement('div');
-  layer.classList.add(this.CssClasses_.WSK_SPINNER_LAYER);
-  layer.classList.add(this.CssClasses_.WSK_SPINNER_LAYER + '-' + index);
+  layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
+  layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
 
   var leftClipper = document.createElement('div');
-  leftClipper.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE_CLIPPER);
-  leftClipper.classList.add(this.CssClasses_.WSK_SPINNER_LEFT);
+  leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+  leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
 
   var gapPatch = document.createElement('div');
-  gapPatch.classList.add(this.CssClasses_.WSK_SPINNER_GAP_PATCH);
+  gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
 
   var rightClipper = document.createElement('div');
-  rightClipper.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE_CLIPPER);
-  rightClipper.classList.add(this.CssClasses_.WSK_SPINNER_RIGHT);
+  rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+  rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
 
   var circleOwners = [leftClipper, gapPatch, rightClipper];
 
   for (var i = 0; i < circleOwners.length; i++) {
     var circle = document.createElement('div');
-    circle.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE);
+    circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
     circleOwners[i].appendChild(circle);
   }
 
@@ -2169,7 +2169,7 @@ MaterialSpinner.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    for (var i = 1; i <= this.Constant_.WSK_SPINNER_LAYER_COUNT; i++) {
+    for (var i = 1; i <= this.Constant_.MDL_SPINNER_LAYER_COUNT; i++) {
       this.createLayer(i);
     }
 
@@ -2202,8 +2202,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Checkbox WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Checkbox MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2451,8 +2451,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Tabs WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Tabs MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2488,10 +2488,10 @@ MaterialTabs.prototype.CssClasses_ = {
   ACTIVE_CLASS: 'is-active',
   UPGRADED_CLASS: 'is-upgraded',
 
-  WSK_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
-  WSK_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
-  WSK_RIPPLE: 'mdl-ripple',
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
+  MDL_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  MDL_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
+  MDL_RIPPLE: 'mdl-ripple',
+  MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
 };
 
 /**
@@ -2501,9 +2501,9 @@ MaterialTabs.prototype.CssClasses_ = {
 MaterialTabs.prototype.initTabs_ = function(e) {
   'use strict';
 
-  if (this.element_.classList.contains(this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+  if (this.element_.classList.contains(this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
     this.element_.classList.add(
-      this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+      this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
   }
 
   // Select element tabs, document panels
@@ -2555,12 +2555,12 @@ function MaterialTab(tab, ctx) {
   'use strict';
 
   if (tab) {
-    if (ctx.element_.classList.contains(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+    if (ctx.element_.classList.contains(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(ctx.CssClasses_.WSK_RIPPLE_CONTAINER);
-      rippleContainer.classList.add(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT);
+      rippleContainer.classList.add(ctx.CssClasses_.MDL_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT);
       var ripple = document.createElement('span');
-      ripple.classList.add(ctx.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(ctx.CssClasses_.MDL_RIPPLE);
       rippleContainer.appendChild(ripple);
       tab.appendChild(rippleContainer);
     }
@@ -2603,8 +2603,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Textfield WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Textfield MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2808,8 +2808,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Tooltip WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Tooltip MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2921,8 +2921,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Layout WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Layout MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -3298,8 +3298,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Ripple WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Ripple MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
