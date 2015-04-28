@@ -211,12 +211,14 @@ html > body {
   background-image: url(/assets/customize_mo.svg);
 }
 
+.content {
+  max-width: 1280px;
+}
 .templates .mdl-layout__content .content {
   padding: 72px 0;
 }
 .template {
   width: 100%;
-  max-width: 840px;
   margin-bottom: 72px;
 }
 .template > .template__meta a {
