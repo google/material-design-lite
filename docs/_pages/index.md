@@ -2,6 +2,7 @@
 layout: layout
 bodyclass: about
 ---
+<!-- TODO: Try to separate markup and content -->
 <section class="about-panel about-panel--text mdl-cell mdl-cell--12-col">
 	<dl>
 		<dt>
