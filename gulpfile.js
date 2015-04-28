@@ -339,6 +339,10 @@ gulp.task('pages', ['components'], function() {
  */
 gulp.task('assets', function () {
   return gulp.src(['docs/_assets/**'])
+    .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
+      progressive: true,
+      interlaced: true
+    })))
     .pipe(gulp.dest('docs/out/assets'));
 });
 
