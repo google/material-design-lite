@@ -252,3 +252,21 @@
       background-color: transparent;
     }
   }
+
+// Colorized buttons
+
+.mdl-button--primary.mdl-button--primary {
+  background-color: $button-primary-color-alt;
+  color: $button-secondary-color-alt;
+  & .mdl-ripple {
+    background: $button-secondary-color-alt;
+  }
+}
+
+.mdl-button--accent.mdl-button--accent {
+  background-color: $button-fab-color-alt;
+  color: $button-fab-text-color-alt;
+  & .mdl-ripple {
+    background: $button-fab-text-color-alt;
+  }
+}
