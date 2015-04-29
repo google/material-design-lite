@@ -165,7 +165,7 @@
   }
 }
 
-.mdl-mega-footer--heading {
+.mdl-mega-footer--heading.mdl-mega-footer--heading {
   position: relative;
 
   width: 100%;
@@ -249,7 +249,7 @@
   clear: both;
 }
 
-.mdl-logo {
+.mdl-logo.mdl-logo {
   margin-bottom: $padding;
   font-size: 24px;
 }
@@ -264,7 +264,7 @@
 
 
 @media screen and (min-width: 760px) {
-  .mdl-logo {
+  .mdl-logo.mdl-logo {
     float: left;
 
     margin-bottom: 0;
