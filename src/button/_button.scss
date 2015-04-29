@@ -78,10 +78,10 @@
   // Raised buttons
   .mdl-button--raised {
     background: $button-primary-color;
-    @include shadow-z1();
+    @include shadow-2dp();
 
     &:active {
-      @include shadow-z3();
+      @include shadow-4dp();
       background-color: $button-active-color;
     }
 
@@ -115,7 +115,7 @@
     &[disabled][disabled] {
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
-      @include shadow-z1();
+      @include shadow-2dp();
     }
   }
 
@@ -159,7 +159,7 @@
     }
 
     &:active {
-      @include shadow-z3();
+      @include shadow-4dp();
       background-color: $button-active-color;
     }
 
@@ -193,7 +193,7 @@
     &[disabled][disabled] {
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
-      @include shadow-z1();
+      @include shadow-2dp();
     }
   }
 

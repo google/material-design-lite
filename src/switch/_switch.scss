@@ -97,7 +97,7 @@
 
   cursor: pointer;
 
-  @include shadow-z1();
+  @include shadow-2dp();
 
   @include material-animation-default(0.28s);
   transition-property: left;
@@ -106,7 +106,7 @@
     background: $switch-thumb-color;
     left: $switch-track-length - $switch-thumb-size;
 
-    @include shadow-z2();
+    @include shadow-3dp();
   }
 
   .mdl-switch.is-disabled & {
