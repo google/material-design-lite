@@ -96,7 +96,13 @@
   height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
-  border-top : 1px solid rgba(0,0,0,.16);
+}
+
+/*
+* @TODO Figure out of the border color should be a variable.
+*/
+.mdl-card__bottom--top-border {
+    border-top : 1px solid rgba(0,0,0,.16);
 }
 
 .mdl-card__bottom a {
