@@ -167,7 +167,6 @@
 
 .mdl-mega-footer--heading {
   position: relative;
-
   width: 100%;
 
   padding-right: $footer-heading-line-height + $padding;
@@ -177,7 +176,8 @@
 
   font-size: $footer-heading-font-size;
   line-height: $footer-heading-line-height;
-  font-weight: 300;
+
+  font-weight: 500;
 
   white-space: nowrap;
   text-overflow: ellipsis;
