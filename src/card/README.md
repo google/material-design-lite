@@ -119,6 +119,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-card__lower` | Defines div as a card body text container(1) and assigns appropriate text characteristics to body text | Required on "inner" body text div; text goes directly inside the div with no intervening containers |
 | `mdl-card__caption` | Defines div as a card caption container and assigns appropriate text characteristics to caption text | Required on "inner" caption div; text goes directly inside the div with no intervening containers |
 | `mdl-card__bottom` | Defines div as a card bottom text container(1) (typically an action bar) and assigns appropriate text characteristics to bottom text | Required on "inner" bottom div; content goes directly inside the div with no intervening containers |
+| `mdl-card__bottom--top-border` | Modifies the bottom card area to have a top-border. | Optional on bottom element. |
 
 (1) Although some class names imply positioning, they really just semantically define the styling of the content. The actual positions of the "inner" divs within the card are determined by order of appearance (i.e., top-down). You may use them in any order, so long as they maintain their relationships as siblings and as direct children of the "outer" container div.
 
