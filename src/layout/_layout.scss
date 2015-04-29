@@ -82,7 +82,7 @@
     top: 0;
     left: 0;
 
-    @include shadow-z1();
+    @include shadow-2dp();
 
     box-sizing: border-box;
     border-right: 1px solid $layout-drawer-border-color;
@@ -211,7 +211,7 @@
     color: $layout-header-text-color;
     z-index: 3;
     @include material-animation-default();
-    @include shadow-z1();
+    @include shadow-2dp();
     transition-property: min-height, box-shadow;
     padding-left: $layout-header-basic-desktop-indent;
     overflow: visible;
@@ -366,7 +366,7 @@
       box-shadow: none;
 
       &.is-casting-shadow {
-        @include shadow-z1();
+        @include shadow-2dp();
       }
     }
 
@@ -502,7 +502,7 @@
     }
 
     &.is-casting-shadow {
-      @include shadow-z1();
+      @include shadow-2dp();
     }
   }
 
@@ -516,7 +516,7 @@
     z-index: 3;
     flex-grow: 0;
     flex-shrink: 0;
-    @include shadow-z1();
+    @include shadow-2dp();
 
     .mdl-layout__container > & {
       position: absolute;

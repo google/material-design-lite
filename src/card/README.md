@@ -94,7 +94,7 @@ A card (no shadow) with a heading, image, text, and action.
 Card (level-3 shadow) with an image, caption, and text:
 
 ```html
-<div class="mdl-card mdl-shadow--z3">
+<div class="mdl-card mdl-shadow--4dp">
   <div class="mdl-card--img-container"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
   </div>
   <div class="mdl-card--caption">
@@ -112,7 +112,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
 | `mdl-card` | Defines div element as an MDL card container | Required on "outer" div |
-| `mdl-shadow--z1 through mdl-shadow--z5` | Assigns variable shadow depths (1-5) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
+| `mdl-shadow--2dp through mdl-shadow--8dp` | Assigns variable shadow depths (1-5) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
 | `mdl-card--heading` | Defines div as a card heading container(1) | Required on "inner" heading div |
 | `mdl-card--heading-text` | Assigns appropriate text characteristics to card heading | Required on head tag (H1 - H6) inside heading div |
 | `mdl-card--img-container` | Defines div as a card image container | Required on "inner" image div |

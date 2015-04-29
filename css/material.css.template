@@ -168,6 +168,7 @@
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -332,6 +333,7 @@
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -666,6 +668,7 @@ main {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -1178,6 +1181,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -3598,6 +3602,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
@@ -5409,20 +5414,24 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-.mdl-shadow--z1 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+/* SHADOWS */
+.mdl-shadow--2dp {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-.mdl-shadow--z2 {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3); }
+.mdl-shadow--3dp {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
 
-.mdl-shadow--z3 {
-  box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3); }
+.mdl-shadow--4dp {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
 
-.mdl-shadow--z4 {
-  box-shadow: 0 14px 12px 0 rgba(0, 0, 0, 0.17), 0 20px 40px 0 rgba(0, 0, 0, 0.3); }
+.mdl-shadow--6dp {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
 
-.mdl-shadow--z5 {
-  box-shadow: 0 17px 17px 0 rgba(0, 0, 0, 0.15), 0 27px 55px 0 rgba(0, 0, 0, 0.3); }
+.mdl-shadow--8dp {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
+
+.mdl-shadow--16dp {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5555,6 +5564,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -5706,6 +5716,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -5838,6 +5849,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -6017,6 +6029,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-button {
   background: transparent;
   border: none;
@@ -6064,9 +6077,9 @@ ul, ol {
 
 .mdl-button--raised {
   background: rgba(158,158,158, 0.20);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .mdl-button--raised:active {
-    box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     background-color: rgba(158,158,158, 0.40); }
   .mdl-button--raised:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
@@ -6085,7 +6098,7 @@ ul, ol {
   .mdl-button--raised[disabled][disabled] {
     background-color: rgba(0,0,0, 0.12);
     color: rgba(0,0,0, 0.26);
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--fab {
   border-radius: 50%;
@@ -6119,7 +6132,7 @@ ul, ol {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
   .mdl-button--fab:active {
-    box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     background-color: rgba(158,158,158, 0.40); }
   .mdl-button--fab:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
@@ -6138,7 +6151,7 @@ ul, ol {
   .mdl-button--fab[disabled][disabled] {
     background-color: rgba(0,0,0, 0.12);
     color: rgba(0,0,0, 0.26);
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--icon {
   border-radius: 50%;
@@ -6322,6 +6335,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-card {
   font-size: 16px;
   height: 200px;
@@ -6578,6 +6592,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -6823,6 +6838,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-mega-footer {
   padding: 16px;
   color: rgb(158,158,158);
@@ -7124,6 +7140,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7697,6 +7714,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -7902,6 +7920,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -7930,7 +7949,7 @@ ul, ol {
   -webkit-transform-origin: 0 0;
       -ms-transform-origin: 0 0;
           transform-origin: 0 0;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   will-change: transform;
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -8175,6 +8194,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -8427,6 +8447,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8502,7 +8523,7 @@ ul, ol {
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   border-right: 1px solid rgb(224,224,224);
   background: rgb(250,250,250);
@@ -8625,7 +8646,7 @@ ul, ol {
           transition-duration: 0.2s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-property: min-height, box-shadow;
           transition-property: min-height, box-shadow;
   padding-left: 24px;
@@ -8745,7 +8766,7 @@ ul, ol {
 .mdl-layout__header--waterfall {
   box-shadow: none; }
   .mdl-layout__header--waterfall.is-casting-shadow {
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-layout__header-row.mdl-layout__header-row {
   display: -webkit-box;
@@ -8863,7 +8884,7 @@ ul, ol {
     overflow: hidden;
     width: 100%; }
   .mdl-layout__tab-bar.is-casting-shadow {
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-layout__tab-bar-container {
   position: relative;
@@ -8880,7 +8901,7 @@ ul, ol {
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .mdl-layout__container > .mdl-layout__tab-bar-container {
     position: absolute;
     top: 0;
@@ -9124,6 +9145,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-list {
   display: block;
   height: 500px;
@@ -9304,6 +9326,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -9535,6 +9558,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9912,6 +9936,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -10426,6 +10451,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -10484,7 +10510,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   width: 20px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -10494,7 +10520,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-switch.is-checked .mdl-switch__thumb {
     background: rgb($color-primary);
     left: 16px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3); }
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
   .mdl-switch.is-disabled .mdl-switch__thumb {
     background: rgb(189,189,189);
     cursor: auto; }
@@ -10689,6 +10715,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -10910,6 +10937,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -11153,6 +11181,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
