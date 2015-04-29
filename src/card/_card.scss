@@ -18,7 +18,7 @@
 
 .mdl-card {
   font-size    : $card-font-size;
-  height       : $card-height;
+  min-height   : $card-height;
   overflow     : hidden;
   width        : $card-width;
   z-index      : $card-z-index;
