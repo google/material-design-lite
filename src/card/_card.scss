@@ -116,3 +116,10 @@
   width             : 100%;
   text-decoration   : none;
 }
+
+.mdl-card__menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: $heading-color;
+}
