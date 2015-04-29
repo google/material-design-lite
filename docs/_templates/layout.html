@@ -37,43 +37,56 @@
     <link rel="stylesheet" href="/assets/main.css">
     <script src="/material.min.js"></script>
   </head>
-  <body>
-
-  <div class="demo-layout">
-    <div class="mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header">
-        <!-- Icon -->
-        <img class="mdl-layout-icon" src="/assets/app-icon.png">
-        <!-- Title -->
-        <span class="mdl-layout-title"><a href="/">Material Design Lite</a></span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation -->
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="/">Home
-          <a class="mdl-navigation__link" href="/getting_started">Getting started
-</a>
-          <a class="mdl-navigation__link" href="/components">Components</a>
-          <a class="mdl-navigation__link" href="/customize">Customize</a>
-          <a class="mdl-navigation__link" href="http://github.com/google/material-design-lite">Github</a>
-        </nav>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Material Design Lite</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="/">Home
-</a>
-          <a class="mdl-navigation__link" href="/getting_started">Getting started
-</a>
-          <a class="mdl-navigation__link" href="/components">Components</a>
-          <a class="mdl-navigation__link" href="/customize">Customize</a>
-          <a class="mdl-navigation__link" href="http://github.com/google/material-design-lite">Github</a>
-        </nav>
+  <body class="{{page.bodyclass}}">
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header">
+      <span class="mdl-layout-title"><a href="/">Material<br>Design<br>Lite</a></span>
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <span class="mdl-icon mdl-icon--search"></span>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="expando1">Enter your query...</label>
+        </div>
       </div>
-      <main class="mdl-layout__content">
-        {% block content %}{% endblock %}
-      </main>
-    </div>
+    </header>
+    <nav class="mdl-navigation mdl-js-ripple-effect">
+      <a href="/" class="mdl-navigation__link frontpage">About</a>
+      <a href="/templates" class="mdl-navigation__link templates">Templates</a>
+      <a href="/components" class="mdl-navigation__link components">Components</a>
+      <a href="/styles" class="mdl-navigation__link styles">Styles</a>
+      <a href="/customize" class="mdl-navigation__link customize">Customize</a>
+      <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link">GitHub</a>
+      <div class="mdl-layout-spacer"></div>
+      <a href="#" class="download">
+        Download
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200"><span class="mdl-icon mdl-icon--file-download"></span></button>
+      </a>
+    </nav>
+    <main class="mdl-layout__content mdl-color-text--grey-600">
+      <div class="content mdl-grid mdl-grid--no-spacing">
+        {% block content %}
+          {{content|safe}}
+        {% endblock %}
+      </div>
+      <section class="download mdl-color--grey-800">
+        <a href="#" class="mdl-color-text--grey-50">Download Kit</a>
+      </section>
+      <footer class="mdl-mini-footer mdl-color--grey-900">
+        <ul>
+          <button class="mdl-mini-footer--social-btn"></button>
+          <button class="mdl-mini-footer--social-btn"></button>
+          <button class="mdl-mini-footer--social-btn"></button>
+        </ul>
+        <ul>
+          <a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a>
+          <a href="#">Help</a>
+          <a href="#">Privacy & Terms</a>
+        </ul>
+      </footer>
+    </main>
   </div>
 
 
