@@ -222,17 +222,17 @@ $input-text-error-color: unquote("rgb(#{$palette-red-600})") !default;
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
-$heading-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$heading-back-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
-$action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
-$caption-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
-$image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
-$lower-text-color: unquote("rgb(#{$color-primary})") !default;
+$card-heading-color: unquote("rgb(#{$color-primary-contrast})") !default;
+$card-heading-back-color: unquote("rgb(#{$color-primary-contrast})") !default;
+$card-heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
+$card-action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
+$card-caption-color: unquote("rgb(#{$color-primary-contrast})") !default;
+$card-caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
+$card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
+$card-lower-text-color: unquote("rgb(#{$color-primary})") !default;
 
 /* Heading back */
-$heading-back-border: 0 none unquote("rgb(#{$color-white})") !default;
+$card-heading-back-border: 0 none unquote("rgb(#{$color-white})") !default;
 
 /* ==========  Sliders ========== */
 
