@@ -168,7 +168,7 @@
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -333,7 +333,7 @@
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -668,7 +668,7 @@ main {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -1181,7 +1181,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -3602,7 +3602,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
@@ -5414,7 +5414,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -5564,7 +5564,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -5716,7 +5716,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -5849,7 +5849,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -6029,7 +6029,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-button {
   background: transparent;
   border: none;
@@ -6335,7 +6335,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-card {
   font-size: 16px;
   height: 200px;
@@ -6592,7 +6592,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -6838,7 +6838,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-mega-footer {
   padding: 32px 16px;
   color: rgb(158,158,158);
@@ -7136,7 +7136,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7710,7 +7710,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -7916,7 +7916,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -8190,7 +8190,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -8443,7 +8443,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -9141,7 +9141,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-list {
   display: block;
   height: 500px;
@@ -9322,7 +9322,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -9554,7 +9554,7 @@ ul, ol {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9932,7 +9932,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -10447,7 +10447,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -10711,7 +10711,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -10933,7 +10933,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -11177,7 +11177,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-/*SHADOWS*/
+/* SHADOWS */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);

@@ -527,8 +527,8 @@ $badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
 $badge-size : 20px;
 $badge-padding: 2px;
 
-/*SHADOWS*/
+/* SHADOWS */
 
-$key-umbra-opacity: 0.2;
-$key-penumbra-opacity: 0.14;
-$ambient-shadow-opacity: 0.12;
+$shadow-key-umbra-opacity: 0.2;
+$shadow-key-penumbra-opacity: 0.14;
+$shadow-ambient-shadow-opacity: 0.12;
