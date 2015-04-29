@@ -211,7 +211,8 @@
 }
 
 .mdl-mega-footer--link-list li {
-  margin-bottom: $padding;
+  @include typo-body-1();
+  line-height: 20px;
 }
 
 .mdl-mega-footer--link-list a {
