@@ -17,7 +17,7 @@
 @import "../variables";
 
 .mdl-mega-footer {
-  padding: ($padding * 2) $padding;
+  padding: $padding;
 
   color: $footer-color;
   background-color: $footer-bg-color;
@@ -171,7 +171,7 @@
   width: 100%;
 
   padding-right: $footer-heading-line-height + $padding;
-  margin-bottom: $padding * 2;
+  margin-bottom: $padding;
 
   box-sizing:border-box;
 
