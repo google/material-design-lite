@@ -37,6 +37,8 @@
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 
 
@@ -532,3 +534,23 @@ $badge-padding: 2px;
 $shadow-key-umbra-opacity: 0.2;
 $shadow-key-penumbra-opacity: 0.14;
 $shadow-ambient-shadow-opacity: 0.12;
+
+/* GRID */
+
+$grid-desktop-columns: 12 !default;
+$grid-desktop-gutter: 16px !default;
+$grid-desktop-margin: 16px !default;
+
+$grid-desktop-breakpoint: 840px !default;
+
+$grid-tablet-columns: 8 !default;
+$grid-tablet-gutter: $grid-desktop-gutter !default;
+$grid-tablet-margin: $grid-desktop-margin !default;
+
+$grid-tablet-breakpoint: 480px !default;
+
+$grid-phone-columns: 4 !default;
+$grid-phone-gutter: $grid-desktop-gutter !default;
+$grid-phone-margin: $grid-desktop-margin !default;
+
+$grid-cell-default-columns: $grid-phone-columns !default;
