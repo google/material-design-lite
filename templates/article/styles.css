@@ -2,22 +2,22 @@ html, body {
   margin: 0;
   padding: 0;
 }
-body {
-  font-family: 'Roboto';
-  color: white;
-}
 
 .ribbon {
   width: 100%;
   height: 40vh;
 }
 
-.mdl-layout__container {
-  position: static;
+.mdl-layout > * {
+  flex-shrink: 0;
 }
 
 main.mdl-layout__content.mdl-layout__content {
   margin-top: -35vh;
+}
+
+header.mdl-layout__header {
+  display: flex !important;
 }
 
 .content {
