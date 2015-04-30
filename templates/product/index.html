@@ -29,6 +29,17 @@
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="material.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
   </head>
   <body class="mdl-color--primary-dark mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -120,10 +131,7 @@
         </footer>
       </main>
     </div>
-    <a href="https://github.com/google/material-design-lite/blob/master/templates/product/index.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--accent mdl-color-text--primary">
-      <span class="mdl-icon mdl-icon--search"/>
-    </a>
-    <script src="/material.min.js"></script>
+     <a href="https://github.com/google/material-design-lite/blob/master/templates/product/index.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>    <script src="/material.min.js"></script>
     <script>
       (function() {
         'use strict';
