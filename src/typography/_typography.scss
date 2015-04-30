@@ -75,6 +75,7 @@ h6 {
 
 p {
   @include typo-body-1();
+	margin-bottom: 16px;
 }
 
 a {

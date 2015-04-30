@@ -731,7 +731,8 @@ p {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0; }
+  letter-spacing: 0;
+  margin-bottom: 16px; }
 
 a {
   color: rgb(0,172,193);
@@ -6322,7 +6323,7 @@ ul, ol {
 /* SHADOWS */
 .mdl-card {
   font-size: 16px;
-  height: 200px;
+  min-height: 200px;
   overflow: hidden;
   width: 330px;
   z-index: 1;
@@ -6330,7 +6331,7 @@ ul, ol {
   background: rgb(255,255,255);
   border-radius: 2px; }
 
-.mdl-card--img-container {
+.mdl-card__img-container {
   background-color: rgb(0,172,193);
   background-repeat: repeat;
   background-position: 50% 50%;
@@ -6339,7 +6340,7 @@ ul, ol {
   background-attachment: scroll;
   height: 186px; }
 
-.mdl-card--heading {
+.mdl-card__heading {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -6355,21 +6356,18 @@ ul, ol {
   height: 96px;
   justify-items: stretch;
   line-height: normal;
-  outline: white none 0;
   padding: 8px 16px;
   -webkit-perspective-origin: 165px 56px;
           perspective-origin: 165px 56px;
-  text-decoration: none solid white;
   -webkit-transform-origin: 165px 56px;
       -ms-transform-origin: 165px 56px;
           transform-origin: 165px 56px;
   width: 100%; }
 
-.mdl-card--heading-text {
+.mdl-card__heading-text {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  border: 0 none white;
   color: rgb(255,255,255);
   display: -webkit-box;
   display: -webkit-flex;
@@ -6380,52 +6378,41 @@ ul, ol {
   height: 96px;
   justify-self: stretch;
   line-height: normal;
-  outline: white none 0;
   overflow: hidden;
-  text-decoration: none solid white;
   -webkit-transform-origin: 149px 48px;
       -ms-transform-origin: 149px 48px;
           transform-origin: 149px 48px;
   width: 90%; }
 
-.mdl-card--caption {
+.mdl-card__caption {
   background: rgb(38,50,56) none repeat scroll 0 0/auto padding-box border-box;
-  border: 0 none white;
   color: rgb(255,255,255);
   font-size: 12px;
   height: 16px;
   line-height: normal;
-  outline: white none 0;
   padding: 8px 16px;
   -webkit-perspective-origin: 165px 16px;
           perspective-origin: 165px 16px;
-  text-decoration: none solid white;
   width: 100%; }
 
-.mdl-card--lower {
-  border: 0 none #444444;
+.mdl-card__lower {
   color: rgb(55,71,79);
   font-size: 13px;
   height: 108px;
   line-height: 18px;
   margin: 10px 0;
-  outline: #444444 none 0;
   overflow: hidden;
   padding: 0 16px;
-  text-decoration: none solid #444444;
   width: 90%; }
 
-.mdl-card--bottom {
+.mdl-card__bottom {
   font-size: 16px;
   height: 50px;
   line-height: normal;
-  width: 100%; }
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.16); }
 
-.mdl-card--bottom a {
-  border-bottom: 0 none #303f9f;
-  border-left: 0 none #303f9f;
-  border-right: 0 none #303f9f;
-  border-top: 1px solid #ebebeb;
+.mdl-card__bottom a {
   box-sizing: border-box;
   color: rgb(38,50,56);
   cursor: pointer;
@@ -6434,16 +6421,21 @@ ul, ol {
   font-weight: normal;
   height: 50px;
   line-height: 50px;
-  outline: #303f9f none 0;
   padding: 0 16px;
   -webkit-perspective-origin: 165px 25px;
           perspective-origin: 165px 25px;
-  text-decoration: none solid #303f9f;
   text-transform: uppercase;
   -webkit-transform-origin: 165px 25px;
       -ms-transform-origin: 165px 25px;
           transform-origin: 165px 25px;
-  width: 100%; }
+  width: 100%;
+  text-decoration: none; }
+
+.mdl-card__menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: rgb(255,255,255); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -6831,12 +6823,6 @@ ul, ol {
 .mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after {
   content: '';
   display: block;
-  width: 100%;
-  height: 1px;
-  margin-bottom: 16px;
-  border-color: rgb(158,158,158);
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
   clear: both; }
 
 .mdl-mega-footer--left-section {
