@@ -15,8 +15,8 @@
  */
 
 /**
- * Class constructor for dropdown WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for dropdown MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -387,7 +387,7 @@ MaterialMenu.prototype.show = function(evt) {
 
     // Wait for the next frame, turn on animation, and apply the final clip.
     // Also make it visible. This triggers the transitions.
-    window.requestAnimFrame(function() {
+    window.requestAnimationFrame(function() {
       this.element_.classList.add(this.CssClasses_.IS_ANIMATING);
       this.element_.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
       this.container_.classList.add(this.CssClasses_.IS_VISIBLE);

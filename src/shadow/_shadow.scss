@@ -16,22 +16,26 @@
 
 @import "../variables";
 
-.mdl-shadow--z1 {
-  @include shadow-z1();
+.mdl-shadow--2dp {
+  @include shadow-2dp();
 }
 
-.mdl-shadow--z2 {
-  @include shadow-z2();
+.mdl-shadow--3dp {
+  @include shadow-3dp();
 }
 
-.mdl-shadow--z3 {
-  @include shadow-z3();
+.mdl-shadow--4dp {
+  @include shadow-4dp();
 }
 
-.mdl-shadow--z4 {
-  @include shadow-z4();
+.mdl-shadow--6dp {
+  @include shadow-6dp();
 }
 
-.mdl-shadow--z5 {
-  @include shadow-z5();
+.mdl-shadow--8dp {
+  @include shadow-8dp();
+}
+
+.mdl-shadow--16dp {
+  @include shadow-16dp();
 }

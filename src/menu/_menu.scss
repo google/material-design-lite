@@ -41,7 +41,7 @@
   opacity: 0;
   transform: scale(0);
   transform-origin: 0 0;
-  @include shadow-z1();
+  @include shadow-2dp();
   will-change: transform;
   transition: transform $menu-expand-duration $animation-curve-default,
       opacity $menu-fade-duration $animation-curve-default;
@@ -124,6 +124,7 @@
   text-decoration: none;
   cursor: pointer;
   height: 48px;
+  width: 100%;
   line-height: 48px;
   white-space: nowrap;
   opacity: 0;

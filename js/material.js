@@ -149,7 +149,7 @@ var componentHandler = (function() {
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
    * component type
-   * @param {string} jsClass The class name of the WSK component we wish
+   * @param {string} jsClass The class name of the MDL component we wish
    * to hook into for any upgrades performed.
    * @param {function} callback The function to call upon an upgrade. This
    * function should expect 1 parameter - the HTMLElement which got upgraded.
@@ -190,7 +190,7 @@ window.addEventListener('load', function() {
 
   /**
    * Performs a "Cutting the mustard" test. If the browser supports the features
-   * tested, adds a mdl-js class to the <html> element. It then upgrades all WSK
+   * tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
    * components requiring JavaScript.
    */
   if ('classList' in document.createElement('div') && 'querySelector' in document &&
@@ -202,17 +202,44 @@ window.addEventListener('load', function() {
   }
 });
 
-// From: http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-// shim layer with setTimeout fallback
-window.requestAnimFrame = (function() {
-  'use strict';
-  return window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    function(callback) {
-      window.setTimeout(callback, 1000 / 60);
+// Source: https://github.com/darius/requestAnimationFrame/blob/master/requestAnimationFrame.js
+// Adapted from https://gist.github.com/paulirish/1579671 which derived from
+// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+
+// requestAnimationFrame polyfill by Erik Möller.
+// Fixes from Paul Irish, Tino Zijdel, Andrew Mao, Klemen Slavič, Darius Bacon
+
+// MIT license
+
+(function() {
+'use strict';
+
+if (!Date.now) {
+  Date.now = function() { return new Date().getTime(); };
+}
+
+var vendors = ['webkit', 'moz'];
+for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+  var vp = vendors[i];
+  window.requestAnimationFrame = window[vp + 'RequestAnimationFrame'];
+  window.cancelAnimationFrame = (window[vp + 'CancelAnimationFrame'] ||
+  window[vp + 'CancelRequestAnimationFrame']);
+}
+
+if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
+  var lastTime = 0;
+  window.requestAnimationFrame = function(callback) {
+      var now = Date.now();
+      var nextTime = Math.max(lastTime + 16, now);
+      return setTimeout(function() { callback(lastTime = nextTime); },
+                        nextTime - now);
     };
+  window.cancelAnimationFrame = clearTimeout;
+}
+
 })();
+
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -231,8 +258,8 @@ window.requestAnimFrame = (function() {
  */
 
 /**
- * Class constructor for Animation WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Animation MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -327,8 +354,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Button WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Button MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -444,8 +471,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Checkbox WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Checkbox MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -691,93 +718,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Column Layout WSK component.
- * Implements WSK component design pattern defined at:
- * https://github.com/jasonmayes/mdl-component-design-pattern
- * @param {HTMLElement} element The element that will be upgraded.
- */
-function MaterialColumnLayout(element) {
-  'use strict';
-
-  this.element_ = element;
-
-  // Initialize instance.
-  this.init();
-}
-
-/**
- * Store constants in one place so they can be updated easily.
- * @enum {string | number}
- * @private
- */
-MaterialColumnLayout.prototype.Constant_ = {
-  INVISIBLE_WRAPPING_ELEMENT_COUNT: 3
-};
-
-/**
- * Store strings for class names defined by this component that are used in
- * JavaScript. This allows us to simply change it in one place should we
- * decide to modify at a later date.
- * @enum {string}
- * @private
- */
-MaterialColumnLayout.prototype.CssClasses_ = {
-  /**
-   * Class names should use camelCase and be prefixed with the word "material"
-   * to minimize conflict with 3rd party systems.
-   */
-
-  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
-  // reduce conflict and convert to camelCase for consistency.
-  INVISIBLE_WRAPPING_ELEMENT: 'mdl-column-layout__wrap-hack'
-};
-
-
-/**
- * Initialize element.
- */
-MaterialColumnLayout.prototype.init = function() {
-  'use strict';
-
-  if (this.element_) {
-    // Add some hidden elements to make sure everything aligns correctly. See
-    // CSS file for details.
-    for (var j = 0; j < this.Constant_.INVISIBLE_WRAPPING_ELEMENT_COUNT ; j++) {
-      var hiddenHackDiv = document.createElement('div');
-      hiddenHackDiv.classList.add(this.CssClasses_.INVISIBLE_WRAPPING_ELEMENT);
-      this.element_.appendChild(hiddenHackDiv);
-    }
-  }
-};
-
-
-//The component registers itself. It can assume componentHandler is available
-//in the global scope.
-componentHandler.register({
-  constructor: MaterialColumnLayout,
-  classAsString: 'MaterialColumnLayout',
-  cssClass: 'mdl-column-layout'
-});
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * Class constructor for icon toggle WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for icon toggle MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1005,8 +947,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for dropdown WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for dropdown MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1377,7 +1319,7 @@ MaterialMenu.prototype.show = function(evt) {
 
     // Wait for the next frame, turn on animation, and apply the final clip.
     // Also make it visible. This triggers the transitions.
-    window.requestAnimFrame(function() {
+    window.requestAnimationFrame(function() {
       this.element_.classList.add(this.CssClasses_.IS_ANIMATING);
       this.element_.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
       this.container_.classList.add(this.CssClasses_.IS_VISIBLE);
@@ -1470,8 +1412,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Progress WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Progress MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1575,8 +1517,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Radio WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Radio MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -1831,8 +1773,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Slider WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Slider MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2037,8 +1979,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Spinner WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Spinner MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2057,7 +1999,7 @@ function MaterialSpinner(element) {
  * @private
  */
 MaterialSpinner.prototype.Constant_ = {
-  WSK_SPINNER_LAYER_COUNT: 4
+  MDL_SPINNER_LAYER_COUNT: 4
 };
 
 /**
@@ -2068,12 +2010,12 @@ MaterialSpinner.prototype.Constant_ = {
  * @private
  */
 MaterialSpinner.prototype.CssClasses_ = {
-  WSK_SPINNER_LAYER: 'mdl-spinner__layer',
-  WSK_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
-  WSK_SPINNER_CIRCLE: 'mdl-spinner__circle',
-  WSK_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
-  WSK_SPINNER_LEFT: 'mdl-spinner__left',
-  WSK_SPINNER_RIGHT: 'mdl-spinner__right'
+  MDL_SPINNER_LAYER: 'mdl-spinner__layer',
+  MDL_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+  MDL_SPINNER_CIRCLE: 'mdl-spinner__circle',
+  MDL_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+  MDL_SPINNER_LEFT: 'mdl-spinner__left',
+  MDL_SPINNER_RIGHT: 'mdl-spinner__right'
 };
 
 /**
@@ -2083,25 +2025,25 @@ MaterialSpinner.prototype.createLayer = function(index) {
   'use strict';
 
   var layer = document.createElement('div');
-  layer.classList.add(this.CssClasses_.WSK_SPINNER_LAYER);
-  layer.classList.add(this.CssClasses_.WSK_SPINNER_LAYER + '-' + index);
+  layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
+  layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
 
   var leftClipper = document.createElement('div');
-  leftClipper.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE_CLIPPER);
-  leftClipper.classList.add(this.CssClasses_.WSK_SPINNER_LEFT);
+  leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+  leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
 
   var gapPatch = document.createElement('div');
-  gapPatch.classList.add(this.CssClasses_.WSK_SPINNER_GAP_PATCH);
+  gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
 
   var rightClipper = document.createElement('div');
-  rightClipper.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE_CLIPPER);
-  rightClipper.classList.add(this.CssClasses_.WSK_SPINNER_RIGHT);
+  rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+  rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
 
   var circleOwners = [leftClipper, gapPatch, rightClipper];
 
   for (var i = 0; i < circleOwners.length; i++) {
     var circle = document.createElement('div');
-    circle.classList.add(this.CssClasses_.WSK_SPINNER_CIRCLE);
+    circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
     circleOwners[i].appendChild(circle);
   }
 
@@ -2142,7 +2084,7 @@ MaterialSpinner.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    for (var i = 1; i <= this.Constant_.WSK_SPINNER_LAYER_COUNT; i++) {
+    for (var i = 1; i <= this.Constant_.MDL_SPINNER_LAYER_COUNT; i++) {
       this.createLayer(i);
     }
 
@@ -2175,8 +2117,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Checkbox WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Checkbox MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2424,8 +2366,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Tabs WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Tabs MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2461,10 +2403,10 @@ MaterialTabs.prototype.CssClasses_ = {
   ACTIVE_CLASS: 'is-active',
   UPGRADED_CLASS: 'is-upgraded',
 
-  WSK_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
-  WSK_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
-  WSK_RIPPLE: 'mdl-ripple',
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
+  MDL_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  MDL_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
+  MDL_RIPPLE: 'mdl-ripple',
+  MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
 };
 
 /**
@@ -2474,9 +2416,9 @@ MaterialTabs.prototype.CssClasses_ = {
 MaterialTabs.prototype.initTabs_ = function(e) {
   'use strict';
 
-  if (this.element_.classList.contains(this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+  if (this.element_.classList.contains(this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
     this.element_.classList.add(
-      this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+      this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
   }
 
   // Select element tabs, document panels
@@ -2528,12 +2470,12 @@ function MaterialTab(tab, ctx) {
   'use strict';
 
   if (tab) {
-    if (ctx.element_.classList.contains(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+    if (ctx.element_.classList.contains(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(ctx.CssClasses_.WSK_RIPPLE_CONTAINER);
-      rippleContainer.classList.add(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT);
+      rippleContainer.classList.add(ctx.CssClasses_.MDL_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT);
       var ripple = document.createElement('span');
-      ripple.classList.add(ctx.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(ctx.CssClasses_.MDL_RIPPLE);
       rippleContainer.appendChild(ripple);
       tab.appendChild(rippleContainer);
     }
@@ -2576,8 +2518,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Textfield WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Textfield MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2781,8 +2723,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Tooltip WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Tooltip MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -2894,8 +2836,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Layout WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Layout MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -3271,8 +3213,8 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Ripple WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Ripple MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -3349,7 +3291,7 @@ MaterialRipple.prototype.downHandler_ = function(event) {
     }
     this.setRippleXY(x, y);
     this.setRippleStyles(true);
-    window.requestAnimFrame(this.animFrameHandler.bind(this));
+    window.requestAnimationFrame(this.animFrameHandler.bind(this));
   }
 };
 
@@ -3459,7 +3401,7 @@ MaterialRipple.prototype.init = function() {
 
       this.animFrameHandler = function() {
         if (this.frameCount_-- > 0) {
-          window.requestAnimFrame(this.animFrameHandler.bind(this));
+          window.requestAnimationFrame(this.animFrameHandler.bind(this));
         } else {
           this.setRippleStyles(false);
         }

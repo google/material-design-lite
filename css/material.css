@@ -73,6 +73,7 @@
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -150,6 +151,8 @@
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -198,6 +201,123 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -207,7 +327,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: #222;
+  color: rgba(0,0,0, 0.87);
   font-size: 1em;
   line-height: 1.4; }
 
@@ -394,6 +514,13 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
+/*
+ * Main display reset for IE support.
+ * Source: http://weblog.west-wind.com/posts/2015/Jan/12/main-HTML5-Tag-not-working-in-Internet-Explorer-91011
+ */
+main {
+  display: block; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -446,6 +573,7 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -523,6 +651,8 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -534,13 +664,13 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0; }
 
 /**
- * Styles for HTML elements
- */
+* Styles for HTML elements
+*/
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.02em;
   opacity: 0.54;
   font-size: 0.6em; }
@@ -549,71 +679,98 @@ h1 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-top: 24px;
+  margin-bottom: 24px; }
 
 h2 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
-  line-height: 48px; }
+  line-height: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px; }
 
 h3 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
-  line-height: 40px; }
+  line-height: 40px;
+  margin-top: 24px;
+  margin-bottom: 24px; }
 
 h4 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 24px;
+  margin-bottom: 16px; }
 
 h5 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.02em; }
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+  margin-bottom: 16px; }
 
 h6 {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0.04em;
+  margin-top: 24px;
+  margin-bottom: 16px; }
 
 p {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
+  letter-spacing: 0; }
 
 a {
-  font-weight: bold; }
+  color: rgb(0,172,193);
+  font-weight: 500; }
 
 blockquote {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  position: relative;
   font-size: 24px;
   font-weight: 300;
   font-style: italic;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: 0.08em; }
   blockquote:before {
-    content: '“';
-    opacity: 0.54; }
+    position: absolute;
+    left: -0.5em;
+    content: '“'; }
   blockquote:after {
     content: '”';
-    opacity: 0.54; }
+    margin-left: -0.05em; }
 
 mark {
   background-color: #f4ff81; }
 
 dt {
   font-weight: 700; }
+
+address {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  font-style: normal; }
+
+ul, ol {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0; }
 
 /**
  * Class Name Styles
@@ -637,14 +794,14 @@ dt {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.02em; }
 
 .mdl-typography--display-3-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.02em;
   opacity: 0.54; }
 
@@ -723,26 +880,26 @@ dt {
   font-size: 14px;
   font-weight: bold;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-2-color-contrast {
   font-size: 14px;
   font-weight: bold;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--body-1 {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-1-color-contrast {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--body-2-force-preferred-font {
@@ -750,14 +907,14 @@ dt {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-2-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--body-1-force-preferred-font {
@@ -765,34 +922,34 @@ dt {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--body-1-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--caption {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em; }
+  letter-spacing: 0; }
 
 .mdl-typography--caption-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em; }
+  letter-spacing: 0; }
 
 .mdl-typography--caption-color-contrast {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   opacity: 0.54; }
 
 .mdl-typography--caption-force-preferred-font-color-contrast {
@@ -800,7 +957,7 @@ dt {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   opacity: 0.54; }
 
 .mdl-typography--menu {
@@ -808,31 +965,31 @@ dt {
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--menu-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--button {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0.04em; }
+  letter-spacing: 0; }
 
 .mdl-typography--button-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   opacity: 0.87; }
 
 .mdl-typography--text-left {
@@ -858,12 +1015,6 @@ dt {
 
 .mdl-typography--text-capitalize {
   text-transform: capitalize; }
-
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td, .mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
-
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td, .mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9; }
 
 .mdl-typography--font-thin {
   font-weight: 200 !important; }
@@ -935,6 +1086,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -1012,6 +1164,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -3353,6 +3507,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -3430,6 +3585,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
@@ -5071,8 +5228,14 @@ dt {
 .mdl-color--black {
   background-color: rgb(0,0,0) !important; }
 
+.mdl-color-text--black {
+  color: rgb(0,0,0) !important; }
+
 .mdl-color--white {
   background-color: rgb(255,255,255) !important; }
+
+.mdl-color-text--white {
+  color: rgb(255,255,255) !important; }
 
 .mdl-color--primary {
   background-color: rgb(55,71,79) !important; }
@@ -5156,6 +5319,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5233,20 +5397,25 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-.mdl-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+/* BADGE */
+/* SHADOWS */
+.mdl-shadow--2dp {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-.mdl-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+.mdl-shadow--3dp {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
 
-.mdl-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
+.mdl-shadow--4dp {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
 
-.mdl-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
+.mdl-shadow--6dp {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
 
-.mdl-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+.mdl-shadow--8dp {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
+
+.mdl-shadow--16dp {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5300,6 +5469,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5377,6 +5547,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -5449,6 +5621,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5526,6 +5699,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -5541,6 +5716,171 @@ dt {
 .mdl-animation--fast-out-linear-in {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+.mdl-badge {
+  position: relative;
+  white-space: nowrap;
+  margin-right: 22px; }
+  .mdl-badge:not([data-badge]) {
+    margin-right: auto; }
+  .mdl-badge[data-badge]:after {
+    content: attr(data-badge);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    top: -10px;
+    right: -22px;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb(0,172,193);
+    color: rgb(255,255,255); }
+    .mdl-button .mdl-badge[data-badge]:after {
+      top: -10px;
+      right: -5px; }
+  .mdl-badge.mdl-badge--no-background[data-badge]:after {
+    color: rgb(0,172,193);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 0 1px gray; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5594,6 +5934,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5671,6 +6012,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-button {
   background: transparent;
   border: none;
@@ -5685,10 +6028,10 @@ dt {
   display: inline-block;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   overflow: hidden;
   will-change: box-shadow, transform;
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5718,9 +6061,9 @@ dt {
 
 .mdl-button--raised {
   background: rgba(158,158,158, 0.20);
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .mdl-button--raised:active {
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     background-color: rgba(158,158,158, 0.40); }
   .mdl-button--raised:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
@@ -5739,7 +6082,7 @@ dt {
   .mdl-button--raised[disabled][disabled] {
     background-color: rgba(0,0,0, 0.12);
     color: rgba(0,0,0, 0.26);
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--fab {
   border-radius: 50%;
@@ -5773,7 +6116,7 @@ dt {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
   .mdl-button--fab:active {
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     background-color: rgba(158,158,158, 0.40); }
   .mdl-button--fab:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
@@ -5792,7 +6135,7 @@ dt {
   .mdl-button--fab[disabled][disabled] {
     background-color: rgba(0,0,0, 0.12);
     color: rgba(0,0,0, 0.26);
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--icon {
   border-radius: 50%;
@@ -5833,6 +6176,18 @@ dt {
   .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple {
     background-color: transparent; }
 
+.mdl-button--primary.mdl-button--primary {
+  background-color: rgb(55,71,79);
+  color: rgb(255,255,255); }
+  .mdl-button--primary.mdl-button--primary .mdl-ripple {
+    background: rgb(255,255,255); }
+
+.mdl-button--accent.mdl-button--accent {
+  background-color: rgb(0,172,193);
+  color: rgb(255,255,255); }
+  .mdl-button--accent.mdl-button--accent .mdl-ripple {
+    background: rgb(255,255,255); }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5885,6 +6240,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5962,9 +6318,11 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-card {
   font-size: 16px;
-  height: 508px;
+  height: 200px;
   overflow: hidden;
   width: 330px;
   z-index: 1;
@@ -6139,6 +6497,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6216,6 +6575,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -6287,8 +6648,8 @@ dt {
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-mask: url("../images/tick-mask.svg#mask");
-          mask: url("../images/tick-mask.svg#mask");
+  -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8ZGVmcz4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcCI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwwIDAsMSAxLDEgMSwwIDAsMCB6IE0gMC44NTM0Mzc1LDAuMTY3MTg3NSAwLjk1OTY4NzUsMC4yNzMxMjUgMC40MjkzNzUsMC44MDM0Mzc1IDAuMzIzMTI1LDAuOTA5Njg3NSAwLjIxNzE4NzUsMC44MDM0Mzc1IDAuMDQwMzEyNSwwLjYyNjg3NSAwLjE0NjU2MjUsMC41MjA2MjUgMC4zMjMxMjUsMC42OTc1IDAuODUzNDM3NSwwLjE2NzE4NzUgeiIKICAgICAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZSIgLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8bWFzayBpZD0ibWFzayIgbWFza1VuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgbWFza0NvbnRlbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPgogICAgICA8cGF0aAogICAgICAgICBkPSJNIDAsMCAwLDEgMSwxIDEsMCAwLDAgeiBNIDAuODUzNDM3NSwwLjE2NzE4NzUgMC45NTk2ODc1LDAuMjczMTI1IDAuNDI5Mzc1LDAuODAzNDM3NSAwLjMyMzEyNSwwLjkwOTY4NzUgMC4yMTcxODc1LDAuODAzNDM3NSAwLjA0MDMxMjUsMC42MjY4NzUgMC4xNDY1NjI1LDAuNTIwNjI1IDAuMzIzMTI1LDAuNjk3NSAwLjg1MzQzNzUsMC4xNjcxODc1IHoiCiAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmUiIC8+CiAgICA8L21hc2s+CiAgPC9kZWZzPgogIDxyZWN0CiAgICAgd2lkdGg9IjEiCiAgICAgaGVpZ2h0PSIxIgogICAgIHg9IjAiCiAgICAgeT0iMCIKICAgICBjbGlwLXBhdGg9InVybCgjY2xpcCkiCiAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZSIgLz4KPC9zdmc+Cg==);
+          mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8ZGVmcz4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcCI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwwIDAsMSAxLDEgMSwwIDAsMCB6IE0gMC44NTM0Mzc1LDAuMTY3MTg3NSAwLjk1OTY4NzUsMC4yNzMxMjUgMC40MjkzNzUsMC44MDM0Mzc1IDAuMzIzMTI1LDAuOTA5Njg3NSAwLjIxNzE4NzUsMC44MDM0Mzc1IDAuMDQwMzEyNSwwLjYyNjg3NSAwLjE0NjU2MjUsMC41MjA2MjUgMC4zMjMxMjUsMC42OTc1IDAuODUzNDM3NSwwLjE2NzE4NzUgeiIKICAgICAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZSIgLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8bWFzayBpZD0ibWFzayIgbWFza1VuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgbWFza0NvbnRlbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPgogICAgICA8cGF0aAogICAgICAgICBkPSJNIDAsMCAwLDEgMSwxIDEsMCAwLDAgeiBNIDAuODUzNDM3NSwwLjE2NzE4NzUgMC45NTk2ODc1LDAuMjczMTI1IDAuNDI5Mzc1LDAuODAzNDM3NSAwLjMyMzEyNSwwLjkwOTY4NzUgMC4yMTcxODc1LDAuODAzNDM3NSAwLjA0MDMxMjUsMC42MjY4NzUgMC4xNDY1NjI1LDAuNTIwNjI1IDAuMzIzMTI1LDAuNjk3NSAwLjg1MzQzNzUsMC4xNjcxODc1IHoiCiAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmUiIC8+CiAgICA8L21hc2s+CiAgPC9kZWZzPgogIDxyZWN0CiAgICAgd2lkdGg9IjEiCiAgICAgaGVpZ2h0PSIxIgogICAgIHg9IjAiCiAgICAgeT0iMCIKICAgICBjbGlwLXBhdGg9InVybCgjY2xpcCkiCiAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZSIgLz4KPC9zdmc+Cg==);
   background: transparent;
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
@@ -6297,9 +6658,9 @@ dt {
   -webkit-transition-property: background;
           transition-property: background; }
   .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: rgb(55,71,79) url("../images/tick.svg"); }
+    background: rgb(55,71,79) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K); }
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0,0,0, 0.26) url("../images/tick.svg"); }
+    background: rgba(0,0,0, 0.26) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K); }
 
 .mdl-checkbox__label {
   position: relative;
@@ -6382,6 +6743,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6459,206 +6821,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-.mdl-column-layout {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 0;
-  box-sizing: border-box;
-  padding: 20px; }
-  @media screen and (min-width: 1600px) {
-    .mdl-column-layout {
-      padding-left: calc(50% - 600px);
-      padding-right: calc(50% - 600px); } }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout {
-      padding: 12px; } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout {
-      padding: 8px; } }
-
-.mdl-column-layout__child {
-  min-width: 360px;
-  width: 360px;
-  margin: 20px;
-  box-sizing: border-box; }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout__child {
-      margin: 12px;
-      min-width: calc(50% - 24px);
-      width: calc(50% - 24px); } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout__child {
-      margin: 8px;
-      width: calc(100% - 16px);
-      min-width: calc(100% - 16px); } }
-
-.mdl-column-layout__wrap-hack {
-  min-width: 360px;
-  width: 360px;
-  margin: 20px;
-  box-sizing: border-box;
-  height: 0;
-  min-height: 0;
-  max-height: 0;
-  border: none;
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 0;
-  opacity: 0; }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout__wrap-hack {
-      margin: 12px;
-      min-width: calc(50% - 24px);
-      width: calc(50% - 24px); } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout__wrap-hack {
-      margin: 8px;
-      width: calc(100% - 16px);
-      min-width: calc(100% - 16px); } }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*------------------------------------*\
-    $CONTENTS
-\*------------------------------------*/
-/**
- * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
- * -----Typography
- * -----Colors
- * -----Textfield
- * -----Switch
- * -----Spinner
- * -----Radio
- * -----Menu
- * -----List
- * -----Layout
- * -----Icon toggles
- * -----Footer
- * -----Column
- * -----Checkbox
- * -----Card
- * -----Button
- * -----Animation
- * -----Progress
- */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-mega-footer {
   padding: 32px 16px;
   color: rgb(158,158,158);
@@ -6877,6 +7041,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6954,6 +7119,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7033,6 +7200,384 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+.mdl-grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin: 0 auto 0 auto;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+  .mdl-grid.mdl-grid--no-spacing {
+    padding: 0; }
+
+.mdl-cell {
+  box-sizing: border-box; }
+
+.mdl-cell--top {
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start; }
+
+.mdl-cell--middle {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center; }
+
+.mdl-cell--bottom {
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end; }
+
+.mdl-cell--stretch {
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch; }
+
+.mdl-grid.mdl-grid--no-spacing > .mdl-cell {
+  margin: 0; }
+
+@media (max-width: 479px) {
+  .mdl-grid {
+    padding: 8px; }
+  .mdl-cell {
+    margin: 8px;
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell {
+      width: 100%; }
+  .mdl-cell--hide-phone {
+    display: none !important; }
+  .mdl-cell--1-col {
+    width: calc(25% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--1-col {
+      width: 25%; }
+  .mdl-cell--1-col-phone.mdl-cell--1-col-phone {
+    width: calc(25% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--1-col-phone.mdl-cell--1-col-phone {
+      width: 25%; }
+  .mdl-cell--2-col {
+    width: calc(50% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--2-col {
+      width: 50%; }
+  .mdl-cell--2-col-phone.mdl-cell--2-col-phone {
+    width: calc(50% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--2-col-phone.mdl-cell--2-col-phone {
+      width: 50%; }
+  .mdl-cell--3-col {
+    width: calc(75% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--3-col {
+      width: 75%; }
+  .mdl-cell--3-col-phone.mdl-cell--3-col-phone {
+    width: calc(75% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--3-col-phone.mdl-cell--3-col-phone {
+      width: 75%; }
+  .mdl-cell--4-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--4-col {
+      width: 100%; }
+  .mdl-cell--4-col-phone.mdl-cell--4-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--4-col-phone.mdl-cell--4-col-phone {
+      width: 100%; }
+  .mdl-cell--5-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--5-col {
+      width: 100%; }
+  .mdl-cell--5-col-phone.mdl-cell--5-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--5-col-phone.mdl-cell--5-col-phone {
+      width: 100%; }
+  .mdl-cell--6-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--6-col {
+      width: 100%; }
+  .mdl-cell--6-col-phone.mdl-cell--6-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--6-col-phone.mdl-cell--6-col-phone {
+      width: 100%; }
+  .mdl-cell--7-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--7-col {
+      width: 100%; }
+  .mdl-cell--7-col-phone.mdl-cell--7-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--7-col-phone.mdl-cell--7-col-phone {
+      width: 100%; }
+  .mdl-cell--8-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--8-col {
+      width: 100%; }
+  .mdl-cell--8-col-phone.mdl-cell--8-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--8-col-phone.mdl-cell--8-col-phone {
+      width: 100%; }
+  .mdl-cell--9-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--9-col {
+      width: 100%; }
+  .mdl-cell--9-col-phone.mdl-cell--9-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--9-col-phone.mdl-cell--9-col-phone {
+      width: 100%; }
+  .mdl-cell--10-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--10-col {
+      width: 100%; }
+  .mdl-cell--10-col-phone.mdl-cell--10-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--10-col-phone.mdl-cell--10-col-phone {
+      width: 100%; }
+  .mdl-cell--11-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--11-col {
+      width: 100%; }
+  .mdl-cell--11-col-phone.mdl-cell--11-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--11-col-phone.mdl-cell--11-col-phone {
+      width: 100%; }
+  .mdl-cell--12-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--12-col {
+      width: 100%; }
+  .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
+      width: 100%; } }
+
+@media (min-width: 480px) and (max-width: 839px) {
+  .mdl-grid {
+    padding: 8px; }
+  .mdl-cell {
+    margin: 8px;
+    width: calc(50% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell {
+      width: 50%; }
+  .mdl-cell--hide-tablet {
+    display: none !important; }
+  .mdl-cell--1-col {
+    width: calc(12.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--1-col {
+      width: 12.5%; }
+  .mdl-cell--1-col-tablet.mdl-cell--1-col-tablet {
+    width: calc(12.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--1-col-tablet.mdl-cell--1-col-tablet {
+      width: 12.5%; }
+  .mdl-cell--2-col {
+    width: calc(25% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--2-col {
+      width: 25%; }
+  .mdl-cell--2-col-tablet.mdl-cell--2-col-tablet {
+    width: calc(25% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--2-col-tablet.mdl-cell--2-col-tablet {
+      width: 25%; }
+  .mdl-cell--3-col {
+    width: calc(37.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--3-col {
+      width: 37.5%; }
+  .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
+    width: calc(37.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
+      width: 37.5%; }
+  .mdl-cell--4-col {
+    width: calc(50% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--4-col {
+      width: 50%; }
+  .mdl-cell--4-col-tablet.mdl-cell--4-col-tablet {
+    width: calc(50% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--4-col-tablet.mdl-cell--4-col-tablet {
+      width: 50%; }
+  .mdl-cell--5-col {
+    width: calc(62.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--5-col {
+      width: 62.5%; }
+  .mdl-cell--5-col-tablet.mdl-cell--5-col-tablet {
+    width: calc(62.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--5-col-tablet.mdl-cell--5-col-tablet {
+      width: 62.5%; }
+  .mdl-cell--6-col {
+    width: calc(75% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--6-col {
+      width: 75%; }
+  .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
+    width: calc(75% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
+      width: 75%; }
+  .mdl-cell--7-col {
+    width: calc(87.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--7-col {
+      width: 87.5%; }
+  .mdl-cell--7-col-tablet.mdl-cell--7-col-tablet {
+    width: calc(87.5% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--7-col-tablet.mdl-cell--7-col-tablet {
+      width: 87.5%; }
+  .mdl-cell--8-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--8-col {
+      width: 100%; }
+  .mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
+      width: 100%; }
+  .mdl-cell--9-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--9-col {
+      width: 100%; }
+  .mdl-cell--9-col-tablet.mdl-cell--9-col-tablet {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--9-col-tablet.mdl-cell--9-col-tablet {
+      width: 100%; }
+  .mdl-cell--10-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--10-col {
+      width: 100%; }
+  .mdl-cell--10-col-tablet.mdl-cell--10-col-tablet {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--10-col-tablet.mdl-cell--10-col-tablet {
+      width: 100%; }
+  .mdl-cell--11-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--11-col {
+      width: 100%; }
+  .mdl-cell--11-col-tablet.mdl-cell--11-col-tablet {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--11-col-tablet.mdl-cell--11-col-tablet {
+      width: 100%; }
+  .mdl-cell--12-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--12-col {
+      width: 100%; }
+  .mdl-cell--12-col-tablet.mdl-cell--12-col-tablet {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--12-col-tablet.mdl-cell--12-col-tablet {
+      width: 100%; } }
+
+@media (min-width: 840px) {
+  .mdl-grid {
+    padding: 8px; }
+  .mdl-cell {
+    margin: 8px;
+    width: calc(33.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell {
+      width: 33.33333%; }
+  .mdl-cell--hide-desktop {
+    display: none !important; }
+  .mdl-cell--1-col {
+    width: calc(8.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--1-col {
+      width: 8.33333%; }
+  .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
+    width: calc(8.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
+      width: 8.33333%; }
+  .mdl-cell--2-col {
+    width: calc(16.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--2-col {
+      width: 16.66667%; }
+  .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
+    width: calc(16.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
+      width: 16.66667%; }
+  .mdl-cell--3-col {
+    width: calc(25% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--3-col {
+      width: 25%; }
+  .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
+    width: calc(25% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
+      width: 25%; }
+  .mdl-cell--4-col {
+    width: calc(33.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--4-col {
+      width: 33.33333%; }
+  .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
+    width: calc(33.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
+      width: 33.33333%; }
+  .mdl-cell--5-col {
+    width: calc(41.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--5-col {
+      width: 41.66667%; }
+  .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
+    width: calc(41.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
+      width: 41.66667%; }
+  .mdl-cell--6-col {
+    width: calc(50% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--6-col {
+      width: 50%; }
+  .mdl-cell--6-col-desktop.mdl-cell--6-col-desktop {
+    width: calc(50% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--6-col-desktop.mdl-cell--6-col-desktop {
+      width: 50%; }
+  .mdl-cell--7-col {
+    width: calc(58.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--7-col {
+      width: 58.33333%; }
+  .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
+    width: calc(58.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
+      width: 58.33333%; }
+  .mdl-cell--8-col {
+    width: calc(66.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--8-col {
+      width: 66.66667%; }
+  .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
+    width: calc(66.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
+      width: 66.66667%; }
+  .mdl-cell--9-col {
+    width: calc(75% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--9-col {
+      width: 75%; }
+  .mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
+    width: calc(75% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
+      width: 75%; }
+  .mdl-cell--10-col {
+    width: calc(83.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--10-col {
+      width: 83.33333%; }
+  .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
+    width: calc(83.33333% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
+      width: 83.33333%; }
+  .mdl-cell--11-col {
+    width: calc(91.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--11-col {
+      width: 91.66667%; }
+  .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
+    width: calc(91.66667% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
+      width: 91.66667%; }
+  .mdl-cell--12-col {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--12-col {
+      width: 100%; }
+  .mdl-cell--12-col-desktop.mdl-cell--12-col-desktop {
+    width: calc(100% - 16px); }
+    .mdl-grid--no-spacing > .mdl-cell--12-col-desktop.mdl-cell--12-col-desktop {
+      width: 100%; } }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7070,6 +7615,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7147,6 +7693,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -7273,6 +7821,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7350,6 +7899,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -7378,7 +7929,7 @@ dt {
   -webkit-transform-origin: 0 0;
       -ms-transform-origin: 0 0;
           transform-origin: 0 0;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   will-change: transform;
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -7446,10 +7997,11 @@ dt {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   text-decoration: none;
   cursor: pointer;
   height: 48px;
+  width: 100%;
   line-height: 48px;
   white-space: nowrap;
   opacity: 0;
@@ -7543,6 +8095,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7620,6 +8173,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -7652,8 +8207,8 @@ dt {
   .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), -webkit-linear-gradient(left, rgb(55,71,79), rgb(55,71,79));
     background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, rgb(55,71,79), rgb(55,71,79));
-    -webkit-mask: url('../images/buffer.svg');
-            mask: url('../images/buffer.svg'); } }
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjEyIiBoZWlnaHQ9IjQiIHZpZXdQb3J0PSIwIDAgMTIgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxlbGxpcHNlIGN4PSIyIiBjeT0iMiIgcng9IjIiIHJ5PSIyIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIyIiB0bz0iLTEwIiBkdXI9IjAuNnMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogIDwvZWxsaXBzZT4KICA8ZWxsaXBzZSBjeD0iMTQiIGN5PSIyIiByeD0iMiIgcnk9IjIiIGNsYXNzPSJsb2FkZXIiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iY3giIGZyb209IjE0IiB0bz0iMiIgZHVyPSIwLjZzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4KICA8L2VsbGlwc2U+Cjwvc3ZnPgo=);
+            mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjEyIiBoZWlnaHQ9IjQiIHZpZXdQb3J0PSIwIDAgMTIgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxlbGxpcHNlIGN4PSIyIiBjeT0iMiIgcng9IjIiIHJ5PSIyIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIyIiB0bz0iLTEwIiBkdXI9IjAuNnMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogIDwvZWxsaXBzZT4KICA8ZWxsaXBzZSBjeD0iMTQiIGN5PSIyIiByeD0iMiIgcnk9IjIiIGNsYXNzPSJsb2FkZXIiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iY3giIGZyb209IjE0IiB0bz0iMiIgZHVyPSIwLjZzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4KICA8L2VsbGlwc2U+Cjwvc3ZnPgo=); } }
 
 .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-color: rgba(0,0,0, 0.26); }
@@ -7793,6 +8348,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7870,6 +8426,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7945,7 +8503,7 @@ dt {
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   border-right: 1px solid rgb(224,224,224);
   background: rgb(250,250,250);
@@ -7962,8 +8520,7 @@ dt {
   -webkit-transition-property: -webkit-transform;
           transition-property: transform;
   color: rgb(66,66,66);
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: visible;
   z-index: 5; }
   .mdl-layout__drawer.is-visible {
     -webkit-transform: translateX(0);
@@ -7999,7 +8556,7 @@ dt {
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
               transform: translateX(0);
-      z-index: 2; } }
+      z-index: 3; } }
 
 .mdl-layout__drawer-button {
   display: block;
@@ -8069,11 +8626,11 @@ dt {
           transition-duration: 0.2s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-property: min-height, box-shadow;
           transition-property: min-height, box-shadow;
   padding-left: 24px;
-  overflow: hidden; }
+  overflow: visible; }
   .mdl-layout.has-drawer .mdl-layout__header {
     padding-left: 72px; }
   @media screen and (max-width: 850px) {
@@ -8189,7 +8746,7 @@ dt {
 .mdl-layout__header--waterfall {
   box-shadow: none; }
   .mdl-layout__header--waterfall.is-casting-shadow {
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-layout__header-row.mdl-layout__header-row {
   display: -webkit-box;
@@ -8307,7 +8864,7 @@ dt {
     overflow: hidden;
     width: 100%; }
   .mdl-layout__tab-bar.is-casting-shadow {
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-layout__tab-bar-container {
   position: relative;
@@ -8324,7 +8881,7 @@ dt {
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .mdl-layout__container > .mdl-layout__tab-bar-container {
     position: absolute;
     top: 0;
@@ -8489,6 +9046,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8566,6 +9124,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-list {
   display: block;
   height: 500px;
@@ -8667,6 +9227,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8744,6 +9305,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -8896,6 +9459,7 @@ dt {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8973,6 +9537,8 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9219,9 +9785,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -webkit-transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1);
           transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1); }
 
-_:-moz-tree-row(hover), .mdl-slider__background-upper {
-  transition: none; }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9274,6 +9837,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9351,6 +9915,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -9786,6 +10352,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9863,6 +10430,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -9921,7 +10490,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   width: 20px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -9931,7 +10500,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   .mdl-switch.is-checked .mdl-switch__thumb {
     background: rgb(55,71,79);
     left: 16px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
   .mdl-switch.is-disabled .mdl-switch__thumb {
     background: rgb(189,189,189);
     cursor: auto; }
@@ -10047,6 +10616,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10124,6 +10694,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -10138,9 +10710,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -10269,6 +10838,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10346,6 +10916,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -10365,6 +10937,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 
 .mdl-textfield--expandable {
   min-width: 32px;
+  width: auto;
   min-height: 32px; }
 
 .mdl-textfield__input {
@@ -10509,6 +11082,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * -----Button
  * -----Animation
  * -----Progress
+ * -----Badge
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10586,6 +11160,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
+/* SHADOWS */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);

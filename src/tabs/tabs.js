@@ -15,8 +15,8 @@
  */
 
 /**
- * Class constructor for Tabs WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Tabs MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -52,10 +52,10 @@ MaterialTabs.prototype.CssClasses_ = {
   ACTIVE_CLASS: 'is-active',
   UPGRADED_CLASS: 'is-upgraded',
 
-  WSK_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
-  WSK_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
-  WSK_RIPPLE: 'mdl-ripple',
-  WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
+  MDL_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+  MDL_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
+  MDL_RIPPLE: 'mdl-ripple',
+  MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
 };
 
 /**
@@ -65,9 +65,9 @@ MaterialTabs.prototype.CssClasses_ = {
 MaterialTabs.prototype.initTabs_ = function(e) {
   'use strict';
 
-  if (this.element_.classList.contains(this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+  if (this.element_.classList.contains(this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
     this.element_.classList.add(
-      this.CssClasses_.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+      this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
   }
 
   // Select element tabs, document panels
@@ -119,12 +119,12 @@ function MaterialTab(tab, ctx) {
   'use strict';
 
   if (tab) {
-    if (ctx.element_.classList.contains(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+    if (ctx.element_.classList.contains(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(ctx.CssClasses_.WSK_RIPPLE_CONTAINER);
-      rippleContainer.classList.add(ctx.CssClasses_.WSK_JS_RIPPLE_EFFECT);
+      rippleContainer.classList.add(ctx.CssClasses_.MDL_RIPPLE_CONTAINER);
+      rippleContainer.classList.add(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT);
       var ripple = document.createElement('span');
-      ripple.classList.add(ctx.CssClasses_.WSK_RIPPLE);
+      ripple.classList.add(ctx.CssClasses_.MDL_RIPPLE);
       rippleContainer.appendChild(ripple);
       tab.appendChild(rippleContainer);
     }

@@ -102,6 +102,7 @@ styles are kept in a separate CSS file. Use `gulp serve` to take a look at the t
 * [General template](http://localhost:3000/templates/general)
 * [Blog template](http://localhost:3000/templates/blog) and [blog entry](http://localhost:3000/templates/blog/entry.html)
 * [Dashboard template](http://localhost:3000/templates/dashboard)
+* [Product template](http://localhost:3000/templates/product)
 
 ## Browser Support
 

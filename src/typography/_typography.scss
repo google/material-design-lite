@@ -29,46 +29,57 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /**
- * Styles for HTML elements
- */
+* Styles for HTML elements
+*/
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  @include typo-display-3($colorContrast: true);
-  font-size: 0.6em;
+	@include typo-display-3($colorContrast: true);
+	font-size: 0.6em;
 }
 
 h1 {
-  @include typo-display-3();
+	@include typo-display-3();
+	margin-top: 24px;
+	margin-bottom: 24px;
 }
 
 h2 {
-  @include typo-display-2();
+	@include typo-display-2();
+	margin-top: 24px;
+	margin-bottom: 24px;
 }
 
 h3 {
-  @include typo-display-1();
+	@include typo-display-1();
+	margin-top: 24px;
+	margin-bottom: 24px;
 }
 
 h4 {
-  @include typo-headline();
+	@include typo-headline();
+	margin-top: 24px;
+	margin-bottom: 16px;
 }
 
 h5 {
-  @include typo-title();
+	@include typo-title();
+	margin-top: 24px;
+	margin-bottom: 16px;
 }
 
 h6 {
-  @include typo-subhead();
+	@include typo-subhead();
+	margin-top: 24px;
+	margin-bottom: 16px;
 }
 
 p {
   @include typo-body-1();
-
-  margin: 0 0 16px 0;
 }
 
 a {
-  font-weight: bold;
+  color: $text-link-color;
+	font-weight: 500;
 }
 
 blockquote {
@@ -80,7 +91,16 @@ mark {
 }
 
 dt {
-  font-weight: 700;
+	font-weight: 700;
+}
+
+address {
+	@include typo-caption();
+	font-style: normal;
+}
+
+ul, ol {
+	@include typo-body-1();
 }
 
 /**
@@ -238,16 +258,6 @@ dt {
 
 .mdl-typography--text-capitalize {
   text-transform: capitalize;
-}
-
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td,
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
-}
-
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > td,
-.mdl-typography--table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
 }
 
 .mdl-typography--font-thin {
