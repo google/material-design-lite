@@ -227,7 +227,7 @@ h3.quote:after {
   display: flex;
   flex-direction: column;
 }
-.comments .comment > .text {
+.comments .comment > .comment__text {
   line-height: 1.5em;
 }
 .comments .comment > nav {
@@ -237,10 +237,10 @@ h3.quote:after {
   align-items: center;
   font-size: 0.8em;
 }
-.comments .comment > nav button {
+.comments .comment > .comment__actions button {
   margin-right: 16px;
 }
-.comments .comment > .answers {
+.comments .comment > .comment__answers {
   padding-top: 32px;
   padding-left: 48px;
 }
