@@ -14,24 +14,7 @@
  * limitations under the License.
  */
 
-$grid-desktop-columns: 12;
-$grid-desktop-gutter: 16px;
-$grid-desktop-margin: 16px;
-
-$grid-desktop-breakpoint: 840px;
-
-$grid-tablet-columns: 8;
-$grid-tablet-gutter: $grid-desktop-gutter;
-$grid-tablet-margin: $grid-desktop-margin;
-
-$grid-tablet-breakpoint: 480px;
-
-$grid-phone-columns: 4;
-$grid-phone-gutter: $grid-desktop-gutter;
-$grid-phone-margin: $grid-desktop-margin;
-
-$grid-cell-default-columns: $grid-phone-columns;
-
+@import "../variables";
 
 .mdl-grid {
   display: flex;
