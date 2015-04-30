@@ -16,59 +16,11 @@ body {
   position: static;
 }
 
-main {
-  margin-top: -40vh;
-}
-main > header {
-  padding: 48px;
-}
-main > header > h2 {
-  font-weight: 300;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 48px;
+main.mdl-layout__content.mdl-layout__content {
+  margin-top: -35vh;
 }
 
 .content {
-  padding: 48px;
-  width: 768px;
-  margin-right: 48px
-}
-.content > h3 {
-  margin-bottom: 24px;
-}
-
-.sidenav {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0;
-  margin: 0;
-}
-.sidenav li {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  list-style-type: none;
-  font-size: 1em;
-  border-left: 2px solid transparent;
-  padding: 8px;
-  color: rgba(255, 255, 255, 0.7);
-  transition: border-left 0.4s ease-in-out;
-}
-.sidenav li:hover {
-  border-left-color: rgba(255, 255, 255, 0.7);
-}
-
-.sidenav li.active {
-  border-left: 3px solid white;
-  color: rgba(255, 255, 255, 1);
+  border-radius: 2px;
+  padding: 24px;
 }
