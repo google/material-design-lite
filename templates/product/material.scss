@@ -4,6 +4,6 @@ $color-primary: $palette-grey-800;
 $color-primary-dark: $palette-grey-900;
 $color-accent: $palette-yellow-A200;
 $color-primary-contrast: $color-dark-contrast;
-$color-accent-contrast: $color-dark-contrast;
+$color-accent-contrast: $color-light-contrast;
 
 @import '../../src/material-design-lite';

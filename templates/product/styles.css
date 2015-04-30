@@ -132,15 +132,6 @@ header.mdl-layout__header #title {
   background-size: cover;
 }
 
-#view-source {
-  position: fixed;
-  display: block;
-  right: 0;
-  top: 0;
-  z-index: 900;
-  margin: 40px;
-}
-
 #about {
   text-align: left;
 }
@@ -163,9 +154,6 @@ header.mdl-layout__header #title {
   }
   .mdl-layout__header .mdl-navigation__link {
     line-height: 52px;
-  }
-  #view-source {
-    margin: 10px;
   }
 }
 
