@@ -23,18 +23,22 @@
   background-color: $footer-bg-color;
 }
 
+
 .mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after {
   content: '';
 
   display: block;
-  width: 100%;
-  height: 1px;
-
-  margin-bottom: $padding;
-
-  border-color: $footer-underline-color;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+  
+// Optional: top and middle borders for the footer
+// 
+//  width: 100%;
+//  height: 1px;
+//
+//  margin-bottom: $padding;
+//
+//  border-color: $footer-underline-color;
+//  border-bottom-width: 1px;
+//  border-bottom-style: solid;
 
   clear: both;
 }
