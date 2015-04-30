@@ -6840,7 +6840,7 @@ ul, ol {
 /* BADGE */
 /* SHADOWS */
 .mdl-mega-footer {
-  padding: 32px 16px;
+  padding: 16px;
   color: rgb(158,158,158);
   background-color: rgb(66,66,66); }
 
@@ -6914,7 +6914,7 @@ ul, ol {
 .mdl-mega-footer--heading-checkbox {
   position: absolute;
   width: 100%;
-  height: 68px;
+  height: 55.8px;
   padding: 32px;
   margin: 0;
   margin-top: -16px;
@@ -6938,12 +6938,12 @@ ul, ol {
 .mdl-mega-footer--heading {
   position: relative;
   width: 100%;
-  padding-right: 52px;
-  margin-bottom: 32px;
+  padding-right: 39.8px;
+  margin-bottom: 16px;
   box-sizing: border-box;
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 300;
+  font-size: 14px;
+  line-height: 23.8px;
+  font-weight: 500;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -6955,8 +6955,8 @@ ul, ol {
   top: 0;
   right: 0;
   display: block;
-  width: 36px;
-  height: 36px;
+  width: 23.8px;
+  height: 23.8px;
   background-size: cover; }
 
 .mdl-mega-footer--link-list {
@@ -6966,7 +6966,11 @@ ul, ol {
   margin-bottom: 32px; }
 
 .mdl-mega-footer--link-list li {
-  margin-bottom: 16px; }
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  line-height: 20px; }
 
 .mdl-mega-footer--link-list a {
   color: inherit;
@@ -6991,8 +6995,8 @@ ul, ol {
   clear: both; }
 
 .mdl-logo {
-  margin-bottom: 16px;
-  font-size: 24px; }
+  line-height: 20px;
+  margin-bottom: 16px; }
 
 .mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li {
   float: left;
