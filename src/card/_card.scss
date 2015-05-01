@@ -86,7 +86,7 @@
   line-height    : $card-lower-line-height;
   margin         : $card-lower-vertical-margin 0;
   overflow       : hidden;
-  padding        : 0 $card-horizontal-padding;
+  padding        : $card-vertical-padding $card-horizontal-padding;
   width          : 90%;
 }
 
