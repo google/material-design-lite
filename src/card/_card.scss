@@ -104,7 +104,7 @@
     border-top : 1px solid rgba(0,0,0,.16);
 }
 
-.mdl-card__bottom a {
+.mdl-card__bottom .mdl-card__bottom-anchor {
   box-sizing        : border-box;
   color             : $card-action-link-color;
   cursor            : pointer;
