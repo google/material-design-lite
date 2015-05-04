@@ -86,7 +86,7 @@ A card (no shadow) with a heading, image, text, and action.
   The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
   </div>
   <div class="mdl-card__bottom">
-     <a href="http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29">Wikipedia entry</a>
+     <a href="http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29" class="mdl-card__bottom-anchor">Wikipedia entry</a>
   </div>
 </div>
 ```
@@ -120,6 +120,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-card__caption` | Defines div as a card caption container and assigns appropriate text characteristics to caption text | Required on "inner" caption div; text goes directly inside the div with no intervening containers |
 | `mdl-card__bottom` | Defines div as a card bottom text container(1) (typically an action bar) and assigns appropriate text characteristics to bottom text | Required on "inner" bottom div; content goes directly inside the div with no intervening containers |
 | `mdl-card__bottom--top-border` | Modifies the bottom card area to have a top-border. | Optional on bottom element. |
+| `mdl-card__bottom-anchor` | Modifies an anchor within the bottom of a card to use the full bottom area. | Optional on an element within the bottom element. |
 
 (1) Although some class names imply positioning, they really just semantically define the styling of the content. The actual positions of the "inner" divs within the card are determined by order of appearance (i.e., top-down). You may use them in any order, so long as they maintain their relationships as siblings and as direct children of the "outer" container div.
 
