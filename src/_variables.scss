@@ -229,7 +229,7 @@ $card-action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
 $card-caption-color: unquote("rgb(#{$color-primary-contrast})") !default;
 $card-caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
-$card-lower-text-color: unquote("rgb(#{$color-primary})") !default;
+$card-lower-text-color: $text-color-primary !default;
 
 /* Heading back */
 $card-heading-back-border: 0 none unquote("rgb(#{$color-white})") !default;
