@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Getting started
+include_prefix: ../
 ---
 
 <nav class="chapter-toc">

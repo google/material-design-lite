@@ -274,7 +274,7 @@ function applyTemplate() {
 gulp.task('components', function() {
   return gulp.src('./src/**/README.md', {base: './src'})
     // Add basic front matter.
-    .pipe($.header('---\nlayout: component\nbodyclass: components\n---\n\n'))
+    .pipe($.header('---\nlayout: component\nbodyclass: components\ninclude_prefix: ../../\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
     .pipe((function () {
@@ -368,7 +368,7 @@ gulp.task('serve', ['default'], function () {
   gulp.watch(['src/**/*.html'], ['demos', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
   gulp.watch(['templates/**/*'], ['templates', reload]);
-  gulp.watch(['docs/**/*', '!docs/out/**/*'], ['pages', 'assets', reload]);
+  gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
 });
 
 gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], function() {
