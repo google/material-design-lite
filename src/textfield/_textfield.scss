@@ -27,11 +27,12 @@
   box-sizing: border-box;
   width: 300px;
   margin: 0;
+  padding: $input-text-vertical-spacing 0;
 
   // Align buttons, if used.
   & .mdl-button {
     position: absolute;
-    bottom: 0;
+    bottom: $input-text-vertical-spacing;
   }
 }
 
@@ -64,7 +65,7 @@
   background: $input-text-font-size;
   text-align: left;
   color: inherit;
-
+  
   .mdl-textfield.is-focused & {
     outline: none;
   }
@@ -89,7 +90,7 @@
   right: 0;
   pointer-events: none;
   position: absolute;
-  top: $input-text-padding;
+  top: ($input-text-padding + $input-text-vertical-spacing);
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -108,7 +109,7 @@
   .mdl-textfield--floating-label.is-dirty & {
     color: $input-text-highlight-color;
     font-size : $input-text-floating-label-fontsize;
-    top: -($input-text-floating-label-fontsize + $input-text-padding);
+    top: $input-text-vertical-spacing - ($input-text-floating-label-fontsize + $input-text-padding);
     visibility: visible;
   }
 
@@ -120,7 +121,7 @@
   // The after label is the colored underline for the TextField.
   &:after {
     background-color: $input-text-highlight-color;
-    bottom: 0;
+    bottom: $input-text-vertical-spacing;
     content: '';
     height: 2px;
     left: 45%;
@@ -176,5 +177,7 @@
     // Thus assume a sensible maximum, and animate to/from that value.
     max-width: 600px;
   }
-
+  .mdl-textfield__label:after {
+    bottom: 0;
+  }
 }
