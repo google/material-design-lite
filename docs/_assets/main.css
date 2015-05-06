@@ -184,31 +184,31 @@ html > body {
 }
 .about-panel--templates {
   background-color: #B3E0E1;
-  background-image: url(/assets/templates.svg);
+  background-image: url(templates.svg);
 }
 .about-panel--templates:hover {
-  background-image: url(/assets/templates_mo.svg);
+  background-image: url(templates_mo.svg);
 }
 .about-panel--components {
   background-color: #E90974;
-  background-image: url(/assets/components.svg);
+  background-image: url(components.svg);
 }
 .about-panel--components:hover {
-  background-image: url(/assets/components_mo.svg);
+  background-image: url(components_mo.svg);
 }
 .about-panel--styles {
   background-color: #8F4099;
-  background-image: url(/assets/styles.svg);
+  background-image: url(styles.svg);
 }
 .about-panel--styles:hover {
-  background-image: url(/assets/styles_mo.svg);
+  background-image: url(styles_mo.svg);
 }
 .about-panel--customize {
   background-color: #191E80;
-  background-image: url(/assets/customize.svg);
+  background-image: url(customize.svg);
 }
 .about-panel--customize:hover {
-  background-image: url(/assets/customize_mo.svg);
+  background-image: url(customize_mo.svg);
 }
 
 .templates .content {
@@ -230,10 +230,10 @@ html > body {
   min-height: 30vh;
 }
 .template.template--product > .template__preview {
-  background-image: url('/assets/template_product.jpg');
+  background-image: url('template_product.jpg');
 }
 .template.template--general > .template__preview {
-  background-image: url('/assets/template_general.jpg');
+  background-image: url('template_general.jpg');
 }
 
 
