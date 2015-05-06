@@ -76,7 +76,7 @@ gulp.task('images', function () {
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('./images'))
+    .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}));
 });
 
@@ -126,13 +126,11 @@ gulp.task('styletemplates', function () {
     // Concatenate Styles
     .pipe($.concat('material.css.template'))
     .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest('./css'))
     .pipe(gulp.dest('./dist'))
     // Minify Styles
     .pipe($.if('*.css.template', $.csso()))
     .pipe($.concat('material.min.css.template'))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./css'))
     .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'styles'}));
 });
@@ -157,14 +155,12 @@ gulp.task('styles', ['styletemplates'], function () {
     // Concatenate Styles
     .pipe($.concat('material.css'))
     .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest('./css'))
     .pipe(gulp.dest('./dist'))
     // Minify Styles
     .pipe($.if('*.css', $.csso()))
     .pipe($.concat('material.min.css'))
     //.pipe($.header(banner, {pkg: pkg}))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./css'))
     .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'styles'}));
 });
@@ -201,20 +197,18 @@ gulp.task('scripts', function () {
     // Concatenate Scripts
     .pipe($.concat('material.js'))
     .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest('./js'))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
     .pipe($.uglify({preserveComments: 'some', sourceRoot: '.', sourceMapIncludeSources: true}))
     .pipe($.concat('material.min.js'))
     // Write Source Maps
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./js'))
     .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'scripts'}));
 });
 
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['css/*', 'js/*', 'dist'], {dot: true}));
+gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean','mocha'], function (cb) {
@@ -358,13 +352,12 @@ gulp.task('assets', function () {
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve', ['scripts', 'styles', 'assets', 'pages', 'demos', 'templates'], function () {
+gulp.task('serve', ['fonts', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates'], function () {
   browserSync({
     notify: false,
     server: {
-      baseDir: ['dist', 'js', 'css', 'fonts'],
+      baseDir: ['dist'],
       routes: {
-        '/fonts': 'fonts',
         '/components/fonts': 'fonts'
       }
     }
