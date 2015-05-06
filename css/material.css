@@ -74,6 +74,8 @@
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -153,6 +155,7 @@
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -239,6 +242,8 @@
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -318,6 +323,7 @@
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -574,6 +580,8 @@ main {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -653,6 +661,7 @@ main {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -1088,6 +1097,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -1167,6 +1178,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -3509,6 +3521,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -3588,6 +3602,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
@@ -5321,6 +5336,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5400,6 +5417,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -5471,6 +5489,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5550,6 +5570,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -5623,6 +5644,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5702,6 +5725,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -5756,6 +5780,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -5835,6 +5861,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -5936,6 +5963,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6015,6 +6044,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-button {
   background: transparent;
   border: none;
@@ -6242,6 +6272,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6321,6 +6353,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-card {
   font-size: 16px;
   min-height: 200px;
@@ -6490,6 +6523,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6569,6 +6604,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -6736,6 +6772,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -6815,6 +6853,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-mega-footer {
   padding: 16px;
   color: rgb(158,158,158);
@@ -7032,6 +7071,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7111,6 +7152,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7190,6 +7232,126 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
 .mdl-grid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7606,6 +7768,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7685,6 +7849,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -7812,6 +7977,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -7891,6 +8058,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -8086,6 +8254,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8165,6 +8335,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -8339,6 +8510,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8418,6 +8591,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -9037,6 +9211,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9116,6 +9292,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-list {
   display: block;
   height: 500px;
@@ -9218,6 +9395,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9297,6 +9476,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -9450,6 +9630,8 @@ ul, ol {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9529,6 +9711,7 @@ ul, ol {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9828,6 +10011,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -9907,6 +10092,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -10343,6 +10529,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10422,6 +10610,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -10607,6 +10796,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10686,6 +10877,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -10829,6 +11021,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -10908,6 +11102,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -11073,6 +11268,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Animation
  * -----Progress
  * -----Badge
+ * -----Shadows
+ * -----Grid
  */
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -11152,6 +11349,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
