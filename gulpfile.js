@@ -83,7 +83,7 @@ gulp.task('images', function () {
 // Copy fonts
 gulp.task('fonts', function () {
   return gulp.src([
-    'fonts/*'
+    'src/fonts/*'
   ])
   .pipe(gulp.dest('.tmp/fonts'))
   .pipe(gulp.dest('dist/fonts'));
@@ -214,7 +214,7 @@ gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
 gulp.task('default', ['clean','mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos', 'templates'],
+    ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos', 'templates', 'images'],
     cb);
 });
 
@@ -352,13 +352,13 @@ gulp.task('assets', function () {
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve', ['fonts', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates'], function () {
+gulp.task('serve', ['default'], function () {
   browserSync({
     notify: false,
     server: {
       baseDir: ['dist'],
       routes: {
-        '/components/fonts': 'fonts'
+        '/components/fonts': 'dist/fonts'
       }
     }
   });
@@ -421,7 +421,7 @@ gulp.task('templates:images', function() {
 
 gulp.task('templates:fonts', function() {
   return gulp.src([
-    'fonts/**/*'
+    'src/fonts/**/*'
   ], {base: '.'})
   .pipe(gulp.dest('dist/templates/'));
 })
