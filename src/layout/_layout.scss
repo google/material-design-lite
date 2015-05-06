@@ -113,7 +113,6 @@
     & > .mdl-layout-title {
       line-height: $layout-desktop-header-height;
       padding-left: $layout-header-basic-desktop-indent;
-      border-bottom: 1px solid $layout-drawer-border-color;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         line-height: $layout-mobile-header-height;
