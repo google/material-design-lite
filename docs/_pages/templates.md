@@ -2,6 +2,7 @@
 layout: templates
 title: Templates
 bodyclass: templates
+include_prefix: ../
 templates:
   - name: text-only
     title: Text-heavy webpage
