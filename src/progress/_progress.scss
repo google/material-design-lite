@@ -50,7 +50,7 @@
 
 // Webkit only
 @supports (-webkit-appearance:none) {
-  .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
+  .mdl-js-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
       linear-gradient(to right, $progress-main-color, $progress-main-color);
     mask: url('/images/buffer.svg');
@@ -58,7 +58,8 @@
 }
 
 .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
-  background-color: $progress-fallback-buffer-color;
+  background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color),
+    linear-gradient(to right, $progress-main-color, $progress-main-color);
 }
 
 .mdl-js-progress.mdl-progress__indeterminate > .bar1 {
