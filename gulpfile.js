@@ -76,15 +76,17 @@ gulp.task('images', function () {
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('./images'))
+    .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}));
 });
 
 // Copy fonts
 gulp.task('fonts', function () {
   return gulp.src([
-    'fonts/*'
-  ]).pipe(gulp.dest('.tmp/fonts'));
+    'src/fonts/*'
+  ])
+  .pipe(gulp.dest('.tmp/fonts'))
+  .pipe(gulp.dest('dist/fonts'));
 });
 
 // Compile and Automatically Prefix Stylesheets (dev)
@@ -124,12 +126,12 @@ gulp.task('styletemplates', function () {
     // Concatenate Styles
     .pipe($.concat('material.css.template'))
     .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist'))
     // Minify Styles
     .pipe($.if('*.css.template', $.csso()))
     .pipe($.concat('material.min.css.template'))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'styles'}));
 });
 
@@ -153,13 +155,13 @@ gulp.task('styles', ['styletemplates'], function () {
     // Concatenate Styles
     .pipe($.concat('material.css'))
     .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist'))
     // Minify Styles
     .pipe($.if('*.css', $.csso()))
     .pipe($.concat('material.min.css'))
     //.pipe($.header(banner, {pkg: pkg}))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'styles'}));
 });
 
@@ -195,31 +197,31 @@ gulp.task('scripts', function () {
     // Concatenate Scripts
     .pipe($.concat('material.js'))
     .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./dist'))
     // Minify Scripts
     .pipe($.uglify({preserveComments: 'some', sourceRoot: '.', sourceMapIncludeSources: true}))
     .pipe($.concat('material.min.js'))
     // Write Source Maps
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'scripts'}));
 });
 
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['css/*', 'js/*'], {dot: true}));
+gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean','mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'scripts', 'images'],
+    ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos', 'templates', 'images'],
     cb);
 });
 
 
 // ***** Testing tasks ***** //
 
-gulp.task('mocha', function () {
+gulp.task('mocha', ['styles'], function () {
   return gulp.src('./test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'list'}))
 });
@@ -272,7 +274,7 @@ function applyTemplate() {
 gulp.task('components', function() {
   return gulp.src('./src/**/README.md', {base: './src'})
     // Add basic front matter.
-    .pipe($.header('---\nlayout: component\nbodyclass: components\n---\n\n'))
+    .pipe($.header('---\nlayout: component\nbodyclass: components\ninclude_prefix: ../../\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
     .pipe((function () {
@@ -292,7 +294,7 @@ gulp.task('components', function() {
     .pipe($.rename(function (path) {
         path.basename = "index";
     }))
-    .pipe(gulp.dest('docs/out/components'));
+    .pipe(gulp.dest('dist/components'));
 });
 
 
@@ -312,7 +314,7 @@ gulp.task('demos', function () {
         extensionsAllowed: ['.svg'],
       }))
       .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
-      .pipe(gulp.dest('docs/out/components'));
+      .pipe(gulp.dest('dist/components'));
 });
 
 
@@ -330,7 +332,7 @@ gulp.task('pages', ['components'], function() {
         path.basename = 'index';
       }
     }))
-    .pipe(gulp.dest('docs/out'));
+    .pipe(gulp.dest('dist'));
 });
 
 
@@ -343,21 +345,20 @@ gulp.task('assets', function () {
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('docs/out/assets'));
+    .pipe(gulp.dest('dist/assets'));
 });
 
 
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve', ['scripts', 'styles', 'assets', 'pages', 'demos', 'templates'], function () {
+gulp.task('serve', ['default'], function () {
   browserSync({
     notify: false,
     server: {
-      baseDir: ['docs/out', 'js', 'css', 'fonts'],
+      baseDir: ['dist'],
       routes: {
-        '/fonts': 'fonts',
-        '/components/fonts': 'fonts'
+        '/components/fonts': 'dist/fonts'
       }
     }
   });
@@ -367,7 +368,7 @@ gulp.task('serve', ['scripts', 'styles', 'assets', 'pages', 'demos', 'templates'
   gulp.watch(['src/**/*.html'], ['demos', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
   gulp.watch(['templates/**/*'], ['templates', reload]);
-  gulp.watch(['docs/**/*', '!docs/out/**/*'], ['pages', 'assets', reload]);
+  gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
 });
 
 gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], function() {
@@ -376,16 +377,7 @@ gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], funct
     console.log('Dry run! To push set $GH_PUSH to true');
   }
 
-  var s1 = gulp.src([
-    'docs/out/**/*',
-    'css/material.min.css',
-    'js/material.min.js'
-  ]);
-  var s2 = gulp.src([
-    'fonts/**/*'
-  ], {base: '.'});
-
-  return merge(s1, s2)
+  return gulp.src('dist/**/*')
   .pipe($.ghPages({
     push: push,
   }));
@@ -405,7 +397,7 @@ gulp.task('templates:styles', function() {
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe($.if('*.css', $.csso()))
     .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest('docs/out/templates'))
+    .pipe(gulp.dest('dist/templates'))
 });
 
 gulp.task('templates:static', function() {
@@ -413,7 +405,7 @@ gulp.task('templates:static', function() {
     'templates/**/*.html',
     'templates/**/*.css'
   ])
-  .pipe(gulp.dest('docs/out/templates'));
+  .pipe(gulp.dest('dist/templates'));
 });
 
 gulp.task('templates:images', function() {
@@ -424,14 +416,14 @@ gulp.task('templates:images', function() {
     progressive: true,
     interlaced: true
   }))
-  .pipe(gulp.dest('docs/out/templates'));
+  .pipe(gulp.dest('dist/templates'));
 });
 
 gulp.task('templates:fonts', function() {
   return gulp.src([
-    'fonts/**/*'
+    'src/fonts/**/*'
   ], {base: '.'})
-  .pipe(gulp.dest('docs/out/templates/'));
+  .pipe(gulp.dest('dist/templates/'));
 })
 
 gulp.task('templates', ['templates:static', 'templates:images', 'templates:styles', 'templates:fonts']);

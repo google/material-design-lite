@@ -2,6 +2,7 @@
 layout: components
 title: Components
 bodyclass: components
+include_prefix: ../
 components:
   - name: button 
     title: Button

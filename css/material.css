@@ -8696,8 +8696,7 @@ ul, ol {
             flex-shrink: 0; }
   .mdl-layout__drawer > .mdl-layout-title {
     line-height: 64px;
-    padding-left: 24px;
-    border-bottom: 1px solid rgb(224,224,224); }
+    padding-left: 24px; }
     @media screen and (max-width: 850px) {
       .mdl-layout__drawer > .mdl-layout-title {
         line-height: 56px;
@@ -11109,10 +11108,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   display: inline-block;
   box-sizing: border-box;
   width: 300px;
-  margin: 0; }
+  margin: 0;
+  padding: 20px 0; }
   .mdl-textfield .mdl-button {
     position: absolute;
-    bottom: 0; }
+    bottom: 20px; }
 
 .mdl-textfield--align-right {
   text-align: right; }
@@ -11153,7 +11153,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   right: 0;
   pointer-events: none;
   position: absolute;
-  top: 4px;
+  top: 24px;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -11168,14 +11168,14 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
     color: rgb(55,71,79);
     font-size: 12px;
-    top: -16px;
+    top: 4px;
     visibility: visible; }
   .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
     color: rgb(229,57,53);
     font-size: 12px; }
   .mdl-textfield__label:after {
     background-color: rgb(55,71,79);
-    bottom: 0;
+    bottom: 20px;
     content: '';
     height: 2px;
     left: 45%;
@@ -11214,6 +11214,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   max-width: 0.1px; }
   .mdl-textfield.is-focused .mdl-textfield__expandable-holder, .mdl-textfield.is-dirty .mdl-textfield__expandable-holder {
     max-width: 600px; }
+  .mdl-textfield__expandable-holder .mdl-textfield__label:after {
+    bottom: 0; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
