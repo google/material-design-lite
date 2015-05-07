@@ -243,7 +243,7 @@ $range-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
 /* ========== Progress ========== */
 $progress-main-color: unquote("rgb(#{$color-primary})") !default;
 $progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
-$progress-fallback-buffer-color: unquote("rgba(#{$color-black}, 0.26)") !default;
+$progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)") !default;
 
 /* ==========  List ========== */
 
