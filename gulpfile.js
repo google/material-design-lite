@@ -221,7 +221,7 @@ gulp.task('default', ['clean','mocha'], function (cb) {
 
 // ***** Testing tasks ***** //
 
-gulp.task('mocha', function () {
+gulp.task('mocha', ['styles'], function () {
   return gulp.src('./test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'list'}))
 });
