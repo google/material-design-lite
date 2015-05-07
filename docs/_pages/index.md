@@ -13,7 +13,7 @@ include_prefix: ./
 	</dl>
 </section>
 
-<section class="about-panel about-panel--templates mdl-cell mdl-cell--12-col" data-target="/templates">
+<section class="about-panel about-panel--templates mdl-cell mdl-cell--12-col" data-target="templates">
 	Templates
 </section>
 
@@ -21,13 +21,13 @@ include_prefix: ./
 	Esse dolor ullamco ipsum enim aliquip minim. Sunt ullamco excepteur laboris nulla sunt. Consequat labore irure sint cillum aute labore est cupidatat eu. Culpa sint do non amet quis quis fugiat laboris sit sint id Lorem. Dolor adipisicing eu nostrud eiusmod sint consequat enim est velit et non mollit minim.
 </section>
 
-<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="/components">
+<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="components">
 	Components
 </section>
-<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="/styles">
+<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="styles">
 	Styles
 </section>
-<section class="about-panel about-panel--customize mdl-color-text--white mdl-cell mdl-cell--12-col" data-target="/customize">
+<section class="about-panel about-panel--customize mdl-color-text--white mdl-cell mdl-cell--12-col" data-target="customize">
 	Customize
 </section>
 
