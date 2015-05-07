@@ -19,8 +19,10 @@
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url('fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
-  src: url('fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'),
+    url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'),
+    url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
