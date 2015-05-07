@@ -205,7 +205,7 @@ MaterialCustomizer.prototype.changeColor = function() {
     document.head.appendChild(style);
     self.prepareDownload();
   };
-  req.open('get', '/material.min.css.template', true);
+  req.open('get', '../material.min.css.template', true);
   req.send();
 };
 

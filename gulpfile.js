@@ -86,7 +86,9 @@ gulp.task('fonts', function () {
     'src/fonts/*'
   ])
   .pipe(gulp.dest('.tmp/fonts'))
-  .pipe(gulp.dest('dist/fonts'));
+  .pipe(gulp.dest('dist/fonts'))
+  // FIXME: This is rather hacky
+  .pipe(gulp.dest('dist/embedded_customizer/fonts'));
 });
 
 // Compile and Automatically Prefix Stylesheets (dev)
@@ -221,7 +223,7 @@ gulp.task('default', ['clean','mocha'], function (cb) {
 
 // ***** Testing tasks ***** //
 
-gulp.task('mocha', function () {
+gulp.task('mocha', ['styles'], function () {
   return gulp.src('./test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'list'}))
 });
