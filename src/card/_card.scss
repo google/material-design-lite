@@ -29,8 +29,8 @@
 
 .mdl-card__img-container {
   background-color     : $card-image-placeholder-color;
-  @if str_length($background-image-url) > 0 {
-  background-image     : url($background-image-url);
+  @if str_length($card-background-image-url) > 0 {
+  background-image     : url($card-background-image-url);
   }
   background-repeat    : repeat;
   background-position  : 50% 50%;
@@ -95,31 +95,16 @@
   height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
-}
 
 /*
 * @TODO Figure out of the border color should be a variable.
 */
-.mdl-card__bottom--top-border {
+
+  &--top-border {
     border-top : 1px solid rgba(0,0,0,.16);
+  }
 }
 
-.mdl-card__bottom .mdl-card__bottom-anchor {
-  box-sizing        : border-box;
-  color             : $card-action-link-color;
-  cursor            : pointer;
-  display           : inline-block;
-  font-size         : $card-bottom-anchor-font-size;
-  font-weight       : normal;
-  height            : $card-bottom-anchor-height;
-  line-height       : $card-bottom-anchor-line-height;
-  padding           : 0 $card-horizontal-padding;
-  perspective-origin: $card-bottom-anchor-perspective-origin-x $card-bottom-anchor-perspective-origin-y;
-  text-transform    : uppercase;
-  transform-origin  : $card-bottom-anchor-transform-origin-x $card-bottom-anchor-transform-origin-y;
-  width             : 100%;
-  text-decoration   : none;
-}
 
 .mdl-card__menu {
   position: absolute;
