@@ -1,17 +1,17 @@
 {% extends 'layout.html' %}
-
 {% block content %}
-
-<h1>{{page.title}}</h1>
-
-<ul>
-{% for page in site.components -%}
-  <li><a href="{{ page.component }}">{{ page.component }}</a></li>
+{% for component in page.components -%}
+<section class="component component--{{ component.name }} mdl-grid mdl-cell mdl-cell--12-col">
+  <div class="mdl-cell mdl-cell--2-col mdl-grid">
+    <a href="/assets/button.png">
+      <img class="mdl-cell" src="/assets/comp_{{ component.name }}.png">&nbsp;
+      <h4 class="component mdl-cell">{{ component.title }}</h4>
+    </a>
+  </div>
+  <div class="component mdl-cell mdl-cell--10-col">
+    {{ component.name }} info goes here, this is a whole boring paragraph about a whole
+    boring subject, wow, I already fell asleep while writing this useless prose.
+  </div>
+</section>
 {%- endfor %}
-</ul>
-
-{{content|safe}}
-
 {% endblock %}
-
-
