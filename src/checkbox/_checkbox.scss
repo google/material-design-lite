@@ -116,18 +116,18 @@
   left: 0;
   height: 100%;
   width: 100%;
-  mask: url("/images/tick-mask.svg#mask");
+  mask: url("/images/tick-mask.svg?embed");
 
   background: transparent;
   @include material-animation-default(0.28s);
   transition-property: background;
 
   .mdl-checkbox.is-checked & {
-    background: $checkbox-color url("/images/tick.svg");
+    background: $checkbox-color url("/images/tick.svg?embed");
   }
 
   .mdl-checkbox.is-checked.is-disabled & {
-    background: $checkbox-disabled-color url("/images/tick.svg");
+    background: $checkbox-disabled-color url("/images/tick.svg?embed");
   }
 }
 

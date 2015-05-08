@@ -100,8 +100,8 @@ gulp.task('styles:dev', ['fonts'], function () {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.base64({
-      extensionsAllowed: ['.svg'],
+    .pipe($.cssInlineImages({
+      webRoot: 'src'
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
@@ -120,8 +120,8 @@ gulp.task('styletemplates', function () {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.base64({
-      extensionsAllowed: ['.svg'],
+    .pipe($.cssInlineImages({
+      webRoot: 'src'
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
@@ -149,8 +149,8 @@ gulp.task('styles', ['styletemplates'], function () {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.base64({
-      extensionsAllowed: ['.svg'],
+    .pipe($.cssInlineImages({
+      webRoot: 'src'
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
@@ -312,8 +312,8 @@ gulp.task('demos', function () {
         precision: 10,
         onError: console.error.bind(console, 'Sass error:')
       })))
-      .pipe($.base64({
-        extensionsAllowed: ['.svg'],
+      .pipe($.cssInlineImages({
+        webRoot: 'src'
       }))
       .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
       .pipe(gulp.dest('dist/components'));
@@ -393,8 +393,8 @@ gulp.task('templates:styles', function() {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.base64({
-      extensionsAllowed: ['.svg'],
+    .pipe($.cssInlineImages({
+      webRoot: 'src'
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe($.if('*.css', $.csso()))
