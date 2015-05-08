@@ -31,16 +31,16 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the button and span elements using the `class` attribute.
 ```html
-<button id="menu1" class="wsk-button wsk-js-button wsk-button--icon">
-  <span class="wsk-icon wsk-icon--more-vert"/>
+<button id="menu1" class="mdl-button mdl-js-button mdl-button--icon">
+  <span class="mdl-icon mdl-icon--more-vert"/>
 </button>
 ```
 &nbsp;5. Add one or more MDL classes, separated by spaces, to the unordered list and the list items using the `class` attribute.
 ```html
-<ul class="wsk-menu wsk-js-menu" for="menu1">
-  <li class="wsk-menu__item">Continue</li>
-  <li class="wsk-menu__item">Stop</li>
-  <li class="wsk-menu__item">Pause</li>
+<ul class="mdl-menu mdl-js-menu" for="menu1">
+  <li class="mdl-menu__item">Continue</li>
+  <li class="mdl-menu__item">Stop</li>
+  <li class="mdl-menu__item">Pause</li>
 </ul>
 ```
 
@@ -49,35 +49,35 @@ The menu component is ready for use.
 ####Examples
 A menu with three options.
 ```html
-<button id="menu-speed" class="wsk-button wsk-js-button wsk-button--icon">
-  <span class="wsk-icon wsk-icon--more-vert"/>                                                  
+<button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+  <span class="mdl-icon mdl-icon--more-vert"/>                                                  
 </button>                                                                                       
-<ul class="wsk-menu wsk-js-menu" for="menu-speed">
-  <li class="wsk-menu__item">Fast</li>
-  <li class="wsk-menu__item">Medium</li>
-  <li class="wsk-menu__item">Slow</li>
+<ul class="mdl-menu mdl-js-menu" for="menu-speed">
+  <li class="mdl-menu__item">Fast</li>
+  <li class="mdl-menu__item">Medium</li>
+  <li class="mdl-menu__item">Slow</li>
 </ul>
 ```
 A menu with three options, with ripple effect on button and option links.
 ```html
-<button id="menu-speed" class="wsk-button wsk-js-button wsk-button--icon">
-  <span class="wsk-icon wsk-icon--more-vert"/>                                                  
+<button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+  <span class="mdl-icon mdl-icon--more-vert"/>                                                  
 </button>                                                                                       
-<ul class="wsk-menu wsk-js-menu wsk-js-ripple-effect" for="menu-speed">
-  <li class="wsk-menu__item">Fast</li>
-  <li class="wsk-menu__item">Medium</li>
-  <li class="wsk-menu__item">Slow</li>
+<ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-speed">
+  <li class="mdl-menu__item">Fast</li>
+  <li class="mdl-menu__item">Medium</li>
+  <li class="mdl-menu__item">Slow</li>
 </ul>
 ```
 A menu with three options, the second of which is disabled by default.
 ```html
-<button id="menu-speed" class="wsk-button wsk-js-button wsk-button--icon">
-  <span class="wsk-icon wsk-icon--more-vert"/>                                                  
+<button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+  <span class="mdl-icon mdl-icon--more-vert"/>                                                  
 </button>                                                                                       
-<ul class="wsk-menu wsk-js-menu" for="menu-speed">
-  <li class="wsk-menu__item">Fast</li>
-  <li class="wsk-menu__item" disabled>Medium</li>
-  <li class="wsk-menu__item">Slow</li>
+<ul class="mdl-menu mdl-js-menu" for="menu-speed">
+  <li class="mdl-menu__item">Fast</li>
+  <li class="mdl-menu__item" disabled>Medium</li>
+  <li class="mdl-menu__item">Slow</li>
 </ul>
 ```
 
@@ -86,22 +86,22 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `wsk-button` | Defines button as an MDL component | Required on button element |
-| `wsk-js-button` | Assigns basic MDL behavior to button | Required on button element |
-| `wsk-button--icon` | Applies *icon* (small plain circular) display effect to button | Required on button element |
-| `wsk-icon` | Defines span as an MDL icon component | Required on span element |
-| `wsk-icon--more-vert` | Defines span as an MDL vertical ellipsis icon(1) | Required on span element |
-| `wsk-menu` | Defines an unordered list container as an MDL component | Required on ul element |
-| `wsk-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on list item elements |
-| `wsk-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |
-| `wsk-menu--top-left` | Positions menu above button, aligns left edge of menu with button  | Optional; goes on unordered list element |
+| `mdl-button` | Defines button as an MDL component | Required on button element |
+| `mdl-js-button` | Assigns basic MDL behavior to button | Required on button element |
+| `mdl-button--icon` | Applies *icon* (small plain circular) display effect to button | Required on button element |
+| `mdl-icon` | Defines span as an MDL icon component | Required on span element |
+| `mdl-icon--more-vert` | Defines span as an MDL vertical ellipsis icon(1) | Required on span element |
+| `mdl-menu` | Defines an unordered list container as an MDL component | Required on ul element |
+| `mdl-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on list item elements |
+| `mdl-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |
+| `mdl-menu--top-left` | Positions menu above button, aligns left edge of menu with button  | Optional; goes on unordered list element |
 | (none) | Positions menu below button, aligns left edge of menu with button | Default |
-| `wsk-menu--top-right` | Positions menu above button, aligns right edge of menu with button | Optional; goes on unordered list element |
-| `wsk-menu--bottom-right` | Positions menu below button, aligns right edge of menu with button | Optional; goes on unordered list element |
+| `mdl-menu--top-right` | Positions menu above button, aligns right edge of menu with button | Optional; goes on unordered list element |
+| `mdl-menu--bottom-right` | Positions menu below button, aligns right edge of menu with button | Optional; goes on unordered list element |
 
 (1) The "more-vert" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
 
->**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<li class="wsk-menu__item" disabled>Medium</li>`
+>**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<li class="mdl-menu__item" disabled>Medium</li>`
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
