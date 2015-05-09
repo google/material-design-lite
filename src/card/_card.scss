@@ -27,7 +27,7 @@
   border-radius: 2px;
 }
 
-.mdl-card__img-container {
+.mdl-card__media {
   background-color     : $card-image-placeholder-color;
   @if str_length($card-background-image-url) > 0 {
   background-image     : url($card-background-image-url);
@@ -40,7 +40,7 @@
   height               : $card-cover-image-height;
 }
 
-.mdl-card__heading {
+.mdl-card__title {
   align-items       : center;
   background        : $card-heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   border            : $card-heading-back-border;
@@ -56,7 +56,7 @@
   width             : 100%;
 }
 
-.mdl-card__heading-text {
+.mdl-card__title-text {
   align-self      : center;
   color           : $card-heading-color;
   display         : flex;
@@ -80,7 +80,7 @@
   width             : 100%;
 }
 
-.mdl-card__lower {
+.mdl-card__supporting-text {
   color          : $card-lower-text-color;
   font-size      : $card-lower-font-size;
   line-height    : $card-lower-line-height;
@@ -90,17 +90,15 @@
   width          : 90%;
 }
 
-.mdl-card__bottom {
+.mdl-card__actions {
   font-size  : $card-bottom-font-size;
   height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
-
-/*
-* @TODO Figure out of the border color should be a variable.
-*/
+  background-color: rgba(0,0,0,0);
 
   &--top-border {
+    // @TODO Figure out of the border color should be a variable. 
     border-top : 1px solid rgba(0,0,0,.16);
   }
 }
