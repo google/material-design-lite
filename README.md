@@ -41,12 +41,13 @@ We provide compiled CSS and JS (`material.*`), as well as compiled and minified 
 
 ### Download
 
-Clone or [download](https://github.com/google/material-design-lite/archive/master.zip) this repository
-and reference the following files in your project:
+Clone or
+[download](https://github.com/google/material-design-lite/archive/master.zip)
+this repository, [build it](#development) and reference the following files in your project:
 
 ```html
-<script src="js/material.min.js"></script>
-<link rel="stylesheet" href="css/material.min.css">
+<script src="dist/js/material.min.js"></script>
+<link rel="stylesheet" href="dist/css/material.min.css">
 ```
 
 You will want to include the entire package to ensure optional assets like images or fonts are correctly
