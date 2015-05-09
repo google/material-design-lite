@@ -23,7 +23,7 @@
   width: $spinner-size;
   height: $spinner-size;
 
-  &:not(.is-upgraded):after {
+  &:not(.is-upgraded).is-active:after {
     content: "Loading...";
   }
 
