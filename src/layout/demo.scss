@@ -49,11 +49,6 @@
   padding: 8px;
 }
 
-// Styles for fixed header demo.
-.demo-page--layout .mdl-layout.is-small-screen #fixed_header_nav {
-  visibility: hidden;
-}
-
 // Styles for multi-row layout demo.
 .demo-page--layout #my_text_changes {
   @include typo-display-1;

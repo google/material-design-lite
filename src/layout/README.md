@@ -179,6 +179,23 @@ Your content goes here :)
 
 ## Other options
 
+- `mdl-layout--large-screen-only`:
+  Displays the element in large screens, and hides it in small screens. Example:
+  ```html
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout--large-screen-only">
+        Some long text that only fits in larger screens.
+      </span>
+      <span class="mdl-layout--small-screen-only">Short text</span>
+    </div>
+  </header>
+  ```
+
+- `mdl-layout--small-screen-only`:
+  Displays the element in small screens, and hides it in large screens.
+
+
 - `mdl-layout-spacer`:
   Used to align elements inside a header or drawer. This is a class set to flex
   grow, so you can use it to align elements to the right in a header, for

@@ -48,6 +48,15 @@
   position: relative;
 }
 
+// Utility classes for screen sizes.
+.mdl-layout.is-small-screen .mdl-layout--large-screen-only {
+  display: none;
+}
+
+.mdl-layout:not(.is-small-screen) .mdl-layout--small-screen-only {
+  display: none;
+}
+
 .mdl-layout__container {
   position: absolute;
   width: 100%;
@@ -261,6 +270,16 @@
         min-height: $layout-mobile-header-height + $layout-tab-bar-height;
       }
     }
+
+    @media screen and (max-width: $layout-screen-size-threshold) {
+      & {
+        display: none;
+      }
+
+      .mdl-layout--fixed-header > & {
+        display: flex;
+      }
+    }
   }
 
     .mdl-layout__header--transparent.mdl-layout__header--transparent {
@@ -298,7 +317,8 @@
       padding: 0 $layout-header-desktop-indent 0 $layout-header-desktop-baseline;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        min-height: $layout-header-mobile-row-height;
+        height: $layout-header-mobile-row-height;
+        padding: 0 $layout-header-mobile-indent 0 $layout-header-mobile-baseline;
       }
 
       & > * {
