@@ -21,6 +21,7 @@
 .mdl-navigation {
   display: flex;
   flex-wrap: nowrap;
+  box-sizing: border-box;
 }
 
 .mdl-navigation__link {
@@ -112,11 +113,11 @@
 
     & > .mdl-layout-title {
       line-height: $layout-desktop-header-height;
-      padding-left: $layout-header-basic-desktop-indent;
+      padding-left: $layout-header-desktop-indent;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         line-height: $layout-mobile-header-height;
-        padding-left: $layout-header-basic-mobile-indent;
+        padding-left: $layout-header-mobile-indent;
       }
     }
 
@@ -126,18 +127,17 @@
     }
 
     & .mdl-navigation__link {
-      padding: 16px $layout-header-basic-desktop-indent;
+      padding: 16px $layout-header-desktop-indent;
       margin: 0;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        padding: 16px $layout-header-basic-mobile-indent;
+        padding: 16px $layout-header-mobile-indent;
       }
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .mdl-layout--fixed-drawer > & {
         transform: translateX(0);
-        z-index: 3;
       }
     }
   }
@@ -195,47 +195,40 @@
     }
   }
 
-
-  // Header.
   .mdl-layout__header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    width: 100%;
     margin: 0;
+    padding: 0;
     border: none;
-    height: $layout-desktop-header-height;
     min-height: $layout-desktop-header-height;
+    max-height: 1000px;
+    z-index: 3;
+
     background-color: $layout-header-bg-color;
     color: $layout-header-text-color;
-    z-index: 3;
-    @include material-animation-default();
-    @include shadow-2dp();
-    transition-property: min-height, box-shadow;
-    padding-left: $layout-header-basic-desktop-indent;
-    overflow: visible;
 
-    .mdl-layout.has-drawer & {
-      padding-left: $layout-header-desktop-indent;
-    }
+    @include shadow-2dp();
+    @include material-animation-default();
+    transition-property: max-height, box-shadow;
 
     @media screen and (max-width: $layout-screen-size-threshold) {
-      height: $layout-mobile-header-height;
       min-height: $layout-mobile-header-height;
-      padding-left: $layout-header-basic-mobile-indent;
-
-      .mdl-layout.has-drawer & {
-        padding-left: $layout-header-mobile-indent;
-      }
     }
 
     .mdl-layout--fixed-drawer:not(.is-small-screen) > & {
-      padding-left: $layout-header-basic-desktop-indent;
+      margin-left: $layout-drawer-width;
     }
 
     & > .mdl-layout-icon {
-      margin-right: $layout-header-icon-margin;
-      left: $layout-header-basic-desktop-indent;
+      position: absolute;
+      left: $layout-header-desktop-indent;
       top: ($layout-desktop-header-height - $layout-header-icon-size) / 2;
       height: $layout-header-icon-size;
       width: $layout-header-icon-size;
@@ -244,8 +237,7 @@
       display: block;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        margin-right: $layout-header-basic-mobile-indent;
-        left: $layout-header-basic-mobile-indent;
+        left: $layout-header-mobile-indent;
         top: ($layout-mobile-header-height - $layout-header-icon-size) / 2;
       }
     }
@@ -255,98 +247,21 @@
     }
 
     &.is-compact {
-      min-height: $layout-header-desktop-row-height;
+      max-height: $layout-desktop-header-height;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        min-height: $layout-header-mobile-row-height;
+        max-height: $layout-mobile-header-height;
       }
     }
 
-    & > * {
-      flex-shrink: 0;
-    }
-
-    // Add a margin to the last entry...
-    & > *:last-child {
-      margin-right: $layout-header-basic-desktop-indent;
+    &.is-compact.has-tabs {
+      height: $layout-desktop-header-height + $layout-tab-bar-height;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        margin-right: $layout-header-basic-mobile-indent;
-      }
-    }
-
-    // ...unless it's a navigation area.
-    & > .mdl-navigation:last-child {
-      margin-right: 0;
-    }
-
-    & .mdl-layout-title {
-      display: block;
-    }
-
-    & .mdl-navigation {
-      margin: 0;
-      padding: 0;
-      height: $layout-header-desktop-row-height;
-      flex-direction: row;
-      align-items: center;
-
-      @media screen and (max-width: $layout-screen-size-threshold) {
-        height: $layout-header-mobile-row-height;
-      }
-    }
-
-    & .mdl-navigation__link {
-      color: $layout-header-text-color;
-      line-height: $layout-header-desktop-row-height;
-      padding: 0 $layout-header-basic-desktop-indent;
-
-      @media screen and (max-width: $layout-screen-size-threshold) {
-        line-height: $layout-header-mobile-row-height;
-        padding: 0 $layout-header-basic-mobile-indent;
-      }
-    }
-
-    & .mdl-navigation__link:hover {
-      background-color: $layout-header-nav-hover-color;
-    }
-
-    @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      .mdl-layout--fixed-drawer > & {
-        margin-left: $layout-drawer-width;
-      }
-    }
-
-    @media screen and (max-width: $layout-screen-size-threshold) {
-      & {
-        display: none;
-      }
-
-      .mdl-layout--fixed-header > & {
-        display: flex;
+        min-height: $layout-mobile-header-height + $layout-tab-bar-height;
       }
     }
   }
-
-    .mdl-layout__header--multi-row {
-      flex-direction: column;
-    }
-
-    .mdl-layout__header--medium-tall {
-      min-height: 2 * $layout-header-desktop-row-height;
-
-      @media screen and (max-width: $layout-screen-size-threshold) {
-        min-height: 2 * $layout-header-mobile-row-height;
-      }
-    }
-
-    .mdl-layout__header--tall {
-      min-height: 3 * $layout-header-desktop-row-height;
-
-      @media screen and (max-width: $layout-screen-size-threshold) {
-        min-height: 3 * $layout-header-mobile-row-height;
-      }
-    }
 
     .mdl-layout__header--transparent.mdl-layout__header--transparent {
       background-color: transparent;
@@ -363,60 +278,62 @@
 
     .mdl-layout__header--waterfall {
       box-shadow: none;
+      overflow: hidden;
 
       &.is-casting-shadow {
         @include shadow-2dp();
       }
     }
 
-    // Declared twice to bump rule priority.
-    .mdl-layout__header-row.mdl-layout__header-row {
+    .mdl-layout__header-row {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       flex-shrink: 0;
+      box-sizing: border-box;
+      align-self: stretch;
       align-items: center;
-      min-height: $layout-header-desktop-row-height;
-      width: 100%;
-      margin-right: 0;
+      height: $layout-header-desktop-row-height;
+      margin: 0;
+      padding: 0 $layout-header-desktop-indent 0 $layout-header-desktop-baseline;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         min-height: $layout-header-mobile-row-height;
-      }
-
-      & > .mdl-layout-icon {
-        margin-right: $layout-header-icon-margin;
-        height: $layout-header-icon-size;
-        width: $layout-header-icon-size;
-        overflow: hidden;
-        display: block;
-
-        @media screen and (max-width: $layout-screen-size-threshold) {
-          left: $layout-header-basic-mobile-indent;
-          top: ($layout-header-mobile-row-height - $layout-header-icon-size) / 2;
-        }
-      }
-
-      .mdl-layout.has-drawer & > .mdl-layout-icon {
-        display: none;
       }
 
       & > * {
         flex-shrink: 0;
       }
 
-      // Add a margin to the last entry...
-      & > *:last-child {
-        margin-right: $layout-header-basic-desktop-indent;
+      .mdl-layout__header--scroll & {
+        width: 100%;
+      }
+
+      & .mdl-navigation {
+        margin: 0;
+        padding: 0;
+        height: $layout-header-desktop-row-height;
+        flex-direction: row;
+        align-items: center;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
-          margin-right: $layout-header-basic-mobile-indent;
+          height: $layout-header-mobile-row-height;
         }
       }
 
-      // ...unless it's a navigation area.
-      & > .mdl-navigation:last-child {
-        margin-right: 0;
+      & .mdl-navigation__link {
+        color: $layout-header-text-color;
+        line-height: $layout-header-desktop-row-height;
+        padding: 0 $layout-header-desktop-indent;
+
+        @media screen and (max-width: $layout-screen-size-threshold) {
+          line-height: $layout-header-mobile-row-height;
+          padding: 0 $layout-header-mobile-indent;
+        }
+      }
+
+      & .mdl-navigation__link:hover {
+        background-color: $layout-header-nav-hover-color;
       }
     }
 
@@ -473,12 +390,12 @@
 
   // Tabs.
   .mdl-layout__tab-bar {
-    position: absolute;
-    top: 0;
     height: $layout-tab-bar-height * 2;
+    margin: 0;
     width: calc(100% -
-        #{(($layout-header-desktop-indent - $layout-tab-desktop-padding) * 2)});
-    padding: 0 0 0 $layout-header-desktop-indent;
+        #{(($layout-header-desktop-baseline - $layout-tab-desktop-padding) * 2)});
+    padding: 0 0 0
+        ($layout-header-desktop-baseline - $layout-tab-desktop-padding);
     display: flex;
     background-color: $layout-header-bg-color;
     overflow-y: hidden;
@@ -490,8 +407,9 @@
 
     @media screen and (max-width: $layout-screen-size-threshold) {
       width: calc(100% -
-          #{($layout-header-mobile-indent - $layout-tab-mobile-padding)});
-      padding: 0 0 0 $layout-header-mobile-indent;
+          #{($layout-header-mobile-baseline - $layout-tab-mobile-padding)});
+      padding: 0 0 0
+          ($layout-header-mobile-baseline - $layout-tab-mobile-padding);
     }
 
     .mdl-layout--fixed-tabs & {
@@ -499,23 +417,18 @@
       overflow: hidden;
       width: 100%;
     }
-
-    &.is-casting-shadow {
-      @include shadow-2dp();
-    }
   }
 
   .mdl-layout__tab-bar-container {
     position: relative;
-    overflow: hidden;
     height: $layout-tab-bar-height;
     width: 100%;
     border: none;
     margin: 0;
-    z-index: 3;
+    z-index: 2;
     flex-grow: 0;
     flex-shrink: 0;
-    @include shadow-2dp();
+    overflow: hidden;
 
     .mdl-layout__container > & {
       position: absolute;
@@ -527,9 +440,10 @@
   .mdl-layout__tab-bar-button {
     display: inline-block;
     position: absolute;
+    top: 0;
     height: $layout-tab-bar-height;
     line-height: $layout-tab-bar-height;
-    width: $layout-header-desktop-indent;
+    width: $layout-header-desktop-baseline - $layout-tab-desktop-padding;
     z-index: 4;
     text-align: center;
     background-color: $layout-header-bg-color;
@@ -539,7 +453,7 @@
 
     @media screen and (max-width: $layout-screen-size-threshold) {
       display: none;
-      width: $layout-header-mobile-indent - $layout-tab-mobile-padding;
+      width: $layout-header-mobile-baseline - $layout-tab-mobile-padding;
     }
 
     .mdl-layout--fixed-tabs & {

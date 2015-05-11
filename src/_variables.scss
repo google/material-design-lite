@@ -359,10 +359,11 @@ $layout-header-mobile-row-height: 56px;
 $layout-mobile-header-height: $layout-header-mobile-row-height;
 $layout-header-desktop-row-height: 64px;
 $layout-desktop-header-height: $layout-header-desktop-row-height;
-$layout-header-mobile-indent: 56px;
-$layout-header-desktop-indent: 72px;
-$layout-header-basic-mobile-indent: 16px;
-$layout-header-basic-desktop-indent: 24px;
+
+$layout-header-desktop-baseline: 80px;
+$layout-header-mobile-baseline: 72px;
+$layout-header-mobile-indent: 16px;
+$layout-header-desktop-indent: 24px;
 
 $layout-tab-bar-height: 48px;
 $layout-tab-mobile-padding: 12px;
