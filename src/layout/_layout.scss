@@ -138,7 +138,6 @@
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .mdl-layout--fixed-drawer > & {
         transform: translateX(0);
-        z-index: 3;
       }
     }
   }
@@ -304,6 +303,10 @@
 
       & > * {
         flex-shrink: 0;
+      }
+
+      .mdl-layout__header--scroll & {
+        width: 100%;
       }
 
       & .mdl-navigation {
