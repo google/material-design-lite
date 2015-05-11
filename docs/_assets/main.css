@@ -158,7 +158,6 @@ body:not(.about) .mdl-layout__header {
 .mdl-layout__content > section.download {
   width: 100%;
   height: 6rem;
-  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,8 +181,10 @@ body:not(.about) .mdl-layout__header {
   justify-content: center;
   align-items: center;
 }
-.mdl-mini-footer ul > * {
+.mdl-mini-footer ul > a {
   margin: 0 8px;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 .about-panel {
@@ -193,8 +194,10 @@ body:not(.about) .mdl-layout__header {
 }
 .about-panel--text {
   padding: 100px;
+}
+.about-panel--text p {
+  width: 640px;
   margin: 0 auto;
-  width: 100%;
   line-height: 2em;
 }
 .about-panel--text dl {
@@ -207,13 +210,13 @@ body:not(.about) .mdl-layout__header {
 .about-panel--text dl dt {
   text-align: right;
   vertical-align: top;
-  width: 33%;
+  width: 160px;
   margin-right: 24px;
 }
 .about-panel--text dl dd {
   text-align: left;
   vertical-align: top;
-  width: 66%;
+  width: 600px;
   margin: 0;
   margin-left: 24px;
 }
@@ -258,6 +261,7 @@ body:not(.about) .mdl-layout__header {
   background-image: url(styles_mo.svg);
 }
 .about-panel--customize {
+  height: 400px;
   background-color: #191E80;
   background-image: url(customize.svg);
 }
@@ -320,8 +324,7 @@ body:not(.about) .mdl-layout__header {
 }
 
 .mdl-layout__content a {
-  color: #c2185b;
-  font-weight: bold;
+  @extend mdl-color-text--cyan-600;
   text-decoration: none;
 }
 
@@ -342,4 +345,30 @@ button a {
 }
 .component-description .mdl-button:first-of-type {
   margin-top: 8px;
+}
+.social-btn {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+.social-btn__twitter {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/1x/post_twitter_white_24dp.png');
+}
+.social-btn__blogger {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/1x/post_blogger_white_24dp.png');
+}
+.social-btn__gplus {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/1x/post_gplus_white_24dp.png');
+}
+@media all and (-webkit-min-device-pixel-ratio: 2) {
+  .social-btn__twitter {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_white_24dp.png');
+  }
+  .social-btn__blogger {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_blogger_white_24dp.png');
+  }
+  .social-btn__gplus {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png');
+  }
 }
