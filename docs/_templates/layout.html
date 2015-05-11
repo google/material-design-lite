@@ -58,22 +58,22 @@
           </div>
         </div>
       </div>
+      <nav class="mdl-navigation mdl-js-ripple-effect">
+        <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
+        <a href="{{page.include_prefix}}templates" class="mdl-navigation__link templates">Templates</a>
+        <a href="{{page.include_prefix}}components" class="mdl-navigation__link components">Components</a>
+        <a href="{{page.include_prefix}}styles" class="mdl-navigation__link styles">Styles</a>
+        <a href="{{page.include_prefix}}customize" class="mdl-navigation__link customize">Customize</a>
+        <div class="mdl-layout-spacer"></div>
+        <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link"><span class="mdl-icon mdl-icon--link"></span>GitHub</a>
+        <a href="#" class="download">
+          Download
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
+            <i class="material-icons">file_download</i>
+          </button>
+        </a>
+      </nav>
     </header>
-    <nav class="mdl-navigation mdl-js-ripple-effect">
-      <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
-      <a href="{{page.include_prefix}}templates" class="mdl-navigation__link templates">Templates</a>
-      <a href="{{page.include_prefix}}components" class="mdl-navigation__link components">Components</a>
-      <a href="{{page.include_prefix}}styles" class="mdl-navigation__link styles">Styles</a>
-      <a href="{{page.include_prefix}}customize" class="mdl-navigation__link customize">Customize</a>
-      <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link">GitHub</a>
-      <div class="mdl-layout-spacer"></div>
-      <a href="#" class="download">
-        Download
-        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
-          <i class="material-icons">file_download</i>
-        </button>
-      </a>
-    </nav>
     <main class="mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
         {% block content %}

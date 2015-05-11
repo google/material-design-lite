@@ -8,6 +8,10 @@ html > body {
   background-repeat: no-repeat;
   background-position: center center;
   box-shadow: none !important;
+  align-items: flex-start;
+  padding: 40px;
+  flex-shrink: 0;
+  position: relative;
 }
 .mdl-layout__header .mdl-textfield {
   padding-top: 0;
@@ -17,8 +21,14 @@ html > body {
   align-items: flex-start;
   height: auto;
 }
+.mdl-layout__header > .mdl-navigation {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 100%;
+}
 .mdl-layout-title {
-  font-weight: 300;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1.5em;
   font-size: 1rem;
@@ -30,8 +40,27 @@ html > body {
   background-color: #37474f;
   background-image: url('logo.svg');
 }
-.about .mdl-navigation {
-  background-color: #37474f;
+.mdl-layout__header {
+  box-shadow: none !important;
+}
+body.about .mdl-layout__header {
+  background: url('logo.svg'), url('header.jpg');
+  background-size: auto 30%, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center center;
+}
+@media all and (-webkit-min-device-pixel-ratio: 2) {
+  .about .mdl-layout__header {
+    background: url('logo.svg'), url('header_2x.jpg');
+    background-size: auto 30%, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center center, center center;
+  }
+}
+body:not(.about) .mdl-layout__header {
+  background-size: auto 30%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .templates .mdl-layout__header {
   background-color: #00ACC2;
@@ -69,8 +98,17 @@ html > body {
   height: 64px;
   flex-shrink: 0;
 }
+.mdl-navigation span.mdl-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
 .mdl-navigation a {
-  font-weight: 300;
+  display: flex;
+}
+.mdl-navigation a, section.download {
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
   line-height: 64px;
   padding: 0 24px;
   color: white;
@@ -83,8 +121,21 @@ html > body {
 .mdl-navigation a:not(.download) {
   opacity: 0.65;
 }
+.mdl-navigation a.download > span {
+  opacity: 0.65;
+}
+.mdl-navigation .mdl-layout-spacer ~ a {
+  text-transform: none;
+}
+.mdl-navigation .mdl-layout-spacer ~ a:hover {
+  background-color: transparent;
+}
 .mdl-navigation a.download {
   text-decoration: none;
+}
+.mdl-navigation a.download > span {
+  color: inherit;
+  text-decoration: inherit;
 }
 .mdl-navigation a.download button {
   margin-left: 8px;
