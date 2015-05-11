@@ -323,7 +323,7 @@ gulp.task('pages', ['components'], function() {
  * Copies assets from MDL and _assets directory.
  */
 gulp.task('assets', function () {
-  return gulp.src(['docs/_assets/**'])
+  return gulp.src(['docs/_assets/**/*'])
     .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
       progressive: true,
       interlaced: true

@@ -279,6 +279,7 @@ body:not(.about) .mdl-layout__header {
 .template {
   width: 100%;
   margin-bottom: 72px;
+  align-items: flex-start;
 }
 .template > .template__meta {
   align-content: flex-start;
@@ -293,12 +294,8 @@ body:not(.about) .mdl-layout__header {
   color:inherit;
 }
 .template > .template__preview {
-  background-position: center center;
-  background-size: cover;
-  min-height: 30vh;
+  height: auto;
 }
-
-
 .mdl-layout__content p {
   font-size: 15px;
   margin-bottom: 32px;
