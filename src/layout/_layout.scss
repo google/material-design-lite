@@ -387,7 +387,7 @@
 
   // Tabs.
   .mdl-layout__tab-bar {
-    height: $layout-tab-bar-height;
+    height: $layout-tab-bar-height * 2;
     margin: 0;
     width: calc(100% -
         #{(($layout-header-desktop-baseline - $layout-tab-desktop-padding) * 2)});
@@ -425,6 +425,7 @@
     z-index: 2;
     flex-grow: 0;
     flex-shrink: 0;
+    overflow: hidden;
 
     .mdl-layout__container > & {
       position: absolute;
