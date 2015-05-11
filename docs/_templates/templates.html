@@ -20,7 +20,7 @@
       Preview
     </a>
   </div>
-  <img src="{{page.include_prefix}}/assets/templates/{{ template.name }}.jpg" class="template__preview mdl-cell mdl-cell--8-col">
+  <img src="{{page.include_prefix}}/assets/templates/{{ template.name }}.jpg" srcset="{{page.include_prefix}}/assets/templates/{{ template.name }}.jpg 1x, {{page.include_prefix}}/assets/templates/{{ template.name }}_2x.jpg 2x" class="template__preview mdl-cell mdl-cell--8-col">
 </section>
 {% endfor %}
 {% endblock %}
