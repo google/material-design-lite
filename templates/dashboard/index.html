@@ -44,23 +44,25 @@
   <body>
     <div class="mdl-layout mdl-layout--fixed-drawer">
       <header class="mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-            <span class="mdl mdl-icon--search"></span>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" id="search" />
-            <label class="mdl-textfield__label" for="expando1">Enter your query...</label>
+        <div class="mdl-layout__header-row">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <span class="mdl mdl-icon--search"></span>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search" />
+              <label class="mdl-textfield__label" for="expando1">Enter your query...</label>
+            </div>
           </div>
+          <span class="mdl-layout-title">Home</span>
+          <div class="mdl-layout-spacer"></div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"><span class="mdl-icon mdl-icon--more-vert"></span></button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <button class="mdl-menu__item">What is </button>
+            <button class="mdl-menu__item">supposed to </button>
+            <button class="mdl-menu__item">be here?</button>
+          </ul>
         </div>
-        <span class="mdl-layout-title">Home</span>
-        <div class="mdl-layout-spacer"></div>
-        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"><span class="mdl-icon mdl-icon--more-vert"></span></button>
-        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-          <button class="mdl-menu__item">What is </button>
-          <button class="mdl-menu__item">supposed to </button>
-          <button class="mdl-menu__item">be here?</button>
-        </ul>
       </header>
       <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header>

@@ -35,7 +35,8 @@ function MaterialLayout(element) {
  * @private
  */
 MaterialLayout.prototype.Constant_ = {
-  MAX_WIDTH: '(max-width: 850px)'
+  MAX_WIDTH: '(max-width: 850px)',
+  TAB_SCROLL_PIXELS: 100
 };
 
 /**
@@ -83,14 +84,15 @@ MaterialLayout.prototype.CssClasses_ = {
   TAB_BAR_RIGHT_BUTTON: 'mdl-layout__tab-bar-right-button',
   PANEL: 'mdl-layout__tab-panel',
 
-  HAS_DRAWER_CLASS: 'has-drawer',
-  SHADOW_CLASS: 'is-casting-shadow',
-  COMPACT_CLASS: 'is-compact',
-  SMALL_SCREEN_CLASS: 'is-small-screen',
-  DRAWER_OPEN_CLASS: 'is-visible',
-  ACTIVE_CLASS: 'is-active',
-  UPGRADED_CLASS: 'is-upgraded',
-  ANIMATING_CLASS: 'is-animating'
+  HAS_DRAWER: 'has-drawer',
+  HAS_TABS: 'has-tabs',
+  CASTING_SHADOW: 'is-casting-shadow',
+  IS_COMPACT: 'is-compact',
+  IS_SMALL_SCREEN: 'is-small-screen',
+  IS_DRAWER_OPEN: 'is-visible',
+  IS_ACTIVE: 'is-active',
+  IS_UPGRADED: 'is-upgraded',
+  IS_ANIMATING: 'is-animating'
 };
 
 /**
@@ -100,18 +102,18 @@ MaterialLayout.prototype.CssClasses_ = {
 MaterialLayout.prototype.contentScrollHandler_ = function() {
   'use strict';
 
-  if(this.header_.classList.contains(this.CssClasses_.ANIMATING_CLASS)) {
+  if (this.header_.classList.contains(this.CssClasses_.IS_ANIMATING)) {
     return;
   }
 
-  if (this.content_.scrollTop > 0 && !this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
-    this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
-    this.header_.classList.add(this.CssClasses_.COMPACT_CLASS);
-    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
-  } else if (this.content_.scrollTop <= 0 && this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
-    this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
-    this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
-    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  if (this.content_.scrollTop > 0 && !this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
+    this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
+    this.header_.classList.add(this.CssClasses_.IS_COMPACT);
+    this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+  } else if (this.content_.scrollTop <= 0 && this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
+    this.header_.classList.remove(this.CssClasses_.CASTING_SHADOW);
+    this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
+    this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
   }
 };
 
@@ -123,12 +125,12 @@ MaterialLayout.prototype.screenSizeHandler_ = function() {
   'use strict';
 
   if (this.screenSizeMediaQuery_.matches) {
-    this.element_.classList.add(this.CssClasses_.SMALL_SCREEN_CLASS);
+    this.element_.classList.add(this.CssClasses_.IS_SMALL_SCREEN);
   } else {
-    this.element_.classList.remove(this.CssClasses_.SMALL_SCREEN_CLASS);
+    this.element_.classList.remove(this.CssClasses_.IS_SMALL_SCREEN);
     // Collapse drawer (if any) when moving to a large screen size.
     if (this.drawer_) {
-      this.drawer_.classList.remove(this.CssClasses_.DRAWER_OPEN_CLASS);
+      this.drawer_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
     }
   }
 };
@@ -141,7 +143,7 @@ MaterialLayout.prototype.screenSizeHandler_ = function() {
 MaterialLayout.prototype.drawerToggleHandler_ = function() {
   'use strict';
 
-  this.drawer_.classList.toggle(this.CssClasses_.DRAWER_OPEN_CLASS);
+  this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
 };
 
 /**
@@ -150,7 +152,7 @@ MaterialLayout.prototype.drawerToggleHandler_ = function() {
 MaterialLayout.prototype.headerTransitionEndHandler = function() {
   'use strict';
 
-  this.header_.classList.remove(this.CssClasses_.ANIMATING_CLASS);
+  this.header_.classList.remove(this.CssClasses_.IS_ANIMATING);
 };
 
 /**
@@ -159,9 +161,9 @@ MaterialLayout.prototype.headerTransitionEndHandler = function() {
 MaterialLayout.prototype.headerClickHandler = function() {
   'use strict';
 
-  if (this.header_.classList.contains(this.CssClasses_.COMPACT_CLASS)) {
-    this.header_.classList.remove(this.CssClasses_.COMPACT_CLASS);
-    this.header_.classList.add(this.CssClasses_.ANIMATING_CLASS);
+  if (this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
+    this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
+    this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
   }
 };
 
@@ -173,7 +175,7 @@ MaterialLayout.prototype.resetTabState_ = function(tabBar) {
   'use strict';
 
   for (var k = 0; k < tabBar.length; k++) {
-    tabBar[k].classList.remove(this.CssClasses_.ACTIVE_CLASS);
+    tabBar[k].classList.remove(this.CssClasses_.IS_ACTIVE);
   }
 };
 
@@ -185,7 +187,7 @@ MaterialLayout.prototype.resetPanelState_ = function(panels) {
   'use strict';
 
   for (var j = 0; j < panels.length; j++) {
-    panels[j].classList.remove(this.CssClasses_.ACTIVE_CLASS);
+    panels[j].classList.remove(this.CssClasses_.IS_ACTIVE);
   }
 };
 
@@ -231,14 +233,14 @@ MaterialLayout.prototype.init = function() {
       }
 
       if (mode === this.Mode_.STANDARD) {
-        this.header_.classList.add(this.CssClasses_.SHADOW_CLASS);
+        this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
         if (this.tabBar_) {
-          this.tabBar_.classList.add(this.CssClasses_.SHADOW_CLASS);
+          this.tabBar_.classList.add(this.CssClasses_.CASTING_SHADOW);
         }
       } else if (mode === this.Mode_.SEAMED || mode === this.Mode_.SCROLL) {
-        this.header_.classList.remove(this.CssClasses_.SHADOW_CLASS);
+        this.header_.classList.remove(this.CssClasses_.CASTING_SHADOW);
         if (this.tabBar_) {
-          this.tabBar_.classList.remove(this.CssClasses_.SHADOW_CLASS);
+          this.tabBar_.classList.remove(this.CssClasses_.CASTING_SHADOW);
         }
       } else if (mode === this.Mode_.WATERFALL) {
         // Add and remove shadows depending on scroll position.
@@ -258,9 +260,9 @@ MaterialLayout.prototype.init = function() {
           this.drawerToggleHandler_.bind(this));
 
       // Add a class if the layout has a drawer, for altering the left padding.
-      // Adds the HAS_DRAWER_CLASS to the elements since this.header_ may or may
+      // Adds the HAS_DRAWER to the elements since this.header_ may or may
       // not be present.
-      this.element_.classList.add(this.CssClasses_.HAS_DRAWER_CLASS);
+      this.element_.classList.add(this.CssClasses_.HAS_DRAWER);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.
@@ -278,24 +280,26 @@ MaterialLayout.prototype.init = function() {
     }
 
     // Initialize tabs, if any.
-    if (this.tabBar_) {
+    if (this.header_ && this.tabBar_) {
+      this.element_.classList.add(this.CssClasses_.HAS_TABS);
+
       var tabContainer = document.createElement('div');
       tabContainer.classList.add(this.CssClasses_.TAB_CONTAINER);
-      this.element_.insertBefore(tabContainer, this.tabBar_);
-      this.element_.removeChild(this.tabBar_);
+      this.header_.insertBefore(tabContainer, this.tabBar_);
+      this.header_.removeChild(this.tabBar_);
 
       var leftButton = document.createElement('div');
       leftButton.classList.add(this.CssClasses_.TAB_BAR_BUTTON);
       leftButton.classList.add(this.CssClasses_.TAB_BAR_LEFT_BUTTON);
       leftButton.addEventListener('click', function() {
-        this.tabBar_.scrollLeft -= 100;
+        this.tabBar_.scrollLeft -= this.Constant_.TAB_SCROLL_PIXELS;
       }.bind(this));
 
       var rightButton = document.createElement('div');
       rightButton.classList.add(this.CssClasses_.TAB_BAR_BUTTON);
       rightButton.classList.add(this.CssClasses_.TAB_BAR_RIGHT_BUTTON);
       rightButton.addEventListener('click', function() {
-        this.tabBar_.scrollLeft += 100;
+        this.tabBar_.scrollLeft += this.Constant_.TAB_SCROLL_PIXELS;
       }.bind(this));
 
       tabContainer.appendChild(leftButton);
@@ -305,16 +309,16 @@ MaterialLayout.prototype.init = function() {
       // Add and remove buttons depending on scroll position.
       var tabScrollHandler = function() {
         if (this.tabBar_.scrollLeft > 0) {
-          leftButton.classList.add(this.CssClasses_.ACTIVE_CLASS);
+          leftButton.classList.add(this.CssClasses_.IS_ACTIVE);
         } else {
-          leftButton.classList.remove(this.CssClasses_.ACTIVE_CLASS);
+          leftButton.classList.remove(this.CssClasses_.IS_ACTIVE);
         }
 
         if (this.tabBar_.scrollLeft <
             this.tabBar_.scrollWidth - this.tabBar_.offsetWidth) {
-          rightButton.classList.add(this.CssClasses_.ACTIVE_CLASS);
+          rightButton.classList.add(this.CssClasses_.IS_ACTIVE);
         } else {
-          rightButton.classList.remove(this.CssClasses_.ACTIVE_CLASS);
+          rightButton.classList.remove(this.CssClasses_.IS_ACTIVE);
         }
       }.bind(this);
 
@@ -335,7 +339,7 @@ MaterialLayout.prototype.init = function() {
       }
     }
 
-    this.element_.classList.add(this.CssClasses_.UPGRADED_CLASS);
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };
 
@@ -360,8 +364,8 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
       var panel = layout.content_.querySelector('#' + href);
       layout.resetTabState_(tabs);
       layout.resetPanelState_(panels);
-      tab.classList.add(layout.CssClasses_.ACTIVE_CLASS);
-      panel.classList.add(layout.CssClasses_.ACTIVE_CLASS);
+      tab.classList.add(layout.CssClasses_.IS_ACTIVE);
+      panel.classList.add(layout.CssClasses_.IS_ACTIVE);
     });
 
   }

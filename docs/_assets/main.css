@@ -3,9 +3,19 @@ html > body {
 }
 .mdl-layout__header {
   height: 50vh;
-  align-items: flex-start;
-  padding: 32px;
   flex-shrink: 0;
+  background-size: auto 30%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-shadow: none !important;
+}
+.mdl-layout__header .mdl-textfield {
+  padding-top: 0;
+}
+.mdl-layout__header-row {
+  padding: 40px;
+  align-items: flex-start;
+  height: auto;
 }
 .mdl-layout-title {
   font-weight: 300;
@@ -15,12 +25,6 @@ html > body {
 }
 .mdl-layout-title a {
   font-weight: inherit;
-}
-.mdl-layout__header {
-  background-size: auto 30%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  box-shadow: none !important;
 }
 .about .mdl-layout__header {
   background-color: #37474f;
@@ -60,7 +64,7 @@ html > body {
 .mdl-navigation {
   box-shadow: none !important;
   border: 0 !important;
-  padding: 0;
+  padding: 0 16px;
   width: 100%;
   height: 64px;
   flex-shrink: 0;
@@ -81,7 +85,6 @@ html > body {
 }
 .mdl-navigation a.download {
   text-decoration: none;
-  margin-right: 24px;
 }
 .mdl-navigation a.download button {
   margin-left: 8px;
