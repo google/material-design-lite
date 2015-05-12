@@ -109,7 +109,7 @@ MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
   // Discard the original event and create a new event that
   // is on the slider element.
   event.preventDefault();
-  var newEvent = new MouseEvent("mousedown", {
+  var newEvent = new MouseEvent('mousedown', {
     target: event.target,
     buttons: event.buttons,
     clientX: event.clientX,
