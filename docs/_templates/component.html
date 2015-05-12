@@ -1,20 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+  <div class="component-description mdl-cell mdl-cell--12-col">
+    <div>
+      <a href="../">back to all </a>
+    </div>
 
-<div>
-  <a href="../">back to all </a>
-</div>
+    <div>
+    <a href="demo.html" class="mdl-button mdl-js-button mdl-button--raised">demo</a></button>
+    </div>
 
-<div>
-  <button class="mdl-button mdl-js-button mdl-button--raised">
-    <a href="demo.html">demo</a></button>
-</div>
-
-
-
-{{content|safe}}
-
+    {{content|safe}}
+  </div>
 {% endblock %}
-
-
