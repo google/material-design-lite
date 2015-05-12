@@ -7,15 +7,17 @@ The layout module allows you to build layouts easily, simply by adding a few CSS
 ```html
 <div class="mdl-layout">
   <header class="mdl-layout__header">
-    <!-- Title -->
-    <span class="mdl-layout-title">Material Design Lite</span>
-    <!-- Add spacer, to align navigation to the right -->
-    <div class="mdl-layout-spacer"></div>
-    <!-- Navigation -->
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Hello</a>
-      (...)
-    </nav>
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Material Design Lite</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Hello</a>
+        (...)
+      </nav>
+    </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Material Design Lite</span>
@@ -60,29 +62,6 @@ The header element (optional). By default, it's only shown in large screens.
 - `mdl-layout__header--transparent`:
   Makes the background transparent, instead of the default main palette color.
 
-- `mdl-layout__header--medium-tall`:
-  Makes the header twice the height of a default header.
-
-- `mdl-layout__header--tall`:
-  Makes the header three times the height of a default header.
-
-- `mdl-layout__header--multi-row`:
-  Allows stacking of multiple rows inside the header (by default, it only has one). Example:
-  ```html
-  <header class="mdl-layout__header mdl-layout__header--multi-row mdl-layout__header--tall">
-    <!-- Top row -->
-    <div class="mdl-layout__header-row">
-      <span>Upper row</span>
-    </div>
-    <div class="mdl-layout__header-row">
-      <span>Middle row</span>
-    </div>
-      <div class="mdl-layout__header-row">
-      <span>Bottom row</span>
-    </div>
-  </header>
-  ```
-
 - `mdl-layout__header--seamed`:
   By default, the header casts a shadow onto the content. This option removes the shadow altogether.
 
@@ -101,10 +80,10 @@ The header element (optional). By default, it's only shown in large screens.
 ### Sub-elements
 
 -  `mdl-layout__header-row`:
-  Used when stacking multiple rows inside the header (by default, it only has one). Example:
+  Used inside the header for adding a new row. Headers need at least one of these. Example:
 
   ```html
-  <header class="mdl-layout__header mdl-layout__header--multi-row mdl-layout__header--tall">
+  <header class="mdl-layout__header mdl-layout__header--tall">
     <div class="mdl-layout__header-row">
       <span>Upper row</span>
     </div>
@@ -133,7 +112,7 @@ None.
 
 ## mdl-layout__tab-bar
 
-Tabs (optional). Used for tabbing the entire layout.
+Tabs (optional). Used for tabbing the entire layout. Tabs live inside the header.
 
 ### Example
 
@@ -143,15 +122,17 @@ Tabs (optional). Used for tabbing the entire layout.
       <header class="mdl-layout__header">
         <!-- Icon -->
         <img class="mdl-layout-icon" src="images/app-icon.png"/>
-        <!-- Title -->
-        <span class="mdl-layout-title">Material Design Lite</span>
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Material Design Lite</span>
+        </div>
+        <!-- Tab bar -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#blue-panel" class="mdl-layout__tab is-active">Blue</a>
+          <a href="#green-panel" class="mdl-layout__tab">Green</a>
+          <a href="#red-panel" class="mdl-layout__tab">Red</a>
+        </div>
       </header>
-      <!-- Tab bar -->
-      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-        <a href="#blue-panel" class="mdl-layout__tab is-active">Blue</a>
-        <a href="#green-panel" class="mdl-layout__tab">Green</a>
-        <a href="#red-panel" class="mdl-layout__tab">Red</a>
-      </div>
       <main class="mdl-layout__content">
         <!-- Panels -->
         <div class="mdl-layout__tab-panel is-active" id="blue-panel">
@@ -198,31 +179,54 @@ Your content goes here :)
 
 ## Other options
 
+- `mdl-layout--large-screen-only`:
+  Displays the element in large screens, and hides it in small screens. Example:
+  ```html
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout--large-screen-only">
+        Some long text that only fits in larger screens.
+      </span>
+      <span class="mdl-layout--small-screen-only">Short text</span>
+    </div>
+  </header>
+  ```
+
+- `mdl-layout--small-screen-only`:
+  Displays the element in small screens, and hides it in large screens.
+
+
 - `mdl-layout-spacer`:
   Used to align elements inside a header or drawer. This is a class set to flex
   grow, so you can use it to align elements to the right in a header, for
   example:
   ```html
   <header class="mdl-layout__header">
-    <span>Left-aligned text</span>
-    <div class="mdl-layout-spacer"></div>
-    <span>Right-aligned text</span>
+    <div class="mdl-layout__header-row">
+      <span>Left-aligned text</span>
+      <div class="mdl-layout-spacer"></div>
+      <span>Right-aligned text</span>
+    </div>
   </header>
   ```
   or to the center:
   ```html
   <header class="mdl-layout__header">
-    <div class="mdl-layout-spacer"></div>
-    <span>Center-aligned text</span>
-    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer"></div>
+      <span>Center-aligned text</span>
+      <div class="mdl-layout-spacer"></div>
+    </div>
   </header>
   ```
   You can also use it to align to bottom in a drawer:
   ```html
   <div class="mdl-layout__drawer">
-    <span>Top-aligned text</span>
-    <div class="mdl-layout-spacer"></div>
-    <span>Bottom-aligned text</span>
+    <div class="mdl-layout__header-row">
+      <span>Top-aligned text</span>
+      <div class="mdl-layout-spacer"></div>
+      <span>Bottom-aligned text</span>
+    </div>
   </div>
   ```
 
@@ -231,6 +235,7 @@ Your content goes here :)
   ```html
   <header class="mdl-layout__header">
     <img class="mdl-layout-icon" src="app-icon.svg">My Awesome Site</div>
+    <div class="mdl-layout__header-row">...</div>
   </header>
   ```
 
@@ -239,7 +244,9 @@ Your content goes here :)
   depending on container).
   ```html
   <header class="mdl-layout__header">
-    <div class="mdl-layout-title">My Awesome Site</div>
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-title">My Awesome Site</div>
+    </div>
   </header>
   ```
   ```html
@@ -254,10 +261,12 @@ Your content goes here :)
   drawer.
   ```html
   <header class="mdl-layout__header">
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Hello</a>
-      (...)
-    </nav>
+    <div class="mdl-layout__header-row">
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Hello</a>
+        (...)
+      </nav>
+    </div>
   </header>
   ```
   ```html

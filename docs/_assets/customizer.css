@@ -4,6 +4,7 @@
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .mdl-gen--light-text {
@@ -18,7 +19,7 @@
   position: relative;
   width: 100%;
   max-width: 600px;
-  height: 300px;
+  height: 350px;
   margin: 16px auto 16px auto;
   background-color: white;
 }
