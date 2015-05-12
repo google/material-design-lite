@@ -90,6 +90,35 @@ MaterialSlider.prototype.onMouseUp_ = function(event) {
 };
 
 /**
+ * Handle mousedown on container element.
+ * This handler is purpose is to not require the use to click
+ * exactly on the 2px slider element, as FireFox seems to be very
+ * strict about this.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
+  'use strict';
+
+  // If this click is not on the parent element (but rather some child)
+  // ignore. It may still bubble up.
+  if(event.target !== this.element_.parentElement) {
+    return;
+  }
+
+  // Discard the original event and create a new event that
+  // is on the slider element.
+  event.preventDefault();
+  var newEvent = new MouseEvent("mousedown", {
+    target: event.target,
+    buttons: event.buttons,
+    clientX: event.clientX,
+    clientY: this.element_.getBoundingClientRect().y
+  });
+  this.element_.dispatchEvent(newEvent);
+};
+
+/**
  * Handle updating of values.
  * @param {Event} event The event that fired.
  * @private
@@ -190,6 +219,7 @@ MaterialSlider.prototype.init = function() {
     this.element_.addEventListener('input', this.onInput_.bind(this));
     this.element_.addEventListener('change', this.onChange_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
+    this.element_.parentElement.addEventListener('mousedown', this.onContainerMouseDown_.bind(this));
 
     this.updateValueStyles_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
