@@ -41,7 +41,7 @@
   padding: 15px 16px;
 }
 
-@-webkit-keyframes pulse {
+@keyframes pulse {
   0% {
     transform: scale(0);
     opacity: 0;
