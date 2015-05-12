@@ -43,6 +43,15 @@ html > body {
 .mdl-layout__header {
   box-shadow: none !important;
 }
+.mdl-layout__header .mdl-textfield .mdl-button {
+  right: 0;
+}
+.mdl-layout__header .mdl-textfield .mdl-textfield__expandable-holder {
+  margin-right: 32px;
+}
+.mdl-layout__header .mdl-textfield label:after {
+  background-color: rgba(255, 255, 255, 0.12);
+}
 body.about .mdl-layout__header {
   background: url('logo.svg'), url('header.jpg');
   background-size: auto 30%, cover;
