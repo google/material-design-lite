@@ -140,8 +140,6 @@
       top: 50%;
       left: 50%;
       transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
-      /*top: ($button-fab-size - $button-fab-font-size) / 2;
-      left: ($button-fab-size - $button-fab-font-size) / 2;*/
       line-height: $button-fab-font-size;
       width: $button-fab-font-size;
     }
@@ -214,8 +212,11 @@
 
     & .mdl-icon {
       position: absolute;
-      top: ($button-icon-size - $button-fab-font-size) / 2;
-      left: ($button-icon-size - $button-fab-font-size) / 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
+      line-height: $button-fab-font-size;
+      width: $button-fab-font-size;
     }
 
     &.mdl-button--mini-icon {
