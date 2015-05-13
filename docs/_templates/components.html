@@ -1,17 +1,27 @@
 {% extends 'layout.html' %}
+
 {% block content %}
-{% for component in page.components -%}
-<section class="component component--{{ component.name }} mdl-grid mdl-cell mdl-cell--12-col">
-  <div class="mdl-cell mdl-cell--2-col mdl-grid">
-    <a href="/assets/button.png">
-      <img class="mdl-cell" src="/assets/comp_{{ component.name }}.png">&nbsp;
-      <h4 class="component mdl-cell">{{ component.title }}</h4>
+<link href="{{page.include_prefix}}/assets/components.css" rel="stylesheet">
+<script src="{{page.include_prefix}}/assets/components.js"></script>
+
+<aside class="mdl-components">
+  <div class="scroll">
+  {% for component in page.components %}
+    <a href="#{{ component.name }}" class="mdl-components__link mdl-component {{ component.name }} {% if loop.first %}active{%- endif %}">
+      <img src="/assets/comp_{{ component.name }}.png">&nbsp;
+      <span class="center">{{ component.title }}</span>
     </a>
+  {%- endfor %}
   </div>
-  <div class="component mdl-cell mdl-cell--10-col">
-    {{ component.name }} info goes here, this is a whole boring paragraph about a whole
-    boring subject, wow, I already fell asleep while writing this useless prose.
+</aside>
+
+{% for component in page.components -%}
+<section class="mdl-component {{ component.name }} mdl-grid mdl-cell mdl-cell--12-col {% if loop.first %}active{%- endif %}">
+  <div class="mdl-cell mdl-cell--12-col">
+    <h1>{{ component.title }}<h1>
+    <p>{{ component.description }}</p>
   </div>
 </section>
 {%- endfor %}
+
 {% endblock %}
