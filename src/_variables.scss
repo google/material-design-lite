@@ -226,8 +226,6 @@ $card-heading-color: unquote("rgb(#{$color-primary-contrast})") !default;
 $card-heading-back-color: unquote("rgb(#{$color-primary-contrast})") !default;
 $card-heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
 $card-action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
-$card-caption-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$card-caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
 $card-lower-text-color: $text-color-primary !default;
 
@@ -458,12 +456,6 @@ $card-heading-transform-origin-y: 56px !default;
 
 $card-heading-text-transform-origin-x: 149px !default;
 $card-heading-text-transform-origin-y: 48px !default;
-
-$card-caption-perspective-origin-x: 165px !default;
-$card-caption-perspective-origin-y: 16px !default;
-
-$card-caption-font-size: 12px !default;
-$card-caption-height: 16px !default;
 
 $card-lower-font-size: 13px !default;
 $card-lower-line-height: 18px !default;
