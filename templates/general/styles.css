@@ -74,9 +74,7 @@ main > .mdl-layout__tab-panel > header > *:last-child {
 
 #squares > .square {
   min-height: 25vw;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  position: relative;
 }
 @media (max-width: 840px) {
   #squares > .square {
@@ -106,19 +104,22 @@ main > .mdl-layout__tab-panel > header > *:last-child {
   background-size: cover;
 }
 .square > footer {
-  position: relative;
-  height: 20%;
+  position: absolute;
+  height: 33%;
   width: 100%;
+  bottom: 0;
   opacity: 0.7;
   padding: 20px;
+  box-sizing: border-box;
 }
 .square > footer > button {
-  position: absolute;
-  top: 20px;
-  right: 20px;;
+  float: right;
 }
 .square > footer h3 {
   font-size: 1.1em;
+}
+.square > footer > * {
+  margin: 0;
   margin-bottom: 10px;
 }
 .square > footer > *:last-child {
@@ -148,6 +149,9 @@ main > .mdl-layout__tab-panel > header > *:last-child {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+.author p {
+  width: 100%;
 }
 .author h4 {
   margin-bottom: 20px;

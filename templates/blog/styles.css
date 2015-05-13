@@ -251,3 +251,8 @@ h3.quote:after {
 .something-else {
   overflow: visible;
 }
+
+/* Fixes for IE 10 */
+.mdl-grid {
+  display: flex !important;
+}

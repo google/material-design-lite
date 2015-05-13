@@ -48,7 +48,9 @@ html, body {
   padding: 0;
   display: flex;
 }
-
+.charts {
+  align-items: center;
+}
 .charts svg:nth-child(1) {
   fill: #ACEC00;
 }

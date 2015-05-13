@@ -55,23 +55,16 @@ section .section__circle {
   align-items: center;
   justify-content: center;
 }
-section .section__circle img {
+section .section__circle > div {
   width: 48px;
   height: 48px;
   border-radius: 24px;
   margin: 8px;
 }
-section .section__circle--big img {
+section .section__circle--big > div {
   width: 72px;
   height: 72px;
   border-radius: 36px;
-}
-section .section__text {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
 }
 section.section--center .section__text:not(:last-child) {
   border-bottom: 1px solid rgba(0,0,0,.13);
