@@ -27,24 +27,24 @@
   border-radius: 2px;
 }
 
-.mdl-card__img-container {
-  background-color     : $image-placeholder-color;
-  @if str_length($background-image-url) > 0 {
-  background-image     : url($background-image-url);
+.mdl-card__media {
+  background-color     : $card-image-placeholder-color;
+  @if str_length($card-background-image-url) > 0 {
+  background-image     : url($card-background-image-url);
   }
   background-repeat    : repeat;
   background-position  : 50% 50%;
   background-size      : cover;
   background-origin    : padding-box;
   background-attachment: scroll;
-  height               : $cover-image-height;
+  height               : $card-cover-image-height;
 }
 
-.mdl-card__heading {
+.mdl-card__title {
   align-items       : center;
-  background        : $heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
-  border            : $heading-back-border;
-  color             : $heading-back-color;
+  background        : $card-heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
+  border            : $card-heading-back-border;
+  color             : $card-heading-back-color;
   display           : flex;
   font-size         : $card-heading-font-size;
   height            : $card-heading-height;
@@ -56,70 +56,46 @@
   width             : 100%;
 }
 
-.mdl-card__heading-text {
+.mdl-card__title-text {
   align-self      : center;
-  color           : $heading-color;
+  color           : $card-heading-color;
   display         : flex;
   font-size       : inherit;
   font-weight     : $card-heading-text-font-weight;
   height          : $card-heading-height;
-  justify-self    : stretch;
   line-height     : normal;
   overflow        : hidden;
   transform-origin: $card-heading-text-transform-origin-x $card-heading-text-transform-origin-y;
   width           : 90%;
 }
 
-.mdl-card__caption {
-  background        : $caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
-  color             : $caption-color;
-  font-size         : $card-caption-font-size;
-  height            : $card-caption-height;
-  line-height       : normal;
-  padding           : $card-vertical-padding $card-horizontal-padding;
-  perspective-origin: $card-caption-perspective-origin-x $card-caption-perspective-origin-y;
-  width             : 100%;
-}
-
-.mdl-card__lower {
-  color          : $lower-text-color;
+.mdl-card__supporting-text {
+  color          : $card-lower-text-color;
   font-size      : $card-lower-font-size;
-  height         : $card-lower-height;
   line-height    : $card-lower-line-height;
   margin         : $card-lower-vertical-margin 0;
   overflow       : hidden;
-  padding        : 0 $card-horizontal-padding;
+  padding        : $card-vertical-padding $card-horizontal-padding;
   width          : 90%;
 }
 
-.mdl-card__bottom {
+.mdl-card__actions {
   font-size  : $card-bottom-font-size;
   height     : $card-bottom-height;
   line-height: normal;
   width      : 100%;
-  border-top : 1px solid rgba(0,0,0,.16);
+  background-color: rgba(0,0,0,0);
+
+  &--top-border {
+    // @TODO Figure out of the border color should be a variable. 
+    border-top : 1px solid rgba(0,0,0,.16);
+  }
 }
 
-.mdl-card__bottom a {
-  box-sizing        : border-box;
-  color             : $action-link-color;
-  cursor            : pointer;
-  display           : inline-block;
-  font-size         : $card-bottom-anchor-font-size;
-  font-weight       : normal;
-  height            : $card-bottom-anchor-height;
-  line-height       : $card-bottom-anchor-line-height;
-  padding           : 0 $card-horizontal-padding;
-  perspective-origin: $card-bottom-anchor-perspective-origin-x $card-bottom-anchor-perspective-origin-y;
-  text-transform    : uppercase;
-  transform-origin  : $card-bottom-anchor-transform-origin-x $card-bottom-anchor-transform-origin-y;
-  width             : 100%;
-  text-decoration   : none;
-}
 
 .mdl-card__menu {
   position: absolute;
   right: 0;
   top: 0;
-  color: $heading-color;
+  color: $card-heading-color;
 }

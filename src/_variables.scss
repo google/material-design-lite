@@ -222,17 +222,15 @@ $input-text-error-color: unquote("rgb(222, 50, 38)") !default;
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
-$heading-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$heading-back-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
-$action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
-$caption-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
-$image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
-$lower-text-color: unquote("rgb(#{$color-primary})") !default;
+$card-heading-color: unquote("rgb(#{$color-primary-contrast})") !default;
+$card-heading-back-color: unquote("rgb(#{$color-primary-contrast})") !default;
+$card-heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
+$card-action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
+$card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
+$card-lower-text-color: $text-color-primary !default;
 
 /* Heading back */
-$heading-back-border: 0 none unquote("rgb(#{$color-white})") !default;
+$card-heading-back-border: 0 none unquote("rgb(#{$color-white})") !default;
 
 /* ==========  Sliders ========== */
 
@@ -460,15 +458,8 @@ $card-heading-transform-origin-y: 56px !default;
 $card-heading-text-transform-origin-x: 149px !default;
 $card-heading-text-transform-origin-y: 48px !default;
 
-$card-caption-perspective-origin-x: 165px !default;
-$card-caption-perspective-origin-y: 16px !default;
-
-$card-caption-font-size: 12px !default;
-$card-caption-height: 16px !default;
-
 $card-lower-font-size: 13px !default;
 $card-lower-line-height: 18px !default;
-$card-lower-height: 108px !default;
 $card-lower-vertical-margin: 10px !default;
 
 $card-bottom-height: 50px !default;
@@ -488,8 +479,8 @@ $card-heading-text-font-weight: 300 !default;
 $card-z-index: 1 !default;
 
 /* Cover image */
-$cover-image-height: 186px !default;
-$background-image-url: '' !default;
+$card-cover-image-height: 186px !default;
+$card-background-image-url: '' !default;
 
 
 /* BUTTON */
