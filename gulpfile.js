@@ -385,7 +385,7 @@ gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], funct
   }));
 });
 
-gulp.task('templates:styles', function() {
+gulp.task('templates:mdl', function() {
   return gulp.src([
     'templates/**/*.scss'
   ])
@@ -397,15 +397,25 @@ gulp.task('templates:styles', function() {
       webRoot: 'src'
     }))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe($.if('*.css', $.csso()))
+    .pipe($.csso())
     .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest('dist/templates'))
+    .pipe(gulp.dest('dist/templates'));
+});
+
+gulp.task('templates:styles', function() {
+  return gulp.src([
+    'templates/**/*.css'
+  ])
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    // FIXME: This crashes. It's a bug in gulp-csso,
+    // not csso itself.
+    //.pipe($.csso())
+    .pipe(gulp.dest('dist/templates'));
 });
 
 gulp.task('templates:static', function() {
   return gulp.src([
     'templates/**/*.html',
-    'templates/**/*.css'
   ])
   .pipe(gulp.dest('dist/templates'));
 });
@@ -428,4 +438,4 @@ gulp.task('templates:fonts', function() {
   .pipe(gulp.dest('dist/templates/'));
 })
 
-gulp.task('templates', ['templates:static', 'templates:images', 'templates:styles', 'templates:fonts']);
+gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl', 'templates:styles', 'templates:fonts']);
