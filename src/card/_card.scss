@@ -69,17 +69,6 @@
   width           : 90%;
 }
 
-.mdl-card__caption {
-  background        : $card-caption-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
-  color             : $card-caption-color;
-  font-size         : $card-caption-font-size;
-  height            : $card-caption-height;
-  line-height       : normal;
-  padding           : $card-vertical-padding $card-horizontal-padding;
-  perspective-origin: $card-caption-perspective-origin-x $card-caption-perspective-origin-y;
-  width             : 100%;
-}
-
 .mdl-card__supporting-text {
   color          : $card-lower-text-color;
   font-size      : $card-lower-font-size;
