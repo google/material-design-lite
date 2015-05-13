@@ -284,3 +284,11 @@ button a {
   color: inherit;
   text-decoration: none;
 }
+
+.component-description {
+  max-width: 720px;
+  padding: 40px;
+}
+.component-description .mdl-button:first-of-type {
+  margin-top: 8px;
+}
