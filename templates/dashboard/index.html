@@ -26,7 +26,7 @@
     <link rel="canonical" href="http://www.example.com/">
     -->
 
-    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="material.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -47,20 +47,20 @@
         <div class="mdl-layout__header-row">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <span class="mdl mdl-icon--search"></span>
+              <span class="mdl mdl-icon mdl-icon--search"></span>
             </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search" />
-              <label class="mdl-textfield__label" for="expando1">Enter your query...</label>
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
             </div>
           </div>
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"><span class="mdl-icon mdl-icon--more-vert"></span></button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <button class="mdl-menu__item">What is </button>
-            <button class="mdl-menu__item">supposed to </button>
-            <button class="mdl-menu__item">be here?</button>
+            <li class="mdl-menu__item">What is </li>
+            <li class="mdl-menu__item">supposed to </li>
+            <li class="mdl-menu__item">be here?</li>
           </ul>
         </div>
       </header>
@@ -72,9 +72,9 @@
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--arrow-drop-down"></span></button>
             <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <button class="mdl-menu__item">hello@email.com</button>
-              <button class="mdl-menu__item">info@domain.net</button>
-              <button class="mdl-menu__item"><span class="mdl-icon mdl-icon--add"></span> Add another account...</button>
+              <li class="mdl-menu__item">hello@email.com</li>
+              <li class="mdl-menu__item">info@domain.net</li>
+              <li class="mdl-menu__item"><span class="mdl-icon mdl-icon--add"></span> Add another account...</li>
             </ul>
           </div>
         </header>
@@ -117,18 +117,18 @@
         </div>
         <div class="cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid">
           <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-desktop">
-            <div class="mdl-card--heading mdl-color--teal-300 dog">
-              <h2 class="mdl-card--heading-text">Updates</h2>
+            <div class="mdl-card__title mdl-color--teal-300 dog">
+              <h2 class="mdl-card__title-text">Updates</h2>
             </div>
-            <div class="mdl-card--lower mdl-color-text--grey-600">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
               Non dolore elit adipisicing ea reprehenderit consectetur culpa.
             </div>
-            <div class="mdl-card--bottom ">
+            <div class="mdl-card__actions ">
               <a href="#">Read More</a>
             </div>
           </div>
           <div class="mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-desktop">
-            <div class="mdl-card--lower mdl-color-text--blue-grey-50">
+            <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
               <h3>View options</h3>
               <ul>
                 <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
@@ -149,7 +149,7 @@
                 </label>
               </ul>
             </div>
-            <div class="mdl-card--bottom">
+            <div class="mdl-card__actions">
               <a href="#" class=" mdl-color-text--blue-grey-50">Change location</a>
               <div class="mdl-layout-spacer"></div>
               <span class="mdl-icon mdl-icon--location-on"></span>

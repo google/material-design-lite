@@ -79,17 +79,17 @@ html, body {
   display: flex;
   flex-direction: column;
 }
-.cards .mdl-card--heading {
+.cards .mdl-card__title {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
   flex-grow: 1;
 }
-.cards .mdl-card--lower {
+.cards .mdl-card__supporting-text {
   height: auto;
   flex-grow: 0;
 }
-.cards .mdl-card--heading h2 {
+.cards .mdl-card__title h2 {
   height: auto;
   align-self: flex-end;
 }

@@ -35,11 +35,11 @@ main.mdl-layout__content {
   align-items: stretch;
   min-height: 460px;
 }
-.mdl-card--header {
+.mdl-card__title {
   padding: 16px;
   flex-grow: 1;
 }
-.mdl-card--img-container {
+.mdl-card__media {
   box-sizing: border-box;
   background-size: cover;
   padding: 40px;
@@ -48,25 +48,30 @@ main.mdl-layout__content {
   flex-direction: row;
   align-items: flex-end;
 }
-.mdl-card--img-container a,
-.mdl-card--header a {
+.mdl-card__media a,
+.mdl-card__title a {
   color: inherit;
 }
-.mdl-card--lower {
+.mdl-card__supporting-text {
   width: auto;
   flex-grow: 1;
   color: rgba(0, 0, 0, 0.87);
 }
-.mdl-card--header ~ .mdl-card--lower {
+.mdl-card__title ~ .mdl-card__supporting-text {
   flex-grow: 0;
 }
-.mdl-card--img-container ~ .mdl-card--lower {
+.mdl-card__media ~ .mdl-card__supporting-text {
   flex-grow: 0;
 }
 
-.mdl-card--lower ~ .mdl-card--bottom {
+.mdl-card__supporting-text ~ .mdl-card__actions {
   border-top: 1px solid #CCC;
 }
+
+.mdl-card__supporting-text {
+  width: 100%;
+}
+
 .meta {
   box-sizing: border-box;
   padding: 16px;
@@ -102,24 +107,24 @@ main.mdl-layout__content {
   flex-direction: column;
 }
 
-.coffee-pic .mdl-card--img-container {
+.coffee-pic .mdl-card__media {
   background-image: url('images/coffee.jpg');
 }
-.something-else .mdl-card--img-container {
+.something-else .mdl-card__media {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.something-else .mdl-card--img-container img {
+.something-else .mdl-card__media img {
   width: 33%;
   height: 33;
   margin-bottom: 10px;
 }
-.on-the-road-again .mdl-card--img-container {
+.on-the-road-again .mdl-card__media {
   background-image: url('images/road.jpg');
 }
-.shopping .mdl-card--img-container {
+.shopping .mdl-card__media {
   background-image: url('images/shopping.jpg');
 }
 
@@ -166,20 +171,20 @@ h3.quote:after {
   width: 100%;
   height: auto;
 }
-.blogpost main > .mdl-card > .mdl-card--bottom {
+.blogpost main > .mdl-card > .mdl-card__actions {
   box-sizing: border-box;
   height: auto;
   padding: 80px 120px;
 }
 @media (max-width: 480px) {
-  .blogpost main > .mdl-card > .mdl-card--bottom {
+  .blogpost main > .mdl-card > .mdl-card__actions {
     padding: 20px 30px;
   }
 }
-.blogpost main > .mdl-card .mdl-card--img-container {
+.blogpost main > .mdl-card .mdl-card__media {
   background-image: url('images/road_big.jpg');
 }
-.blogpost main .mdl-card--bottom {
+.blogpost main .mdl-card__actions {
   border: 0 !important;
 }
 .blogpost .comments {

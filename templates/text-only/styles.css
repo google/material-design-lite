@@ -69,7 +69,7 @@ section .section__circle--big > div {
 section.section--center .section__text:not(:last-child) {
   border-bottom: 1px solid rgba(0,0,0,.13);
 }
-.mdl-card .mdl-card--lower > h3:first-child {
+.mdl-card .mdl-card__supporting-text > h3:first-child {
   margin-bottom: 24px !important;
 }
 
@@ -108,13 +108,13 @@ section.section--center .section__text:not(:last-child) {
 .mdl-card > * {
   height: auto;
 }
-.mdl-card--bottom {
+.mdl-card__actions {
   color: inherit;
 }
-.mdl-card--bottom a {
+.mdl-card__actions a {
   color: inherit;
 }
-.mdl-card--lower {
+.mdl-card__supporting-text {
   flex-grow: 1;
   margin: 32px;
   padding: 0;

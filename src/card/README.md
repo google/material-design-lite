@@ -97,7 +97,7 @@ Card (level-3 shadow) with an image, caption, and text:
 <div class="mdl-card mdl-shadow--4dp">
   <div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
   </div>
-  <div class="mdl-card__caption">
+  <div class="mdl-card__supporting-text">
     Auckland Sky Tower, taken March 24th, 2014
   </div>
   <div class="mdl-card__supporting-text">
