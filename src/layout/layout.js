@@ -59,6 +59,7 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
+  CONTAINER: 'mdl-layout__container',
   HEADER: 'mdl-layout__header',
   DRAWER: 'mdl-layout__drawer',
   CONTENT: 'mdl-layout__content',
@@ -86,6 +87,7 @@ MaterialLayout.prototype.CssClasses_ = {
 
   HAS_DRAWER: 'has-drawer',
   HAS_TABS: 'has-tabs',
+  HAS_SCROLLING_HEADER: 'has-scrolling-header',
   CASTING_SHADOW: 'is-casting-shadow',
   IS_COMPACT: 'is-compact',
   IS_SMALL_SCREEN: 'is-small-screen',
@@ -199,7 +201,7 @@ MaterialLayout.prototype.init = function() {
 
   if (this.element_) {
     var container = document.createElement('div');
-    container.classList.add('mdl-layout__container');
+    container.classList.add(this.CssClasses_.CONTAINER);
     this.element_.parentElement.insertBefore(container, this.element_);
     this.element_.parentElement.removeChild(this.element_);
     container.appendChild(this.element_);
@@ -230,6 +232,7 @@ MaterialLayout.prototype.init = function() {
       } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
+        container.classlist.add(this.CssClasses_.HAS_SCROLLING_HEADER);
       }
 
       if (mode === this.Mode_.STANDARD) {
