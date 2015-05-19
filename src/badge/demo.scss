@@ -17,99 +17,79 @@
 @import "../material-design-lite";
 
 .demo-page--badge {
-    section {
-        h5 {
-            margin-bottom: 15px;
-        }
-
-        margin-bottom: 30px;
+  section {
+    h5 {
+      margin-bottom: 15px;
     }
 
-    div.toolbar {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-content: space-between;
-        align-items: center;
+    margin-bottom: 30px;
+  }
+
+  div.toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
 
 
-        background : #eee;
-        padding    : 10px 10px 0 10px;
-        height     : 40px;
-        border-radius: 5px;
+    background: #eee;
+    padding: 10px 10px 0 10px;
+    height: 40px;
+    border-radius: 5px;
 
-        .wrapper {
-            flex-grow: 1;
+    .wrapper {
+      flex-grow: 1;
 
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: space-between;
-            align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: space-between;
+      align-items: flex-start;
 
-            .icon {
-                background-color : transparent;
-                &.mdl-badge {
-                    opacity: 1;
-                }
-                border           : none;
-                display          : inline-block;
-                height           : 21px;
-                margin           : 10px 25px 15px 25px;
-                opacity          : .7;
-                outline          : none;
-                padding          : 0;
-                position         : relative;
-                width            : 21px;
-
-                &:hover {
-                    opacity : 1;
-                }
-            }
+      .icon {
+        background-color : transparent;
+        &.mdl-badge {
+          opacity: 1;
         }
+        border: none;
+        display: inline-block;
+        height: 21px;
+        margin: 10px 25px 15px 25px;
+        opacity: .7;
+        outline: none;
+        padding: 0;
+        position: relative;
+        width: 21px;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
+  }
 
-    .links {
-        margin-top: 25px;
+  .links {
+    margin-top: 25px;
 
-        a {
-            text-decoration: none;
-            font-weight: normal;
+    a {
+      text-decoration: none;
+      font-weight: normal;
 
-            margin-top: 10px;
-        }
-        .dark {
-            display: block;
-            border-radius: 5px;
-
-            margin: 5px 0;
-            padding: 15px;
-            background-color: $layout-header-bg-color;;
-            a {
-                color: white;
-
-            }
-        }
-
-        .fontawsom {
-            margin-top: 25px;
-            a, a:visited {
-                color: black;
-            }
-
-            i.fa {
-                font-size: 20px;
-                margin-right: 3px;
-            }
-        }
+      margin-top: 10px;
     }
+    .dark {
+      display: block;
+      border-radius: 5px;
 
-    .button-block {
-        padding: 10px;
+      margin: 5px 0;
+      padding: 15px;
+      background-color: $layout-header-bg-color;
+      a {
+        color: white;
+      }
     }
+  }
 }
-
-
-
