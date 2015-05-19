@@ -71,6 +71,17 @@ html, body {
   height: auto;
   margin-bottom: 80px;
 }
+.graph {
+  width:100%;
+  height: auto;
+}
+.graph:nth-child(1) {
+  fill: #00b9d8;
+}
+.graph:nth-child(2) {
+  fill: #d9006e;
+}
+
 .cards {
   padding: 0;
   margin: 0;
