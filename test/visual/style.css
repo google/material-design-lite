@@ -1,15 +1,16 @@
-body {
-  padding: 1%;
-}
-
-body > div {
+.demo-container {
+  width: 100%;
+  float: left;
+  margin: 0 40px 40px 0;
+  border: 1px solid #888888;
   position: relative;
+  height: 500px;
 }
 
-.button-block {
-  margin: 20px 20px 20px 0;
+iframe {
+  width: auto;
 }
 
-.mdl-card {
-  margin: 20px;
+.mdl-layout__content {
+  padding: 10px;
 }
