@@ -43,6 +43,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     padding: 0;
     color: $range-color;
     align-self: center;
+    z-index: 1;
 
 
     // Disable default focus on Firefox.
@@ -377,7 +378,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     top: 50%;
     left: 0;
     margin: 0 26px;
-    z-index: -1;
     display: flex;
     overflow: hidden;
     border: 0;
