@@ -162,7 +162,6 @@ gulp.task('scripts', function () {
     // Base components
     'src/button/button.js',
     'src/checkbox/checkbox.js',
-    'src/column-layout/column-layout.js',
     'src/icon-toggle/icon-toggle.js',
     'src/menu/menu.js',
     'src/progress/progress.js',
@@ -258,7 +257,7 @@ function applyTemplate() {
  * Generates an index.html file for each README in MDL/src directory.
  */
 gulp.task('components', function() {
-  return gulp.src('./src/**/README.md', {base: './src'})
+  return gulp.src(['./src/**/README.md'], {base: './src'})
     // Add basic front matter.
     .pipe($.header('---\nlayout: component\nbodyclass: components\ninclude_prefix: ../../\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
@@ -288,6 +287,7 @@ gulp.task('components', function() {
  */
 gulp.task('demos', function () {
   return gulp.src([
+      './src/**/*.css',
       './src/**/demo.*',
       './src/**/*.js'
     ], {base: './src'})

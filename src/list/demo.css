@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-@import "../material-design-lite";
-
-.demo-icon-toggle-block {
-  display: inline-block;
-  margin: 0 20px 20px 0;
+.demo-page--list .mdl-list-view--avatar {
+  background: url("../demo-images/avatar.png");
+  background-size: 100%;
 }

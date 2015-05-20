@@ -14,15 +14,11 @@
  * limitations under the License.
  */
 
-@import "../material-design-lite";
-
 .demo-page--typography {
-  color: $text-color-primary;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .demo-page--typography table th {
-  @include typo-caption($colorContrast: true);
-
   padding-right: 80px;
 
   vertical-align: top;

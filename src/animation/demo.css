@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-@import "../variables";
-@import "../mixins";
-
 .demo-animation {
   height: 200px;
   width: 300px;
@@ -49,46 +46,40 @@
   z-index: -100;
 }
 
-// Outside the view, on the left.
-// We leave the view when moving to this state, so we use fast-out-linear-in.
-.demo-animation--position-1 {
+/* Outside the view, on the left.
+   We leave the view when moving to this state, so we use fast-out-linear-in. */
+.demo-animation--position-0 {
   left: -102px;
-  @include material-animation-fast-out-linear-in();
 }
 
-// Left side.
-// We enter the view when moving to this state, so we use linear-out-slow-in.
+/* Left side.
+   We enter the view when moving to this state, so we use linear-out-slow-in. */
+.demo-animation--position-1 {
+  left: 20px;
+}
+
+/* Right side.
+   We're always visible when moving to this state, so we use default. */
 .demo-animation--position-2 {
-  left: 20px;
-  @include material-animation-linear-out-slow-in();
+  left: 180px;
 }
 
-// Right side.
-// We're always visible when moving to this state, so we use default.
+/* Outside the view, on the right.
+   We leave the view when moving to this state, so we use fast-out-linear-in. */
 .demo-animation--position-3 {
-  left: 180px;
-  @include material-animation-default();
-}
-
-// Outside the view, on the right.
-// We leave the view when moving to this state, so we use fast-out-linear-in.
-.demo-animation--position-4 {
   left: 302px;
-  @include material-animation-fast-out-linear-in();
 }
 
-// Right side.
-// We enter the view when moving to this state, so we use linear-out-slow-in.
-.demo-animation--position-5 {
+/* Right side.
+   We enter the view when moving to this state, so we use linear-out-slow-in. */
+.demo-animation--position-4 {
   left: 180px;
-  @include material-animation-linear-out-slow-in();
 }
 
-// Left side.
-// We're always visible when moving to this state, so we use default.
-.demo-animation--position-6 {
+/* Left side.
+   We're always visible when moving to this state, so we use default. */
+.demo-animation--position-5 {
   left: 20px;
-  @include material-animation-default();
 }
 
 .demo-animation__movable {
@@ -100,4 +91,5 @@
   position: absolute;
   top: 50px;
   transition-property: left;
+  transition-duration: 0.2s;
 }
