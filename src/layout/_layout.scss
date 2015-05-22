@@ -555,8 +555,7 @@
       left: 0;
       position: absolute;
       background: $layout-header-tab-highlight;
-      -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
-      -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
+      animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0.01s alternate forwards;
       transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
     }
 
