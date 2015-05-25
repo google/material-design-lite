@@ -115,6 +115,15 @@ MaterialTabs.prototype.init = function() {
   }
 };
 
+/*
+* Downgrade the component
+*/
+MaterialTabs.prototype.mdlDowngrade = function() {
+  for (var i = 0; i < this.tabs_.length; i++) {
+    this.tabs_[i].removeEventListener('click', MaterialTab.onClick_);
+  }
+};
+
 function MaterialTab(tab, ctx) {
   'use strict';
 
@@ -128,19 +137,20 @@ function MaterialTab(tab, ctx) {
       rippleContainer.appendChild(ripple);
       tab.appendChild(rippleContainer);
     }
-
-    tab.addEventListener('click', function(e) {
-      e.preventDefault();
-      var href = tab.href.split('#')[1];
-      var panel = ctx.element_.querySelector('#' + href);
-      ctx.resetTabState_();
-      ctx.resetPanelState_();
-      tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-      panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-    });
-
+    tab.addEventListener('click', this.onClick_);
   }
 }
+
+MaterialTab.prototype.onClick_ = function(e) {
+  'use strict';
+  e.preventDefault();
+  var href = tab.href.split('#')[1];
+  var panel = ctx.element_.querySelector('#' + href);
+  ctx.resetTabState_();
+  ctx.resetPanelState_();
+  tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+  panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+};
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.

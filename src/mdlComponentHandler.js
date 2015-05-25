@@ -20,12 +20,14 @@
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
- /* exported componentHandler */
+/* exported componentHandler */
 var componentHandler = (function() {
   'use strict';
 
   var registeredComponents_ = [];
   var createdComponents_ = [];
+  var downgradeMethod_ = 'mdlDowngrade_';
+  var componentConfigProperty_ = 'mdlComponentConfigInternal_';
 
   /**
    * Searches registered components for a class we are interested in using.
@@ -46,7 +48,6 @@ var componentHandler = (function() {
     }
     return false;
   }
-
 
   /**
    * Searches existing DOM for elements of our component type and upgrades them
@@ -77,7 +78,6 @@ var componentHandler = (function() {
     }
   }
 
-
   /**
    * Upgrades a specific element rather than all in the DOM.
    * @param {HTMLElement} element The element we wish to upgrade.
@@ -98,6 +98,7 @@ var componentHandler = (function() {
       if (registeredClass) {
         // new
         var instance = new registeredClass.classConstructor(element);
+        instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
         registeredClass.callbacks.forEach(function (callback) {
@@ -107,9 +108,7 @@ var componentHandler = (function() {
         // Assign per element instance for control over API
         element.widget = instance;
       } else {
-        // If component creator forgot to register, try and see if
-        // it is in global scope.
-        createdComponents_.push(new window[jsClass](element));
+        throw 'Unable to find a registered component for the given class.';
       }
 
       var ev = document.createEvent('Events');
@@ -117,7 +116,6 @@ var componentHandler = (function() {
       element.dispatchEvent(ev);
     }
   }
-
 
   /**
    * Registers a class for future use and attempts to upgrade existing DOM.
@@ -132,13 +130,25 @@ var componentHandler = (function() {
       'callbacks': []
     };
 
+    registeredComponents_.forEach(function(item) {
+      if (item.cssClass === newConfig.cssClass) {
+        throw 'The provided cssClass has already been registered.';
+      }
+      if (item.className === newConfig.className) {
+        throw 'The provided className has already been registered';
+      }
+    });
+
+    if (config.constructor.prototype.hasOwnProperty(componentConfigProperty_)) {
+      throw 'MDL component classes must not have ' + componentConfigProperty_ + ' defined as a property.';
+    }
+
     var found = findRegisteredClass_(config.classAsString, newConfig);
 
     if (!found) {
       registeredComponents_.push(newConfig);
     }
   }
-
 
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
@@ -155,7 +165,6 @@ var componentHandler = (function() {
     }
   }
 
-
   /**
    * Upgrades all registered components found in the current DOM. This is
    * automatically called on window load.
@@ -166,6 +175,62 @@ var componentHandler = (function() {
     }
   }
 
+  /**
+   * Finds a created component by a given DOM node.
+   *
+   * @param node
+   * @returns {*}
+   */
+  function findCreatedComponentByNodeInternal(node) {
+    for (var n = 0; n < createdComponents_.length; n++) {
+      var component = createdComponents_[n];
+      if (component.element_ === node) {
+        return component;
+      }
+    }
+  }
+
+  /**
+   * Check the component for the downgrade method.
+   * Execute if found.
+   * Remove component from createdComponents list.
+   *
+   * @param component
+   */
+  function deconstructComponentInternal(component) {
+    if (component && component.__proto__[downgradeMethod_]) {
+      component[downgradeMethod_]();
+      var componentIndex = createdComponents_.indexOf(component);
+      createdComponents_.splice(componentIndex, 1);
+      var upgrades = component.element_.dataset.upgraded.split(',');
+      var componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+      upgrades.splice(componentPlace, 1);
+      component.element_.dataset.upgraded = upgrades.join(',');
+      var ev = document.createEvent('Events');
+      ev.initEvent('mdl-componentdowngraded', true, true);
+      component.element_.dispatchEvent(ev);
+    }
+  }
+
+  /**
+   * Downgrade either a given node, an array of nodes, or a NodeList.
+   *
+   * @param nodes
+   */
+  function downgradeNodesInternal(nodes) {
+    var downgradeNode = function(node) {
+      deconstructComponentInternal(findCreatedComponentByNodeInternal(node));
+    };
+    if (nodes instanceof Array || nodes instanceof NodeList) {
+      for (var n = 0; n < nodes.length; n++) {
+        downgradeNode(nodes[n]);
+      }
+    } else if (nodes instanceof Node) {
+      downgradeNode(nodes);
+    } else {
+      throw 'Invalid argument provided to downgrade MDL nodes.';
+    }
+  }
 
   // Now return the functions that should be made public with their publicly
   // facing names...
@@ -174,10 +239,10 @@ var componentHandler = (function() {
     upgradeElement: upgradeElementInternal,
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
-    register: registerInternal
+    register: registerInternal,
+    downgradeElements: downgradeNodesInternal
   };
 })();
-
 
 window.addEventListener('load', function() {
   'use strict';
