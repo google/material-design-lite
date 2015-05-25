@@ -45,6 +45,7 @@
   background        : $card-heading-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
   border            : $card-heading-back-border;
   color             : $card-heading-back-color;
+  display: block;
   display           : flex;
   font-size         : $card-heading-font-size;
   height            : $card-heading-height;
@@ -59,6 +60,7 @@
 .mdl-card__title-text {
   align-self      : center;
   color           : $card-heading-color;
+  display: block;
   display         : flex;
   font-size       : inherit;
   font-weight     : $card-heading-text-font-weight;
