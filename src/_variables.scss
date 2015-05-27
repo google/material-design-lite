@@ -39,6 +39,7 @@
  * -----Badge
  * -----Shadows
  * -----Grid
+ * -----Data table
  */
 
 
@@ -558,3 +559,26 @@ $grid-phone-gutter: $grid-desktop-gutter !default;
 $grid-phone-margin: $grid-desktop-margin !default;
 
 $grid-cell-default-columns: $grid-phone-columns !default;
+
+/* DATA TABLE */
+
+$data-table-header-color: rgba(#000, 0.54);
+$data-table-divider-color: rgba(#000, 0.12);
+
+$data-table-hover-color: #eeeeee;
+$data-table-selection-color: #e0e0e0;
+
+$data-table-dividers: 1px solid $data-table-divider-color;
+
+$data-table-row-height: 48px;
+$data-table-last-row-height: 56px;
+$data-table-header-height: 56px;
+
+$data-table-column-spacing: 36px;
+$data-table-column-padding: $data-table-column-spacing / 2;
+
+$data-table-card-header-height: 64px;
+$data-table-card-title-top: 20px;
+$data-table-card-padding: 24px;
+$data-table-button-padding-right: 16px;
+$data-table-cell-top: $data-table-card-padding / 2;
