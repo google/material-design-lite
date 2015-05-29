@@ -19,6 +19,9 @@
 .mdl-snackbar {
   position: absolute;
   bottom: 0;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
   // Hard coded since the color is not present in any pallet.
   background-color: #323232;
   min-height: 48px;
@@ -29,8 +32,8 @@
     width: 100%;
   }
   @media(min-width: $grid-tablet-breakpoint) {
-    width: 568px;
-    left: 25%;
+    min-width: 288px;
+    max-width: 568px;
   }
 }
 
