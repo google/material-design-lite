@@ -39,3 +39,12 @@ include_prefix: ./
 	</p>
 </section>
 <script src="assets/index.js" async></script>
+
+<div class="mdl-snackbar">
+  <div class="mdl-snackbar__text">
+    Item added to cart.
+  </div>
+
+  <button type=button class="mdl-snackbar__action">Undo</button>
+
+</div>
