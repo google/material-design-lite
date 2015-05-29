@@ -19,6 +19,7 @@
 .mdl-snackbar {
   position: absolute;
   bottom: 0;
+  // Hard coded since the color is not present in any pallet.
   background-color: #323232;
   min-height: 48px;
   z-index: 10000;
@@ -41,8 +42,36 @@
 }
 
 .mdl-snackbar__action {
-  @extend .mdl-button;
+  background: transparent;
+  border: none;
+  border-radius: $button-border-radius;
   color: unquote("rgb(#{$color-accent})");
   margin: auto 24px;
   text-transform: uppercase;
+  display: block;
+  position: relative;
+  height: $button-height;
+  min-width: $button-min-width;
+  padding: 0 $button-padding;
+  display: inline-block;
+  @include typo-button();
+  overflow: hidden;
+  will-change: box-shadow, transform;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+              background-color 0.2s $animation-curve-default,
+              color 0.2s $animation-curve-default;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: $button-height;
+  vertical-align: middle;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
 }
