@@ -35,3 +35,12 @@ include_prefix: ./
 	Cillum magna sit ea exercitation excepteur enim pariatur ex deserunt. Deserunt aute nisi in laboris anim proident sunt enim pariatur quis. Aliqua anim voluptate veniam ad eiusmod ullamco deserunt. Laborum duis proident ipsum ex velit sint sint veniam amet eu Lorem. Nostrud adipisicing consequat deserunt magna consectetur pariatur culpa qui do. Ex dolor incididunt laborum ex ea non ea incididunt labore laboris minim consequat cillum. Proident nisi pariatur amet velit exercitation Lorem officia irure occaecat in deserunt. Tempor enim culpa do eu ipsum consequat irure amet officia.
 </section>
 <script src="assets/index.js" async></script>
+
+<div class="mdl-snackbar">
+  <div class="mdl-snackbar__text">
+    Item added to cart.
+  </div>
+
+  <button type=button class="mdl-snackbar__action">Undo</button>
+
+</div>
