@@ -68,8 +68,8 @@ main.mdl-layout__content {
   border-top: 1px solid #CCC;
 }
 
-.mdl-card__supporting-text {
-  width: 100%;
+.mdl-card__actions :first-child {
+  margin-left: 0;
 }
 
 .meta {
