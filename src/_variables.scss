@@ -222,15 +222,9 @@ $input-text-error-color: unquote("rgb(222, 50, 38)") !default;
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
-$card-title-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$card-title-back-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$card-title-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
 $card-action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
 $card-supporting-text-text-color: $text-color-primary !default;
-
-/* Heading back */
-$card-title-back-border: 0 none unquote("rgb(#{$color-white})") !default;
 
 /* ==========  Sliders ========== */
 

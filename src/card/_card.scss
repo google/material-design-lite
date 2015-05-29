@@ -42,9 +42,6 @@
 
 .mdl-card__title {
   align-items       : center;
-  background        : $card-title-back-bgcolor none repeat scroll 0 0 / auto padding-box border-box;
-  border            : $card-title-back-border;
-  color             : $card-title-back-color;
   display: block;
   display           : flex;
   font-size         : $card-title-font-size;
@@ -59,7 +56,6 @@
 
 .mdl-card__title-text {
   align-self      : center;
-  color           : $card-title-color;
   display: block;
   display         : flex;
   font-size       : inherit;
@@ -100,5 +96,4 @@
   position: absolute;
   right: 0;
   top: 0;
-  color: $card-title-color;
 }
