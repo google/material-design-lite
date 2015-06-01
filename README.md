@@ -1,8 +1,8 @@
 # Material Design Lite
 
-> A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, JS and HTML
+> A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, JS, and HTML
 
-Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript frameworks and aims to optimise for cross-device use, gracefully degrade in older browsers and offer an experience that is accessible from the get-go.
+Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript frameworks or libraries. Optimised for cross-device use, gracefully degrade in older browsers, and offer an experience that is accessible from the get-go.
 
 ## Quick start
 
@@ -15,27 +15,28 @@ Four quick start options are available:
 
 ### What's included
 
-Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+Within the download you'll find the following directories and files.
 
-```
-├── css
-│   ├── material.css
-│   └── material.min.css
-├── js
-│   ├── material.js
-│   ├── material.min.js
-│   └── material.min.js.map
-├── templates
-├── images
-├── src
-├── package.json
-├── bower.json
-├── gulpfile.js
-├── LICENSE
-├── README.md
-```
-
-We provide compiled CSS and JS (`material.*`), as well as compiled and minified CSS and JS (`material.min.*`). JS source maps (`material.*.map`) are available for use with certain browsers' developer tools.
+* bower.json
+    * Bower package configuration.
+* CONTRIBUTING.md
+    * MDL contribution guidelines
+* docs
+    * Template files for documentation.
+* gulpfile.js
+    * gulp configuration for MDL.
+* LICENSE
+    * Project license information.
+* package.json
+    * NPM package information.
+* README.md
+    * This file. Details quickly understanding the project.
+* src
+    * Source code for MDL.
+* templates
+    * Example templates.
+* test
+    * Project test files.
 
 ## Getting Started
 
@@ -56,13 +57,13 @@ included.
 ### npm
 
 ```
-$ npm install --save material-design-lite
+npm install --save material-design-lite
 ```
 
 ### bower
 
 ```
-$ bower install --save material-design-lite
+bower install --save material-design-lite
 ```
 
 
@@ -72,13 +73,13 @@ The sources (JS, Sass) and demo files for all components can be found in the `sr
 modifying them, first install the necessary dependencies, from the root of the project:
 
 ```
-$ npm install && npm install -g gulp
+npm install && npm install -g gulp
 ```
 
 Next, run the following one-liner to preview the components:
 
 ```
-$ gulp serve
+gulp serve
 ```
 
 Any changes made to files inside the `src` directory will cause the page to reload. This page can also be loaded
@@ -87,11 +88,10 @@ up on physical devices thanks to BrowserSync.
 To build a production version of the components, run:
 
 ```
-$ gulp
+gulp
 ```
 
-This will clean and update the `css`, `js` and `images` directories in the root of the project with minified and
-concatenated versions of the component files. Namely, `css/material.min.css` and `js/material.min.js`.
+This will clean the `dist` folder and rebuild the assets for serving.
 
 ## Templates
 
@@ -119,7 +119,7 @@ For transparency into our release cycle and in striving to maintain backward com
 
 ## Feature requests
 
-If you find MDL doesn't contain a particular component you think would be useful, please check the issue tracker in case work has already started on it. If not, you can request new component in the [following](https://github.com/google/material-design-lite/issues/92) thread. Please be sure to include justification for why you think the component should be implemented to help us with planning.
+If you find MDL doesn't contain a particular component you think would be useful, please check the issue tracker in case work has already started on it. If not, you can request a [new component](https://github.com/Google/material-design-lite/issues/new?title=[Component%20Request]%20{Component}&body=Please%20include:%0A*%20Description%0A*%20Material%20Design%20Spec%20link%0A*%20Use%20Case%28s%29).
 
 ## In-development
 
