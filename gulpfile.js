@@ -52,7 +52,6 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
-
 // ***** Development tasks ****** //
 
 // Lint JavaScript
@@ -63,7 +62,6 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
-
 
 // ***** Production build tasks ****** //
 
@@ -175,7 +173,6 @@ gulp.task('scripts', function () {
     // Polyfills/dependencies
     'src/third_party/**/*.js',
     // Base components
-    'src/animation/animation.js',
     'src/button/button.js',
     'src/checkbox/checkbox.js',
     'src/column-layout/column-layout.js',
@@ -213,13 +210,12 @@ gulp.task('scripts', function () {
 gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
 
 // Build Production Files, the Default Task
-gulp.task('default', ['clean','mocha'], function (cb) {
+gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
     ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos', 'templates', 'images'],
     cb);
 });
-
 
 // ***** Testing tasks ***** //
 
@@ -239,7 +235,6 @@ gulp.task('test:visual', function() {
 
   gulp.watch(['test/visual/**'], reload);
 });
-
 
 // ***** Landing page tasks ***** //
 
@@ -269,7 +264,6 @@ function applyTemplate() {
   })
 }
 
-
 /**
  * Generates an index.html file for each README in MDL/src directory.
  */
@@ -294,20 +288,19 @@ gulp.task('components', function() {
     })())
     .pipe(applyTemplate())
     .pipe($.rename(function (path) {
-        path.basename = "index";
+      path.basename = "index";
     }))
     .pipe(gulp.dest('dist/components'));
 });
-
 
 /**
  * Copies demo files from MDL/src directory.
  */
 gulp.task('demos', function () {
-    return gulp.src([
-        './src/**/demo.*',
-        './src/**/*.js'
-      ], {base: './src'})
+  return gulp.src([
+      './src/**/demo.*',
+      './src/**/*.js'
+    ], {base: './src'})
       .pipe($.if('*.scss', $.sass({
         precision: 10,
         onError: console.error.bind(console, 'Sass error:')
@@ -318,7 +311,6 @@ gulp.task('demos', function () {
       .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
       .pipe(gulp.dest('dist/components'));
 });
-
 
 /**
  * Generates an HTML file for each md file in _pages directory.
@@ -337,7 +329,6 @@ gulp.task('pages', ['components'], function() {
     .pipe(gulp.dest('dist'));
 });
 
-
 /**
  * Copies assets from MDL and _assets directory.
  */
@@ -349,7 +340,6 @@ gulp.task('assets', function () {
     })))
     .pipe(gulp.dest('dist/assets'));
 });
-
 
 /**
  * Serves the landing page from "out" directory.
