@@ -236,5 +236,6 @@ MaterialRipple.prototype.mdlDowngrade_ = function() {
 componentHandler.register({
   constructor: MaterialRipple,
   classAsString: 'MaterialRipple',
-  cssClass: 'mdl-js-ripple-effect'
+  cssClass: 'mdl-js-ripple-effect',
+  widget: false
 });

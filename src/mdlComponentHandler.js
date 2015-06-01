@@ -105,8 +105,10 @@ var componentHandler = (function() {
           callback(element);
         });
 
-        // Assign per element instance for control over API
-        element.widget = instance;
+        if (registeredClass.widget) {
+          // Assign per element instance for control over API
+          element.widget = instance;
+        }
       } else {
         throw 'Unable to find a registered component for the given class.';
       }
@@ -127,6 +129,7 @@ var componentHandler = (function() {
       'classConstructor': config.constructor,
       'className': config.classAsString,
       'cssClass': config.cssClass,
+      'widget': config.widget === undefined ? true : config.widget,
       'callbacks': []
     };
 
@@ -198,7 +201,10 @@ var componentHandler = (function() {
    * @param component
    */
   function deconstructComponentInternal(component) {
-    if (component && component.__proto__[downgradeMethod_]) {
+    if (component &&
+      component[componentConfigProperty_]
+      .classConstructor.prototype
+      .hasOwnProperty(downgradeMethod_)) {
       component[downgradeMethod_]();
       var componentIndex = createdComponents_.indexOf(component);
       createdComponents_.splice(componentIndex, 1);
@@ -252,11 +258,13 @@ window.addEventListener('load', function() {
    * tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
    * components requiring JavaScript.
    */
-  if ('classList' in document.createElement('div') && 'querySelector' in document &&
+  if ('classList' in document.createElement('div') &&
+      'querySelector' in document &&
       'addEventListener' in window && Array.prototype.forEach) {
     document.documentElement.classList.add('mdl-js');
     componentHandler.upgradeAllRegistered();
   } else {
-    componentHandler.upgradeElement = componentHandler.register = function () { };
+    componentHandler.upgradeElement =
+        componentHandler.register = function () { };
   }
 });
