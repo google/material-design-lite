@@ -18,44 +18,6 @@
 
 
 .mdl-data-table {
-  display: inline-block;
-  position: relative;
-  @include shadow-2dp();
-
-  & .mdl-data-table__table {
-    border-top: none;
-  }
-
-  .mdl-data-table__select {
-    width: 16px;
-  }
-}
-
-.mdl-data-table__header-right {
-  position: absolute;
-  right: $data-table-button-padding-right;
-
-  & > * {
-    margin-left: $data-table-card-padding;
-  }
-}
-
-.mdl-data-table__header {
-  height: $data-table-header-height;
-  border-top: $data-table-dividers;
-  border-left: $data-table-dividers;
-  border-right: $data-table-dividers;
-}
-
-.mdl-data-table__title {
-  position: absolute;
-  top: $data-table-card-title-top;
-  left: $data-table-card-padding;
-  text-align: left;
-  @include typo-title();
-}
-
-.mdl-data-table__table {
   position: relative;
   border: $data-table-dividers;
   border-collapse: collapse;
@@ -130,6 +92,10 @@
   }
 }
 
-.mdl-data-table--non-numeric.mdl-data-table--non-numeric {
+.mdl-data-table__select {
+  width: 16px;
+}
+
+.mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
   text-align: left;
 }

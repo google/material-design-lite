@@ -47,7 +47,6 @@ MaterialDataTable.prototype.Constant_ = {
  */
 MaterialDataTable.prototype.CssClasses_ = {
   DATA_TABLE: 'mdl-data-table',
-  TABLE: 'mdl-data-table__table',
   SELECTABLE: 'mdl-data-table--selectable',
   IS_SELECTED: 'is-selected',
   IS_UPGRADED: 'is-upgraded'
@@ -115,27 +114,24 @@ MaterialDataTable.prototype.init = function() {
   'use strict';
 
   if (this.element_) {
-    this.table_ = this.element_.querySelector('.' + this.CssClasses_.TABLE);
 
-    if (this.table_) {
-      var firstHeader = this.table_.querySelector('th');
-      var rows = this.table_.querySelector('tbody').querySelectorAll('tr');
+    var firstHeader = this.element_.querySelector('th');
+    var rows = this.element_.querySelector('tbody').querySelectorAll('tr');
 
-      if (this.element_.classList.contains(this.CssClasses_.SELECTABLE)) {
-        var th = document.createElement('th');
-        var headerCheckbox = this.createCheckbox_(null, rows);
-        th.appendChild(headerCheckbox);
-        firstHeader.parentElement.insertBefore(th, firstHeader);
-      }
+    if (this.element_.classList.contains(this.CssClasses_.SELECTABLE)) {
+      var th = document.createElement('th');
+      var headerCheckbox = this.createCheckbox_(null, rows);
+      th.appendChild(headerCheckbox);
+      firstHeader.parentElement.insertBefore(th, firstHeader);
+    }
 
-      for (var i = 0; i < rows.length; i++) {
-        var firstCell = rows[i].querySelector('td');
-        if (firstCell) {
-          var td = document.createElement('td');
-          var rowCheckbox = this.createCheckbox_(rows[i]);
-          td.appendChild(rowCheckbox);
-          rows[i].insertBefore(td, firstCell);
-        }
+    for (var i = 0; i < rows.length; i++) {
+      var firstCell = rows[i].querySelector('td');
+      if (firstCell) {
+        var td = document.createElement('td');
+        var rowCheckbox = this.createCheckbox_(rows[i]);
+        td.appendChild(rowCheckbox);
+        rows[i].insertBefore(td, firstCell);
       }
     }
 
