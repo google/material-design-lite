@@ -96,15 +96,29 @@ MaterialButton.prototype.init = function() {
     if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
       rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
-      var ripple = document.createElement('span');
-      ripple.classList.add(this.CssClasses_.RIPPLE);
-      rippleContainer.appendChild(ripple);
-      ripple.addEventListener('mouseup', this.blurHandler.bind(this));
+      this.rippleElement_ = document.createElement('span');
+      this.rippleElement_.classList.add(this.CssClasses_.RIPPLE);
+      rippleContainer.appendChild(this.rippleElement_);
+      this.boundRippleBlurHandler = this.blurHandler.bind(this);
+      this.rippleElement_.addEventListener('mouseup', this.boundRippleBlurHandler);
       this.element_.appendChild(rippleContainer);
     }
-    this.element_.addEventListener('mouseup', this.blurHandler.bind(this));
-    this.element_.addEventListener('mouseleave', this.blurHandler.bind(this));
+    this.boundButtonBlurHandler = this.blurHandler.bind(this);
+    this.element_.addEventListener('mouseup', this.boundButtonBlurHandler);
+    this.element_.addEventListener('mouseleave', this.boundButtonBlurHandler);
   }
+};
+
+/**
+* Downgrade the element.
+*/
+MaterialButton.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  if (this.rippleElement_) {
+    this.rippleElement_.removeEventListener('mouseup', this.boundRippleBlurHandler);
+  }
+  this.element_.removeEventListener('mouseup', this.boundButtonBlurHandler);
+  this.element_.removeEventListener('mouseleave', this.boundButtonBlurHandler);
 };
 
 // The component registers itself. It can assume componentHandler is available

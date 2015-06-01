@@ -211,30 +211,47 @@ MaterialCheckbox.prototype.init = function() {
     this.element_.appendChild(tickContainer);
     this.element_.appendChild(boxOutline);
 
-    var rippleContainer;
     if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
       this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
-      rippleContainer = document.createElement('span');
-      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
-      rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
-      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
-      rippleContainer.addEventListener('mouseup', this.onMouseUp_.bind(this));
+      this.rippleContainerElement_ = document.createElement('span');
+      this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
+      this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_CENTER);
+      this.boundRippleMouseUp = this.onMouseUp_.bind(this);
+      this.rippleContainerElement_.addEventListener('mouseup', this.boundRippleMouseUp);
 
       var ripple = document.createElement('span');
       ripple.classList.add(this.CssClasses_.RIPPLE);
 
-      rippleContainer.appendChild(ripple);
-      this.element_.appendChild(rippleContainer);
+      this.rippleContainerElement_.appendChild(ripple);
+      this.element_.appendChild(this.rippleContainerElement_);
     }
-
-    this.inputElement_.addEventListener('change', this.onChange_.bind(this));
-    this.inputElement_.addEventListener('focus', this.onFocus_.bind(this));
-    this.inputElement_.addEventListener('blur', this.onBlur_.bind(this));
-    this.element_.addEventListener('mouseup', this.onMouseUp_.bind(this));
+    this.boundInputOnChange = this.onChange_.bind(this);
+    this.boundInputOnFocus = this.onFocus_.bind(this);
+    this.boundInputOnBlur = this.onBlur_.bind(this);
+    this.boundElementMouseUp = this.onMouseUp_.bind(this);
+    this.inputElement_.addEventListener('change', this.boundInputOnChange);
+    this.inputElement_.addEventListener('focus', this.boundInputOnFocus);
+    this.inputElement_.addEventListener('blur', this.boundInputOnBlur);
+    this.element_.addEventListener('mouseup', this.boundElementMouseUp);
 
     this.updateClasses_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
+};
+
+/*
+* Downgrade the component.
+*/
+MaterialCheckbox.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  if (this.rippleContainerElement_) {
+    this.rippleContainerElement_.removeEventListener('mouseup', this.boundRippleMouseUp);
+  }
+  this.inputElement_.removeEventListener('change', this.boundInputOnChange);
+  this.inputElement_.removeEventListener('focus', this.boundInputOnFocus);
+  this.inputElement_.removeEventListener('blur', this.boundInputOnBlur);
+  this.element_.removeEventListener('mouseup', this.boundElementMouseUp);
 };
 
 // The component registers itself. It can assume componentHandler is available

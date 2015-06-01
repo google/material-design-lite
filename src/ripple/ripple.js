@@ -142,14 +142,17 @@ MaterialRipple.prototype.init = function() {
         this.rippleElement_.style.height = this.rippleSize_ + 'px';
       }
 
-      this.element_.addEventListener('mousedown', this.downHandler_.bind(this));
+      this.boundDownHandler = this.downHandler_.bind(this);
+      this.element_.addEventListener('mousedown',
+        this.boundDownHandler);
       this.element_.addEventListener('touchstart',
-          this.downHandler_.bind(this));
+          this.boundDownHandler);
 
-      this.element_.addEventListener('mouseup', this.upHandler_.bind(this));
-      this.element_.addEventListener('mouseleave', this.upHandler_.bind(this));
-      this.element_.addEventListener('touchend', this.upHandler_.bind(this));
-      this.element_.addEventListener('blur', this.upHandler_.bind(this));
+      this.boundUpHandler = this.upHandler_.bind(this);
+      this.element_.addEventListener('mouseup', this.boundUpHandler);
+      this.element_.addEventListener('mouseleave', this.boundUpHandler);
+      this.element_.addEventListener('touchend', this.boundUpHandler);
+      this.element_.addEventListener('blur', this.boundUpHandler);
 
       this.getFrameCount = function() {
         return this.frameCount_;
@@ -210,6 +213,22 @@ MaterialRipple.prototype.init = function() {
       };
     }
   }
+};
+
+/*
+* Downgrade the component
+*/
+MaterialRipple.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  this.element_.removeEventListener('mousedown',
+  this.boundDownHandler);
+  this.element_.removeEventListener('touchstart',
+      this.boundDownHandler);
+
+  this.element_.removeEventListener('mouseup', this.boundUpHandler);
+  this.element_.removeEventListener('mouseleave', this.boundUpHandler);
+  this.element_.removeEventListener('touchend', this.boundUpHandler);
+  this.element_.removeEventListener('blur', this.boundUpHandler);
 };
 
 // The component registers itself. It can assume componentHandler is available
