@@ -26,12 +26,10 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var fs = require('fs');
 var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
-var merge = require('merge-stream');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -198,7 +196,8 @@ gulp.task('scripts', function () {
     .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
-    .pipe($.uglify({preserveComments: 'some', sourceRoot: '.', sourceMapIncludeSources: true}))
+    .pipe($.uglify({preserveComments: 'some', sourceRoot: '.',
+        sourceMapIncludeSources: true}))
     .pipe($.concat('material.min.js'))
     // Write Source Maps
     .pipe($.sourcemaps.write('./'))
@@ -213,7 +212,8 @@ gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos', 'templates', 'images'],
+    ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos',
+     'templates', 'images'],
     cb);
 });
 
@@ -221,7 +221,7 @@ gulp.task('default', ['clean', 'mocha'], function (cb) {
 
 gulp.task('mocha', ['styles'], function () {
   return gulp.src('./test/index.html')
-    .pipe($.mochaPhantomjs({reporter: 'list'}))
+    .pipe($.mochaPhantomjs({reporter: 'list'}));
 });
 
 gulp.task('test', ['jshint', 'mocha']);
@@ -261,7 +261,7 @@ function applyTemplate() {
     file.contents = new Buffer(tpl(data), 'utf8');
     this.push(file);
     cb();
-  })
+  });
 }
 
 /**
@@ -284,11 +284,11 @@ gulp.task('components', function() {
       function(cb) {
         site.components = componentPages;
         cb();
-      })
+      });
     })())
     .pipe(applyTemplate())
     .pipe($.rename(function (path) {
-      path.basename = "index";
+      path.basename = 'index';
     }))
     .pipe(gulp.dest('dist/components'));
 });
@@ -355,7 +355,8 @@ gulp.task('serve', ['default'], function () {
     }
   });
 
-  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['scripts', 'demos', 'components', reload]);
+  gulp.watch(['src/**/*.js', '!src/**/README.md'],
+      ['scripts', 'demos', 'components', reload]);
   gulp.watch(['src/**/*.{scss,css}'], ['styles', 'demos', reload]);
   gulp.watch(['src/**/*.html'], ['demos', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
@@ -363,7 +364,8 @@ gulp.task('serve', ['default'], function () {
   gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
 });
 
-gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], function() {
+gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'],
+    function() {
   var push = !!process.env.GH_PUSH;
   if (!push) {
     console.log('Dry run! To push set $GH_PUSH to true');
@@ -426,6 +428,7 @@ gulp.task('templates:fonts', function() {
     'src/fonts/**/*'
   ], {base: '.'})
   .pipe(gulp.dest('dist/templates/'));
-})
+});
 
-gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl', 'templates:styles', 'templates:fonts']);
+gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
+    'templates:styles', 'templates:fonts']);
