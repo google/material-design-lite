@@ -27,6 +27,8 @@
     -->
 
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="material.min.css">
     <link rel="stylesheet" href="../spacing.css">
     <link rel="stylesheet" href="styles.css">
@@ -52,7 +54,7 @@
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <span class="mdl-icon mdl-icon--search"></span>
+              <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search">
@@ -73,9 +75,9 @@
               <span>2 days ago</span>
             </div>
             <div class="spacer"></div>
-            <div>425 <span class="mdl-icon mdl-icon--favorite"></span></div>
-            <div><span class="mdl-icon mdl-icon--bookmark"></span></div>
-            <div><span class="mdl-icon mdl-icon--share"></span></div>
+            <div>425 <i class="material-icons">favorite</i></div>
+            <div><i class="material-icons">bookmark</i></div>
+            <div><i class="material-icons">share</i></div>
           </div>
           <div class="mdl-color-text--grey-700 mdl-card--bottom">
             <p>
@@ -94,7 +96,9 @@
                 <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
                 <label for="comment" class="mdl-textfield__label">Join the discussion</label>
               </div>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--primary-dark mdl-color-text--grey-50"><span class="mdl-icon mdl-icon--check"></span></button>
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--primary-dark mdl-color-text--grey-50">
+                <i class="material-icons">check</i>
+              </button>
             </form>
             <div class="comment mdl-color-text--grey-700">
               <header>
@@ -108,9 +112,15 @@
                 In in culpa nulla elit esse. Ex cillum enim aliquip sit sit ullamco ex eiusmod fugiat. Cupidatat ad minim officia mollit laborum magna dolor tempor cupidatat mollit. Est velit sit ad aliqua ullamco laborum excepteur dolore proident incididunt in labore elit.
               </div>
               <nav class="comment__actions">
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--thumb-up"></span></button>
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--thumb-down"></span></button>
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--replay"></span></button>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                  <i class="material-icons">thumb_up</i>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                  <i class="material-icons">thumb_down</i>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                  <i class="material-icons">replay</i>
+                </button>
               </nav>
               <div class="comment__answers">
                 <div class="comment">
@@ -125,9 +135,15 @@
                     Yep, agree!
                   </div>
                   <nav>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--thumb-up"></span></button>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--thumb-down"></span></button>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--replay"></span></button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                      <i class="material-icons">thumb_up</i>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                      <i class="material-icons">thumb_down</i>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                      <i class="material-icons">replay</i>
+                    </button>
                   </nav>
                 </div>
               </div>
@@ -136,9 +152,19 @@
         </div>
 
         <nav class="mdl-color-text--grey-50 mdl-cell mdl-cell--12-col mdl-grid">
-          <div class="mdl-cell mdl-cell--2-col"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900"><span class="mdl-icon mdl-icon--arrow-back"></span></button> Newer</div>
+          <div class="mdl-cell mdl-cell--2-col">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            Newer
+          </div>
           <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--4-col-tablet mdl-cell--hide-phone"></div>
-          <div class="mdl-cell mdl-cell--2-col">Older <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900"><span class="mdl-icon mdl-icon--arrow-forward"></span></button></div>
+          <div class="mdl-cell mdl-cell--2-col">
+            Older
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
+              <i class="material-icons">arrow_forward</i>
+            </button>
+          </div>
         </nav>
       </main>
       <div class="mdl-layout__obfuscator"></div>

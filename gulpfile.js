@@ -76,19 +76,8 @@ gulp.task('images', function () {
     .pipe($.size({title: 'images'}));
 });
 
-// Copy fonts
-gulp.task('fonts', function () {
-  return gulp.src([
-    'src/fonts/*'
-  ])
-  .pipe(gulp.dest('.tmp/fonts'))
-  .pipe(gulp.dest('dist/fonts'))
-  // FIXME: This is rather hacky
-  .pipe(gulp.dest('dist/embedded_customizer/fonts'));
-});
-
 // Compile and Automatically Prefix Stylesheets (dev)
-gulp.task('styles:dev', ['fonts'], function () {
+gulp.task('styles:dev', function () {
   return gulp.src([
     'src/**/*.scss'
   ])
@@ -213,8 +202,8 @@ gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos',
-     'templates', 'images'],
+    ['jshint', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
+     'images'],
     cb);
 });
 
@@ -349,10 +338,7 @@ gulp.task('serve', ['default'], function () {
   browserSync({
     notify: false,
     server: {
-      baseDir: ['dist'],
-      routes: {
-        '/components/fonts': 'dist/fonts'
-      }
+      baseDir: ['dist']
     }
   });
 
@@ -432,4 +418,4 @@ gulp.task('templates:fonts', function() {
 });
 
 gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
-    'templates:styles', 'templates:fonts']);
+    'templates:styles']);
