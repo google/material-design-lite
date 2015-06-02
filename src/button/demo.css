@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-@import "../material-design-lite";
-
-.demo-page--card .mdl-card {
-  margin: 20px;
-}
-
-.demo-card--wide {
-  width: 600px;
+.demo-button {
+  display: inline-block;
+  margin: 20px 20px 20px 0;
 }

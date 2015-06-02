@@ -14,5 +14,11 @@
  * limitations under the License.
  */
 
-@import "../material-design-lite";
+.demo-page--footer {
+  padding: 0;
+}
 
+.demo-page--footer .mdl-mega-footer,
+.demo-page--footer .mdl-mini-footer {
+  margin-bottom: 16px;
+}

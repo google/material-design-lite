@@ -14,13 +14,31 @@
  * limitations under the License.
  */
 
-@import "../material-design-lite";
-
-.demo-page--footer {
-  padding: 0;
+.demo-page--tooltip {
+  background : #fff;
+  padding: 20px;
 }
 
-.demo-page--footer .mdl-mega-footer,
-.demo-page--footer .mdl-mini-footer, {
-  margin-bottom: 16px;
+.demo-page--tooltip .demo-preview-block {
+  background: #eee;
+  padding: 20px;
+  height: 120px;
+}
+
+.demo-page--tooltip .icon {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  height: 21px;
+  margin: 0 50px;
+  opacity: 0.7;
+  outline: none;
+  padding: 0;
+  position: relative;
+  width: 21px;
+  font-size: 24px;
+}
+
+.demo-page--tooltip .icon:hover {
+  opacity: 1;
 }

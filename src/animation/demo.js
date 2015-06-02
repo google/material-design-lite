@@ -31,15 +31,6 @@ function DemoAnimation(element) {
 }
 
 /**
- * Store constants in one place so they can be updated easily.
- * @enum {string | number}
- * @private
- */
-DemoAnimation.prototype.Constant_ = {
-  STARTING_POSITION: 1
-};
-
-/**
  * Store strings for class names defined by this component that are used in
  * JavaScript. This allows us to simply change it in one place should we
  * decide to modify at a later date.
@@ -48,7 +39,28 @@ DemoAnimation.prototype.Constant_ = {
  */
 DemoAnimation.prototype.CssClasses_ = {
   MOVABLE: 'demo-animation__movable',
-  POSITION_PREFIX: 'demo-animation--position-'
+  POSITION_PREFIX: 'demo-animation--position-',
+  FAST_OUT_SLOW_IN: 'mdl-animation--fast-out-slow-in',
+  LINEAR_OUT_SLOW_IN: 'mdl-animation--linear-out-slow-in',
+  FAST_OUT_LINEAR_IN: 'mdl-animation--fast-out-linear-in'
+};
+
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+DemoAnimation.prototype.Constant_ = {
+  STARTING_POSITION: 0,
+  // Which animation to use for which state. Check demo.css for an explanation.
+  ANIMATIONS: [
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_LINEAR_IN,
+    DemoAnimation.prototype.CssClasses_.LINEAR_OUT_SLOW_IN,
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_SLOW_IN,
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_LINEAR_IN,
+    DemoAnimation.prototype.CssClasses_.LINEAR_OUT_SLOW_IN,
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_SLOW_IN
+  ]
 };
 
 /**
@@ -61,10 +73,14 @@ DemoAnimation.prototype.handleClick_ = function(event) {
 
   this.movable_.classList.remove(this.CssClasses_.POSITION_PREFIX +
       this.position_);
+  this.movable_.classList.remove(this.Constant_.ANIMATIONS[this.position_]);
+
   this.position_++;
-  if (this.position_ > 6) {
-    this.position_ = 1;
+  if (this.position_ > 5) {
+    this.position_ = 0;
   }
+
+  this.movable_.classList.add(this.Constant_.ANIMATIONS[this.position_]);
   this.movable_.classList.add(this.CssClasses_.POSITION_PREFIX +
       this.position_);
 };

@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@import "../material-design-lite";
-
 .demo-layout {
   width: 100%;
   float: left;
@@ -49,11 +47,13 @@
   padding: 8px;
 }
 
-// Styles for multi-row layout demo.
+/* Styles for multi-row layout demo. */
 .demo-page--layout #my_text_changes {
-  @include typo-display-1;
   transition-property: font-size;
-  @include material-animation-default();
+  transition-duration: 0.2s;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
 }
 
 .demo-page--layout #compact_navigation {
@@ -65,7 +65,10 @@
 }
 
 .demo-page--layout .mdl-layout__header.is-compact #my_text_changes {
-  @include typo-title;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 .demo-page--layout .mdl-layout__header.is-compact #compact_navigation {
@@ -80,7 +83,7 @@
   content: " \0000a0 > \0000a0 Multi-row layout demo";
 }
 
-// Styles for transparent header demo.
+/* Styles for transparent header demo. */
 .demo-page--layout #transparent_demo {
   background-color: #948d85;
   background-image: url('../demo-images/desktop-handsfree-hero.jpg');

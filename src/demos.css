@@ -14,9 +14,25 @@
  * limitations under the License.
  */
 
-@import "../material-design-lite";
+.demo-page {
+  width: 100%;
+  height: auto;
 
-.demo-button {
-  display: inline-block;
-  margin: 20px 20px 20px 0;
+  margin: 0;
+  padding: 0;
+
+  padding: 24px;
+  box-sizing: border-box;
+  background: #FFF;
+}
+
+/* We define h2 under body, so it doesn't bleed into typography styles. */
+.demo-page > h2 {
+  margin-top: 24px ;
+  margin-bottom: 24px / 2;
+}
+
+.demo-preview-block {
+  background: rgb(245,245,245);
+  padding: 20px;
 }

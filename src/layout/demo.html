@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
 
+  <link rel="stylesheet" href="../../material.css">
+  <link rel="stylesheet" href="../demos.css">
   <link rel="stylesheet" href="demo.css">
 </head>
 <body class="demo-page demo-page--layout">
@@ -234,7 +236,9 @@
         <!-- Top row -->
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span id="my_text_changes">Material Design Lite</span>
+          <span class="mdl-animation--default" id="my_text_changes">
+            Material Design Lite
+          </span>
           <div class="mdl-layout-spacer"></div>
           <!-- Only show when compact, check CSS -->
           <nav class="mdl-navigation" id="compact_navigation">
@@ -400,12 +404,6 @@
     </div>
   </div>
 
-  <!-- build:js(app/styleguide/layout/) ../../scripts/main.min.js -->
-  <script src="../mdlComponentHandler.js"></script>
-  <script src="layout.js"></script>
-  <script src="../textfield/textfield.js"></script>
-  <script src="../ripple/ripple.js"></script>
-  <script src="../third_party/rAF.js"></script>
-  <!-- endbuild -->
+  <script src="../../material.js"></script>
 </body>
 </html>
