@@ -16,6 +16,11 @@
 
 @import "../variables";
 
+::selection {
+    background: unquote("rgb(#{$color-primary})"); 
+    color: unquote("rgb(#{$color-primary-contrast})");
+}
+
 html, body {
 	font-family: $performance_font;
 	font-size: 14px;
