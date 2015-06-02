@@ -37,16 +37,16 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the "outer" div and the "inner" divs (depending on their intended use) using the `class` attribute.
 ```html
 <div class="mdl-card">
-  <div class="mdl-card__heading">
+  <div class="mdl-card__title">
   ...
   </div>
-  <div class="mdl-card__img-container">
+  <div class="mdl-card__media">
   ...
   </div>
-  <div class="mdl-card__lower">
+  <div class="mdl-card__supporting-text">
   ...
   </div>
-  <div class="mdl-card__bottom">
+  <div class="mdl-card__actions">
   ...
   </div>
 </div>
@@ -54,16 +54,16 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;4. Add content to each "inner" div, again depending on its intended use, using standard HTML elements and, optionally, additional MDL classes.
 ```html
 <div class="mdl-card">
-  <div class="mdl-card__heading">
-    <h2 class="mdl-card__heading-text">Heading Text Goes Here</h2>
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">title Text Goes Here</h2>
   </div>
-  <div class="mdl-card__img-container">
+  <div class="mdl-card__media">
     <img src="photo.jpg" width="220" height="140" border="0" alt="" style="padding:20px;">
   </div>
-  <div class="mdl-card__lower">
+  <div class="mdl-card__supporting-text">
     This text might describe the photo and provide further information, such as where and when it was taken.
   </div>
-  <div class="mdl-card__bottom">
+  <div class="mdl-card__actions">
     <a href="(URL or function)">Related Action</a>
   </div>
 </div>
@@ -73,19 +73,19 @@ The card component is ready for use.
 
 ####Examples
 
-A card (no shadow) with a heading, image, text, and action.
+A card (no shadow) with a title, image, text, and action.
 
 ```html
 <div class="mdl-card">
-  <div class="mdl-card__heading">
-     <h2 class="mdl-card__heading-text">Auckland Sky Tower<br/>Auckland, New Zealand</h2>
+  <div class="mdl-card__title">
+     <h2 class="mdl-card__title-text">Auckland Sky Tower<br/>Auckland, New Zealand</h2>
   </div>
-  <div class="mdl-card__img-container"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
+  <div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
   </div>
-  <div class="mdl-card__lower">
+  <div class="mdl-card__supporting-text">
   The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
   </div>
-  <div class="mdl-card__bottom">
+  <div class="mdl-card__actions">
      <a href="http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29">Wikipedia entry</a>
   </div>
 </div>
@@ -95,12 +95,12 @@ Card (level-3 shadow) with an image, caption, and text:
 
 ```html
 <div class="mdl-card mdl-shadow--4dp">
-  <div class="mdl-card__img-container"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
+  <div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
   </div>
-  <div class="mdl-card__caption">
+  <div class="mdl-card__supporting-text">
     Auckland Sky Tower, taken March 24th, 2014
   </div>
-  <div class="mdl-card__lower">
+  <div class="mdl-card__supporting-text">
   The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
   </div>
 </div>
@@ -113,14 +113,11 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 |-----------|--------|---------|
 | `mdl-card` | Defines div element as an MDL card container | Required on "outer" div |
 | `mdl-shadow--2dp through mdl-shadow--8dp` | Assigns variable shadow depths (1-5) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
-| `mdl-card__heading` | Defines div as a card heading container(1) | Required on "inner" heading div |
-| `mdl-card__heading-text` | Assigns appropriate text characteristics to card heading | Required on head tag (H1 - H6) inside heading div |
-| `mdl-card__img-container` | Defines div as a card image container | Required on "inner" image div |
-| `mdl-card__lower` | Defines div as a card body text container(1) and assigns appropriate text characteristics to body text | Required on "inner" body text div; text goes directly inside the div with no intervening containers |
-| `mdl-card__caption` | Defines div as a card caption container and assigns appropriate text characteristics to caption text | Required on "inner" caption div; text goes directly inside the div with no intervening containers |
-| `mdl-card__bottom` | Defines div as a card bottom text container(1) (typically an action bar) and assigns appropriate text characteristics to bottom text | Required on "inner" bottom div; content goes directly inside the div with no intervening containers |
-
-(1) Although some class names imply positioning, they really just semantically define the styling of the content. The actual positions of the "inner" divs within the card are determined by order of appearance (i.e., top-down). You may use them in any order, so long as they maintain their relationships as siblings and as direct children of the "outer" container div.
+| `mdl-card__title` | Defines div as a card title container | Required on "inner" title div |
+| `mdl-card__title-text` | Assigns appropriate text characteristics to card title | Required on head tag (H1 - H6) inside title div |
+| `mdl-card__media` | Defines div as a card media container | Required on "inner" media div |
+| `mdl-card__supporting-text` | Defines div as a card body text container and assigns appropriate text characteristics to body text | Required on "inner" body text div; text goes directly inside the div with no intervening containers |
+| `mdl-card__actions` | Defines div as a card actions container and assigns appropriate text characteristics to actions text | Required on "inner" actions div; content goes directly inside the div with no intervening containers |
 
 ##More information
 For working examples of the **card** component, see the MDL [card demo page](www.github.com/google/material-design-lite/src/card/demo.html).
