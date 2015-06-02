@@ -17,73 +17,73 @@
 @import "../variables";
 
 .mdl-card {
-  font-size    : $card-font-size;
-  min-height   : $card-height;
-  overflow     : hidden;
-  width        : $card-width;
-  z-index      : $card-z-index;
-  position     : relative;
-  background   : $card-background-color;
+  font-size: $card-font-size;
+  min-height: $card-height;
+  overflow: hidden;
+  width: $card-width;
+  z-index: $card-z-index;
+  position: relative;
+  background: $card-background-color;
   border-radius: 2px;
 }
 
 .mdl-card__media {
-  background-color     : $card-image-placeholder-color;
+  background-color: $card-image-placeholder-color;
   @if str_length($card-background-image-url) > 0 {
-  background-image     : url($card-background-image-url);
+  background-image: url($card-background-image-url);
   }
-  background-repeat    : repeat;
-  background-position  : 50% 50%;
-  background-size      : cover;
-  background-origin    : padding-box;
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-origin: padding-box;
   background-attachment: scroll;
-  height               : $card-cover-image-height;
 }
 
 .mdl-card__title {
-  align-items       : center;
+  align-items: center;
   display: block;
-  display           : flex;
-  font-size         : $card-title-font-size;
-  height            : $card-title-height;
-  justify-items     : stretch;
-  line-height       : normal;
-  padding           : $card-vertical-padding $card-horizontal-padding;
+  display: flex;
+  justify-content: stretch;
+  line-height: normal;
+  padding: $card-vertical-padding $card-horizontal-padding;
   perspective-origin: $card-title-perspective-origin-x $card-title-perspective-origin-y;
-  transform-origin  : $card-title-transform-origin-x $card-title-transform-origin-y;
-  width             : 100%;
+  transform-origin: $card-title-transform-origin-x $card-title-transform-origin-y;
 }
 
 .mdl-card__title-text {
-  align-self      : center;
+  align-self: center;
+  color: black;
   display: block;
-  display         : flex;
-  font-size       : inherit;
-  font-weight     : $card-title-text-font-weight;
-  height          : $card-title-height;
-  line-height     : normal;
-  overflow        : hidden;
+  display: flex;
+  font-size: $card-title-font-size;
+  font-weight: $card-title-text-font-weight;
+  line-height: normal;
+  overflow: hidden;
   transform-origin: $card-title-text-transform-origin-x $card-title-text-transform-origin-y;
-  width           : 90%;
+  margin: 0;
+}
+
+.mdl-card__subtitle-text {
+  font-size: 14px;
+  color: grey;
+  margin: 0;
 }
 
 .mdl-card__supporting-text {
-  color          : $card-supporting-text-text-color;
-  font-size      : $card-supporting-text-font-size;
-  line-height    : $card-supporting-text-line-height;
-  margin         : $card-supporting-text-vertical-margin 0;
-  overflow       : hidden;
-  padding        : $card-vertical-padding $card-horizontal-padding;
-  width          : 90%;
+  color: $card-supporting-text-text-color;
+  font-size: $card-supporting-text-font-size;
+  line-height: $card-supporting-text-line-height;
+  overflow: hidden;
+  padding: $card-vertical-padding $card-horizontal-padding;
+  width: 90%;
 }
 
 .mdl-card__actions {
-  font-size  : $card-actions-font-size;
-  height     : $card-actions-height;
+  font-size: $card-actions-font-size;
   line-height: normal;
-  width      : 100%;
+  width: 100%;
   background-color: rgba(0,0,0,0);
-  padding: 0 8px;
+  padding: 0 $card-horizontal-padding;
 }
 
 

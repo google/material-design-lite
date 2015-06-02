@@ -225,7 +225,6 @@ $input-text-error-color: unquote("rgb(222, 50, 38)") !default;
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
-$card-action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
 $card-supporting-text-text-color: $text-color-primary !default;
 
@@ -442,9 +441,8 @@ $card-width: 330px !default;
 $card-height: 200px !default;
 $card-font-size: 16px !default;
 $card-title-font-size: 24px !default;
-$card-title-height: 96px !default;
-$card-horizontal-padding: 16px !default;
-$card-vertical-padding: 8px !default;
+$card-horizontal-padding: 8px !default;
+$card-vertical-padding: 16px !default;
 
 $card-title-perspective-origin-x: 165px !default;
 $card-title-perspective-origin-y: 56px !default;
@@ -457,9 +455,7 @@ $card-title-text-transform-origin-y: 48px !default;
 
 $card-supporting-text-font-size: 13px !default;
 $card-supporting-text-line-height: 18px !default;
-$card-supporting-text-vertical-margin: 10px !default;
 
-$card-actions-height: 50px !default;
 $card-actions-font-size: 16px !default;
 
 $card-title-text-font-weight: 300 !default;
