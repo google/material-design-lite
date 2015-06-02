@@ -185,11 +185,6 @@
 
     z-index: 4;
 
-    &::after {
-      @include mdl-icon();
-      content: $icon-menu;
-    }
-
     .mdl-layout__header & {
       position: absolute;
       color: $layout-header-text-color;
@@ -470,7 +465,6 @@
     position: absolute;
     top: 0;
     height: $layout-tab-bar-height;
-    line-height: $layout-tab-bar-height;
     width: $layout-header-desktop-baseline - $layout-tab-desktop-padding;
     z-index: 4;
     text-align: center;
@@ -488,6 +482,10 @@
       display: none;
     }
 
+    & .material-icons {
+      line-height: $layout-tab-bar-height;
+    }
+
     &.is-active {
       color: $layout-header-text-color;
     }
@@ -495,22 +493,10 @@
 
   .mdl-layout__tab-bar-left-button {
     left: 0;
-
-    &::after {
-      font-size: 26px;
-      @include mdl-icon();
-      content: $icon-chevron-left;
-    }
   }
 
   .mdl-layout__tab-bar-right-button {
     right: 0;
-
-    &::after {
-      font-size: 26px;
-      @include mdl-icon();
-      content: $icon-chevron-right;
-    }
   }
 
   .mdl-layout__tab {

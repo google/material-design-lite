@@ -84,12 +84,9 @@ main.mdl-layout__content {
   flex-direction: row;
   margin: 0 8px;
 }
-.meta > .spacer ~ div span.mdl-icon {
+.meta > .spacer ~ div .material-icons {
   font-size: 2em;
   cursor: pointer;
-}
-.meta .mdl-icon--favorite {
-  margin-left: 8px;
 }
 .mdl-card:nth-child(2n) .meta {
   justify-content: space-between;

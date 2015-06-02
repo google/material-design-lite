@@ -135,7 +135,7 @@
     position: relative;
     line-height: normal;
 
-    & .mdl-icon {
+    & .material-icons {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -210,7 +210,7 @@
     color: inherit;
     line-height: normal;
 
-    & .mdl-icon {
+    & .material-icons {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -224,7 +224,7 @@
       min-width: $button-icon-size-mini;
       width: $button-icon-size-mini;
 
-      & .mdl-icon {
+      & .material-icons {
         top: ($button-icon-size-mini - $button-fab-font-size) / 2;
         left: ($button-icon-size-mini - $button-fab-font-size) / 2;
       }

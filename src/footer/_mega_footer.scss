@@ -142,8 +142,8 @@
   opacity: 0;
 
   &~.mdl-mega-footer--heading:after {
-    @include mdl-icon();
-    content: $icon-expand-less;
+    font-family: 'Material Icons';
+    content: '\E5CE'
   }
 }
 
@@ -153,8 +153,8 @@
   }
 
   &~.mdl-mega-footer--heading:after {
-    @include mdl-icon();
-    content: $icon-expand-more;
+    font-family: 'Material Icons';
+    content: '\E5CF'
   }
 }
 
