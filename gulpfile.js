@@ -328,6 +328,7 @@ gulp.task('assets', function () {
       progressive: true,
       interlaced: true
     })))
+    .pipe($.if(/\.css/i, $.autoprefixer(AUTOPREFIXER_BROWSERS)))
     .pipe(gulp.dest('dist/assets'));
 });
 
