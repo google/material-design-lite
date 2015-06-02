@@ -49,7 +49,6 @@ MaterialTooltip.prototype.CssClasses_ = {
   IS_ACTIVE: 'is-active'
 };
 
-
 /**
  * Handle mouseenter for tooltip.
  * @param {Event} event The event that fired.
@@ -66,7 +65,6 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
   this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
 };
 
-
 /**
  * Handle mouseleave for tooltip.
  * @param {Event} event The event that fired.
@@ -79,7 +77,6 @@ MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
   this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
 };
 
-
 /**
  * Initialize element.
  */
@@ -88,20 +85,31 @@ MaterialTooltip.prototype.init = function() {
 
   if (this.element_) {
     var forElId = this.element_.getAttribute('for');
-    var forEl = null;
 
     if (forElId) {
-      forEl = document.getElementById(forElId);
+      this.forElement_ = document.getElementById(forElId);
     }
 
-    if (forEl) {
-      forEl.addEventListener('mouseenter', this.handleMouseEnter_.bind(this),
+    if (this.forElement_) {
+      this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
+      this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
+      this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler,
           false);
-      forEl.addEventListener('mouseleave', this.handleMouseLeave_.bind(this));
+      this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler);
     }
   }
 };
 
+/*
+* Downgrade the component
+*/
+MaterialTooltip.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  if (this.forElement_) {
+    this.forElement_.removeEventListener('mouseenter', this.boundMouseEnterHandler, false);
+    this.forElement_.removeEventListener('mouseleave', this.boundMouseLeaveHandler);
+  }
+};
 
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.

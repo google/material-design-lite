@@ -179,19 +179,36 @@ MaterialTextfield.prototype.init = function() {
         }
       }
 
-      this.input_.addEventListener('input', this.updateClasses_.bind(this));
-      this.input_.addEventListener('focus', this.onFocus_.bind(this));
-      this.input_.addEventListener('blur', this.onBlur_.bind(this));
+      this.boundUpdateClassesHandler = this.updateClasses_.bind(this);
+      this.boundFocusHandler = this.onFocus_.bind(this);
+      this.boundBlurHandler = this.onBlur_.bind(this);
+      this.input_.addEventListener('input', this.boundUpdateClassesHandler);
+      this.input_.addEventListener('focus', this.boundFocusHandler);
+      this.input_.addEventListener('blur', this.boundBlurHandler);
 
       if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
         // TODO: This should handle pasting multi line text.
         // Currently doesn't.
-        this.input_.addEventListener('keydown', this.onKeyDown_.bind(this));
+        this.boundKeyDownHandler = this.onKeyDown_.bind(this);
+        this.input_.addEventListener('keydown', this.boundKeyDownHandler);
       }
 
       this.updateClasses_();
       this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
     }
+  }
+};
+
+/*
+* Downgrade the component
+*/
+MaterialTextfield.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  this.input_.removeEventListener('input', this.boundUpdateClassesHandler);
+  this.input_.removeEventListener('focus', this.boundFocusHandler);
+  this.input_.removeEventListener('blur', this.boundBlurHandler);
+  if (this.boundKeyDownHandler) {
+    this.input_.removeEventListener('keydown', this.boundKeyDownHandler);
   }
 };
 

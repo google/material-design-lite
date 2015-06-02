@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>Menu</title>
 
+    <link rel="stylesheet" href="../../material.css">
+    <link rel="stylesheet" href="../demos.css">
     <link rel="stylesheet" href="demo.css">
 
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
   </head>
   <body class="demo-page demo-page--menu">
@@ -17,7 +21,7 @@
   <div class="demo-preview-block">
 
     <button id="clickable1" class="demo-menu-button-left mdl-button mdl-js-button mdl-button--icon">
-      <span class="mdl-icon mdl-icon--more-vert"/>
+      <i class="material-icons">more_vert</i>
     </button>
 
     <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="clickable1">
@@ -28,7 +32,7 @@
     </ul>
 
     <button id="clickable2" class="demo-menu-button-left2 mdl-button mdl-js-button mdl-button--icon">
-      <span class="mdl-icon mdl-icon--more-vert"/>
+      <i class="material-icons">more_vert</i>
     </button>
 
     <ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect" for="clickable2">
@@ -39,7 +43,7 @@
     </ul>
 
     <button id="clickable3" class="demo-menu-button-right2 mdl-button mdl-js-button mdl-button--icon">
-      <span class="mdl-icon mdl-icon--more-vert"/>
+      <i class="material-icons">more_vert</i>
     </button>
 
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="clickable3">
@@ -50,7 +54,7 @@
     </ul>
 
     <button id="clickable4" class="demo-menu-button-right mdl-button mdl-js-button mdl-button--icon">
-      <span class="mdl-icon mdl-icon--more-vert"/>
+      <i class="material-icons">more_vert</i>
     </button>
 
     <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect" for="clickable4">
@@ -61,12 +65,6 @@
     </ul>
 
   </div>
-    <!-- build:js(app/styleguide/dropdown-menu/) ../../scripts/main.min.js -->
-    <script src="../mdlComponentHandler.js"></script>
-    <script src="menu.js"></script>
-    <script src="../button/button.js"></script>
-    <script src="../ripple/ripple.js"></script>
-    <script src="../third_party/rAF.js"></script>
-    <!-- endbuild -->
+  <script src="../../material.js"></script>
   </body>
 </html>

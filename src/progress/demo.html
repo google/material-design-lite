@@ -9,7 +9,8 @@
 
   <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="demo.css">
+  <link rel="stylesheet" href="../../material.css">
+  <link rel="stylesheet" href="../demos.css">
 </head>
 <body class="demo-page demo-page--progress">
 
@@ -30,9 +31,7 @@
       <div id="p3" class="mdl-js-progress"></div>
     </p>
   </div>
-  <!-- build:js(app/styleguide/progress/) ../../scripts/main.min.js -->
-  <script src="../mdlComponentHandler.js"></script>
-  <script src="progress.js"></script>
+  <script src="../../material.js"></script>
   <script>
     document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
       this.widget.setProgress(44);
@@ -42,6 +41,5 @@
       this.widget.setBuffer(87);
     });
   </script>
-  <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,103 @@
+.mdl-components {
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 190px;
+  box-sizing: border-box;
+  padding: 24px 0;
+}
+
+.mdl-components .mdl-components__link {
+  margin: 16px;
+  font-weight: normal;
+  color: rgba(0,0,0,0.66);
+  position: relative;
+  padding-left: 72px;
+  min-height: 48px;
+  display: table;
+}
+
+.mdl-components .mdl-components__link .center {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.mdl-components .mdl-components__link.active {
+  font-weight: bold;
+  color: #c2185b;
+}
+
+.mdl-components .mdl-components__link.active img {
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2),
+              0 3px 1px -2px rgba(0,0,0,0.14),
+              0 1px 5px 0 rgba(0,0,0,0.12);
+  border-radius: 50%;
+}
+
+.mdl-components .mdl-components__link img {
+  display: inline-block;
+  margin: 0 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.content {
+  background: #fafafa;
+  position: relative;
+  padding-left: 190px !important;
+}
+
+section.mdl-component {
+  display: none;
+  min-height: 1000px;
+}
+
+section.mdl-component.active {
+  display: block;
+}
+
+@media (max-width: 850px) {
+  .mdl-components {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 0;
+  }
+
+  .mdl-components::-webkit-scrollbar{
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .mdl-components .mdl-components__link {
+    height: 100%;
+    margin: 0;
+    float: left;
+  }
+
+  .mdl-components .mdl-components__link .center {
+    padding-right: 10px;
+  }
+
+  .mdl-components .scroll {
+    width: 2500px;
+    float: left;
+  }
+
+  .content {
+    padding-top: 64px !important;
+    padding-left: 0 !important;
+  }
+
+  .content.sticky .mdl-components {
+    position: fixed;
+  }
+}

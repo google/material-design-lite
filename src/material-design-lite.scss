@@ -23,7 +23,6 @@
 // Resets and dependencies
 @import "resets/resets";
 @import "typography/typography";
-@import 'icons/icons';
 
 // Components
 @import "palette/palette";
@@ -34,6 +33,7 @@
 @import "button/button";
 @import "card/card";
 @import "checkbox/checkbox";
+@import "data-table/data-table";
 @import "footer/mega_footer";
 @import "footer/mini_footer";
 @import "grid/grid";

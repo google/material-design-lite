@@ -70,8 +70,7 @@
     left: 0px;
     position: absolute;
     background: $tab-highlight-color;
-    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
-    -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0s alternate forwards;
+    animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0.01s alternate forwards;
     transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
   }
 
@@ -103,19 +102,7 @@
   }
 }
 
-@-webkit-keyframes border-expand {
-  0% {
-    opacity: 0;
-    width: 0;
-  }
-
-  100% {
-    opacity: 1;
-    width: 100%;
-  }
-}
-
-@-moz-keyframes border-expand {
+@keyframes border-expand {
   0% {
     opacity: 0;
     width: 0;

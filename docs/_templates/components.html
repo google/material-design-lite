@@ -1,17 +1,27 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<link href="{{page.include_prefix}}/assets/components.css" rel="stylesheet">
+<script src="{{page.include_prefix}}/assets/components.js"></script>
 
-<h1>{{page.title}}</h1>
+<aside class="mdl-components">
+  <div class="scroll">
+  {% for component in page.components %}
+    <a href="#{{ component.name }}" class="mdl-components__link mdl-component {{ component.name }} {% if loop.first %}active{%- endif %}">
+      <img src="/assets/comp_{{ component.name }}.png">&nbsp;
+      <span class="center">{{ component.title }}</span>
+    </a>
+  {%- endfor %}
+  </div>
+</aside>
 
-<ul>
-{% for page in site.components -%}
-  <li><a href="{{ page.component }}">{{ page.component }}</a></li>
+{% for component in page.components -%}
+<section class="mdl-component {{ component.name }} mdl-grid mdl-cell mdl-cell--12-col {% if loop.first %}active{%- endif %}">
+  <div class="mdl-cell mdl-cell--12-col">
+    <h1>{{ component.title }}<h1>
+    <p>{{ component.description }}</p>
+  </div>
+</section>
 {%- endfor %}
-</ul>
-
-{{content|safe}}
 
 {% endblock %}
-
-

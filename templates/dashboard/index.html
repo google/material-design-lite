@@ -26,7 +26,8 @@
     <link rel="canonical" href="http://www.example.com/">
     -->
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -42,12 +43,12 @@
     </style>
   </head>
   <body>
-    <div class="mdl-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
       <header class="mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <span class="mdl mdl-icon mdl-icon--search"></span>
+              <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search" />
@@ -56,7 +57,9 @@
           </div>
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"><span class="mdl-icon mdl-icon--more-vert"></span></button>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
             <li class="mdl-menu__item">What is </li>
             <li class="mdl-menu__item">supposed to </li>
@@ -70,26 +73,28 @@
           <div>
             <span>hello@email.com</span>
             <div class="mdl-layout-spacer"></div>
-            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--arrow-drop-down"></span></button>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons">arrow_drop_down</i>
+            </button>
             <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">hello@email.com</li>
-              <li class="mdl-menu__item">info@domain.net</li>
-              <li class="mdl-menu__item"><span class="mdl-icon mdl-icon--add"></span> Add another account...</li>
+              <button class="mdl-menu__item">hello@email.com</button>
+              <button class="mdl-menu__item">info@domain.net</button>
+              <button class="mdl-menu__item"><i class="material-icons">add</i> Add another account...</button>
             </ul>
           </div>
         </header>
         <nav class="mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--home"></span>Home</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--inbox"></span>Inbox</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--delete"></span>Trash</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--report"></span>Spam</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--forum"></span>Forums</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--flag"></span>Updates</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--local-offer"></span>Promos</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--shopping-cart"></span>Purchases</a>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--people"></span>Social</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Inbox</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">delete</i>Trash</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">report</i>Spam</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>Forums</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">flag</i>Updates</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>Promos</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>Purchases</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Social</a>
           <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><span class="mdl-color-text--blue-grey-400 mdl-icon mdl-icon--help"></span></a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">help</i></a>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100 mdl-grid">
@@ -150,7 +155,9 @@
               </ul>
             </div>
             <div class="mdl-card__actions">
-              <a href="#" class="mdl-button">Change location <span class="mdl-icon mdl-icon--location-on"></span></a>
+              <a href="#" class=" mdl-color-text--blue-grey-50">Change location</a>
+              <div class="mdl-layout-spacer"></div>
+              <i class="material-icons">location_on</i>
             </div>
           </div>
         </div>

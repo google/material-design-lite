@@ -36,7 +36,11 @@ function MaterialLayout(element) {
  */
 MaterialLayout.prototype.Constant_ = {
   MAX_WIDTH: '(max-width: 850px)',
-  TAB_SCROLL_PIXELS: 100
+  TAB_SCROLL_PIXELS: 100,
+
+  MENU_ICON: 'menu',
+  CHEVRON_LEFT: 'chevron_left',
+  CHEVRON_RIGHT: 'chevron_right'
 };
 
 /**
@@ -59,10 +63,13 @@ MaterialLayout.prototype.Mode_ = {
  * @private
  */
 MaterialLayout.prototype.CssClasses_ = {
+  CONTAINER: 'mdl-layout__container',
   HEADER: 'mdl-layout__header',
   DRAWER: 'mdl-layout__drawer',
   CONTENT: 'mdl-layout__content',
   DRAWER_BTN: 'mdl-layout__drawer-button',
+
+  ICON: 'material-icons',
 
   JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
   RIPPLE_CONTAINER: 'mdl-layout__tab-ripple-container',
@@ -86,6 +93,7 @@ MaterialLayout.prototype.CssClasses_ = {
 
   HAS_DRAWER: 'has-drawer',
   HAS_TABS: 'has-tabs',
+  HAS_SCROLLING_HEADER: 'has-scrolling-header',
   CASTING_SHADOW: 'is-casting-shadow',
   IS_COMPACT: 'is-compact',
   IS_SMALL_SCREEN: 'is-small-screen',
@@ -106,11 +114,13 @@ MaterialLayout.prototype.contentScrollHandler_ = function() {
     return;
   }
 
-  if (this.content_.scrollTop > 0 && !this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
+  if (this.content_.scrollTop > 0 &&
+      !this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
     this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
     this.header_.classList.add(this.CssClasses_.IS_COMPACT);
     this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
-  } else if (this.content_.scrollTop <= 0 && this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
+  } else if (this.content_.scrollTop <= 0 &&
+      this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
     this.header_.classList.remove(this.CssClasses_.CASTING_SHADOW);
     this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
     this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
@@ -199,7 +209,7 @@ MaterialLayout.prototype.init = function() {
 
   if (this.element_) {
     var container = document.createElement('div');
-    container.classList.add('mdl-layout__container');
+    container.classList.add(this.CssClasses_.CONTAINER);
     this.element_.parentElement.insertBefore(container, this.element_);
     this.element_.parentElement.removeChild(this.element_);
     container.appendChild(this.element_);
@@ -230,6 +240,7 @@ MaterialLayout.prototype.init = function() {
       } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
+        container.classlist.add(this.CssClasses_.HAS_SCROLLING_HEADER);
       }
 
       if (mode === this.Mode_.STANDARD) {
@@ -256,6 +267,10 @@ MaterialLayout.prototype.init = function() {
     if (this.drawer_) {
       var drawerButton = document.createElement('div');
       drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
+      var drawerButtonIcon = document.createElement('i');
+      drawerButtonIcon.classList.add(this.CssClasses_.ICON);
+      drawerButtonIcon.textContent = this.Constant_.MENU_ICON;
+      drawerButton.appendChild(drawerButtonIcon);
       drawerButton.addEventListener('click',
           this.drawerToggleHandler_.bind(this));
 
@@ -291,6 +306,10 @@ MaterialLayout.prototype.init = function() {
       var leftButton = document.createElement('div');
       leftButton.classList.add(this.CssClasses_.TAB_BAR_BUTTON);
       leftButton.classList.add(this.CssClasses_.TAB_BAR_LEFT_BUTTON);
+      var leftButtonIcon = document.createElement('i');
+      leftButtonIcon.classList.add(this.CssClasses_.ICON);
+      leftButtonIcon.textContent = this.Constant_.CHEVRON_LEFT;
+      leftButton.appendChild(leftButtonIcon);
       leftButton.addEventListener('click', function() {
         this.tabBar_.scrollLeft -= this.Constant_.TAB_SCROLL_PIXELS;
       }.bind(this));
@@ -298,6 +317,10 @@ MaterialLayout.prototype.init = function() {
       var rightButton = document.createElement('div');
       rightButton.classList.add(this.CssClasses_.TAB_BAR_BUTTON);
       rightButton.classList.add(this.CssClasses_.TAB_BAR_RIGHT_BUTTON);
+      var rightButtonIcon = document.createElement('i');
+      rightButtonIcon.classList.add(this.CssClasses_.ICON);
+      rightButtonIcon.textContent = this.Constant_.CHEVRON_RIGHT;
+      rightButton.appendChild(rightButtonIcon);
       rightButton.addEventListener('click', function() {
         this.tabBar_.scrollLeft += this.Constant_.TAB_SCROLL_PIXELS;
       }.bind(this));

@@ -6,8 +6,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Card</title>
+    <link rel="stylesheet" href="../../material.css">
+    <link rel="stylesheet" href="../demos.css">
     <link rel="stylesheet" href="demo.css">
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   </head>
   <body class="demo-page demo-page--card">
   <div class="demo-preview-block">
@@ -67,7 +71,9 @@
          <a href="#" class="mdl-button">Some Action</a>
       </div>
       <div class="mdl-card__menu">
-        <button id="btn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--more-vert"></span></button>
+        <button id="btn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+          <i class="material-icons">more_vert</i>
+        </button>
         <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="btn">
           <button class="mdl-menu__item">Item 1</button>
           <button class="mdl-menu__item">Item 2</button>
@@ -76,12 +82,6 @@
       </div>
     </div>
   </div>
-  <!-- build:js(app/styleguide/cards/) ../../scripts/main.min.js -->
-  <script src="../mdlComponentHandler.js"></script>
-  <script src="../menu/menu.js"></script>
-  <script src="../button/button.js"></script>
-  <script src="../ripple/ripple.js"></script>
-  <script src="../third_party/rAF.js"></script>
-  <!-- endbuild -->
+  <script src="../../material.js"></script>
   </body>
 </html>

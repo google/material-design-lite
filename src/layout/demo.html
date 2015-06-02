@@ -8,7 +8,11 @@
   <title>Layout</title>
 
   <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
 
+  <link rel="stylesheet" href="../../material.css">
+  <link rel="stylesheet" href="../demos.css">
   <link rel="stylesheet" href="demo.css">
 </head>
 <body class="demo-page demo-page--layout">
@@ -105,7 +109,7 @@
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean">
-              <span class="mdl-icon mdl-icon--search"/>
+              <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" name="sample" id="sample-expclean" />
@@ -232,7 +236,9 @@
         <!-- Top row -->
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span id="my_text_changes">Material Design Lite</span>
+          <span class="mdl-animation--default" id="my_text_changes">
+            Material Design Lite
+          </span>
           <div class="mdl-layout-spacer"></div>
           <!-- Only show when compact, check CSS -->
           <nav class="mdl-navigation" id="compact_navigation">
@@ -398,12 +404,6 @@
     </div>
   </div>
 
-  <!-- build:js(app/styleguide/layout/) ../../scripts/main.min.js -->
-  <script src="../mdlComponentHandler.js"></script>
-  <script src="layout.js"></script>
-  <script src="../textfield/textfield.js"></script>
-  <script src="../ripple/ripple.js"></script>
-  <script src="../third_party/rAF.js"></script>
-  <!-- endbuild -->
+  <script src="../../material.js"></script>
 </body>
 </html>

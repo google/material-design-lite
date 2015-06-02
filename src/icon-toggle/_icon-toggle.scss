@@ -55,10 +55,8 @@
   height: $icon-toggle-size;
   width: $icon-toggle-size;
   min-width: $icon-toggle-size;
-  line-height: $icon-toggle-size;
   color: $icon-toggle-color;
   border-radius: 50%;
-  font-size: $icon-toggle-font-size;
   padding: 0;
   margin-left: 0;
   margin-right: 0;
@@ -67,6 +65,11 @@
   will-change: background-color;
   transition: background-color 0.2s $animation-curve-default,
   color 0.2s $animation-curve-default;
+
+  &.material-icons {
+    line-height: $icon-toggle-size;
+    font-size: $icon-toggle-font-size;
+  }
 
   .mdl-icon-toggle.is-checked & {
     color: $icon-toggle-checked-color;

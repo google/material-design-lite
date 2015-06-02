@@ -26,12 +26,10 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var fs = require('fs');
 var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
-var merge = require('merge-stream');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -52,7 +50,6 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
-
 // ***** Development tasks ****** //
 
 // Lint JavaScript
@@ -63,7 +60,6 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
-
 
 // ***** Production build tasks ****** //
 
@@ -80,19 +76,8 @@ gulp.task('images', function () {
     .pipe($.size({title: 'images'}));
 });
 
-// Copy fonts
-gulp.task('fonts', function () {
-  return gulp.src([
-    'src/fonts/*'
-  ])
-  .pipe(gulp.dest('.tmp/fonts'))
-  .pipe(gulp.dest('dist/fonts'))
-  // FIXME: This is rather hacky
-  .pipe(gulp.dest('dist/embedded_customizer/fonts'));
-});
-
 // Compile and Automatically Prefix Stylesheets (dev)
-gulp.task('styles:dev', ['fonts'], function () {
+gulp.task('styles:dev', function () {
   return gulp.src([
     'src/**/*.scss'
   ])
@@ -175,10 +160,8 @@ gulp.task('scripts', function () {
     // Polyfills/dependencies
     'src/third_party/**/*.js',
     // Base components
-    'src/animation/animation.js',
     'src/button/button.js',
     'src/checkbox/checkbox.js',
-    'src/column-layout/column-layout.js',
     'src/icon-toggle/icon-toggle.js',
     'src/menu/menu.js',
     'src/progress/progress.js',
@@ -191,6 +174,7 @@ gulp.task('scripts', function () {
     'src/tooltip/tooltip.js',
     // Complex components (which reuse base components)
     'src/layout/layout.js',
+    'src/data-table/data-table.js',
     // And finally, the ripples
     'src/ripple/ripple.js'
   ];
@@ -201,7 +185,8 @@ gulp.task('scripts', function () {
     .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
-    .pipe($.uglify({preserveComments: 'some', sourceRoot: '.', sourceMapIncludeSources: true}))
+    .pipe($.uglify({preserveComments: 'some', sourceRoot: '.',
+        sourceMapIncludeSources: true}))
     .pipe($.concat('material.min.js'))
     // Write Source Maps
     .pipe($.sourcemaps.write('./'))
@@ -213,19 +198,19 @@ gulp.task('scripts', function () {
 gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
 
 // Build Production Files, the Default Task
-gulp.task('default', ['clean','mocha'], function (cb) {
+gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'scripts', 'fonts', 'styles', 'assets', 'pages', 'demos', 'templates', 'images'],
+    ['jshint', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
+     'images'],
     cb);
 });
-
 
 // ***** Testing tasks ***** //
 
 gulp.task('mocha', ['styles'], function () {
   return gulp.src('./test/index.html')
-    .pipe($.mochaPhantomjs({reporter: 'list'}))
+    .pipe($.mochaPhantomjs({reporter: 'list'}));
 });
 
 gulp.task('test', ['jshint', 'mocha']);
@@ -239,7 +224,6 @@ gulp.task('test:visual', function() {
 
   gulp.watch(['test/visual/**'], reload);
 });
-
 
 // ***** Landing page tasks ***** //
 
@@ -266,15 +250,14 @@ function applyTemplate() {
     file.contents = new Buffer(tpl(data), 'utf8');
     this.push(file);
     cb();
-  })
+  });
 }
-
 
 /**
  * Generates an index.html file for each README in MDL/src directory.
  */
 gulp.task('components', function() {
-  return gulp.src('./src/**/README.md', {base: './src'})
+  return gulp.src(['./src/**/README.md'], {base: './src'})
     // Add basic front matter.
     .pipe($.header('---\nlayout: component\nbodyclass: components\ninclude_prefix: ../../\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
@@ -290,24 +273,24 @@ gulp.task('components', function() {
       function(cb) {
         site.components = componentPages;
         cb();
-      })
+      });
     })())
     .pipe(applyTemplate())
     .pipe($.rename(function (path) {
-        path.basename = "index";
+      path.basename = 'index';
     }))
     .pipe(gulp.dest('dist/components'));
 });
-
 
 /**
  * Copies demo files from MDL/src directory.
  */
 gulp.task('demos', function () {
-    return gulp.src([
-        './src/**/demo.*',
-        './src/**/*.js'
-      ], {base: './src'})
+  return gulp.src([
+      './src/**/*.css',
+      './src/**/demo.*',
+      './src/**/*.js'
+    ], {base: './src'})
       .pipe($.if('*.scss', $.sass({
         precision: 10,
         onError: console.error.bind(console, 'Sass error:')
@@ -318,7 +301,6 @@ gulp.task('demos', function () {
       .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
       .pipe(gulp.dest('dist/components'));
 });
-
 
 /**
  * Generates an HTML file for each md file in _pages directory.
@@ -337,7 +319,6 @@ gulp.task('pages', ['components'], function() {
     .pipe(gulp.dest('dist'));
 });
 
-
 /**
  * Copies assets from MDL and _assets directory.
  */
@@ -350,7 +331,6 @@ gulp.task('assets', function () {
     .pipe(gulp.dest('dist/assets'));
 });
 
-
 /**
  * Serves the landing page from "out" directory.
  */
@@ -358,14 +338,12 @@ gulp.task('serve', ['default'], function () {
   browserSync({
     notify: false,
     server: {
-      baseDir: ['dist'],
-      routes: {
-        '/components/fonts': 'dist/fonts'
-      }
+      baseDir: ['dist']
     }
   });
 
-  gulp.watch(['src/**/*.js', '!src/**/README.md'], ['scripts', 'demos', 'components', reload]);
+  gulp.watch(['src/**/*.js', '!src/**/README.md'],
+      ['scripts', 'demos', 'components', reload]);
   gulp.watch(['src/**/*.{scss,css}'], ['styles', 'demos', reload]);
   gulp.watch(['src/**/*.html'], ['demos', reload]);
   gulp.watch(['src/**/README.md'], ['components', reload]);
@@ -373,7 +351,8 @@ gulp.task('serve', ['default'], function () {
   gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
 });
 
-gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'], function() {
+gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'],
+    function() {
   var push = !!process.env.GH_PUSH;
   if (!push) {
     console.log('Dry run! To push set $GH_PUSH to true');
@@ -436,6 +415,7 @@ gulp.task('templates:fonts', function() {
     'src/fonts/**/*'
   ], {base: '.'})
   .pipe(gulp.dest('dist/templates/'));
-})
+});
 
-gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl', 'templates:styles', 'templates:fonts']);
+gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
+    'templates:styles']);

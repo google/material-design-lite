@@ -65,7 +65,7 @@
   background: $input-text-font-size;
   text-align: left;
   color: inherit;
-  
+
   .mdl-textfield.is-focused & {
     outline: none;
   }
@@ -111,6 +111,11 @@
     font-size : $input-text-floating-label-fontsize;
     top: $input-text-vertical-spacing - ($input-text-floating-label-fontsize + $input-text-padding);
     visibility: visible;
+  }
+
+  .mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder &,
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder &{
+    top: -($input-text-floating-label-fontsize + $input-text-padding);
   }
 
   .mdl-textfield--floating-label.is-invalid & {
