@@ -3,7 +3,7 @@
 ##Introduction
 The Material Design Lite (MDL) **text field** component is an enhanced version of the standard HTML `<input type="text">` and `<input type="textarea">` elements. A text field consists of a horizontal line indicating where keyboard input can occur and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.
 
-Text fields are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the text field component's [Material Design specifications page](http://www.google.com/design/spec/components/text-fields.html) for details. 
+Text fields are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the text field component's [Material Design specifications page](http://www.google.com/design/spec/components/text-fields.html) for details.
 
 The enhanced text field component has a more vivid visual look than a standard text field, and may be initially or programmatically *disabled*.
 
@@ -197,7 +197,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
 ```html
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
   <label class="mdl-button mdl-js-button mdl-button--icon" for="expando1">
-    <span class="mdl-icon--search"></span>
+    <i class="material-icons">search</i>
   </label>
   <div class="mdl-textfield__expandable-holder">
     <input class="mdl-textfield__input" type="text" id="expando1" />
@@ -214,7 +214,7 @@ Expandable text field with a standard label.
 ```html
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
   <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
-    <span class="mdl-icon--search"></span>
+    <i class="material-icons">search</i>
   </label>
   <div class="mdl-textfield__expandable-holder">
     <input class="mdl-textfield__input" type="text" id="search-expandable" />
@@ -227,7 +227,7 @@ Expandable text field with a floating label.
 ```html
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
   <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable2">
-    <span class="mdl-icon--search"></span>
+    <i class="material-icons">search</i>
   </label>
   <div class="mdl-textfield__expandable-holder">
     <input class="mdl-textfield__input" type="text" id="search-expandable2" />
@@ -250,10 +250,9 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-button` | Defines label as an MDL icon button | For expandable input fields, required on "outer" div's label element |
 | `mdl-js-button` | Assigns basic behavior to icon container | For expandable input fields, required on "outer" div's label element |
 | `mdl-button--icon` | Defines label as an MDL icon container | For expandable input fields, required on "outer" div's label element |
-| `mdl-icon--search` | Defines span as an MDL search icon(1) | For expandable input fields, required on "outer" div's label's span element |
 | `mdl-input__expandable-holder` | Defines a container as an MDL component | For expandable input fields, required on "inner" div element |
 
-(1) The "search" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/material-design-lite/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
+(1) The "search" icon is used here as an example. Other icons can be used by modifying the text. For a list of available icons, see [this page](https://www.google.com/design/icons).
 
 >**Note:** Disabled versions of each text field type are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input class="mdl-textfield mdl-js-textfield" type="text" disabled />`
 >This attribute may be added or removed programmatically via scripting.
@@ -264,4 +263,3 @@ For working examples of the **text field** component, see the MDL [text field de
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-
