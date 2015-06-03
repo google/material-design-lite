@@ -101,3 +101,12 @@ section.mdl-component.active {
     position: fixed;
   }
 }
+
+/* Remove ugly LF characters from prism */
+.token.cr:before {
+	content: '' !important;
+}
+
+.token.lf:before {
+  content: '' !important;
+}

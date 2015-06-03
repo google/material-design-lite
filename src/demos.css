@@ -33,4 +33,10 @@
 
 .demo-preview-block {
   padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.demo-code {
+  width: 100%;
 }

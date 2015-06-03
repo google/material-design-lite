@@ -15,29 +15,29 @@
  */
 
 .demo-button {
- display: inline-block;
- margin: 20px 20px 20px 0;
+  display: inline-block;
+  margin: 20px 20px 20px 0;
  }
 
-.highlight-button {
+.demo-button .highlight-button {
   position:relative;
   top: -50px;
   left: 50%;
 }
 
-.adjust {
+.demo-button .adjust {
   margin-left: -30px;
 }
 
-.highlight-text {
+.demo-button .highlight-text {
   text-align: center;
 }
 
-.overflow-vis {
+.demo-button .overflow-vis {
   overflow: visible;
 }
 
-.codepen-mover-button {
+.demo-button .codepen-mover-button {
   position: absolute;
   bottom: 5px;
   right: 8px;
