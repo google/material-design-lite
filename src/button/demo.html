@@ -1,73 +1,62 @@
-<!doctype html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Buttons</title>
-
-    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-    <link rel="stylesheet" href="../../material.css">
-    <link rel="stylesheet" href="../demos.css">
-    <link rel="stylesheet" href="demo.css">
-  </head>
-  <body class="demo-page demo-page--button">
-
-  <div class="demo-preview-block">
-
-    <div class="demo-button">Flat: <button class="mdl-button mdl-js-button">Flat</button></div>
-    <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised">Raised</button></div>
-    <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab"><i class="material-icons">add</i></button></div>
-    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">create</i></button></div>
-
-    <h2>With Ripples</h2>
-
-    <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Flat</button></div>
-    <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Raised</button></div>
-    <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"><i class="material-icons">add</i></button></div>
-    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect"><i class="material-icons">create</i></button></div>
-
-    <h2>.mdl-button--colored</h2>
-
-    <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-button--colored">Flat</button></div>
-    <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Raised</button></div>
-    <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"><i class="material-icons">add</i></button></div>
-
-    <h2>With Ripples</h2>
-
-    <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Flat</button></div>
-    <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Raised</button></div>
-    <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect"><i class="material-icons">add</i></button></div>
-
-    <h2>.mdl-button--primary</h2>
-
-    <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary">Flat</button></div>
-    <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">Raised</button></div>
-    <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary"><i class="material-icons">add</i></button></div>
-    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--primary"><i class="material-icons">add</i></button></div>
-
-    <h2>.mdl-button--accent</h2>
-
-    <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">Flat</button></div>
-    <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Raised</button></div>
-    <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">add</i></button></div>
-    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">add</i></button></div>
-
-    <h2>.mdl-button--mini-fab</h2>
-
-    <div class="demo-button"><button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-button--mini-fab mdl-js-ripple-effect"><i class="material-icons">add</i></button></div>
-
-    <h2>Disabled</h2>
-
-    <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Flat</button></div>
-    <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" disabled>Raised</button></div>
-    <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" disabled><i class="material-icons">add</i></button></div>
-    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" disabled><i class="material-icons">add</i></button></div>
+<div class="demo-preview-block">
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+      <a class="mdl-tabs__tab overflow-vis is-active" href="#raised-button">
+        <button class="mdl-button mdl-js-button mdl-button--raised highlight-button adjust">BUTTON</button>
+        <span class="adjust">Raised Button</span>
+      </a>
+      <a class="mdl-tabs__tab overflow-vis" href="#plain-fab">
+        <button class="mdl-button mdl-js-button mdl-button--fab highlight-button adjust">+</button>
+        <span class="adjust">Plain FAB</span>
+      </a>
+      <a class="mdl-tabs__tab overflow-vis" href="#colored-fab">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored highlight-button adjust">+</button>
+        <span class="adjust">Colored FAB</span>
+      </a>
+      <a class="mdl-tabs__tab overflow-vis" href="#colored-fab-ripple">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect highlight-button adjust">+</button>
+        <span class="adjust">FAB w/ Ripple</span>
+      </a>
+      <a class="mdl-tabs__tab overflow-vis" href="#colored-fab-disabled">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--disabled highlight-button adjust" disabled>+</button>
+        <span class="adjust">Disabled</span>
+      </a>
+    </div>
+    <br>
+    <div class="mdl-tabs__panel is-active" id="raised-button">
+      <pre><code class="language-markup">
+&lt;link rel="stylesheet" href="http://storage.googleapis.com/materialdesignlite/material.css"&gt;
+&lt;script src="http://storage.googleapis.com/materialdesignlite/material.min.js"&gt;&lt;/script&gt;
+&lt;button class="mdl-button mdl-js-button mdl-button--raised highlight-button"&gt;BUTTON&lt;/button&gt;
+      </code></pre>
+    </div>
+    <div class="mdl-tabs__panel" id="plain-fab">
+      <pre><code class="language-markup">
+&lt;link rel="stylesheet" href="http://storage.googleapis.com/materialdesignlite/material.css"&gt;
+&lt;script src="http://storage.googleapis.com/materialdesignlite/material.min.js"&gt;&lt;/script&gt;
+&lt;button class="mdl-button mdl-js-button mdl-button--fab"&gt;+&lt;/button&gt;
+      </code></pre>
+    </div>
+    <div class="mdl-tabs__panel" id="colored-fab">
+      <pre><code class="language-markup">
+&lt;link rel="stylesheet" href="http://storage.googleapis.com/materialdesignlite/material.css"&gt;
+&lt;script src="http://storage.googleapis.com/materialdesignlite/material.min.js"&gt;&lt;/script&gt;
+&lt;button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"&gt;+&lt;/button&gt;
+      </code></pre>
+    </div>
+    <div class="mdl-tabs__panel" id="colored-fab-ripple">
+      <pre><code class="language-markup">
+&lt;link rel="stylesheet" href="http://storage.googleapis.com/materialdesignlite/material.css"&gt;
+&lt;script src="http://storage.googleapis.com/materialdesignlite/material.min.js"&gt;&lt;/script&gt;
+&lt;button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect"&gt;+&lt;/button&gt;
+      </code></pre>
+    </div>
+    <div class="mdl-tabs__panel" id="colored-fab-disabled">
+      <pre><code class="language-markup">
+&lt;link rel="stylesheet" href="http://storage.googleapis.com/materialdesignlite/material.css"&gt;
+&lt;script src="http://storage.googleapis.com/materialdesignlite/material.min.js"&gt;&lt;/script&gt;
+&lt;button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" disabled&gt;+&lt;/button&gt;
+      </code></pre>
+    </div>
   </div>
-  <script src="../../material.js"></script>
-  </body>
-</html>
+</div>

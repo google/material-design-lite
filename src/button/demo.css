@@ -15,6 +15,31 @@
  */
 
 .demo-button {
-  display: inline-block;
-  margin: 20px 20px 20px 0;
+ display: inline-block;
+ margin: 20px 20px 20px 0;
+ }
+
+.highlight-button {
+  position:relative;
+  top: -50px;
+  left: 50%;
+}
+
+.adjust {
+  margin-left: -30px;
+}
+
+.highlight-text {
+  text-align: center;
+}
+
+.overflow-vis {
+  overflow: visible;
+}
+
+.codepen-mover-button {
+  position: absolute;
+  bottom: 5px;
+  right: 8px;
+  background-color: #cccccc;
 }
