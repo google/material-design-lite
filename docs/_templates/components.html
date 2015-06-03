@@ -3,7 +3,7 @@
 {% block content %}
 <link href="{{page.include_prefix}}/assets/components.css" rel="stylesheet">
 <script src="{{page.include_prefix}}/assets/components.js"></script>
-<link rel="stylesheet" href="/components/button/demo.css">
+<link rel="stylesheet" href="/components/demos.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.css" rel="stylesheet">
 
 <aside class="mdl-components">
@@ -18,6 +18,14 @@
 </aside>
 
 {% for component in page.components -%}
+{% set demo_css = "../../src/" + component.name + "/demo.css" %}
+<style>
+{% include demo_css ignore missing %}
+</style>
+{% set demo_js = "../../src/" + component.name + "/demo.js" %}
+<script>
+{% include demo_js ignore missing %}
+</script>
 <section class="mdl-component {{ component.name }} mdl-grid mdl-cell mdl-cell--12-col {% if loop.first %}active{%- endif %}">
   <div class="mdl-cell mdl-cell--12-col">
     <h1>{{ component.title }}</h1>
@@ -31,12 +39,6 @@
 </section>
 {%- endfor %}
 
-<script src="{{page.include_prefix}}/assets/components.js"></script>
-<script src="../components/mdlComponentHandler.js"></script>
-<script src="../components/tabs/tabs.js"></script>
-<script src="../components/ripple/ripple.js"></script>
-<script src="../components/third_party/rAF.js"></script>
-<script src="../components/demo.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.js"></script>
 
 {% endblock %}

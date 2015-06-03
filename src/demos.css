@@ -23,7 +23,6 @@
 
   padding: 24px;
   box-sizing: border-box;
-  background: #FFF;
 }
 
 /* We define h2 under body, so it doesn't bleed into typography styles. */
@@ -33,6 +32,5 @@
 }
 
 .demo-preview-block {
-  background: rgb(245,245,245);
   padding: 20px;
 }
