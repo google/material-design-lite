@@ -335,7 +335,7 @@ gulp.task('assets', function () {
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve', ['default'], function () {
+gulp.task('serve:browsersync', ['default'], function () {
   browserSync({
     notify: false,
     server: {
@@ -350,6 +350,21 @@ gulp.task('serve', ['default'], function () {
   gulp.watch(['src/**/README.md'], ['components', reload]);
   gulp.watch(['templates/**/*'], ['templates', reload]);
   gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
+});
+
+gulp.task('serve', ['default'], function() {
+  $.connect.server({
+    root: 'dist',
+    livereload: true
+  });
+
+  gulp.watch(['src/**/*.js', '!src/**/README.md'],
+      ['scripts', 'demos', 'components']);
+  gulp.watch(['src/**/*.{scss,css}'], ['styles', 'demos']);
+  gulp.watch(['src/**/*.html'], ['demos']);
+  gulp.watch(['src/**/README.md'], ['components']);
+  gulp.watch(['templates/**/*'], ['templates']);
+  gulp.watch(['docs/**/*'], ['pages', 'assets']);
 });
 
 gulp.task('publish', function(cb) {
