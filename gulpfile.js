@@ -352,17 +352,23 @@ gulp.task('serve', ['default'], function () {
   gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
 });
 
-gulp.task('publish', ['default', 'templates', 'assets', 'pages', 'demos'],
-    function() {
+gulp.task('publish', function(cb) {
+  runSequence('default',
+    ['templates', 'assets', 'pages', 'demos'],
+    'publish:push',
+    cb);
+});
+
+gulp.task('publish:push', function() {
   var push = !!process.env.GH_PUSH;
   if (!push) {
     console.log('Dry run! To push set $GH_PUSH to true');
   }
 
   return gulp.src('dist/**/*')
-  .pipe($.ghPages({
-    push: push,
-  }));
+    .pipe($.ghPages({
+      push: push,
+    }));
 });
 
 gulp.task('templates:mdl', function() {
