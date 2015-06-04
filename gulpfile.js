@@ -195,7 +195,7 @@ gulp.task('scripts', function () {
 });
 
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['dist'], {dot: true}));
+gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean', 'mocha'], function (cb) {
