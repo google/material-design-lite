@@ -1,60 +1,30 @@
+/*global MaterialCustomizer:true*/
+
+/* exported init */
 function init() {
   'use strict';
 
-  new MaterialCustomizer(document.getElementById('mdl-gen-body'));
+  var wheel = document.querySelector('#wheel > svg');
+  new MaterialCustomizer(wheel);
 }
 
-function MaterialCustomizer(page) {
+(function() {
   'use strict';
 
-  this.page = page;
-  this.colors = null;
-  this.selectedPrimary = null;
-  this.selectedAccent = null;
-  this.selectingPrimary = true;
-  this.blob = null;
-
-  this.init();
-}
-
-MaterialCustomizer.prototype.init = function() {
-  'use strict';
-
-  if (!this.page.getAttribute('initialized')) {
-    this.changeColor();
-
-    this.colors = this.page.querySelectorAll('.mdl-gen-color');
-
-    for (var i = 0; i < this.colors.length; i++) {
-      this.colors[i].addEventListener('click', this.selectColor.bind(this));
-
-      if (this.colors[i].classList.contains('is-primary')) {
-        this.selectedPrimary = i;
-      }
-
-      if (this.colors[i].classList.contains('is-accent')) {
-        this.selectedAccent = i;
-      }
-    }
-
-    document.getElementById('download').addEventListener('click',
-        this.download.bind(this));
-
-    var isSafari = /constructor/i.test(window.HTMLElement);
-    if (isSafari) {
-      document.getElementById('download').innerHTML = 'Get CSS';
-    } else {
-      document.getElementById('warning').classList.add('mdl-gen--hidden');
-    }
-
-    this.page.setAttribute('initialized', true);
+  function parentWrapper(p) {
+    return p.parentElement || p.parentNode;
   }
-};
 
-MaterialCustomizer.prototype.processTemplate = function(response) {
-  'use strict';
-
-  var palettes = [
+  window.MaterialCustomizer = function(wheel) {
+    this.wheel = wheel;
+    this.paletteIndices = ['Red', 'Pink', 'Purple', 'Deep Purple', 'Indigo',
+                          'Blue', 'Light Blue', 'Cyan', 'Teal', 'Green',
+                          'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange',
+                          'Deep Orange', 'Brown', 'Grey', 'Blue Grey'];
+    this.lightnessIndices = ['50', '100', '200', '300', '400',
+                             '500', '600', '700', '800', '900',
+                             'A100', 'A200', 'A400', 'A700'];
+    this.palettes = [
     ['255,235,238', '255,205,210', '239,154,154', '229,115,115', '239,83,80',
      '244,67,54', '229,57,53', '211,47,47', '198,40,40', '183,28,28',
      '255,138,128', '255,82,82', '255,23,68', '213,0,0'],
@@ -109,152 +79,357 @@ MaterialCustomizer.prototype.processTemplate = function(response) {
      '158,158,158', '117,117,117', '97,97,97', '66,66,66', '33,33,33'],
     ['236,239,241', '207,216,220', '176,190,197', '144,164,174', '120,144,156',
      '96,125,139', '84,110,122', '69,90,100', '55,71,79', '38,50,56']
-  ];
+    ];
 
-  var generated = response;
-
-  var primary = palettes[this.selectedPrimary][5];
-  var primaryDark = palettes[this.selectedPrimary][7];
-  var accent = palettes[this.selectedAccent][11];
-
-  generated = this.replaceKeyword(
-      generated, '\\$color-primary-dark', primaryDark);
-
-  generated = this.replaceKeyword(
-      generated, '\\$color-primary-contrast', this.calculateTextColor(primary));
-
-  generated = this.replaceKeyword(
-      generated, '\\$color-accent-contrast', this.calculateTextColor(accent));
-
-  generated = this.replaceKeyword(generated, '\\$color-primary', primary);
-
-  generated = this.replaceKeyword(generated, '\\$color-accent', accent);
-
-  window.generated = generated;
-  return generated;
-};
-
-MaterialCustomizer.prototype.calculateChannel = function(component) {
-  'use strict';
-
-  component = component / 255;
-
-  return component < 0.03928 ?
-      component / 12.92 : Math.pow((component + 0.055) / 1.055, 2.4);
-};
-
-MaterialCustomizer.prototype.calculateLuminance = function(color) {
-  'use strict';
-
-  var components = color.split(',');
-  var red = this.calculateChannel(parseInt(components[0]));
-  var green = this.calculateChannel(parseInt(components[1]));
-  var blue = this.calculateChannel(parseInt(components[2]));
-
-  return (0.2126 * red) + (0.7152 * green) + (0.0722 * blue);
-};
-
-MaterialCustomizer.prototype.calculateContrast =
-    function(background, foreground) {
-  'use strict';
-
-  var backLum = this.calculateLuminance(background) + 0.05;
-  var foreLum = this.calculateLuminance(foreground) + 0.05;
-
-  return Math.max(backLum, foreLum) / Math.min(backLum, foreLum);
-};
-
-MaterialCustomizer.prototype.calculateTextColor = function(background) {
-  'use strict';
-
-  var minimumContrast = 3.1;
-  var light = '255,255,255';
-  var dark = '66,66,66';
-
-  // Most colors will be dark, so check light text color first.
-  var whiteContrast = this.calculateContrast(background, light);
-
-  if (whiteContrast >= minimumContrast) {
-    return light;
-  } else {
-    var blackContrast = this.calculateContrast(background, dark);
-    return blackContrast > whiteContrast ? dark : light;
-  }
-};
-
-MaterialCustomizer.prototype.replaceKeyword = function(str, key, val) {
-  'use strict';
-
-  return str.replace(new RegExp(key, 'g'), val);
-};
-
-MaterialCustomizer.prototype.changeColor = function() {
-  'use strict';
-
-  var oldStyle = document.getElementById('main-stylesheet');
-
-  var req = new XMLHttpRequest();
-  var self = this;
-  req.onload = function() {
-    var style = document.createElement('style');
-    style.id = 'main-stylesheet';
-    style.textContent = self.processTemplate(this.responseText);
-    if (oldStyle && oldStyle.parentNode) {
-      oldStyle.parentNode.removeChild(oldStyle);
-    }
-    document.head.appendChild(style);
-    self.prepareDownload();
+    this.init_();
   };
-  req.open('get', '../material.min.css.template', true);
-  req.send();
-};
 
-MaterialCustomizer.prototype.download = function() {
-  'use strict';
+  MaterialCustomizer.prototype.init_ = function() {
+    this.config = {
+      width: 650, // width of the SVG panel
+      height: 650, // height of the SVG panel
+      r: 250, // radius of the wheel
+      ri: 100, // radius of the inner hole
+      hd: 40, // height of the dark section
+      c: 40, // Distance(center of selector circle, border of wheel)
+      mrs: 0.5, // Percent of available width to use as radius for selector circle
+      alphaIncr: 0.005, // Value to add to alpha to make tiles overlap slightly
+      colors: [
+        'Cyan',
+        'Teal',
+        'Green',
+        'Light Green',
+        'Lime',
+        'Yellow',
+        'Amber',
+        'Orange',
+        'Brown',
+        'Blue Grey',
+        'Grey',
+        'Deep Orange',
+        'Red',
+        'Pink',
+        'Purple',
+        'Deep Purple',
+        'Indigo',
+        'Blue',
+        'Light Blue',
+      ]
+    };
+    this.forbiddenAccents = ['Blue Grey', 'Brown', 'Grey'];
+    this.numSelected = 0;
 
-  // Workaround for IE.
-  if (window.navigator.msSaveBlob) {
-    window.navigator.msSaveBlob(this.blob, 'material.min.css');
-  }
-};
+    this.calculateValues_();
+    this.buildWheel_();
 
-MaterialCustomizer.prototype.prepareDownload = function() {
-  'use strict';
+    return;
+  };
 
-  var link = document.getElementById('download');
-  var blob = new Blob([window.generated], {type: 'text/css'});
-  this.blob = blob;
-  var url = URL.createObjectURL(blob);
-  link.setAttribute('href', url);
-  link.setAttribute('download', 'material.min.css');
-};
+  MaterialCustomizer.prototype.calculateValues_ = function() {
+    var config = this.config;
+    // Calculated values
+    // Angle of each piece of the wheel
+    config.alphaDeg = 360.0 / config.colors.length;
+    config.alphaRad = config.alphaDeg * Math.PI / 180;
+    // Radius of selector circle
+    config.rs = (config.c + config.r) * Math.sin(config.alphaRad / 2);
+    config.rs *= config.mrs;
+    // Angle of selector cone
+    config.selectorAlphaRad = Math.atan(config.rs / config.c) * 2;
+    // Angles of cone tangetial point
+    config.gamma1 = config.alphaRad / 2 - config.selectorAlphaRad / 2;
+    config.gamma2 = config.alphaRad / 2 + config.selectorAlphaRad / 2;
+    // Center of selector circle
+    config.cx = (config.c + config.r) * Math.sin(config.alphaRad) / 2;
+    config.cy = -(config.c + config.r) * (1 + Math.cos(config.alphaRad)) / 2;
 
-MaterialCustomizer.prototype.selectColor = function(event) {
-  'use strict';
+    this.config = config;
+  };
 
-  var index = event.target.getAttribute('index');
+  MaterialCustomizer.prototype.buildWheel_ = function() {
+    var config = this.config;
+    var mainG = this.wheel.querySelector('g.wheel--maing');
 
-  if (!this.selectingPrimary && this.selectedPrimary === index) {
-    this.colors[this.selectedPrimary].classList.remove('is-primary');
-    this.colors[this.selectedAccent].classList.remove('is-accent');
-    this.selectingPrimary = true;
-    this.page.classList.add('mdl-gen--selecting-primary');
-    this.page.classList.remove('mdl-gen--selecting-accent');
-  } else if (this.selectingPrimary) {
-    this.page.classList.remove('mdl-gen--selecting-primary');
-    this.colors[this.selectedPrimary].classList.remove('is-primary');
-    this.selectedPrimary = index;
-    this.colors[index].classList.add('is-primary');
-    this.selectingPrimary = false;
-    this.page.classList.add('mdl-gen--selecting-accent');
-  } else {
-    this.page.classList.remove('mdl-gen--selecting-primary');
-    this.colors[this.selectedAccent].classList.remove('is-accent');
-    this.selectedAccent = index;
-    this.colors[index].classList.add('is-accent');
-    this.selectingPrimary = true;
-    this.page.classList.remove('mdl-gen--selecting-accent');
-  }
+    this.wheel.setAttribute('viewBox', '0 0 ' +
+      this.config.width + ' ' +  this.config.height);
+    this.wheel.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    this.wheel.setAttribute('width', this.config.width);
+    this.wheel.setAttribute('height', this.config.height);
 
-  this.changeColor();
-};
+    var fieldTpl = this.generateFieldTemplate_();
+
+    var svgNS = 'http://www.w3.org/2000/svg';
+    config.colors.forEach(function(color, idx) {
+      var field = fieldTpl.cloneNode(true);
+
+      for (var i = 1; i <= 2; i++) {
+        var g = document.createElementNS(svgNS, 'g');
+        var label = document.createElementNS(svgNS, 'text');
+        label.setAttribute('class', 'label label--' + i);
+        label.setAttribute('transform',
+          'rotate(' + (-config.alphaDeg * idx) + ')');
+        label.setAttribute('dy', '0.5ex');
+        label.textContent = '' + i;
+        g.appendChild(label);
+        g.setAttribute('transform',
+          'translate(' + config.cx + ',' + config.cy + ')');
+        field.appendChild(g);
+      }
+      field.setAttribute('data-color', color);
+      field.querySelector('.polygons > *:nth-child(1)').style.fill =
+        'rgb(' + this.getColor(color, '500') + ')';
+      field.querySelector('.polygons > *:nth-child(2)').style.fill =
+        'rgb(' + this.getColor(color, '700') + ')';
+      field.querySelector('.polygons').
+        addEventListener('click', this.fieldClicked_.bind(this));
+      field.setAttribute('transform', 'rotate(' + config.alphaDeg * idx + ')');
+      mainG.appendChild(field);
+    }.bind(this));
+
+    mainG.setAttribute('transform',
+      'translate(' + config.width / 2 + ',' + config.height / 2 + ')');
+  };
+
+  MaterialCustomizer.prototype.generateFieldTemplate_ = function() {
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var config = this.config;
+    var fieldTpl = document.createElementNS(svgNS, 'g');
+    var polygons = document.createElementNS(svgNS, 'g');
+    var lightField = document.createElementNS(svgNS, 'polygon');
+    lightField.setAttribute('points', [
+      [
+        config.ri * Math.sin(config.alphaRad + config.alphaIncr),
+        -config.ri * Math.cos(config.alphaRad + config.alphaIncr)
+      ].join(','),
+      [
+        config.r * Math.sin(config.alphaRad + config.alphaIncr),
+        -config.r * Math.cos(config.alphaRad + config.alphaIncr)
+      ].join(','),
+      [0, -config.r].join(','),
+      [0, -(config.ri + config.hd)].join(','),
+    ].join(' '));
+    var darkField = document.createElementNS(svgNS, 'polygon');
+    darkField.setAttribute('points', [
+      [
+        config.ri * Math.sin(config.alphaRad + config.alphaIncr),
+        -config.ri * Math.cos(config.alphaRad + config.alphaIncr)
+      ].join(','),
+      [
+        (config.ri + config.hd) * Math.sin(config.alphaRad + config.alphaIncr),
+        -(config.ri + config.hd) * Math.cos(config.alphaRad + config.alphaIncr)
+      ].join(','),
+      [0, -(config.ri + config.hd)].join(','),
+      [0, -config.ri].join(','),
+    ].join(' '));
+    polygons.appendChild(lightField);
+    polygons.appendChild(darkField);
+    polygons.setAttribute('class', 'polygons');
+    fieldTpl.appendChild(polygons);
+
+    var selector = document.createElementNS(svgNS, 'path');
+    selector.setAttribute('class', 'selector');
+    selector.setAttribute('d',
+      ' M ' +
+      (config.r   * Math.sin(config.alphaRad) / 2) +
+      ' ' +
+      -(config.r * (1 + Math.cos(config.alphaRad)) / 2) +
+      ' L ' +
+      (config.cx - config.rs * Math.cos(config.gamma1)) +
+      ' ' +
+      (config.cy - config.rs * Math.sin(config.gamma1)) +
+      ' A ' +
+      config.rs +
+      ' ' +
+      config.rs +
+      ' ' +
+      config.alphaDeg +
+      ' 1 1 ' +
+      (config.cx + config.rs * Math.cos(config.gamma2)) +
+      ' ' +
+      (config.cy + config.rs * Math.sin(config.gamma2)) +
+      ' z '
+    );
+    fieldTpl.appendChild(selector);
+
+    return fieldTpl;
+  };
+
+  MaterialCustomizer.prototype.fieldClicked_ = function (ev) {
+    var g = parentWrapper(parentWrapper(ev.target));
+    var selectedColor = g.getAttribute('data-color');
+    // Ignore clicks on already selected fields
+    if ((g.getAttribute('class') || '').indexOf('selected') !== -1) {
+      return;
+    }
+
+    this.numSelected++;
+    switch (this.numSelected) {
+      case 2:
+        if (this.forbiddenAccents.indexOf(selectedColor) !== -1) {
+          this.numSelected--;
+          return;
+        }
+        this.highlightField_(g);
+        this.wheel.setAttribute('class', '');
+        window.requestAnimationFrame(this.changeColor.bind(this));
+        break;
+      case 3:
+        Array.prototype.forEach.call(
+          this.wheel.querySelector('g.wheel--maing').childNodes,
+          function(f) {
+            f.setAttribute('class', '');
+            f.querySelector('.polygons').setAttribute('filter', '');
+          }
+        );
+        this.numSelected = 1;
+        /* falls through */
+      case 1:
+        this.highlightField_(g);
+        window.requestAnimationFrame(function() {
+          this.wheel.setAttribute('class', 'hide-nonaccents');
+        }.bind(this));
+        break;
+    }
+  };
+
+  MaterialCustomizer.prototype.highlightField_ = function(g) {
+    var parent = parentWrapper(g);
+
+    // Make the current polygon the last child of its parent
+    // so shadows are visible.
+    parent.removeChild(g);
+    parent.appendChild(g);
+
+    // We changed the DOM hierarchy, CSS animations might not show until
+    // DOM has updated internally.
+    var isIE = window.navigator.msPointerEnabled;
+    window.requestAnimationFrame(function() {
+      g.setAttribute('class', 'selected selected--' + this);
+      // FIXME: Shadows in IE10 don't disappear, for now they are disabled
+      if (!isIE) {
+        g.querySelector('.polygons')
+        .setAttribute('filter', 'url(#drop-shadow)');
+      }
+    }.bind(this.numSelected));
+  };
+
+  MaterialCustomizer.prototype.getColor = function(name, lightness) {
+    var r = this.palettes[this.paletteIndices.indexOf(name)];
+    if (!r) {
+      return null;
+    }
+    return r[this.lightnessIndices.indexOf(lightness)];
+  };
+
+  MaterialCustomizer.prototype.processTemplate = function(response) {
+    var generated = response;
+
+    var primaryColor = this.wheel.querySelector('.selected--1')
+                            .getAttribute('data-color');
+    var secondaryColor = this.wheel.querySelector('.selected--2')
+                            .getAttribute('data-color');
+
+    var primary = this.getColor(primaryColor, '500');
+    var primaryDark = this.getColor(primaryColor, '700');
+    var accent = this.getColor(secondaryColor, 'A200');
+
+    generated = this.replaceKeyword(
+        generated,
+        '\\$color-primary-dark', primaryDark);
+
+    generated = this.replaceKeyword(
+        generated,
+        '\\$color-primary-contrast', this.calculateTextColor(primary));
+
+    generated = this.replaceKeyword(
+        generated,
+        '\\$color-accent-contrast', this.calculateTextColor(accent));
+
+    generated = this.replaceKeyword(generated, '\\$color-primary', primary);
+
+    generated = this.replaceKeyword(generated, '\\$color-accent', accent);
+
+    window.generated = generated;
+    return generated;
+  };
+
+  MaterialCustomizer.prototype.calculateChannel = function(component) {
+    component = component / 255;
+
+    return component < 0.03928 ?
+        component / 12.92 : Math.pow((component + 0.055) / 1.055, 2.4);
+  };
+
+  MaterialCustomizer.prototype.calculateLuminance = function(color) {
+    var components = color.split(',');
+    var red = this.calculateChannel(parseInt(components[0]));
+    var green = this.calculateChannel(parseInt(components[1]));
+    var blue = this.calculateChannel(parseInt(components[2]));
+
+    return (0.2126 * red) + (0.7152 * green) + (0.0722 * blue);
+  };
+
+  MaterialCustomizer.prototype.calculateContrast =
+      function(background, foreground) {
+    var backLum = this.calculateLuminance(background) + 0.05;
+    var foreLum = this.calculateLuminance(foreground) + 0.05;
+
+    return Math.max(backLum, foreLum) / Math.min(backLum, foreLum);
+  };
+
+  MaterialCustomizer.prototype.calculateTextColor = function(background) {
+    var minimumContrast = 3.1;
+    var light = '255,255,255';
+    var dark = '66,66,66';
+
+    // Most colors will be dark, so check light text color first.
+    var whiteContrast = this.calculateContrast(background, light);
+
+    if (whiteContrast >= minimumContrast) {
+      return light;
+    } else {
+      var blackContrast = this.calculateContrast(background, dark);
+      return blackContrast > whiteContrast ? dark : light;
+    }
+  };
+
+  MaterialCustomizer.prototype.replaceKeyword = function(str, key, val) {
+    return str.replace(new RegExp(key, 'g'), val);
+  };
+
+  MaterialCustomizer.prototype.changeColor = function() {
+    var oldStyle = document.getElementById('main-stylesheet');
+
+    var req = new XMLHttpRequest();
+    var self = this;
+    req.onload = function() {
+      var style = document.createElement('style');
+      style.id = 'main-stylesheet';
+      style.textContent = self.processTemplate(this.responseText);
+      if (oldStyle && oldStyle.parentNode) {
+        oldStyle.parentNode.removeChild(oldStyle);
+      }
+      document.head.appendChild(style);
+      self.prepareDownload();
+    };
+    req.open('get', '../material.min.css.template', true);
+    req.send();
+  };
+
+  MaterialCustomizer.prototype.download = function() {
+    // Workaround for IE.
+    if (window.navigator.msSaveBlob) {
+      window.navigator.msSaveBlob(this.blob, 'material.min.css');
+    }
+  };
+
+  MaterialCustomizer.prototype.prepareDownload = function() {
+    var link = document.getElementById('download');
+    var blob = new Blob([window.generated], {type: 'text/css'});
+    this.blob = blob;
+    var url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'material.min.css');
+  };
+
+})();
