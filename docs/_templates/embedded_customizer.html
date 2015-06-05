@@ -17,10 +17,14 @@
 </head>
 <body class="mdl-gen mdl-color--grey-200" id="mdl-gen-body">
   <style>
-    #wheel > * {
+    #wheel > g > g.selected {
+      stroke: red;
+    }
+    #wheel .selector {
+      fill: hsla(0, 0%, 0%, 1.0);
     }
   </style>
-  <svg width="600" height="600" id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g></g>
   </svg>
   <script>
@@ -28,10 +32,13 @@
       var wheel = document.querySelector('#wheel');
       var mainG = document.querySelector('#wheel g');
       var config = {
-        r: 200, // radius of the wheel
-        r_i: 40, // radius of the inner hole
+        width: 600, // width of the SVG panel
+        height: 600, // height of the SVG panel
+        r: 250, // radius of the wheel
+        r_i: 100, // radius of the inner hole
         h_d: 50, // height of the dark section
-        colors: [ // colors of the wheel
+        c: 280, // Distance(center of select circle, center of wheel)
+        colors: [ // colors ([light, dark]) of the wheel
           ['hsla(  0, 100%, 50%, 1.0)', 'hsla(  0, 100%, 40%, 1.0)'],
           ['hsla( 18, 100%, 50%, 1.0)', 'hsla( 18, 100%, 40%, 1.0)'],
           ['hsla( 36, 100%, 50%, 1.0)', 'hsla( 36, 100%, 40%, 1.0)'],
@@ -57,6 +64,9 @@
       config.alphaDeg = 360.0/config.colors.length;
       config.alphaRad = config.alphaDeg * Math.PI/180;
 
+      wheel.setAttribute('width', config.width);
+      wheel.setAttribute('height', config.height);
+
       var svgNS = 'http://www.w3.org/2000/svg';
       var fieldTpl = document.createElementNS(svgNS, 'g');
       var lightField = document.createElementNS(svgNS, 'polygon');
@@ -73,24 +83,37 @@
         [(config.r_i + config.h_d) * Math.sin(config.alphaRad), -(config.r_i + config.h_d) * Math.cos(config.alphaRad)].join(','),
         [0, -(config.r_i + config.h_d)].join(','),
       ].join(' '));
+      var circle = document.createElementNS(svgNS, 'circle');
+      circle.className = 'selector';
+      circle.setAttribute('cx', config.c * Math.sin(config.alphaRad/2));
+      circle.setAttribute('cy', -config.c   * Math.cos(config.alphaRad/2));
+      circle.setAttribute('r', config.c * Math.sin(config.alphaRad/2)/2);
+      mainG.appendChild(circle);
+
       fieldTpl.appendChild(lightField);
       fieldTpl.appendChild(darkField);
 
       config.colors.forEach(function(color, idx) {
-        var g = document.createElementNS(svgNS, 'g');
-        g.addEventListener('click', fieldClicked);
         var field = fieldTpl.cloneNode(true);
         field.querySelector(':nth-child(1)').style.fill = color[0];
         field.querySelector(':nth-child(2)').style.fill = color[1];
-        g.appendChild(field);
-        g.setAttribute('transform', 'rotate(' + config.alphaDeg*idx + ')');
-        mainG.appendChild(g);
+        field.addEventListener('click', fieldClicked);
+        field.setAttribute('transform', 'rotate(' + config.alphaDeg*idx + ')');
+        mainG.appendChild(field);
       });
 
-      mainG.setAttribute('transform', 'translate(' + mainG.parentElement.width.baseVal.value/2 + ',' + mainG.parentElement.height.baseVal.value/2 +')');
+      mainG.setAttribute('transform', 'translate(' + config.width/2 + ',' + config.height/2 +')');
 
       function fieldClicked(ev) {
-        console.log(ev.target);
+        Array.prototype.forEach.call(mainG.childNodes, function(f) {
+          if(f.getAttribute('class') == 'selector') {
+            return;
+          }
+          f.setAttribute('class', '');
+        });
+        var parent = ev.target.parentElement || ev.target.parentNode;
+        parent.setAttribute('class', 'selected');
+        circle.setAttribute('transform', parent.getAttribute('transform'));
       }
     })();
   </script>
