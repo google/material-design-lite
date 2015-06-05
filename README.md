@@ -17,26 +17,18 @@ Four quick start options are available:
 
 Within the download you'll find the following directories and files.
 
-* bower.json
-    * Bower package configuration.
-* CONTRIBUTING.md
-    * MDL contribution guidelines
-* docs
-    * Template files for documentation.
-* gulpfile.js
-    * gulp configuration for MDL.
-* LICENSE
-    * Project license information.
-* package.json
-    * NPM package information.
-* README.md
-    * Details for quickly understanding the project.
-* src
-    * Source code for MDL.
-* templates
-    * Example templates.
-* test
-    * Project test files.
+| File/Folder | Provides |
+|-------------|----------|
+| bower.json | Bower package configuration. |
+| CONTRIBUTING.md | MDL contribution guidelines. |
+| docs |  Template files for documentation. |
+| gulpfile.js | gulp configuration for MDL. |
+| LICENSE | Project license information. |
+| package.json | NPM package information |
+| README.md | Details for quickly understanding the project. |
+| src | Source code for MDL. |
+| templates | Example templates |
+| test | Project test files. |
 
 ## Getting Started
 
