@@ -6,6 +6,9 @@ body {
   font-family: 'Roboto';
   color: white;
 }
+.mdl-layout {
+  height: auto ;
+}
 header.mdl-layout__header {
   height: 40vh;
   width: 100%;
@@ -17,8 +20,11 @@ header.mdl-layout__header {
 }
 .mdl-layout__tab-bar-container {
   overflow: visible;
-  height: 96px;
+  height: 64px;
   box-shadow: none !important;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .mdl-layout__tab-bar-button {
   display: none;
@@ -29,10 +35,11 @@ header.mdl-layout__header {
   height: 100%;
   width: 100%;
   box-shadow: none !important;
+  margin: 0;
 }
 .mdl-layout__tab-bar a {
   height: 100%;
-  line-height: 96px;
+  line-height: 64px;
 }
 @media (max-width: 850px) {
   .mdl-layout__header {
@@ -61,7 +68,7 @@ header.mdl-layout__header {
 #mail {
   position: absolute;
   right: 40px;
-  top: 64px;
+  top: calc(64px - 32px);
   z-index: 999;
 }
 main > .mdl-layout__tab-panel > header {
@@ -70,6 +77,12 @@ main > .mdl-layout__tab-panel > header {
 }
 main > .mdl-layout__tab-panel > header > *:last-child {
   margin-bottom: 0;
+}
+main > .mdl-layout__tab-panel > header > *:first-child {
+  margin-top: 0;
+}
+main > .mdl-layout__tab-panel > header > h2 {
+  font-size: 24px;
 }
 
 #squares > .square {
@@ -103,17 +116,20 @@ main > .mdl-layout__tab-panel > header > *:last-child {
   background: url('images/sq4.jpg') center center;
   background-size: cover;
 }
+.square > button {
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: rgba(55, 71, 79, 0.7);
+}
 .square > footer {
   position: absolute;
   height: 33%;
   width: 100%;
   bottom: 0;
-  opacity: 0.7;
   padding: 20px;
   box-sizing: border-box;
-}
-.square > footer > button {
-  float: right;
+  background-color: rgba(55, 71, 79, 0.7);
 }
 .square > footer h3 {
   font-size: 1.1em;
@@ -131,6 +147,9 @@ main > .mdl-layout__tab-panel > header > *:last-child {
   background: url('images/cta.jpg') center center;
   background-size: cover;
 }
+#cta button {
+  margin: 0 auto;
+}
 
 #cta h3 {
   margin: 30px;
@@ -138,7 +157,7 @@ main > .mdl-layout__tab-panel > header > *:last-child {
 }
 
 #authors{
-  padding-top: 40px;
+  padding: 40px 0;
   background-color: white;
 }
 #authors > .author {

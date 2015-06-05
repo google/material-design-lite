@@ -20,6 +20,12 @@ header.mdl-layout__header {
   display: flex !important;
 }
 
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .content {
   border-radius: 2px;
   padding: 24px;

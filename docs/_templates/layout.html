@@ -13,20 +13,21 @@
     <!-- Fallback to homescreen for Chrome <39 on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Material Design Lite">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <link rel="icon" sizes="192x192" href="{{page.include_prefix}}assets/android-desktop.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="{{page.include_prefix}}assets/ios-desktop.png">
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
+    <!-- TODO: Tile icon for Win8 (144x144 + tile color) -->
+    <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
+    <!-- <meta name="msapplication-TileColor" content="#3372DF"> -->
 
-    <meta name="theme-color" content="#3372DF">
+    <meta name="theme-color" content="#263238">
 
+    <link rel="shortcut icon" href="{{page.include_prefix}}assets/favicon.png" />
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
     <link rel="canonical" href="http://www.example.com/">
@@ -58,22 +59,23 @@
           </div>
         </div>
       </div>
+      <nav class="mdl-navigation mdl-js-ripple-effect">
+        <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
+        <a href="{{page.include_prefix}}templates" class="mdl-navigation__link templates">Templates</a>
+        <a href="{{page.include_prefix}}components" class="mdl-navigation__link components">Components</a>
+        <a href="{{page.include_prefix}}styles" class="mdl-navigation__link styles">Styles</a>
+        <a href="{{page.include_prefix}}customize" class="mdl-navigation__link customize">Customize</a>
+        <div class="mdl-layout-spacer"></div>
+        <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link"><span class="mdl-icon mdl-icon--link"></span>GitHub</a>
+        <a href="#" class="download">
+          Download
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
+            <i class="material-icons">file_download</i>
+          </button>
+        </a>
+      </nav>
     </header>
-    <nav class="mdl-navigation mdl-js-ripple-effect">
-      <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
-      <a href="{{page.include_prefix}}templates" class="mdl-navigation__link templates">Templates</a>
-      <a href="{{page.include_prefix}}components" class="mdl-navigation__link components">Components</a>
-      <a href="{{page.include_prefix}}styles" class="mdl-navigation__link styles">Styles</a>
-      <a href="{{page.include_prefix}}customize" class="mdl-navigation__link customize">Customize</a>
-      <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link">GitHub</a>
-      <div class="mdl-layout-spacer"></div>
-      <a href="#" class="download">
-        Download
-        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
-          <i class="material-icons">file_download</i>
-        </button>
-      </a>
-    </nav>
+    <div class="subpageheader">{{page.title}}</div>
     <main class="mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
         {% block content %}
@@ -85,14 +87,14 @@
       </section>
       <footer class="mdl-mini-footer mdl-color--grey-900">
         <ul>
-          <button class="mdl-mini-footer--social-btn"></button>
-          <button class="mdl-mini-footer--social-btn"></button>
-          <button class="mdl-mini-footer--social-btn"></button>
+          <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
+          <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>
+          <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus"></button>
         </ul>
         <ul>
-          <a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a>
-          <a href="#">Help</a>
-          <a href="#">Privacy & Terms</a>
+          <a class="mdl-color-text--grey-600" href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a>
+          <a class="mdl-color-text--grey-600" href="#">Help</a>
+          <a class="mdl-color-text--grey-600" href="#">Privacy & Terms</a>
         </ul>
       </footer>
     </main>
