@@ -355,6 +355,7 @@ gulp.task('serve:browsersync', ['default'], function () {
 gulp.task('serve', ['default'], function() {
   $.connect.server({
     root: 'dist',
+    port: 5000,
     livereload: true
   });
 
@@ -365,6 +366,9 @@ gulp.task('serve', ['default'], function() {
   gulp.watch(['src/**/README.md'], ['components']);
   gulp.watch(['templates/**/*'], ['templates']);
   gulp.watch(['docs/**/*'], ['pages', 'assets']);
+
+  gulp.src('./dist/index.html')
+    .pipe($.open('', {url: 'http://localhost:5000'}));
 });
 
 gulp.task('publish', function(cb) {
