@@ -214,10 +214,28 @@ MaterialLayout.prototype.init = function() {
     this.element_.parentElement.removeChild(this.element_);
     container.appendChild(this.element_);
 
-    this.header_ = this.element_.querySelector('.' + this.CssClasses_.HEADER);
-    this.drawer_ = this.element_.querySelector('.' + this.CssClasses_.DRAWER);
-    this.tabBar_ = this.element_.querySelector('.' + this.CssClasses_.TAB_BAR);
-    this.content_ = this.element_.querySelector('.' + this.CssClasses_.CONTENT);
+    var directChildren = this.element_.childNodes;
+    for (var c = 0; c < directChildren.length; c++) {
+      var child = directChildren[c];
+      if (child.classList &&
+          child.classList.contains(this.CssClasses_.HEADER)) {
+        this.header_ = child;
+      }
+
+      if (child.classList &&
+          child.classList.contains(this.CssClasses_.DRAWER)) {
+        this.drawer_ = child;
+      }
+
+      if (child.classList &&
+          child.classList.contains(this.CssClasses_.CONTENT)) {
+        this.content_ = child;
+      }
+    }
+
+    if (this.header_) {
+      this.tabBar_ = this.header_.querySelector('.' + this.CssClasses_.TAB_BAR);
+    }
 
     var mode = this.Mode_.STANDARD;
 
