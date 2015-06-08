@@ -40,7 +40,8 @@
         r: 250, // radius of the wheel
         r_i: 100, // radius of the inner hole
         h_d: 40, // height of the dark section
-        c: 280, // Distance(center of select circle, center of wheel)
+        c: 40, // Distance(center of selector circle, border of wheel)
+        m_r_s: 0.5, // Percent of available width to use as radius for selector circle
         colors: [ // colors ([light, dark]) of the wheel
           ['#00BCD4', '#00ACC1'], // Cyan  [-500, -600]
           ['#009688', '#00897B'], // Teal [-500, -600]
@@ -63,8 +64,17 @@
           ['#03A9F4', '#039BE5'], // Light Blue [-500, -600]
         ]
       }
+      // Calculated values
+      // Angle of each piece of the wheel
       config.alphaDeg = 360.0/config.colors.length;
       config.alphaRad = config.alphaDeg * Math.PI/180;
+      // Radius of selector circle
+      config.r_s = (config.c + config.r) * Math.sin(config.alphaRad/2) * config.m_r_s;
+      // Angle of selector cone
+      config.selectorAlphaRad = Math.atan(config.r_s / config.c)*2;
+      // Center of selector circle
+      config.c_x = (config.c + config.r) * Math.sin(config.alphaRad)/2;
+      config.c_y = -(config.c + config.r) * (1 + Math.cos(config.alphaRad))/2;
 
       wheel.setAttribute('width', config.width);
       wheel.setAttribute('height', config.height);
@@ -85,17 +95,18 @@
         [(config.r_i + config.h_d) * Math.sin(config.alphaRad), -(config.r_i + config.h_d) * Math.cos(config.alphaRad)].join(','),
         [0, -(config.r_i + config.h_d)].join(','),
       ].join(' '));
-
-
       fieldTpl.appendChild(lightField);
       fieldTpl.appendChild(darkField);
 
-      var circle = document.createElementNS(svgNS, 'circle');
-      circle.setAttribute('class', 'selector');
-      circle.setAttribute('cx', config.c * Math.sin(config.alphaRad/2));
-      circle.setAttribute('cy', -config.c   * Math.cos(config.alphaRad/2));
-      circle.setAttribute('r', config.c * Math.sin(config.alphaRad/2)/2);
-      fieldTpl.appendChild(circle);
+      var selector = document.createElementNS(svgNS, 'path')
+      selector.setAttribute('class', 'selector')
+      selector.setAttribute('d',
+        ' M ' + ( config.r   * Math.sin(config.alphaRad)/2) + ' ' + -(config.r * (1 + Math.cos(config.alphaRad))/2) +
+        ' L ' + (config.c_x - config.r_s * Math.cos(config.alphaRad/2 - config.selectorAlphaRad/2)) + ' ' + (config.c_y - config.r_s * Math.sin(config.alphaRad/2 - config.selectorAlphaRad/2)) +
+        ' A ' + config.r_s + ' ' + config.r_s + ' ' + config.alphaDeg + ' 1 1 ' + (config.c_x + config.r_s * Math.cos(config.alphaRad/2 + config.selectorAlphaRad/2)) + ' ' + (config.c_y + config.r_s * Math.sin(config.alphaRad/2 + config.selectorAlphaRad/2)) +
+        ' z '
+      );
+      fieldTpl.appendChild(selector);
 
       config.colors.forEach(function(color, idx) {
         var field = fieldTpl.cloneNode(true);
