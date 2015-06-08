@@ -20,9 +20,21 @@
     #wheel .selector {
       opacity: 0;
       transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
-      fill: hsla(0, 0%, 0%, 1.0);
+      fill: #BDBDBD;
     }
     #wheel .selected .selector {
+      opacity: 1;
+    }
+    #wheel .label {
+      text-anchor: middle;
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
+      fill: white;
+      font-size: 24px;
+      alignment-baseline: middle;
+    }
+    #wheel .selected--0 .label--0,
+    #wheel .selected--1 .label--1 {
       opacity: 1;
     }
 
@@ -110,6 +122,18 @@
 
       config.colors.forEach(function(color, idx) {
         var field = fieldTpl.cloneNode(true);
+
+        for(var i = 0; i < 2; i++) {
+          var g = document.createElementNS(svgNS, 'g');
+          var label = document.createElementNS(svgNS, 'text');
+          label.setAttribute('class', 'label label--'+i);
+          label.setAttribute('transform', 'rotate(' + (-config.alphaDeg*idx) + ')');
+          label.textContent = '' + (i+1);
+          g.appendChild(label);
+          g.setAttribute('transform', 'translate(' + config.c_x + ',' + config.c_y + ')');
+          field.appendChild(g);
+        }
+
         field.querySelector(':nth-child(1)').style.fill = color[0];
         field.querySelector(':nth-child(2)').style.fill = color[1];
         field.addEventListener('click', fieldClicked);
