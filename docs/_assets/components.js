@@ -1,124 +1,95 @@
-window.addEventListener('load', function() { new MaterialComponents(); });
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 function MaterialComponents() {
   'use strict';
 
-  this.activeComponent = '';
-  this.contentElement = document.getElementsByClassName('content')[0];
-  this.isMobile = false;
-  this.layoutElement = document.getElementsByClassName('mdl-layout')[0];
-  this.mobileMediaQuery = window.matchMedia('(max-width: 850px)');
-  this.componentLinks = document.getElementsByClassName('mdl-components__link');
-  this.stuck = false;
-  this.scrollResized = false;
+  this.element_ = document.querySelector('.mdl-js-components');
+  this.componentLinks = this.element_.querySelectorAll('.mdl-components__link');
+
+  this.activeLink = null;
+  this.activePage = null;
 
   this.init();
 }
 
 /**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+MaterialComponents.prototype.CssClasses_ = {
+  ACTIVE: 'is-active'
+};
+
+/**
  * Initializes the MaterialComponents component.
  */
 MaterialComponents.prototype.init = function() {
-  var self = this;
-  var scroll = document.getElementsByClassName('mdl-components')[0];
+  'use strict';
 
-  // Check for mobile viewport on load.
-  this.checkMobile(this.mobileMediaQuery);
+  this.activeLink = this.componentLinks[0];
+  this.activePage = this.findPage(this.activeLink);
 
-  // Check for loading element and bind event listeners.
-  for (var i = 0, link; link = this.componentLinks[i]; i++) {
-    if (link.getAttribute('href') === location.hash) {
-      this.setActiveState(link.getAttribute('href').substring(1));
-
-      // Set the scroll position to the active link.
-      scroll.scrollLeft = link.offsetLeft;
-    }
-    link.addEventListener('click', function() {
-      self.setActiveState(this.getAttribute('href').substring(1));
-    });
-  }
-
-  // Watch for scrolling.
-  this.layoutElement.addEventListener('scroll', this.stickyHeader.bind(this));
-
-  // Watch for viewport changes.
-  this.mobileMediaQuery.addListener(this.checkMobile.bind(this));
-};
-
-/**
- * Calculates the width of the scrolling div on mobile and sets an appropriate
- * media query.
- */
-MaterialComponents.prototype.calculateScrollSize = function() {
-  var scrollWidth = 5;
-
-  for (var i = 0, componentLink;
-    componentLink = this.componentLinks[i]; i++) { scrollWidth +=
-      componentLink.offsetWidth;
-  }
-
-  var styleElement = document.createElement('style');
-  styleElement.textContent = '@media (max-width: 850px) { ' +
-    '.mdl-components .scroll { width: ' + scrollWidth + 'px; } }';
-  document.body.appendChild(styleElement);
-
-  this.scrollResized = true;
-};
-
-/**
- * Checks to see if the viewport is mobile, and triggers the scroll div
- * resizing the first time.
- */
-MaterialComponents.prototype.checkMobile = function(mediaQuery) {
-  this.isMobile = mediaQuery.matches;
-  if (this.isMobile) {
-    if(!this.scrollResized) { this.calculateScrollSize(); }
-    this.stickyHeader();
-  }
-};
-
-MaterialComponents.prototype.removeActiveState = function() {
-  var activeComponents =
-    document.getElementsByClassName('mdl-component active');
-
-  while (activeComponents.length) {
-    activeComponents[0].classList.remove('active');
+  for (var i = 0; i < this.componentLinks.length; i++) {
+    this.componentLinks[i].addEventListener('click',
+        this.clickHandler(this.componentLinks[i]));
   }
 };
 
 /**
- * Method for selecting a component to view with the navigation.
+ * Returns a clickHandler for a navigation link.
+ * @param  {HTMLElement} link the navigation link
+ * @return {function} the click handler
  */
-MaterialComponents.prototype.setActiveState = function(componentName) {
-  if (this.activeComponent != componentName) {
-    this.activeComponent = componentName;
+MaterialComponents.prototype.clickHandler = function(link) {
+  'use strict';
 
-    var activeComponentElements =
-      document.getElementsByClassName('mdl-component ' + componentName);
-    var activeLeft = 0;
+  var ctx = this;
 
-    if (activeComponentElements.length) {
-      this.removeActiveState();
-      for (var i = 0, component; component = activeComponentElements[i]; i++) {
-        component.classList.add('active');
-      }
-    }
-  }
+  return function(e) {
+    e.preventDefault();
+    var page = ctx.findPage(link);
+    ctx.activePage.classList.remove(ctx.CssClasses_.ACTIVE);
+    ctx.activeLink.classList.remove(ctx.CssClasses_.ACTIVE);
+
+    ctx.activePage = page;
+    ctx.activeLink = link;
+
+    link.classList.add(ctx.CssClasses_.ACTIVE);
+    page.classList.add(ctx.CssClasses_.ACTIVE);
+  };
 };
 
 /**
- * Watches for the header scrolling on mobile and makes the top nav sticky if
- * the page is scrolled beyond the main navigation.
+ * Finds the corresponding page for a navigation link.
+ * @param  {HTMLElement} link the navigation link
+ * @return {HTMLElement} the corresponding page
  */
-MaterialComponents.prototype.stickyHeader = function() {
-  var distance = this.contentElement.offsetTop - this.layoutElement.scrollTop;
+MaterialComponents.prototype.findPage = function(link) {
+  'use strict';
 
-  if ((distance <= 0) && !this.stuck) {
-    this.contentElement.classList.add('sticky');
-    this.stuck = true;
-  } else if (this.stuck &&
-      (this.layoutElement.scrollTop <= this.contentElement.offsetTop)) {
-    this.contentElement.classList.remove('sticky');
-    this.stuck = false;
-  }
+  var href = link.href.split('#')[1];
+  return this.element_.querySelector('#' + href);
 };
+
+window.addEventListener('load', function() {
+  'use strict';
+
+  new MaterialComponents();
+});
