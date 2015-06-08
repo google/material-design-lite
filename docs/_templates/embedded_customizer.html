@@ -40,10 +40,23 @@
 
   </style>
   <svg id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <filter id="drop-shadow">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
+        <feOffset dx="0" dy="0" result="offsetblur"/>
+        <feFlood flood-color="rgba(0,0,0,0.5)"/>
+        <feComposite in2="offsetblur" operator="in"/>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
     <g></g>
   </svg>
   <script>
     (function() {
+      var isIE = window.navigator.msPointerEnabled;
       var wheel = document.querySelector('#wheel');
       var mainG = document.querySelector('#wheel g');
       var config = {
@@ -93,6 +106,7 @@
 
       var svgNS = 'http://www.w3.org/2000/svg';
       var fieldTpl = document.createElementNS(svgNS, 'g');
+      var polygons = document.createElementNS(svgNS, 'g')
       var lightField = document.createElementNS(svgNS, 'polygon');
       lightField.setAttribute('points', [
         [0, -(config.r_i+config.h_d)].join(','),
@@ -107,8 +121,10 @@
         [(config.r_i + config.h_d) * Math.sin(config.alphaRad), -(config.r_i + config.h_d) * Math.cos(config.alphaRad)].join(','),
         [0, -(config.r_i + config.h_d)].join(','),
       ].join(' '));
-      fieldTpl.appendChild(lightField);
-      fieldTpl.appendChild(darkField);
+      polygons.appendChild(lightField);
+      polygons.appendChild(darkField);
+      polygons.setAttribute('class', 'polygons');
+      fieldTpl.appendChild(polygons);
 
       var selector = document.createElementNS(svgNS, 'path')
       selector.setAttribute('class', 'selector')
@@ -134,9 +150,9 @@
           field.appendChild(g);
         }
 
-        field.querySelector(':nth-child(1)').style.fill = color[0];
-        field.querySelector(':nth-child(2)').style.fill = color[1];
-        field.addEventListener('click', fieldClicked);
+        field.querySelector('.polygons > *:nth-child(1)').style.fill = color[0];
+        field.querySelector('.polygons > *:nth-child(2)').style.fill = color[1];
+        field.querySelector('.polygons').addEventListener('click', fieldClicked);
         field.setAttribute('transform', 'rotate(' + config.alphaDeg*idx + ')');
         mainG.appendChild(field);
       });
@@ -144,18 +160,39 @@
       mainG.setAttribute('transform', 'translate(' + config.width/2 + ',' + config.height/2 +')');
 
       var numSelected = 0;
+
+      function parentWrapper(p) {
+          return p.parentElement || p.parentNode;
+      }
+
       function fieldClicked(ev) {
         if(numSelected === 2) {
           Array.prototype.forEach.call(mainG.childNodes, function(f) {
             f.setAttribute('class', '');
+            f.querySelector('.polygons').setAttribute('filter', '')
           });
           numSelected = 0;
         }
-        var parent = ev.target.parentElement || ev.target.parentNode;
-        if((parent.getAttribute('class') || '').indexOf('selected') !== -1) {
+        var g = parentWrapper(parentWrapper(ev.target));
+        var parent = parentWrapper(g);
+        if((g.getAttribute('class') || '').indexOf('selected') !== -1) {
           return;
         }
-        parent.setAttribute('class', 'selected selected--'+numSelected);
+        // Make the current polygon the last child if its parent
+        // so shadows are visible.
+        parent.removeChild(g);
+        parent.appendChild(g);
+
+        // We changed the DOM hierarchy, CSS animations might not show until
+        // DOM has updated internally.
+        window.requestAnimationFrame(function() {
+          g.setAttribute('class', 'selected selected--'+this);
+          // FIXME: Shadows in IE10 don't disappear, for now they are disabled
+          if(!isIE) {
+            g.querySelector('.polygons').setAttribute('filter', 'url(#drop-shadow)');
+          }
+        }.bind(numSelected));
+
         numSelected++;
       }
     })();
