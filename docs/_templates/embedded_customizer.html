@@ -17,12 +17,15 @@
 </head>
 <body class="mdl-gen mdl-color--grey-200" id="mdl-gen-body">
   <style>
-    #wheel > g > g.selected {
-      stroke: red;
-    }
     #wheel .selector {
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
       fill: hsla(0, 0%, 0%, 1.0);
     }
+    #wheel .selected .selector {
+      opacity: 1;
+    }
+
   </style>
   <svg id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g></g>
@@ -32,33 +35,32 @@
       var wheel = document.querySelector('#wheel');
       var mainG = document.querySelector('#wheel g');
       var config = {
-        width: 600, // width of the SVG panel
-        height: 600, // height of the SVG panel
+        width: 650, // width of the SVG panel
+        height: 650, // height of the SVG panel
         r: 250, // radius of the wheel
         r_i: 100, // radius of the inner hole
-        h_d: 50, // height of the dark section
+        h_d: 40, // height of the dark section
         c: 280, // Distance(center of select circle, center of wheel)
         colors: [ // colors ([light, dark]) of the wheel
-          ['hsla(  0, 100%, 50%, 1.0)', 'hsla(  0, 100%, 40%, 1.0)'],
-          ['hsla( 18, 100%, 50%, 1.0)', 'hsla( 18, 100%, 40%, 1.0)'],
-          ['hsla( 36, 100%, 50%, 1.0)', 'hsla( 36, 100%, 40%, 1.0)'],
-          ['hsla( 54, 100%, 50%, 1.0)', 'hsla( 54, 100%, 40%, 1.0)'],
-          ['hsla( 72, 100%, 50%, 1.0)', 'hsla( 72, 100%, 40%, 1.0)'],
-          ['hsla( 90, 100%, 50%, 1.0)', 'hsla( 90, 100%, 40%, 1.0)'],
-          ['hsla(108, 100%, 50%, 1.0)', 'hsla(108, 100%, 40%, 1.0)'],
-          ['hsla(126, 100%, 50%, 1.0)', 'hsla(126, 100%, 40%, 1.0)'],
-          ['hsla(144, 100%, 50%, 1.0)', 'hsla(144, 100%, 40%, 1.0)'],
-          ['hsla(162, 100%, 50%, 1.0)', 'hsla(162, 100%, 40%, 1.0)'],
-          ['hsla(180, 100%, 50%, 1.0)', 'hsla(180, 100%, 40%, 1.0)'],
-          ['hsla(198, 100%, 50%, 1.0)', 'hsla(198, 100%, 40%, 1.0)'],
-          ['hsla(216, 100%, 50%, 1.0)', 'hsla(216, 100%, 40%, 1.0)'],
-          ['hsla(234, 100%, 50%, 1.0)', 'hsla(234, 100%, 40%, 1.0)'],
-          ['hsla(252, 100%, 50%, 1.0)', 'hsla(252, 100%, 40%, 1.0)'],
-          ['hsla(270, 100%, 50%, 1.0)', 'hsla(270, 100%, 40%, 1.0)'],
-          ['hsla(288, 100%, 50%, 1.0)', 'hsla(288, 100%, 40%, 1.0)'],
-          ['hsla(306, 100%, 50%, 1.0)', 'hsla(306, 100%, 40%, 1.0)'],
-          ['hsla(324, 100%, 50%, 1.0)', 'hsla(324, 100%, 40%, 1.0)'],
-          ['hsla(342, 100%, 50%, 1.0)', 'hsla(342, 100%, 40%, 1.0)'],
+          ['#00BCD4', '#00ACC1'], // Cyan  [-500, -600]
+          ['#009688', '#00897B'], // Teal [-500, -600]
+          ['#4CAF50', '#43A047'], // Green [-500, -600]
+          ['#8BC34A', '#7CB342'], // Light Green [-500, -600]
+          ['#CDDC39', '#C0CA33'], // Lime [-500, -600]
+          ['#FFEB3B', '#FDD835'], // Yellow [-500, -600]
+          ['#FFC107', '#FFB300'], // Amber [-500, -600]
+          ['#FF9800', '#FB8C00'], // Orange [-500, -600]
+          ['#795548', '#6D4C41'], // Brown [-500, -600]
+          ['#607D8B', '#546E7A'], // Blue Grey [-500, -600]
+          ['#9E9E9E', '#757575'], // Grey [-500, -600]
+          ['#FF5722', '#F4511E'], // Deep Orange [-500, -600]
+          ['#F44336', '#E53935'], // Red [-500, -600]
+          ['#E91E63', '#D81B60'], // Pink [-500, -600]
+          ['#9C27B0', '#8E24AA'], // Purple [-500, -600]
+          ['#673AB7', '#5E35B1'], // Deep Purple [-500, -600]
+          ['#3F51B5', '#3949AB'], // Indigo [-500, -600]
+          ['#2196F3', '#1E88E5'], // Blue [-500, -600]
+          ['#03A9F4', '#039BE5'], // Light Blue [-500, -600]
         ]
       }
       config.alphaDeg = 360.0/config.colors.length;
@@ -83,15 +85,17 @@
         [(config.r_i + config.h_d) * Math.sin(config.alphaRad), -(config.r_i + config.h_d) * Math.cos(config.alphaRad)].join(','),
         [0, -(config.r_i + config.h_d)].join(','),
       ].join(' '));
-      var circle = document.createElementNS(svgNS, 'circle');
-      circle.className = 'selector';
-      circle.setAttribute('cx', config.c * Math.sin(config.alphaRad/2));
-      circle.setAttribute('cy', -config.c   * Math.cos(config.alphaRad/2));
-      circle.setAttribute('r', config.c * Math.sin(config.alphaRad/2)/2);
-      mainG.appendChild(circle);
+
 
       fieldTpl.appendChild(lightField);
       fieldTpl.appendChild(darkField);
+
+      var circle = document.createElementNS(svgNS, 'circle');
+      circle.setAttribute('class', 'selector');
+      circle.setAttribute('cx', config.c * Math.sin(config.alphaRad/2));
+      circle.setAttribute('cy', -config.c   * Math.cos(config.alphaRad/2));
+      circle.setAttribute('r', config.c * Math.sin(config.alphaRad/2)/2);
+      fieldTpl.appendChild(circle);
 
       config.colors.forEach(function(color, idx) {
         var field = fieldTpl.cloneNode(true);
@@ -106,14 +110,10 @@
 
       function fieldClicked(ev) {
         Array.prototype.forEach.call(mainG.childNodes, function(f) {
-          if(f.getAttribute('class') == 'selector') {
-            return;
-          }
           f.setAttribute('class', '');
         });
         var parent = ev.target.parentElement || ev.target.parentNode;
         parent.setAttribute('class', 'selected');
-        circle.setAttribute('transform', parent.getAttribute('transform'));
       }
     })();
   </script>
