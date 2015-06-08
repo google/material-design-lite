@@ -1,9 +1,41 @@
-# Grid component
+#Grid
 
-The grid component helps you lay out your content for multiple screen sizes.
+##Introduction
+The Material Design Lite (MDL) **grid** component is a simplified method for laying out content for multiple screen sizes. It reduces the usual coding burden required to correctly display blocks of content in a variety of display conditions. 
 
-## Basic Example
+The MDL grid is defined and enclosed by a container element. A grid has 12 columns in the desktop screen size, 8 in the tablet size, and 4 in the phone size, each size having predefined margins and gutters. Cells are laid out sequentially in a row, in the order they are defined, with some exceptions:
 
+- If a cell doesn't fit in the row in one of the screen sizes, it flows into the following line.
+- If a cell has a specified column size equal to or larger than the number of columns for the current screen size, it takes up the entirety of its row.
+
+You can set a maximum grid width, after which the grid stays centered with padding on either side, by setting its `max-width` CSS property.
+
+Grids are a fairly new and non-standardized feature in most user interfaces, and provide users with a way to view content in an organized manner that might otherwise be difficult to understand or retain. Their design and use is an important factor in the overall user experience.
+
+##Basic use
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
+
+###To include an MDL **grid** component:
+
+&nbsp;1. Code a `<div>` element; this is the "outer" container, intended to hold all of the grid's cells. Style the div as desired (colors, font size, etc.).
+```html
+<div>
+</div>
+```
+&nbsp;2. Add the `mdl-grid` MDL class to the div using the `class` attribute.
+```
+<div class="mdl-grid">
+</div>
+```
+&nbsp;3. For each cell, code one "inner" div, including the text to be displayed.
+```html
+<div class="mdl-grid">
+  <div>Content</div>
+  <div>goes</div>
+  <div>here</div>
+</div>
+```
+&nbsp;4. Add the `mdl-cell` class and an `mdl-cell--COLUMN-col` class, where COLUMN specifies the column size for the cell, to the "inner" divs using the `class` attribute.
 ```html
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--4-col">Content</div>
@@ -11,60 +43,81 @@ The grid component helps you lay out your content for multiple screen sizes.
   <div class="mdl-cell mdl-cell--4-col">here</div>
 </div>
 ```
+&nbsp;5. Optionally add an `mdl-cell--COLUMN-col-DEVICE` class, where COLUMN specifies the column size for the cell on a specific device, and DEVICE specifies the device type.
+```html
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">Content</div>
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">goes</div>
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">here</div>
+</div>
+```
 
-## Grid
+The grid component is ready for use.
 
-The container element.
+####Examples
 
-A grid has 12 columns in desktop screen sizes, 8 in tablet, and 4 in phone, with predefined margins and gutters baked in.
+A grid with five cells of column size 1.
+```html
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col">CS 1</div>
+  <div class="mdl-cell mdl-cell--1-col">CS 1</div>
+  <div class="mdl-cell mdl-cell--1-col">CS 1</div>
+  <div class="mdl-cell mdl-cell--1-col">CS 1</div>
+  <div class="mdl-cell mdl-cell--1-col">CS 1</div>
+</div>
+```
 
-Cells are laid out sequentially in a row, in the order they're defined, with some rules:
-- If a cell doesn't fit in the row in one of the screen sizes, it reflows into the following line.
-- If a cell has a specified column size equal to or larger than the number of columns for the current screen size, it takes up the entirety of its row.
+A grid with three cells, one of column size 6, one of column size 4, and one of column size 2.
+```html
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">CS 6</div>
+  <div class="mdl-cell mdl-cell--4-col">CS 4</div>
+  <div class="mdl-cell mdl-cell--2-col">CS 2</div>
+</div>
+```
 
-You can have a maximum grid width (after which the grid stays centered, with padding on either size) by setting is `max-width` CSS property.
+A grid with three cells of column size 6 that will display as column size 8 on a tablet device.
+```html
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">CS 6 (8 on tablet)</div>
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">CS 6 (8 on tablet)</div>
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">CS 6 (8 on tablet)</div>
+</div>
+```
 
-### Options
+A grid with four cells of column size 4 that will display as column size 4 on a phone device.
 
-- `mdl-grid--no-spacing`:
-  Creates a grid without any margins or gutters.
+```html
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS 2 (4 on phone)</div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS 2 (4 on phone)</div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS 2 (4 on phone)</div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS 2 (4 on phone)</div>
+</div>
+```
 
+##Configuration options
+The MDL CSS classes apply various predefined visual enhancements and behavioral effects to the grid. The table below lists the available classes and their effects.
 
-## mdl-cell
+| MDL class | Effect | Remarks |
+|-----------|--------|---------|
+| `mdl-grid` | Defines a container as an MDL grid component | Required on "outer" div element |
+| `mdl-cell` | Defines a container as an MDL cell | Required on "inner" div elements |
+| `mdl-cell--N-col` | Sets the column size for the cell to N | N is 1-12 inclusive, defaults to 4; optional on "inner" div elements|
+| `mdl-cell--N-col-desktop` | Sets the column size for the cell to N in desktop mode only | N is 1-12 inclusive; optional on "inner" div elements|
+| `mdl-cell--N-col-tablet` | Sets the column size for the cell to N in tablet mode only | N is 1-8 inclusive; optional on "inner" div elements|
+| `mdl-cell--N-col-phone` | Sets the column size for the cell to N in phone mode only | N is 1-4 inclusive; optional on "inner" div elements|
+| `mdl-cell--hide-desktop` | Hides the cell when in desktop mode | Optional on "inner" div elements |
+| `mdl-cell--hide-tablet` | Hides the cell when in tablet mode | Optional on "inner" div elements |
+| `mdl-cell--hide-phone` | Hides the cell when in phone mode | Optional on "inner" div elements |
+| `mdl-cell--stretch` | Stretches the cell vertically to fill the parent | Default; optional on "inner" div elements |
+| `mdl-cell--top` | Aligns the cell to the top of the parent | Optional on "inner" div elements |
+| `mdl-cell--middle` | Aligns the cell to the middle of the parent | Optional on "inner" div elements |
+|`mdl-cell--bottom` | Aligns the cell to the bottom of the parent | Optional on "inner" div elements |
 
-A cell inside the grid, with a given column size. The default is 4.
+##More information
+For working examples of the **grid** component, see the MDL [grid demo page](www.github.com/google/material-design-lite/src/grid/demo.html).
 
-### Options
+## License
 
-- `mdl-cell--N-col` (where N is a number between 1 and 12):
-  Set the column size for the cell to N. The default is 4.
-
-- `mdl-cell--N-col-desktop` (where N is a number between 1 and 12):
-  Set the column size for the cell to N in desktop mode only.
-
-- `mdl-cell--N-col-tablet` (where N is a number between 1 and 8):
-  Set the column size for the cell to N in tablet mode only.
-
-- `mdl-cell--N-col-phone` (where N is a number between 1 and 4):
-  Set the column size for the cell to N in phone mode only.
-
-- `mdl-cell--hide-desktop`:
-  Hides the cell when in desktop mode.
-
-- `mdl-cell--hide-tablet`:
-  Hides the cell when in tablet mode.
-
-- `mdl-cell--hide-phone`:
-  Hides the cell when in phone mode.
-
-- `mdl-cell--stretch`:
-  Makes the cell stretch vertically to fill the parent. This is the default.
-
-- `mdl-cell--top`:
-  Aligns the cell to the top of the parent.
-
-- `mdl-cell--middle`:
-  Aligns the cell to the middle of the parent.
-
-- `mdl-cell--bottom`:
-  Aligns the cell to the bottom of the parent.
+Copyright Google, 2015. Licensed under an Apache-2 license.
