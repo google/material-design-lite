@@ -151,6 +151,9 @@ Tabs (optional). Used for tabbing the entire layout. Tabs live inside the header
 
 ### Options
 
+- `mdl-js-layout`:
+  Applied to tabs' parent (header), makes the header collapse when scrolled.
+
 - `mdl-layout--fixed-tabs`:
   Uses fixed tabs, rather than the default scrollable tabs.
 
