@@ -4,6 +4,9 @@ title: Components
 bodyclass: components
 include_prefix: ../
 components:
+  - name: badge
+    title: badge
+    description: a badge thingy
   - name: button
     title: Button
     description: Variations on Material Design buttons (flat, raised, plain, colored, with ripple)
