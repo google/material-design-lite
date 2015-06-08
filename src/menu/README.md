@@ -32,7 +32,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the button and span elements using the `class` attribute.
 ```html
 <button id="menu1" class="mdl-button mdl-js-button mdl-button--icon">
-  <span class="mdl-icon mdl-icon--more-vert"/>
+  <i class="material-icons">more_vert</i>
 </button>
 ```
 &nbsp;5. Add one or more MDL classes, separated by spaces, to the unordered list and the list items using the `class` attribute.
@@ -50,7 +50,7 @@ The menu component is ready for use.
 A menu with three options.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
-  <span class="mdl-icon mdl-icon--more-vert"/>                                                  
+  <i class="material-icons">more_vert</i>                                                  
 </button>                                                                                       
 <ul class="mdl-menu mdl-js-menu" for="menu-speed">
   <li class="mdl-menu__item">Fast</li>
@@ -61,7 +61,7 @@ A menu with three options.
 A menu with three options, with ripple effect on button and option links.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
-  <span class="mdl-icon mdl-icon--more-vert"/>                                                  
+  <i class="material-icons">more_vert</i>                                                  
 </button>                                                                                       
 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-speed">
   <li class="mdl-menu__item">Fast</li>
@@ -72,7 +72,7 @@ A menu with three options, with ripple effect on button and option links.
 A menu with three options, the second of which is disabled by default.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
-  <span class="mdl-icon mdl-icon--more-vert"/>                                                  
+  <i class="material-icons">more_vert</i>                                                  
 </button>                                                                                       
 <ul class="mdl-menu mdl-js-menu" for="menu-speed">
   <li class="mdl-menu__item">Fast</li>
@@ -89,8 +89,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-button` | Defines button as an MDL component | Required on button element |
 | `mdl-js-button` | Assigns basic MDL behavior to button | Required on button element |
 | `mdl-button--icon` | Applies *icon* (small plain circular) display effect to button | Required on button element |
-| `mdl-icon` | Defines span as an MDL icon component | Required on span element |
-| `mdl-icon--more-vert` | Defines span as an MDL vertical ellipsis icon(1) | Required on span element |
+| `material-icons` | Defines span as a material icon | Required on an inline element |
 | `mdl-menu` | Defines an unordered list container as an MDL component | Required on ul element |
 | `mdl-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on list item elements |
 | `mdl-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |

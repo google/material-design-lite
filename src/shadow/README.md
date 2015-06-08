@@ -20,7 +20,7 @@ Some content
 ```
 &nbsp;2. Add an MDL shadow class to the element using the `class` attribute.
 ```html
-<div class="mdl-shadow--z3">
+<div class="mdl-shadow--4dp">
 Some content
 </div>
 ```
@@ -32,13 +32,13 @@ The shadowed component is ready for use.
 A div with a user-specified class and a small shadow.
 
 ```html
-<div class="my-shadow-card mdl-shadow--z1">Small shadow</div>
+<div class="my-shadow-card mdl-shadow--2dp">Small shadow</div>
 ```
 
 A div with a user-specified class and a medium-large shadow.
 
 ```html
-<div class="my-shadow-card mdl-shadow--z4">Medium-large shadow</div>
+<div class="my-shadow-card mdl-shadow--6dp">Medium-large shadow</div>
 ```
 
 ##Configuration options
@@ -46,11 +46,12 @@ The MDL CSS classes apply various predefined visual shadows to the element. The 
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
-| `mdl-shadow--z1` | Assigns a small shadow to the object | Optional; if omitted, no shadow is present |
-| `mdl-shadow--z2` | Assigns a medium-small shadow to the object | Optional; if omitted, no shadow is present |
-| `mdl-shadow--z3` | Assigns a medium shadow to the object | Optional; if omitted, no shadow is present |
-| `mdl-shadow--z4` | Assigns a medium-large shadow to the object | Optional; if omitted, no shadow is present |
-| `mdl-shadow--z5` | Assigns a large shadow to the object | Optional; if omitted, no shadow is present |
+| `mdl-shadow--2dp` | Assigns a small shadow to the object | Optional; if omitted, no shadow is present |
+| `mdl-shadow--3dp` | Assigns a medium-small shadow to the object | Optional; if omitted, no shadow is present |
+| `mdl-shadow--4dp` | Assigns a medium shadow to the object | Optional; if omitted, no shadow is present |
+| `mdl-shadow--6dp` | Assigns a medium-large shadow to the object | Optional; if omitted, no shadow is present |
+| `mdl-shadow--8dp` | Assigns a large shadow to the object | Optional; if omitted, no shadow is present |
+| `mdl-shadow--16dp` | Assigns an extra-large shadow to the object | Optional; if omitted, no shadow is present|
 
 ##More information
 For working examples of the **shadow** effect, see the MDL [shadow demo page](www.github.com/google/material-design-lite/src/shadow/demo.html). Also see the MDL [card demo page](www.github.com/google/material-design-lite/src/card/demo.html).
