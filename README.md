@@ -120,9 +120,9 @@ styles are kept in a separate CSS file. Use `gulp serve` to take a look at the t
 
 ## Browser Support
 
-| IE8 | IE9 | IE10 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
+| IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
 |-----|-----|------|--------|-------|---------|--------|------------------|---------------|
-| B   | B   | A    | A      | A      | A       | A      | A                | A             |
+| B   | A   | A    | A      | A      | A       | A      | A                | A             |
 
 A-grade browsers are fully supported. B-grade browsers will gracefully degrade to our CSS-only experience.
 
