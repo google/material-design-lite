@@ -108,12 +108,20 @@
 
       mainG.setAttribute('transform', 'translate(' + config.width/2 + ',' + config.height/2 +')');
 
+      var numSelected = 0;
       function fieldClicked(ev) {
-        Array.prototype.forEach.call(mainG.childNodes, function(f) {
-          f.setAttribute('class', '');
-        });
+        if(numSelected === 2) {
+          Array.prototype.forEach.call(mainG.childNodes, function(f) {
+            f.setAttribute('class', '');
+          });
+          numSelected = 0;
+        }
         var parent = ev.target.parentElement || ev.target.parentNode;
-        parent.setAttribute('class', 'selected');
+        if((parent.getAttribute('class') || '').indexOf('selected') !== -1) {
+          return;
+        }
+        parent.setAttribute('class', 'selected selected--'+numSelected);
+        numSelected++;
       }
     })();
   </script>
