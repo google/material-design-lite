@@ -31,7 +31,6 @@
       transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
       fill: white;
       font-size: 24px;
-      alignment-baseline: middle;
     }
     #wheel .selected--0 .label--0,
     #wheel .selected--1 .label--1 {
@@ -144,6 +143,7 @@
           var label = document.createElementNS(svgNS, 'text');
           label.setAttribute('class', 'label label--'+i);
           label.setAttribute('transform', 'rotate(' + (-config.alphaDeg*idx) + ')');
+          label.setAttribute('dy', '0.5ex');
           label.textContent = '' + (i+1);
           g.appendChild(label);
           g.setAttribute('transform', 'translate(' + config.c_x + ',' + config.c_y + ')');
