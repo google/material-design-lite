@@ -166,6 +166,12 @@
       }
 
       function fieldClicked(ev) {
+        var g = parentWrapper(parentWrapper(ev.target));
+        var parent = parentWrapper(g);
+        if((g.getAttribute('class') || '').indexOf('selected') !== -1) {
+          return;
+        }
+
         if(numSelected === 2) {
           Array.prototype.forEach.call(mainG.childNodes, function(f) {
             f.setAttribute('class', '');
@@ -173,11 +179,7 @@
           });
           numSelected = 0;
         }
-        var g = parentWrapper(parentWrapper(ev.target));
-        var parent = parentWrapper(g);
-        if((g.getAttribute('class') || '').indexOf('selected') !== -1) {
-          return;
-        }
+
         // Make the current polygon the last child if its parent
         // so shadows are visible.
         parent.removeChild(g);
