@@ -27,7 +27,8 @@ A static (non-animated) progress indicator.
 
 An active (animated) progress indicator.
 ```html
-<div id="progactive" style="width:200px" class="mdl-js-progress mdl-progress__indeterminate"></div>
+<div id="progactive" style="width:200px" class="mdl-js-progress
+ mdl-progress__indeterminate"></div>
 ```
 
 ##Configuration options

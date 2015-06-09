@@ -128,7 +128,8 @@ Multi-line text field with one visible input line and floating label.
 Multi-line text field with multiple visible input lines and a maximum number of lines.
 ```html
 <div class="mdl-textfield mdl-js-textfield">
-  <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="6" id="schools"></textarea>
+  <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="6"
+   id="schools"></textarea>
   <label class="mdl-textfield__label" for="schools">Schools attended (max. 6)</label>
 </div>
 ```
@@ -223,13 +224,16 @@ Expandable text field with a standard label.
 
 Expandable text field with a floating label.
 ```html
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+ mdl-textfield--floating-label">
   <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable2">
     <i class="material-icons">search</i>
   </label>
   <div class="mdl-textfield__expandable-holder">
     <input class="mdl-textfield__input" type="text" id="search-expandable2" />
-    <label class="mdl-textfield__label" for="search-expandable2">Enter search text below</label>
+    <label class="mdl-textfield__label" for="search-expandable2">
+      Enter search text below
+    </label>
   </div>
 </div>
 ```

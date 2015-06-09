@@ -48,7 +48,8 @@ The radio components are ready for use.
 A group of radio buttons to control a camera's flash setting.
 ```html
 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="flash1">
-  <input checked class="mdl-radio__button" id="flash1" name="flash" type="radio" value="on">
+  <input checked class="mdl-radio__button" id="flash1" name="flash" type="radio"
+   value="on">
   <span class="mdl-radio__label">Always on</span>
 </label>
 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="flash2">

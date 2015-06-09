@@ -59,7 +59,8 @@ To use any MDL component, you must include the minified CSS and JavaScript files
     <img src="photo.jpg" width="220" height="140" border="0" alt="" style="padding:20px;">
   </div>
   <div class="mdl-card__supporting-text">
-    This text might describe the photo and provide further information, such as where and when it was taken.
+    This text might describe the photo and provide further information, such as where and
+    when it was taken.
   </div>
   <div class="mdl-card__actions">
     <a href="(URL or function)">Related Action</a>
@@ -78,10 +79,14 @@ A card (no shadow) with a title, image, text, and action.
   <div class="mdl-card__title">
      <h2 class="mdl-card__title-text">Auckland Sky Tower<br/>Auckland, New Zealand</h2>
   </div>
-  <div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
+  <div class="mdl-card__media">
+    <img src="skytower.jpg" width="173" height="157" border="0" alt=""
+     style="padding:10px;">
   </div>
   <div class="mdl-card__supporting-text">
-  The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
+  The Sky Tower is an observation and telecommunications tower located in Auckland,
+  New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure
+  in the Southern Hemisphere.
   </div>
   <div class="mdl-card__actions">
      <a href="http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29">Wikipedia entry</a>
@@ -93,13 +98,16 @@ Card (level-3 shadow) with an image, caption, and text:
 
 ```html
 <div class="mdl-card mdl-shadow--4dp">
-  <div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0" alt="" style="padding:10px;">
+  <div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0"
+   alt="" style="padding:10px;">
   </div>
   <div class="mdl-card__supporting-text">
     Auckland Sky Tower, taken March 24th, 2014
   </div>
   <div class="mdl-card__supporting-text">
-  The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
+  The Sky Tower is an observation and telecommunications tower located in Auckland,
+  New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure
+  in the Southern Hemisphere.
   </div>
 </div>
 ```

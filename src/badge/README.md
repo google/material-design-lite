@@ -41,17 +41,20 @@ A badge inside a link.
 
 A badge near, but not included in, a link.
 ```html
-<a href="#">This link is followed by a badge.</a><span class="mdl-badge" data-badge="12"></span>
+<a href="#">This link is followed by a badge.</a>
+<span class="mdl-badge" data-badge="12"></span>
 ```
 
 A badge inside a link with too many characters to fit inside the badge.
 ```html
-<a href="#" class="mdl-badge" data-badge="123456789">This badge has too many characters.</a>
+<a href="#" class="mdl-badge" data-badge="123456789">
+This badge has too many characters.</a>
 ```
 
 A badge inside a link with no badge background color.
 ```html
-<a href="#" class="mdl-badge mdl-badge--no-background" data-badge="123">This badge has no background color.</a>
+<a href="#" class="mdl-badge mdl-badge--no-background" data-badge="123">
+This badge has no background color.</a>
 ```
 
 ##Configuration options

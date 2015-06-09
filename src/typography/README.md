@@ -9,7 +9,9 @@ Because of the many possible variations in font display characteristics in HTML 
 MDL typography does not require the inclusion of the minified CSS and JavaScript files that drive the other MDL components. Instead, just include a link to the Google stylesheet that accesses the font and its desired variations.
 ```html
 <head>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+<link
+ href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic'
+ rel='stylesheet' type='text/css'>
 ...
 </head>
 ```
@@ -55,7 +57,9 @@ A "display 1" table cell.
 ```
 A "body-1" paragraph, also uppercased.
 ```html
-<p class="mdl-typography--body-1 mdl-typography--text-uppercase">This is a standard paragraph, but uppercased.</p>
+<p class="mdl-typography--body-1 mdl-typography--text-uppercase">
+ This is a standard paragraph, but uppercased.
+</p>
 ```
 
 >**Note:** Because the Roboto font is intended to apply to the entire page, standard "unclassed" HTML elements (e.g., heading levels, divs, paragraphs, spans, tables, etc. with no `class` attribute) and text modifiers (e.g., strong, em, small, etc.) will use Roboto, while also retaining their inherent and/or inherited characteristics.

@@ -101,8 +101,11 @@ Three tabs, with ripple effect on tab links.
     <a href="#albums-panel" class="mdl-tabs__tab">Discography</a>
   </div>
   <div class="mdl-tabs__panel is-active" id="about-panel">
-    <p><b>The Beatles</b> were a four-piece musical group from Liverpool, England. Formed in 1960, their career spanned just over a decade, yet they are widely regarded as the most influential band in history.</p>
-    <p>Their songs are among the best-loved music of all time. It is said that every minute of every day, a radio station somewhere is playing a Beatles song.
+    <p><b>The Beatles</b> were a four-piece musical group from Liverpool, England.
+    Formed in 1960, their career spanned just over a decade, yet they are widely
+    regarded as the most influential band in history.</p>
+    <p>Their songs are among the best-loved music of all time. It is said that every
+    minute of every day, a radio station somewhere is playing a Beatles song.
   </div>
   <div class="mdl-tabs__panel" id="members-panel">
     <p>The Beatles' members were:

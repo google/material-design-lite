@@ -25,7 +25,8 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the slider using the `class` attribute.
 ```html
 <p style="width:300px">
-  <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+  <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4"
+   step="2" />
 </p>
 ```
 
@@ -35,7 +36,8 @@ The slider component is ready for use.
 A slider that controls volume.
 ```html
 <p style="width:300px">
-<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4"
+ step="2" />
 </p>
 ```
 

@@ -54,7 +54,8 @@ A target with tooltip text in a larger font size.
 A target with a tooltip containing both an image and text.
 ```html
 <p>HTML is related to but different from <span id="xml"><i>XML</i></span>.</p>
-<span class="mdl-tooltip" for="xml"><img src="xml-logo-small.png" width="20" height="10"> eXtensible Markup Language</span>
+<span class="mdl-tooltip" for="xml">
+<img src="xml-logo-small.png" width="20" height="10"> eXtensible Markup Language</span>
 ```
 
 ##Configuration options
