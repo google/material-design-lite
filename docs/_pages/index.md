@@ -23,10 +23,10 @@ include_prefix: ./
   </p>
 </section>
 
-<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="components">
+<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="components">
 	Components
 </section>
-<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="styles">
+<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="styles">
 	Styles
 </section>
 <section class="about-panel about-panel--customize mdl-color-text--white mdl-cell mdl-cell--12-col" data-target="customize">

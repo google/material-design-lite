@@ -2,6 +2,7 @@
 {% block content %}
 {% for template in page.templates %}
 <section class="template template--{{ template.name }} docs-text-styling mdl-grid mdl-cell mdl-cell--12-col">
+  <img src="{{page.include_prefix}}/assets/templates/{{ template.name }}.jpg" srcset="{{page.include_prefix}}/assets/templates/{{ template.name }}.jpg 1x, {{page.include_prefix}}/assets/templates/{{ template.name }}_2x.jpg 2x" class="template__preview mdl-cell mdl-cell--8-col">
   <div class="template__meta mdl-cell mdl-cell--4-col mdl-grid mdl-grid--no-spacing">
     <h3 class="template__header mdl-cell mdl-cell--12-col mdl-typography--body-2">{{ template.title }}</h3>
     <p class="mdl-cell mdl-cell--12-col">
@@ -20,7 +21,6 @@
       Preview
     </a>
   </div>
-  <img src="{{page.include_prefix}}assets/templates/{{ template.name }}.jpg" srcset="{{page.include_prefix}}assets/templates/{{ template.name }}.jpg 1x, {{page.include_prefix}}assets/templates/{{ template.name }}_2x.jpg 2x" class="template__preview mdl-cell mdl-cell--8-col">
 </section>
 {% endfor %}
 {% endblock %}
