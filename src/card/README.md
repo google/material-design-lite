@@ -1,5 +1,3 @@
-#Card
-
 ##Introduction
 The Material Design Lite (MDL) **card** component is a user interface element representing a virtual piece of paper that contains related data &mdash; such as a photo, some text, and a link &mdash; that are all about a single subject.
 

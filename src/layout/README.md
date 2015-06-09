@@ -1,7 +1,3 @@
-# Layout module
-
-The layout module allows you to build layouts easily, simply by adding a few CSS classes. Everybody loves CSS classes.
-
 ## Basic Example
 
 ```html

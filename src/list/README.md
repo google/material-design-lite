@@ -1,11 +1,9 @@
-#List
-
 ##Introduction
 The Material Design Lite (MDL) **list** component is an enhanced version of the standard HTML `<ul>` (unordered list) element. A list consists of a series of related items presented either vertically or horizontally.
 
 An MDL-enhanced list takes two basic forms: *inline* and *styled-view*. An inline list presents the list items horizontally, which saves screen space and facilitates viewing and selecting; a style-view list presents the list items vertically, with accompanying images that help identify or clarify the items, and horizontal rules that separate the items.
 
-Lists are a common feature in user interfaces, and allow users to view (and sometimes choose) an item from the series. Their design and use is an important factor in the overall user experience. See the list component's [Material Design specifications page](http://www.google.com/design/spec/components/lists.html) for details. 
+Lists are a common feature in user interfaces, and allow users to view (and sometimes choose) an item from the series. Their design and use is an important factor in the overall user experience. See the list component's [Material Design specifications page](http://www.google.com/design/spec/components/lists.html) for details.
 
 ##Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
@@ -206,4 +204,3 @@ For working examples of the **list** component, see the MDL [list demo page](www
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

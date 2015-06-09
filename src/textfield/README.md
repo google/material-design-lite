@@ -1,5 +1,3 @@
-#Text field
-
 ##Introduction
 The Material Design Lite (MDL) **text field** component is an enhanced version of the standard HTML `<input type="text">` and `<input type="textarea">` elements. A text field consists of a horizontal line indicating where keyboard input can occur and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.
 

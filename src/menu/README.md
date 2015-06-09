@@ -1,9 +1,7 @@
-#Menu
-
 ##Introduction
 The Material Design Lite (MDL) **menu** component is a user interface element that allows users to select one of a number of options. The selection typically results in an action initiation, a setting change, or other observable effect. Menu options are always presented in sets of two or more, and options may be programmatically enabled or disabled as required. The menu appears when the user is asked to choose among a series of options, and is usually dismissed after the choice is made.
 
-Menus are an established but non-standardized feature in user interfaces, and allow users to make choices that direct the activity, progress, or characteristics of software. Their design and use is an important factor in the overall user experience. See the menu component's [Material Design specifications page](http://www.google.com/design/spec/components/menus.html) for details. 
+Menus are an established but non-standardized feature in user interfaces, and allow users to make choices that direct the activity, progress, or characteristics of software. Their design and use is an important factor in the overall user experience. See the menu component's [Material Design specifications page](http://www.google.com/design/spec/components/menus.html) for details.
 
 ##Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
@@ -50,8 +48,8 @@ The menu component is ready for use.
 A menu with three options.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
-  <i class="material-icons">more_vert</i>                                                  
-</button>                                                                                       
+  <i class="material-icons">more_vert</i>
+</button>
 <ul class="mdl-menu mdl-js-menu" for="menu-speed">
   <li class="mdl-menu__item">Fast</li>
   <li class="mdl-menu__item">Medium</li>
@@ -61,8 +59,8 @@ A menu with three options.
 A menu with three options, with ripple effect on button and option links.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
-  <i class="material-icons">more_vert</i>                                                  
-</button>                                                                                       
+  <i class="material-icons">more_vert</i>
+</button>
 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-speed">
   <li class="mdl-menu__item">Fast</li>
   <li class="mdl-menu__item">Medium</li>
@@ -72,8 +70,8 @@ A menu with three options, with ripple effect on button and option links.
 A menu with three options, the second of which is disabled by default.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
-  <i class="material-icons">more_vert</i>                                                  
-</button>                                                                                       
+  <i class="material-icons">more_vert</i>
+</button>
 <ul class="mdl-menu mdl-js-menu" for="menu-speed">
   <li class="mdl-menu__item">Fast</li>
   <li class="mdl-menu__item" disabled>Medium</li>

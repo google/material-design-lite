@@ -1,9 +1,7 @@
-#Tooltip
-
 ##Introduction
 The Material Design Lite (MDL) **tooltip** component is an enhanced version of the standard HTML tooltip as produced by the `title` attribute. A tooltip consists of text and/or an image that clearly communicates additional information about an element when the user hovers over or, in a touch-based UI, long-presses the element. The MDL tooltip component is pre-styled (colors, fonts, and other settings are contained in *material.min.css*) to provide a vivid, attractive visual element that displays related but typically non-essential content, e.g., a definition, clarification, or brief instruction.
 
-Tooltips are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is an important factor in the overall user experience. See the tooltip component's [Material Design specifications page](http://www.google.com/design/spec/components/tooltips.html) for details. 
+Tooltips are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is an important factor in the overall user experience. See the tooltip component's [Material Design specifications page](http://www.google.com/design/spec/components/tooltips.html) for details.
 
 ##Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
@@ -14,7 +12,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```html
 <p id="tt1">HTML</p>
 ```
-&nbsp;2. Following the target element, code a second element, such as a `<div>`, `<p>`, or `<span>`; this will be the tooltip itself. Include a `for` attribute whose value matches that of the target's `id`. 
+&nbsp;2. Following the target element, code a second element, such as a `<div>`, `<p>`, or `<span>`; this will be the tooltip itself. Include a `for` attribute whose value matches that of the target's `id`.
 ```html
 <p id="tt1">HTML</p>
 <span for="tt1">HyperText Markup Language</span>
@@ -73,4 +71,3 @@ For working examples of the **tooltip** component, see the MDL [tooltip demo pag
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

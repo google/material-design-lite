@@ -1,7 +1,5 @@
-#Spinner
-
 ##Introduction
-The Material Design Lite (MDL) **spinner** component is an enhanced replacement for the classic "wait cursor" (which varies significantly among hardware and software versions) and indicates that there is an ongoing process, the results of which are not yet available. A spinner consists of an open circle that changes colors as it animates in a clockwise direction, and clearly communicates that a process has been started but not completed. 
+The Material Design Lite (MDL) **spinner** component is an enhanced replacement for the classic "wait cursor" (which varies significantly among hardware and software versions) and indicates that there is an ongoing process, the results of which are not yet available. A spinner consists of an open circle that changes colors as it animates in a clockwise direction, and clearly communicates that a process has been started but not completed.
 
 A spinner performs no action itself, either by its display nor when the user clicks or touches it, and does not indicate a process's specific progress or degree of completion. The MDL spinner component provides various types of spinners, and allows you to add display effects.
 
@@ -56,4 +54,3 @@ For working examples of the **spinner** component, see the MDL [spinner demo pag
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

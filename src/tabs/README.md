@@ -1,9 +1,7 @@
-#Tabs
-
 ##Introduction
 The Material Design Lite (MDL) **tab** component is a user interface element that allows different content blocks to share the same screen space in a mutually exclusive manner. Tabs are always presented in sets of two or more, and they make it easy to explore and switch among different views or functional aspects of an app, or to browse categorized data sets individually. Tabs serve as "headings" for their respective content; the *active* tab &mdash; the one whose content is currently displayed &mdash; is always visually distinguished from the others so the user knows which heading the current content belongs to.
 
-Tabs are an established but non-standardized feature in user interfaces, and allow users to view different, but often related, blocks of content (often called *panels*). Tabs save screen real estate and provide intuitive and logical access to data while reducing navigation and associated user confusion. Their design and use is an important factor in the overall user experience. See the tab component's [Material Design specifications page](http://www.google.com/design/spec/components/tabs.html) for details. 
+Tabs are an established but non-standardized feature in user interfaces, and allow users to view different, but often related, blocks of content (often called *panels*). Tabs save screen real estate and provide intuitive and logical access to data while reducing navigation and associated user confusion. Their design and use is an important factor in the overall user experience. See the tab component's [Material Design specifications page](http://www.google.com/design/spec/components/tabs.html) for details.
 
 ##Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
@@ -154,4 +152,3 @@ For working examples of the **tab** component, see the MDL [tab demo page](www.g
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

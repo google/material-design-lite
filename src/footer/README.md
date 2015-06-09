@@ -1,11 +1,9 @@
-#Footer
-
 ##Introduction
 The Material Design Lite (MDL) **footer** component is a comprehensive container intended to present a substantial amount of related content in a visually attractive and logically intuitive area. Although it is called "footer", it may be placed at any appropriate location on a device screen, either before or after other content.
 
 An MDL footer component takes two basic forms: *mega-footer* and *mini-footer*. As the names imply, mega-footers contain more (and more complex) content than mini-footers. A mega-footer presents multiple sections of content separated by horizontal rules, while a mini-footer presents a single section of content. Both footer forms have their own internal structures, including required and optional elements, and typically include both informational and clickable content, such as links.
 
-Footers, as represented by this component, are a fairly new feature in user interfaces, and allow users to view discrete blocks of content in a coherent and consistently organized way. Their design and use is an important factor in the overall user experience. 
+Footers, as represented by this component, are a fairly new feature in user interfaces, and allow users to view discrete blocks of content in a coherent and consistently organized way. Their design and use is an important factor in the overall user experience.
 
 ##Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
@@ -413,4 +411,3 @@ For working examples of the **footer** component, see the MDL [footer demo page]
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

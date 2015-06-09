@@ -25,14 +25,10 @@
   box-sizing: border-box;
 }
 
-/* We define h2 under body, so it doesn't bleed into typography styles. */
-.demo-page > h2 {
-  margin-top: 24px ;
-  margin-bottom: 24px / 2;
-}
-
 .demo-preview-block {
   padding: 20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
   box-sizing: border-box;
   width: 100%;
 }

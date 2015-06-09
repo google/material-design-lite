@@ -1,7 +1,5 @@
-#Grid
-
 ##Introduction
-The Material Design Lite (MDL) **grid** component is a simplified method for laying out content for multiple screen sizes. It reduces the usual coding burden required to correctly display blocks of content in a variety of display conditions. 
+The Material Design Lite (MDL) **grid** component is a simplified method for laying out content for multiple screen sizes. It reduces the usual coding burden required to correctly display blocks of content in a variety of display conditions.
 
 The MDL grid is defined and enclosed by a container element. A grid has 12 columns in the desktop screen size, 8 in the tablet size, and 4 in the phone size, each size having predefined margins and gutters. Cells are laid out sequentially in a row, in the order they are defined, with some exceptions:
 
