@@ -44,10 +44,10 @@
     <script src="{{page.include_prefix}}material.min.js"></script>
   </head>
   <body class="{{page.bodyclass}}">
-  <div class="mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header">
+  <div class="docs-layout mdl-layout mdl-js-layout">
+    <header class="docs-layout-header mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title"><a href="/">Material<br>Design<br>Lite</a></span>
+        <span class="docs-layout-title mdl-layout-title"><a href="/">Material<br>Design<br>Lite</a></span>
         <div class="mdl-layout-spacer"></div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
           <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-      <nav class="mdl-navigation mdl-js-ripple-effect">
+      <nav class="docs-navigation mdl-navigation mdl-js-ripple-effect">
         <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
         <a href="{{page.include_prefix}}templates" class="mdl-navigation__link templates">Templates</a>
         <a href="{{page.include_prefix}}components" class="mdl-navigation__link components">Components</a>
@@ -76,7 +76,7 @@
       </nav>
     </header>
     <div class="subpageheader">{{page.title}}</div>
-    <main class="mdl-layout__content mdl-color-text--grey-600">
+    <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
         {% block content %}
           {{content|safe}}
@@ -85,7 +85,7 @@
       <section class="download mdl-color--grey-800">
         <a href="#" class="mdl-color-text--grey-50">Download Kit</a>
       </section>
-      <footer class="mdl-mini-footer mdl-color--grey-900">
+      <footer class="docs-footer mdl-mini-footer mdl-color--grey-900">
         <ul>
           <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
           <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>

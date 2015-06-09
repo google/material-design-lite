@@ -1,7 +1,7 @@
 html > body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
 }
-.mdl-layout__header {
+.docs-layout-header {
   height: 33vh;
   flex-shrink: 0;
   background-size: auto 30%;
@@ -13,90 +13,87 @@ html > body {
   flex-shrink: 0;
   position: relative;
 }
-.mdl-layout__header .mdl-textfield {
+.docs-layout-header .mdl-textfield {
   padding-top: 0;
 }
-.mdl-layout__header-row {
+.docs-layout-header > .mdl-layout__header-row {
   padding: 40px;
   align-items: flex-start;
   height: auto;
 }
-.mdl-layout__header > .mdl-navigation {
+.docs-layout-header > .docs-navigation {
   position: absolute;
   bottom: 1px;
   left: 0;
   width: 100%;
 }
-.mdl-layout-title {
+.docs-layout-title {
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1.5em;
   font-size: 1rem;
 }
-.mdl-layout-title a {
+.docs-layout-title a {
   font-weight: inherit;
 }
-.about .mdl-layout__header {
+.about .docs-layout-header {
   background-color: #37474f;
   background-image: url('logo.svg');
 }
-.mdl-layout__header {
-  box-shadow: none !important;
-}
-.mdl-layout__header .mdl-textfield .mdl-button {
+.docs-layout-header .mdl-textfield .mdl-button {
   right: 0;
 }
-.mdl-layout__header .mdl-textfield .mdl-textfield__expandable-holder {
+.docs-layout-header .mdl-textfield .mdl-textfield__expandable-holder {
   margin-right: 32px;
 }
-.mdl-layout__header .mdl-textfield label:after {
+.docs-layout-header .mdl-textfield label:after {
   background-color: rgba(255, 255, 255, 0.12);
 }
-body.about .mdl-layout__header {
+body.about .docs-layout-header {
   background: url('logo.svg'), url('header.jpg');
   background-size: auto 30%, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center center;
 }
 @media all and (-webkit-min-device-pixel-ratio: 2) {
-  .about .mdl-layout__header {
+  .about .docs-layout-header {
     background: url('logo.svg'), url('header_2x.jpg');
     background-size: auto 30%, cover;
     background-repeat: no-repeat, no-repeat;
     background-position: center center, center center;
   }
 }
-body:not(.about) .mdl-layout__header {
+body:not(.about) .docs-layout-header {
   background-size: auto 30%;
   background-repeat: no-repeat;
   background-position: center center;
 }
-.templates .mdl-layout__header {
+.templates .docs-layout-header {
   background-color: #263238;
   background-image: url('templates.svg');
 }
-.components .mdl-layout__header {
+.components .docs-layout-header {
   background-color: #C2185B;
   background-image: url('components.svg');
 }
-.styles .mdl-layout__header {
+.styles .docs-layout-header {
   background-color: #8E24AA;
   background-image: url('styles.svg');
 }
-.customize .mdl-layout__header {
+.customize .docs-layout-header {
   background-color: #1A237E;
   background-image: url('customize.svg');
 }
-body:not(.about) .mdl-layout__header {
+body:not(.about) .docs-layout-header {
   box-sizing: border-box;
   height: 144px;
   padding-top: 0;
   background-position: 40px 32px;
 }
-body:not(.about) .mdl-layout-title {
+body:not(.about) .docs-layout-title {
   display: none;
 }
-.mdl-navigation {
+.docs-navigation {
   box-shadow: none !important;
   border: 0 !important;
   padding: 0 16px;
@@ -105,14 +102,14 @@ body:not(.about) .mdl-layout-title {
   flex-shrink: 0;
   padding-left: 16px !important;
 }
-.mdl-navigation span.mdl-icon {
+.docs-navigation span.mdl-icon {
   font-size: 24px;
   margin-right: 8px;
 }
-.mdl-navigation a {
+.docs-navigation a {
   display: flex;
 }
-.mdl-navigation a, section.download {
+.docs-navigation a, section.download {
   font-weight: 500;
   font-size: 13px;
   text-transform: uppercase;
@@ -122,73 +119,73 @@ body:not(.about) .mdl-layout-title {
   box-sizing: border-box;
   border-bottom: 3px solid transparent;
 }
-.mdl-navigation a:hover {
+.docs-navigation a:hover {
   background-color: inherit;
 }
-.mdl-navigation a:not(.download) {
+.docs-navigation a:not(.download) {
   opacity: 0.65;
 }
-.mdl-navigation a.download > span {
+.docs-navigation a.download > span {
   opacity: 0.65;
 }
-.mdl-navigation .mdl-layout-spacer ~ a {
+.docs-navigation .mdl-layout-spacer ~ a {
   text-transform: none;
 }
-.mdl-navigation .mdl-layout-spacer ~ a:hover {
+.docs-navigation .mdl-layout-spacer ~ a:hover {
   background-color: transparent;
 }
-.mdl-navigation a.download {
+.docs-navigation a.download {
   text-decoration: none;
 }
-.mdl-navigation a.download > span {
+.docs-navigation a.download > span {
   color: inherit;
   text-decoration: inherit;
 }
-.mdl-navigation a.download button {
+.docs-navigation a.download button {
   margin-left: 8px;
 }
-.mdl-navigation a.download .material-icons {
+.docs-navigation a.download .material-icons {
   color: black;
   opacity: 0.5;
 }
-.about .mdl-navigation .about,
-.templates .mdl-navigation .templates,
-.components .mdl-navigation .components,
-.styles .mdl-navigation .styles,
-.customize .mdl-navigation .customize {
+.about .docs-navigation .about,
+.templates .docs-navigation .templates,
+.components .docs-navigation .components,
+.styles .docs-navigation .styles,
+.customize .docs-navigation .customize {
   opacity: 1;
   border-bottom-color: #18FFFF;
 }
-.mdl-layout__content {
+.docs-layout-content {
   overflow: visible;
 }
-.mdl-layout__content > section.download {
+.docs-layout-content > section.download {
   width: 100%;
   height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.mdl-layout__content > section.download > a {
+.docs-layout-content > section.download > a {
   font-weight: 300;
   text-transform: uppercase;
 }
-.mdl-layout__content > footer {
+.docs-layout-content > footer {
   height: 120px;
 }
-.mdl-mini-footer {
+.docs-footer {
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
 }
-.mdl-mini-footer ul {
+.docs-footer ul {
   padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.mdl-mini-footer ul > a {
+.docs-footer ul > a {
   margin: 0 8px;
   font-weight: 400;
   font-size: 12px;
@@ -279,7 +276,7 @@ body:not(.about) .mdl-layout-title {
 .templates .content {
   max-width: 1280px;
 }
-.templates .mdl-layout__content .content {
+.templates .docs-layout-content .content {
   padding: 72px 0;
 }
 .template {
@@ -302,7 +299,7 @@ body:not(.about) .mdl-layout-title {
 .template > .template__preview {
   height: auto;
 }
-.mdl-layout__content p {
+.docs-layout-content p {
   font-size: 15px;
   margin-bottom: 32px;
 
@@ -310,18 +307,18 @@ body:not(.about) .mdl-layout-title {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
-.mdl-layout__content ol li {
+.docs-layout-content ol li {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
-.mdl-layout__content h1 {
+.docs-layout-content h1 {
   color: #c2185b;
   font-size: 2.5em;
   margin: .67em 0;
 }
 
 
-.mdl-layout__content h2 {
+.docs-layout-content h2 {
   padding-top: 48px;
   font-size: 24px;
   font-weight: 400;
@@ -330,17 +327,17 @@ body:not(.about) .mdl-layout-title {
   color: #c2185b;
 }
 
-.mdl-layout__content a {
+.docs-layout-content a {
   @extend mdl-color-text--cyan-600;
   text-decoration: none;
 }
 
-.mdl-layout__content .mdl-download {
+.docs-layout-content .mdl-download {
   color: #000;
   font-weight: normal;
 }
 
-.mdl-layout-title a,
+.docs-layout-title a,
 button a {
   color: inherit;
   text-decoration: none;
