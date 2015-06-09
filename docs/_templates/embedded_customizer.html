@@ -108,17 +108,17 @@
       var polygons = document.createElementNS(svgNS, 'g')
       var lightField = document.createElementNS(svgNS, 'polygon');
       lightField.setAttribute('points', [
-        [0, -(config.r_i+config.h_d)].join(','),
-        [(config.r_i + config.h_d) * Math.sin(config.alphaRad), -(config.r_i + config.h_d) * Math.cos(config.alphaRad)].join(','),
+        [config.r_i * Math.sin(config.alphaRad), -config.r_i * Math.cos(config.alphaRad)].join(','),
         [config.r   * Math.sin(config.alphaRad), -config.r   * Math.cos(config.alphaRad)].join(','),
-        [0, -config.r].join(','),
+        [0, -config.r               ].join(','),
+        [0, -(config.r_i+config.h_d)].join(','),
       ].join(' '));
       var darkField = document.createElementNS(svgNS, 'polygon');
       darkField.setAttribute('points', [
-        [0, -config.r_i].join(','),
-        [config.r_i * Math.sin(config.alphaRad), -config.r_i * Math.cos(config.alphaRad)].join(','),
+        [config.r_i                * Math.sin(config.alphaRad), -config.r_i                * Math.cos(config.alphaRad)].join(','),
         [(config.r_i + config.h_d) * Math.sin(config.alphaRad), -(config.r_i + config.h_d) * Math.cos(config.alphaRad)].join(','),
         [0, -(config.r_i + config.h_d)].join(','),
+        [0, -config.r_i               ].join(','),
       ].join(' '));
       polygons.appendChild(lightField);
       polygons.appendChild(darkField);
@@ -180,7 +180,7 @@
           numSelected = 0;
         }
 
-        // Make the current polygon the last child if its parent
+        // Make the current polygon the last child of its parent
         // so shadows are visible.
         parent.removeChild(g);
         parent.appendChild(g);
