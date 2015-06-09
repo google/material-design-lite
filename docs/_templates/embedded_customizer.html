@@ -66,6 +66,7 @@
         h_d: 40, // height of the dark section
         c: 40, // Distance(center of selector circle, border of wheel)
         m_r_s: 0.5, // Percent of available width to use as radius for selector circle
+        alphaIncr: 0.005, // Value to add to alpha to make tiles overlap slightly
         colors: [ // colors ([light, dark]) of the wheel
           ['#00BCD4', '#00ACC1'], // Cyan  [-500, -600]
           ['#009688', '#00897B'], // Teal [-500, -600]
@@ -108,15 +109,15 @@
       var polygons = document.createElementNS(svgNS, 'g')
       var lightField = document.createElementNS(svgNS, 'polygon');
       lightField.setAttribute('points', [
-        [config.r_i * Math.sin(config.alphaRad), -config.r_i * Math.cos(config.alphaRad)].join(','),
-        [config.r   * Math.sin(config.alphaRad), -config.r   * Math.cos(config.alphaRad)].join(','),
+        [config.r_i * Math.sin(config.alphaRad+config.alphaIncr), -config.r_i * Math.cos(config.alphaRad+config.alphaIncr)].join(','),
+        [config.r   * Math.sin(config.alphaRad+config.alphaIncr), -config.r   * Math.cos(config.alphaRad+config.alphaIncr)].join(','),
         [0, -config.r               ].join(','),
         [0, -(config.r_i+config.h_d)].join(','),
       ].join(' '));
       var darkField = document.createElementNS(svgNS, 'polygon');
       darkField.setAttribute('points', [
-        [config.r_i                * Math.sin(config.alphaRad), -config.r_i                * Math.cos(config.alphaRad)].join(','),
-        [(config.r_i + config.h_d) * Math.sin(config.alphaRad), -(config.r_i + config.h_d) * Math.cos(config.alphaRad)].join(','),
+        [config.r_i                * Math.sin(config.alphaRad+config.alphaIncr), -config.r_i                * Math.cos(config.alphaRad+config.alphaIncr)].join(','),
+        [(config.r_i + config.h_d) * Math.sin(config.alphaRad+config.alphaIncr), -(config.r_i + config.h_d) * Math.cos(config.alphaRad+config.alphaIncr)].join(','),
         [0, -(config.r_i + config.h_d)].join(','),
         [0, -config.r_i               ].join(','),
       ].join(' '));
