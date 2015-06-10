@@ -1,6 +1,31 @@
 html > body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
 }
+.docs-layout code,
+.docs-layout pre {
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+  font-size: 85%;
+  padding: 0.2em;
+}
+.docs-layout pre {
+  padding: 16px;
+}
+.docs-layout code:before,
+.docs-layout code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+.docs-layout pre > code:before,
+.docs-layout pre > code:after {
+  letter-spacing: 0;
+  content: "";
+}
+.docs-layout pre > code {
+  background-color: rgba(0,0,0,0);
+  padding: 0px;
+  font-size: 100%;
+}
 .docs-layout-header {
   height: 33vh;
   flex-shrink: 0;
