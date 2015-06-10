@@ -1,24 +1,17 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<link href="{{page.include_prefix}}/assets/components.css" rel="stylesheet">
-<script src="{{page.include_prefix}}/assets/components.js"></script>
-<link rel="stylesheet" href="/components/demos.css">
+<link href="{{page.include_prefix}}assets/components.css" rel="stylesheet">
+<script src="{{page.include_prefix}}assets/components.js"></script>
+<link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" rel="stylesheet">
-
-<!--
-    'toggles': ['checkbox', 'icon-toggle', 'radio', 'switch'],
-    'tables': ['data-table'],
-    'textfields': ['text-field'],
-    'tooltips': ['tooltip']
--->
 
 <div class="mdl-components mdl-js-components">
   <aside class="mdl-components__nav">
     {% for category in page.categories %}
     <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }} {% if loop.first %}is-active{%- endif %}">
       <div class="mdl-components__link-image"
-           style="background-image: url('/assets/comp_{{ category.name }}.png')">
+           style="background-image: url('{{page.include_prefix}}assets/comp_{{ category.name }}.png')">
       </div>&nbsp;
       <span class="mdl-components__link-text">{{ category.title }}</span>
     </a>
