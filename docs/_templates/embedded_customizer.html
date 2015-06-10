@@ -41,13 +41,22 @@
   <svg id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <filter id="drop-shadow">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
-        <feOffset dx="0" dy="0" result="offsetblur"/>
-        <feFlood flood-color="rgba(0,0,0,0.5)"/>
-        <feComposite in2="offsetblur" operator="in"/>
+        <feOffset in="SourceAlpha" dx="-2" dy="-2" result="alpha1" />
+        <feOffset in="SourceAlpha" dx=" 2" dy="-2" result="alpha2" />
+        <feOffset in="SourceAlpha" dx="-2" dy=" 2" result="alpha3" />
+        <feOffset in="SourceAlpha" dx=" 2" dy=" 2" result="alpha4" />
         <feMerge>
-          <feMergeNode/>
-          <feMergeNode in="SourceGraphic"/>
+          <feMergeNode in="alpha1" />
+          <feMergeNode in="alpha2" />
+          <feMergeNode in="alpha3" />
+          <feMergeNode in="alpha4" />
+        </feMerge>
+        <feGaussianBlur in="allAlpha" stdDeviation="3.2" result="blurred"/>
+        <feFlood flood-color="rgba(0,0,0,0.5)"/>
+        <feComposite in2="blurred" operator="in"/>
+        <feMerge>
+          <feMergeNode />
+          <feMergeNode in="SourceGraphic" />
         </feMerge>
       </filter>
     </defs>
