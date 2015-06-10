@@ -307,6 +307,7 @@ gulp.task('demos', function () {
  */
 gulp.task('pages', ['components'], function() {
   return gulp.src(['docs/_pages/*.md'])
+    .pipe($.replace("$$version$$", pkg.version))
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
     .pipe(applyTemplate())
