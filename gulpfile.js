@@ -285,10 +285,9 @@ gulp.task('components', function() {
 /**
  * Copies demo files from MDL/src directory.
  */
-gulp.task('demos', function () {
+gulp.task('demos', ['demohtml'], function () {
   return gulp.src([
       './src/**/*.css',
-      './src/**/demo.*',
       './src/**/*.js'
     ], {base: './src'})
       .pipe($.if('*.scss', $.sass({
@@ -300,6 +299,32 @@ gulp.task('demos', function () {
       }))
       .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
       .pipe(gulp.dest('dist/components'));
+});
+
+/**
+ * Generates demo files for testing.
+ */
+gulp.task('demohtml', function() {
+  return gulp.src(['./src/**/demo.html'])
+    // Add basic front matter.
+    .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
+    .pipe($.frontMatter({property: 'page', remove: true}))
+    .pipe($.marked())
+    .pipe((function () {
+      var componentPages = [];
+      return through.obj(function(file, enc, cb) {
+        file.page.component = file.relative.split('/')[0];
+        componentPages.push(file.page);
+        this.push(file);
+        cb();
+      },
+      function(cb) {
+        site.components = componentPages;
+        cb();
+      });
+    })())
+    .pipe(applyTemplate())
+    .pipe(gulp.dest('dist/components'));
 });
 
 /**
