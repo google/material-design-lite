@@ -15,12 +15,12 @@ header.mdl-layout__header {
 }
 main.mdl-layout__content {
   padding: 0;
-}
-main.mdl-layout__content {
   display: flex;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+  flex-shrink: 0;
+  overflow: visible;
 }
 .mdl-layout__container {
   overflow: visible;
@@ -33,7 +33,7 @@ main.mdl-layout__content {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  min-height: 460px;
+  min-height: 360px;
 }
 .mdl-card__title {
   padding: 16px;
@@ -47,6 +47,7 @@ main.mdl-layout__content {
   flex-grow: 1;
   flex-direction: row;
   align-items: flex-end;
+  cursor: pointer;
 }
 .mdl-card__media a,
 .mdl-card__title a {
@@ -56,14 +57,28 @@ main.mdl-layout__content {
   width: auto;
   flex-grow: 1;
   color: rgba(0, 0, 0, 0.87);
+  padding: 16px !important;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
 }
 .mdl-card__title ~ .mdl-card__supporting-text {
   flex-grow: 0;
 }
 .mdl-card__media ~ .mdl-card__supporting-text {
   flex-grow: 0;
+  height: 64px;
 }
-
+.mdl-card__supporting-text:not(:last-child) {
+  box-sizing: border-box;
+  height: 76px;
+}
+.mdl-card__supporting-text ~ .mdl-card__supporting-text {
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+.mdl-card__supporting-text:last-child {
+  padding: 0px 16px !important;
+}
 .mdl-card__supporting-text ~ .mdl-card__actions {
   border-top: 1px solid #CCC;
 }
@@ -80,10 +95,6 @@ main.mdl-layout__content {
   align-items: center;
   justify-content: flex-start;
   height: auto;
-}
-.meta .logo {
-  width: 32px;
-  heigth: 32px;
 }
 .meta > .spacer ~ div {
   flex-direction: row;
@@ -113,10 +124,19 @@ main.mdl-layout__content {
   justify-content: center;
   align-items: center;
 }
+.something-else > button {
+  position: absolute;
+  top: 0;
+  right: 28px;
+  transform: translate(0px, -28px);
+}
 .something-else .mdl-card__media img {
   width: 33%;
   height: 33;
   margin-bottom: 10px;
+}
+.something-else .mdl-card__supporting-text {
+  background-color: #F5F5F5;
 }
 .on-the-road-again .mdl-card__media {
   background-image: url('images/road.jpg');
@@ -132,7 +152,15 @@ main > nav {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 30vh;
+  padding-bottom: 30vh;
+}
+main > nav > a {
+  color: white;
+  cursor: pointer;
+}
+main > nav button {
+  color: black !important;
+  background-color: white !important;
 }
 
 ul.social {
@@ -252,6 +280,20 @@ h3.quote:after {
 }
 .something-else {
   overflow: visible;
+}
+
+.amazing .mdl-card__title {
+  background-color: #263238;
+}
+.minilogo {
+  width: 44px;
+  height: 44px;
+  background-image: url('images/logo.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border-radius: 22px;
+  background-color: #F5F5F5;
 }
 
 /* Fixes for IE 10 */
