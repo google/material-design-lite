@@ -356,6 +356,11 @@ body:not(.about) .docs-layout-title {
   color: #c2185b;
 }
 
+.docs-layout-content h2.mdl-card__title-text {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
 .docs-layout-content a {
   @extend mdl-color-text--cyan-600;
   text-decoration: none;
