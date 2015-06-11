@@ -27,6 +27,9 @@ html > body {
   padding: 0px;
   font-size: 100%;
 }
+.docs-layout pre[class*=language-]>code[data-language] {
+  overflow:auto;
+}
 pre[class*=language-]>code[data-language="markup"]::before {
   content: "html";
 }
