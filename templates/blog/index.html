@@ -46,20 +46,6 @@
   <body>
     <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">The Newist</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-            </div>
-          </div>
-        </div>
       </header>
       <main class="mdl-layout__content mdl-grid">
         <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
@@ -67,7 +53,7 @@
             <h3><a href="entry.html">Coffee Pic</a></h3>
           </div>
           <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
+            <div class="minilogo"></div>
             <div>
               <strong>The Newist</strong>
               <span>2 days ago</span>
@@ -75,8 +61,9 @@
           </div>
         </div>
         <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-          <div class="mdl-card__media mdl-color--primary mdl-color-text--grey-600">
-            <img src="images/logo.svg">
+          <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent"><i class="material-icons">add</i></button>
+          <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
+            <img src="images/logo.svg" width>
             +1,337
           </div>
           <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
@@ -84,91 +71,68 @@
               <strong>The Newist</strong>
             </div>
             <ul class="mdl-menu mdl-js-menu" for="menubtn">
-              <button class="mdl-menu__item mdl-js-ripple-effect">New Article</button>
-              <button class="mdl-menu__item mdl-js-ripple-effect">Spam Readers</button>
-              <button class="mdl-menu__item mdl-js-ripple-effect">Pointless Button</button>
+              <button class="mdl-menu__item mdl-js-ripple-effect">About</button>
+              <button class="mdl-menu__item mdl-js-ripple-effect">Message</button>
+              <button class="mdl-menu__item mdl-js-ripple-effect">Favorite</button>
+              <button class="mdl-menu__item mdl-js-ripple-effect">Search</button>
             </ul>
             <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons">menu</i>
+              <i class="material-icons">more_vert</i>
             </button>
           </div>
         </div>
-        <div class="mdl-card on-the-road-again mdl-cell mdl-cell--8-col">
+        <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
           <div class="mdl-card__media mdl-color-text--grey-50">
             <h3><a href="entry.html">On the road again</a></h3>
           </div>
           <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
+            Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
           </div>
           <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
+            <div class="minilogo"></div>
             <div>
               <strong>The Newist</strong>
               <span>2 days ago</span>
             </div>
           </div>
         </div>
-        <div class="mdl-card subscribe mdl-color-text--grey-600 mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-          <div class="mdl-card__title">
-            <h3>About</h3>
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Elit ullamco pariatur irure quis Lorem consectetur dolor tempor minim ullamco velit. Dolor enim proident aliquip quis sit ullamco cupidatat aliqua ullamco proident ex non culpa. In laboris cillum ipsum adipisicing mollit. Irure ea et non anim labore exercitation consectetur cupidatat ea. Adipisicing eu pariatur commodo quis aute et consequat labore occaecat. Occaecat et cupidatat esse dolore officia incididunt ad in labore proident cupidatat. Ipsum ad qui quis occaecat culpa consequat minim. Ipsum culpa enim elit pariatur incididunt ad anim. Mollit laboris eu officia ipsum sit sit exercitation dolor adipisicing nulla. Ea eu consectetur eu laboris fugiat irure deserunt veniam in esse nulla et.
-          </div>
-          <div class="mdl-card__actions meta">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons">share</i>
-            </button>
-            <ul class="social">
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons">grade</i>
-              </button>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons">invert_colors</i>
-              </button>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons">language</i>
-              </button>
-            </ul>
-          </div>
-        </div>
-        <div class="mdl-card amazing mdl-cell mdl-cell--8-col">
-          <div class="mdl-card__title mdl-color--accent mdl-color-text--grey-50">
+        <div class="mdl-card amazing mdl-cell mdl-cell--12-col">
+          <div class="mdl-card__title mdl-color-text--grey-50">
             <h3 class="quote"><a href="entry.html">I couldn’t take any pictures but this was an amazing thing…</a></h3>
           </div>
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
+            Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
           </div>
           <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
+            <div class="minilogo"></div>
             <div>
               <strong>The Newist</strong>
               <span>2 days ago</span>
             </div>
           </div>
         </div>
-        <div class="empty mdl-cell mdl-cell--4-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-card shopping mdl-cell mdl-cell--8-col">
+        <div class="mdl-card shopping mdl-cell mdl-cell--12-col">
           <div class="mdl-card__media mdl-color-text--grey-50">
             <h3><a href="entry.html">Shopping</a></h3>
           </div>
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
+            Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
           </div>
           <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
+            <div class="minilogo"></div>
             <div>
               <strong>The Newist</strong>
               <span>2 days ago</span>
             </div>
           </div>
         </div>
-        <div class="empty mdl-cell mdl-cell--4-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <nav class="mdl-color-text--grey-50 mdl-cell mdl-cell--8-col">
-          More
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons">arrow_forward</i>
-          </button>
+        <nav class="mdl-cell mdl-cell--12-col">
+          <a>
+            More
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons">arrow_forward</i>
+            </button>
+          </a>
         </nav>
       </main>
       <div class="mdl-layout__obfuscator"></div>
@@ -176,4 +140,16 @@
     <a href="https://github.com/google/material-design-lite/blob/master/templates/blog/index.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
     <script src="../../material.min.js"></script>
   </body>
+  <script>
+    Array.prototype.forEach.call(document.querySelectorAll('.mdl-card__media'), function(el) {
+      var link = el.querySelector('a');
+      if(!link) {
+        return;
+      }
+      var target = link.getAttribute('href');
+      el.addEventListener('click', function() {
+        location.href = target;
+      });
+    });
+  </script>
 </html>
