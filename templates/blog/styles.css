@@ -67,11 +67,11 @@ main.mdl-layout__content {
 }
 .mdl-card__media ~ .mdl-card__supporting-text {
   flex-grow: 0;
-  height: 64px;
+  min-height: 64px;
 }
 .mdl-card__supporting-text:not(:last-child) {
   box-sizing: border-box;
-  height: 76px;
+  min-height: 76px;
 }
 .mdl-card__supporting-text ~ .mdl-card__supporting-text {
   border-top: 1px solid rgba(0,0,0,0.12);
@@ -92,7 +92,7 @@ main.mdl-layout__content {
   padding: 16px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center !important;
   justify-content: flex-start;
   height: auto;
 }
@@ -150,11 +150,12 @@ main > nav {
   margin: 12px 15px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 30vh;
+  padding: 0 !important;
+  padding-bottom: 30vh !important;
 }
-main > nav > a {
+main > nav > div {
   color: white;
   cursor: pointer;
 }
@@ -162,7 +163,12 @@ main > nav button {
   color: black !important;
   background-color: white !important;
 }
-
+main > nav > div:first-child button {
+  margin-right: 16px;
+}
+main > nav > div:last-child button {
+  margin-left: 16px;
+}
 ul.social {
   display: flex;
   flex-direction: row;
@@ -191,10 +197,13 @@ h3.quote:before {
 h3.quote:after {
   content: '”';
 }
-
+.blogpost .custom-header {
+  background-color: transparent;
+}
 .blogpost main > .mdl-card {
   width: 100%;
   height: auto;
+  margin-top: 230px;
 }
 .blogpost main > .mdl-card > .mdl-card__actions {
   box-sizing: border-box;
@@ -208,6 +217,7 @@ h3.quote:after {
 }
 .blogpost main > .mdl-card .mdl-card__media {
   background-image: url('images/road_big.jpg');
+  height: 280px;
 }
 .blogpost main .mdl-card__actions {
   border: 0 !important;
@@ -219,12 +229,27 @@ h3.quote:after {
 .blogpost main > nav > div:last-child {
   text-align: right;
 }
+.blogpost .meta > div {
+  align-items: center;
+}
+.blogpost .meta + .mdl-card__supporting-text {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+.blogpost .meta + .mdl-card__supporting-text p {
+  max-width: 512px;
+  margin: 16px auto;
+  font-size: 16px;
+  line-height: 28px;
+}
 
-.comments {
+.comments.comments.comments {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  padding: 32px !important;
 }
 .comments > form {
   display: flex;
@@ -233,7 +258,18 @@ h3.quote:after {
 }
 .comments > form .mdl-textfield {
   flex-grow: 1;
-  margin-right: 32px;
+  margin-right: 16px;
+}
+.comments > form .mdl-textfield input,
+.comments > form .mdl-textfield textarea{
+  resize: none;
+}
+.comments > form button {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+.comments > form button .material-icons {
+  color: white;
 }
 .comments .comment {
   display: flex;
@@ -266,15 +302,23 @@ h3.quote:after {
   justify-content: flex-start;
   align-items: center;
   font-size: 0.8em;
+  margin-top: 16px;
 }
 .comments .comment > .comment__actions button {
   margin-right: 16px;
+  color: rgba(0, 0, 0, 0.24);
 }
 .comments .comment > .comment__answers {
   padding-top: 32px;
   padding-left: 48px;
 }
 
+body .demo-back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: white;
+}
 .spacer {
   flex-grow: 1;
 }
