@@ -10,6 +10,7 @@ html > body {
 }
 .docs-layout pre {
   padding: 16px;
+  padding-right: 65px;
 }
 .docs-layout code:before,
 .docs-layout code:after {
@@ -25,6 +26,9 @@ html > body {
   background-color: rgba(0,0,0,0);
   padding: 0px;
   font-size: 100%;
+}
+pre[class*=language-]>code[data-language="markup"]::before {
+  content: "html";
 }
 .docs-layout-header {
   height: 33vh;
