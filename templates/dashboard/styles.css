@@ -93,6 +93,10 @@ html, body {
   fill: #d9006e;
 }
 
+.cards {
+  align-items: flex-start;
+  align-content: flex-start;
+}
 .cards .mdl-card {
   height: auto;
   display: flex;
@@ -132,10 +136,10 @@ html, body {
   color: #00BCD4;
   text-decoration: none;
 }
-.cards .mdl-card__actions.black-line {
+.demo-card--black-line {
   border-top: 1px solid rgba(0, 0, 0, 0.24);
 }
-.cards .mdl-card__actions.white-line {
+.demo-card--white-line {
   border-top: 1px solid rgba(255, 255, 255, 0.24);
 }
 .cards .options h3 {
