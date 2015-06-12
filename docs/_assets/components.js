@@ -27,6 +27,14 @@ function MaterialComponents() {
 }
 
 /**
+ * Stores a Map of the components links using their corresponding hashFragment
+ * as key.
+ * @type {Object.<string, HTMLElement>}
+ * @private
+ */
+MaterialComponents.prototype.linksMap_ = {};
+
+/**
  * Store strings for class names defined by this component that are used in
  * JavaScript. This allows us to simply change it in one place should we
  * decide to modify at a later date.
@@ -49,6 +57,33 @@ MaterialComponents.prototype.init = function() {
   for (var i = 0; i < this.componentLinks.length; i++) {
     this.componentLinks[i].addEventListener('click',
         this.clickHandler(this.componentLinks[i]));
+    // Mapping the list of links using their hash fragment.
+    this.linksMap_["#" + this.componentLinks[i].href.split("#")[1]]
+        = this.componentLinks[i];
+  }
+
+  // If a Hash fragment is available on the page then display the section.
+  this.displaySectionForFragment(window.location.hash);
+
+  // If the hash fragment changes we display the corresponding section.
+  // We won't support older browser as it's not efficient.
+  if ("onhashchange" in window) {
+    var this_ = this;
+    window.onhashchange = function () {
+      this_.displaySectionForFragment(window.location.hash);
+    }
+  }
+};
+
+/**
+ * Displays the section for the given hash fragment.
+ * @param  {String} fragment The hash fragment used in the link to the section
+ */
+MaterialComponents.prototype.displaySectionForFragment = function(fragment) {
+  if (fragment
+      && this.linksMap_[fragment]
+      && this.linksMap_[fragment].click) {
+    this.linksMap_[fragment].click();
   }
 };
 
@@ -73,6 +108,11 @@ MaterialComponents.prototype.clickHandler = function(link) {
 
     link.classList.add(ctx.CssClasses_.ACTIVE);
     page.classList.add(ctx.CssClasses_.ACTIVE);
+
+    // Add an history entry and display the hash fragment in the URL.
+    if (window.location.hash != "#"+link.href.split("#")[1]) {
+      history.pushState(null, "Material Design Lite", link);
+    }
   };
 };
 
