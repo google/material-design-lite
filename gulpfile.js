@@ -112,11 +112,11 @@ gulp.task('styletemplates', function () {
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
     .pipe($.concat('material.css.template'))
-    .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./dist'))
     // Minify Styles
     .pipe($.if('*.css.template', $.csso()))
     .pipe($.concat('material.min.css.template'))
+    .pipe($.header(banner, {pkg: pkg}))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'styles'}));
@@ -146,7 +146,7 @@ gulp.task('styles', ['styletemplates'], function () {
     // Minify Styles
     .pipe($.if('*.css', $.csso()))
     .pipe($.concat('material.min.css'))
-    //.pipe($.header(banner, {pkg: pkg}))
+    .pipe($.header(banner, {pkg: pkg}))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'))
     .pipe($.size({title: 'styles'}));
