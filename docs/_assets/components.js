@@ -84,6 +84,8 @@ MaterialComponents.prototype.displaySectionForFragment = function(fragment) {
       && this.linksMap_[fragment]
       && this.linksMap_[fragment].click) {
     this.linksMap_[fragment].click();
+  } else {
+    document.getElementsByClassName("mdl-components__link")[0].click();
   }
 };
 
@@ -111,7 +113,11 @@ MaterialComponents.prototype.clickHandler = function(link) {
 
     // Add an history entry and display the hash fragment in the URL.
     if (window.location.hash != "#"+link.href.split("#")[1]) {
-      history.pushState(null, "Material Design Lite", link);
+      if (link != document.getElementsByClassName("mdl-components__link")[0]) {
+        history.pushState(null, "Material Design Lite", link);
+      } else if (ctx.linksMap_[window.location.hash] != null) {
+        history.pushState(null, "Material Design Lite", "./");
+      }
     }
   };
 };

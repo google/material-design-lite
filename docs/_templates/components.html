@@ -8,17 +8,25 @@
 <div class="mdl-components mdl-js-components">
   <aside class="mdl-components__nav">
     {% for category in page.categories %}
-    <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }} {% if loop.first %}is-active{%- endif %}">
+    <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }}">
       <div class="mdl-components__link-image"
            style="background-image: url('{{page.include_prefix}}assets/comp_{{ category.name }}.png')">
       </div>&nbsp;
       <span class="mdl-components__link-text">{{ category.title }}</span>
     </a>
+    {% if loop.first %}
+      <script>
+        if (window.location.hash == null || window.location.hash == "" || window.location.hash == "#") {
+          var link = document.getElementsByClassName("mdl-components__link")[0];
+          link.className = link.className + " is-active";
+        }
+      </script>
+    {%- endif %}
     {%- endfor %}
   </aside>
   <main class="mdl-components__pages">
     {% for category in page.categories -%}
-    <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid mdl-cell mdl-cell--12-col {% if loop.first %}is-active{%- endif %}">
+    <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid mdl-cell mdl-cell--12-col">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-typography--display-3">{{ category.title }}</div>
         <p>{{ category.description }}</p>
@@ -40,6 +48,14 @@
         {%- endfor %}
       </div>
     </section>
+    {% if loop.first %}
+    <script>
+      if (window.location.hash == null || window.location.hash == "" || window.location.hash == "#") {
+        var page = document.getElementsByClassName("mdl-components__page")[0];
+        page.className = page.className + " is-active";
+      }
+    </script>
+    {%- endif %}
     {%- endfor %}
 </main>
 </div>
