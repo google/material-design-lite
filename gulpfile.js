@@ -408,6 +408,14 @@ gulp.task('publish', function(cb) {
     cb);
 });
 
+gulp.task('publish:cdn', function() {
+  var bucket = 'gs://materialdesignlite/';
+  gulp.src('dist/material.*@(js|css)')
+    .pipe($.shell(
+      ['gsutil -m cp -a public-read <%= file.path %> ' + bucket]
+    ));
+});
+
 gulp.task('publish:push', function() {
   var push = !!process.env.GH_PUSH;
   if (!push) {
