@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", "Helvetica", sans-serif;
 }
 
 .avatar {
@@ -14,8 +15,15 @@ html, body {
   padding: 0 16px;
   overflow: visible;
 }
+.mdl-layout__header .mdl-layout__header-row {
+  padding-left: 32px;
+}
+.mdl-layout__header .mdl-layout-title {
+  margin-left: 24px;
+}
 .mdl-layout__drawer {
   overflow: visible;
+  width: 256px;
 }
 .mdl-layout__drawer .avatar {
   margin-bottom: 16px;
@@ -23,7 +31,9 @@ html, body {
 .mdl-layout__drawer > header {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   padding: 16px;
+  height: 151px;
 }
 .mdl-layout__drawer > header > div {
   display: flex;
@@ -32,20 +42,21 @@ html, body {
 }
 .mdl-layout__drawer nav a {
   color: inherit;
-  display: flex;
+  display: flex !important;
   flex-direction: row;
   align-items: center;
 }
 .mdl-layout__drawer nav a .material-icons {
   font-size: 1.5em;
-  margin-right: 16px;
+  color: rgba(255, 255, 255, 0.56);
+  margin-right: 32px;
 }
 .mdl-layout__drawer .mdl-navigation {
   flex-grow: 1;
 }
 
 .mdl-layout__content {
-  padding: 0;
+  padding: 16px;
   display: flex;
 }
 .charts {
@@ -82,14 +93,11 @@ html, body {
   fill: #d9006e;
 }
 
-.cards {
-  padding: 0;
-  margin: 0;
-}
 .cards .mdl-card {
   height: auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 32px !important;
 }
 .cards .mdl-card__title {
   display: flex;
@@ -104,6 +112,9 @@ html, body {
 .cards .mdl-card__title h2 {
   height: auto;
   align-self: flex-end;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
 }
 .cards ul {
   padding: 0;
@@ -116,4 +127,38 @@ html, body {
   background-image: url('images/dog.png');
   background-position: 90% 100%;
   background-repeat: no-repeat;
+}
+.cards .mdl-card__actions a {
+  color: #00BCD4;
+  text-decoration: none;
+}
+.cards .mdl-card__actions.black-line {
+  border-top: 1px solid rgba(0, 0, 0, 0.24);
+}
+.cards .mdl-card__actions.white-line {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+.cards .options h3 {
+  margin: 0;
+}
+.cards .options .mdl-checkbox .mdl-checkbox__box-outline {
+  border-color: rgba(255, 255, 255, 0.89);
+}
+.cards .options .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
+  background: rgba(255, 255, 255, 0.89);
+}
+.cards .options ul {
+  margin: 0;
+}
+.cards .options .mdl-checkbox {
+  margin-bottom: 0;
+}
+.cards .options .material-icons {
+  color: rgba(255, 255, 255, 0.89);
+}
+.cards .options .mdl-card__actions {
+  height: 64px;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
 }
