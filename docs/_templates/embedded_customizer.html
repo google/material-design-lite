@@ -19,6 +19,10 @@
     body {
       overflow: scroll !important;
     }
+    #wheel g[data-color] {
+      opacity: 1;
+      transition: opacity 0.2s cubic-bezier(0.4, 0.0, 1, 1);
+    }
     #wheel .selector {
       opacity: 0;
       transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
@@ -38,6 +42,14 @@
     #wheel .selected--2 .label--2 {
       opacity: 1;
     }
+    #wheel.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
+    #wheel.hide-nonaccents g[data-color="Brown"]:not(.selected),
+    #wheel.hide-nonaccents g[data-color="Grey"]:not(.selected) {
+      opacity: 0;
+    }
+    #wheel .selected {
+      opacity: 1 !important;
+    }
 
   </style>
   <svg id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -53,7 +65,7 @@
         </feMerge>
       </filter>
     </defs>
-    <g></g>
+    <g class="wheel--maing"></g>
   </svg>
   <div class="mdl-gen-download">
     <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Download CSS</a>

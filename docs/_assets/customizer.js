@@ -113,6 +113,7 @@ function init() {
         'Light Blue',
       ]
     };
+    this.forbiddenAccents = ['Blue Grey', 'Brown', 'Grey'];
     this.numSelected = 0;
 
     this.calculateValues_();
@@ -174,7 +175,7 @@ function init() {
 
   MaterialCustomizer.prototype.buildWheel_ = function() {
     var config = this.config;
-    var mainG = this.wheel.querySelector(':scope > g');
+    var mainG = this.wheel.querySelector('g.wheel--maing');
 
     this.wheel.setAttribute('width', this.config.width);
     this.wheel.setAttribute('height', this.config.height);
@@ -279,6 +280,7 @@ function init() {
 
   MaterialCustomizer.prototype.fieldClicked_ = function (ev) {
     var g = parentWrapper(parentWrapper(ev.target));
+    var selectedColor = g.getAttribute('data-color');
     // Ignore clicks on already selected fields
     if ((g.getAttribute('class') || '').indexOf('selected') !== -1) {
       return;
@@ -287,20 +289,29 @@ function init() {
     this.numSelected++;
     switch (this.numSelected) {
       case 2:
+        if (this.forbiddenAccents.indexOf(selectedColor) !== -1) {
+          this.numSelected--;
+          return;
+        }
         this.highlightField_(g);
-        this.changeColor();
+        this.wheel.setAttribute('class', '');
+        window.requestAnimationFrame(this.changeColor.bind(this));
         break;
       case 3:
         Array.prototype.forEach.call(
-          this.wheel.querySelector(':scope > g').childNodes,
+          this.wheel.querySelector('g.wheel--maing').childNodes,
           function(f) {
             f.setAttribute('class', '');
             f.querySelector('.polygons').setAttribute('filter', '');
           }
         );
         this.numSelected = 1;
+        // Fall through
       case 1:
         this.highlightField_(g);
+        window.requestAnimationFrame(function() {
+          this.wheel.setAttribute('class', 'hide-nonaccents');
+        }.bind(this));
         break;
     }
   };
