@@ -408,12 +408,17 @@ gulp.task('publish', function(cb) {
     cb);
 });
 
+// Push the latest version to CDN (Google Cloud Storage for now)
 gulp.task('publish:cdn', function() {
   var bucket = 'gs://materialdesignlite/';
-  gulp.src('dist/material.*@(js|css)')
-    .pipe($.shell(
-      ['gsutil -m cp -a public-read <%= file.path %> ' + bucket]
-    ));
+  var info_msg = 'Publishing version ' + pkg.version + ' to CDN (' + bucket + ')';
+  var gsutil_cp_cmd = 'gsutil -m cp -a public-read dist/<%= file.path %> ' + bucket;
+  process.stdout.write(info_msg + '\n');
+  return gulp.src('dist/material.*@(js|css)')
+    .pipe($.tap(function(file, t) {
+      file.path = path.basename(file.path);
+    }))
+    .pipe($.shell([gsutil_cp_cmd, gsutil_cp_cmd + pkg.version + '/<%= file.path %>']));
 });
 
 gulp.task('publish:push', function() {
