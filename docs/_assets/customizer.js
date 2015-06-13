@@ -185,14 +185,14 @@ function init() {
     config.colors.forEach(function(color, idx) {
       var field = fieldTpl.cloneNode(true);
 
-      for (var i = 0; i < 2; i++) {
+      for (var i = 1; i <= 2; i++) {
         var g = document.createElementNS(svgNS, 'g');
         var label = document.createElementNS(svgNS, 'text');
         label.setAttribute('class', 'label label--' + i);
         label.setAttribute('transform',
           'rotate(' + (-config.alphaDeg * idx) + ')');
         label.setAttribute('dy', '0.5ex');
-        label.textContent = '' + (i + 1);
+        label.textContent = '' + i;
         g.appendChild(label);
         g.setAttribute('transform',
           'translate(' + config.cx + ',' + config.cy + ')');
@@ -284,19 +284,25 @@ function init() {
       return;
     }
 
-    if (this.numSelected === 2) {
-      Array.prototype.forEach.call(
-        this.wheel.querySelector(':scope > g').childNodes,
-        function(f) {
-          f.setAttribute('class', '');
-          f.querySelector('.polygons').setAttribute('filter', '');
-        }
-      );
-      this.numSelected = 0;
-    }
-
-    this.highlightField_(g);
     this.numSelected++;
+    switch (this.numSelected) {
+      case 2:
+        this.highlightField_(g);
+        this.changeColor();
+        break;
+      case 3:
+        Array.prototype.forEach.call(
+          this.wheel.querySelector(':scope > g').childNodes,
+          function(f) {
+            f.setAttribute('class', '');
+            f.querySelector('.polygons').setAttribute('filter', '');
+          }
+        );
+        this.numSelected = 1;
+      case 1:
+        this.highlightField_(g);
+        break;
+    }
   };
 
   MaterialCustomizer.prototype.highlightField_ = function(g) {
@@ -331,9 +337,9 @@ function init() {
   MaterialCustomizer.prototype.processTemplate = function(response) {
     var generated = response;
 
-    var primaryColor = this.wheel.querySelector('.selected-0')
+    var primaryColor = this.wheel.querySelector('.selected--1')
                             .getAttribute('data-color');
-    var secondaryColor = this.wheel.querySelector('.selected-1')
+    var secondaryColor = this.wheel.querySelector('.selected--2')
                             .getAttribute('data-color');
 
     var primary = this.getColor(primaryColor, '500');
@@ -436,31 +442,4 @@ function init() {
     link.setAttribute('download', 'material.min.css');
   };
 
-  MaterialCustomizer.prototype.selectColor = function(event) {
-    var index = event.target.getAttribute('index');
-
-    if (!this.selectingPrimary && this.selectedPrimary === index) {
-      this.colors[this.selectedPrimary].classList.remove('is-primary');
-      this.colors[this.selectedAccent].classList.remove('is-accent');
-      this.selectingPrimary = true;
-      this.page.classList.add('mdl-gen--selecting-primary');
-      this.page.classList.remove('mdl-gen--selecting-accent');
-    } else if (this.selectingPrimary) {
-      this.page.classList.remove('mdl-gen--selecting-primary');
-      this.colors[this.selectedPrimary].classList.remove('is-primary');
-      this.selectedPrimary = index;
-      this.colors[index].classList.add('is-primary');
-      this.selectingPrimary = false;
-      this.page.classList.add('mdl-gen--selecting-accent');
-    } else {
-      this.page.classList.remove('mdl-gen--selecting-primary');
-      this.colors[this.selectedAccent].classList.remove('is-accent');
-      this.selectedAccent = index;
-      this.colors[index].classList.add('is-accent');
-      this.selectingPrimary = true;
-      this.page.classList.remove('mdl-gen--selecting-accent');
-    }
-
-    this.changeColor();
-  };
 })();
