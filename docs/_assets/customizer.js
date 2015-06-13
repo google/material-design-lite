@@ -7,54 +7,12 @@ function init() {
 function MaterialCustomizer(page) {
   'use strict';
 
-  this.page = page;
-  this.colors = null;
-  this.selectedPrimary = null;
-  this.selectedAccent = null;
-  this.selectingPrimary = true;
-  this.blob = null;
-
-  this.init();
-}
-
-MaterialCustomizer.prototype.init = function() {
-  'use strict';
-
-  if (!this.page.getAttribute('initialized')) {
-    this.changeColor();
-
-    this.colors = this.page.querySelectorAll('.mdl-gen-color');
-
-    for (var i = 0; i < this.colors.length; i++) {
-      this.colors[i].addEventListener('click', this.selectColor.bind(this));
-
-      if (this.colors[i].classList.contains('is-primary')) {
-        this.selectedPrimary = i;
-      }
-
-      if (this.colors[i].classList.contains('is-accent')) {
-        this.selectedAccent = i;
-      }
-    }
-
-    document.getElementById('download').addEventListener('click',
-        this.download.bind(this));
-
-    var isSafari = /constructor/i.test(window.HTMLElement);
-    if (isSafari) {
-      document.getElementById('download').innerHTML = 'Get CSS';
-    } else {
-      document.getElementById('warning').classList.add('mdl-gen--hidden');
-    }
-
-    this.page.setAttribute('initialized', true);
-  }
-};
-
-MaterialCustomizer.prototype.processTemplate = function(response) {
-  'use strict';
-
-  var palettes = [
+  this.paletteIndices = ['Red', 'Pink', 'Purple', 'Deep Purple', 'Indigo',
+                        'Blue', 'Light Blue', 'Cyan', 'Teal', 'Green',
+                        'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange',
+                        'Deep Orange', 'Brown', 'Grey', 'Blue Grey'];
+  this.lightnessIndices = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+  this.palettes = [
     ['255,235,238', '255,205,210', '239,154,154', '229,115,115', '239,83,80',
      '244,67,54', '229,57,53', '211,47,47', '198,40,40', '183,28,28',
      '255,138,128', '255,82,82', '255,23,68', '213,0,0'],
@@ -110,6 +68,260 @@ MaterialCustomizer.prototype.processTemplate = function(response) {
     ['236,239,241', '207,216,220', '176,190,197', '144,164,174', '120,144,156',
      '96,125,139', '84,110,122', '69,90,100', '55,71,79', '38,50,56']
   ];
+
+  this.wheel = document.getElementById('wheel');
+
+  this.init();
+}
+
+MaterialCustomizer.prototype.init = function() {
+  'use strict';
+
+  this.config = {
+    width: 650, // width of the SVG panel
+    height: 650, // height of the SVG panel
+    r: 250, // radius of the wheel
+    ri: 100, // radius of the inner hole
+    hd: 40, // height of the dark section
+    c: 40, // Distance(center of selector circle, border of wheel)
+    mrs: 0.5, // Percent of available width to use as radius for selector circle
+    alphaIncr: 0.005, // Value to add to alpha to make tiles overlap slightly
+    colors: [// colors ([light, dark]) of the wheel
+      [this.getColor('Cyan', 500), this.getColor('Cyan', 600)],
+      [this.getColor('Teal', 500), this.getColor('Teal', 600)],
+      [this.getColor('Green', 500), this.getColor('Green', 600)],
+      [this.getColor('Light Green', 500), this.getColor('Light Green', 600)],
+      [this.getColor('Lime', 500), this.getColor('Lime', 600)],
+      [this.getColor('Yellow', 500), this.getColor('Yellow', 600)],
+      [this.getColor('Amber', 500), this.getColor('Amber', 600)],
+      [this.getColor('Orange', 500), this.getColor('Orange', 600)],
+      [this.getColor('Brown', 500), this.getColor('Brown', 600)],
+      [this.getColor('Blue Grey', 500), this.getColor('Blue Grey', 600)],
+      [this.getColor('Grey', 500), this.getColor('Grey', 600)],
+      [this.getColor('Deep Orange', 500), this.getColor('Deep Orange', 600)],
+      [this.getColor('Red', 500), this.getColor('Red', 600)],
+      [this.getColor('Pink', 500), this.getColor('Pink', 600)],
+      [this.getColor('Purple', 500), this.getColor('Purple', 600)],
+      [this.getColor('Deep Purple', 500), this.getColor('Deep Purple', 600)],
+      [this.getColor('Indigo', 500), this.getColor('Indigo', 600)],
+      [this.getColor('Blue', 500), this.getColor('Blue', 600)],
+      [this.getColor('Light Blue', 500), this.getColor('Light Blue', 600)],
+    ]
+  };
+  this.numSelected = 0;
+
+  this.calculateValues();
+  this.buildWheel();
+
+  return;
+
+  if (!this.page.getAttribute('initialized')) {
+    this.changeColor();
+
+    this.colors = this.page.querySelectorAll('.mdl-gen-color');
+
+    for (var i = 0; i < this.colors.length; i++) {
+      this.colors[i].addEventListener('click', this.selectColor.bind(this));
+
+      if (this.colors[i].classList.contains('is-primary')) {
+        this.selectedPrimary = i;
+      }
+
+      if (this.colors[i].classList.contains('is-accent')) {
+        this.selectedAccent = i;
+      }
+    }
+
+    document.getElementById('download').addEventListener('click',
+        this.download.bind(this));
+
+    var isSafari = /constructor/i.test(window.HTMLElement);
+    if (isSafari) {
+      document.getElementById('download').innerHTML = 'Get CSS';
+    } else {
+      document.getElementById('warning').classList.add('mdl-gen--hidden');
+    }
+
+    this.page.setAttribute('initialized', true);
+  }
+};
+
+MaterialCustomizer.prototype.calculateValues = function() {
+  'use strict';
+
+  var config = this.config;
+  // Calculated values
+  // Angle of each piece of the wheel
+  config.alphaDeg = 360.0 / config.colors.length;
+  config.alphaRad = config.alphaDeg * Math.PI / 180;
+  // Radius of selector circle
+  config.rs = (config.c + config.r) * Math.sin(config.alphaRad / 2);
+  config.rs *= config.mrs;
+  // Angle of selector cone
+  config.selectorAlphaRad = Math.atan(config.rs / config.c) * 2;
+  // Angles of cone tangetial point
+  config.gamma1 = config.alphaRad / 2 - config.selectorAlphaRad / 2;
+  config.gamma2 = config.alphaRad / 2 + config.selectorAlphaRad / 2;
+  // Center of selector circle
+  config.cx = (config.c + config.r) * Math.sin(config.alphaRad) / 2;
+  config.cy = -(config.c + config.r) * (1 + Math.cos(config.alphaRad)) / 2;
+
+  this.config = config;
+};
+
+MaterialCustomizer.prototype.buildWheel = function() {
+  'use strict';
+
+  var config = this.config;
+  var mainG = this.wheel.querySelector(':scope > g');
+  var svgNS = 'http://www.w3.org/2000/svg';
+
+  this.wheel.setAttribute('width', this.config.width);
+  this.wheel.setAttribute('height', this.config.height);
+
+  var fieldTpl = document.createElementNS(svgNS, 'g');
+  var polygons = document.createElementNS(svgNS, 'g');
+  var lightField = document.createElementNS(svgNS, 'polygon');
+  lightField.setAttribute('points', [
+    [
+      config.ri * Math.sin(config.alphaRad + config.alphaIncr),
+      -config.ri * Math.cos(config.alphaRad + config.alphaIncr)
+    ].join(','),
+    [
+      config.r * Math.sin(config.alphaRad + config.alphaIncr),
+      -config.r * Math.cos(config.alphaRad + config.alphaIncr)
+    ].join(','),
+    [0, -config.r].join(','),
+    [0, -(config.ri + config.hd)].join(','),
+  ].join(' '));
+  var darkField = document.createElementNS(svgNS, 'polygon');
+  darkField.setAttribute('points', [
+    [
+      config.ri * Math.sin(config.alphaRad + config.alphaIncr),
+      -config.ri * Math.cos(config.alphaRad + config.alphaIncr)
+    ].join(','),
+    [
+      (config.ri + config.hd) * Math.sin(config.alphaRad + config.alphaIncr),
+      -(config.ri + config.hd) * Math.cos(config.alphaRad + config.alphaIncr)
+    ].join(','),
+    [0, -(config.ri + config.hd)].join(','),
+    [0, -config.ri].join(','),
+  ].join(' '));
+  polygons.appendChild(lightField);
+  polygons.appendChild(darkField);
+  polygons.setAttribute('class', 'polygons');
+  fieldTpl.appendChild(polygons);
+
+  var selector = document.createElementNS(svgNS, 'path');
+  selector.setAttribute('class', 'selector');
+  selector.setAttribute('d',
+    ' M ' +
+    (config.r   * Math.sin(config.alphaRad) / 2) +
+    ' ' +
+    -(config.r * (1 + Math.cos(config.alphaRad)) / 2) +
+    ' L ' +
+    (config.cx - config.rs * Math.cos(config.gamma1)) +
+    ' ' +
+    (config.cy - config.rs * Math.sin(config.gamma1)) +
+    ' A ' +
+    config.rs +
+    ' ' +
+    config.rs +
+    ' ' +
+    config.alphaDeg +
+    ' 1 1 ' +
+    (config.cx + config.rs * Math.cos(config.gamma2)) +
+    ' ' +
+    (config.cy + config.rs * Math.sin(config.gamma2)) +
+    ' z '
+  );
+  fieldTpl.appendChild(selector);
+
+  config.colors.forEach(function(color, idx) {
+    var field = fieldTpl.cloneNode(true);
+
+    for (var i = 0; i < 2; i++) {
+      var g = document.createElementNS(svgNS, 'g');
+      var label = document.createElementNS(svgNS, 'text');
+      label.setAttribute('class', 'label label--' + i);
+      label.setAttribute('transform',
+        'rotate(' + (-config.alphaDeg * idx) + ')');
+      label.setAttribute('dy', '0.5ex');
+      label.textContent = '' + (i + 1);
+      g.appendChild(label);
+      g.setAttribute('transform',
+        'translate(' + config.cx + ',' + config.cy + ')');
+      field.appendChild(g);
+    }
+
+    field.querySelector('.polygons > *:nth-child(1)').style.fill = color[0];
+    field.querySelector('.polygons > *:nth-child(2)').style.fill = color[1];
+    field.querySelector('.polygons').
+      addEventListener('click', this.fieldClicked.bind(this));
+    field.setAttribute('transform', 'rotate(' + config.alphaDeg * idx + ')');
+    mainG.appendChild(field);
+  }.bind(this));
+
+  mainG.setAttribute('transform',
+    'translate(' + config.width / 2 + ',' + config.height / 2 + ')');
+};
+
+MaterialCustomizer.prototype.fieldClicked = function (ev) {
+  'use strict';
+
+  function parentWrapper(p) {
+    return p.parentElement || p.parentNode;
+  }
+
+  var g = parentWrapper(parentWrapper(ev.target));
+  var parent = parentWrapper(g);
+  if ((g.getAttribute('class') || '').indexOf('selected') !== -1) {
+    return;
+  }
+
+  if (this.numSelected === 2) {
+    Array.prototype.forEach.call(
+      this.wheel.querySelector(':scope > g').childNodes,
+      function(f) {
+        f.setAttribute('class', '');
+        f.querySelector('.polygons').setAttribute('filter', '');
+      }
+    );
+    this.numSelected = 0;
+  }
+
+  // Make the current polygon the last child of its parent
+  // so shadows are visible.
+  parent.removeChild(g);
+  parent.appendChild(g);
+
+  // We changed the DOM hierarchy, CSS animations might not show until
+  // DOM has updated internally.
+  var isIE = window.navigator.msPointerEnabled;
+  window.requestAnimationFrame(function() {
+    g.setAttribute('class', 'selected selected--' + this);
+    // FIXME: Shadows in IE10 don't disappear, for now they are disabled
+    if (!isIE) {
+      g.querySelector('.polygons')
+      .setAttribute('filter', 'url(#drop-shadow)');
+    }
+  }.bind(this.numSelected));
+
+  this.numSelected++;
+};
+
+MaterialCustomizer.prototype.getColor = function(name, lightness) {
+  'use strict';
+
+  var r = this.palettes[this.paletteIndices.indexOf(name)];
+  if (!r) {
+    return null;
+  }
+  return 'rgb(' + r[this.lightnessIndices.indexOf(lightness)] + ')';
+};
+
+MaterialCustomizer.prototype.processTemplate = function(response) {
+  'use strict';
 
   var generated = response;
 
