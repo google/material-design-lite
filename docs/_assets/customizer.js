@@ -1,7 +1,7 @@
 function init() {
   'use strict';
 
-  new MaterialCustomizer(document.getElementById('mdl-gen-body'));
+  window.xtest = new MaterialCustomizer(document.getElementById('mdl-gen-body'));
 }
 
 (function() {
@@ -200,11 +200,11 @@ function init() {
       }
       field.setAttribute('data-color', color);
       field.querySelector('.polygons > *:nth-child(1)').style.fill =
-        this.getColor(color, '500');
+        'rgb(' + this.getColor(color, '500') + ')';
       field.querySelector('.polygons > *:nth-child(2)').style.fill =
-        this.getColor(color, '600');
+        'rgb(' + this.getColor(color, '700') + ')';
       field.querySelector('.polygons').
-        addEventListener('click', this.fieldClicked.bind(this));
+        addEventListener('click', this.fieldClicked_.bind(this));
       field.setAttribute('transform', 'rotate(' + config.alphaDeg * idx + ')');
       mainG.appendChild(field);
     }.bind(this));
@@ -277,7 +277,7 @@ function init() {
     return fieldTpl;
   };
 
-  MaterialCustomizer.prototype.fieldClicked = function (ev) {
+  MaterialCustomizer.prototype.fieldClicked_ = function (ev) {
     var g = parentWrapper(parentWrapper(ev.target));
     // Ignore clicks on already selected fields
     if ((g.getAttribute('class') || '').indexOf('selected') !== -1) {
@@ -325,15 +325,20 @@ function init() {
     if (!r) {
       return null;
     }
-    return 'rgb(' + r[this.lightnessIndices.indexOf(lightness)] + ')';
+    return r[this.lightnessIndices.indexOf(lightness)];
   };
 
   MaterialCustomizer.prototype.processTemplate = function(response) {
     var generated = response;
 
-    var primary = palettes[this.selectedPrimary][5];
-    var primaryDark = palettes[this.selectedPrimary][7];
-    var accent = palettes[this.selectedAccent][11];
+    var primaryColor = this.wheel.querySelector('.selected-0')
+                            .getAttribute('data-color');
+    var secondaryColor = this.wheel.querySelector('.selected-1')
+                            .getAttribute('data-color');
+
+    var primary = this.getColor(primaryColor, '500');
+    var primaryDark = this.getColor(primaryColor, '700');
+    var accent = this.getColor(secondaryColor, 'A200');
 
     generated = this.replaceKeyword(
         generated, '\\$color-primary-dark', primaryDark);
