@@ -221,7 +221,7 @@ gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
     ['jshint', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
-     'images'],
+     'images', 'styles-grid'],
     cb);
 });
 
