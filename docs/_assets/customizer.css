@@ -47,3 +47,42 @@ body {
 #wheel .selected {
   opacity: 1 !important;
 }
+.mdl-gen__preview {
+  position: relative;
+  height: 350px;
+}
+.mdl-gen__preview .mdl-layout__container {
+  height: auto;
+}
+.mdl-gen__preview .mdl-layout__content {
+  padding: 32px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.mdl-gen__preview .mdl-layout__content .mdl-button {
+  margin: 0;
+}
+.mdl-gen__preview .mdl-layout__content .mdl-button--fab {
+  align-self: flex-end;
+}
+.mdl-gen__preview .mdl-layout__content h3 {
+  margin-top: 0;
+}
+.mdl-gen__panel {
+  padding: 32px;
+}
+.mdl-gen__panel--right {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+.mdl-gen__desc strong,
+.mdl-gen__desc p {
+  display: block;
+  margin-bottom: 32px;
+  color: rgba(0, 0, 0, 0.54);
+}
