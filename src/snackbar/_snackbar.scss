@@ -26,7 +26,8 @@
   background-color: #323232;
   min-height: 48px;
   z-index: 10000;
-  display: flex;
+  display: none;
+  opacity:0;
   border-radius: 2px;
   @media(max-width: $grid-tablet-breakpoint - 1) {
     width: 100%;
@@ -34,6 +35,11 @@
   @media(min-width: $grid-tablet-breakpoint) {
     min-width: 288px;
     max-width: 568px;
+  }
+  &.is-active {
+    display:block;
+    display:flex;
+    opacity:1;
   }
 }
 
