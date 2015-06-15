@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
 
 <div class="mdl-components mdl-js-components">
-  <aside class="mdl-components__nav">
+  <aside class="mdl-components__nav docs-text-styling">
     {% for category in page.categories %}
     <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }}">
       <div class="mdl-components__link-image"
@@ -28,9 +28,11 @@
     {% for category in page.categories -%}
     <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid mdl-cell mdl-cell--12-col">
       <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-typography--display-3">{{ category.title }}</div>
-        <p>{{ category.description }}</p>
-        <br><br>
+        <span class="docs-text-styling">
+          <div class="mdl-typography--display-3">{{ category.title }}</div>
+          <p>{{ category.description }}</p>
+          <br><br>
+        </span>
         {% for component in category.components %}
           {% set demo_css = "../../src/" + component.name + "/demo.css" %}
           <style>
@@ -40,11 +42,15 @@
           <script>
             {% include demo_js ignore missing %}
           </script>
-          <h1 class="mdl-components__classname">{{ component.class }}</h1>
+          <span class="docs-text-styling">
+            <h1 class="mdl-components__classname">{{ component.class }}</h1>
+          </span>
           {% set demo = "../../src/" + component.name + "/demo.html" %}
           {% include demo ignore missing %}
-          {% set doc = "../../dist/components/" + component.name + "/index.html" %}
-          {% include doc ignore missing %}
+          <span class="docs-text-styling">
+            {% set doc = "../../dist/components/" + component.name + "/index.html" %}
+            {% include doc ignore missing %}
+          </span>
         {%- endfor %}
       </div>
     </section>

@@ -81,7 +81,7 @@ pre[class*=language-]>code[data-language="markup"]::before {
 .docs-layout-header .mdl-textfield label:after {
   background-color: rgba(255, 255, 255, 0.12);
 }
-body.about .docs-layout-header {
+.about .docs-layout-header {
   background: url('logo.svg'), url('header.jpg');
   background-size: auto 30%, cover;
   background-repeat: no-repeat, no-repeat;
@@ -134,7 +134,7 @@ body:not(.about) .docs-layout-title {
   flex-shrink: 0;
   padding-left: 16px !important;
 }
-.docs-navigation span.mdl-icon {
+.docs-navigation .mdl-icon {
   font-size: 24px;
   margin-right: 8px;
 }
@@ -155,9 +155,6 @@ body:not(.about) .docs-layout-title {
   background-color: inherit;
 }
 .docs-navigation a:not(.download) {
-  opacity: 0.65;
-}
-.docs-navigation a.download > span {
   opacity: 0.65;
 }
 .docs-navigation .mdl-layout-spacer ~ a {
@@ -202,13 +199,11 @@ body:not(.about) .docs-layout-title {
   font-weight: 300;
   text-transform: uppercase;
 }
-.docs-layout-content > footer {
-  height: 120px;
-}
 .docs-footer {
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
+  height: 120px;
 }
 .docs-footer ul {
   padding: 0;
@@ -331,7 +326,7 @@ body:not(.about) .docs-layout-title {
 .template > .template__preview {
   height: auto;
 }
-.docs-layout-content p {
+.docs-text-styling p {
   font-size: 15px;
   margin-bottom: 32px;
 
@@ -339,18 +334,18 @@ body:not(.about) .docs-layout-title {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
-.docs-layout-content ol li {
+.docs-text-styling ol li {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
-.docs-layout-content h1 {
+.docs-text-styling h1 {
   color: #c2185b;
   font-size: 2.5em;
   margin: .67em 0;
 }
 
 
-.docs-layout-content h2 {
+.docs-text-styling h2 {
   padding-top: 48px;
   font-size: 24px;
   font-weight: 400;
@@ -364,7 +359,7 @@ body:not(.about) .docs-layout-title {
   margin-bottom: 0;
 }
 
-.docs-layout-content a {
+.docs-text-styling a {
   @extend mdl-color-text--cyan-600;
   text-decoration: none;
 }
@@ -374,8 +369,7 @@ body:not(.about) .docs-layout-title {
   font-weight: normal;
 }
 
-.docs-layout-title a,
-button a {
+.docs-layout-title a {
   color: inherit;
   text-decoration: none;
 }
