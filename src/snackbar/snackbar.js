@@ -34,6 +34,11 @@ MaterialSnackbar.prototype.cssClasses = {
   activeSnackbar: 'is-active'
 };
 
+MaterialSnackbar.prototype.setMessage = function(text) {
+  'use strict';
+  this.message_ = text;
+};
+
 MaterialSnackbar.prototype.setTimeout = function(time) {
   'use strict';
   this.timeout_ = parseInt(time);
@@ -49,7 +54,7 @@ MaterialSnackbar.prototype.setActionHandler = function(handler) {
   this.actionHandler_ = handler;
 };
 
-MaterialSnackbar.prototype.showNotification = function() {
+MaterialSnackbar.prototype.showSnackbar = function() {
   'use strict';
   if (this.actionHandler_ === undefined) {
     this.action_.hidden = true;
@@ -58,14 +63,14 @@ MaterialSnackbar.prototype.showNotification = function() {
     this.action_.addEventListener('click', this.actionHandler_);
   }
   this.messageArea_.innerText = this.message_;
-  this.element.classList.add(this.cssClasses.activeSnackbar);
+  this.element_.classList.add(this.cssClasses.activeSnackbar);
   setTimeout(this.cleanup, this.timeout_);
 };
 
 MaterialSnackbar.prototype.cleanup = function() {
   'use strict';
-  this.element.classList.remove(this.cssClasses.activeSnackbar);
-  if (this.action.hidden) {
+  this.element_.classList.remove(this.cssClasses.activeSnackbar);
+  if (this.action_.hidden) {
     this.action_.removeAttribute('hidden');
   } else {
     this.action_.innerText = '';
@@ -77,8 +82,12 @@ MaterialSnackbar.prototype.cleanup = function() {
 
 MaterialSnackbar.prototype.setDefaults_ = function() {
   'use strict';
-  this.timeout_ = this.element_.dataset.timeout ? this.element_.dataset.timeout : this.defaults.timeout;
-  this.actionText_ = this.element_.dataset.actionText ? this.element_.dataset.actionText : this.defaults.actionText;
+  this.timeout_ = this.element_.dataset.timeout ?
+    this.element_.dataset.timeout :
+    this.defaults.timeout;
+  this.actionText_ = this.element_.dataset.actionText ?
+    this.element_.dataset.actionText :
+    this.defaults.actionText;
   this.actionHandler_ = undefined;
   this.message_ = undefined;
 };
@@ -86,13 +95,14 @@ MaterialSnackbar.prototype.setDefaults_ = function() {
 MaterialSnackbar.prototype.init = function() {
   'use strict';
   this.setDefaults_();
-  this.messageArea_ = this.element_.querySelector(this.cssClasses.message);
-  this.action_ = this.element_.querySelector(this.cssClasses.action);
+  this.messageArea_ = this.element_.querySelector('.' + this.cssClasses.message);
+  this.action_ = this.element_.querySelector('.' + this.cssClasses.action);
+  this.element_.mdlSnackbar = this;
 };
 
 componentHandler.register({
   constructor: MaterialSnackbar,
   classAsString: 'MaterialSnackbar',
   cssClass: 'mdl-js-snackbar',
-  widget: true
+  widget: false
 });

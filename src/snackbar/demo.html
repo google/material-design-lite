@@ -1,29 +1,18 @@
-<!doctype html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Snackbar</title>
-
-    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="../../material.css">
-    <link rel="stylesheet" href="../demos.css">
-  </head>
-  <body class="demo-page demo-page--snackbar">
-
-  <div class="demo-preview-block">
-    <div class="mdl-snackbar">
-      <div class="mdl-snackbar__text">
-        Message sent.
-      </div>
-      <button class="mdl-snackbar__action">
-        Undo
-      </button>
+<div class="demo-preview-block">
+<button id="show-snackbar" type="button">Show snackbar</button>
+  <div class="mdl-snackbar mdl-js-snackbar">
+    <div class="mdl-snackbar__text">
     </div>
+    <button class="mdl-snackbar__action">
+    </button>
   </div>
-  <script src="../../material.js"></script>
-  </body>
-</html>
+</div>
+<script>
+  'use strict';
+  var snackbar = document.querySelector('.mdl-snackbar'),
+      showButton = document.querySelector('#show-snackbar');
+  showButton.addEventListener('click', function() {
+    snackbar.mdlSnackbar.setMessage('Example message');
+    snackbar.mdlSnackbar.showSnackbar();
+  });
+</script>
