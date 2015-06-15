@@ -62,7 +62,7 @@ MaterialProgress.prototype.setBuffer = function(p) {
   'use strict';
 
   this.bufferbar_.style.width = p + '%';
-  this.auxbar_.style.width = (100-p) + '%';
+  this.auxbar_.style.width = (100 - p) + '%';
 };
 
 /**
