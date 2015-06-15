@@ -16,19 +16,30 @@
 
 @import "../variables";
 
+$swift-ease-out-duration: 0.4s !default;
+$swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function !default;
+
+$swift-ease-in-duration: 0.3s !default;
+$swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !default;
+
 .mdl-snackbar {
   position: absolute;
   bottom: 0;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, 0);
+  cursor: default;
   // Hard coded since the color is not present in any pallet.
   background-color: #323232;
-  min-height: 48px;
   z-index: 10000;
-  display: none;
-  opacity:0;
+  max-height: 0;
   border-radius: 2px;
+  display:block;
+  display:flex;
+  will-change: transform;
+  transform: translate3d(0,-50px,0) rotateZ(0deg);
+  transition: $swift-ease-out;
   @media(max-width: $grid-tablet-breakpoint - 1) {
     width: 100%;
   }
@@ -37,9 +48,10 @@
     max-width: 568px;
   }
   &.is-active {
-    display:block;
-    display:flex;
-    opacity:1;
+    min-height: 48px;
+    max-height: 150px;
+    transform: translate3d(0, 0, 0);
+    transition: $swift-ease-in;
   }
 }
 
