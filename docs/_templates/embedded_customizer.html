@@ -15,60 +15,25 @@
   <link rel="stylesheet" href="{{page.include_prefix}}/assets/customizer.css">
 </head>
 <body class="mdl-gen mdl-color--grey-200" onload="init();">
-  <style>
-    body {
-      overflow: scroll !important;
-    }
-    #wheel g[data-color] {
-      opacity: 1;
-      transition: opacity 0.2s cubic-bezier(0.4, 0.0, 1, 1);
-    }
-    #wheel .selector {
-      opacity: 0;
-      transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
-      fill: #BDBDBD;
-    }
-    #wheel .selected .selector {
-      opacity: 1;
-    }
-    #wheel .label {
-      text-anchor: middle;
-      opacity: 0;
-      transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
-      fill: white;
-      font-size: 24px;
-    }
-    #wheel .selected--1 .label--1,
-    #wheel .selected--2 .label--2 {
-      opacity: 1;
-    }
-    #wheel.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
-    #wheel.hide-nonaccents g[data-color="Brown"]:not(.selected),
-    #wheel.hide-nonaccents g[data-color="Grey"]:not(.selected) {
-      opacity: 0;
-    }
-    #wheel .selected {
-      opacity: 1 !important;
-    }
-
-  </style>
-  <svg id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <filter id="drop-shadow">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
-        <feOffset dx="0" dy="0" result="offsetblur"/>
-        <feFlood flood-color="rgba(0,0,0,1)"/>
-        <feComposite in2="offsetblur" operator="in"/>
-        <feMerge>
-          <feMergeNode/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-    <g class="wheel--maing"></g>
-  </svg>
-  <div class="mdl-gen-download">
-    <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Download CSS</a>
+  <div id="wheel">
+    <svg id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <filter id="drop-shadow">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
+          <feOffset dx="0" dy="0" result="offsetblur"/>
+          <feFlood flood-color="rgba(0,0,0,1)"/>
+          <feComposite in2="offsetblur" operator="in"/>
+          <feMerge>
+            <feMergeNode/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <g class="wheel--maing"></g>
+    </svg>
+    <div class="mdl-gen-download">
+      <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"><i class="material-icons">file_download</i></a>
+    </div>
   </div>
   <div class="mdl-gen-preview mdl-shadow--3dp">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">

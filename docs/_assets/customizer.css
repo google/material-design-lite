@@ -1,175 +1,46 @@
-.mdl-gen {
-  padding: 24px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  overflow: hidden;
+body {
+  overflow: scroll !important;
 }
-
-.mdl-gen--light-text {
-  color: white;
-}
-
-.mdl-gen--dark-text {
-  color: rgb(66,66,66);
-}
-
-.mdl-gen-preview {
+#wheel {
   position: relative;
+}
+#wheel svg {
   width: 100%;
-  max-width: 600px;
-  height: 350px;
-  margin: 16px auto 16px auto;
-  background-color: white;
+  height: auto;
 }
-
-.mdl-gen-preview__content {
-  padding: 24px;
-}
-
-.mdl-gen-color-row {
-  display: -webkit-flex;
-  display: flex;
-  width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mdl-gen-color {
-  -webkit-flex: 1;
-  flex: 1;
-  overflow: hidden;
-  height: 80px;
-  cursor: pointer;
-  padding: 8px;
-  box-sizing: border-box;
-  position: relative;
-  text-align: center;
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mdl-gen-nocolor {
-  -webkit-flex: 1;
-  flex: 1;
-  height: 80px;
-  padding: 8px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.mdl-gen-textinput {
-  display: -webkit-flex;
-  display: flex;
-}
-
-.mdl-gen-textinput__input {
-  -webkit-flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  flex-grow: 1;
-  flex-shrink: 1;
-  margin-right: 8px;
-}
-
-
-.mdl-gen:not(.mdl-gen--selecting-primary) .mdl-gen-color.is-primary {
-  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.19), 0 6px 3px 0 rgba(0,0,0,0.23);
-  z-index: 3;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.mdl-gen:not(.mdl-gen--selecting-primary) .mdl-gen-color.is-primary:after {
-  content: 'Primary';
-  display: block;
+#wheel .mdl-gen-download {
   position: absolute;
-  line-height: 100px;
-  text-align: center;
-  width: 100%;
-  top: 0;
-  left: 0;
-  font-size: 30px;
+  left: 50%;
+  top: 50%;
 }
-
-.mdl-gen:not(.mdl-gen--selecting-accent) .mdl-gen-color.is-accent {
-  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.19), 0 6px 3px 0 rgba(0,0,0,0.23);
-  z-index: 4;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+#wheel g[data-color] {
+  opacity: 1;
+  transition: opacity 0.2s cubic-bezier(0.4, 0.0, 1, 1);
 }
-
-.mdl-gen:not(.mdl-gen--selecting-accent) .mdl-gen-color.is-accent:after {
-  content: 'Accent';
-  display: block;
-  position: absolute;
-  line-height: 100px;
-  text-align: center;
-  width: 100%;
-  top: 0;
-  left: 0;
-  font-size: 30px;
+#wheel .selector {
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
+  fill: #BDBDBD;
 }
-
-.mdl-gen--selecting-accent .mdl-gen-color--muted:not(.is-primary) {
-  pointer-events: none;
-  cursor: auto;
-  color: white;
+#wheel .selected .selector {
+  opacity: 1;
+}
+#wheel .label {
+  text-anchor: middle;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0.0, 1, 1);
+  fill: white;
+  font-size: 24px;
+}
+#wheel .selected--1 .label--1,
+#wheel .selected--2 .label--2 {
+  opacity: 1;
+}
+#wheel.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
+#wheel.hide-nonaccents g[data-color="Brown"]:not(.selected),
+#wheel.hide-nonaccents g[data-color="Grey"]:not(.selected) {
   opacity: 0;
 }
-
-.mdl-gen-download {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 24px auto 0 auto;
-  text-align: right;
-}
-
-.mdl-gen-download .mdl-button {
-  margin: 0;
-}
-
-.mdl-gen-fab {
-  position: absolute !important;
-  right: 24px;
-}
-
-.mdl-gen--hidden {
-  display: none;
-}
-
-
-@media (max-width: 400px) {
-  .mdl-gen {
-    padding: 16px 16px 24px 16px;
-  }
-
-  .mdl-gen-color {
-    height: 90px;
-  }
-
-  .mdl-gen-preview {
-    order: 4;
-    margin-top: 16px;
-    margin-bottom: 0;
-  }
-
-  .mdl-gen-download {
-    order: 5;
-    margin-top: 16px;
-  }
-
-  .mdl-gen:not(.mdl-gen--selecting-primary) .mdl-gen-color.is-primary:after {
-    content: 'P';
-    line-height: 130px;
-  }
-
-  .mdl-gen:not(.mdl-gen--selecting-accent) .mdl-gen-color.is-accent:after {
-    content: 'A';
-    line-height: 130px;
-  }
+#wheel .selected {
+  opacity: 1 !important;
 }
