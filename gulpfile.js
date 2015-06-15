@@ -61,6 +61,14 @@ gulp.task('jshint', function () {
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
 
+// Lint JavaScript code style
+gulp.task('jscs', function () {
+  return gulp.src('src/**/*.js')
+    .pipe(reload({stream: true, once: true}))
+    .pipe($.jscs())
+    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+});
+
 // ***** Production build tasks ****** //
 
 // Optimize Images
@@ -201,7 +209,7 @@ gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
+    ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
      'images'],
     cb);
 });
@@ -213,7 +221,7 @@ gulp.task('mocha', ['styles'], function () {
     .pipe($.mochaPhantomjs({reporter: 'list'}));
 });
 
-gulp.task('test', ['jshint', 'mocha']);
+gulp.task('test', ['jshint', 'jscs', 'mocha']);
 
 gulp.task('test:visual', function() {
   browserSync({
