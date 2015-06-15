@@ -1,5 +1,6 @@
 <div class="demo-preview-block">
-<button id="show-snackbar" type="button">Show snackbar</button>
+<button id="show-toast" type="button">Show Toast</button>
+<button id="show-snackbar" type="button">Show Snackbar</button>
   <div class="mdl-snackbar mdl-js-snackbar">
     <div class="mdl-snackbar__text">
     </div>
@@ -10,9 +11,19 @@
 <script>
   'use strict';
   var snackbar = document.querySelector('.mdl-snackbar'),
-      showButton = document.querySelector('#show-snackbar');
-  showButton.addEventListener('click', function() {
+      showSnackbarButton = document.querySelector('#show-snackbar'),
+      showToastButton = document.querySelector('#show-toast');
+  showToastButton.addEventListener('click', function() {
     snackbar.mdlSnackbar.setMessage('Example message');
+    snackbar.mdlSnackbar.showSnackbar();
+  });
+  showSnackbarButton.addEventListener('click', function(event) {
+    event.target.style.backgroundColor = 'rebeccapurple';
+    snackbar.mdlSnackbar.setMessage('Button color changed.');
+    snackbar.mdlSnackbar.setTimeout(15000);
+    snackbar.mdlSnackbar.setActionHandler(function(event) {
+      document.querySelector('#show-snackbar').style.backgroundColor = '';
+    });
     snackbar.mdlSnackbar.showSnackbar();
   });
 </script>
