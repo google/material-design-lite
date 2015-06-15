@@ -147,8 +147,9 @@ function init() {
     var config = this.config;
     var mainG = this.wheel.querySelector('g.wheel--maing');
 
-    this.wheel.setAttribute('width', this.config.width);
-    this.wheel.setAttribute('height', this.config.height);
+    this.wheel.setAttribute('viewBox', '0 0 ' +
+      this.config.width + ' ' +  this.config.height);
+    this.wheel.setAttribute('preserveAspectRatio', 'xMidYMid meet');
 
     var fieldTpl = this.generateFieldTemplate_();
 

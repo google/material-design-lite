@@ -13,6 +13,9 @@ body {
   left: 50%;
   top: 50%;
 }
+#wheel .mdl-gen-download .mdl-button {
+  transform: translate(-50%, -50%);
+}
 #wheel g[data-color] {
   opacity: 1;
   transition: opacity 0.2s cubic-bezier(0.4, 0.0, 1, 1);
