@@ -228,7 +228,7 @@ gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
+    ['jshint', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
      'images', 'styles-grid'],
     cb);
 });
