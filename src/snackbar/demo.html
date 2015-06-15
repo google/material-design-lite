@@ -23,6 +23,7 @@
     snackbar.mdlSnackbar.setTimeout(15000);
     snackbar.mdlSnackbar.setActionHandler(function(event) {
       document.querySelector('#show-snackbar').style.backgroundColor = '';
+      event.target.disabled = true;
     });
     snackbar.mdlSnackbar.showSnackbar();
   });
