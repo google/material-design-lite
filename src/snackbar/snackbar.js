@@ -82,11 +82,11 @@ MaterialSnackbar.prototype.cleanup = function() {
 
 MaterialSnackbar.prototype.setDefaults_ = function() {
   'use strict';
-  this.timeout_ = this.element_.dataset.timeout ?
-    this.element_.dataset.timeout :
+  this.timeout_ = this.element_.hasAttribute('data-timeout') ?
+    this.element_.getAttribute('data-timeout') :
     this.defaults.timeout;
-  this.actionText_ = this.element_.dataset.actionText ?
-    this.element_.dataset.actionText :
+  this.actionText_ = this.element_.hasAttribute('data-action-text') ?
+    this.element_.getAttribute('data-action-text') :
     this.defaults.actionText;
   this.actionHandler_ = undefined;
   this.message_ = undefined;
