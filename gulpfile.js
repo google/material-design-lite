@@ -160,6 +160,25 @@ gulp.task('styles', ['styletemplates'], function () {
     .pipe($.size({title: 'styles'}));
 });
 
+// Only generate CSS styles for the MDL grid
+gulp.task('styles-grid', function () {
+  return gulp.src(['src/material-grid.scss'])
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(gulp.dest('.tmp'))
+    // Concatenate Styles
+    .pipe($.header(banner, {pkg: pkg}))
+    .pipe(gulp.dest('./dist'))
+    // Minify Styles
+    .pipe($.if('*.css', $.csso()))
+    .pipe($.concat('material-grid.min.css'))
+    .pipe(gulp.dest('./dist'))
+    .pipe($.size({title: 'styles-grid'}));
+});
+
 // Concatenate And Minify JavaScript
 gulp.task('scripts', function () {
   var sources = [
@@ -210,7 +229,7 @@ gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
     ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
-     'images'],
+     'images', 'styles-grid'],
     cb);
 });
 
