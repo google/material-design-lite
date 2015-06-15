@@ -64,7 +64,7 @@ MaterialSnackbar.prototype.showSnackbar = function() {
   }
   this.messageArea_.innerText = this.message_;
   this.element_.classList.add(this.cssClasses.activeSnackbar);
-  setTimeout(this.cleanup, this.timeout_);
+  setTimeout(this.cleanup.bind(this), this.timeout_);
 };
 
 MaterialSnackbar.prototype.cleanup = function() {
