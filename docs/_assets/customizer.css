@@ -6,7 +6,13 @@ body {
 }
 #wheel svg {
   width: 100%;
-  height: auto;
+}
+
+@media (min-width: 840px) {
+  #wheel svg {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 #wheel .mdl-gen-download {
   position: absolute;
@@ -39,9 +45,9 @@ body {
 #wheel .selected--2 .label--2 {
   opacity: 1;
 }
-#wheel.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
-#wheel.hide-nonaccents g[data-color="Brown"]:not(.selected),
-#wheel.hide-nonaccents g[data-color="Grey"]:not(.selected) {
+#wheel svg.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
+#wheel svg.hide-nonaccents g[data-color="Brown"]:not(.selected),
+#wheel svg.hide-nonaccents g[data-color="Grey"]:not(.selected) {
   opacity: 0;
 }
 #wheel .selected {
@@ -56,7 +62,7 @@ body {
 }
 .mdl-gen__preview .mdl-layout__content {
   padding: 32px;
-  background-color: white;
+  background-color: #EFEFEF;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

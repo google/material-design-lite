@@ -150,6 +150,8 @@ function init() {
     this.wheel.setAttribute('viewBox', '0 0 ' +
       this.config.width + ' ' +  this.config.height);
     this.wheel.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    this.wheel.setAttribute('width', this.config.width);
+    this.wheel.setAttribute('height', this.config.height);
 
     var fieldTpl = this.generateFieldTemplate_();
 

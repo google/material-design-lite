@@ -14,26 +14,28 @@
   <link rel="stylesheet" href="{{page.include_prefix}}/material.min.css" id="main-stylesheet">
   <link rel="stylesheet" href="{{page.include_prefix}}/assets/customizer.css">
 </head>
-<body class="mdl-gen mdl-color--grey-200" onload="init();">
+<body class="mdl-gen" onload="init();">
   <div class="mdl-grid">
-    <div id="wheel" class="mdl-gen__panel mdl-gen__panel--left mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <filter id="drop-shadow">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
-            <feOffset dx="0" dy="0" result="offsetblur"/>
-            <feFlood flood-color="rgba(0,0,0,1)"/>
-            <feComposite in2="offsetblur" operator="in"/>
-            <feMerge>
-              <feMergeNode/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <g class="wheel--maing"></g>
-      </svg>
-      <div class="mdl-gen-download">
-        <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"><i class="material-icons">file_download</i></a>
+    <div class="mdl-gen__panel mdl-gen__panel--left mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
+      <div id="wheel">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <filter id="drop-shadow">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
+              <feOffset dx="0" dy="0" result="offsetblur"/>
+              <feFlood flood-color="rgba(0,0,0,1)"/>
+              <feComposite in2="offsetblur" operator="in"/>
+              <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <g class="wheel--maing"></g>
+        </svg>
+        <div class="mdl-gen-download">
+          <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"><i class="material-icons">file_download</i></a>
+        </div>
       </div>
     </div>
     <div class="mdl-gen__panel--right mdl-gen__panel mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
