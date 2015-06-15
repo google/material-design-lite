@@ -30,6 +30,14 @@ Within the download you'll find the following directories and files.
 | templates | Example templates |
 | test | Project test files. |
 
+## Browser Support
+
+| IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
+|-----|-----|------|--------|-------|---------|--------|------------------|---------------|
+| B   | A   | A    | A      | A      | A       | A      | A                | A             |
+
+A-grade browsers are fully supported. B-grade browsers will gracefully degrade to our CSS-only experience.
+
 ## Getting Started
 
 ### Download
@@ -118,13 +126,7 @@ styles are kept in a separate CSS file. Use `gulp serve` to take a look at the t
 * [Dashboard template](http://localhost:3000/templates/dashboard)
 * [Product template](http://localhost:3000/templates/product)
 
-## Browser Support
-
-| IE8 | IE9 | IE10 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
-|-----|-----|------|--------|-------|---------|--------|------------------|---------------|
-| B   | B   | A    | A      | A      | A       | A      | A                | A             |
-
-A-grade browsers are fully supported. B-grade browsers will gracefully degrade to our CSS-only experience.
+> Templates are not officially supported in IE9 and legacy browsers that do not pass the minimum-requirements defined in our [cutting-the-mustard test](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L256-269).
 
 ## Versioning
 
