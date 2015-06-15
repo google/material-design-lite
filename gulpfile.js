@@ -408,17 +408,26 @@ gulp.task('publish', function(cb) {
     cb);
 });
 
-// Push the latest version to CDN (Google Cloud Storage for now)
+// Push the latest version to CDN (Google Cloud Storage)
+// This task requires gsutil to be installed and configured.
+// For more info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 gulp.task('publish:cdn', function() {
   var bucket = 'gs://materialdesignlite/';
-  var info_msg = 'Publishing version ' + pkg.version + ' to CDN (' + bucket + ')';
-  var gsutil_cp_cmd = 'gsutil -m cp -a public-read dist/<%= file.path %> ' + bucket;
+  var info_msg = 'Publishing ' + pkg.version + ' to CDN (' + bucket + ')';
+  // Build gsutil command to copy each object into the dest bucket.
+  // -a sets the ACL on each object to public-read
+  // -m does parallel copies (no help here since one gsutil per file)
+  // We copy both a default instance at the bucket root and a version
+  // specific instance into a subdir.
+  var gsutil_cp_cmd = 'gsutil -m cp -a public-read <%= file.path %> ' 
+    + bucket;
   process.stdout.write(info_msg + '\n');
   return gulp.src('dist/material.*@(js|css)')
     .pipe($.tap(function(file, t) {
-      file.path = path.basename(file.path);
+      file.base = path.basename(file.path);
     }))
-    .pipe($.shell([gsutil_cp_cmd, gsutil_cp_cmd + pkg.version + '/<%= file.path %>']));
+    .pipe($.shell([gsutil_cp_cmd, gsutil_cp_cmd + 
+      pkg.version + '/<%= file.base %>']));
 });
 
 gulp.task('publish:push', function() {
