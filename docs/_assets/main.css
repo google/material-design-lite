@@ -141,17 +141,17 @@ body:not(.about) .docs-layout-title {
 .docs-layout.is-small-screen .docs-navigation {
   position: absolute;
   top: 0;
-  left: 0;
-  width: calc(100% - 48px);
+  left: 48px;
+  width: calc(100% - 2 * 48px);
   background-color: black;
   margin-top: -64px;
+  padding: 0 !important;
 }
 .docs-layout.is-small-screen {
   padding-top: 64px;
 }
 .scrollindicator.scrollindicator.scrollindicator {
   position: absolute;
-  right: 0;
   top: 0;
   line-height: 64px;
   height: 64px;
@@ -161,6 +161,12 @@ body:not(.about) .docs-layout-title {
   margin-right: 0;
   text-align: center;
   margin-top: -64px;
+}
+.scrollindicator.scrollindicator--right {
+  right: 0;
+}
+.scrollindicator.scrollindicator--left {
+  left: 0;
 }
 .docs-layout.is-small-screen .scrollindicator.scrollindicator.scrollindicator {
   display: block;
