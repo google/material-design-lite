@@ -160,7 +160,6 @@ gulp.task('styles', ['styletemplates'], function () {
     .pipe($.size({title: 'styles'}));
 });
 
-
 // Only generate CSS styles for the MDL grid
 gulp.task('styles-grid', function () {
   return gulp.src(['src/material-design-lite-grid.scss'])
@@ -362,14 +361,14 @@ gulp.task('demohtml', function() {
  */
 gulp.task('pages', ['components'], function() {
   return gulp.src(['docs/_pages/*.md'])
-    .pipe($.replace("$$version$$", pkg.version))
+    .pipe($.replace('$$version$$', pkg.version))
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
     .pipe(applyTemplate())
     /* Replacing code blocks class name to match Prism's. */
-    .pipe($.replace("class=\"lang-", "class=\"language-"))
+    .pipe($.replace('class="lang-', 'class="language-'))
     /* Translate html code blocks to "markup" because that's what Prism uses. */
-    .pipe($.replace("class=\"language-html", "class=\"language-markup"))
+    .pipe($.replace('class="language-html', 'class="language-markup'))
     .pipe($.rename(function(path) {
       if (path.basename !== 'index') {
         path.dirname = path.basename;
@@ -443,20 +442,19 @@ gulp.task('publish', function(cb) {
 // For more info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 gulp.task('publish:cdn', function() {
   var bucket = 'gs://materialdesignlite/';
-  var info_msg = 'Publishing ' + pkg.version + ' to CDN (' + bucket + ')';
+  var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + bucket + ')';
   // Build gsutil command to copy each object into the dest bucket.
   // -a sets the ACL on each object to public-read
   // -m does parallel copies (no help here since one gsutil per file)
   // We copy both a default instance at the bucket root and a version
   // specific instance into a subdir.
-  var gsutil_cp_cmd = 'gsutil -m cp -a public-read <%= file.path %> '
-    + bucket;
-  process.stdout.write(info_msg + '\n');
+  var gsutilCmd = 'gsutil -m cp -a public-read <%= file.path %> ' + bucket;
+  process.stdout.write(infoMsg + '\n');
   return gulp.src('dist/material.*@(js|css)')
     .pipe($.tap(function(file, t) {
       file.base = path.basename(file.path);
     }))
-    .pipe($.shell([gsutil_cp_cmd, gsutil_cp_cmd +
+    .pipe($.shell([gsutilCmd, gsutilCmd +
       pkg.version + '/<%= file.base %>']));
 });
 
