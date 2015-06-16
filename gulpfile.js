@@ -518,10 +518,10 @@ gulp.task('templates:images', function() {
 
 gulp.task('templates:fonts', function() {
   return gulp.src([
-    'src/fonts/**/*'
-  ], {base: '.'})
+    'templates/*/fonts/**/*'
+  ])
   .pipe(gulp.dest('dist/templates/'));
 });
 
 gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
-    'templates:styles']);
+    'templates:fonts', 'templates:styles']);
