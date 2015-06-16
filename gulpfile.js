@@ -361,10 +361,10 @@ gulp.task('demohtml', function() {
  */
 gulp.task('pages', ['components'], function() {
   return gulp.src(['docs/_pages/*.md'])
-    .pipe($.replace('$$version$$', pkg.version))
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
     .pipe(applyTemplate())
+    .pipe($.replace('$$version$$', pkg.version))
     /* Replacing code blocks class name to match Prism's. */
     .pipe($.replace('class="lang-', 'class="language-'))
     /* Translate html code blocks to "markup" because that's what Prism uses. */
