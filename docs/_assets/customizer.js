@@ -1,3 +1,6 @@
+/*global MaterialCustomizer:true*/
+
+/* exported init */
 function init() {
   'use strict';
 
@@ -279,7 +282,7 @@ function init() {
           }
         );
         this.numSelected = 1;
-        // Fall through
+        /* falls through */
       case 1:
         this.highlightField_(g);
         window.requestAnimationFrame(function() {
