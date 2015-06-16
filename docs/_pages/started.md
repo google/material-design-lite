@@ -28,7 +28,7 @@ include_prefix: ../
   
     <div class="mdl-tabs mdl-js-tabs">
       <div class="mdl-tabs__tab-bar">
-        <a href="#tab1" class="mdl-tabs__tab is-active">CDN hosted libraries</a>
+        <a href="#tab1" class="mdl-tabs__tab is-active">Hosted</a>
         <a href="#tab2" class="mdl-tabs__tab">Download</a>
         <a href="#tab3" class="mdl-tabs__tab">Build</a>
         <a href="#tab4" class="mdl-tabs__tab">Bower</a>
@@ -39,8 +39,7 @@ include_prefix: ../
           Just add the following `<link>` and `<script>` elements into your HTML pages:
           <pre class="language-markup">
 ```
-<link rel="stylesheet"
-  href="https://storage.googleapis.com/materialdesignlite/$$version$$/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://storage.googleapis.com/materialdesignlite/$$version$$/material.indigo-pink.min.css">
 <script
   src="https://storage.googleapis.com/materialdesignlite/$$version$$/material.min.js">
 </script>
@@ -91,7 +90,10 @@ gulp
 <script src="./material.min.js"></script>
 ```</pre>
         </div>
-        <div class="note">
+        <div class="caption">
+          <h4>
+            Note:
+          </h4>
           Using this method you will not be able to customize the color scheme of the MDL elements. If you'd like to customize the color scheme prefer the CDN hosted or downloadable libraries. In this case use our <a href="../customize">Customize and Preview tool</a>.
         </div>
       </div>
@@ -117,7 +119,10 @@ bower install material-design-lite --save
 <script src="/node_modules/material-design-lite/material.min.js"></script>
 ```</pre>
         </div>
-        <div class="note">
+        <div class="caption">
+          <h4>
+            Note:
+          </h4>
           Using this method you will not be able to customize the color scheme of the MDL elements. If you'd like to customize the color scheme prefer the CDN hosted or downloadable libraries. In this case use our <a href="../customize">Customize and Preview tool</a>.
         </div>
       </div>
@@ -143,7 +148,10 @@ npm install material-design-lite --save
 <script src="/node_modules/material-design-lite/material.min.js"></script>
 ```</pre>
         </div>
-        <div class="note">
+        <div class="caption">
+          <h4>
+            Note:
+          </h4>
           Using this method you will not be able to customize the color scheme of the MDL elements. If you'd like to customize the color scheme prefer the CDN hosted or downloadable libraries. In this case use our <a href="../customize">Customize and Preview tool</a>.
         </div>
       </div>
@@ -159,13 +167,16 @@ npm install material-design-lite --save
   <div class="section-content">
   
     <p>
-        You'll find below a couple of examples of MDL [Button](../components/#buttons-section) elements: a Button with ripples and a FAB Button. Just copy &amp; paste the corresponding source code in the `<body>` of an HTML page of your project and the elements will render as shown below.
+      You'll find below a couple of examples of MDL [Button](../components/#buttons-section) elements: a Button with ripples and a FAB Button. Just copy &amp; paste the corresponding source code in the `<body>` of an HTML page of your project and the elements will render as shown below.
     </p>
+    
+    
+    
      <div class="mdl-tabs mdl-js-tabs components-demo">
           <div class="mdl-tabs__tab-bar">
             <a href="#tab6" class="mdl-tabs__tab is-active">
               <div class="component">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                   Button
                 </button>
               </div>
@@ -182,14 +193,14 @@ npm install material-design-lite --save
           <div class="mdl-tabs__panel is-active" id="tab6">
             <pre class="language-markup">
 ```
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
   Button
 </button>```</pre>
           </div>
           <div class="mdl-tabs__panel" id="tab7">
             <pre class="language-markup">
 ```
-<button class="mdl-button mdl-js-button mdl-button--fab">
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
   <i class="material-icons">add</i>
 </button>```</pre>
           </div>
@@ -239,9 +250,9 @@ npm install material-design-lite --save
 <div id="container"/>
 <script>
   var button = document.createElement('button');
-  var textNode = document.createTextNode("Click Me!");
+  var textNode = document.createTextNode('Click Me!');
   button.appendChild(textNode);
-  button.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect";
+  button.className = 'mdl-button mdl-js-button mdl-js-ripple-effect';
   componentHandler.upgradeElement(button, 'MaterialButton');
   document.getElementById('container').appendChild(button);
 </script>```</pre>

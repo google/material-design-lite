@@ -2,6 +2,9 @@ html > body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
   background-color: #FAFAFA;
 }
+a {
+  text-decoration: none;
+}
 .docs-layout-header {
   height: 30vh;
   flex-shrink: 0;
@@ -135,9 +138,6 @@ body:not(.about) .docs-layout-title {
 }
 .docs-navigation .mdl-layout-spacer ~ a:hover {
   background-color: transparent;
-}
-.docs-navigation a.download {
-  text-decoration: none;
 }
 .docs-navigation a.download > span {
   color: inherit;
@@ -393,11 +393,11 @@ body:not(.about) .docs-layout-title {
   }
 }
 .subpageheader {
-  margin-top: 80px;
+  margin-top: 60px;
+  margin-bottom: 40px;
   display: flex;
   color: rgba(0, 0, 0, .54);
   align-items: center;
-  padding: 0 40px;
   flex-shrink: 0;
   text-transform: uppercase;
   font-size: 16px;
@@ -406,8 +406,138 @@ body:not(.about) .docs-layout-title {
 .about .subpageheader {
   display: none;
 }
-.started .content {
-  max-width: 1000px;
+
+/* Prism and code blocks styling and overrides */
+.token.attr-name, .token.builtin, .token.selector, .token.string {
+  color: #E91E63;
+}
+.token.boolean, .token.constant, .token.number, .token.property, .token.symbol, .token.tag {
+  color: #9D1DB3;
+}
+.token.atrule, .token.attr-value, .token.keyword {
+  color: #00BCD4;
+}
+.docs-layout code,
+.docs-layout pre {
+  display: inline-block;
+  background-color: rgba(0,0,0,0.06);
+  border-radius: 3px;
+  font-size: 85%;
+}
+.docs-layout pre {
+  padding: 16px;
+  padding-right: 65px;
+  font-size: 12px;
+  word-wrap: break-word;
+}
+.docs-layout code:before,
+.docs-layout code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+.docs-layout pre > code:before,
+.docs-layout pre > code:after {
+  letter-spacing: 0;
+  content: "";
+}
+.docs-layout pre > code {
+  background-color: rgba(0,0,0,0);
+  padding: 0px;
+  font-size: 100%;
+}
+.docs-layout pre[class*=language-]>code[data-language] {
+  overflow: hidden;
+}
+pre[class*=language-]>code[data-language]::before {
+  content: "";
+  background: none;
+}
+.token.lf:before {
+  display: none;
+}
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url,
+.token.variable {
+  color: #9D1DB3;
+  background: none;
+}
+code[class*=language-], pre[class*=language-] {
+  color: rgba(0,0,0,0.87);
+  text-shadow: none;
+}
+.token.function {
+  color: #009688;
+}
+.code-with-text {
+  position: relative;
+  display: table-cell;
+  width: 1px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: white;
+  padding: 15px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+.code-with-text pre {
+  margin: 15px -15px -21px -15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* Demo components */
+.components-demo .mdl-tabs__tab-bar {
+  background-color: white;
+  justify-content: center;
+}
+.components-demo .mdl-tabs__panel {
+  padding-top: 0 !important;
+}
+.components-demo pre {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.components-demo.mdl-tabs {
+  margin-top: 152px;
+}
+.components-demo .mdl-tabs__tab {
+  text-transform: none;
+  overflow: visible;
+  font-size: 13px;
+  white-space: nowrap;
+  background-color: white;
+}
+.components-demo .material-icons {
+  height: 28px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.components-demo .component {
+  position: absolute;
+  top: -104px;
+  vertical-align: middle;
+  margin-left: -24px;
+  text-align: center;
+  width: 100%;
+}
+.mdl-tabs__tab-bar {
+  justify-content: flex-start;
+  border-bottom: 0;
+}
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+  color: #00ACC1;
+}
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+  background-color: #00ACC1;
+}
+/* Getting started guide */
+.started .docs-layout-content {
+  text-align: center;
 }
 .started .chapter-toc {
   display: table;
@@ -440,7 +570,8 @@ body:not(.about) .docs-layout-title {
 }
 .started .content {
   padding: 40px;
-  display:block;
+  display: inline-block;
+  text-align: left;
 }
 .started .content p {
   margin-top: 10px;
@@ -461,22 +592,10 @@ body:not(.about) .docs-layout-title {
 .started #toc li {
   font-size: 16px;
 }
-.started .note {
-  font-size: 13px;
-  max-width: 640px;
-  margin-top: 15px;
-  padding: 15px 15px 15px 60px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 3px;
-}
-.started .note::before {
-  content: "Note:";
-  position: absolute;
-  margin-left: -45px;
-}
 .started .caption {
   font-size: 13px;
   max-width: 640px;
+  box-sizing: border-box;
   margin-top: 15px;
   padding: 15px;
   background-color: rgb(255, 255, 255);
@@ -498,6 +617,13 @@ body:not(.about) .docs-layout-title {
   padding-left: 18px;
   font-size: 13px;
   max-width: 640px;
+  box-sizing: border-box;
+}
+.started pre {
+  width: 640px;
+  box-sizing: border-box;
+  padding-right: 16px;
+  word-wrap: break-word;
 }
 @media (max-width: 850px) {
   .started .chapter-toc {
@@ -514,122 +640,38 @@ body:not(.about) .docs-layout-title {
   .started .section-content {
     display: block;
   }
-}
-/* Prism and code blocks styling and overrides */
-.token.attr-name, .token.builtin, .token.selector, .token.string {
-  color: #E91E63;
-}
-.token.boolean, .token.constant, .token.number, .token.property, .token.symbol, .token.tag {
-  color: #9D1DB3;
-}
-.token.atrule, .token.attr-value, .token.keyword {
-  color: #00BCD4;
-}
-.docs-layout code,
-.docs-layout pre {
-  display: inline-block;
-  background-color: rgba(0,0,0,0.06);
-  border-radius: 3px;
-  font-size: 85%;
-}
-.docs-layout pre {
-  padding: 16px;
-  padding-right: 65px;
-  font-size: 12px;
-}
-.docs-layout code:before,
-.docs-layout code:after {
-  letter-spacing: -0.2em;
-  content: "\00a0";
-}
-.docs-layout pre > code:before,
-.docs-layout pre > code:after {
-  letter-spacing: 0;
-  content: "";
-}
-.docs-layout pre > code {
-  background-color: rgba(0,0,0,0);
-  padding: 0px;
-  font-size: 100%;
-}
-.docs-layout pre[class*=language-]>code[data-language] {
-  overflow:auto;
-}
-pre[class*=language-]>code[data-language]::before {
-  content: "";
-  background: none;
-}
-.token.lf:before {
-  display: none;
-}
-.language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url, .token.variable {
-  color: #9D1DB3;
-  background: none;
-}
-code[class*=language-], pre[class*=language-] {
-  color: #3D3D3D;
-  text-shadow: none;
-}
-.code-with-text {
-  position: relative;
-  display: table-cell;
-  width: 1px;
-  border-spacing: 0;
-  border-collapse: collapse;
-  background-color: white;
-  padding: 15px;
-  border-radius: 3px;
-  font-size: 13px;
-  min-width: 500px;
-}
-.code-with-text pre {
-  margin: 15px -15px -21px -15px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  min-width: 500px;
-}
-/* Demo components */
-.components-demo .mdl-tabs__tab-bar {
-  background-color: white;
-}
-.components-demo .mdl-tabs__panel {
-  padding-top: 0 !important;
-}
-.components-demo pre {
-  margin: 0;
-  box-sizing: border-box;
-  width: 100%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-.components-demo.mdl-tabs {
-  margin-top: 90px;
-}
-.components-demo .mdl-tabs__tab {
-  text-transform: none;
-  overflow: visible;
-}
-.components-demo .material-icons {
-  height: 28px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.components-demo .component {
-  position: absolute;
-  top: -70px;
-  height: 70px;
-  vertical-align: middle;
-  margin-left: -24px;
-  text-align: center;
-  width: 100%;
-}
-.mdl-tabs__tab-bar {
-  justify-content: flex-start;
-  border-bottom: 0;
-}
-.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
-  color: #00ACC1;
-}
-.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
-  background-color: #00ACC1;
+  .started pre {
+    width: 100%;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 15px 40px;
+    box-sizing: content-box;
+  }
+  .started .caption {
+    margin-left: -40px;
+    margin-right: -40px;
+    max-width: none;
+    box-sizing: content-box;
+    padding: 15px 40px;
+  }
+  .started .code-with-text {
+    width: 100%;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 15px 40px;
+    display: block;
+  }
+  .started .mdl-tabs__tab-bar {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+  .started .mdl-tabs__tab {
+    padding: 0 3%;
+  }
+  .components-demo .component {
+    margin-left: -3%;
+  }
+  .started .content {
+    display: block;
+  }
 }
