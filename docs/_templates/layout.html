@@ -77,9 +77,9 @@
         </a>
       </nav>
     </header>
-    <div class="subpageheader">{{page.title}}</div>
     <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
+        <div class="subpageheader">{{page.title}}</div>
         {% block content %}
           {{content|safe}}
         {% endblock %}
