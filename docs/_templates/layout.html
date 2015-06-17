@@ -67,15 +67,18 @@
         <a href="{{page.include_prefix}}components" class="mdl-navigation__link components">Components</a>
         <a href="{{page.include_prefix}}styles" class="mdl-navigation__link styles">Styles</a>
         <a href="{{page.include_prefix}}customize" class="mdl-navigation__link customize">Customize</a>
-        <div class="mdl-layout-spacer"></div>
-        <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link"><span class="mdl-icon mdl-icon--link"></span>GitHub</a>
-        <a href="#" class="download">
-          Download $$version$$
+      </nav>
+      <div class="docs-special">
+        <a href="https://github.com/google/material-design-lite" class="github docs-special--button"><i class="material-icons">link</i><span>GitHub</span></a>
+        <a href="#" class="download docs-special--button">
+          <i class="material-icons">file_download</i><span>Download</span>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
             <i class="material-icons">file_download</i>
           </button>
         </a>
-      </nav>
+      </div>
+      <i class="material-icons scrollindicator scrollindicator--right">keyboard_arrow_right</i>
+      <i class="material-icons scrollindicator scrollindicator--left">keyboard_arrow_left</i>
     </header>
     <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
@@ -115,6 +118,7 @@
     </script>
     <!-- Enable Prism syntax highlighting -->=
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <script src="{{page.include_prefix}}assets/main.js"></script>
     <!-- Built with love using Material Design Lite -->
   </body>
 </html>

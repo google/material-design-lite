@@ -388,6 +388,8 @@ gulp.task('assets', function () {
       interlaced: true
     })))
     .pipe($.if(/\.css/i, $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+    .pipe($.if(/\.js/i, $.uglify({preserveComments: 'some', sourceRoot: '.',
+      sourceMapIncludeSources: true})))
     .pipe(gulp.dest('dist/assets'));
 });
 
