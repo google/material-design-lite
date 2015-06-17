@@ -2,9 +2,6 @@ html > body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
   background-color: #FAFAFA;
 }
-a {
-  text-decoration: none;
-}
 .docs-layout-header {
   height: 560px;
   flex-shrink: 0;
@@ -586,55 +583,30 @@ code[class*=language-], pre[class*=language-] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-/* Demo components */
-.components-demo .mdl-tabs__tab-bar {
-  background-color: white;
-  justify-content: center;
+/* Table of content widget */
+.docs-toc ul {
+  border-left: solid 3px #C0EbF1;
+  padding-left: 20px;
+  line-height: 28px;
 }
-.components-demo .mdl-tabs__panel {
-  padding-top: 0 !important;
+.docs-toc a {
+  font-weight: 400;
 }
-.components-demo pre {
-  margin: 0;
-  box-sizing: border-box;
-  width: 100%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.docs-toc li {
+  font-size: 16px;
+  list-style: none;
 }
-.components-demo.mdl-tabs {
-  margin-top: 152px;
-}
-.components-demo .mdl-tabs__tab {
-  text-transform: none;
-  overflow: visible;
-  font-size: 13px;
-  white-space: nowrap;
-  background-color: white;
-}
-.components-demo .material-icons {
-  height: 28px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-.components-demo .component {
-  position: absolute;
-  top: -104px;
-  vertical-align: middle;
-  margin-left: -24px;
-  text-align: center;
-  width: 100%;
-}
-.mdl-tabs__tab-bar {
+/* Getting started guide */
+.started .mdl-tabs__tab-bar {
   justify-content: flex-start;
   border-bottom: 0;
 }
-.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+.started .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
   color: #00ACC1;
 }
-.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+.started .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
   background-color: #00ACC1;
 }
-/* Getting started guide */
 .started .docs-layout-content {
   text-align: center;
 }
@@ -651,18 +623,6 @@ code[class*=language-], pre[class*=language-] {
 }
 .started .content section {
   margin-bottom: 30px;
-}
-.started .content nav ul {
-  border-left: solid 3px #C0EbF1;
-  padding-left: 20px;
-  line-height: 28px;
-}
-.started .content nav a {
-  font-weight: 400;
-  text-decoration: none;
- }
-.started .content nav li {
-  list-style: none;
 }
 .started .section-content {
   display: table-cell;
@@ -687,9 +647,6 @@ code[class*=language-], pre[class*=language-] {
 }
 .started .content .mdl-tabs__panel {
   padding-top: 10px;
-}
-.started #toc li {
-  font-size: 16px;
 }
 .started .caption {
   font-size: 13px;
@@ -766,9 +723,6 @@ code[class*=language-], pre[class*=language-] {
   }
   .started .mdl-tabs__tab {
     padding: 0 3%;
-  }
-  .components-demo .component {
-    margin-left: -3%;
   }
   .started .content {
     display: block;
