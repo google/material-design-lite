@@ -8,7 +8,7 @@ a {
 .docs-layout-header {
   height: 560px;
   flex-shrink: 0;
-  background-size: auto 30%;
+  background-size: auto;
   background-repeat: no-repeat;
   background-position: center center;
   box-shadow: none !important;
@@ -69,7 +69,7 @@ body.about .docs-layout.is-small-screen .docs-layout-header {
   background-position: center center, center center;
 }
 body:not(.about) .docs-layout-header {
-  background-size: auto 30%;
+  background-size: auto;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -96,7 +96,6 @@ body:not(.about) .docs-layout-header {
 body:not(.about) .docs-layout-header {
   box-sizing: border-box;
   height: 144px;
-  padding-top: 0;
   background-position: 40px 32px;
 }
 body:not(.about) .docs-layout-title {
@@ -110,7 +109,7 @@ body:not(.about) .docs-layout-title {
   height: 64px;
   flex-shrink: 0;
   padding-left: 16px !important;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 .docs-special {
   position: absolute;
