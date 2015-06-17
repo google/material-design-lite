@@ -69,29 +69,33 @@ body.about .docs-layout.is-small-screen .docs-layout-header {
   background-position: center center, center center;
 }
 body:not(.about) .docs-layout-header {
-  background-size: auto;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .templates .docs-layout-header {
   background-color: #263238;
   background-image: url('templates.png');
+  background-size: auto 29px;
 }
 .started .docs-layout-header {
   background-color: #2E2E2E;
   background-image: url('logo.svg');
+  background-size: auto 35px;
 }
 .components .docs-layout-header {
   background-color: #C2185B;
   background-image: url('components.png');
+  background-size: auto 34px;
 }
 .styles .docs-layout-header {
   background-color: #8E24AA;
   background-image: url('styles.png');
+  background-size: auto 41px;
 }
 .customize .docs-layout-header {
   background-color: #1A237E;
   background-image: url('customize.png');
+  background-size: auto 36px;
 }
 body:not(.about) .docs-layout-header {
   box-sizing: border-box;
