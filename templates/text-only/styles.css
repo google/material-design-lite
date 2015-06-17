@@ -30,9 +30,10 @@ html, body {
   background-color: white;
   height: 4px;
 }
-.mdl-demo main {
+.mdl-demo main > .mdl-layout__tab-panel {
   padding: 0;
   padding-top: 48px;
+  height: 100%;
 }
 .mdl-demo .mdl-card {
   height: auto;
@@ -81,7 +82,7 @@ html, body {
   margin-bottom: 48px;
 }
 .mdl-demo section.section--center {
-  max-width: 840px;
+  max-width: 620px;
 }
 .mdl-demo section > header{
   display: flex;
@@ -141,19 +142,17 @@ html, body {
 .mdl-demo .mdl-card .mdl-card__supporting-text > h3:first-child {
   margin-bottom: 24px;
 }
-
-.mdl-demo #features .mdl-card {
-  padding: 72px;
+.mdl-demo .mdl-layout__tab-panel:not(#overview) {
+  background-color: white;
 }
 .mdl-demo #features section {
   margin-bottom: 72px;
 }
-.mdl-demo #features h3, #features h4 {
-  margin-bottom: 8px;
+.mdl-demo #features h4, #features h5 {
+  margin-bottom: 16px;
 }
-
 .mdl-demo .toc {
-  border-left: 2px solid #C1EEF4;
+  border-left: 4px solid #C1EEF4;
   margin: 24px;
   padding: 0;
   padding-left: 8px;
@@ -161,12 +160,14 @@ html, body {
   flex-direction: column;
 }
 .mdl-demo .toc h4 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  margin-top: 0;
 }
 .mdl-demo .toc a {
   @extend mdl-color-text--cyan-300;
   text-decoration: none;
-  line-height: 1.5em;
+  font-size: 16px;
+  line-height: 28px;
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;
