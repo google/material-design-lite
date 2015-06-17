@@ -31,7 +31,8 @@ html, body {
   height: 4px;
 }
 .mdl-demo main {
-  padding: 48px 0;
+  padding: 0;
+  padding-top: 48px;
 }
 .mdl-demo .mdl-card {
   height: auto;
@@ -125,10 +126,14 @@ html, body {
   border-radius: 32px;
   margin: 8px 0;
 }
-.mdl-demo section .section__circle--big > div {
-  width: 72px;
-  height: 72px;
-  border-radius: 36px;
+.mdl-demo section.section--footer .section__circle--big > div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 8px 32px;
+}
+.mdl-demo section.section--footer {
+  padding: 64px 0;
 }
 .mdl-demo section.section--center .section__text:not(:last-child) {
   border-bottom: 1px solid rgba(0,0,0,.13);
