@@ -285,7 +285,7 @@ body:not(.about) .docs-layout-title {
   max-width: 1280px;
 }
 .templates .docs-layout-content .content {
-  padding: 72px 0;
+  padding: 40px 0;
 }
 .template {
   width: 100%;
@@ -403,10 +403,19 @@ body:not(.about) .docs-layout-title {
   font-size: 16px;
   font-weight: 500;
 }
-.about .subpageheader {
+.about .subpageheader,
+.components .subpageheader {
   display: none;
 }
 
+.templates .subpageheader {
+  margin-left: 16px;
+}
+.customize .subpageheader {
+  padding-left: 40px;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
 /* Prism and code blocks styling and overrides */
 .token.attr-name, .token.builtin, .token.selector, .token.string {
   color: #E91E63;
