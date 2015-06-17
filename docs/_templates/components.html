@@ -5,7 +5,7 @@
 <script src="{{page.include_prefix}}assets/components.js"></script>
 <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
 
-<div class="mdl-components mdl-js-components">
+<div class="mdl-components mdl-js-components mdl-cell mdl-cell--12-col">
   <aside class="mdl-components__nav docs-text-styling">
     {% for category in page.categories %}
     <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }}">
@@ -26,7 +26,7 @@
   </aside>
   <main class="mdl-components__pages">
     {% for category in page.categories -%}
-    <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid mdl-cell mdl-cell--12-col">
+    <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <span class="docs-text-styling">
           <div class="mdl-typography--display-3">{{ category.title }}</div>

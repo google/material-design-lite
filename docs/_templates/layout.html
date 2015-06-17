@@ -60,7 +60,7 @@
           </div>
         </div>
       </div>
-      <nav class="docs-navigation mdl-navigation mdl-js-ripple-effect">
+      <nav class="docs-navigation mdl-navigation">
         <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
         <a href="{{page.include_prefix}}started" class="mdl-navigation__link started">Getting Started</a>
         <a href="{{page.include_prefix}}templates" class="mdl-navigation__link templates">Templates</a>
@@ -82,7 +82,7 @@
     </header>
     <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
-        <div class="subpageheader">{{page.title}}</div>
+        <div class="subpageheader mdl-cell--12-col">{{page.title}}</div>
         {% block content %}
           {{content|safe}}
         {% endblock %}
