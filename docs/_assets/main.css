@@ -442,7 +442,6 @@ body:not(.about) .docs-special .download > button {
 }
 
 .docs-text-styling a {
-  @extend mdl-color-text--cyan-600;
   text-decoration: none;
 }
 
