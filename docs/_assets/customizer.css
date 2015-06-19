@@ -6,6 +6,7 @@ body {
 }
 #wheel svg {
   width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 840px) {
@@ -88,10 +89,21 @@ body {
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
+  padding-bottom: 0;
 }
 .mdl-gen__desc strong,
 .mdl-gen__desc p {
   display: block;
   margin-bottom: 32px;
   color: rgba(0, 0, 0, 0.54);
+}
+.mdl-gen__cdn {
+  padding: 0 32px;
+}
+.mdl-gen__cdn .demo-code code {
+  visibility: hidden;
+}
+
+.mdl-gen__cdn .demo-code code.visible {
+  visibility: visible;
 }

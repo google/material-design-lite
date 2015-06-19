@@ -5,7 +5,8 @@ function init() {
   'use strict';
 
   var wheel = document.querySelector('#wheel > svg');
-  new MaterialCustomizer(wheel);
+  var cdn = document.querySelector('.mdl-gen__cdn code');
+  new MaterialCustomizer(wheel, cdn);
 }
 
 (function() {
@@ -15,8 +16,10 @@ function init() {
     return p.parentElement || p.parentNode;
   }
 
-  window.MaterialCustomizer = function(wheel) {
+  window.MaterialCustomizer = function(wheel, cdn) {
     this.wheel = wheel;
+    this.cdn = cdn;
+    this.cdnTpl = cdn.textContent;
     this.paletteIndices = ['Red', 'Pink', 'Purple', 'Deep Purple', 'Indigo',
                           'Blue', 'Light Blue', 'Cyan', 'Teal', 'Green',
                           'Light Green', 'Lime', 'Yellow', 'Amber', 'Orange',
@@ -271,7 +274,10 @@ function init() {
         }
         this.highlightField_(g);
         this.wheel.setAttribute('class', '');
-        window.requestAnimationFrame(this.changeColor.bind(this));
+        window.requestAnimationFrame(function() {
+          this.updateCDN();
+          this.changeColor();
+        }.bind(this));
         break;
       case 3:
         Array.prototype.forEach.call(
@@ -290,6 +296,23 @@ function init() {
         }.bind(this));
         break;
     }
+  };
+
+  MaterialCustomizer.prototype.updateCDN = function() {
+    var primaryColor = this.wheel.querySelector('.selected--1')
+                            .getAttribute('data-color')
+                            .toLowerCase()
+                            .replace(' ', '_');
+    var secondaryColor = this.wheel.querySelector('.selected--2')
+                            .getAttribute('data-color')
+                            .toLowerCase()
+                            .replace(' ', '_');
+
+    this.cdn.className = 'visible';
+    this.cdn.textContent = this.cdnTpl
+    .replace('$primary', primaryColor)
+    .replace('$accent', secondaryColor);
+    Prism.highlightElement(this.cdn);
   };
 
   MaterialCustomizer.prototype.highlightField_ = function(g) {
