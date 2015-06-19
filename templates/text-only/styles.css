@@ -82,6 +82,9 @@ html, body {
   margin-bottom: 48px;
 }
 .mdl-demo section.section--center {
+  max-width: 860px;
+}
+.mdl-demo #features section.section--center {
   max-width: 620px;
 }
 .mdl-demo section > header{
@@ -121,13 +124,13 @@ html, body {
 .mdl-demo section .section__text a {
   text-decoration: none;
 }
-.mdl-demo section .section__circle > div {
+.mdl-demo section .section__circle-container > .section__circle-container__circle {
   width: 64px;
   height: 64px;
   border-radius: 32px;
   margin: 8px 0;
 }
-.mdl-demo section.section--footer .section__circle--big > div {
+.mdl-demo section.section--footer .section__circle--big {
   width: 100px;
   height: 100px;
   border-radius: 50px;
