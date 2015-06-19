@@ -22,4 +22,7 @@ templates:
   - name: article
     title: Stand-alone article
     description: Non laboris consequat ullamco aute cillum ad.
+  - name: android-dot-com
+    title: Cover of android.com
+    description: A not-quite-1:1 "cover" of the android.com website, built with Material Design Lite.
 ---
