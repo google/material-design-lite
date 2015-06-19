@@ -439,25 +439,36 @@ gulp.task('publish', function(cb) {
     cb);
 });
 
-// Push the latest version to CDN (Google Cloud Storage)
+// Push the latest version of runtime resources (CSS+JS) to Google Cloud Storage.
+// Public-read objects in GCS are served by a Google provided and supported
+// global, high performance caching/content delivery network (CDN) service.
+//
 // This task requires gsutil to be installed and configured.
-// For more info on gsutil: https://cloud.google.com/storage/docs/gsutil.
-gulp.task('publish:cdn', function() {
-  var bucket = 'gs://materialdesignlite/';
-  var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + bucket + ')';
-  // Build gsutil command to copy each object into the dest bucket.
-  // -a sets the ACL on each object to public-read
-  // -m does parallel copies (no help here since one gsutil per file)
-  // We copy both a default instance at the bucket root and a version
-  // specific instance into a subdir.
-  var gsutilCmd = 'gsutil -m cp -a public-read <%= file.path %> ' + bucket;
-  process.stdout.write(infoMsg + '\n');
-  return gulp.src('dist/material.*@(js|css)')
+// For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
+//
+gulp.task('publish:runtime', function() {
+  // Build dest path, info message, cache control and gsutil cmd to copy 
+  // each object into a GCS bucket. The dest is a version specific path.
+  // The gsutil -a option sets the ACL on each object copied.
+  // The gsutil -m option requests parallel copies.
+  // The gsutil -h option is used to set metadata headers (cache control, in this case).
+  // For cache control, start with 0s (disable caching during dev),
+  // but consider more helpful interval (e.g. 3600s) after launch.
+  var dest = 'gs://materialdesignlite/serve';
+  var info_msg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
+  var cache_control = '-h "Cache-Control:public,max-age=0"';
+  var gsutil_cp_cmd = 'gsutil -m cp -a public-read <%= file.path %> ' + dest;
+  var gsutil_cache_cmd = 'gsutil -m setmeta ' + cache_control + ' ' + dest;
+
+  process.stdout.write(info_msg + '\n');
+  return gulp.src('dist/material.*@(js|css)', {read: false})
     .pipe($.tap(function(file, t) {
       file.base = path.basename(file.path);
     }))
-    .pipe($.shell([gsutilCmd, gsutilCmd +
-      pkg.version + '/<%= file.base %>']));
+    .pipe($.shell([
+      gsutil_cp_cmd + '/' + pkg.version + '/<%= file.base %>',
+      gsutil_cache_cmd + '/' + pkg.version + '/<%= file.base %>'
+    ]));
 });
 
 gulp.task('publish:push', function() {
@@ -470,6 +481,34 @@ gulp.task('publish:push', function() {
     .pipe($.ghPages({
       push: push,
     }));
+});
+
+// Push the latest version of the MDL microsite to Google Cloud Storage.
+// Public-read objects in GCS are served by a Google provided and supported
+// global, high performance caching/content delivery network (CDN) service.
+//
+// This task requires gsutil to be installed and configured.
+// For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
+//
+gulp.task('publish:site', function() {
+  // Build dest bucket, cache control, and info message.
+  // For cache control, start with 0s (disable caching during dev),
+  // but consider more helpful interval (e.g. 3600s) after launch.
+  var dest = 'gs://materialdesignlite';
+  var cache_control = '-h "Cache-Control:public,max-age=0"';
+  var info_msg = 'Publishing ' + pkg.version + ' of MDL site to GCS (' + dest + ')';
+
+  // Build gsutil commands to recursively sync local distribution tree
+  // to the dest bucket and to recursively set permissions to public-read.
+  // The gsutil -m option requests parallel copies.
+  // The gsutil -R option does recursive acl setting.
+  // The gsutil -h option is used to set metadata headers (cache control, in this case).
+  var gsutil_sync_cmd = 'gsutil -m rsync -d -R dist ' + dest;
+  var gsutil_acl_cmd = 'gsutil -m acl set -R public-read ' + dest;
+  var gsutil_cache_cmd = 'gsutil -m setmeta ' + cache_control + ' ' + dest + '/**';
+
+  process.stdout.write(info_msg + '\n');
+  gulp.src('').pipe($.shell([gsutil_sync_cmd, gsutil_acl_cmd, gsutil_cache_cmd]));
 });
 
 gulp.task('templates:mdl', function() {
