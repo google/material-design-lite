@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="{{page.include_prefix}}material.min.css" id="main-stylesheet">
   <link rel="stylesheet" href="{{page.include_prefix}}assets/customizer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
 </head>
 <body class="mdl-gen" onload="init();">
   <div class="mdl-grid">
@@ -41,7 +42,7 @@
     <div class="mdl-gen__panel--right mdl-gen__panel mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
       <div class="mdl-gen__desc">
         <strong>Custom CSS theme builder</strong>
-        <p>Click on the color wheel to choose a primary (1) and accent (2) color to preview the theme below. When you’ve selected a color combination you like, download the CSS by clicking the white button in the middle.</p>
+        <p>Click on the color wheel to choose a primary (1) and accent (2) color to preview the theme below. When you’ve selected a color combination you like, either reference our hosted CSS (see blow) or download the CSS by clicking the white button in the middle.</p>
       </div>
       <div class="mdl-gen__preview">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -78,8 +79,12 @@
         </div>
       </div>
     </div>
+    <div class="mdl-gen__cdn mdl-cell mdl-cell--12-col">
+      <pre class="demo-code language-markup"><code class="language-markup" data-language="markup"> &lt;link rel="stylehsheet" href="http://getmdl.io/1.0.0/material.$primary-$accent.min.css" /&gt; </code></pre>
+    </div>
   </div>
   <script src="{{page.include_prefix}}assets/customizer.js"></script>
   <script src="{{page.include_prefix}}material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 </body>
 </html>
