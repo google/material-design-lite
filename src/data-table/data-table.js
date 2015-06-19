@@ -123,15 +123,15 @@ MaterialDataTable.prototype.init = function() {
       var headerCheckbox = this.createCheckbox_(null, rows);
       th.appendChild(headerCheckbox);
       firstHeader.parentElement.insertBefore(th, firstHeader);
-    }
 
-    for (var i = 0; i < rows.length; i++) {
-      var firstCell = rows[i].querySelector('td');
-      if (firstCell) {
-        var td = document.createElement('td');
-        var rowCheckbox = this.createCheckbox_(rows[i]);
-        td.appendChild(rowCheckbox);
-        rows[i].insertBefore(td, firstCell);
+      for (var i = 0; i < rows.length; i++) {
+        var firstCell = rows[i].querySelector('td');
+        if (firstCell) {
+          var td = document.createElement('td');
+          var rowCheckbox = this.createCheckbox_(rows[i]);
+          td.appendChild(rowCheckbox);
+          rows[i].insertBefore(td, firstCell);
+        }
       }
     }
 
