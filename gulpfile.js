@@ -447,7 +447,7 @@ gulp.task('publish', function(cb) {
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
 gulp.task('publish:runtime', function() {
-  // Build dest path, info message, cache control and gsutil cmd to copy 
+  // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -a option sets the ACL on each object copied.
   // The gsutil -m option requests parallel copies.
@@ -494,7 +494,7 @@ gulp.task('publish:site', function() {
   // Build dest bucket, cache control, and info message.
   // For cache control, start with 0s (disable caching during dev),
   // but consider more helpful interval (e.g. 3600s) after launch.
-  var dest = 'gs://materialdesignlite';
+  var dest = 'gs://www.getmdl.io';
   var cache_control = '-h "Cache-Control:public,max-age=0"';
   var info_msg = 'Publishing ' + pkg.version + ' of MDL site to GCS (' + dest + ')';
 
