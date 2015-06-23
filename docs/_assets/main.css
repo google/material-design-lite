@@ -790,6 +790,10 @@ code[class*=language-], pre[class*=language-] {
   padding-right: 16px;
   word-wrap: break-word;
 }
+.started .snippet-group {
+  max-width: 640px;
+  margin: 60px 0 40px 0;
+}
 @media (max-width: 850px) {
   .started .chapter-toc {
     display: block;
@@ -836,6 +840,15 @@ code[class*=language-], pre[class*=language-] {
   }
   .started .content {
     display: block;
+  }
+  .started .snippet-group {
+    margin-left: -40px;
+    margin-right: -40px;
+    max-width: none;
+  }
+  .started .snippet-group code {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2), /* Webkit-based browsers */

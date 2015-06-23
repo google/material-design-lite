@@ -1,6 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<script src="{{page.include_prefix}}assets/swfobject.js"></script>
+<script src="{{page.include_prefix}}assets/snippets.js"></script>
+
 <div class="docs-text-styling">
   <section class="docs-toc">
     <h3>Contents</h3>
@@ -143,9 +146,10 @@ gulp</code></pre>
         You'll find below a couple of examples of MDL <a href="../components/#buttons-section">Button</a> elements: a Button with ripples and a FAB Button. Just copy &amp; paste the corresponding source code in the <code>&lt;body&gt;</code> of an HTML page of your project and the elements will render as shown below.
       </p>
 
-
-      <!-- TODO(nivco): add a snippets/demo widget showing a few style of buttons when #411 lands. -->
-
+      <!-- Generating snippets -->
+      {% for snippet_group in page.snippets %}
+        {% include "./snippets.html" with snippet_group only %}
+      {%- endfor %}
 
       <p>
         MDL elements can be tweaked and configured by adding CSS classes. For example adding <code>mdl-js-ripple-effect</code> to an MDL <a href="../components/#buttons-section">Button</a> will add a Ripple effect when the button is clicked and adding <code>mdl-button--fab</code> will change the style of the button to a FAB button.
