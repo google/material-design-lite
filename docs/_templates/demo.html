@@ -22,10 +22,6 @@
     <style>
       {% include demo_css ignore missing %}
     </style>
-    {% set demo_js = "../../dist/components/" + page.component + "/demo.js" %}
-    <script>
-      {% include demo_js ignore missing %}
-    </script>
 
   </head>
   <body>
@@ -35,8 +31,11 @@
         {{content|safe}}
       {% endblock %}
     </div>
-    <!-- Enable Prism syntax highlighting -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
     <!-- Built with love using Material Design Lite -->
+
+    {% set demo_js = "../../dist/components/" + page.component + "/demo.js" %}
+    <script>
+      {% include demo_js ignore missing %}
+    </script>
   </body>
 </html>
