@@ -2,6 +2,8 @@
 
 {% block content %}
 <link href="{{page.include_prefix}}assets/components.css" rel="stylesheet">
+<script src="{{page.include_prefix}}assets/swfobject.js"></script>
+<script src="{{page.include_prefix}}assets/snippets.js"></script>
 <script src="{{page.include_prefix}}assets/components.js"></script>
 <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
 
@@ -52,6 +54,12 @@
               <h1 class="mdl-components__classname" id="{{ category.name }}-section/{{ component.name }}">{{ component.caption }}</h1>
             </span>
           {%- endif %}
+          <!-- Generating snippets -->
+          {% for snippet_group in component.snippets %}
+            {% set snippet_group["component_name"] = component.name %}
+            {% include "./snippets.html" with snippet_group only %}
+          {%- endfor %}
+          <!-- Adding the demo page -->
         {% set demo_css = "../../dist/components/" + component.name + "/demo.css" %}
           <style>
             {% include demo_css ignore missing %}

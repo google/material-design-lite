@@ -475,6 +475,142 @@ body:not(.about) .mdl-navigation__link.download > button {
   margin-top: 100px;
   margin-bottom: 0;
 }
+/* Components Snippets */
+.snippet-group {
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-bottom: 84px;
+}
+.snippet-group .snippet-header {
+  display: table;
+  border-collapse:collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+.snippet-group .snippet-demos,
+.snippet-group .snippet-captions{
+  display: table-row;
+}
+.snippet-group .snippet-captions {
+  background-color: white;
+}
+.snippet-group .snippet-demo .snippet-demo-container {
+  text-align: left;
+  display: inline-block;
+}
+.snippet-group .snippet-demo,
+.snippet-group .snippet-caption {
+  display: table-cell;
+  width: 1px;
+  text-align: center;
+}
+.snippet-group .snippet-caption {
+  font-size: 13px;
+  padding: 20px 40px;
+  white-space: nowrap;
+  text-align: center;
+  position: relative;
+}
+.snippet-group .snippet-caption .snippet-copy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 3;
+}
+.snippet-group .snippet-caption .mdl-button {
+  text-transform: none;
+  font-size: 13px;
+  font-weight: normal;
+}
+.snippet-group .snippet-caption .snippet-copy embed {
+  height: 100%;
+  width: 785%;
+}
+.snippet-group .snippet-caption .mdl-button__ripple-container {
+  z-index: 2;
+}
+.snippet-group .snippet-caption:hover {
+  color: black;
+}
+.snippet-group .snippet-caption .material-icons {
+  position: relative;
+  top: 6px;
+  margin-right: 10px;
+}
+.snippet-group .snippet-demo {
+  padding: 0px 40px 40px 40px;
+}
+.snippet-group .snippet-demos .snippet-demo:first-child,
+.snippet-group .snippet-captions .snippet-caption:first-child,
+.snippet-group .snippet-demos .snippet-demo:last-child,
+.snippet-group .snippet-captions .snippet-caption:last-child {
+  width: 50%;
+}
+.snippet-group .snippet-code {
+  position: relative;
+}
+.snippet-group .snippet-code pre {
+  margin: 0;
+  border-radius: 0;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+}
+.snippet-group .snippet-code code {
+  padding: 8px 16px;
+  position: relative;
+  max-height: none;
+}
+.snippet-group .snippet-code pre[class*=language-]>code[data-language] {
+  max-height: none;
+}
+.snippet-group .snippet-code code:first-of-type {
+  padding-top: 16px;
+}
+.snippet-group .snippet-code code:last-of-type {
+  padding-bottom: 16px;
+}
+.snippet-group .snippet-code code.highlighted {
+  background-color: rgba(0,0,0,0.05);
+}
+.snippet-group .snippet-code code.highlighted:only-of-type {
+  background-color: transparent;
+}
+.snippet-group .snippet-code code::after {
+  display: none;
+}
+.snippet-group .snippet-code code.highlighted::after {
+  display: inline-block;
+  content: 'Copy';
+  color: rgba(0,0,0,0.5);
+  font-size: 13px;
+  background-color: rgba(0,0,0,0.1);
+  border-top-left-radius: 5px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 3px 10px;
+}
+.snippet-group .snippet-code code.highlighted.copied::after {
+  content: 'Copied';
+  color: rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.6);
+}
+.no-flash .snippet-group .snippet-code code.highlighted::after,
+.no-flash .snippet-group .copy{
+  display: none;
+}
+@media (max-width: 850px) {
+  .snippet-group .snippet-demo,
+  .snippet-group .snippet-caption {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+}
 /* Prism and code blocks styling and overrides */
 .token.attr-name, .token.builtin, .token.selector, .token.string {
   color: #E91E63;

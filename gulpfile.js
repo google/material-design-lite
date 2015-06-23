@@ -21,6 +21,8 @@
 
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
+var fs = require('fs');
+var merge = require('merge-stream');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
@@ -334,29 +336,46 @@ gulp.task('demoresources', function () {
 });
 
 /**
- * Generates demo files for testing.
+ * Generates demo files for testing made of all the snippets and the demo file
+ * put together.
  */
 gulp.task('demos', ['demoresources'], function() {
-  return gulp.src(['./src/**/demo.html'])
-    // Add basic front matter.
-    .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
-    .pipe($.frontMatter({property: 'page', remove: true}))
-    .pipe($.marked())
-    .pipe((function () {
-      var componentPages = [];
-      return through.obj(function(file, enc, cb) {
-        file.page.component = file.relative.split('/')[0];
-        componentPages.push(file.page);
-        this.push(file);
-        cb();
-      },
-      function(cb) {
-        site.components = componentPages;
-        cb();
+
+  function getComponentFolders() {
+    return fs.readdirSync('./src/')
+      .filter(function(file) {
+        return fs.statSync(path.join('./src/', file)).isDirectory();
       });
-    })())
-    .pipe(applyTemplate())
-    .pipe(gulp.dest('dist/components'));
+  }
+
+  var tasks = getComponentFolders().map(function(component) {
+    return gulp.src([
+        './src/' + component + '/snippets/*.html',
+        './src/' + component + '/demo.html'
+      ])
+      .pipe($.concat('/demo.html'))
+      // Add basic front matter.
+      .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
+      .pipe($.frontMatter({property: 'page', remove: true}))
+      .pipe($.marked())
+      .pipe((function () {
+        var componentPages = [];
+        return through.obj(function(file, enc, cb) {
+            file.page.component = component;
+            componentPages.push(file.page);
+            this.push(file);
+            cb();
+          },
+          function(cb) {
+            site.components = componentPages;
+            cb();
+          });
+      })())
+      .pipe(applyTemplate())
+      .pipe(gulp.dest('dist/components/' + component));
+  });
+
+  return merge(tasks);
 });
 
 /**
@@ -385,7 +404,11 @@ gulp.task('pages', ['components'], function() {
  * Copies assets from MDL and _assets directory.
  */
 gulp.task('assets', function () {
-  return gulp.src(['docs/_assets/**/*'])
+  return gulp.src([
+      'docs/_assets/**/*',
+      'node_modules/clippy/build/clippy.swf',
+      'node_modules/swfobject-npm/swfobject/src/swfobject.js'
+    ])
     .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
       progressive: true,
       interlaced: true
