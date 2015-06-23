@@ -10,6 +10,19 @@ categories:
     components:
       - name: badge
         class: mdl-badge
+        snippets:
+          - snippet_group:
+            - caption: In span
+              file: span.html
+            - caption: In link
+              file: link.html
+            - caption: No background
+              file: link-no_background.html
+          - snippet_group:
+            - caption: On icon
+              file: icon.html
+            - caption: Special character 
+              file: icon-special.html
   - name: buttons
     title: Buttons
     description: Variations on Material Design buttons.
