@@ -697,11 +697,12 @@ code[class*=language-], pre[class*=language-] {
     display: block;
   }
   .started pre {
-    width: 100%;
+    width: auto;
     margin-left: -40px;
     margin-right: -40px;
     padding: 15px 40px;
     box-sizing: content-box;
+    display: block;
   }
   .started .caption {
     margin-left: -40px;
