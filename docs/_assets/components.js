@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
-function MaterialComponents() {
+function MaterialComponentsNav() {
   'use strict';
 
   this.element_ = document.querySelector('.mdl-js-components');
-  this.componentLinks = this.element_.querySelectorAll('.mdl-components__link');
+  if (this.element_) {
+    this.componentLinks = this.element_.querySelectorAll('.mdl-components__link');
 
-  this.activeLink = null;
-  this.activePage = null;
+    this.activeLink = null;
+    this.activePage = null;
 
-  this.init();
+    this.init();
+  }
 }
 
 /**
@@ -32,7 +34,7 @@ function MaterialComponents() {
  * @type {Object.<string, HTMLElement>}
  * @private
  */
-MaterialComponents.prototype.linksMap_ = {};
+MaterialComponentsNav.prototype.linksMap_ = {};
 
 /**
  * Store strings for class names defined by this component that are used in
@@ -41,14 +43,14 @@ MaterialComponents.prototype.linksMap_ = {};
  * @enum {string}
  * @private
  */
-MaterialComponents.prototype.CssClasses_ = {
+MaterialComponentsNav.prototype.CssClasses_ = {
   ACTIVE: 'is-active'
 };
 
 /**
- * Initializes the MaterialComponents component.
+ * Initializes the MaterialComponentsNav component.
  */
-MaterialComponents.prototype.init = function() {
+MaterialComponentsNav.prototype.init = function() {
   'use strict';
 
   this.activeLink = this.componentLinks[0];
@@ -58,20 +60,20 @@ MaterialComponents.prototype.init = function() {
     this.componentLinks[i].addEventListener('click',
         this.clickHandler(this.componentLinks[i]));
     // Mapping the list of links using their hash fragment.
-    this.linksMap_["#" + this.componentLinks[i].href.split("#")[1]]
-        = this.componentLinks[i];
+    this.linksMap_['#' + this.componentLinks[i].href.split('#')[1]] =
+        this.componentLinks[i];
   }
 
   // If a Hash fragment is available on the page then display the section.
-  this.displaySectionForFragment(window.location.hash);
+  this.displaySectionForFragment(window.location.hash.split('/')[0]);
 
   // If the hash fragment changes we display the corresponding section.
   // We won't support older browser as it's not efficient.
-  if ("onhashchange" in window) {
+  if ('onhashchange' in window) {
     var this_ = this;
     window.onhashchange = function () {
-      this_.displaySectionForFragment(window.location.hash);
-    }
+      this_.displaySectionForFragment(window.location.hash.split('/')[0]);
+    };
   }
 };
 
@@ -79,13 +81,15 @@ MaterialComponents.prototype.init = function() {
  * Displays the section for the given hash fragment.
  * @param  {String} fragment The hash fragment used in the link to the section
  */
-MaterialComponents.prototype.displaySectionForFragment = function(fragment) {
-  if (fragment
-      && this.linksMap_[fragment]
-      && this.linksMap_[fragment].click) {
+MaterialComponentsNav.prototype.displaySectionForFragment = function(fragment) {
+  'use strict';
+
+  if (fragment &&
+      this.linksMap_[fragment] &&
+      this.linksMap_[fragment].click) {
     this.linksMap_[fragment].click();
   } else {
-    document.getElementsByClassName("mdl-components__link")[0].click();
+    document.getElementsByClassName('mdl-components__link')[0].click();
   }
 };
 
@@ -94,7 +98,7 @@ MaterialComponents.prototype.displaySectionForFragment = function(fragment) {
  * @param  {HTMLElement} link the navigation link
  * @return {function} the click handler
  */
-MaterialComponents.prototype.clickHandler = function(link) {
+MaterialComponentsNav.prototype.clickHandler = function(link) {
   'use strict';
 
   var ctx = this;
@@ -112,11 +116,12 @@ MaterialComponents.prototype.clickHandler = function(link) {
     page.classList.add(ctx.CssClasses_.ACTIVE);
 
     // Add an history entry and display the hash fragment in the URL.
-    if (window.location.hash != "#"+link.href.split("#")[1]) {
-      if (link != document.getElementsByClassName("mdl-components__link")[0]) {
-        history.pushState(null, "Material Design Lite", link);
-      } else if (ctx.linksMap_[window.location.hash] != null) {
-        history.pushState(null, "Material Design Lite", "./");
+    var section = window.location.hash.split('/')[0];
+    if (section !== '#' + link.href.split('#')[1]) {
+      if (link !== document.getElementsByClassName('mdl-components__link')[0]) {
+        history.pushState(null, 'Material Design Lite', link);
+      } else if (ctx.linksMap_[section] !== null) {
+        history.pushState(null, 'Material Design Lite', './');
       }
     }
   };
@@ -127,7 +132,7 @@ MaterialComponents.prototype.clickHandler = function(link) {
  * @param  {HTMLElement} link the navigation link
  * @return {HTMLElement} the corresponding page
  */
-MaterialComponents.prototype.findPage = function(link) {
+MaterialComponentsNav.prototype.findPage = function(link) {
   'use strict';
 
   var href = link.href.split('#')[1];
@@ -137,5 +142,5 @@ MaterialComponents.prototype.findPage = function(link) {
 window.addEventListener('load', function() {
   'use strict';
 
-  new MaterialComponents();
+  new MaterialComponentsNav();
 });

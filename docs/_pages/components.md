@@ -27,20 +27,26 @@ categories:
     description: Building blocks for constructing a page layout.
     components:
       - name: footer
+        caption: Footer
         class: mdl-mega-footer / mdl-mini-footer
       - name: grid
+        caption: Grid
         class: mdl-grid
       - name: layout
+        caption: Layout
         class: mdl-layout
       - name: tabs
+        caption: Tabs
         class: mdl-tabs
   - name: loading
     title: Loading
     description: Indicate loading and progress states.
     components:
       - name: progress
+        caption: Progress bar
         class: mdl-progress
       - name: spinner
+        caption: Spinner
         class: mdl-spinner
   - name: menus
     title: Menus
@@ -59,12 +65,16 @@ categories:
     description: Choose between states.
     components:
       - name: checkbox
+        caption: Checkbox
         class: mdl-checkbox
       - name: icon-toggle
+        caption: Icon toggle
         class: mdl-icon-toggle
       - name: radio
+        caption: Radio button
         class: mdl-radio
       - name: switch
+        caption: Switch
         class: mdl-switch
   - name: tables
     title: Tables
