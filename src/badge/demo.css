@@ -38,13 +38,6 @@
 
 .demo-page--badge .wrapper {
   flex-grow: 1;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: space-between;
-  align-items: flex-start;
 }
 
 .demo-page--badge .icon {
