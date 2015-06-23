@@ -230,8 +230,8 @@ gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
-    ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'pages', 'demos', 'templates',
-     'images', 'styles-grid'],
+    ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'demos', 'pages',
+     'templates', 'images', 'styles-grid'],
     cb);
 });
 
@@ -285,7 +285,7 @@ function applyTemplate() {
 /**
  * Generates an index.html file for each README in MDL/src directory.
  */
-gulp.task('components', function() {
+gulp.task('components', ['demos'], function() {
   return gulp.src(['./src/**/README.md'], {base: './src'})
     // Add basic front matter.
     .pipe($.header('---\nlayout: component\nbodyclass: component\ninclude_prefix: ../../\n---\n\n'))
@@ -314,10 +314,11 @@ gulp.task('components', function() {
 /**
  * Copies demo files from MDL/src directory.
  */
-gulp.task('demos', ['demohtml'], function () {
+gulp.task('demoresources', function () {
   return gulp.src([
-      './src/**/*.css',
-      './src/**/*.js'
+      './src/**/demos.css',
+      './src/**/demo.css',
+      './src/**/demo.js'
     ], {base: './src'})
       .pipe($.if('*.scss', $.sass({
         precision: 10,
@@ -333,7 +334,7 @@ gulp.task('demos', ['demohtml'], function () {
 /**
  * Generates demo files for testing.
  */
-gulp.task('demohtml', function() {
+gulp.task('demos', ['demoresources'], function() {
   return gulp.src(['./src/**/demo.html'])
     // Add basic front matter.
     .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
