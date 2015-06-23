@@ -634,6 +634,47 @@ body:not(.about) .mdl-navigation__link.download > button {
     padding-right: 1%;
   }
 }
+/* Open with CodePen Button */
+.codepen-button {
+  z-index: 1000;
+  cursor: pointer;
+  background-image: url('codepen-logo.png');
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  background-size: 26px 26px;
+  position: absolute;
+  top: 0;
+  right: -125px;
+  width: 165px;
+  height: 46px;
+  display: inline-block;
+  opacity: 0.6;
+  overflow: hidden;
+  box-sizing: border-box;
+  white-space: nowrap;
+  color: black;
+  padding: 13px 15px 5px 50px;
+  transition: right 0.5s, background-color 0.5s, opacity 0.5s, background-size 0.3s;
+}
+.codepen-button::after {
+  content: 'Open in CodePen';
+}
+.codepen-button:hover {
+  opacity: 1;
+  right: 0;
+  background-size: 36px 36px;
+  background-color: rgb(248,248,248);
+  border-bottom-left-radius: 10px;
+}
+.docs-layout pre[class*=language-markup] {
+  padding-right: 0;
+}
+.docs-layout pre[class*=language-markup] code {
+  padding-right: 50px;
+}
+.codepen-button-disabled .codepen-button {
+  display: none;
+}
 /* Prism and code blocks styling and overrides */
 .token.attr-name, .token.builtin, .token.selector, .token.string {
   color: #E91E63;
@@ -653,7 +694,6 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .docs-layout pre {
   padding: 16px;
-  padding-right: 65px;
   font-size: 87%;
   word-wrap: break-word;
 }
@@ -810,7 +850,6 @@ code[class*=language-], pre[class*=language-] {
 .started pre {
   width: 640px;
   box-sizing: border-box;
-  padding-right: 16px;
   word-wrap: break-word;
 }
 .started .snippet-group {
