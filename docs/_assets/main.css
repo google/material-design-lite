@@ -547,6 +547,7 @@ pre[class*=language-]>code[data-language]::before {
   content: "";
   background: none;
 }
+.token.cr:before,
 .token.lf:before {
   display: none;
 }

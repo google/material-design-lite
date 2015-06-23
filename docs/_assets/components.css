@@ -105,12 +105,3 @@
     height: 100%;
   }
 }
-
-/* Remove ugly LF characters from prism */
-.token.cr:before {
-	content: '' !important;
-}
-
-.token.lf:before {
-  content: '' !important;
-}
