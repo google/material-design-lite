@@ -16,6 +16,40 @@ categories:
     components:
       - name: button
         class: mdl-button
+        snippets:
+          - snippet_group:
+            - caption: Colored FAB
+              file: fab-colored.html
+            - caption: With ripple
+              file: fab-colored-ripple.html
+          - snippet_group:
+            - caption: Plain FAB
+              file: fab.html
+            - caption: With ripple
+              file: fab-ripple.html
+            - caption: Disabled
+              file: fab-disabled.html
+          - snippet_group:
+            - caption: Raised Button
+              file: raised.html
+            - caption: With ripple
+              file: raised-ripple.html
+            - caption: Disabled
+              file: raised-disabled.html
+          - snippet_group:
+            - caption: Colored button
+              file: raised-colored.html
+            - caption: Accent colored
+              file: raised-accent-ripple.html
+            - caption: With Ripples
+              file: raised-ripple-accent.html
+          - snippet_group:
+            - caption: Flat button
+              file: flat.html
+            - caption: With ripple
+              file: flat-ripple.html
+            - caption: Disabled
+              file: flat-disabled.html
   - name: cards
     title: Cards
     description: Self-contained pieces of paper with data.
