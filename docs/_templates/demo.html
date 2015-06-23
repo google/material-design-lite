@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
     <script src="{{page.include_prefix}}material.min.js"></script>
 
-    {% set demo_css = "../../src/" + page.component + "/demo.css" %}
+    {% set demo_css = "../../dist/components/" + page.component + "/demo.css" %}
     <style>
       {% include demo_css ignore missing %}
     </style>
-    {% set demo_js = "../../src/" + page.component + "/demo.js" %}
+    {% set demo_js = "../../dist/components/" + page.component + "/demo.js" %}
     <script>
       {% include demo_js ignore missing %}
     </script>

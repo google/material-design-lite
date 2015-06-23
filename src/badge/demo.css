@@ -22,7 +22,7 @@
   margin-bottom: 15px;
 }
 
-div.toolbar {
+.demo-page--badge .toolbar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -36,7 +36,7 @@ div.toolbar {
   border-radius: 5px;
 }
 
-.wrapper {
+.demo-page--badge .wrapper {
   flex-grow: 1;
 
   display: flex;
@@ -47,7 +47,7 @@ div.toolbar {
   align-items: flex-start;
 }
 
-.icon {
+.demo-page--badge .icon {
   background-color: transparent;
   border: none;
   display: inline-block;
@@ -61,26 +61,26 @@ div.toolbar {
   font-size: 24px;
 }
 
-.icon.mdl-badge {
+.demo-page--badge .icon.mdl-badge {
   opacity: 1;
 }
 
-.icon:hover {
+.demo-page--badge .icon:hover {
   opacity : 1;
 }
 
-.links {
+.demo-page--badge .links {
   margin-top: 25px;
 }
 
-.links a {
+.demo-page--badge .links a {
   text-decoration: none;
   font-weight: normal;
 
   margin-top: 10px;
 }
 
-.dark {
+.demo-page--badge .dark {
   display: block;
   border-radius: 5px;
 

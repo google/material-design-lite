@@ -34,11 +34,11 @@
           <br><br>
         </span>
         {% for component in category.components %}
-          {% set demo_css = "../../src/" + component.name + "/demo.css" %}
+        {% set demo_css = "../../dist/components/" + component.name + "/demo.css" %}
           <style>
             {% include demo_css ignore missing %}
           </style>
-          {% set demo_js = "../../src/" + component.name + "/demo.js" %}
+          {% set demo_js = "../../dist/components/" + component.name + "/demo.js" %}
           <script>
             {% include demo_js ignore missing %}
           </script>
