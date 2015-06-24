@@ -112,6 +112,13 @@ body:not(.about) .docs-layout-title {
   padding-left: 16px !important;
   overflow-x: auto;
 }
+body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
+  background-image: none;
+}
+.docs-layout.is-small-screen .docs-layout-header {
+  padding: 0;
+  height: 64px;
+}
 .docs-layout.is-small-screen .docs-layout-header .docs-layout-title,
 .docs-layout.is-small-screen .docs-layout-header .mdl-textfield {
   display: none;
@@ -121,12 +128,7 @@ body:not(.about) .docs-layout-title {
   top: 0;
   left: 48px;
   width: calc(100% - 2 * 48px);
-  background-color: black;
-  margin-top: -64px;
   padding: 0 !important;
-}
-.docs-layout.is-small-screen {
-  padding-top: 64px;
 }
 .scrollindicator.scrollindicator.scrollindicator {
   position: absolute;
@@ -135,10 +137,8 @@ body:not(.about) .docs-layout-title {
   height: 64px;
   width: 48px;
   display: none;
-  background-color: black;
   margin-right: 0;
   text-align: center;
-  margin-top: -64px;
 }
 .scrollindicator.scrollindicator--right {
   right: 0;
