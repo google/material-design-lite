@@ -111,8 +111,8 @@ MaterialButton.prototype.init = function() {
 };
 
 /**
-* Downgrade the element.
-*/
+ * Downgrade the element.
+ */
 MaterialButton.prototype.mdlDowngrade_ = function() {
   'use strict';
   if (this.rippleElement_) {
