@@ -17,7 +17,8 @@
 function MaterialComponentsSnippets() {
   'use strict';
 
-  this.snippetButtons = document.querySelectorAll('.snippet-caption .copy-to-clipboard-button');
+  this.snippetButtons = document.querySelectorAll(
+      '.snippet-caption .copy-to-clipboard-button');
   this.init();
 }
 
