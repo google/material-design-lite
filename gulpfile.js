@@ -239,7 +239,7 @@ gulp.task('default', ['clean', 'mocha'], function (cb) {
 
 gulp.task('mocha', ['styles'], function () {
   return gulp.src('./test/index.html')
-    .pipe($.mochaPhantomjs({reporter: 'list'}));
+    .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });
 
 gulp.task('test', ['jshint', 'jscs', 'mocha']);
