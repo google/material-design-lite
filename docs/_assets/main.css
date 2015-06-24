@@ -102,15 +102,29 @@ body:not(.about) .docs-layout-header {
 body:not(.about) .docs-layout-title {
   display: none;
 }
+.docs-navigation__container {
+  overflow: hidden;
+  position: absolute;
+  height: 64px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
 .docs-navigation {
   box-shadow: none !important;
   border: 0 !important;
   padding: 0 16px;
   width: 100%;
-  height: 64px;
+  height: 85px;
   flex-shrink: 0;
   padding-left: 16px !important;
   overflow-x: auto;
+  overflow-y: hidden;
+  user-select: none;
+  margin-bottom: -16px;
+}
+.docs-navigation::-webkit-scrollbar {
+  display: none;
 }
 body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   background-image: none;
@@ -123,14 +137,14 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
 .docs-layout.is-small-screen .docs-layout-header .mdl-textfield {
   display: none;
 }
-.docs-layout.is-small-screen .docs-navigation {
-  position: absolute;
+.docs-layout.is-small-screen .docs-navigation__container {
   top: 0;
+  bottom: auto;
   left: 48px;
   width: calc(100% - 2 * 48px);
   padding: 0 !important;
 }
-.scrollindicator.scrollindicator.scrollindicator {
+.docs-layout .scrollindicator {
   position: absolute;
   top: 0;
   line-height: 64px;
@@ -139,11 +153,17 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   display: none;
   margin-right: 0;
   text-align: center;
+  cursor: pointer;
+  user-select: none;
 }
-.scrollindicator.scrollindicator--right {
+.docs-layout .scrollindicator.disabled {
+  opacity: 0.12;
+  cursor: default;
+}
+.docs-layout .scrollindicator.scrollindicator--right {
   right: 0;
 }
-.scrollindicator.scrollindicator--left {
+.docs-layout .scrollindicator.scrollindicator--left {
   left: 0;
 }
 .docs-layout.is-small-screen .scrollindicator.scrollindicator.scrollindicator {
@@ -157,6 +177,8 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
 .docs-navigation .mdl-navigation__link {
   display: flex;
   flex-shrink: 0;
+  user-select: inherit;
+  height: 64px;
 }
 .docs-navigation .mdl-navigation__link:hover,
 .docs-navigation .mdl-navigation__link.download:hover > span,
