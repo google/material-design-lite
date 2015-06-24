@@ -4,25 +4,22 @@ title: Templates
 bodyclass: templates
 include_prefix: ../
 templates:
-  - name: product
-    title: Product
-    description: Laborum quis laboris veniam minim labore id excepteur.
+  - name: android-dot-com
+    title: Cover of android.com
+    description: A not-quite-1:1 "cover" of the android.com website, built with Material Design Lite.
   - name: blog
     title: Blog
-    description: Deserunt dolor dolore ut excepteur tempor occaecat aliqua sunt eu velit incididunt irure irure in.
+    description: A mobile focused responsive template that showcases image or text based blog entries, a subscription CTA, search & share links, and an expanded article page with comments, counters and bookmarking capabilities built-in.
   - name: general
     title: Universal
     description: Esse irure aliqua amet ullamco aliqua ullamco est exercitation adipisicing nisi laborum sit labore voluptate.
   - name: dashboard
     title: Dashboard
-    description: Non laboris consequat ullamco aute cillum ad.
+    description: A modular responsive template built to display data visualizations and information with a clear vertical nav, user profile, search and dedicated space for updates and filters.
   - name: text-only
     title: Text-heavy webpage
-    description: Laborum quis laboris veniam minim labore id excepteur.
+    description: Built for presenting content that is information dense, easily updatable, and optimized for legibility, this template has a sticky horizontal top nav, feature callouts, cards and a site map footer with a deep-linked table of contents.
   - name: article
     title: Stand-alone article
-    description: Non laboris consequat ullamco aute cillum ad.
-  - name: android-dot-com
-    title: Cover of android.com
-    description: A not-quite-1:1 "cover" of the android.com website, built with Material Design Lite.
+    description: A clean layout optimized for presenting text-based content with a breadcrumb nav, search, clear headers and a footer that utilizes a card-like structure to showcase the content.
 ---

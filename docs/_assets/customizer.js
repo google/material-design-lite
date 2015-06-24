@@ -454,5 +454,4 @@ function init() {
     link.setAttribute('href', url);
     link.setAttribute('download', 'material.min.css');
   };
-
 })();

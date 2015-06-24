@@ -112,27 +112,12 @@ body:not(.about) .docs-layout-title {
   padding-left: 16px !important;
   overflow-x: auto;
 }
-.docs-special {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
+body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
+  background-image: none;
 }
-.docs-layout.is-small-screen .docs-special {
-  width: 100%;
-  justify-content: center;
-}
-.docs-special .docs-special--button {
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  line-height: 64px;
+.docs-layout.is-small-screen .docs-layout-header {
+  padding: 0;
   height: 64px;
-  box-sizing: border-box;
-  border-bottom: 3px solid transparent;
-  padding: 0 24px;
-  font-size: 13px;
-  display: flex;
 }
 .docs-layout.is-small-screen .docs-layout-header .docs-layout-title,
 .docs-layout.is-small-screen .docs-layout-header .mdl-textfield {
@@ -143,12 +128,7 @@ body:not(.about) .docs-layout-title {
   top: 0;
   left: 48px;
   width: calc(100% - 2 * 48px);
-  background-color: black;
-  margin-top: -64px;
   padding: 0 !important;
-}
-.docs-layout.is-small-screen {
-  padding-top: 64px;
 }
 .scrollindicator.scrollindicator.scrollindicator {
   position: absolute;
@@ -157,10 +137,8 @@ body:not(.about) .docs-layout-title {
   height: 64px;
   width: 48px;
   display: none;
-  background-color: black;
   margin-right: 0;
   text-align: center;
-  margin-top: -64px;
 }
 .scrollindicator.scrollindicator--right {
   right: 0;
@@ -171,12 +149,8 @@ body:not(.about) .docs-layout-title {
 .docs-layout.is-small-screen .scrollindicator.scrollindicator.scrollindicator {
   display: block;
 }
-.docs-special--button > span, .docs-special--button > .material-icons {
-  opacity: 0.65;
+.mdl-navigation__link--icon > span, .mdl-navigation__link--icon > .material-icons {
   line-height: 64px;
-}
-.docs-special .mdl-navigation__link .material-icons {
-  font-size: 24px;
   margin-right: 8px;
   line-height: inherit;
 }
@@ -184,12 +158,16 @@ body:not(.about) .docs-layout-title {
   display: flex;
   flex-shrink: 0;
 }
-.docs-navigation .mdl-navigation__link:hover {
+.docs-navigation .mdl-navigation__link:hover,
+.docs-navigation .mdl-navigation__link.download:hover > span,
+.docs-navigation .mdl-navigation__link.download:hover > .material-icons {
   background-color: inherit;
   opacity: 1 !important;
   border-bottom-color: #18FFFF;
 }
-.docs-navigation .mdl-navigation__link:not(.download) {
+.docs-navigation .mdl-navigation__link:not(.download),
+.docs-navigation .mdl-navigation__link.download > span,
+.docs-navigation .mdl-navigation__link.download > .material-icons {
   opacity: 0.65;
 }
 .docs-navigation .mdl-navigation__link, section.download {
@@ -197,28 +175,21 @@ body:not(.about) .docs-layout-title {
   font-size: 13px;
   text-transform: uppercase;
   line-height: 64px;
-  padding: 0 24px;
+  padding: 0 12px;
   color: white;
   box-sizing: border-box;
   border-bottom: 3px solid transparent;
 }
-.about .docs-layout:not(.is-small-screen) .docs-special .download > .material-icons {
+.about .docs-layout:not(.is-small-screen) .mdl-navigation__link.download > .material-icons {
   display: none;
 }
-.about .docs-layout.is-small-screen .docs-special .download > button,
-body:not(.about) .docs-special .download > button {
+.about .docs-layout.is-small-screen .mdl-navigation__link.download > button,
+body:not(.about) .mdl-navigation__link.download > button {
   display: none;
-}
-.docs-special--button:hover > span,
-.docs-special--button:hover > .material-icons {
-  opacity: 1;
-}
-.docs-special--button.download button {
-  margin-left: 8px;
 }
 .docs-navigation .download button .material-icons {
   color: black;
-  opacity: 0.5;
+  opacity: 0.54;
 }
 .about .docs-navigation .about,
 .templates .docs-navigation .templates,
@@ -287,6 +258,7 @@ body:not(.about) .docs-special .download > button {
   vertical-align: top;
   width: 160px;
   margin-right: 24px;
+  line-height: 2em;
 }
 .about-panel--text dl dd {
   text-align: left;
@@ -387,6 +359,7 @@ body:not(.about) .docs-special .download > button {
 }
 .template > .template__meta {
   align-content: flex-start;
+  padding-left: 24px;
 }
 .template > .template__meta.template__meta > * {
   margin-bottom: 24px;
@@ -760,6 +733,9 @@ code[class*=language-], pre[class*=language-] {
     background-repeat: no-repeat, no-repeat;
     background-position: center center, center center;
   }
+}
+.docs-navigation .spacer {
+  flex-grow: 1;
 }
 
 .docs-wip-banner {

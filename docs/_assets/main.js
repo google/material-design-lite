@@ -1,3 +1,4 @@
+// Navbar scroll buttons
 (function() {
   'use strict';
 
@@ -16,6 +17,24 @@
   leftScroll.addEventListener('tap', scrollMenuBar.bind(null, -delta));
 })();
 
+// customizer iframe sizing
+(function() {
+  'use strict';
+
+  var iframe = document.querySelector('iframe.docs-customizer');
+  if (!iframe) {
+    return;
+  }
+  function updateIframe() {
+    var height = Math.min(iframe.contentWindow.document.body.getClientRects()[0].height,
+      iframe.contentWindow.document.body.scrollHeight);
+    iframe.style.height = height + 'px';
+  }
+  window.addEventListener('resize', updateIframe);
+  iframe.addEventListener('load', updateIframe);
+})();
+
+// WIP banner
 (function() {
   'use strict';
 
