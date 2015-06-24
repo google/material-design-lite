@@ -104,9 +104,11 @@ body:not(.about) .docs-layout-title {
 }
 .docs-navigation__container {
   overflow: hidden;
-  position: relative;
+  position: absolute;
   height: 64px;
   width: 100%;
+  bottom: 0;
+  left: 0;
 }
 .docs-navigation {
   box-shadow: none !important;
@@ -135,9 +137,9 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
 .docs-layout.is-small-screen .docs-layout-header .mdl-textfield {
   display: none;
 }
-.docs-layout.is-small-screen .docs-navigation {
-  position: absolute;
+.docs-layout.is-small-screen .docs-navigation__container {
   top: 0;
+  bottom: auto;
   left: 48px;
   width: calc(100% - 2 * 48px);
   padding: 0 !important;
