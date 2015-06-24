@@ -21,17 +21,17 @@
 (function() {
   'use strict';
 
-  var ifr = document.querySelector('iframe.docs-customizer');
-  if (!ifr) {
+  var iframe = document.querySelector('iframe.docs-customizer');
+  if (!iframe) {
     return;
   }
   function updateIframe() {
-    var h = Math.min(ifr.contentWindow.document.body.getClientRects()[0].height,
-      ifr.contentWindow.document.body.scrollHeight);
-    ifr.style.height = h + 'px';
+    var height = Math.min(iframe.contentWindow.document.body.getClientRects()[0].height,
+      iframe.contentWindow.document.body.scrollHeight);
+    iframe.style.height = height + 'px';
   }
   window.addEventListener('resize', updateIframe);
-  ifr.addEventListener('load', updateIframe);
+  iframe.addEventListener('load', updateIframe);
 })();
 
 // WIP banner
