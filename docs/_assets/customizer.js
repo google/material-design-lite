@@ -261,7 +261,7 @@ function init() {
     var g = parentWrapper(parentWrapper(ev.target));
     var selectedColor = g.getAttribute('data-color');
     // Ignore clicks on already selected fields
-    if ((g.getAttribute('class') || '').indexOf('selected') !== -1) {
+    if ((g.getAttribute('class') || '').indexOf('selected--1') !== -1 && this.numSelected === 1) {
       return;
     }
 
