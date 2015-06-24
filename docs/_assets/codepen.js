@@ -28,10 +28,15 @@ CodeBlockCodePen.prototype.init = function() {
   'use strict';
 
   // Also insert the MDL Library.
-  var mdlLibs = '<!-- MDL library and Material icons font -->\n' +
-    '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">\n' +
-    '<link rel="stylesheet" href="https://storage.googleapis.com/materialdesignlite/material.css">\n' +
-    '<script src="https://storage.googleapis.com/materialdesignlite/material.min.js"></script>\n\n';
+  var mdlLibs = [
+      '<!-- MDL library and Material icons font -->',
+      '<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">',
+      '<link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.indigo-pink.min.css">',
+      '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
+      // TODO: Remove below before launch. For testing only.
+      '<link rel="stylesheet" href="https://storage.googleapis.com/materialdesignlite/material.css">',
+      '<script src="https://storage.googleapis.com/materialdesignlite/material.min.js"></script>'
+  ];
 
   for (var i = 0, len = this.htmlCodeBlocks.length; i < len; i++) {
     var pre = this.htmlCodeBlocks[i];
@@ -56,7 +61,13 @@ CodeBlockCodePen.prototype.init = function() {
     var input = document.createElement('input');
     input.setAttribute('type', 'hidden');
     input.setAttribute('name', 'data');
-    input.setAttribute('value', JSON.stringify({html: mdlLibs + pre.innerText}));
+    input.setAttribute('value', JSON.stringify(
+      {html: '<html>\n  <head>\n    ' +
+          mdlLibs.join('\n    ') +
+          '\n  </head>\n  <body>\n    ' +
+          code.split('\n').join('\n    ').trim() +
+          '\n  </body>\n</html>',
+      css: styleLines.join('\n')}));
     form.appendChild(input);
     pre.appendChild(form);
   }
