@@ -52,6 +52,25 @@ CodeBlockCodePen.prototype.init = function() {
       continue;
     }
 
+    // Extract <style> blocks from the source code.
+    var code = pre.innerText;
+    var styleLines = [
+      'body {',
+      'padding: 40px;',
+      '}'
+    ];
+    while (code.indexOf('<style>') !== -1) {
+      var startIndex = code.indexOf('<style>');
+      var endIndex = code.indexOf('</style>');
+      var styleBlock = code.substring(startIndex + 7, endIndex).trim();
+      var styleBlockLines = styleBlock.split('\n').map(
+        function(elem) {
+          return elem.trim();
+        });
+      styleLines = styleLines.concat(styleBlockLines);
+      code = code.substr(endIndex + 8);
+    }
+
     // Create the CodePen Form and add it to the <pre> block.
     var form = document.createElement('form');
     form.classList.add('codepen-button');
