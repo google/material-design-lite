@@ -19,6 +19,8 @@
 .mdl-tooltip {
   transform: scale(0);
   transform-origin: top center;
+  will-change: transform;
+  z-index: 999;
   background: $tooltip-background-color;
   border-radius: 2px;
   color: $tooltip-text-color;
@@ -27,7 +29,7 @@
   line-height: 14px;
   max-width: 170px;
   padding: 4px 8px;
-  position: absolute;
+  position: fixed;
   text-align: center;
 }
 .mdl-tooltip.is-active {
