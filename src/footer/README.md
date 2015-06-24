@@ -407,7 +407,3 @@ The MDL CSS classes apply various predefined visual enhancements to the footer. 
 
 ##More information
 For working examples of the **footer** component, see the MDL [footer demo page](www.github.com/google/material-design-lite/src/lists/footer.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

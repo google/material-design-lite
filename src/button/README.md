@@ -1,7 +1,7 @@
 ##Introduction
 The Material Design Lite (MDL) **button** component is an enhanced version of the standard HTML `<button>` element. A button consists of text and/or an image that clearly communicates what action will occur when the user clicks or touches it. The MDL button component provides various types of buttons, and allows you to add both display and click effects.
 
-Buttons are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the button component's [Material Design specifications page](http://www.google.com/design/spec/components/buttons.html) for details. 
+Buttons are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the button component's [Material Design specifications page](http://www.google.com/design/spec/components/buttons.html) for details.
 
 The available button display types are *flat* (default), *raised*, *fab*, *mini-fab*, and *icon*; any of these types may be plain (light gray) or *colored*, and may be initially or programmatically *disabled*. The *fab*, *mini-fab*, and *icon* button types typically use a small image as their caption rather than text.
 
@@ -58,8 +58,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 ##More information
 For working examples of the **button** component, see the MDL [button demo page](www.github.com/google/material-design-lite/src/button/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.
-

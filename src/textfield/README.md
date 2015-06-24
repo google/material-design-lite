@@ -261,7 +261,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 ##More information
 For working examples of the **text field** component, see the MDL [text field demo page](www.github.com/google/material-design-lite/src/textfield/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

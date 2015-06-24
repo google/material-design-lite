@@ -151,7 +151,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 ##More information
 For working examples of the **tab** component, see the MDL [tab demo page](www.github.com/google/material-design-lite/src/tabs/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

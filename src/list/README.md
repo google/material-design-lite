@@ -200,7 +200,3 @@ The MDL CSS classes apply various predefined visual enhancements to the list. Th
 
 ##More information
 For working examples of the **list** component, see the MDL [list demo page](www.github.com/google/material-design-lite/src/lists/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

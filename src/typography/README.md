@@ -103,7 +103,3 @@ The MDL CSS classes specify the style to use. The table below lists the availabl
 
 ##More information
 For working examples of the **typography** component, see the MDL [typography demo page](http://google.github.io/material-design-lite/latest/styleguide/typography/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

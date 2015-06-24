@@ -68,7 +68,3 @@ The MDL CSS classes apply various predefined visual enhancements to the badge. T
 
 ##More information
 For working examples of the **badge** component, see the MDL [badge demo page](www.github.com/google/material-design-lite/src/badge/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.
