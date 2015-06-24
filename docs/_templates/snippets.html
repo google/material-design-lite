@@ -27,7 +27,7 @@
                      scale="exactfit"
                      quality="low"
                      wmode="transparent"
-                     FlashVars="text={% filter replace('html') %}{% include snippet_file ignore missing %}{% endfilter %}"/>
+                     FlashVars="text={% filter e('html') %}{% include snippet_file ignore missing %}{% endfilter %}"/>
             </object>
           </button>
         </div>
