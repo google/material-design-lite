@@ -102,16 +102,27 @@ body:not(.about) .docs-layout-header {
 body:not(.about) .docs-layout-title {
   display: none;
 }
+.docs-navigation__container {
+  overflow: hidden;
+  position: relative;
+  height: 64px;
+  width: 100%;
+}
 .docs-navigation {
   box-shadow: none !important;
   border: 0 !important;
   padding: 0 16px;
   width: 100%;
-  height: 64px;
+  height: 85px;
   flex-shrink: 0;
   padding-left: 16px !important;
   overflow-x: auto;
+  overflow-y: hidden;
   user-select: none;
+  margin-bottom: -16px;
+}
+.docs-navigation::-webkit-scrollbar {
+  display: none;
 }
 body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   background-image: none;
@@ -165,6 +176,7 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   display: flex;
   flex-shrink: 0;
   user-select: inherit;
+  height: 64px;
 }
 .docs-navigation .mdl-navigation__link:hover,
 .docs-navigation .mdl-navigation__link.download:hover > span,
