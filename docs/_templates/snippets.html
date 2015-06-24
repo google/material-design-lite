@@ -36,6 +36,6 @@
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup">{% for snippet in snippet_group %}<code id="{{ component_name }}/{{ snippet.file }}">{% filter e('html') %}{% include snippet_file ignore missing %}{% endfilter %}</code>{%- endfor %}</pre>
+    <pre class="language-markup">{% for snippet in snippet_group %}{% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}<code id="{{ component_name }}/{{ snippet.file }}">{% filter e('html') %}{% include snippet_file ignore missing %}{% endfilter %}</code>{%- endfor %}</pre>
   </div>
 </div>
