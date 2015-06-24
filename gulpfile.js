@@ -30,6 +30,7 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
+var hostedLibsUrlPrefix = 'http://code.getmdl.io';
 var bucket_prod = 'gs://www.getmdl.io';
 var bucket_staging = 'gs://mdl-staging';
 var banner = ['/**',
@@ -368,6 +369,7 @@ gulp.task('pages', ['components'], function() {
     .pipe($.marked())
     .pipe(applyTemplate())
     .pipe($.replace('$$version$$', pkg.version))
+    .pipe($.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix))
     /* Replacing code blocks class name to match Prism's. */
     .pipe($.replace('class="lang-', 'class="language-'))
     /* Translate html code blocks to "markup" because that's what Prism uses. */
