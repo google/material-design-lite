@@ -30,6 +30,8 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
+var bucket_prod = 'gs://www.getmdl.io';
+var bucket_staging = 'gs://mdl-staging';
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -433,17 +435,17 @@ gulp.task('serve', ['default'], function() {
     .pipe($.open('', {url: 'http://localhost:5000'}));
 });
 
-gulp.task('publish', function(cb) {
-  runSequence('default',
-    ['templates', 'assets', 'pages', 'demos'],
-    'publish:push',
-    cb);
-});
+// Obsolete publish task for publishing to Github pages.
+//gulp.task('publish', function(cb) {
+  //runSequence('default',
+    //['templates', 'assets', 'pages', 'demos'],
+    //'publish:push',
+    //cb);
+//});
 
 // Push the latest version of runtime resources (CSS+JS) to Google Cloud Storage.
 // Public-read objects in GCS are served by a Google provided and supported
 // global, high performance caching/content delivery network (CDN) service.
-//
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
@@ -455,7 +457,7 @@ gulp.task('publish:runtime', function() {
   // The gsutil -h option is used to set metadata headers (cache control, in this case).
   // For cache control, start with 0s (disable caching during dev),
   // but consider more helpful interval (e.g. 3600s) after launch.
-  var dest = 'gs://materialdesignlite/serve';
+  var dest = bucket_prod + '/serve';
   var info_msg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
   var cache_control = '-h "Cache-Control:public,max-age=0"';
   var gsutil_cp_cmd = 'gsutil -m cp -a public-read <%= file.path %> ' + dest;
@@ -472,32 +474,46 @@ gulp.task('publish:runtime', function() {
     ]));
 });
 
-gulp.task('publish:push', function() {
-  var push = !!process.env.GH_PUSH;
-  if (!push) {
-    console.log('Dry run! To push set $GH_PUSH to true');
+// Obsolete publish task for publishing to Github pages.
+//gulp.task('publish:push', function() {
+  //var push = !!process.env.GH_PUSH;
+  //if (!push) {
+    //console.log('Dry run! To push set $GH_PUSH to true');
+  //}
+
+  //return gulp.src('dist/**/*')
+    //.pipe($.ghPages({
+      //push: push,
+    //}));
+//});
+
+// Function to publish staging or prod version from local tree, 
+// or to promote staging to prod, per passed arg.
+function mdl_publish(pub_scope) {
+  var cache_ttl = null;
+  var src = null;
+  var dest = null;
+  if (pub_scope === 'staging') {
+    // Set staging specific vars here.
+    cache_ttl = 0;
+    dest = bucket_staging;
+  } else if (pub_scope === 'prod') {
+    // Set prod specific vars here.
+    cache_ttl = 3600;
+    dest = bucket_prod;
+  } else if (pub_scope === 'promote') {
+    // Set promote (essentially prod) specific vars here.
+    cache_ttl = 3600;
+    src = bucket_staging + '/*';
+    dest = bucket_prod;
   }
 
-  return gulp.src('dist/**/*')
-    .pipe($.ghPages({
-      push: push,
-    }));
-});
-
-// Push the latest version of the MDL microsite to Google Cloud Storage.
-// Public-read objects in GCS are served by a Google provided and supported
-// global, high performance caching/content delivery network (CDN) service.
-//
-// This task requires gsutil to be installed and configured.
-// For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
-//
-gulp.task('publish:site', function() {
-  // Build dest bucket, cache control, and info message.
-  // For cache control, start with 0s (disable caching during dev),
-  // but consider more helpful interval (e.g. 3600s) after launch.
-  var dest = 'gs://www.getmdl.io';
-  var cache_control = '-h "Cache-Control:public,max-age=0"';
-  var info_msg = 'Publishing ' + pkg.version + ' of MDL site to GCS (' + dest + ')';
+  // Build cache control and info message.
+  var cache_control = '-h "Cache-Control:public,max-age=' + cache_ttl + '"';
+  var info_msg = 'Publishing ' + pub_scope + '/' + pkg.version + ' to GCS (' + dest + ')';
+  if (src) {
+    info_msg += ' from ' + src;
+  }
 
   // Build gsutil commands to recursively sync local distribution tree
   // to the dest bucket and to recursively set permissions to public-read.
@@ -507,9 +523,50 @@ gulp.task('publish:site', function() {
   var gsutil_sync_cmd = 'gsutil -m rsync -d -R dist ' + dest;
   var gsutil_acl_cmd = 'gsutil -m acl set -R public-read ' + dest;
   var gsutil_cache_cmd = 'gsutil -m setmeta ' + cache_control + ' ' + dest + '/**';
+  var gsutil_cp_cmd = 'gsutil -m cp -R ' + src + ' ' + dest;
 
   process.stdout.write(info_msg + '\n');
-  gulp.src('').pipe($.shell([gsutil_sync_cmd, gsutil_acl_cmd, gsutil_cache_cmd]));
+  if (pub_scope === 'promote') {
+    // If promoting, copy staging bucket contents to prod bucket,
+    // and set ACLs and cache control on dest contents.
+    gulp.src('').pipe($.shell([gsutil_cp_cmd, gsutil_acl_cmd, gsutil_cache_cmd]));
+  } else {
+    // If publishing to prod directly, rsync local contents to prod bucket,
+    // and set ACLs and cache control on dest contents.
+    gulp.src('').pipe($.shell([gsutil_sync_cmd, gsutil_acl_cmd, gsutil_cache_cmd]));
+  }
+}
+
+// Push the local build of the MDL microsite and release artifacts to the
+// production Google Cloud Storage bucket for general serving to the web.
+// Public-read objects in GCS are served by a Google provided and supported
+// global, high performance caching/content delivery network (CDN) service.
+// This task requires gsutil to be installed and configured.
+// For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
+//
+gulp.task('publish:prod', function() {
+  mdl_publish('prod');
+});
+
+// Promote the staging version of the MDL microsite and release artifacts
+// to the production Google Cloud Storage bucket for general serving.
+// Public-read objects in GCS are served by a Google provided and supported
+// global, high performance caching/content delivery network (CDN) service.
+// This task requires gsutil to be installed and configured.
+// For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
+//
+gulp.task('publish:promote', function() {
+  mdl_publish('promote');
+});
+
+// Push the staged version of the MDL microsite and release artifacts
+// to a production Google Cloud Storage bucket for staging and pre-production testing.
+//
+// This task requires gsutil to be installed and configured.
+// For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
+//
+gulp.task('publish:staging', function() {
+  mdl_publish('staging');
 });
 
 gulp.task('templates:mdl', function() {
