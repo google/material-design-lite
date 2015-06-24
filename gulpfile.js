@@ -35,6 +35,7 @@ var swig = require('swig');
 var hostedLibsUrlPrefix = 'http://code.getmdl.io';
 var bucket_prod = 'gs://www.getmdl.io';
 var bucket_staging = 'gs://mdl-staging';
+var bucket_code = 'gs://code.getmdl.io';
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -460,28 +461,37 @@ gulp.task('serve', ['default'], function() {
     .pipe($.open('', {url: 'http://localhost:5000'}));
 });
 
-// Push the latest version of runtime resources (CSS+JS) to Google Cloud Storage.
+// Push the latest version of code resources (CSS+JS) to Google Cloud Storage.
 // Public-read objects in GCS are served by a Google provided and supported
 // global, high performance caching/content delivery network (CDN) service.
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
-gulp.task('publish:runtime', function() {
+gulp.task('publish:code', function() {
   // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -a option sets the ACL on each object copied.
   // The gsutil -m option requests parallel copies.
-  // The gsutil -h option is used to set metadata headers (cache control, in this case).
+  // The gsutil -h option is used to set metadata headers
+  // (cache control, in this case).
   // For cache control, start with 0s (disable caching during dev),
   // but consider more helpful interval (e.g. 3600s) after launch.
-  var dest = bucket_prod + '/serve';
+  var dest = bucket_code;
   var info_msg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
   var cache_control = '-h "Cache-Control:public,max-age=0"';
   var gsutil_cp_cmd = 'gsutil -m cp -a public-read <%= file.path %> ' + dest;
   var gsutil_cache_cmd = 'gsutil -m setmeta ' + cache_control + ' ' + dest;
 
   process.stdout.write(info_msg + '\n');
-  return gulp.src('dist/material.*@(js|css)', {read: false})
+  // Build an archive file with the runtime elements.
+  gulp.src('dist/material.*@(js|css)?(.map)')
+    .pipe($.zip('mdl.zip'))
+    .pipe(gulp.dest('dist'));
+  // Upload the goodies to a separate GCS bucket with versioning.
+  // Using a sep bucket avoids the risk of accidentally blowing away
+  // old versions in the microsite bucket.
+  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip'],
+      {read: false})
     .pipe($.tap(function(file, t) {
       file.base = path.basename(file.path);
     }))
