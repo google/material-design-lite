@@ -435,14 +435,6 @@ gulp.task('serve', ['default'], function() {
     .pipe($.open('', {url: 'http://localhost:5000'}));
 });
 
-// Obsolete publish task for publishing to Github pages.
-//gulp.task('publish', function(cb) {
-  //runSequence('default',
-    //['templates', 'assets', 'pages', 'demos'],
-    //'publish:push',
-    //cb);
-//});
-
 // Push the latest version of runtime resources (CSS+JS) to Google Cloud Storage.
 // Public-read objects in GCS are served by a Google provided and supported
 // global, high performance caching/content delivery network (CDN) service.
@@ -473,19 +465,6 @@ gulp.task('publish:runtime', function() {
       gsutil_cache_cmd + '/' + pkg.version + '/<%= file.base %>'
     ]));
 });
-
-// Obsolete publish task for publishing to Github pages.
-//gulp.task('publish:push', function() {
-  //var push = !!process.env.GH_PUSH;
-  //if (!push) {
-    //console.log('Dry run! To push set $GH_PUSH to true');
-  //}
-
-  //return gulp.src('dist/**/*')
-    //.pipe($.ghPages({
-      //push: push,
-    //}));
-//});
 
 // Function to publish staging or prod version from local tree, 
 // or to promote staging to prod, per passed arg.
