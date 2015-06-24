@@ -56,6 +56,13 @@ categories:
     components:
       - name: card
         class: mdl-card
+        snippets:
+          - snippet_group:
+            - caption: Card with shadow
+              file: shadow--2dp.html
+          - snippet_group:
+            - caption: Card with shadow and menu
+              file: shadow--4dp-menu.html
   - name: layout
     title: Layout
     description: Building blocks for constructing a page layout.
