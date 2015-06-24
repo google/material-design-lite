@@ -111,6 +111,7 @@ body:not(.about) .docs-layout-title {
   flex-shrink: 0;
   padding-left: 16px !important;
   overflow-x: auto;
+  user-select: none;
 }
 body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   background-image: none;
@@ -139,6 +140,12 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   display: none;
   margin-right: 0;
   text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+.scrollindicator.scrollindicator.scrollindicator.disabled {
+  opacity: 0.12;
+  cursor: default;
 }
 .scrollindicator.scrollindicator--right {
   right: 0;
@@ -157,6 +164,7 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
 .docs-navigation .mdl-navigation__link {
   display: flex;
   flex-shrink: 0;
+  user-select: inherit;
 }
 .docs-navigation .mdl-navigation__link:hover,
 .docs-navigation .mdl-navigation__link.download:hover > span,
