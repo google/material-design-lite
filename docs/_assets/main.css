@@ -142,7 +142,7 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   width: calc(100% - 2 * 48px);
   padding: 0 !important;
 }
-.scrollindicator.scrollindicator.scrollindicator {
+.docs-layout .scrollindicator {
   position: absolute;
   top: 0;
   line-height: 64px;
@@ -154,14 +154,14 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   cursor: pointer;
   user-select: none;
 }
-.scrollindicator.scrollindicator.scrollindicator.disabled {
+.docs-layout .scrollindicator.disabled {
   opacity: 0.12;
   cursor: default;
 }
-.scrollindicator.scrollindicator--right {
+.docs-layout .scrollindicator.scrollindicator--right {
   right: 0;
 }
-.scrollindicator.scrollindicator--left {
+.docs-layout .scrollindicator.scrollindicator--left {
   left: 0;
 }
 .docs-layout.is-small-screen .scrollindicator.scrollindicator.scrollindicator {
