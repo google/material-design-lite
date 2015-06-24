@@ -359,6 +359,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .template > .template__meta {
   align-content: flex-start;
+  padding-left: 24px;
 }
 .template > .template__meta.template__meta > * {
   margin-bottom: 24px;
