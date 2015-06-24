@@ -25,22 +25,22 @@
   position: relative;
   background: $card-background-color;
   border-radius: 2px;
+  box-sizing: border-box;
 }
 
 .mdl-card__media {
   background-color: $card-image-placeholder-color;
-  @if str_length($card-background-image-url) > 0 {
-  background-image: url($card-background-image-url);
-  }
   background-repeat: repeat;
   background-position: 50% 50%;
   background-size: cover;
   background-origin: padding-box;
   background-attachment: scroll;
+  box-sizing: border-box;
 }
 
 .mdl-card__title {
   align-items: center;
+  color: $card-text-color;
   display: block;
   display: flex;
   justify-content: stretch;
@@ -48,11 +48,16 @@
   padding: $card-vertical-padding $card-horizontal-padding;
   perspective-origin: $card-title-perspective-origin-x $card-title-perspective-origin-y;
   transform-origin: $card-title-transform-origin-x $card-title-transform-origin-y;
+  box-sizing: border-box;
+
+  &.mdl-card--border {
+    border-bottom: 1px solid $card-border-color;
+  }
 }
 
 .mdl-card__title-text {
-  align-self: center;
-  color: black;
+  align-self: flex-end;
+  color: inherit;
   display: block;
   display: flex;
   font-size: $card-title-font-size;
@@ -84,6 +89,11 @@
   width: 100%;
   background-color: rgba(0,0,0,0);
   padding: 8px;
+  box-sizing: border-box;
+
+  &.mdl-card--border {
+    border-top: 1px solid $card-border-color;
+  }
 }
 
 

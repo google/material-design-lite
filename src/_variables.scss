@@ -225,8 +225,10 @@ $input-text-error-color: unquote("rgb(222, 50, 38)") !default;
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
+$card-text-color: unquote("rgb(#{$color-black})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
 $card-supporting-text-text-color: $text-color-primary !default;
+$card-border-color: rgba(0,0,0,0.1) !default;
 
 /* ==========  Sliders ========== */
 
@@ -441,7 +443,7 @@ $card-width: 330px !default;
 $card-height: 200px !default;
 $card-font-size: 16px !default;
 $card-title-font-size: 24px !default;
-$card-horizontal-padding: 8px !default;
+$card-horizontal-padding: 16px !default;
 $card-vertical-padding: 16px !default;
 
 $card-title-perspective-origin-x: 165px !default;
