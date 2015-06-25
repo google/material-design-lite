@@ -56,6 +56,18 @@ categories:
     components:
       - name: card
         class: mdl-card
+        snippets:
+          - snippet_group:
+            - caption: Wide
+              file: wide.html
+          - snippet_group:
+            - caption: Square
+              file: square.html
+          - snippet_group:
+            - caption: Image
+              file: image.html
+            - caption: Event
+              file: event.html
   - name: layout
     title: Layout
     description: Building blocks for constructing a page layout.
