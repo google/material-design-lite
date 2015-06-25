@@ -30,15 +30,15 @@ describe('spinner tests', function () {
   it('Should start a MaterialSpinner successfully', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
-    el.widget.start();
+    el.MaterialSpinner.start();
     expect($(el)).to.have.class('is-active');
   });
 
   it('Should stop a MaterialSpinner successfully', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
-    el.widget.start();
-    el.widget.stop();
+    el.MaterialSpinner.start();
+    el.MaterialSpinner.stop();
     expect($(el)).to.not.have.class('is-active');
   });
 

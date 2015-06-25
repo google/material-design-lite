@@ -108,7 +108,7 @@ var componentHandler = (function() {
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element.widget = instance;
+          element[jsClass] = instance;
         }
       } else {
         throw 'Unable to find a registered component for the given class.';
