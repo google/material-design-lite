@@ -33,9 +33,9 @@ var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
 var hostedLibsUrlPrefix = 'http://code.getmdl.io';
-var bucket_prod = 'gs://www.getmdl.io';
-var bucket_staging = 'gs://mdl-staging';
-var bucket_code = 'gs://code.getmdl.io';
+var bucketProd = 'gs://www.getmdl.io';
+var bucketStaging = 'gs://mdl-staging';
+var bucketCode = 'gs://code.getmdl.io';
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -60,7 +60,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // Lint JavaScript
 gulp.task('jshint', function () {
-  return gulp.src('src/**/*.js')
+  return gulp.src(['src/**/*.js' , 'gulpfile.js'])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
@@ -69,7 +69,7 @@ gulp.task('jshint', function () {
 
 // Lint JavaScript code style
 gulp.task('jscs', function () {
-  return gulp.src('src/**/*.js')
+  return gulp.src(['src/**/*.js' , 'gulpfile.js'])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jscs())
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
@@ -476,13 +476,13 @@ gulp.task('publish:code', function() {
   // (cache control, in this case).
   // For cache control, start with 0s (disable caching during dev),
   // but consider more helpful interval (e.g. 3600s) after launch.
-  var dest = bucket_code;
-  var info_msg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
-  var cache_control = '-h "Cache-Control:public,max-age=0"';
-  var gsutil_cp_cmd = 'gsutil -m cp -a public-read <%= file.path %> ' + dest;
-  var gsutil_cache_cmd = 'gsutil -m setmeta ' + cache_control + ' ' + dest;
+  var dest = bucketCode;
+  var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
+  var cacheControl = '-h "Cache-Control:public,max-age=0"';
+  var gsutilCpCmd = 'gsutil -m cp -a public-read <%= file.path %> ' + dest;
+  var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest;
 
-  process.stdout.write(info_msg + '\n');
+  process.stdout.write(infoMsg + '\n');
   // Build an archive file with the runtime elements.
   gulp.src('dist/material.*@(js|css)?(.map)')
     .pipe($.zip('mdl.zip'))
@@ -496,37 +496,37 @@ gulp.task('publish:code', function() {
       file.base = path.basename(file.path);
     }))
     .pipe($.shell([
-      gsutil_cp_cmd + '/' + pkg.version + '/<%= file.base %>',
-      gsutil_cache_cmd + '/' + pkg.version + '/<%= file.base %>'
+      gsutilCpCmd + '/' + pkg.version + '/<%= file.base %>',
+      gsutilCacheCmd + '/' + pkg.version + '/<%= file.base %>'
     ]));
 });
 
-// Function to publish staging or prod version from local tree, 
+// Function to publish staging or prod version from local tree,
 // or to promote staging to prod, per passed arg.
-function mdl_publish(pub_scope) {
-  var cache_ttl = null;
+function mdlPublish(pubScope) {
+  var cacheTtl = null;
   var src = null;
   var dest = null;
-  if (pub_scope === 'staging') {
+  if (pubScope === 'staging') {
     // Set staging specific vars here.
-    cache_ttl = 0;
-    dest = bucket_staging;
-  } else if (pub_scope === 'prod') {
+    cacheTtl = 0;
+    dest = bucketStaging;
+  } else if (pubScope === 'prod') {
     // Set prod specific vars here.
-    cache_ttl = 3600;
-    dest = bucket_prod;
-  } else if (pub_scope === 'promote') {
+    cacheTtl = 3600;
+    dest = bucketProd;
+  } else if (pubScope === 'promote') {
     // Set promote (essentially prod) specific vars here.
-    cache_ttl = 3600;
-    src = bucket_staging + '/*';
-    dest = bucket_prod;
+    cacheTtl = 3600;
+    src = bucketStaging + '/*';
+    dest = bucketProd;
   }
 
   // Build cache control and info message.
-  var cache_control = '-h "Cache-Control:public,max-age=' + cache_ttl + '"';
-  var info_msg = 'Publishing ' + pub_scope + '/' + pkg.version + ' to GCS (' + dest + ')';
+  var cacheControl = '-h "Cache-Control:public,max-age=' + cacheTtl + '"';
+  var infoMsg = 'Publishing ' + pubScope + '/' + pkg.version + ' to GCS (' + dest + ')';
   if (src) {
-    info_msg += ' from ' + src;
+    infoMsg += ' from ' + src;
   }
 
   // Build gsutil commands to recursively sync local distribution tree
@@ -534,20 +534,20 @@ function mdl_publish(pub_scope) {
   // The gsutil -m option requests parallel copies.
   // The gsutil -R option does recursive acl setting.
   // The gsutil -h option is used to set metadata headers (cache control, in this case).
-  var gsutil_sync_cmd = 'gsutil -m rsync -d -R dist ' + dest;
-  var gsutil_acl_cmd = 'gsutil -m acl set -R public-read ' + dest;
-  var gsutil_cache_cmd = 'gsutil -m setmeta ' + cache_control + ' ' + dest + '/**';
-  var gsutil_cp_cmd = 'gsutil -m cp -R ' + src + ' ' + dest;
+  var gsutilSyncCmd = 'gsutil -m rsync -d -R dist ' + dest;
+  var gsutilAclCmd = 'gsutil -m acl set -R public-read ' + dest;
+  var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest + '/**';
+  var gsutilCpCmd = 'gsutil -m cp -R ' + src + ' ' + dest;
 
-  process.stdout.write(info_msg + '\n');
-  if (pub_scope === 'promote') {
+  process.stdout.write(infoMsg + '\n');
+  if (pubScope === 'promote') {
     // If promoting, copy staging bucket contents to prod bucket,
     // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutil_cp_cmd, gsutil_acl_cmd, gsutil_cache_cmd]));
+    gulp.src('').pipe($.shell([gsutilCpCmd, gsutilAclCmd, gsutilCacheCmd]));
   } else {
     // If publishing to prod directly, rsync local contents to prod bucket,
     // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutil_sync_cmd, gsutil_acl_cmd, gsutil_cache_cmd]));
+    gulp.src('').pipe($.shell([gsutilSyncCmd, gsutilAclCmd, gsutilCacheCmd]));
   }
 }
 
@@ -559,7 +559,7 @@ function mdl_publish(pub_scope) {
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
 gulp.task('publish:prod', function() {
-  mdl_publish('prod');
+  mdlPublish('prod');
 });
 
 // Promote the staging version of the MDL microsite and release artifacts
@@ -570,7 +570,7 @@ gulp.task('publish:prod', function() {
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
 gulp.task('publish:promote', function() {
-  mdl_publish('promote');
+  mdlPublish('promote');
 });
 
 // Push the staged version of the MDL microsite and release artifacts
@@ -580,7 +580,7 @@ gulp.task('publish:promote', function() {
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
 gulp.task('publish:staging', function() {
-  mdl_publish('staging');
+  mdlPublish('staging');
 });
 
 gulp.task('templates:mdl', function() {
