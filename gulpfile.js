@@ -410,7 +410,9 @@ gulp.task('assets', function () {
   return gulp.src([
       'docs/_assets/**/*',
       'node_modules/clippy/build/clippy.swf',
-      'node_modules/swfobject-npm/swfobject/src/swfobject.js'
+      'node_modules/swfobject-npm/swfobject/src/swfobject.js',
+      'node_modules/es5-shim/es5-shim.min.js',
+      'node_modules/es5-shim/es5-sham.min.js'
     ])
     .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
       progressive: true,
@@ -501,7 +503,7 @@ gulp.task('publish:code', function() {
     ]));
 });
 
-// Function to publish staging or prod version from local tree, 
+// Function to publish staging or prod version from local tree,
 // or to promote staging to prod, per passed arg.
 function mdl_publish(pub_scope) {
   var cache_ttl = null;
