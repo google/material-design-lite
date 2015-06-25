@@ -525,6 +525,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   display: table-cell;
   width: 1px;
   text-align: center;
+  vertical-align: middle;
 }
 .snippet-group .snippet-caption {
   font-size: 13px;

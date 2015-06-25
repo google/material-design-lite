@@ -50,6 +50,11 @@ categories:
               file: flat-ripple.html
             - caption: Disabled
               file: flat-disabled.html
+          - snippet_group:
+            - caption: Primary colored flat
+              file: flat-primary.html
+            - caption: Accent colored flat
+              file: flat-accent.html
   - name: cards
     title: Cards
     description: Self-contained pieces of paper with data.
