@@ -7,7 +7,10 @@ html, body {
   padding-left: 40px;
   height: 53px;
 }
-.mdl-demo .mdl-layout__tab-bar-button, .mdl-layout__drawer-button {
+.mdl-demo .mdl-layout__tab-bar-button {
+  display: none;
+}
+.mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__drawer-button {
   display: none;
 }
 .mdl-demo .mdl-layout__tab-bar-container {
@@ -31,7 +34,7 @@ html, body {
   height: 4px;
 }
 .mdl-demo main > .mdl-layout__tab-panel {
-  padding: 0;
+  padding: 8px;
   padding-top: 48px;
   height: 100%;
 }
@@ -136,6 +139,12 @@ html, body {
   height: 100px;
   border-radius: 50px;
   margin: 8px 32px;
+}
+.mdl-demo .is-small-screen section.section--footer .section__circle--big {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 8px 16px;
 }
 .mdl-demo section.section--footer {
   padding: 64px 0;
