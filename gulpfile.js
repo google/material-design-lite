@@ -410,9 +410,7 @@ gulp.task('assets', function () {
   return gulp.src([
       'docs/_assets/**/*',
       'node_modules/clippy/build/clippy.swf',
-      'node_modules/swfobject-npm/swfobject/src/swfobject.js',
-      'node_modules/es5-shim/es5-shim.min.js',
-      'node_modules/es5-shim/es5-sham.min.js'
+      'node_modules/swfobject-npm/swfobject/src/swfobject.js'
     ])
     .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
       progressive: true,
