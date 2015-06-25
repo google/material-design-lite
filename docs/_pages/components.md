@@ -105,6 +105,21 @@ categories:
     components:
       - name: menu
         class: mdl-menu
+        snippets:
+          - snippet_group:
+            - caption: Lower left
+              file: lower-left.html
+              demo_file: lower-left-demo.html
+            - caption: Lower right
+              file: lower-right.html
+              demo_file: lower-right-demo.html
+          - snippet_group:
+            - caption: Top left
+              file: top-left.html
+              demo_file: top-left-demo.html
+            - caption: Top right
+              file: top-right.html
+              demo_file: top-right-demo.html
   - name: sliders
     title: Sliders
     description: Selecting a value out of a range.
