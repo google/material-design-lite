@@ -3,7 +3,11 @@
     <div class="snippet-demos">
       <div class="snippet-demo"></div>
       {% for snippet in snippet_group %}
+        {% if snippet.demo_file %}
+        {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.demo_file %}
+        {% else %}
         {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}
+        {% endif %}
         <div class="snippet-demo">
           <div class="snippet-demo-container">
             {% include snippet_file ignore missing %}
