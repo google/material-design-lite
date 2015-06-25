@@ -412,6 +412,8 @@ gulp.task('assets', function () {
       'node_modules/clippy/build/clippy.swf',
       'node_modules/swfobject-npm/swfobject/src/swfobject.js'
     ])
+    .pipe($.if(/\.js/i, $.replace('$$version$$', pkg.version)))
+    .pipe($.if(/\.js/i, $.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix)))
     .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
       progressive: true,
       interlaced: true
