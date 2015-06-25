@@ -260,11 +260,19 @@
   & .mdl-ripple {
     background: $button-secondary-color-alt;
   }
+  &.mdl-button--raised {
+    color: $button-secondary-color-alt;
+    background-color: $button-primary-color-alt;
+  }
 }
 
 .mdl-button--accent.mdl-button--accent {
   color: $button-fab-color-alt;
   & .mdl-ripple {
     background: $button-fab-text-color-alt;
+  }
+  &.mdl-button--raised {
+    color: $button-fab-text-color-alt;
+    background-color: $button-fab-color-alt;
   }
 }
