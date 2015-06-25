@@ -17,6 +17,8 @@
 @import "../variables";
 
 .mdl-card {
+  display: flex;
+  flex-direction: column;
   font-size: $card-font-size;
   min-height: $card-height;
   overflow: hidden;
@@ -96,9 +98,13 @@
   }
 }
 
+.mdl-card--expand {
+  flex-grow: 1;
+}
+
 
 .mdl-card__menu {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 16px;
+  top: 16px;
 }
