@@ -27,17 +27,18 @@ header.mdl-layout__header {
 
 .demo-container {
   max-width: 1600px;
-  width: 100%;
+  width: calc(100% - 16px);
   margin: 0 auto;
 }
 
 .demo-content {
   border-radius: 2px;
-  padding-left: 80px;
-  padding-top: 56px;
-  padding-right: 80px;
-  padding-bottom: 40px;
+  padding: 80px 56px;
   margin-bottom: 80px;
+}
+
+.is-small-screen .demo-content {
+  padding: 40px 28px;
 }
 
 .demo-content h3 {
