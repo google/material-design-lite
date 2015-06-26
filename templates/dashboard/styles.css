@@ -25,6 +25,12 @@ html, body {
   overflow: visible;
   width: 256px;
 }
+.demo-layout .mdl-layout__header .mdl-layout__drawer-button {
+  color: rgba(0, 0, 0, 0.54);
+}
+.demo-layout .mdl-layout__header .mdl-layout__header-row {
+  padding-left: 40px;
+}
 .mdl-layout__drawer .avatar {
   margin-bottom: 16px;
 }
