@@ -22,6 +22,16 @@
   border: $data-table-dividers;
   border-collapse: collapse;
   white-space: nowrap;
+  font-size: 13px;
+  background-color: unquote("rgb(#{$color-white})");
+
+  thead {
+    padding-bottom: 3px;
+
+    .mdl-data-table__select {
+      margin-top: 0;
+    }
+  }
 
   tbody {
     tr {
@@ -29,10 +39,6 @@
       height: $data-table-row-height;
       @include material-animation-default(0.28s);
       transition-property: background-color;
-
-      &:last-of-type {
-        height: $data-table-last-row-height;
-      }
 
       &.is-selected {
         background-color: $data-table-selection-color;
@@ -78,7 +84,6 @@
     position: relative;
     vertical-align: bottom;
     text-overflow: ellipsis;
-    height: $data-table-header-height;
     @include typo-body-2();
     font-size: 12px;
     color: $data-table-header-color;
