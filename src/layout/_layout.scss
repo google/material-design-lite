@@ -41,10 +41,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-
-  & > * {
-    flex-shrink: 0;
-  }
 }
 
 // Utility classes for screen sizes.
