@@ -5,7 +5,7 @@ function init() {
   'use strict';
 
   var wheel = document.querySelector('#wheel > svg');
-  var cdn = document.querySelector('.mdl-gen__cdn code');
+  var cdn = document.querySelector('.mdl-gen__cdn .mdl-gen__cdn-link');
   new MaterialCustomizer(wheel, cdn);
 }
 
