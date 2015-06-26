@@ -669,8 +669,11 @@ body:not(.about) .mdl-navigation__link.download > button {
 .docs-layout pre[class*=language-markup] {
   padding-right: 0;
 }
-.docs-layout pre[class*=language-markup].codepen-button-disabled:not code {
+.docs-layout pre[class*=language-markup] code {
   padding-right: 50px;
+}
+.docs-layout pre[class*=language-markup].codepen-button-disabled code {
+  padding-right: 16px;
 }
 .codepen-button-disabled .codepen-button {
   display: none;
