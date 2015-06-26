@@ -10,6 +10,17 @@ categories:
     components:
       - name: badge
         class: mdl-badge
+        snippets:
+          - snippet_group:
+            - caption: Number
+              file: badge-on-icon-text.html
+            - caption: Icon
+              file: badge-on-icon-icon.html
+          - snippet_group:
+            - caption: Number
+              file: badge-on-text-text.html
+            - caption: Icon
+              file: badge-on-text-icon.html
   - name: buttons
     title: Buttons
     description: Variations on Material Design buttons.
