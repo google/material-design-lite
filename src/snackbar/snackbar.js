@@ -97,12 +97,11 @@ MaterialSnackbar.prototype.init = function() {
   this.setDefaults_();
   this.messageArea_ = this.element_.querySelector('.' + this.cssClasses.message);
   this.action_ = this.element_.querySelector('.' + this.cssClasses.action);
-  this.element_.mdlSnackbar = this;
 };
 
 componentHandler.register({
   constructor: MaterialSnackbar,
   classAsString: 'MaterialSnackbar',
   cssClass: 'mdl-js-snackbar',
-  widget: false
+  widget: true
 });
