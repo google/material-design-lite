@@ -109,10 +109,12 @@
   width: 100%;
   box-sizing: border-box;
 }
-.mdl-gen__cdn .demo-code code {
-  visibility: hidden;
+.mdl-gen__cdn .demo-code .mdl-gen__cdn-link{
+  display: none;
 }
-
-.mdl-gen__cdn .demo-code code.visible {
-  visibility: visible;
+.mdl-gen__cdn .demo-code .visible {
+  display: block;
+}
+.mdl-gen__cdn .demo-code .visible + .mdl-gen__placeholder {
+  display: none;
 }
