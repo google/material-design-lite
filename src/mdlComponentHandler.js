@@ -161,7 +161,7 @@ var componentHandler = (function() {
    * component type
    * @param {string} jsClass The class name of the MDL component we wish
    * to hook into for any upgrades performed.
-   * @param {function} callback The function to call upon an upgrade. This
+   * @param {!Function} callback The function to call upon an upgrade. This
    * function should expect 1 parameter - the HTMLElement which got upgraded.
    */
   function registerUpgradedCallbackInternal(jsClass, callback) {
