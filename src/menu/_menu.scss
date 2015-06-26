@@ -25,7 +25,11 @@
   overflow: visible;
   height: 0;
   width: 0;
-  z-index: 999;
+  z-index: -1;
+
+  &.is-visible {
+    z-index: 999;
+  }
 }
 
 .mdl-menu__outline {
@@ -46,11 +50,12 @@
   will-change: transform;
   transition: transform $menu-expand-duration $animation-curve-default,
       opacity $menu-fade-duration $animation-curve-default;
-  z-index: 999;
+  z-index: -1;
 
   .mdl-menu__container.is-visible & {
     opacity: 1;
     transform: scale(1);
+    z-index: 999;
   }
 
   &.mdl-menu--bottom-right {
@@ -78,10 +83,11 @@
   margin: 0;
   opacity: 0;
   clip: rect(0 0 0 0);
-  z-index: 999;
+  z-index: -1;
 
   .mdl-menu__container.is-visible & {
     opacity: 1;
+    z-index: 999;
   }
 
   &.is-animating {
