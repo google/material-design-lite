@@ -69,14 +69,14 @@ MaterialSnackbar.prototype.createSnackbar = function() {
     this.actionElement_ = document.createElement('button');
     this.actionElement_.type = 'button';
     this.actionElement_.classList.add(this.cssClasses.action);
-    this.actionElement_.innerText = this.actionText_;
+    this.actionElement_.textContent = this.actionText_;
     this.snackbarElement_.appendChild(this.actionElement_);
     this.actionElement_.addEventListener('click', this.actionHandler_);
   }
 
   this.element_.appendChild(this.snackbarElement_);
 
-  this.textElement_.innerText = this.message_;
+  this.textElement_.textContent = this.message_;
   this.snackbarElement_.classList.add(this.cssClasses.activeSnackbar);
   this.snackbarElement_.setAttribute('aria-hidden', false);
   setTimeout(this.cleanup.bind(this), this.timeout_);
@@ -132,7 +132,7 @@ MaterialSnackbar.prototype.cleanup = function() {
   this.snackbarElement_.classList.remove(this.cssClasses.activeSnackbar);
   this.snackbarElement_.setAttribute('aria-hidden', true);
   if (this.actionElement_) {
-    this.actionElement_.innerText = '';
+    this.actionElement_.textContent = '';
     this.actionElement_.removeEventListener('click', this.actionHandler_);
   }
   this.setDefaults_();
