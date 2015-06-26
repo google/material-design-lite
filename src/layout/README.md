@@ -1,278 +1,330 @@
-## Basic Example
+##Introduction
+The Material Design Lite (MDL) **layout** component is a comprehensive approach to page layout that uses MDL development tenets, allows for efficient use of MDL components, and automatically adapts to different browsers, screen sizes, and devices.
 
+Appropriate and accessible layout is a critical feature of all user interfaces, regardless of a site's content or function. Page design and presentation is therefore an important factor in the overall user experience. See the layout component's [Material Design specifications page](http://www.google.com/design/spec/layout/principles.html) for details.
+
+Use of MDL layout principles simplifies the creation of scalable pages by providing reusable components and encourages consistency across environments by establishing recognizable visual elements, adhering to logical structural grids, and maintaining appropriate spacing across multiple platforms and screen sizes. MDL layout is extremely powerful and dynamic, allowing for great consistency in outward appearance and behavior while maintaining development flexibility and ease of use.
+
+##Basic use
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
+
+###To include a basic MDL **layout** component:
+
+&nbsp;1. Code a `<div>` element. This is the "outer" div that holds the entire layout. Add MDL classes as indicated, separated by spaces, to the div using the `class` attribute.
 ```html
-<div class="mdl-layout">
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+</div>
+```
+
+&nbsp;2. Inside the div, code a `<header>` element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the `class` attribute.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
   <header class="mdl-layout__header">
+  </header>
+</div>
+```
+
+&nbsp;3. Inside the header, add a `<div>` to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+  </header>
+</div>
+```
+
+&nbsp;4. Still inside the header, add another `<div>` to hold the header row's content, and include the MDL class as indicated.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">Material Design Lite</span>
-      <!-- Add spacer, to align navigation to the right -->
+    </div>
+  </header>
+</div>
+```
+
+&nbsp;5. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Simple Layout</span>
+    </div>
+  </header>
+</div>
+```
+
+&nbsp;6. Following the span, add a `<div>` to align the header's navigation links to the right, and include the MDL class as indicated.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Simple Layout</span>
       <div class="mdl-layout-spacer"></div>
-      <!-- Navigation -->
+    </div>
+  </header>
+</div>
+```
+
+&nbsp;7. Following the spacer div, add a `<nav>` element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor `<a>` element for each header link, and include the MDL class as indicated. This completes the layout's header.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Simple Layout</span>
+      <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Hello</a>
-        (...)
+        <a class="mdl-navigation__link" href="#">Nav link 1</a>
+        <a class="mdl-navigation__link" href="#">Nav link 2</a>
+        <a class="mdl-navigation__link" href="#">Nav link 3</a>
+      </nav>
+    </div>
+  </header>
+</div>
+```
+
+&nbsp;8. Following the header, add a `<div>` element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Simple Layout</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">Nav link 1</a>
+        <a class="mdl-navigation__link" href="#">Nav link 2</a>
+        <a class="mdl-navigation__link" href="#">Nav link 3</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+  </div>
+</div>
+```
+
+&nbsp;9. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Simple Layout</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">Nav link 1</a>
+        <a class="mdl-navigation__link" href="#">Nav link 2</a>
+        <a class="mdl-navigation__link" href="#">Nav link 3</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Simple Layout</span>
+  </div>
+</div>
+```
+
+&nbsp;10. Following the span, add a `<nav>` element to contain the drawer's navigation links, and one anchor `<a>` element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Simple Layout</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">Nav link 1</a>
+        <a class="mdl-navigation__link" href="#">Nav link 2</a>
+        <a class="mdl-navigation__link" href="#">Nav link 3</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Simple Layout</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#">Nav link 2</a>
+      <a class="mdl-navigation__link" href="#">Nav link 2</a>
+      <a class="mdl-navigation__link" href="#">Nav link 3</a>
+    </nav>
+  </div>
+</div>
+```
+
+&nbsp;11. Finally, following the drawer div, add a `<main>` element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Simple Layout</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">Nav link 1</a>
+        <a class="mdl-navigation__link" href="#">Nav link 2</a>
+        <a class="mdl-navigation__link" href="#">Nav link 3</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Simple Layout</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#">Nav link 2</a>
+      <a class="mdl-navigation__link" href="#">Nav link 2</a>
+      <a class="mdl-navigation__link" href="#">Nav link 3</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <p>Content</p>
+    <p>Goes</p>
+    <p>Here</p>
+  </main>
+</div>
+```
+
+The layout component is ready for use.
+
+####Examples
+A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Material Design Lite</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">Hello</a>
+        <a class="mdl-navigation__link" href="#">World.</a>
+        <a class="mdl-navigation__link" href="#">How</a>
+        <a class="mdl-navigation__link" href="#">Are</a>
+        <a class="mdl-navigation__link" href="#">You?</a>
       </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Material Design Lite</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Hello</a>
-      (...)
+      <a class="mdl-navigation__link" href="#">Hello</a>
+      <a class="mdl-navigation__link" href="#">World.</a>
+      <a class="mdl-navigation__link" href="#">How</a>
+      <a class="mdl-navigation__link" href="#">Are</a>
+      <a class="mdl-navigation__link" href="#">You?</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
-    <div class="demo-content"></div>
+    <div>Content</div>
   </main>
 </div>
 ```
 
-## Layout
-
-The container element.
-
-### Options
-
-- `mdl-layout--fixed-header`:
-  By default, headers are only shown in larger screens. Using this option makes them visible in smaller screens as well.
-
-- `mdl-layout--fixed-drawer`:
-  By default, drawers are only shown in smaller screens. Using this option makes them always visible and open in larger screens, effectively functioning as side navigation. They still open and close normally in smaller screens, to save screen real estate.
-
-- `mdl-layout--overlay-drawer-button`:
-  By default, the drawer button pushes down the content, to avoid overlapping issues. You can use this option if you'd like to overlay the drawer button directly on top of the content.
-
-### State
-
-- `is-small-screen`:
-  Utility class that gets added to the layout when in a small screen size.
-
-
-## mdl-layout__header
-
-The header element (optional). By default, it's only shown in large screens.
-
-### Options
-
-- `mdl-layout__header--transparent`:
-  Makes the background transparent, instead of the default main palette color.
-
-- `mdl-layout__header--seamed`:
-  By default, the header casts a shadow onto the content. This option removes the shadow altogether.
-
-- `mdl-layout__header--waterfall`:
-  By default, the header casts a shadow onto the content. This option removes the shadow when the page is at the top of the content, and only shows the shadow if the user has scrolled down.
-
-- `mdl-layout__header--scroll`:
-  By default, the header stays fixed at the top. This option makes it scroll with the content, so it's only visible at the top of the page.
-
-### State
-
-- `is-compact`:
-  Utility class that gets added to the header when in waterfall mode the user has scrolled down, and thus the header has collapsed to a single row.
-
-
-### Sub-elements
-
--  `mdl-layout__header-row`:
-  Used inside the header for adding a new row. Headers need at least one of these. Example:
-
-  ```html
-  <header class="mdl-layout__header mdl-layout__header--tall">
-    <div class="mdl-layout__header-row">
-      <span>Upper row</span>
-    </div>
-    <div class="mdl-layout__header-row">
-      <span>Middle row</span>
-    </div>
-    <div class="mdl-layout__header-row">
-      <span>Bottom row</span>
-    </div>
-  </header>
-  ```
-
-## mdl-layout__drawer
-
-The drawer element (optional). By default, it's only shown in small screens, as a collapsible panel.
-
-### Options
-
-None.
-
-### State
-
-- `is-visible`:
-  This class is added to the drawer when it is currently visible.
-
-
-## mdl-layout__tab-bar
-
-Tabs (optional). Used for tabbing the entire layout. Tabs live inside the header.
-
-### Example
-
+The same layout with a non-fixed header that scrolls with the content.
 ```html
-  <div class="demo-container">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <!-- Icon -->
-        <img class="mdl-layout-icon" src="images/app-icon.png"/>
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">Material Design Lite</span>
-        </div>
-        <!-- Tab bar -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-          <a href="#blue-panel" class="mdl-layout__tab is-active">Blue</a>
-          <a href="#green-panel" class="mdl-layout__tab">Green</a>
-          <a href="#red-panel" class="mdl-layout__tab">Red</a>
-        </div>
-      </header>
-      <main class="mdl-layout__content">
-        <!-- Panels -->
-        <div class="mdl-layout__tab-panel is-active" id="blue-panel">
-          (...)
-        </div>
-        <div class="mdl-layout__tab-panel" id="green-panel">
-          (...)
-        </div>
-        <div class="mdl-layout__tab-panel" id="red-panel">
-          (...)
-        </div>
-      </main>
-    </div>
-  </div>
-```
-
-### Options
-
-- `mdl-js-layout`:
-  Applied to tabs' parent (header), makes the header collapse when scrolled.
-
-- `mdl-layout--fixed-tabs`:
-  Uses fixed tabs, rather than the default scrollable tabs.
-
-### State
-
-- `is-active`:
-  Used in tabs and panels to indicate which are active (i.e., selected/displayed).
-
-
-### Sub-elements
-
--  `mdl-layout__tab-bar`:
-  Container element for the various tabs.
-
--  `mdl-layout__tab`:
-  An individual tab. Should contain the tab title (or icon).
-
--  `mdl-layout__tab-panel`:
-  An individual panel of tabbed content. Linked to the corresponding tab via its ID.
-
-
-## mdl-layout__content
-
-Your content goes here :)
-
-
-## Other options
-
-- `mdl-layout--large-screen-only`:
-  Displays the element in large screens, and hides it in small screens. Example:
-  ```html
-  <header class="mdl-layout__header">
+<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout--large-screen-only">
-        Some long text that only fits in larger screens.
-      </span>
-      <span class="mdl-layout--small-screen-only">Short text</span>
-    </div>
-  </header>
-  ```
-
-- `mdl-layout--small-screen-only`:
-  Displays the element in small screens, and hides it in large screens.
-
-
-- `mdl-layout-spacer`:
-  Used to align elements inside a header or drawer. This is a class set to flex
-  grow, so you can use it to align elements to the right in a header, for
-  example:
-  ```html
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <span>Left-aligned text</span>
+      <span class="mdl-layout-title">Material Design Lite</span>
       <div class="mdl-layout-spacer"></div>
-      <span>Right-aligned text</span>
-    </div>
-  </header>
-  ```
-  or to the center:
-  ```html
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
-      <span>Center-aligned text</span>
-      <div class="mdl-layout-spacer"></div>
-    </div>
-  </header>
-  ```
-  You can also use it to align to bottom in a drawer:
-  ```html
-  <div class="mdl-layout__drawer">
-    <div class="mdl-layout__header-row">
-      <span>Top-aligned text</span>
-      <div class="mdl-layout-spacer"></div>
-      <span>Bottom-aligned text</span>
-    </div>
-  </div>
-  ```
-
-- `mdl-layout-icon`:
-  Styles an image to serve as the application icon.
-  ```html
-  <header class="mdl-layout__header">
-    <img class="mdl-layout-icon" src="app-icon.svg">My Awesome Site</div>
-    <div class="mdl-layout__header-row">...</div>
-  </header>
-  ```
-
-- `mdl-layout-title`:
-  Styles the text inside to look like a title (slightly different styling
-  depending on container).
-  ```html
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-title">My Awesome Site</div>
-    </div>
-  </header>
-  ```
-  ```html
-  <div class="mdl-layout__drawer">
-    <div class="mdl-layout-title">My Awesome Site</div>
-  </div>
-  ```
-
-- `mdl-navigation` and `mdl-navigation__link`:
-  Used to place a navigation section and navigation links, respectively. They're
-  styled differently depending on whether they're placed in the header or the
-  drawer.
-  ```html
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Hello</a>
-        (...)
+        <a class="mdl-navigation__link" href="#">Hello</a>
+        <a class="mdl-navigation__link" href="#">World.</a>
+        <a class="mdl-navigation__link" href="#">How</a>
+        <a class="mdl-navigation__link" href="#">Are</a>
+        <a class="mdl-navigation__link" href="#">You?</a>
       </nav>
     </div>
   </header>
-  ```
-  ```html
   <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Material Design Lite</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Hello</a>
-      (...)
+      <a class="mdl-navigation__link" href="#">Hello</a>
+      <a class="mdl-navigation__link" href="#">World.</a>
+      <a class="mdl-navigation__link" href="#">How</a>
+      <a class="mdl-navigation__link" href="#">Are</a>
+      <a class="mdl-navigation__link" href="#">You?</a>
     </nav>
   </div>
-  ```
+  <main class="mdl-layout__content">
+    <div>Content</div>
+  </main>
+</div>
+```
+
+A layout with a fixed drawer that serves as sidebar navigation on larger screens. The drawer collapses and the menu icon is displayed on larger screens.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Fixed drawer layout demo</span>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Material Design Lite</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#">Hello</a>
+      <a class="mdl-navigation__link" href="#">World.</a>
+      <a class="mdl-navigation__link" href="#">How</a>
+      <a class="mdl-navigation__link" href="#">Are</a>
+      <a class="mdl-navigation__link" href="#">You?</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div>Content</div>
+  </main>
+</div>
+```
+
+A layout with a fixed drawer but no header.
+```html
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Material Design Lite</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#">Hello</a>
+      <a class="mdl-navigation__link" href="#">World.</a>
+      <a class="mdl-navigation__link" href="#">How</a>
+      <a class="mdl-navigation__link" href="#">Are</a>
+      <a class="mdl-navigation__link" href="#">You?</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div>Content</div>
+  </main>
+</div>
+```
+
+##Configuration options
+The MDL CSS classes apply various predefined visual and behavioral enhancements to the layout. The table below lists the available classes and their effects.
+
+| MDL class | Effect | Remarks |
+|-----------|--------|---------|
+| `mdl-layout` | Defines container as an MDL component | Required on outer div element |
+| `mdl-js-layout` | Assigns basic MDL behavior to layout | Required on outer div element |
+| `mdl-layout--overlay-drawer-button` | Defines layout as having a button-activated drawer | Required on outer div element |
+| `mdl-layout__header` | Defines container as an MDL component | Required on header element |
+| `mdl-layout-icon` | Produces MDL menu icon | Required on icon div |
+| `mdl-layout__header-row` | Defines container as MDL header row | Required on header content div |
+| `mdl-layout-title` | Defines layout title text | Required on layout title span |
+| `mdl-layout-spacer` | Right-aligns layout header links | Goes on optional div following layout title |
+| `mdl-navigation` | Defines container as MDL navigation group | Required on nav element |
+| `mdl-navigation__link` | Defines anchor as MDL navigation link | Required on header and/or drawer anchor elements |
+| `mdl-layout__drawer` | Defines container as MDL layout drawer | Required on drawer div element |
+| `mdl-layout__content` | Defines container as MDL layout content | Required on main element |
+| `mdl-layout__header--scroll` | Defines header row as scrollable | Optional; goes on header element |
+| `mdl-layout--fixed-drawer` | Defines layout drawer as fixed | Optional; goes on outer div element (not drawer div element) |
+| `mdl-layout--fixed-header` | Defines header as fixed even on smaller screens | Optional; goes on outer div element |
+| `mdl-layout--large-screen-only` | Hides header navigation on smaller screens | Optional; goes on header nav element |
+| `mdl-layout__header--waterfall` | Allows a "waterfall" effect with multiple header lines | Optional; goes on header element |
+| `mdl-layout__header--transparent` | Makes header transparent (draws on top of layout background) | Optional; goes on header element |
+| `mdl-layout__tab-bar` | Defines container as an MDL tab bar | Required on div element inside header (tabbed layout) |
+| `mdl-layout__tab` | Defines anchor as MDL tab link | Required on tab bar anchor elements |
+| `is-active` | Defines tab as default active tab | Optional; goes on tab bar anchor element and associated tab section element|
+| `mdl-layout__tab-panel` | Defines container as tab content panel | Required on tab section elements |
+| `mdl-layout--fixed-tabs` | Defines MDL tab bar as fixed | Optional; goes on outer div element (not div inside header) |
+
+##More information
+For working examples of the **layout** component, see the MDL [layout demo page](www.github.com/google/material-design-lite/src/layout/demo.html).
