@@ -68,15 +68,14 @@ bower install --save material-design-lite
 
 ## Icons
 
-Material Design Lite uses the official [Material Icons font](https://www.google.com/design/icons/). We recommend you include it in your
-pages by doing:
+Material Design Lite uses the official [Material Icons font](https://www.google.com/design/icons/). We recommend you include it using:
 
 ```
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 ```
 
-but you can check for other options on the [Developer's Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web).
+You can check for other options on the [Developer's Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web).
 
 All of the demos and templates in this project use the preferred ligature syntax:
 
@@ -84,7 +83,7 @@ All of the demos and templates in this project use the preferred ligature syntax
 <i class="material-icons">face</i>
 ```
 
-but if you need to support older browsers, take a look at the [Developer's Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web) for
+If you need to support older browsers, take a look at the [Developer's Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web) for
 how to use codepoints instead, as well as the [list of supported codepoints](https://github.com/google/material-design-icons/blob/master/iconfont/codepoints).
 
 
