@@ -4,6 +4,9 @@ title: Components
 bodyclass: components
 include_prefix: ../
 categories:
+  - name: index 
+    components:
+      - name: index  
   - name: badges
     title: Badges
     description: Small status descriptors for UI elements.

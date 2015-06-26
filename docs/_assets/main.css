@@ -278,7 +278,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 .about-panel--text dl dt {
   text-align: right;
   vertical-align: top;
-  width: 160px;
+  display: inline-table;
   margin-right: 24px;
   line-height: 2em;
 }
