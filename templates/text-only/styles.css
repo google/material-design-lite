@@ -7,6 +7,15 @@ html, body {
   padding-left: 40px;
   height: 53px;
 }
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__tab-bar-container {
+  display: none;
+}
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row {
+  padding-left: 60px;
+}
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
+  font-size: inherit;
+}
 .mdl-demo .mdl-layout__tab-bar-button {
   display: none;
 }
