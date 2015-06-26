@@ -8,89 +8,53 @@ Snackbars may also be used as a **toast** component. A toast may not be removed 
 
 ## Usage
 
-&nbsp;1a. Code a `<div>` element. This must be a direct child of the `<body>` element.
+&nbsp;1. Add the `mdl-js-snackbar` class to the body.
 
 ```html
-<body>
-  <div>
-  </div>
+<body class="mdl-js-snackbar">
 </body>
 ```
 
-&nbsp;1b. Add the snackbar class to the div.
+&nbsp;2. Use JavaScript to trigger a snackbar.
 
-```html
-<body>
-  <div class="mdl-snackbar">
-  </div>
-</body>
-```
-
-&nbsp;2a. Inside the snackbar element, provide a `<div>` for the text and a `<button>` for the action.
-
-```html
-<body>
-  <div class="mdl-snackbar">
-    <div>
-    </div>
-    <button>
-    </button>
-  </div>
-</body>
-```
-
-&nbsp;2b. Add the classes for the text and action.
-
-```html
-<body>
-  <div class="mdl-snackbar">
-    <div class="mdl-snackbar__text">
-    </div>
-    <button class="mdl-snackbar__action">
-    </button>
-  </div>
-</body>
-```
-&nbsp;3. Provide the text content and action text.
-
-```html
-<body>
-  <div class="mdl-snackbar">
-    <div class="mdl-snackbar__text">
-      Message sent.
-    </div>
-    <button class="mdl-snackbar__action">
-      Undo
-    </button>
-  </div>
-</body>
+```JavaScript
+var data = {
+  message: 'Message Sent'
+};
+document.body.MaterialSnackbar.showSnackbar(data);
 ```
 
 ## Examples
 
-A snackbar with a form to undo an message being sent.
-```html
-<div class="mdl-snackbar">
-  <div class="mdl-snackbar__text">
-    Message sent.
-  </div>
-  <form method="POST" action="undo-message-send" accept-charset="utf-8">
-    <input type="hidden" name="message-id" value="1">
-    <button class="mdl-snackbar__action">
-      Undo
-    </button>
-  </form>
-</div>
+### Snackbar
+
+```JavaScript
+var data = {
+  message: 'Message Sent',
+  actionHandler: function(event) {},
+  actionText: 'Undo',
+  timeout: 10000
+};
+document.body.MaterialSnackbar.showSnackbar(data);
 ```
 
-A snackbar without an action, called a Toast.
-```html
-<div class="mdl-snackbar">
-  <div class="mdl-snackbar__text">
-    Message sent.
-  </div>
-</div>
+### Toast
+
+```JavaScript
+document.body.MaterialSnackbar.showSnackbar({message: 'Image Uploaded'});
 ```
+
+## Data Object
+
+The Snackbar components `showSnackbar` method takes an object for snackbar data.
+The table below shows the properties and their usage.
+
+| Property | Effect | Remarks | Type |
+|-----------|--------|---------|---------|
+| message   | The text message to display. | Required | String |
+| timeout   | The amount of time in milliseconds to show the snackbar. | Optional (default 8000) | Integer |
+| actionHandler | The function to execute when the action is clicked. | Optional | Function |
+| actionText | The text to display for the action button. | Required if actionHandler is set |  String. |
 
 ## More information
 For working examples of the **snackbar** component, see the MDL [snackbar demo page](www.github.com/google/material-design-lite/src/snackbar/demo.html).
