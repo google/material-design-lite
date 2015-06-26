@@ -68,7 +68,3 @@ The MDL CSS classes apply various predefined visual enhancements to the tooltip.
 
 ##More information
 For working examples of the **tooltip** component, see the MDL [tooltip demo page](www.github.com/google/material-design-lite/src/tooltip/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

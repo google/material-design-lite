@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,14 +18,10 @@
     <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
     <script src="{{page.include_prefix}}material.min.js"></script>
 
-    {% set demo_css = "../../src/" + page.component + "/demo.css" %}
+    {% set demo_css = "../../dist/components/" + page.component + "/demo.css" %}
     <style>
       {% include demo_css ignore missing %}
     </style>
-    {% set demo_js = "../../src/" + page.component + "/demo.js" %}
-    <script>
-      {% include demo_js ignore missing %}
-    </script>
 
   </head>
   <body>
@@ -35,8 +31,11 @@
         {{content|safe}}
       {% endblock %}
     </div>
-    <!-- Enable Prism syntax highlighting -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
     <!-- Built with love using Material Design Lite -->
+
+    {% set demo_js = "../../dist/components/" + page.component + "/demo.js" %}
+    <script>
+      {% include demo_js ignore missing %}
+    </script>
   </body>
 </html>

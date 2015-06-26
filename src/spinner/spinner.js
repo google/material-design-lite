@@ -1,4 +1,5 @@
 /**
+ * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +20,7 @@
  * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
+ * @constructor
  */
 function MaterialSpinner(element) {
   'use strict';

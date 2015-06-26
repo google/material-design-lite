@@ -77,9 +77,9 @@ $color-light-contrast: $color-black !default;
 
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
-$color-primary: $palette-blue-grey-800 !default;
-$color-primary-dark: $palette-blue-grey-900 !default;
-$color-accent: $palette-cyan-600 !default;
+$color-primary: $palette-indigo-500 !default;
+$color-primary-dark: $palette-indigo-700 !default;
+$color-accent: $palette-pink-A200 !default;
 
 // Our primary is dark, so use $color-dark-contrast for overlaid text.
 $color-primary-contrast: $color-dark-contrast !default;
@@ -225,8 +225,10 @@ $input-text-error-color: unquote("rgb(222, 50, 38)") !default;
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
+$card-text-color: unquote("rgb(#{$color-black})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
 $card-supporting-text-text-color: $text-color-primary !default;
+$card-border-color: rgba(0,0,0,0.1) !default;
 
 /* ==========  Sliders ========== */
 
@@ -263,7 +265,7 @@ $default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
 /* ==========  Tooltips  ========== */
 
 $tooltip-text-color: unquote("rgb(#{$color-white})") !default;
-$tooltip-background-color: unquote("rgba(#{$color-black}, 0.9)") !default;
+$tooltip-background-color: unquote("rgba(#{$palette-grey-700}, 0.9)") !default;
 
 /* ==========  Footer  ========== */
 
@@ -441,7 +443,7 @@ $card-width: 330px !default;
 $card-height: 200px !default;
 $card-font-size: 16px !default;
 $card-title-font-size: 24px !default;
-$card-horizontal-padding: 8px !default;
+$card-horizontal-padding: 16px !default;
 $card-vertical-padding: 16px !default;
 
 $card-title-perspective-origin-x: 165px !default;

@@ -3,9 +3,10 @@ html, body {
   padding: 0;
 }
 
-.ribbon {
+.demo-ribbon {
   width: 100%;
   height: 40vh;
+  background-color: #3F51B5;
 }
 
 .mdl-layout > * {
@@ -20,13 +21,32 @@ header.mdl-layout__header {
   display: flex !important;
 }
 
-.container {
+.mdl-layout__header-row {
+  padding-left: 40px;
+}
+
+.demo-container {
   max-width: 1600px;
-  width: 100%;
+  width: calc(100% - 16px);
   margin: 0 auto;
 }
 
-.content {
+.demo-content {
   border-radius: 2px;
-  padding: 24px;
+  padding: 80px 56px;
+  margin-bottom: 80px;
+}
+
+.is-small-screen .demo-content {
+  padding: 40px 28px;
+}
+
+.demo-content h3 {
+  margin-top: 48px;
+}
+.mdl-mini-footer {
+  padding-left: 40px;
+}
+.mdl-mini-footer .mdl-mini-footer--link-list a {
+  font-size: 13px;
 }

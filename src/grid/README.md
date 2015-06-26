@@ -115,7 +115,3 @@ The MDL CSS classes apply various predefined visual enhancements and behavioral 
 
 ##More information
 For working examples of the **grid** component, see the MDL [grid demo page](www.github.com/google/material-design-lite/src/grid/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

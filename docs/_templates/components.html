@@ -2,44 +2,89 @@
 
 {% block content %}
 <link href="{{page.include_prefix}}assets/components.css" rel="stylesheet">
+<script src="{{page.include_prefix}}assets/swfobject.js"></script>
+<script src="{{page.include_prefix}}assets/snippets.js"></script>
 <script src="{{page.include_prefix}}assets/components.js"></script>
 <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
 
-<div class="mdl-components mdl-js-components">
-  <aside class="mdl-components__nav">
+<div class="mdl-components mdl-js-components mdl-cell mdl-cell--12-col">
+  <aside class="mdl-components__nav docs-text-styling">
     {% for category in page.categories %}
-    <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }} {% if loop.first %}is-active{%- endif %}">
+    <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }}">
       <div class="mdl-components__link-image"
            style="background-image: url('{{page.include_prefix}}assets/comp_{{ category.name }}.png')">
       </div>&nbsp;
       <span class="mdl-components__link-text">{{ category.title }}</span>
     </a>
+    {% if loop.first %}
+      <script>
+        if (window.location.hash == null || window.location.hash == "" || window.location.hash == "#") {
+          var link = document.getElementsByClassName("mdl-components__link")[0];
+          link.className = link.className + " is-active";
+        }
+      </script>
+    {%- endif %}
     {%- endfor %}
   </aside>
   <main class="mdl-components__pages">
     {% for category in page.categories -%}
-    <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid mdl-cell mdl-cell--12-col {% if loop.first %}is-active{%- endif %}">
+    <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-typography--display-3">{{ category.title }}</div>
-        <p>{{ category.description }}</p>
-        <br><br>
+        <div class="docs-text-styling component-title">
+          <div class="mdl-typography--display-2">{{ category.title }}</div>
+          <p>{{ category.description }}</p>
+        </div>
+
+        {% if category.components.length > 1 %}
+          <section class="docs-toc docs-text-styling">
+            <h3>Elements</h3>
+            <nav class="section-content">
+              <ul>
+                {% for component in category.components %}
+                  <li><a href="#{{ category.name }}-section/{{ component.name }}">{{ component.caption }}</a></li>
+                {%- endfor %}
+              </ul>
+            </nav>
+          </section>
+        {%- endif %}
+
         {% for component in category.components %}
-          {% set demo_css = "../../src/" + component.name + "/demo.css" %}
+          {% if component.caption %}
+            <span class="docs-text-styling">
+              <h1 class="mdl-components__classname" id="{{ category.name }}-section/{{ component.name }}">{{ component.caption }}</h1>
+            </span>
+          {%- endif %}
+          <!-- Generating snippets -->
+          {% for snippet_group in component.snippets %}
+            {% set snippet_group["component_name"] = component.name %}
+            {% include "./snippets.html" with snippet_group only %}
+          {%- endfor %}
+          <!-- Adding the demo page -->
+        {% set demo_css = "../../dist/components/" + component.name + "/demo.css" %}
           <style>
             {% include demo_css ignore missing %}
           </style>
-          {% set demo_js = "../../src/" + component.name + "/demo.js" %}
+          {% set demo_js = "../../dist/components/" + component.name + "/demo.js" %}
           <script>
             {% include demo_js ignore missing %}
           </script>
-          <h1 class="mdl-components__classname">{{ component.class }}</h1>
           {% set demo = "../../src/" + component.name + "/demo.html" %}
           {% include demo ignore missing %}
-          {% set doc = "../../dist/components/" + component.name + "/index.html" %}
-          {% include doc ignore missing %}
+          <span class="docs-text-styling">
+            {% set doc = "../../dist/components/" + component.name + "/index.html" %}
+            {% include doc ignore missing %}
+          </span>
         {%- endfor %}
       </div>
     </section>
+    {% if loop.first %}
+    <script>
+      if (window.location.hash == null || window.location.hash == "" || window.location.hash == "#") {
+        var page = document.getElementsByClassName("mdl-components__page")[0];
+        page.className = page.className + " is-active";
+      }
+    </script>
+    {%- endif %}
     {%- endfor %}
 </main>
 </div>

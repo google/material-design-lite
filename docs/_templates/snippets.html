@@ -1,0 +1,46 @@
+<div class="snippet-group">
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo"></div>
+      {% for snippet in snippet_group %}
+        {% if snippet.demo_file %}
+        {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.demo_file %}
+        {% else %}
+        {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}
+        {% endif %}
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            {% include snippet_file ignore missing %}
+          </div>
+        </div>
+      {%- endfor %}
+      <div class="snippet-demo"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption"></div>
+      {% for snippet in snippet_group %}
+        {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#{{ component_name }}/{{ snippet.file }}">
+            <i class="material-icons copy">content_copy</i> {{ snippet.caption }}
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text={% filter e('html') %}{% include snippet_file ignore missing %}{% endfilter %}"/>
+            </object>
+          </button>
+        </div>
+      {%- endfor %}
+      <div class="snippet-caption"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup">{% for snippet in snippet_group %}{% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}<code id="{{ component_name }}/{{ snippet.file }}">{% filter e('html') %}{% include snippet_file ignore missing %}{% endfilter %}</code>{%- endfor %}</pre>
+  </div>
+</div>

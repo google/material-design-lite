@@ -1,4 +1,5 @@
 /**
+ * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -101,13 +102,13 @@ var componentHandler = (function() {
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        registeredClass.callbacks.forEach(function (callback) {
+        registeredClass.callbacks.forEach(function(callback) {
           callback(element);
         });
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element.widget = instance;
+          element[jsClass] = instance;
         }
       } else {
         throw 'Unable to find a registered component for the given class.';
@@ -142,8 +143,10 @@ var componentHandler = (function() {
       }
     });
 
-    if (config.constructor.prototype.hasOwnProperty(componentConfigProperty_)) {
-      throw 'MDL component classes must not have ' + componentConfigProperty_ + ' defined as a property.';
+    if (config.constructor.prototype
+        .hasOwnProperty(componentConfigProperty_)) {
+      throw 'MDL component classes must not have ' + componentConfigProperty_ +
+          ' defined as a property.';
     }
 
     var found = findRegisteredClass_(config.classAsString, newConfig);
@@ -181,8 +184,8 @@ var componentHandler = (function() {
   /**
    * Finds a created component by a given DOM node.
    *
-   * @param node
-   * @returns {*}
+   * @param {!Element} node
+   * @return {*}
    */
   function findCreatedComponentByNodeInternal(node) {
     for (var n = 0; n < createdComponents_.length; n++) {
@@ -198,20 +201,23 @@ var componentHandler = (function() {
    * Execute if found.
    * Remove component from createdComponents list.
    *
-   * @param component
+   * @param {*} component
    */
   function deconstructComponentInternal(component) {
     if (component &&
-      component[componentConfigProperty_]
-      .classConstructor.prototype
-      .hasOwnProperty(downgradeMethod_)) {
+        component[componentConfigProperty_]
+          .classConstructor.prototype
+          .hasOwnProperty(downgradeMethod_)) {
       component[downgradeMethod_]();
       var componentIndex = createdComponents_.indexOf(component);
       createdComponents_.splice(componentIndex, 1);
+
       var upgrades = component.element_.dataset.upgraded.split(',');
-      var componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+      var componentPlace = upgrades.indexOf(
+          component[componentConfigProperty_].classAsString);
       upgrades.splice(componentPlace, 1);
       component.element_.dataset.upgraded = upgrades.join(',');
+
       var ev = document.createEvent('Events');
       ev.initEvent('mdl-componentdowngraded', true, true);
       component.element_.dispatchEvent(ev);
@@ -221,7 +227,7 @@ var componentHandler = (function() {
   /**
    * Downgrade either a given node, an array of nodes, or a NodeList.
    *
-   * @param nodes
+   * @param {*} nodes
    */
   function downgradeNodesInternal(nodes) {
     var downgradeNode = function(node) {
@@ -265,6 +271,6 @@ window.addEventListener('load', function() {
     componentHandler.upgradeAllRegistered();
   } else {
     componentHandler.upgradeElement =
-        componentHandler.register = function () { };
+        componentHandler.register = function() {};
   }
 });

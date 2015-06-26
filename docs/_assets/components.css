@@ -41,6 +41,15 @@
   min-height: 1000px;
 }
 
+.mdl-components .docs-toc {
+  margin-bottom: 60px;
+}
+
+.mdl-components .component-title {
+  margin-bottom: 60px;
+  margin-top: 30px;
+}
+
 .mdl-components .mdl-components__page.is-active {
   display: block;
 }
@@ -104,13 +113,4 @@
     overflow-y: auto;
     height: 100%;
   }
-}
-
-/* Remove ugly LF characters from prism */
-.token.cr:before {
-	content: '' !important;
-}
-
-.token.lf:before {
-  content: '' !important;
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,33 +60,38 @@
           </div>
         </div>
       </div>
-      <nav class="docs-navigation mdl-navigation mdl-js-ripple-effect">
-        <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
-        <a href="{{page.include_prefix}}templates" class="mdl-navigation__link templates">Templates</a>
-        <a href="{{page.include_prefix}}components" class="mdl-navigation__link components">Components</a>
-        <a href="{{page.include_prefix}}styles" class="mdl-navigation__link styles">Styles</a>
-        <a href="{{page.include_prefix}}customize" class="mdl-navigation__link customize">Customize</a>
-        <div class="mdl-layout-spacer"></div>
-        <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link"><span class="mdl-icon mdl-icon--link"></span>GitHub</a>
-        <a href="#" class="download">
-          Download
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
-            <i class="material-icons">file_download</i>
-          </button>
-        </a>
-      </nav>
+      <div class="docs-navigation__container">
+        <nav class="docs-navigation mdl-navigation">
+          <a href="{{page.include_prefix}}" class="mdl-navigation__link about">About</a>
+          <a href="{{page.include_prefix}}started/index.html" class="mdl-navigation__link started">Getting Started</a>
+          <a href="{{page.include_prefix}}templates/index.html" class="mdl-navigation__link templates">Templates</a>
+          <a href="{{page.include_prefix}}components/index.html" class="mdl-navigation__link components">Components</a>
+          <a href="{{page.include_prefix}}styles/index.html" class="mdl-navigation__link styles">Styles</a>
+          <a href="{{page.include_prefix}}customize/index.html" class="mdl-navigation__link customize">Customize</a>
+          <div class="spacer"></div>
+          <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link mdl-navigation__link--icon github"><i class="material-icons">link</i><span>GitHub</span></a>
+          <a href="#" class="mdl-navigation__link mdl-navigation__link--icon download">
+            <i class="material-icons">file_download</i><span>Download</span>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
+              <i class="material-icons">file_download</i>
+            </button>
+          </a>
+        </nav>
+      </div>
+      <i class="material-icons scrollindicator scrollindicator--right">keyboard_arrow_right</i>
+      <i class="material-icons scrollindicator scrollindicator--left">keyboard_arrow_left</i>
     </header>
-    <div class="subpageheader">{{page.title}}</div>
     <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
       <div class="content mdl-grid mdl-grid--no-spacing">
+        <div class="subpageheader mdl-cell--12-col">{{page.title}}</div>
         {% block content %}
           {{content|safe}}
         {% endblock %}
       </div>
-      <section class="download mdl-color--grey-800">
+      <section class="docs-text-styling download mdl-color--grey-800">
         <a href="#" class="mdl-color-text--grey-50">Download Kit</a>
       </section>
-      <footer class="docs-footer mdl-mini-footer mdl-color--grey-900">
+      <footer class="docs-text-styling docs-footer mdl-mini-footer mdl-color--grey-900">
         <ul>
           <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
           <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>
@@ -100,8 +105,9 @@
       </footer>
     </main>
   </div>
-
-
+  <div class="docs-wip-banner" style="display: none;">
+    This is a <em>preview</em> of Material Design Lite. It is still very much work-in-progress. We are launching soon!
+  </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -112,8 +118,11 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
     </script>
-    <!-- Enable Prism syntax highlighting -->=
+    <!-- Add Copy-to-CodePen buttons to code blocks -->
+    <script src="{{page.include_prefix}}assets/codepen.js"></script>
+    <!-- Enable Prism syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <script src="{{page.include_prefix}}assets/main.js"></script>
     <!-- Built with love using Material Design Lite -->
   </body>
 </html>

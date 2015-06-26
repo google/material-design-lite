@@ -53,7 +53,3 @@ The MDL CSS classes apply various predefined visual shadows to the element. The 
 
 ##More information
 For working examples of the **shadow** effect, see the MDL [shadow demo page](www.github.com/google/material-design-lite/src/shadow/demo.html). Also see the MDL [card demo page](www.github.com/google/material-design-lite/src/card/demo.html).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

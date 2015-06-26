@@ -15,12 +15,12 @@ header.mdl-layout__header {
 }
 main.mdl-layout__content {
   padding: 0;
-}
-main.mdl-layout__content {
   display: flex;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+  flex-shrink: 0;
+  overflow: visible;
 }
 .mdl-layout__container {
   overflow: visible;
@@ -33,7 +33,7 @@ main.mdl-layout__content {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  min-height: 460px;
+  min-height: 360px;
 }
 .mdl-card__title {
   padding: 16px;
@@ -47,6 +47,7 @@ main.mdl-layout__content {
   flex-grow: 1;
   flex-direction: row;
   align-items: flex-end;
+  cursor: pointer;
 }
 .mdl-card__media a,
 .mdl-card__title a {
@@ -56,14 +57,28 @@ main.mdl-layout__content {
   width: auto;
   flex-grow: 1;
   color: rgba(0, 0, 0, 0.87);
+  padding: 16px !important;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
 }
 .mdl-card__title ~ .mdl-card__supporting-text {
   flex-grow: 0;
 }
 .mdl-card__media ~ .mdl-card__supporting-text {
   flex-grow: 0;
+  min-height: 64px;
 }
-
+.mdl-card__supporting-text:not(:last-child) {
+  box-sizing: border-box;
+  min-height: 76px;
+}
+.mdl-card__supporting-text ~ .mdl-card__supporting-text {
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+.mdl-card__supporting-text:last-child {
+  padding: 0px 16px !important;
+}
 .mdl-card__supporting-text ~ .mdl-card__actions {
   border-top: 1px solid #CCC;
 }
@@ -77,13 +92,9 @@ main.mdl-layout__content {
   padding: 16px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center !important;
   justify-content: flex-start;
   height: auto;
-}
-.meta .logo {
-  width: 32px;
-  heigth: 32px;
 }
 .meta > .spacer ~ div {
   flex-direction: row;
@@ -113,10 +124,19 @@ main.mdl-layout__content {
   justify-content: center;
   align-items: center;
 }
+.something-else > button {
+  position: absolute;
+  top: 0;
+  right: 28px;
+  transform: translate(0px, -28px);
+}
 .something-else .mdl-card__media img {
   width: 33%;
   height: 33;
   margin-bottom: 10px;
+}
+.something-else .mdl-card__supporting-text {
+  background-color: #F5F5F5;
 }
 .on-the-road-again .mdl-card__media {
   background-image: url('images/road.jpg');
@@ -130,11 +150,25 @@ main > nav {
   margin: 12px 15px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 30vh;
+  padding: 0 !important;
+  padding-bottom: 30vh !important;
 }
-
+main > nav > div {
+  color: white;
+  cursor: pointer;
+}
+main > nav button {
+  color: black !important;
+  background-color: white !important;
+}
+main > nav > div:first-child button {
+  margin-right: 16px;
+}
+main > nav > div:last-child button {
+  margin-left: 16px;
+}
 ul.social {
   display: flex;
   flex-direction: row;
@@ -163,10 +197,13 @@ h3.quote:before {
 h3.quote:after {
   content: '”';
 }
-
+.blogpost .custom-header {
+  background-color: transparent;
+}
 .blogpost main > .mdl-card {
   width: 100%;
   height: auto;
+  margin-top: 230px;
 }
 .blogpost main > .mdl-card > .mdl-card__actions {
   box-sizing: border-box;
@@ -180,6 +217,7 @@ h3.quote:after {
 }
 .blogpost main > .mdl-card .mdl-card__media {
   background-image: url('images/road_big.jpg');
+  height: 280px;
 }
 .blogpost main .mdl-card__actions {
   border: 0 !important;
@@ -191,12 +229,27 @@ h3.quote:after {
 .blogpost main > nav > div:last-child {
   text-align: right;
 }
+.blogpost .meta > div {
+  align-items: center;
+}
+.blogpost .meta + .mdl-card__supporting-text {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+.blogpost .meta + .mdl-card__supporting-text p {
+  max-width: 512px;
+  margin: 16px auto;
+  font-size: 16px;
+  line-height: 28px;
+}
 
-.comments {
+.comments.comments.comments {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  padding: 32px !important;
 }
 .comments > form {
   display: flex;
@@ -205,7 +258,18 @@ h3.quote:after {
 }
 .comments > form .mdl-textfield {
   flex-grow: 1;
-  margin-right: 32px;
+  margin-right: 16px;
+}
+.comments > form .mdl-textfield input,
+.comments > form .mdl-textfield textarea{
+  resize: none;
+}
+.comments > form button {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+.comments > form button .material-icons {
+  color: white;
 }
 .comments .comment {
   display: flex;
@@ -238,20 +302,42 @@ h3.quote:after {
   justify-content: flex-start;
   align-items: center;
   font-size: 0.8em;
+  margin-top: 16px;
 }
 .comments .comment > .comment__actions button {
   margin-right: 16px;
+  color: rgba(0, 0, 0, 0.24);
 }
 .comments .comment > .comment__answers {
   padding-top: 32px;
   padding-left: 48px;
 }
 
+body .demo-back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: white;
+}
 .spacer {
   flex-grow: 1;
 }
 .something-else {
   overflow: visible;
+}
+
+.amazing .mdl-card__title {
+  background-color: #263238;
+}
+.minilogo {
+  width: 44px;
+  height: 44px;
+  background-image: url('images/logo.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border-radius: 22px;
+  background-color: #F5F5F5;
 }
 
 /* Fixes for IE 10 */

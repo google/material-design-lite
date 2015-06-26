@@ -1,4 +1,5 @@
 /**
+ * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -110,8 +111,8 @@ MaterialButton.prototype.init = function() {
 };
 
 /**
-* Downgrade the element.
-*/
+ * Downgrade the element.
+ */
 MaterialButton.prototype.mdlDowngrade_ = function() {
   'use strict';
   if (this.rippleElement_) {

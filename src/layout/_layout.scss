@@ -32,11 +32,6 @@
   margin: 0;
 }
 
-.mdl-navigation__link:hover {
-  background-color: $layout-nav-color;
-}
-
-
 // Main layout class.
 .mdl-layout {
   width: 100%;
@@ -349,10 +344,6 @@
         color: $layout-header-text-color;
         line-height: $layout-header-desktop-row-height;
         padding: 0 $layout-header-desktop-indent;
-
-        &:hover {
-          background-color: $layout-header-nav-hover-color;
-        }
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           line-height: $layout-header-mobile-row-height;

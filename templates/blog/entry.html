@@ -46,30 +46,18 @@
   </head>
   <body class="blogpost">
     <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">The Newist</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-            </div>
-          </div>
-        </div>
-      </header>
+      <div class="demo-back">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="index.html">
+          <i class="material-icons">arrow_back</i>
+        </a>
+      </div>
       <main class="mdl-layout__content mdl-grid">
-
         <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
           <div class="mdl-card__media mdl-color-text--grey-50">
             <h3>On the road again</h3>
           </div>
           <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-            <img src="images/logo.svg" class="logo">
+            <div class="minilogo"></div>
             <div>
               <strong>The Newist</strong>
               <span>2 days ago</span>
@@ -96,7 +84,7 @@
                 <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
                 <label for="comment" class="mdl-textfield__label">Join the discussion</label>
               </div>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--primary-dark mdl-color-text--grey-50">
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                 <i class="material-icons">check</i>
               </button>
             </form>
@@ -119,7 +107,7 @@
                   <i class="material-icons">thumb_down</i>
                 </button>
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                  <i class="material-icons">replay</i>
+                  <i class="material-icons">share</i>
                 </button>
               </nav>
               <div class="comment__answers">
@@ -134,7 +122,7 @@
                   <div class="comment__text">
                     Yep, agree!
                   </div>
-                  <nav>
+                  <nav class="comment__actions">
                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                       <i class="material-icons">thumb_up</i>
                     </button>
@@ -142,7 +130,7 @@
                       <i class="material-icons">thumb_down</i>
                     </button>
                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                      <i class="material-icons">replay</i>
+                      <i class="material-icons">share</i>
                     </button>
                   </nav>
                 </div>
@@ -151,15 +139,14 @@
           </div>
         </div>
 
-        <nav class="mdl-color-text--grey-50 mdl-cell mdl-cell--12-col mdl-grid">
-          <div class="mdl-cell mdl-cell--2-col">
+        <nav class="mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+          <div>
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
               <i class="material-icons">arrow_back</i>
             </button>
             Newer
           </div>
-          <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--4-col-tablet mdl-cell--hide-phone"></div>
-          <div class="mdl-cell mdl-cell--2-col">
+          <div>
             Older
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
               <i class="material-icons">arrow_forward</i>

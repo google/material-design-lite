@@ -4,5 +4,7 @@ $color-primary-dark: $palette-blue-grey-900;
 $color-accent: $palette-cyan-600;
 $color-primary-contrast: $color-dark-contrast;
 $color-accent-contrast: $color-dark-contrast;
+$grid-desktop-gutter: 32px;
+
 
 @import '../../src/material-design-lite';

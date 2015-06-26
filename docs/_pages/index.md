@@ -4,38 +4,38 @@ bodyclass: about
 include_prefix: ./
 ---
 <!-- TODO: Try to separate markup and content -->
-<section class="about-panel about-panel--text mdl-cell mdl-cell--12-col">
-	<dl>
-		<dt>Material Design Lite</dt>
-		<dd>
-			Material Design Lite lets you add a [Material Design](http://google.com/design/spec) look and feel to your static content websites. It doesn’t rely on any JavaScript frameworks and aims to optimise for cross-device use, gracefully degrade in older browsers and offer an experience that is accessible from the get-go.
-		</dd>
-	</dl>
+<section class="docs-text-styling about-panel about-panel--text mdl-cell mdl-cell--12-col">
+  <dl>
+    <dt>Material Design Lite</dt>
+    <dd>
+      Material Design Lite lets you add a [Material Design](http://google.com/design/spec) look and feel to your websites. It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, and offer an experience that is immediately accessible. [Get started now](../started).
+    </dd>
+  </dl>
 </section>
 
 <section class="about-panel about-panel--templates mdl-cell mdl-cell--12-col" data-target="templates">
-	Templates
+  Templates
 </section>
 
-<section class="about-panel about-panel--text mdl-cell mdl-cell--12-col">
-	<p>
-		Esse dolor ullamco ipsum enim aliquip minim. Sunt ullamco excepteur laboris nulla sunt. Consequat labore irure sint cillum aute labore est cupidatat eu. Culpa sint do non amet quis quis fugiat laboris sit sint id Lorem. Dolor adipisicing eu nostrud eiusmod sint consequat enim est velit et non mollit minim.
-	</p>
+<section class="docs-text-styling about-panel about-panel--text mdl-cell mdl-cell--12-col">
+  <p>
+    The MDL components are created with CSS, JavaScript, and HTML. You can use the components to construct web pages and web apps that are attractive, consistent, and functional. Pages developed with MDL will adhere to modern web design principles like browser portability, device independence, and graceful degradation.
+  </p>
 </section>
 
-<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="components">
-	Components
+<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="components">
+  Components
 </section>
-<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col" data-target="styles">
-	Styles
+<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="styles">
+  Styles
 </section>
 <section class="about-panel about-panel--customize mdl-color-text--white mdl-cell mdl-cell--12-col" data-target="customize">
-	Customize
+  Customize
 </section>
 
-<section class="about-panel about-panel--text mdl-cell--12-col">
-	<p>
-		Cillum magna sit ea exercitation excepteur enim pariatur ex deserunt. Deserunt aute nisi in laboris anim proident sunt enim pariatur quis. Aliqua anim voluptate veniam ad eiusmod ullamco deserunt. Laborum duis proident ipsum ex velit sint sint veniam amet eu Lorem. Nostrud adipisicing consequat deserunt magna consectetur pariatur culpa qui do. Ex dolor incididunt laborum ex ea non ea incididunt labore laboris minim consequat cillum. Proident nisi pariatur amet velit exercitation Lorem officia irure occaecat in deserunt. Tempor enim culpa do eu ipsum consequat irure amet officia.
-	</p>
+<section class="docs-text-styling about-panel about-panel--text mdl-cell mdl-cell--12-col">
+  <p>
+    The MDL component library includes new versions of common user interface controls such as buttons, check boxes, and text fields, adapted to follow Material Design concepts. The library also includes enhanced and specialized features like cards, column layouts, sliders, spinners, tabs, typography, and more. MDL is free to download and use, and may be used with or without any library or development environment (such as [Material Design Lite](https://developers.google.com/web/starter-kit/)). It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, portable, and &mdash; most importantly &mdash; usable web pages.
+  </p>
 </section>
 <script src="assets/index.js" async></script>

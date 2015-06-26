@@ -27,7 +27,6 @@
   height: $button-height;
   min-width: $button-min-width;
   padding: 0 $button-padding;
-  margin: 0 $button-margin;
   display: inline-block;
   @include typo-button();
   overflow: hidden;
@@ -257,17 +256,23 @@
 // Colorized buttons
 
 .mdl-button--primary.mdl-button--primary {
-  background-color: $button-primary-color-alt;
-  color: $button-secondary-color-alt;
+  color: $button-primary-color-alt;
   & .mdl-ripple {
     background: $button-secondary-color-alt;
+  }
+  &.mdl-button--raised {
+    color: $button-secondary-color-alt;
+    background-color: $button-primary-color-alt;
   }
 }
 
 .mdl-button--accent.mdl-button--accent {
-  background-color: $button-fab-color-alt;
-  color: $button-fab-text-color-alt;
+  color: $button-fab-color-alt;
   & .mdl-ripple {
     background: $button-fab-text-color-alt;
+  }
+  &.mdl-button--raised {
+    color: $button-fab-text-color-alt;
+    background-color: $button-fab-color-alt;
   }
 }

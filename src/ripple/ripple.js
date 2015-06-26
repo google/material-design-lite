@@ -1,4 +1,5 @@
 /**
+ * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -64,6 +65,16 @@ MaterialRipple.prototype.CssClasses_ = {
  */
 MaterialRipple.prototype.downHandler_ = function(event) {
   'use strict';
+
+  if (!this.rippleElement_.style.width && !this.rippleElement_.style.height) {
+    var rect = this.element_.getBoundingClientRect();
+    this.boundHeight = rect.height;
+    this.boundWidth = rect.width;
+    this.rippleSize_ = Math.sqrt(rect.width * rect.width +
+        rect.height * rect.height) * 2 + 2;
+    this.rippleElement_.style.width = this.rippleSize_ + 'px';
+    this.rippleElement_.style.height = this.rippleSize_ + 'px';
+  }
 
   this.rippleElement_.classList.add(this.CssClasses_.IS_VISIBLE);
 
@@ -134,14 +145,6 @@ MaterialRipple.prototype.init = function() {
       // mouse down after a touch start.
       this.ignoringMouseDown_ = false;
 
-      if (this.rippleElement_) {
-        var bound = this.element_.getBoundingClientRect();
-        this.rippleSize_ = Math.sqrt(bound.width * bound.width +
-            bound.height * bound.height) * 2 + 2;
-        this.rippleElement_.style.width = this.rippleSize_ + 'px';
-        this.rippleElement_.style.height = this.rippleSize_ + 'px';
-      }
-
       this.boundDownHandler = this.downHandler_.bind(this);
       this.element_.addEventListener('mousedown',
         this.boundDownHandler);
@@ -185,8 +188,8 @@ MaterialRipple.prototype.init = function() {
             scale = this.Constant_.FINAL_SCALE;
             size = this.rippleSize_ + 'px';
             if (recentering) {
-              offset = 'translate(' + bound.width / 2 + 'px, ' +
-                bound.height / 2 + 'px)';
+              offset = 'translate(' + this.boundWidth / 2 + 'px, ' +
+                this.boundHeight / 2 + 'px)';
             }
           }
 

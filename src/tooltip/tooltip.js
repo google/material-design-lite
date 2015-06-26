@@ -1,4 +1,5 @@
 /**
+ * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -95,6 +96,8 @@ MaterialTooltip.prototype.init = function() {
       this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
       this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler,
           false);
+      this.forElement_.addEventListener('click', this.boundMouseEnterHandler,
+          false);
       this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler);
     }
   }
@@ -107,6 +110,7 @@ MaterialTooltip.prototype.mdlDowngrade_ = function() {
   'use strict';
   if (this.forElement_) {
     this.forElement_.removeEventListener('mouseenter', this.boundMouseEnterHandler, false);
+    this.forElement_.removeEventListener('click', this.boundMouseEnterHandler, false);
     this.forElement_.removeEventListener('mouseleave', this.boundMouseLeaveHandler);
   }
 };
