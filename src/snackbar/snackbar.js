@@ -18,21 +18,23 @@ function MaterialSnackbar(element) {
   'use strict';
 
   this.element_ = element;
-
+  this.active = false;
   this.init();
 
 }
 
 MaterialSnackbar.prototype.defaults = {
-  timeout: 5000,
-  actionText: 'Undo'
+  timeout: 8000
 };
 
 MaterialSnackbar.prototype.cssClasses = {
+  snackbar: 'mdl-snackbar',
   message: 'mdl-snackbar__text',
   action: 'mdl-snackbar__action',
   activeSnackbar: 'is-active'
 };
+
+MaterialSnackbar.prototype.queuedNotifications = [];
 
 MaterialSnackbar.prototype.setMessage = function(text) {
   'use strict';
@@ -54,49 +56,101 @@ MaterialSnackbar.prototype.setActionHandler = function(handler) {
   this.actionHandler_ = handler;
 };
 
-MaterialSnackbar.prototype.showSnackbar = function() {
+MaterialSnackbar.prototype.createSnackbar = function() {
   'use strict';
-  if (this.actionHandler_ === undefined) {
-    this.action_.hidden = true;
-  } else {
-    this.action_.innerText = this.actionText_;
-    this.action_.addEventListener('click', this.actionHandler_);
+  this.snackbarElement_ = document.createElement('div');
+  this.textElement_ = document.createElement('div');
+  this.snackbarElement_.classList.add(this.cssClasses.snackbar);
+  this.textElement_.classList.add(this.cssClasses.message);
+  this.snackbarElement_.appendChild(this.textElement_);
+  this.snackbarElement_.setAttribute('aria-hidden', true);
+
+  if (this.actionHandler_) {
+    this.actionElement_ = document.createElement('button');
+    this.actionElement_.type = 'button';
+    this.actionElement_.classList.add(this.cssClasses.action);
+    this.actionElement_.innerText = this.actionText_;
+    this.snackbarElement_.appendChild(this.actionElement_);
+    this.actionElement_.addEventListener('click', this.actionHandler_);
   }
-  this.messageArea_.innerText = this.message_;
-  this.element_.classList.add(this.cssClasses.activeSnackbar);
+
+  this.element_.appendChild(this.snackbarElement_);
+
+  this.textElement_.innerText = this.message_;
+  this.snackbarElement_.classList.add(this.cssClasses.activeSnackbar);
+  this.snackbarElement_.setAttribute('aria-hidden', false);
   setTimeout(this.cleanup.bind(this), this.timeout_);
+
+};
+
+MaterialSnackbar.prototype.removeSnackbar = function() {
+  'use strict';
+  if (this.actionElement_) {
+    this.actionElement_.remove();
+  }
+  this.textElement_.remove();
+  this.snackbarElement_.remove();
+};
+
+MaterialSnackbar.prototype.showSnackbar = function(data) {
+  'use strict';
+  if (data.message === undefined) {
+    throw 'Please provide a message to be displayed.';
+  }
+  if (data.actionHandler && !data.actionText) {
+    throw  'Please provide action text with the handler.';
+  }
+  if (this.active) {
+    this.queuedNotifications.push(data);
+  } else {
+    this.active = true;
+    this.message_ = data.message;
+    if (data.timeout) {
+      this.timeout_ = data.timeout;
+    } else {
+      this.timeout_ = this.defaults.timeout;
+    }
+    if (data.actionHandler) {
+      this.actionHandler_ = data.actionHandler;
+    }
+    if (data.actionText) {
+      this.actionText_ = data.actionText;
+    }
+    this.createSnackbar();
+  }
+};
+
+MaterialSnackbar.prototype.checkQueue = function() {
+  'use strict';
+  if (this.queuedNotifications.length > 0) {
+    this.showSnackbar(this.queuedNotifications.shift());
+  }
 };
 
 MaterialSnackbar.prototype.cleanup = function() {
   'use strict';
-  this.element_.classList.remove(this.cssClasses.activeSnackbar);
-  if (this.action_.hidden) {
-    this.action_.removeAttribute('hidden');
-  } else {
-    this.action_.innerText = '';
-    this.action_.removeEventListener('click', this.actionHandler_);
+  this.snackbarElement_.classList.remove(this.cssClasses.activeSnackbar);
+  this.snackbarElement_.setAttribute('aria-hidden', true);
+  if (this.actionElement_) {
+    this.actionElement_.innerText = '';
+    this.actionElement_.removeEventListener('click', this.actionHandler_);
   }
-  this.messageArea_.innerText = '';
   this.setDefaults_();
+  this.active = false;
+  this.removeSnackbar();
+  this.checkQueue();
 };
 
 MaterialSnackbar.prototype.setDefaults_ = function() {
   'use strict';
-  this.timeout_ = this.element_.hasAttribute('data-timeout') ?
-    this.element_.getAttribute('data-timeout') :
-    this.defaults.timeout;
-  this.actionText_ = this.element_.hasAttribute('data-action-text') ?
-    this.element_.getAttribute('data-action-text') :
-    this.defaults.actionText;
   this.actionHandler_ = undefined;
   this.message_ = undefined;
+  this.actionText_ = undefined;
 };
 
 MaterialSnackbar.prototype.init = function() {
   'use strict';
   this.setDefaults_();
-  this.messageArea_ = this.element_.querySelector('.' + this.cssClasses.message);
-  this.action_ = this.element_.querySelector('.' + this.cssClasses.action);
 };
 
 componentHandler.register({

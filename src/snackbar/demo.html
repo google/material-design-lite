@@ -1,30 +1,31 @@
 <div class="demo-preview-block">
 <button id="show-toast" type="button">Show Toast</button>
 <button id="show-snackbar" type="button">Show Snackbar</button>
-  <div class="mdl-snackbar mdl-js-snackbar">
-    <div class="mdl-snackbar__text">
-    </div>
-    <button class="mdl-snackbar__action">
-    </button>
-  </div>
 </div>
+<div class="mdl-js-snackbar"></div>
 <script>
   'use strict';
-  var snackbar = document.querySelector('.mdl-snackbar'),
+  window['counter'] = 0;
+  var snackbarContainer = document.querySelector('.mdl-js-snackbar'),
       showSnackbarButton = document.querySelector('#show-snackbar'),
       showToastButton = document.querySelector('#show-toast');
   showToastButton.addEventListener('click', function() {
-    snackbar.MaterialSnackbar.setMessage('Example message');
-    snackbar.MaterialSnackbar.showSnackbar();
+    'use strict';
+    var data = {message: 'Example Message # ' + counter++};
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
   });
   showSnackbarButton.addEventListener('click', function(event) {
-    event.target.style.backgroundColor = 'rebeccapurple';
-    snackbar.MaterialSnackbar.setMessage('Button color changed.');
-    snackbar.MaterialSnackbar.setTimeout(15000);
-    snackbar.MaterialSnackbar.setActionHandler(function(event) {
-      document.querySelector('#show-snackbar').style.backgroundColor = '';
-      event.target.disabled = true;
-    });
-    snackbar.MaterialSnackbar.showSnackbar();
+    event.target.style.backgroundColor = '#663399';
+    var handler = function(event) {
+        document.querySelector('#show-snackbar').style.backgroundColor = '';
+        event.target.disabled = true;
+    };
+    var data = {
+      message: 'Button color changed.',
+      timeout: 15000,
+      actionHandler: handler,
+      actionText: 'Undo'
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
   });
 </script>
