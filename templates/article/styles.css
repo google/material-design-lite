@@ -2,10 +2,12 @@
   width: 100%;
   height: 40vh;
   background-color: #3F51B5;
+  flex-shrink: 0;
 }
 
 .demo-main {
   margin-top: -35vh;
+  flex-shrink: 0;
 }
 
 .demo-header .mdl-layout__header-row {
