@@ -30,9 +30,10 @@
   display: table;
   font-family: $preferred_font;
   will-change: transform;
-  transform: translate3d(0,0,0) rotateZ(0deg);
+  transform: translate3d(0,-50px,0) rotateZ(0deg);
   @media(max-width: $grid-tablet-breakpoint - 1) {
     width: 100%;
+    left:0;
     min-height: 48px;
     max-height: 80px;
   }
@@ -64,10 +65,6 @@
   padding: 14px 24px;
   @include typo-button();
   overflow: hidden;
-  will-change: box-shadow, transform;
-  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
-              background-color 0.2s $animation-curve-default,
-              color 0.2s $animation-curve-default;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -77,9 +74,5 @@
 
   &::-moz-focus-inner {
     border: 0;
-  }
-
-  &:hover {
-    background-color: $button-hover-color;
   }
 }
