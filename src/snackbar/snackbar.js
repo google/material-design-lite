@@ -85,11 +85,11 @@ MaterialSnackbar.prototype.createSnackbar = function() {
 
 MaterialSnackbar.prototype.removeSnackbar = function() {
   'use strict';
-  if (this.actionElement_) {
-    this.snackbarElement_.removeChild(this.actionElement_);
+  if (this.actionElement_ && this.actionElement_.parentNode) {
+    this.actionElement_.parentNode.removeChild(this.actionElement_);
   }
-  this.snackbarElement_.removeChild(this.textElement_);
-  this.element_.removeChild(this.snackbarElement_);
+  this.textElement_.parentNode.removeChild(this.textElement_);
+  this.snackbarElement_.parentNode.removeChild(this.snackbarElement_);
 };
 
 MaterialSnackbar.prototype.showSnackbar = function(data) {
@@ -132,7 +132,6 @@ MaterialSnackbar.prototype.cleanup = function() {
   this.snackbarElement_.classList.remove(this.cssClasses.activeSnackbar);
   this.snackbarElement_.setAttribute('aria-hidden', true);
   if (this.actionElement_) {
-    this.actionElement_.textContent = '';
     this.actionElement_.removeEventListener('click', this.actionHandler_);
   }
   this.setDefaults_();

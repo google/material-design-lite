@@ -16,14 +16,6 @@
 
 @import "../variables";
 
-$swift-ease-out-duration: 0.4s !default;
-$swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
-$swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function !default;
-
-$swift-ease-in-duration: 0.3s !default;
-$swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
-$swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !default;
-
 .mdl-snackbar {
   position: absolute;
   bottom: 0;
@@ -35,31 +27,30 @@ $swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !defa
   z-index: 10000;
   max-height: 0;
   border-radius: 2px;
-  display:block;
-  display:flex;
+  display: table;
+  font-family: $preferred_font;
   will-change: transform;
-  transform: translate3d(0,-50px,0) rotateZ(0deg);
-  transition: $swift-ease-out;
+  transform: translate3d(0,0,0) rotateZ(0deg);
   @media(max-width: $grid-tablet-breakpoint - 1) {
     width: 100%;
+    min-height: 48px;
+    max-height: 80px;
   }
   @media(min-width: $grid-tablet-breakpoint) {
     min-width: 288px;
     max-width: 568px;
   }
   &.is-active {
-    min-height: 48px;
-    max-height: 150px;
+    max-height: 48px;
     transform: translate3d(0, 0, 0);
-    transition: $swift-ease-in;
   }
 }
 
 .mdl-snackbar__text {
-  margin: auto 24px;
+  padding: 14px 24px;
+  vertical-align: middle;
   color: white;
-  font-family: $preferred_font;
-  flex: 1;
+  display:table-cell;
 }
 
 .mdl-snackbar__action {
@@ -67,13 +58,10 @@ $swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !defa
   border: none;
   border-radius: $button-border-radius;
   color: unquote("rgb(#{$color-accent})");
-  margin: auto 24px;
+  display: table-cell;
   text-transform: uppercase;
-  position: relative;
-  height: $button-height;
   min-width: $button-min-width;
-  padding: 0 $button-padding;
-  display: inline-block;
+  padding: 14px 24px;
   @include typo-button();
   overflow: hidden;
   will-change: box-shadow, transform;
