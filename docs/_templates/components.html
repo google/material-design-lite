@@ -18,9 +18,15 @@
     </a>
     {% if loop.first %}
       <script>
-        if (window.location.hash == null || window.location.hash == "" || window.location.hash == "#") {
-          var link = document.getElementsByClassName("mdl-components__link")[0];
-          link.className = link.className + " is-active";
+        // We're making the first page (the index) visible here via inline JS to:
+        // Have the first page displayed right away without waiting for the whole
+        // page to load (it's a large page).
+        // Only if we're not opening a deep-link (check the Hash is empty).
+        if (!window.location.hash ||
+            window.location.hash === '' ||
+            window.location.hash === '#') {
+          var link = document.getElementsByClassName('mdl-components__link')[0];
+          link.className = link.className + ' is-active';
         }
       </script>
     {%- endif %}
@@ -79,9 +85,15 @@
     </section>
     {% if loop.first %}
     <script>
-      if (window.location.hash == null || window.location.hash == "" || window.location.hash == "#") {
-        var page = document.getElementsByClassName("mdl-components__page")[0];
-        page.className = page.className + " is-active";
+      // We're making the first page visible here via inline JS to:
+      // Have the first page displayed right away without waiting for the whole
+      // page to load (it's a large page).
+      // Only if we're not opening a deep-link (check the Hash is empty).
+      if (!window.location.hash ||
+          window.location.hash === '' ||
+          window.location.hash === '#') {
+        var page = document.getElementsByClassName('mdl-components__page')[0];
+        page.className = page.className + ' is-active';
       }
     </script>
     {%- endif %}
