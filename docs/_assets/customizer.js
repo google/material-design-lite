@@ -6,7 +6,15 @@ function init() {
 
   var wheel = document.querySelector('#wheel > svg');
   var cdn = document.querySelector('.mdl-gen__cdn .mdl-gen__cdn-link');
-  new MaterialCustomizer(wheel, cdn);
+  var mc = new MaterialCustomizer(wheel, cdn);
+  mc.numSelected = 1;
+  mc.highlightField('Indigo');
+  mc.numSelected = 2;
+  mc.highlightField('Pink');
+  window.requestAnimationFrame(function() {
+    mc.updateCDN();
+    mc.changeColor();
+  });
 }
 
 (function() {
@@ -272,7 +280,7 @@ function init() {
           this.numSelected--;
           return;
         }
-        this.highlightField_(g);
+        this.highlightField(g.getAttribute('data-color'));
         this.wheel.setAttribute('class', '');
         window.requestAnimationFrame(function() {
           this.updateCDN();
@@ -290,7 +298,7 @@ function init() {
         this.numSelected = 1;
         /* falls through */
       case 1:
-        this.highlightField_(g);
+        this.highlightField(g.getAttribute('data-color'));
         window.requestAnimationFrame(function() {
           this.wheel.setAttribute('class', 'hide-nonaccents');
         }.bind(this));
@@ -308,14 +316,14 @@ function init() {
                             .toLowerCase()
                             .replace(' ', '_');
 
-    this.cdn.className = 'visible';
     this.cdn.textContent = this.cdnTpl
     .replace('$primary', primaryColor)
     .replace('$accent', secondaryColor);
     Prism.highlightElement(this.cdn);
   };
 
-  MaterialCustomizer.prototype.highlightField_ = function(g) {
+  MaterialCustomizer.prototype.highlightField = function(color) {
+    var g = this.wheel.querySelector('[data-color="' + color + '"]');
     var parent = parentWrapper(g);
 
     // Make the current polygon the last child of its parent
