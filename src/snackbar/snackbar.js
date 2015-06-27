@@ -86,10 +86,10 @@ MaterialSnackbar.prototype.createSnackbar = function() {
 MaterialSnackbar.prototype.removeSnackbar = function() {
   'use strict';
   if (this.actionElement_) {
-    this.actionElement_.remove();
+    this.snackbarElement_.removeChild(this.actionElement_);
   }
-  this.textElement_.remove();
-  this.snackbarElement_.remove();
+  this.snackbarElement_.removeChild(this.textElement_);
+  this.element_.removeChild(this.snackbarElement_);
 };
 
 MaterialSnackbar.prototype.showSnackbar = function(data) {
