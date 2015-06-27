@@ -108,12 +108,3 @@
 .mdl-gen__cdn .demo-code {
   box-sizing: border-box;
 }
-.mdl-gen__cdn .demo-code .mdl-gen__cdn-link{
-  display: none;
-}
-.mdl-gen__cdn .demo-code .visible {
-  display: block;
-}
-.mdl-gen__cdn .demo-code .visible + .mdl-gen__placeholder {
-  display: none;
-}
