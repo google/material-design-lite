@@ -741,8 +741,8 @@ code[class*=language-], pre[class*=language-] {
 }
 .code-with-text {
   position: relative;
-  display: table-cell;
-  width: 1px;
+  width: auto;
+  display: block;
   border-spacing: 0;
   border-collapse: collapse;
   background-color: white;
@@ -751,9 +751,11 @@ code[class*=language-], pre[class*=language-] {
   font-size: 13px;
 }
 .code-with-text pre {
-  margin: 15px -15px -21px -15px;
+  margin: 15px -15px -15px -15px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  display: block;
+  width: auto;
 }
 /* Table of content widget */
 .docs-toc ul {
@@ -784,6 +786,10 @@ code[class*=language-], pre[class*=language-] {
 }
 .started .chapter-toc {
   display: table;
+}
+.started .code-with-text {
+  width: 640px;
+  box-sizing: border-box;
 }
 .started .content h3 {
   display: table-cell;
