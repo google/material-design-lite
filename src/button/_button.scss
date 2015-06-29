@@ -260,7 +260,7 @@
   & .mdl-ripple {
     background: $button-secondary-color-alt;
   }
-  &.mdl-button--raised {
+  &.mdl-button--raised, &.mdl-button--fab {
     color: $button-secondary-color-alt;
     background-color: $button-primary-color-alt;
   }
@@ -271,7 +271,7 @@
   & .mdl-ripple {
     background: $button-fab-text-color-alt;
   }
-  &.mdl-button--raised {
+  &.mdl-button--raised, &.mdl-button--fab {
     color: $button-fab-text-color-alt;
     background-color: $button-fab-color-alt;
   }
