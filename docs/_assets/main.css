@@ -636,7 +636,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 /* Open with CodePen Button */
 .codepen-button {
-  z-index: 1000;
+  z-index: 50;
   cursor: pointer;
   background-image: url('codepen-logo.png');
   background-repeat: no-repeat;
