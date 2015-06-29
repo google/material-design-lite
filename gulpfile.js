@@ -465,14 +465,14 @@ gulp.task('serve', ['default'], function() {
 
 // Generate release archive containing just JS, CSS, Source Map deps
 gulp.task('zip:mdl', function() {
-  gulp.src(['dist/material.*@(js|css)?(.map)','LICENSE'])
+  gulp.src(['dist/material.*@(js|css)?(.map)', 'LICENSE'])
     .pipe($.zip('mdl.zip'))
     .pipe(gulp.dest('dist'));
 });
 
 // Generate release archive containing the library, templates and site
 gulp.task('zip:site', function() {
-  gulp.src(['dist/**/*','LICENSE'])
+  gulp.src(['dist/**/*', 'LICENSE'])
     .pipe($.zip('mdl-all.zip'))
     .pipe(gulp.dest('dist'));
 });
