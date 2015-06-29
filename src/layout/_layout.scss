@@ -231,6 +231,7 @@
 
     .mdl-layout--fixed-drawer:not(.is-small-screen) > & {
       margin-left: $layout-drawer-width;
+      width: calc(100% - #{$layout-drawer-width});
     }
 
     & > .mdl-layout-icon {
