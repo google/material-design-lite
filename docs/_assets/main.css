@@ -46,10 +46,6 @@ body.about .docs-layout.is-small-screen .docs-layout-header.mdl-layout__header {
 .docs-layout-title a {
   font-weight: inherit;
 }
-.about .docs-layout-header {
-  background-color: #37474f;
-  background-image: url('logo.svg');
-}
 .docs-layout-header .mdl-textfield .mdl-button {
   right: 0;
 }
@@ -59,7 +55,8 @@ body.about .docs-layout.is-small-screen .docs-layout-header.mdl-layout__header {
 .docs-layout-header .mdl-textfield label:after {
   background-color: rgba(255, 255, 255, 0.12);
 }
-.about .docs-layout-header {
+.about .docs-layout-header.mdl-layout__header {
+  background-color: #37474f;
   background: url('logo.svg'), url('header.jpg');
   background-size: auto 117px, cover;
   background-repeat: no-repeat, no-repeat;
