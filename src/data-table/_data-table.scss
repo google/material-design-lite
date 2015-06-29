@@ -75,7 +75,6 @@
     .mdl-data-table__select {
       vertical-align: top;
       position: absolute;
-      top: 0;
       left: 24px;
     }
   }
@@ -85,6 +84,7 @@
     vertical-align: bottom;
     text-overflow: ellipsis;
     @include typo-body-2();
+    height: $data-table-row-height;
     font-size: 12px;
     color: $data-table-header-color;
     padding-bottom: 8px;
@@ -92,7 +92,6 @@
 
     .mdl-data-table__select {
       position: relative;
-      top: 12px;
     }
   }
 }
