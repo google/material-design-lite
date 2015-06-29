@@ -121,7 +121,7 @@ MaterialComponentsNav.prototype.clickHandler = function(link) {
       if (link !== document.getElementsByClassName('mdl-components__link')[0]) {
         history.pushState(null, 'Material Design Lite', link);
       } else if (ctx.linksMap_[section] !== null) {
-        history.pushState(null, 'Material Design Lite', './');
+        history.pushState(null, 'Material Design Lite', window.location.pathname);
       }
     }
   };
