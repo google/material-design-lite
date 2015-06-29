@@ -29,15 +29,15 @@ CodeBlockCodePen.prototype.init = function() {
 
   // Also insert the MDL Library.
   var mdlLibs = [
+      // TODO: Remove below before launch. For testing only.
+      '<!-- For testing. TODO: Remove before launch -->',
+      '<link rel="stylesheet" href="https://storage.googleapis.com/materialdesignlite/material.css">',
+      '<script src="https://storage.googleapis.com/materialdesignlite/material.min.js"></script>',
       '<!-- Material Design Lite -->',
       '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
       '<link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.indigo-pink.min.css">',
       '<!-- Material Design icon font -->',
-      '<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">',
-      // TODO: Remove below before launch. For testing only.
-      '<!-- For testing. TODO: Remove before launch -->',
-      '<link rel="stylesheet" href="https://storage.googleapis.com/materialdesignlite/material.css">',
-      '<script src="https://storage.googleapis.com/materialdesignlite/material.min.js"></script>'
+      '<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">'
   ];
 
   for (var i = 0, len = this.htmlCodeBlocks.length; i < len; i++) {
