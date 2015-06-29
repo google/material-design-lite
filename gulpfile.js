@@ -463,13 +463,27 @@ gulp.task('serve', ['default'], function() {
     .pipe($.open('', {url: 'http://localhost:5000'}));
 });
 
+// Generate release archive containing just JS, CSS, Source Map deps
+gulp.task('zip:mdl', function() {
+  gulp.src(['dist/material.*@(js|css)?(.map)','LICENSE'])
+    .pipe($.zip('mdl.zip'))
+    .pipe(gulp.dest('dist'));
+});
+
+// Generate release archive containing the library, templates and site
+gulp.task('zip:site', function() {
+  gulp.src(['dist/**/*','LICENSE'])
+    .pipe($.zip('mdl-all.zip'))
+    .pipe(gulp.dest('dist'));
+});
+
 // Push the latest version of code resources (CSS+JS) to Google Cloud Storage.
 // Public-read objects in GCS are served by a Google provided and supported
 // global, high performance caching/content delivery network (CDN) service.
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
-gulp.task('publish:code', function() {
+gulp.task('publish:code', ['zip:library', 'zip:all'], function() {
   // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -a option sets the ACL on each object copied.
@@ -485,14 +499,10 @@ gulp.task('publish:code', function() {
   var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest;
 
   process.stdout.write(infoMsg + '\n');
-  // Build an archive file with the runtime elements.
-  gulp.src('dist/material.*@(js|css)?(.map)')
-    .pipe($.zip('mdl.zip'))
-    .pipe(gulp.dest('dist'));
   // Upload the goodies to a separate GCS bucket with versioning.
   // Using a sep bucket avoids the risk of accidentally blowing away
   // old versions in the microsite bucket.
-  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip'],
+  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/mdl-all.zip'],
       {read: false})
     .pipe($.tap(function(file, t) {
       file.base = path.basename(file.path);
