@@ -768,6 +768,7 @@ code[class*=language-], pre[class*=language-] {
 }
 .docs-toc a {
   font-weight: 400;
+  color: #00BCD4;
 }
 .docs-toc li {
   font-size: 16px;
@@ -793,6 +794,11 @@ code[class*=language-], pre[class*=language-] {
 .started .code-with-text {
   width: 640px;
   box-sizing: border-box;
+}
+.started a,
+.about a,
+.customize a {
+  color: #00BCD4;
 }
 .started .content h3 {
   display: table-cell;
