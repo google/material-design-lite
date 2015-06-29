@@ -901,6 +901,7 @@ code[class*=language-], pre[class*=language-] {
     padding: 15px 40px;
     box-sizing: content-box;
     display: block;
+    max-width: none;
   }
   .started .caption {
     margin-left: -40px;
@@ -908,13 +909,6 @@ code[class*=language-], pre[class*=language-] {
     max-width: none;
     box-sizing: content-box;
     padding: 15px 40px;
-  }
-  .started .code-with-text {
-    width: 100%;
-    margin-left: -40px;
-    margin-right: -40px;
-    padding: 15px 40px;
-    display: block;
   }
   .started .mdl-tabs__tab-bar {
     margin-left: -40px;
@@ -1118,6 +1112,24 @@ code[class*=language-], pre[class*=language-] {
   .styles .snippet-group code {
     padding-left: 40px;
     padding-right: 40px;
+  }
+  .started .docs-layout .docs-text-styling pre[class*=language-markup] {
+    max-width: none;
+  }
+  .docs-layout .code-with-text {
+    width: 100%;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 15px 40px;
+    display: block;
+    box-sizing: content-box;
+  }
+  .docs-layout .code-with-text pre {
+    width: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: -40px;
+    margin-right: -40px;
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2), /* Webkit-based browsers */
