@@ -668,6 +668,12 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .docs-layout pre[class*=language-markup] {
   padding-right: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.docs-layout .docs-text-styling pre[class*=language-markup] {
+  max-width: calc(100vw - 32px);
 }
 .docs-layout pre[class*=language-markup] code {
   padding-right: 50px;
@@ -694,11 +700,12 @@ body:not(.about) .mdl-navigation__link.download > button {
   background-color: rgba(0,0,0,0.06);
   border-radius: 3px;
   font-size: 85%;
+  white-space: pre-wrap;
 }
 .docs-layout pre {
   padding: 16px;
   font-size: 87%;
-  word-wrap: break-word;
+  box-sizing: border-box;
 }
 .docs-layout code:before,
 .docs-layout code:after {
@@ -768,6 +775,7 @@ code[class*=language-], pre[class*=language-] {
 }
 .docs-toc a {
   font-weight: 400;
+  color: #00BCD4;
 }
 .docs-toc li {
   font-size: 16px;
@@ -793,6 +801,11 @@ code[class*=language-], pre[class*=language-] {
 .started .code-with-text {
   width: 640px;
   box-sizing: border-box;
+}
+.started a,
+.about a,
+.customize a {
+  color: #00BCD4;
 }
 .started .content h3 {
   display: table-cell;
@@ -859,7 +872,6 @@ code[class*=language-], pre[class*=language-] {
 .started pre {
   width: 640px;
   box-sizing: border-box;
-  word-wrap: break-word;
 }
 .started .snippet-group {
   max-width: 640px;
