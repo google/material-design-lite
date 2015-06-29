@@ -10,9 +10,6 @@ templates:
   - name: blog
     title: Blog
     description: A mobile focused responsive template that showcases image or text based blog entries, a subscription CTA, search & share links, and an expanded article page with comments, counters and bookmarking capabilities built-in.
-  - name: general
-    title: Universal
-    description: Esse irure aliqua amet ullamco aliqua ullamco est exercitation adipisicing nisi laborum sit labore voluptate.
   - name: dashboard
     title: Dashboard
     description: A modular responsive template built to display data visualizations and information with a clear vertical nav, user profile, search and dedicated space for updates and filters.
