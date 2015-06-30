@@ -470,8 +470,8 @@ gulp.task('zip:mdl', function() {
     .pipe(gulp.dest('dist'));
 });
 
-// Generate release archive containing the library, templates and site
-gulp.task('zip:site', function() {
+// Generate release archive containing the library and templates
+gulp.task('zip:templates', function() {
   gulp.src(['dist/**/*', 'LICENSE', 'bower.json', 'package.json'])
     .pipe($.zip('mdl-all.zip'))
     .pipe(gulp.dest('dist'));
@@ -483,7 +483,7 @@ gulp.task('zip:site', function() {
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
-gulp.task('publish:code', ['zip:library', 'zip:all'], function() {
+gulp.task('publish:code', ['zip:mdl', 'zip:templates'], function() {
   // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -a option sets the ACL on each object copied.
