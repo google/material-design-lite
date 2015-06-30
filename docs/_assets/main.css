@@ -914,6 +914,7 @@ code[class*=language-], pre[class*=language-] {
   .started .mdl-tabs__tab-bar {
     margin-left: -40px;
     margin-right: -40px;
+    justify-content: center;
   }
   .started .mdl-tabs__tab {
     padding: 0 3%;
