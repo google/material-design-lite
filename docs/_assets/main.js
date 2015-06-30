@@ -30,17 +30,3 @@
   leftScroll.addEventListener('click', scrollMenuBar.bind(null, -delta));
   leftScroll.addEventListener('tap', scrollMenuBar.bind(null, -delta));
 })();
-
-// WIP banner
-(function() {
-  'use strict';
-
-  var banner = document.querySelector('.docs-wip-banner');
-  if ((location.hostname !== 'localhost') &&
-      (location.hostname !== 'storage.googleapis.com')) {
-    banner.style.display = 'block';
-  }
-  if (location.search.indexOf('showbanner') !== -1) {
-    banner.style.display = 'block';
-  }
-})();
