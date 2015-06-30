@@ -463,13 +463,47 @@ gulp.task('serve', ['default'], function() {
     .pipe($.open('', {url: 'http://localhost:5000'}));
 });
 
+// Generate release archive containing just JS, CSS, Source Map deps
+gulp.task('zip:mdl', function() {
+  gulp.src(['dist/material.*@(js|css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
+    .pipe($.zip('mdl.zip'))
+    .pipe(gulp.dest('dist'));
+});
+
+// Generate release archive containing the library, templates and assets
+// for templates. Note that it is intentional for some templates to include
+// a customised version of the material.min.css file for their own needs.
+// Others (e.g the Android template) simply use the default built version of
+// the library.
+
+// Define a filter containing only the build assets we want to pluck from the
+// `dist` stream. This enables us to preserve the correct final dir structure,
+// which was not occurring when simply using `gulp.src` in `zip:templates`
+
+var fileFilter = $.filter([
+  'material.*@(js|css)?(.map)',
+  'templates/**/*.*',
+  'assets/**/*.*',
+  'LICENSE',
+  'bower.json',
+  'package.json']);
+
+gulp.task('zip:templates', function() {
+  // Stream of all `dist` files and other package manager files from root
+  gulp.src(['dist/**/*.*', 'LICENSE', 'bower.json', 'package.json'])
+  .pipe(fileFilter)
+  .pipe($.zip('mdl-templates.zip'))
+  .pipe(fileFilter.restore())
+  .pipe(gulp.dest('dist'));
+});
+
 // Push the latest version of code resources (CSS+JS) to Google Cloud Storage.
 // Public-read objects in GCS are served by a Google provided and supported
 // global, high performance caching/content delivery network (CDN) service.
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
-gulp.task('publish:code', function() {
+gulp.task('publish:code', ['zip:mdl', 'zip:templates'], function() {
   // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -a option sets the ACL on each object copied.
@@ -485,14 +519,10 @@ gulp.task('publish:code', function() {
   var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest;
 
   process.stdout.write(infoMsg + '\n');
-  // Build an archive file with the runtime elements.
-  gulp.src('dist/material.*@(js|css)?(.map)')
-    .pipe($.zip('mdl.zip'))
-    .pipe(gulp.dest('dist'));
   // Upload the goodies to a separate GCS bucket with versioning.
   // Using a sep bucket avoids the risk of accidentally blowing away
   // old versions in the microsite bucket.
-  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip'],
+  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/mdl-templates.zip'],
       {read: false})
     .pipe($.tap(function(file, t) {
       file.base = path.basename(file.path);
