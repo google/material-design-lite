@@ -1167,18 +1167,3 @@ code[class*=language-], pre[class*=language-] {
 .docs-navigation .spacer {
   flex-grow: 1;
 }
-
-.docs-wip-banner {
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #B71C1C;
-  color: white;
-  font-size: 12px;
-  padding: 16px 40px;
-}
-.docs-banner em {
-  font-style: italic;
-}
