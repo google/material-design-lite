@@ -783,6 +783,10 @@ code[class*=language-], pre[class*=language-] {
   justify-content: flex-start;
   border-bottom: 0;
 }
+.started .download-button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
 .started .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
   color: #00ACC1;
 }

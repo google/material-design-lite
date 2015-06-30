@@ -9,7 +9,7 @@
     <h3>Contents</h3>
     <nav class="section-content">
       <ul>
-        <li><a href="#include">Include the master CSS &amp; JavaScript</a></li>
+        <li><a href="#download">Include the master CSS &amp; JavaScript</a></li>
         <li><a href="#use-components">Use the components</a></li>
         <li><a href="#general-rules">General rules and principles</a></li>
         <li><a href="#dynamic">Use MDL on dynamic websites</a></li>
@@ -19,7 +19,7 @@
     </nav>
   </section>
 
-  <section id="include">
+  <section id="download">
     <h3>Include the master CSS &amp; JavaScript</h3>
     <div class="section-content">
       <p>
@@ -48,14 +48,25 @@
         </div>
         <div class="mdl-tabs__panel" id="tab2">
           <p>
-            Use the <a href="../customize/index.html">Customize and Preview tool</a> to select and preview primary and accent colors combinations for your site. Then download the Material Design Lite files using the button. The zip file downloaded should contain a CSS and a JS file.
+            Download the minified CSS and Javascript now:
           </p>
+          <div class="download-button-container">
+            <a href="$$hosted_libs_prefix$$/$$version$$/mdl.zip">
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Download MDL v$$version$$
+              </button>
+            </a>
+          </div>
           <div class="code-with-text">
             Refer to these files by adding a <code>&lt;link&gt;</code> and a <code>&lt;script&gt;</code> elements into your HTML pages and also include the Material Icon font:
             <pre class="language-markup codepen-button-disabled"><code>&lt;link rel="stylesheet" href="./material.min.css"&gt;
 &lt;script src="./material.min.js"&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
           </div>
+          <h4>Choose color scheme</h4>
+          <p>
+            <a href="http://www.google.ch/design/spec/style/color.html">Color schemes used in Material Design</a> are based on a primary and an accent colors which you may want to personalize. Use the <a href="../customize/index.html">Customize and Preview tool</a> to select and preview primary and accent colors combinations for your site. Then download your customized Material Design Lite CSS using the button and simply replace the `material.min.css` with the customized one.
+          </p>
         </div>
         <div class="mdl-tabs__panel" id="tab3">
           <p>
