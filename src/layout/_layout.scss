@@ -131,7 +131,7 @@
       flex-direction: column;
       align-items: stretch;
 
-      &__link {
+      & .mdl-navigation__link {
       display: block;
       flex-shrink: 0;
       padding: 16px $layout-header-desktop-indent;
@@ -139,6 +139,10 @@
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           padding: 16px $layout-header-mobile-indent;
+        }
+
+        &:hover {
+          background-color: $layout-nav-color;
         }
 
         &--current {
