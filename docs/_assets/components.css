@@ -2,6 +2,44 @@
   display: flex;
 }
 
+.mdl-components-img {
+  max-width: 100%;
+  height: auto;
+  width: auto; /* for ie9 */
+}
+
+.mdl-components-text {
+  margin: 0;
+  padding: 0;
+}
+
+mdl-components-dl {
+  padding: 0.5em;
+  width: 80%;
+}
+
+mdl-components-dt {
+  float: left;
+  clear: left;
+  width: 150px;
+  font-weight: bold;
+}
+
+mdl-components-dd {
+  margin: 0 0 0 150px;
+  padding: 0 0 0.5em 0;
+}
+
+.mdl-components__nav .mdl-components__link:first-of-type {
+  /* The first component category is a virtual category used to display
+   * the index page of component categories. As such, we hide navigation
+   * of the index category using CSS display:none. Navigation is not
+   * needed because we display the index page by default when accessing
+   * the components tab.
+   */
+  display: none;
+}
+
 .mdl-components .mdl-components__nav {
   display: inline-block;
   background: #fff;
