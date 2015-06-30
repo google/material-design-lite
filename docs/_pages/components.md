@@ -184,4 +184,14 @@ categories:
     components:
       - name: tooltip
         class: mdl-tooltip
+        snippets:
+          - snippet_group:
+            - caption: Simple
+              file: tooltip-simple.html
+            - caption: Large
+              file: tooltip-large.html
+            - caption: Rich
+              file: tooltip-rich.html
+            - caption: Multiple lines
+              file: tooltip-multiline.html
 ---
