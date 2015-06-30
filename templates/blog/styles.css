@@ -92,7 +92,7 @@ main.mdl-layout__content {
   padding: 16px;
   display: flex;
   flex-direction: row;
-  align-items: center !important;
+  align-items: center ;
   justify-content: flex-start;
   height: auto;
 }
@@ -104,7 +104,7 @@ main.mdl-layout__content {
   font-size: 2em;
   cursor: pointer;
 }
-.mdl-card:nth-child(2n) .meta {
+.demo-blog .mdl-card .meta.meta--fill {
   justify-content: space-between;
 }
 .meta > *:first-child {
