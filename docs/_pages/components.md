@@ -69,17 +69,13 @@ categories:
           - snippet_group:
             - caption: Icon button
               file: icon.html
-            - caption: Raised
-              file: icon-raised.html
             - caption: Colored
-              file: icon-raised-colored.html
+              file: icon-colored.html
           - snippet_group:
             - caption: Mini FAB
               file: fab-mini.html
             - caption: Colored
               file: fab-mini-colored.html
-            - caption: Accent colored
-              file: fab-mini-accent.html
   - name: cards
     title: Cards
     description: Self-contained pieces of paper with data.
