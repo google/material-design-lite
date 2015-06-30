@@ -645,7 +645,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   right: -125px;
   width: 165px;
   height: 46px;
-  display: inline-block;
+  display: none;
   opacity: 0.6;
   overflow: hidden;
   box-sizing: border-box;
@@ -664,23 +664,22 @@ body:not(.about) .mdl-navigation__link.download > button {
   background-color: rgb(248,248,248);
   border-bottom-left-radius: 10px;
 }
+.docs-layout .docs-text-styling pre[class*=language-markup] {
+  max-width: calc(100vw - 32px);
+}
 .docs-layout pre[class*=language-markup] {
-  padding-right: 0;
   max-width: 100vw;
   box-sizing: border-box;
   overflow: hidden;
 }
-.docs-layout .docs-text-styling pre[class*=language-markup] {
-  max-width: calc(100vw - 32px);
+.docs-layout pre[class*=language-markup].codepen-button-enabled {
+  padding-right: 0;
 }
-.docs-layout pre[class*=language-markup] code {
+.docs-layout pre[class*=language-markup].codepen-button-enabled code {
   padding-right: 50px;
 }
-.docs-layout pre[class*=language-markup].codepen-button-disabled code {
-  padding-right: 16px;
-}
-.codepen-button-disabled .codepen-button {
-  display: none;
+.codepen-button-enabled .codepen-button {
+  display: inline-block;
 }
 /* Prism and code blocks styling and overrides */
 .token.attr-name, .token.builtin, .token.selector, .token.string {
