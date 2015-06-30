@@ -190,6 +190,7 @@ categories:
               file: tooltip-simple.html
             - caption: Large
               file: tooltip-large.html
+          - snippet_group:
             - caption: Rich
               file: tooltip-rich.html
             - caption: Multiple lines
