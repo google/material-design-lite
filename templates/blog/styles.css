@@ -6,6 +6,20 @@ body {
   margin: 0;
 }
 
+body::before {
+    background-image: url('/images/head.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    content: '';
+    will-change: transform;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: fixed;
+}
+
 .demo-blog .mdl-menu {
   z-index: 999;
 }
