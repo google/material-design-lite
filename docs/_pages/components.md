@@ -207,12 +207,12 @@ categories:
           - snippet_group:
             - caption: Text
               file: textfield-text.html
-            - caption: Numberic
+            - caption: Numeric
               file: textfield-numeric.html
           - snippet_group:
-            - caption: Floating text
+            - caption: Text with floating label
               file: textfield-floating-text.html
-            - caption: Floating numeric
+            - caption: Numeric with floating label
               file: textfield-floating-numeric.html
           - snippet_group:
             - caption: Multiple line
