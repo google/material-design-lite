@@ -515,7 +515,7 @@ gulp.task('publish:code', ['zip:mdl', 'zip:templates'], function() {
   var dest = bucketCode;
   var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
   var cacheControl = '-h "Cache-Control:public,max-age=0"';
-  var gsutilCpCmd = 'gsutil -m cp -a public-read <%= file.path %> ' + dest;
+  var gsutilCpCmd = 'gsutil -m cp <%= file.path %> ' + dest;
   var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest;
 
   process.stdout.write(infoMsg + '\n');
@@ -567,7 +567,6 @@ function mdlPublish(pubScope) {
   // The gsutil -R option does recursive acl setting.
   // The gsutil -h option is used to set metadata headers (cache control, in this case).
   var gsutilSyncCmd = 'gsutil -m rsync -d -R dist ' + dest;
-  var gsutilAclCmd = 'gsutil -m acl set -R public-read ' + dest;
   var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest + '/**';
   var gsutilCpCmd = 'gsutil -m cp -R ' + src + ' ' + dest;
 
@@ -575,11 +574,11 @@ function mdlPublish(pubScope) {
   if (pubScope === 'promote') {
     // If promoting, copy staging bucket contents to prod bucket,
     // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilCpCmd, gsutilAclCmd, gsutilCacheCmd]));
+    gulp.src('').pipe($.shell([gsutilCpCmd, gsutilCacheCmd]));
   } else {
     // If publishing to prod directly, rsync local contents to prod bucket,
     // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilSyncCmd, gsutilAclCmd, gsutilCacheCmd]));
+    gulp.src('').pipe($.shell([gsutilSyncCmd, gsutilCacheCmd]));
   }
 }
 
