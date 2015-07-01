@@ -171,6 +171,12 @@ categories:
     components:
       - name: slider
         class: mdl-slider
+        snippets:
+          - snippet_group:
+            - caption: Default slider
+              file: slider-default.html
+            - caption: Starting value
+              file: slider-starting-value.html
   - name: toggles
     title: Toggles
     description: Choose between states.
