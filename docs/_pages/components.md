@@ -4,7 +4,7 @@ title: Components
 bodyclass: components
 include_prefix: ../
 categories:
-  - name: index 
+  - name: index
     components:
       - name: index  
   - name: badges
@@ -124,6 +124,26 @@ categories:
             - caption: Fixed header and drawer
               file: fixed-header-drawer.html
               demo_file: fixed-header-drawer-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Scrolling header
+              file: scrolling-header.html
+              demo_file: scrolling-header-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Waterfall header
+              file: waterfall-header.html
+              demo_file: waterfall-header-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Scrollable tabs
+              file: scrollable-tabs.html
+              demo_file: scrollable-tabs-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Fixed tabs
+              file: fixed-tabs.html
+              demo_file: fixed-tabs-demo.html
               full_width: true
       - name: grid
         caption: Grid
