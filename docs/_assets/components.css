@@ -47,6 +47,7 @@ mdl-components-dd {
   box-sizing: border-box;
   padding: 24px 0;
   flex-shrink: 0;
+  z-index: 1;
 }
 
 .mdl-components .mdl-components__pages {
@@ -88,6 +89,13 @@ mdl-components-dd {
   margin-top: 30px;
 }
 
+.mdl-components .component-title h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 80px;
+  text-transform: uppercase;
+}
+
 .mdl-components .mdl-components__page.is-active {
   display: block;
 }
@@ -113,7 +121,34 @@ mdl-components-dd {
       0 3px 3px -2px rgba(0, 0, 0, 0.2),
       0 1px 8px 0 rgba(0, 0, 0, 0.12);
 }
+.docs-readme {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.docs-readme h2, h3, h4 {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.docs-readme .language-markup {
+  width: 100%;
+}
+.docs-readme ul {
+  list-style-type: none;
 
+}
+.docs-readme li {
+  position: relative;
+}
+.docs-readme li:before {
+  position: absolute;
+  top: 2px;
+  left: -28px;
+  content: '•';
+  font-size: 32px;
+}
 @media (max-width: 850px) {
   .docs-layout-content {
     position: relative;

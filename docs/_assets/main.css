@@ -513,6 +513,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .snippet-group .snippet-captions {
   background-color: white;
+  height: 48px;
 }
 .snippet-group .snippet-demo .snippet-demo-container {
   text-align: left;
@@ -530,7 +531,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .snippet-group .snippet-caption {
   font-size: 13px;
-  padding: 20px 40px;
+  padding: 0px 40px;
   white-space: nowrap;
   text-align: center;
   position: relative;

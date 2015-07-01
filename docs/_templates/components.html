@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
 
 <div class="mdl-components mdl-js-components mdl-cell mdl-cell--12-col">
-  <aside class="mdl-components__nav docs-text-styling">
+  <aside class="mdl-components__nav docs-text-styling mdl-shadow--4dp">
     {% for category in page.categories %}
     <a href="#{{ category.name }}-section" class="mdl-components__link mdl-component {{ category.name }}">
       <div class="mdl-components__link-image"
@@ -37,7 +37,7 @@
     <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">{{ category.title }}</div>
+          <h3>{{ category.title }}</h3>
           <p>{{ category.description }}</p>
         </div>
 
@@ -76,10 +76,10 @@
           </script>
           {% set demo = "../../src/" + component.name + "/demo.html" %}
           {% include demo ignore missing %}
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             {% set doc = "../../dist/components/" + component.name + "/index.html" %}
             {% include doc ignore missing %}
-          </span>
+          </div>
         {%- endfor %}
         <img class="mdl-components-img" src="{{page.include_prefix}}/assets/compindex_2x.png">
       </div>
