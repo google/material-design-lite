@@ -20,17 +20,22 @@ body::before {
     position: fixed;
 }
 
-.demo-blog .mdl-layout__header {
-  margin-bottom: 30vh;
+body .demo-blog {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
 }
-.demo-blog .mdl-layout__content {
+
+.demo-blog .demo-blog__posts {
+  max-width: 900px;
   padding: 0;
   display: flex;
-  max-width: 900px;
   width: 100%;
   margin: 0 auto;
   flex-shrink: 0;
   overflow: visible;
+}
+
+.demo-blog .mdl-layout__header {
+  margin-bottom: 30vh;
 }
 .demo-blog .mdl-card {
   display: flex;
@@ -45,7 +50,7 @@ body::before {
 .demo-blog .mdl-card__media {
   box-sizing: border-box;
   background-size: cover;
-  padding: 40px;
+  padding: 24px;
   display: flex;
   flex-grow: 1;
   flex-direction: row;
@@ -70,7 +75,7 @@ body::before {
   box-sizing: border-box;
   min-height: 76px;
 }
-.demo-blog .mdl-card__supporting-text ~ .mdl-card__supporting-text {
+.demo-blog:not(.demo-blog--blogpost) .mdl-card__supporting-text ~ .mdl-card__supporting-text {
   border-top: 1px solid rgba(0,0,0,0.1);
 }
 
@@ -89,10 +94,13 @@ body::before {
 .demo-blog .meta > .meta__favorites{
   flex-direction: row;
   margin: 0 8px;
+  font-size: 13px;
+  font-weight: 500;
 }
 .demo-blog .meta > .meta__favorites .material-icons {
   font-size: 2em;
   cursor: pointer;
+  margin-left: 12px;
 }
 .demo-blog .mdl-card .meta.meta--fill {
   justify-content: space-between;
@@ -120,6 +128,12 @@ body::before {
   right: 28px;
   transform: translate(0px, -28px);
 }
+.demo-blog .something-else .mdl-card__media {
+  font-size: 13px;
+  font-weight: 500;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
 .demo-blog .something-else .mdl-card__media img {
   width: 33%;
   height: 33;
@@ -127,6 +141,8 @@ body::before {
 }
 .demo-blog .something-else .mdl-card__supporting-text {
   background-color: #F5F5F5;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 .demo-blog .on-the-road-again .mdl-card__media {
   background-image: url('images/road.jpg');
@@ -134,32 +150,35 @@ body::before {
 .demo-blog .shopping .mdl-card__media {
   background-image: url('images/shopping.jpg');
 }
-.demo-blog .mdl-layout__content > .demo-nav {
+.demo-blog .demo-blog__posts > .demo-nav {
   margin: 12px 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 30vh;
   color: white;
+  font-weight: 500;
 }
-.demo-blog .mdl-layout__content > .demo-nav > .demo-nav__button {
+.demo-blog .demo-blog__posts > .demo-nav > .demo-nav__button {
   cursor: pointer;
 }
-.demo-blog .mdl-layout__content > .demo-nav .mdl-button {
-  color: black;
+.demo-blog .demo-blog__posts > .demo-nav .mdl-button {
+  color: rgba(0,0,0,0.54);
   background-color: white;
 }
-.demo-blog .mdl-layout__content > .demo-nav > .demo-nav__button:first-child .mdl-button {
+.demo-blog .demo-blog__posts > .demo-nav > .demo-nav__button:first-child .mdl-button {
   margin-right: 16px;
 }
-.demo-blog .mdl-layout__content > .demo-nav > .demo-nav__button:last-child .mdl-button {
+.demo-blog .demo-blog__posts > .demo-nav > .demo-nav__button:last-child .mdl-button {
   margin-left: 16px;
 }
 .demo-blog .mdl-card > a {
   color: inherit;
   text-decoration: none;
   font-weight: inherit;
+}
+.demo-blog .mdl-card h3 {
+  margin: 0;
 }
 .demo-blog .mdl-card h3 a {
   text-decoration: none;
@@ -178,10 +197,10 @@ body::before {
 .demo-blog--blogpost .custom-header {
   background-color: transparent;
 }
-.demo-blog--blogpost .mdl-layout__content > .mdl-card {
+.demo-blog--blogpost .demo-blog__posts > .mdl-card {
   margin-top: 230px;
 }
-.demo-blog--blogpost .mdl-layout__content > .mdl-card .mdl-card__media {
+.demo-blog--blogpost .demo-blog__posts > .mdl-card .mdl-card__media {
   background-image: url('images/road_big.jpg');
   height: 280px;
 }
@@ -290,7 +309,7 @@ body::before {
 .demo-blog .minilogo {
   width: 44px;
   height: 44px;
-  background-image: url('images/logo.svg');
+  background-image: url('images/avatar.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50%;
@@ -301,4 +320,39 @@ body::before {
 /* Fixes for IE 10 */
 .mdl-grid {
   display: flex !important;
+}
+
+.social-btn {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin: 0 16px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.46;
+  border-radius: 2px;
+}
+.social-btn__twitter {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_black_24dp.png');
+}
+.social-btn__blogger {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_facebook_black_24dp.png');
+}
+.social-btn__gplus {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_black_24dp.png');
+}
+.social-btn__share {
+  color: rgba(0, 0, 0, 0.54);
+  background: transparent;
+}
+
+.demo-blog .mdl-mini-footer {
+  margin-top: 80px;
+  height: 120px;
+  padding: 40px;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
 }
