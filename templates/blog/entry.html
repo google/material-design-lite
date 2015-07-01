@@ -44,8 +44,8 @@
     }
     </style>
   </head>
-  <body class="blogpost">
-    <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
+  <body>
+    <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
       <div class="demo-back">
         <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="index.html">
           <i class="material-icons">arrow_back</i>
@@ -62,8 +62,8 @@
               <strong>The Newist</strong>
               <span>2 days ago</span>
             </div>
-            <div class="spacer"></div>
-            <div>425 <i class="material-icons">favorite</i></div>
+            <div class="demo-spacer"></div>
+            <div class="meta__favorites">425 <i class="material-icons">favorite</i></div>
             <div><i class="material-icons">bookmark</i></div>
             <div><i class="material-icons">share</i></div>
           </div>
@@ -89,9 +89,9 @@
               </button>
             </form>
             <div class="comment mdl-color-text--grey-700">
-              <header>
-                <img src="images/co1.jpg">
-                <div>
+              <header class="comment__header">
+                <img src="images/co1.jpg" class="comment__avatar">
+                <div class="comment__author">
                   <strong>James Splayd</strong>
                   <span>2 days ago</span>
                 </div>
@@ -112,9 +112,9 @@
               </nav>
               <div class="comment__answers">
                 <div class="comment">
-                  <header>
-                    <img src="images/co2.jpg">
-                    <div>
+                  <header class="comment__header">
+                    <img src="images/co2.jpg" class="comment__avatar">
+                    <div class="comment__author">
                       <strong>John Dufry</strong>
                       <span>2 days ago</span>
                     </div>
@@ -139,14 +139,14 @@
           </div>
         </div>
 
-        <nav class="mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-          <div>
+        <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+          <div class="demo-nav__button">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
               <i class="material-icons">arrow_back</i>
             </button>
             Newer
           </div>
-          <div>
+          <div class="demo-nav__button">
             Older
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
               <i class="material-icons">arrow_forward</i>
