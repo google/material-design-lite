@@ -217,6 +217,8 @@ gulp.task('scripts', function () {
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
+    // Remove *all* comments
+    .pipe($.stripComments())
     .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
