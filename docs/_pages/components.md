@@ -207,31 +207,18 @@ categories:
           - snippet_group:
             - caption: Text
               file: textfield-text.html
-            - caption: Number only
-              file: textfield-number.html
-            - caption: Disabled
-              file: textfield-disabled.html
+            - caption: Numberic
+              file: textfield-numeric.html
           - snippet_group:
             - caption: Floating text
               file: textfield-floating-text.html
-            - caption: Floating numbers
-              file: textfield-floating-numbers.html
-            - caption: Floating multiple lines
-              file: textfield-floating-multiline.html
+            - caption: Floating numeric
+              file: textfield-floating-numeric.html
           - snippet_group:
-            - caption: Three rows high
-              file: textfield-three-rows.html
-            - caption: Multiple expanding
-              file: textfield-multi-expand.html
-            - caption: At most 3 lines high 
-              file: textfield-limit-lines.html
-          - snippet_group:
-            - caption: Simple
-              file: textfield-simple.html
-            - caption: Floating label
-              file: textfield-floating-label.html
-            - caption: Right aligned 
-              file: textfield-right-aligned.html
+            - caption: Multiple line
+              file: textfield-multi-line.html
+            - caption: Expanding
+              file: textfield-expanding.html
   - name: tooltips
     title: Tooltips
     description: Useful information on hover.
