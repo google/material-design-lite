@@ -1,7 +1,11 @@
+{% if snippet_group.length === 1 && snippet_group[0].full_width %}
+<div class="snippet-group is-full-width">
+{% else %}
 <div class="snippet-group">
+{% endif %}
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       {% for snippet in snippet_group %}
         {% if snippet.demo_file %}
         {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.demo_file %}
@@ -14,10 +18,10 @@
           </div>
         </div>
       {%- endfor %}
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       {% for snippet in snippet_group %}
         {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}
         <div class="snippet-caption">
@@ -37,7 +41,7 @@
           </button>
         </div>
       {%- endfor %}
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
