@@ -32,6 +32,7 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
+var MaterialCustomizer = require('./docs/_assets/customizer.js');
 var hostedLibsUrlPrefix = 'http://code.getmdl.io';
 var bucketProd = 'gs://www.getmdl.io';
 var bucketStaging = 'gs://mdl-staging';
@@ -670,3 +671,26 @@ gulp.task('templates:fonts', function() {
 
 gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
     'templates:fonts', 'templates:styles']);
+
+gulp.task('styles:gen', ['styles'], function() {
+  // TODO: This task needs refactoring once we turn MaterialCustomizer
+  // into a proper Node module.
+  var mc = new MaterialCustomizer();
+  mc.template = fs.readFileSync('./dist/material.min.css.template').toString();
+
+  var stream = gulp.src('');
+  mc.paletteIndices.forEach(function(primary) {
+    mc.paletteIndices.forEach(function(accent) {
+      if (mc.forbiddenAccents.indexOf(accent) !== -1) {
+        return;
+      }
+      var primaryName = primary.toLowerCase().replace(' ', '_');
+      var accentName = accent.toLowerCase().replace(' ', '_');
+      stream = stream.pipe($.file(
+        'material.' + primaryName + '-' + accentName + '.min.css',
+        mc.processTemplate(primary, accent)
+      ));
+    });
+  });
+  stream.pipe(gulp.dest('dist'));
+});
