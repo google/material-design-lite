@@ -193,6 +193,10 @@ categories:
     components:
       - name: data-table
         class: mdl-data-table
+        snippets:
+          - snippet_group:
+            - caption: Data table
+              file: data-table.html
   - name: textfields
     title: Text Fields
     description: Textual input components.
