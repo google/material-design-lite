@@ -22,16 +22,16 @@ In each HTML page in your project, include the minified (compressed) CSS and Jav
 <script src="js/material.min.js"></script>
 ```
 
-That's it! You are now ready to use the MDL components. 
+That's it! You are now ready to use the MDL components.
 
 ###Use the components
 In general, follow these basic steps to use an MDL component in your HTML page.
 
 1. Start with a standard HTML element, such as `<button>`, `<div>`, or `<ul>`, depending on the MDL component you want to use. This establishes the element in the page and readies it for MDL modification.<br/><br/>
-2. Add one or more MDL-specific CSS classes to the element, such as `mdl-button`,   `mdl-tabs__panel`, or `mdl-list--inline`, again depending on the component. The classes apply the MDL enhancements to the element and effectively turn it into an MDL component.<br/><br/>
+2. Add one or more MDL-specific CSS classes to the element, such as `mdl-button` or   `mdl-tabs__panel` again depending on the component. The classes apply the MDL enhancements to the element and effectively turn it into an MDL component.<br/><br/>
 3. View the page, preferably in multiple browsers on multiple devices, to ensure that the component looks and behaves as expected.
 
->**A note about HTML elements and MDL CSS classes** 
+>**A note about HTML elements and MDL CSS classes**
 >Material Design Lite uses CSS *independent classes*, which can apply to any HTML element, to construct components. For some components, you can use almost any element. For other components, some elements give better visual or behavioral performance than others. The examples in each component's README file use elements that perform well as that component. If you must use elements other than those shown in the examples, we encourage you to experiment to find the best combination of HTML elements and MDL CSS classes for your application.
 
 ##What's next?
