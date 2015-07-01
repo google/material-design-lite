@@ -217,11 +217,13 @@ gulp.task('scripts', function () {
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
-    .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
-    .pipe($.uglify({preserveComments: 'some', sourceRoot: '.',
-        sourceMapIncludeSources: true}))
+    .pipe($.uglify({
+      sourceRoot: '.',
+      sourceMapIncludeSources: true
+    }))
+    .pipe($.header(banner, {pkg: pkg}))
     .pipe($.concat('material.min.js'))
     // Write Source Maps
     .pipe($.sourcemaps.write('./'))
