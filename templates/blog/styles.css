@@ -20,9 +20,6 @@ body::before {
     position: fixed;
 }
 
-.demo-blog .mdl-menu {
-  z-index: 999;
-}
 .demo-blog .mdl-layout__header {
   margin-bottom: 30vh;
 }
@@ -85,7 +82,7 @@ body::before {
   padding: 16px;
   display: flex;
   flex-direction: row;
-  align-items: center ;
+  align-items: center;
   justify-content: flex-start;
   height: auto;
 }
@@ -164,7 +161,9 @@ body::before {
   text-decoration: none;
   font-weight: inherit;
 }
-
+.demo-blog .mdl-card h3 a {
+  text-decoration: none;
+}
 .demo-blog .mdl-card h3.quote:before, .demo-blog .mdl-card h3.quote:after {
   display: block;
   font-size: 3em;
@@ -283,6 +282,7 @@ body::before {
 }
 .demo-blog .something-else {
   overflow: visible;
+  z-index: 10;
 }
 .demo-blog .amazing .mdl-card__title {
   background-color: #263238;
