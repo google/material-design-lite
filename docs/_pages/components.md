@@ -207,18 +207,24 @@ categories:
           - snippet_group:
             - caption: Text
               file: textfield-text.html
+              demo_file: textfield-text-demo.html
             - caption: Numeric
               file: textfield-numeric.html
+              demo_file: textfield-numeric-demo.html
           - snippet_group:
             - caption: Text with floating label
               file: textfield-floating-text.html
+              demo_file: textfield-floating-text-demo.html
             - caption: Numeric with floating label
               file: textfield-floating-numeric.html
+              demo_file: textfield-floating-numeric-demo.html
           - snippet_group:
             - caption: Multiple line
               file: textfield-multi-line.html
+              demo_file: textfield-multi-line-demo.html
             - caption: Expanding
               file: textfield-expanding.html
+              demo_file: textfield-expanding-demo.html
   - name: tooltips
     title: Tooltips
     description: Useful information on hover.
