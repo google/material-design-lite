@@ -83,12 +83,9 @@ MaterialComponentsNav.prototype.init = function() {
  */
 MaterialComponentsNav.prototype.displaySectionForFragment = function(fragment) {
   'use strict';
-
-  if (fragment &&
-      this.linksMap_[fragment] &&
-      this.linksMap_[fragment].click) {
+  if (fragment && this.linksMap_[fragment] && this.linksMap_[fragment].click) {
     this.linksMap_[fragment].click();
-  } else {
+  } else if (!fragment || fragment === '' || fragment === '#') {
     document.getElementsByClassName('mdl-components__link')[0].click();
   }
 };
@@ -120,8 +117,10 @@ MaterialComponentsNav.prototype.clickHandler = function(link) {
     if (section !== '#' + link.href.split('#')[1]) {
       if (link !== document.getElementsByClassName('mdl-components__link')[0]) {
         history.pushState(null, 'Material Design Lite', link);
-      } else if (ctx.linksMap_[section] !== null) {
-        history.pushState(null, 'Material Design Lite', window.location.pathname);
+      } else if (section !== '' && section !== '#' &&
+          ctx.linksMap_[section]) {
+        history.pushState(null, 'Material Design Lite',
+            window.location.pathname + '#');
       }
     }
   };
