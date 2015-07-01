@@ -1,8 +1,7 @@
-@import '../../src/_variables.scss';
-$color-primary: $palette-blue-grey-50;
+@import '../../src/_color-definitions.scss';
+$color-primary: $palette-grey-500;
 $color-primary-dark: $palette-grey-300;
 $color-accent: $palette-orange-A200;
-$color-primary-contrast: $color-light-contrast;
-$color-accent-contrast: $color-light-contrast;
-
+/* $color-primary-contrast: $color-light-contrast; */
+/* $color-accent-contrast: $color-light-contrast; */
 @import '../../src/material-design-lite';
