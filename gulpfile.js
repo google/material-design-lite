@@ -32,6 +32,9 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
+var productionSiteBaseUrl = 'http://www.getmdl.io';
+var localSiteBaseUrl = 'http://localhost:5000';
+var stagingSiteBaseUrl = 'http://mdl-staging.storage.googleapis.com';
 var hostedLibsUrlPrefix = 'http://code.getmdl.io';
 var bucketProd = 'gs://www.getmdl.io';
 var bucketStaging = 'gs://mdl-staging';
@@ -461,8 +464,11 @@ gulp.task('serve', ['default'], function() {
   gulp.watch(['templates/**/*'], ['templates']);
   gulp.watch(['docs/**/*'], ['pages', 'assets']);
 
+  // Change demo images URLs to local absolute URLs.
+  replaceDemoLinks(localSiteBaseUrl);
+
   gulp.src('./dist/index.html')
-    .pipe($.open('', {url: 'http://localhost:5000'}));
+    .pipe($.open('', {url: localSiteBaseUrl}));
 });
 
 // Generate release archive containing just JS, CSS, Source Map deps
@@ -540,19 +546,23 @@ function mdlPublish(pubScope) {
   var cacheTtl = null;
   var src = null;
   var dest = null;
+  var demoImageUrlPrefix = null;
   if (pubScope === 'staging') {
     // Set staging specific vars here.
     cacheTtl = 0;
     dest = bucketStaging;
+    demoImageUrlPrefix = stagingSiteBaseUrl;
   } else if (pubScope === 'prod') {
     // Set prod specific vars here.
     cacheTtl = 3600;
     dest = bucketProd;
+    demoImageUrlPrefix = productionSiteBaseUrl;
   } else if (pubScope === 'promote') {
     // Set promote (essentially prod) specific vars here.
     cacheTtl = 3600;
     src = bucketStaging + '/*';
     dest = bucketProd;
+    demoImageUrlPrefix = productionSiteBaseUrl;
   }
 
   // Build cache control and info message.
@@ -568,19 +578,32 @@ function mdlPublish(pubScope) {
   // The gsutil -R option is used for recursive file copy.
   // The gsutil -h option is used to set metadata headers (cache control, in this case).
   var gsutilSyncCmd = 'gsutil -m rsync -d -R dist ' + dest;
+  var wipeDist = 'rm -rf dist';
+  var gsutilCopyCmd = 'gsutil -m cp -r ' + src + ' dist';
   var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest + '/**';
-  var gsutilCpCmd = 'gsutil -m cp -R ' + src + ' ' + dest;
+
+  if (pubScope === 'promote') {
+    // If promoting, first copy the staging bucket contents to local dist folder
+    // so we can apply absolute URL transformations.
+    gulp.src('').pipe($.shell([wipeDist, gsutilCopyCmd]));
+  }
+
+  // Change demo images URLs to absolute URLs for the publish destination.
+  replaceDemoLinks(demoImageUrlPrefix);
 
   process.stdout.write(infoMsg + '\n');
-  if (pubScope === 'promote') {
-    // If promoting, copy staging bucket contents to prod bucket,
-    // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilCpCmd, gsutilCacheCmd]));
-  } else {
-    // If publishing to prod directly, rsync local contents to prod bucket,
-    // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilSyncCmd, gsutilCacheCmd]));
-  }
+  // rsync local contents to prod bucket and set ACLs and cache control on
+  // dest contents.
+  gulp.src('').pipe($.shell([gsutilSyncCmd, gsutilCacheCmd]));
+}
+
+// Replaces the URLs of demo images in dist with absolute ones of the given
+// prefix.
+function replaceDemoLinks(newBaseUrl) {
+  return gulp.src(['dist/**/*.html'])
+    .pipe($.replace(/(http(s)?:\/\/.+|\.\.)\/assets\/demos\//g,
+        newBaseUrl + '/assets/demos/'))
+    .pipe(gulp.dest('dist'));
 }
 
 // Push the local build of the MDL microsite and release artifacts to the
