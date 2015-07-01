@@ -506,7 +506,6 @@ gulp.task('zip:templates', function() {
 gulp.task('publish:code', ['zip:mdl', 'zip:templates'], function() {
   // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
-  // The gsutil -a option sets the ACL on each object copied.
   // The gsutil -m option requests parallel copies.
   // The gsutil -h option is used to set metadata headers
   // (cache control, in this case).
@@ -564,7 +563,7 @@ function mdlPublish(pubScope) {
   // Build gsutil commands to recursively sync local distribution tree
   // to the dest bucket and to recursively set permissions to public-read.
   // The gsutil -m option requests parallel copies.
-  // The gsutil -R option does recursive acl setting.
+  // The gsutil -R option is used for recursive file copy.
   // The gsutil -h option is used to set metadata headers (cache control, in this case).
   var gsutilSyncCmd = 'gsutil -m rsync -d -R dist ' + dest;
   var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest + '/**';
