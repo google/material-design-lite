@@ -101,18 +101,39 @@ categories:
     title: Layout
     description: Building blocks for constructing a page layout.
     components:
-      - name: footer
-        caption: Footer
-        class: mdl-mega-footer / mdl-mini-footer
-      - name: grid
-        caption: Grid
-        class: mdl-grid
       - name: layout
         caption: Layout
         class: mdl-layout
+        snippets:
+          - snippet_group:
+            - caption: Transparent header
+              file: transparent.html
+              demo_file: transparent-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Fixed drawer, no header
+              file: fixed-drawer.html
+              demo_file: fixed-drawer-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Fixed header
+              file: fixed-header.html
+              demo_file: fixed-header-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Fixed header and drawer
+              file: fixed-header-drawer.html
+              demo_file: fixed-header-drawer-demo.html
+              full_width: true
+      - name: grid
+        caption: Grid
+        class: mdl-grid
       - name: tabs
         caption: Tabs
         class: mdl-tabs
+      - name: footer
+        caption: Footer
+        class: mdl-mega-footer / mdl-mini-footer
   - name: loading
     title: Loading
     description: Indicate loading and progress states.
