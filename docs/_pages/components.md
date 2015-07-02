@@ -207,15 +207,39 @@ categories:
       - name: checkbox
         caption: Checkbox
         class: mdl-checkbox
-      - name: icon-toggle
-        caption: Icon toggle
-        class: mdl-icon-toggle
+        snippets:
+          - snippet_group:
+            - caption: Check on
+              file: check-on.html
+            - caption: Check off
+              file: check-off.html
       - name: radio
         caption: Radio button
         class: mdl-radio
+        snippets:
+          - snippet_group:
+            - caption: Radio on
+              file: radio-on.html
+            - caption: Radio off
+              file: radio-off.html
+      - name: icon-toggle
+        caption: Icon toggle
+        class: mdl-icon-toggle
+        snippets:
+          - snippet_group:
+            - caption: Icon on
+              file: icon-on.html
+            - caption: Icon off
+              file: icon-off.html
       - name: switch
         caption: Switch
         class: mdl-switch
+        snippets:
+          - snippet_group:
+            - caption: Switch on
+              file: switch-on.html
+            - caption: Switch off
+              file: switch-off.html
   - name: tables
     title: Tables
     description: Organize data.
