@@ -17,13 +17,17 @@ categories:
           - snippet_group:
             - caption: Number
               file: badge-on-icon-text.html
+              demo_file: badge-on-icon-text-demo.html
             - caption: Icon
               file: badge-on-icon-icon.html
+              demo_file: badge-on-icon-icon-demo.html
           - snippet_group:
             - caption: Number
               file: badge-on-text-text.html
+              demo_file: badge-on-text-text-demo.html
             - caption: Icon
               file: badge-on-text-icon.html
+              demo_file: badge-on-text-icon-demo.html
   - name: buttons
     title: Buttons
     description: Variations on Material Design buttons.
