@@ -513,6 +513,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .snippet-group .snippet-captions {
   background-color: white;
+  height: 48px;
 }
 .snippet-group .snippet-demo .snippet-demo-container {
   text-align: left;
@@ -530,7 +531,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .snippet-group .snippet-caption {
   font-size: 13px;
-  padding: 20px 40px;
+  padding: 0px 40px;
   white-space: nowrap;
   text-align: center;
   position: relative;
@@ -1180,4 +1181,13 @@ code[class*=language-], pre[class*=language-] {
 }
 .docs-navigation .spacer {
   flex-grow: 1;
+}
+.docs-layout.is-small-screen .docs-text-styling pre {
+  margin: 0 -16px;
+  width: 100vw;
+  max-width: 640px;
+}
+.docs-text-styling p {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
