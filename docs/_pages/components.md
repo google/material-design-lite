@@ -148,6 +148,12 @@ categories:
       - name: grid
         caption: Grid
         class: mdl-grid
+        snippets:
+        - snippet_group:
+          - caption: Responsive grid
+            file: grid.html
+            demo_file: grid-demo.html
+            full_width: true
       - name: tabs
         caption: Tabs
         class: mdl-tabs
