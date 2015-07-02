@@ -160,7 +160,8 @@ body .demo-blog {
   font-weight: 500;
 }
 .demo-blog .demo-blog__posts > .demo-nav > .demo-nav__button {
-  cursor: pointer;
+  color: white;
+  text-decoration: none;
 }
 .demo-blog .demo-blog__posts > .demo-nav .mdl-button {
   color: rgba(0,0,0,0.54);
