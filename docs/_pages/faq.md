@@ -94,7 +94,9 @@ We do not officially support IE8. That said, some components will degrade using 
 
 <h2 id="polymer">Does MDL play nicely with Polymer? Is it a replacement for the Paper elements?</h2>
 
-MDL focuses on delivering an experience that is optimised for static content sites, like blogs, marketing pages and more traditional text-based web pages. <a href="http://polymer-project.org">Polymer</a> excels at helping compose web applications and sites requiring more advanced user interaction support. They are both good tools and should be evaluated based on your needs.
+MDL focuses on delivering an experience that is optimised for static content sites, like blogs, marketing pages and more traditional text-based web pages. 
+
+The <a href="https://elements.polymer-project.org/browse?package=paper-elements">Paper</a> elements built with <a href="http://polymer-project.org">Polymer</a> are fully encapsulated components that can be used individually or composed together to create a material design-style site, and support more advanced user interaction.
 
 That said, MDL can be used alongside the Polymer element counterparts. Polymer uses the power of Web Components to encapsulate the designs used for those components. MDL does not affect the styling within custom components. 
 
@@ -148,7 +150,7 @@ The [Google Services](https://developers.google.com/mobile/add) site:
 
 and is being used by many other teams on upcoming projects, including Google Shopping.
 
-<h2 id="#individual-components">Can I build or use individual MDL components (e.g a button)?</h2>
+<h2 id="individual-components">Can I build or use individual MDL components (e.g a button)?</h2>
 
 For V1 of MDL we are focused on the use-case of folks who are likely to need a few different components on their page and will want to include most of the MDL library. This means that support and docs around just plucking single components on their own is minimal.
 
@@ -156,13 +158,13 @@ That said, if you need to generate a build using just a single (or smaller numbe
 
 We have talked about offering up components in a more modular fashion but will be exploring this in the post V1 timeline.
 
-## Are there any presentations or slide-decks available on MDL?
+<h2 id="slide-decks">Are there any presentations or slide-decks available on MDL?</h2>
 
 We did a preview talk at Google I/O 2015 on MDL and the slides for that talk can be found on [SpeakerDeck](https://speakerdeck.com/gauntface/material-design-lite-preview). 
 
 <h2 id="new-components">Can I request or contribute components to MDL?</h2>
 
-We’ll be trying to ship new components to MDL based on the availability of a reliable section in the Material Design spec covering it (for Web). We also factor in the usefulness of implementing it to our users. 
+
 
 
 
