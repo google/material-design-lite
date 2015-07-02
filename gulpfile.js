@@ -35,7 +35,7 @@ var swig = require('swig');
 var MaterialCustomizer = require('./docs/_assets/customizer.js');
 var hostedLibsUrlPrefix = 'http://code.getmdl.io';
 var bucketProd = 'gs://www.getmdl.io';
-var bucketStaging = 'gs://mdl-staging';
+var bucketStaging = 'gs://marc-staging/loading';
 var bucketCode = 'gs://code.getmdl.io';
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',

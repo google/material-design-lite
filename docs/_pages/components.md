@@ -185,6 +185,7 @@ categories:
             - caption: Indeterminate
               file: progress-indeterminate.html
               demo_file: progress-indeterminate-demo.html
+          - snippet_group:
             - caption: Buffering
               file: progress-buffering.html
               demo_file: progress-buffering-demo.html
