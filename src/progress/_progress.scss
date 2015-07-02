@@ -16,13 +16,13 @@
 
 @import "../variables";
 
-.mdl-js-progress {
+.mdl-progress {
   display: block;
   position: relative;
   height: $bar-height;
 }
 
-.mdl-js-progress > .bar {
+.mdl-progress > .bar {
   display: block;
   position: absolute;
   top: 0;
@@ -31,38 +31,38 @@
   transition: width 0.2s $animation-curve-default;
 }
 
-.mdl-js-progress > .progressbar {
+.mdl-progress > .progressbar {
   background-color: $progress-main-color;
   z-index: 1;
   left: 0;
 }
 
-.mdl-js-progress > .bufferbar {
+.mdl-progress > .bufferbar {
   background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
   z-index: 0;
   left: 0;
 }
 
-.mdl-js-progress > .auxbar {
+.mdl-progress > .auxbar {
   right: 0;
 }
 
 // Webkit only
 @supports (-webkit-appearance:none) {
-  .mdl-js-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
+  .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
       linear-gradient(to right, $progress-main-color, $progress-main-color);
     mask: url('/images/buffer.svg?embed');
   }
 }
 
-.mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
+.mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
 }
 
-.mdl-js-progress.mdl-progress__indeterminate > .bar1 {
+.mdl-progress.mdl-progress__indeterminate > .bar1 {
   background-color: $progress-main-color;
   animation-name: indeterminate1;
   animation-duration: 2s;
@@ -70,7 +70,7 @@
   animation-timing-function: linear;
 }
 
-.mdl-js-progress.mdl-progress__indeterminate > .bar3 {
+.mdl-progress.mdl-progress__indeterminate > .bar3 {
   background-image: none;
   background-color: $progress-main-color;
   animation-name: indeterminate2;
