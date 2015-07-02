@@ -52,7 +52,7 @@ MDL’s components were designed from the ground up with progressive enhancement
 
 One example of this is our ‘Text only’ Material Design template. Switching JavaScript off in Chrome DevTools, the page still renders CSS fine:
 
-![image alt text](../assets/image_0.png)
+![A preview of a template rendering in an older version of IE](../assets/template-preview.png)
 
 This allows us to render important content first and then ‘enhance’ the page with things like Material Design button ripples and pop-out menu components. 
 
@@ -82,15 +82,15 @@ We do not officially support IE8. That said, some components will degrade using 
 
 **Buttons**
 
-<img alt="Buttons rendering in IE8" src="../assets/image_1.png">
+<img alt="Buttons rendering in IE8" src="../assets/button_ie8.png">
 
 **Tables**
 
-<img alt="Tables gracefully degrading in IE8" src="../assets/image_2.png">
+<img alt="Tables gracefully degrading in IE8" src="../assets/table_ie8.png">
 
 **Sliders (degrade to input fields)**
 
-<img alt="Sliders degrading in IE8 to input fields" src="../assets/image_3.png">
+<img alt="Sliders degrading in IE8 to input fields" src="../assets/slider_ie8.png">
 
 <h2 id="polymer">Does MDL play nicely with Polymer? Is it a replacement for the Paper elements?</h2>
 
@@ -142,11 +142,11 @@ MDL is used in production by a few different Google properties. These use an old
 
 The [Google Services](https://developers.google.com/mobile/add) site:
 
-![image alt text](../assets/image_4.png)
+![Google Services site screenshot](../assets/google-services.png)
 
-[RichMediaGallery](http://www.richmediagallery.com/) by DoubleClick
+[RichMediaGallery](http://www.richmediagallery.com/) by DoubleClick:
 
-![image alt text](../assets/image_5.png)
+![RichMediaGallery screenshot](../assets/rich-media-gallery.png)
 
 and is being used by many other teams on upcoming projects, including Google Shopping.
 
