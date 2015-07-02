@@ -22,6 +22,8 @@ include_prefix: ../
         <li><a href="#web-starter-kit">How does MDL relate to Web Starter Kit?</a></li>
         <li><a href="#mdl-in-production">Do any Google properties use MDL in production?</a></li>
         <li><a href="#individual-components">Can I build or use individual MDL components (e.g a button)?</a></li>
+        <li><a href="#report-an-issue">How do I report a problem with MDL?</a></li>
+        <li><a href="#getting-help">Where can I get help with questions about using MDL?</a>
         <li><a href="#slide-decks">Are there any presentations or slide-decks available on MDL?</a></li>
         <li><a href="#new-components">Can I request or contribute components to MDL?</a></li>
       </ul>
@@ -157,6 +159,14 @@ For V1 of MDL we are focused on the use-case of folks who are likely to need a f
 That said, if you need to generate a build using just a single (or smaller number of) components, you will need to use Gulp with our Sass build. You can [comment out](https://github.com/google/material-design-lite/blob/master/src/material-design-lite.scss) those components you don’t need in material-design-lite.scss, [comment out](https://github.com/google/material-design-lite/blob/master/gulpfile.js#L191) the scripts you don’t need in the Gulpfile and then run `gulp` to create your build. 
 
 We have talked about offering up components in a more modular fashion but will be exploring this in the post V1 timeline.
+
+<h2 id="report-an-issue">How do I report an issue with MDL?</h2>
+
+Please let us know about any problems by opening an issue on our [GitHub repo](https://github.com/google/material-design-lite/issues).
+
+<h2 id="getting-help">Where can I get help with questions about using MDL?</h2>
+
+We encourage the MDL user and developer community to ask questions, and help answer questions, on [Stack Overflow](http://stackoverflow.com), using the `Material-Design-Lite` tag.
 
 <h2 id="slide-decks">Are there any presentations or slide-decks available on MDL?</h2>
 
