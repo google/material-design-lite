@@ -157,6 +157,10 @@ categories:
       - name: tabs
         caption: Tabs
         class: mdl-tabs
+        snippets:
+          - snippet_group:
+            - caption: Content tabs
+              file: tabs.html
       - name: footer
         caption: Footer
         class: mdl-mega-footer / mdl-mini-footer
