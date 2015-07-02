@@ -177,9 +177,27 @@ categories:
       - name: progress
         caption: Progress bar
         class: mdl-progress
+        snippets:
+          - snippet_group:
+            - caption: Default
+              file: progress-default.html
+              demo_file: progress-default-demo.html
+            - caption: Indeterminate
+              file: progress-indeterminate.html
+              demo_file: progress-indeterminate-demo.html
+          - snippet_group:
+            - caption: Buffering
+              file: progress-buffering.html
+              demo_file: progress-buffering-demo.html
       - name: spinner
         caption: Spinner
         class: mdl-spinner
+        snippets:
+          - snippet_group:
+            - caption: Default
+              file: spinner-default.html
+            - caption: Single color
+              file: spinner-single-color.html
   - name: menus
     title: Menus
     description: Lists of clickable actions.
