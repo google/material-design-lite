@@ -21,24 +21,26 @@ function CodeBlockCodePen() {
   this.init();
 }
 
+
+
+// Also insert the MDL Library.
+CodeBlockCodePen.prototype.MDLIBS = [
+  // TODO: Remove below before launch. For testing only.
+  '<!-- For testing. TODO: Remove before launch -->',
+  '<link rel="stylesheet" href="http://mdl-staging.storage.googleapis.com/material.min.css">',
+  '<script src="http://mdl-staging.storage.googleapis.com/material.min.js"></script>',
+  '<!-- Material Design Lite -->',
+  '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
+  '<link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.indigo-pink.min.css">',
+  '<!-- Material Design icon font -->',
+  '<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">'
+];
+
 /**
  * Creates CodePen buttons in all code blocks (`pre`) that are HTML.
  */
 CodeBlockCodePen.prototype.init = function() {
   'use strict';
-
-  // Also insert the MDL Library.
-  var mdlLibs = [
-      // TODO: Remove below before launch. For testing only.
-      '<!-- For testing. TODO: Remove before launch -->',
-      '<link rel="stylesheet" href="https://storage.googleapis.com/materialdesignlite/material.css">',
-      '<script src="https://storage.googleapis.com/materialdesignlite/material.min.js"></script>',
-      '<!-- Material Design Lite -->',
-      '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
-      '<link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.indigo-pink.min.css">',
-      '<!-- Material Design icon font -->',
-      '<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">'
-  ];
 
   for (var i = 0, len = this.htmlCodeBlocks.length; i < len; i++) {
     var pre = this.htmlCodeBlocks[i];
@@ -54,13 +56,33 @@ CodeBlockCodePen.prototype.init = function() {
       continue;
     }
 
+    // Create the CodePen Form and add it to the <pre> block.
+    var form = document.createElement('form');
+    form.classList.add('codepen-button');
+    form.setAttribute('action', 'https://codepen.io/pen/define');
+    form.setAttribute('method', 'POST');
+    form.setAttribute('target', '_blank');
+    form.addEventListener('click', this.clickHandler(form, pre));
+
+    pre.appendChild(form);
+  }
+};
+
+/**
+ * Click handler for CodePEn buttons. Simply submits the form to CodePen.
+ */
+CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
+  'use strict';
+
+  return function() {
+
+    // Modify relative URLs to make them absolute.
+    var code = pre.textContent.replace('../assets/demos/',
+      window.location.origin + '/assets/demos/');
+
     // Extract <style> blocks from the source code.
-    var code = pre.innerText;
-    var styleLines = [
-      'body {',
-      'padding: 40px;',
-      '}'
-    ];
+    var styleLines = [];
+
     while (code.indexOf('<style>') !== -1) {
       var startIndex = code.indexOf('<style>');
       var endIndex = code.indexOf('</style>');
@@ -70,39 +92,28 @@ CodeBlockCodePen.prototype.init = function() {
           return elem.trim();
         });
       styleLines = styleLines.concat(styleBlockLines);
-      code = code.substr(endIndex + 8);
+      code = code.substring(0, startIndex).trim() + '\n' +
+        code.substr(endIndex + 8).trim();
     }
 
-    // Create the CodePen Form and add it to the <pre> block.
-    var form = document.createElement('form');
-    form.classList.add('codepen-button');
-    form.setAttribute('action', 'http://codepen.io/pen/define');
-    form.setAttribute('method', 'POST');
-    form.addEventListener('click', this.clickHandler(form));
+    // Remove <input> children from previous clicks.
+    while (form.firstChild) {
+      form.removeChild(form.firstChild);
+    }
     var input = document.createElement('input');
     input.setAttribute('type', 'hidden');
     input.setAttribute('name', 'data');
     input.setAttribute('value', JSON.stringify(
       {html: '<html>\n  <head>\n    ' +
-          mdlLibs.join('\n    ') +
-          '\n  </head>\n  <body>\n    ' +
-          code.split('\n').join('\n    ').trim() +
-          '\n  </body>\n</html>',
-      css: styleLines.join('\n')}));
+      this.MDLIBS.join('\n    ') +
+      '\n  </head>\n  <body>\n    ' +
+      code.split('\n').join('\n    ').trim() +
+      '\n  </body>\n</html>',
+        css: styleLines.join('\n').trim()}));
     form.appendChild(input);
-    pre.appendChild(form);
-  }
-};
 
-/**
- * Click handler for CodePEn buttons. Simply submits the form to CodePen.
- */
-CodeBlockCodePen.prototype.clickHandler = function(form) {
-  'use strict';
-
-  return function() {
     form.submit();
-  };
+  }.bind(this);
 };
 
 window.addEventListener('load', function() {
