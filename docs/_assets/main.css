@@ -366,6 +366,15 @@ body:not(.about) .mdl-navigation__link.download > button {
   background-image: url(customize_mo.svg);
 }
 
+.image-preloader {
+  position: fixed;
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+  top: -100px;
+  left: -100px;
+  background-image: url(templates_mo.svg), url(components_mo.svg), url(styles_mo.svg), url(customize_mo.svg);
+}
 .templates .content {
   padding-left: 24px !important;
   max-width: 1280px;
