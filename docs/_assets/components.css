@@ -2,10 +2,26 @@
   display: flex;
 }
 
+.mdl-components-index {
+  box-sizing: border-box;
+  position: relative;
+  padding-top: 64px;
+}
+
+.mdl-components-index-text {
+  max-width: 600px;
+}
+
 .mdl-components-img {
-  max-width: 100%;
-  height: auto;
-  width: auto; /* for ie9 */
+  position: absolute;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 5%;
+  height: 90%;
+  width: 90%;
+  max-height: 600px;
+  background: url('../assets/compindex_2x.png') no-repeat top center / contain;
 }
 
 .mdl-components-text {
@@ -28,16 +44,6 @@ mdl-components-dt {
 mdl-components-dd {
   margin: 0 0 0 150px;
   padding: 0 0 0.5em 0;
-}
-
-.mdl-components__nav .mdl-components__link:first-of-type {
-  /* The first component category is a virtual category used to display
-   * the index page of component categories. As such, we hide navigation
-   * of the index category using CSS display:none. Navigation is not
-   * needed because we display the index page by default when accessing
-   * the components tab.
-   */
-  display: none;
 }
 
 .mdl-components .mdl-components__nav {

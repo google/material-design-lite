@@ -20,7 +20,6 @@ function MaterialComponentsNav() {
   this.element_ = document.querySelector('.mdl-js-components');
   if (this.element_) {
     this.componentLinks = this.element_.querySelectorAll('.mdl-components__link');
-
     this.activeLink = null;
     this.activePage = null;
 
@@ -53,9 +52,6 @@ MaterialComponentsNav.prototype.CssClasses_ = {
 MaterialComponentsNav.prototype.init = function() {
   'use strict';
 
-  this.activeLink = this.componentLinks[0];
-  this.activePage = this.findPage(this.activeLink);
-
   for (var i = 0; i < this.componentLinks.length; i++) {
     this.componentLinks[i].addEventListener('click',
         this.clickHandler(this.componentLinks[i]));
@@ -86,9 +82,24 @@ MaterialComponentsNav.prototype.displaySectionForFragment = function(fragment) {
   if (fragment && this.linksMap_[fragment] && this.linksMap_[fragment].click) {
     this.linksMap_[fragment].click();
   } else if (!fragment || fragment === '' || fragment === '#') {
-    document.getElementsByClassName('mdl-components__link')[0].click();
+    this.displayIndexPage();
   }
 };
+
+/**
+ * Displays the index page for the components.
+ */
+MaterialComponentsNav.prototype.displayIndexPage = function() {
+  if (this.activeLink) {
+    this.activeLink.classList.remove(this.CssClasses_.ACTIVE);
+  }
+  this.activeLink = null;
+  if (this.activePage) {
+    this.activePage.classList.remove(this.CssClasses_.ACTIVE);
+  }
+  this.activePage = this.element_.querySelector('#index-section');
+  this.activePage.classList.add(this.CssClasses_.ACTIVE);
+}
 
 /**
  * Returns a clickHandler for a navigation link.
@@ -103,8 +114,12 @@ MaterialComponentsNav.prototype.clickHandler = function(link) {
   return function(e) {
     e.preventDefault();
     var page = ctx.findPage(link);
-    ctx.activePage.classList.remove(ctx.CssClasses_.ACTIVE);
-    ctx.activeLink.classList.remove(ctx.CssClasses_.ACTIVE);
+    if (ctx.activePage) {
+      ctx.activePage.classList.remove(ctx.CssClasses_.ACTIVE);
+    }
+    if (ctx.activeLink) {
+      ctx.activeLink.classList.remove(ctx.CssClasses_.ACTIVE);
+    }
 
     ctx.activePage = page;
     ctx.activeLink = link;
@@ -115,13 +130,7 @@ MaterialComponentsNav.prototype.clickHandler = function(link) {
     // Add an history entry and display the hash fragment in the URL.
     var section = window.location.hash.split('/')[0];
     if (section !== '#' + link.href.split('#')[1]) {
-      if (link !== document.getElementsByClassName('mdl-components__link')[0]) {
-        history.pushState(null, 'Material Design Lite', link);
-      } else if (section !== '' && section !== '#' &&
-          ctx.linksMap_[section]) {
-        history.pushState(null, 'Material Design Lite',
-            window.location.pathname + '#');
-      }
+      history.pushState(null, 'Material Design Lite', link);
     }
   };
 };
