@@ -164,6 +164,7 @@ We did a preview talk at Google I/O 2015 on MDL and the slides for that talk can
 
 <h2 id="new-components">Can I request or contribute components to MDL?</h2>
 
+Sure! There may be components or templates you would like to see implemented in MDL that we don't yet provide. Please feel free to propose them on the <a href="https://github.com/google/material-design-lite/issues/92">Component Requests</a> thread. While we can't guarantee we'll be able to implement them all, we will consider requests and review them at regular intervals.
 
 
 
