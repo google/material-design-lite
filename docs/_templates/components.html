@@ -16,23 +16,30 @@
       </div>&nbsp;
       <span class="mdl-components__link-text">{{ category.title }}</span>
     </a>
-    {% if loop.first %}
-      <script>
-        // We're making the first page (the index) visible here via inline JS to:
-        // Have the first page displayed right away without waiting for the whole
-        // page to load (it's a large page).
-        // Only if we're not opening a deep-link (check the Hash is empty).
-        if (!window.location.hash ||
-            window.location.hash === '' ||
-            window.location.hash === '#') {
-          var link = document.getElementsByClassName('mdl-components__link')[0];
-          link.className = link.className + ' is-active';
-        }
-      </script>
-    {%- endif %}
     {%- endfor %}
   </aside>
   <main class="mdl-components__pages">
+    <section id="index-section" class="mdl-components-index mdl-components__page">
+      <div class="mdl-components-index-text mdl-grid">
+        <div class="mdl-components-text docs-text-styling about-panel about-panel--text mdl-cell mdl-cell--12-col">
+          <dl class="mdl-components-dl">
+            <dt class="mdl-components-dt">COMPONENTS</dt>
+            <dd class="mdl_components-dd">
+        Material Design Lite (MDL) is a library of components for web developers
+        based on Google's Material Design Philosophy: "A visual language for our
+        users that synthesizes the classic principles of good design with the
+        innovation and possibility of technology and science." Understanding the
+        goals and principles of Material Design is critical to the proper use of
+        the Material Design Lite components. If you have not yet read the
+        <a href="http://www.google.com/design/spec/material-design/introduction.html">Material Design Introduction</a>
+        you should do so before attempting to use the components.
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="mdl-components-img"></div>
+    </section>
+
     {% for category in page.categories -%}
     <section id="{{ category.name }}-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
@@ -81,23 +88,8 @@
             {% include doc ignore missing %}
           </div>
         {%- endfor %}
-        <img class="mdl-components-img" src="{{page.include_prefix}}/assets/compindex_2x.png">
       </div>
     </section>
-    {% if loop.first %}
-    <script>
-      // We're making the first page visible here via inline JS to:
-      // Have the first page displayed right away without waiting for the whole
-      // page to load (it's a large page).
-      // Only if we're not opening a deep-link (check the Hash is empty).
-      if (!window.location.hash ||
-          window.location.hash === '' ||
-          window.location.hash === '#') {
-        var page = document.getElementsByClassName('mdl-components__page')[0];
-        page.className = page.className + ' is-active';
-      }
-    </script>
-    {%- endif %}
     {%- endfor %}
 </main>
 </div>
