@@ -71,7 +71,8 @@ body:not(.about) .docs-layout .docs-layout-header.mdl-layout__header {
   background-image: url('templates.png');
   background-size: auto 29px;
 }
-.started .docs-layout-header.mdl-layout__header {
+.started .docs-layout-header.mdl-layout__header,
+.faq .docs-layout-header.mdl-layout__header {
   background-color: #2E2E2E;
   background-image: url('logo.png');
   background-size: auto 32px;
@@ -215,7 +216,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 .started .docs-navigation .started,
 .styles .docs-navigation .styles,
 .components .docs-navigation .components,
-.styles .docs-navigation .styles,
+.faq .docs-navigation .faq,
 .customize .docs-navigation .customize {
   opacity: 1;
   border-bottom-color: #18FFFF;
@@ -1121,4 +1122,91 @@ code[class*=language-], pre[class*=language-] {
 .docs-text-styling p {
   margin-top: 16px;
   margin-bottom: 16px;
+}
+
+
+/* faq */
+.faq img {
+  max-width: 100%;
+}
+.faq .mdl-tabs__tab-bar {
+  justify-content: flex-start;
+  border-bottom: 0;
+}
+.faq .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+  color: #00ACC1;
+}
+.faq .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+  background-color: #00ACC1;
+}
+.faq .docs-layout-content {
+  text-align: center;
+}
+.faq .chapter-toc {
+  display: table;
+}
+.faq .content h3 {
+  display: table-cell;
+  width: 140px;
+  font-size: 15px;
+  font-weight: bold;
+  padding-right: 60px;
+  line-height: 25px;
+}
+.faq .content section {
+  margin-bottom: 30px;
+}
+.faq .section-content {
+  display: table-cell;
+}
+.faq .content {
+  padding: 40px;
+  display: inline-block;
+  text-align: left;
+}
+.faq .content p {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.faq .mdl-tabs {
+  margin-bottom: 22px;
+}
+.faq .content h4 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+.faq .content .mdl-tabs__panel {
+  padding-top: 10px;
+}
+.faq .caption {
+  font-size: 13px;
+  max-width: 640px;
+  box-sizing: border-box;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+}
+.faq .caption h4 {
+  font-size: 13px;
+  font-weight: normal;
+  font-style: italic;
+  margin-top: 0;
+}
+.faq ol {
+  padding-left: 18px;
+  font-size: 13px;
+  max-width: 640px;
+  box-sizing: border-box;
+}
+.faq pre {
+  width: 640px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.faq .snippet-group {
+  max-width: 640px;
+  margin: 60px 0 40px 0;
 }
