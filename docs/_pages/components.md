@@ -154,6 +154,15 @@ categories:
       - name: footer
         caption: Footer
         class: mdl-mega-footer / mdl-mini-footer
+        snippets:
+          - snippet_group:
+            - caption: Mega footer
+              file: mega-footer.html
+              full_width: true
+          - snippet_group:
+            - caption: Mini footer
+              file: mini-footer.html
+              full_width: true
   - name: loading
     title: Loading
     description: Indicate loading and progress states.
