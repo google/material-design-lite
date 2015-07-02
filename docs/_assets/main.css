@@ -1182,7 +1182,7 @@ code[class*=language-], pre[class*=language-] {
 .docs-navigation .spacer {
   flex-grow: 1;
 }
-.docs-layout.is-small-screen .docs-text-styling pre {
+.components .docs-layout.is-small-screen .docs-text-styling pre {
   margin: 0 -16px;
   width: 100vw;
   max-width: 640px;
