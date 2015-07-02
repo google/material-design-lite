@@ -413,7 +413,10 @@ gulp.task('assets', function () {
   return gulp.src([
       'docs/_assets/**/*',
       'node_modules/clippy/build/clippy.swf',
-      'node_modules/swfobject-npm/swfobject/src/swfobject.js'
+      'node_modules/swfobject-npm/swfobject/src/swfobject.js',
+      'node_modules/prismjs/prism.js',
+      'node_modules/prismjs/components/prism-markup.min.js',
+      'node_modules/prismjs/dist/prism-default/prism-default.css'
     ])
     .pipe($.if(/\.js/i, $.replace('$$version$$', pkg.version)))
     .pipe($.if(/\.js/i, $.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix)))
@@ -422,6 +425,7 @@ gulp.task('assets', function () {
       interlaced: true
     })))
     .pipe($.if(/\.css/i, $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+    .pipe($.if(/\.css/i, $.uglifycss()))
     .pipe($.if(/\.js/i, $.uglify({preserveComments: 'some', sourceRoot: '.',
       sourceMapIncludeSources: true})))
     .pipe(gulp.dest('dist/assets'));

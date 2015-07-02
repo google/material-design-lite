@@ -616,6 +616,8 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
   padding: 8px 16px;
   position: relative;
   max-height: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 .snippet-group .snippet-code pre[class*=language-]>code[data-language] {
   max-height: none;
