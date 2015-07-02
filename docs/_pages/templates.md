@@ -4,12 +4,12 @@ title: Templates
 bodyclass: templates
 include_prefix: ../
 templates:
-  - name: android-dot-com
-    title: Cover of android.com
-    description: A not-quite-1:1 "cover" of the android.com website, built with Material Design Lite.
   - name: blog
     title: Blog
     description: A mobile focused responsive template that showcases image or text based blog entries, a subscription CTA, search & share links, and an expanded article page with comments, counters and bookmarking capabilities built-in.
+  - name: android-dot-com
+    title: Android.com MDL skin
+    description: A Material Design Lite version of the current android.com site, using the same content with a horizontal navigation, feature carousel and long form scrolling sub pages.
   - name: dashboard
     title: Dashboard
     description: A modular responsive template built to display data visualizations and information with a clear vertical nav, user profile, search and dedicated space for updates and filters.
