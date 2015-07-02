@@ -181,10 +181,13 @@ categories:
           - snippet_group:
             - caption: Default
               file: progress-default.html
+              demo_file: progress-default-demo.html
             - caption: Indeterminate
               file: progress-indeterminate.html
+              demo_file: progress-indeterminate-demo.html
             - caption: Buffering
               file: progress-buffering.html
+              demo_file: progress-buffering-demo.html
       - name: spinner
         caption: Spinner
         class: mdl-spinner
