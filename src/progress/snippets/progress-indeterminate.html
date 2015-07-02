@@ -1,0 +1,1 @@
+<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
