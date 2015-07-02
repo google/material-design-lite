@@ -126,28 +126,9 @@ mdl-components-dd {
   max-width: 640px;
   margin: 0 auto;
 }
-.docs-readme h2, h3, h4 {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.54);
-  font-weight: 500;
-  text-transform: uppercase;
-}
+
 .docs-readme .language-markup {
   width: 100%;
-}
-.docs-readme ul {
-  list-style-type: none;
-
-}
-.docs-readme li {
-  position: relative;
-}
-.docs-readme li:before {
-  position: absolute;
-  top: 2px;
-  left: -28px;
-  content: '•';
-  font-size: 32px;
 }
 @media (max-width: 850px) {
   .docs-layout-content {

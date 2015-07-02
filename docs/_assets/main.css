@@ -426,6 +426,12 @@ body:not(.about) .mdl-navigation__link.download > button {
   color: #c2185b;
 }
 
+.docs-text-styling h2, h3, h4 {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 500;
+  text-transform: uppercase;
+}
 .docs-layout-content h2.mdl-card__title-text {
   padding-top: 0;
   margin-bottom: 0;
@@ -838,10 +844,25 @@ code[class*=language-], pre[class*=language-] {
 .started .section-content {
   display: table-cell;
 }
-.started .content {
+.started .content,
+.styles .content {
   padding: 40px;
   display: inline-block;
   text-align: left;
+}
+.docs-layout ul {
+  list-style-type: none;
+}
+.docs-layout li {
+  position: relative;
+}
+.styles li:before,
+.docs-readme li:before {
+  position: absolute;
+  top: 2px;
+  left: -28px;
+  content: '•';
+  font-size: 32px;
 }
 .started .content p {
   margin-top: 10px;
@@ -947,187 +968,95 @@ code[class*=language-], pre[class*=language-] {
   }
 }
 /*Styles page*/
-.styles .mdl-tabs__tab-bar {
-  justify-content: flex-start;
-  border-bottom: 0;
+.styles .docs-layout-content .content.nope {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
 }
-.styles .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
-  color: #00ACC1;
+.styles .typo-styles {
+  margin-bottom: 40px;
 }
-.styles .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
-  background-color: #00ACC1;
-}
-.styles .docs-layout-content {
+.styles .typo-styles dt {
+  display: block;
+  float: left;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.24);
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  line-height: 32px;
   text-align: center;
+  font-weight: 300;
+  margin-top: 5px;
 }
-.styles .chapter-toc {
-  display: table;
+.styles .typo-styles dd {
+  display: block;
+  margin-left: 60px;
+  margin-bottom: 20px;
 }
-.styles .content h3 {
-  display: table-cell;
-  width: 140px;
-  font-size: 15px;
-  font-weight: bold;
-  padding-right: 60px;
-  line-height: 25px;
+.styles .typo-styles .typo-styles__demo {
+  margin-bottom: 8px;
 }
-.styles .content section {
-  margin-bottom: 30px;
+.styles .typo-styles .typo-styles__desc {
+  font-weight: 300;
 }
-.styles .section-content {
-  display: table-cell;
+.styles .typo-styles .typo-styles__desc .typo-styles__name {
+  margin-right: 8px;
 }
-.styles .content {
-  padding: 40px;
-  display: inline-block;
-  text-align: left;
+.styles .download-btn {
+  color: rgba(0, 0, 0, 0.54);
+  line-height: 20px;
+  display: flex;
+  font-weight: 300;
+  margin-bottom: 20px;
 }
-.styles .content p {
-  margin-top: 10px;
-  margin-bottom: 15px;
+.styles .download-btn > * {
+  margin-right: 8px;
 }
-.styles .mdl-tabs {
-  margin-bottom: 22px;
+.styles .styles__ribbon {
+  background-color: #4A148C;
+  width: 100vw;
+  margin: 40px 0;
+  margin-left: -40px;
+  height: 320px;
 }
-.styles .content h4 {
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-top: 20px;
+.styles .content .docs-text-styling h3 {
+  text-transform: none;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
 }
-.styles .content .mdl-tabs__panel {
-  padding-top: 10px;
-}
-.styles .caption {
-  font-size: 13px;
-  max-width: 640px;
-  box-sizing: border-box;
-  margin-top: 15px;
-  padding: 15px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 3px;
-}
-.styles .caption h4 {
-  font-size: 13px;
-  font-weight: normal;
-  font-style: italic;
+.styles .content .docs-text-styling p {
   margin-top: 0;
 }
-.styles .use-components pre {
-  margin-top: 0;
+.styles img.customizer {
+  max-width: 450px;
 }
-.styles .component-example {
-  margin: 30px 0;
+.styles .code-with-text {
+  margin-right: 40px;
 }
-.styles ol {
-  padding-left: 18px;
-  font-size: 13px;
-  max-width: 640px;
-  box-sizing: border-box;
+.styles .docs-layout.is-small-screen .code-with-text pre[class*=language-markup]{
+  width: 100vw;
+  max-width: none;
 }
-.styles pre {
-  width: 640px;
-  box-sizing: border-box;
-  word-wrap: break-word;
+.styles .content li:before {
+  font-size: 16px;
 }
-.styles .snippet-group {
-  max-width: 640px;
-  margin: 60px 0 40px 0;
+.styles .content .mdl-cell.left-col {
+  padding-right: 40px;
 }
-
-.styles .demo-page--typography table th {
-  padding-right: 80px;
-
-  vertical-align: top;
-  text-align: left;
+.styles .content .mdl-cell.right-col {
+  margin-bottom: 40px;
+}
+.styles .code-with-text {
+  margin-bottom: 20px;
+}
+.styles .content .styles__content {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-.styles .demo-typography--white {
-  background-color: white;
-  color: black;
-}
-
-.styles .demo-typography--black {
-  background-color: black;
-  color: white;
-}
-
-.styles .demo-typography--white,
-.styles .demo-typography--black,
-.styles .demo-typography--img-1,
-.styles .demo-typography--img-2 {
-  width: 360px;
-  height: 272px;
-
-  padding: 16px;
-  box-sizing: border-box;
-}
-
-.styles .demo-typography--img-1 {
-  background-image: url(img-1.png);
-  color: white;
-}
-
-.styles .demo-typography--img-2 {
-  background-image: url(img-2.png);
-  color: white;
-}
 @media (max-width: 850px) {
-  .styles .chapter-toc {
-    display: block;
-  }
-  .styles .content h3 {
-    display: block;
-    width: auto;
-    font-size: 15px;
-    font-weight: bold;
-    padding-right: 60px;
-    line-height: 25px;
-  }
-  .styles .section-content {
-    display: block;
-  }
-  .styles pre {
-    width: auto;
-    margin-left: -40px;
-    margin-right: -40px;
-    padding: 15px 40px;
-    box-sizing: content-box;
-    display: block;
-  }
-  .styles .caption {
-    margin-left: -40px;
-    margin-right: -40px;
-    max-width: none;
-    box-sizing: content-box;
-    padding: 15px 40px;
-  }
-  .styles .code-with-text {
-    width: 100%;
-    margin-left: -40px;
-    margin-right: -40px;
-    padding: 15px 40px;
-    display: block;
-  }
-  .styles .mdl-tabs__tab-bar {
-    margin-left: -40px;
-    margin-right: -40px;
-  }
-  .styles .mdl-tabs__tab {
-    padding: 0 3%;
-  }
-  .styles .content {
-    display: block;
-  }
-  .styles .snippet-group {
-    margin-left: -40px;
-    margin-right: -40px;
-    max-width: none;
-  }
-  .styles .snippet-group code {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
   .started .docs-layout .docs-text-styling pre[class*=language-markup] {
     max-width: none;
   }

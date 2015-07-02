@@ -5,228 +5,195 @@ bodyclass: styles
 include_prefix: ../
 ---
 
-  <p>The Material Design Lite (MDL) **typography** component is a comprehensive approach to standardizing the use of typefaces in applications and page displays. MDL typography elements are intended to replace the myriad fonts used by developers (which vary significantly in appearance) and provide a robust, uniform library of text styles from which developers can choose.</p>
+  <div class="styles__content">
+    <p>
+      Material Design Lite is a light-weight implementation of Material Design,
+      specifically crafted for the web. For more detailed guidelines and
+      specifications for other platforms please refer to the
+      <a href="https://www.google.com/design/spec/material-design">
+        Material Design site
+      </a>
+    </p>
 
-  <p>The "Roboto" typeface is the standard for MDL display; it can easily be integrated into a web page using the CSS3 `@font-face` rule. However, Roboto is most simply accessed and included using a single standard HTML `<link>` element, which can be obtained at [this Google fonts page](http://www.google.com/fonts#UsePlace:use/Collection:Roboto).</p>
+    <h2 class="mdl-typography--subhead">Typography</h2>
+    <dl class="typo-styles">
+      <dt>h1</dt>
+      <dd>
+        <div class="typo-styles__demo mdl-typography--display-4">Light 112sp</div>
+        <div class="typo-styles__desc">
+          <span class="typo-styles__name">display-4</span>
+          <span class="typo-styles__weight">font weight 300</span>
+        </div>
+      </dd>
+      <dt>h2</dt>
+      <dd>
+        <div class="typo-styles__demo mdl-typography--display-3">Regular 56sp</div>
+        <div class="typo-styles__desc">
+          <span class="typo-styles__name">display-3</span>
+          <span class="typo-styles__weight">font weight 400</span>
+        </div>
+      </dd>
+      <dt>h3</dt>
+      <dd>
+        <div class="typo-styles__demo mdl-typography--display-2">Regular 45sp</div>
+        <div class="typo-styles__desc">
+          <span class="typo-styles__name">display-2</span>
+          <span class="typo-styles__weight">font weight 400</span>
+        </div>
+      </dd>
+      <dt>h4</dt>
+      <dd>
+        <div class="typo-styles__demo mdl-typography--display-1">Regular 34sp</div>
+        <div class="typo-styles__desc">
+          <span class="typo-styles__name">display-1</span>
+          <span class="typo-styles__weight">font weight 400</span>
+        </div>
+      </dd>
+      <dt>h5</dt>
+      <dd>
+        <div class="typo-styles__demo mdl-typography--headline">Regular 24sp</div>
+        <div class="typo-styles__desc">
+          <span class="typo-styles__name">headline</span>
+          <span class="typo-styles__weight">font weight 400</span>
+        </div>
+      </dd>
+      <dt>h6</dt>
+      <dd>
+        <div class="typo-styles__demo mdl-typography--title">Regular 20sp</div>
+        <div class="typo-styles__desc">
+          <span class="typo-styles__name">title</span>
+          <span class="typo-styles__weight">font weight 500</span>
+        </div>
+      </dd>
+    </dl>
 
-  <p>Because of the many possible variations in font display characteristics in HTML and CSS, MDL typography aims to provide simple and intuitive styles that use the Roboto font and produce visually attractive and internally consistent text results. See the typography component's [Material Design specifications page](http://www.google.com/design/spec/style/typography.html) for details.</p>
-  </p>
+    <a class="download-btn download-btn--font" href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B0J8hsRkk91LRjU4U1NSeXdjd1U/RobotoTTF.zip">
+      <i class="material-icons">file_download</i>
+      <strong>Download Roboto Font</strong> 1.21 MB (.zip)
+    </a>
 
-<h2 class="mdl-typography--subhead">Typography</h2>
-  <div class="demo-preview-block demo-page--typography">
-    <table>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Display 4</th>
-        <td class="mdl-typography--display-4">Light 112px</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Display 3</th>
-        <td class="mdl-typography--display-3">Regular 56px</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Display 2</th>
-        <td class="mdl-typography--display-2">Regular 45px</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Display 1</th>
-        <td class="mdl-typography--display-1">Regular 34px</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Headline</th>
-        <td class="mdl-typography--headline">Regular 24px</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Title</th>
-        <td class="mdl-typography--title">Medium 20px</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Subhead</th>
-        <td class="mdl-typography--subhead">Regular 16px (Device), Regular 15px (Desktop)</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Body 2</th>
-        <td class="mdl-typography--body-2">Medium 14px (Device), Medium 13px (Desktop)</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Body 1</th>
-        <td class="mdl-typography--body-1">Regular 14px (Device), Regular 13px (Desktop)</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Body 2 (force preferred font)</th>
-        <td class="mdl-typography--body-2-force-preferred-font">Medium 14px (Device), Medium 13px (Desktop)</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Body 1 (force preferred font)</th>
-        <td class="mdl-typography--body-1-force-preferred-font">Regular 14px (Device), Regular 13px (Desktop)</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Caption</th>
-        <td class="mdl-typography--caption">Regular 12px</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Menu</th>
-        <td class="mdl-typography--menu">Medium 14px (Device), Medium 13px (Desktop)</td>
-      </tr>
-      <tr>
-        <th class="mdl-typography--caption-color-contrast">Button</th>
-        <td class="mdl-typography--button">Medium (All Caps) 14px</td>
-      </tr>
-    </table>
-  </div>
-
-
-  <h2>Color Contrasts</h2>
-
-  <div class="demo-preview-block">
-    <div class="demo-typography--white">
-      <p class="mdl-typography--caption-color-contrast">Caption</p>
-
-      <p class="mdl-typography--body-2-color-contrast">Body</p>
-
-      <p class="mdl-typography--subhead-color-contrast">Subhead</p>
-
-      <p class="mdl-typography--title-color-contrast">Title</p>
-
-      <p class="mdl-typography--display-1-color-contrast">Display</p>
+    <div class="code-with-text">
+      To embed Roboto into your web page, copy the code as the first element in the <code>&lt;head&gt;</code> of your HTML document.
+      <pre class="language-markup"><code>&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300:400:500:700" rel="stylesheet" type="text/css"&gt;</code></pre>
     </div>
   </div>
 
-  <div class="demo-preview-block">
-    <div class="demo-typography--black">
-        <p class="mdl-typography--caption-color-contrast">Caption</p>
-
-        <p class="mdl-typography--body-2-color-contrast">Body</p>
-
-        <p class="mdl-typography--subhead-color-contrast">Subhead</p>
-
-        <p class="mdl-typography--title-color-contrast">Title</p>
-
-        <p class="mdl-typography--display-1-color-contrast">Display</p>
-    </div>
+  <div class="styles__ribbon">
   </div>
 
-  <div class="demo-preview-block">
-    <div class="demo-typography--img-1">
-        <p class="mdl-typography--caption-color-contrast">Caption</p>
-
-        <p class="mdl-typography--body-2-color-contrast">Body</p>
-
-        <p class="mdl-typography--subhead-color-contrast">Subhead</p>
-
-        <p class="mdl-typography--title-color-contrast">Title</p>
-
-        <p class="mdl-typography--display-1-color-contrast">Display</p>
+  <div class="styles__content mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+      <h3>Icons</h3>
+      <p>Material Design Icons are the official open-source icons featured in the Google Material Design specification. What’s included:</p>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col right-col">
+      <ul>
+        <li>SVG versions of all icons in both 24px and 48px flavours</li>
+        <li>SVG and CSS sprites of all icons</li>
+        <li>1x, 2x icons targeted at the Web (PNG)</li>
+        <li>1x, 2x, 3x icons targeted at iOS (PNG)</li>
+        <li>Hi-dpi version of all icons (hdpi, mdpi, xhdpi, xxhdpi, xxxhdpi) (PNG)</li>
+      </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+      <h3>Getting Started</h3>
+      <p>You have a few options for getting the icons.</p>
+      <h3>Download the Zip</h3>
+      <p>Grab the latest stable zip archive (~57MB) of all icons of the bleeding-edge version from master.</p>
+      <a class="download-btn download-btn--icons" href="https://github.com/google/material-design-icons/releases/download/2.0.0/material-design-icons-2.0.0.zip">
+        <i class="material-icons">file_download</i>
+        <strong>Download</strong>
+      </a>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col right-col">
+      <h3>Bower</h3>
+      <div class="code-with-text">
+        Install the icons using the <strong>Bower</strong> package manager.
+        <pre class="language-markup"><code>$ bower install material-design-icons --save</code></pre>
+      </div>
+      <h3>npm</h3>
+      <div class="code-with-text">
+        You can also find all the icons on <strong>npm</strong>.
+        <pre class="language-markup"><code>$ npm install material-design-icons --save</code></pre>
+      </div>
+      <h3>Usage</h3>
+      <p>Take a look at the included index.html file for a preview of all icons included in the set. You are free to use the icons in the way that makes most sense to your project.</p>
+      <h3>Structure</h3>
+      <p>In general, an icon category (e.g. action) will include the following directories, containing multiple resolutions of our icons.</p>
+      <ul>
+        <li>1x, 2x Web</li>
+        <li>1x, 2x, 3x iOS</li>
+        <li>drawable hdpi, mdpi, xhdpi, xxhdpi, xxxhdpi</li>
+        <li>svg</li>
+      </ul>
+      <p>Decide on the icon resolution required for your project and copy, then reference the icons you wish to use.</p>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+      <h3>Spritesheets</h3>
+      <p>Material Design icons come with SVG and CSS sprites for each category of icon we include. These can be found in the sprites directory, under svg-sprite and css-sprite.</p>
+      <h3>Using CSS Sprites</h3>
+      <p>To use a CSS spritesheet, reference the stylesheet for the icon category you wish to use, then include the icon definition in your markup. E.g. to use one of the play icons in css-sprite-av.</p>
+      <p>That’s it! Don’t forget to publish the corresponding CSS and SVG/PNG files when deploying your project.</p>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col right-col">
+      <div class="code-with-text">
+        Reference the stylesheet:
+        <pre class="language-markup"><code>&lt;link href="css-sprite/sprite-av-black.css" rel="stylesheet"&gt;</code></pre>
+      </div>
+      <div class="code-with-text">
+        Create an element which will use the icon as a background:
+        <pre class="language-markup"><code>&lt;div&gt;&lt;/div&gt;</code></pre>
+      </div>
+      <div class="code-with-text">
+        Add a class referencing the <code>icon</code> spritesheet and specific <code>icon icon-ic_play-circle_outline_black_24dp</code>, which you can get from the above stylesheet.
+        <pre class="language-markup"><code>&lt;div class="icon icon-ic_play-circle_outline_black_24dp"&gt;&lt;/div&gt;</code></pre>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+      <h3>Using SVG Sprites</h3>
+      <p>Similarly, to use an SVG spritesheet, reference the stylesheet for the icon category, then include the icon definition in your markup.</p>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col right-col">
+      <div class="code-with-text">
+        E.g: to use one of the play icons in <code>svg-sprite-av</code>, reference the stylesheet:
+        <pre class="language-markup"><code>&lt;link href="svg-sprite/svg-sprite-av.css" rel="stylesheet"&gt;</code></pre>
+      </div>
+      <div class="code-with-text">
+        Create an element which will use the icon as a background:
+        <pre class="language-markup"><code>&lt;div&gt;&lt;/div&gt;</code></pre>
+      </div>
+      <div class="code-with-text">
+        Next, make sure to set a dimension for the icon. This can either be done inline or via a class. We’ll use a class for this example.
+        <pre class="language-markup"><code>&lt;style&gt;
+  .svg-ic_play_circle_outline_24px-dims { width: 24px; height: 24px; }
+&lt;/style&gt;</code></pre>
+      </div>
+      <div class="code-with-text">
+        Finally, set the dimension and specific ifcon <code>svg-ic_play_circle_outline_24px</code>, which you can get from the above stylesheet.
+        <pre class="language-markup"><code>&lt;div class="svg-ic_play_circle_outline_24px svg-ic_play_circle_outline_24px-dims"&gt; &lt;/div&gt;</code></pre>
+       </div>
+      <h3>Polymer Icons</h3>
+      <p>If you wish to use the icon set with Polymer, we recommend consuming them via the <strong>&lt;iron-icons&gt;-element</strong>.
+      <h3>License</h3>
+      All icons are released under <strong>Attribution 4.0 International license</strong>.
     </div>
   </div>
-
-  <div class="demo-preview-block">
-    <div class="demo-typography--img-2">
-      <p class="mdl-typography--caption-color-contrast">Caption</p>
-
-      <p class="mdl-typography--body-2-color-contrast">Body</p>
-
-      <p class="mdl-typography--subhead-color-contrast">Subhead</p>
-
-      <p class="mdl-typography--title-color-contrast">Title</p>
-
-      <p class="mdl-typography--display-1-color-contrast">Display</p>
+  <div class="styles__ribbon"></div>
+  <div class="styles__content mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+      <h3>Color palette</h3>
+      <p>If you’re using the extended color palette, use the first color as the primary color in your app and the other colors as accents.</p>
+      <p><strong>See all colors and their accessibility ratios</strong>. This resource includes info on the appropriate contrast ratios and alpha values when using white or black text on a colored background.</p>
+      <a class="download-btn download-btn--swatches" href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B0J8hsRkk91LSGx6b0w3WWpMQ1k/color_swatches.zip">
+        <i class="material-icons">file_download</i>
+        <strong>Download color swatches</strong> 0.02 MB (.zip)
+      </a>
+      <a class="download-btn download-btn--customizer" href="../customize/index.html">
+        <i class="material-icons">arrow_forward</i>
+        <strong>Try the custom CSS Theme Builder</strong>
+      </a>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col right-col">
+      <a href="../customize/index.html"><img class="customizer" src="../assets/customizer.png"></a>
     </div>
   </div>
-
-
-##Basic use
-
-MDL typography does not require the inclusion of the minified CSS and JavaScript files that drive the other MDL components. Instead, just include a link to the Google stylesheet that accesses the font and its desired variations.
-```html
-<head>
-<link
- href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic'
- rel='stylesheet' type='text/css'>
-...
-</head>
-```
-
-###To include an MDL typography component:
-
-&nbsp;1. Code any element (`<div>`,`<p>`,`<span>`, etc.) that can contain text, including whatever content is appropriate.
-```html
-<p>This is a standard paragraph.</p>
-```
-&nbsp;2. Add one or more MDL classes, separated by spaces, to the element using the `class` attribute.
-```html
-<p class="mdl-typography--body-1">This is a standard paragraph.</p>
-```
-
-The typography component is ready for use.
-
-####Examples
-
-A "headline" paragraph.
-
-```html
-<p class="mdl-typography--headline">Regular 24px</p>
-```
-
-A "title" paragraph.
-```html
-<p class="mdl-typography--title">Medium 20px</p>
-```
-
-A "caption" span.
-```html
-<span class="mdl-typography--caption">Regular 12px</span>
-```
-
-A "button" span.
-```html
-<span class="mdl-typography--button">Medium (All Caps) 14px</span>
-```
-A "display 1" table cell.
-```html
-<td class="mdl-typography--display-1">Regular 34px</td>
-```
-A "body-1" paragraph, also uppercased.
-```html
-<p class="mdl-typography--body-1 mdl-typography--text-uppercase">
- This is a standard paragraph, but uppercased.
-</p>
-```
-
->**Note:** Because the Roboto font is intended to apply to the entire page, standard "unclassed" HTML elements (e.g., heading levels, divs, paragraphs, spans, tables, etc. with no `class` attribute) and text modifiers (e.g., strong, em, small, etc.) will use Roboto, while also retaining their inherent and/or inherited characteristics.
->
->Also note that MDL typography provides some automatic adjustments based on its display environment. For example, the `body-1` style renders at 14px on a mobile device, but 13px on a desktop. You need not do anything to activate these self-modifiers; they are built into the MDL styles.
-
-##Configuration options
-The MDL CSS classes specify the style to use. The table below lists the available classes and their effects.
-
-| MDL class | Effect | Remarks |
-|-----------|--------|---------|
-| `mdl-typography--body-1` | Regular 14px (Device), Regular 13px (Desktop) | Optional |
-| `mdl-typography--body-1-force-preferred-font` | Regular 14px (Device), Regular 13px (Desktop) | Optional |
-| `mdl-typography--body-2` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
-| `mdl-typography--body-2` | mdl-typography-body-2 | Optional |
-| `mdl-typography--body-2-color-contrast` | Body with color contrast | Optional |
-| `mdl-typography--body-2-force-preferred-font` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
-| `mdl-typography--button` | Medium (All Caps) 14px | Optional |
-| `mdl-typography--caption` | Regular 12px | Optional |
-| `mdl-typography--caption-color-contrast` | Caption with color contrast | Optional |
-| `mdl-typography--display-1` | Regular 34px | Optional |
-| `mdl-typography--display-1-color-contrast` | Display with color contrast | Optional |
-| `mdl-typography--display-2` | Regular 45px | Optional |
-| `mdl-typography--display-3` | Regular 56px | Optional |
-| `mdl-typography--display-4` | Light 112px | Optional |
-| `mdl-typography--headline` | Regular 24px | Optional |
-| `mdl-typography--menu` | Medium 14px (Device), Medium 13px (Desktop) | Optional |
-| `mdl-typography--subhead` | Regular 16px (Device), Regular 15px (Desktop) | Optional |
-| `mdl-typography--subhead-color-contrast` | Subhead with color contrast | Optional |
-| `mdl-typography--table-striped` | Striped table| Optional |
-| `mdl-typography--text-capitalize` | Capitalized text | Optional |
-| `mdl-typography--text-center` | Center aligned text | Optional |
-| `mdl-typography--text-justify` | Justified text | Optional |
-| `mdl-typography--text-left` | Left aligned text | Optional |
-| `mdl-typography--text-lowercase` | Lowercased text | Optional |
-| `mdl-typography--text-nowrap` | No wrap text | Optional |
-| `mdl-typography--text-right` | Right aligned text | Optional |
-| `mdl-typography--text-uppercase` | Uppercased text | Optional |
-| `mdl-typography--title` | Medium 20px | Optional |
-| `mdl-typography--title-color-contrast` | Title with color contrast | Optional |
