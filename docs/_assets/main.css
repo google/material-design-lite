@@ -632,6 +632,9 @@ body:not(.about) .mdl-navigation__link.download > button {
   color: rgba(255,255,255,0.5);
   background-color: rgba(0,0,0,0.6);
 }
+.snippet-group .snippet-code .codepen-extra-css {
+  display:none;
+}
 .no-flash .snippet-group .snippet-code code.highlighted::after,
 .no-flash .snippet-group .copy{
   display: none;
