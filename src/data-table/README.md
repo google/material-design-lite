@@ -158,6 +158,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-data-table--selectable` | Applies all/individual selectable behavior (checkboxes) | Optional; goes on table element |
 | `mdl-data-table__cell--non-numeric` | Applies text formatting to data cell | Optional; goes on both table header and table data cells |
 | (none) | Applies numeric formatting to header or data cell (default) |  |
-
-##More information
-For working examples of the **data-table** component, see the MDL [data-table demo page](www.github.com/google/material-design-lite/src/data-table/demo.html).
