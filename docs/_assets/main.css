@@ -117,11 +117,14 @@ body:not(.about) .docs-layout-title {
   width: 100%;
   height: 85px;
   flex-shrink: 0;
-  padding-left: 24px !important;
+  padding-left: 24px;
   overflow-x: auto;
   overflow-y: hidden;
   user-select: none;
   margin-bottom: -16px;
+}
+.docs-layout.is-small-screen .docs-navigation {
+  padding: 0;
 }
 .docs-navigation::-webkit-scrollbar {
   display: none;
