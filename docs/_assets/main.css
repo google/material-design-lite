@@ -197,10 +197,14 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
   font-size: 13px;
   text-transform: uppercase;
   line-height: 64px;
-  padding: 0 12px;
+  padding: 0 16px;
   color: white;
   box-sizing: border-box;
   border-bottom: 3px solid transparent;
+}
+.docs-layout.is-small-screen .docs-navigation .mdl-navigation__link,
+.docs-layouy.is-small-screen section.download {
+  padding: 0 12px;
 }
 .about .docs-layout:not(.is-small-screen) .mdl-navigation__link.download > .material-icons {
   display: none;
