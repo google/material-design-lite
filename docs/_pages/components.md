@@ -214,6 +214,7 @@ categories:
             - caption: Lower left
               file: lower-left.html
               demo_file: lower-left-demo.html
+              extra_codepen_css: codepen-lower-buttons.css
             - caption: Lower right
               file: lower-right.html
               demo_file: lower-right-demo.html
@@ -221,6 +222,7 @@ categories:
             - caption: Top left
               file: top-left.html
               demo_file: top-left-demo.html
+              extra_codepen_css: codepen-top-buttons.css
             - caption: Top right
               file: top-right.html
               demo_file: top-right-demo.html
