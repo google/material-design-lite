@@ -18,7 +18,7 @@
 @import "../mixins";
 
 .mdl-mega-footer {
-  padding: $padding;
+  padding: $footer-min-padding $footer-padding-sides;
 
   color: $footer-color;
   background-color: $footer-bg-color;
@@ -34,17 +34,17 @@
 }
 
 .mdl-mega-footer--left-section {
-  margin-bottom: $padding;
+  margin-bottom: $footer-min-padding;
 }
 
 .mdl-mega-footer--right-section {
-  margin-bottom: $padding;
+  margin-bottom: $footer-min-padding;
 }
 
 .mdl-mega-footer--right-section a {
   display: block;
 
-  margin-bottom: $padding;
+  margin-bottom: $footer-min-padding;
 
   color: inherit;
   text-decoration: none;
@@ -62,7 +62,7 @@
   .mdl-mega-footer--right-section a {
     display: inline-block;
 
-    margin-left: $padding;
+    margin-left: $footer-min-padding;
 
     line-height: $footer-btn-size;
     vertical-align: middle;
@@ -136,11 +136,11 @@
 .mdl-mega-footer--heading-checkbox {
   position: absolute;
   width: 100%;
-  height: $footer-heading-line-height + ($padding * 2);
+  height: $footer-heading-line-height + ($footer-min-padding * 2);
 
-  padding: ($padding * 2);
+  padding: ($footer-min-padding * 2);
   margin: 0;
-  margin-top: -$padding;
+  margin-top: -$footer-min-padding;
 
   cursor: pointer;
 
@@ -168,8 +168,8 @@
   position: relative;
   width: 100%;
 
-  padding-right: $footer-heading-line-height + $padding;
-  margin-bottom: $padding;
+  padding-right: $footer-heading-line-height + $footer-min-padding;
+  margin-bottom: $footer-min-padding;
 
   box-sizing:border-box;
 
@@ -206,7 +206,7 @@
   margin: 0;
   padding: 0;
 
-  margin-bottom: $padding * 2;
+  margin-bottom: $footer-min-padding * 2;
   &:after {
     clear: both;
     display: block;
@@ -245,20 +245,20 @@
 }
 
 .mdl-mega-footer--bottom-section {
-  padding-top: $padding;
-  margin-bottom: $padding;
+  padding-top: $footer-min-padding;
+  margin-bottom: $footer-min-padding;
 }
 
 .mdl-logo {
   line-height: 20px;
-  margin-bottom: $padding;
+  margin-bottom: $footer-min-padding;
 }
 
 .mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li {
   float: left;
 
   margin-bottom: 0;
-  margin-right: $padding;
+  margin-right: $footer-min-padding;
 }
 
 
@@ -268,6 +268,6 @@
     float: left;
 
     margin-bottom: 0;
-    margin-right: $padding;
+    margin-right: $footer-min-padding;
   }
 }

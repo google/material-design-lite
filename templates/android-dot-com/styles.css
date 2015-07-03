@@ -93,6 +93,8 @@ a img{
 
   .android-header .mdl-navigation__link {
     color: #757575;
+    font-weight: 700;
+    font-size: 14px;
   }
 
   .android-navigation-container {
@@ -150,11 +152,12 @@ a img{
     margin: 8px 0;
   }
 
-  .android-drawer .mdl-navigation__link {
+  .android-drawer .mdl-navigation__link.mdl-navigation__link {
+    font-size: 14px;
     color: #757575;
   }
 
-  .android-drawer span.mdl-navigation__link {
+  .android-drawer span.mdl-navigation__link.mdl-navigation__link {
     color: #8bc34a;
   }
 

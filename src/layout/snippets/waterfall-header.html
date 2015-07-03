@@ -1,4 +1,9 @@
 <!-- Uses a header that contracts as the page scrolls down. -->
+<style>
+.waterfall-demo-header-nav .mdl-navigation__link:last-of-type  {
+  padding-right: 0;
+}
+</style>
 <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
   <header class="mdl-layout__header mdl-layout__header--waterfall">
     <!-- Top row, always visible -->
@@ -22,7 +27,7 @@
     <div class="mdl-layout__header-row">
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
-      <nav class="mdl-navigation">
+      <nav class="waterfall-demo-header-nav mdl-navigation">
         <a class="mdl-navigation__link" href="">Link</a>
         <a class="mdl-navigation__link" href="">Link</a>
         <a class="mdl-navigation__link" href="">Link</a>
