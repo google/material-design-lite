@@ -603,6 +603,7 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
 }
 .snippet-group .snippet-code {
   position: relative;
+  overflow: hidden;
 }
 .snippet-group .snippet-code pre {
   margin: 0;
