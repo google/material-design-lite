@@ -233,8 +233,9 @@ categories:
           - snippet_group:
             - caption: Default slider
               file: slider-default.html
+              demo_file: slider-default-demo.html
             - caption: Starting value
-              file: slider-starting-value.html
+              demo_file: slider-starting-value-demo.html
   - name: toggles
     title: Toggles
     description: Choose between states.
