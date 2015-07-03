@@ -87,9 +87,6 @@
 .mdl-gen__preview .mdl-layout__content h3 {
   margin-top: 0;
 }
-.mdl-gen__panel {
-  padding: 0 32px;
-}
 .mdl-gen__panel--right {
   display: flex;
   flex-direction: column;
@@ -102,9 +99,6 @@
   display: block;
   margin-bottom: 32px;
   color: rgba(0, 0, 0, 0.54);
-}
-.mdl-gen__cdn {
-  padding: 0 32px;
 }
 .mdl-gen__cdn .demo-code {
   box-sizing: border-box;

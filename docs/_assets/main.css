@@ -386,10 +386,13 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .templates .content {
   padding-left: 24px !important;
-  max-width: 1280px;
+  max-width: 960px;
 }
 .templates .docs-layout-content .content {
   padding: 40px 0;
+}
+.templates .docs-layout .template  {
+  margin-left: -16px;
 }
 .template {
   width: 100%;
@@ -516,14 +519,13 @@ body:not(.about) .mdl-navigation__link.download > button {
 .components .subpageheader {
   display: none;
 }
-
+.started .subpageheader,
+.customize .subpageheader,
+.styles .subpageheader,
+.faq .subpageheader,
 .templates .subpageheader {
-  margin-left: 16px;
-}
-.customize .subpageheader {
-  padding-left: 40px;
-  margin-top: 100px;
-  margin-bottom: 0;
+  width: 960px;
+  margin: 40px auto;
 }
 /* Components Snippets */
 .snippet-group {
@@ -884,6 +886,13 @@ code[class*=language-], pre[class*=language-] {
 .customize a {
   color: #00BCD4;
 }
+.customize .docs-layout .content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 120px;
+  padding: 40px;
+}
 .started .content h3,
 .started .content h4 {
   display: table-cell;
@@ -1211,6 +1220,10 @@ code[class*=language-], pre[class*=language-] {
 
 
 /* faq */
+.faq  .docs-text-styling > section {
+  max-width: 960px;
+  margin: 0 auto;
+}
 .faq img {
   max-width: 100%;
 }
