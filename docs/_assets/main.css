@@ -577,6 +577,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   text-transform: none;
   font-size: 13px;
   font-weight: normal;
+  line-height: 28px;
 }
 .snippet-group .snippet-caption .copy-to-clipboard-button .material-icons {
   background-color: #00BCD4;
@@ -586,6 +587,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   line-height: 24px;
   font-size: 16px;
   color: white;
+  top: 3px;
 }
 .snippet-group .snippet-caption .snippet-copy embed {
   height: 100%;
