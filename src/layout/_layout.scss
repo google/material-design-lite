@@ -28,8 +28,8 @@
 .mdl-navigation__link {
   color: $layout-text-color;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
   margin: 0;
 }
 
@@ -66,6 +66,7 @@
     position: relative;
 
     @include typo-title();
+    font-weight: 400;
     box-sizing: border-box;
   }
 
@@ -130,12 +131,14 @@
     & .mdl-navigation {
       flex-direction: column;
       align-items: stretch;
+      padding-top: 16px;
 
       & .mdl-navigation__link {
       display: block;
       flex-shrink: 0;
       padding: 16px $layout-header-desktop-indent;
       margin: 0;
+      color: $layout-drawer-navigation-color;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           padding: 16px $layout-header-mobile-indent;
@@ -178,7 +181,7 @@
     font-size: 26px;
     line-height: $layout-drawer-button-desktop-size + 2;
     font-family: Helvetica, Arial, sans-serif;
-    margin: 8px 12px;
+    margin: 10px 12px;
     top: 0;
     left: 0;
     color: $layout-header-text-color;
@@ -349,7 +352,7 @@
         display: block;
         color: $layout-header-text-color;
         line-height: $layout-header-desktop-row-height;
-        padding: 0 $layout-header-desktop-indent;
+        padding: 0 24px;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           line-height: $layout-header-mobile-row-height;
@@ -555,6 +558,10 @@
       top: 0;
       z-index: 1;
       overflow: hidden;
+
+      & .mdl-ripple {
+        background-color: $layout-header-text-color;
+      }
     }
   }
 
