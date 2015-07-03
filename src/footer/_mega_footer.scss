@@ -106,6 +106,7 @@
   }
 
   .mdl-mega-footer--drop-down-section:nth-child(4) {
+    clear: right;
     float: right;
   }
 
@@ -115,6 +116,10 @@
     display: block;
 
     clear: both;
+  }
+
+  .mdl-mega-footer--bottom-section {
+    padding-top: 0;
   }
 }
 
@@ -240,6 +245,7 @@
 }
 
 .mdl-mega-footer--bottom-section {
+  padding-top: $padding;
   margin-bottom: $padding;
 }
 
