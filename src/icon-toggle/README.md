@@ -1,7 +1,7 @@
 ##Introduction
 The Material Design Lite (MDL) **icon-toggle** component is an enhanced version of the standard HTML `<input type="checkbox">` element. An icon-toggle consists of a user defined icon that indicates, by visual highlighting, a binary condition that will be set or unset when the user clicks or touches it. Like checkboxes, icon-toggles may appear individually or in groups, and can be selected and deselected individually.
 
-Icon_toggles, particularly as a replacement for certain checkboxes, can be a valuable feature in user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the icon-toggle component's [Material Design specifications page](http://www.google.com/design/spec/components/buttons.html#buttons-other-buttons) for details.
+Icon toggles, particularly as a replacement for certain checkboxes, can be a valuable feature in user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the icon-toggle component's [Material Design specifications page](http://www.google.com/design/spec/components/buttons.html#buttons-other-buttons) for details.
 
 The icon-toggle component can have a more customized visual look than a standard checkbox, and may be initially or programmatically *disabled*.
 
