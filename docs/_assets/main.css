@@ -1190,6 +1190,9 @@ code[class*=language-], pre[class*=language-] {
 .faq .content .mdl-tabs__panel {
   padding-top: 10px;
 }
+.faq .docs-layout.is-small-screen .docs-toc > * {
+  display: block;
+}
 .faq .caption {
   font-size: 13px;
   max-width: 640px;
