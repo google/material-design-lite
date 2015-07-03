@@ -54,7 +54,7 @@
 #wheel svg.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
 #wheel svg.hide-nonaccents g[data-color="Brown"]:not(.selected),
 #wheel svg.hide-nonaccents g[data-color="Grey"]:not(.selected) {
-  opacity: 0;
+  opacity: 0.12;
 }
 #wheel .selected {
   opacity: 1 !important;
