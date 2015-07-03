@@ -84,16 +84,29 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
     var styleLines = [];
 
     while (code.indexOf('<style>') !== -1) {
-      var startIndex = code.indexOf('<style>');
-      var endIndex = code.indexOf('</style>');
-      var styleBlock = code.substring(startIndex + 7, endIndex).trim();
+      var styleStartIndex = code.indexOf('<style>');
+      var styleEndIndex = code.indexOf('</style>');
+      var styleBlock = code.substring(styleStartIndex + 7, styleEndIndex).trim();
       var styleBlockLines = styleBlock.split('\n').map(
         function(elem) {
           return elem.trim();
         });
       styleLines = styleLines.concat(styleBlockLines);
-      code = code.substring(0, startIndex).trim() + '\n' +
-        code.substr(endIndex + 8).trim();
+      code = code.substring(0, styleStartIndex).trim() + '\n' +
+        code.substr(styleEndIndex + 8).trim();
+    }
+
+    // Extract <script> blocks from the source code.
+    var scriptLines = [];
+
+    while (code.indexOf('<script>') !== -1) {
+      var scriptStartIndex = code.indexOf('<script>');
+      var scriptEndIndex = code.indexOf('</script>');
+      var scriptBlockLines = code.substring(scriptStartIndex + 8,
+        scriptEndIndex).trim().split('\n');
+      scriptLines = scriptLines.concat(scriptBlockLines);
+      code = code.substring(0, scriptStartIndex).trim() + '\n' +
+        code.substr(scriptEndIndex + 9).trim();
     }
 
     // Remove <input> children from previous clicks.
@@ -105,11 +118,12 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
     input.setAttribute('name', 'data');
     input.setAttribute('value', JSON.stringify(
       {html: '<html>\n  <head>\n    ' +
-      this.MDLIBS.join('\n    ') +
-      '\n  </head>\n  <body>\n    ' +
-      code.split('\n').join('\n    ').trim() +
-      '\n  </body>\n</html>',
-        css: styleLines.join('\n').trim()}));
+        this.MDLIBS.join('\n    ') +
+        '\n  </head>\n  <body>\n    ' +
+        code.split('\n').join('\n    ').trim() +
+        '\n  </body>\n</html>',
+        css: styleLines.join('\n').trim(),
+        js: scriptLines.join('\n').trim()}));
     form.appendChild(input);
 
     form.submit();
