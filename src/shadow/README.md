@@ -50,6 +50,3 @@ The MDL CSS classes apply various predefined visual shadows to the element. The 
 | `mdl-shadow--6dp` | Assigns a medium-large shadow to the object | Optional; if omitted, no shadow is present |
 | `mdl-shadow--8dp` | Assigns a large shadow to the object | Optional; if omitted, no shadow is present |
 | `mdl-shadow--16dp` | Assigns an extra-large shadow to the object | Optional; if omitted, no shadow is present|
-
-##More information
-For working examples of the **shadow** effect, see the MDL [shadow demo page](www.github.com/google/material-design-lite/src/shadow/demo.html). Also see the MDL [card demo page](www.github.com/google/material-design-lite/src/card/demo.html).

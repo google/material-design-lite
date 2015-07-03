@@ -65,6 +65,3 @@ The MDL CSS classes apply various predefined visual enhancements to the tooltip.
 |-----------|--------|---------|
 | `mdl-tooltip` | Defines a container as an MDL tooltip | Required on tooltip container element |
 | `mdl-tooltip--large` | Applies large-font effect | Optional; goes on tooltip container element |
-
-##More information
-For working examples of the **tooltip** component, see the MDL [tooltip demo page](www.github.com/google/material-design-lite/src/tooltip/demo.html).

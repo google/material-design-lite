@@ -47,6 +47,3 @@ The MDL CSS classes apply various predefined visual enhancements to the spinner.
 
 >**Note:** There is no specific *disabled* version of a spinner; the presence or absence of the `is-active` class determines whether the spinner is visible. For example, this spinner is inactive and invisible: `<div class="mdl-spinner mdl-js-spinner"></div>`
 >This attribute may be added or removed programmatically via scripting.
-
-##More information
-For working examples of the **spinner** component, see the MDL [spinner demo page](www.github.com/google/material-design-lite/src/spinner/demo.html).

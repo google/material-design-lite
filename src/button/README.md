@@ -56,6 +56,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 >**Note:** Disabled versions of all the available button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" disabled>Raised Ripples Disabled</button>`
 >This attribute may be added or removed programmatically via scripting.
-
-##More information
-For working examples of the **button** component, see the MDL [button demo page](www.github.com/google/material-design-lite/src/button/demo.html).

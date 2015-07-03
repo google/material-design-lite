@@ -126,6 +126,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-card__media` | Defines div as a card media container | Required on "inner" media div |
 | `mdl-card__supporting-text` | Defines div as a card body text container and assigns appropriate text characteristics to body text | Required on "inner" body text div; text goes directly inside the div with no intervening containers |
 | `mdl-card__actions` | Defines div as a card actions container and assigns appropriate text characteristics to actions text | Required on "inner" actions div; content goes directly inside the div with no intervening containers |
-
-##More information
-For working examples of the **card** component, see the MDL [card demo page](www.github.com/google/material-design-lite/src/card/demo.html).

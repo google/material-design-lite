@@ -63,6 +63,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 >**Note:** Disabled versions of all the available checkbox types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" disabled />`
 >This attribute may be added or removed programmatically via scripting.
-
-##More information
-For working examples of the **checkbox** component, see the MDL [checkbox demo page](www.github.com/google/material-design-lite/src/checkbox/demo.html).

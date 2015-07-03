@@ -404,6 +404,3 @@ The MDL CSS classes apply various predefined visual enhancements to the footer. 
 | `mdl-mini-footer--link-list` | Defines an unordered list as an inline (horizontal) list | Required on ul element sibling to "mdl-logo" div element |
 | `mdl-mini-footer--right-section` | Defines container as a right section | Required on right section "inner" div element |
 | `mdl-mini-footer--social-btn` | Defines a decorative square within mini-footer | Required on button element (if used) |
-
-##More information
-For working examples of the **footer** component, see the MDL [footer demo page](www.github.com/google/material-design-lite/src/lists/footer.html).
