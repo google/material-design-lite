@@ -417,7 +417,6 @@ body:not(.about) .mdl-navigation__link.download > button {
   /* Override */
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
-
 .docs-text-styling ol li {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
@@ -853,18 +852,25 @@ code[class*=language-], pre[class*=language-] {
   width: 640px;
   box-sizing: border-box;
 }
+.started .docs-layout .content section {
+  max-width: 960px;
+  margin: 0 auto;
+}
 .started a,
 .about a,
 .customize a {
   color: #00BCD4;
 }
-.started .content h3 {
+.started .content h3,
+.started .content h4 {
   display: table-cell;
-  width: 140px;
   font-size: 15px;
-  font-weight: bold;
   padding-right: 60px;
   line-height: 25px;
+  text-transform: none;
+}
+.started .content h3 {
+  width: 140px;
 }
 .started .content section {
   margin-bottom: 30px;
@@ -901,12 +907,6 @@ code[class*=language-], pre[class*=language-] {
 }
 .started .mdl-tabs {
   margin-bottom: 22px;
-}
-.started .content h4 {
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-top: 20px;
 }
 .started .content .mdl-tabs__panel {
   padding-top: 10px;
@@ -950,13 +950,10 @@ code[class*=language-], pre[class*=language-] {
   .started .chapter-toc {
     display: block;
   }
-  .started .content h3 {
+  .started .content h3,
+  .started .content h4 {
     display: block;
     width: auto;
-    font-size: 15px;
-    font-weight: bold;
-    padding-right: 60px;
-    line-height: 25px;
   }
   .started .section-content {
     display: block;
