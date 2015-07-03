@@ -591,6 +591,15 @@ body:not(.about) .mdl-navigation__link.download > button {
 .snippet-group .snippet-captions .snippet-caption-padding {
   width: 50%;
 }
+_:-ms-input-placeholder, :root .snippet-group .snippet-demo {
+  width: 1px;
+}
+_:-ms-input-placeholder, :root .snippet-group .snippet-demos .snippet-demo-padding {
+  width: auto;
+}
+_:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption-padding {
+  width: auto;
+}
 .snippet-group .snippet-code {
   position: relative;
 }
