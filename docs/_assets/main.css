@@ -32,11 +32,9 @@ body.about .docs-layout.is-small-screen .docs-layout-header.mdl-layout__header {
   align-items: flex-start;
   height: auto;
 }
-.docs-layout-header > .docs-navigation {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
+.docs-layout-header .docs-navigation .github,
+.docs-layout-header .docs-navigation .download {
+  text-transform: none;
 }
 .docs-layout-title {
   font-weight: 500;
