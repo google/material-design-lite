@@ -185,7 +185,6 @@ body:not(.about) .docs-layout.is-small-screen .docs-layout-header {
 .docs-navigation .mdl-navigation__link.download:hover > .material-icons {
   background-color: inherit;
   opacity: 1 !important;
-  border-bottom-color: #18FFFF;
 }
 .docs-navigation .mdl-navigation__link:not(.download),
 .docs-navigation .mdl-navigation__link.download > span,
