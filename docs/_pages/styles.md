@@ -67,10 +67,13 @@ include_prefix: ../
       </dd>
     </dl>
 
-    <a class="download-btn download-btn--font" href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B0J8hsRkk91LRjU4U1NSeXdjd1U/RobotoTTF.zip">
-      <i class="material-icons">file_download</i>
-      <strong>Download Roboto Font</strong> 1.21 MB (.zip)
-    </a>
+    <div class="styles__download">
+      <a class="download-btn download-btn--font" href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B0J8hsRkk91LRjU4U1NSeXdjd1U/RobotoTTF.zip">
+        <i class="material-icons">file_download</i>
+        Download Roboto Font
+      </a>
+      <span class="download__size">1.21 MB (.zip)</span>
+    </div>
 
     <div class="code-with-text">
       To embed Roboto into your web page, copy the code as the first element in the <code>&lt;head&gt;</code> of your HTML document.
@@ -88,11 +91,11 @@ include_prefix: ../
   </div>
 
   <div class="styles__content mdl-grid mdl-grid--no-spacing">
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-desktop left-col">
       <h3>Icons</h3>
       <p>Material Design Icons are the official open-source icons featured in the Google Material Design specification. What’s included:</p>
     </div>
-    <div class="mdl-cell mdl-cell--8-col right-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--7-col-desktop right-col">
       <ul>
         <li>SVG versions of all icons in both 24px and 48px flavours</li>
         <li>SVG and CSS sprites of all icons</li>
@@ -101,17 +104,19 @@ include_prefix: ../
         <li>Hi-dpi version of all icons (hdpi, mdpi, xhdpi, xxhdpi, xxxhdpi) (PNG)</li>
       </ul>
     </div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-desktop left-col">
       <h3>Getting Started</h3>
       <p>You have a few options for getting the icons.</p>
       <h3>Download the Zip</h3>
       <p>Grab the latest stable zip archive (~57MB) of all icons of the bleeding-edge version from master.</p>
-      <a class="download-btn download-btn--icons" href="https://github.com/google/material-design-icons/releases/download/2.0.0/material-design-icons-2.0.0.zip">
-        <i class="material-icons">file_download</i>
-        <strong>Download</strong>
-      </a>
+      <div class="styles__download">
+        <a class="download-btn download-btn--icons" href="https://github.com/google/material-design-icons/releases/download/2.0.0/material-design-icons-2.0.0.zip">
+          <i class="material-icons">file_download</i>
+          Download
+        </a>
+      </div>
     </div>
-    <div class="mdl-cell mdl-cell--8-col right-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--7-col-desktop right-col">
       <h3>Bower</h3>
       <div class="code-with-text">
         Install the icons using the <strong>Bower</strong> package manager.
@@ -134,14 +139,14 @@ include_prefix: ../
       </ul>
       <p>Decide on the icon resolution required for your project and copy, then reference the icons you wish to use.</p>
     </div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-desktop left-col">
       <h3>Spritesheets</h3>
       <p>Material Design icons come with SVG and CSS sprites for each category of icon we include. These can be found in the sprites directory, under svg-sprite and css-sprite.</p>
       <h3>Using CSS Sprites</h3>
       <p>To use a CSS spritesheet, reference the stylesheet for the icon category you wish to use, then include the icon definition in your markup. E.g. to use one of the play icons in css-sprite-av.</p>
       <p>That’s it! Don’t forget to publish the corresponding CSS and SVG/PNG files when deploying your project.</p>
     </div>
-    <div class="mdl-cell mdl-cell--8-col right-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--7-col-desktop right-col">
       <div class="code-with-text">
         Reference the stylesheet:
         <pre class="language-markup"><code>&lt;link href="css-sprite/sprite-av-black.css" rel="stylesheet"&gt;</code></pre>
@@ -155,11 +160,11 @@ include_prefix: ../
         <pre class="language-markup"><code>&lt;div class="icon icon-ic_play-circle_outline_black_24dp"&gt;&lt;/div&gt;</code></pre>
       </div>
     </div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-desktop left-col">
       <h3>Using SVG Sprites</h3>
       <p>Similarly, to use an SVG spritesheet, reference the stylesheet for the icon category, then include the icon definition in your markup.</p>
     </div>
-    <div class="mdl-cell mdl-cell--8-col right-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--7-col-desktop right-col">
       <div class="code-with-text">
         E.g: to use one of the play icons in <code>svg-sprite-av</code>, reference the stylesheet:
         <pre class="language-markup"><code>&lt;link href="svg-sprite/svg-sprite-av.css" rel="stylesheet"&gt;</code></pre>
@@ -181,7 +186,7 @@ include_prefix: ../
       <h3>Polymer Icons</h3>
       <p>If you wish to use the icon set with Polymer, we recommend consuming them via the <strong>&lt;iron-icons&gt;-element</strong>.
       <h3>License</h3>
-      All icons are released under <strong>Attribution 4.0 International license</strong>.
+      <p>All icons are released under <strong>Attribution 4.0 International license</strong>.</p>
     </div>
   </div>
   <div class="styles__ribbon styles__ribbon--colors">
@@ -193,20 +198,25 @@ include_prefix: ../
     </a>
   </div>
   <div class="styles__content mdl-grid mdl-grid--no-spacing">
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-desktop left-col">
       <h3>Color palette</h3>
       <p>If you’re using the extended color palette, use the first color as the primary color in your app and the other colors as accents.</p>
       <p><strong>See all colors and their accessibility ratios</strong>. This resource includes info on the appropriate contrast ratios and alpha values when using white or black text on a colored background.</p>
-      <a class="download-btn download-btn--swatches" href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B0J8hsRkk91LSGx6b0w3WWpMQ1k/color_swatches.zip">
-        <i class="material-icons">file_download</i>
-        <strong>Download color swatches</strong> 0.02 MB (.zip)
-      </a>
-      <a class="download-btn download-btn--customizer" href="../customize/index.html">
-        <i class="material-icons">arrow_forward</i>
-        <strong>Try the custom CSS Theme Builder</strong>
-      </a>
+      <div class="styles__download">
+        <a class="download-btn download-btn--swatches" href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B0J8hsRkk91LSGx6b0w3WWpMQ1k/color_swatches.zip">
+          <i class="material-icons">file_download</i>
+          Download color swatches
+        </a>
+        <span class="download__size">0.02 MB (.zip)</span>
+      </div>
+      <div class="styles__download">
+        <a class="download-btn download-btn--customizer" href="../customize/index.html">
+          <i class="material-icons">arrow_forward</i>
+          Try the custom CSS Theme Builder
+        </a>
+      </div>
     </div>
-    <div class="mdl-cell mdl-cell--8-col right-col">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--7-col-desktop right-col">
       <a href="../customize/index.html"><img class="customizer" src="../assets/customizer.png"></a>
     </div>
   </div>
