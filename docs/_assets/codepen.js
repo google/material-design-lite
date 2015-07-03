@@ -21,19 +21,25 @@ function CodeBlockCodePen() {
   this.init();
 }
 
-
-
 // Also insert the MDL Library.
 CodeBlockCodePen.prototype.MDLIBS = [
   // TODO: Remove below before launch. For testing only.
   '<!-- For testing. TODO: Remove before launch -->',
-  '<link rel="stylesheet" href="http://mdl-staging.storage.googleapis.com/material.min.css">',
-  '<script src="http://mdl-staging.storage.googleapis.com/material.min.js"></script>',
+  '<script src="https://mdl-staging.storage.googleapis.com/material.min.js"></script>',
   '<!-- Material Design Lite -->',
   '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
-  '<link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.indigo-pink.min.css">',
   '<!-- Material Design icon font -->',
   '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">'
+];
+
+// Also insert the MDL CSS.
+CodeBlockCodePen.prototype.MDLCSS = [
+  // TODO: Remove below before launch. For testing only.
+  '/* For testing. TODO: Remove before launch */',
+  '@import url("https://mdl-staging.storage.googleapis.com/material.min.css");',
+  '/* Material Design Lite */',
+  '@import url("$$hosted_libs_prefix$$/$$version$$/material.indigo-pink.min.css");',
+  '',
 ];
 
 /**
@@ -81,7 +87,7 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
       window.location.origin + '/assets/demos/');
 
     // Extract <style> blocks from the source code.
-    var styleLines = [];
+    var styleLines = this.MDLCSS.slice();
 
     while (code.indexOf('<style>') !== -1) {
       var startIndex = code.indexOf('<style>');
