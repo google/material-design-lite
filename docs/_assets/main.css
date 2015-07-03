@@ -942,6 +942,7 @@ code[class*=language-], pre[class*=language-] {
 .started pre {
   width: 640px;
   box-sizing: border-box;
+  position: relative;
 }
 .started .snippet-group {
   max-width: 640px;
