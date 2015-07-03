@@ -150,7 +150,7 @@ mdl-components-dd {
     display: block;
     flex-wrap: nowrap;
     width: 100%;
-    height: 110px;
+    height: 120px;
     overflow-x: auto;
     overflow-y: hidden;
     padding: 8px;
@@ -167,6 +167,7 @@ mdl-components-dd {
     min-width: 48px;
     margin-right: 8px;
     padding-left: 0px;
+    padding-top: 10px;
   }
 
   .mdl-components__nav .mdl-components__link > *{
