@@ -400,6 +400,9 @@ body:not(.about) .mdl-navigation__link.download > button {
   align-content: flex-start;
   padding-left: 24px;
 }
+.templates .docs-layout.is-small-screen .template > .template__meta {
+  padding-left: 0;
+}
 .template > .template__meta.template__meta > * {
   margin-bottom: 24px;
 }
