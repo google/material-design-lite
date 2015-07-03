@@ -577,6 +577,15 @@ body:not(.about) .mdl-navigation__link.download > button {
   font-size: 13px;
   font-weight: normal;
 }
+.snippet-group .snippet-caption .copy-to-clipboard-button .material-icons {
+  background-color: #00BCD4;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+  color: white;
+}
 .snippet-group .snippet-caption .snippet-copy embed {
   height: 100%;
   width: 785%;
