@@ -78,7 +78,13 @@ include_prefix: ../
     </div>
   </div>
 
-  <div class="styles__ribbon">
+  <div class="styles__ribbon styles__ribbon--icons">
+    <a href="http://google.github.io/material-design-icons/" class="ribbon__imagecontainer">
+      <img src="../assets/icons.svg" class="ribbon__image">
+      <div class="ribbon__caption ribbon__caption--split">
+        Preview icons <i class="material-icons">arrow_forward</i>
+      </div>
+    </a>
   </div>
 
   <div class="styles__content mdl-grid mdl-grid--no-spacing">
@@ -178,7 +184,14 @@ include_prefix: ../
       All icons are released under <strong>Attribution 4.0 International license</strong>.
     </div>
   </div>
-  <div class="styles__ribbon"></div>
+  <div class="styles__ribbon styles__ribbon--colors">
+    <a class="ribbon__imagecontainer">
+      <img src="../assets/colors.svg" class="ribbon__image">
+      <div class="ribbon__caption">
+        Color palette
+      </div>
+    </a>
+  </div>
   <div class="styles__content mdl-grid mdl-grid--no-spacing">
     <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet left-col">
       <h3>Color palette</h3>

@@ -1037,6 +1037,42 @@ code[class*=language-], pre[class*=language-] {
   margin: 40px 0;
   margin-left: -40px;
   height: 320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+.styles .styles__ribbon > .ribbon__imagecontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__image {
+  display: block;
+  margin-bottom: 16px;
+  border: 0;
+}
+.styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__caption {
+  color: white;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 300;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+.styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__caption.ribbon__caption--split {
+  width: 100%;
+  text-align: left;
+}
+.styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__caption > .material-icons {
+  height: 24px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+.styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__caption.ribbon__caption--split > .material-icons {
+  float: right;
 }
 .styles .content .docs-text-styling h3 {
   text-transform: none;
