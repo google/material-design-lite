@@ -1029,10 +1029,11 @@ code[class*=language-], pre[class*=language-] {
   }
 }
 /*Styles page*/
-.styles .docs-layout-content .content.nope {
-  max-width: 640px;
-  width: 100%;
-  margin: 0 auto;
+.styles a {
+  color: #00BCD4;
+}
+.styles .styles__content h2 {
+  text-transform: none;
 }
 .styles .typo-styles {
   margin-bottom: 40px;
@@ -1047,7 +1048,7 @@ code[class*=language-], pre[class*=language-] {
   border-radius: 16px;
   line-height: 32px;
   text-align: center;
-  font-weight: 300;
+  font-weight: 500;
   margin-top: 5px;
 }
 .styles .typo-styles dd {
@@ -1063,6 +1064,7 @@ code[class*=language-], pre[class*=language-] {
 }
 .styles .typo-styles .typo-styles__desc .typo-styles__name {
   margin-right: 8px;
+  font-weight: 400;
 }
 .styles .download-btn {
   color: rgba(0, 0, 0, 0.54);
@@ -1071,13 +1073,16 @@ code[class*=language-], pre[class*=language-] {
   font-weight: 300;
   margin-bottom: 20px;
 }
+.styles .download-btn.download-btn--customizer .material-icons {
+  margin-top: -2px;
+}
 .styles .download-btn > * {
   margin-right: 8px;
 }
 .styles .styles__ribbon {
   background-color: #4A148C;
   width: 100vw;
-  margin: 40px 0;
+  margin: 80px 0;
   margin-left: -40px;
   height: 320px;
   display: flex;
@@ -1093,14 +1098,14 @@ code[class*=language-], pre[class*=language-] {
 }
 .styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__image {
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 48px;
   border: 0;
 }
 .styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__caption {
   color: white;
   text-transform: uppercase;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   height: 24px;
   line-height: 24px;
   text-align: center;
@@ -1113,6 +1118,7 @@ code[class*=language-], pre[class*=language-] {
   height: 24px;
   line-height: 24px;
   vertical-align: middle;
+  margin-top: -1px;
 }
 .styles .styles__ribbon > .ribbon__imagecontainer > .ribbon__caption.ribbon__caption--split > .material-icons {
   float: right;
@@ -1136,6 +1142,9 @@ code[class*=language-], pre[class*=language-] {
   width: 100vw;
   max-width: none;
 }
+.styles .content ul {
+  font-size: 13px;
+}
 .styles .content li:before {
   font-size: 16px;
 }
@@ -1151,6 +1160,16 @@ code[class*=language-], pre[class*=language-] {
 .styles .content .styles__content {
   max-width: 960px;
   margin: 0 auto;
+}
+.styles .styles__download {
+  display: flex;
+}
+.styles .styles__download a {
+  font-weight: 500;
+  margin-right: 16px;
+}
+.styles .styles__content a .customizer {
+  border: 0;
 }
 
 @media (max-width: 850px) {
