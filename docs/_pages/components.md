@@ -103,7 +103,7 @@ categories:
     description: Building blocks for constructing a page layout.
     components:
       - name: layout
-        caption: Layout
+        caption: Navigation layouts
         class: mdl-layout
         snippets:
           - snippet_group:
