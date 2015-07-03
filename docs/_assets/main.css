@@ -126,6 +126,9 @@ body:not(.about) .docs-layout-title {
 .docs-layout.is-small-screen .docs-navigation {
   padding: 0;
 }
+.docs-layout.is-small-screen .docs-navigation .mdl-navigation__link .material-icons {
+  display: none;
+}
 .docs-navigation::-webkit-scrollbar {
   display: none;
 }
