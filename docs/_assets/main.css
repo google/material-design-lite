@@ -43,8 +43,9 @@ body.about .docs-layout.is-small-screen .docs-layout-header.mdl-layout__header {
   line-height: 1.5em;
   font-size: 1rem;
 }
-.docs-layout-title a {
+.docs-layout .docs-layout-title a {
   font-weight: inherit;
+  color: white;
 }
 .docs-layout-header .mdl-textfield .mdl-button {
   right: 0;
