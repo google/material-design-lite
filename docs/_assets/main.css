@@ -4,6 +4,7 @@ html > body {
 }
 .docs-layout .docs-layout-header.mdl-layout__header {
   height: 560px;
+  max-height: 50%;
   flex-shrink: 0;
   background-size: auto;
   background-repeat: no-repeat;
