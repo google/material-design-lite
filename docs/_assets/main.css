@@ -860,10 +860,13 @@ code[class*=language-], pre[class*=language-] {
   display: table-cell;
 }
 .started .content,
-.styles .content {
+.styles .content,
+.faq .content {
   padding: 40px;
   display: inline-block;
   text-align: left;
+  width: 100%;
+  box-sizing: border-box;
 }
 .docs-layout ul {
   list-style-type: none;
@@ -1170,11 +1173,6 @@ code[class*=language-], pre[class*=language-] {
 }
 .faq .section-content {
   display: table-cell;
-}
-.faq .content {
-  padding: 40px;
-  display: inline-block;
-  text-align: left;
 }
 .faq .content p {
   margin-top: 10px;
