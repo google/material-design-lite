@@ -186,6 +186,7 @@ categories:
             - caption: Default
               file: progress-default.html
               demo_file: progress-default-demo.html
+          - snippet_group:
             - caption: Indeterminate
               file: progress-indeterminate.html
               demo_file: progress-indeterminate-demo.html
