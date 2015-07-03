@@ -31,11 +31,11 @@ body .demo-blog {
   width: 100%;
   margin: 0 auto;
   flex-shrink: 0;
-  overflow: visible;
 }
 
-.demo-blog .mdl-layout__header {
-  margin-bottom: 30vh;
+.demo-blog.mdl-layout .mdl-layout__content {
+  padding-top: 30vh;
+  overflow: auto;
 }
 .demo-blog .mdl-card {
   display: flex;
