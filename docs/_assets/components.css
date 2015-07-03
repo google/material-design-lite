@@ -60,7 +60,9 @@ mdl-components-dd {
   display: inline-block;
   flex-grow: 1;
 }
-
+.mdl-components .mdl-components__pages {
+  padding-bottom: 120px;
+}
 .mdl-components .mdl-components__link {
   margin: 16px;
   font-weight: normal;
