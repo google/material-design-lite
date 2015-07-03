@@ -21,14 +21,8 @@ function CodeBlockCodePen() {
   this.init();
 }
 
-
-
 // Also insert the MDL Library.
 CodeBlockCodePen.prototype.MDLIBS = [
-  // TODO: Remove below before launch. For testing only.
-  '<!-- For testing. TODO: Remove before launch -->',
-  '<link rel="stylesheet" href="http://mdl-staging.storage.googleapis.com/material.min.css">',
-  '<script src="http://mdl-staging.storage.googleapis.com/material.min.js"></script>',
   '<!-- Material Design Lite -->',
   '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
   '<link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.indigo-pink.min.css">',
