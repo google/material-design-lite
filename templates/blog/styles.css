@@ -34,8 +34,9 @@ body .demo-blog {
 }
 
 .demo-blog.mdl-layout .mdl-layout__content {
-  padding-top: 30vh;
-  overflow: auto;
+  padding-top: 230px;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 .demo-blog .mdl-card {
   display: flex;
@@ -198,9 +199,6 @@ body .demo-blog {
 .demo-blog--blogpost .custom-header {
   background-color: transparent;
 }
-.demo-blog--blogpost .demo-blog__posts > .mdl-card {
-  margin-top: 230px;
-}
 .demo-blog--blogpost .demo-blog__posts > .mdl-card .mdl-card__media {
   background-image: url('images/road_big.jpg');
   height: 280px;
@@ -296,6 +294,7 @@ body .demo-blog {
   top: 16px;
   left: 16px;
   color: white;
+  z-index: 9999;
 }
 .demo-blog .section-spacer {
   flex-grow: 1;
