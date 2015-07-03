@@ -69,7 +69,39 @@ CodeBlockCodePen.prototype.init = function() {
 };
 
 /**
- * Click handler for CodePEn buttons. Simply submits the form to CodePen.
+ * Extracts the parts of the text that is inside occurrences of the tag and
+ * endTag.
+ * @param  {String} tag The start tag which content we need to extract
+ * @param  {String} endTag The end tag which content we need to extract
+ * @param  {String} text The text for which we need to extract the content in
+ *                       the given tags
+ * @return {Object} An Object with 2 attributes: textRemainder which contains
+ *                  the text not inside any of the given tag. and tagContent
+ *                  which contains a concatenation of what was inside the tags
+ */
+CodeBlockCodePen.prototype.extractTagsContent = function(tag, endTag, text) {
+  'use strict';
+  var tagStartIndex;
+  var tagEndIndex;
+  var tagText = '';
+
+  while (text.indexOf(tag) !== -1) {
+    tagStartIndex = text.indexOf(tag);
+    tagEndIndex = text.indexOf(endTag);
+    tagText += text.substring(tagStartIndex + tag.length, tagEndIndex);
+    text = text.substring(0, tagStartIndex).trim() + '\n' +
+      text.substr(tagEndIndex + endTag.length).trim();
+  }
+
+  return {textRemainder: text, tagContent: tagText};
+};
+
+/**
+ * Click handler for CodePen buttons. Prepares the content for CodePen and
+ * submits the form.
+ * @param  {HTMLElement} form The CodePen form
+ * @param  {HTMLElement} pre The pre containing the code to send to CodePen
+ * @return {function} The click handler
  */
 CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
   'use strict';
@@ -81,33 +113,18 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
       window.location.origin + '/assets/demos/');
 
     // Extract <style> blocks from the source code.
-    var styleLines = [];
+    var cssExtractResult = this.extractTagsContent('<style>', '</style>',
+      code);
 
-    while (code.indexOf('<style>') !== -1) {
-      var styleStartIndex = code.indexOf('<style>');
-      var styleEndIndex = code.indexOf('</style>');
-      var styleBlock = code.substring(styleStartIndex + 7, styleEndIndex).trim();
-      var styleBlockLines = styleBlock.split('\n').map(
-        function(elem) {
-          return elem.trim();
-        });
-      styleLines = styleLines.concat(styleBlockLines);
-      code = code.substring(0, styleStartIndex).trim() + '\n' +
-        code.substr(styleEndIndex + 8).trim();
-    }
+    code = cssExtractResult.textRemainder;
+    var css = cssExtractResult.tagContent.trim();
 
     // Extract <script> blocks from the source code.
-    var scriptLines = [];
+    var jsExtractResult = this.extractTagsContent('<script>', '</script>',
+      code);
 
-    while (code.indexOf('<script>') !== -1) {
-      var scriptStartIndex = code.indexOf('<script>');
-      var scriptEndIndex = code.indexOf('</script>');
-      var scriptBlockLines = code.substring(scriptStartIndex + 8,
-        scriptEndIndex).trim().split('\n');
-      scriptLines = scriptLines.concat(scriptBlockLines);
-      code = code.substring(0, scriptStartIndex).trim() + '\n' +
-        code.substr(scriptEndIndex + 9).trim();
-    }
+    code = jsExtractResult.textRemainder.trim();
+    var js = jsExtractResult.tagContent.trim();
 
     // Remove <input> children from previous clicks.
     while (form.firstChild) {
@@ -117,13 +134,15 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
     input.setAttribute('type', 'hidden');
     input.setAttribute('name', 'data');
     input.setAttribute('value', JSON.stringify(
-      {html: '<html>\n  <head>\n    ' +
-        this.MDLIBS.join('\n    ') +
-        '\n  </head>\n  <body>\n    ' +
-        code.split('\n').join('\n    ').trim() +
-        '\n  </body>\n</html>',
-        css: styleLines.join('\n').trim(),
-        js: scriptLines.join('\n').trim()}));
+      {
+        title: 'Material Design Lite components demo',
+        html:
+          '<html>\n' +
+          '  <head>\n    ' + this.MDLIBS.join('\n    ') + '\n  </head>\n' +
+          '  <body>\n    ' + code.split('\n').join('\n    ') + '\n  </body>\n' +
+          '</html>',
+        css: '  ' + css,
+        js: '  ' + js}));
     form.appendChild(input);
 
     form.submit();
