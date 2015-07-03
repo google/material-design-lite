@@ -415,6 +415,8 @@ gulp.task('assets', function () {
       'node_modules/swfobject-npm/swfobject/src/swfobject.js',
       'node_modules/prismjs/prism.js',
       'node_modules/prismjs/components/prism-markup.min.js',
+      'node_modules/prismjs/components/prism-javascript.min.js',
+      'node_modules/prismjs/components/prism-css.min.js',
       'node_modules/prismjs/dist/prism-default/prism-default.css'
     ])
     .pipe($.if(/\.js/i, $.replace('$$version$$', pkg.version)))
