@@ -89,14 +89,17 @@ html, body {
   flex-direction: column;
   align-items: stretch;
 }
-/* FIXME: This is a temporary workaround for IE10/11 */
+/* TODO: Find a proper solution to have the graphs
+ * not float around outside their container in IE10/11.
+ * Using a browserhacks.com solution for now.
+ */
 _:-ms-input-placeholder, :root .demo-graphs {
   min-height: 664px;
 }
 _:-ms-input-placeholder, :root .demo-graph {
   max-height: 300px;
 }
-/* FIXME end */
+/* TODO end */
 .demo-graph:nth-child(1) {
   color: #00b9d8;
 }
