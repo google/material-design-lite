@@ -792,6 +792,9 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
   background-color: rgba(0,0,0,0);
   padding: 0px;
   font-size: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
 }
 .docs-layout pre[class*=language-]>code[data-language] {
   overflow: hidden;
