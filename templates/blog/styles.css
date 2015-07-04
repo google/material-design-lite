@@ -239,6 +239,10 @@ body .demo-blog {
   margin-right: 16px;
   color: rgb(97, 97, 97);
 }
+// For Firefox
+.demo-blog--blogpost .comments > form .mdl-textfield .mdl-textfield__input {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
 .demo-blog--blogpost .comments > form .mdl-textfield input,
 .demo-blog--blogpost .comments > form .mdl-textfield textarea {
   resize: none;
