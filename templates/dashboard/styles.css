@@ -83,20 +83,20 @@ html, body {
 .demo-chart:nth-child(4) {
   color: #EF3C79;
 }
-
 .demo-graphs {
   padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
-.demo-graphs img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 80px;
+/* FIXME: This is a temporary workaround for IE10/11 */
+_:-ms-input-placeholder, :root .demo-graphs {
+  min-height: 664px;
 }
-.demo-graph {
-  width: 100%;
-  height: auto;
-  margin: 16px 0;
+_:-ms-input-placeholder, :root .demo-graph {
+  max-height: 300px;
 }
+/* FIXME end */
 .demo-graph:nth-child(1) {
   color: #00b9d8;
 }
