@@ -61,7 +61,6 @@ html, body {
 .mdl-demo main > .mdl-layout__tab-panel {
   padding: 8px;
   padding-top: 48px;
-  height: 100%;
 }
 .mdl-demo .mdl-card {
   height: auto;
@@ -173,6 +172,7 @@ html, body {
 }
 .mdl-demo section.section--footer {
   padding: 64px 0;
+  margin: 0 -8px -8px -8px;
 }
 .mdl-demo section.section--center .section__text:not(:last-child) {
   border-bottom: 1px solid rgba(0,0,0,.13);
