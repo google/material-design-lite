@@ -1,3 +1,6 @@
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
 .demo-avatar {
   width: 48px;
   height: 48px;
@@ -32,11 +35,12 @@
 .demo-navigation {
   flex-grow: 1;
 }
-.demo-navigation .mdl-navigation__link {
-  color: inherit;
+.demo-layout .demo-navigation .mdl-navigation__link {
   display: flex !important;
   flex-direction: row;
   align-items: center;
+  color: rgba(255, 255, 255, 0.56);
+  font-weight: 500;
 }
 .demo-navigation .mdl-navigation__link .material-icons {
   font-size: 24px;
