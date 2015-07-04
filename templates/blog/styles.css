@@ -237,6 +237,7 @@ body .demo-blog {
 .demo-blog--blogpost .comments > form .mdl-textfield {
   flex-grow: 1;
   margin-right: 16px;
+  color: rgb(97, 97, 97);
 }
 .demo-blog--blogpost .comments > form .mdl-textfield input,
 .demo-blog--blogpost .comments > form .mdl-textfield textarea {
