@@ -136,11 +136,8 @@ html, body {
 .demo-options h3 {
   margin: 0;
 }
-.demo-options .mdl-checkbox .mdl-checkbox__box-outline {
+.demo-options .mdl-checkbox__box-outline {
   border-color: rgba(255, 255, 255, 0.89);
-}
-.demo-options .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-  background: rgba(255, 255, 255, 0.89);
 }
 .demo-options ul {
   margin: 0;
