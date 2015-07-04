@@ -239,7 +239,9 @@ body .demo-blog {
   margin-right: 16px;
   color: rgb(97, 97, 97);
 }
-// For Firefox
+/* Workaround for Firefox.
+ * User agent stylesheet kept overwriting the font in FF only.
+ */
 .demo-blog--blogpost .comments > form .mdl-textfield .mdl-textfield__input {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
