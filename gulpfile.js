@@ -537,7 +537,7 @@ gulp.task('pushCodeFiles', ['zip:mdl', 'zip:templates'], function() {
   // but consider more helpful interval (e.g. 3600s) after launch.
   var dest = bucketCode;
   var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
-  var cacheControl = '-h "Cache-Control:public,max-age=0"';
+  var cacheControl = '-h "Cache-Control:public,max-age=60"';
   var gsutilCpCmd = 'gsutil -m cp ';
   var gsutilCacheCmd = 'gsutil -m setmeta -R ' + cacheControl;
 
