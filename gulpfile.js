@@ -40,8 +40,9 @@ var bucketCode = 'gs://code.getmdl.io';
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
-  ' * @link <%= pkg.homepage %>',
   ' * @license <%= pkg.license.type %>',
+  ' * @copyright 2015 Google, Inc.',
+  ' * @link <%= pkg.homepage %>',
   ' */',
   ''].join('\n');
 
