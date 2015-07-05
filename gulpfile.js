@@ -27,6 +27,7 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
+var codeFiles = '';
 var reload = browserSync.reload;
 var path = require('path');
 var pkg = require('./package.json');
@@ -513,13 +514,21 @@ gulp.task('zip:templates', function() {
   .pipe(gulp.dest('dist'));
 });
 
+gulp.task('genCodeFiles', function() {
+  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/mdl-templates.zip'],
+      {read: false})
+    .pipe($.tap(function(file, t) {
+      codeFiles += ' dist/' + path.basename(file.path);
+    }));
+});
+
+gulp.task('pushCodeFiles', ['zip:mdl', 'zip:templates'], function() {
 // Push the latest version of code resources (CSS+JS) to Google Cloud Storage.
 // Public-read objects in GCS are served by a Google provided and supported
 // global, high performance caching/content delivery network (CDN) service.
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 //
-gulp.task('publish:code', ['zip:mdl', 'zip:templates'], function() {
   // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -m option requests parallel copies.
@@ -530,22 +539,25 @@ gulp.task('publish:code', ['zip:mdl', 'zip:templates'], function() {
   var dest = bucketCode;
   var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
   var cacheControl = '-h "Cache-Control:public,max-age=0"';
-  var gsutilCpCmd = 'gsutil -m cp <%= file.path %> ' + dest;
-  var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest;
+  var gsutilCpCmd = 'gsutil -m cp ';
+  var gsutilCacheCmd = 'gsutil -m setmeta -R ' + cacheControl;
 
   process.stdout.write(infoMsg + '\n');
   // Upload the goodies to a separate GCS bucket with versioning.
   // Using a sep bucket avoids the risk of accidentally blowing away
   // old versions in the microsite bucket.
-  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/mdl-templates.zip'],
-      {read: false})
-    .pipe($.tap(function(file, t) {
-      file.base = path.basename(file.path);
-    }))
+  gulp.src('')
     .pipe($.shell([
-      gsutilCpCmd + '/' + pkg.version + '/<%= file.base %>',
-      gsutilCacheCmd + '/' + pkg.version + '/<%= file.base %>'
+      gsutilCpCmd + codeFiles + ' ' + dest + '/' + pkg.version,
+      gsutilCacheCmd + ' ' + dest + '/' + pkg.version
     ]));
+});
+
+gulp.task('publish:code', function (cb) {
+  runSequence(
+    'genCodeFiles',
+    'pushCodeFiles',
+    cb);
 });
 
 // Function to publish staging or prod version from local tree,
