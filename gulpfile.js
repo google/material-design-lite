@@ -571,11 +571,11 @@ function mdlPublish(pubScope) {
     dest = bucketStaging;
   } else if (pubScope === 'prod') {
     // Set prod specific vars here.
-    cacheTtl = 3600;
+    cacheTtl = 60;
     dest = bucketProd;
   } else if (pubScope === 'promote') {
     // Set promote (essentially prod) specific vars here.
-    cacheTtl = 3600;
+    cacheTtl = 60;
     src = bucketStaging + '/*';
     dest = bucketProd;
   }
