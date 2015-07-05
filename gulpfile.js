@@ -245,7 +245,7 @@ gulp.task('metadata', function () {
 // Build Production Files, the Default Task
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
-    'styles',
+    ['styles', 'styles:gen'],
     ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'demos', 'pages',
      'templates', 'images', 'styles-grid', 'metadata'],
     cb);
