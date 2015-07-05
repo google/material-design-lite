@@ -235,12 +235,18 @@ gulp.task('scripts', function () {
 // Clean Output Directory
 gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
 
+// Copy package manger and LICENSE files to dist
+gulp.task('metadata', function () {
+  return gulp.src(['package.json', 'bower.json', 'LICENSE'])
+    .pipe(gulp.dest('./dist'));
+});
+
 // Build Production Files, the Default Task
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
     'styles',
     ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'demos', 'pages',
-     'templates', 'images', 'styles-grid'],
+     'templates', 'images', 'styles-grid', 'metadata'],
     cb);
 });
 
