@@ -482,7 +482,7 @@ gulp.task('serve', ['default'], function() {
 
 // Generate release archive containing just JS, CSS, Source Map deps
 gulp.task('zip:mdl', function() {
-  gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
+  return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
     .pipe($.zip('mdl.zip'))
     .pipe(gulp.dest('dist'));
 });
@@ -507,7 +507,7 @@ var fileFilter = $.filter([
 
 gulp.task('zip:templates', function() {
   // Stream of all `dist` files and other package manager files from root
-  gulp.src(['dist/**/*.*', 'LICENSE', 'bower.json', 'package.json'])
+  return gulp.src(['dist/**/*.*', 'LICENSE', 'bower.json', 'package.json'])
   .pipe(fileFilter)
   .pipe($.zip('mdl-templates.zip'))
   .pipe(fileFilter.restore())
@@ -545,7 +545,7 @@ gulp.task('pushCodeFiles', function() {
   // Upload the goodies to a separate GCS bucket with versioning.
   // Using a sep bucket avoids the risk of accidentally blowing away
   // old versions in the microsite bucket.
-  gulp.src('')
+  return gulp.src('')
     .pipe($.shell([
       gsutilCpCmd + codeFiles + ' ' + dest + '/' + pkg.version,
       gsutilCacheCmd + ' ' + dest + '/' + pkg.version
