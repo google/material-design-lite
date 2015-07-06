@@ -25,19 +25,22 @@
 }
 
 .mdl-components-index-text {
-  max-width: 600px;
+  max-width: 960px;
+  margin: 0;
+}
+.mdl-components-index-text .mdl-components-dl {
+  justify-content: flex-start;
+  margin-left: 40px;
 }
 
 .mdl-components-img {
   position: absolute;
   margin-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 5%;
+  left: 40px;
   height: 90%;
   width: 90%;
   max-height: 600px;
-  background: url('../assets/compindex_2x.png') no-repeat top center / contain;
+  background: url('../assets/compindex_2x.png') no-repeat top left / contain;
 }
 
 .mdl-components-text {
