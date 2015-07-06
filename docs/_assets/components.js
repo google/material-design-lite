@@ -79,6 +79,7 @@ MaterialComponentsNav.prototype.init = function() {
  */
 MaterialComponentsNav.prototype.displaySectionForFragment = function(fragment) {
   'use strict';
+
   if (fragment && this.linksMap_[fragment] && this.linksMap_[fragment].click) {
     this.linksMap_[fragment].click();
   } else if (!fragment || fragment === '' || fragment === '#') {
@@ -90,6 +91,8 @@ MaterialComponentsNav.prototype.displaySectionForFragment = function(fragment) {
  * Displays the index page for the components.
  */
 MaterialComponentsNav.prototype.displayIndexPage = function() {
+  'use strict';
+
   if (this.activeLink) {
     this.activeLink.classList.remove(this.CssClasses_.ACTIVE);
   }
@@ -109,30 +112,31 @@ MaterialComponentsNav.prototype.displayIndexPage = function() {
 MaterialComponentsNav.prototype.clickHandler = function(link) {
   'use strict';
 
-  var ctx = this;
-
   return function(e) {
     e.preventDefault();
-    var page = ctx.findPage(link);
-    if (ctx.activePage) {
-      ctx.activePage.classList.remove(ctx.CssClasses_.ACTIVE);
+    var page = this.findPage(link);
+    if (this.activePage) {
+      this.activePage.classList.remove(this.CssClasses_.ACTIVE);
     }
-    if (ctx.activeLink) {
-      ctx.activeLink.classList.remove(ctx.CssClasses_.ACTIVE);
+    if (this.activeLink) {
+      this.activeLink.classList.remove(this.CssClasses_.ACTIVE);
     }
 
-    ctx.activePage = page;
-    ctx.activeLink = link;
+    this.activePage = page;
+    this.activeLink = link;
 
-    link.classList.add(ctx.CssClasses_.ACTIVE);
-    page.classList.add(ctx.CssClasses_.ACTIVE);
+    link.classList.add(this.CssClasses_.ACTIVE);
+    page.classList.add(this.CssClasses_.ACTIVE);
 
     // Add an history entry and display the hash fragment in the URL.
     var section = window.location.hash.split('/')[0];
     if (section !== '#' + link.href.split('#')[1]) {
       history.pushState(null, 'Material Design Lite', link);
+      // Scroll to top of page
+      document.getElementById('content').scrollTop = 0;
     }
-  };
+    return true;
+  }.bind(this);
 };
 
 /**
