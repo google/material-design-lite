@@ -249,20 +249,20 @@ body:not(.about) .mdl-navigation__link.download > button {
   font-weight: 500;
   text-transform: uppercase;
 }
-.docs-footer {
+.docs-footer.mdl-mini-footer {
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
   height: 120px;
 }
-.docs-footer ul {
+.docs-footer.mdl-mini-footer ul {
   padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.docs-footer ul > a {
+.docs-footer.mdl-mini-footer ul > a {
   margin: 0 8px;
   font-weight: 400;
   font-size: 12px;
@@ -490,7 +490,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 .component-description .mdl-button:first-of-type {
   margin-top: 8px;
 }
-.social-btn {
+.docs-footer.mdl-mini-footer .social-btn {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -501,13 +501,15 @@ body:not(.about) .mdl-navigation__link.download > button {
   cursor: pointer;
 }
 .social-btn__twitter {
-  background-image: url('https://www.gstatic.com/images/icons/material/system/1x/post_twitter_white_24dp.png');
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_white_24dp.png');
 }
-.social-btn__blogger {
-  background-image: url('https://www.gstatic.com/images/icons/material/system/1x/post_blogger_white_24dp.png');
+.social-btn__github {
+  background-image: url('github_white_24.svg');
+  width: 22px;
+  height: 22px;
 }
 .social-btn__gplus {
-  background-image: url('https://www.gstatic.com/images/icons/material/system/1x/post_gplus_white_24dp.png');
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png');
 }
 .subpageheader {
   margin-top: 60px;
@@ -1207,9 +1209,6 @@ code[class*=language-], pre[class*=language-] {
      (min-resolution: 192dpi)             /* dppx fallback */ {
   .social-btn__twitter {
     background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_white_24dp.png');
-  }
-  .social-btn__blogger {
-    background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_blogger_white_24dp.png');
   }
   .social-btn__gplus {
     background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png');
