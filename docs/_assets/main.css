@@ -1145,7 +1145,8 @@ code[class*=language-], pre[class*=language-] {
   width: 100vw;
   max-width: none;
 }
-.styles .content ul {
+.styles .content ul,
+.components .content ul {
   font-size: 13px;
 }
 .styles .content li:before {
