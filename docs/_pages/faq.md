@@ -56,7 +56,7 @@ One example of this is our ‘Text only’ Material Design template. Switching J
 
 ![A preview of a template rendering in an older version of IE](../assets/template-preview.png)
 
-This allows us to render important content first and then ‘enhance’ the page with things like Material Design button ripples and pop-out menu components. 
+This allows us to render important content first and then ‘enhance’ the page with things like Material Design button ripples and pop-out menu components.
 
 MDL will degrade to a no-JavaScript experience on IE9, though you can pull in polyfills for an enhanced experience. If components require JavaScript to function, such as Layout, these will otherwise need to be planned for in development. IE10+ and evergreen browsers are fully supported. For more details on our browser support, see ‘Which browsers does MDL support?’.
 
@@ -64,9 +64,9 @@ Note: the MDL site itself attempts to use progressive enhancement where possible
 
 <h2 id="browser-support">Which browsers does MDL support?</h2>
 
-The complete MDL experience should work in the last two versions of all evergreen browsers, whilst we gracefully degrade to CSS-only in browsers like IE9 that don’t pass our [Cutting-the-mustard](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L262) test. 
+The complete MDL experience should work in the last two versions of all evergreen browsers, whilst we gracefully degrade to CSS-only in browsers like IE9 that don’t pass our [Cutting-the-mustard](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L262) test.
 
-Our [browser compatibility matrix](https://github.com/google/material-design-lite/#browser-support) has the most up to date information on the browsers we officially support. For components, at minimum we require support for [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) and [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), which can be [polyfilled](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) as needed. Our Templates will work in IE10+, primarily due to our use of Flexbox. 
+Our [browser compatibility matrix](https://github.com/google/material-design-lite/#browser-support) has the most up to date information on the browsers we officially support. For components, at minimum we require support for [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) and [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), which can be [polyfilled](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) as needed. Our Templates will work in IE10+, primarily due to our use of Flexbox.
 
 The polyfills that we’re currently using for the MDL site to improve support in oldIE are the following:
 
@@ -84,23 +84,23 @@ We do not officially support IE8. That said, some components will degrade using 
 
 **Buttons**
 
-<img alt="Buttons rendering in IE8" src="../assets/button_ie8.png">
+<img alt="Buttons rendering in IE8" src="../assets/button_degradation.png">
 
 **Tables**
 
-<img alt="Tables gracefully degrading in IE8" src="../assets/table_ie8.png">
+<img alt="Tables gracefully degrading in IE8" src="../assets/table_degradation.png">
 
 **Sliders (degrade to input fields)**
 
-<img alt="Sliders degrading in IE8 to input fields" src="../assets/slider_ie8.png">
+<img alt="Sliders degrading in IE8 to input fields" src="../assets/sliders_degradation.png">
 
 <h2 id="polymer">Does MDL play nicely with Polymer? Is it a replacement for the Paper elements?</h2>
 
-MDL focuses on delivering an experience that is optimised for static content sites, like blogs, marketing pages and more traditional text-based web pages. 
+MDL focuses on delivering an experience that is optimised for static content sites, like blogs, marketing pages and more traditional text-based web pages.
 
 The <a href="https://elements.polymer-project.org/browse?package=paper-elements">Paper</a> elements built with <a href="http://polymer-project.org">Polymer</a> are fully encapsulated components that can be used individually or composed together to create a material design-style site, and support more advanced user interaction.
 
-That said, MDL can be used alongside the Polymer element counterparts. Polymer uses the power of Web Components to encapsulate the designs used for those components. MDL does not affect the styling within custom components. 
+That said, MDL can be used alongside the Polymer element counterparts. Polymer uses the power of Web Components to encapsulate the designs used for those components. MDL does not affect the styling within custom components.
 
 <h2 id="bootstrap">Is MDL comparable to Twitter Bootstrap?</h2>
 
@@ -112,7 +112,7 @@ Material Design can replace many parts of Bootstrap. However, it does not intend
 
 *Materialize, Material Bootstrap, etc*
 
-We think the community does a great job offering their own take on how Material Design should be implemented for CSS libraries. 
+We think the community does a great job offering their own take on how Material Design should be implemented for CSS libraries.
 
 That said, the large, diverse number of implementations available are often quite liberal with their interpretation of the spec (not their fault!) and their opinions don’t always reflect what the Material Design team would consider ‘correct’. MDL was developed in close collaboration with the Material Design and Chrome UX teams and undergoes regular reviews for spec compliance. When we run into an area of the spec that isn’t yet fully fleshed out, MDL is able to offer reviewed opinions on how these should be solved in a way that tries to stay true to Material Design.  
 
@@ -122,7 +122,7 @@ That said, the large, diverse number of implementations available are often quit
 
 **Minified: **If it’s your first time using MDL, we recommend downloading one of the default packages from the ‘Getting Started’ page that include a minified version of our CSS/JS and optionally our pre-made Templates.
 
-**CDN: **If you’re just prototyping or want to avoid hosting your own copy of the MDL CSS and JS files, you can use our CDN to pull down a heavily edge-cached version. 
+**CDN: **If you’re just prototyping or want to avoid hosting your own copy of the MDL CSS and JS files, you can use our CDN to pull down a heavily edge-cached version.
 
 **Customiser: **If you’re creating a new site with MDL and are using a custom color scheme, we recommend downloading the default package then generating a custom build using the Customiser tool. You can use this to override the material.min.css file for your own needs.
 
@@ -134,7 +134,7 @@ The official CDN is hosted using [Google Cloud Storage](https://cloud.google.com
 
 <h2 id="web-starter-kit">How does MDL relate to Web Starter Kit?</h2>
 
-MDL is an evolutionary step from the styleguide provided in Web Starter Kit. The more [Web Starter Kit](https://developers.google.com/web/tools/starter-kit/) was used, the more it became clear that many developers simply wanted Material Design in their sites. 
+MDL is an evolutionary step from the styleguide provided in Web Starter Kit. The more [Web Starter Kit](https://developers.google.com/web/tools/starter-kit/) was used, the more it became clear that many developers simply wanted Material Design in their sites.
 
 The WSK Styleguide also did not align to Material Design fully, it was simply based on the idea. From the WSK project, MDL was born to try and fill this need for developers. In the process making the implementation as faithful as possible to the specification.
 
@@ -156,7 +156,7 @@ and is being used by many other teams on upcoming projects, including Google Sho
 
 For V1 of MDL we are focused on the use-case of folks who are likely to need a few different components on their page and will want to include most of the MDL library. This means that support and docs around just plucking single components on their own is minimal.
 
-That said, if you need to generate a build using just a single (or smaller number of) components, you will need to use Gulp with our Sass build. You can [comment out](https://github.com/google/material-design-lite/blob/master/src/material-design-lite.scss) those components you don’t need in material-design-lite.scss, [comment out](https://github.com/google/material-design-lite/blob/master/gulpfile.js#L191) the scripts you don’t need in the Gulpfile and then run `gulp` to create your build. 
+That said, if you need to generate a build using just a single (or smaller number of) components, you will need to use Gulp with our Sass build. You can [comment out](https://github.com/google/material-design-lite/blob/master/src/material-design-lite.scss) those components you don’t need in material-design-lite.scss, [comment out](https://github.com/google/material-design-lite/blob/master/gulpfile.js#L191) the scripts you don’t need in the Gulpfile and then run `gulp` to create your build.
 
 We have talked about offering up components in a more modular fashion but will be exploring this in the post V1 timeline.
 
@@ -170,17 +170,8 @@ We encourage the MDL user and developer community to ask questions, and help ans
 
 <h2 id="slide-decks">Are there any presentations or slide-decks available on MDL?</h2>
 
-We did a preview talk at Google I/O 2015 on MDL and the slides for that talk can be found on [SpeakerDeck](https://speakerdeck.com/gauntface/material-design-lite-preview). 
+We did a preview talk at Google I/O 2015 on MDL and the slides for that talk can be found on [SpeakerDeck](https://speakerdeck.com/gauntface/material-design-lite-preview).
 
 <h2 id="new-components">Can I request or contribute components to MDL?</h2>
 
 Sure! There may be components or templates you would like to see implemented in MDL that we don't yet provide. Please feel free to propose them on the <a href="https://github.com/google/material-design-lite/issues/92">Component Requests</a> thread. While we can't guarantee we'll be able to implement them all, we will consider requests and review them at regular intervals.
-
-
-
-
-
-
-
-
-
