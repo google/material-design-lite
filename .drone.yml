@@ -1,8 +1,8 @@
 image: crhym3/ci
 git:
   depth: 1
-env:
-  - DRONE_ACCOUNT=996714972814-7q585hf42vmouqkfdbccsnrc6jgclfm1@developer.gserviceaccount.com
+cache:
+  - /cache
 script:
   # workaround for cache, see https://github.com/drone/drone/issues/147
   - mkdir -p /cache/node_modules
@@ -14,12 +14,14 @@ script:
   # ensure the build works
   # this will also run gulp test
   - gulp
-  # publish to staging if this is master branch
-  - if [ "$CI_BRANCH" != "master" ]; then exit 0; fi
-  - apt-get install -y python-openssl
-  - openssl aes-256-cbc -d -in .drone.p12.enc -out .drone.p12 -pass env:DRONE_PASS
-  - /gcloud/bin/gcloud components update -q gsutil
-  - /gcloud/bin/gcloud auth activate-service-account $DRONE_ACCOUNT --key-file .drone.p12
-  - gulp publish:staging
-cache:
-  - /cache
+deploy:
+  bash:
+    when:
+      owner: google
+      branch: master
+    script:
+      - apt-get install -y python-openssl # gcloud deps for service accounts
+      - openssl aes-256-cbc -d -in .drone.p12.enc -out .drone.p12 -pass env:DRONE_PASS
+      - /gcloud/bin/gcloud components update -q gsutil
+      - /gcloud/bin/gcloud auth activate-service-account $$DRONE_ACCOUNT --key-file .drone.p12
+      - gulp publish:staging
