@@ -58,6 +58,10 @@ html, body {
   color: rgba(255, 255, 255, 0.56);
   font-weight: 500;
 }
+.demo-layout .demo-navigation .mdl-navigation__link:hover {
+  background-color: #00BCD4;
+  color: #37474F;
+}
 .demo-navigation .mdl-navigation__link .material-icons {
   font-size: 24px;
   color: rgba(255, 255, 255, 0.56);
