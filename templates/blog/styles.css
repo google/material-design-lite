@@ -69,6 +69,9 @@ body .demo-blog {
   display: flex;
   align-items: center;
 }
+.demo-blog .mdl-card__supporting-text strong {
+  font-weight: 400;
+}
 .demo-blog .mdl-card__media ~ .mdl-card__supporting-text {
   min-height: 64px;
 }
@@ -113,7 +116,12 @@ body .demo-blog {
   display: flex;
   flex-direction: column;
 }
-
+.demo-blog.is-small-screen .demo-blog__posts > .mdl-card.coffee-pic {
+  order: 0;
+}
+.demo-blog.is-small-screen .demo-blog__posts > .mdl-card.something-else {
+  order: -1;
+}
 .demo-blog .coffee-pic .mdl-card__media {
   background-image: url('images/coffee.jpg');
 }
