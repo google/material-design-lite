@@ -107,7 +107,9 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
       ga('send', {
         hitType: 'event',
         eventCategory: 'codepen',
-        eventAction: 'click'
+        eventAction: 'click',
+        eventLabel: window.location.pathname +
+          (window.location.hash ? window.location.hash : '')
       });
     }
 
