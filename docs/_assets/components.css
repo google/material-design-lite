@@ -106,11 +106,13 @@ mdl-components-dd {
 
 .mdl-components .docs-toc {
   margin-bottom: 60px;
+  margin-left: 32px;
 }
 
 .mdl-components .component-title {
   margin-bottom: 60px;
   margin-top: 30px;
+  margin-left: 32px;
 }
 
 .mdl-components .component-title h3 {
@@ -118,6 +120,10 @@ mdl-components-dd {
   font-weight: 500;
   margin-top: 80px;
   text-transform: uppercase;
+}
+
+.mdl-components .snippet-code pre.language-markup code {
+  padding-left: 40px;
 }
 
 .mdl-components .mdl-components__page.is-active {
@@ -155,6 +161,13 @@ mdl-components-dd {
   width: 100%;
 }
 @media (max-width: 850px) {
+  .mdl-components .component-title,
+  .mdl-components .docs-toc {
+    margin-left: 0;
+  }
+  .mdl-components .snippet-code pre.language-markup code {
+    padding-left: 8px;
+  }
   .docs-layout-content {
     position: relative;
     height: 100%;
