@@ -126,7 +126,7 @@ styles are kept in a separate CSS file. Use `gulp serve` to take a look at the t
 * [Dashboard template](http://localhost:3000/templates/dashboard)
 * [Product template](http://localhost:3000/templates/product)
 
-> Templates are not officially supported in IE9 and legacy browsers that do not pass the minimum-requirements defined in our [cutting-the-mustard test](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L256-269).
+> Templates are not officially supported in IE9 and legacy browsers that do not pass the minimum-requirements defined in our [cutting-the-mustard test](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L262-L275).
 
 ## Versioning
 
