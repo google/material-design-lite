@@ -504,6 +504,6 @@ MaterialCustomizer = (function() {
 })();
 
 // For NodeJS usage
-if (module) {
+if (typeof module !== 'undefined') {
   module.exports = MaterialCustomizer;
 }
