@@ -482,7 +482,7 @@ gulp.task('serve', ['default'], function() {
 
 // Generate release archive containing just JS, CSS, Source Map deps
 gulp.task('zip:mdl', function() {
-  gulp.src(['dist/material.*@(js|css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
+  gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
     .pipe($.zip('mdl.zip'))
     .pipe(gulp.dest('dist'));
 });
