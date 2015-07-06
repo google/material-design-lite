@@ -53,7 +53,15 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-25993200-9', 'auto');
-      ga('send', 'pageview');
+      // If a specific component page is loaded directly we'll attribute the
+      // page view to the specific component's page
+      if (window.location.pathname.indexOf('/components/') !== -1 &&
+          window.location.hash.indexOf('-section') !== -1) {
+        ga('send', 'pageview', '/components/' +
+            window.location.hash.split('#')[1].split('/')[0]);
+      } else {
+        ga('send', 'pageview');
+      }
     // }
 
     // Setup error tracking before anything else runs.

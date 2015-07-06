@@ -130,10 +130,15 @@ MaterialComponentsNav.prototype.clickHandler = function(link) {
 
     // Add an history entry and display the hash fragment in the URL.
     var section = window.location.hash.split('/')[0];
-    if (section !== '#' + link.href.split('#')[1]) {
+    var linkWithoutHash = link.href.split('#')[1];
+    if (section !== '#' + linkWithoutHash) {
       history.pushState(null, 'Material Design Lite', link);
       // Scroll to top of page
       document.getElementById('content').scrollTop = 0;
+      // Track the specific component page view in Google analytics
+      if (ga) {
+        ga('send', 'pageview', '/components/' + linkWithoutHash);
+      }
     }
     return true;
   }.bind(this);
