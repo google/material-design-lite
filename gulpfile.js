@@ -527,7 +527,7 @@ gulp.task('genCodeFiles', function() {
 // global, high performance caching/content delivery network (CDN) service.
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
-gulp.task('pushCodeFiles', ['zip:mdl', 'zip:templates'], function() {
+gulp.task('pushCodeFiles', function() {
   // Build dest path, info message, cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -m option requests parallel copies.
@@ -554,6 +554,7 @@ gulp.task('pushCodeFiles', ['zip:mdl', 'zip:templates'], function() {
 
 gulp.task('publish:code', function (cb) {
   runSequence(
+    'zip:mdl',
     'genCodeFiles',
     'pushCodeFiles',
     cb);
