@@ -121,10 +121,12 @@ gulp pipeline and can be compiled with `gulp templates`. The templates use the v
 [themed](http://google.github.io/material-design-lite/customizer/customizer.html) CSS files. Extraneous
 styles are kept in a separate CSS file. Use `gulp serve` to take a look at the templates:
 
-* [General template](http://localhost:3000/templates/general)
-* [Blog template](http://localhost:3000/templates/blog) and [blog entry](http://localhost:3000/templates/blog/entry.html)
-* [Dashboard template](http://localhost:3000/templates/dashboard)
-* [Product template](http://localhost:3000/templates/product)
+* 
+* [Blog Template](http://www.getmdl.io/templates/blog)
+* [Dashboard Template](http://www.getmdl.io/templates/dashboard)
+* [Text Heavy Webpage Template](http://www.getmdl.io/templates/text-only)
+* [Stand Alone Article Template](http://www.getmdl.io/templates/article)
+* [Android.com MDL Skin Template](http://www.getmdl.io/templates/android-dot-com)
 
 > Templates are not officially supported in IE9 and legacy browsers that do not pass the minimum-requirements defined in our [cutting-the-mustard test](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L262-L275).
 
