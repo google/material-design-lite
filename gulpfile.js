@@ -554,7 +554,7 @@ gulp.task('pushCodeFiles', function() {
 
 gulp.task('publish:code', function (cb) {
   runSequence(
-    'zip:mdl',
+    ['zip:mdl, 'zip:templates'],
     'genCodeFiles',
     'pushCodeFiles',
     cb);
