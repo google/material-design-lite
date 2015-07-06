@@ -62,6 +62,11 @@ body.about .docs-layout.is-small-screen .docs-layout-header.mdl-layout__header {
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center center;
 }
+@media (max-height: 600px){
+  .about .docs-layout-header.mdl-layout__header {
+    background-size: auto 80px, cover;
+  }
+}
 body:not(.about) .docs-layout .docs-layout-header.mdl-layout__header {
   background-repeat: no-repeat;
   background-position: center center;
