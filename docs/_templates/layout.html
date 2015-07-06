@@ -43,6 +43,31 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body class="{{page.bodyclass}}">
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    // if (document.location.hostname !== 'localhost' &&
+    //     document.location.hostname !== '127.0.0.1' &&
+    //     document.location.hostname.search('.corp.') === -1) {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-25993200-9', 'auto');
+      ga('send', 'pageview');
+    // }
+
+    // Setup error tracking before anything else runs.
+  window.onerror = function(message, file, lineNumber, columnNumber, error) {
+    try {
+      if (error !== undefined) {
+        message = error.stack;
+      }
+       ga('send', 'event', 'error', file + ':' + lineNumber, String(message));
+    } catch (e) {
+      // no-op
+    }
+  };
+  </script>
   <div class="image-preloader"></div>
   <div class="docs-layout mdl-layout mdl-js-layout">
     <header class="docs-layout-header mdl-layout__header">
@@ -110,20 +135,7 @@
       <![endif]-->
     <!-- end shims -->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      if (document.location.hostname !== 'localhost' &&
-          document.location.hostname !== '127.0.0.1' &&
-          document.location.hostname.search('storage.googleapis.com') === -1 &&
-          document.location.hostname.search('.corp.') === -1) {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-25993200-9', 'auto');
-        ga('send', 'pageview');
-      }
-    </script>
+
     <!-- Material Design Lite -->
     <script src="{{page.include_prefix}}material.min.js"></script>
     <!-- Add Copy-to-CodePen buttons to code blocks -->
