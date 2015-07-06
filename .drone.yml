@@ -12,7 +12,7 @@ script:
   - npm install
   - node_modules/napa/bin/napa mojombo/clippy
   - echo A: $DRONE_ACCOUNT
-  # ensure the build works
+  # ensure the build works .
   # this will also run gulp test
   - gulp
 deploy:
