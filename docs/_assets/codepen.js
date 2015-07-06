@@ -102,6 +102,17 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
 
   return function() {
 
+    // Track codepen button clicks
+    if (typeof ga !== 'undefined') {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'codepen',
+        eventAction: 'click',
+        eventLabel: window.location.pathname +
+          (window.location.hash ? window.location.hash : '')
+      });
+    }
+
     // Modify relative URLs to make them absolute.
     var code = pre.textContent.replace('../assets/demos/',
       window.location.origin + '/assets/demos/');
