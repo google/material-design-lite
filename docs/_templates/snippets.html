@@ -36,7 +36,7 @@
                      scale="exactfit"
                      quality="low"
                      wmode="transparent"
-                     FlashVars="text={% filter e('html') %}{% include snippet_file ignore missing %}{% endfilter %}"/>
+                     FlashVars="text={% filter url_encode %}{% include snippet_file ignore missing %}{% endfilter %}"/>
             </object>
           </button>
         </div>
