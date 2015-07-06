@@ -529,20 +529,20 @@ gulp.task('genCodeFiles', function() {
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 gulp.task('pushCodeFiles', function() {
-  // Build dest path, info message, cache control and gsutil cmd to copy
+  var dest = bucketCode;
+  process.stdout.write('Publishing ' + pkg.version + ' to CDN (' + dest + ')\n');
+
+  // Build cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
   // The gsutil -m option requests parallel copies.
   // The gsutil -h option is used to set metadata headers
   // (cache control, in this case).
   // For cache control, start with 0s (disable caching during dev),
   // but consider more helpful interval (e.g. 3600s) after launch.
-  var dest = bucketCode;
-  var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
   var cacheControl = '-h "Cache-Control:public,max-age=60"';
-  var gsutilCpCmd = 'gsutil -m cp ';
+  var gsutilCpCmd = 'gsutil -m cp -z js,css,map ';
   var gsutilCacheCmd = 'gsutil -m setmeta -R ' + cacheControl;
 
-  process.stdout.write(infoMsg + '\n');
   // Upload the goodies to a separate GCS bucket with versioning.
   // Using a sep bucket avoids the risk of accidentally blowing away
   // old versions in the microsite bucket.
@@ -570,10 +570,12 @@ function mdlPublish(pubScope) {
   if (pubScope === 'staging') {
     // Set staging specific vars here.
     cacheTtl = 0;
+    src = 'dist/*';
     dest = bucketStaging;
   } else if (pubScope === 'prod') {
     // Set prod specific vars here.
     cacheTtl = 60;
+    src = 'dist/*';
     dest = bucketProd;
   } else if (pubScope === 'promote') {
     // Set promote (essentially prod) specific vars here.
@@ -582,32 +584,21 @@ function mdlPublish(pubScope) {
     dest = bucketProd;
   }
 
-  // Build cache control and info message.
-  var cacheControl = '-h "Cache-Control:public,max-age=' + cacheTtl + '"';
   var infoMsg = 'Publishing ' + pubScope + '/' + pkg.version + ' to GCS (' + dest + ')';
   if (src) {
     infoMsg += ' from ' + src;
   }
+  process.stdout.write(infoMsg + '\n');
 
-  // Build gsutil commands to recursively sync local distribution tree
-  // to the dest bucket and to recursively set permissions to public-read.
+  // Build gsutil commands:
+  // The gsutil -h option is used to set metadata headers.
   // The gsutil -m option requests parallel copies.
   // The gsutil -R option is used for recursive file copy.
-  // The gsutil -h option is used to set metadata headers (cache control, in this case).
-  var gsutilSyncCmd = 'gsutil -m rsync -d -R dist ' + dest;
+  var cacheControl = '-h "Cache-Control:public,max-age=' + cacheTtl + '"';
   var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest + '/**';
-  var gsutilCpCmd = 'gsutil -m cp -R ' + src + ' ' + dest;
+  var gsutilCpCmd = 'gsutil -m cp -r -z html,css,js,svg ' + src + ' ' + dest;
 
-  process.stdout.write(infoMsg + '\n');
-  if (pubScope === 'promote') {
-    // If promoting, copy staging bucket contents to prod bucket,
-    // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilCpCmd, gsutilCacheCmd]));
-  } else {
-    // If publishing to prod directly, rsync local contents to prod bucket,
-    // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilSyncCmd, gsutilCacheCmd]));
-  }
+  gulp.src('').pipe($.shell([gsutilCpCmd, gsutilCacheCmd]));
 }
 
 // Push the local build of the MDL microsite and release artifacts to the
