@@ -1,6 +1,7 @@
 # Material Design Lite
 
 > A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, JS, and HTML
+([MDL website](http://getmdl.io)).
 
 Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible from the get-go.
 
