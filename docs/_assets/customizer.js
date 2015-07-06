@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-/*global MaterialCustomizer:true,Prism:true*/
-
+/*global MaterialCustomizer:true,Prism:true,ga:true*/
 
 /* exported init */
 function init() {
@@ -32,6 +31,27 @@ function init() {
       window.navigator.msSaveBlob(this.blob, 'material.min.css');
     }
   }.bind(mc));
+
+  // Hook up GA event
+  dl.addEventListener('click', function() {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'customizer',
+      eventAction: 'download',
+      eventLabel: mc.getSelectedPrimary() + '-' + mc.getSelectedSecondary()
+    });
+  });
+
+  document.addEventListener('mouseup', function() {
+    if (window.getSelection().toString().indexOf('.min.css') !== -1) {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'customizer',
+        eventAction: 'copy',
+        eventLabel: mc.getSelectedPrimary() + '-' + mc.getSelectedSecondary()
+      });
+    }
+  });
 
   // Download template
   var req = new XMLHttpRequest();
