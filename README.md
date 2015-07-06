@@ -135,14 +135,6 @@ For transparency into our release cycle and in striving to maintain backward com
 
 If you find MDL doesn't contain a particular component you think would be useful, please check the issue tracker in case work has already started on it. If not, you can request a [new component](https://github.com/Google/material-design-lite/issues/new?title=[Component%20Request]%20{Component}&body=Please%20include:%0A*%20Description%0A*%20Material%20Design%20Spec%20link%0A*%20Use%20Case%28s%29).
 
-## In-development
-
-Here, you can find early live previews of our work for testing or demo purposes.
-
-* [Visual tests](http://google.github.io/material-design-lite/test/visual/) for components
-* [Android.com](http://google.github.io/material-lite-samples/android-dot-com/) Material Design Lite demo
-* [Theme customiser prototype](http://google.github.io/material-design-lite/customizer/customizer.html)
-
 ## Do you include any features that a framework comes with?
 
 Material Design Lite is focused on delivering a vanilla CSS/JS/HTML library of components. We are not a framework. If you are building a single-page app and require features like two-way data-binding, templating, CSS scoping and so forth, we recommend trying out the excellent [Polymer](http://polymer-project.org) project.
