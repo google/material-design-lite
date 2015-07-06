@@ -25,16 +25,54 @@ If you are subject to or witness unacceptable behavior, or have any other concer
 
 ## <a name="question"></a> Got a Question or Problem?
 
-If you have questions about how to use Material Design Lite, please direct these to [StackOverflow][stackoverflow] and use the `material-design-lite` tag. We are also available on GitHub issues. 
+If you have questions about how to use Material Design Lite, please direct these to [StackOverflow][stackoverflow] and use the `material-design-lite` tag. We are also available on GitHub issues.
+
+If you feel that we're missing an important bit of documentation, feel free to
+file an issue so we can help. Here's an example to get you started:
+
+```
+Component (if any):
+
+What are you trying to do or find out more about?
+
+Where have you looked?
+
+Where did you expect to find this information?
+```
+
+Or, if you're looking for a new design template:
+
+```
+Please provide a short summary of the template you’re looking for.
+
+What makes this template interesting or challenging from a design perspective?
+
+Please provide any URLs to good examples of this type of page that you may have come across.
+```
 
 ## <a name="issue"></a> Found an Issue?
 If you find a bug in the source code or a mistake in the documentation, you can help us by
 submitting an issue to our [GitHub Repository][github]. Even better you can submit a Pull Request
 with a fix.
 
+See [below][#submit] for some guidelines.
+
 ## <a name="feature"></a> Want a Feature?
-You can request a new feature by submitting an issue to our [GitHub Repository][github].  If you
-would like to implement a new feature then consider what kind of change it is:
+You can request a new feature by submitting an issue to our [GitHub Repository][github].
+
+Here is a template to get you started:
+
+```
+Is this a new component, or a missing feature in an existing one?
+Component name:
+Material Design spec URL for the component (if any):
+
+What does this component or feature allow you to do which isn’t possible at the moment?
+
+Please provide any URLs or screenshots of good examples of usage of this component or feature that you may have come across.
+```
+
+If you would like to implement a new feature then consider what kind of change it is:
 
 * **Major Changes** that you wish to contribute to the project should be discussed first on our
 [issue tracker][github] so that we can better coordinate our efforts, prevent
@@ -65,6 +103,28 @@ chances of your issue being dealt with quickly:
 
 **If you get help, help others. Good karma rulez!**
 
+Here's a template to get you started:
+
+```
+MDL version:
+Browser:
+Browser version:
+Operating system:
+Operating system version:
+URL, if applicable (you can use a [codepen as a starting point][http://codepen.io/pen/def?fork=xGWgXa]):
+
+What steps will reproduce the problem:
+1.
+2.
+3.
+
+What is the expected result?
+
+What happens instead of that?
+
+Please provide any other information below, and attach a screenshot if possible.
+```
+
 ### Submitting a Pull Request
 Before you submit your pull request consider the following guidelines:
 
@@ -84,7 +144,7 @@ Before you submit your pull request consider the following guidelines:
   and ensure that all tests pass.
 * Avoid checking in files that shouldn't be tracked (e.g `node_modules`, `gulp-cache`, `.tmp`, `.idea`). We recommend using a [global](#global-gitignore) gitignore for this.
 * Make sure **not** to include a recompiled version of the files found in `/css` and `/js` as part of your PR. We will generate these automatically.  
-* Commit your changes using a descriptive commit message. 
+* Commit your changes using a descriptive commit message.
 
      ```shell
      git commit -a
@@ -147,7 +207,7 @@ from the main (upstream) repository:
 
 ## <a name="rules"></a> Coding Rules
 
-We generally follow the [Google JavaScript style guide](js-style-guide) with a few minor exceptions documented in our 
+We generally follow the [Google JavaScript style guide](js-style-guide) with a few minor exceptions documented in our
 [JSCS configuration.](jscs-config).
 
 [JSCS](http://jscs.info) is a tool for linting code against a style guide and has plugins available for both editors and build tools. Should
