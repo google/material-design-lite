@@ -9,7 +9,7 @@ script:
   - rm -rf node_modules
   - ln -s /cache/node_modules node_modules
   # install dependencies
-  - npm -q install
+  - npm install
   # ensure the build works
   # this will also run gulp test
   - gulp
