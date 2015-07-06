@@ -1,0 +1,35 @@
+#!/bin/bash
+
+USAGE="$0 version"
+
+if [ "$1" = "" ]
+then
+  echo $USAGE
+  exit 1
+fi
+VERSION=$1
+
+GIT_TMP_DIR=/tmp/release-git-$$
+GCS_TMP_DIR=/tmp/release-gcs-$$
+
+# Create temp dirs.
+mkdir -p $GIT_TMP_DIR $GCS_TMP_DIR
+
+# Switch to release branch
+git checkout release
+# Copy contents to git tmp dir
+cp -r * $GIT_TMP_DIR
+# Switch back to master branch
+git checkout master
+
+# Copy mdl.zip from cloud and unzip locally.
+CUR_DIR=`pwd`
+gsutil cp -r gs://code.getmdl.io/$VERSION/mdl.zip /tmp
+cd $GCS_TMP_DIR
+unzip ../mdl.zip
+
+# Now compare contents.
+diff $GIT_TMP_DIR $GCS_TMP_DIR >~/audit_release.out
+
+# Clean up temp dirs.
+rm -rf $GIT_TMP_DIR $GCS_TMP_DIR /tmp/mdl.zip
