@@ -179,6 +179,16 @@ mdl-components-dd {
     white-space: nowrap;
   }
 
+  .mdl-components-index-text .mdl-components-dl {
+    margin: 0px;
+  }
+  .mdl-components-img {
+    left: 8px;
+  }
+  .components .content .about-panel {
+    padding: 8px;
+  }
+
   .mdl-components__nav .mdl-components__link {
     display: inline-block;
     vertical-align: top;
