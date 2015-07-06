@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fallback to homescreen for Chrome <39 on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Material Design Lite">
+    <link rel="icon" sizes="192x192" href="../assets/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon" href="../assets/ios-desktop.png">
+
+    <!-- TODO: Tile icon for Win8 (144x144 + tile color) -->
+    <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
+    <!-- <meta name="msapplication-TileColor" content="#3372DF"> -->
+
+    <meta name="theme-color" content="#263238">
+
+    <link rel="shortcut icon" href="../assets/favicon.png" />
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="../assets/prism-default.css">
+    <link rel="stylesheet" href="../material.min.css">
+    <link rel="stylesheet" href="../assets/main.css">
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body class="customize">
+  <div class="image-preloader"></div>
+  <div class="docs-layout mdl-layout mdl-js-layout">
+    <header class="docs-layout-header mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="docs-layout-title mdl-layout-title"><a href="../">Material<br>Design<br>Lite</a></span>
+      </div>
+      <div class="docs-navigation__container">
+        <nav class="docs-navigation mdl-navigation">
+          <a href="../index.html" class="mdl-navigation__link about">About</a>
+          <a href="../started/index.html" class="mdl-navigation__link started">Getting Started</a>
+          <a href="../templates/index.html" class="mdl-navigation__link templates">Templates</a>
+          <a href="../components/index.html" class="mdl-navigation__link components">Components</a>
+          <a href="../styles/index.html" class="mdl-navigation__link styles">Styles</a>
+          <a href="../customize/index.html" class="mdl-navigation__link customize">Customize</a>
+          <a href="../faq/index.html" class="mdl-navigation__link faq">FAQ</a>
+          <div class="spacer"></div>
+          <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link mdl-navigation__link--icon github"><i class="material-icons">link</i><span>GitHub</span></a>
+          <a href="../started/index.html#download" class="mdl-navigation__link mdl-navigation__link--icon download">
+            <i class="material-icons">file_download</i><span>Download</span>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-button--mini-fab mdl-color--lime-A200">
+              <i class="material-icons">file_download</i>
+            </button>
+          </a>
+        </nav>
+      </div>
+      <i class="material-icons scrollindicator scrollindicator--right">keyboard_arrow_right</i>
+      <i class="material-icons scrollindicator scrollindicator--left">keyboard_arrow_left</i>
+    </header>
+    <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
+      <div class="content mdl-grid mdl-grid--no-spacing">
+        <div class="subpageheader mdl-cell--12-col">Customize &amp; Download</div>
+        
+<link rel="stylesheet" href="../assets/customizer.css">
+<div class="mdl-gen mdl-cell mdl-cell--12-col">
+  <div class="mdl-grid">
+    <div class="mdl-gen__panel mdl-gen__panel--left mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
+      <div id="wheel">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <filter id="drop-shadow">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="3.2"/>
+              <feOffset dx="0" dy="0" result="offsetblur"/>
+              <feFlood flood-color="rgba(0,0,0,1)"/>
+              <feComposite in2="offsetblur" operator="in"/>
+              <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <g class="wheel--maing"></g>
+        </svg>
+        <div class="mdl-gen-download">
+          <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"><i class="material-icons">file_download</i></a>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-gen__panel--right mdl-gen__panel mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
+      <div class="mdl-gen__desc docs-text-styling">
+        <strong>Custom CSS theme builder</strong>
+        <p>Click on the color wheel to choose a primary (1) and accent (2) color to preview the theme below. When you’ve selected a color combination you like, either reference our <a href="#cdn-code">hosted CSS</a> or download the CSS by clicking the white button in the middle.</p>
+      </div>
+      <div class="mdl-gen__preview">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            <svg class="mdl-layout-icon" width="411px" height="406px" viewBox="0 0 411 406" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-51.000000, -54.000000)" fill="currentColor">
+                  <path d="M253.532807,381.627 L205.905373,459.1512 L75.2987939,365.2047 L137.208794,290.0547 L51,265.8834 L100.217083,116.7498 L183.176447,150.0543 L176.402456,54 L337.901996,54 L331.203531,149.0202 L409.306732,116.4465 L461.243662,265.7448 L371.760263,290.7036 L429.826513,365.6628 L302.333596,459.2493 L253.532807,381.627 Z M222.176831,106.2 L291.098533,106.2 L282.729084,224.796484 L383.182429,182.939488 L404.947387,245.446521 L297.795289,275.304737 L368.114228,365.995226 L313.701833,405.9 L252.592681,308.789934 L192.876775,405.9 L137.348587,365.995226 L212.130699,275.304737 L105.539492,245.446521 L126.18666,182.939488 L230.548276,224.796484 L222.176831,106.2 Z"></path>
+                </g>
+              </g>
+            </svg>
+            <div class="mdl-layout__header-row">
+              <span class="mdl-layout-title">Theme Preview</span>
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Theme Preview</span>
+            <nav class="mdl-navigation">
+              <a class="mdl-navigation__link" href="#">Some</a>
+              <a class="mdl-navigation__link" href="#">Links</a>
+              <a class="mdl-navigation__link" href="#">Here</a>
+            </nav>
+          </div>
+          <main class="mdl-layout__content">
+            <h3>Try it out</h3>
+            <p>
+              Lorem ipsum dolor sit amet.
+            </p>
+            <button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">BUTTON</button>
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">
+              <i class="material-icons">email</i>
+            </button>
+          </main>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-gen__cdn mdl-cell mdl-cell--12-col">
+      <div class="code-with-text" id="cdn-code">
+        File hosted on our CDN:
+        <pre class="demo-code language-markup codepen-button-disabled"><code class="language-markup mdl-gen__cdn-link" data-language="markup"> &lt;link rel="stylehsheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.$primary-$accent.min.css" /&gt; </code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/customizer.js"></script>
+<script>init();</script>
+
+      </div>
+      <section class="docs-text-styling download mdl-color--grey-800">
+        <a href="../started/index.html#download" class="mdl-color-text--grey-50">Download Kit</a>
+      </section>
+      <footer class="docs-text-styling docs-footer mdl-mini-footer mdl-color--grey-900">
+        <ul>
+          <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
+          <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>
+          <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus"></button>
+        </ul>
+        <ul>
+          <a class="mdl-color-text--grey-600" href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a>
+          <a class="mdl-color-text--grey-600" href="#">Help</a>
+          <a class="mdl-color-text--grey-600" href="#">Privacy & Terms</a>
+        </ul>
+      </footer>
+    </main>
+  </div>
+
+    <!-- IE Compatibility shims -->
+      <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js""></script>
+      <![endif]-->
+
+      <!--[if IE]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/flexie/1.0.3/flexie.min.js"></script>
+        <link href="../assets/ie.css" rel="stylesheet">
+      <![endif]-->
+    <!-- end shims -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      if (document.location.hostname !== 'localhost' &&
+          document.location.hostname !== '127.0.0.1' &&
+          document.location.hostname.search('storage.googleapis.com') === -1 &&
+          document.location.hostname.search('.corp.') === -1) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-25993200-9', 'auto');
+        ga('send', 'pageview');
+      }
+    </script>
+    <!-- Material Design Lite -->
+    <script src="../material.min.js"></script>
+    <!-- Add Copy-to-CodePen buttons to code blocks -->
+    <script src="../assets/codepen.js"></script>
+    <!-- Enable Prism syntax highlighting -->
+    <script src="../assets/prism.js"></script>
+    <script src="../assets/prism-markup.min.js"></script>
+    <script src="../assets/prism-javascript.min.js"></script>
+    <script src="../assets/prism-css.min.js"></script>
+    <script src="../assets/main.js"></script>
+    <!-- Built with love using Material Design Lite -->
+  </body>
+</html>

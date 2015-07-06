@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>grid test</title>
+
+        <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+    <link rel="stylesheet" href="../../material.min.css">
+    <link rel="stylesheet" href="../../components/demos.css">
+    <script src="../../material.min.js"></script>
+
+    
+    <style>
+      
+    </style>
+
+  </head>
+  <body>
+
+    <div style="padding-top: 24px;">
+      
+        
+<style>
+.demo-grid-ruler .mdl-cell,
+.demo-grid-1 .mdl-cell,
+.demo-grid-2 .mdl-cell,
+.demo-grid-3 .mdl-cell {
+  box-sizing: border-box;
+  background-color: #BDBDBD;
+  height: 200px;
+  padding-left: 8px;
+  padding-top: 4px;
+  color: white;
+}
+.demo-grid-ruler.demo-grid-ruler .mdl-cell {
+  height: 50px;
+}
+</style>
+
+{% include "grid.html" %}
+
+<div class="demo-grid-ruler mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+  <div class="mdl-cell mdl-cell--1-col">1</div>
+</div>
+<div class="demo-grid-1 mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col">4</div>
+  <div class="mdl-cell mdl-cell--4-col">4</div>
+  <div class="mdl-cell mdl-cell--4-col">4</div>
+</div>
+<div class="demo-grid-2 mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">6</div>
+  <div class="mdl-cell mdl-cell--4-col">4</div>
+  <div class="mdl-cell mdl-cell--2-col">2</div>
+</div>
+<div class="demo-grid-3 mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">6 (8 tablet)</div>
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet">4 (6 tablet)</div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">2 (4 phone)</div>
+</div>
+
+      
+    </div>
+    <!-- Built with love using Material Design Lite -->
+
+    
+    <script>
+      
+    </script>
+  </body>
+</html>

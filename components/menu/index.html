@@ -1,0 +1,144 @@
+
+
+
+<h2 id="introduction">Introduction</h2>
+<p>The Material Design Lite (MDL) <strong>menu</strong> component is a user interface element that allows users to select one of a number of options. The selection typically results in an action initiation, a setting change, or other observable effect. Menu options are always presented in sets of two or more, and options may be programmatically enabled or disabled as required. The menu appears when the user is asked to choose among a series of options, and is usually dismissed after the choice is made.</p>
+<p>Menus are an established but non-standardized feature in user interfaces, and allow users to make choices that direct the activity, progress, or characteristics of software. Their design and use is an important factor in the overall user experience. See the menu component&#39;s <a href="http://www.google.com/design/spec/components/menus.html">Material Design specifications page</a> for details.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
+<h3 id="to-include-an-mdl-menu-component-">To include an MDL <strong>menu</strong> component:</h3>
+<p>&nbsp;1. Code a <code>&lt;button&gt;</code> element; this is the clickable toggle that will show and hide the menu options. Include an <code>id</code> attribute whose value will match the <code>for</code> attribute of the unordered list coded in the next step. Inside the button, code a <code>&lt;span&gt;</code> element to contain an icon of your choice.</p>
+<pre><code class="lang-html">&lt;button id=&quot;menu1&quot;&gt;
+  &lt;span /&gt;
+&lt;/button&gt;
+</code></pre>
+<p>&nbsp;2. Code a <code>&lt;ul&gt;</code> unordered list element; this is the container that holds the options. Include a <code>for</code> attribute whose value matches the <code>id</code> attribute of the button element.</p>
+<pre><code class="lang-html">&lt;ul for=&quot;menu1&quot;&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>&nbsp;3. Inside the unordered list, code one <code>&lt;li&gt;</code> element for each option. Include any desired attributes and values, such as an id or event handler, and add a text caption as appropriate.</p>
+<pre><code class="lang-html">&lt;ul for=&quot;menu1&quot;&gt;
+  &lt;li&gt;Continue&lt;/li&gt;
+  &lt;li&gt;Stop&lt;/li&gt;
+  &lt;li&gt;Pause&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>&nbsp;4. Add one or more MDL classes, separated by spaces, to the button and span elements using the <code>class</code> attribute.</p>
+<pre><code class="lang-html">&lt;button id=&quot;menu1&quot; class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
+  &lt;i class=&quot;material-icons&quot;&gt;more_vert&lt;/i&gt;
+&lt;/button&gt;
+</code></pre>
+<p>&nbsp;5. Add one or more MDL classes, separated by spaces, to the unordered list and the list items using the <code>class</code> attribute.</p>
+<pre><code class="lang-html">&lt;ul class=&quot;mdl-menu mdl-js-menu&quot; for=&quot;menu1&quot;&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Continue&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Stop&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Pause&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>The menu component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A menu with three options.</p>
+<pre><code class="lang-html">&lt;button id=&quot;menu-speed&quot; class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
+  &lt;i class=&quot;material-icons&quot;&gt;more_vert&lt;/i&gt;
+&lt;/button&gt;
+&lt;ul class=&quot;mdl-menu mdl-js-menu&quot; for=&quot;menu-speed&quot;&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Fast&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Medium&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Slow&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>A menu with three options, with ripple effect on button and option links.</p>
+<pre><code class="lang-html">&lt;button id=&quot;menu-speed&quot; class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
+  &lt;i class=&quot;material-icons&quot;&gt;more_vert&lt;/i&gt;
+&lt;/button&gt;
+&lt;ul class=&quot;mdl-menu mdl-js-menu mdl-js-ripple-effect&quot; for=&quot;menu-speed&quot;&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Fast&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Medium&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Slow&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>A menu with three options, the second of which is disabled by default.</p>
+<pre><code class="lang-html">&lt;button id=&quot;menu-speed&quot; class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
+  &lt;i class=&quot;material-icons&quot;&gt;more_vert&lt;/i&gt;
+&lt;/button&gt;
+&lt;ul class=&quot;mdl-menu mdl-js-menu&quot; for=&quot;menu-speed&quot;&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Fast&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot; disabled&gt;Medium&lt;/li&gt;
+  &lt;li class=&quot;mdl-menu__item&quot;&gt;Slow&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2 id="configuration-options">Configuration options</h2>
+<p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the menu. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr>
+<th>MDL class</th>
+<th>Effect</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mdl-button</code></td>
+<td>Defines button as an MDL component</td>
+<td>Required on button element</td>
+</tr>
+<tr>
+<td><code>mdl-js-button</code></td>
+<td>Assigns basic MDL behavior to button</td>
+<td>Required on button element</td>
+</tr>
+<tr>
+<td><code>mdl-button--icon</code></td>
+<td>Applies <em>icon</em> (small plain circular) display effect to button</td>
+<td>Required on button element</td>
+</tr>
+<tr>
+<td><code>material-icons</code></td>
+<td>Defines span as a material icon</td>
+<td>Required on an inline element</td>
+</tr>
+<tr>
+<td><code>mdl-menu</code></td>
+<td>Defines an unordered list container as an MDL component</td>
+<td>Required on ul element</td>
+</tr>
+<tr>
+<td><code>mdl-menu__item</code></td>
+<td>Defines buttons as MDL menu options and assigns basic MDL behavior</td>
+<td>Required on list item elements</td>
+</tr>
+<tr>
+<td><code>mdl-js-ripple-effect</code></td>
+<td>Applies <em>ripple</em> click effect to option links</td>
+<td>Optional; goes on unordered list element</td>
+</tr>
+<tr>
+<td><code>mdl-menu--top-left</code></td>
+<td>Positions menu above button, aligns left edge of menu with button</td>
+<td>Optional; goes on unordered list element</td>
+</tr>
+<tr>
+<td>(none)</td>
+<td>Positions menu below button, aligns left edge of menu with button</td>
+<td>Default</td>
+</tr>
+<tr>
+<td><code>mdl-menu--top-right</code></td>
+<td>Positions menu above button, aligns right edge of menu with button</td>
+<td>Optional; goes on unordered list element</td>
+</tr>
+<tr>
+<td><code>mdl-menu--bottom-right</code></td>
+<td>Positions menu below button, aligns right edge of menu with button</td>
+<td>Optional; goes on unordered list element</td>
+</tr>
+</tbody>
+</table>
+<p>(1) The &quot;more-vert&quot; icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see <a href="http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html">this page</a>; hover over an icon to see its class name.</p>
+<blockquote>
+<p><strong>Note:</strong> Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;li class=&quot;mdl-menu__item&quot; disabled&gt;Medium&lt;/li&gt;</code>
+This attribute may be added or removed programmatically via scripting.</p>
+</blockquote>
+
+

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>menu test</title>
+
+        <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+    <link rel="stylesheet" href="../../material.min.css">
+    <link rel="stylesheet" href="../../components/demos.css">
+    <script src="../../material.min.js"></script>
+
+    
+    <style>
+      
+    </style>
+
+  </head>
+  <body>
+
+    <div style="padding-top: 24px;">
+      
+        
+<style>
+  .container-menu-lower-left {
+    position: relative;
+    width: 200px;
+  }
+  .background-menu-lower-left {
+    background: white;
+    height: 148px;
+    width: 100%;
+  }
+  .bar-menu-lower-left {
+    box-sizing: border-box;
+    background: #3F51B5;
+    color: white;
+    width: 100%;
+    padding: 16px;
+  }
+</style>
+
+<div class="container-menu-lower-left mdl-shadow--2dp">
+  <div class="bar-menu-lower-left">
+    {% include "lower-left.html" %}
+  </div>
+  <div class="background-menu-lower-left"></div>
+</div>
+
+<!-- Left aligned menu below button -->
+<button id="demo-menu-lower-left"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+
+<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-left">
+  <li class="mdl-menu__item">Some Action</li>
+  <li class="mdl-menu__item">Another Action</li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
+</ul>
+
+<style>
+  .container-menu-lower-right {
+    position: relative;
+    width: 200px;
+  }
+  .background-menu-lower-right {
+    background: white;
+    height: 148px;
+    width: 100%;
+  }
+  .bar-menu-lower-right {
+    box-sizing: border-box;
+    position: relative;
+    background: #3F51B5;
+    color: white;
+    height: 64px;
+    width: 100%;
+    padding: 16px;
+  }
+  .wrapper-menu-lower-right {
+    box-sizing: border-box;
+    position: absolute;
+    right: 16px;
+  }
+</style>
+
+<div class="container-menu-lower-right mdl-shadow--2dp">
+  <div class="bar-menu-lower-right">
+    <div class="wrapper-menu-lower-right">
+      {% include "lower-right.html" %}
+    </div>
+  </div>
+  <div class="background-menu-lower-right"></div>
+</div>
+
+<!-- Right aligned menu below button -->
+<button id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-right">
+  <li class="mdl-menu__item">Some Action</li>
+  <li class="mdl-menu__item">Another Action</li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
+</ul>
+
+<style>
+  .container-menu-top-left {
+    position: relative;
+    width: 200px;
+  }
+  .background-menu-top-left {
+    background: white;
+    height: 148px;
+    width: 100%;
+  }
+  .bar-menu-top-left {
+    box-sizing: border-box;
+    background: #3F51B5;
+    color: white;
+    width: 100%;
+    padding: 16px;
+  }
+</style>
+
+<div class="container-menu-top-left mdl-shadow--2dp">
+  <div class="background-menu-top-left"></div>
+  <div class="bar-menu-top-left">
+    {% include "top-left.html" %}
+  </div>
+</div>
+
+<!-- Left aligned menu on top of button  -->
+<button id="demo-menu-top-left"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+
+<ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-top-left">
+  <li class="mdl-menu__item">Some Action</li>
+  <li class="mdl-menu__item">Another Action</li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
+</ul>
+
+<style>
+  .container-menu-top-right {
+    position: relative;
+    width: 200px;
+  }
+  .background-menu-top-right {
+    background: white;
+    height: 148px;
+    width: 100%;
+  }
+  .bar-menu-top-right {
+    box-sizing: border-box;
+    position: relative;
+    background: #3F51B5;
+    color: white;
+    height: 64px;
+    width: 100%;
+    padding: 16px;
+  }
+  .wrapper-menu-top-right {
+    box-sizing: border-box;
+    position: absolute;
+    right: 16px;
+  }
+</style>
+
+<div class="container-menu-top-right mdl-shadow--2dp">
+  <div class="background-menu-top-right"></div>
+  <div class="bar-menu-top-right">
+    <div class="wrapper-menu-top-right">
+      {% include "top-right.html" %}
+    </div>
+  </div>
+</div>
+
+<!-- Right aligned menu on top of button  -->
+<button id="demo-menu-top-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+
+<ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-top-right">
+  <li class="mdl-menu__item">Some Action</li>
+  <li class="mdl-menu__item">Another Action</li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
+</ul>
+
+      
+    </div>
+    <!-- Built with love using Material Design Lite -->
+
+    
+    <script>
+      
+    </script>
+  </body>
+</html>

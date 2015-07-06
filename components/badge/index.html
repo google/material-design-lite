@@ -1,0 +1,75 @@
+
+
+
+<h2 id="introduction">Introduction</h2>
+<p>The Material Design Lite (MDL) <strong>badge</strong> component is an onscreen notification element. A badge consists of a small circle, typically containing a number or other characters, that appears in proximity to another object. A badge can be both a notifier that there are additional items associated with an object and an indicator of how many items there are.</p>
+<p>You can use a badge to unobtrusively draw the user&#39;s attention to items they might not otherwise notice, or to emphasize that items may need their attention. For example:</p>
+<ul>
+<li>A &quot;New messages&quot; notification might be followed by a badge containing the number of unread messages.</li>
+<li>A &quot;You have unpurchased items in your shopping cart&quot; reminder might include a badge showing the number of items in the cart.</li>
+<li>A &quot;Join the discussion!&quot; button might have an accompanying badge indicating the number of users currently participating in the discussion.</li>
+</ul>
+<p>A badge is almost always positioned near a link so that the user has a convenient way to access the additional information indicated by the badge. However, depending on the intent, the badge itself may or may not be part of the link.</p>
+<p>Badges are a new feature in user interfaces, and provide users with a visual clue to help them discover additional relevant content. Their design and use is therefore an important factor in the overall user experience.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
+<h3 id="to-include-an-mdl-badge-component-">To include an MDL <strong>badge</strong> component:</h3>
+<p>&nbsp;1. Code  an <code>&lt;a&gt;</code> (anchor/link) or a <code>&lt;span&gt;</code> element. Include any desired attributes and content.</p>
+<pre><code class="lang-html">&lt;a href=&quot;#&quot;&gt;This link has a badge.&lt;/a&gt;
+</code></pre>
+<p>&nbsp;2. Add one or more MDL classes, separated by spaces, to the element using the <code>class</code> attribute.</p>
+<pre><code class="lang-html">&lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot;&gt;This link has a badge.&lt;/a&gt;
+</code></pre>
+<p>&nbsp;3. Add a <code>data-badge</code> attribute and quoted string value for the badge.</p>
+<pre><code class="lang-html">&lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;5&quot;&gt;This link has a badge.&lt;/a&gt;
+</code></pre>
+<p>The badge component is ready for use.</p>
+<blockquote>
+<p><strong>Note:</strong> Because of the badge component&#39;s small size, the <code>data-badge</code> value should typically contain one to three characters. More than three characters will not cause an error, but some characters may fall outside the badge and thus be difficult or impossible to see. The value of the <code>data-badge</code> attribute is centered in the badge.</p>
+</blockquote>
+<h4 id="examples">Examples</h4>
+<p>A badge inside a link.</p>
+<pre><code class="lang-html">&lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;7&quot;&gt;This link contains a badge.&lt;/a&gt;
+</code></pre>
+<p>A badge near, but not included in, a link.</p>
+<pre><code class="lang-html">&lt;a href=&quot;#&quot;&gt;This link is followed by a badge.&lt;/a&gt;
+&lt;span class=&quot;mdl-badge&quot; data-badge=&quot;12&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>A badge inside a link with too many characters to fit inside the badge.</p>
+<pre><code class="lang-html">&lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;123456789&quot;&gt;
+This badge has too many characters.&lt;/a&gt;
+</code></pre>
+<p>A badge inside a link with no badge background color.</p>
+<pre><code class="lang-html">&lt;a href=&quot;#&quot; class=&quot;mdl-badge mdl-badge--no-background&quot; data-badge=&quot;123&quot;&gt;
+This badge has no background color.&lt;/a&gt;
+</code></pre>
+<h2 id="configuration-options">Configuration options</h2>
+<p>The MDL CSS classes apply various predefined visual enhancements to the badge. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr>
+<th>MDL class</th>
+<th>Effect</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mdl-badge</code></td>
+<td>Defines badge as an MDL component</td>
+<td>Required on span or link</td>
+</tr>
+<tr>
+<td><code>mdl-badge--no-background</code></td>
+<td>Applies open-circle effect to badge</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>data-badge=&quot;value&quot;</code></td>
+<td>Assigns string value to badge</td>
+<td>Not a class, but a separate attribute; required on span or link</td>
+</tr>
+</tbody>
+</table>
+
+

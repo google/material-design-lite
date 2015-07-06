@@ -1,0 +1,156 @@
+
+
+
+<h2 id="introduction">Introduction</h2>
+<p>The Material Design Lite (MDL) <strong>grid</strong> component is a simplified method for laying out content for multiple screen sizes. It reduces the usual coding burden required to correctly display blocks of content in a variety of display conditions.</p>
+<p>The MDL grid is defined and enclosed by a container element. A grid has 12 columns in the desktop screen size, 8 in the tablet size, and 4 in the phone size, each size having predefined margins and gutters. Cells are laid out sequentially in a row, in the order they are defined, with some exceptions:</p>
+<ul>
+<li>If a cell doesn&#39;t fit in the row in one of the screen sizes, it flows into the following line.</li>
+<li>If a cell has a specified column size equal to or larger than the number of columns for the current screen size, it takes up the entirety of its row.</li>
+</ul>
+<p>You can set a maximum grid width, after which the grid stays centered with padding on either side, by setting its <code>max-width</code> CSS property.</p>
+<p>Grids are a fairly new and non-standardized feature in most user interfaces, and provide users with a way to view content in an organized manner that might otherwise be difficult to understand or retain. Their design and use is an important factor in the overall user experience.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
+<h3 id="to-include-an-mdl-grid-component-">To include an MDL <strong>grid</strong> component:</h3>
+<p>&nbsp;1. Code a <code>&lt;div&gt;</code> element; this is the &quot;outer&quot; container, intended to hold all of the grid&#39;s cells. Style the div as desired (colors, font size, etc.).</p>
+<pre><code class="lang-html">&lt;div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>&nbsp;2. Add the <code>mdl-grid</code> MDL class to the div using the <code>class</code> attribute.</p>
+<pre><code>&lt;div class=&quot;mdl-grid&quot;&gt;
+&lt;/div&gt;
+</code></pre><p>&nbsp;3. For each cell, code one &quot;inner&quot; div, including the text to be displayed.</p>
+<pre><code class="lang-html">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div&gt;Content&lt;/div&gt;
+  &lt;div&gt;goes&lt;/div&gt;
+  &lt;div&gt;here&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>&nbsp;4. Add the <code>mdl-cell</code> class and an <code>mdl-cell--COLUMN-col</code> class, where COLUMN specifies the column size for the cell, to the &quot;inner&quot; divs using the <code>class</code> attribute.</p>
+<pre><code class="lang-html">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;Content&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;goes&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;here&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>&nbsp;5. Optionally add an <code>mdl-cell--COLUMN-col-DEVICE</code> class, where COLUMN specifies the column size for the cell on a specific device, and DEVICE specifies the device type.</p>
+<pre><code class="lang-html">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;Content&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;goes&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;here&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The grid component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A grid with five cells of column size 1.</p>
+<pre><code class="lang-html">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>A grid with three cells, one of column size 6, one of column size 4, and one of column size 2.</p>
+<pre><code class="lang-html">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;CS 6&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;CS 4&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col&quot;&gt;CS 2&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>A grid with three cells of column size 6 that will display as column size 8 on a tablet device.</p>
+<pre><code class="lang-html">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>A grid with four cells of column size 4 that will display as column size 4 on a phone device.</p>
+<pre><code class="lang-html">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="configuration-options">Configuration options</h2>
+<p>The MDL CSS classes apply various predefined visual enhancements and behavioral effects to the grid. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr>
+<th>MDL class</th>
+<th>Effect</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mdl-grid</code></td>
+<td>Defines a container as an MDL grid component</td>
+<td>Required on &quot;outer&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-cell</code></td>
+<td>Defines a container as an MDL cell</td>
+<td>Required on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col</code></td>
+<td>Sets the column size for the cell to N</td>
+<td>N is 1-12 inclusive, defaults to 4; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col-desktop</code></td>
+<td>Sets the column size for the cell to N in desktop mode only</td>
+<td>N is 1-12 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col-tablet</code></td>
+<td>Sets the column size for the cell to N in tablet mode only</td>
+<td>N is 1-8 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col-phone</code></td>
+<td>Sets the column size for the cell to N in phone mode only</td>
+<td>N is 1-4 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--hide-desktop</code></td>
+<td>Hides the cell when in desktop mode</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--hide-tablet</code></td>
+<td>Hides the cell when in tablet mode</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--hide-phone</code></td>
+<td>Hides the cell when in phone mode</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--stretch</code></td>
+<td>Stretches the cell vertically to fill the parent</td>
+<td>Default; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--top</code></td>
+<td>Aligns the cell to the top of the parent</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--middle</code></td>
+<td>Aligns the cell to the middle of the parent</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--bottom</code></td>
+<td>Aligns the cell to the bottom of the parent</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+</tbody>
+</table>
+
+
