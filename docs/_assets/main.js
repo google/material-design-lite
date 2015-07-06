@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+/*global MaterialCustomizer:true,Prism:true,ga:true*/
+
 // Navbar scroll buttons
 (function() {
   'use strict';
@@ -45,4 +47,20 @@
   rightScroll.addEventListener('tap', scrollMenuBar.bind(null, delta));
   leftScroll.addEventListener('click', scrollMenuBar.bind(null, -delta));
   leftScroll.addEventListener('tap', scrollMenuBar.bind(null, -delta));
+})();
+
+(function() {
+  'use strict';
+
+  var downloadButton = document.querySelector('.download-button-container');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'click',
+        eventAction: 'mdl-download'
+      });
+    });
+  }
+
 })();
