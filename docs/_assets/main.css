@@ -1240,7 +1240,27 @@ code[class*=language-], pre[class*=language-] {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-
+.components .content blockquote {
+  font-size: 13px;
+  max-width: 640px;
+  box-sizing: border-box;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  margin-left: 0;
+}
+.components .content blockquote:before,
+.components .content blockquote:after {
+  display: none;
+}
+/* .started .caption h4 {
+  font-size: 13px;
+  font-weight: normal;
+  font-style: italic;
+  margin-top: 0;
+}
+ */
 
 /* faq */
 .faq  .docs-text-styling > section {
