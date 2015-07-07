@@ -127,4 +127,4 @@ forth, we recommend trying out the excellent [Polymer](http://polymer-project.or
 
 ## License
 
-Copyright Google, 2015. Licensed under an Apache-2 license.
+© Google, 2015. Licensed under an [Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE) license.
