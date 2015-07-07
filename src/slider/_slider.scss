@@ -190,24 +190,17 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     }
 
     &.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
-      border: 1.8px solid $range-bg-color;
-      transform: scale(1.33);
-      box-shadow: none;
+      box-shadow: 0 0 0 10px $range-bg-focus-color;
+      background: $range-bg-focus-color;
     }
 
     &.is-lowest-value:focus:not(:active)::-moz-range-thumb {
-      border: 1.8px solid $range-bg-color;
-      transform: scale(1.33);
-      box-shadow: none;
-    }
-
-    &.is-lowest-value:focus:not(:active) ~
-        .mdl-slider__background-flex > .mdl-slider__background-upper {
-      left: 8px;
+      box-shadow: 0 0 0 10px $range-bg-focus-color;
+      background: $range-bg-focus-color;
     }
 
     &.is-lowest-value:active::-webkit-slider-thumb {
-      border: 1.5px solid $range-bg-color;
+      border: 1.6px solid $range-bg-color;
       transform: scale(1.5);
     }
 
@@ -230,12 +223,14 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     }
 
     &.is-lowest-value:focus:not(:active)::-ms-thumb {
-      transform: scale(0.5);
       background: radial-gradient(circle closest-side,
-      transparent 0%,
-      transparent 75%,
-      $range-bg-color 75%,
-      $range-bg-color 100%);
+      $range-bg-focus-color 0%,
+      $range-bg-focus-color 25%,
+      $range-bg-color 25%,
+      $range-bg-color 37.5%,
+      $range-bg-focus-color 37.5%,
+      $range-bg-focus-color 100%);
+      transform: scale(1);
     }
 
     &.is-lowest-value:active::-ms-thumb {
@@ -253,10 +248,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 
     &.is-lowest-value::-ms-fill-upper {
       margin-left: 6px;
-    }
-
-    &.is-lowest-value:focus:not(:active)::-ms-fill-upper {
-      margin-left: 8px;
     }
 
     &.is-lowest-value:active::-ms-fill-upper {
