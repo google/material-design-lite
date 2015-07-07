@@ -22,7 +22,9 @@ html, body {
   height: 48px;
   border-radius: 24px;
 }
-
+.demo-layout .demo-header .mdl-textfield {
+  padding-top: 27px;
+}
 .demo-layout .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.54);
 }
