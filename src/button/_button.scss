@@ -74,6 +74,9 @@
   }
 }
 
+input.mdl-button[type="submit"] {
+  -webkit-appearance:none;
+}
 
   // Raised buttons
   .mdl-button--raised {
