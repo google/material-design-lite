@@ -1,0 +1,41 @@
+_20150319.txt</a> do not affect Bitbucket.</p>
+]]>
+</content:encoded>
+<wfw:commentRss>
+http://blog.bitbucket.org/2015/03/19/openssl-security-advisory/feed/
+</wfw:commentRss>
+<slash:comments>0</slash:comments>
+</item>
+<item>
+<title>
+Snippets for teams are here with a rich set of APIs
+</title>
+<link>
+http://blog.bitbucket.org/2015/03/18/snippets-for-teams-are-here-with-a-rich-set-of-apis/
+</link>
+<comments>
+http://blog.bitbucket.org/2015/03/18/snippets-for-teams-are-here-with-a-rich-set-of-apis/#comments
+</comments>
+<pubDate>Wed, 18 Mar 2015 14:20:38 +0000</pubDate>
+<dc:creator>
+<![CDATA[ Dennis Kromhout van der Meer ]]>
+</dc:creator>
+<category>
+<![CDATA[ atlassian ]]>
+</category>
+<category>
+<![CDATA[ bitbucket ]]>
+</category>
+<category>
+<![CDATA[ new stuff ]]>
+</category>
+<category>
+<![CDATA[ feature ]]>
+</category>
+<category>
+<![CDATA[ snippets ]]>
+</category>
+<guid isPermaLink="false">https://blog.bitbucket.org/?p=2439</guid>
+<description>
+<![CDATA[
+Teams that use Bitbucket often want to share important information that isn’t part of their project repository &#8211; favorite regexes, config files, code snippets, homebrew recipes (beers, and the package manager). And yes &#8211; image, audio, video, and a host of other MIME types. Currently, there is no way to share such information via Bitbucket. Snippets for teams Today, we&#8217;re thrilled to announce Snippets, available now in Bitbucket,  to create and manage multi-file snippets of all kinds. We took a different approach than standard pastebin or gist &#8211; we built Snippets around teams. Snippets can be shared with your team, private to you, or fully public; you control read and write privileges. If you create a snippet owned by your team, the snippet will stay with the team forever, even after you leave that team. Additional features In Bitbucket, you&#8217;ll find a clean, easy interface to create, edit, version, and share Snippets. It&#8217;s media-friendly, supports drag-and-drop, and features syntax highlighting for over 90 programming languages. Because Snippets are backed by Git or Mercurial repositories, power users can clone and edit them like any other distributed code repositories. Rich set of APIs You can use Snippets’ rich set of APIs to further extend functionality, and access the core set of features from desktop, mobile, and web apps. For example, this command line interface for creating, inspecting, and editing Bitbucket Snippets uses this python wrapper built on top of the Snippets API. For more info, please visit the Snippets API documentation: Snippets REST API Snippets via command line Most importantly, we have made it easy to create Snippets via the command line. Creating a snippet from your local file is just a single curl command: $ curl -X POST https://api.bitbucket.org/2.0/snippets/{username or teamname} \ -u {username} -F file=@myawesomefile.txt Got Snippets? We hope you&#8217;re as excited as we are. We look 
