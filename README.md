@@ -18,24 +18,24 @@ Four quick start options are available:
 
 Within the download you'll find the following directories and files.
 
-| File/Folder | Provides |
-|-------------|----------|
-| bower.json | Bower package configuration. |
-| CONTRIBUTING.md | MDL contribution guidelines. |
-| docs |  Template files for documentation. |
-| gulpfile.js | gulp configuration for MDL. |
-| LICENSE | Project license information. |
-| package.json | npm package information. |
-| README.md | Details for quickly understanding the project. |
-| src | Source code for MDL. |
-| templates | Example templates. |
-| test | Project test files. |
+| File/Folder     | Provides                                       |
+|-----------------|------------------------------------------------|
+| bower.json      | Bower package configuration.                   |
+| CONTRIBUTING.md | MDL contribution guidelines.                   |
+| docs            | Template files for documentation.              |
+| gulpfile.js     | gulp configuration for MDL.                    |
+| LICENSE         | Project license information.                   |
+| package.json    | npm package information.                       |
+| README.md       | Details for quickly understanding the project. |
+| src             | Source code for MDL.                           |
+| templates       | Example templates.                             |
+| test            | Project test files.                            |
 
 ## Browser Support
 
 | IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
-|-----|-----|------|--------|-------|---------|--------|------------------|---------------|
-| B   | A   | A    | A      | A      | A       | A      | A                | A             |
+|-----|------|------|--------|-------|---------|--------|------------------|---------------|
+| B   | A    | A    | A      | A     | A       | A      | A                | A             |
 
 A-grade browsers are fully supported. B-grade browsers will gracefully degrade to our CSS-only experience.
 
