@@ -41,9 +41,9 @@ var bucketCode = 'gs://code.getmdl.io';
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
-  ' * @license <%= pkg.license.type %>',
+  ' * @license <%= pkg.license %>',
   ' * @copyright 2015 Google, Inc.',
-  ' * @link <%= pkg.homepage %>',
+  ' * @link https://github.com/google/material-design-lite',
   ' */',
   ''].join('\n');
 
