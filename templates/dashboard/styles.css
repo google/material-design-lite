@@ -34,6 +34,10 @@ html, body {
 .demo-drawer {
   border: none;
 }
+.demo-drawer .mdl-menu .mdl-menu__item{
+  display: flex;
+  align-items: center;
+}
 .demo-drawer-header {
   box-sizing: border-box;
   display: flex;
