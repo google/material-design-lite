@@ -42,6 +42,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 // Utility classes for screen sizes.
