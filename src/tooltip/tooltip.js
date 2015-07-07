@@ -60,8 +60,17 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
 
   event.stopPropagation();
   var props = event.target.getBoundingClientRect();
-  this.element_.style.left = props.left + (props.width / 2) + 'px';
-  this.element_.style.marginLeft = -1 * (this.element_.offsetWidth / 2) + 'px';
+  var left = props.left + (props.width / 2);
+  var marginLeft = -1 * (this.element_.offsetWidth / 2);
+
+  if (left + marginLeft < 0) {
+    this.element_.style.left = 0;
+    this.element_.style.marginLeft = 0;
+  } else {
+    this.element_.style.left = left + 'px';
+    this.element_.style.marginLeft = marginLeft + 'px';
+  }
+
   this.element_.style.top = props.top + props.height + 10 + 'px';
   this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
   window.addEventListener('scroll', this.boundMouseLeaveHandler, false);
