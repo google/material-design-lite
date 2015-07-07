@@ -26,6 +26,7 @@ include_prefix: ../
         <li><a href="#getting-help">Where can I get help with questions about using MDL?</a>
         <li><a href="#slide-decks">Are there any presentations or slide-decks available on MDL?</a></li>
         <li><a href="#new-components">Can I request or contribute components to MDL?</a></li>
+        <li><a href="#alternate-preprocessor">Will MDL support non-Sass preprocessors?</a></li>
       </ul>
     </nav>
   </section>
@@ -175,3 +176,9 @@ We did a preview talk at Google I/O 2015 on MDL and the slides for that talk can
 <h2 id="new-components">Can I request or contribute components to MDL?</h2>
 
 Sure! There may be components or templates you would like to see implemented in MDL that we don't yet provide. Please feel free to propose them on the <a href="https://github.com/Google/material-design-lite/issues/new?title=%5BComponent%20Request%5D%20%7BComponent%7D&body=Please%20include:%0A*%20Description%0A*%20Material%20Design%20Spec%20link%0A*%20Use%20Case%28s%29">Issue Tracker</a>. While we can't guarantee we'll be able to implement them all, we will consider requests and review them at regular intervals.
+
+<h2 id="alternate-preprocessor">Will MDL support non-Sass preprocessors?</h2>
+
+*Stylus, Less, PostCSS, etc.*
+
+MDL is implemented using Sass and there are no current plans to change this. If you wish to maintain a port to another preprocessor, you are more than welcome to.
