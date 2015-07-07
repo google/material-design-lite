@@ -118,7 +118,7 @@ This will clean the `dist` folder and rebuild the assets for serving.
 
 The `templates/` subdirectory contains a few exemplary usages of MDL. Templates have their own, quasi-separate
 gulp pipeline and can be compiled with `gulp templates`. The templates use the vanilla MDL JS and
-[themed](http://google.github.io/material-design-lite/customizer/customizer.html) CSS files. Extraneous
+[themed](http://www.getmdl.io/customize/index.html) CSS files. Extraneous
 styles are kept in a separate CSS file. Use `gulp serve` to take a look at the templates:
 
 * [Blog Template](http://www.getmdl.io/templates/blog)
