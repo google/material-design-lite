@@ -71,7 +71,7 @@ bower install --save material-design-lite
 
 Material Design Lite uses the official [Material Icons font](https://www.google.com/design/icons/). We recommend you include it using:
 
-```
+```html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 ```
@@ -80,7 +80,7 @@ You can check for other options on the [Developer's Guide](http://google.github.
 
 All of the demos and templates in this project use the preferred ligature syntax:
 
-```
+```html
 <i class="material-icons">face</i>
 ```
 
