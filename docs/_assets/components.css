@@ -165,8 +165,8 @@ mdl-components-dd {
   }
 
   .mdl-components .mdl-components__nav {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 64px;
     left: 0;
     display: block;
     flex-wrap: nowrap;
