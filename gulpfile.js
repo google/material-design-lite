@@ -499,7 +499,7 @@ gulp.task('zip:mdl', function() {
 // which was not occurring when simply using `gulp.src` in `zip:templates`
 
 var fileFilter = $.filter([
-  'material.*@(js|css)?(.map)',
+  'material?(.min)@(.js|.css)?(.map)',
   'templates/**/*.*',
   'assets/**/*.*',
   'LICENSE',
