@@ -25,7 +25,7 @@ Within the download you'll find the following directories and files.
 | docs |  Template files for documentation. |
 | gulpfile.js | gulp configuration for MDL. |
 | LICENSE | Project license information. |
-| package.json | NPM package information |
+| package.json | npm package information |
 | README.md | Details for quickly understanding the project. |
 | src | Source code for MDL. |
 | templates | Example templates |
