@@ -116,7 +116,7 @@ We think the community does a great job offering their own take on how Material 
 
 That said, the large, diverse number of implementations available are often quite liberal with their interpretation of the spec (not their fault!) and their opinions don’t always reflect what the Material Design team would consider ‘correct’. MDL was developed in close collaboration with the Material Design and Chrome UX teams and undergoes regular reviews for spec compliance. When we run into an area of the spec that isn’t yet fully fleshed out, MDL is able to offer reviewed opinions on how these should be solved in a way that tries to stay true to Material Design.  
 
-<h2 id="options-availale">Should I use the minified, CDN or Sass versions of MDL?</h2>
+<h2 id="options-available">Should I use the minified, CDN or Sass versions of MDL?</h2>
 
 *Should I build my own version or download the minified version or simply refer to CDN objects?*
 
