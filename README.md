@@ -3,7 +3,7 @@
 > A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, JS, and HTML
 ([MDL website](http://getmdl.io)).
 
-Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible from the get-go.
+Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn't rely on any JavaScript frameworks or libraries. Optimized for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible from the get-go.
 
 ## Quick start
 
@@ -12,7 +12,7 @@ Four quick start options are available:
 - [Download the latest release](https://github.com/google/material-design-lite/archive/master.zip).
 - Clone the repo: `git clone https://github.com/google/material-design-lite.git`.
 - Install with [Bower](http://bower.io): `bower install material-design-lite`.
-- Install with [npm](https://www.npmjs.org): `npm install material-design-lite`.
+- Install with [npm](https://www.npmjs.com): `npm install material-design-lite`.
 
 ### What's included
 
@@ -25,10 +25,10 @@ Within the download you'll find the following directories and files.
 | docs |  Template files for documentation. |
 | gulpfile.js | gulp configuration for MDL. |
 | LICENSE | Project license information. |
-| package.json | npm package information |
+| package.json | npm package information. |
 | README.md | Details for quickly understanding the project. |
 | src | Source code for MDL. |
-| templates | Example templates |
+| templates | Example templates. |
 | test | Project test files. |
 
 ## Browser Support
