@@ -501,7 +501,6 @@ gulp.task('zip:mdl', function() {
 var fileFilter = $.filter([
   'material?(.min)@(.js|.css)?(.map)',
   'templates/**/*.*',
-  'assets/**/*.*',
   'LICENSE',
   'bower.json',
   'package.json']);
