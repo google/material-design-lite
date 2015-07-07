@@ -17,7 +17,7 @@
 
 /**
  * A component handler interface using the revealing module design pattern.
- * More details on this pattern design here:
+ * More details on this design pattern here:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
