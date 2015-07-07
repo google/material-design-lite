@@ -71,10 +71,6 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 /* ==========  Color & Themes  ========== */
 
-// The two possible colors for overlayed text.
-$color-dark-contrast: $color-white !default;
-$color-light-contrast: $color-black !default;
-
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
 $color-primary: $palette-indigo-500 !default;
@@ -166,6 +162,7 @@ $layout-nav-color: unquote("rgb(#{$palette-grey-300})") !default;
 $layout-drawer-bg-color: unquote("rgb(#{$palette-grey-50})") !default;
 $layout-drawer-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 $layout-text-color: unquote("rgb(#{$palette-grey-800})") !default;
+$layout-drawer-navigation-color: #757575 !default;
 $layout-drawer-navigation-link-active-background: unquote("rgb(#{$color-light-contrast})") !default;
 $layout-drawer-naviagtion-link-active-color: unquote("rgb(#{$color-primary})") !default;
 
@@ -359,7 +356,7 @@ $layout-desktop-header-height: $layout-header-desktop-row-height;
 $layout-header-desktop-baseline: 80px;
 $layout-header-mobile-baseline: 72px;
 $layout-header-mobile-indent: 16px;
-$layout-header-desktop-indent: 24px;
+$layout-header-desktop-indent: 40px;
 
 $layout-tab-bar-height: 48px;
 $layout-tab-mobile-padding: 12px;
@@ -381,7 +378,8 @@ $icon-toggle-ripple-size: 36px !default;
  * Sizes
  *
  *************/
-$padding: 16px !default;
+$footer-min-padding: 16px !default;
+$footer-padding-sides: 40px !default;
 $footer-heading-font-size: 14px !default;
 $footer-heading-line-height: (1.7 * $footer-heading-font-size) !default;
 $footer-btn-size: 36px  !default;
@@ -504,7 +502,7 @@ $badge-color: unquote("rgb(#{$color-white})") !default;
 $badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
 $badge-background: unquote("rgb(#{$color-accent})") !default;
 $badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
-$badge-size : 20px;
+$badge-size : 22px;
 $badge-padding: 2px;
 
 /* SHADOWS */

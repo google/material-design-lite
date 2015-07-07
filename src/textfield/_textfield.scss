@@ -15,6 +15,7 @@
  */
 
 @import "../variables";
+@import "../mixins";
 
 // The container for the whole component.
 .mdl-textfield {
@@ -57,7 +58,7 @@
 .mdl-textfield__input {
   border: none;
   border-bottom: 1px solid $input-text-bottom-border-color;
-  display: block;
+  display: inline-block;
   font-size: $input-text-font-size;
   margin: 0;
   padding: $input-text-padding 0;

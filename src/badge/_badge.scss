@@ -32,7 +32,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: space-between;
+    align-content: center;
     align-items: center;
 
     position: absolute;
@@ -45,8 +45,8 @@
     }
 
     font-family: $preferred_font;
-    font-weight: 400;
-    font-size: 10px;
+    font-weight: 600;
+    font-size: 12px;
     width: $badge-size;
     height: $badge-size;
     border-radius : 50%;

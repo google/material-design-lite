@@ -1,3 +1,19 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 #wheel {
   position: relative;
   height: 100%;
@@ -54,13 +70,14 @@
 #wheel svg.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
 #wheel svg.hide-nonaccents g[data-color="Brown"]:not(.selected),
 #wheel svg.hide-nonaccents g[data-color="Grey"]:not(.selected) {
-  opacity: 0;
+  opacity: 0.12;
 }
 #wheel .selected {
   opacity: 1 !important;
 }
 .mdl-gen > .mdl-grid {
   max-width: 1280px;
+  padding: 0;
 }
 .mdl-gen__preview {
   position: relative;
@@ -86,9 +103,6 @@
 .mdl-gen__preview .mdl-layout__content h3 {
   margin-top: 0;
 }
-.mdl-gen__panel {
-  padding: 0 32px;
-}
 .mdl-gen__panel--right {
   display: flex;
   flex-direction: column;
@@ -102,17 +116,12 @@
   margin-bottom: 32px;
   color: rgba(0, 0, 0, 0.54);
 }
-.mdl-gen__cdn {
-  padding: 0 32px;
-}
 .mdl-gen__cdn .demo-code {
-  width: 100%;
   box-sizing: border-box;
 }
-.mdl-gen__cdn .demo-code code {
-  visibility: hidden;
-}
-
-.mdl-gen__cdn .demo-code code.visible {
-  visibility: visible;
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  margin-bottom: 80px;
 }

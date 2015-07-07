@@ -15,6 +15,7 @@
  */
 
 @import "../variables";
+@import "../mixins";
 
 .mdl-shadow--2dp {
   @include shadow-2dp();

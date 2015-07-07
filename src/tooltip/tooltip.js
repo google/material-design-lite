@@ -64,6 +64,8 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
   this.element_.style.marginLeft = -1 * (this.element_.offsetWidth / 2) + 'px';
   this.element_.style.top = props.top + props.height + 10 + 'px';
   this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
+  window.addEventListener('scroll', this.boundMouseLeaveHandler, false);
+  window.addEventListener('touchmove', this.boundMouseLeaveHandler, false);
 };
 
 /**
@@ -76,6 +78,8 @@ MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
 
   event.stopPropagation();
   this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
+  window.removeEventListener('scroll', this.boundMouseLeaveHandler);
+  window.removeEventListener('touchmove', this.boundMouseLeaveHandler, false);
 };
 
 /**

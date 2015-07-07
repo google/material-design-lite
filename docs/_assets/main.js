@@ -1,3 +1,21 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*global MaterialCustomizer:true,Prism:true,ga:true*/
+
 // Navbar scroll buttons
 (function() {
   'use strict';
@@ -31,16 +49,18 @@
   leftScroll.addEventListener('tap', scrollMenuBar.bind(null, -delta));
 })();
 
-// WIP banner
 (function() {
   'use strict';
 
-  var banner = document.querySelector('.docs-wip-banner');
-  if ((location.hostname !== 'localhost') &&
-      (location.hostname !== 'storage.googleapis.com')) {
-    banner.style.display = 'block';
+  var downloadButton = document.querySelector('.download-button-container');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'click',
+        eventAction: 'mdl-download'
+      });
+    });
   }
-  if (location.search.indexOf('showbanner') !== -1) {
-    banner.style.display = 'block';
-  }
+
 })();

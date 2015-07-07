@@ -20,7 +20,6 @@ function MaterialComponentsNav() {
   this.element_ = document.querySelector('.mdl-js-components');
   if (this.element_) {
     this.componentLinks = this.element_.querySelectorAll('.mdl-components__link');
-
     this.activeLink = null;
     this.activePage = null;
 
@@ -53,9 +52,6 @@ MaterialComponentsNav.prototype.CssClasses_ = {
 MaterialComponentsNav.prototype.init = function() {
   'use strict';
 
-  this.activeLink = this.componentLinks[0];
-  this.activePage = this.findPage(this.activeLink);
-
   for (var i = 0; i < this.componentLinks.length; i++) {
     this.componentLinks[i].addEventListener('click',
         this.clickHandler(this.componentLinks[i]));
@@ -84,14 +80,29 @@ MaterialComponentsNav.prototype.init = function() {
 MaterialComponentsNav.prototype.displaySectionForFragment = function(fragment) {
   'use strict';
 
-  if (fragment &&
-      this.linksMap_[fragment] &&
-      this.linksMap_[fragment].click) {
+  if (fragment && this.linksMap_[fragment] && this.linksMap_[fragment].click) {
     this.linksMap_[fragment].click();
-  } else {
-    document.getElementsByClassName('mdl-components__link')[0].click();
+  } else if (!fragment || fragment === '' || fragment === '#') {
+    this.displayIndexPage();
   }
 };
+
+/**
+ * Displays the index page for the components.
+ */
+MaterialComponentsNav.prototype.displayIndexPage = function() {
+  'use strict';
+
+  if (this.activeLink) {
+    this.activeLink.classList.remove(this.CssClasses_.ACTIVE);
+  }
+  this.activeLink = null;
+  if (this.activePage) {
+    this.activePage.classList.remove(this.CssClasses_.ACTIVE);
+  }
+  this.activePage = this.element_.querySelector('#index-section');
+  this.activePage.classList.add(this.CssClasses_.ACTIVE);
+}
 
 /**
  * Returns a clickHandler for a navigation link.
@@ -101,30 +112,36 @@ MaterialComponentsNav.prototype.displaySectionForFragment = function(fragment) {
 MaterialComponentsNav.prototype.clickHandler = function(link) {
   'use strict';
 
-  var ctx = this;
-
   return function(e) {
     e.preventDefault();
-    var page = ctx.findPage(link);
-    ctx.activePage.classList.remove(ctx.CssClasses_.ACTIVE);
-    ctx.activeLink.classList.remove(ctx.CssClasses_.ACTIVE);
+    var page = this.findPage(link);
+    if (this.activePage) {
+      this.activePage.classList.remove(this.CssClasses_.ACTIVE);
+    }
+    if (this.activeLink) {
+      this.activeLink.classList.remove(this.CssClasses_.ACTIVE);
+    }
 
-    ctx.activePage = page;
-    ctx.activeLink = link;
+    this.activePage = page;
+    this.activeLink = link;
 
-    link.classList.add(ctx.CssClasses_.ACTIVE);
-    page.classList.add(ctx.CssClasses_.ACTIVE);
+    link.classList.add(this.CssClasses_.ACTIVE);
+    page.classList.add(this.CssClasses_.ACTIVE);
 
     // Add an history entry and display the hash fragment in the URL.
     var section = window.location.hash.split('/')[0];
-    if (section !== '#' + link.href.split('#')[1]) {
-      if (link !== document.getElementsByClassName('mdl-components__link')[0]) {
-        history.pushState(null, 'Material Design Lite', link);
-      } else if (ctx.linksMap_[section] !== null) {
-        history.pushState(null, 'Material Design Lite', './');
+    var linkWithoutHash = link.href.split('#')[1];
+    if (section !== '#' + linkWithoutHash) {
+      history.pushState(null, 'Material Design Lite', link);
+      // Scroll to top of page
+      document.getElementById('content').scrollTop = 0;
+      // Track the specific component page view in Google analytics
+      if (ga) {
+        ga('send', 'pageview', '/components/' + linkWithoutHash);
       }
     }
-  };
+    return true;
+  }.bind(this);
 };
 
 /**

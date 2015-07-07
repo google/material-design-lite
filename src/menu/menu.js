@@ -338,7 +338,9 @@ MaterialMenu.prototype.applyClip_ = function(height, width) {
 MaterialMenu.prototype.addAnimationEndListener_ = function() {
   'use strict';
 
-  var cleanup = function() {
+  var cleanup = function () {
+    this.element_.removeEventListener('transitionend', cleanup);
+    this.element_.removeEventListener('webkitTransitionEnd', cleanup);
     this.element_.classList.remove(this.CssClasses_.IS_ANIMATING);
   }.bind(this);
 

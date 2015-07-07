@@ -8,12 +8,12 @@ include_prefix: ./
   <dl>
     <dt>Material Design Lite</dt>
     <dd>
-      Material Design Lite lets you add a [Material Design](http://google.com/design/spec) look and feel to your websites. It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, and offer an experience that is immediately accessible. [Get started now](../started).
+      Material Design Lite lets you add a [Material Design](http://google.com/design/spec) look and feel to your websites. It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, and offer an experience that is immediately accessible. [Get started now](started/index.html).
     </dd>
   </dl>
 </section>
 
-<section class="about-panel about-panel--templates mdl-cell mdl-cell--12-col" data-target="templates">
+<section class="about-panel about-panel--templates mdl-cell mdl-cell--12-col" data-target="templates/index.html">
   Templates
 </section>
 
@@ -23,13 +23,13 @@ include_prefix: ./
   </p>
 </section>
 
-<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="components">
+<section class="about-panel about-panel--components mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="components/index.html">
   Components
 </section>
-<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="styles">
+<section class="about-panel about-panel--styles mdl-color-text--white mdl-cell mdl-cell--6-col" data-target="styles/index.html">
   Styles
 </section>
-<section class="about-panel about-panel--customize mdl-color-text--white mdl-cell mdl-cell--12-col" data-target="customize">
+<section class="about-panel about-panel--customize mdl-color-text--white mdl-cell mdl-cell--12-col" data-target="customize/index.html">
   Customize
 </section>
 

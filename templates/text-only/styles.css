@@ -1,3 +1,19 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
@@ -6,6 +22,15 @@ html, body {
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
   height: 53px;
+}
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__tab-bar-container {
+  display: none;
+}
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row {
+  padding-left: 60px;
+}
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
+  font-size: inherit;
 }
 .mdl-demo .mdl-layout__tab-bar-button {
   display: none;
@@ -36,7 +61,6 @@ html, body {
 .mdl-demo main > .mdl-layout__tab-panel {
   padding: 8px;
   padding-top: 48px;
-  height: 100%;
 }
 .mdl-demo .mdl-card {
   height: auto;
@@ -148,6 +172,7 @@ html, body {
 }
 .mdl-demo section.section--footer {
   padding: 64px 0;
+  margin: 0 -8px -8px -8px;
 }
 .mdl-demo section.section--center .section__text:not(:last-child) {
   border-bottom: 1px solid rgba(0,0,0,.13);
@@ -177,10 +202,11 @@ html, body {
   margin-top: 0;
 }
 .mdl-demo .toc a {
-  @extend mdl-color-text--cyan-300;
+  color: #4DD0E1;
   text-decoration: none;
   font-size: 16px;
   line-height: 28px;
+  display: block;
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;

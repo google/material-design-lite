@@ -65,6 +65,3 @@ The MDL CSS classes apply various predefined visual enhancements to the badge. T
 | `mdl-badge` | Defines badge as an MDL component | Required on span or link |
 | `mdl-badge--no-background` | Applies open-circle effect to badge | Optional |
 | `data-badge="value"` | Assigns string value to badge | Not a class, but a separate attribute; required on span or link |
-
-##More information
-For working examples of the **badge** component, see the MDL [badge demo page](www.github.com/google/material-design-lite/src/badge/demo.html).

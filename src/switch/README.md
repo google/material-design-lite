@@ -63,6 +63,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 >**Note:** Disabled versions of all available switch types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="checkbox" id="switch5" class="mdl-switch__input" disabled />`
 >This attribute may be added or removed programmatically via scripting.
-
-##More information
-For working examples of the **switch** component, see the MDL [switch demo page](www.github.com/google/material-design-lite/src/switch/demo.html).

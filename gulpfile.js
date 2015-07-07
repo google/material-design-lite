@@ -27,20 +27,23 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
+var codeFiles = '';
 var reload = browserSync.reload;
 var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
-var hostedLibsUrlPrefix = 'http://code.getmdl.io';
+var MaterialCustomizer = require('./docs/_assets/customizer.js');
+var hostedLibsUrlPrefix = 'https://storage.googleapis.com/code.getmdl.io';
 var bucketProd = 'gs://www.getmdl.io';
 var bucketStaging = 'gs://mdl-staging';
 var bucketCode = 'gs://code.getmdl.io';
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
-  ' * @link <%= pkg.homepage %>',
-  ' * @license <%= pkg.license.type %>',
+  ' * @license <%= pkg.license %>',
+  ' * @copyright 2015 Google, Inc.',
+  ' * @link https://github.com/google/material-design-lite',
   ' */',
   ''].join('\n');
 
@@ -218,11 +221,13 @@ gulp.task('scripts', function () {
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
-    .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
-    .pipe($.uglify({preserveComments: 'some', sourceRoot: '.',
-        sourceMapIncludeSources: true}))
+    .pipe($.uglify({
+      sourceRoot: '.',
+      sourceMapIncludeSources: true
+    }))
+    .pipe($.header(banner, {pkg: pkg}))
     .pipe($.concat('material.min.js'))
     // Write Source Maps
     .pipe($.sourcemaps.write('./'))
@@ -233,12 +238,18 @@ gulp.task('scripts', function () {
 // Clean Output Directory
 gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
 
+// Copy package manger and LICENSE files to dist
+gulp.task('metadata', function () {
+  return gulp.src(['package.json', 'bower.json', 'LICENSE'])
+    .pipe(gulp.dest('./dist'));
+});
+
 // Build Production Files, the Default Task
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
-    'styles',
+    ['styles', 'styles:gen'],
     ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'demos', 'pages',
-     'templates', 'images', 'styles-grid'],
+     'templates', 'images', 'styles-grid', 'metadata'],
     cb);
 });
 
@@ -411,7 +422,13 @@ gulp.task('assets', function () {
   return gulp.src([
       'docs/_assets/**/*',
       'node_modules/clippy/build/clippy.swf',
-      'node_modules/swfobject-npm/swfobject/src/swfobject.js'
+      'node_modules/swfobject-npm/swfobject/src/swfobject.js',
+      'node_modules/prismjs/prism.js',
+      'node_modules/prismjs/components/prism-markup.min.js',
+      'node_modules/prismjs/components/prism-javascript.min.js',
+      'node_modules/prismjs/components/prism-css.min.js',
+      'node_modules/prismjs/components/prism-bash.min.js',
+      'node_modules/prismjs/dist/prism-default/prism-default.css'
     ])
     .pipe($.if(/\.js/i, $.replace('$$version$$', pkg.version)))
     .pipe($.if(/\.js/i, $.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix)))
@@ -420,6 +437,7 @@ gulp.task('assets', function () {
       interlaced: true
     })))
     .pipe($.if(/\.css/i, $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+    .pipe($.if(/\.css/i, $.csso()))
     .pipe($.if(/\.js/i, $.uglify({preserveComments: 'some', sourceRoot: '.',
       sourceMapIncludeSources: true})))
     .pipe(gulp.dest('dist/assets'));
@@ -464,44 +482,84 @@ gulp.task('serve', ['default'], function() {
     .pipe($.open('', {url: 'http://localhost:5000'}));
 });
 
+// Generate release archive containing just JS, CSS, Source Map deps
+gulp.task('zip:mdl', function() {
+  return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
+    .pipe($.zip('mdl.zip'))
+    .pipe(gulp.dest('dist'));
+});
+
+// Generate release archive containing the library, templates and assets
+// for templates. Note that it is intentional for some templates to include
+// a customised version of the material.min.css file for their own needs.
+// Others (e.g the Android template) simply use the default built version of
+// the library.
+
+// Define a filter containing only the build assets we want to pluck from the
+// `dist` stream. This enables us to preserve the correct final dir structure,
+// which was not occurring when simply using `gulp.src` in `zip:templates`
+
+var fileFilter = $.filter([
+  'material?(.min)@(.js|.css)?(.map)',
+  'templates/**/*.*',
+  'assets/**/*.*',
+  'LICENSE',
+  'bower.json',
+  'package.json']);
+
+gulp.task('zip:templates', function() {
+  // Stream of all `dist` files and other package manager files from root
+  return gulp.src(['dist/**/*.*', 'LICENSE', 'bower.json', 'package.json'])
+  .pipe(fileFilter)
+  .pipe($.zip('mdl-templates.zip'))
+  .pipe(fileFilter.restore())
+  .pipe(gulp.dest('dist'));
+});
+
+gulp.task('genCodeFiles', function() {
+  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/mdl-templates.zip'],
+      {read: false})
+    .pipe($.tap(function(file, t) {
+      codeFiles += ' dist/' + path.basename(file.path);
+    }));
+});
+
 // Push the latest version of code resources (CSS+JS) to Google Cloud Storage.
 // Public-read objects in GCS are served by a Google provided and supported
 // global, high performance caching/content delivery network (CDN) service.
 // This task requires gsutil to be installed and configured.
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
-//
-gulp.task('publish:code', function() {
-  // Build dest path, info message, cache control and gsutil cmd to copy
+gulp.task('pushCodeFiles', function() {
+  var dest = bucketCode;
+  process.stdout.write('Publishing ' + pkg.version + ' to CDN (' + dest + ')\n');
+
+  // Build cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
-  // The gsutil -a option sets the ACL on each object copied.
   // The gsutil -m option requests parallel copies.
   // The gsutil -h option is used to set metadata headers
   // (cache control, in this case).
   // For cache control, start with 0s (disable caching during dev),
   // but consider more helpful interval (e.g. 3600s) after launch.
-  var dest = bucketCode;
-  var infoMsg = 'Publishing ' + pkg.version + ' to CDN (' + dest + ')';
-  var cacheControl = '-h "Cache-Control:public,max-age=0"';
-  var gsutilCpCmd = 'gsutil -m cp -a public-read <%= file.path %> ' + dest;
-  var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest;
+  var cacheControl = '-h "Cache-Control:public,max-age=60"';
+  var gsutilCpCmd = 'gsutil -m cp -z js,css,map ';
+  var gsutilCacheCmd = 'gsutil -m setmeta -R ' + cacheControl;
 
-  process.stdout.write(infoMsg + '\n');
-  // Build an archive file with the runtime elements.
-  gulp.src('dist/material.*@(js|css)?(.map)')
-    .pipe($.zip('mdl.zip'))
-    .pipe(gulp.dest('dist'));
   // Upload the goodies to a separate GCS bucket with versioning.
   // Using a sep bucket avoids the risk of accidentally blowing away
   // old versions in the microsite bucket.
-  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip'],
-      {read: false})
-    .pipe($.tap(function(file, t) {
-      file.base = path.basename(file.path);
-    }))
+  return gulp.src('')
     .pipe($.shell([
-      gsutilCpCmd + '/' + pkg.version + '/<%= file.base %>',
-      gsutilCacheCmd + '/' + pkg.version + '/<%= file.base %>'
+      gsutilCpCmd + codeFiles + ' ' + dest + '/' + pkg.version,
+      gsutilCacheCmd + ' ' + dest + '/' + pkg.version
     ]));
+});
+
+gulp.task('publish:code', function (cb) {
+  runSequence(
+    ['zip:mdl', 'zip:templates'],
+    'genCodeFiles',
+    'pushCodeFiles',
+    cb);
 });
 
 // Function to publish staging or prod version from local tree,
@@ -513,45 +571,35 @@ function mdlPublish(pubScope) {
   if (pubScope === 'staging') {
     // Set staging specific vars here.
     cacheTtl = 0;
+    src = 'dist/*';
     dest = bucketStaging;
   } else if (pubScope === 'prod') {
     // Set prod specific vars here.
-    cacheTtl = 3600;
+    cacheTtl = 60;
+    src = 'dist/*';
     dest = bucketProd;
   } else if (pubScope === 'promote') {
     // Set promote (essentially prod) specific vars here.
-    cacheTtl = 3600;
+    cacheTtl = 60;
     src = bucketStaging + '/*';
     dest = bucketProd;
   }
 
-  // Build cache control and info message.
-  var cacheControl = '-h "Cache-Control:public,max-age=' + cacheTtl + '"';
   var infoMsg = 'Publishing ' + pubScope + '/' + pkg.version + ' to GCS (' + dest + ')';
   if (src) {
     infoMsg += ' from ' + src;
   }
-
-  // Build gsutil commands to recursively sync local distribution tree
-  // to the dest bucket and to recursively set permissions to public-read.
-  // The gsutil -m option requests parallel copies.
-  // The gsutil -R option does recursive acl setting.
-  // The gsutil -h option is used to set metadata headers (cache control, in this case).
-  var gsutilSyncCmd = 'gsutil -m rsync -d -R dist ' + dest;
-  var gsutilAclCmd = 'gsutil -m acl set -R public-read ' + dest;
-  var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest + '/**';
-  var gsutilCpCmd = 'gsutil -m cp -R ' + src + ' ' + dest;
-
   process.stdout.write(infoMsg + '\n');
-  if (pubScope === 'promote') {
-    // If promoting, copy staging bucket contents to prod bucket,
-    // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilCpCmd, gsutilAclCmd, gsutilCacheCmd]));
-  } else {
-    // If publishing to prod directly, rsync local contents to prod bucket,
-    // and set ACLs and cache control on dest contents.
-    gulp.src('').pipe($.shell([gsutilSyncCmd, gsutilAclCmd, gsutilCacheCmd]));
-  }
+
+  // Build gsutil commands:
+  // The gsutil -h option is used to set metadata headers.
+  // The gsutil -m option requests parallel copies.
+  // The gsutil -R option is used for recursive file copy.
+  var cacheControl = '-h "Cache-Control:public,max-age=' + cacheTtl + '"';
+  var gsutilCacheCmd = 'gsutil -m setmeta ' + cacheControl + ' ' + dest + '/**';
+  var gsutilCpCmd = 'gsutil -m cp -r -z html,css,js,svg ' + src + ' ' + dest;
+
+  gulp.src('').pipe($.shell([gsutilCpCmd, gsutilCacheCmd]));
 }
 
 // Push the local build of the MDL microsite and release artifacts to the
@@ -641,3 +689,26 @@ gulp.task('templates:fonts', function() {
 
 gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
     'templates:fonts', 'templates:styles']);
+
+gulp.task('styles:gen', ['styles'], function() {
+  // TODO: This task needs refactoring once we turn MaterialCustomizer
+  // into a proper Node module.
+  var mc = new MaterialCustomizer();
+  mc.template = fs.readFileSync('./dist/material.min.css.template').toString();
+
+  var stream = gulp.src('');
+  mc.paletteIndices.forEach(function(primary) {
+    mc.paletteIndices.forEach(function(accent) {
+      if (mc.forbiddenAccents.indexOf(accent) !== -1) {
+        return;
+      }
+      var primaryName = primary.toLowerCase().replace(' ', '_');
+      var accentName = accent.toLowerCase().replace(' ', '_');
+      stream = stream.pipe($.file(
+        'material.' + primaryName + '-' + accentName + '.min.css',
+        mc.processTemplate(primary, accent)
+      ));
+    });
+  });
+  stream.pipe(gulp.dest('dist'));
+});
