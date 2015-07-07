@@ -207,11 +207,11 @@ from the main (upstream) repository:
 
 ## <a name="rules"></a> Coding Rules
 
-We generally follow the [Google JavaScript style guide](js-style-guide) with a few minor exceptions documented in our
-[JSCS configuration.](jscs-config).
+We generally follow the [Google JavaScript style guide][js-style-guide] with a few minor exceptions documented in our
+[JSCS configuration][jscs-config].
 
 [JSCS](http://jscs.info) is a tool for linting code against a style guide and has plugins available for both editors and build tools. Should
-you find that you would prefer to automatically format your code to match our style guide, you can use the JSCS [autoformatting](autoformatting)
+you find that you would prefer to automatically format your code to match our style guide, you can use the JSCS [autoformatting][autoformatting]
 feature.
 
 ## <a name="cla"></a> Signing the CLA
