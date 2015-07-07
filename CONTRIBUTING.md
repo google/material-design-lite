@@ -55,7 +55,7 @@ If you find a bug in the source code or a mistake in the documentation, you can 
 submitting an issue to our [GitHub Repository][github]. Even better you can submit a Pull Request
 with a fix.
 
-See [below][#submit] for some guidelines.
+See [below](#submit) for some guidelines.
 
 ## <a name="feature"></a> Want a Feature?
 You can request a new feature by submitting an issue to our [GitHub Repository][github].
