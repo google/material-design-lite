@@ -28,8 +28,7 @@ function MaterialComponentsSnippets() {
  */
 MaterialComponentsSnippets.prototype.init = function() {
   'use strict';
-  for (var i = 0; i < this.snippetButtons.length; i++) {
-    var snippetButton = this.snippetButtons[i];
+  [].slice.call(this.snippetButtons).forEach(function(snippetButton) {
     snippetButton.addEventListener('mouseover',
       this.onMouseOverHandler(snippetButton));
     snippetButton.addEventListener('mouseout',
@@ -45,7 +44,7 @@ MaterialComponentsSnippets.prototype.init = function() {
       clippy[0].addEventListener('mouseup',
         this.onMouseDownHandler(snippetButton));
     }
-  }
+  }, this);
 };
 
 /**
