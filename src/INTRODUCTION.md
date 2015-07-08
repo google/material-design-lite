@@ -7,7 +7,7 @@ The MDL components are created with CSS, JavaScript, and HTML. You can use the c
 
 The MDL component library includes new versions of common user interface controls such as buttons, check boxes, and text fields, adapted to follow Material Design concepts. The library also includes enhanced and specialized features like cards, column layouts, sliders, spinners, tabs, typography, and more.
 
-MDL is free to download and use, and may be used with or without any build library or development environment (such as [Material Design Lite](https://developers.google.com/web/starter-kit/)). It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, portable, and &mdash; most importantly &mdash; usable web pages.
+MDL is free to download and use, and may be used with or without any build library or development environment (such as [Material Design Lite](http://www.getmdl.io/)). It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, portable, and &mdash; most importantly &mdash; usable web pages.
 
 ## Getting started
 
@@ -15,11 +15,13 @@ MDL is free to download and use, and may be used with or without any build libra
 To obtain the components, clone or download the [GitHub MDL repository](https://github.com/google/material-design-lite). Copy the entire package (the top-level folder and everything below it) to the project folder where you will write your HTML pages. This ensures that your project can access all of MDL's components and assets, and that you always have the original files for reference in case you break something. :-)
 
 ###Include the master CSS and JavaScript
-In each HTML page in your project, include the minified (compressed) CSS and JavaScript files using standard relative-path references. This example assumes that a copy of the MDL package folders resides in your project folder.
+In each HTML page in your project, include the minified (compressed) CSS and JavaScript files using standard relative-path references and the Material Icon font if desired. This example assumes that a copy of the MDL package folders resides in your project folder.
+
 
 ```html
 <link rel="stylesheet" href="css/material.min.css">
 <script src="js/material.min.js"></script>
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
 ```
 
 That's it! You are now ready to use the MDL components.
