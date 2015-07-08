@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-function MaterialSnackbar(element) {
+ function MaterialSnackbar(element) {
   'use strict';
-
   this.element_ = element;
   this.active = false;
   this.init();
-
 }
 
 MaterialSnackbar.prototype.defaults = {
@@ -94,11 +92,16 @@ MaterialSnackbar.prototype.removeSnackbar = function() {
 
 MaterialSnackbar.prototype.showSnackbar = function(data) {
   'use strict';
+  console.timeStamp('Show Snackbar');
+  if (data === undefined) {
+    throw new Error(
+      'Please provide a data object with at least a message to display.');
+  }
   if (data.message === undefined) {
-    throw 'Please provide a message to be displayed.';
+    throw new Error('Please provide a message to be displayed.');
   }
   if (data.actionHandler && !data.actionText) {
-    throw  'Please provide action text with the handler.';
+    throw new Error('Please provide action text with the handler.');
   }
   if (this.active) {
     this.queuedNotifications.push(data);

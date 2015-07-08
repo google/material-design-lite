@@ -8,11 +8,11 @@ Snackbars may also be used as a **toast** component. A toast may not be removed 
 
 ## Usage
 
-&nbsp;1. Add the `mdl-js-snackbar` class to the body.
+&nbsp;1. Add the `mdl-js-snackbar` class an element that is a direct child of the body.
 
 ```html
-<body class="mdl-js-snackbar">
-</body>
+<div class="mdl-js-snackbar">
+</div>
 ```
 
 &nbsp;2. Use JavaScript to trigger a snackbar.
@@ -55,9 +55,6 @@ The table below shows the properties and their usage.
 | timeout   | The amount of time in milliseconds to show the snackbar. | Optional (default 8000) | Integer |
 | actionHandler | The function to execute when the action is clicked. | Optional | Function |
 | actionText | The text to display for the action button. | Required if actionHandler is set |  String. |
-
-## More information
-For working examples of the **snackbar** component, see the MDL [snackbar demo page](www.github.com/google/material-design-lite/src/snackbar/demo.html).
 
 ## License
 
