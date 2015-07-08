@@ -17,8 +17,12 @@
 function MaterialComponentsSnippets() {
   'use strict';
 
+  // Find all code snippet buttons
   this.snippetButtons = document.querySelectorAll(
       '.snippet-caption .copy-to-clipboard-button');
+  // Find all flash buttons used for the copy-paste feature
+  this.flashCopyButtons = document.querySelectorAll(
+    '.snippet-caption .copy-to-clipboard-button .clippy');
   this.init();
 }
 
@@ -27,14 +31,21 @@ function MaterialComponentsSnippets() {
  */
 MaterialComponentsSnippets.prototype.init = function() {
   'use strict';
-
   for (var i = 0; i < this.snippetButtons.length; i++) {
     this.snippetButtons[i].addEventListener('mouseover',
-        this.onMouseOverHandler(this.snippetButtons[i]));
+      this.onMouseOverHandler(this.snippetButtons[i]));
     this.snippetButtons[i].addEventListener('mouseout',
-        this.onMouseOutHandler(this.snippetButtons[i]));
+      this.onMouseOutHandler(this.snippetButtons[i]));
     this.snippetButtons[i].addEventListener('mouseup',
-        this.onMouseDownHandler(this.snippetButtons[i]));
+      this.onMouseDownHandler(this.snippetButtons[i]));
+  }
+  for (var j = 0; j < this.snippetButtons.length; j++) {
+    this.flashCopyButtons[j].addEventListener('mouseover',
+      this.onMouseOverHandler(this.snippetButtons[j]));
+    this.flashCopyButtons[j].addEventListener('mouseout',
+      this.onMouseOutHandler(this.snippetButtons[j]));
+    this.flashCopyButtons[j].addEventListener('mouseup',
+      this.onMouseDownHandler(this.snippetButtons[j]));
   }
 };
 
