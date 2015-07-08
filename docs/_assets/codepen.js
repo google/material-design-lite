@@ -17,7 +17,7 @@
 function CodeBlockCodePen() {
   'use strict';
 
-  this.htmlCodeBlocks = document.getElementsByClassName('language-markup');
+  this.codepenButtons = document.getElementsByClassName('codepen-button');
   this.init();
 }
 
@@ -36,29 +36,12 @@ CodeBlockCodePen.prototype.MDLIBS = [
 CodeBlockCodePen.prototype.init = function() {
   'use strict';
 
-  for (var i = 0, len = this.htmlCodeBlocks.length; i < len; i++) {
-    var pre = this.htmlCodeBlocks[i];
+  for (var i = 0, len = this.codepenButtons.length; i < len; i++) {
+    var form = this.codepenButtons[i];
+    var pre = form.parentNode;
 
-    // If pre is a <code> node we check if it's enclosed in a <pre> tag and
-    // process that instead.
-    if (pre.tagName.toLowerCase() !== 'pre') {
-      pre = pre.parentNode;
-    }
-    // Verify there is not already a codePen Button and that we are in a <pre>.
-    if (pre.getElementsByTagName('form').length > 0 ||
-        pre.tagName.toLowerCase() !== 'pre') {
-      continue;
-    }
-
-    // Create the CodePen Form and add it to the <pre> block.
-    var form = document.createElement('form');
-    form.classList.add('codepen-button');
-    form.setAttribute('action', 'https://codepen.io/pen/define');
-    form.setAttribute('method', 'POST');
-    form.setAttribute('target', '_blank');
+    // Attach the click event to the codepen button.
     form.addEventListener('click', this.clickHandler(form, pre));
-
-    pre.appendChild(form);
   }
 };
 
