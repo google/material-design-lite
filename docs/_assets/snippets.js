@@ -17,9 +17,9 @@
 function MaterialComponentsSnippets() {
   'use strict';
 
-  // Find all code snippet buttons
+  // Find all code snippet buttons.
   this.snippetButtons = document.querySelectorAll(
-      '.snippet-caption .copy-to-clipboard-button');
+    '.snippet-caption .copy-to-clipboard-button');
   this.init();
 }
 
@@ -29,20 +29,21 @@ function MaterialComponentsSnippets() {
 MaterialComponentsSnippets.prototype.init = function() {
   'use strict';
   for (var i = 0; i < this.snippetButtons.length; i++) {
-    this.snippetButtons[i].addEventListener('mouseover',
-      this.onMouseOverHandler(this.snippetButtons[i]));
-    this.snippetButtons[i].addEventListener('mouseout',
-      this.onMouseOutHandler(this.snippetButtons[i]));
-    this.snippetButtons[i].addEventListener('mouseup',
-      this.onMouseDownHandler(this.snippetButtons[i]));
-    var clippy = this.snippetButtons[i].querySelectorAll('.clippy');
+    var snippetButton = this.snippetButtons[i];
+    snippetButton.addEventListener('mouseover',
+      this.onMouseOverHandler(snippetButton));
+    snippetButton.addEventListener('mouseout',
+      this.onMouseOutHandler(snippetButton));
+    snippetButton.addEventListener('mouseup',
+      this.onMouseDownHandler(snippetButton));
+    var clippy = snippetButton.querySelectorAll('.clippy');
     if (clippy.length > 0) {
       clippy[0].addEventListener('mouseover',
-        this.onMouseOverHandler(this.snippetButtons[i]));
+        this.onMouseOverHandler(snippetButton));
       clippy[0].addEventListener('mouseout',
-        this.onMouseOutHandler(this.snippetButtons[i]));
+        this.onMouseOutHandler(snippetButton));
       clippy[0].addEventListener('mouseup',
-        this.onMouseDownHandler(this.snippetButtons[i]));
+        this.onMouseDownHandler(snippetButton));
     }
   }
 };
