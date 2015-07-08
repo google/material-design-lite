@@ -21,13 +21,6 @@ html, body {
 }
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
-  height: 53px;
-}
-.mdl-demo .mdl-layout.is-small-screen .mdl-layout__tab-bar-container {
-  display: none;
-}
-.mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row {
-  padding-left: 60px;
 }
 .mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
   font-size: inherit;
@@ -35,18 +28,20 @@ html, body {
 .mdl-demo .mdl-layout__tab-bar-button {
   display: none;
 }
-.mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__drawer-button {
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__tab-bar .mdl-button {
   display: none;
 }
-.mdl-demo .mdl-layout__tab-bar-container {
+.mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar,
+.mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
   overflow: visible;
+}
+.mdl-demo .mdl-layout__tab-bar-container {
   height: 64px;
 }
 .mdl-demo .mdl-layout__tab-bar {
-  overflow: visible;
-  position: relative;
   padding: 0;
   padding-left: 16px;
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
 }
