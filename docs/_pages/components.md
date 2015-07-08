@@ -55,7 +55,7 @@ categories:
             - caption: Colored button
               file: raised-colored.html
             - caption: Accent colored
-              file: raised-accent-ripple.html
+              file: raised-accent.html
             - caption: With Ripples
               file: raised-ripple-accent.html
           - snippet_group:
