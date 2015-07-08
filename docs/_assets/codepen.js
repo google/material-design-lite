@@ -37,9 +37,8 @@ CodeBlockCodePen.prototype.init = function() {
   'use strict';
 
   [].slice.call(this.codepenButtons).forEach(function(form) {
-    var pre = form.parentNode;
     // Attach the click event to the codepen button.
-    form.addEventListener('click', this.clickHandler(form, pre));
+    form.addEventListener('click', this.clickHandler(form, form.parentNode));
   }, this);
 };
 
