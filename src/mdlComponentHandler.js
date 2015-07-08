@@ -86,6 +86,15 @@ var componentHandler = (function() {
    * the element to.
    */
   function upgradeElementInternal(element, jsClass) {
+    if (jsClass === undefined) {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        if (element.classList.contains(registeredComponents_[i].cssClass)) {
+          upgradeElementInternal(element, registeredComponents_[i].className);
+        }
+      }
+      return;
+    }
+
     // Only upgrade elements that have not already been upgraded.
     var dataUpgraded = element.getAttribute('data-upgraded');
 
