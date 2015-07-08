@@ -25,20 +25,21 @@
       {% for snippet in snippet_group %}
         {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}
         <div class="snippet-caption">
-          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#{{ component_name }}/{{ snippet.file }}">
+          <div class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button" href="#{{ component_name }}/{{ snippet.file }}">
             <i class="material-icons copy">content_cut</i> {{ snippet.caption }}
             <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
               <param name="movie" value="../assets/clippy.swf"/>
               <param name="wmode" value="transparent" />
               <param name="quality" value="low" />
               <param name="scale" value="exactfit" />
-              <embed src="../assets/clippy.swf"
+              <embed class="clippy"
+                     src="../assets/clippy.swf"
                      scale="exactfit"
                      quality="low"
                      wmode="transparent"
                      FlashVars="text={% filter url_encode %}{% include snippet_file ignore missing %}{% endfilter %}"/>
             </object>
-          </button>
+          </div>
         </div>
       {%- endfor %}
       <div class="snippet-caption-padding"></div>

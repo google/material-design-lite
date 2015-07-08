@@ -589,8 +589,9 @@ body:not(.about) .mdl-navigation__link.download > button {
   text-transform: none;
   font-size: 13px;
   font-weight: normal;
-  line-height: 28px;
+  line-height: 36px;
 }
+
 .snippet-group .snippet-caption .copy-to-clipboard-button .material-icons {
   background-color: #00BCD4;
   border-radius: 50%;
@@ -601,7 +602,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   color: white;
   top: 3px;
 }
-.snippet-group .snippet-caption .snippet-copy embed {
+.snippet-group .snippet-caption .snippet-copy .clippy {
   height: 100%;
   width: 785%;
 }
@@ -665,10 +666,11 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
 .snippet-group .snippet-code code.highlighted:only-of-type {
   background-color: transparent;
 }
+.snippet-group .snippet-code code::before,
 .snippet-group .snippet-code code::after {
   display: none;
 }
-.snippet-group .snippet-code code.highlighted::after {
+.snippet-group .snippet-code code.highlighted::before {
   display: inline-block;
   content: 'Copy';
   color: rgba(0,0,0,0.5);
@@ -680,7 +682,7 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
   bottom: 0;
   padding: 3px 10px;
 }
-.snippet-group .snippet-code code.highlighted.copied::after {
+.snippet-group .snippet-code code.highlighted.copied::before {
   content: 'Copied';
   color: rgba(255,255,255,0.5);
   background-color: rgba(0,0,0,0.6);
@@ -688,8 +690,8 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
 .snippet-group .snippet-code .codepen-extra-css {
   display:none;
 }
-.no-flash .snippet-group .snippet-code code.highlighted::after,
-.no-flash .snippet-group .copy{
+.no-flash .snippet-group .snippet-code code.highlighted::before,
+.no-flash .snippet-group .copy {
   display: none;
 }
 @media (max-width: 850px) {
