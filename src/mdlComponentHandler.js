@@ -111,7 +111,8 @@ var componentHandler = (function() {
           element[jsClass] = instance;
         }
       } else {
-        throw 'Unable to find a registered component for the given class.';
+        throw new Error(
+          'Unable to find a registered component for the given class.');
       }
 
       var ev = document.createEvent('Events');
@@ -136,17 +137,18 @@ var componentHandler = (function() {
 
     registeredComponents_.forEach(function(item) {
       if (item.cssClass === newConfig.cssClass) {
-        throw 'The provided cssClass has already been registered.';
+        throw new Error('The provided cssClass has already been registered.');
       }
       if (item.className === newConfig.className) {
-        throw 'The provided className has already been registered';
+        throw new Error('The provided className has already been registered');
       }
     });
 
     if (config.constructor.prototype
         .hasOwnProperty(componentConfigProperty_)) {
-      throw 'MDL component classes must not have ' + componentConfigProperty_ +
-          ' defined as a property.';
+      throw new Error(
+        'MDL component classes must not have ' + componentConfigProperty_ +
+          ' defined as a property.');
     }
 
     var found = findRegisteredClass_(config.classAsString, newConfig);
@@ -240,7 +242,7 @@ var componentHandler = (function() {
     } else if (nodes instanceof Node) {
       downgradeNode(nodes);
     } else {
-      throw 'Invalid argument provided to downgrade MDL nodes.';
+      throw new Error('Invalid argument provided to downgrade MDL nodes.');
     }
   }
 
