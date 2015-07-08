@@ -36,13 +36,11 @@ CodeBlockCodePen.prototype.MDLIBS = [
 CodeBlockCodePen.prototype.init = function() {
   'use strict';
 
-  for (var i = 0, len = this.codepenButtons.length; i < len; i++) {
-    var form = this.codepenButtons[i];
+  [].slice.call(this.codepenButtons).forEach(function(form) {
     var pre = form.parentNode;
-
     // Attach the click event to the codepen button.
     form.addEventListener('click', this.clickHandler(form, pre));
-  }
+  }, this);
 };
 
 /**
