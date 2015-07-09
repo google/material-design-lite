@@ -74,10 +74,9 @@ include_prefix: ../
       </a>
       <span class="download__size">1.21 MB (.zip)</span>
     </div>
-
     <div class="code-with-text">
       To embed Roboto into your web page, copy the code as the first element in the <code>&lt;head&gt;</code> of your HTML document.
-      <pre class="language-markup"><code>&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300:400:500:700" rel="stylesheet" type="text/css"&gt;</code></pre>
+      <pre class="language-markup"><code>&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css"&gt;</code></pre>
     </div>
   </div>
 

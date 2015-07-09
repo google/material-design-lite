@@ -37,6 +37,8 @@ git clone --bare https://github.com/google/material-design-lite.git
 Alternatively you can [download](https://github.com/google/material-design-lite/archive/master.zip)
 this repository.
 
+> Remember, the master branch is considered unstable. Do not use this in production. Use a tagged state of the repository, npm, or bower for stability!
+
 ### What's included
 
 In the repo you'll find the following directories and files.
@@ -127,4 +129,4 @@ forth, we recommend trying out the excellent [Polymer](http://polymer-project.or
 
 ## License
 
-Copyright Google, 2015. Licensed under an Apache-2 license.
+© Google, 2015. Licensed under an [Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE) license.

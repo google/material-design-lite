@@ -17,7 +17,7 @@
 
 /**
  * A component handler interface using the revealing module design pattern.
- * More details on this pattern design here:
+ * More details on this design pattern here:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
@@ -86,6 +86,15 @@ var componentHandler = (function() {
    * the element to.
    */
   function upgradeElementInternal(element, jsClass) {
+    if (jsClass === undefined) {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        if (element.classList.contains(registeredComponents_[i].cssClass)) {
+          upgradeElementInternal(element, registeredComponents_[i].className);
+        }
+      }
+      return;
+    }
+
     // Only upgrade elements that have not already been upgraded.
     var dataUpgraded = element.getAttribute('data-upgraded');
 
@@ -111,7 +120,8 @@ var componentHandler = (function() {
           element[jsClass] = instance;
         }
       } else {
-        throw 'Unable to find a registered component for the given class.';
+        throw new Error(
+          'Unable to find a registered component for the given class.');
       }
 
       var ev = document.createEvent('Events');
@@ -136,17 +146,18 @@ var componentHandler = (function() {
 
     registeredComponents_.forEach(function(item) {
       if (item.cssClass === newConfig.cssClass) {
-        throw 'The provided cssClass has already been registered.';
+        throw new Error('The provided cssClass has already been registered.');
       }
       if (item.className === newConfig.className) {
-        throw 'The provided className has already been registered';
+        throw new Error('The provided className has already been registered');
       }
     });
 
     if (config.constructor.prototype
         .hasOwnProperty(componentConfigProperty_)) {
-      throw 'MDL component classes must not have ' + componentConfigProperty_ +
-          ' defined as a property.';
+      throw new Error(
+        'MDL component classes must not have ' + componentConfigProperty_ +
+          ' defined as a property.');
     }
 
     var found = findRegisteredClass_(config.classAsString, newConfig);
@@ -240,7 +251,7 @@ var componentHandler = (function() {
     } else if (nodes instanceof Node) {
       downgradeNode(nodes);
     } else {
-      throw 'Invalid argument provided to downgrade MDL nodes.';
+      throw new Error('Invalid argument provided to downgrade MDL nodes.');
     }
   }
 

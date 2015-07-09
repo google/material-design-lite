@@ -58,13 +58,6 @@
     background-color: $button-active-color;
   }
 
-  // Bump up specificity by using [disabled] twice.
-  &[disabled][disabled] {
-    color: $button-secondary-color-disabled;
-    cursor: auto;
-    background-color: transparent;
-  }
-
   &.mdl-button--colored {
     color: $button-primary-color-alt;
 
@@ -74,6 +67,9 @@
   }
 }
 
+input.mdl-button[type="submit"] {
+  -webkit-appearance:none;
+}
 
   // Raised buttons
   .mdl-button--raised {
@@ -109,13 +105,6 @@
       & .mdl-ripple {
         background: $button-ripple-color-alt;
       }
-    }
-
-    // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled] {
-      background-color: $button-primary-color-disabled;
-      color: $button-secondary-color-disabled;
-      @include shadow-2dp();
     }
   }
 
@@ -185,13 +174,6 @@
       & .mdl-ripple {
         background: $button-fab-ripple-color-alt;
       }
-    }
-
-    // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled] {
-      background-color: $button-primary-color-disabled;
-      color: $button-secondary-color-disabled;
-      @include shadow-2dp();
     }
   }
 
@@ -275,5 +257,42 @@
   &.mdl-button--raised, &.mdl-button--fab {
     color: $button-fab-text-color-alt;
     background-color: $button-fab-color-alt;
+  }
+}
+
+// Disabled buttons
+
+.mdl-button {
+  // Bump up specificity by using [disabled] twice.
+  &[disabled][disabled] {
+    color: $button-secondary-color-disabled;
+    cursor: auto;
+    background-color: transparent;
+  }
+
+  &--fab {
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled] {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      @include shadow-2dp();
+    }
+  }
+
+  &--raised {
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled] {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      @include shadow-2dp();
+    }
+  }
+  &--colored {
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled] {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      @include shadow-2dp();
+    }
   }
 }

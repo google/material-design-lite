@@ -55,7 +55,7 @@ If you find a bug in the source code or a mistake in the documentation, you can 
 submitting an issue to our [GitHub Repository][github]. Even better you can submit a Pull Request
 with a fix.
 
-See [below][#submit] for some guidelines.
+See [below](#submit) for some guidelines.
 
 ## <a name="feature"></a> Want a Feature?
 You can request a new feature by submitting an issue to our [GitHub Repository][github].
@@ -80,7 +80,7 @@ duplication of work, and help you to craft the change so that it is successfully
 project.
 * **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull Request.
 
- *[Website](https://developers.google.com/web/mdl/) related issues should be filed on the [Web Fundamentals](https://github.com/google/WebFundamentals/issues/new) issue tracker.*
+ *[Website](http://www.getmdl.io/) related issues should be filed on the [Web Fundamentals](https://github.com/google/WebFundamentals/issues/new) issue tracker.*
 
 ## <a name="submit"></a> Submission Guidelines
 
@@ -143,7 +143,7 @@ Before you submit your pull request consider the following guidelines:
 * Run the full Material Design Lite test suite (`gulp test`),
   and ensure that all tests pass.
 * Avoid checking in files that shouldn't be tracked (e.g `node_modules`, `gulp-cache`, `.tmp`, `.idea`). We recommend using a [global](#global-gitignore) gitignore for this.
-* Make sure **not** to include a recompiled version of the files found in `/css` and `/js` as part of your PR. We will generate these automatically.  
+* Make sure **not** to include a recompiled version of the files found in `/css` and `/js` as part of your PR. We will generate these automatically.
 * Commit your changes using a descriptive commit message.
 
      ```shell
@@ -207,11 +207,10 @@ from the main (upstream) repository:
 
 ## <a name="rules"></a> Coding Rules
 
-We generally follow the [Google JavaScript style guide](js-style-guide) with a few minor exceptions documented in our
-[JSCS configuration.](jscs-config).
+We generally follow the [Google JavaScript style guide][js-style-guide] with a few minor exceptions documented in our [JSCS configuration][jscs-config].
 
 [JSCS](http://jscs.info) is a tool for linting code against a style guide and has plugins available for both editors and build tools. Should
-you find that you would prefer to automatically format your code to match our style guide, you can use the JSCS [autoformatting](autoformatting)
+you find that you would prefer to automatically format your code to match our style guide, you can use the JSCS [autoformatting][autoformatting]
 feature.
 
 ## <a name="cla"></a> Signing the CLA

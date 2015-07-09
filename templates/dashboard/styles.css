@@ -22,7 +22,9 @@ html, body {
   height: 48px;
   border-radius: 24px;
 }
-
+.demo-layout .demo-header .mdl-textfield {
+  padding-top: 27px;
+}
 .demo-layout .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.54);
 }
@@ -31,6 +33,18 @@ html, body {
 }
 .demo-drawer {
   border: none;
+}
+/* iOS Safari specific workaround */
+.demo-drawer .mdl-menu__container {
+  z-index: -1;
+}
+.demo-drawer .demo-navigation {
+  z-index: -2;
+}
+/* END iOS Safari specific workaround */
+.demo-drawer .mdl-menu .mdl-menu__item{
+  display: flex;
+  align-items: center;
 }
 .demo-drawer-header {
   box-sizing: border-box;
