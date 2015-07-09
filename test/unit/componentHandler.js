@@ -33,4 +33,10 @@ describe('componentHandler', function() {
     expect($(el)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
   });
 
+  it('should upgrade a single component to an element by using its CSS classes', function() {
+    var el = document.createElement('button');
+    el.className = 'mdl-button mdl-js-button';
+    componentHandler.upgradeElement(el);
+    expect($(el)).to.have.data('upgraded', ',MaterialButton');
+  });
 });
