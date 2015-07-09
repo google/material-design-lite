@@ -35,7 +35,7 @@ include_prefix: ./
 
 <section class="docs-text-styling about-panel about-panel--text mdl-cell mdl-cell--12-col">
   <p>
-    The MDL component library includes new versions of common user interface controls such as buttons, check boxes, and text fields, adapted to follow Material Design concepts. The library also includes enhanced and specialized features like cards, column layouts, sliders, spinners, tabs, typography, and more. MDL is free to download and use, and may be used with or without any library or development environment (such as [Material Design Lite](https://developers.google.com/web/starter-kit/)). It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, portable, and &mdash; most importantly &mdash; usable web pages.
+    The MDL component library includes new versions of common user interface controls such as buttons, check boxes, and text fields, adapted to follow Material Design concepts. The library also includes enhanced and specialized features like cards, column layouts, sliders, spinners, tabs, typography, and more. MDL is free to download and use, and may be used with or without any library or development environment (such as [Web Starter Kit](https://developers.google.com/web/starter-kit/)). It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, portable, and &mdash; most importantly &mdash; usable web pages.
   </p>
 </section>
 <script src="assets/index.js" async></script>

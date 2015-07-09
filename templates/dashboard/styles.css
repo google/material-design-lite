@@ -34,6 +34,14 @@ html, body {
 .demo-drawer {
   border: none;
 }
+/* iOS Safari specific workaround */
+.demo-drawer .mdl-menu__container {
+  z-index: -1;
+}
+.demo-drawer .demo-navigation {
+  z-index: -2;
+}
+/* END iOS Safari specific workaround */
 .demo-drawer .mdl-menu .mdl-menu__item{
   display: flex;
   align-items: center;
