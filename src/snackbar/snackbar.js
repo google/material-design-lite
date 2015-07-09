@@ -56,7 +56,7 @@ MaterialSnackbar.prototype.createSnackbar = function() {
 
 };
 
-MaterialSnackbar.prototype.removeSnackbar = function() {
+MaterialSnackbar.prototype.removeSnackbar_ = function() {
   'use strict';
   if (this.actionElement_ && this.actionElement_.parentNode) {
     this.actionElement_.parentNode.removeChild(this.actionElement_);
@@ -78,7 +78,7 @@ MaterialSnackbar.prototype.showSnackbar = function(data) {
     throw new Error('Please provide action text with the handler.');
   }
   if (this.active) {
-    this.queuedNotifications.push(data);
+    this.queuedNotifications_.push(data);
   } else {
     this.active = true;
     this.message_ = data.message;
@@ -97,7 +97,7 @@ MaterialSnackbar.prototype.showSnackbar = function(data) {
   }
 };
 
-MaterialSnackbar.prototype.checkQueue = function() {
+MaterialSnackbar.prototype.checkQueue_ = function() {
   'use strict';
   if (this.queuedNotifications_.length > 0) {
     this.showSnackbar(this.queuedNotifications_.shift());
@@ -113,8 +113,8 @@ MaterialSnackbar.prototype.cleanup = function() {
   }
   this.setDefaults_();
   this.active = false;
-  this.removeSnackbar();
-  this.checkQueue();
+  this.removeSnackbar_();
+  this.checkQueue_();
 };
 
 MaterialSnackbar.prototype.setDefaults_ = function() {
