@@ -71,7 +71,12 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
     this.element_.style.marginLeft = marginLeft + 'px';
   }
 
-  this.element_.style.top = props.top + props.height + 10 + 'px';
+  if (this.element_.classList.contains('mdl-tooltip--top')) {
+    this.element_.style.top = props.top - this.element_.offsetHeight - 10 + 'px';
+  } else {
+    this.element_.style.top = props.top + props.height + 10 + 'px';
+  }
+
   this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
   window.addEventListener('scroll', this.boundMouseLeaveHandler, false);
   window.addEventListener('touchmove', this.boundMouseLeaveHandler, false);
