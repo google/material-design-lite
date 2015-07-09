@@ -20,6 +20,47 @@ describe('componentHandler', function() {
     expect(componentHandler).to.be.a('object');
   });
 
+  it('should reveal public methods', function() {
+    expect(componentHandler.upgradeDom).to.be.a('function');
+    expect(componentHandler.upgradeElement).to.be.a('function');
+    expect(componentHandler.upgradeAllRegistered).to.be.a('function');
+    expect(componentHandler.registerUpgradedCallback).to.be.a('function');
+    expect(componentHandler.register).to.be.a('function');
+    expect(componentHandler.downgradeElements).to.be.a('function');
+  });
+
+  it('should throw an error if a duplicate classAsString is provided for registration', function() {
+    expect(function() {
+      componentHandler.register({
+        constructor: MaterialButton,
+        classAsString: 'MaterialButton',
+        cssClass: 'test-js-button'
+      });
+    }).to.throw('The provided className has already been registered');
+  });
+
+  it('should throw an error if a duplicate cssClass is provided for registration', function() {
+    expect(function() {
+      componentHandler.register({
+        constructor: MaterialButton,
+        classAsString: 'TestButton',
+        cssClass: 'mdl-js-button'
+      });
+    }).to.throw('The provided cssClass has already been registered');
+  });
+
+  it('should throw an error if the object provided has the component config property', function() {
+    var testComponent = function() {};
+    testComponent.prototype.mdlComponentConfigInternal_ = {};
+    expect(function() {
+      componentHandler.register({
+        constructor: testComponent,
+        classAsString: 'testComponent',
+        cssClass: 'test-js-component'
+      });
+    }).to.throw('MDL component classes must not have mdlComponentConfigInternal_ defined as a property.');
+  });
+
   it('should upgrade a single component to an element by provided jsClass', function() {
     var el = document.createElement('button');
     componentHandler.upgradeElement(el, 'MaterialButton');
@@ -39,4 +80,19 @@ describe('componentHandler', function() {
     componentHandler.upgradeElement(el);
     expect($(el)).to.have.data('upgraded', ',MaterialButton');
   });
+
+  it('should upgrade the entire DOM available', function() {
+    var button = document.createElement('button');
+    button.classList.add('mdl-js-button');
+    var buttonTwo = document.createElement('div');
+    buttonTwo.className = 'mdl-js-button mdl-js-ripple-effect';
+    document.body.appendChild(button);
+    document.body.appendChild(buttonTwo);
+    componentHandler.upgradeDom();
+    expect($(button)).to.have.data('upgraded', ',MaterialButton');
+    expect($(buttonTwo)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
+    document.body.removeChild(button);
+    document.body.removeChild(buttonTwo);
+  });
+
 });
