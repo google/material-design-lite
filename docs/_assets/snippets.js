@@ -130,8 +130,16 @@ window.addEventListener('load', function() {
   'use strict';
 
   // Handle the case where Flash is not available.
-  if (swfobject && !swfobject.hasFlashPlayerVersion('9.0.0')) {
+  if (typeof swfobject !== 'undefined' && !swfobject.hasFlashPlayerVersion('9.0.0')) {
     document.body.classList.add('no-flash');
+    // Track that flash is disabled
+    if (typeof ga !== 'undefined') {
+      ga('send', 'event', 'flash', 'no_flash');
+    }
+  } else if (typeof ga !== 'undefined') {
+    // Track that flash is enabled
+    ga('send', 'event', 'flash', 'flash_ok');
   }
+
   new MaterialComponentsSnippets();
 });
