@@ -15,7 +15,7 @@ MDL is free to download and use, and may be used with or without any build libra
 To obtain the components, clone or download the [GitHub MDL repository](https://github.com/google/material-design-lite). Copy the entire package (the top-level folder and everything below it) to the project folder where you will write your HTML pages. This ensures that your project can access all of MDL's components and assets, and that you always have the original files for reference in case you break something. :-)
 
 ###Include the master CSS and JavaScript
-In each HTML page in your project, include the minified (compressed) CSS and JavaScript files using standard relative-path references and the Material Icon font if desired. This example assumes that a copy of the MDL package folders resides in your project folder.
+In each HTML page in your project, include the minified (compressed) CSS and JavaScript files using standard relative-path references and the Material Icon font. This example assumes that a copy of the MDL package folders resides in your project folder.
 
 
 ```html
