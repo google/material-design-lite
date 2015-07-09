@@ -21,52 +21,28 @@
   this.init();
 }
 
-MaterialSnackbar.prototype.defaults = {
-  timeout: 8000
-};
-
-MaterialSnackbar.prototype.cssClasses = {
+MaterialSnackbar.prototype.cssClasses_ = {
   snackbar: 'mdl-snackbar',
   message: 'mdl-snackbar__text',
   action: 'mdl-snackbar__action',
   activeSnackbar: 'is-active'
 };
 
-MaterialSnackbar.prototype.queuedNotifications = [];
-
-MaterialSnackbar.prototype.setMessage = function(text) {
-  'use strict';
-  this.message_ = text;
-};
-
-MaterialSnackbar.prototype.setTimeout = function(time) {
-  'use strict';
-  this.timeout_ = parseInt(time);
-};
-
-MaterialSnackbar.prototype.setActionText = function(text) {
-  'use strict';
-  this.actionText_ = text;
-};
-
-MaterialSnackbar.prototype.setActionHandler = function(handler) {
-  'use strict';
-  this.actionHandler_ = handler;
-};
+MaterialSnackbar.prototype.queuedNotifications_ = [];
 
 MaterialSnackbar.prototype.createSnackbar = function() {
   'use strict';
   this.snackbarElement_ = document.createElement('div');
   this.textElement_ = document.createElement('div');
-  this.snackbarElement_.classList.add(this.cssClasses.snackbar);
-  this.textElement_.classList.add(this.cssClasses.message);
+  this.snackbarElement_.classList.add(this.cssClasses_.snackbar);
+  this.textElement_.classList.add(this.cssClasses_.message);
   this.snackbarElement_.appendChild(this.textElement_);
   this.snackbarElement_.setAttribute('aria-hidden', true);
 
   if (this.actionHandler_) {
     this.actionElement_ = document.createElement('button');
     this.actionElement_.type = 'button';
-    this.actionElement_.classList.add(this.cssClasses.action);
+    this.actionElement_.classList.add(this.cssClasses_.action);
     this.actionElement_.textContent = this.actionText_;
     this.snackbarElement_.appendChild(this.actionElement_);
     this.actionElement_.addEventListener('click', this.actionHandler_);
@@ -74,7 +50,7 @@ MaterialSnackbar.prototype.createSnackbar = function() {
 
   this.element_.appendChild(this.snackbarElement_);
   this.textElement_.textContent = this.message_;
-  this.snackbarElement_.classList.add(this.cssClasses.activeSnackbar);
+  this.snackbarElement_.classList.add(this.cssClasses_.activeSnackbar);
   this.snackbarElement_.setAttribute('aria-hidden', false);
   setTimeout(this.cleanup.bind(this), this.timeout_);
 
@@ -109,7 +85,7 @@ MaterialSnackbar.prototype.showSnackbar = function(data) {
     if (data.timeout) {
       this.timeout_ = data.timeout;
     } else {
-      this.timeout_ = this.defaults.timeout;
+      this.timeout_ = 8000;
     }
     if (data.actionHandler) {
       this.actionHandler_ = data.actionHandler;
@@ -123,14 +99,14 @@ MaterialSnackbar.prototype.showSnackbar = function(data) {
 
 MaterialSnackbar.prototype.checkQueue = function() {
   'use strict';
-  if (this.queuedNotifications.length > 0) {
-    this.showSnackbar(this.queuedNotifications.shift());
+  if (this.queuedNotifications_.length > 0) {
+    this.showSnackbar(this.queuedNotifications_.shift());
   }
 };
 
 MaterialSnackbar.prototype.cleanup = function() {
   'use strict';
-  this.snackbarElement_.classList.remove(this.cssClasses.activeSnackbar);
+  this.snackbarElement_.classList.remove(this.cssClasses_.activeSnackbar);
   this.snackbarElement_.setAttribute('aria-hidden', true);
   if (this.actionElement_) {
     this.actionElement_.removeEventListener('click', this.actionHandler_);
