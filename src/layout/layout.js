@@ -448,8 +448,10 @@
       }
 
       tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        selectTab();
+        if (tab.getAttribute('href').charAt(0) === '#') {
+          e.preventDefault();
+          selectTab();
+        }
       });
 
       tab.show = selectTab;
