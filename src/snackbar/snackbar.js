@@ -73,7 +73,6 @@ MaterialSnackbar.prototype.createSnackbar = function() {
   }
 
   this.element_.appendChild(this.snackbarElement_);
-
   this.textElement_.textContent = this.message_;
   this.snackbarElement_.classList.add(this.cssClasses.activeSnackbar);
   this.snackbarElement_.setAttribute('aria-hidden', false);
@@ -92,7 +91,6 @@ MaterialSnackbar.prototype.removeSnackbar = function() {
 
 MaterialSnackbar.prototype.showSnackbar = function(data) {
   'use strict';
-  console.timeStamp('Show Snackbar');
   if (data === undefined) {
     throw new Error(
       'Please provide a data object with at least a message to display.');
