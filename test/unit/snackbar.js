@@ -20,4 +20,43 @@ describe('snackbar', function () {
     expect(MaterialSnackbar).to.be.a('function');
   });
 
+  it('should be upgradable', function() {
+    var el = document.createElement('div');
+    componentHandler.upgradeElement(el, 'MaterialSnackbar');
+    expect($(el)).to.have.data('upgraded', ',MaterialSnackbar');
+  });
+
+  it('should reveal showSnackbar to widget', function() {
+    var el = document.createElement('div');
+    componentHandler.upgradeElement(el, 'MaterialSnackbar');
+    expect(el.MaterialSnackbar.showSnackbar).to.be.a('function');
+  });
+
+  it('should throw an error if not provided data', function() {
+    expect(function() {
+      var el = document.createElement('div');
+      componentHandler.upgradeElement(el, 'MaterialSnackbar');
+      el.MaterialSnackbar.showSnackbar();
+    }).to.throw('Please provide a data object with at least a message to display.');
+  });
+
+  it('should throw an error if not provided a message', function() {
+    expect(function() {
+      var el = document.createElement('div');
+      componentHandler.upgradeElement(el, 'MaterialSnackbar');
+      el.MaterialSnackbar.showSnackbar({});
+    }).to.throw('Please provide a message to be displayed.');
+  });
+
+  it('should throw an error if not provided actionText with an actionHandler', function() {
+    expect(function() {
+      var el = document.createElement('div');
+      componentHandler.upgradeElement(el, 'MaterialSnackbar');
+      el.MaterialSnackbar.showSnackbar({
+        message: 'Test message',
+        actionHandler: function(event) {}
+      });
+    }).to.throw('Please provide action text with the handler.');
+  });
+
 });
