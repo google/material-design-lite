@@ -70,12 +70,20 @@ var componentHandler = (function() {
    * to create a new instance of.
    * @param {string} cssClass the name of the CSS class elements of this type
    * will have.
+   * @param {!Element | document} element The element under which the upgrade
+   * would occur.
    */
-  function upgradeDomInternal(jsClass, cssClass) {
+  function upgradeDomInternal(jsClass, cssClass, element) {
+    if (element === undefined) {
+      element = document;
+    } else if (!(element instanceof Element || element === document)) {
+      throw new Error('Invalid argument provided to upgrade MDL nodes.');
+    }
     if (jsClass === undefined && cssClass === undefined) {
       for (var i = 0; i < registeredComponents_.length; i++) {
         upgradeDomInternal(registeredComponents_[i].className,
-            registeredComponents_[i].cssClass);
+            registeredComponents_[i].cssClass,
+            element);
       }
     } else {
       if (cssClass === undefined) {
@@ -85,7 +93,7 @@ var componentHandler = (function() {
         }
       }
 
-      var elements = document.querySelectorAll('.' + cssClass);
+      var elements = element.querySelectorAll('.' + cssClass);
       for (var n = 0; n < elements.length; n++) {
         upgradeElementInternal(elements[n], jsClass);
       }
@@ -200,12 +208,20 @@ var componentHandler = (function() {
   }
 
   /**
-   * Upgrades all registered components found in the current DOM. This is
-   * automatically called on window load.
+   * Upgrades all registered components found under the given root node in the
+   * current DOM. This is automatically called on window load.
+   *
+   * @param {!Element | document} rootNode The element node under which the
+   * upgrade would occur.
    */
-  function upgradeAllRegisteredInternal() {
+  function upgradeAllRegisteredInternal(rootNode) {
+    if (rootNode === undefined) {
+      rootNode = document;
+    } else if (!(rootNode instanceof Element || rootNode === document)) {
+      throw new Error('Invalid argument provided to upgrade MDL nodes.');
+    }
     for (var n = 0; n < registeredComponents_.length; n++) {
-      upgradeDomInternal(registeredComponents_[n].className);
+      upgradeDomInternal(registeredComponents_[n].className, undefined, rootNode);
     }
   }
 
