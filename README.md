@@ -53,7 +53,7 @@ In the repo you'll find the following directories and files.
 | File/Folder     | Provides                                       |
 |-----------------|------------------------------------------------|
 | CONTRIBUTING.md | MDL contribution guidelines.                   |
-| docs            | Files for the documentation site.|
+| docs            | Files for the documentation site.              |
 | gulpfile.js     | gulp configuration for MDL.                    |
 | LICENSE         | Project license information.                   |
 | package.json    | npm package information.                       |
