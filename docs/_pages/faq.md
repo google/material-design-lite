@@ -21,6 +21,7 @@ include_prefix: ../
         <li><a href="#official-cdn">What service does the official CDN use?</a></li>
         <li><a href="#web-starter-kit">How does MDL relate to Web Starter Kit?</a></li>
         <li><a href="#mdl-in-production">Do any Google properties use MDL in production?</a></li>
+        <li><a href="#mdl-showcase">Is there a showcase available of sites using MDL?</a></li>
         <li><a href="#individual-components">Can I build or use individual MDL components (e.g a button)?</a></li>
         <li><a href="#report-an-issue">How do I report a problem with MDL?</a></li>
         <li><a href="#getting-help">Where can I get help with questions about using MDL?</a>
@@ -152,6 +153,14 @@ The [Google Services](https://developers.google.com/mobile/add) site:
 ![RichMediaGallery screenshot](../assets/rich-media-gallery.png)
 
 and is being used by many other teams on upcoming projects, including Google Shopping.
+
+<h2 id="mdl-showcase">Is there a showcase available of sites using MDL?</h2>
+
+It's early days, but our [wiki](https://github.com/google/material-design-lite/wiki/) includes a page listing [sites using MDL in production](https://github.com/google/material-design-lite/wiki/Sites-using-Material-Design-Lite).
+
+To request your site be added, please file a [new issue](https://github.com/Google/material-design-lite/issues/new?title=Site%20Showcase%20Request&body=Please%20include:%0A*%20Description%0A*%20Primary%20Link%0A*%20Screenshot) on our GitHub issue tracker. The issue should include a link, a description of the site and a suggested screenshot.
+
+We hope to add a properly polished showcase to the site in the near future.
 
 <h2 id="individual-components">Can I build or use individual MDL components (e.g a button)?</h2>
 
