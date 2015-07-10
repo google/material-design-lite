@@ -118,6 +118,7 @@ var componentHandler = (function() {
     for (var i = 0, l = registeredClasses.length; i < l; i++) {
       var registeredClass = registeredClasses[i];
       if (registeredClass) {
+        dataUpgraded = element.getAttribute('data-upgraded');
         // Mark element as upgraded.
         if (dataUpgraded === null) {
           dataUpgraded = '';
@@ -272,6 +273,89 @@ var componentHandler = (function() {
     }
   }
 
+  var syncDoing_ = false;
+  /**
+   *Sync all component for elements that Css Class have changed
+   */
+  function syncElementsThatCssClassChangedInternal() {
+    if (syncDoing_ == true)
+    {
+        return;
+    }
+    syncDoing_ = true;
+    //down grade all component for elements that have some cssClass DELETED changed
+    var elementsDowngrade = [];
+    for (var n = 0; n < createdComponents_.length; n++) {
+      var component = createdComponents_[n];
+      if (!component.element_.classList.contains(component[componentConfigProperty_].cssClass)) {
+          if (elementsDowngrade.indexOf(component.element_) == -1) {
+              elementsDowngrade.push(component.element_);
+          }
+      }
+    }
+
+    //down grade all component for elements that have some cssClass ADDED changed
+    var elementsCssADDED = [];
+    for (var i = 0; i < registeredComponents_.length; i++) {
+      var jsClass = registeredComponents_[i].className;
+      var cssClass = registeredComponents_[i].cssClass;
+
+      if (cssClass === undefined) {
+          var registeredClass = findRegisteredClass_(jsClass);
+          if (registeredClass) {
+              cssClass = registeredClass.cssClass;
+          }
+      }
+
+      if (cssClass) {
+        var elements = document.querySelectorAll('.' + cssClass);
+        for (var n = 0; n < elements.length; n++) {
+          var element = elements[n];
+
+          // jsClass that have been upgraded.
+          var dataUpgraded = element.getAttribute('data-upgraded');
+
+          if (dataUpgraded && dataUpgraded.indexOf(jsClass) === -1) {
+              // not contains jsClass, the jsClass is new ADDED, need down grade all component for this element
+              if (elementsDowngrade.indexOf(element) == -1) {
+                  elementsDowngrade.push(element);
+              }
+          }
+          if (!dataUpgraded || dataUpgraded.indexOf(jsClass) === -1) {
+              // the jsClass is new ADDED, need re upgrade all component for this element
+              if (elementsCssADDED.indexOf(element) == -1) {
+                  elementsCssADDED.push(element);
+              }
+          }
+        }
+      }
+    }
+
+    // prepare components need do downgrade
+    var componentsNeedDowngrade = [];
+    for (var n = 0; n < createdComponents_.length; n++) {
+      var component = createdComponents_[n];
+      if (elementsDowngrade.indexOf(component.element_) > -1) {
+          componentsNeedDowngrade.push(component);
+      }
+    }
+    // do downgrade
+    if (componentsNeedDowngrade.length > 0) {
+      for (var n = componentsNeedDowngrade.length - 1; n >= 0; n--) {
+          var component = componentsNeedDowngrade[n];
+          deconstructComponentInternal(component);
+      }
+    }
+
+    //re upgrade all component for elements that have some cssClass ADDED changed
+    for (var n = 0; n < elementsCssADDED.length; n++) {
+      var element = elementsCssADDED[n];
+      upgradeElementInternal(element);
+    }
+
+    syncDoing_ = false;
+  }
+
   // Now return the functions that should be made public with their publicly
   // facing names...
   return {
@@ -280,7 +364,8 @@ var componentHandler = (function() {
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
     register: registerInternal,
-    downgradeElements: downgradeNodesInternal
+    downgradeElements: downgradeNodesInternal,
+    syncElementsThatCssClassChanged: syncElementsThatCssClassChangedInternal
   };
 })();
 
