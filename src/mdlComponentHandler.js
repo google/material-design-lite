@@ -86,38 +86,48 @@ var componentHandler = (function() {
    * the element to.
    */
   function upgradeElementInternal(element, jsClass) {
-    // Only upgrade elements that have not already been upgraded.
-    var dataUpgraded = element.getAttribute('data-upgraded');
+    // Verify argument type.
+    if (!(typeof element === 'object' && element instanceof Element)) {
+      throw new Error('Invalid argument provided to upgrade MDL element.');
+    }
 
-    if (dataUpgraded === null || dataUpgraded.indexOf(jsClass) === -1) {
-      // Upgrade element.
-      if (dataUpgraded === null) {
-        dataUpgraded = '';
-      }
-      element.setAttribute('data-upgraded', dataUpgraded + ',' + jsClass);
-      var registeredClass = findRegisteredClass_(jsClass);
-      if (registeredClass) {
+    var dataUpgraded = element.getAttribute('data-upgraded');
+    // Use `['']` as default value to conform the `,name,name...` style.
+    var upgradedList = dataUpgraded === null ? [''] :
+                       String.prototype.split.call(dataUpgraded, ',');
+    if (jsClass === undefined) {
+      // Find upgradables by cssClass.
+      var classTokens = element.classList;
+      registeredComponents_.forEach(function (component) {
+        if (classTokens.contains(component.cssClass) &&
+            upgradedList.indexOf(component.className) === -1) {
+          upgradeElementInternal(element, component.className);
+        }
+      });
+    } else {
+      // Upgrade by jsClass.
+      var component = findRegisteredClass_(jsClass);
+      if (component && upgradedList.indexOf(jsClass) === -1) {
         // new
-        var instance = new registeredClass.classConstructor(element);
-        instance[componentConfigProperty_] = registeredClass;
+        upgradedList.push(jsClass);
+        element.setAttribute('data-upgraded', upgradedList.join(','));
+        var instance = new component.classConstructor(element);
+        instance[componentConfigProperty_] = component;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        registeredClass.callbacks.forEach(function(callback) {
+        component.callbacks.forEach(function (callback) {
           callback(element);
         });
 
-        if (registeredClass.widget) {
+        if (component.widget) {
           // Assign per element instance for control over API
           element[jsClass] = instance;
         }
-      } else {
-        throw new Error(
-          'Unable to find a registered component for the given class.');
-      }
 
-      var ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentupgraded', true, true);
-      element.dispatchEvent(ev);
+        var ev = document.createEvent('Events');
+        ev.initEvent('mdl-componentupgraded', true, true);
+        element.dispatchEvent(ev);
+      }
     }
   }
 

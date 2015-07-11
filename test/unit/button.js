@@ -44,4 +44,13 @@
       expect($(btn.childNodes[1])).to.have.class('mdl-button__ripple-container');
       expect($(btn.childNodes[1].firstChild)).to.have.class('mdl-ripple');
     });
+
+    it('Should be upgraded to a MaterialButton FAB with ripples successfully (without specifying jsClass)', function () {
+      var el = document.createElement('div');
+      el.innerHTML = '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">♥</button>';
+      var btn = el.firstChild;
+      componentHandler.upgradeElement(btn);
+      expect($(btn.childNodes[1])).to.have.class('mdl-button__ripple-container');
+      expect($(btn.childNodes[1].firstChild)).to.have.class('mdl-ripple');
+    });
   });
