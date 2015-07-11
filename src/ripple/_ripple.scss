@@ -17,26 +17,34 @@
 @import "../variables";
 
 .mdl-ripple {
-  background       : $ripple-bg-color;
-  border-radius    : 50%;
-  height           : 50px;
-  left             : 0;
-  opacity          : 0;
-  pointer-events   : none;
-  position         : absolute;
-  top              : 0;
-  transform        : translate(-50%, -50%);
-  width            : 50px;
-  overflow         : hidden;
+  background: $ripple-bg-color;
+  position: absolute;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  opacity: 0;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
 
-  &.is-animating {
-    transition: transform 0.3s $animation-curve-linear-out-slow-in,
-    width 0.3s $animation-curve-linear-out-slow-in,
-    height 0.3s $animation-curve-linear-out-slow-in,
-    opacity 0.6s $animation-curve-linear-out-slow-in;
+  &.is-placed {
+    $positionDuration: 0.9s * 2;
+    $sizeDuration: 0.65s * 2;
+    transition: left $positionDuration $animation-swift-ease-out,
+                top $positionDuration $animation-swift-ease-out,
+                margin $sizeDuration $animation-swift-ease-out,
+                border $sizeDuration $animation-swift-ease-out,
+                width $sizeDuration $animation-swift-ease-out,
+                height $sizeDuration $animation-swift-ease-out,
+                opacity $sizeDuration $animation-swift-ease-out,
+                transform $sizeDuration $animation-swift-ease-out;
+  }
+
+  &.is-scaled {
+    transform: scale(1);
   }
 
   &.is-visible {
-    opacity: 0.3;
+    opacity: 0.20;
   }
 }
