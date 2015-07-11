@@ -20,30 +20,6 @@
       {%- endfor %}
       <div class="snippet-demo-padding"></div>
     </div>
-    <div class="snippet-captions">
-      <div class="snippet-caption-padding"></div>
-      {% for snippet in snippet_group %}
-        {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}
-        <div class="snippet-caption">
-          <div class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button" href="#{{ component_name }}/{{ snippet.file }}">
-            <i class="material-icons copy">content_cut</i> {{ snippet.caption }}
-            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
-              <param name="movie" value="../assets/clippy.swf"/>
-              <param name="wmode" value="transparent" />
-              <param name="quality" value="low" />
-              <param name="scale" value="exactfit" />
-              <embed class="clippy"
-                     src="../assets/clippy.swf"
-                     scale="exactfit"
-                     quality="low"
-                     wmode="transparent"
-                     FlashVars="text={% filter url_encode %}{% include snippet_file ignore missing %}{% endfilter %}"/>
-            </object>
-          </div>
-        </div>
-      {%- endfor %}
-      <div class="snippet-caption-padding"></div>
-    </div>
   </div>
   <div class="snippet-code">
     <pre class="language-markup codepen-button-enabled">{% for snippet in snippet_group %}{% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}<code id="{{ component_name }}/{{ snippet.file }}">{% filter e('html') %}{% include snippet_file ignore missing %}{% endfilter %}</code><div class="codepen-extra-css">&lt;style&gt;{% set extra_css_file = "../../src/" + component_name + "/snippets/" + snippet.extra_codepen_css %}{% include extra_css_file ignore missing %}&lt;/style&gt;</div>{%- endfor %}{% if snippet_group.length !== 1 || !snippet_group[0].full_width %}<div class="codepen-extra-css">&lt;style&gt;
