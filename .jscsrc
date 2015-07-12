@@ -4,5 +4,7 @@
   "validateLineBreaks": "LF",
   "validateIndentation": 2,
   "excludeFiles": ["node_modules/**"],
-  "maximumLineLength": 130
+  "maximumLineLength": 130,
+  "requireCamelCaseOrUpperCaseIdentifiers": true,
+  "validateQuoteMarks": "'"
 }
