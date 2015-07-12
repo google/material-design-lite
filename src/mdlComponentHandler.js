@@ -82,7 +82,7 @@ var componentHandler = (function() {
   /**
    * Upgrades a specific element rather than all in the DOM.
    * @param {HTMLElement} element The element we wish to upgrade.
-   * @param {string} jsClass The name of the class we want to upgrade
+   * @param {string} jsClass Optional name of the class we want to upgrade
    * the element to.
    */
   function upgradeElementInternal(element, jsClass) {

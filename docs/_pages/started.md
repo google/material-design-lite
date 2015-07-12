@@ -7,7 +7,7 @@ snippets:
   - component_name: button
     snippet_group:
     - caption: Raised button
-      file: raised-accent-ripple.html
+      file: raised-ripple-accent.html
     - caption: Colored FAB
       file: fab-colored.html
 ---
