@@ -148,6 +148,35 @@ var componentHandler = (function() {
   }
 
   /**
+   * Upgrades a specific list of elements rather than all in the DOM.
+   * @param {HTMLElement | [HTMLElement] | NodeList | HTMLCollection} elements
+   * The elements we wish to upgrade.
+   * @param {boolean} recursive If set to true, recursively upgrade all elements
+   * underneath. Default is false.
+   */
+  function upgradeElementsInternal(elements, recursive) {
+    if (!Array.isArray(elements)) {
+      if (typeof elements.item === 'function') {
+        // Convert to Array.
+        elements = Array.prototype.slice.call(elements);
+      } else {
+        // Make it an Array.
+        elements = [elements];
+      }
+    }
+    recursive = recursive || false;
+
+    elements.forEach(function (element) {
+      if (element instanceof HTMLElement) {
+        if (recursive) {
+          upgradeElementsInternal(element.children, recursive);
+        }
+        upgradeElementInternal(element);
+      }
+    });
+  }
+
+  /**
    * Registers a class for future use and attempts to upgrade existing DOM.
    * @param {object} config An object containing:
    * {constructor: Constructor, classAsString: string, cssClass: string}
@@ -277,6 +306,7 @@ var componentHandler = (function() {
   return {
     upgradeDom: upgradeDomInternal,
     upgradeElement: upgradeElementInternal,
+    upgradeElements: upgradeElementsInternal,
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
     register: registerInternal,
