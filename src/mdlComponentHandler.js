@@ -94,7 +94,7 @@ var componentHandler = (function() {
     // Use `['']` as default value to conform the `,name,name...` style.
     var upgradedList = dataUpgraded === null ? [''] :
                        String.prototype.split.call(dataUpgraded, ',');
-    var nameOfClassesToUpgrade = [];
+    var classesToUpgrade = [];
     // If jsClass is not provided scan the registered components to find the
     // ones matching the element's CSS classList.
     if (!optJsClass) {
@@ -103,21 +103,20 @@ var componentHandler = (function() {
         // Match CSS & Not upgraded & Not to be upgraded.
         if (classList.contains(component.cssClass) &&
             upgradedList.indexOf(component.className) === -1 &&
-            nameOfClassesToUpgrade.indexOf(component.className) === -1) {
-          nameOfClassesToUpgrade.push(component.className);
+            classesToUpgrade.indexOf(component) === -1) {
+          classesToUpgrade.push(component);
         }
       });
     } else if (upgradedList.indexOf(optJsClass) === -1) {
-      nameOfClassesToUpgrade.push(optJsClass);
+      classesToUpgrade.push(findRegisteredClass_(optJsClass));
     }
 
     // Upgrade the element for each classes.
-    for (var i = 0, n = nameOfClassesToUpgrade.length, nameOfClass, registeredClass; i < n; i++) {
-      nameOfClass = nameOfClassesToUpgrade[i];
-      registeredClass = findRegisteredClass_(nameOfClass);
+    for (var i = 0, n = classesToUpgrade.length, registeredClass; i < n; i++) {
+      registeredClass = classesToUpgrade[i];
       if (registeredClass) {
         // Mark element as upgraded.
-        upgradedList.push(nameOfClass);
+        upgradedList.push(registeredClass.className);
         element.setAttribute('data-upgraded', upgradedList.join(','));
         var instance = new registeredClass.classConstructor(element);
         instance[componentConfigProperty_] = registeredClass;
@@ -129,7 +128,7 @@ var componentHandler = (function() {
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element[nameOfClass] = instance;
+          element[registeredClass.className] = instance;
         }
       } else {
         throw new Error(
