@@ -60,7 +60,10 @@ var componentHandler = (function() {
    */
   function isElementUpgraded_(element, jsClass) {
     var dataUpgraded = element.getAttribute('data-upgraded');
-    return dataUpgraded && dataUpgraded.indexOf(jsClass) !== -1;
+    // Use `['']` as default value to conform the `,name,name...` style.
+    var upgradedList = dataUpgraded === null ? [''] :
+                       String.prototype.split.call(dataUpgraded, ',');
+    return upgradedList.indexOf(jsClass) !== -1;
   }
 
   /**
@@ -99,9 +102,6 @@ var componentHandler = (function() {
    * the element to.
    */
   function upgradeElementInternal(element, optJsClass) {
-    // Only upgrade elements that have not already been upgraded.
-    var dataUpgraded = element.getAttribute('data-upgraded');
-
     var registeredClasses = [];
     // If jsClass is not provided scan the registered components to find the
     // ones matching the element's CSS classList.
@@ -118,6 +118,8 @@ var componentHandler = (function() {
     for (var i = 0, l = registeredClasses.length; i < l; i++) {
       var registeredClass = registeredClasses[i];
       if (registeredClass) {
+        // Only upgrade elements that have not already been upgraded.
+        var dataUpgraded = element.getAttribute('data-upgraded');
         // Mark element as upgraded.
         if (dataUpgraded === null) {
           dataUpgraded = '';
