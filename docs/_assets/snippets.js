@@ -85,6 +85,11 @@ MaterialComponentsSnippets.prototype.onMouseClickHandler = function(snippet) {
   'use strict';
 
   return function() {
+    if (window.getSelection().toString().length > 0) {
+      // user has selected some text manually
+      // don't do anything
+      return;
+    }
     if (this.copyToClipboard(snippet)) {
       snippet.classList.add(this.CssClasses_.COPIED);
     }
