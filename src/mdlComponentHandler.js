@@ -90,33 +90,54 @@ var componentHandler = (function() {
   /**
    * Upgrades a specific element rather than all in the DOM.
    * @param {HTMLElement} element The element we wish to upgrade.
-   * @param {string} jsClass The name of the class we want to upgrade
+   * @param {string} optJsClass Optional name of the class we want to upgrade
    * the element to.
    */
-  function upgradeElementInternal(element, jsClass) {
-    // Only upgrade elements that have not already been upgraded.
+  function upgradeElementInternal(element, optJsClass) {
+    // Verify argument type.
+    if (!(typeof element === 'object' && element instanceof Element)) {
+      throw new Error('Invalid argument provided to upgrade MDL element.');
+    }
     var dataUpgraded = element.getAttribute('data-upgraded');
+    // Use `['']` as default value to conform the `,name,name...` style.
+    var upgradedList = dataUpgraded === null ? [''] :
+                       String.prototype.split.call(dataUpgraded, ',');
+    var nameOfClassesToUpgrade = [];
+    // If jsClass is not provided scan the registered components to find the
+    // ones matching the element's CSS classList.
+    if (!optJsClass) {
+      var classList = element.classList;
+      registeredComponents_.forEach(function (component) {
+        // Match CSS & Not upgraded & Not to be upgraded.
+        if (classList.contains(component.cssClass) &&
+            upgradedList.indexOf(component.className) === -1 &&
+            nameOfClassesToUpgrade.indexOf(component.className) === -1) {
+          nameOfClassesToUpgrade.push(component.className);
+        }
+      });
+    } else if (upgradedList.indexOf(optJsClass) === -1) {
+      nameOfClassesToUpgrade.push(optJsClass);
+    }
 
-    if (dataUpgraded === null || dataUpgraded.indexOf(jsClass) === -1) {
-      // Upgrade element.
-      if (dataUpgraded === null) {
-        dataUpgraded = '';
-      }
-      element.setAttribute('data-upgraded', dataUpgraded + ',' + jsClass);
-      var registeredClass = findRegisteredClass_(jsClass);
+    // Upgrade the element for each classes.
+    for (var i = 0, n = nameOfClassesToUpgrade.length, nameOfClass, registeredClass; i < n; i++) {
+      nameOfClass = nameOfClassesToUpgrade[i];
+      registeredClass = findRegisteredClass_(nameOfClass);
       if (registeredClass) {
-        // new
+        // Mark element as upgraded.
+        upgradedList.push(nameOfClass);
+        element.setAttribute('data-upgraded', upgradedList.join(','));
         var instance = new registeredClass.classConstructor(element);
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        registeredClass.callbacks.forEach(function(callback) {
-          callback(element);
-        });
+        for (var j = 0, m = registeredClass.callbacks.length; j < m; j++) {
+          registeredClass.callbacks[j](element);
+        }
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element[jsClass] = instance;
+          element[nameOfClass] = instance;
         }
       } else {
         throw new Error(
