@@ -27,21 +27,27 @@
 
 .mdl-mega-footer--top-section:after,
 .mdl-mega-footer--middle-section:after,
-.mdl-mega-footer--bottom-section:after {
+.mdl-mega-footer--bottom-section:after,
+.mdl-mega-footer__top-section:after,
+.mdl-mega-footer__middle-section:after,
+.mdl-mega-footer__bottom-section:after {
   content: '';
   display: block;
   clear: both;
 }
 
-.mdl-mega-footer--left-section {
+.mdl-mega-footer--left-section,
+.mld-mega-footer__lef-section {
   margin-bottom: $footer-min-padding;
 }
 
-.mdl-mega-footer--right-section {
+.mdl-mega-footer--right-section,
+.mdl-mega-footer__right-section {
   margin-bottom: $footer-min-padding;
 }
 
-.mdl-mega-footer--right-section a {
+.mdl-mega-footer--right-section a,
+.mdl-mega-footer__right-section a {
   display: block;
 
   margin-bottom: $footer-min-padding;
@@ -51,15 +57,18 @@
 }
 
 @media screen and (min-width: 760px) {
-  .mdl-mega-footer--left-section {
+  .mdl-mega-footer--left-section,
+  .mdl-mega-footer__left-section {
     float: left;
   }
 
-  .mdl-mega-footer--right-section {
+  .mdl-mega-footer--right-section,
+  .mdl-mega-footer__right-section {
     float: right;
   }
 
-  .mdl-mega-footer--right-section a {
+  .mdl-mega-footer--right-section a,
+  .mdl-mega-footer__right-section a {
     display: inline-block;
 
     margin-left: $footer-min-padding;
@@ -69,7 +78,8 @@
   }
 }
 
-.mdl-mega-footer--social-btn {
+.mdl-mega-footer--social-btn,
+.mdl-mega-footer__social-btn {
   width: $footer-btn-size;
   height: $footer-btn-size;
 
@@ -81,23 +91,28 @@
   border: none;
 }
 
-.mdl-mega-footer--drop-down-section {
+.mdl-mega-footer--drop-down-section,
+.mdl-mega-footer__drop-down-section {
   display: block;
 
   position: relative;
 }
 
 @media screen and (min-width: 760px) {
-  .mdl-mega-footer--drop-down-section {
+  .mdl-mega-footer--drop-down-section,
+  .mdl-mega-footer__drop-down-section {
     width: 33%;
   }
 
   .mdl-mega-footer--drop-down-section:nth-child(1),
-  .mdl-mega-footer--drop-down-section:nth-child(2) {
+  .mdl-mega-footer--drop-down-section:nth-child(2),
+  .mdl-mega-footer__drop-down-section:nth-child(1),
+  .mdl-mega-footer__drop-down-section:nth-child(2) {
     float: left;
   }
 
-  .mdl-mega-footer--drop-down-section:nth-child(3) {
+  .mdl-mega-footer--drop-down-section:nth-child(3),
+  .mdl-mega-footer__drop-down-section:nth-child(3) {
     float: right;
 
     &:after {
@@ -105,12 +120,14 @@
     }
   }
 
-  .mdl-mega-footer--drop-down-section:nth-child(4) {
+  .mdl-mega-footer--drop-down-section:nth-child(4),
+  .mdl-mega-footer__drop-down-section:nth-child(4) {
     clear: right;
     float: right;
   }
 
-  .mdl-mega-footer--middle-section:after {
+  .mdl-mega-footer--middle-section:after,
+  .mdl-mega-footer__middle-section:after {
     content: '';
 
     display: block;
@@ -118,7 +135,8 @@
     clear: both;
   }
 
-  .mdl-mega-footer--bottom-section {
+  .mdl-mega-footer--bottom-section,
+  .mdl-mega-footer__bottom-section {
     padding-top: 0;
   }
 }
@@ -126,14 +144,18 @@
 @media screen and (min-width: 1024px) {
   .mdl-mega-footer--drop-down-section,
   .mdl-mega-footer--drop-down-section:nth-child(3),
-  .mdl-mega-footer--drop-down-section:nth-child(4) {
+  .mdl-mega-footer--drop-down-section:nth-child(4),
+  .mdl-mega-footer__drop-down-section,
+  .mdl-mega-footer__drop-down-section:nth-child(3),
+  .mdl-mega-footer__drop-down-section:nth-child(4) {
     width: 24%;
 
     float: left;
   }
 }
 
-.mdl-mega-footer--heading-checkbox {
+.mdl-mega-footer--heading-checkbox,
+.mdl-mega-footer__heading-checkbox {
   position: absolute;
   width: 100%;
   height: $footer-heading-line-height + ($footer-min-padding * 2);
@@ -147,24 +169,28 @@
   z-index: 1;
   opacity: 0;
 
-  &~.mdl-mega-footer--heading:after {
+  &~.mdl-mega-footer--heading:after,
+  &~.mdl-mega-footer__heading:after {
     font-family: 'Material Icons';
     content: '\E5CE'
   }
 }
 
-.mdl-mega-footer--heading-checkbox:checked {
+.mdl-mega-footer--heading-checkbox:checked,
+.mdl-mega-footer__heading-checkbox:checked {
   &~ul {
     display:none;
   }
 
-  &~.mdl-mega-footer--heading:after {
+  &~.mdl-mega-footer--heading:after,
+  &~.mdl-mega-footer__heading:after {
     font-family: 'Material Icons';
     content: '\E5CF'
   }
 }
 
-.mdl-mega-footer--heading {
+.mdl-mega-footer--heading,
+.mdl-mega-footer__heading {
   position: relative;
   width: 100%;
 
@@ -185,7 +211,8 @@
   color: $footer-heading-color;
 }
 
-.mdl-mega-footer--heading:after {
+.mdl-mega-footer--heading:after,
+.mdl-mega-footer__heading:after {
   content: '';
 
   position: absolute;
@@ -200,7 +227,8 @@
   background-size: cover;
 }
 
-.mdl-mega-footer--link-list {
+.mdl-mega-footer--link-list,
+.mdl-mega-footer__link-list {
   list-style: none;
 
   margin: 0;
@@ -214,37 +242,44 @@
   }
 }
 
-.mdl-mega-footer--link-list li {
+.mdl-mega-footer--link-list li,
+.mdl-mega-footer__link-list li {
   @include typo-body-1();
   line-height: 20px;
 }
 
-.mdl-mega-footer--link-list a {
+.mdl-mega-footer--link-list a,
+.mdl-mega-footer__link-list a {
   color: inherit;
   text-decoration: none;
   white-space: nowrap;
 }
 
 @media screen and (min-width: 760px) {
-  .mdl-mega-footer--heading-checkbox {
+  .mdl-mega-footer--heading-checkbox,
+  .mdl-mega-footer__heading-checkbox {
     display: none;
 
-    &~.mdl-mega-footer--heading:after {
+    &~.mdl-mega-footer--heading:after,
+    &~.mdl-mega-footer__heading:after {
       background-image: none;
     }
   }
-  .mdl-mega-footer--heading-checkbox:checked {
+  .mdl-mega-footer--heading-checkbox:checked,
+  .mdl-mega-footer__heading-checkbox:checked {
   &~ul {
     display: block;
   }
 
-  &~.mdl-mega-footer--heading:after {
+  &~.mdl-mega-footer--heading:after,
+  &~.mdl-mega-footer__heading:after {
     content: '';
   }
 }
 }
 
-.mdl-mega-footer--bottom-section {
+.mdl-mega-footer--bottom-section,
+.mdl-mega-footer__bottom-section {
   padding-top: $footer-min-padding;
   margin-bottom: $footer-min-padding;
 }
@@ -254,7 +289,8 @@
   color: white;
 }
 
-.mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li {
+.mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li,
+.mdl-mega-footer__bottom-section .mdl-mega-footer__link-list li {
   float: left;
 
   margin-bottom: 0;
