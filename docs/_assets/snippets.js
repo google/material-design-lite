@@ -42,7 +42,8 @@ MaterialComponentsSnippets.prototype.init = function() {
  * @private
  */
 MaterialComponentsSnippets.prototype.CssClasses_ = {
-  COPIED: 'copied'
+  COPIED: 'copied',
+  NOT_SUPPORTED: 'nosupport'
 };
 
 /**
@@ -90,9 +91,11 @@ MaterialComponentsSnippets.prototype.onMouseClickHandler = function(snippet) {
       // don't do anything
       return;
     }
-    if (this.copyToClipboard(snippet)) {
-      snippet.classList.add(this.CssClasses_.COPIED);
+    var cls = this.CssClasses_.COPIED;
+    if (!this.copyToClipboard(snippet)) {
+      cls = this.CssClasses_.NOT_SUPPORTED;
     }
+    snippet.classList.add(cls);
   }.bind(this);
 };
 
