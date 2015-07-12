@@ -92,8 +92,7 @@ var componentHandler = (function() {
     }
     var dataUpgraded = element.getAttribute('data-upgraded');
     // Use `['']` as default value to conform the `,name,name...` style.
-    var upgradedList = dataUpgraded === null ? [''] :
-                       String.prototype.split.call(dataUpgraded, ',');
+    var upgradedList = dataUpgraded === null ? [''] : dataUpgraded.split(',');
     var classesToUpgrade = [];
     // If jsClass is not provided scan the registered components to find the
     // ones matching the element's CSS classList.
