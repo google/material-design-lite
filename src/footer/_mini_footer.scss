@@ -36,7 +36,8 @@
   }
 }
 
-.mdl-mini-footer--link-list {
+.mdl-mini-footer--link-list,
+.mdl-mini-footer__link-list {
   display: flex;
   flex-flow: row nowrap;
 
@@ -61,17 +62,20 @@
   }
 }
 
-.mdl-mini-footer--left-section {
+.mdl-mini-footer--left-section,
+.mdl-mini-footer__left-section {
   display: inline-block;
   order: 0;
 }
 
-.mdl-mini-footer--right-section {
+.mdl-mini-footer--right-section,
+.mdl-mini-footer__right-section {
   display: inline-block;
   order: 1;
 }
 
-.mdl-mini-footer--social-btn {
+.mdl-mini-footer--social-btn,
+.mdl-mini-footer__social-btn {
   width: $footer-btn-size;
   height: $footer-btn-size;
 
