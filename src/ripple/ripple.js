@@ -73,8 +73,13 @@ MaterialRipple.prototype.downHandler_ = function(event) {
     var rect = this.element_.getBoundingClientRect();
     this.boundHeight = rect.height;
     this.boundWidth = rect.width;
-    this.rippleSize_ = Math.sqrt(Math.pow(this.boundWidth, 2) +
+    if (!this.element_.classList.contains(this.CssClasses_.RIPPLE_CENTER)) {
+      this.rippleSize_ = Math.sqrt(Math.pow(this.boundWidth, 2) +
         Math.pow(this.boundHeight, 2)) * 1.1;
+    } else {
+      this.rippleSize_ = Math.min(this.boundHeight, this.boundWidth);
+    }
+
     this.rippleElement_.style.width = this.rippleSize_ + 'px';
     this.rippleElement_.style.height = this.rippleSize_ + 'px';
   }
