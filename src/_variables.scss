@@ -71,6 +71,14 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 /* ==========  Color & Themes  ========== */
 
+// Define whether individual color pallet items should have classes created.
+// Setting this to true will remove individual color classes for each color in the pallets.
+// To improve overall performance (assuming they aren't used) by:
+// * Saving server bandwidth sending the extra classes
+// * Save client computation against the classes
+// it is RECOMMENDED you set this to true.
+$trim-color-classes: false !default;
+
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
 $color-primary: $palette-indigo-500 !default;
