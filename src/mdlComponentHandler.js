@@ -51,22 +51,6 @@ var componentHandler = (function() {
   }
 
   /**
-   * Returns true if the given element has already been upgraded for the given
-   * class.
-   * @param {HTMLElement} element The element we want to check.
-   * @param {string} jsClass The class to check for.
-   * @return boolean
-   * @private
-   */
-  function isElementUpgraded_(element, jsClass) {
-    var dataUpgraded = element.getAttribute('data-upgraded');
-    // Use `['']` as default value to conform the `,name,name...` style.
-    var upgradedList = dataUpgraded === null ? [''] :
-                       String.prototype.split.call(dataUpgraded, ',');
-    return upgradedList.indexOf(jsClass) !== -1;
-  }
-
-  /**
    * Searches existing DOM for elements of our component type and upgrades them
    * if they have not already been upgraded.
    * @param {string} jsClass the programatic name of the element class we need
@@ -102,41 +86,50 @@ var componentHandler = (function() {
    * the element to.
    */
   function upgradeElementInternal(element, optJsClass) {
-    var registeredClasses = [];
+    // Verify argument type.
+    if (!(typeof element === 'object' && element instanceof Element)) {
+      throw new Error('Invalid argument provided to upgrade MDL element.');
+    }
+    var dataUpgraded = element.getAttribute('data-upgraded');
+    // Use `['']` as default value to conform the `,name,name...` style.
+    var upgradedList = dataUpgraded === null ? [''] :
+                       String.prototype.split.call(dataUpgraded, ',');
+    var nameOfClassesToUpgrade = [];
     // If jsClass is not provided scan the registered components to find the
     // ones matching the element's CSS classList.
     if (!optJsClass) {
-      registeredClasses = registeredComponents_.filter(function(component) {
-        return element.classList.contains(component.cssClass) &&
-          !isElementUpgraded_(element, component.className);
+      var classList = element.classList;
+      registeredComponents_.forEach(function (component) {
+        // Match CSS & Not upgraded & Not to be upgraded.
+        if (classList.contains(component.cssClass) &&
+            upgradedList.indexOf(component.className) === -1 &&
+            nameOfClassesToUpgrade.indexOf(component.className) === -1) {
+          nameOfClassesToUpgrade.push(component.className);
+        }
       });
-    } else if (!isElementUpgraded_(element, optJsClass)) {
-      registeredClasses.push(findRegisteredClass_(optJsClass));
+    } else if (upgradedList.indexOf(optJsClass) === -1) {
+      nameOfClassesToUpgrade.push(optJsClass);
     }
 
     // Upgrade the element for each classes.
-    for (var i = 0, l = registeredClasses.length; i < l; i++) {
-      var registeredClass = registeredClasses[i];
+    for (var i = 0, n = nameOfClassesToUpgrade.length, nameOfClass, registeredClass; i < n; i++) {
+      nameOfClass = nameOfClassesToUpgrade[i];
+      registeredClass = findRegisteredClass_(nameOfClass);
       if (registeredClass) {
-        // Only upgrade elements that have not already been upgraded.
-        var dataUpgraded = element.getAttribute('data-upgraded');
         // Mark element as upgraded.
-        if (dataUpgraded === null) {
-          dataUpgraded = '';
-        }
-        element.setAttribute('data-upgraded', dataUpgraded + ',' +
-          registeredClass.className);
+        upgradedList.push(nameOfClass);
+        element.setAttribute('data-upgraded', upgradedList.join(','));
         var instance = new registeredClass.classConstructor(element);
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        for (var j = 0, len = registeredClass.callbacks.length; j < len; i++) {
-          registeredClass.callbacks[i](element);
+        for (var j = 0, m = registeredClass.callbacks.length; j < m; j++) {
+          registeredClass.callbacks[j](element);
         }
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element[registeredClass.className] = instance;
+          element[nameOfClass] = instance;
         }
       } else {
         throw new Error(
