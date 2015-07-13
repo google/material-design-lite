@@ -151,10 +151,8 @@ var componentHandler = (function() {
    * Upgrades a specific list of elements rather than all in the DOM.
    * @param {HTMLElement | [HTMLElement] | NodeList | HTMLCollection} elements
    * The elements we wish to upgrade.
-   * @param {boolean} recursive If set to true, recursively upgrade all elements
-   * underneath. Default is false.
    */
-  function upgradeElementsInternal(elements, recursive) {
+  function upgradeElementsInternal(elements) {
     if (!Array.isArray(elements)) {
       if (typeof elements.item === 'function') {
         // Convert to Array.
@@ -164,12 +162,10 @@ var componentHandler = (function() {
         elements = [elements];
       }
     }
-    recursive = recursive || false;
-
     elements.forEach(function (element) {
       if (element instanceof HTMLElement) {
-        if (recursive) {
-          upgradeElementsInternal(element.children, recursive);
+        if (element.children.length > 0) {
+          upgradeElementsInternal(element.children);
         }
         upgradeElementInternal(element);
       }
