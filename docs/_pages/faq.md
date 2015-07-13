@@ -28,6 +28,7 @@ include_prefix: ../
         <li><a href="#slide-decks">Are there any presentations or slide-decks available on MDL?</a></li>
         <li><a href="#new-components">Can I request or contribute components to MDL?</a></li>
         <li><a href="#alternate-preprocessor">Will MDL support non-Sass preprocessors?</a></li>
+        <li><a href="#issue-updates">How do I keep updated with issues I'm interested in?</a></li>
       </ul>
     </nav>
   </section>
@@ -108,7 +109,7 @@ That said, MDL can be used alongside the Polymer element counterparts. Polymer u
 
 *If we're using it instead of Bootstrap, can we expect the same level of component styling?*
 
-Material Design can replace many parts of Bootstrap. However, it does not intend to feature-match everything Bootstrap offers. Instead MDL intends to implement the components specified by the Material Design specification. This allows it to provide the most comprehensive and accurate solution available.  
+Material Design can replace many parts of Bootstrap. However, it does not intend to feature-match everything Bootstrap offers. Instead MDL intends to implement the components specified by the Material Design specification. This allows it to provide the most comprehensive and accurate solution available.
 
 <h2 id="existing-implementations">How does it compare to existing Material CSS implementations?</h2>
 
@@ -116,7 +117,7 @@ Material Design can replace many parts of Bootstrap. However, it does not intend
 
 We think the community does a great job offering their own take on how Material Design should be implemented for CSS libraries.
 
-That said, the large, diverse number of implementations available are often quite liberal with their interpretation of the spec (not their fault!) and their opinions don’t always reflect what the Material Design team would consider ‘correct’. MDL was developed in close collaboration with the Material Design and Chrome UX teams and undergoes regular reviews for spec compliance. When we run into an area of the spec that isn’t yet fully fleshed out, MDL is able to offer reviewed opinions on how these should be solved in a way that tries to stay true to Material Design.  
+That said, the large, diverse number of implementations available are often quite liberal with their interpretation of the spec (not their fault!) and their opinions don’t always reflect what the Material Design team would consider ‘correct’. MDL was developed in close collaboration with the Material Design and Chrome UX teams and undergoes regular reviews for spec compliance. When we run into an area of the spec that isn’t yet fully fleshed out, MDL is able to offer reviewed opinions on how these should be solved in a way that tries to stay true to Material Design.
 
 <h2 id="options-available">Should I use the minified, CDN or Sass versions of MDL?</h2>
 
@@ -191,3 +192,9 @@ Sure! There may be components or templates you would like to see implemented in 
 *Stylus, Less, PostCSS, etc.*
 
 MDL is implemented using Sass and there are no current plans to change this. If you wish to maintain a port to another preprocessor, you are more than welcome to.
+
+<h2 id="issue-updates">How do I keep updated with issues I'm interested in?</h2>
+
+Watching the whole repository can introduce a lot of extra noise in your stream. To keep updated with just issues you are interested in you only need to subscribe to that issue. This is done on the issue page by clicking the "Subscribe" button in the right hand sidebar.
+
+<img alt="Subscribing to a single issue" src="../assets/faq/subscribe-single-issue.png">
