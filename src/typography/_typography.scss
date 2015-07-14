@@ -17,92 +17,103 @@
 @import "../variables";
 @import "../mixins";
 
-html, body {
-	font-family: $performance_font;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 20px;
-}
+@if $target-elements-directly == true {
+  html, body {
+    font-family: $performance_font;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
 
-h1, h2, h3, h4, h5, h6, p {
-	margin: 0;
-	padding: 0;
-}
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+  }
 
-/**
-* Styles for HTML elements
-*/
+  /**
+  * Styles for HTML elements
+  */
 
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-	@include typo-display-3($colorContrast: true);
-	font-size: 0.6em;
-}
+  h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    @include typo-display-3($colorContrast: true);
 
-h1 {
-	@include typo-display-3();
-	margin-top: 24px;
-	margin-bottom: 24px;
-}
+    font-size: 0.6em;
+  }
 
-h2 {
-	@include typo-display-2();
-	margin-top: 24px;
-	margin-bottom: 24px;
-}
+  h1 {
+    @include typo-display-3;
 
-h3 {
-	@include typo-display-1();
-	margin-top: 24px;
-	margin-bottom: 24px;
-}
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
 
-h4 {
-	@include typo-headline();
-	margin-top: 24px;
-	margin-bottom: 16px;
-}
+  h2 {
+    @include typo-display-2;
 
-h5 {
-	@include typo-title();
-	margin-top: 24px;
-	margin-bottom: 16px;
-}
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
 
-h6 {
-	@include typo-subhead();
-	margin-top: 24px;
-	margin-bottom: 16px;
-}
+  h3 {
+    @include typo-display-1;
 
-p {
-  @include typo-body-1();
-	margin-bottom: 16px;
-}
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
 
-a {
-  color: $text-link-color;
-	font-weight: 500;
-}
+  h4 {
+    @include typo-headline;
 
-blockquote {
-  @include typo-blockquote();
-}
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
 
-mark {
-  background-color: #f4ff81;
-}
+  h5 {
+    @include typo-title;
 
-dt {
-	font-weight: 700;
-}
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
 
-address {
-	@include typo-caption();
-	font-style: normal;
-}
+  h6 {
+    @include typo-subhead;
 
-ul, ol {
-	@include typo-body-1();
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    @include typo-body-1;
+
+    margin-bottom: 16px;
+  }
+
+  a {
+    color: $text-link-color;
+    font-weight: 500;
+  }
+
+  blockquote {
+    @include typo-blockquote;
+  }
+
+  mark {
+    background-color: #f4ff81;
+  }
+
+  dt {
+    font-weight: 700;
+  }
+
+  address {
+    @include typo-caption;
+
+    font-style: normal;
+  }
+
+  ul, ol {
+    @include typo-body-1;
+  }
 }
 
 /**
@@ -110,7 +121,7 @@ ul, ol {
  */
 
 .mdl-typography--display-4 {
-  @include typo-display-4();
+  @include typo-display-4;
 }
 
 .mdl-typography--display-4-color-contrast {
@@ -118,7 +129,7 @@ ul, ol {
 }
 
 .mdl-typography--display-3 {
-  @include typo-display-3();
+  @include typo-display-3;
 }
 
 .mdl-typography--display-3-color-contrast {
@@ -126,7 +137,7 @@ ul, ol {
 }
 
 .mdl-typography--display-2 {
-  @include typo-display-2();
+  @include typo-display-2;
 }
 
 .mdl-typography--display-2-color-contrast {
@@ -134,7 +145,7 @@ ul, ol {
 }
 
 .mdl-typography--display-1 {
-  @include typo-display-1();
+  @include typo-display-1;
 }
 
 .mdl-typography--display-1-color-contrast {
@@ -142,7 +153,7 @@ ul, ol {
 }
 
 .mdl-typography--headline {
-  @include typo-headline();
+  @include typo-headline;
 }
 
 .mdl-typography--headline-color-contrast {
@@ -150,7 +161,7 @@ ul, ol {
 }
 
 .mdl-typography--title {
-  @include typo-title();
+  @include typo-title;
 }
 
 .mdl-typography--title-color-contrast {
@@ -158,7 +169,7 @@ ul, ol {
 }
 
 .mdl-typography--subhead {
-  @include typo-subhead();
+  @include typo-subhead;
 }
 
 .mdl-typography--subhead-color-contrast {
@@ -166,7 +177,7 @@ ul, ol {
 }
 
 .mdl-typography--body-2 {
-  @include typo-body-2();
+  @include typo-body-2;
 }
 
 .mdl-typography--body-2-color-contrast {
@@ -174,7 +185,7 @@ ul, ol {
 }
 
 .mdl-typography--body-1 {
-  @include typo-body-1();
+  @include typo-body-1;
 }
 
 .mdl-typography--body-1-color-contrast {
@@ -198,7 +209,7 @@ ul, ol {
 }
 
 .mdl-typography--caption {
-  @include typo-caption();
+  @include typo-caption;
 }
 
 .mdl-typography--caption-force-preferred-font {
@@ -214,7 +225,7 @@ ul, ol {
 }
 
 .mdl-typography--menu {
-  @include typo-menu();
+  @include typo-menu;
 }
 
 .mdl-typography--menu-color-contrast {
@@ -222,7 +233,7 @@ ul, ol {
 }
 
 .mdl-typography--button {
-  @include typo-button();
+  @include typo-button;
 }
 
 .mdl-typography--button-color-contrast {
@@ -248,7 +259,6 @@ ul, ol {
 .mdl-typography--text-nowrap {
   white-space: nowrap;
 }
-
 
 .mdl-typography--text-lowercase {
   text-transform: lowercase;
