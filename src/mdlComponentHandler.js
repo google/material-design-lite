@@ -51,6 +51,31 @@ var componentHandler = (function() {
   }
 
   /**
+   * Returns an array of the classNames of the upgraded classes on the element.
+   * @param {HTMLElement} element The element to fetch data from.
+   * @return {[string]}
+   * @private
+   */
+  function getUpgradedListOfElement_(element) {
+    var dataUpgraded = element.getAttribute('data-upgraded');
+    // Use `['']` as default value to conform the `,name,name...` style.
+    return dataUpgraded === null ? [''] : dataUpgraded.split(',');
+  }
+
+  /**
+   * Returns true if the given element has already been upgraded for the given
+   * class.
+   * @param {HTMLElement} element The element we want to check.
+   * @param {string} jsClass The class to check for.
+   * @return boolean
+   * @private
+   */
+  function isElementUpgraded_(element, jsClass) {
+    var upgradedList = getUpgradedListOfElement_(element);
+    return upgradedList.indexOf(jsClass) !== -1;
+  }
+
+  /**
    * Searches existing DOM for elements of our component type and upgrades them
    * if they have not already been upgraded.
    * @param {string} jsClass the programatic name of the element class we need
@@ -90,23 +115,21 @@ var componentHandler = (function() {
     if (!(typeof element === 'object' && element instanceof Element)) {
       throw new Error('Invalid argument provided to upgrade MDL element.');
     }
-    var dataUpgraded = element.getAttribute('data-upgraded');
-    // Use `['']` as default value to conform the `,name,name...` style.
-    var upgradedList = dataUpgraded === null ? [''] : dataUpgraded.split(',');
+    var upgradedList = getUpgradedListOfElement_(element);
     var classesToUpgrade = [];
     // If jsClass is not provided scan the registered components to find the
     // ones matching the element's CSS classList.
     if (!optJsClass) {
       var classList = element.classList;
       registeredComponents_.forEach(function (component) {
-        // Match CSS & Not upgraded & Not to be upgraded.
+        // Match CSS & Not to be upgraded & Not upgraded.
         if (classList.contains(component.cssClass) &&
-            upgradedList.indexOf(component.className) === -1 &&
-            classesToUpgrade.indexOf(component) === -1) {
+            classesToUpgrade.indexOf(component) === -1 &&
+            !isElementUpgraded_(element, component.className)) {
           classesToUpgrade.push(component);
         }
       });
-    } else if (upgradedList.indexOf(optJsClass) === -1) {
+    } else if (!isElementUpgraded_(element, optJsClass)) {
       classesToUpgrade.push(findRegisteredClass_(optJsClass));
     }
 
