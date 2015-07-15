@@ -218,5 +218,6 @@ MaterialTextfield.prototype.mdlDowngrade_ = function() {
 componentHandler.register({
   constructor: MaterialTextfield,
   classAsString: 'MaterialTextfield',
-  cssClass: 'mdl-js-textfield'
+  cssClass: 'mdl-js-textfield',
+  widget: true
 });

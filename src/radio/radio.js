@@ -252,5 +252,6 @@ MaterialRadio.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialRadio,
   classAsString: 'MaterialRadio',
-  cssClass: 'mdl-js-radio'
+  cssClass: 'mdl-js-radio',
+  widget: true
 });

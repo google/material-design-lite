@@ -247,5 +247,6 @@ MaterialSlider.prototype.mdlDowngrade_ = function() {
 componentHandler.register({
   constructor: MaterialSlider,
   classAsString: 'MaterialSlider',
-  cssClass: 'mdl-js-slider'
+  cssClass: 'mdl-js-slider',
+  widget: true
 });

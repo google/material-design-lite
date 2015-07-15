@@ -264,5 +264,6 @@ MaterialSwitch.prototype.mdlDowngrade_ = function() {
 componentHandler.register({
   constructor: MaterialSwitch,
   classAsString: 'MaterialSwitch',
-  cssClass: 'mdl-js-switch'
+  cssClass: 'mdl-js-switch',
+  widget: true
 });
