@@ -1,7 +1,7 @@
 ##Introduction
 The Material Design Lite (MDL) **checkbox** component is an enhanced version of the standard HTML `<input type="checkbox">` element. A checkbox consists of a small square and, typically, text that clearly communicates a binary condition that will be set or unset when the user clicks or touches it. Checkboxes typically, but not necessarily, appear in groups, and can be selected and deselected individually. The MDL checkbox component allows you to add display and click effects.
 
-Checkboxes are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the checkbox component's [Material Design specifications page](http://www.google.com/design/spec/components/switches.html) for details.
+Checkboxes are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the checkbox component's [Material Design specifications page](https://www.google.com/design/spec/components/selection-controls.html#selection-controls-checkbox) for details.
 
 The enhanced checkbox component has a more vivid visual look than a standard checkbox, and may be initially or programmatically *disabled*.
 
