@@ -128,8 +128,8 @@ var componentHandler = (function() {
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        for (var j = 0, len = registeredClass.callbacks.length; j < len; i++) {
-          registeredClass.callbacks[i](element);
+        for (var j = 0, len = registeredClass.callbacks.length; j < len; j++) {
+          registeredClass.callbacks[j](element);
         }
 
         if (registeredClass.widget) {
