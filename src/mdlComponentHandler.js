@@ -148,6 +148,32 @@ var componentHandler = (function() {
   }
 
   /**
+   * Upgrades a specific list of elements rather than all in the DOM.
+   * @param {HTMLElement | [HTMLElement] | NodeList | HTMLCollection} elements
+   * The elements we wish to upgrade.
+   */
+  function upgradeElementsInternal(elements) {
+    if (!Array.isArray(elements)) {
+      if (typeof elements.item === 'function') {
+        // Convert to Array.
+        elements = Array.prototype.slice.call(elements);
+      } else {
+        // Make it an Array.
+        elements = [elements];
+      }
+    }
+    for (var i = 0, n = elements.length, element; i < n; i++) {
+      element = elements[i];
+      if (element instanceof HTMLElement) {
+        if (element.children.length > 0) {
+          upgradeElementsInternal(element.children);
+        }
+        upgradeElementInternal(element);
+      }
+    }
+  }
+
+  /**
    * Registers a class for future use and attempts to upgrade existing DOM.
    * @param {object} config An object containing:
    * {constructor: Constructor, classAsString: string, cssClass: string}
@@ -277,6 +303,7 @@ var componentHandler = (function() {
   return {
     upgradeDom: upgradeDomInternal,
     upgradeElement: upgradeElementInternal,
+    upgradeElements: upgradeElementsInternal,
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
     register: registerInternal,
