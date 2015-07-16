@@ -68,6 +68,7 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 **/
 
 @import "_color-definitions";
+@import "functions";
 
 /* ==========  Color & Themes  ========== */
 
@@ -325,8 +326,8 @@ $spinner-arc-time: 1333ms;
 // How much the start location of the arc should rotate each time.
 $spinner-arc-start-rot: 216deg;
 
-$spinner-duration: 360deg * $spinner-arc-time / (
-    $spinner-arc-start-rot + (360deg - $spinner-arc-size));
+$spinner-duration: 360 * $spinner-arc-time / (
+    strip-units($spinner-arc-start-rot + (360deg - $spinner-arc-size)));
 
 
 /* RADIO */
