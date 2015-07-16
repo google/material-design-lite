@@ -14,6 +14,27 @@
  * limitations under the License.
  */
 
+/*
+* Create a basic container to test nested ugprading.
+* container
+*   - button
+*     - buttonTwo
+*   - buttonThree
+*/
+function createNestedElementsForComponentHandlerTest() {
+  var button = document.createElement('button');
+  button.className = 'mdl-js-button';
+  var buttonTwo = document.createElement('button');
+  buttonTwo.className = 'mdl-js-button';
+  var buttonThree = document.createElement('button');
+  buttonThree.className = 'mdl-js-button';
+  var container = document.createElement('div');
+  container.appendChild(button);
+  button.appendChild(buttonTwo);
+  container.appendChild(buttonThree);
+  return container;
+}
+
 describe('componentHandler', function() {
 
   it('should be globally available', function() {
@@ -94,28 +115,32 @@ describe('componentHandler', function() {
     document.body.removeChild(button);
     document.body.removeChild(buttonTwo);
   });
-  
-  it('should upgrade all selected elements by calling upgradeElements with the selection', function() {
-    var button = document.createElement('button');
-    button.className = 'mdl-js-button';
-    var buttonTwo = document.createElement('button');
-    buttonTwo.className = 'mdl-js-button';
-    var buttonThree = document.createElement('button');
-    buttonThree.className = 'mdl-js-button';
-    var container = document.createElement('div');
-    container.appendChild(button);
-    button.appendChild(buttonTwo);
-    container.appendChild(buttonThree);
-    /**
-	 * container
-	 *   - button
-	 *     - buttonTwo
-	 *   - buttonThree
-	 */
+
+  it('should upgrade all elements and their children within an HTMLCollection', function() {
+    var container = createNestedElementsForComponentHandlerTest();
+    var buttons = document.querySelectorAll('.mdl-js-button');
     componentHandler.upgradeElements(container.children);
-    expect($(button)).to.have.data('upgraded', ',MaterialButton');
-    expect($(buttonTwo)).to.have.data('upgraded', ',MaterialButton');
-    expect($(buttonThree)).to.have.data('upgraded', ',MaterialButton');
+    for (var i; i < buttons.length; i++) {
+      expect($(buttons[i])).to.have.data('upgraded', ',MaterialButton');
+    }
+  });
+
+  it('should upgrade all elements and their children within a NodeList', function() {
+    var container = createNestedElementsForComponentHandlerTest();
+    var buttons = document.querySelectorAll('.mdl-js-button');
+    componentHandler.upgradeElements(document.querySelectorAll('.mdl-js-button'));
+    for (var i; i < buttons.length; i++) {
+      expect($(buttons[i])).to.have.data('upgraded', ',MaterialButton');
+    }
+  });
+
+  it('should upgrade all elements and their children within an HTMLElement', function() {
+    var container = createNestedElementsForComponentHandlerTest();
+    var buttons = document.querySelectorAll('.mdl-js-button');
+    componentHandler.upgradeElements(container);
+    for (var i; i < buttons.length; i++) {
+      expect($(buttons[i])).to.have.data('upgraded', ',MaterialButton');
+    }
   });
 
 });

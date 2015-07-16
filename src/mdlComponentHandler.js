@@ -155,10 +155,8 @@ var componentHandler = (function() {
   function upgradeElementsInternal(elements) {
     if (!Array.isArray(elements)) {
       if (typeof elements.item === 'function') {
-        // Convert to Array.
         elements = Array.prototype.slice.call(elements);
       } else {
-        // Make it an Array.
         elements = [elements];
       }
     }
