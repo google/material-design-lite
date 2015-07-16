@@ -1,18 +1,10 @@
-body {
-  background-image: url('images/bg.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  /* FIXME: Temp. workaround for vertical scrollbars */
-  margin: 0;
-}
-
 body::before {
-    background-image: url('/images/head.jpg');
+    background-image: url('images/bg.jpg');
     background-size: cover;
     background-attachment: fixed;
     content: '';
     will-change: transform;
-    z-index: 1;
+    z-index: -1;
     left: 0;
     right: 0;
     bottom: 0;
