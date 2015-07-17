@@ -83,7 +83,7 @@ A grid with three cells of column size 6 that will display as column size 8 on a
 </div>
 ```
 
-A grid with four cells of column size 4 that will display as column size 4 on a phone device.
+A grid with four cells of column size 2 that will display as column size 4 on a phone device.
 
 ```html
 <div class="mdl-grid">
