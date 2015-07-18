@@ -123,7 +123,7 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
   var marginLeft = -1 * (this.element_.offsetWidth / 2);
   var marginTop = -1 * (this.element_.offsetHeight / 2);
 
-  if(this.element_.classList.contains(this.CssClasses_.LEFT) || this.element_.classList.contains(this.CssClasses_.RIGHT)) {
+  if (this.element_.classList.contains(this.CssClasses_.LEFT) || this.element_.classList.contains(this.CssClasses_.RIGHT)) {
     if (top + marginTop < 0) {
       this.element_.style.top = 0;
       this.element_.style.marginTop = 0;
@@ -144,11 +144,11 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
     }
   }
 
-  if(this.element_.classList.contains(this.CssClasses_.TOP)) {
+  if (this.element_.classList.contains(this.CssClasses_.TOP)) {
     this.element_.style.top = props.top - this.element_.offsetHeight - 10 + 'px';
-  } else if(this.element_.classList.contains(this.CssClasses_.RIGHT)) {
+  } else if (this.element_.classList.contains(this.CssClasses_.RIGHT)) {
     this.element_.style.left = props.left + props.width + 10 + 'px';
-  } else if(this.element_.classList.contains(this.CssClasses_.LEFT)) {
+  } else if (this.element_.classList.contains(this.CssClasses_.LEFT)) {
     this.element_.style.left = props.left - this.element_.offsetWidth - 10 + 'px';
   } else {
     this.element_.style.top = props.top + props.height + 10 + 'px';
