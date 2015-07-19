@@ -115,7 +115,7 @@ MaterialTextfield.prototype.updateClasses_ = function() {
   } else {
     this.element_.classList.add(this.CssClasses_.IS_INVALID);
   }
-  
+
   if (this.input_.nodeName.toUpperCase() === 'INPUT' || this.input_.nodeName.toUpperCase() === 'TEXTAREA') {
     if (this.input_.value && this.input_.value.length > 0) {
       this.element_.classList.add(this.CssClasses_.IS_DIRTY);
