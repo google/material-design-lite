@@ -101,7 +101,11 @@ MaterialLayout.prototype.CssClasses_ = {
   IS_DRAWER_OPEN: 'is-visible',
   IS_ACTIVE: 'is-active',
   IS_UPGRADED: 'is-upgraded',
-  IS_ANIMATING: 'is-animating'
+  IS_ANIMATING: 'is-animating',
+
+  ON_LARGE_SCREEN : 'mdl-layout--large-screen-only',
+  ON_SMALL_SCREEN  : 'mdl-layout--small-screen-only'
+
 };
 
 /**
@@ -286,6 +290,14 @@ MaterialLayout.prototype.init = function() {
     if (this.drawer_) {
       var drawerButton = document.createElement('div');
       drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
+
+      if (this.drawer_.classList.contains(this.CssClasses_.ON_LARGE_SCREEN)) {
+        //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
+        drawerButton.classList.add(this.CssClasses_.ON_LARGE_SCREEN);
+      } else if (this.drawer_.classList.contains(this.CssClasses_.ON_SMALL_SCREEN)) {
+        //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
+        drawerButton.classList.add(this.CssClasses_.ON_SMALL_SCREEN);
+      }
       var drawerButtonIcon = document.createElement('i');
       drawerButtonIcon.classList.add(this.CssClasses_.ICON);
       drawerButtonIcon.textContent = this.Constant_.MENU_ICON;
