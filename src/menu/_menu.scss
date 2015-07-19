@@ -120,6 +120,7 @@
 }
 
 .mdl-menu__item {
+  box-sizing: border-box;
   display: block;
   border: none;
   color: $default-item-text-color;
