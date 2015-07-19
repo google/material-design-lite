@@ -117,33 +117,33 @@ MaterialDataTable.prototype.init = function() {
   if (this.element_) {
 
     var firstHeader = this.element_.querySelector('th');
-    var rows_body = this.element_.querySelector('tbody').querySelectorAll('tr');
-    var footer = this.element_.querySelector('tfoot');
+    var bodyRows = this.element_.querySelector('tbody').querySelectorAll('tr');
+    var foot = this.element_.querySelector('tfoot');
 
     if (this.element_.classList.contains(this.CssClasses_.SELECTABLE)) {
       var th = document.createElement('th');
-      var headerCheckbox = this.createCheckbox_(null, rows_body);
+      var headerCheckbox = this.createCheckbox_(null, bodyRows);
       th.appendChild(headerCheckbox);
       firstHeader.parentElement.insertBefore(th, firstHeader);
 
-      for (var i = 0; i < rows_body.length; i++) {
-        var firstCell = rows_body[i].querySelector('td');
+      for (var i = 0; i < bodyRows.length; i++) {
+        var firstCell = bodyRows[i].querySelector('td');
         if (firstCell) {
           var td = document.createElement('td');
-          var rowCheckbox = this.createCheckbox_(rows_body[i]);
+          var rowCheckbox = this.createCheckbox_(bodyRows[i]);
           td.appendChild(rowCheckbox);
-          rows_body[i].insertBefore(td, firstCell);
+          bodyRows[i].insertBefore(td, firstCell);
         }
       }
-      if (footer){
-          var rows_foot = footer.querySelectorAll('tr');
-          for (var i = 0; i < rows_foot.length; i++) {
-            var firstCell = rows_foot[i].querySelector('td');
-            if (firstCell) {
-              var td = document.createElement('td');
-              rows_foot[i].insertBefore(td, firstCell);
-            }
+      if (foot) {
+        var footRows = this.element_.querySelector('tfoot').querySelectorAll('tr');
+        for (var i = 0; i < footRows.length; i++) {
+          var firstCell = footRows[i].querySelector('td');
+          if (firstCell) {
+            var td = document.createElement('td');
+            footRows[i].insertBefore(td, firstCell);
           }
+        }
       }
     }
 
