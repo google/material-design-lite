@@ -97,9 +97,9 @@ describe('componentHandler', function() {
 
   it('should upgrade a single component to an element by using its CSS classes', function() {
     var el = document.createElement('button');
-    el.className = 'mdl-button mdl-js-button';
+    el.className = 'mdl-js-button mdl-js-ripple-effect';
     componentHandler.upgradeElement(el);
-    expect($(el)).to.have.data('upgraded', ',MaterialButton');
+    expect($(el)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
   });
 
   it('should upgrade the entire DOM available', function() {
@@ -114,6 +114,14 @@ describe('componentHandler', function() {
     expect($(buttonTwo)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
     document.body.removeChild(button);
     document.body.removeChild(buttonTwo);
+  });
+
+  it('should upgrade a single component to an element', function() {
+    var el = document.createElement('button');
+    el.setAttribute('data-upgraded', ',MaterialButtonPostfix');
+    el.className = 'mdl-js-button';
+    componentHandler.upgradeElement(el);
+    expect($(el)).to.have.data('upgraded', ',MaterialButtonPostfix,MaterialButton');
   });
 
   it('should upgrade all elements and their children within an HTMLCollection', function() {
