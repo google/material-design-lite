@@ -438,7 +438,10 @@ MaterialMenu.prototype.hide = function() {
     this.element_.classList.add(this.CssClasses_.IS_ANIMATING);
     this.applyClip_(height, width);
     this.container_.classList.remove(this.CssClasses_.IS_VISIBLE);
-
+    
+    //FIX: The container remains on the elements and does not click them
+    this.container_.style.width = this.container_.style.height = 0;
+    
     // Clean up after the animation is complete.
     this.addAnimationEndListener_();
   }
