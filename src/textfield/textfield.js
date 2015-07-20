@@ -103,27 +103,51 @@ MaterialTextfield.prototype.onBlur_ = function(event) {
  */
 MaterialTextfield.prototype.updateClasses_ = function() {
   'use strict';
+  this.checkDisabled();
+  this.checkValidity();
+  this.checkDirty();
+};
 
+// Public methods.
+
+/**
+ * Check the disabled state and update field accordingly.
+ * @public
+ */
+MaterialTextfield.prototype.checkDisabled = function() {
+  'use strict';
   if (this.input_.disabled) {
     this.element_.classList.add(this.CssClasses_.IS_DISABLED);
   } else {
     this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
   }
+};
 
+/**
+ * Check the validity state and update field accordingly.
+ * @public
+ */
+MaterialTextfield.prototype.checkValidity = function() {
+  'use strict';
   if (this.input_.validity.valid) {
     this.element_.classList.remove(this.CssClasses_.IS_INVALID);
   } else {
     this.element_.classList.add(this.CssClasses_.IS_INVALID);
   }
+};
 
+/**
+* Check the dirty state and update field accordingly.
+* @public
+*/
+MaterialTextfield.prototype.checkDirty = function() {
+  'use strict';
   if (this.input_.value && this.input_.value.length > 0) {
     this.element_.classList.add(this.CssClasses_.IS_DIRTY);
   } else {
     this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
   }
 };
-
-// Public methods.
 
 /**
  * Disable text field.
