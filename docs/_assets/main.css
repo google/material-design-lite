@@ -622,6 +622,9 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-demos .snippet-demo-paddi
   bottom: 0;
   padding: 3px 10px;
 }
+.snippet-group .snippet-code code:active::before {
+  content: '';
+}
 .snippet-group .snippet-code code.copied::before {
   content: 'copied';
   color: rgba(255,255,255,0.5);

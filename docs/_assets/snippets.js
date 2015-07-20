@@ -57,9 +57,11 @@ MaterialComponentsSnippets.prototype.CssClasses_ = {
 MaterialComponentsSnippets.prototype.copyToClipboard = function(snippet) {
   'use strict';
 
+  var sel = window.getSelection();
   var snipRange = document.createRange();
   snipRange.selectNodeContents(snippet);
-  window.getSelection().addRange(snipRange);
+  sel.removeAllRanges();
+  sel.addRange(snipRange);
   var res = false;
   try {
     res = document.execCommand('copy');
@@ -67,13 +69,7 @@ MaterialComponentsSnippets.prototype.copyToClipboard = function(snippet) {
     // copy command is not available
     console.error(err);
   }
-  try {
-    window.getSelection().removeRange(snipRange)
-  } catch (err) {
-    // removeRange is not available
-    // use AllRanges
-    window.getSelection().removeAllRanges();
-  }
+  sel.removeAllRanges();
   return res;
 };
 
