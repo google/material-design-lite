@@ -243,5 +243,6 @@ MaterialIconToggle.prototype.mdlDowngrade_ = function() {
 componentHandler.register({
   constructor: MaterialIconToggle,
   classAsString: 'MaterialIconToggle',
-  cssClass: 'mdl-js-icon-toggle'
+  cssClass: 'mdl-js-icon-toggle',
+  widget: true
 });

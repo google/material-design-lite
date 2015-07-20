@@ -101,5 +101,6 @@ MaterialProgress.prototype.init = function() {
 componentHandler.register({
   constructor: MaterialProgress,
   classAsString: 'MaterialProgress',
-  cssClass: 'mdl-js-progress'
+  cssClass: 'mdl-js-progress',
+  widget: true
 });
