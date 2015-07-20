@@ -111,6 +111,8 @@ MaterialTooltip.prototype.init = function() {
           false);
       this.forElement_.addEventListener('click', this.boundMouseEnterHandler,
           false);
+      this.forElement_.addEventListener('touchstart', this.boundMouseEnterHandler,
+          false);
       this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler);
     }
   }
@@ -124,6 +126,7 @@ MaterialTooltip.prototype.mdlDowngrade_ = function() {
   if (this.forElement_) {
     this.forElement_.removeEventListener('mouseenter', this.boundMouseEnterHandler, false);
     this.forElement_.removeEventListener('click', this.boundMouseEnterHandler, false);
+    this.forElement_.removeEventListener('touchstart', this.boundMouseEnterHandler, false);
     this.forElement_.removeEventListener('mouseleave', this.boundMouseLeaveHandler);
   }
 };
