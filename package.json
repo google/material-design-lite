@@ -52,11 +52,12 @@
     "merge-stream": "^0.1.7",
     "mocha": "^2.1.0",
     "opn": "^1.0.0",
+    "phantomjs": "^1.9.17",
+    "prismjs": "0.0.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
     "swig": "^1.4.2",
-    "through2": "^0.6.3",
-    "prismjs": "0.0.1"
+    "through2": "^0.6.3"
   },
   "engines": {
     "node": ">=0.10.0"
