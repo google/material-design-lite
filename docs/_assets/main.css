@@ -547,16 +547,16 @@ body:not(.about) .mdl-navigation__link.download > button {
   width: 100%;
 }
 .snippet-group .snippet-demos,
-.snippet-group .snippet-captions{
-  display: table-row;
-}
 .snippet-group .snippet-captions {
-  background-color: white;
-  height: 48px;
+  display: table-row;
 }
 .snippet-group .snippet-demo .snippet-demo-container {
   text-align: left;
   display: inline-block;
+}
+.snippet-group .snippet-captions {
+  background-color: white;
+  height: 48px;
 }
 .snippet-group .snippet-demo,
 .snippet-group .snippet-demo-padding,
@@ -568,6 +568,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   margin: 0;
   padding: 0;
 }
+
 .snippet-group .snippet-caption {
   font-size: 13px;
   padding: 0px 40px;
@@ -575,62 +576,17 @@ body:not(.about) .mdl-navigation__link.download > button {
   text-align: center;
   position: relative;
 }
-.snippet-group .snippet-caption .snippet-copy {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  opacity: 0;
-  z-index: 3;
-}
-.snippet-group .snippet-caption .mdl-button {
-  text-transform: none;
-  font-size: 13px;
-  font-weight: normal;
-  line-height: 36px;
-}
 
-.snippet-group .snippet-caption .copy-to-clipboard-button .material-icons {
-  background-color: #00BCD4;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  font-size: 16px;
-  color: white;
-  top: 3px;
-}
-.snippet-group .snippet-caption .snippet-copy .clippy {
-  height: 100%;
-  width: 785%;
-}
-.snippet-group .snippet-caption .mdl-button__ripple-container {
-  z-index: 2;
-}
-.snippet-group .snippet-caption:hover {
-  color: black;
-}
-.snippet-group .snippet-caption .material-icons {
-  position: relative;
-  top: 6px;
-  margin-right: 10px;
-}
 .snippet-group .snippet-demo {
   padding: 0px 40px 40px 40px;
 }
-.snippet-group .snippet-demos .snippet-demo-padding,
-.snippet-group .snippet-captions .snippet-caption-padding {
+.snippet-group .snippet-demos .snippet-demo-padding {
   width: 50%;
 }
 _:-ms-input-placeholder, :root .snippet-group .snippet-demo {
   width: 1px;
 }
 _:-ms-input-placeholder, :root .snippet-group .snippet-demos .snippet-demo-padding {
-  width: auto;
-}
-_:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption-padding {
   width: auto;
 }
 .snippet-group .snippet-code {
@@ -660,19 +616,19 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
 .snippet-group .snippet-code code:last-of-type {
   padding-bottom: 16px;
 }
-.snippet-group .snippet-code code.highlighted {
+.snippet-group .snippet-code code:hover {
   background-color: rgba(0,0,0,0.05);
 }
-.snippet-group .snippet-code code.highlighted:only-of-type {
+.snippet-group .snippet-code code:hover:only-of-type {
   background-color: transparent;
 }
 .snippet-group .snippet-code code::before,
 .snippet-group .snippet-code code::after {
   display: none;
 }
-.snippet-group .snippet-code code.highlighted::before {
+.snippet-group .snippet-code code:hover::before {
   display: inline-block;
-  content: 'Copy';
+  content: 'click to copy';
   color: rgba(0,0,0,0.5);
   font-size: 13px;
   background-color: rgba(0,0,0,0.1);
@@ -682,21 +638,24 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
   bottom: 0;
   padding: 3px 10px;
 }
-.snippet-group .snippet-code code.highlighted.copied::before {
-  content: 'Copied';
+.snippet-group .snippet-code code:active::before {
+  content: '';
+}
+.snippet-group .snippet-code code.copied::before {
+  content: 'copied';
+  color: rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.6);
+}
+.snippet-group .snippet-code code.nosupport::before {
+  content: "browser not supported :'(";
   color: rgba(255,255,255,0.5);
   background-color: rgba(0,0,0,0.6);
 }
 .snippet-group .snippet-code .codepen-extra-css {
   display:none;
 }
-.no-flash .snippet-group .snippet-code code.highlighted::before,
-.no-flash .snippet-group .copy {
-  display: none;
-}
 @media (max-width: 850px) {
-  .snippet-group .snippet-demo,
-  .snippet-group .snippet-caption {
+  .snippet-group .snippet-demo {
     padding-left: 5px;
     padding-right: 5px;
   }
@@ -709,8 +668,7 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
   padding-left: 0;
   padding-right: 0;
 }
-.snippet-group.is-full-width .snippet-demo-padding,
-.snippet-group.is-full-width .snippet-caption-padding {
+.snippet-group.is-full-width .snippet-demo-padding {
   width: 0;
   padding: 8px;
   margin: 0;

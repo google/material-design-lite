@@ -17,9 +17,8 @@
 function MaterialComponentsSnippets() {
   'use strict';
 
-  // Find all code snippet buttons.
-  this.snippetButtons = document.querySelectorAll(
-    '.snippet-caption .copy-to-clipboard-button');
+  // Find all code snippets.
+  this.snippets = document.querySelectorAll('code.language-markup');
   this.init();
 }
 
@@ -28,22 +27,10 @@ function MaterialComponentsSnippets() {
  */
 MaterialComponentsSnippets.prototype.init = function() {
   'use strict';
-  [].slice.call(this.snippetButtons).forEach(function(snippetButton) {
-    snippetButton.addEventListener('mouseover',
-      this.onMouseOverHandler(snippetButton));
-    snippetButton.addEventListener('mouseout',
-      this.onMouseOutHandler(snippetButton));
-    snippetButton.addEventListener('mouseup',
-      this.onMouseDownHandler(snippetButton));
-    var clippy = snippetButton.querySelectorAll('.clippy');
-    if (clippy.length > 0) {
-      clippy[0].addEventListener('mouseover',
-        this.onMouseOverHandler(snippetButton));
-      clippy[0].addEventListener('mouseout',
-        this.onMouseOutHandler(snippetButton));
-      clippy[0].addEventListener('mouseup',
-        this.onMouseDownHandler(snippetButton));
-    }
+
+  [].slice.call(this.snippets).forEach(function(snippet) {
+    snippet.addEventListener('click', this.onMouseClickHandler(snippet));
+    snippet.addEventListener('mouseout', this.onMouseOutHandler(snippet));
   }, this);
 };
 
@@ -55,83 +42,74 @@ MaterialComponentsSnippets.prototype.init = function() {
  * @private
  */
 MaterialComponentsSnippets.prototype.CssClasses_ = {
-  HIGHLIGHTED: 'highlighted',
-  COPIED: 'copied'
+  COPIED: 'copied',
+  NOT_SUPPORTED: 'nosupport'
 };
 
 /**
- * Gets the <code> element that is referenced but the given button.
- * @param  {HTMLElement} button The snippet copy button
- * @return {HTMLElement} the code element referenced by the button
+ * Copies content of a <code> element into the system clipboard.
+ * Not all browsers may be supported. See the following for details:
+ * http://caniuse.com/clipboard
+ * https://developers.google.com/web/updates/2015/04/cut-and-copy-commands
+ * @param  {HTMLElement} snippet The <code> element containing the snippet code
+ * @return {bool} whether the copy operation is succeeded
  */
-MaterialComponentsSnippets.prototype.getCodeElement = function(button) {
+MaterialComponentsSnippets.prototype.copyToClipboard = function(snippet) {
   'use strict';
 
-  var href = button.getAttribute('href');
-  if (href && href.indexOf('#') >= 0) {
-    return document.getElementById(href.split('#')[1]);
+  var sel = window.getSelection();
+  var snipRange = document.createRange();
+  snipRange.selectNodeContents(snippet);
+  sel.removeAllRanges();
+  sel.addRange(snipRange);
+  var res = false;
+  try {
+    res = document.execCommand('copy');
+  } catch (err) {
+    // copy command is not available
+    console.error(err);
   }
-  return null;
+  sel.removeAllRanges();
+  return res;
 };
 
 /**
- * Returns a mouseDownHandler for a snippet copy button.
- * @param  {HTMLElement} button the snippet copy button
+ * Returns a mouseClickHandler for a snippet <code> element.
+ * @param  {HTMLElement} snippet The <code> element containing the snippet code
  * @return {function} the click handler
  */
-MaterialComponentsSnippets.prototype.onMouseDownHandler = function(button) {
+MaterialComponentsSnippets.prototype.onMouseClickHandler = function(snippet) {
   'use strict';
 
-  var ctx = this;
   return function() {
-    var code = ctx.getCodeElement(button);
-    if (code) {
-      code.classList.add(ctx.CssClasses_.COPIED);
+    if (window.getSelection().toString().length > 0) {
+      // user has selected some text manually
+      // don't do anything
+      return;
     }
-  };
+    var cls = this.CssClasses_.COPIED;
+    if (!this.copyToClipboard(snippet)) {
+      cls = this.CssClasses_.NOT_SUPPORTED;
+    }
+    snippet.classList.add(cls);
+  }.bind(this);
 };
 
 /**
- * Returns a mouseOverHandler for a snippet copy button.
- * @param  {HTMLElement} button the snippet copy button
+ * Returns a mouseOutHandler for a snippet <code> element.
+ * @param  {HTMLElement} snippet The <code> element containing the snippet code
  * @return {function} the click handler
  */
-MaterialComponentsSnippets.prototype.onMouseOverHandler = function(button) {
+MaterialComponentsSnippets.prototype.onMouseOutHandler = function(snippet) {
   'use strict';
 
-  var ctx = this;
   return function() {
-    var code = ctx.getCodeElement(button);
-    if (code) {
-      code.classList.add(ctx.CssClasses_.HIGHLIGHTED);
-    }
-  };
-};
-
-/**
- * Returns a mouseOutHandler for a snippet copy button.
- * @param  {HTMLElement} button the snippet copy button
- * @return {function} the click handler
- */
-MaterialComponentsSnippets.prototype.onMouseOutHandler = function(button) {
-  'use strict';
-
-  var ctx = this;
-  return function() {
-    var code = ctx.getCodeElement(button);
-    if (code) {
-      code.classList.remove(ctx.CssClasses_.HIGHLIGHTED);
-      code.classList.remove(ctx.CssClasses_.COPIED);
-    }
-  };
+    snippet.classList.remove(this.CssClasses_.COPIED);
+  }.bind(this);
 };
 
 window.addEventListener('load', function() {
   'use strict';
 
-  // Handle the case where Flash is not available.
-  if (swfobject && !swfobject.hasFlashPlayerVersion('9.0.0')) {
-    document.body.classList.add('no-flash');
-  }
   new MaterialComponentsSnippets();
 });
