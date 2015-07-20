@@ -15,7 +15,7 @@ templates:
     description: A modular responsive template built to display data visualizations and information with a clear vertical nav, user profile, search and dedicated space for updates and filters.
   - name: text-only
     title: Text-heavy webpage
-    description: Built for presenting content that is information dense, easily updatable, and optimized for legibility, this template has a sticky horizontal top nav, feature callouts, cards and a site map footer with a deep-linked table of contents.
+    description: Built for presenting content that is information dense, easily updatable, and optimized for legibility, this template has a sticky horizontal top nav on mobile, feature callouts, cards and a site map footer with a deep-linked table of contents.
   - name: article
     title: Stand-alone article
     description: A clean layout optimized for presenting text-based content with a breadcrumb nav, search, clear headers and a footer that utilizes a card-like structure to showcase the content.
