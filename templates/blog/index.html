@@ -75,7 +75,10 @@
             </div>
           </div>
           <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-            <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent"><i class="material-icons mdl-color-text--white">add</i></button>
+            <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent">
+              <i class="material-icons mdl-color-text--white" role="presentation">add</i>
+              <span class="visuallyhidden">add</span>
+            </button>
             <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
               <img src="images/logo.png">
               +1,337
@@ -91,7 +94,8 @@
                 <button class="mdl-menu__item mdl-js-ripple-effect">Search</button>
               </ul>
               <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons">more_vert</i>
+                <i class="material-icons" role="presentation">more_vert</i>
+                <span class="visuallyhidden">show menu</span>
               </button>
             </div>
           </div>
@@ -142,22 +146,31 @@
           </div>
           <nav class="demo-nav mdl-cell mdl-cell--12-col">
             <div class="section-spacer"></div>
-            <a href="entry.html" class="demo-nav__button">
+            <a href="entry.html" class="demo-nav__button" title="show more">
               More
               <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons">arrow_forward</i>
+                <i class="material-icons" role="presentation">arrow_forward</i>
               </button>
             </a>
           </nav>
         </div>
         <footer class="mdl-mini-footer">
           <div class="mdl-mini-footer--left-section">
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus"></button>
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
+              <span class="visuallyhidden">Twitter</span>
+            </button>
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
+              <span class="visuallyhidden">Facebook</span>
+            </button>
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
+              <span class="visuallyhidden">Google Plus</span>
+            </button>
           </div>
           <div class="mdl-mini-footer--right-section">
-            <button class="mdl-mini-footer--social-btn social-btn__share"><i class="material-icons">share</i></button>
+            <button class="mdl-mini-footer--social-btn social-btn__share">
+              <i class="material-icons" role="presentation">share</i>
+              <span class="visuallyhidden">share</span>
+            </button>
           </div>
         </footer>
       </main>
