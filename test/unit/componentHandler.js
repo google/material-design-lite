@@ -115,6 +115,14 @@ describe('componentHandler', function() {
     document.body.removeChild(button);
     document.body.removeChild(buttonTwo);
   });
+  
+  it('should upgrade a single component to an element', function() {
+    var el = document.createElement('button');
+    el.setAttribute('data-upgraded', ',MaterialButtonPostfix');
+    el.className = 'mdl-js-button';
+    componentHandler.upgradeElement(el);
+    expect($(el)).to.have.data('upgraded', ',MaterialButtonPostfix,MaterialButton');
+  });
 
   it('should upgrade a single component to an element', function() {
     var el = document.createElement('button');
