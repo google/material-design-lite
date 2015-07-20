@@ -546,21 +546,37 @@ body:not(.about) .mdl-navigation__link.download > button {
   border-spacing: 0;
   width: 100%;
 }
-.snippet-group .snippet-demos {
+.snippet-group .snippet-demos,
+.snippet-group .snippet-captions {
   display: table-row;
 }
 .snippet-group .snippet-demo .snippet-demo-container {
   text-align: left;
   display: inline-block;
 }
+.snippet-group .snippet-captions {
+  background-color: white;
+  height: 48px;
+}
 .snippet-group .snippet-demo,
-.snippet-group .snippet-demo-padding {
+.snippet-group .snippet-demo-padding,
+.snippet-group .snippet-caption,
+.snippet-group .snippet-caption-padding {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   margin: 0;
   padding: 0;
 }
+
+.snippet-group .snippet-caption {
+  font-size: 13px;
+  padding: 0px 40px;
+  white-space: nowrap;
+  text-align: center;
+  position: relative;
+}
+
 .snippet-group .snippet-demo {
   padding: 0px 40px 40px 40px;
 }
