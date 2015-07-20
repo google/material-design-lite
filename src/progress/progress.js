@@ -96,6 +96,16 @@ MaterialProgress.prototype.init = function() {
   }
 };
 
+/*
+* Downgrade the component
+*/
+MaterialProgress.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  while (this.element_.firstChild) {
+    this.element_.removeChild(this.element_.firstChild);
+  }
+};
+
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
