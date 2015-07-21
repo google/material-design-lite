@@ -25,6 +25,7 @@ var fs = require('fs');
 var merge = require('merge-stream');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
+var vinylPaths = require('vinyl-paths');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var codeFiles = '';
@@ -496,14 +497,6 @@ gulp.task('zip:mdl', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('zip:mdl-source', function() {
-  return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE',
-    'bower.json', 'package.json', './sr?/**/*', 'gulpfile.js'])
-    .pipe(gulp.dest('_release'))
-    .pipe($.zip('mdl-source.zip'))
-    .pipe(gulp.dest('dist'));
-});
-
 // Generate release archive containing the library, templates and assets
 // for templates. Note that it is intentional for some templates to include
 // a customised version of the material.min.css file for their own needs.
@@ -531,7 +524,7 @@ gulp.task('zip:templates', function() {
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('zip', ['zip:templates', 'zip:mdl', 'zip:mdl-source']);
+gulp.task('zip', ['zip:templates', 'zip:mdl']);
 
 gulp.task('genCodeFiles', function() {
   return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/mdl-templates.zip'],
@@ -666,6 +659,21 @@ gulp.task('templates:mdl', function() {
     .pipe($.csso())
     .pipe($.rename({suffix: '.min'}))
     .pipe(gulp.dest('dist/templates'));
+});
+
+gulp.task('_release', function() {
+  return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE',
+    'bower.json', 'package.json', './sr?/**/*', 'gulpfile.js'])
+    .pipe(gulp.dest('_release'));
+});
+
+gulp.task('publish:bower', ['_release'], function() {
+  return gulp.src('_release')
+  .pipe($.subtree({
+    remote: 'origin',
+    branch: 'release'
+  }))
+  .pipe(vinylPaths(del));
 });
 
 gulp.task('templates:styles', function() {
