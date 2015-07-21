@@ -80,8 +80,6 @@ duplication of work, and help you to craft the change so that it is successfully
 project.
 * **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull Request.
 
- *[Website](http://www.getmdl.io/) related issues should be filed on the [Web Fundamentals](https://github.com/google/WebFundamentals/issues/new) issue tracker.*
-
 ## <a name="submit"></a> Submission Guidelines
 
 ### Submitting an Issue
