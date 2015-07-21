@@ -386,6 +386,7 @@
     // Fix IE10 bug.
     -ms-flex: 0 1 auto;
 
+    position: relative;
     display: inline-block;
     overflow-y: auto;
     overflow-x: hidden;
