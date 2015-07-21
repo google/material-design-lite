@@ -105,12 +105,18 @@ MaterialTooltip.prototype.init = function() {
     }
 
     if (this.forElement_) {
+      // Tabindex needs to be set for `blur` events to be emitted
+      if (!this.forElement_.getAttribute('tabindex')) {
+        this.forElement_.setAttribute('tabindex', '0');
+      }
+
       this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
       this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
       this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler,
           false);
       this.forElement_.addEventListener('click', this.boundMouseEnterHandler,
           false);
+      this.forElement_.addEventListener('blur', this.boundMouseLeaveHandler);
       this.forElement_.addEventListener('touchstart', this.boundMouseEnterHandler,
           false);
       this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler);
