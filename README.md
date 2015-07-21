@@ -71,6 +71,8 @@ dependencies, from the root of the project:
 npm install && npm install -g gulp
 ```
 
+> MDL requires NodeJS 0.12.
+
 Next, run the following one-liner to compile the components and the docs and
 spawn a local instance of the documentation site:
 
