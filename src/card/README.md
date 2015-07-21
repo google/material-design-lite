@@ -119,7 +119,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 |-----------|--------|---------|
 | `mdl-card` | Defines div element as an MDL card container | Required on "outer" div |
 | `mdl-card--border` | Adds a border to the card section that it's applied to | Used on the "inner" divs |
-| `mdl-shadow--2dp through mdl-shadow--8dp` | Assigns variable shadow depths (1-5) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
+| `mdl-shadow--2dp through mdl-shadow--16dp` | Assigns variable shadow depths (2, 3, 4, 6, 8, or 16) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
 | `mdl-card__title` | Defines div as a card title container | Required on "inner" title div |
 | `mdl-card__title-text` | Assigns appropriate text characteristics to card title | Required on head tag (H1 - H6) inside title div |
 | `mdl-card__subtitle-text` | Assigns text characteristics to a card subtitile | Optional. Should be a child of the title element. |
