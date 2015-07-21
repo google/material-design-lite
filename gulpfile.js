@@ -33,7 +33,6 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
-var MaterialCustomizer = require('./docs/_assets/customizer.js');
 var hostedLibsUrlPrefix = 'https://storage.googleapis.com/code.getmdl.io';
 var bucketProd = 'gs://www.getmdl.io';
 var bucketStaging = 'gs://mdl-staging';
@@ -140,7 +139,7 @@ gulp.task('styletemplates', function () {
 });
 
 // Compile and Automatically Prefix Stylesheets (production)
-gulp.task('styles', ['styletemplates'], function () {
+gulp.task('styles', function () {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'src/styleguide.scss'
@@ -246,9 +245,18 @@ gulp.task('metadata', function () {
 // Build Production Files, the Default Task
 gulp.task('default', ['clean', 'mocha'], function (cb) {
   runSequence(
-    ['styles', 'styles:gen'],
-    ['jshint', 'jscs', 'scripts', 'styles', 'assets', 'demos', 'pages',
+    ['styles', 'styles-grid'],
+    ['scripts'],
+    cb);
+});
+
+// Build production files and microsite
+gulp.task('all', ['clean', 'mocha'], function (cb) {
+  runSequence(
+    ['default', 'styletemplates', 'styles:gen'],
+    ['jshint', 'jscs', 'scripts',  'assets', 'demos', 'pages',
      'templates', 'images', 'styles-grid', 'metadata'],
+    ['zip'],
     cb);
 });
 
@@ -445,7 +453,7 @@ gulp.task('assets', function () {
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve:browsersync', ['default'], function () {
+gulp.task('serve:browsersync', function () {
   browserSync({
     notify: false,
     server: {
@@ -462,7 +470,7 @@ gulp.task('serve:browsersync', ['default'], function () {
   gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
 });
 
-gulp.task('serve', ['default'], function() {
+gulp.task('serve', function() {
   $.connect.server({
     root: 'dist',
     port: 5000,
@@ -485,6 +493,14 @@ gulp.task('serve', ['default'], function() {
 gulp.task('zip:mdl', function() {
   return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
     .pipe($.zip('mdl.zip'))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('zip:mdl-source', function() {
+  return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE',
+    'bower.json', 'package.json', './sr?/**/*', 'gulpfile.js'])
+    .pipe(gulp.dest('_release'))
+    .pipe($.zip('mdl-source.zip'))
     .pipe(gulp.dest('dist'));
 });
 
@@ -514,6 +530,8 @@ gulp.task('zip:templates', function() {
   .pipe(fileFilter.restore())
   .pipe(gulp.dest('dist'));
 });
+
+gulp.task('zip', ['zip:templates', 'zip:mdl', 'zip:mdl-source']);
 
 gulp.task('genCodeFiles', function() {
   return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/mdl-templates.zip'],
@@ -690,6 +708,7 @@ gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
     'templates:fonts', 'templates:styles']);
 
 gulp.task('styles:gen', ['styles'], function() {
+  var MaterialCustomizer = require('./docs/_assets/customizer.js');
   // TODO: This task needs refactoring once we turn MaterialCustomizer
   // into a proper Node module.
   var mc = new MaterialCustomizer();
