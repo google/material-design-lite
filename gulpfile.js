@@ -667,7 +667,7 @@ gulp.task('_release', function() {
     .pipe(gulp.dest('_release'));
 });
 
-gulp.task('publish:bower', ['_release'], function() {
+gulp.task('publish:release', ['_release'], function() {
   return gulp.src('_release')
   .pipe($.subtree({
     remote: 'origin',
