@@ -12,7 +12,7 @@ script:
   - npm install
   # ensure the build works
   # this will also run gulp test
-  - gulp
+  - gulp all
 deploy:
   bash:
     when:
