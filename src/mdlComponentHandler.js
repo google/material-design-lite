@@ -265,6 +265,25 @@ var componentHandler = (function() {
   }
 
   /**
+  * Remove a component from the list of createdComponents.
+  *
+  * @param {*} component
+  */
+  function removeCreatedComponentInternal(component) {
+    if (component === undefined) {
+      throw new Error(
+        'A component must be provided for removal from the created components.'
+      );
+    }
+    var componentIndex = createdComponents_.indexOf(component);
+    if (componentIndex === -1) {
+      throw new Error(
+        'The component could not be found in the list of created components.');
+    }
+    createdComponents_.splice(componentIndex, 1);
+  }
+
+  /**
    * Check the component for the downgrade method.
    * Execute if found.
    * Remove component from createdComponents list.
@@ -277,8 +296,8 @@ var componentHandler = (function() {
           .classConstructor.prototype
           .hasOwnProperty(downgradeMethod_)) {
       component[downgradeMethod_]();
-      var componentIndex = createdComponents_.indexOf(component);
-      createdComponents_.splice(componentIndex, 1);
+
+      removeCreatedComponentInternal(component);
 
       var upgrades = component.element_.dataset.upgraded.split(',');
       var componentPlace = upgrades.indexOf(
@@ -321,7 +340,8 @@ var componentHandler = (function() {
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
     register: registerInternal,
-    downgradeElements: downgradeNodesInternal
+    downgradeElements: downgradeNodesInternal,
+    removeCreatedComponent: removeCreatedComponentInternal
   };
 })();
 
