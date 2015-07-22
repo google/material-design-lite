@@ -131,7 +131,7 @@ MaterialDataTable.prototype.init = function() {
         var firstCell = rows[i].querySelector('td');
         if (firstCell) {
           var td = document.createElement('td');
-          if (rows[i].parentNode.nodeName.toUpperCase() === "TBODY"){
+          if (rows[i].parentNode.nodeName.toUpperCase() === 'TBODY') {
             var rowCheckbox = this.createCheckbox_(rows[i]);
             td.appendChild(rowCheckbox);
           }
