@@ -34,8 +34,8 @@ var componentHandler = (function() {
    * Searches registered components for a class we are interested in using.
    * Optionally replaces a match with passed object if specified.
    * @param {string} name The name of a class we want to use.
-   * @param {object} optReplace Optional object to replace match with.
-   * @return {object | false}
+   * @param {Object=} optReplace Optional object to replace match with.
+   * @return {Object | boolean}
    * @private
    */
   function findRegisteredClass_(name, optReplace) {
@@ -53,7 +53,7 @@ var componentHandler = (function() {
   /**
    * Returns an array of the classNames of the upgraded classes on the element.
    * @param {HTMLElement} element The element to fetch data from.
-   * @return {[string]}
+   * @return {Array<string>}
    * @private
    */
   function getUpgradedListOfElement_(element) {
@@ -78,26 +78,27 @@ var componentHandler = (function() {
   /**
    * Searches existing DOM for elements of our component type and upgrades them
    * if they have not already been upgraded.
-   * @param {string} jsClass the programatic name of the element class we need
-   * to create a new instance of.
-   * @param {string} cssClass the name of the CSS class elements of this type
-   * will have.
+   * @param {!string=} optJsClass the programatic name of the element class we
+   * need to create a new instance of.
+   * @param {!string=} optCssClass the name of the CSS class elements of this
+   * type will have.
    */
-  function upgradeDomInternal(jsClass, cssClass) {
-    if (jsClass === undefined && cssClass === undefined) {
+  function upgradeDomInternal(optJsClass, optCssClass) {
+    if (optJsClass === undefined && optCssClass === undefined) {
       for (var i = 0; i < registeredComponents_.length; i++) {
         upgradeDomInternal(registeredComponents_[i].className,
             registeredComponents_[i].cssClass);
       }
     } else {
-      if (cssClass === undefined) {
+      var jsClass = /** @type {!string} */ (optJsClass);
+      if (optCssClass === undefined) {
         var registeredClass = findRegisteredClass_(jsClass);
         if (registeredClass) {
-          cssClass = registeredClass.cssClass;
+          optCssClass = registeredClass.cssClass;
         }
       }
 
-      var elements = document.querySelectorAll('.' + cssClass);
+      var elements = document.querySelectorAll('.' + optCssClass);
       for (var n = 0; n < elements.length; n++) {
         upgradeElementInternal(elements[n], jsClass);
       }
@@ -107,7 +108,7 @@ var componentHandler = (function() {
   /**
    * Upgrades a specific element rather than all in the DOM.
    * @param {HTMLElement} element The element we wish to upgrade.
-   * @param {string} optJsClass Optional name of the class we want to upgrade
+   * @param {!string=} optJsClass Optional name of the class we want to upgrade
    * the element to.
    */
   function upgradeElementInternal(element, optJsClass) {
@@ -165,7 +166,7 @@ var componentHandler = (function() {
 
   /**
    * Upgrades a specific list of elements rather than all in the DOM.
-   * @param {HTMLElement | [HTMLElement] | NodeList | HTMLCollection} elements
+   * @param {HTMLElement | Array<HTMLElement> | NodeList | HTMLCollection} elements
    * The elements we wish to upgrade.
    */
   function upgradeElementsInternal(elements) {
@@ -189,7 +190,7 @@ var componentHandler = (function() {
 
   /**
    * Registers a class for future use and attempts to upgrade existing DOM.
-   * @param {object} config An object containing:
+   * @param {Object} config An object containing:
    * {constructor: Constructor, classAsString: string, cssClass: string}
    */
   function registerInternal(config) {
@@ -229,7 +230,7 @@ var componentHandler = (function() {
    * component type
    * @param {string} jsClass The class name of the MDL component we wish
    * to hook into for any upgrades performed.
-   * @param {function} callback The function to call upon an upgrade. This
+   * @param {!Function} callback The function to call upon an upgrade. This
    * function should expect 1 parameter - the HTMLElement which got upgraded.
    */
   function registerUpgradedCallbackInternal(jsClass, callback) {
