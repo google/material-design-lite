@@ -191,7 +191,7 @@ gulp.task('styles-grid', function () {
 });
 
 // Concatenate And Minify JavaScript
-gulp.task('scripts', function () {
+gulp.task('scripts', ['jscs', 'jshint'], function () {
   var sources = [
     // Component handler
     'src/mdlComponentHandler.js',
