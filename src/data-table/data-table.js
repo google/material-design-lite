@@ -126,7 +126,7 @@ MaterialDataTable.prototype.init = function() {
       var headerCheckbox = this.createCheckbox_(null, rows);
       th.appendChild(headerCheckbox);
       firstHeader.parentElement.insertBefore(th, firstHeader);
-      
+
       for (var i = 0; i < rows.length; i++) {
         var firstCell = rows[i].querySelector('td');
         if (firstCell) {
