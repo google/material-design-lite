@@ -2,6 +2,23 @@ html > body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
   background-color: #FAFAFA;
 }
+.docs-skip-to-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: 0.5em 0 0.5em 0.5em;
+  padding: 4px 12px;
+  background-color: rgba(0, 0, 0, .75);
+  text-decoration: none;
+  z-index: 2;
+  opacity: 0;
+}
+.docs-skip-to-content:hover,
+.docs-skip-to-content:focus,
+.docs-skip-to-content:active {
+  opacity: 1!important;
+}
 .docs-layout .docs-layout-header.mdl-layout__header {
   height: 560px;
   max-height: 50%;
