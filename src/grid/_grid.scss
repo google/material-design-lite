@@ -75,6 +75,10 @@
     padding: $grid-phone-margin - ($grid-phone-gutter / 2);
   }
 
+  .mdl-grid--hide-phone {
+    display: none !important;
+  }
+
   .mdl-cell {
     margin: $grid-phone-gutter / 2;
     @include partial-size($grid-cell-default-columns, $grid-phone-columns,
@@ -116,6 +120,10 @@
     padding: $grid-tablet-margin - ($grid-tablet-gutter / 2);
   }
 
+  .mdl-grid--hide-tablet {
+    display: none !important;
+  }
+
   .mdl-cell {
     margin: $grid-tablet-gutter / 2;
     @include partial-size($grid-cell-default-columns, $grid-tablet-columns,
@@ -155,6 +163,10 @@
 @media (min-width: $grid-desktop-breakpoint) {
   .mdl-grid {
     padding: $grid-desktop-margin - ($grid-desktop-gutter / 2);
+  }
+
+  .mdl-grid--hide-desktop {
+    display: none !important;
   }
 
   .mdl-cell {

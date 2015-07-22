@@ -100,6 +100,9 @@ The MDL CSS classes apply various predefined visual enhancements and behavioral 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
 | `mdl-grid` | Defines a container as an MDL grid component | Required on "outer" div element |
+| `mdl-grid--hide-desktop` | Hides the mdl-grid when in desktop mode | Optional on "outer" div elements |
+| `mdl-grid--hide-tablet` | Hides the mdl-grid when in tablet mode | Optional on "outer" div elements |
+| `mdl-grid--hide-phone` | Hides the mdl-grid when in phone mode | Optional on "outer" div elements |
 | `mdl-cell` | Defines a container as an MDL cell | Required on "inner" div elements |
 | `mdl-cell--N-col` | Sets the column size for the cell to N | N is 1-12 inclusive, defaults to 4; optional on "inner" div elements|
 | `mdl-cell--N-col-desktop` | Sets the column size for the cell to N in desktop mode only | N is 1-12 inclusive; optional on "inner" div elements|
