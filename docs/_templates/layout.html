@@ -82,8 +82,9 @@
       <div class="mdl-layout__header-row">
         <span class="docs-layout-title mdl-layout-title"><a href="{{page.include_prefix}}">Material<br>Design<br>Lite</a></span>
       </div>
+      <a class="docs-skip-to-content" href="#main">Skip to Content</a>
       <div class="docs-navigation__container">
-        <nav class="docs-navigation mdl-navigation">
+        <nav class="docs-navigation mdl-navigation" role="navigation">
           <a href="{{page.include_prefix}}index.html" class="mdl-navigation__link about">About</a>
           <a href="{{page.include_prefix}}started/index.html" class="mdl-navigation__link started">Getting Started</a>
           <a href="{{page.include_prefix}}templates/index.html" class="mdl-navigation__link templates">Templates</a>
@@ -104,7 +105,7 @@
       <i class="material-icons scrollindicator scrollindicator--right">keyboard_arrow_right</i>
       <i class="material-icons scrollindicator scrollindicator--left">keyboard_arrow_left</i>
     </header>
-    <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
+    <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600" id="main" role="main">
       <div class="content mdl-grid mdl-grid--no-spacing" id="content">
         <div class="subpageheader mdl-cell--12-col">{{page.title}}</div>
         {% block content %}
