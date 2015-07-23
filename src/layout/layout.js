@@ -36,7 +36,7 @@ function MaterialLayout(element) {
  * @private
  */
 MaterialLayout.prototype.Constant_ = {
-  MAX_WIDTH: '(max-width: 850px)',
+  MAX_WIDTH: '(max-width: 1024px)',
   TAB_SCROLL_PIXELS: 100,
 
   MENU_ICON: 'menu',
