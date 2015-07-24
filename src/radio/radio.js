@@ -70,7 +70,7 @@ MaterialRadio.prototype.CssClasses_ = {
 MaterialRadio.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
@@ -119,24 +119,12 @@ MaterialRadio.prototype.onMouseup_ = function(event) {
 
 /**
  * Update classes.
- * @param {HTMLElement} button The button whose classes we should update.
- * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
-MaterialRadio.prototype.updateClasses_ = function(button, label) {
+MaterialRadio.prototype.updateClasses_ = function() {
   'use strict';
-
-  if (button.disabled) {
-    label.classList.add(this.CssClasses_.IS_DISABLED);
-  } else {
-    label.classList.remove(this.CssClasses_.IS_DISABLED);
-  }
-
-  if (button.checked) {
-    label.classList.add(this.CssClasses_.IS_CHECKED);
-  } else {
-    label.classList.remove(this.CssClasses_.IS_CHECKED);
-  }
+  this.checkDisabled();
+  this.checkToggleState();
 };
 
 /**
@@ -156,6 +144,32 @@ MaterialRadio.prototype.blur_ = function(event) {
 // Public methods.
 
 /**
+* Check the components disabled state.
+* @public
+*/
+MaterialRadio.prototype.checkDisabled = function() {
+  'use strict';
+  if (this.btnElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
+  }
+};
+
+/**
+* Check the components toggled state.
+* @public
+*/
+MaterialRadio.prototype.checkToggleState = function() {
+  'use strict';
+  if (this.btnElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
+  }
+};
+
+/**
  * Disable radio.
  * @public
  */
@@ -163,7 +177,7 @@ MaterialRadio.prototype.disable = function() {
   'use strict';
 
   this.btnElement_.disabled = true;
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -174,7 +188,7 @@ MaterialRadio.prototype.enable = function() {
   'use strict';
 
   this.btnElement_.disabled = false;
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -185,7 +199,7 @@ MaterialRadio.prototype.check = function() {
   'use strict';
 
   this.btnElement_.checked = true;
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -196,7 +210,7 @@ MaterialRadio.prototype.uncheck = function() {
   'use strict';
 
   this.btnElement_.checked = false;
-  this.updateClasses_(this.btnElement_, this.element_);
+  this.updateClasses_();
 };
 
 /**
@@ -242,7 +256,7 @@ MaterialRadio.prototype.init = function() {
     this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
     this.element_.addEventListener('mouseup', this.onMouseup_.bind(this));
 
-    this.updateClasses_(this.btnElement_, this.element_);
+    this.updateClasses_();
     this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
   }
 };

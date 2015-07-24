@@ -14,17 +14,52 @@
  * limitations under the License.
  */
 
+describe('MaterialSwitch', function () {
 
-  describe('switch tests', function () {
+  function createSwitch() {
+    var label = document.createElement('label');
+    var input = document.createElement('input');
+    var labelText = document.createElement('span');
+    label.for = 'testSwitch';
+    input.id = label.for;
+    label.className = 'mdl-switch mdl-js-switch';
+    input.type = 'checkbox';
+    input.className = 'mdl-switch__input';
+    label.appendChild(input);
+    labelText.text = 'Sound off/on';
+    labelText.className = 'mdl-switch__label';
+    label.appendChild(labelText);
+    return label;
+  };
 
-    it('Should have MaterialSwitch globally available', function () {
-      expect(MaterialSwitch).to.be.a('function');
-    });
-
-    it('Should be upgraded to a MaterialSwitch successfully', function () {
-      var el = document.createElement('div');
-      el.innerHTML = '<input type="checkbox" class="mdl-switch__input">';
-      componentHandler.upgradeElement(el, 'MaterialSwitch');
-      expect($(el)).to.have.data('upgraded', ',MaterialSwitch');
-    });
+  it('should be globally available', function () {
+    expect(MaterialSwitch).to.be.a('function');
   });
+
+  it('should upgrade successfully', function () {
+    var el = createSwitch();
+    componentHandler.upgradeElement(el, 'MaterialSwitch');
+    expect($(el)).to.have.data('upgraded', ',MaterialSwitch');
+  });
+
+  it('should get disabled class after being checked', function() {
+    var switchElement = createSwitch();
+    componentHandler.upgradeElement(switchElement);
+    switchElement.querySelector('input').disabled = true;
+    switchElement.MaterialSwitch.checkDisabled();
+    expect((function() {
+      return switchElement.className;
+    }())).to.equal('mdl-switch mdl-js-switch is-upgraded is-disabled');
+  });
+
+  it('should get checked class after checking toggle state', function() {
+    var switchElement = createSwitch();
+    componentHandler.upgradeElement(switchElement);
+    switchElement.querySelector('input').checked = true;
+    switchElement.MaterialSwitch.checkToggleState();
+    expect((function() {
+      return switchElement.className;
+    }())).to.equal('mdl-switch mdl-js-switch is-upgraded is-checked');
+  });
+
+});

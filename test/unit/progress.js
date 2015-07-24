@@ -14,28 +14,34 @@
  * limitations under the License.
  */
 
+describe('MaterialProgress', function () {
 
-describe('progress tests', function () {
-
-  it('Should have MaterialProgress globally available', function () {
+  it('should be globally available', function () {
     expect(MaterialProgress).to.be.a('function');
   });
 
-  it('Should be upgraded to a MaterialProgress successfully', function () {
+  it('should upgrade successfully', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialProgress');
     expect($(el)).to.have.data('upgraded', ',MaterialProgress');
   });
 
-  it('Should have a setProgress method', function () {
+  it('should be a widget', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialProgress');
-    expect(el.MaterialProgress.setProgress).to.be.a('function');
+    expect(el.MaterialProgress).to.be.a('object');
   });
 
-  it('Should have a setBuffer method', function () {
+  it('should have public methods available', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialProgress');
-    expect(el.MaterialProgress.setBuffer).to.be.a('function');
+    methods = [
+      'setBuffer',
+      'setProgress'
+    ];
+    methods.forEach(function(item) {
+      expect(el.MaterialProgress[item]).to.be.a('function');
+    });
   });
+
 });

@@ -14,17 +14,76 @@
  * limitations under the License.
  */
 
+describe('MaterialRadio', function () {
 
-  describe('radio tests', function () {
+  function createRadio() {
+    var label = document.createElement('label');
+    var input = document.createElement('input');
+    var labelText = document.createElement('span');
+    label.for = 'testRadio';
+    input.id = label.for;
+    label.className = 'mdl-radio mdl-js-radio';
+    input.className = 'mdl-radio__button';
+    input.type = 'radio';
+    input.name = 'flash';
+    input.value = 'on';
+    label.appendChild(input);
+    labelText.className = 'mdl-radio__label';
+    labelText.text = 'Always on';
+    label.appendChild(labelText);
+    return label;
+  };
 
-    it('Should have MaterialRadio globally available', function () {
-      expect(MaterialRadio).to.be.a('function');
-    });
+  it('should be globally available', function () {
+    expect(MaterialRadio).to.be.a('function');
+  });
 
-    it('Should be upgraded to a MaterialRadio successfully', function () {
-      var el = document.createElement('div');
-      el.innerHTML = '<input type="radio" class="mdl-radio__button">';
-      componentHandler.upgradeElement(el, 'MaterialRadio');
-      expect($(el)).to.have.data('upgraded', ',MaterialRadio');
+  it('should upgrade successfully', function () {
+    var el = createRadio();
+    componentHandler.upgradeElement(el, 'MaterialRadio');
+    expect($(el)).to.have.data('upgraded', ',MaterialRadio');
+  });
+
+  it('should be a widget', function() {
+    var radio = createRadio();
+    componentHandler.upgradeElement(radio);
+    expect(radio.MaterialRadio).to.be.a('object');
+  });
+
+  it('should have all public methods available in widget', function() {
+    var radio = createRadio();
+    componentHandler.upgradeElement(radio);
+    var methods = [
+      'disable',
+      'enable',
+      'uncheck',
+      'check',
+      'checkDisabled',
+      'checkToggleState'
+    ];
+    methods.forEach(function(item) {
+      expect(radio.MaterialRadio[item]).to.be.a('function');
     });
   });
+
+  it('should get disabled class after being checked', function() {
+    var radio = createRadio();
+    componentHandler.upgradeElement(radio);
+    radio.querySelector('input').disabled = true;
+    radio.MaterialRadio.checkDisabled();
+    expect((function() {
+      return radio.className;
+    }())).to.equal('mdl-radio mdl-js-radio is-upgraded is-disabled');
+  });
+
+  it('should get checked class after checking toggle state', function() {
+    var radio = createRadio();
+    componentHandler.upgradeElement(radio);
+    radio.querySelector('input').checked = true;
+    radio.MaterialRadio.checkToggleState();
+    expect((function() {
+      return radio.className;
+    }())).to.equal('mdl-radio mdl-js-radio is-upgraded is-checked');
+  });
+
+});

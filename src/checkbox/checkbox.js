@@ -114,18 +114,8 @@ MaterialCheckbox.prototype.onMouseUp_ = function(event) {
  */
 MaterialCheckbox.prototype.updateClasses_ = function() {
   'use strict';
-
-  if (this.inputElement_.disabled) {
-    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
-  } else {
-    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
-  }
-
-  if (this.inputElement_.checked) {
-    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
-  } else {
-    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
-  }
+  this.checkDisabled();
+  this.checkToggleState();
 };
 
 /**
@@ -143,6 +133,32 @@ MaterialCheckbox.prototype.blur_ = function(event) {
 };
 
 // Public methods.
+
+/**
+* Check the inputs toggle state and update display.
+* @public
+*/
+MaterialCheckbox.prototype.checkToggleState = function() {
+  'use strict';
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
+  }
+};
+
+/**
+* Check the inputs disabled state and update display.
+* @public
+*/
+MaterialCheckbox.prototype.checkDisabled = function() {
+  'use strict';
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
+  }
+};
 
 /**
  * Disable checkbox.
