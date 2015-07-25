@@ -143,10 +143,8 @@ function MaterialTab(tab, ctx) {
   }
 }
 
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
+export default {
   constructor: MaterialTabs,
   classAsString: 'MaterialTabs',
   cssClass: 'mdl-js-tabs'
-});
+};

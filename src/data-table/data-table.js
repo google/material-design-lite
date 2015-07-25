@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+import componentHandler from '../mdlComponentHandler';
+
 /**
  * Class constructor for Data Table Card MDL component.
  * Implements MDL component design pattern defined at:
@@ -140,10 +142,8 @@ MaterialDataTable.prototype.init = function() {
   }
 };
 
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
+export default {
   constructor: MaterialDataTable,
   classAsString: 'MaterialDataTable',
   cssClass: 'mdl-js-data-table'
-});
+};

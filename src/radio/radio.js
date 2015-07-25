@@ -247,11 +247,9 @@ MaterialRadio.prototype.init = function() {
   }
 };
 
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
+export default {
   constructor: MaterialRadio,
   classAsString: 'MaterialRadio',
   cssClass: 'mdl-js-radio',
   widget: true
-});
+};

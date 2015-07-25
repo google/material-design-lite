@@ -237,11 +237,9 @@ MaterialTextfield.prototype.mdlDowngrade_ = function() {
   }
 };
 
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
+export default {
   constructor: MaterialTextfield,
   classAsString: 'MaterialTextfield',
   cssClass: 'mdl-js-textfield',
   widget: true
-});
+};
