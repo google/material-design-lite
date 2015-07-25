@@ -234,11 +234,9 @@ MaterialRipple.prototype.mdlDowngrade_ = function() {
   this.element_.removeEventListener('blur', this.boundUpHandler);
 };
 
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
+export default {
   constructor: MaterialRipple,
   classAsString: 'MaterialRipple',
   cssClass: 'mdl-js-ripple-effect',
   widget: false
-});
+};

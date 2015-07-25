@@ -50,26 +50,6 @@ describe('componentHandler', function() {
     expect(componentHandler.downgradeElements).to.be.a('function');
   });
 
-  it('should throw an error if a duplicate classAsString is provided for registration', function() {
-    expect(function() {
-      componentHandler.register({
-        constructor: MaterialButton,
-        classAsString: 'MaterialButton',
-        cssClass: 'test-js-button'
-      });
-    }).to.throw('The provided className has already been registered');
-  });
-
-  it('should throw an error if a duplicate cssClass is provided for registration', function() {
-    expect(function() {
-      componentHandler.register({
-        constructor: MaterialButton,
-        classAsString: 'TestButton',
-        cssClass: 'mdl-js-button'
-      });
-    }).to.throw('The provided cssClass has already been registered');
-  });
-
   it('should throw an error if the object provided has the component config property', function() {
     var testComponent = function() {};
     testComponent.prototype.mdlComponentConfigInternal_ = {};

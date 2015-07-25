@@ -130,11 +130,9 @@ MaterialSpinner.prototype.init = function() {
   }
 };
 
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
+export default {
   constructor: MaterialSpinner,
   classAsString: 'MaterialSpinner',
   cssClass: 'mdl-js-spinner',
   widget: true
-});
+};

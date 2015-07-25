@@ -458,11 +458,9 @@ MaterialMenu.prototype.toggle = function(evt) {
   }
 };
 
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
+export default {
   constructor: MaterialMenu,
   classAsString: 'MaterialMenu',
   cssClass: 'mdl-js-menu',
   widget: true
-});
+};

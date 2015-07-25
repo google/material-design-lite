@@ -21,8 +21,11 @@
 
 // Include Gulp & Tools We'll Use
 var gulp = require('gulp');
+var gutil = require('gulp-util');
+var glob = require('glob');
 var fs = require('fs');
 var merge = require('merge-stream');
+var webpack = require('webpack');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
@@ -34,6 +37,7 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
+var clone = require('lodash.clone');
 var hostedLibsUrlPrefix = 'https://storage.googleapis.com/code.getmdl.io';
 var bucketProd = 'gs://www.getmdl.io';
 var bucketStaging = 'gs://mdl-staging';
@@ -74,7 +78,7 @@ gulp.task('jshint', function () {
 gulp.task('jscs', function () {
   return gulp.src(['src/**/*.js' , 'gulpfile.js'])
     .pipe(reload({stream: true, once: true}))
-    .pipe($.jscs())
+    .pipe($.jscs({esnext: true}))
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
 
@@ -190,47 +194,53 @@ gulp.task('styles-grid', function () {
     .pipe($.size({title: 'styles-grid'}));
 });
 
-// Concatenate And Minify JavaScript
-gulp.task('scripts', ['jscs', 'jshint'], function () {
-  var sources = [
-    // Component handler
-    'src/mdlComponentHandler.js',
-    // Polyfills/dependencies
-    'src/third_party/**/*.js',
-    // Base components
-    'src/button/button.js',
-    'src/checkbox/checkbox.js',
-    'src/icon-toggle/icon-toggle.js',
-    'src/menu/menu.js',
-    'src/progress/progress.js',
-    'src/radio/radio.js',
-    'src/slider/slider.js',
-    'src/spinner/spinner.js',
-    'src/switch/switch.js',
-    'src/tabs/tabs.js',
-    'src/textfield/textfield.js',
-    'src/tooltip/tooltip.js',
-    // Complex components (which reuse base components)
-    'src/layout/layout.js',
-    'src/data-table/data-table.js',
-    // And finally, the ripples
-    'src/ripple/ripple.js'
+var sources = glob.sync('./src/third_party/**/*.js');
+sources.push('./src/index.js');
+sources.push('./src/mdlComponentAutoUpgrade.js');
+var defaultWebpackConfig = {
+  entry: sources,
+  output: {
+    path: path.join(__dirname, 'dist'),
+    publicPath: 'dist/',
+    filename: 'material.js'
+  },
+  module: {
+    loaders: [
+      {test: /\.js$/, loader: 'babel-loader'},
+      {test: require.resolve("./src/index"), loader: "expose?MaterialDesignLite" }
+    ]
+  }
+};
+
+gulp.task('webpack', ['jscs', 'jshint'], function (cb) {
+  webpack(defaultWebpackConfig, function(err, stats) {
+    if (err) {
+      throw new gutil.PluginError('webpack', err);
+    }
+    cb();
+  });
+});
+gulp.task('webpack-min', ['jscs', 'jshint'], function (cb) {
+  var config = clone(defaultWebpackConfig, true);
+  config.output.filename = 'material.min.js';
+  config.devtool = 'sourcemap';
+  config.plugins = [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({output: {comments: false}}),
+    new webpack.BannerPlugin(gutil.template(banner, {pkg: pkg, file: null}), {raw: true})
   ];
-  return gulp.src(sources)
-    .pipe($.sourcemaps.init())
-    // Concatenate Scripts
-    .pipe($.concat('material.js'))
-    .pipe(gulp.dest('./dist'))
-    // Minify Scripts
-    .pipe($.uglify({
-      sourceRoot: '.',
-      sourceMapIncludeSources: true
-    }))
-    .pipe($.header(banner, {pkg: pkg}))
-    .pipe($.concat('material.min.js'))
-    // Write Source Maps
-    .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist'))
+
+  webpack(config, function(err, stats) {
+    if (err) {
+      throw new gutil.PluginError('webpack', err);
+    }
+    cb();
+  });
+});
+
+gulp.task('scripts', ['webpack', 'webpack-min'], function () {
+  return gulp.src('dist/material*.js')
     .pipe($.size({title: 'scripts'}));
 });
 
@@ -263,7 +273,7 @@ gulp.task('all', ['clean', 'mocha'], function (cb) {
 
 // ***** Testing tasks ***** //
 
-gulp.task('mocha', ['styles'], function () {
+gulp.task('mocha', ['styles', 'webpack'], function () {
   return gulp.src('./test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });

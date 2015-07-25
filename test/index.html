@@ -17,7 +17,6 @@
 <!-- <script src="../js/material.js"></script> -->
 <!-- The following components rely on the requestAnimFrame shim (incomplete list): -->
 <!-- menu -->
-<script src="../src/third_party/rAF.js"></script>
 <script>
   // Only necessary for PhantomJS 1.x
   Function.prototype.bind = Function.prototype.bind || function(to){
@@ -41,22 +40,16 @@
     return bound;
   };
 </script>
-<script src="../src/mdlComponentHandler.js"></script>
-<script src="../src/button/button.js"></script>
-<script src="../src/checkbox/checkbox.js"></script>
-<script src="../src/icon-toggle/icon-toggle.js"></script>
-<script src="../src/layout/layout.js"></script>
-<script src="../src/progress/progress.js"></script>
-<script src="../src/radio/radio.js"></script>
-<script src="../src/ripple/ripple.js"></script>
-<script src="../src/slider/slider.js"></script>
-<script src="../src/spinner/spinner.js"></script>
-<script src="../src/switch/switch.js"></script>
-<script src="../src/tabs/tabs.js"></script>
-<script src="../src/textfield/textfield.js"></script>
-<script src="../src/tooltip/tooltip.js"></script>
-<script src="../src/menu/menu.js"></script>
+<script src="../dist/material.js"></script>
 <script>
+  componentHandler = window.MaterialDesignLite.ComponentHandler;
+  for(var k in window.MaterialDesignLite) {
+    var ctor = window.MaterialDesignLite[k].constructor;
+    if (ctor) {
+      window[k] = ctor;
+    }
+  }
+
   // mocha.ui('bdd');
   mocha.setup('bdd');
   mocha.reporter('html');
