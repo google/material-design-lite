@@ -243,6 +243,12 @@
       width: calc(100% - #{$layout-drawer-width});
     }
 
+    .mdl-layout--fixed-drawer > & {
+      .mdl-layout__header-row {
+        padding-left: 40px;
+      }
+    }
+
     & > .mdl-layout-icon {
       position: absolute;
       left: $layout-header-desktop-indent;
