@@ -107,24 +107,12 @@ MaterialSwitch.prototype.onMouseUp_ = function(event) {
 
 /**
  * Handle class updates.
- * @param {HTMLElement} button The button whose classes we should update.
- * @param {HTMLElement} label The label whose classes we should update.
  * @private
  */
 MaterialSwitch.prototype.updateClasses_ = function() {
   'use strict';
-
-  if (this.inputElement_.disabled) {
-    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
-  } else {
-    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
-  }
-
-  if (this.inputElement_.checked) {
-    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
-  } else {
-    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
-  }
+  this.checkDisabled();
+  this.checkToggleState();
 };
 
 /**
@@ -142,6 +130,32 @@ MaterialSwitch.prototype.blur_ = function(event) {
 };
 
 // Public methods.
+
+/**
+* Check the components disabled state.
+* @public
+*/
+MaterialSwitch.prototype.checkDisabled = function() {
+  'use strict';
+  if (this.inputElement_.disabled) {
+    this.element_.classList.add(this.CssClasses_.IS_DISABLED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
+  }
+};
+
+/**
+* Check the components toggled state.
+* @public
+*/
+MaterialSwitch.prototype.checkToggleState = function() {
+  'use strict';
+  if (this.inputElement_.checked) {
+    this.element_.classList.add(this.CssClasses_.IS_CHECKED);
+  } else {
+    this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
+  }
+};
 
 /**
  * Disable switch.

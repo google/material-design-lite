@@ -14,17 +14,58 @@
  * limitations under the License.
  */
 
+describe('MaterialTextfield', function () {
 
-  describe('textfield tests', function () {
+  function createSingleLineTextfield() {
+    var container = document.createElement('div');
+    var input = document.createElement('input');
+    var label = document.createElement('label');
+    var errorMessage = document.createElement('span');
+    container.className = 'mdl-textfield mdl-js-textfield';
+    input.className = 'mdl-textfield__input';
+    input.pattern = '[0-9]';
+    input.id = 'testInput';
+    label.for = input.id;
+    label.className = 'mdl-textfield__label';
+    label.text = 'Number';
+    errorMessage.className = 'mdl-textfield__error';
+    errorMessage.text = 'Positive number only.';
+    container.appendChild(input);
+    container.appendChild(label);
+    container.appendChild(errorMessage);
+    return container;
+  };
 
-    it('Should have MaterialTextfield globally available', function () {
-      expect(MaterialTextfield).to.be.a('function');
-    });
+  it('should be globally available', function () {
+    expect(MaterialTextfield).to.be.a('function');
+  });
 
-    it('Should be upgraded to a MaterialTextfield successfully', function () {
-      var el = document.createElement('div');
-      el.innerHTML = '<input type="text" class="mdl-checkbox__input">';
-      componentHandler.upgradeElement(el, 'MaterialTextfield');
-      expect($(el)).to.have.data('upgraded', ',MaterialTextfield');
+  it('should upgrade successfully', function () {
+    var el = createSingleLineTextfield();
+    componentHandler.upgradeElement(el, 'MaterialTextfield');
+    expect($(el)).to.have.data('upgraded', ',MaterialTextfield');
+  });
+
+  it('should be a widget', function () {
+    var el = createSingleLineTextfield();
+    componentHandler.upgradeElement(el, 'MaterialTextfield');
+    expect(el.MaterialTextfield).to.be.a('object');
+  });
+
+  it('should have public methods available via widget', function () {
+    var el = createSingleLineTextfield();
+    componentHandler.upgradeElement(el, 'MaterialTextfield');
+    var methods = [
+      'checkDisabled',
+      'checkValidity',
+      'checkDirty',
+      'disable',
+      'enable',
+      'change'
+    ];
+    methods.forEach(function(item) {
+      expect(el.MaterialTextfield[item]).to.be.a('function');
     });
   });
+
+});

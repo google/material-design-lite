@@ -14,17 +14,52 @@
  * limitations under the License.
  */
 
+describe('MaterialCheckbox', function () {
 
-  describe('checkbox tests', function () {
+  function createCheckbox() {
+    var label = document.createElement('label'),
+    input = document.createElement('input'),
+    labelText = document.createElement('span');
+    label.for = 'testCheckbox';
+    label.className = 'mdl-checkbox mdl-js-checkbox';
+    input.type = 'checkbox';
+    input.id = 'testCheckbox';
+    input.className = 'mdl-checkbox__input';
+    label.appendChild(input);
+    labelText.className = 'mdl-checkbox__label';
+    labelText.text = 'Test Checkbox';
+    label.appendChild(labelText);
+    return label;
+  };
 
-    it('Should have MaterialCheckbox globally available', function () {
-      expect(MaterialCheckbox).to.be.a('function');
-    });
-
-    it('Should be upgraded to a MaterialCheckbox successfully', function () {
-      var el = document.createElement('div');
-      el.innerHTML = '<input type="checkbox" class="mdl-checkbox__input">';
-      componentHandler.upgradeElement(el, 'MaterialCheckbox');
-      expect($(el)).to.have.data('upgraded', ',MaterialCheckbox');
-    });
+  it('should be globally available', function () {
+    expect(MaterialCheckbox).to.be.a('function');
   });
+
+  it('should upgrade successfully', function () {
+    var el = createCheckbox();
+    componentHandler.upgradeElement(el, 'MaterialCheckbox');
+    expect($(el)).to.have.data('upgraded', ',MaterialCheckbox');
+  });
+
+  it('should get disabled class after being checked', function() {
+    var checkbox = createCheckbox();
+    componentHandler.upgradeElement(checkbox);
+    checkbox.querySelector('input').disabled = true;
+    checkbox.MaterialCheckbox.checkDisabled();
+    expect((function() {
+      return checkbox.className;
+    }())).to.equal('mdl-checkbox mdl-js-checkbox is-upgraded is-disabled');
+  });
+
+  it('should get checked class after checking toggle state', function() {
+    var checkbox = createCheckbox();
+    componentHandler.upgradeElement(checkbox);
+    checkbox.querySelector('input').checked = true;
+    checkbox.MaterialCheckbox.checkToggleState();
+    expect((function() {
+      return checkbox.className;
+    }())).to.equal('mdl-checkbox mdl-js-checkbox is-upgraded is-checked');
+  });
+
+});

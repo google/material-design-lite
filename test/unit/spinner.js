@@ -14,27 +14,45 @@
  * limitations under the License.
  */
 
+describe('MaterialSpinner', function () {
 
-describe('spinner tests', function () {
-
-  it('Should have MaterialSpinner globally available', function () {
+  it('should be globally available', function () {
     expect(MaterialSpinner).to.be.a('function');
   });
 
-  it('Should be upgraded to a MaterialSpinner successfully', function () {
+  it('should upgrade successfully', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
     expect($(el)).to.have.data('upgraded', ',MaterialSpinner');
   });
 
-  it('Should start a MaterialSpinner successfully', function () {
+  it('should be a widget', function () {
+    var el = document.createElement('div');
+    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    expect(el.MaterialSpinner).to.be.a('object');
+  });
+
+  it('should have public methods available', function() {
+    var el = document.createElement('div');
+    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    var methods = [
+      'start',
+      'stop',
+      'createLayer'
+    ];
+    methods.forEach(function(item) {
+      expect(el.MaterialSpinner[item]).to.be.a('function');
+    });
+  });
+
+  it('should start successfully', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
     el.MaterialSpinner.start();
     expect($(el)).to.have.class('is-active');
   });
 
-  it('Should stop a MaterialSpinner successfully', function () {
+  it('should stop successfully', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
     el.MaterialSpinner.start();
@@ -42,7 +60,7 @@ describe('spinner tests', function () {
     expect($(el)).to.not.have.class('is-active');
   });
 
-  it('Creates MaterialSpinner layers successfully', function () {
+  it('should create layers successfully', function () {
     var el = document.createElement('div');
     componentHandler.upgradeElement(el, 'MaterialSpinner');
     var html = el.innerHTML;
@@ -53,4 +71,5 @@ describe('spinner tests', function () {
     expect(html).to.contain('mdl-spinner__layer-4');
     expect(html).to.contain('mdl-spinner__circle');
   });
+
 });

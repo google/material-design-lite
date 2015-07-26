@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
+describe('MaterialRipple', function () {
 
-  describe('ripple tests', function () {
-
-    it('Should have MaterialRipple globally available', function () {
-      expect(MaterialRipple).to.be.a('function');
-    });
-
+  it('should be globally available', function () {
+    expect(MaterialRipple).to.be.a('function');
   });
+
+});

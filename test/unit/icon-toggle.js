@@ -14,17 +14,32 @@
  * limitations under the License.
  */
 
+describe('MaterialIconToggle', function () {
 
-  describe('icon-toggle tests', function () {
+  function createToggle() {
+    var label = document.createElement('label');
+    var input = document.createElement('input');
+    var icon = document.createElement('i');
+    label.className = 'mdl-icon-toggle mdl-js-icon-toggle';
+    label.for = 'testIconToggle';
+    input.id = label.for;
+    input.type = 'checkbox';
+    input.className = 'mdl-icon-toggle__input';
+    label.appendChild(input);
+    icon.className = 'mdl-icon-toggle__label material-icons';
+    icon.text = 'format_bold';
+    label.appendChild(icon);
+    return label;
+  };
 
-    it('Should have MaterialIconToggle globally available', function () {
-      expect(MaterialIconToggle).to.be.a('function');
-    });
-
-    it('Should be upgraded to a MaterialIconToggle successfully', function () {
-      var el = document.createElement('div');
-      el.innerHTML = '<input type="checkbox" class="mdl-icon-toggle__input">';
-      componentHandler.upgradeElement(el, 'MaterialIconToggle');
-      expect($(el)).to.have.data('upgraded', ',MaterialIconToggle');
-    });
+  it('should be globally available', function () {
+    expect(MaterialIconToggle).to.be.a('function');
   });
+
+  it('should upgrade successfully', function () {
+    var el = createToggle();
+    componentHandler.upgradeElement(el, 'MaterialIconToggle');
+    expect($(el)).to.have.data('upgraded', ',MaterialIconToggle');
+  });
+
+});
