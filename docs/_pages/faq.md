@@ -67,7 +67,7 @@ Note: the MDL site itself attempts to use progressive enhancement where possible
 
 <h2 id="browser-support">Which browsers does MDL support?</h2>
 
-The complete MDL experience should work in the last two versions of all evergreen browsers, whilst we gracefully degrade to CSS-only in browsers like IE9 that don’t pass our [Cutting-the-mustard](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L262) test.
+The complete MDL experience should work in the last two versions of all evergreen browsers, whilst we gracefully degrade to CSS-only in browsers like IE9 that don’t pass our [Cutting-the-mustard](https://github.com/google/material-design-lite/blob/9e6c6ec9237715bfa04b307f786e9073f943e6be/src/mdlComponentHandler.js#L333) test.
 
 Our [browser compatibility matrix](https://github.com/google/material-design-lite/#browser-support) has the most up to date information on the browsers we officially support. For components, at minimum we require support for [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) and [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), which can be [polyfilled](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) as needed. Our Templates will work in IE10+, primarily due to our use of Flexbox.
 
