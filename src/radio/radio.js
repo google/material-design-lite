@@ -70,8 +70,6 @@ MaterialRadio.prototype.CssClasses_ = {
 MaterialRadio.prototype.onChange_ = function(event) {
   'use strict';
 
-  this.updateClasses_();
-
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
   var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
@@ -79,7 +77,7 @@ MaterialRadio.prototype.onChange_ = function(event) {
     var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
     // Different name == different group, so no point updating those.
     if (button.getAttribute('name') === this.btnElement_.getAttribute('name')) {
-      this.updateClasses_(button, radios[i]);
+      radios[i].MaterialRadio.updateClasses_();
     }
   }
 };
