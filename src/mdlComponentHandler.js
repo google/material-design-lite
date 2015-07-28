@@ -47,8 +47,12 @@ var Component;  // jshint ignore:line
 var componentHandler = (function() {
   'use strict';
 
-  /** @type {!Array<ComponentConfig>} */ var registeredComponents_ = [];
-  /** @type {!Array<Component>} */ var createdComponents_ = [];
+  /** @type {!Array<ComponentConfig>} */
+  var registeredComponents_ = [];
+
+  /** @type {!Array<Component>} */
+  var createdComponents_ = [];
+
   var downgradeMethod_ = 'mdlDowngrade_';
   var componentConfigProperty_ = 'mdlComponentConfigInternal_';
 
