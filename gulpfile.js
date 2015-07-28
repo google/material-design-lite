@@ -706,10 +706,11 @@ gulp.task('templates', ['templates:static', 'templates:images', 'templates:mdl',
 
 gulp.task('styles:gen', ['styles'], function() {
   var MaterialCustomizer = require('./docs/_assets/customizer.js');
+  var templatePath = path.join(__dirname, 'dist', 'material.min.css.template');
   // TODO: This task needs refactoring once we turn MaterialCustomizer
   // into a proper Node module.
   var mc = new MaterialCustomizer();
-  mc.template = fs.readFileSync('./dist/material.min.css.template').toString();
+  mc.template = fs.readFileSync(templatePath).toString();
 
   var stream = gulp.src('');
   mc.paletteIndices.forEach(function(primary) {
