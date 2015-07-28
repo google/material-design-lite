@@ -22,7 +22,7 @@ describe('MaterialButton', function () {
 
   it('should ugprade successfully', function () {
     var el = document.createElement('button');
-    componentHandler.upgradeElement(el, 'MaterialButton');
+    mdlComponentHandler.upgradeElement(el, 'MaterialButton');
     expect($(el)).to.have.data('upgraded', ',MaterialButton');
   });
 
@@ -30,7 +30,7 @@ describe('MaterialButton', function () {
     var el = document.createElement('div');
     el.innerHTML = '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Raised</button>';
     var btn = el.firstChild;
-    componentHandler.upgradeElement(btn, 'MaterialButton');
+    mdlComponentHandler.upgradeElement(btn, 'MaterialButton');
     expect($(btn.childNodes[1])).to.have.class('mdl-button__ripple-container');
     expect($(btn.childNodes[1].firstChild)).to.have.class('mdl-ripple');
   });
@@ -39,7 +39,7 @@ describe('MaterialButton', function () {
     var el = document.createElement('div');
     el.innerHTML = '<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">♥</button>';
     var btn = el.firstChild;
-    componentHandler.upgradeElement(btn, 'MaterialButton');
+    mdlComponentHandler.upgradeElement(btn, 'MaterialButton');
     expect($(btn.childNodes[1])).to.have.class('mdl-button__ripple-container');
     expect($(btn.childNodes[1].firstChild)).to.have.class('mdl-ripple');
   });

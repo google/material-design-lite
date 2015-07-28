@@ -38,13 +38,13 @@ describe('MaterialSwitch', function () {
 
   it('should upgrade successfully', function () {
     var el = createSwitch();
-    componentHandler.upgradeElement(el, 'MaterialSwitch');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSwitch');
     expect($(el)).to.have.data('upgraded', ',MaterialSwitch');
   });
 
   it('should get disabled class after being checked', function() {
     var switchElement = createSwitch();
-    componentHandler.upgradeElement(switchElement);
+    mdlComponentHandler.upgradeElement(switchElement);
     switchElement.querySelector('input').disabled = true;
     switchElement.MaterialSwitch.checkDisabled();
     expect((function() {
@@ -54,7 +54,7 @@ describe('MaterialSwitch', function () {
 
   it('should get checked class after checking toggle state', function() {
     var switchElement = createSwitch();
-    componentHandler.upgradeElement(switchElement);
+    mdlComponentHandler.upgradeElement(switchElement);
     switchElement.querySelector('input').checked = true;
     switchElement.MaterialSwitch.checkToggleState();
     expect((function() {

@@ -29,7 +29,7 @@ describe('MaterialLayout', function () {
     var parent = document.createElement('div');
     parent.appendChild(el); // MaterialLayout.init() expects a parent
 
-    componentHandler.upgradeElement(el, 'MaterialLayout');
+    mdlComponentHandler.upgradeElement(el, 'MaterialLayout');
     expect($(el)).to.have.data('upgraded', ',MaterialLayout');
   });
 

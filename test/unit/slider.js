@@ -27,7 +27,7 @@ describe('MaterialSlider', function () {
     var parent = document.createElement('div');
     parent.appendChild(el);
 
-    componentHandler.upgradeElement(el, 'MaterialSlider');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSlider');
     expect($(el)).to.have.data('upgraded', ',MaterialSlider');
   });
 

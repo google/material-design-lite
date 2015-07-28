@@ -103,9 +103,9 @@ DemoAnimation.prototype.init = function() {
   }
 };
 
-// The component registers itself. It can assume componentHandler is available
+// The component registers itself. It can assume mdlComponentHandler is available
 // in the global scope.
-componentHandler.register({
+mdlComponentHandler.register({
   constructor: DemoAnimation,
   classAsString: 'DemoAnimation',
   cssClass: 'demo-js-animation'

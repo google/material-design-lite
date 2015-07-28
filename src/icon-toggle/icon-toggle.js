@@ -254,9 +254,9 @@ MaterialIconToggle.prototype.mdlDowngrade_ = function() {
   this.element_.removeEventListener('mouseup', this.boundElementOnMouseUp);
 };
 
-// The component registers itself. It can assume componentHandler is available
+// The component registers itself. It can assume mdlComponentHandler is available
 // in the global scope.
-componentHandler.register({
+mdlComponentHandler.register({
   constructor: MaterialIconToggle,
   classAsString: 'MaterialIconToggle',
   cssClass: 'mdl-js-icon-toggle',

@@ -22,19 +22,19 @@ describe('MaterialProgress', function () {
 
   it('should upgrade successfully', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialProgress');
+    mdlComponentHandler.upgradeElement(el, 'MaterialProgress');
     expect($(el)).to.have.data('upgraded', ',MaterialProgress');
   });
 
   it('should be a widget', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialProgress');
+    mdlComponentHandler.upgradeElement(el, 'MaterialProgress');
     expect(el.MaterialProgress).to.be.a('object');
   });
 
   it('should have public methods available', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialProgress');
+    mdlComponentHandler.upgradeElement(el, 'MaterialProgress');
     methods = [
       'setBuffer',
       'setProgress'

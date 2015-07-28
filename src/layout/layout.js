@@ -425,9 +425,9 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
   }
 }
 
-// The component registers itself. It can assume componentHandler is available
+// The component registers itself. It can assume mdlComponentHandler is available
 // in the global scope.
-componentHandler.register({
+mdlComponentHandler.register({
   constructor: MaterialLayout,
   classAsString: 'MaterialLayout',
   cssClass: 'mdl-js-layout'

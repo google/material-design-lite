@@ -271,9 +271,9 @@ MaterialCheckbox.prototype.mdlDowngrade_ = function() {
   this.element_.removeEventListener('mouseup', this.boundElementMouseUp);
 };
 
-// The component registers itself. It can assume componentHandler is available
+// The component registers itself. It can assume mdlComponentHandler is available
 // in the global scope.
-componentHandler.register({
+mdlComponentHandler.register({
   constructor: MaterialCheckbox,
   classAsString: 'MaterialCheckbox',
   cssClass: 'mdl-js-checkbox',

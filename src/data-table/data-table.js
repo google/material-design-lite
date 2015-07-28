@@ -104,7 +104,7 @@ MaterialDataTable.prototype.createCheckbox_ = function(row, rows) {
     checkbox.addEventListener('change', this.selectRow_(checkbox, null, rows));
   }
   label.appendChild(checkbox);
-  componentHandler.upgradeElement(label, 'MaterialCheckbox');
+  mdlComponentHandler.upgradeElement(label, 'MaterialCheckbox');
   return label;
 };
 
@@ -140,9 +140,9 @@ MaterialDataTable.prototype.init = function() {
   }
 };
 
-// The component registers itself. It can assume componentHandler is available
+// The component registers itself. It can assume mdlComponentHandler is available
 // in the global scope.
-componentHandler.register({
+mdlComponentHandler.register({
   constructor: MaterialDataTable,
   classAsString: 'MaterialDataTable',
   cssClass: 'mdl-js-data-table'

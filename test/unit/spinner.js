@@ -22,19 +22,19 @@ describe('MaterialSpinner', function () {
 
   it('should upgrade successfully', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSpinner');
     expect($(el)).to.have.data('upgraded', ',MaterialSpinner');
   });
 
   it('should be a widget', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSpinner');
     expect(el.MaterialSpinner).to.be.a('object');
   });
 
   it('should have public methods available', function() {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSpinner');
     var methods = [
       'start',
       'stop',
@@ -47,14 +47,14 @@ describe('MaterialSpinner', function () {
 
   it('should start successfully', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSpinner');
     el.MaterialSpinner.start();
     expect($(el)).to.have.class('is-active');
   });
 
   it('should stop successfully', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSpinner');
     el.MaterialSpinner.start();
     el.MaterialSpinner.stop();
     expect($(el)).to.not.have.class('is-active');
@@ -62,7 +62,7 @@ describe('MaterialSpinner', function () {
 
   it('should create layers successfully', function () {
     var el = document.createElement('div');
-    componentHandler.upgradeElement(el, 'MaterialSpinner');
+    mdlComponentHandler.upgradeElement(el, 'MaterialSpinner');
     var html = el.innerHTML;
     expect(html).to.contain('mdl-spinner__layer');
     expect(html).to.contain('mdl-spinner__layer-1');
