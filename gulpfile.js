@@ -714,6 +714,9 @@ gulp.task('styles:gen', ['styles'], function() {
   var stream = gulp.src('');
   mc.paletteIndices.forEach(function(primary) {
     mc.paletteIndices.forEach(function(accent) {
+      if (primary === accent) {
+        return;
+      }
       if (mc.forbiddenAccents.indexOf(accent) !== -1) {
         return;
       }
