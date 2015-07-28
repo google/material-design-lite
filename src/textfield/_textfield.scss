@@ -83,6 +83,10 @@
   }
 }
 
+.mdl-textfield textarea.mdl-textfield__input {
+  display: block;
+}
+
 // Styling for the label / floating label.
 .mdl-textfield__label {
   bottom: 0;
