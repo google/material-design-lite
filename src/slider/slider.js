@@ -242,9 +242,9 @@ MaterialSlider.prototype.mdlDowngrade_ = function() {
   this.element_.parentElement.removeEventListener('mousedown', this.boundContainerMouseDownHandler);
 };
 
-// The component registers itself. It can assume componentHandler is available
+// The component registers itself. It can assume mdlComponentHandler is available
 // in the global scope.
-componentHandler.register({
+mdlComponentHandler.register({
   constructor: MaterialSlider,
   classAsString: 'MaterialSlider',
   cssClass: 'mdl-js-slider',

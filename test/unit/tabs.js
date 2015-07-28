@@ -28,7 +28,7 @@ describe('MaterialTabs', function () {
     '  </div>' +
     '</div>';
 
-    componentHandler.upgradeElement(el, 'MaterialTabs');
+    mdlComponentHandler.upgradeElement(el, 'MaterialTabs');
     expect($(el)).to.have.data('upgraded', ',MaterialTabs');
   });
 
@@ -45,7 +45,7 @@ describe('MaterialTabs', function () {
     ' <div class="mdl-tabs__panel" id="content2"></div>' +
     ' <div class="mdl-tabs__panel" id="content3"></div>' +
     '</div>';
-    componentHandler.upgradeElement(el, 'MaterialTabs');
+    mdlComponentHandler.upgradeElement(el, 'MaterialTabs');
 
     var tab1 = el.querySelector('#tab1');
     var tab2 = el.querySelector('#tab2');

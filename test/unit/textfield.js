@@ -42,19 +42,19 @@ describe('MaterialTextfield', function () {
 
   it('should upgrade successfully', function () {
     var el = createSingleLineTextfield();
-    componentHandler.upgradeElement(el, 'MaterialTextfield');
+    mdlComponentHandler.upgradeElement(el, 'MaterialTextfield');
     expect($(el)).to.have.data('upgraded', ',MaterialTextfield');
   });
 
   it('should be a widget', function () {
     var el = createSingleLineTextfield();
-    componentHandler.upgradeElement(el, 'MaterialTextfield');
+    mdlComponentHandler.upgradeElement(el, 'MaterialTextfield');
     expect(el.MaterialTextfield).to.be.a('object');
   });
 
   it('should have public methods available via widget', function () {
     var el = createSingleLineTextfield();
-    componentHandler.upgradeElement(el, 'MaterialTextfield');
+    mdlComponentHandler.upgradeElement(el, 'MaterialTextfield');
     var methods = [
       'checkDisabled',
       'checkValidity',

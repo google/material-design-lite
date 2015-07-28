@@ -40,19 +40,19 @@ describe('MaterialRadio', function () {
 
   it('should upgrade successfully', function () {
     var el = createRadio();
-    componentHandler.upgradeElement(el, 'MaterialRadio');
+    mdlComponentHandler.upgradeElement(el, 'MaterialRadio');
     expect($(el)).to.have.data('upgraded', ',MaterialRadio');
   });
 
   it('should be a widget', function() {
     var radio = createRadio();
-    componentHandler.upgradeElement(radio);
+    mdlComponentHandler.upgradeElement(radio);
     expect(radio.MaterialRadio).to.be.a('object');
   });
 
   it('should have all public methods available in widget', function() {
     var radio = createRadio();
-    componentHandler.upgradeElement(radio);
+    mdlComponentHandler.upgradeElement(radio);
     var methods = [
       'disable',
       'enable',
@@ -68,7 +68,7 @@ describe('MaterialRadio', function () {
 
   it('should get disabled class after being checked', function() {
     var radio = createRadio();
-    componentHandler.upgradeElement(radio);
+    mdlComponentHandler.upgradeElement(radio);
     radio.querySelector('input').disabled = true;
     radio.MaterialRadio.checkDisabled();
     expect((function() {
@@ -78,7 +78,7 @@ describe('MaterialRadio', function () {
 
   it('should get checked class after checking toggle state', function() {
     var radio = createRadio();
-    componentHandler.upgradeElement(radio);
+    mdlComponentHandler.upgradeElement(radio);
     radio.querySelector('input').checked = true;
     radio.MaterialRadio.checkToggleState();
     expect((function() {

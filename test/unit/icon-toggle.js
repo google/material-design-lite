@@ -38,7 +38,7 @@ describe('MaterialIconToggle', function () {
 
   it('should upgrade successfully', function () {
     var el = createToggle();
-    componentHandler.upgradeElement(el, 'MaterialIconToggle');
+    mdlComponentHandler.upgradeElement(el, 'MaterialIconToggle');
     expect($(el)).to.have.data('upgraded', ',MaterialIconToggle');
   });
 

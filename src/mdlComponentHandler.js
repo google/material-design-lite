@@ -21,8 +21,8 @@
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
-/* exported componentHandler */
-var componentHandler = (function() {
+/* exported mdlComponentHandler */
+var mdlComponentHandler = (function() {
   'use strict';
 
   var registeredComponents_ = [];
@@ -338,9 +338,9 @@ window.addEventListener('load', function() {
       'querySelector' in document &&
       'addEventListener' in window && Array.prototype.forEach) {
     document.documentElement.classList.add('mdl-js');
-    componentHandler.upgradeAllRegistered();
+    mdlComponentHandler.upgradeAllRegistered();
   } else {
-    componentHandler.upgradeElement =
-        componentHandler.register = function() {};
+    mdlComponentHandler.upgradeElement =
+        mdlComponentHandler.register = function() {};
   }
 });

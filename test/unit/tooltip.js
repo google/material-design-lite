@@ -26,7 +26,7 @@ describe('MaterialTooltip', function () {
     document.body.appendChild(parent);
 
     var el = parent.querySelector('#tooltip');
-    componentHandler.upgradeElement(el, 'MaterialTooltip');
+    mdlComponentHandler.upgradeElement(el, 'MaterialTooltip');
     expect($(el)).to.have.data('upgraded', ',MaterialTooltip');
   });
 

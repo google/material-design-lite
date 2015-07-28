@@ -38,13 +38,13 @@ describe('MaterialCheckbox', function () {
 
   it('should upgrade successfully', function () {
     var el = createCheckbox();
-    componentHandler.upgradeElement(el, 'MaterialCheckbox');
+    mdlComponentHandler.upgradeElement(el, 'MaterialCheckbox');
     expect($(el)).to.have.data('upgraded', ',MaterialCheckbox');
   });
 
   it('should get disabled class after being checked', function() {
     var checkbox = createCheckbox();
-    componentHandler.upgradeElement(checkbox);
+    mdlComponentHandler.upgradeElement(checkbox);
     checkbox.querySelector('input').disabled = true;
     checkbox.MaterialCheckbox.checkDisabled();
     expect((function() {
@@ -54,7 +54,7 @@ describe('MaterialCheckbox', function () {
 
   it('should get checked class after checking toggle state', function() {
     var checkbox = createCheckbox();
-    componentHandler.upgradeElement(checkbox);
+    mdlComponentHandler.upgradeElement(checkbox);
     checkbox.querySelector('input').checked = true;
     checkbox.MaterialCheckbox.checkToggleState();
     expect((function() {

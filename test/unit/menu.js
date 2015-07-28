@@ -25,7 +25,7 @@ describe('MaterialMenu', function () {
       el = document.createElement('ul');
     parent.appendChild(el)
 
-    componentHandler.upgradeElement(el, 'MaterialMenu');
+    mdlComponentHandler.upgradeElement(el, 'MaterialMenu');
     expect($(el)).to.have.data('upgraded', ',MaterialMenu');
   });
 
@@ -33,7 +33,7 @@ describe('MaterialMenu', function () {
     var parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
     var el = document.createElement('ul');
     parent.appendChild(el)
-    componentHandler.upgradeElement(el, 'MaterialMenu');
+    mdlComponentHandler.upgradeElement(el, 'MaterialMenu');
 
     it('should start the showing animation on show()', function(done) {
       expect($(el.MaterialMenu.container_)).to.not.have.class('is-visible');
@@ -101,7 +101,7 @@ describe('MaterialMenu', function () {
     document.body.appendChild(ctr); // `for` only works in document
 
     var el = ctr.querySelector('ul');
-    componentHandler.upgradeElement(el, 'MaterialMenu');
+    mdlComponentHandler.upgradeElement(el, 'MaterialMenu');
 
     var ev = document.createEvent('MouseEvents');
     ev.initEvent('click', true, true);

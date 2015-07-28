@@ -21,7 +21,7 @@
 *     - buttonTwo
 *   - buttonThree
 */
-function createNestedElementsForComponentHandlerTest() {
+function createNestedElementsFormdlComponentHandlerTest() {
   var button = document.createElement('button');
   button.className = 'mdl-js-button';
   var buttonTwo = document.createElement('button');
@@ -35,24 +35,24 @@ function createNestedElementsForComponentHandlerTest() {
   return container;
 }
 
-describe('componentHandler', function() {
+describe('mdlComponentHandler', function() {
 
   it('should be globally available', function() {
-    expect(componentHandler).to.be.a('object');
+    expect(mdlComponentHandler).to.be.a('object');
   });
 
   it('should reveal public methods', function() {
-    expect(componentHandler.upgradeDom).to.be.a('function');
-    expect(componentHandler.upgradeElement).to.be.a('function');
-    expect(componentHandler.upgradeAllRegistered).to.be.a('function');
-    expect(componentHandler.registerUpgradedCallback).to.be.a('function');
-    expect(componentHandler.register).to.be.a('function');
-    expect(componentHandler.downgradeElements).to.be.a('function');
+    expect(mdlComponentHandler.upgradeDom).to.be.a('function');
+    expect(mdlComponentHandler.upgradeElement).to.be.a('function');
+    expect(mdlComponentHandler.upgradeAllRegistered).to.be.a('function');
+    expect(mdlComponentHandler.registerUpgradedCallback).to.be.a('function');
+    expect(mdlComponentHandler.register).to.be.a('function');
+    expect(mdlComponentHandler.downgradeElements).to.be.a('function');
   });
 
   it('should throw an error if a duplicate classAsString is provided for registration', function() {
     expect(function() {
-      componentHandler.register({
+      mdlComponentHandler.register({
         constructor: MaterialButton,
         classAsString: 'MaterialButton',
         cssClass: 'test-js-button'
@@ -62,7 +62,7 @@ describe('componentHandler', function() {
 
   it('should throw an error if a duplicate cssClass is provided for registration', function() {
     expect(function() {
-      componentHandler.register({
+      mdlComponentHandler.register({
         constructor: MaterialButton,
         classAsString: 'TestButton',
         cssClass: 'mdl-js-button'
@@ -74,7 +74,7 @@ describe('componentHandler', function() {
     var testComponent = function() {};
     testComponent.prototype.mdlComponentConfigInternal_ = {};
     expect(function() {
-      componentHandler.register({
+      mdlComponentHandler.register({
         constructor: testComponent,
         classAsString: 'testComponent',
         cssClass: 'test-js-component'
@@ -84,21 +84,21 @@ describe('componentHandler', function() {
 
   it('should upgrade a single component to an element by provided jsClass', function() {
     var el = document.createElement('button');
-    componentHandler.upgradeElement(el, 'MaterialButton');
+    mdlComponentHandler.upgradeElement(el, 'MaterialButton');
     expect($(el)).to.have.data('upgraded', ',MaterialButton');
   });
 
   it('should upgrade a multi-component element by calling upgradeElement multiple times', function() {
     var el = document.createElement('button');
-    componentHandler.upgradeElement(el, 'MaterialButton');
-    componentHandler.upgradeElement(el, 'MaterialRipple');
+    mdlComponentHandler.upgradeElement(el, 'MaterialButton');
+    mdlComponentHandler.upgradeElement(el, 'MaterialRipple');
     expect($(el)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
   });
 
   it('should upgrade a single component to an element by using its CSS classes', function() {
     var el = document.createElement('button');
     el.className = 'mdl-js-button mdl-js-ripple-effect';
-    componentHandler.upgradeElement(el);
+    mdlComponentHandler.upgradeElement(el);
     expect($(el)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
   });
 
@@ -109,7 +109,7 @@ describe('componentHandler', function() {
     buttonTwo.className = 'mdl-js-button mdl-js-ripple-effect';
     document.body.appendChild(button);
     document.body.appendChild(buttonTwo);
-    componentHandler.upgradeDom();
+    mdlComponentHandler.upgradeDom();
     expect($(button)).to.have.data('upgraded', ',MaterialButton');
     expect($(buttonTwo)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
     document.body.removeChild(button);
@@ -120,32 +120,32 @@ describe('componentHandler', function() {
     var el = document.createElement('button');
     el.setAttribute('data-upgraded', ',MaterialButtonPostfix');
     el.className = 'mdl-js-button';
-    componentHandler.upgradeElement(el);
+    mdlComponentHandler.upgradeElement(el);
     expect($(el)).to.have.data('upgraded', ',MaterialButtonPostfix,MaterialButton');
   });
 
   it('should upgrade all elements and their children within an HTMLCollection', function() {
-    var container = createNestedElementsForComponentHandlerTest();
+    var container = createNestedElementsFormdlComponentHandlerTest();
     var buttons = document.querySelectorAll('.mdl-js-button');
-    componentHandler.upgradeElements(container.children);
+    mdlComponentHandler.upgradeElements(container.children);
     for (var i; i < buttons.length; i++) {
       expect($(buttons[i])).to.have.data('upgraded', ',MaterialButton');
     }
   });
 
   it('should upgrade all elements and their children within a NodeList', function() {
-    var container = createNestedElementsForComponentHandlerTest();
+    var container = createNestedElementsFormdlComponentHandlerTest();
     var buttons = document.querySelectorAll('.mdl-js-button');
-    componentHandler.upgradeElements(document.querySelectorAll('.mdl-js-button'));
+    mdlComponentHandler.upgradeElements(document.querySelectorAll('.mdl-js-button'));
     for (var i; i < buttons.length; i++) {
       expect($(buttons[i])).to.have.data('upgraded', ',MaterialButton');
     }
   });
 
   it('should upgrade all elements and their children within an HTMLElement', function() {
-    var container = createNestedElementsForComponentHandlerTest();
+    var container = createNestedElementsFormdlComponentHandlerTest();
     var buttons = document.querySelectorAll('.mdl-js-button');
-    componentHandler.upgradeElements(container);
+    mdlComponentHandler.upgradeElements(container);
     for (var i; i < buttons.length; i++) {
       expect($(buttons[i])).to.have.data('upgraded', ',MaterialButton');
     }
