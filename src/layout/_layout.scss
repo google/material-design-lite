@@ -243,9 +243,11 @@
       width: calc(100% - #{$layout-drawer-width});
     }
 
-    .mdl-layout--fixed-drawer > & {
-      .mdl-layout__header-row {
-        padding-left: 40px;
+    @media screen and (min-width: $layout-screen-size-threshold) {
+      .mdl-layout--fixed-drawer > & {
+        .mdl-layout__header-row {
+          padding-left: 40px;
+        }
       }
     }
 
