@@ -61,7 +61,7 @@ var componentHandler = (function() {
    * Optionally replaces a match with passed object if specified.
    * @param {string} name The name of a class we want to use.
    * @param {ComponentConfig=} optReplace Optional object to replace match with.
-   * @return {(!Object | boolean)}
+   * @return {!Object|boolean}
    * @private
    */
   function findRegisteredClass_(name, optReplace) {
@@ -192,7 +192,7 @@ var componentHandler = (function() {
 
   /**
    * Upgrades a specific list of elements rather than all in the DOM.
-   * @param {(!HTMLElement | !Array<!HTMLElement> | !NodeList | !HTMLCollection)} elements
+   * @param {!HTMLElement|!Array<!HTMLElement>|!NodeList|!HTMLCollection} elements
    * The elements we wish to upgrade.
    */
   function upgradeElementsInternal(elements) {
@@ -322,7 +322,7 @@ var componentHandler = (function() {
   /**
    * Downgrade either a given node, an array of nodes, or a NodeList.
    *
-   * @param {(!Node | !Array<!Node> | !NodeList)} nodes
+   * @param {!Node|!Array<!Node>|!NodeList} nodes
    */
   function downgradeNodesInternal(nodes) {
     var downgradeNode = function(node) {
