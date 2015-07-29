@@ -1,0 +1,34 @@
+<style>
+  .container-menu-lower-right {
+    position: relative;
+    width: 200px;
+  }
+  .background-menu-lower-right {
+    background: white;
+    height: 148px;
+    width: 100%;
+  }
+  .bar-menu-lower-right {
+    box-sizing: border-box;
+    position: relative;
+    background: #3F51B5;
+    color: white;
+    height: 64px;
+    width: 100%;
+    padding: 16px;
+  }
+  .wrapper-menu-lower-right {
+    box-sizing: border-box;
+    position: absolute;
+    right: 16px;
+  }
+</style>
+
+<div class="container-menu-lower-right mdl-shadow--2dp">
+  <div class="bar-menu-lower-right">
+    <div class="wrapper-menu-lower-right">
+      {% include "lower-right.html" %}
+    </div>
+  </div>
+  <div class="background-menu-lower-right"></div>
+</div>
