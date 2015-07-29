@@ -290,9 +290,7 @@ input.mdl-button[type="submit"] {
   &--colored {
     // Bump up specificity by using [disabled] twice.
     &[disabled][disabled] {
-      background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
-      @include shadow-2dp();
     }
   }
 }
