@@ -59,7 +59,7 @@
 .mdl-textfield__input {
   border: none;
   border-bottom: 1px solid $input-text-bottom-border-color;
-  display: inline-block;
+  display: block;
   font-size: $input-text-font-size;
   margin: 0;
   padding: $input-text-padding 0;
@@ -96,6 +96,7 @@
   right: 0;
   pointer-events: none;
   position: absolute;
+  display: block;
   top: ($input-text-padding + $input-text-vertical-spacing);
   width: 100%;
   overflow: hidden;
@@ -160,6 +161,7 @@
   font-size: 12px;
   margin-top: 3px;
   visibility: hidden;
+  display: block;
 
   .mdl-textfield.is-invalid & {
     visibility: visible;
