@@ -175,7 +175,7 @@ MaterialSlider.prototype.enable = function() {
 MaterialSlider.prototype.change = function(value) {
   'use strict';
 
-  if (value) {
+  if (typeof value !== 'undefined') {
     this.element_.value = value;
   }
   this.updateValueStyles_();
