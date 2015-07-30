@@ -16,28 +16,6 @@
  */
 
 /**
- * @typedef {{
- *   constructor: !Function,
- *   className: string,
- *   cssClass: string,
- *   widget: string,
- *   callbacks: !Array<function(!HTMLElement)>
- * }}
- */
-var ComponentConfig;  // jshint ignore:line
-
-/**
- * @typedef {{
- *   element_: !HTMLElement,
- *   className: string,
- *   classAsString: string,
- *   cssClass: string,
- *   widget: string
- * }}
- */
-var Component;  // jshint ignore:line
-
-/**
  * A component handler interface using the revealing module design pattern.
  * More details on this design pattern here:
  * https://github.com/jasonmayes/mdl-component-design-pattern
@@ -47,10 +25,10 @@ var Component;  // jshint ignore:line
 var componentHandler = (function() {
   'use strict';
 
-  /** @type {!Array<ComponentConfig>} */
+  /** @type {!Array<componentHandler.ComponentConfig>} */
   var registeredComponents_ = [];
 
-  /** @type {!Array<Component>} */
+  /** @type {!Array<componentHandler.Component>} */
   var createdComponents_ = [];
 
   var downgradeMethod_ = 'mdlDowngrade_';
@@ -60,8 +38,8 @@ var componentHandler = (function() {
    * Searches registered components for a class we are interested in using.
    * Optionally replaces a match with passed object if specified.
    * @param {string} name The name of a class we want to use.
-   * @param {ComponentConfig=} optReplace Optional object to replace match with.
-   * @return {(!Object | boolean)}
+   * @param {componentHandler.ComponentConfig=} optReplace Optional object to replace match with.
+   * @return {!Object|boolean}
    * @private
    */
   function findRegisteredClass_(name, optReplace) {
@@ -192,7 +170,7 @@ var componentHandler = (function() {
 
   /**
    * Upgrades a specific list of elements rather than all in the DOM.
-   * @param {(!HTMLElement | !Array<!HTMLElement> | !NodeList | !HTMLCollection)} elements
+   * @param {!HTMLElement|!Array<!HTMLElement>|!NodeList|!HTMLCollection} elements
    * The elements we wish to upgrade.
    */
   function upgradeElementsInternal(elements) {
@@ -219,7 +197,7 @@ var componentHandler = (function() {
    * @param {{constructor: !Function, classAsString: string, cssClass: string, widget: string}} config
    */
   function registerInternal(config) {
-    var newConfig = /** @type {ComponentConfig} */ ({
+    var newConfig = /** @type {componentHandler.ComponentConfig} */ ({
       'classConstructor': config.constructor,
       'className': config.classAsString,
       'cssClass': config.cssClass,
@@ -322,7 +300,7 @@ var componentHandler = (function() {
   /**
    * Downgrade either a given node, an array of nodes, or a NodeList.
    *
-   * @param {(!Node | !Array<!Node> | !NodeList)} nodes
+   * @param {!Node|!Array<!Node>|!NodeList} nodes
    */
   function downgradeNodesInternal(nodes) {
     var downgradeNode = function(node) {
@@ -370,3 +348,29 @@ window.addEventListener('load', function() {
         componentHandler.register = function() {};
   }
 });
+
+/**
+ * Describes the type of a registered component type managed by
+ * componentHandler. Provided for benefit of the Closure compiler.
+ * @typedef {{
+ *   constructor: !Function,
+ *   className: string,
+ *   cssClass: string,
+ *   widget: string,
+ *   callbacks: !Array<function(!HTMLElement)>
+ * }}
+ */
+componentHandler.ComponentConfig;  // jshint ignore:line
+
+/**
+ * Created component (i.e., upgraded element) type as managed by
+ * componentHandler. Provided for benefit of the Closure compiler.
+ * @typedef {{
+ *   element_: !HTMLElement,
+ *   className: string,
+ *   classAsString: string,
+ *   cssClass: string,
+ *   widget: string
+ * }}
+ */
+componentHandler.Component;  // jshint ignore:line
