@@ -120,15 +120,15 @@ MaterialMenu.prototype.init = function() {
     }
 
     var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
-
+    this.boundItemKeydown = this.handleItemKeyboardEvent_.bind(this);
+    this.boundItemClick = this.handleItemClick_.bind(this);
     for (var i = 0; i < items.length; i++) {
       // Add a listener to each menu item.
-      items[i].addEventListener('click', this.handleItemClick_.bind(this));
+      items[i].addEventListener('click', this.boundItemClick);
       // Add a tab index to each menu item.
       items[i].tabIndex = '-1';
       // Add a keyboard listener to each menu item.
-      items[i].addEventListener('keydown',
-          this.handleItemKeyboardEvent_.bind(this));
+      items[i].addEventListener('keydown', this.boundItemKeydown);
     }
 
     // Add ripple classes to each item, if the user has enabled ripples.
@@ -455,6 +455,19 @@ MaterialMenu.prototype.toggle = function(evt) {
     this.hide();
   } else {
     this.show(evt);
+  }
+};
+
+/*
+* Downgrade the component.
+*/
+MaterialMenu.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
+
+  for (var i = 0; i < items.length; i++) {
+    items[i].removeEventListener('click', this.boundItemClick);
+    items[i].removeEventListener('keydown', this.boundItemKeydown);
   }
 };
 
