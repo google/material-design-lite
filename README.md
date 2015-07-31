@@ -31,7 +31,7 @@ to our CSS-only experience.
 Clone the repo using Git:
 
 ```bash
-git clone --bare https://github.com/google/material-design-lite.git
+git clone https://github.com/google/material-design-lite.git
 ```
 
 Alternatively you can [download](https://github.com/google/material-design-lite/archive/master.zip)
