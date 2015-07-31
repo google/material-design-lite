@@ -254,7 +254,8 @@ gulp.task('default', ['clean', 'mocha'], function (cb) {
 // Build production files and microsite
 gulp.task('all', ['clean', 'mocha'], function (cb) {
   runSequence(
-    ['default', 'styletemplates', 'styles:gen'],
+    ['default', 'styletemplates'],
+    ['styles:gen'],
     ['jshint', 'jscs', 'scripts',  'assets', 'demos', 'pages',
      'templates', 'images', 'styles-grid', 'metadata'],
     ['zip'],
