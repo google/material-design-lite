@@ -540,7 +540,7 @@ gulp.task('pushCodeFiles', function() {
   // (cache control, in this case).
   // For cache control, start with 0s (disable caching during dev),
   // but consider more helpful interval (e.g. 3600s) after launch.
-  var cacheControl = '-h "Cache-Control:public,max-age=60"';
+  var cacheControl = '-h "Cache-Control:public,max-age=3600"';
   var gsutilCpCmd = 'gsutil -m cp -z js,css,map ';
   var gsutilCacheCmd = 'gsutil -m setmeta -R ' + cacheControl;
 
