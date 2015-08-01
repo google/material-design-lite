@@ -220,7 +220,7 @@ changes to be accepted, the CLA must be signed. It's a quick process, we promise
 * For corporations we'll need you to
   [print, sign and one of scan+email, fax or mail the form][corporate-cla].
 
-*This guide was inspired by the AngularJS contribution guidelines*
+*This guide was inspired by the [AngularJS contribution guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md).*
 
 [github]: https://github.com/google/material-design-lite
 [individual-cla]: http://code.google.com/legal/individual-cla-v1.0.html
