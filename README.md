@@ -128,6 +128,9 @@ Please keep in mind that one of the goals of MDL is to adhere to the Material
 Design specs and therefore some requests might not be within the scope of this
 project.
 
+## Contribute
+If you found a bug, have any questions or want to contribute. Follow our [guidelines](https://github.com/google/material-design-lite/blob/master/CONTRIBUTING.md), and help improve the Material Design Lite.
+
 ## Do you include any features that a framework comes with?
 
 Material Design Lite is focused on delivering a vanilla CSS/JS/HTML library of
