@@ -64,3 +64,14 @@
   }
 
 })();
+
+// Disable empty links in demo's to prevent refresh page
+(function () {
+  'use strict';
+  var emptyLinks = document.querySelectorAll('[href=""]');
+  Array.prototype.forEach.call(emptyLinks, function(link) {
+    link.addEventListener('click', function (event){
+      event.preventDefault();
+    });
+  });
+})();
