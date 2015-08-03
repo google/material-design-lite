@@ -293,3 +293,8 @@ input.mdl-button[type="submit"] {
     }
   }
 }
+
+// Align icons inside buttons with text
+.mdl-button .material-icons {
+  vertical-align: middle;
+}
