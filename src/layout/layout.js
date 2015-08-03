@@ -286,6 +286,10 @@ MaterialLayout.prototype.init = function() {
       }
     }
 
+    var eatEvent = function(ev) {
+      ev.preventDefault();
+    };
+
     // Add drawer toggling button to our layout, if we have an openable drawer.
     if (this.drawer_) {
       var drawerButton = document.createElement('div');
@@ -310,6 +314,8 @@ MaterialLayout.prototype.init = function() {
       // not be present.
       this.element_.classList.add(this.CssClasses_.HAS_DRAWER);
 
+      this.drawer_.addEventListener('mousewheel', eatEvent);
+
       // If we have a fixed header, add the button to the header rather than
       // the layout.
       if (this.element_.classList.contains(this.CssClasses_.FIXED_HEADER)) {
@@ -323,6 +329,7 @@ MaterialLayout.prototype.init = function() {
       this.element_.appendChild(obfuscator);
       obfuscator.addEventListener('click',
           this.drawerToggleHandler_.bind(this));
+      obfuscator.addEventListener('mousewheel', eatEvent);
     }
 
     // Initialize tabs, if any.
