@@ -24,7 +24,7 @@
   white-space: nowrap;
   font-size: 13px;
   background-color: unquote("rgb(#{$color-white})");
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
 
   thead {
     padding-bottom: 3px;
