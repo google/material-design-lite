@@ -42,6 +42,8 @@ Windows users, if you have trouble compiling due to line endings then make sure 
 ```
 git config core.eol lf
 git config core.autocrlf input
+git rm --cached -r .
+git reset --hard
 ```
 
 > Remember, the master branch is considered unstable. Do not use this in production. Use a tagged state of the repository, npm, or bower for stability!
