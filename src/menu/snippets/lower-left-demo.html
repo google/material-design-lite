@@ -1,14 +1,14 @@
 <style>
-  .container-menu-lower-left {
+  .demo-menu.demo-menu__lower-left .container {
     position: relative;
     width: 200px;
   }
-  .background-menu-lower-left {
+  .demo-menu.demo-menu__lower-left .background {
     background: white;
     height: 148px;
     width: 100%;
   }
-  .bar-menu-lower-left {
+  .demo-menu.demo-menu__lower-left .bar {
     box-sizing: border-box;
     background: #3F51B5;
     color: white;
@@ -17,9 +17,9 @@
   }
 </style>
 
-<div class="container-menu-lower-left mdl-shadow--2dp">
-  <div class="bar-menu-lower-left">
+<div class="container mdl-shadow--2dp">
+  <div class="bar">
     {% include "lower-left.html" %}
   </div>
-  <div class="background-menu-lower-left"></div>
+  <div class="background"></div>
 </div>

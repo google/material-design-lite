@@ -1,14 +1,14 @@
 <style>
-  .container-menu-lower-right {
+  .demo-menu.demo-menu__lower-right .container {
     position: relative;
     width: 200px;
   }
-  .background-menu-lower-right {
+  .demo-menu.demo-menu__lower-right .background {
     background: white;
     height: 148px;
     width: 100%;
   }
-  .bar-menu-lower-right {
+  .demo-menu.demo-menu__lower-right .bar {
     box-sizing: border-box;
     position: relative;
     background: #3F51B5;
@@ -17,18 +17,18 @@
     width: 100%;
     padding: 16px;
   }
-  .wrapper-menu-lower-right {
+  .demo-menu.demo-menu__lower-right .wrapper {
     box-sizing: border-box;
     position: absolute;
     right: 16px;
   }
 </style>
 
-<div class="container-menu-lower-right mdl-shadow--2dp">
-  <div class="bar-menu-lower-right">
-    <div class="wrapper-menu-lower-right">
+<div class="container mdl-shadow--2dp">
+  <div class="bar">
+    <div class="wrapper">
       {% include "lower-right.html" %}
     </div>
   </div>
-  <div class="background-menu-lower-right"></div>
+  <div class="background"></div>
 </div>
