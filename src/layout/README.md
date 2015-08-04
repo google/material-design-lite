@@ -254,7 +254,7 @@ The same layout with a non-fixed header that scrolls with the content.
 </div>
 ```
 
-A layout with a fixed drawer that serves as sidebar navigation on larger screens. The drawer collapses and the menu icon is displayed on larger screens.
+A layout with a fixed drawer that serves as sidebar navigation on larger screens. The drawer collapses and the menu icon is displayed on smaller screens.
 ```html
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
   <header class="mdl-layout__header">
