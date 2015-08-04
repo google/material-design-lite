@@ -80,6 +80,7 @@
   .mdl-textfield.is-disabled & {
     background-color: transparent;
     border-bottom: 1px dotted $input-text-disabled-color;
+    color: $input-text-disabled-text-color;
   }
 }
 
@@ -110,6 +111,10 @@
   // Floating Label
   .mdl-textfield--floating-label & {
     @include material-animation-default();
+  }
+
+  .mdl-textfield.is-disabled.is-disabled & {
+    color: $input-text-disabled-text-color;
   }
 
   .mdl-textfield--floating-label.is-focused &,
