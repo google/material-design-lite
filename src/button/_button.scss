@@ -230,7 +230,8 @@ input.mdl-button[type="submit"] {
     z-index: 0;
     overflow: hidden;
 
-    .mdl-button[disabled] & .mdl-ripple {
+    .mdl-button[disabled] & .mdl-ripple,
+    .mdl-button.mdl-button--disabled & .mdl-ripple {
       background-color: transparent;
     }
   }
@@ -263,7 +264,8 @@ input.mdl-button[type="submit"] {
 
 .mdl-button {
   // Bump up specificity by using [disabled] twice.
-  &[disabled][disabled] {
+  &[disabled][disabled],
+  &.mdl-button--disabled.mdl-button--disabled {
     color: $button-secondary-color-disabled;
     cursor: auto;
     background-color: transparent;
@@ -271,7 +273,8 @@ input.mdl-button[type="submit"] {
 
   &--fab {
     // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled] {
+    &[disabled][disabled],
+    &.mdl-button--disabled.mdl-button--disabled {
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
       @include shadow-2dp();
@@ -280,7 +283,8 @@ input.mdl-button[type="submit"] {
 
   &--raised {
     // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled] {
+    &[disabled][disabled],
+    &.mdl-button--disabled.mdl-button--disabled {
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
       @include shadow-2dp();
@@ -288,7 +292,8 @@ input.mdl-button[type="submit"] {
   }
   &--colored {
     // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled] {
+    &[disabled][disabled],
+    &.mdl-button--disabled.mdl-button--disabled {
       color: $button-secondary-color-disabled;
     }
   }
