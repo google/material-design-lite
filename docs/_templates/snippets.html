@@ -13,7 +13,7 @@
         {% set snippet_file = "../../src/" + component_name + "/snippets/" + snippet.file %}
         {% endif %}
         <div class="snippet-demo">
-          <div class="snippet-demo-container">
+          <div class="snippet-demo-container demo-{{component_name}} demo-{{component_name}}__{{snippet.file | replace('.html', '')}}">
             {% include snippet_file ignore missing %}
           </div>
         </div>
