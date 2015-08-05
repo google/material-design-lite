@@ -38,7 +38,6 @@ describe('MaterialSpinner', function () {
     var methods = [
       'start',
       'stop',
-      'createLayer'
     ];
     methods.forEach(function(item) {
       expect(el.MaterialSpinner[item]).to.be.a('function');
