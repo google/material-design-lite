@@ -1,5 +1,5 @@
 <style>
-.waterfall-header-container {
+.demo-layout.demo-layout__waterfall-header {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
               0 3px 1px -2px rgba(0, 0, 0, 0.2),
               0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -7,12 +7,10 @@
   position: relative;
   height: 300px;
 }
-.waterfall-header-container .page-content {
+.demo-layout.demo-layout__waterfall-header .page-content {
   height: 600px;
   background: white;
 }
 </style>
 
-<div class="waterfall-header-container">
-  {% include "waterfall-header.html" %}
-</div>
+{% include "waterfall-header.html" %}
