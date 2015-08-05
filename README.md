@@ -112,7 +112,7 @@ templates:
 
 > Templates are not officially supported in IE9 and legacy browsers that do not
 pass the minimum-requirements defined in our
-[cutting-the-mustard test](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L262-L275).
+[cutting-the-mustard test](https://github.com/google/material-design-lite/blob/87c48c22416c3e83850f7711365b2a43ba19c5ce/src/mdlComponentHandler.js#L336-L349).
 
 ## Versioning
 
