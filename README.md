@@ -79,7 +79,7 @@ Next, run the following one-liner to compile the components and the docs and
 spawn a local instance of the documentation site:
 
 ```bash
-gulp serve
+gulp all && gulp serve
 ```
 
 Most changes made to files inside the `src` or the `docs` directory will cause
