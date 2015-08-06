@@ -220,6 +220,9 @@ gulp.task('scripts', ['jscs', 'jshint'], function() {
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
+    .pipe($.iife({
+      useStrict: false,
+    }))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
     .pipe($.uglify({
