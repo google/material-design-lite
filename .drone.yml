@@ -1,8 +1,12 @@
-image: crhym3/ci
+image: crhym3/ci-image
 git:
   depth: 1
 cache:
   - /cache
+env:
+  - CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - WEBDRIVER=http://chromedriver.storage.googleapis.com/2.16/chromedriver_linux64.zip
+  - DISPLAY=:99
 script:
   # workaround for cache, see https://github.com/drone/drone/issues/147
   - mkdir -p /cache/node_modules
@@ -10,9 +14,16 @@ script:
   - ln -s /cache/node_modules node_modules
   # install dependencies
   - npm install
+  - Xvfb $DISPLAY &
   # ensure the build works
   # this will also run gulp test
   - gulp all
+  # get the version of chrome and driver we want, for more tests
+  # do this after the build and unit tests to fail fast
+  - curl -sSLo chrome.deb $CHROME && dpkg -i chrome.deb
+  - curl -sSLo driver.zip $WEBDRIVER && unzip -q driver.zip -d /usr/bin
+  # run additional tests
+  - node test/memory/test.js
 deploy:
   bash:
     when:
