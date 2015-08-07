@@ -126,8 +126,8 @@ CodeBlockCodePen.prototype.clickHandler = function(form, pre) {
           '  <head>\n    ' + this.MDLIBS.join('\n    ') + '\n  </head>\n' +
           '  <body>\n    ' + code.split('\n').join('\n    ') + '\n  </body>\n' +
           '</html>',
-        css: '  ' + css,
-        js: '  ' + js}));
+        css: css,
+        js: js}));
     form.appendChild(input);
 
     form.submit();
