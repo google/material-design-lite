@@ -154,6 +154,7 @@ categories:
           - caption: Responsive grid
             file: grid.html
             demo_file: grid-demo.html
+            extra_codepen_css: codepen-grid.css
             full_width: true
       - name: tabs
         caption: Tabs
