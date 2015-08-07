@@ -12,13 +12,13 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;1. Code a `<div>` element. This is the "outer" div that holds the entire layout. Add MDL classes as indicated, separated by spaces, to the div using the `class` attribute.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
 </div>
 ```
 
 &nbsp;2. Inside the div, code a `<header>` element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the `class` attribute.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
   </header>
 </div>
@@ -26,7 +26,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;3. Inside the header, add a `<div>` to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
   </header>
@@ -35,7 +35,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;4. Still inside the header, add another `<div>` to hold the header row's content, and include the MDL class as indicated.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -46,7 +46,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;5. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -58,7 +58,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;6. Following the span, add a `<div>` to align the header's navigation links to the right, and include the MDL class as indicated.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -71,7 +71,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;7. Following the spacer div, add a `<nav>` element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor `<a>` element for each header link, and include the MDL class as indicated. This completes the layout's header.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -89,7 +89,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;8. Following the header, add a `<div>` element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -109,7 +109,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;9. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -130,7 +130,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;10. Following the span, add a `<nav>` element to contain the drawer's navigation links, and one anchor `<a>` element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -156,7 +156,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 &nbsp;11. Finally, following the drawer div, add a `<main>` element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -190,7 +190,7 @@ The layout component is ready for use.
 ####Examples
 A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -223,7 +223,7 @@ A layout with a fixed header for larger screens and a collapsible drawer for sma
 
 The same layout with a non-fixed header that scrolls with the content.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header mdl-layout__header--scroll">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
@@ -256,7 +256,7 @@ The same layout with a non-fixed header that scrolls with the content.
 
 A layout with a fixed drawer that serves as sidebar navigation on larger screens. The drawer collapses and the menu icon is displayed on smaller screens.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">Fixed drawer layout demo</span>
@@ -280,7 +280,7 @@ A layout with a fixed drawer that serves as sidebar navigation on larger screens
 
 A layout with a fixed drawer but no header.
 ```html
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Material Design Lite</span>
     <nav class="mdl-navigation">
@@ -304,7 +304,6 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 |-----------|--------|---------|
 | `mdl-layout` | Defines container as an MDL component | Required on outer div element |
 | `mdl-js-layout` | Assigns basic MDL behavior to layout | Required on outer div element |
-| `mdl-layout--overlay-drawer-button` | Renders drawer button directly on of of content, instead of pushing it down. Only applies if not using a fixed header. | Optionally used on outer div element |
 | `mdl-layout__header` | Defines container as an MDL component | Required on header element |
 | `mdl-layout-icon` | Used for adding an application icon. Gets concealed by menu icon if both are visible.  | Goes on optional icon div |
 | `mdl-layout__header-row` | Defines container as MDL header row | Required on header content div |
