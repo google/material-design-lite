@@ -304,24 +304,26 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 |-----------|--------|---------|
 | `mdl-layout` | Defines container as an MDL component | Required on outer div element |
 | `mdl-js-layout` | Assigns basic MDL behavior to layout | Required on outer div element |
-| `mdl-layout--overlay-drawer-button` | Defines layout as having a button-activated drawer | Required on outer div element |
+| `mdl-layout--overlay-drawer-button` | Renders drawer button directly on of of content, instead of pushing it down. Only applies if not using a fixed header. | Optionally used on outer div element |
 | `mdl-layout__header` | Defines container as an MDL component | Required on header element |
-| `mdl-layout-icon` | Produces MDL menu icon | Required on icon div |
+| `mdl-layout-icon` | Used for adding an application icon. Gets concealed by menu icon if both are visible.  | Goes on optional icon div |
 | `mdl-layout__header-row` | Defines container as MDL header row | Required on header content div |
 | `mdl-layout-title` | Defines layout title text | Required on layout title span |
-| `mdl-layout-spacer` | Right-aligns layout header links | Goes on optional div following layout title |
+| `mdl-layout-spacer` | Used to align elements inside a header or drawer, by growing to fill remaining space. Commonly used for aligning elements to the right. | Goes on optional div following layout title |
 | `mdl-navigation` | Defines container as MDL navigation group | Required on nav element |
 | `mdl-navigation__link` | Defines anchor as MDL navigation link | Required on header and/or drawer anchor elements |
 | `mdl-layout__drawer` | Defines container as MDL layout drawer | Required on drawer div element |
 | `mdl-layout__content` | Defines container as MDL layout content | Required on main element |
-| `mdl-layout__header--scroll` | Defines header row as scrollable | Optional; goes on header element |
-| `mdl-layout--fixed-drawer` | Defines layout drawer as fixed | Optional; goes on outer div element (not drawer div element) |
-| `mdl-layout--fixed-header` | Defines header as fixed even on smaller screens | Optional; goes on outer div element |
-| `mdl-layout--large-screen-only` | Hides header navigation on smaller screens | Optional; goes on header nav element |
+| `mdl-layout__header--scroll` | Makes the header scroll with the content | Optional; goes on header element |
+| `mdl-layout--fixed-drawer` | Makes the drawer always visible and open in larger screens | Optional; goes on outer div element (not drawer div element) |
+| `mdl-layout--fixed-header` | Makes the header always visible, even in small screens | Optional; goes on outer div element |
+| `mdl-layout--large-screen-only` | Hides an element on smaller screens | Optional; goes on any descendant of `mdl-layout` |
+| `mdl-layout--small-screen-only` | Hides an element on larger screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout__header--waterfall` | Allows a "waterfall" effect with multiple header lines | Optional; goes on header element |
 | `mdl-layout__header--transparent` | Makes header transparent (draws on top of layout background) | Optional; goes on header element |
+| `mdl-layout__header--transparent` | Uses a header without a shadow | Optional; goes on header element |
 | `mdl-layout__tab-bar` | Defines container as an MDL tab bar | Required on div element inside header (tabbed layout) |
 | `mdl-layout__tab` | Defines anchor as MDL tab link | Required on tab bar anchor elements |
 | `is-active` | Defines tab as default active tab | Optional; goes on tab bar anchor element and associated tab section element|
 | `mdl-layout__tab-panel` | Defines container as tab content panel | Required on tab section elements |
-| `mdl-layout--fixed-tabs` | Defines MDL tab bar as fixed | Optional; goes on outer div element (not div inside header) |
+| `mdl-layout--fixed-tabs` | Uses fixed tabs instead of the default scrollable tabs | Optional; goes on outer div element (not div inside header) |
