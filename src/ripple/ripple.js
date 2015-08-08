@@ -40,8 +40,7 @@ MaterialRipple.prototype.Constant_ = {
   INITIAL_SIZE: '1px',
   INITIAL_OPACITY: '0.4',
   FINAL_OPACITY: '0',
-  FINAL_SCALE: '',
-  TINY_TIMEOUT: 0.001
+  FINAL_SCALE: ''
 };
 
 /**
@@ -124,7 +123,7 @@ MaterialRipple.prototype.upHandler_ = function(event) {
     // mousedown.
     window.setTimeout(function() {
       this.rippleElement_.classList.remove(this.CssClasses_.IS_VISIBLE);
-    }.bind(this), this.Constant_.TINY_TIMEOUT);
+    }.bind(this), 0);
   }
 };
 
