@@ -54,7 +54,8 @@ MaterialRipple.prototype.CssClasses_ = {
   RIPPLE_CENTER: 'mdl-ripple--center',
   RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
   RIPPLE: 'mdl-ripple',
-  IS_ANIMATING: 'is-animating',
+  IS_PLACED: 'is-placed',
+  IS_SCALED: 'is-scaled',
   IS_VISIBLE: 'is-visible'
 };
 
@@ -66,12 +67,19 @@ MaterialRipple.prototype.CssClasses_ = {
 MaterialRipple.prototype.downHandler_ = function(event) {
   'use strict';
 
+  this.rippleElement_ = this.rippleEl_.parentNode.appendChild(this.rippleEl_.cloneNode());
+
   if (!this.rippleElement_.style.width && !this.rippleElement_.style.height) {
     var rect = this.element_.getBoundingClientRect();
     this.boundHeight = rect.height;
     this.boundWidth = rect.width;
-    this.rippleSize_ = Math.sqrt(rect.width * rect.width +
-        rect.height * rect.height) * 2 + 2;
+    if (!this.element_.classList.contains(this.CssClasses_.RIPPLE_CENTER)) {
+      this.rippleSize_ = Math.sqrt(Math.pow(this.boundWidth, 2) +
+        Math.pow(this.boundHeight, 2)) * 1.1;
+    } else {
+      this.rippleSize_ = Math.min(this.boundHeight, this.boundWidth);
+    }
+
     this.rippleElement_.style.width = this.rippleSize_ + 'px';
     this.rippleElement_.style.height = this.rippleSize_ + 'px';
   }
@@ -125,6 +133,14 @@ MaterialRipple.prototype.upHandler_ = function(event) {
       this.rippleElement_.classList.remove(this.CssClasses_.IS_VISIBLE);
     }.bind(this), 0);
   }
+  removeRipple(this.rippleElement_, this.CssClasses_.IS_VISIBLE);
+
+  function removeRipple(elem, elemClass) {
+    elem.classList.remove(elemClass);
+    setTimeout(function() {
+      elem.remove();
+    }, 1300);
+  }
 };
 
 /**
@@ -138,7 +154,7 @@ MaterialRipple.prototype.init = function() {
         this.element_.classList.contains(this.CssClasses_.RIPPLE_CENTER);
     if (!this.element_.classList.contains(
         this.CssClasses_.RIPPLE_EFFECT_IGNORE_EVENTS)) {
-      this.rippleElement_ = this.element_.querySelector('.' +
+      this.rippleEl_ = this.element_.querySelector('.' +
           this.CssClasses_.RIPPLE);
       this.frameCount_ = 0;
       this.rippleSize_ = 0;
@@ -181,33 +197,21 @@ MaterialRipple.prototype.init = function() {
 
       this.setRippleStyles = function(start) {
         if (this.rippleElement_ !== null) {
-          var transformString;
-          var scale;
-          var size;
-          var offset = 'translate(' + this.x_ + 'px, ' + this.y_ + 'px)';
-
-          if (start) {
-            scale = this.Constant_.INITIAL_SCALE;
-            size = this.Constant_.INITIAL_SIZE;
+          if (recentering === false) {
+            this.rippleElement_.style.marginLeft = -this.rippleSize_ / 2 - (this.boundWidth / 2 - this.x_) + 'px';
+            this.rippleElement_.style.marginTop = -this.rippleSize_ / 2 - (this.boundHeight / 2 - this.y_) + 'px';
           } else {
-            scale = this.Constant_.FINAL_SCALE;
-            size = this.rippleSize_ + 'px';
-            if (recentering) {
-              offset = 'translate(' + this.boundWidth / 2 + 'px, ' +
-                this.boundHeight / 2 + 'px)';
-            }
+            this.rippleElement_.style.marginLeft = -this.rippleSize_ / 2 + 'px';
+            this.rippleElement_.style.marginTop = -this.rippleSize_ / 2 + 'px';
           }
 
-          transformString = 'translate(-50%, -50%) ' + offset + scale;
-
-          this.rippleElement_.style.webkitTransform = transformString;
-          this.rippleElement_.style.msTransform = transformString;
-          this.rippleElement_.style.transform = transformString;
-
           if (start) {
-            this.rippleElement_.classList.remove(this.CssClasses_.IS_ANIMATING);
+            this.rippleElement_.classList.remove(this.CssClasses_.IS_PLACED);
           } else {
-            this.rippleElement_.classList.add(this.CssClasses_.IS_ANIMATING);
+            this.rippleElement_.classList.add(this.CssClasses_.IS_SCALED);
+            this.rippleElement_.classList.add(this.CssClasses_.IS_PLACED);
+            this.rippleElement_.style.marginLeft = -this.rippleSize_ / 2 + 'px';
+            this.rippleElement_.style.marginTop = -this.rippleSize_ / 2 + 'px';
           }
         }
       };
