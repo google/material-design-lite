@@ -100,6 +100,12 @@ MaterialDataTable.prototype.createCheckbox_ = function(row, rows) {
   checkbox.classList.add('mdl-checkbox__input');
   if (row) {
     checkbox.addEventListener('change', this.selectRow_(checkbox, row));
+    if (row.dataset.mdlDataTableSelectableName) {
+      checkbox.name = row.dataset.mdlDataTableSelectableName;
+    }
+    if (row.dataset.mdlDataTableSelectableValue) {
+      checkbox.value = row.dataset.mdlDataTableSelectableValue;
+    }
   } else if (rows) {
     checkbox.addEventListener('change', this.selectRow_(checkbox, null, rows));
   }
