@@ -420,7 +420,6 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
     }
 
     tab.addEventListener('click', function(e) {
-      e.preventDefault();
       var href = tab.href.split('#')[1];
       var panel = layout.content_.querySelector('#' + href);
       layout.resetTabState_(tabs);
