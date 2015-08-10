@@ -490,12 +490,17 @@ body:not(.about) .mdl-navigation__link.download > button {
 .component-description .mdl-button:first-of-type {
   margin-top: 8px;
 }
+.docs-footer.mdl-mini-footer .mdl-mini-footer--social-btn {
+  background-color: transparent;
+  margin: 0 16px;
+  width: 24px;
+  height: 24px;
+}
 .docs-footer.mdl-mini-footer .social-btn {
+  display: block;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: transparent;
-  margin: 0 16px;
   width: 24px;
   height: 24px;
   cursor: pointer;
