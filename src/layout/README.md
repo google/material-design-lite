@@ -225,7 +225,7 @@ The same layout with a non-fixed header that scrolls with the content.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header mdl-layout__header--scroll">
-    <div class="mdl-layout-icon"></div>
+    <img class="mdl-layout-icon"></img>
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">Material Design Lite</span>
       <div class="mdl-layout-spacer"></div>
@@ -305,7 +305,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-layout` | Defines container as an MDL component | Required on outer div element |
 | `mdl-js-layout` | Assigns basic MDL behavior to layout | Required on outer div element |
 | `mdl-layout__header` | Defines container as an MDL component | Required on header element |
-| `mdl-layout-icon` | Used for adding an application icon. Gets concealed by menu icon if both are visible.  | Goes on optional icon div |
+| `mdl-layout-icon` | Used for adding an application icon. Gets concealed by menu icon if both are visible.  | Goes on optional icon element |
 | `mdl-layout__header-row` | Defines container as MDL header row | Required on header content div |
 | `mdl-layout-title` | Defines layout title text | Required on layout title span |
 | `mdl-layout-spacer` | Used to align elements inside a header or drawer, by growing to fill remaining space. Commonly used for aligning elements to the right. | Goes on optional div following layout title |
