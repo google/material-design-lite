@@ -62,7 +62,7 @@ var AUTOPREFIXER_BROWSERS = [
 // ***** Development tasks ****** //
 
 // Lint JavaScript
-gulp.task('jshint', function () {
+gulp.task('jshint', function() {
   return gulp.src(['src/**/*.js' , 'gulpfile.js'])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
@@ -71,7 +71,7 @@ gulp.task('jshint', function () {
 });
 
 // Lint JavaScript code style
-gulp.task('jscs', function () {
+gulp.task('jscs', function() {
   return gulp.src(['src/**/*.js' , 'gulpfile.js'])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jscs())
@@ -82,7 +82,7 @@ gulp.task('jscs', function () {
 
 // Optimize Images
 // TODO: Update image paths in final CSS to match root/images
-gulp.task('images', function () {
+gulp.task('images', function() {
   return gulp.src('src/**/*.{svg,png,jpg}')
     .pipe($.flatten())
     .pipe($.cache($.imagemin({
@@ -94,7 +94,7 @@ gulp.task('images', function () {
 });
 
 // Compile and Automatically Prefix Stylesheets (dev)
-gulp.task('styles:dev', function () {
+gulp.task('styles:dev', function() {
   return gulp.src([
     'src/**/*.scss'
   ])
@@ -111,13 +111,13 @@ gulp.task('styles:dev', function () {
 });
 
 // Compile and Automatically Prefix Stylesheet Templates (production)
-gulp.task('styletemplates', function () {
+gulp.task('styletemplates', function() {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'src/template.scss'
   ])
     // Generate Source Maps
-    .pipe ($.sourcemaps.init())
+    .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -140,13 +140,13 @@ gulp.task('styletemplates', function () {
 });
 
 // Compile and Automatically Prefix Stylesheets (production)
-gulp.task('styles', function () {
+gulp.task('styles', function() {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'src/styleguide.scss'
   ])
     // Generate Source Maps
-    .pipe ($.sourcemaps.init())
+    .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -170,7 +170,7 @@ gulp.task('styles', function () {
 });
 
 // Only generate CSS styles for the MDL grid
-gulp.task('styles-grid', function () {
+gulp.task('styles-grid', function() {
   return gulp.src(['src/material-design-lite-grid.scss'])
     .pipe($.sass({
       precision: 10,
@@ -191,7 +191,7 @@ gulp.task('styles-grid', function () {
 });
 
 // Concatenate And Minify JavaScript
-gulp.task('scripts', ['jscs', 'jshint'], function () {
+gulp.task('scripts', ['jscs', 'jshint'], function() {
   var sources = [
     // Component handler
     'src/mdlComponentHandler.js',
@@ -220,6 +220,9 @@ gulp.task('scripts', ['jscs', 'jshint'], function () {
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
+    .pipe($.iife({
+      useStrict: false,
+    }))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
     .pipe($.uglify({
@@ -238,13 +241,13 @@ gulp.task('scripts', ['jscs', 'jshint'], function () {
 gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
 
 // Copy package manger and LICENSE files to dist
-gulp.task('metadata', function () {
+gulp.task('metadata', function() {
   return gulp.src(['package.json', 'bower.json', 'LICENSE'])
     .pipe(gulp.dest('./dist'));
 });
 
 // Build Production Files, the Default Task
-gulp.task('default', ['clean', 'mocha'], function (cb) {
+gulp.task('default', ['clean', 'mocha'], function(cb) {
   runSequence(
     ['styles', 'styles-grid'],
     ['scripts'],
@@ -252,7 +255,7 @@ gulp.task('default', ['clean', 'mocha'], function (cb) {
 });
 
 // Build production files and microsite
-gulp.task('all', ['clean', 'mocha'], function (cb) {
+gulp.task('all', ['clean', 'mocha'], function(cb) {
   runSequence(
     ['default', 'styletemplates'],
     ['styles:gen'],
@@ -264,7 +267,7 @@ gulp.task('all', ['clean', 'mocha'], function (cb) {
 
 // ***** Testing tasks ***** //
 
-gulp.task('mocha', ['styles'], function () {
+gulp.task('mocha', ['styles'], function() {
   return gulp.src('./test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });
@@ -318,7 +321,7 @@ gulp.task('components', ['demos'], function() {
     .pipe($.header('---\nlayout: component\nbodyclass: component\ninclude_prefix: ../../\n---\n\n'))
     .pipe($.frontMatter({property: 'page', remove: true}))
     .pipe($.marked())
-    .pipe((function () {
+    .pipe((function() {
       return through.obj(function(file, enc, cb) {
         file.page.component = file.relative.split('/')[0];
         this.push(file);
@@ -326,7 +329,7 @@ gulp.task('components', ['demos'], function() {
       });
     })())
     .pipe(applyTemplate())
-    .pipe($.rename(function (path) {
+    .pipe($.rename(function(path) {
       path.basename = 'index';
     }))
     .pipe(gulp.dest('dist/components'));
@@ -335,7 +338,7 @@ gulp.task('components', ['demos'], function() {
 /**
  * Copies demo files from MDL/src directory.
  */
-gulp.task('demoresources', function () {
+gulp.task('demoresources', function() {
   return gulp.src([
       './src/**/demos.css',
       './src/**/demo.css',
@@ -357,7 +360,6 @@ gulp.task('demoresources', function () {
  * put together.
  */
 gulp.task('demos', ['demoresources'], function() {
-
   function getComponentFolders() {
     return fs.readdirSync('./src/')
       .filter(function(file) {
@@ -375,7 +377,7 @@ gulp.task('demos', ['demoresources'], function() {
       .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
       .pipe($.frontMatter({property: 'page', remove: true}))
       .pipe($.marked())
-      .pipe((function () {
+      .pipe((function() {
         return through.obj(function(file, enc, cb) {
             file.page.component = component;
             this.push(file);
@@ -415,7 +417,7 @@ gulp.task('pages', ['components'], function() {
 /**
  * Copies assets from MDL and _assets directory.
  */
-gulp.task('assets', function () {
+gulp.task('assets', function() {
   return gulp.src([
       'docs/_assets/**/*',
       'node_modules/clippy/build/clippy.swf',
@@ -456,7 +458,7 @@ function watch() {
 /**
  * Serves the landing page from "out" directory.
  */
-gulp.task('serve:browsersync', function () {
+gulp.task('serve:browsersync', function() {
   browserSync({
     notify: false,
     server: {
@@ -554,7 +556,7 @@ gulp.task('pushCodeFiles', function() {
     ]));
 });
 
-gulp.task('publish:code', function (cb) {
+gulp.task('publish:code', function(cb) {
   runSequence(
     ['zip:mdl', 'zip:templates'],
     'genCodeFiles',

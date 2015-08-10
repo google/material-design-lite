@@ -15,102 +15,115 @@
  * limitations under the License.
  */
 
-/**
- * Class constructor for Progress MDL component.
- * Implements MDL component design pattern defined at:
- * https://github.com/jasonmayes/mdl-component-design-pattern
- * @param {HTMLElement} element The element that will be upgraded.
- */
-function MaterialProgress(element) {
+(function() {
   'use strict';
 
-  this.element_ = element;
+  /**
+   * Class constructor for Progress MDL component.
+   * Implements MDL component design pattern defined at:
+   * https://github.com/jasonmayes/mdl-component-design-pattern
+   *
+   * @param {HTMLElement} element The element that will be upgraded.
+   */
+  var MaterialProgress = function MaterialProgress(element) {
+    this.element_ = element;
 
-  // Initialize instance.
-  this.init();
-}
+    // Initialize instance.
+    this.init();
+  };
+  window.MaterialProgress = MaterialProgress;
 
-/**
- * Store constants in one place so they can be updated easily.
- * @enum {string | number}
- * @private
- */
-MaterialProgress.prototype.Constant_ = {
-};
+  /**
+   * Store constants in one place so they can be updated easily.
+   *
+   * @enum {String | Number}
+   * @private
+   */
+  MaterialProgress.prototype.Constant_ = {
+  };
 
-/**
- * Store strings for class names defined by this component that are used in
- * JavaScript. This allows us to simply change it in one place should we
- * decide to modify at a later date.
- * @enum {string}
- * @private
- */
-MaterialProgress.prototype.CssClasses_ = {
-  INDETERMINATE_CLASS: 'mdl-progress__indeterminate'
-};
+  /**
+   * Store strings for class names defined by this component that are used in
+   * JavaScript. This allows us to simply change it in one place should we
+   * decide to modify at a later date.
+   *
+   * @enum {String}
+   * @private
+   */
+  MaterialProgress.prototype.CssClasses_ = {
+    INDETERMINATE_CLASS: 'mdl-progress__indeterminate'
+  };
 
-MaterialProgress.prototype.setProgress = function(p) {
-  'use strict';
+  /**
+   * Set the current progress of the progressbar.
+   *
+   * @param {Number} p Percentage of the progress (0-100)
+   * @public
+   */
+  MaterialProgress.prototype.setProgress = function(p) {
+    if (this.element_.classList.contains(this.CssClasses_.INDETERMINATE_CLASS)) {
+      return;
+    }
 
-  if (this.element_.classList.contains(this.CssClasses_.INDETERMINATE_CLASS)) {
-    return;
-  }
+    this.progressbar_.style.width = p + '%';
+  };
 
-  this.progressbar_.style.width = p + '%';
-};
+  /**
+   * Set the current progress of the buffer.
+   *
+   * @param {Number} p Percentage of the buffer (0-100)
+   * @public
+   */
+  MaterialProgress.prototype.setBuffer = function(p) {
+    this.bufferbar_.style.width = p + '%';
+    this.auxbar_.style.width = (100 - p) + '%';
+  };
 
-MaterialProgress.prototype.setBuffer = function(p) {
-  'use strict';
+  /**
+   * Initialize element.
+   */
+  MaterialProgress.prototype.init = function() {
+    if (this.element_) {
+      var el = document.createElement('div');
+      el.className = 'progressbar bar bar1';
+      this.element_.appendChild(el);
+      this.progressbar_ = el;
 
-  this.bufferbar_.style.width = p + '%';
-  this.auxbar_.style.width = (100 - p) + '%';
-};
+      el = document.createElement('div');
+      el.className = 'bufferbar bar bar2';
+      this.element_.appendChild(el);
+      this.bufferbar_ = el;
 
-/**
- * Initialize element.
- */
-MaterialProgress.prototype.init = function() {
-  'use strict';
+      el = document.createElement('div');
+      el.className = 'auxbar bar bar3';
+      this.element_.appendChild(el);
+      this.auxbar_ = el;
 
-  if (this.element_) {
-    var el = document.createElement('div');
-    el.className = 'progressbar bar bar1';
-    this.element_.appendChild(el);
-    this.progressbar_ = el;
+      this.progressbar_.style.width = '0%';
+      this.bufferbar_.style.width = '100%';
+      this.auxbar_.style.width = '0%';
 
-    el = document.createElement('div');
-    el.className = 'bufferbar bar bar2';
-    this.element_.appendChild(el);
-    this.bufferbar_ = el;
+      this.element_.classList.add('is-upgraded');
+    }
+  };
 
-    el = document.createElement('div');
-    el.className = 'auxbar bar bar3';
-    this.element_.appendChild(el);
-    this.auxbar_ = el;
+  /**
+   * Downgrade the component
+   *
+   * @private
+   */
+  MaterialProgress.prototype.mdlDowngrade_ = function() {
+    while (this.element_.firstChild) {
+      this.element_.removeChild(this.element_.firstChild);
+    }
+  };
 
-    this.progressbar_.style.width = '0%';
-    this.bufferbar_.style.width = '100%';
-    this.auxbar_.style.width = '0%';
-
-    this.element_.classList.add('is-upgraded');
-  }
-};
-
-/*
-* Downgrade the component
-*/
-MaterialProgress.prototype.mdlDowngrade_ = function() {
-  'use strict';
-  while (this.element_.firstChild) {
-    this.element_.removeChild(this.element_.firstChild);
-  }
-};
-
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
-  constructor: MaterialProgress,
-  classAsString: 'MaterialProgress',
-  cssClass: 'mdl-js-progress',
-  widget: true
-});
+  // The component registers itself. It can assume componentHandler is available
+  // in the global scope.
+  componentHandler.register({
+    constructor: MaterialProgress,
+    classAsString: 'MaterialProgress',
+    cssClass: 'mdl-js-progress',
+    widget: true
+  });
+})();
