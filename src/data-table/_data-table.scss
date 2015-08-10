@@ -22,7 +22,7 @@
   border: $data-table-dividers;
   border-collapse: collapse;
   white-space: nowrap;
-  font-size: 13px;
+  font-size: $data-table-font-size;
   background-color: unquote("rgb(#{$color-white})");
 
   thead {
@@ -85,7 +85,7 @@
     text-overflow: ellipsis;
     @include typo-body-2();
     height: $data-table-row-height;
-    font-size: 12px;
+    font-size: $data-table-header-font-size;
     color: $data-table-header-color;
     padding-bottom: 8px;
     box-sizing: border-box;

@@ -306,6 +306,7 @@ $input-text-expandable-icon-top: 16px;
 
 /* SWITCH */
 
+$switch-label-font-size: 16px;
 $switch-label-height: 24px;
 $switch-track-height: 14px;
 $switch-track-length: 36px;
@@ -333,6 +334,7 @@ $spinner-duration: 360 * $spinner-arc-time / (
 
 /* RADIO */
 
+$radio-label-font-size: 16px;
 $radio-label-height: 24px;
 $radio-button-size: 16px;
 $radio-inner-margin: $radio-button-size / 4;
@@ -352,10 +354,10 @@ $list-container-height: 500px;
 $list-container-width: 400px;
 $list-container-item-height: 70px;
 
-/* ICONS */
+/* LAYOUT */
 
+$layout-nav-link-font-size: 13px;
 
-// Dimensions
 $layout-drawer-narrow: 240px;
 $layout-drawer-wide: 456px;
 $layout-drawer-width: $layout-drawer-narrow;
@@ -376,6 +378,7 @@ $layout-header-mobile-baseline: 72px;
 $layout-header-mobile-indent: 16px;
 $layout-header-desktop-indent: 40px;
 
+$layout-tab-font-size: 14px;
 $layout-tab-bar-height: 48px;
 $layout-tab-mobile-padding: 12px;
 $layout-tab-desktop-padding: 24px;
@@ -391,11 +394,6 @@ $icon-toggle-ripple-size: 36px !default;
 /* FOOTER */
 
 /*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
 $footer-min-padding: 16px !default;
 $footer-padding-sides: 40px !default;
 $footer-heading-font-size: 14px !default;
@@ -403,47 +401,14 @@ $footer-heading-line-height: (1.7 * $footer-heading-font-size) !default;
 $footer-btn-size: 36px  !default;
 
 /*mini-footer*/
-
-/**************
- *
- * Sizes
- *
- *************/
 $padding: 16px !default;
 $footer-heading-font-size: 24px !default;
 $footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
 $footer-btn-size: 36px !default;
 
-/* COLUMN LAYOUT */
-
-// Cutoff points for devices.
-$columns-tablet-size: 768px;
-$columns-desktop-size: 1024px;
-
-// Web (desktop) layout. Columns are fixed width, and there's a maximum number
-// of 3 columns, after which we just add padding to either side.
-$columns-web-count: 3;
-$columns-web-size: 360px;
-$columns-web-gutter: 40px;
-
-$columns-web-block-size: $columns-web-size + $columns-web-gutter;
-$columns-web-padding-size: $columns-web-count *
-    ($columns-web-size + $columns-web-gutter) / 2;
-
-// Tablet layout. There's a fixed number of columns, which grow to fill the
-// entire container.
-$columns-tablet-count: 2;
-$columns-tablet-gutter: 24px;
-$columns-tablet-percent: 100% / $columns-tablet-count;
-
-// Phone layout. There's a fixed number of columns, which grow to fill the
-// entire container.
-$columns-phone-count: 1;
-$columns-phone-gutter: 16px;
-$columns-phone-percent: 100% / $columns-phone-count;
-
 /* CHECKBOX */
 
+$checkbox-label-font-size: 16px;
 $checkbox-label-height: 24px;
 $checkbox-button-size: 16px;
 $checkbox-inner-margin: 2px;
@@ -459,6 +424,7 @@ $card-width: 330px !default;
 $card-height: 200px !default;
 $card-font-size: 16px !default;
 $card-title-font-size: 24px !default;
+$card-subtitle-font-size: 14px !default;
 $card-horizontal-padding: 16px !default;
 $card-vertical-padding: 16px !default;
 
@@ -516,6 +482,7 @@ $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 $bar-height: 4px !default;
 
 /* BADGE */
+$badge-font-size: 12px;
 $badge-color: unquote("rgb(#{$color-white})") !default;
 $badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
 $badge-background: unquote("rgb(#{$color-accent})") !default;
@@ -551,6 +518,9 @@ $grid-cell-default-columns: $grid-phone-columns !default;
 
 /* DATA TABLE */
 
+$data-table-font-size: 13px;
+$data-table-header-font-size: 12px;
+
 $data-table-header-color: rgba(#000, 0.54);
 $data-table-divider-color: rgba(#000, 0.12);
 
@@ -571,3 +541,7 @@ $data-table-card-title-top: 20px;
 $data-table-card-padding: 24px;
 $data-table-button-padding-right: 16px;
 $data-table-cell-top: $data-table-card-padding / 2;
+
+/* TOOLTIP */
+$tooltip-font-size: 10px !default;
+$tooltip-font-size-large: 14px !default;

@@ -20,7 +20,7 @@
 .mdl-radio {
   position: relative;
 
-  font-size: 16px;
+  font-size: $radio-label-font-size;
   line-height: $radio-label-height;
 
   display: inline-block;

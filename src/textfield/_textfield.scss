@@ -21,7 +21,7 @@
 .mdl-textfield {
   position: relative;
 
-  font-size: 16px;
+  font-size: $input-text-font-size;
 
   display: inline-block;
 
@@ -64,7 +64,6 @@
   margin: 0;
   padding: $input-text-padding 0;
   width: $input-text-width;
-  background: $input-text-font-size;
   text-align: left;
   color: inherit;
 
@@ -132,7 +131,7 @@
 
   .mdl-textfield--floating-label.is-invalid & {
     color: $input-text-error-color;
-    font-size: 12px;
+    font-size: $input-text-floating-label-fontsize;
   }
 
   // The after label is the colored underline for the TextField.
@@ -163,7 +162,7 @@
 .mdl-textfield__error {
   color: $input-text-error-color;
   position: absolute;
-  font-size: 12px;
+  font-size: $input-text-floating-label-fontsize;
   margin-top: 3px;
   visibility: hidden;
   display: block;

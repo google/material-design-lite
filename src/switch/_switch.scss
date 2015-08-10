@@ -148,7 +148,7 @@
 .mdl-switch__label {
   position: relative;
   cursor: pointer;
-  font-size: 16px;
+  font-size: $switch-label-font-size;
   line-height: $switch-label-height;
   margin: 0;
   left: 24px;
