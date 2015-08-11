@@ -24,6 +24,7 @@ var gulp = require('gulp');
 var fs = require('fs');
 var merge = require('merge-stream');
 var $ = require('gulp-load-plugins')();
+var uniffe = require('./utils/uniffe.js');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 var runSequence = require('run-sequence');
@@ -217,11 +218,12 @@ gulp.task('scripts', ['jscs', 'jshint'], function() {
     'src/ripple/ripple.js'
   ];
   return gulp.src(sources)
+    .pipe(uniffe())
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
     .pipe($.iife({
-      useStrict: false,
+      useStrict: true,
     }))
     .pipe(gulp.dest('./dist'))
     // Minify Scripts
