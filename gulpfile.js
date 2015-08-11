@@ -203,6 +203,7 @@ gulp.task('scripts', ['jscs', 'jshint'], function() {
     'src/icon-toggle/icon-toggle.js',
     'src/menu/menu.js',
     'src/progress/progress.js',
+    'src/data-table/data-table.js',
     'src/radio/radio.js',
     'src/slider/slider.js',
     'src/spinner/spinner.js',
