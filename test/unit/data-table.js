@@ -44,7 +44,7 @@ describe('MaterialDataTable', function () {
 
   it('should upgrade successfully', function () {
     var el = document.createElement('div');
-    el.innerHTML = '' + TABLE_TEMPLATE;
+    el.innerHTML = TABLE_TEMPLATE;
 
     componentHandler.upgradeElement(el, 'MaterialDataTable');
     expect($(el)).to.have.data('upgraded', ',MaterialDataTable');
@@ -52,7 +52,7 @@ describe('MaterialDataTable', function () {
 
   it('should have is-checked class when the row has the is-selected class', function () {
     var el = document.createElement('div');
-    el.innerHTML = '' + TABLE_TEMPLATE;
+    el.innerHTML = TABLE_TEMPLATE;
     document.body.appendChild(el);
     table = document.querySelector('#data-table-test')
     componentHandler.upgradeElement(table, 'MaterialDataTable');
