@@ -46,7 +46,7 @@
 
     font-family: $preferred_font;
     font-weight: 600;
-    font-size: 12px;
+    font-size: $badge-font-size;
     width: $badge-size;
     height: $badge-size;
     border-radius : 50%;

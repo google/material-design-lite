@@ -135,7 +135,7 @@
 .mdl-checkbox__label {
   position: relative;
   cursor: pointer;
-  font-size: 16px;
+  font-size: $checkbox-label-font-size;
   line-height: $checkbox-label-height;
   margin: 0;
 

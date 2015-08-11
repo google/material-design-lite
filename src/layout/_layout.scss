@@ -29,7 +29,7 @@
   color: $layout-text-color;
   text-decoration: none;
   font-weight: 500;
-  font-size: 13px;
+  font-size: $layout-nav-link-font-size;
   margin: 0;
 }
 
@@ -526,7 +526,7 @@
 
     text-align: center;
     font-weight: 500;
-    font-size: 14px;
+    font-size: $layout-tab-font-size;
     text-transform: uppercase;
 
     color: $layout-header-tab-text-color;
