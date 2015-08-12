@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+/*
+* NOTE: Some rules here are applied using duplicate selectors.
+* This is on purpose to increase their specificity when applied.
+* For example: `.mdl-cell--1-col-phone.mdl-cell--1-col-phone`
+*/
+
 @import "../variables";
 
 .mdl-grid {
