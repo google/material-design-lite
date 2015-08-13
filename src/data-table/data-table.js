@@ -116,7 +116,9 @@
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('mdl-checkbox__input');
+
     if (row) {
+      checkbox.checked = row.classList.contains(this.CssClasses_.IS_SELECTED);
       checkbox.addEventListener('change', this.selectRow_(checkbox, row));
     } else if (rows) {
       checkbox.addEventListener('change', this.selectRow_(checkbox, null, rows));
