@@ -38,23 +38,20 @@ describe('MaterialDataTable', function () {
   });
 
   it('should upgrade successfully', function () {
-    var el = document.createElement('div');
-    el.appendChild(createTable());
+    var table = createTable();
 
-    componentHandler.upgradeElement(el, 'MaterialDataTable');
-    expect($(el)).to.have.data('upgraded', ',MaterialDataTable');
+    componentHandler.upgradeElement(table, 'MaterialDataTable');
+    expect($(table)).to.have.data('upgraded', ',MaterialDataTable');
   });
 
   it('should have is-checked class when the row has the is-selected class', function () {
-    var el = document.createElement('div');
     var table = createTable();
     table.classList.add('mdl-data-table--selectable');
     var row = table.insertRow();
     row.classList.add('is-selected');
     row.insertCell();
 
-    el.appendChild(table);
-    document.body.appendChild(el);
+    document.body.appendChild(table);
 
     var queryTable = document.querySelector('.mdl-data-table');
     componentHandler.upgradeElement(queryTable, 'MaterialDataTable');
