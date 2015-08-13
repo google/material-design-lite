@@ -7,12 +7,14 @@
   "author": "Google",
   "repository": "google/material-design-lite",
   "devDependencies": {
+    "acorn": "^2.2.0",
     "apache-server-configs": "^2.7.1",
     "browser-sync": "^2.2.3",
     "chai": "^2.0.0",
     "chai-jquery": "^2.0.0",
     "del": "^1.1.1",
     "drool": "^0.2.1",
+    "escodegen": "^1.6.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.0.0",
     "gulp-cache": "^0.2.6",
@@ -61,7 +63,7 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
     "swig": "^1.4.2",
-    "through2": "^0.6.3",
+    "through2": "^2.0.0",
     "vinyl-paths": "^1.0.0"
   },
   "engines": {
