@@ -26,10 +26,13 @@
   overflow: visible;
   height: 0;
   width: 0;
+  visibility: hidden;
   z-index: -1;
 
-  &.is-visible {
+  &.is-visible,
+  &.is-animating {
     z-index: 999;
+    visibility: visible;
   }
 }
 
