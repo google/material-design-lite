@@ -96,7 +96,9 @@
     box-sizing: border-box;
 
     .mdl-data-table__select {
-      position: relative;
+      position: absolute;
+      bottom: 8px;
+      left: 24px;
     }
   }
 }
