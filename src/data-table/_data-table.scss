@@ -24,11 +24,6 @@
   white-space: nowrap;
   font-size: $data-table-font-size;
   background-color: unquote("rgb(#{$color-white})");
-  /*
-   * Transform in Safari to solve rendering issue.
-   * See https://github.com/google/material-design-lite/issues/1194
-   */
-  -webkit-transform: translate3d(0,0,0);
 
   thead {
     padding-bottom: 3px;
