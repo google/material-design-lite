@@ -114,6 +114,19 @@ templates:
 pass the minimum-requirements defined in our
 [cutting-the-mustard test](https://github.com/google/material-design-lite/blob/87c48c22416c3e83850f7711365b2a43ba19c5ce/src/mdlComponentHandler.js#L336-L349).
 
+The templates refer to CDN hosted versions of the libraries. If you'd like to
+test the templates against locally built MDL libraries you need to run the
+`templates:localtestingoverride` gulp task before running `gulp serve`:
+
+```bash
+gulp all && gulp templates:localtestingoverride && gulp serve
+```
+
+> Beware as any changes to the `templates` directory will automatically revert
+the templates local testing overrides. In this case make sure you run the
+`templates:localtestingoverride` gulp task again or modify the `watch()`
+function in the gulp file.
+
 ## Versioning
 
 For transparency into our release cycle and in striving to maintain backward
