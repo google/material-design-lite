@@ -657,7 +657,8 @@ gulp.task('templates:mdl', function() {
 
 gulp.task('_release', function() {
   return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE',
-    'README.md', 'bower.json', 'package.json', './sr?/**/*', 'gulpfile.js'])
+    'README.md', 'bower.json', 'package.json', '.jscsrc', '.jshintrc',
+    './sr?/**/*', 'gulpfile.js', './util?/**/*'])
     .pipe(gulp.dest('_release'));
 });
 
