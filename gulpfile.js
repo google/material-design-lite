@@ -673,6 +673,17 @@ gulp.task('templates:static', function() {
   .pipe(gulp.dest('dist/templates'));
 });
 
+// This task can be used if you want to test the templates against locally
+// built version of the MDL libraries.
+gulp.task('templates:localtestingoverride', function() {
+  return gulp.src([
+    'templates/**/*.html',
+  ])
+    .pipe($.replace('$$version$$', '.'))
+    .pipe($.replace('$$hosted_libs_prefix$$', ''))
+    .pipe(gulp.dest('dist/templates'));
+});
+
 gulp.task('templates:images', function() {
   return gulp.src([
     'templates/*/images/**/*'
