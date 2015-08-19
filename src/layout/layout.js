@@ -312,8 +312,6 @@
         // not be present.
         this.element_.classList.add(this.CssClasses_.HAS_DRAWER);
 
-        this.drawer_.addEventListener('mousewheel', eatEvent);
-
         // If we have a fixed header, add the button to the header rather than
         // the layout.
         if (this.element_.classList.contains(this.CssClasses_.FIXED_HEADER)) {
