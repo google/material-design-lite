@@ -1,5 +1,7 @@
 # Material Design Lite
 
+[![Join the chat at https://gitter.im/google/material-design-lite](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/google/material-design-lite?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 components in vanilla CSS, JS, and HTML
 
