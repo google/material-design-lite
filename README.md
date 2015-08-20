@@ -8,7 +8,6 @@ static content websites. It doesn't rely on any JavaScript frameworks or
 libraries. Optimized for cross-device use, gracefully degrades in older
 browsers, and offers an experience that is accessible from the get-go.
 
-
 ## Use MDL on your site?
 
 **This document is targeted at developers that will contribute to or compile
@@ -37,7 +36,9 @@ git clone https://github.com/google/material-design-lite.git
 Alternatively you can [download](https://github.com/google/material-design-lite/archive/master.zip)
 this repository.
 
-Windows users, if you have trouble compiling due to line endings then make sure you configure git to checkout the repository with `lf` (unix) line endings. This can be achieved by setting `core.eol`.
+Windows users, if you have trouble compiling due to line endings then make sure
+you configure git to checkout the repository with `lf` (unix) line endings. This
+can be achieved by setting `core.eol`.
 
 ```
 git config core.eol lf
@@ -46,7 +47,8 @@ git rm --cached -r .
 git reset --hard
 ```
 
-> Remember, the master branch is considered unstable. Do not use this in production. Use a tagged state of the repository, npm, or bower for stability!
+> Remember, the master branch is considered unstable. Do not use this in
+production. Use a tagged state of the repository, npm, or bower for stability!
 
 ### What's included
 
@@ -93,7 +95,6 @@ gulp
 ```
 
 This will clean the `dist` folder and rebuild the assets for serving.
-
 
 ### Templates
 
@@ -144,16 +145,22 @@ Design specs and therefore some requests might not be within the scope of this
 project.
 
 ## Want to contribute?
-If you found a bug, have any questions or want to contribute. Follow our [guidelines](https://github.com/google/material-design-lite/blob/master/CONTRIBUTING.md), and help improve the Material Design Lite. For more information visit our [wiki](https://github.com/google/material-design-lite/wiki).
+
+If you found a bug, have any questions or want to contribute. Follow our
+[guidelines](https://github.com/google/material-design-lite/blob/master/CONTRIBUTING.md),
+and help improve the Material Design Lite. For more information visit our
+[wiki](https://github.com/google/material-design-lite/wiki).
 
 ## Do you include any features that a framework comes with?
 
 Material Design Lite is focused on delivering a vanilla CSS/JS/HTML library of
 components. We are not a framework. If you are building a single-page app and
 require features like two-way data-binding, templating, CSS scoping and so
-forth, we recommend trying out the excellent [Polymer](http://polymer-project.org) project.
-
+forth, we recommend trying out the excellent
+[Polymer](http://polymer-project.org) project.
 
 ## License
 
-© Google, 2015. Licensed under an [Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE) license.
+© Google, 2015. Licensed under an
+[Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE)
+license.
