@@ -1,4 +1,4 @@
-##Introduction
+## Introduction
 The Material Design Lite (MDL) **badge** component is an onscreen notification element. A badge consists of a small circle, typically containing a number or other characters, that appears in proximity to another object. A badge can be both a notifier that there are additional items associated with an object and an indicator of how many items there are.
 
 You can use a badge to unobtrusively draw the user's attention to items they might not otherwise notice, or to emphasize that items may need their attention. For example:
@@ -11,10 +11,10 @@ A badge is almost always positioned near a link so that the user has a convenien
 
 Badges are a new feature in user interfaces, and provide users with a visual clue to help them discover additional relevant content. Their design and use is therefore an important factor in the overall user experience.
 
-##Basic use
+## Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
-###To include an MDL **badge** component:
+### To include an MDL **badge** component:
 
 &nbsp;1. Code  an `<a>` (anchor/link) or a `<span>` element. Include any desired attributes and content.
 ```html
@@ -33,7 +33,7 @@ The badge component is ready for use.
 
 >**Note:** Because of the badge component's small size, the `data-badge` value should typically contain one to three characters. More than three characters will not cause an error, but some characters may fall outside the badge and thus be difficult or impossible to see. The value of the `data-badge` attribute is centered in the badge.
 
-####Examples
+#### Examples
 A badge inside a link.
 ```html
 <a href="#" class="mdl-badge" data-badge="7">This link contains a badge.</a>
@@ -57,7 +57,7 @@ A badge inside a link with no badge background color.
 This badge has no background color.</a>
 ```
 
-##Configuration options
+## Configuration options
 The MDL CSS classes apply various predefined visual enhancements to the badge. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |

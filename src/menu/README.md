@@ -1,12 +1,12 @@
-##Introduction
+## Introduction
 The Material Design Lite (MDL) **menu** component is a user interface element that allows users to select one of a number of options. The selection typically results in an action initiation, a setting change, or other observable effect. Menu options are always presented in sets of two or more, and options may be programmatically enabled or disabled as required. The menu appears when the user is asked to choose among a series of options, and is usually dismissed after the choice is made.
 
 Menus are an established but non-standardized feature in user interfaces, and allow users to make choices that direct the activity, progress, or characteristics of software. Their design and use is an important factor in the overall user experience. See the menu component's [Material Design specifications page](http://www.google.com/design/spec/components/menus.html) for details.
 
-##Basic use
+## Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
-###To include an MDL **menu** component:
+### To include an MDL **menu** component:
 
 &nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` attribute of the unordered list coded in the next step. Inside the button, code a `<span>` element to contain an icon of your choice.
 ```html
@@ -44,7 +44,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 The menu component is ready for use.
 
-####Examples
+#### Examples
 A menu with three options.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
@@ -79,7 +79,7 @@ A menu with three options, the second of which is disabled by default.
 </ul>
 ```
 
-##Configuration options
+## Configuration options
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the menu. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
