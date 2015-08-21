@@ -1,16 +1,16 @@
-##Introduction
+## Introduction
 The Material Design Lite (MDL) **text field** component is an enhanced version of the standard HTML `<input type="text">` and `<input type="textarea">` elements. A text field consists of a horizontal line indicating where keyboard input can occur and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.
 
 Text fields are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the text field component's [Material Design specifications page](http://www.google.com/design/spec/components/text-fields.html) for details.
 
 The enhanced text field component has a more vivid visual look than a standard text field, and may be initially or programmatically *disabled*.
 
-##Basic use
+## Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 There are three main types of text fields in the text field component, each with its own basic coding requirements. The types are *single-line*, *multi-line*, and *expandable*.
 
-###To include a *single-line* MDL **text field** component:
+### To include a *single-line* MDL **text field** component:
 
 &nbsp;1. Code a `<div>` element to hold the text field.
 ```html
@@ -49,7 +49,7 @@ There are three main types of text fields in the text field component, each with
 ```
 The single-line text field component is ready for use.
 
-####Examples
+#### Examples
 
 Single-line text field with a standard label.
 ```html
@@ -76,7 +76,7 @@ Single-line text field with a standard label, pattern matching, and error messag
 </div>
 ```
 
-###To include a *multi-line* MDL **text field** component:
+### To include a *multi-line* MDL **text field** component:
 
 &nbsp;1. Code a `<div>` element to hold the text field.
 ```html
@@ -107,7 +107,7 @@ Single-line text field with a standard label, pattern matching, and error messag
 
 The multi-line text field component is ready for use.
 
-####Examples
+#### Examples
 
 Multi-line text field with one visible input line.
 ```html
@@ -134,7 +134,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
 </div>
 ```
 
-###To include an *expandable* MDL **text field** component:
+### To include an *expandable* MDL **text field** component:
 
 &nbsp;1. Code an "outer" `<div>` element to hold the expandable text field.
 ```html
@@ -207,7 +207,7 @@ Multi-line text field with multiple visible input lines and a maximum number of 
 
 The expandable text field component is ready for use. It will expand when the icon (the empty `<span>`) is clicked or gains focus.
 
-####Examples
+#### Examples
 
 Expandable text field with a standard label.
 ```html
@@ -237,7 +237,7 @@ Expandable text field with a floating label.
   </div>
 </div>
 ```
-##Configuration options
+## Configuration options
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the text field. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
