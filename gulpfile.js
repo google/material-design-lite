@@ -367,6 +367,17 @@ gulp.task('demos', ['demoresources'], function() {
     return fs.readdirSync('./src/')
       .filter(function(file) {
         return fs.statSync(path.join('./src/', file)).isDirectory();
+      })
+      .filter(function(file) {
+        var demoFile = false;
+        var snippetDir = false;
+        try {
+          demoFile = fs.statSync(path.join('./src/', file, 'demo.html')).isFile();
+        } catch (e) {}
+        try {
+          snippetDir = fs.statSync(path.join('./src/', file, 'snippets')).isDirectory();
+        } catch (e) {}
+        return demoFile || snippetDir;
       });
   }
 
