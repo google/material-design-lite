@@ -1,11 +1,11 @@
-##Introduction
+## Introduction
 The Material Design Lite (MDL) **typography** component is a comprehensive approach to standardizing the use of typefaces in applications and page displays. MDL typography elements are intended to replace the myriad fonts used by developers (which vary significantly in appearance) and provide a robust, uniform library of text styles from which developers can choose.
 
 The "Roboto" typeface is the standard for MDL display; it can easily be integrated into a web page using the CSS3 `@font-face` rule. However, Roboto is most simply accessed and included using a single standard HTML `<link>` element, which can be obtained at [this Google fonts page](http://www.google.com/fonts#UsePlace:use/Collection:Roboto).
 
 Because of the many possible variations in font display characteristics in HTML and CSS, MDL typography aims to provide simple and intuitive styles that use the Roboto font and produce visually attractive and internally consistent text results. See the typography component's [Material Design specifications page](http://www.google.com/design/spec/style/typography.html) for details.
 
-##Basic use
+## Basic use
 MDL typography does not require the inclusion of the minified CSS and JavaScript files that drive the other MDL components. Instead, just include a link to the Google stylesheet that accesses the font and its desired variations.
 ```html
 <head>
@@ -16,7 +16,7 @@ MDL typography does not require the inclusion of the minified CSS and JavaScript
 </head>
 ```
 
-###To include an MDL **typography** component:
+### To include an MDL **typography** component:
 
 &nbsp;1. Code any element (`<div>`,`<p>`,`<span>`, etc.) that can contain text, including whatever content is appropriate.
 ```html
@@ -29,7 +29,7 @@ MDL typography does not require the inclusion of the minified CSS and JavaScript
 
 The typography component is ready for use.
 
-####Examples
+#### Examples
 
 A "headline" paragraph.
 
@@ -66,7 +66,7 @@ A "body-1" paragraph, also uppercased.
 >
 >Also note that MDL typography provides some automatic adjustments based on its display environment. For example, the `body-1` style renders at 14px on a mobile device, but 13px on a desktop. You need not do anything to activate these self-modifiers; they are built into the MDL styles.
 
-##Configuration options
+## Configuration options
 The MDL CSS classes specify the style to use. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |

@@ -1,14 +1,14 @@
-##Introduction
+## Introduction
 The Material Design Lite (MDL) **footer** component is a comprehensive container intended to present a substantial amount of related content in a visually attractive and logically intuitive area. Although it is called "footer", it may be placed at any appropriate location on a device screen, either before or after other content.
 
 An MDL footer component takes two basic forms: *mega-footer* and *mini-footer*. As the names imply, mega-footers contain more (and more complex) content than mini-footers. A mega-footer presents multiple sections of content separated by horizontal rules, while a mini-footer presents a single section of content. Both footer forms have their own internal structures, including required and optional elements, and typically include both informational and clickable content, such as links.
 
 Footers, as represented by this component, are a fairly new feature in user interfaces, and allow users to view discrete blocks of content in a coherent and consistently organized way. Their design and use is an important factor in the overall user experience.
 
-##Basic use
+## Basic use
 To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
-###To include an MDL **mega-footer** component:
+### To include an MDL **mega-footer** component:
 
 &nbsp;1a. Code a `<footer>` element. Inside the footer, include one `<div>` element for each content section, typically three: *top*, *middle*, and *bottom*.
 ```html
@@ -229,7 +229,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 The mega-footer component is ready for use.
 
-####Examples
+#### Examples
 
 A mega-footer component with three sections and two drop-down sections in the middle section.
 ```html
@@ -280,7 +280,7 @@ A mega-footer component with three sections and two drop-down sections in the mi
 </footer>
 ```
 
-###To include an MDL **mini-footer** component:
+### To include an MDL **mini-footer** component:
 
 &nbsp;1a. Code a `<footer>` element. Inside the footer, code two `<div>` elements, one for the *left* section and one for the *right* section.
 ```html
@@ -359,7 +359,7 @@ A mega-footer component with three sections and two drop-down sections in the mi
 
 The mini-footer component is ready for use.
 
-####Examples
+#### Examples
 
 A mini-footer with left and right sections.
 
@@ -383,7 +383,7 @@ A mini-footer with left and right sections.
 </footer>
 ```
 
-##Configuration options
+## Configuration options
 The MDL CSS classes apply various predefined visual enhancements to the footer. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
