@@ -72,6 +72,14 @@
   @include partial-size(1, 1, $gutter);
 }
 
+@mixin offset-size($size, $columns, $gutter) {
+  margin-left: calc(#{(($size / $columns) * 100)+"%"} + #{$gutter / 2});
+
+  .mdl-grid.mdl-grid--no-spacing > & {
+    margin-left: #{(($size / $columns) * 100)+"%"};
+  }
+}
+
 
 
 ////////// Phone //////////
@@ -104,6 +112,14 @@
     .mdl-cell--#{$i}-col,
     .mdl-cell--#{$i}-col-phone.mdl-cell--#{$i}-col-phone {
       @include full-size($grid-phone-gutter);
+    }
+  }
+
+  // Define valid phone offsets.
+  @for $i from 1 through ($grid-phone-columns - 1) {
+    .mdl-cell--#{$i}-offset,
+    .mdl-cell--#{$i}-offset-phone.mdl-cell--#{$i}-offset-phone {
+      @include offset-size($i, $grid-phone-columns, $grid-phone-gutter);
     }
   }
 }
@@ -141,6 +157,14 @@
       @include full-size($grid-tablet-gutter);
     }
   }
+
+  // Define valid tablet offsets.
+  @for $i from 1 through ($grid-tablet-columns - 1) {
+    .mdl-cell--#{$i}-offset,
+    .mdl-cell--#{$i}-offset-tablet.mdl-cell--#{$i}-offset-tablet {
+      @include offset-size($i, $grid-tablet-columns, $grid-tablet-gutter);
+    }
+  }
 }
 
 
@@ -166,6 +190,14 @@
     .mdl-cell--#{$i}-col,
     .mdl-cell--#{$i}-col-desktop.mdl-cell--#{$i}-col-desktop {
       @include partial-size($i, $grid-desktop-columns, $grid-desktop-gutter);
+    }
+  }
+
+  // Define valid desktop offsets.
+  @for $i from 1 through ($grid-desktop-columns - 1) {
+    .mdl-cell--#{$i}-offset,
+    .mdl-cell--#{$i}-offset-desktop.mdl-cell--#{$i}-offset-desktop {
+      @include offset-size($i, $grid-desktop-columns, $grid-desktop-gutter);
     }
   }
 }
