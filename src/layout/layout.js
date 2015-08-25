@@ -290,8 +290,17 @@
 
       // Add drawer toggling button to our layout, if we have an openable drawer.
       if (this.drawer_) {
-        var drawerButton = document.createElement('div');
-        drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
+        var drawerButton = this.element_.querySelector('.' +
+          this.CssClasses_.DRAWER_BTN);
+        if (typeof(drawerButton) === 'undefined' || drawerButton === null) {
+          drawerButton = document.createElement('div');
+          drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
+
+          var drawerButtonIcon = document.createElement('i');
+          drawerButtonIcon.classList.add(this.CssClasses_.ICON);
+          drawerButtonIcon.textContent = this.Constant_.MENU_ICON;
+          drawerButton.appendChild(drawerButtonIcon);
+        }
 
         if (this.drawer_.classList.contains(this.CssClasses_.ON_LARGE_SCREEN)) {
           //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
@@ -300,10 +309,7 @@
           //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
           drawerButton.classList.add(this.CssClasses_.ON_SMALL_SCREEN);
         }
-        var drawerButtonIcon = document.createElement('i');
-        drawerButtonIcon.classList.add(this.CssClasses_.ICON);
-        drawerButtonIcon.textContent = this.Constant_.MENU_ICON;
-        drawerButton.appendChild(drawerButtonIcon);
+
         drawerButton.addEventListener('click',
             this.drawerToggleHandler_.bind(this));
 
