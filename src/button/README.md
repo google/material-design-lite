@@ -50,7 +50,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-button--fab` | Applies *fab* (circular) display effect | Mutually exclusive with *raised*, *mini-fab*, and *icon* |
 | `mdl-button--mini-fab` | Applies *mini-fab* (small fab circular) display effect | Mutually exclusive with *raised*, *fab*, and *icon* |
 | `mdl-button--icon` | Applies *icon* (small plain circular) display effect | Mutually exclusive with *raised*, *fab*, and *mini-fab*  |
-| `mdl-button--colored` | Applies *colored* display effect | Colors are defined in `material.min.css` |
+| `mdl-button--colored` | Applies *colored* display effect (primary or accent color, depending on the type of button) | Colors are defined in `material.min.css` |
 | `mdl-button--primary` | Applies *primary* color display effect | Colors are defined in `material.min.css` |
 | `mdl-button--accent` | Applies *accent* color display effect | Colors are defined in `material.min.css` |
 | `mdl-js-ripple-effect` | Applies *ripple* click effect | May be used in combination with any other classes |
