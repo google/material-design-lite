@@ -8,10 +8,10 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 ### To include an MDL **menu** component:
 
-&nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` attribute of the unordered list coded in the next step. Inside the button, code a `<span>` element to contain an icon of your choice.
+&nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` attribute of the unordered list coded in the next step. Inside the button, code a `<i>` or `<span>` element to contain an icon of your choice.
 ```html
 <button id="menu1">
-  <span />
+  <i></i>
 </button>
 ```
 &nbsp;2. Code a `<ul>` unordered list element; this is the container that holds the options. Include a `for` attribute whose value matches the `id` attribute of the button element.
@@ -89,6 +89,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-button--icon` | Applies *icon* (small plain circular) display effect to button | Required on button element |
 | `material-icons` | Defines span as a material icon | Required on an inline element |
 | `mdl-menu` | Defines an unordered list container as an MDL component | Required on ul element |
+| `mdl-js-menu` | Assigns basic MDL behavior to menu | Required on ul element |
 | `mdl-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on list item elements |
 | `mdl-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |
 | `mdl-menu--top-left` | Positions menu above button, aligns left edge of menu with button  | Optional; goes on unordered list element |
@@ -97,6 +98,8 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-menu--bottom-right` | Positions menu below button, aligns right edge of menu with button | Optional; goes on unordered list element |
 
 (1) The "more-vert" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
+
+(2) The `i` or `span` element in "button"" element can be used interchangeably. 
 
 >**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<li class="mdl-menu__item" disabled>Medium</li>`
 >This attribute may be added or removed programmatically via scripting.
