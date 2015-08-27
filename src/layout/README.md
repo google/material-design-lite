@@ -316,6 +316,8 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-layout__header--scroll` | Makes the header scroll with the content | Optional; goes on header element |
 | `mdl-layout--fixed-drawer` | Makes the drawer always visible and open in larger screens | Optional; goes on outer div element (not drawer div element) |
 | `mdl-layout--fixed-header` | Makes the header always visible, even in small screens | Optional; goes on outer div element |
+| `mdl-layout--no-drawer-button` | Does not display a drawer button | Optional; goes on `mdl-layout` element |
+| `mdl-layout--no-desktop-drawer-button` | Does not display a drawer button in desktop mode | Optional; goes on `mdl-layout` element |
 | `mdl-layout--large-screen-only` | Hides an element on smaller screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout--small-screen-only` | Hides an element on larger screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout__header--waterfall` | Allows a "waterfall" effect with multiple header lines | Optional; goes on header element |
