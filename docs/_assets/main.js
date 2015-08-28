@@ -75,27 +75,3 @@
     });
   });
 })();
-
-// Display color name on the wheel with tooltip
-(function () {
-  'use strict';
-
-  document.addEventListener('DOMContentLoaded', function(event) {
-    var colors = document.querySelectorAll('[data-color]');
-    var wheel = document.getElementById('wheel');
-
-    Array.prototype.forEach.call(colors, function(color) {
-      var colorText = color.dataset.color;
-      var tooltip = document.createElement('div');
-
-      color.id = colorText;
-
-      tooltip.setAttribute('for', colorText);
-      tooltip.className = 'mdl-tooltip mdl-tooltip--large';
-      tooltip.innerText = colorText;
-
-      componentHandler.upgradeElement(tooltip);
-      wheel.appendChild(tooltip);
-    });
-  });
-})();

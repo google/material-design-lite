@@ -203,6 +203,7 @@ MaterialCustomizer = (function() {
   MaterialCustomizer.prototype.buildWheel_ = function() {
     var config = this.config;
     var mainG = this.wheel.querySelector('g.wheel--maing');
+    var wheelContainer = this.wheel.parentNode;
 
     this.wheel.setAttribute('viewBox', '0 0 ' +
       this.config.width + ' ' +  this.config.height);
@@ -215,6 +216,7 @@ MaterialCustomizer = (function() {
     var svgNS = 'http://www.w3.org/2000/svg';
     config.colors.forEach(function(color, idx) {
       var field = fieldTpl.cloneNode(true);
+      var tooltip = document.createElement('div');
 
       for (var i = 1; i <= 2; i++) {
         var g = document.createElementNS(svgNS, 'g');
@@ -230,6 +232,7 @@ MaterialCustomizer = (function() {
         field.appendChild(g);
       }
       field.setAttribute('data-color', color);
+      field.id = color;
       field.querySelector('.polygons > *:nth-child(1)').style.fill =
         'rgb(' + this.getColor(color, '500') + ')';
       field.querySelector('.polygons > *:nth-child(2)').style.fill =
@@ -238,10 +241,16 @@ MaterialCustomizer = (function() {
         addEventListener('click', this.fieldClicked_.bind(this));
       field.setAttribute('transform', 'rotate(' + config.alphaDeg * idx + ')');
       mainG.appendChild(field);
+
+      tooltip.setAttribute('for', color);
+      tooltip.className = 'mdl-tooltip mdl-tooltip--large';
+      tooltip.innerText = color;
+      wheelContainer.appendChild(tooltip);
     }.bind(this));
 
     mainG.setAttribute('transform',
       'translate(' + config.width / 2 + ',' + config.height / 2 + ')');
+
   };
 
   MaterialCustomizer.prototype.generateFieldTemplate_ = function() {
