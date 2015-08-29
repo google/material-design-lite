@@ -36,7 +36,8 @@ function DemoAnimation(element) {
  * Store strings for class names defined by this component that are used in
  * JavaScript. This allows us to simply change it in one place should we
  * decide to modify at a later date.
- * @enum {String}
+ *
+ * @enum {string}
  * @private
  */
 DemoAnimation.prototype.CssClasses_ = {
@@ -49,7 +50,8 @@ DemoAnimation.prototype.CssClasses_ = {
 
 /**
  * Store constants in one place so they can be updated easily.
- * @enum {String | Number}
+ *
+ * @enum {number|!Array<string>}
  * @private
  */
 DemoAnimation.prototype.Constant_ = {
