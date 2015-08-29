@@ -244,7 +244,7 @@ MaterialCustomizer = (function() {
 
       tooltip.setAttribute('for', color);
       tooltip.className = 'mdl-tooltip mdl-tooltip--large';
-      tooltip.innerText = color;
+      tooltip.innerHTML = color;
       wheelContainer.appendChild(tooltip);
     }.bind(this));
 
