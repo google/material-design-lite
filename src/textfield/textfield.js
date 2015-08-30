@@ -132,7 +132,7 @@
     if (this.input_.validity.valid) {
       this.element_.classList.remove(this.CssClasses_.IS_INVALID);
     } else {
-      if (this.element_.getElementsByTagName('input')[0].value.length > 0) {
+      if (this.input_.value && this.input_.value.length > 0) {
         this.element_.classList.add(this.CssClasses_.IS_INVALID);
       }
     }
