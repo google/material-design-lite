@@ -132,9 +132,7 @@
     if (this.input_.validity.valid) {
       this.element_.classList.remove(this.CssClasses_.IS_INVALID);
     } else {
-      if (this.input_.value && this.input_.value.length > 0) {
-        this.element_.classList.add(this.CssClasses_.IS_INVALID);
-      }
+      this.element_.classList.add(this.CssClasses_.IS_INVALID);
     }
   };
 
@@ -218,6 +216,10 @@
         }
 
         this.updateClasses_();
+        
+        // remove IS_INVALID upon itializing this element so that it first appears without errors
+        this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+        
         this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
       }
     }
