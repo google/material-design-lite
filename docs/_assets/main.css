@@ -1319,3 +1319,6 @@ code[class*=language-], pre[class*=language-] {
   max-width: 640px;
   margin: 60px 0 40px 0;
 }
+footer > ul:last-child > li:first-child {
+  margin-right: 10px;
+}
