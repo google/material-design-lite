@@ -1,0 +1,78 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "../variables";
+
+.mdl-snackbar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-right: -50%;
+  cursor: default;
+  // Hard coded since the color is not present in any pallet.
+  background-color: #323232;
+  z-index: 10000;
+  max-height: 0;
+  border-radius: 2px;
+  display: table;
+  font-family: $preferred_font;
+  will-change: transform;
+  transform: translate3d(0,-50px,0) rotateZ(0deg);
+  @media(max-width: $grid-tablet-breakpoint - 1) {
+    width: 100%;
+    left:0;
+    min-height: 48px;
+    max-height: 80px;
+  }
+  @media(min-width: $grid-tablet-breakpoint) {
+    min-width: 288px;
+    max-width: 568px;
+  }
+  &.is-active {
+    max-height: 48px;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.mdl-snackbar__text {
+  padding: 14px 24px;
+  vertical-align: middle;
+  color: white;
+  display:table-cell;
+}
+
+.mdl-snackbar__action {
+  background: transparent;
+  border: none;
+  border-radius: $button-border-radius;
+  color: unquote("rgb(#{$color-accent})");
+  display: table-cell;
+  text-transform: uppercase;
+  min-width: $button-min-width;
+  padding: 14px 24px;
+  @include typo-button();
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: $button-height;
+  vertical-align: middle;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
