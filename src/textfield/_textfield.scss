@@ -77,6 +77,7 @@
     box-shadow: none;
   }
 
+  fieldset[disabled] .mdl-textfield &,
   .mdl-textfield.is-disabled & {
     background-color: transparent;
     border-bottom: 1px dotted $input-text-disabled-color;
@@ -113,6 +114,7 @@
     @include material-animation-default();
   }
 
+  fieldset[disabled] .mdl-textfield &,
   .mdl-textfield.is-disabled.is-disabled & {
     color: $input-text-disabled-text-color;
   }
