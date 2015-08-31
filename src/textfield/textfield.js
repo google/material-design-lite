@@ -216,6 +216,10 @@
         }
 
         this.updateClasses_();
+        
+        // remove IS_INVALID upon itializing this element so that it first appears without errors
+        this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+        
         this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
       }
     }
