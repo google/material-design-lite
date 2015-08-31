@@ -40,6 +40,7 @@
  * -----Shadows
  * -----Grid
  * -----Data table
+ * -----Snackbar
  */
 
 
@@ -541,6 +542,13 @@ $data-table-card-title-top: 20px;
 $data-table-card-padding: 24px;
 $data-table-button-padding-right: 16px;
 $data-table-cell-top: $data-table-card-padding / 2;
+
+/* SNACKBAR */
+
+// Hard coded since the color is not present in any pallet.
+$snackbar-background-color: #323232 !default;
+$snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
+$snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
 
 /* TOOLTIP */
 $tooltip-font-size: 10px !default;

@@ -1,0 +1,25 @@
+<button id="demo-show-snackbar" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Snackbar</button>
+<div id="demo-snackbar-example" class="mdl-js-snackbar"></div>
+<script>
+(function() {
+    'use strict';
+    window['counter'] = 0;
+    var snackbarContainer = document.querySelector('#demo-snackbar-example'),
+      showSnackbarButton = document.querySelector('#demo-show-snackbar');
+    showSnackbarButton.addEventListener('click', function() {
+        'use strict';
+        event.target.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+        var handler = function(event) {
+            document.querySelector('#demo-show-snackbar').style.backgroundColor = '';
+            event.target.disabled = true;
+        };
+        var data = {
+          message: 'Button color changed.',
+          timeout: 10000,
+          actionHandler: handler,
+          actionText: 'Undo'
+        };
+        snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  });
+}());
+</script>
