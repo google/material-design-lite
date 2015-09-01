@@ -34,6 +34,11 @@
 
   &.is-upgraded {
     padding-left: $checkbox-button-size + $checkbox-padding;
+
+    [dir="rtl"] & {
+      padding-left: 0;
+      padding-right: $checkbox-button-size + $checkbox-padding;
+    }
   }
 }
 
@@ -76,6 +81,11 @@
 
   z-index: 2;
 
+  [dir="rtl"] & {
+    left: auto;
+    right: 0;
+  }
+
   .mdl-checkbox.is-checked & {
     border: 2px solid $checkbox-color;
   }
@@ -99,6 +109,11 @@
   border-radius: 50%;
 
   background-color: transparent;
+
+  [dir="rtl"] & {
+    left: auto;
+    right: 0;
+  }
 
   .mdl-checkbox.is-focused & {
     box-shadow: 0 0 0px ($checkbox-button-size / 2) rgba(0, 0, 0, 0.1);
@@ -150,6 +165,11 @@
   z-index: 2;
   top: -(($checkbox-ripple-size - $checkbox-label-height) / 2);
   left: -(($checkbox-ripple-size - $checkbox-button-size) / 2);
+
+  [dir="rtl"] & {
+    left: auto;
+    right: -(($checkbox-ripple-size - $checkbox-button-size) / 2);    
+  }
 
   box-sizing: border-box;
   width: $checkbox-ripple-size;
