@@ -40,14 +40,9 @@
 
 // Main layout class.
 .mdl-layout {
+  position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: relative;
-  -webkit-overflow-scrolling: touch;
 }
 
 // Utility classes for screen sizes.
@@ -59,10 +54,15 @@
   display: none;
 }
 
-.mdl-layout__container {
-  position: absolute;
+.mdl-layout__inner-container {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 
@@ -162,7 +162,7 @@
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      .mdl-layout--fixed-drawer > & {
+      .mdl-layout--fixed-drawer > .mdl-layout__inner-container > & {
         transform: translateX(0);
       }
     }
@@ -210,7 +210,7 @@
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      .mdl-layout--fixed-drawer > & {
+      .mdl-layout--fixed-drawer > .mdl-layout__inner-container > & {
         display: none;
       }
 
@@ -251,13 +251,13 @@
       min-height: $layout-mobile-header-height;
     }
 
-    .mdl-layout--fixed-drawer:not(.is-small-screen) > & {
+    .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__inner-container > & {
       margin-left: $layout-drawer-width;
       width: calc(100% - #{$layout-drawer-width});
     }
 
     @media screen and (min-width: $layout-screen-size-threshold) {
-      .mdl-layout--fixed-drawer > & {
+      .mdl-layout--fixed-drawer > .mdl-layout__inner-container > & {
         .mdl-layout__header-row {
           padding-left: 40px;
         }
@@ -305,7 +305,7 @@
         display: none;
       }
 
-      .mdl-layout--fixed-header > & {
+      .mdl-layout--fixed-header > .mdl-layout__inner-container > & {
         display: flex;
       }
     }
@@ -429,20 +429,20 @@
     z-index: 1;
     -webkit-overflow-scrolling: touch;
 
-    .mdl-layout--fixed-drawer > & {
+    .mdl-layout--fixed-drawer > .mdl-layout__inner-container > & {
       margin-left: $layout-drawer-width;
     }
 
-    .mdl-layout__container.has-scrolling-header & {
+    .mdl-layout.has-scrolling-header & {
       overflow: visible;
     }
 
     @media screen and (max-width: $layout-screen-size-threshold) {
-      .mdl-layout--fixed-drawer > & {
+      .mdl-layout--fixed-drawer > .mdl-layout__inner-container > & {
         margin-left: 0;
       }
 
-      .mdl-layout__container.has-scrolling-header & {
+      .mdl-layout.has-scrolling-header & {
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -511,7 +511,7 @@
     flex-shrink: 0;
     overflow: hidden;
 
-    .mdl-layout__container > & {
+    .mdl-layout > .mdl-layout__inner-container > & {
       position: absolute;
       top: 0;
       left: 0;
