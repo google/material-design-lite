@@ -78,7 +78,9 @@ MaterialSelectfield.prototype.init = function() {
     for (var i = 0; i < options.length; i++) {
       var menuItem = document.createElement('li');
       menuItem.classList.add('mdl-menu__item');
-      // menuItem.setAttribute('value', options[i].getAttribute('value'));
+      if (options[i].value === this.select_.value) {
+        this.button_.innerHTML = options[i].innerHTML;
+      }
       menuItem.innerHTML = options[i].innerHTML;
       menuItem.addEventListener('click', this.clickMenuItem_.bind(this));
       this.menu_.appendChild(menuItem);
