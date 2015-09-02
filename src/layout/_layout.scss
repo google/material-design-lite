@@ -343,10 +343,14 @@
       align-items: center;
       height: $layout-header-desktop-row-height;
       margin: 0;
-      padding: 0 $layout-header-desktop-indent 0 $layout-header-desktop-baseline;
+      padding: 0 $layout-header-desktop-indent 0;
 
       .mdl-layout--no-drawer-button & {
         padding-left: $layout-header-desktop-indent;
+      }
+
+      .mdl-layout.has-drawer & {
+        padding-left: $layout-header-desktop-baseline;
       }
 
       @media screen and (min-width: $layout-screen-size-threshold + 1px) {
@@ -357,10 +361,14 @@
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         height: $layout-header-mobile-row-height;
-        padding: 0 $layout-header-mobile-indent 0 $layout-header-mobile-baseline;
+        padding: 0 $layout-header-mobile-indent 0;
 
         .mdl-layout--no-drawer-button & {
           padding-left: $layout-header-mobile-indent;
+        }
+
+        .md-layout.has-drawer & {
+          padding-left: $layout-header-mobile-baseline;
         }
       }
 
