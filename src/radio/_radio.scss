@@ -76,6 +76,7 @@
     border: 2px solid $radio-color;
   }
 
+  fieldset[disabled] .mdl-radio,
   .mdl-radio.is-disabled & {
     border: 2px solid $radio-disabled-color;
     cursor: auto;
@@ -106,6 +107,7 @@
     transform: scale3d(1, 1, 1);
   }
 
+  fieldset[disabled] .mdl-radio &,
   .mdl-radio.is-disabled & {
     background: $radio-disabled-color;
     cursor: auto;
@@ -119,6 +121,7 @@
 .mdl-radio__label {
   cursor: pointer;
 
+  fieldset[disabled] .mdl-radio &,
   .mdl-radio.is-disabled & {
     color: $radio-disabled-color;
     cursor: auto;
@@ -145,10 +148,12 @@
     background: $radio-color;
   }
 
+  fieldset[disabled] .mdl-radio &,
   .mdl-radio.is-disabled & {
     cursor: auto;
   }
 
+  fieldset[disabled] .mdl-radio & .mdl-ripple,
   .mdl-radio.is-disabled & .mdl-ripple {
     background: transparent;
   }

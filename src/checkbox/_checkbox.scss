@@ -80,6 +80,7 @@
     border: 2px solid $checkbox-color;
   }
 
+  fieldset[disabled] .mdl-checkbox &,
   .mdl-checkbox.is-disabled & {
     border: 2px solid $checkbox-disabled-color;
     cursor: auto;
@@ -127,6 +128,7 @@
     background: $checkbox-color url("/images/tick.svg?embed");
   }
 
+  fieldset[disabled] .mdl-checkbox.is-checked &,
   .mdl-checkbox.is-checked.is-disabled & {
     background: $checkbox-disabled-color url("/images/tick.svg?embed");
   }
@@ -139,6 +141,7 @@
   line-height: $checkbox-label-height;
   margin: 0;
 
+  fieldset[disabled] .mdl-checkbox &,
   .mdl-checkbox.is-disabled & {
     color: $checkbox-disabled-color;
     cursor: auto;
@@ -165,10 +168,12 @@
     background: $checkbox-color;
   }
 
+  fieldset[disabled] .mdl-checkbox &,
   .mdl-checkbox.is-disabled & {
     cursor: auto;
   }
 
+  fieldset[disabled] .mdl-checkbox & .mdl-ripple,
   .mdl-checkbox.is-disabled & .mdl-ripple {
     background: transparent;
   }
