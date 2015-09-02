@@ -215,13 +215,13 @@
 
 @mixin shadow-2dp() {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity/ 2);
 }
 @mixin shadow-3dp() {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-              0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+              0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
 @mixin shadow-4dp() {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
