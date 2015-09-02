@@ -25,6 +25,7 @@
   max-width: 100%;
   margin: 0;
   padding: $input-text-vertical-spacing 0;
+  width: 100%;
 
   &:after {
     background-color: $input-text-highlight-color;
@@ -56,10 +57,6 @@
       width: 100%;
       outline: none;
     }
-  }
-
-  &--full-width {
-    width: 100%;
   }
 
   select {
