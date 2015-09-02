@@ -202,6 +202,7 @@ gulp.task('scripts', ['jscs', 'jshint'], function() {
     // Base components
     'src/button/button.js',
     'src/checkbox/checkbox.js',
+    'src/dialog/dialog.js',
     'src/icon-toggle/icon-toggle.js',
     'src/menu/menu.js',
     'src/progress/progress.js',
