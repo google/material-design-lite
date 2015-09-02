@@ -40,6 +40,11 @@
  * -----Shadows
  * -----Grid
  * -----Data table
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
  */
 
 
