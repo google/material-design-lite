@@ -91,9 +91,19 @@ MaterialSelectfield.prototype.init = function() {
   }
 };
 
-MaterialSelectfield.prototype.clickMenu_ = function() {
+MaterialSelectfield.prototype.clickMenu_ = function(evt) {
   'use strict';
-  this.menu_.MaterialMenu.toggle();
+
+  this.menu_.MaterialMenu.show();
+  var callback = function(e) {
+    // Check to see if the document is processing the same event that
+    // displayed the item in the first place. If so, do nothing.
+    if (e !== evt) {
+      document.removeEventListener('click', callback);
+      this.menu_.MaterialMenu.hide();
+    }
+  }.bind(this);
+  document.addEventListener('click', callback);
 };
 
 MaterialSelectfield.prototype.clickMenuItem_ = function(event) {
