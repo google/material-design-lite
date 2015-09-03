@@ -15,10 +15,13 @@
  * limitations under the License.
  */
 
- function MaterialDialog(element) {
+function MaterialDialog(element) {
   'use strict';
+
   this.element_ = element;
   this.returnValue = '';
+
+  this.init();
 }
 
 MaterialDialog.prototype.showInternal_ = function(backdrop) {
@@ -59,6 +62,46 @@ MaterialDialog.prototype.close = function(returnValue) {
     document.body.removeChild(this.backdropElement_);
     this.backdropElement_ = undefined;
   }
+};
+
+MaterialDialog.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
+    var id = this.element_.getAttribute('id');
+
+    if (id && document.querySelector('[data-toggle="dialog"][for="' + id + '"]')) {
+      var toggleEls = document.querySelectorAll('[data-toggle="dialog"][for="' + id + '"]');
+      for (var i = 0; i < toggleEls.length; i++) {
+        toggleEls[i].addEventListener('click', this.handleOpen_.bind(this));
+      }
+    }
+
+    // bind close buttons
+    if (id && document.querySelector('#' + id + '.mdl-dialog [data-dismiss="dialog"]')) {
+      var dismissEls = document.querySelectorAll('#' + id + '.mdl-dialog [data-dismiss="dialog"]');
+      for (var j = 0; j < dismissEls.length; j++) {
+        dismissEls[j].addEventListener('click', this.handleClose_.bind(this));
+      }
+    }
+
+  }
+};
+
+MaterialDialog.prototype.handleOpen_ = function(event) {
+  'use strict';
+
+  if (this.element_.className.indexOf('mdl-dialog--modal') !== -1) {
+    this.element_.MaterialDialog.showModal();
+  } else {
+    this.element_.MaterialDialog.show();
+  }
+};
+
+MaterialDialog.prototype.handleClose_ = function(event) {
+  'use strict';
+
+  this.element_.MaterialDialog.close();
 };
 
 componentHandler.register({
