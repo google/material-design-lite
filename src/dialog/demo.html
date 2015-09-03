@@ -4,6 +4,28 @@
 
 <button type="button" data-toggle="dialog" for="data-table-dialog" class="mdl-button mdl-js-button">Show dialog with Data Table</button>
 
+<hr>
+
+<button id="open-dialog" class="mdl-button mdl-js-button">Manually bound dialog</button>
+<script>
+(function() {
+    'use strict';
+    document.querySelector('#open-dialog').addEventListener('click', function(event) {
+        document.querySelector('#normal-dialog').MaterialDialog.show();
+    });
+}());
+</script>
+
+<button id="open-modal-dialog" class="mdl-button mdl-js-button">Manually bound modal dialog</button>
+<script>
+(function() {
+    'use strict';
+    document.querySelector('#open-modal-dialog').addEventListener('click', function(event) {
+        document.querySelector('#normal-dialog').MaterialDialog.showModal();
+    });
+}());
+</script>
+
 <div id="normal-dialog" class="mdl-card mdl-dialog mdl-dialog--modal mdl-shadow--4dp mdl-js-dialog">
   <h3 class="mdl-dialog__title">
     Title Text
