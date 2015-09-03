@@ -20,6 +20,7 @@ $dialog-backdrop-color: rgba(0, 0, 0, .55);
 
 .mdl-dialog {
     display: block;
+    width: 100%;
     min-width: 280px;
     max-width: 500px;
     margin: auto;
@@ -28,6 +29,12 @@ $dialog-backdrop-color: rgba(0, 0, 0, .55);
     left: 0;
     right: 0;
     z-index: 11;
+    
+    top: 50%;                     // kinda hacky way to vertically center
+    transform: translate(0,-50%); //
+
+    max-height: 100%; // fix for content that goes past the height of the screen
+    overflow-y: auto; //
 
     &:not([open]) {
         display:none;
@@ -49,6 +56,7 @@ $dialog-backdrop-color: rgba(0, 0, 0, .55);
 
     &__title {
         color: black;
+        margin: 0;
         padding-left: 24px;
         padding-right: 24px;
         padding-top: 24px;
