@@ -1,24 +1,23 @@
-<button type="button" id="show" class="mdl-button mdl-js-button">Show dialog</button>
-<button type="button" id="show-modal" class="mdl-button mdl-js-button">Show as modal</button>
+<button type="button" data-toggle="dialog" for="normal-dialog" class="mdl-button mdl-js-button">Show modal dialog</button>
 
-<div id="normal-dialog" class="mdl-dialog mdl-shadow--4dp mdl-js-dialog">
+<hr>
+
+<button type="button" data-toggle="dialog" for="data-table-dialog" class="mdl-button mdl-js-button">Show dialog with Data Table</button>
+
+<div id="normal-dialog" class="mdl-card mdl-dialog mdl-dialog--modal mdl-shadow--4dp mdl-js-dialog">
   <h3 class="mdl-dialog__title">
     Title Text
   </h3>
   <div class="mdl-dialog__content">
-    Dialog Content
+    Sugar plum cupcake candy biscuit bear claw wafer. Gingerbread sesame snaps candy oat cake chocolate tiramisu. Caramels sesame snaps lollipop wafer gummi bears ice cream donut. Marshmallow toffee cheesecake danish candy apple pie bear claw. Gingerbread lemon drops sesame snaps dragée dragée icing wafer apple pie dessert. Marshmallow bonbon tiramisu donut powder cotton candy sweet sweet soufflé. Jelly pudding bonbon. Icing jelly-o lemon drops oat cake ice cream caramels jelly beans gummies. Halvah gummies gummi bears gummies jujubes tiramisu cotton candy tiramisu tart. Pie jelly beans croissant caramels toffee icing lollipop toffee. Bonbon caramels oat cake halvah donut soufflé sweet fruitcake bear claw. Oat cake chupa chups liquorice caramels bear claw bonbon powder macaroon. Icing marzipan cookie sesame snaps pastry chocolate cake lollipop liquorice.
   </div>
   <div class="mdl-dialog__actions">
     <button class="mdl-button mdl-js-button">Something else</button>
-    <button class="mdl-button mdl-js-button" id="close">Close</button>
+    <button class="mdl-button mdl-js-button" data-dismiss="dialog">Close</button>
   </div>
 </div>
 
-<hr>
-<button type="button" id="show-dt" class="mdl-button mdl-js-button">Show dialog with Data Table</button>
-<button type="button" id="show-dt-modal" class="mdl-button mdl-js-button">Show as modal with Data Table</button>
-
-<div id="data-table-dialog" class="mdl-dialog mdl-shadow--4dp mdl-js-dialog">
+<div id="data-table-dialog" class="mdl-card mdl-dialog mdl-shadow--4dp mdl-js-dialog">
   <h3 class="mdl-dialog__title">
     Products
   </h3>
@@ -51,11 +50,14 @@
   </table>
   </div>
   <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-    <button class="mdl-button mdl-js-button" id="close-dt">Close</button>
+    <button class="mdl-button mdl-js-button" data-dismiss="dialog">Close</button>
   </div>
 </div>
 
 <script>
+
+/*
+
 (function() {
     'use strict';
     var dialog = document.querySelector('#normal-dialog');
@@ -83,5 +85,7 @@
         dialog.MaterialDialog.close();
     });
 }());
+
+*/
 
 </script>
