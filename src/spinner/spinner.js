@@ -37,7 +37,7 @@
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialSpinner.prototype.Constant_ = {
@@ -49,7 +49,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialSpinner.prototype.CssClasses_ = {
@@ -64,7 +64,7 @@
   /**
    * Auxiliary method to create a spinner layer.
    *
-   * @param {Number} index Index of the layer to be created.
+   * @param {number} index Index of the layer to be created.
    * @public
    */
   MaterialSpinner.prototype.createLayer = function(index) {

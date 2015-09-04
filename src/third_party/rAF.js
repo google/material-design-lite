@@ -12,6 +12,10 @@
 'use strict';
 
 if (!Date.now) {
+  /**
+   * Date.now polyfill.
+   * @return {Date} the current Date
+   */
   Date.now = function() { return new Date().getTime(); };
 }
 
@@ -25,14 +29,17 @@ for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
 
 if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
   var lastTime = 0;
+  /**
+   * requestAnimationFrame polyfill.
+   * @param  {!Function} callback the callback function.
+   */
   window.requestAnimationFrame = function(callback) {
-      var now = Date.now();
-      var nextTime = Math.max(lastTime + 16, now);
-      return setTimeout(function() { callback(lastTime = nextTime); },
-                        nextTime - now);
-    };
+    var now = Date.now();
+    var nextTime = Math.max(lastTime + 16, now);
+    return setTimeout(function() { callback(lastTime = nextTime); },
+                      nextTime - now);
+  };
   window.cancelAnimationFrame = clearTimeout;
 }
 
 })();
-
