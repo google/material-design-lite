@@ -35,6 +35,7 @@ var path = require('path');
 var pkg = require('./package.json');
 var through = require('through2');
 var swig = require('swig');
+var closureCompiler = require('gulp-closure-compiler');
 var hostedLibsUrlPrefix = 'https://storage.googleapis.com/code.getmdl.io';
 var templateArchivePrefix = 'mdl-template-';
 var bucketProd = 'gs://www.getmdl.io';
@@ -59,6 +60,31 @@ var AUTOPREFIXER_BROWSERS = [
   'ios >= 7',
   'android >= 4.4',
   'bb >= 10'
+];
+
+var SOURCES = [
+  // Component handler
+  'src/mdlComponentHandler.js',
+  // Polyfills/dependencies
+  'src/third_party/**/*.js',
+  // Base components
+  'src/button/button.js',
+  'src/checkbox/checkbox.js',
+  'src/icon-toggle/icon-toggle.js',
+  'src/menu/menu.js',
+  'src/progress/progress.js',
+  'src/radio/radio.js',
+  'src/slider/slider.js',
+  'src/spinner/spinner.js',
+  'src/switch/switch.js',
+  'src/tabs/tabs.js',
+  'src/textfield/textfield.js',
+  'src/tooltip/tooltip.js',
+  // Complex components (which reuse base components)
+  'src/layout/layout.js',
+  'src/data-table/data-table.js',
+  // And finally, the ripples
+  'src/ripple/ripple.js'
 ];
 
 // ***** Development tasks ****** //
@@ -192,33 +218,27 @@ gulp.task('styles-grid', function() {
     .pipe($.size({title: 'styles-grid'}));
 });
 
+// Build with Google's Closure Compiler, requires Java 1.7+ installed.
+gulp.task('closure', function() {
+  return gulp.src(SOURCES)
+    .pipe(closureCompiler({
+      compilerPath: 'node_modules/google-closure-compiler/compiler.jar',
+      // TODO: Closure can't be piped to a final destination.
+      fileName: './dist/material.closure.min.js',
+      compilerFlags: {
+        // jscs:disable closureCamelCase
+        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        language_in: 'ECMASCRIPT6_STRICT',
+        language_out: 'ECMASCRIPT5_STRICT',
+        warning_level: 'VERBOSE'
+        // jscs:enable closureCamelCase
+      }
+    }));
+});
+
 // Concatenate And Minify JavaScript
 gulp.task('scripts', ['jscs', 'jshint'], function() {
-  var sources = [
-    // Component handler
-    'src/mdlComponentHandler.js',
-    // Polyfills/dependencies
-    'src/third_party/**/*.js',
-    // Base components
-    'src/button/button.js',
-    'src/checkbox/checkbox.js',
-    'src/icon-toggle/icon-toggle.js',
-    'src/menu/menu.js',
-    'src/progress/progress.js',
-    'src/radio/radio.js',
-    'src/slider/slider.js',
-    'src/spinner/spinner.js',
-    'src/switch/switch.js',
-    'src/tabs/tabs.js',
-    'src/textfield/textfield.js',
-    'src/tooltip/tooltip.js',
-    // Complex components (which reuse base components)
-    'src/layout/layout.js',
-    'src/data-table/data-table.js',
-    // And finally, the ripples
-    'src/ripple/ripple.js'
-  ];
-  return gulp.src(sources)
+  return gulp.src(SOURCES)
     .pipe(uniffe())
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
