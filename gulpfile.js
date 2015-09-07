@@ -499,7 +499,11 @@ gulp.task('zip:mdl', function() {
     .pipe(gulp.dest('dist'));
 });
 
-// Returns the list of children directories inside the given directory.
+/**
+ * Returns the list of children directories inside the given directory.
+ * @param {string} dir the parent directory
+ * @return {Array<string>} [description]
+ */
 function getSubDirectories(dir) {
   return fs.readdirSync(dir)
     .filter(function(file) {
