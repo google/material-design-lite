@@ -1,0 +1,113 @@
+<button type="button" data-toggle="dialog" for="normal-dialog" class="mdl-button mdl-js-button">Show modal dialog</button>
+
+<hr>
+
+<button type="button" data-toggle="dialog" for="data-table-dialog" class="mdl-button mdl-js-button">Show dialog with Data Table</button>
+
+<hr>
+
+<button id="open-dialog" class="mdl-button mdl-js-button">Manually bound dialog</button>
+<script>
+(function() {
+    'use strict';
+    document.querySelector('#open-dialog').addEventListener('click', function(event) {
+        document.querySelector('#normal-dialog').MaterialDialog.show();
+    });
+}());
+</script>
+
+<button id="open-modal-dialog" class="mdl-button mdl-js-button">Manually bound modal dialog</button>
+<script>
+(function() {
+    'use strict';
+    document.querySelector('#open-modal-dialog').addEventListener('click', function(event) {
+        document.querySelector('#normal-dialog').MaterialDialog.showModal();
+    });
+}());
+</script>
+
+<div id="normal-dialog" class="mdl-card mdl-dialog mdl-dialog--modal mdl-shadow--4dp mdl-js-dialog">
+  <h3 class="mdl-dialog__title">
+    Title Text
+  </h3>
+  <div class="mdl-dialog__content">
+    Sugar plum cupcake candy biscuit bear claw wafer. Gingerbread sesame snaps candy oat cake chocolate tiramisu. Caramels sesame snaps lollipop wafer gummi bears ice cream donut. Marshmallow toffee cheesecake danish candy apple pie bear claw. Gingerbread lemon drops sesame snaps dragée dragée icing wafer apple pie dessert. Marshmallow bonbon tiramisu donut powder cotton candy sweet sweet soufflé. Jelly pudding bonbon. Icing jelly-o lemon drops oat cake ice cream caramels jelly beans gummies. Halvah gummies gummi bears gummies jujubes tiramisu cotton candy tiramisu tart. Pie jelly beans croissant caramels toffee icing lollipop toffee. Bonbon caramels oat cake halvah donut soufflé sweet fruitcake bear claw. Oat cake chupa chups liquorice caramels bear claw bonbon powder macaroon. Icing marzipan cookie sesame snaps pastry chocolate cake lollipop liquorice.
+  </div>
+  <div class="mdl-dialog__actions">
+    <button class="mdl-button mdl-js-button">Something else</button>
+    <button class="mdl-button mdl-js-button" data-dismiss="dialog">Close</button>
+  </div>
+</div>
+
+<div id="data-table-dialog" class="mdl-card mdl-dialog mdl-shadow--4dp mdl-js-dialog">
+  <h3 class="mdl-dialog__title">
+    Products
+  </h3>
+  <div class="mdl-dialog__content">
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Material</th>
+        <th>Quantity</th>
+        <th>Unit price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+        <td>25</td>
+        <td>$2.90</td>
+      </tr>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+        <td>50</td>
+        <td>$1.25</td>
+      </tr>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+        <td>10</td>
+        <td>$2.35</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+    <button class="mdl-button mdl-js-button" data-dismiss="dialog">Close</button>
+  </div>
+</div>
+
+<script>
+
+/*
+
+(function() {
+    'use strict';
+    var dialog = document.querySelector('#normal-dialog');
+    document.querySelector('#show').addEventListener('click', function(event) {
+        dialog.MaterialDialog.show();
+    });
+    document.querySelector('#show-modal').addEventListener('click', function(event) {
+        dialog.MaterialDialog.showModal();
+    });
+    document.querySelector('#close').addEventListener('click', function(event) {
+        dialog.MaterialDialog.close();
+    });
+}());
+
+(function() {
+    'use strict';
+    var dialog = document.querySelector('#data-table-dialog');
+    document.querySelector('#show-dt').addEventListener('click', function(event) {
+        dialog.MaterialDialog.show();
+    });
+    document.querySelector('#show-dt-modal').addEventListener('click', function(event) {
+        dialog.MaterialDialog.showModal();
+    });
+    document.querySelector('#close-dt').addEventListener('click', function(event) {
+        dialog.MaterialDialog.close();
+    });
+}());
+
+*/
+
+</script>
