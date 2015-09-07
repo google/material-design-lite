@@ -901,7 +901,7 @@ code[class*=language-], pre[class*=language-] {
 .docs-layout li {
   position: relative;
 }
-.styles li:before,
+.styles .content li:before,
 .docs-readme li:before {
   position: absolute;
   top: 2px;
