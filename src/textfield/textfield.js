@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialTextfield = function MaterialTextfield(element) {
@@ -36,7 +37,7 @@
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialTextfield.prototype.Constant_ = {
@@ -49,7 +50,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialTextfield.prototype.CssClasses_ = {
@@ -172,7 +173,7 @@
   /**
    * Update text field value.
    *
-   * @param {String} value The value to which to set the control (optional).
+   * @param {string} value The value to which to set the control (optional).
    * @public
    */
   MaterialTextfield.prototype.change = function(value) {
@@ -193,9 +194,10 @@
       this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
       if (this.input_) {
-        if (this.input_.hasAttribute(this.Constant_.MAX_ROWS_ATTRIBUTE)) {
+        if (this.input_.hasAttribute(
+              /** @type {string} */ (this.Constant_.MAX_ROWS_ATTRIBUTE))) {
           this.maxRows = parseInt(this.input_.getAttribute(
-              this.Constant_.MAX_ROWS_ATTRIBUTE), 10);
+              /** @type {string} */ (this.Constant_.MAX_ROWS_ATTRIBUTE)), 10);
           if (isNaN(this.maxRows)) {
             this.maxRows = this.Constant_.NO_MAX_ROWS;
           }

@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialLayout = function MaterialLayout(element) {
@@ -36,7 +37,7 @@
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialLayout.prototype.Constant_ = {
@@ -51,7 +52,7 @@
   /**
    * Modes.
    *
-   * @enum {Number}
+   * @enum {number}
    * @private
    */
   MaterialLayout.prototype.Mode_ = {
@@ -66,7 +67,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialLayout.prototype.CssClasses_ = {
@@ -244,7 +245,8 @@
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
       // of small screens.
-      this.screenSizeMediaQuery_ = window.matchMedia(this.Constant_.MAX_WIDTH);
+      this.screenSizeMediaQuery_ = window.matchMedia(
+          /** @type {string} */ (this.Constant_.MAX_WIDTH));
       this.screenSizeMediaQuery_.addListener(this.screenSizeHandler_.bind(this));
       this.screenSizeHandler_();
 
@@ -284,6 +286,10 @@
         }
       }
 
+      /**
+       * Prevents an event from triggering the default behaviour.
+       * @param  {Event} ev the event to eat.
+       */
       var eatEvent = function(ev) {
         ev.preventDefault();
       };
@@ -406,6 +412,15 @@
     }
   };
 
+  /**
+   * Constructor for an individual tab.
+   *
+   * @constructor
+   * @param {HTMLElement} tab The HTML element for the tab.
+   * @param {!Array<HTMLElement>} tabs Array with HTML elements for all tabs.
+   * @param {!Array<HTMLElement>} panels Array with HTML elements for all panels.
+   * @param {MaterialLayout} layout The MaterialLayout object that owns the tab.
+   */
   function MaterialLayoutTab(tab, tabs, panels, layout) {
 
     function selectTab() {
