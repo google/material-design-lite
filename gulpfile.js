@@ -502,7 +502,7 @@ gulp.task('zip:mdl', function() {
 /**
  * Returns the list of children directories inside the given directory.
  * @param {string} dir the parent directory
- * @return {Array<string>} [description]
+ * @return {Array<string>} list of child directories
  */
 function getSubDirectories(dir) {
   return fs.readdirSync(dir)
