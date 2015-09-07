@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialSlider = function MaterialSlider(element) {
@@ -37,7 +38,7 @@
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialSlider.prototype.Constant_ = {
@@ -49,7 +50,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialSlider.prototype.CssClasses_ = {
@@ -123,10 +124,9 @@
   /**
    * Handle updating of values.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialSlider.prototype.updateValueStyles_ = function(event) {
+  MaterialSlider.prototype.updateValueStyles_ = function() {
     // Calculate and apply percentages to div structure behind slider.
     var fraction = (this.element_.value - this.element_.min) /
         (this.element_.max - this.element_.min);
@@ -169,7 +169,7 @@
   /**
    * Update slider value.
    *
-   * @param {Number} value The value to which to set the control (optional).
+   * @param {number} value The value to which to set the control (optional).
    * @public
    */
   MaterialSlider.prototype.change = function(value) {
