@@ -266,3 +266,65 @@
   transition-duration: $duration;
   transition-timing-function: $animation-curve-default;
 }
+
+
+
+@mixin list-item($height,$icon-position) {
+  @include typo-body-1();
+  display: flex;
+  box-sizing: border-box;
+  height: $height;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding : 16px 16px 20px 16px;
+  border: 0;
+  margin : 0;
+  cursor: default;
+
+  a {
+    @include typo-body-1();
+    color: $default-item-text-color;
+    text-decoration: none;
+  }
+
+  & .mdl-list__item-sub-head {
+    padding: 0 0 0 16px;
+  }
+
+  & .mdl-list__item-primary-content {
+    order:0;
+    flex-grow: 2;
+
+    & .material-icons {
+      font-size: 40px;
+      line-height: 0;
+      vertical-align: $icon-position;
+      padding: 0 16px 0 0;
+    }
+
+    & .mdl-list__item-text {
+      @include typo-body-1();
+    }
+
+    & .mdl-list__item-sub-title, .mdl-list__item-text-body {
+      @include typo-caption();
+      display: block;
+      padding : 0 0 0 56px;
+    }
+    .mdl-list__item-text-body {
+      overflow: hidden;
+      height: 24px;
+    }
+  }
+
+  & .mdl-list__item-secondary-content {
+    display: flex;
+    flex-flow: column;
+    align-items:flex-end;
+
+    & .mdl-list__item-secondary-info {
+      @include typo-caption();
+    }
+  }
+}

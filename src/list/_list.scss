@@ -1,0 +1,32 @@
+@import "../variables";
+@import "../mixins";
+
+
+
+
+
+
+
+.mdl-list {
+  display: block;
+  padding: 0 8px;
+  font-family: $preferred_font;
+  list-style: none;
+}
+
+
+.mdl-list__item {
+  @include list-item(48px,middle);
+}
+
+.mdl-list__item-avatar {
+  @include list-item(56px,middle);
+}
+
+.mdl-list__item--two-line {
+  @include list-item(72px,bottom);
+}
+
+.mdl-list__item--three-line {
+  @include list-item(88px,bottom);
+}
