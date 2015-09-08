@@ -218,7 +218,7 @@ gulp.task('scripts', ['jscs', 'jshint'], function() {
     'src/ripple/ripple.js'
   ];
   return gulp.src(sources)
-    .pipe(uniffe())
+    .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
