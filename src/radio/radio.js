@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialRadio = MaterialRadio;
+  window['MaterialRadio'] = MaterialRadio;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -82,7 +82,7 @@
       var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
       // Different name == different group, so no point updating those.
       if (button.getAttribute('name') === this.btnElement_.getAttribute('name')) {
-        radios[i].MaterialRadio.updateClasses_();
+        radios[i]['MaterialRadio'].updateClasses_();
       }
     }
   };
@@ -155,6 +155,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
     }
   };
+  MaterialRadio.prototype['checkDisabled'] =
+      MaterialRadio.prototype.checkDisabled;
 
   /**
    * Check the components toggled state.
@@ -168,6 +170,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
     }
   };
+  MaterialRadio.prototype['checkToggleState'] =
+      MaterialRadio.prototype.checkToggleState;
 
   /**
    * Disable radio.
@@ -178,6 +182,7 @@
     this.btnElement_.disabled = true;
     this.updateClasses_();
   };
+  MaterialRadio.prototype['disable'] = MaterialRadio.prototype.disable;
 
   /**
    * Enable radio.
@@ -188,6 +193,7 @@
     this.btnElement_.disabled = false;
     this.updateClasses_();
   };
+  MaterialRadio.prototype['enable'] = MaterialRadio.prototype.enable;
 
   /**
    * Check radio.
@@ -198,6 +204,7 @@
     this.btnElement_.checked = true;
     this.updateClasses_();
   };
+  MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
 
   /**
    * Uncheck radio.
@@ -208,6 +215,7 @@
     this.btnElement_.checked = false;
     this.updateClasses_();
   };
+  MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
 
   /**
    * Initialize element.

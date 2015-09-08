@@ -33,7 +33,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialSlider = MaterialSlider;
+  window['MaterialSlider'] = MaterialSlider;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -155,6 +155,7 @@
   MaterialSlider.prototype.disable = function() {
     this.element_.disabled = true;
   };
+  MaterialSlider.prototype['disable'] = MaterialSlider.prototype.disable;
 
   /**
    * Enable slider.
@@ -165,6 +166,7 @@
 
     this.element_.disabled = false;
   };
+  MaterialSlider.prototype['enable'] = MaterialSlider.prototype.enable;
 
   /**
    * Update slider value.
@@ -179,6 +181,7 @@
     }
     this.updateValueStyles_();
   };
+  MaterialSlider.prototype['change'] = MaterialSlider.prototype.change;
 
   /**
    * Initialize element.

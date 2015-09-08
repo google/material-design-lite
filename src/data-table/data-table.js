@@ -33,7 +33,7 @@
     this.init();
   };
 
-  window.MaterialDataTable = MaterialDataTable;
+  window['MaterialDataTable'] = MaterialDataTable;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -87,13 +87,13 @@
         if (checkbox.checked) {
           for (i = 0; i < opt_rows.length; i++) {
             el = opt_rows[i].querySelector('td').querySelector('.mdl-checkbox');
-            el.MaterialCheckbox.check();
+            el['MaterialCheckbox'].check();
             opt_rows[i].classList.add(this.CssClasses_.IS_SELECTED);
           }
         } else {
           for (i = 0; i < opt_rows.length; i++) {
             el = opt_rows[i].querySelector('td').querySelector('.mdl-checkbox');
-            el.MaterialCheckbox.uncheck();
+            el['MaterialCheckbox'].uncheck();
             opt_rows[i].classList.remove(this.CssClasses_.IS_SELECTED);
           }
         }
@@ -106,7 +106,7 @@
    * event handling.
    *
    * @param {HTMLElement} row Row to toggle when checkbox changes.
-   * @param {NodeList=} opt_rows Rows to toggle when checkbox changes.
+   * @param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
    * @private
    */
   MaterialDataTable.prototype.createCheckbox_ = function(row, opt_rows) {

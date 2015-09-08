@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialCheckbox = MaterialCheckbox;
+  window['MaterialCheckbox'] = MaterialCheckbox;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -145,6 +145,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
     }
   };
+  MaterialCheckbox.prototype['checkToggleState'] =
+      MaterialCheckbox.prototype.checkToggleState;
 
   /**
    * Check the inputs disabled state and update display.
@@ -158,6 +160,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
     }
   };
+  MaterialCheckbox.prototype['checkDisabled'] =
+      MaterialCheckbox.prototype.checkDisabled;
 
   /**
    * Disable checkbox.
@@ -168,6 +172,7 @@
     this.inputElement_.disabled = true;
     this.updateClasses_();
   };
+  MaterialCheckbox.prototype['disable'] = MaterialCheckbox.prototype.disable;
 
   /**
    * Enable checkbox.
@@ -178,6 +183,7 @@
     this.inputElement_.disabled = false;
     this.updateClasses_();
   };
+  MaterialCheckbox.prototype['enable'] = MaterialCheckbox.prototype.enable;
 
   /**
    * Check checkbox.
@@ -188,6 +194,7 @@
     this.inputElement_.checked = true;
     this.updateClasses_();
   };
+  MaterialCheckbox.prototype['check'] = MaterialCheckbox.prototype.check;
 
   /**
    * Uncheck checkbox.
@@ -198,6 +205,7 @@
     this.inputElement_.checked = false;
     this.updateClasses_();
   };
+  MaterialCheckbox.prototype['uncheck'] = MaterialCheckbox.prototype.uncheck;
 
   /**
    * Initialize element.
