@@ -101,6 +101,7 @@
    *
    * @param {Event} event The event that fired.
    * @private
+   * @suppress {missingProperties}
    */
   MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
     // If this click is not on the parent element (but rather some child)

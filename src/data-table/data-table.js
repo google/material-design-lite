@@ -66,7 +66,7 @@
    *
    * @param {Element} checkbox Checkbox that toggles the selection state.
    * @param {HTMLElement} row Row to toggle when checkbox changes.
-   * @param {NodeList=} opt_rows Rows to toggle when checkbox changes.
+   * @param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
    * @private
    */
   MaterialDataTable.prototype.selectRow_ = function(checkbox, row, opt_rows) {
