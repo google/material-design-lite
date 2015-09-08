@@ -265,6 +265,7 @@ $progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)"
 
 $list-container-item-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 $list-container-view-background: unquote("rgb(#{$color-white})") !default;
+$list-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 
 /* ==========  Item ========== */
 
@@ -357,6 +358,7 @@ $menu-fade-duration: 0.2s !default;
 $list-container-height: 500px !default;
 $list-container-width: 400px !default;
 $list-container-item-height: 70px !default;
+// $list__item-hover-color: unquote("rgb(#{$palette-grey-300})") !default;
 
 /* LAYOUT */
 
