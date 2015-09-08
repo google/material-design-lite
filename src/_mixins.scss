@@ -269,7 +269,7 @@
 
 
 
-@mixin list-item($height,$icon-position) {
+@mixin list-item($height,$list-item-icon-position) {
   @include typo-body-1();
   display: flex;
   box-sizing: border-box;
@@ -299,7 +299,7 @@
     & .material-icons {
       font-size: 40px;
       line-height: 0;
-      vertical-align: $icon-position;
+      vertical-align: $list-item-icon-position;
       padding: 0 16px 0 0;
     }
 
