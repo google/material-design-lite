@@ -71,12 +71,6 @@
     border-bottom: $data-table-dividers;
     padding-top: $data-table-cell-top;
     box-sizing: border-box;
-
-    .mdl-data-table__select {
-      vertical-align: top;
-      position: absolute;
-      left: 24px;
-    }
   }
 
   th {
