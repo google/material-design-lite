@@ -1,0 +1,92 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "../variables";
+@import "../mixins";
+
+.mdl-selectfield {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
+  margin: 0;
+  padding: $input-text-vertical-spacing 0;
+  width: 100%;
+
+  &:after {
+    background-color: $input-text-highlight-color;
+    bottom: $input-text-vertical-spacing;
+    content: '';
+    height: 2px;
+    left: 45%;
+    position: absolute;
+    @include material-animation-default();
+    visibility: hidden;
+    width: 10px;
+  }
+
+  &:before {
+    display: block;
+    content: "\E313";
+    font-family: 'Material Icons';
+    position: absolute;
+    right: 8px;
+    line-height: 28px;
+    font-size: 18px;
+  }
+
+  &:focus {
+    outline: none;
+    &:after {
+      left: 0;
+      visibility: visible;
+      width: 100%;
+      outline: none;
+    }
+  }
+
+  select {
+    display: none;
+  }
+  .mdl-menu__container {
+    transform: translateY(-46px);
+  }
+  .mdl-menu__container, .mdl-menu__outline, .mdl-menu {
+    min-width: 100%;
+  }
+}
+
+.mdl-select__button {
+  position: static;
+  border-bottom: 1px solid $input-text-bottom-border-color;
+  display: inline-block;
+  font-size: $input-text-font-size;
+  font-weight: normal;
+  margin: 0;
+  padding: $input-text-padding 0;
+  width: $input-text-width;
+  background: none;
+  text-align: left;
+  text-transform: none;
+  color: inherit;
+  height: auto;
+  line-height: normal;
+
+  &:hover {
+    background: none;
+  }
+}
