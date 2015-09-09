@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialRipple = MaterialRipple;
+  window['MaterialRipple'] = MaterialRipple;
 
   /**
    * Store constants in one place so they can be updated easily.

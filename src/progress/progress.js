@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialProgress = MaterialProgress;
+  window['MaterialProgress'] = MaterialProgress;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -68,6 +68,8 @@
 
     this.progressbar_.style.width = p + '%';
   };
+  MaterialProgress.prototype['setProgress'] =
+      MaterialProgress.prototype.setProgress;
 
   /**
    * Set the current progress of the buffer.
@@ -79,6 +81,8 @@
     this.bufferbar_.style.width = p + '%';
     this.auxbar_.style.width = (100 - p) + '%';
   };
+  MaterialProgress.prototype['setBuffer'] =
+      MaterialProgress.prototype.setBuffer;
 
   /**
    * Initialize element.

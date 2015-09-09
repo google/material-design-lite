@@ -239,7 +239,7 @@ gulp.task('closure', function() {
 // Concatenate And Minify JavaScript
 gulp.task('scripts', ['jscs', 'jshint'], function() {
   return gulp.src(SOURCES)
-    .pipe(uniffe())
+    .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))

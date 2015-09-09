@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialTextfield = MaterialTextfield;
+  window['MaterialTextfield'] = MaterialTextfield;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -133,6 +133,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
     }
   };
+  MaterialTextfield.prototype['checkDisabled'] =
+      MaterialTextfield.prototype.checkDisabled;
 
   /**
    * Check the validity state and update field accordingly.
@@ -146,6 +148,8 @@
       this.element_.classList.add(this.CssClasses_.IS_INVALID);
     }
   };
+  MaterialTextfield.prototype['checkValidity'] =
+      MaterialTextfield.prototype.checkValidity;
 
   /**
    * Check the dirty state and update field accordingly.
@@ -159,6 +163,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
     }
   };
+  MaterialTextfield.prototype['checkDirty'] =
+      MaterialTextfield.prototype.checkDirty;
 
   /**
    * Disable text field.
@@ -169,6 +175,7 @@
     this.input_.disabled = true;
     this.updateClasses_();
   };
+  MaterialTextfield.prototype['disable'] = MaterialTextfield.prototype.disable;
 
   /**
    * Enable text field.
@@ -179,6 +186,7 @@
     this.input_.disabled = false;
     this.updateClasses_();
   };
+  MaterialTextfield.prototype['enable'] = MaterialTextfield.prototype.enable;
 
   /**
    * Update text field value.
@@ -193,6 +201,7 @@
     }
     this.updateClasses_();
   };
+  MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
 
   /**
    * Initialize element.

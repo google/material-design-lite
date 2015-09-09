@@ -31,7 +31,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialButton = MaterialButton;
+  window['MaterialButton'] = MaterialButton;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -79,6 +79,7 @@
   MaterialButton.prototype.disable = function() {
     this.element_.disabled = true;
   };
+  MaterialButton.prototype['disable'] = MaterialButton.prototype.disable;
 
   /**
    * Enable button.
@@ -88,6 +89,7 @@
   MaterialButton.prototype.enable = function() {
     this.element_.disabled = false;
   };
+  MaterialButton.prototype['enable'] = MaterialButton.prototype.enable;
 
   /**
    * Initialize element.

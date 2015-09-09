@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialSwitch = MaterialSwitch;
+  window['MaterialSwitch'] = MaterialSwitch;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -144,6 +144,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
     }
   };
+  MaterialSwitch.prototype['checkDisabled'] =
+      MaterialSwitch.prototype.checkDisabled;
 
   /**
    * Check the components toggled state.
@@ -157,6 +159,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
     }
   };
+  MaterialSwitch.prototype['checkToggleState'] =
+      MaterialSwitch.prototype.checkToggleState;
 
   /**
    * Disable switch.
@@ -167,6 +171,7 @@
     this.inputElement_.disabled = true;
     this.updateClasses_();
   };
+  MaterialSwitch.prototype['disable'] = MaterialSwitch.prototype.disable;
 
   /**
    * Enable switch.
@@ -177,6 +182,7 @@
     this.inputElement_.disabled = false;
     this.updateClasses_();
   };
+  MaterialSwitch.prototype['enable'] = MaterialSwitch.prototype.enable;
 
   /**
    * Activate switch.
@@ -187,6 +193,7 @@
     this.inputElement_.checked = true;
     this.updateClasses_();
   };
+  MaterialSwitch.prototype['on'] = MaterialSwitch.prototype.on;
 
   /**
    * Deactivate switch.
@@ -197,6 +204,7 @@
     this.inputElement_.checked = false;
     this.updateClasses_();
   };
+  MaterialSwitch.prototype['off'] = MaterialSwitch.prototype.off;
 
   /**
    * Initialize element.

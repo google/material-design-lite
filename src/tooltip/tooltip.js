@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialTooltip = MaterialTooltip;
+  window['MaterialTooltip'] = MaterialTooltip;
 
   /**
    * Store constants in one place so they can be updated easily.

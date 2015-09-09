@@ -33,7 +33,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialSlider = MaterialSlider;
+  window['MaterialSlider'] = MaterialSlider;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -101,6 +101,7 @@
    *
    * @param {Event} event The event that fired.
    * @private
+   * @suppress {missingProperties}
    */
   MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
     // If this click is not on the parent element (but rather some child)
@@ -155,6 +156,7 @@
   MaterialSlider.prototype.disable = function() {
     this.element_.disabled = true;
   };
+  MaterialSlider.prototype['disable'] = MaterialSlider.prototype.disable;
 
   /**
    * Enable slider.
@@ -165,6 +167,7 @@
 
     this.element_.disabled = false;
   };
+  MaterialSlider.prototype['enable'] = MaterialSlider.prototype.enable;
 
   /**
    * Update slider value.
@@ -179,6 +182,7 @@
     }
     this.updateValueStyles_();
   };
+  MaterialSlider.prototype['change'] = MaterialSlider.prototype.change;
 
   /**
    * Initialize element.
