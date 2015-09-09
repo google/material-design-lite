@@ -14,9 +14,10 @@
 if (!Date.now) {
   /**
    * Date.now polyfill.
-   * @return {Date} the current Date
+   * @return {number} the current Date
    */
   Date.now = function() { return new Date().getTime(); };
+  Date['now'] = Date.now;
 }
 
 var vendors = ['webkit', 'moz'];
@@ -24,7 +25,9 @@ for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
   var vp = vendors[i];
   window.requestAnimationFrame = window[vp + 'RequestAnimationFrame'];
   window.cancelAnimationFrame = (window[vp + 'CancelAnimationFrame'] ||
-  window[vp + 'CancelRequestAnimationFrame']);
+      window[vp + 'CancelRequestAnimationFrame']);
+  window['requestAnimationFrame'] = window.requestAnimationFrame;
+  window['cancelAnimationFrame'] = window.cancelAnimationFrame;
 }
 
 if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
@@ -40,6 +43,8 @@ if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAn
                       nextTime - now);
   };
   window.cancelAnimationFrame = clearTimeout;
+  window['requestAnimationFrame'] = window.requestAnimationFrame;
+  window['cancelAnimationFrame'] = window.cancelAnimationFrame;
 }
 
 })();

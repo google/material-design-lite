@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialIconToggle = MaterialIconToggle;
+  window['MaterialIconToggle'] = MaterialIconToggle;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -141,6 +141,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
     }
   };
+  MaterialIconToggle.prototype['checkToggleState'] =
+      MaterialIconToggle.prototype.checkToggleState;
 
   /**
    * Check the inputs disabled state and update display.
@@ -154,6 +156,8 @@
       this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
     }
   };
+  MaterialIconToggle.prototype['checkDisabled'] =
+      MaterialIconToggle.prototype.checkDisabled;
 
   /**
    * Disable icon toggle.
@@ -164,6 +168,8 @@
     this.inputElement_.disabled = true;
     this.updateClasses_();
   };
+  MaterialIconToggle.prototype['disable'] =
+      MaterialIconToggle.prototype.disable;
 
   /**
    * Enable icon toggle.
@@ -174,6 +180,7 @@
     this.inputElement_.disabled = false;
     this.updateClasses_();
   };
+  MaterialIconToggle.prototype['enable'] = MaterialIconToggle.prototype.enable;
 
   /**
    * Check icon toggle.
@@ -184,6 +191,7 @@
     this.inputElement_.checked = true;
     this.updateClasses_();
   };
+  MaterialIconToggle.prototype['check'] = MaterialIconToggle.prototype.check;
 
   /**
    * Uncheck icon toggle.
@@ -194,6 +202,8 @@
     this.inputElement_.checked = false;
     this.updateClasses_();
   };
+  MaterialIconToggle.prototype['uncheck'] =
+      MaterialIconToggle.prototype.uncheck;
 
   /**
    * Initialize element.

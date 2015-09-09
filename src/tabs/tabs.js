@@ -33,7 +33,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialTabs = MaterialTabs;
+  window['MaterialTabs'] = MaterialTabs;
 
   /**
    * Store constants in one place so they can be updated easily.

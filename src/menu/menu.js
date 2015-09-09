@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialMenu = MaterialMenu;
+  window['MaterialMenu'] = MaterialMenu;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -417,6 +417,7 @@
       document.addEventListener('click', callback);
     }
   };
+  MaterialMenu.prototype['show'] = MaterialMenu.prototype.show;
 
   /**
    * Hides the menu.
@@ -446,6 +447,7 @@
       this.addAnimationEndListener_();
     }
   };
+  MaterialMenu.prototype['hide'] = MaterialMenu.prototype.hide;
 
   /**
    * Displays or hides the menu, depending on current state.
@@ -459,6 +461,7 @@
       this.show(evt);
     }
   };
+  MaterialMenu.prototype['toggle'] = MaterialMenu.prototype.toggle;
 
   /**
    * Downgrade the component.

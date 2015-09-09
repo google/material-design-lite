@@ -32,7 +32,7 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialSpinner = MaterialSpinner;
+  window['MaterialSpinner'] = MaterialSpinner;
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -97,6 +97,8 @@
 
     this.element_.appendChild(layer);
   };
+  MaterialSpinner.prototype['createLayer'] =
+      MaterialSpinner.prototype.createLayer;
 
   /**
    * Stops the spinner animation.
@@ -107,6 +109,7 @@
   MaterialSpinner.prototype.stop = function() {
     this.element_.classList.remove('is-active');
   };
+  MaterialSpinner.prototype['stop'] = MaterialSpinner.prototype.stop;
 
   /**
    * Starts the spinner animation.
@@ -118,6 +121,7 @@
   MaterialSpinner.prototype.start = function() {
     this.element_.classList.add('is-active');
   };
+  MaterialSpinner.prototype['start'] = MaterialSpinner.prototype.start;
 
   /**
    * Initialize element.
