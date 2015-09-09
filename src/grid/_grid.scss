@@ -58,6 +58,13 @@
   margin: 0;
 }
 
+// Define order override classes.
+@for $i from 1 through $grid-max-columns {
+  .mdl-cell--order-#{$i} {
+    order: $i;
+  }
+}
+
 
 // Mixins for width calculation.
 @mixin partial-size($size, $columns, $gutter) {
@@ -97,6 +104,13 @@
 
   .mdl-cell--hide-phone {
     display: none !important;
+  }
+
+  // Define order override classes.
+  @for $i from 1 through $grid-max-columns {
+    .mdl-cell--order-#{$i}-phone.mdl-cell--order-#{$i}-phone {
+      order: $i;
+    }
   }
 
   // Define partial sizes for columnNumber < totalColumns.
@@ -142,6 +156,13 @@
     display: none !important;
   }
 
+  // Define order override classes.
+  @for $i from 1 through $grid-max-columns {
+    .mdl-cell--order-#{$i}-tablet.mdl-cell--order-#{$i}-tablet {
+      order: $i;
+    }
+  }
+
   // Define partial sizes for columnNumber < totalColumns.
   @for $i from 1 through ($grid-tablet-columns - 1) {
     .mdl-cell--#{$i}-col,
@@ -183,6 +204,13 @@
 
   .mdl-cell--hide-desktop {
     display: none !important;
+  }
+
+  // Define order override classes.
+  @for $i from 1 through $grid-max-columns {
+    .mdl-cell--order-#{$i}-desktop.mdl-cell--order-#{$i}-desktop {
+      order: $i;
+    }
   }
 
   // Define partial sizes for all numbers of columns.
