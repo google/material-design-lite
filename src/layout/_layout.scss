@@ -243,7 +243,7 @@
       width: calc(100% - #{$layout-drawer-width});
     }
 
-    @media screen and (min-width: $layout-screen-size-threshold) {
+    @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .mdl-layout--fixed-drawer > & {
         .mdl-layout__header-row {
           padding-left: 40px;
