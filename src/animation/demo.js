@@ -37,7 +37,7 @@ function DemoAnimation(element) {
  * JavaScript. This allows us to simply change it in one place should we
  * decide to modify at a later date.
  *
- * @enum {string}
+ * @enum {String}
  * @private
  */
 DemoAnimation.prototype.CssClasses_ = {
@@ -51,7 +51,7 @@ DemoAnimation.prototype.CssClasses_ = {
 /**
  * Store constants in one place so they can be updated easily.
  *
- * @enum {string | number}
+ * @enum {String | Number}
  * @private
  */
 DemoAnimation.prototype.Constant_ = {
