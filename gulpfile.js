@@ -223,8 +223,7 @@ gulp.task('closure', function() {
   return gulp.src(SOURCES)
     .pipe(closureCompiler({
       compilerPath: 'node_modules/google-closure-compiler/compiler.jar',
-      // TODO: Closure can't be piped to a final destination.
-      fileName: './dist/material.closure.min.js',
+      fileName: 'material.closure.min.js',
       compilerFlags: {
         // jscs:disable closureCamelCase
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
@@ -233,7 +232,8 @@ gulp.task('closure', function() {
         warning_level: 'VERBOSE'
         // jscs:enable closureCamelCase
       }
-    }));
+    }))
+    .pipe(gulp.dest('./dist'));
 });
 
 // Concatenate And Minify JavaScript
