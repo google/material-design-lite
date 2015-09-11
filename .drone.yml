@@ -16,8 +16,9 @@ script:
   - npm install
   - Xvfb $DISPLAY &
   # ensure the build works
-  # this will also run gulp test
+  # this will also run gulp mocha
   - gulp all
+  - gulp mocha:closure
   # get the version of chrome and driver we want, for more tests
   # do this after the build and unit tests to fail fast
   - curl -sSLo chrome.deb $CHROME && dpkg -i chrome.deb
