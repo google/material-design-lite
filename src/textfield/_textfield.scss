@@ -83,6 +83,14 @@
     border-bottom: 1px dotted $input-text-disabled-color;
     color: $input-text-disabled-text-color;
   }
+  
+  // Prevent overlap with date fields
+  &::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+  &::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+  &::-webkit-datetime-edit-day-field:not([aria-valuenow]),
+  &:invalid::-webkit-datetime-edit-text {
+    color: transparent;
+  }
 }
 
 .mdl-textfield textarea.mdl-textfield__input {
