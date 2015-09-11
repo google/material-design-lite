@@ -33,24 +33,33 @@ describe('MaterialTabs', function () {
   });
 
   describe('Click on the tabs', function () {
-    var el = document.createElement('div');
-    el.innerHTML = '' +
-    '<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">' +
-    '  <div class="mdl-tabs__tab-bar">' +
-    '   <a href="#content1" id="tab1" class="mdl-tabs__tab">1</a>' +
-    '   <a href="#content2" id="tab2" class="mdl-tabs__tab">2</a>' +
-    '   <a href="#content3" id="tab3" class="mdl-tabs__tab">3</a>' +
-    ' </div>' +
-    ' <div class="mdl-tabs__panel" id="content1"></div>' +
-    ' <div class="mdl-tabs__panel" id="content2"></div>' +
-    ' <div class="mdl-tabs__panel" id="content3"></div>' +
-    '</div>';
-    componentHandler.upgradeElement(el, 'MaterialTabs');
 
-    var tab1 = el.querySelector('#tab1');
-    var tab2 = el.querySelector('#tab2');
-    var content1 = el.querySelector('#content1');
-    var content2 = el.querySelector('#content2');
+    var el;
+    var tab1;
+    var tab2;
+    var content1;
+    var content2;
+
+    before(function() {
+      el = document.createElement('div');
+      el.innerHTML = '' +
+      '<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">' +
+      '  <div class="mdl-tabs__tab-bar">' +
+      '   <a href="#content1" id="tab1" class="mdl-tabs__tab">1</a>' +
+      '   <a href="#content2" id="tab2" class="mdl-tabs__tab">2</a>' +
+      '   <a href="#content3" id="tab3" class="mdl-tabs__tab">3</a>' +
+      ' </div>' +
+      ' <div class="mdl-tabs__panel" id="content1"></div>' +
+      ' <div class="mdl-tabs__panel" id="content2"></div>' +
+      ' <div class="mdl-tabs__panel" id="content3"></div>' +
+      '</div>';
+      componentHandler.upgradeElement(el, 'MaterialTabs');
+
+      tab1 = el.querySelector('#tab1');
+      tab2 = el.querySelector('#tab2');
+      content1 = el.querySelector('#content1');
+      content2 = el.querySelector('#content2');
+    });
 
     it('Should activate no tab by default', function (done) {
       window.setTimeout(function () {

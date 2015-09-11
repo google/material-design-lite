@@ -270,20 +270,22 @@ gulp.task('metadata', function() {
 });
 
 // Build Production Files, the Default Task
-gulp.task('default', ['clean', 'mocha'], function(cb) {
+gulp.task('default', ['clean'], function(cb) {
   runSequence(
     ['styles', 'styles-grid'],
     ['scripts'],
+    ['mocha'],
     cb);
 });
 
 // Build production files and microsite
-gulp.task('all', ['clean', 'mocha'], function(cb) {
+gulp.task('all', ['clean'], function(cb) {
   runSequence(
     ['default', 'styletemplates'],
     ['styles:gen'],
     ['jshint', 'jscs', 'scripts',  'assets', 'demos', 'pages',
      'templates', 'images', 'styles-grid', 'metadata'],
+    ['mocha'],
     ['zip'],
     cb);
 });
@@ -295,7 +297,22 @@ gulp.task('mocha', ['styles'], function() {
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });
 
-gulp.task('test', ['jshint', 'jscs', 'mocha']);
+gulp.task('mocha:closure', ['closure'], function() {
+  return gulp.src('./test/index.html')
+    .pipe($.replace('src="../dist/material.js"',
+        'src="../dist/material.closure.min.js"'))
+    .pipe($.rename('temp.html'))
+    .pipe(gulp.dest('./test'))
+    .pipe($.mochaPhantomjs({reporter: 'tap'}))
+    .on('finish', function() {
+      del('test/temp.html', {'force': true});
+    })
+    .on('error', function() {
+      del('test/temp.html', {'force': true});
+    });
+});
+
+gulp.task('test', ['jshint', 'jscs', 'mocha', 'mocha:closure']);
 
 gulp.task('test:visual', function() {
   browserSync({

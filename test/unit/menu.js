@@ -30,10 +30,15 @@ describe('MaterialMenu', function () {
   });
 
   describe ('visibility API', function () {
-    var parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
-    var el = document.createElement('ul');
-    parent.appendChild(el)
-    componentHandler.upgradeElement(el, 'MaterialMenu');
+    var parent;
+    var el;
+
+    before(function() {
+      parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
+      el = document.createElement('ul');
+      parent.appendChild(el)
+      componentHandler.upgradeElement(el, 'MaterialMenu');
+    });
 
     it('should start the showing animation on show()', function(done) {
       expect($(el.parentElement)).to.not.have.class('is-visible');
