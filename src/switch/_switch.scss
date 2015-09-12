@@ -197,7 +197,6 @@
   }
 
   .mdl-switch.is-checked & {
-    cursor: auto;
     left: $switch-track-length - $switch-ripple-size / 2 -
         $switch-thumb-size / 2;
   }
