@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialLayout = function MaterialLayout(element) {
@@ -31,12 +32,12 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialLayout = MaterialLayout;
+  window['MaterialLayout'] = MaterialLayout;
 
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialLayout.prototype.Constant_ = {
@@ -51,7 +52,7 @@
   /**
    * Modes.
    *
-   * @enum {Number}
+   * @enum {number}
    * @private
    */
   MaterialLayout.prototype.Mode_ = {
@@ -66,7 +67,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialLayout.prototype.CssClasses_ = {
@@ -244,7 +245,8 @@
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
       // of small screens.
-      this.screenSizeMediaQuery_ = window.matchMedia(this.Constant_.MAX_WIDTH);
+      this.screenSizeMediaQuery_ = window.matchMedia(
+          /** @type {string} */ (this.Constant_.MAX_WIDTH));
       this.screenSizeMediaQuery_.addListener(this.screenSizeHandler_.bind(this));
       this.screenSizeHandler_();
 
@@ -284,14 +286,27 @@
         }
       }
 
+      /**
+       * Prevents an event from triggering the default behaviour.
+       * @param  {Event} ev the event to eat.
+       */
       var eatEvent = function(ev) {
         ev.preventDefault();
       };
 
       // Add drawer toggling button to our layout, if we have an openable drawer.
       if (this.drawer_) {
-        var drawerButton = document.createElement('div');
-        drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
+        var drawerButton = this.element_.querySelector('.' +
+          this.CssClasses_.DRAWER_BTN);
+        if (typeof(drawerButton) === 'undefined' || drawerButton === null) {
+          drawerButton = document.createElement('div');
+          drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
+
+          var drawerButtonIcon = document.createElement('i');
+          drawerButtonIcon.classList.add(this.CssClasses_.ICON);
+          drawerButtonIcon.textContent = this.Constant_.MENU_ICON;
+          drawerButton.appendChild(drawerButtonIcon);
+        }
 
         if (this.drawer_.classList.contains(this.CssClasses_.ON_LARGE_SCREEN)) {
           //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
@@ -300,10 +315,7 @@
           //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
           drawerButton.classList.add(this.CssClasses_.ON_SMALL_SCREEN);
         }
-        var drawerButtonIcon = document.createElement('i');
-        drawerButtonIcon.classList.add(this.CssClasses_.ICON);
-        drawerButtonIcon.textContent = this.Constant_.MENU_ICON;
-        drawerButton.appendChild(drawerButtonIcon);
+
         drawerButton.addEventListener('click',
             this.drawerToggleHandler_.bind(this));
 
@@ -400,8 +412,20 @@
     }
   };
 
+  /**
+   * Constructor for an individual tab.
+   *
+   * @constructor
+   * @param {HTMLElement} tab The HTML element for the tab.
+   * @param {!Array<HTMLElement>} tabs Array with HTML elements for all tabs.
+   * @param {!Array<HTMLElement>} panels Array with HTML elements for all panels.
+   * @param {MaterialLayout} layout The MaterialLayout object that owns the tab.
+   */
   function MaterialLayoutTab(tab, tabs, panels, layout) {
 
+    /**
+     * Auxiliary method to programmatically select a tab in the UI.
+     */
     function selectTab() {
       var href = tab.href.split('#')[1];
       var panel = layout.content_.querySelector('#' + href);
@@ -424,8 +448,10 @@
       }
 
       tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        selectTab();
+        if (tab.getAttribute('href').charAt(0) === '#') {
+          e.preventDefault();
+          selectTab();
+        }
       });
 
       tab.show = selectTab;

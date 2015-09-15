@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialMenu = function MaterialMenu(element) {
@@ -31,12 +32,12 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialMenu = MaterialMenu;
+  window['MaterialMenu'] = MaterialMenu;
 
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialMenu.prototype.Constant_ = {
@@ -52,7 +53,7 @@
   /**
    * Keycodes, for code readability.
    *
-   * @enum {Number}
+   * @enum {number}
    * @private
    */
   MaterialMenu.prototype.Keycodes_ = {
@@ -68,7 +69,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialMenu.prototype.CssClasses_ = {
@@ -301,7 +302,7 @@
       window.setTimeout(function(evt) {
         this.hide();
         this.closing_ = false;
-      }.bind(this), this.Constant_.CLOSE_TIMEOUT);
+      }.bind(this), /** @type {number} */ (this.Constant_.CLOSE_TIMEOUT));
     }
   };
 
@@ -310,14 +311,14 @@
    * it), and applies it. This allows us to animate from or to the correct point,
    * that is, the point it's aligned to in the "for" element.
    *
-   * @param {Number} height Height of the clip rectangle
-   * @param {Number} width Width of the clip rectangle
+   * @param {number} height Height of the clip rectangle
+   * @param {number} width Width of the clip rectangle
    * @private
    */
   MaterialMenu.prototype.applyClip_ = function(height, width) {
     if (this.element_.classList.contains(this.CssClasses_.UNALIGNED)) {
       // Do not clip.
-      this.element_.style.clip = null;
+      this.element_.style.clip = '';
     } else if (this.element_.classList.contains(this.CssClasses_.BOTTOM_RIGHT)) {
       // Clip to the top right corner of the menu.
       this.element_.style.clip =
@@ -332,7 +333,7 @@
           height + 'px ' + width + 'px)';
     } else {
       // Default: do not clip (same as clipping to the top left corner).
-      this.element_.style.clip = null;
+      this.element_.style.clip = '';
     }
   };
 
@@ -416,6 +417,7 @@
       document.addEventListener('click', callback);
     }
   };
+  MaterialMenu.prototype['show'] = MaterialMenu.prototype.show;
 
   /**
    * Hides the menu.
@@ -445,6 +447,7 @@
       this.addAnimationEndListener_();
     }
   };
+  MaterialMenu.prototype['hide'] = MaterialMenu.prototype.hide;
 
   /**
    * Displays or hides the menu, depending on current state.
@@ -458,6 +461,7 @@
       this.show(evt);
     }
   };
+  MaterialMenu.prototype['toggle'] = MaterialMenu.prototype.toggle;
 
   /**
    * Downgrade the component.

@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialTabs = function MaterialTabs(element) {
@@ -32,12 +33,12 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialTabs = MaterialTabs;
+  window['MaterialTabs'] = MaterialTabs;
 
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialTabs.prototype.Constant_ = {
@@ -49,7 +50,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialTabs.prototype.CssClasses_ = {
@@ -119,6 +120,13 @@
     }
   };
 
+  /**
+   * Constructor for an individual tab.
+   *
+   * @constructor
+   * @param {HTMLElement} tab The HTML element for the tab.
+   * @param {MaterialTabs} ctx The MaterialTabs object that owns the tab.
+   */
   function MaterialTab(tab, ctx) {
     if (tab) {
       if (ctx.element_.classList.contains(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {

@@ -32,12 +32,12 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialSpinner = MaterialSpinner;
+  window['MaterialSpinner'] = MaterialSpinner;
 
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialSpinner.prototype.Constant_ = {
@@ -49,7 +49,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialSpinner.prototype.CssClasses_ = {
@@ -64,7 +64,7 @@
   /**
    * Auxiliary method to create a spinner layer.
    *
-   * @param {Number} index Index of the layer to be created.
+   * @param {number} index Index of the layer to be created.
    * @public
    */
   MaterialSpinner.prototype.createLayer = function(index) {
@@ -97,6 +97,8 @@
 
     this.element_.appendChild(layer);
   };
+  MaterialSpinner.prototype['createLayer'] =
+      MaterialSpinner.prototype.createLayer;
 
   /**
    * Stops the spinner animation.
@@ -107,6 +109,7 @@
   MaterialSpinner.prototype.stop = function() {
     this.element_.classList.remove('is-active');
   };
+  MaterialSpinner.prototype['stop'] = MaterialSpinner.prototype.stop;
 
   /**
    * Starts the spinner animation.
@@ -118,6 +121,7 @@
   MaterialSpinner.prototype.start = function() {
     this.element_.classList.add('is-active');
   };
+  MaterialSpinner.prototype['start'] = MaterialSpinner.prototype.start;
 
   /**
    * Initialize element.

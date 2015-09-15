@@ -148,6 +148,36 @@ A data-table without select checkboxes containing mostly text data.
 </table>
 ```
 
+A table that has name and values for the checkboxes.
+```html
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Material</th>
+      <th>Quantity</th>
+      <th>Unit price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-mdl-data-table-selectable-name="materials[]" data-mdl-data-table-selectable-value="acrylic">
+      <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+      <td>250</td>
+      <td>$2.90</td>
+    </tr>
+    <tr data-mdl-data-table-selectable-name="materials[]" data-mdl-data-table-selectable-value="plywood">
+      <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+      <td>50</td>
+      <td>$1.25</td>
+    </tr>
+    <tr data-mdl-data-table-selectable-name="materials[]" data-mdl-data-table-selectable-value="laminate">
+      <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+      <td>10</td>
+      <td>$12.35</td>
+    </tr>
+  </tbody>
+</table>
+```
+
 ## Configuration options
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the data-table. The table below lists the available classes and their effects.
 
@@ -158,3 +188,5 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-data-table--selectable` | Applies all/individual selectable behavior (checkboxes) | Optional; goes on table element |
 | `mdl-data-table__cell--non-numeric` | Applies text formatting to data cell | Optional; goes on both table header and table data cells |
 | (none) | Applies numeric formatting to header or data cell (default) |  |
+
+You may add `data-mdl-data-table-selectable-name` and `data-mdl-data-table-selectable-value` attributes to the *rows* of the table. If the table is selectable, these values will be added to the name and value of the created checkboxes.

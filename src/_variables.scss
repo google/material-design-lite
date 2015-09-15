@@ -41,6 +41,11 @@
  * -----Grid
  * -----Data table
  * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
  */
 
 
@@ -294,28 +299,27 @@ $footer-underline-color: $footer-color !default;
 
 /* TEXTFIELD */
 
-$input-text-font-size: 16px;
-$input-text-width: 100%;
-$input-text-padding: 4px;
-$input-text-ripple-size: 32px;
-$input-text-vertical-spacing: 20px;
+$input-text-font-size: 16px !default;
+$input-text-width: 100% !default;
+$input-text-padding: 4px !default;
+$input-text-vertical-spacing: 20px !default;
 
-$input-text-button-size: 32px;
-$input-text-floating-label-fontsize: 12px;
-$input-text-expandable-icon-top: 16px;
+$input-text-button-size: 32px !default;
+$input-text-floating-label-fontsize: 12px !default;
+$input-text-expandable-icon-top: 16px !default;
 
 
 /* SWITCH */
 
-$switch-label-font-size: 16px;
-$switch-label-height: 24px;
-$switch-track-height: 14px;
-$switch-track-length: 36px;
-$switch-thumb-size: 20px;
-$switch-track-top: ($switch-label-height - $switch-track-height) / 2;
-$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2;
-$switch-ripple-size: $switch-label-height * 2;
-$switch-helper-size: 8px;
+$switch-label-font-size: 16px !default;
+$switch-label-height: 24px !default;
+$switch-track-height: 14px !default;
+$switch-track-length: 36px !default;
+$switch-thumb-size: 20px !default;
+$switch-track-top: ($switch-label-height - $switch-track-height) / 2 !default;
+$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2 !default;
+$switch-ripple-size: $switch-label-height * 2 !default;
+$switch-helper-size: 8px !default;
 
 /* SPINNER */
 
@@ -323,11 +327,11 @@ $spinner-size: 28px !default;
 $spinner-stroke-width: 3px !default;
 
 // Amount of circle the arc takes up.
-$spinner-arc-size: 270deg;
+$spinner-arc-size: 270deg !default;
 // Time it takes to expand and contract arc.
-$spinner-arc-time: 1333ms;
+$spinner-arc-time: 1333ms !default;
 // How much the start location of the arc should rotate each time.
-$spinner-arc-start-rot: 216deg;
+$spinner-arc-start-rot: 216deg !default;
 
 $spinner-duration: 360 * $spinner-arc-time / (
     strip-units($spinner-arc-start-rot + (360deg - $spinner-arc-size)));
@@ -335,55 +339,55 @@ $spinner-duration: 360 * $spinner-arc-time / (
 
 /* RADIO */
 
-$radio-label-font-size: 16px;
-$radio-label-height: 24px;
-$radio-button-size: 16px;
+$radio-label-font-size: 16px !default;
+$radio-label-height: 24px !default;
+$radio-button-size: 16px !default;
 $radio-inner-margin: $radio-button-size / 4;
-$radio-padding: 8px;
+$radio-padding: 8px !default;
 $radio-top-offset: ($radio-label-height - $radio-button-size) / 2;
-$radio-ripple-size: 42px;
+$radio-ripple-size: 42px !default;
 
 
 /* MENU */
 
-$menu-expand-duration: 0.3s;
-$menu-fade-duration: 0.2s;
+$menu-expand-duration: 0.3s !default;
+$menu-fade-duration: 0.2s !default;
 
 /* LIST */
 
-$list-container-height: 500px;
-$list-container-width: 400px;
-$list-container-item-height: 70px;
+$list-container-height: 500px !default;
+$list-container-width: 400px !default;
+$list-container-item-height: 70px !default;
 
 /* LAYOUT */
 
-$layout-nav-link-font-size: 13px;
+$layout-nav-link-font-size: 13px !default;
 
-$layout-drawer-narrow: 240px;
-$layout-drawer-wide: 456px;
-$layout-drawer-width: $layout-drawer-narrow;
+$layout-drawer-narrow: 240px !default;
+$layout-drawer-wide: 456px !default;
+$layout-drawer-width: $layout-drawer-narrow !default;
 
-$layout-header-icon-size: 32px;
-$layout-screen-size-threshold: 1024px;
-$layout-header-icon-margin: 24px;
-$layout-drawer-button-mobile-size: 32px;
-$layout-drawer-button-desktop-size: 48px;
+$layout-header-icon-size: 32px !default;
+$layout-screen-size-threshold: 1024px !default;
+$layout-header-icon-margin: 24px !default;
+$layout-drawer-button-mobile-size: 32px !default;
+$layout-drawer-button-desktop-size: 48px !default;
 
-$layout-header-mobile-row-height: 56px;
+$layout-header-mobile-row-height: 56px !default;
 $layout-mobile-header-height: $layout-header-mobile-row-height;
-$layout-header-desktop-row-height: 64px;
+$layout-header-desktop-row-height: 64px !default;
 $layout-desktop-header-height: $layout-header-desktop-row-height;
 
-$layout-header-desktop-baseline: 80px;
-$layout-header-mobile-baseline: 72px;
-$layout-header-mobile-indent: 16px;
-$layout-header-desktop-indent: 40px;
+$layout-header-desktop-baseline: 80px !default;
+$layout-header-mobile-baseline: 72px !default;
+$layout-header-mobile-indent: 16px !default;
+$layout-header-desktop-indent: 40px !default;
 
-$layout-tab-font-size: 14px;
-$layout-tab-bar-height: 48px;
-$layout-tab-mobile-padding: 12px;
-$layout-tab-desktop-padding: 24px;
-$layout-tab-highlight-thickness: 2px;
+$layout-tab-font-size: 14px !default;
+$layout-tab-bar-height: 48px !default;
+$layout-tab-mobile-padding: 12px !default;
+$layout-tab-desktop-padding: 24px !default;
+$layout-tab-highlight-thickness: 2px !default;
 
 
 /* ICON TOGGLE */
@@ -409,11 +413,11 @@ $footer-btn-size: 36px !default;
 
 /* CHECKBOX */
 
-$checkbox-label-font-size: 16px;
-$checkbox-label-height: 24px;
-$checkbox-button-size: 16px;
-$checkbox-inner-margin: 2px;
-$checkbox-padding: 8px;
+$checkbox-label-font-size: 16px !default;
+$checkbox-label-height: 24px !default;
+$checkbox-button-size: 16px !default;
+$checkbox-inner-margin: 2px !default;
+$checkbox-padding: 8px !default;
 $checkbox-top-offset:
 ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
 $checkbox-ripple-size: $checkbox-label-height * 1.5;
@@ -483,19 +487,19 @@ $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 $bar-height: 4px !default;
 
 /* BADGE */
-$badge-font-size: 12px;
+$badge-font-size: 12px !default;
 $badge-color: unquote("rgb(#{$color-white})") !default;
 $badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
 $badge-background: unquote("rgb(#{$color-accent})") !default;
 $badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
-$badge-size : 22px;
-$badge-padding: 2px;
+$badge-size : 22px !default;
+$badge-padding: 2px !default;
 
 /* SHADOWS */
 
-$shadow-key-umbra-opacity: 0.2;
-$shadow-key-penumbra-opacity: 0.14;
-$shadow-ambient-shadow-opacity: 0.12;
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
 
 /* GRID */
 
@@ -516,31 +520,32 @@ $grid-phone-gutter: $grid-desktop-gutter !default;
 $grid-phone-margin: $grid-desktop-margin !default;
 
 $grid-cell-default-columns: $grid-phone-columns !default;
+$grid-max-columns: $grid-desktop-columns !default;
 
 /* DATA TABLE */
 
-$data-table-font-size: 13px;
-$data-table-header-font-size: 12px;
+$data-table-font-size: 13px !default;
+$data-table-header-font-size: 12px !default;
 
-$data-table-header-color: rgba(#000, 0.54);
-$data-table-divider-color: rgba(#000, 0.12);
+$data-table-header-color: rgba(#000, 0.54) !default;
+$data-table-divider-color: rgba(#000, 0.12) !default;
 
-$data-table-hover-color: #eeeeee;
-$data-table-selection-color: #e0e0e0;
+$data-table-hover-color: #eeeeee !default;
+$data-table-selection-color: #e0e0e0 !default;
 
-$data-table-dividers: 1px solid $data-table-divider-color;
+$data-table-dividers: 1px solid $data-table-divider-color !default;
 
-$data-table-row-height: 48px;
-$data-table-last-row-height: 56px;
-$data-table-header-height: 56px;
+$data-table-row-height: 48px !default;
+$data-table-last-row-height: 56px !default;
+$data-table-header-height: 56px !default;
 
-$data-table-column-spacing: 36px;
+$data-table-column-spacing: 36px !default;
 $data-table-column-padding: $data-table-column-spacing / 2;
 
-$data-table-card-header-height: 64px;
-$data-table-card-title-top: 20px;
-$data-table-card-padding: 24px;
-$data-table-button-padding-right: 16px;
+$data-table-card-header-height: 64px !default;
+$data-table-card-title-top: 20px !default;
+$data-table-card-padding: 24px !default;
+$data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2;
 
 /* SNACKBAR */

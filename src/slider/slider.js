@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialSlider = function MaterialSlider(element) {
@@ -32,12 +33,12 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialSlider = MaterialSlider;
+  window['MaterialSlider'] = MaterialSlider;
 
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialSlider.prototype.Constant_ = {
@@ -49,7 +50,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialSlider.prototype.CssClasses_ = {
@@ -100,6 +101,7 @@
    *
    * @param {Event} event The event that fired.
    * @private
+   * @suppress {missingProperties}
    */
   MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
     // If this click is not on the parent element (but rather some child)
@@ -123,10 +125,9 @@
   /**
    * Handle updating of values.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialSlider.prototype.updateValueStyles_ = function(event) {
+  MaterialSlider.prototype.updateValueStyles_ = function() {
     // Calculate and apply percentages to div structure behind slider.
     var fraction = (this.element_.value - this.element_.min) /
         (this.element_.max - this.element_.min);
@@ -155,6 +156,7 @@
   MaterialSlider.prototype.disable = function() {
     this.element_.disabled = true;
   };
+  MaterialSlider.prototype['disable'] = MaterialSlider.prototype.disable;
 
   /**
    * Enable slider.
@@ -165,11 +167,12 @@
 
     this.element_.disabled = false;
   };
+  MaterialSlider.prototype['enable'] = MaterialSlider.prototype.enable;
 
   /**
    * Update slider value.
    *
-   * @param {Number} value The value to which to set the control (optional).
+   * @param {number} value The value to which to set the control (optional).
    * @public
    */
   MaterialSlider.prototype.change = function(value) {
@@ -179,6 +182,7 @@
     }
     this.updateValueStyles_();
   };
+  MaterialSlider.prototype['change'] = MaterialSlider.prototype.change;
 
   /**
    * Initialize element.

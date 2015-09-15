@@ -23,6 +23,7 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
+   * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
   var MaterialRipple = function MaterialRipple(element) {
@@ -31,12 +32,12 @@
     // Initialize instance.
     this.init();
   };
-  window.MaterialRipple = MaterialRipple;
+  window['MaterialRipple'] = MaterialRipple;
 
   /**
    * Store constants in one place so they can be updated easily.
    *
-   * @enum {String | Number}
+   * @enum {string | number}
    * @private
    */
   MaterialRipple.prototype.Constant_ = {
@@ -52,7 +53,7 @@
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
-   * @enum {String}
+   * @enum {string}
    * @private
    */
   MaterialRipple.prototype.CssClasses_ = {
@@ -164,23 +165,44 @@
         this.element_.addEventListener('touchend', this.boundUpHandler);
         this.element_.addEventListener('blur', this.boundUpHandler);
 
+        /**
+         * Getter for frameCount_.
+         * @return {number} the frame count.
+         */
         this.getFrameCount = function() {
           return this.frameCount_;
         };
 
+        /**
+         * Setter for frameCount_.
+         * @param {number} fC the frame count.
+         */
         this.setFrameCount = function(fC) {
           this.frameCount_ = fC;
         };
 
+        /**
+         * Getter for rippleElement_.
+         * @return {Element} the ripple element.
+         */
         this.getRippleElement = function() {
           return this.rippleElement_;
         };
 
+        /**
+         * Sets the ripple X and Y coordinates.
+         * @param  {number} newX the new X coordinate
+         * @param  {number} newY the new Y coordinate
+         */
         this.setRippleXY = function(newX, newY) {
           this.x_ = newX;
           this.y_ = newY;
         };
 
+        /**
+         * Sets the ripple styles.
+         * @param  {boolean} start whether or not this is the start frame.
+         */
         this.setRippleStyles = function(start) {
           if (this.rippleElement_ !== null) {
             var transformString;
@@ -214,6 +236,9 @@
           }
         };
 
+        /**
+         * Handles an animation frame.
+         */
         this.animFrameHandler = function() {
           if (this.frameCount_-- > 0) {
             window.requestAnimationFrame(this.animFrameHandler.bind(this));

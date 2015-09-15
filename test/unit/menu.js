@@ -30,16 +30,21 @@ describe('MaterialMenu', function () {
   });
 
   describe ('visibility API', function () {
-    var parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
-    var el = document.createElement('ul');
-    parent.appendChild(el)
-    componentHandler.upgradeElement(el, 'MaterialMenu');
+    var parent;
+    var el;
+
+    before(function() {
+      parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
+      el = document.createElement('ul');
+      parent.appendChild(el)
+      componentHandler.upgradeElement(el, 'MaterialMenu');
+    });
 
     it('should start the showing animation on show()', function(done) {
-      expect($(el.MaterialMenu.container_)).to.not.have.class('is-visible');
+      expect($(el.parentElement)).to.not.have.class('is-visible');
       el.MaterialMenu.show();
       window.setTimeout(function() {
-        expect($(el.MaterialMenu.container_)).to.have.class('is-visible');
+        expect($(el.parentElement)).to.have.class('is-visible');
 
         var ev = document.createEvent('HTMLEvents');
         ev.initEvent('transitionend', true, true)
@@ -49,10 +54,10 @@ describe('MaterialMenu', function () {
     });
 
     it('should start the hiding animation on hide()', function(done) {
-      expect($(el.MaterialMenu.container_)).to.have.class('is-visible');
+      expect($(el.parentElement)).to.have.class('is-visible');
       el.MaterialMenu.hide();
       window.setTimeout(function() {
-        expect($(el.MaterialMenu.container_)).to.not.have.class('is-visible');
+        expect($(el.parentElement)).to.not.have.class('is-visible');
 
         var ev = document.createEvent('HTMLEvents');
         ev.initEvent('transitionend', true, true)
@@ -62,10 +67,10 @@ describe('MaterialMenu', function () {
     });
 
     it('should start the showing animating on toggle() when invisible', function(done) {
-      expect($(el.MaterialMenu.container_)).to.not.have.class('is-visible');
+      expect($(el.parentElement)).to.not.have.class('is-visible');
       el.MaterialMenu.toggle();
       window.setTimeout(function() {
-        expect($(el.MaterialMenu.container_)).to.have.class('is-visible');
+        expect($(el.parentElement)).to.have.class('is-visible');
 
         var ev = document.createEvent('HTMLEvents');
         ev.initEvent('transitionend', true, true)
@@ -75,10 +80,10 @@ describe('MaterialMenu', function () {
     });
 
     it('should start the hiding animating on toggle() when visible', function(done) {
-      expect($(el.MaterialMenu.container_)).to.have.class('is-visible');
+      expect($(el.parentElement)).to.have.class('is-visible');
       el.MaterialMenu.toggle();
       window.setTimeout(function() {
-        expect($(el.MaterialMenu.container_)).to.not.have.class('is-visible');
+        expect($(el.parentElement)).to.not.have.class('is-visible');
 
         var ev = document.createEvent('HTMLEvents');
         ev.initEvent('transitionend', true, true)
@@ -107,7 +112,7 @@ describe('MaterialMenu', function () {
     ev.initEvent('click', true, true);
     ctr.querySelector('#clickable').dispatchEvent(ev);
     window.setTimeout(function() {
-      expect($(el.MaterialMenu.container_)).to.have.class('is-visible');
+      expect($(el.parentElement)).to.have.class('is-visible');
       document.body.removeChild(ctr);
       done();
     }, 100);

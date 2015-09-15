@@ -53,9 +53,23 @@ describe('MaterialDataTable', function () {
 
     document.body.appendChild(table);
 
-    var queryTable = document.querySelector('.mdl-data-table');
-    componentHandler.upgradeElement(queryTable, 'MaterialDataTable');
-    expect(queryTable.querySelector('tbody:nth-child(2) label').classList.contains('is-checked')).to.be.true;
+    componentHandler.upgradeElement(table, 'MaterialDataTable');
+    expect(table.querySelector('tbody:nth-child(2) label').classList.contains('is-checked')).to.be.true;
+    document.body.removeChild(table);
+  });
+
+  it('should assign a name and value to checkboxes when provided on rows', function() {
+    var table = createTable();
+    table.classList.add('mdl-data-table--selectable');
+    var row = table.insertRow();
+    row.dataset.mdlDataTableSelectableName = 'test';
+    row.dataset.mdlDataTableSelectableValue = 'awesome';
+    row.insertCell();
+
+    document.body.appendChild(table);
+
+    componentHandler.upgradeElement(table);
+    expect(table.querySelector('input[name="test"][value="awesome"]').nodeName).to.equal('INPUT');
   });
 
 });
