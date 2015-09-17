@@ -19,6 +19,7 @@
  * Class constructor for Animation MDL component.
  * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
+ *
  * @param {HTMLElement} element The element that will be upgraded.
  */
 function DemoAnimation(element) {
@@ -35,7 +36,8 @@ function DemoAnimation(element) {
  * Store strings for class names defined by this component that are used in
  * JavaScript. This allows us to simply change it in one place should we
  * decide to modify at a later date.
- * @enum {string}
+ *
+ * @enum {String}
  * @private
  */
 DemoAnimation.prototype.CssClasses_ = {
@@ -48,7 +50,8 @@ DemoAnimation.prototype.CssClasses_ = {
 
 /**
  * Store constants in one place so they can be updated easily.
- * @enum {string | number}
+ *
+ * @enum {String | Number}
  * @private
  */
 DemoAnimation.prototype.Constant_ = {
@@ -66,6 +69,7 @@ DemoAnimation.prototype.Constant_ = {
 
 /**
  * Handle click of element.
+ *
  * @param {Event} event The event that fired.
  * @private
  */
