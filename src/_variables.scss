@@ -286,6 +286,8 @@ $default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
 
 $tooltip-text-color: unquote("rgb(#{$color-white})") !default;
 $tooltip-background-color: unquote("rgba(#{$palette-grey-700}, 0.9)") !default;
+$tooltip-background-height: 256px !default;
+$tooltip-background-timing: .75s !default;
 
 /* ==========  Footer  ========== */
 

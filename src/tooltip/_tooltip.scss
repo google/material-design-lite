@@ -64,3 +64,63 @@
     visibility: visible;
   }
 }
+
+// NEW FANCY MATERIAL TOOLTIP
+
+.mdl-tooltip--fancy {
+  overflow: hidden;
+  background-color: transparent;
+
+  &:before {
+    content: '';
+    background-color: $tooltip-background-color;
+    border-radius: $tooltip-background-height;
+    height: $tooltip-background-height;
+    left: 50%;
+    margin-left: -($tooltip-background-height / 2);
+    margin-top: -($tooltip-background-height / 2);
+    top: 0;
+    position: absolute;
+    transform: scale(1);
+    width: 256px;
+    animation: mdl-tooltip--fancy-hide $tooltip-background-timing linear;
+    z-index: -1;
+  }
+
+  &.mdl-tooltip--large:before {
+    animation-duration: ($tooltip-background-timing / 2);
+  }
+
+  &.is-active {
+    &:before {
+      animation: mdl-tooltip--fancy-show $tooltip-background-timing linear;
+    }
+
+    &.mdl-tooltip--large:before {
+      animation-duration: ($tooltip-background-timing / 2);
+    }
+  }
+}
+
+@keyframes mdl-tooltip--fancy-show {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mdl-tooltip--fancy-hide {
+  0% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
