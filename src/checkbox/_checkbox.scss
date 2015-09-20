@@ -137,6 +137,7 @@
 .mdl-checkbox__label {
   position: relative;
   cursor: pointer;
+  user-select: none;
   font-size: $checkbox-label-font-size;
   line-height: $checkbox-label-height;
   margin: 0;
@@ -160,6 +161,7 @@
   border-radius: 50%;
 
   cursor: pointer;
+  user-select: none;
 
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
