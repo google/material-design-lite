@@ -262,7 +262,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   justify-content: center;
   align-items: center;
 }
-.docs-footer.mdl-mini-footer ul > a {
+.docs-footer.mdl-mini-footer ul > li > a {
   margin: 0 8px;
   font-weight: 400;
   font-size: 12px;
@@ -901,7 +901,7 @@ code[class*=language-], pre[class*=language-] {
 .docs-layout li {
   position: relative;
 }
-.styles li:before,
+.styles .content li:before,
 .docs-readme li:before {
   position: absolute;
   top: 2px;
