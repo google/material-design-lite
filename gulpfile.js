@@ -75,6 +75,7 @@ var SOURCES = [
   'src/progress/progress.js',
   'src/radio/radio.js',
   'src/slider/slider.js',
+  'src/snackbar/snackbar.js',
   'src/spinner/spinner.js',
   'src/switch/switch.js',
   'src/tabs/tabs.js',

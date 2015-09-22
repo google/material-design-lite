@@ -40,6 +40,7 @@
  * -----Shadows
  * -----Grid
  * -----Data table
+ * -----Snackbar
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -546,6 +547,13 @@ $data-table-card-title-top: 20px !default;
 $data-table-card-padding: 24px !default;
 $data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2;
+
+/* SNACKBAR */
+
+// Hard coded since the color is not present in any pallet.
+$snackbar-background-color: #323232 !default;
+$snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
+$snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
 
 /* TOOLTIP */
 $tooltip-font-size: 10px !default;
