@@ -7,7 +7,34 @@ var assert = require('assert');
 var webdriver = drool.webdriver;
 var controlFlow = webdriver.promise.controlFlow();
 var driver = drool.start({chromeOptions: 'no-sandbox'});
-var stamps = [];
+var snackbarStamps = [];
+var menuStamps = [];
+
+function heapDiffPrinter(after, initial, i, title) {
+  console.log(title + ' .. run: ' + (i + 1));
+  console.log('node delta: ' + (after.nodes - initial.nodes));
+  console.log('heap delta: ' + humanize.filesize(after.jsHeapSizeUsed - initial.jsHeapSizeUsed));
+  console.log('event listener delta: ' + (after.jsEventListeners - initial.jsEventListeners));
+}
+
+function measureSnackbar(stamps, i) {
+  drool.flow({
+    setup: function() {
+      driver.get('file://' + path.join(__dirname, '../../dist/components/snackbar/demo.html'));
+    },
+    action: function() {
+      driver.executeScript('document.querySelector("#demo-snackbar-example").MaterialSnackbar.showSnackbar({message: "🐐", timeout: 700})');
+      driver.sleep(1000);
+    },
+    beforeAssert: function() {
+      driver.sleep(1000);
+    },
+    assert: function(after, initial) {
+      heapDiffPrinter(after, initial, i, 'snackbar');
+      stamps.push([after.jsEventListeners, initial.jsEventListeners]);
+    }
+  }, driver);
+}
 
 function measureMenuFlow(stamps, i) {
   drool.flow({
@@ -23,22 +50,27 @@ function measureMenuFlow(stamps, i) {
       driver.sleep(1000);
     },
     assert: function(after, initial) {
-      console.log('Menu Component Toggle Test .. run: ' + (i + 1));
-      console.log('node delta: ' + (after.nodes - initial.nodes));
-      console.log('heap delta: ' + humanize.filesize(after.jsHeapSizeUsed - initial.jsHeapSizeUsed));
-      console.log('event listener delta: ' + (after.jsEventListeners - initial.jsEventListeners));
-
+      heapDiffPrinter(after, initial, i, 'menu');
       stamps.push([after.jsEventListeners, initial.jsEventListeners]);
     }
   }, driver);
 }
 
 for (var i = 0; i < 5; ++i) {
-  measureMenuFlow(stamps, i);
+  measureSnackbar(snackbarStamps, i);
+}
+
+for (var i = 0; i < 5; ++i) {
+  measureMenuFlow(menuStamps, i);
 }
 
 controlFlow.execute(function() {
-  stamps.some(function(stamp) {
+  snackbarStamps.some(function(stamp) {
+    assert.equal(true, stamp[0] <= stamp[1]);
+    return true;
+  });
+
+  menuStamps.some(function(stamp) {
     assert.equal(true, stamp[0] <= stamp[1]);
     return true;
   });
