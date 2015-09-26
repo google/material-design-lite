@@ -99,11 +99,11 @@ $color-accent-contrast: $color-dark-contrast !default;
 
 // Replace all colors with placeholders if we're generating a template.
 @if $styleguide-generate-template == true {
-  $color-primary: '$color-primary';
-  $color-primary-dark: '$color-primary-dark';
-  $color-accent: '$color-accent';
-  $color-primary-contrast: '$color-primary-contrast';
-  $color-accent-contrast: '$color-accent-contrast';
+  $color-primary: unquote('$color-primary');
+  $color-primary-dark: unquote('$color-primary-dark');
+  $color-accent: unquote('$color-accent');
+  $color-primary-contrast: unquote('$color-primary-contrast');
+  $color-accent-contrast: unquote('$color-accent-contrast');
 }
 
 /* ==========  Typography  ========== */
@@ -112,8 +112,8 @@ $color-accent-contrast: $color-dark-contrast !default;
 // text-color-secondary. For light themes, use text-color-primary-inverse
 // and text-color-secondary-inverse.
 
-$text-color-primary: unquote("rgba(#{$color-black}, 0.87)") !default;
-$text-link-color: unquote("rgb(#{$color-accent})") !default;
+$text-color-primary: rgba-tpl($color-black, 0.87) !default;
+$text-link-color: $color-accent !default;
 
 // Define whether to target elements directly for typographic enhancements.
 // Turning this off means you need to use mdl-* classes more often.
@@ -127,172 +127,172 @@ $target-elements-directly: true !default;
 /* ==========  Standard Buttons  ========== */
 
 // Default button colors.
-$button-primary-color: unquote("rgba(#{$palette-grey-500}, 0.20)") !default;
-$button-secondary-color: unquote("rgb(#{$color-black})") !default;
+$button-primary-color: rgba-tpl($palette-grey-500, 0.20) !default;
+$button-secondary-color: $color-black !default;
 $button-hover-color: $button-primary-color !default;
-$button-active-color: unquote("rgba(#{$palette-grey-500}, 0.40)") !default;
-$button-focus-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+$button-active-color: rgba-tpl($palette-grey-500, 0.40) !default;
+$button-focus-color: rgba-tpl($color-black, 0.12) !default;
 
 // Colored button colors.
-$button-primary-color-alt: unquote("rgb(#{$color-primary})") !default;
-$button-secondary-color-alt: unquote("rgb(#{$color-primary-contrast})") !default;
-$button-hover-color-alt: unquote("rgb(#{$color-primary})") !default;
-$button-active-color-alt: unquote("rgb(#{$color-primary})") !default;
+$button-primary-color-alt: $color-primary !default;
+$button-secondary-color-alt: $color-primary-contrast !default;
+$button-hover-color-alt: $color-primary !default;
+$button-active-color-alt: $color-primary !default;
 $button-focus-color-alt: $button-focus-color !default;
 
 // Ripple color for colored raised buttons.
-$button-ripple-color-alt: unquote("rgb(#{$color-primary-contrast})") !default;
+$button-ripple-color-alt: $color-primary-contrast !default;
 
 // Disabled button colors.
-$button-primary-color-disabled: unquote("rgba(#{$color-black}, 0.12)") !default;
-$button-secondary-color-disabled: unquote("rgba(#{$color-black}, 0.26)") !default;
+$button-primary-color-disabled: rgba-tpl($color-black, 0.12) !default;
+$button-secondary-color-disabled: rgba-tpl($color-black, 0.26) !default;
 
 // FAB colors and sizes.
-$button-fab-color-alt: unquote("rgb(#{$color-accent})") !default;
-$button-fab-hover-color-alt: unquote("rgb(#{$color-accent})") !default;
-$button-fab-active-color-alt: unquote("rgb(#{$color-accent})") !default;
-$button-fab-text-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
-$button-fab-ripple-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
+$button-fab-color-alt: $color-accent !default;
+$button-fab-hover-color-alt: $color-accent !default;
+$button-fab-active-color-alt: $color-accent !default;
+$button-fab-text-color-alt: $color-accent-contrast !default;
+$button-fab-ripple-color-alt: $color-accent-contrast !default;
 
 // Icon button colors and sizes.
-$button-icon-color: unquote("rgb(#{$palette-grey-700})") !default;
+$button-icon-color: $palette-grey-700 !default;
 $button-icon-focus-color: $button-focus-color !default;
 
 /* ==========  Icon Toggles  ========== */
 
-$icon-toggle-color: unquote("rgb(#{$palette-grey-700})") !default;
+$icon-toggle-color: $palette-grey-700 !default;
 $icon-toggle-focus-color: $button-focus-color !default;
-$icon-toggle-checked-color: unquote("rgb(#{$color-primary})") !default;
-$icon-toggle-checked-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
-$icon-toggle-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
+$icon-toggle-checked-color: $color-primary !default;
+$icon-toggle-checked-focus-color: rgba-tpl($color-primary, 0.26) !default;
+$icon-toggle-disabled-color: rgba-tpl($color-black, 0.26) !default;
 
 /* ==========  Radio Buttons  ========== */
 
-$radio-color: unquote("rgb(#{$color-primary})") !default;
-$radio-off-color: unquote("rgba(#{$color-black}, 0.54)") !default;
-$radio-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
+$radio-color: $color-primary !default;
+$radio-off-color: rgba-tpl($color-black, 0.54) !default;
+$radio-disabled-color: rgba-tpl($color-black, 0.26) !default;
 
 /* ==========  Ripple effect  ========== */
 
-$ripple-bg-color: unquote("rgb(#{$color-light-contrast})") !default;
+$ripple-bg-color: $color-light-contrast !default;
 
 /* ==========  Layout  ========== */
 
-$layout-nav-color: unquote("rgb(#{$palette-grey-300})") !default;
+$layout-nav-color: $palette-grey-300 !default;
 
 // Drawer
-$layout-drawer-bg-color: unquote("rgb(#{$palette-grey-50})") !default;
-$layout-drawer-border-color: unquote("rgb(#{$palette-grey-300})") !default;
-$layout-text-color: unquote("rgb(#{$palette-grey-800})") !default;
+$layout-drawer-bg-color: $palette-grey-50 !default;
+$layout-drawer-border-color: $palette-grey-300 !default;
+$layout-text-color: $palette-grey-800 !default;
 $layout-drawer-navigation-color: #757575 !default;
-$layout-drawer-navigation-link-active-background: unquote("rgb(#{$color-light-contrast})") !default;
-$layout-drawer-navigation-link-active-color: unquote("rgb(#{$color-primary})") !default;
+$layout-drawer-navigation-link-active-background: $color-light-contrast !default;
+$layout-drawer-navigation-link-active-color: $color-primary !default;
 
 // Header
-$layout-header-bg-color: unquote("rgb(#{$color-primary})") !default;
-$layout-header-text-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$layout-header-nav-hover-color: unquote("rgba(#{$palette-grey-700}, 0.6)") !default;
-$layout-header-tab-text-color: unquote("rgba(#{$color-primary-contrast}, 0.6)") !default;
+$layout-header-bg-color: $color-primary !default;
+$layout-header-text-color: $color-primary-contrast !default;
+$layout-header-nav-hover-color: rgba-tpl($palette-grey-700, 0.6) !default;
+$layout-header-tab-text-color: rgba-tpl($color-primary-contrast, 0.6) !default;
 
 // Tabs
-$layout-header-tab-highlight: unquote("rgb(#{$color-accent})") !default;
+$layout-header-tab-highlight: $color-accent !default;
 
 /* ==========  Content Tabs  ========== */
 
-$tab-highlight-color: unquote("rgb(#{$color-primary})") !default;
-$tab-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
-$tab-active-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
-$tab-border-color: unquote("rgb(#{$palette-grey-300})") !default;
+$tab-highlight-color: $color-primary !default;
+$tab-text-color: rgba-tpl($color-black, 0.54) !default;
+$tab-active-text-color: rgba-tpl($color-black, 0.87) !default;
+$tab-border-color: $palette-grey-300 !default;
 
 /* ==========  Checkboxes  ========== */
 
-$checkbox-color: unquote("rgb(#{$color-primary})") !default;
-$checkbox-off-color: unquote("rgba(#{$color-black}, 0.54)") !default;
-$checkbox-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
-$checkbox-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
+$checkbox-color: $color-primary !default;
+$checkbox-off-color: rgba-tpl($color-black, 0.54) !default;
+$checkbox-disabled-color: rgba-tpl($color-black, 0.26) !default;
+$checkbox-focus-color: rgba-tpl($color-primary, 0.26) !default;
 
 /* ==========  Switches  ========== */
 
-$switch-color: unquote("rgb(#{$color-primary})") !default;
-$switch-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
+$switch-color: $color-primary !default;
+$switch-faded-color: rgba-tpl($color-primary, 0.26) !default;
 $switch-thumb-color: $switch-color !default;
-$switch-track-color: unquote("rgba(#{$color-primary}, 0.5)") !default;
+$switch-track-color: rgba-tpl($color-primary, 0.5) !default;
 
-$switch-off-thumb-color: unquote("rgb(#{$palette-grey-50})") !default;
-$switch-off-track-color: unquote("rgba(#{$color-black}, 0.26)") !default;
-$switch-disabled-thumb-color: unquote("rgb(#{$palette-grey-400})") !default;
-$switch-disabled-track-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+$switch-off-thumb-color: $palette-grey-50 !default;
+$switch-off-track-color: rgba-tpl($color-black, 0.26) !default;
+$switch-disabled-thumb-color: $palette-grey-400 !default;
+$switch-disabled-track-color: rgba-tpl($color-black, 0.12) !default;
 
 /* ==========  Spinner  ========== */
 
-$spinner-color-1: unquote("rgb(#{$palette-blue-400})") !default;
-$spinner-color-2: unquote("rgb(#{$palette-red-500})") !default;
-$spinner-color-3: unquote("rgb(#{$palette-yellow-600})") !default;
-$spinner-color-4: unquote("rgb(#{$palette-green-500})") !default;
+$spinner-color-1: $palette-blue-400 !default;
+$spinner-color-2: $palette-red-500 !default;
+$spinner-color-3: $palette-yellow-600 !default;
+$spinner-color-4: $palette-green-500 !default;
 
-$spinner-single-color: unquote("rgb(#{$color-primary})") !default;
+$spinner-single-color: $color-primary !default;
 
 /* ==========  Text fields  ========== */
 
 $input-text-background-color: transparent !default;
-$input-text-label-color: unquote("rgba(#{$color-black}, 0.26)") !default;
-$input-text-bottom-border-color: unquote("rgba(#{$color-black}, 0.12)") !default;
-$input-text-highlight-color: unquote("rgb(#{$color-primary})") !default;
+$input-text-label-color: rgba-tpl($color-black, 0.26) !default;
+$input-text-bottom-border-color: rgba-tpl($color-black, 0.12) !default;
+$input-text-highlight-color: $color-primary !default;
 $input-text-disabled-color: $input-text-bottom-border-color !default;
 $input-text-disabled-text-color: $input-text-label-color !default;
-$input-text-error-color: unquote("rgb(222, 50, 38)") !default;
+$input-text-error-color: rgb(222, 50, 38) !default;
 
 /* ==========  Card  ========== */
 
-$card-background-color: unquote("rgb(#{$color-white})") !default;
-$card-text-color: unquote("rgb(#{$color-black})") !default;
-$card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
-$card-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$card-background-color: $color-white !default;
+$card-text-color: $color-black !default;
+$card-image-placeholder-color: $color-accent !default;
+$card-supporting-text-text-color: rgba-tpl($color-black, 0.54) !default;
 $card-border-color: rgba(0,0,0,0.1) !default;
 
 /* ==========  Sliders ========== */
 
-$range-bg-color: unquote("rgba(#{$color-black}, 0.26)") !default;
-$range-color: unquote("rgb(#{$color-primary})") !default;
-$range-faded-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
-$range-bg-focus-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+$range-bg-color: rgba-tpl($color-black, 0.26) !default;
+$range-color: $color-primary !default;
+$range-faded-color: rgba-tpl($color-primary, 0.26) !default;
+$range-bg-focus-color: rgba-tpl($color-black, 0.12) !default;
 
 /* ========== Progress ========== */
-$progress-main-color: unquote("rgb(#{$color-primary})") !default;
-$progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
-$progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)") !default;
+$progress-main-color: $color-primary !default;
+$progress-secondary-color: rgba-tpl($color-primary-contrast, 0.7) !default;
+$progress-fallback-buffer-color: rgba-tpl($color-primary-contrast, 0.9) !default;
 
 /* ==========  List ========== */
 
-$list-container-item-border-color: unquote("rgb(#{$palette-grey-300})") !default;
-$list-container-view-background: unquote("rgb(#{$color-white})") !default;
+$list-container-item-border-color: $palette-grey-300 !default;
+$list-container-view-background: $color-white !default;
 
 /* ==========  Item ========== */
 
 // Default Item Colors
-$default-item-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
-$default-item-outline-color: unquote("rgb(#{$palette-grey-400})") !default;
-$default-item-hover-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
-$default-item-focus-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
-$default-item-active-bg-color: unquote("rgb(#{$palette-grey-300})") !default;
+$default-item-text-color: rgba-tpl($color-black, 0.87) !default;
+$default-item-outline-color: $palette-grey-400 !default;
+$default-item-hover-bg-color: $palette-grey-200 !default;
+$default-item-focus-bg-color: $palette-grey-200 !default;
+$default-item-active-bg-color: $palette-grey-300 !default;
 
 // Disabled Button Colors
-$disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
+$disabled-item-text-color: $palette-grey-400 !default;
 
 /* ==========  Dropdown menu ========== */
 
-$default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
+$default-dropdown-bg-color: $color-white !default;
 
 /* ==========  Tooltips  ========== */
 
-$tooltip-text-color: unquote("rgb(#{$color-white})") !default;
-$tooltip-background-color: unquote("rgba(#{$palette-grey-700}, 0.9)") !default;
+$tooltip-text-color: $color-white !default;
+$tooltip-background-color: rgba-tpl($palette-grey-700, 0.9) !default;
 
 /* ==========  Footer  ========== */
 
-$footer-bg-color: unquote("rgb(#{$palette-grey-800})") !default;
-$footer-color: unquote("rgb(#{$palette-grey-500})") !default;
-$footer-heading-color: unquote("rgb(#{$palette-grey-300})") !default;
+$footer-bg-color: $palette-grey-800 !default;
+$footer-color: $palette-grey-500 !default;
+$footer-heading-color: $palette-grey-300 !default;
 $footer-button-fill-color: $footer-color !default;
 $footer-underline-color: $footer-color !default;
 
@@ -488,10 +488,10 @@ $bar-height: 4px !default;
 
 /* BADGE */
 $badge-font-size: 12px !default;
-$badge-color: unquote("rgb(#{$color-white})") !default;
-$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
-$badge-background: unquote("rgb(#{$color-accent})") !default;
-$badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
+$badge-color: $color-white !default;
+$badge-color-inverse: $color-accent !default;
+$badge-background: $color-accent !default;
+$badge-background-inverse: rgba-tpl($color-white,0.2) !default;
 $badge-size : 22px !default;
 $badge-padding: 2px !default;
 
