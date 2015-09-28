@@ -118,6 +118,9 @@
 
     &.is-visible {
       transform: translateX(0);
+      & ~ .mdl-layout__content {
+        overflow: hidden;
+      }
     }
 
     & > * {
