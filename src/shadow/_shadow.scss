@@ -40,3 +40,7 @@
 .mdl-shadow--16dp {
   @include shadow-16dp();
 }
+
+.mdl-shadow--24dp {
+  @include shadow-24dp();
+}
