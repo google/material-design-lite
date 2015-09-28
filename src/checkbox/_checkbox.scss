@@ -118,19 +118,19 @@
   left: 0;
   height: 100%;
   width: 100%;
-  mask: url("/images/tick-mask.svg?embed");
+  mask: url("#{$checkbox-image-path}/tick-mask.svg?embed");
 
   background: transparent;
   @include material-animation-default(0.28s);
   transition-property: background;
 
   .mdl-checkbox.is-checked & {
-    background: $checkbox-color url("/images/tick.svg?embed");
+    background: $checkbox-color url("#{$checkbox-image-path}/tick.svg?embed");
   }
 
   fieldset[disabled] .mdl-checkbox.is-checked &,
   .mdl-checkbox.is-checked.is-disabled & {
-    background: $checkbox-disabled-color url("/images/tick.svg?embed");
+    background: $checkbox-disabled-color url("#{$checkbox-image-path}/tick.svg?embed");
   }
 }
 
