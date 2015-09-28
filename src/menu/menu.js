@@ -112,7 +112,8 @@
       container.insertBefore(outline, this.element_);
 
       // Find the "for" element and bind events to it.
-      var forElId = this.element_.getAttribute('for');
+      var forElId = this.element_.getAttribute('for') ||
+                      this.element_.getAttribute('data-for');
       var forEl = null;
       if (forElId) {
         forEl = document.getElementById(forElId);

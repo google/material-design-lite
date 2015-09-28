@@ -8,7 +8,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 ### To include an MDL **menu** component:
 
-&nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` attribute of the unordered list coded in the next step. Inside the button, code a `<i>` or `<span>` element to contain an icon of your choice.
+&nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` (or `data-for`) attribute of the unordered list coded in the next step. Inside the button, code a `<i>` or `<span>` element to contain an icon of your choice.
 ```html
 <button id="menu1">
   <i></i>
@@ -99,7 +99,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 (1) The "more-vert" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
 
-(2) The `i` or `span` element in "button"" element can be used interchangeably. 
+(2) The `i` or `span` element in "button"" element can be used interchangeably.
 
 >**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<li class="mdl-menu__item" disabled>Medium</li>`
 >This attribute may be added or removed programmatically via scripting.
