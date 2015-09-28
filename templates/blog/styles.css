@@ -1,5 +1,4 @@
 body::before {
-    background-image: url('images/bg.jpg');
     background-size: cover;
     background-attachment: fixed;
     content: '';
@@ -11,7 +10,24 @@ body::before {
     top: 0;
     position: fixed;
 }
-
+@media (max-width: 512px)  and (min-resolution: 1.5dppx),
+       (max-width: 1024px) and (max-resolution: 1.5dppx) {
+  body::before {
+    background-image: url('images/bg_1024.jpg');
+  }
+}
+@media (min-width: 513px)  and (max-width: 1024px) and (min-resolution: 1.5dppx),
+       (min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx)  {
+  body::before {
+    background-image: url('images/bg_2048.jpg');
+  }
+}
+@media (min-width: 1025px) and (min-resolution: 1.5dppx),
+       (min-width: 2049px) and (max-resolution: 1.5dppx) {
+  body::before {
+    background-image: url('images/bg_2880.jpg');
+  }
+}
 body .demo-blog {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
