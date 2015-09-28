@@ -702,10 +702,10 @@ gulp.task('templates:images', function() {
   return gulp.src([
     'templates/*/images/**/*'
   ])
-  .pipe($.cache($.imagemin({
+  .pipe($.imagemin({
     progressive: true,
     interlaced: true
-  })))
+  }))
   .pipe(gulp.dest('dist/templates'));
 });
 
