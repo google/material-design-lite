@@ -548,9 +548,9 @@ gulp.task('pushCodeFiles', function() {
   // The gsutil -m option requests parallel copies.
   // The gsutil -h option is used to set metadata headers
   // (cache control, in this case).
-  // For cache control, start with 0s (disable caching during dev),
-  // but consider more helpful interval (e.g. 3600s) after launch.
-  var cacheControl = '-h "Cache-Control:public,max-age=3600"';
+  // Code files should NEVER be touched after uploading, therefore
+  // 30 days caching is a safe value.
+  var cacheControl = '-h "Cache-Control:public,max-age=2592000"';
   var gsutilCpCmd = 'gsutil -m cp -z js,css,map ';
   var gsutilCacheCmd = 'gsutil -m setmeta -R ' + cacheControl;
 
