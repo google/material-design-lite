@@ -70,6 +70,9 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 @import "color-definitions";
 @import "functions";
 
+/* ==========  IMAGES  ========== */
+$image_path: '/images';
+
 /* ==========  Color & Themes  ========== */
 
 // Define whether individual color pallet items should have classes created.
@@ -204,6 +207,7 @@ $checkbox-color: unquote("rgb(#{$color-primary})") !default;
 $checkbox-off-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 $checkbox-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 $checkbox-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
+$checkbox-image-path: $image_path;
 
 /* ==========  Switches  ========== */
 
@@ -255,6 +259,7 @@ $range-bg-focus-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 $progress-main-color: unquote("rgb(#{$color-primary})") !default;
 $progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
 $progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)") !default;
+$progress-image-path: $image_path;
 
 /* ==========  List ========== */
 
