@@ -286,14 +286,6 @@
         }
       }
 
-      /**
-       * Prevents an event from triggering the default behaviour.
-       * @param  {Event} ev the event to eat.
-       */
-      var eatEvent = function(ev) {
-        ev.preventDefault();
-      };
-
       // Add drawer toggling button to our layout, if we have an openable drawer.
       if (this.drawer_) {
         var drawerButton = this.element_.querySelector('.' +
@@ -337,7 +329,6 @@
         this.element_.appendChild(obfuscator);
         obfuscator.addEventListener('click',
             this.drawerToggleHandler_.bind(this));
-        obfuscator.addEventListener('mousewheel', eatEvent);
       }
 
       // Initialize tabs, if any.
