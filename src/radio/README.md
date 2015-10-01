@@ -19,20 +19,20 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;2. Inside the label, code an `<input>` element and give it a `type` attribute whose value is `"radio"`. Also give it an `id` attribute whose value matches the label's `for` attribute value, and a `name` attribute whose value identifies the radio button group. Optionally, give it a `value` attribute whose value provides some information about the radio button for scripting purposes.
 ```html
 <label for="radio1">
-  <input type="radio" id="radio1" name="flash" value="on" />
+  <input type="radio" id="radio1" name="flash" value="on">
 </label>
 ```
 &nbsp;3. Also inside the label, after the radio button, code a `<span>` element containing the radio button's text caption.
 ```html
 <label for="radio1">
-  <input type="radio" id="radio1" name="flash" value="on" />
+  <input type="radio" id="radio1" name="flash" value="on">
   <span>Always on</span>
 </label>
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the label, checkbox, and caption using the `class` attribute.
 ```html
 <label for="radio1" class="mdl-radio mdl-js-radio">
-  <input type="radio" id="radio1" name="flash" value="on" class="mdl-radio__button" />
+  <input type="radio" id="radio1" name="flash" value="on" class="mdl-radio__button">
   <span class="mdl-radio__label">Always on</span>
 </label>
 ```
@@ -72,5 +72,5 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-radio__label` | Applies basic MDL behavior to caption | Required on span element (caption) |
 | `mdl-js-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (radio button) |
 
->**Note:** Disabled versions of all the available radio button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="radio" id="radio5" name="flash" class="mdl-radio__button" disabled />`
+>**Note:** Disabled versions of all the available radio button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="radio" id="radio5" name="flash" class="mdl-radio__button" disabled>`
 >This attribute may be added or removed programmatically via scripting.

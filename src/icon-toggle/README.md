@@ -19,20 +19,20 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;2. Inside the label, code an `<input>` element and give it a `type` attribute whose value is `"checkbox"`. Also give it an `id` attribute whose value matches the label's `for` attribute value.
 ```html
 <label for="icon-toggle-1">
-  <input type="checkbox" id="icon-toggle-1" />
+  <input type="checkbox" id="icon-toggle-1">
 </label>
 ```
 &nbsp;3. Also inside the label, after the input element, code an `<i>` element containing the icon-toggle's desired icon.
 ```html
 <label for="icon-toggle-1">
-  <input type="checkbox" id="icon-toggle-1" />
+  <input type="checkbox" id="icon-toggle-1">
   <i class="mdl-icon-toggle__label material-icons">format_bold</i>
 </label>
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the label and input elements, using the `class` attribute.
 ```html
 <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
-  <input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input" />
+  <input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input">
   <i class="mdl-icon-toggle__label material-icons">format_bold</i>
 </label>
 ```
@@ -45,7 +45,7 @@ An icon-toggle with a ripple click effect.
 
 ```html
 <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
-  <input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input" />
+  <input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input">
   <i class="mdl-icon-toggle__label material-icons">format_bold</i>
 </label>
 ```
@@ -61,5 +61,5 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-icon-toggle__label` | Applies basic MDL behavior to caption | Required on i element (icon) |
 | `mdl-js-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (icon-toggle) |
 
->**Note:** Disabled versions of all available input types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="checkbox" id="icon-toggle-5" class="mdl-icon-toggle__input" disabled />`
+>**Note:** Disabled versions of all available input types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="checkbox" id="icon-toggle-5" class="mdl-icon-toggle__input" disabled>`
 >This attribute may be added or removed programmatically via scripting.
