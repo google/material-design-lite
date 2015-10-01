@@ -174,8 +174,8 @@ a img{
   height: 800px;
   width: auto;
   background-color: #f3f3f3;
-  background: url('images/slide01.jpg') center 30% no-repeat;
-  background-size: cover;
+  background: url('https://raw.githubusercontent.com/google/material-design-lite/master/templates/android-dot-com/images/slide01.jpg') center 30% no-repeat;
+  background-size: contain;
 }
 
 .android-font {
@@ -301,8 +301,8 @@ a img{
 
 .android-wear-section {
   position: relative;
-  background: url('images/wear.png') center top no-repeat;
-  background-size: cover;
+  background: url('https://raw.githubusercontent.com/google/material-design-lite/master/templates/android-dot-com/images/wear.png') center top no-repeat;
+  background-size: contain;
   height: 800px;
 }
 
@@ -371,8 +371,8 @@ a img{
   }
 
 .android-customized-section-image {
-  background: url('images/devices.jpg') center top no-repeat;
-  background-size: cover;
+  background: url('https://raw.githubusercontent.com/google/material-design-lite/master/templates/android-dot-com/images/devices.jpg') center top no-repeat;
+  background-size: contain;
   height: 400px;
 }
 
