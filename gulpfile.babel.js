@@ -107,7 +107,8 @@ gulp.task('jscs', () => {
   return gulp.src(['src/**/*.js', 'gulpfile.js'])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jscs())
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+    .pipe($.jscs.reporter())
+    .pipe($.if(!browserSync.active, $.jscs.reporter('fail')));
 });
 
 // ***** Production build tasks ****** //
@@ -523,7 +524,7 @@ gulp.task('serve', () => {
   watch();
 
   gulp.src('dist/index.html')
-    .pipe($.open('', {url: 'http://localhost:5000'}));
+    .pipe($.open({uri: 'http://localhost:5000'}));
 });
 
 // Generate release archive containing just JS, CSS, Source Map deps
