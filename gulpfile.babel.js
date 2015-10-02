@@ -22,7 +22,7 @@
 // Include Gulp & Tools We'll Use
 import fs from 'fs';
 import path from 'path';
-import merge from 'merge-stream';
+import mergeStream from 'merge-stream';
 import del from 'del';
 import vinylPaths from'vinyl-paths';
 import runSequence from 'run-sequence';
@@ -95,7 +95,10 @@ const SOURCES = [
 
 // Lint JavaScript
 gulp.task('jshint', () => {
-  return gulp.src(['src/**/*.js', 'gulpfile.js'])
+  return gulp.src([
+      'src/**/*.js',
+      'gulpfile.babel.js'
+    ])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
@@ -104,7 +107,10 @@ gulp.task('jshint', () => {
 
 // Lint JavaScript code style
 gulp.task('jscs', () => {
-  return gulp.src(['src/**/*.js', 'gulpfile.js'])
+  return gulp.src([
+      'src/**/*.js',
+      'gulpfile.babel.js'
+    ])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jscs())
     .pipe($.jscs.reporter())
@@ -128,9 +134,7 @@ gulp.task('images', () => {
 
 // Compile and Automatically Prefix Stylesheets (dev)
 gulp.task('styles:dev', () => {
-  return gulp.src([
-    'src/**/*.scss'
-  ])
+  return gulp.src('src/**/*.scss')
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -146,18 +150,14 @@ gulp.task('styles:dev', () => {
 // Compile and Automatically Prefix Stylesheet Templates (production)
 gulp.task('styletemplates', () => {
   // For best performance, don't add Sass partials to `gulp.src`
-  return gulp.src([
-    'src/template.scss'
-  ])
+  return gulp.src('src/template.scss')
     // Generate Source Maps
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.cssInlineImages({
-      webRoot: 'src'
-    }))
+    .pipe($.cssInlineImages({webRoot: 'src'}))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
@@ -175,18 +175,14 @@ gulp.task('styletemplates', () => {
 // Compile and Automatically Prefix Stylesheets (production)
 gulp.task('styles', () => {
   // For best performance, don't add Sass partials to `gulp.src`
-  return gulp.src([
-    'src/material-design-lite.scss'
-  ])
+  return gulp.src('src/material-design-lite.scss')
     // Generate Source Maps
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.cssInlineImages({
-      webRoot: 'src'
-    }))
+    .pipe($.cssInlineImages({webRoot: 'src'}))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
@@ -204,7 +200,7 @@ gulp.task('styles', () => {
 
 // Only generate CSS styles for the MDL grid
 gulp.task('styles-grid', () => {
-  return gulp.src(['src/material-design-lite-grid.scss'])
+  return gulp.src('src/material-design-lite-grid.scss')
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -248,9 +244,7 @@ gulp.task('scripts', ['jscs', 'jshint'], () => {
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
-    .pipe($.iife({
-      useStrict: true
-    }))
+    .pipe($.iife({useStrict: true}))
     .pipe(gulp.dest('dist'))
     // Minify Scripts
     .pipe($.uglify({
@@ -270,7 +264,11 @@ gulp.task('clean', () => del(['dist', '.publish']));
 
 // Copy package manger and LICENSE files to dist
 gulp.task('metadata', () => {
-  return gulp.src(['package.json', 'bower.json', 'LICENSE'])
+  return gulp.src([
+      'package.json',
+      'bower.json',
+      'LICENSE'
+    ])
     .pipe(gulp.dest('dist'));
 });
 
@@ -313,7 +311,12 @@ gulp.task('mocha:closure', ['closure'], () => {
     .on('error', () => del.sync('test/temp.html'));
 });
 
-gulp.task('test', ['jshint', 'jscs', 'mocha', 'mocha:closure']);
+gulp.task('test', [
+  'jshint',
+  'jscs',
+  'mocha',
+  'mocha:closure'
+]);
 
 gulp.task('test:visual', () => {
   browserSync({
@@ -322,7 +325,7 @@ gulp.task('test:visual', () => {
     startPath: 'test/visual/index.html'
   });
 
-  gulp.watch(['test/visual/**'], reload);
+  gulp.watch('test/visual/**', reload);
 });
 
 // ***** Landing page tasks ***** //
@@ -357,10 +360,13 @@ function applyTemplate() {
  * Generates an index.html file for each README in MDL/src directory.
  */
 gulp.task('components', ['demos'], () => {
-  return gulp.src(['src/**/README.md'], {base: 'src'})
+  return gulp.src('src/**/README.md', {base: 'src'})
     // Add basic front matter.
     .pipe($.header('---\nlayout: component\nbodyclass: component\ninclude_prefix: ../../\n---\n\n'))
-    .pipe($.frontMatter({property: 'page', remove: true}))
+    .pipe($.frontMatter({
+      property: 'page',
+      remove: true
+    }))
     .pipe($.marked())
     .pipe((() => {
       return through.obj((file, enc, cb) => {
@@ -382,15 +388,13 @@ gulp.task('demoresources', () => {
       'src/**/demo.css',
       'src/**/demo.js'
     ], {base: 'src'})
-      .pipe($.if('*.scss', $.sass({
-        precision: 10,
-        onError: console.error.bind(console, 'Sass error:')
-      })))
-      .pipe($.cssInlineImages({
-        webRoot: 'src'
-      }))
-      .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
-      .pipe(gulp.dest('dist/components'));
+    .pipe($.if('*.scss', $.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    })))
+    .pipe($.cssInlineImages({webRoot: 'src'}))
+    .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+    .pipe(gulp.dest('dist/components'));
 });
 
 /**
@@ -414,27 +418,33 @@ gulp.task('demos', ['demoresources'], () => {
       .pipe($.concat('/demo.html'))
       // Add basic front matter.
       .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
-      .pipe($.frontMatter({property: 'page', remove: true}))
+      .pipe($.frontMatter({
+        property: 'page',
+        remove: true
+      }))
       .pipe($.marked())
       .pipe((() => {
         return through.obj((file, enc, cb) => {
-            file.page.component = component;
-            cb(null, file);
-          });
+          file.page.component = component;
+          cb(null, file);
+        });
       })())
       .pipe(applyTemplate())
       .pipe(gulp.dest(path.join('dist', 'components', component)));
   });
 
-  return merge(tasks);
+  return mergeStream(tasks);
 });
 
 /**
  * Generates an HTML file for each md file in _pages directory.
  */
 gulp.task('pages', ['components'], () => {
-  return gulp.src(['docs/_pages/*.md'])
-    .pipe($.frontMatter({property: 'page', remove: true}))
+  return gulp.src('docs/_pages/*.md')
+    .pipe($.frontMatter({
+      property: 'page',
+      remove: true
+    }))
     .pipe($.marked())
     .pipe(applyTemplate())
     .pipe($.replace('$$version$$', pkg.version))
@@ -529,7 +539,12 @@ gulp.task('serve', () => {
 
 // Generate release archive containing just JS, CSS, Source Map deps
 gulp.task('zip:mdl', () => {
-  return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE', 'bower.json', 'package.json'])
+  return gulp.src([
+      'dist/material?(.min)@(.js|.css)?(.map)',
+      'LICENSE',
+      'bower.json',
+      'package.json'
+    ])
     .pipe($.zip('mdl.zip'))
     .pipe(gulp.dest('dist'));
 });
@@ -550,7 +565,10 @@ gulp.task('zip:templates', () => {
 
   // Generate a zip file for each template.
   const generateZips = templates.map(template => {
-    return gulp.src(['dist/templates/' + template + '/**/*.*', 'LICENSE'])
+    return gulp.src([
+        'dist/templates/' + template + '/**/*.*',
+        'LICENSE'
+      ])
       .pipe($.rename(path => {
         path.dirname = path.dirname.replace('dist/templates/' + template, '');
       }))
@@ -558,14 +576,20 @@ gulp.task('zip:templates', () => {
       .pipe(gulp.dest('dist'));
   });
 
-  return merge(generateZips);
+  return mergeStream(generateZips);
 });
 
-gulp.task('zip', ['zip:templates', 'zip:mdl']);
+gulp.task('zip', [
+  'zip:templates',
+  'zip:mdl'
+]);
 
 gulp.task('genCodeFiles', () => {
-  return gulp.src(['dist/material.*@(js|css)?(.map)', 'dist/mdl.zip', 'dist/' + templateArchivePrefix + '*.zip'],
-      {read: false})
+  return gulp.src([
+      'dist/material.*@(js|css)?(.map)',
+      'dist/mdl.zip',
+      'dist/' + templateArchivePrefix + '*.zip'
+    ], {read: false})
     .pipe($.tap(file => {
       codeFiles += ' dist/' + path.basename(file.path);
     }));
@@ -618,6 +642,7 @@ function mdlPublish(pubScope) {
   let cacheTtl = null;
   let src = null;
   let dest = null;
+
   if (pubScope === 'staging') {
     // Set staging specific vars here.
     cacheTtl = 0;
@@ -685,25 +710,32 @@ gulp.task('publish:staging', () => {
 });
 
 gulp.task('_release', () => {
-  return gulp.src(['dist/material?(.min)@(.js|.css)?(.map)', 'LICENSE',
-    'README.md', 'bower.json', 'package.json', '.jscsrc', '.jshintrc',
-    './sr?/**/*', 'gulpfile.js', './util?/**/*'])
+  return gulp.src([
+      'dist/material?(.min)@(.js|.css)?(.map)',
+      'LICENSE',
+      'README.md',
+      'bower.json',
+      'package.json',
+      '.jscsrc',
+      '.jshintrc',
+      './sr?/**/*',
+      'gulpfile.babel.js',
+      './util?/**/*'
+    ])
     .pipe(gulp.dest('_release'));
 });
 
 gulp.task('publish:release', ['_release'], () => {
   return gulp.src('_release')
-  .pipe($.subtree({
-    remote: 'origin',
-    branch: 'release'
-  }))
-  .pipe(vinylPaths(del));
+    .pipe($.subtree({
+      remote: 'origin',
+      branch: 'release'
+    }))
+    .pipe(vinylPaths(del));
 });
 
 gulp.task('templates:styles', () => {
-  return gulp.src([
-    'templates/**/*.css'
-  ])
+  return gulp.src('templates/**/*.css')
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     // FIXME: This crashes. It's a bug in gulp-csso,
     // not csso itself.
@@ -712,9 +744,7 @@ gulp.task('templates:styles', () => {
 });
 
 gulp.task('templates:static', () => {
-  return gulp.src([
-    'templates/**/*.html'
-  ])
+  return gulp.src('templates/**/*.html')
   .pipe($.replace('$$version$$', pkg.version))
   .pipe($.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix))
   .pipe(gulp.dest('dist/templates'));
@@ -723,34 +753,32 @@ gulp.task('templates:static', () => {
 // This task can be used if you want to test the templates against locally
 // built version of the MDL libraries.
 gulp.task('templates:localtestingoverride', () => {
-  return gulp.src([
-    'templates/**/*.html'
-  ])
+  return gulp.src('templates/**/*.html')
     .pipe($.replace('$$version$$', '.'))
     .pipe($.replace('$$hosted_libs_prefix$$', ''))
     .pipe(gulp.dest('dist/templates'));
 });
 
 gulp.task('templates:images', () => {
-  return gulp.src([
-    'templates/*/images/**/*'
-  ])
-  .pipe($.imagemin({
-    progressive: true,
-    interlaced: true
-  }))
-  .pipe(gulp.dest('dist/templates'));
+  return gulp.src('templates/*/images/**/*')
+    .pipe($.imagemin({
+      progressive: true,
+      interlaced: true
+    }))
+    .pipe(gulp.dest('dist/templates'));
 });
 
 gulp.task('templates:fonts', () => {
-  return gulp.src([
-    'templates/*/fonts/**/*'
-  ])
-  .pipe(gulp.dest('dist/templates/'));
+  return gulp.src('templates/*/fonts/**/*')
+    .pipe(gulp.dest('dist/templates/'));
 });
 
-gulp.task('templates', ['templates:static', 'templates:images',
-    'templates:fonts', 'templates:styles']);
+gulp.task('templates', [
+  'templates:static',
+  'templates:images',
+  'templates:fonts',
+  'templates:styles'
+]);
 
 gulp.task('styles:gen', ['styles'], () => {
   const MaterialCustomizer = require('./docs/_assets/customizer.js');
@@ -761,16 +789,20 @@ gulp.task('styles:gen', ['styles'], () => {
   mc.template = fs.readFileSync(templatePath).toString();
 
   let stream = gulp.src('');
+
   mc.paletteIndices.forEach(primary => {
     mc.paletteIndices.forEach(accent => {
       if (primary === accent) {
         return;
       }
+
       if (mc.forbiddenAccents.indexOf(accent) !== -1) {
         return;
       }
+
       const primaryName = primary.toLowerCase().replace(' ', '_');
       const accentName = accent.toLowerCase().replace(' ', '_');
+
       stream = stream.pipe($.file(
         'material.' + primaryName + '-' + accentName + '.min.css',
         mc.processTemplate(primary, accent)
