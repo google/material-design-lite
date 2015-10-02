@@ -265,7 +265,7 @@ gulp.task('scripts', ['jscs', 'jshint'], () => {
 });
 
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['dist', '.publish'], {dot: true}));
+gulp.task('clean', () => del(['dist', '.publish']));
 
 // Copy package manger and LICENSE files to dist
 gulp.task('metadata', () => {
@@ -308,12 +308,8 @@ gulp.task('mocha:closure', ['closure'], () => {
     .pipe($.rename('temp.html'))
     .pipe(gulp.dest('test'))
     .pipe($.mochaPhantomjs({reporter: 'tap'}))
-    .on('finish', () => {
-      del('test/temp.html', {force: true});
-    })
-    .on('error', () => {
-      del('test/temp.html', {force: true});
-    });
+    .on('finish', () => del.sync('test/temp.html'))
+    .on('error', () => del.sync('test/temp.html'));
 });
 
 gulp.task('test', ['jshint', 'jscs', 'mocha', 'mocha:closure']);
