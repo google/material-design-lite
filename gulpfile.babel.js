@@ -94,26 +94,17 @@ const SOURCES = [
 // ***** Development tasks ****** //
 
 // Lint JavaScript
-gulp.task('jshint', () => {
+gulp.task('lint', () => {
   return gulp.src([
       'src/**/*.js',
       'gulpfile.babel.js'
     ])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
-});
-
-// Lint JavaScript code style
-gulp.task('jscs', () => {
-  return gulp.src([
-      'src/**/*.js',
-      'gulpfile.babel.js'
-    ])
-    .pipe(reload({stream: true, once: true}))
     .pipe($.jscs())
+    .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.jscs.reporter())
+    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')))
     .pipe($.if(!browserSync.active, $.jscs.reporter('fail')));
 });
 
@@ -238,7 +229,7 @@ gulp.task('closure', () => {
 });
 
 // Concatenate And Minify JavaScript
-gulp.task('scripts', ['jscs', 'jshint'], () => {
+gulp.task('scripts', ['lint'], () => {
   return gulp.src(SOURCES)
     .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
     .pipe($.sourcemaps.init())
@@ -286,7 +277,7 @@ gulp.task('all', ['clean'], cb => {
   runSequence(
     ['default', 'styletemplates'],
     ['styles:gen'],
-    ['jshint', 'jscs', 'scripts', 'assets', 'demos', 'pages',
+    ['lint', 'scripts', 'assets', 'demos', 'pages',
      'templates', 'images', 'styles-grid', 'metadata'],
     ['mocha'],
     ['zip'],
@@ -312,8 +303,7 @@ gulp.task('mocha:closure', ['closure'], () => {
 });
 
 gulp.task('test', [
-  'jshint',
-  'jscs',
+  'lint',
   'mocha',
   'mocha:closure'
 ]);
