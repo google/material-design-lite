@@ -142,10 +142,12 @@
    * @public
    */
   MaterialTextfield.prototype.checkValidity = function() {
-    if (this.input_.validity.valid) {
-      this.element_.classList.remove(this.CssClasses_.IS_INVALID);
-    } else {
-      this.element_.classList.add(this.CssClasses_.IS_INVALID);
+    if (this.input_.validity) {
+      if (this.input_.validity.valid) {
+        this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+      } else {
+        this.element_.classList.add(this.CssClasses_.IS_INVALID);
+      }
     }
   };
   MaterialTextfield.prototype['checkValidity'] =
@@ -198,6 +200,8 @@
 
     if (value) {
       this.input_.value = value;
+    } else {
+      this.input_.value = '';
     }
     this.updateClasses_();
   };

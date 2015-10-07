@@ -21,13 +21,13 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;2. Inside the paragraph container, code an `<input>` element and give it a `type` attribute whose value is `"range"`. Also give it an `id` attribute to make it available for scripting, and `min` and `max` attributes whose values specify the slider's range. Give it a `value` attribute whose value sets the initial thumb position (optional; if omitted, defaults to 50% of the maximum), and a `step` attribute whose value specifies the increment by which the thumb moves (also optional; if omitted, defaults to 1). Finally, give it an event handler to be executed when the user changes the slider's value.
 ```html
 <p style="width:300px">
-  <input type="range" id="s1" min="0" max="10" value="4" step="2" />
+  <input type="range" id="s1" min="0" max="10" value="4" step="2">
 </p>
 ```
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the slider using the `class` attribute.
 ```html
 <p style="width:300px">
-  <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+  <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2">
 </p>
 ```
 
@@ -37,7 +37,7 @@ The slider component is ready for use.
 A slider that controls volume.
 ```html
 <p style="width:300px">
-<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2">
 </p>
 ```
 
@@ -49,7 +49,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-slider` | Defines input element as an MDL component | Required |
 | `mdl-js-slider` | Assigns basic MDL behavior to input element | Required |
 
->**Note:** A disabled version of the slider is provided, and is invoked with the standard HTML boolean attribute `disabled`. `<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" disabled />`
+>**Note:** A disabled version of the slider is provided, and is invoked with the standard HTML boolean attribute `disabled`. `<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" disabled>`
 >This attribute may be added or removed programmatically via scripting.
 
 >**Note:** Although the *value* attribute is used to set a slider's initial value, it should not be used

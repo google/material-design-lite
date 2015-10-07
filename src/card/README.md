@@ -77,7 +77,7 @@ A card (no shadow) with a title, image, text, and action.
 ```html
 <div class="mdl-card">
   <div class="mdl-card__title">
-     <h2 class="mdl-card__title-text">Auckland Sky Tower<br/>Auckland, New Zealand</h2>
+     <h2 class="mdl-card__title-text">Auckland Sky Tower<br>Auckland, New Zealand</h2>
   </div>
   <div class="mdl-card__media">
     <img src="skytower.jpg" width="173" height="157" border="0" alt=""

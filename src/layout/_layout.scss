@@ -254,7 +254,7 @@
       min-height: $layout-mobile-header-height;
     }
 
-    .mdl-layout--fixed-drawer:not(.is-small-screen) > & {
+    .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > & {
       margin-left: $layout-drawer-width;
       width: calc(100% - #{$layout-drawer-width});
     }
