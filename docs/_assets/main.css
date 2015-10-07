@@ -906,7 +906,7 @@ code[class*=language-], pre[class*=language-] {
   position: absolute;
   top: 2px;
   left: -28px;
-  content: '•';
+  content: '';
   font-size: 32px;
 }
 .started .content p {
