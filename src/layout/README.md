@@ -322,7 +322,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-layout--small-screen-only` | Hides an element on larger screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout__header--waterfall` | Allows a "waterfall" effect with multiple header lines | Optional; goes on header element |
 | `mdl-layout__header--transparent` | Makes header transparent (draws on top of layout background) | Optional; goes on header element |
-| `mdl-layout__header--transparent` | Uses a header without a shadow | Optional; goes on header element |
+| `mdl-layout__header--seamed` | Uses a header without a shadow | Optional; goes on header element |
 | `mdl-layout__tab-bar` | Defines container as an MDL tab bar | Required on div element inside header (tabbed layout) |
 | `mdl-layout__tab` | Defines anchor as MDL tab link | Required on tab bar anchor elements |
 | `is-active` | Defines tab as default active tab | Optional; goes on tab bar anchor element and associated tab section element|
