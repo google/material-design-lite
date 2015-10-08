@@ -409,7 +409,9 @@
         // displayed the menu in the first place. If so, do nothing.
         // Also check to see if the menu is in the process of closing itself, and
         // do nothing in that case.
-        if (e !== evt && !this.closing_) {
+        // Also check if the clicked element is a menu item
+        // if so, do nothing.
+        if (e !== evt && !this.closing_ && e.target.parentNode !== this.element_) {
           document.removeEventListener('click', callback);
           this.hide();
         }
