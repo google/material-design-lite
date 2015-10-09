@@ -11,7 +11,11 @@ You can set a maximum grid width, after which the grid stays centered with paddi
 Grids are a fairly new and non-standardized feature in most user interfaces, and provide users with a way to view content in an organized manner that might otherwise be difficult to understand or retain. Their design and use is an important factor in the overall user experience.
 
 ## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction. 
+
+Remember to include the meta viewport tag in your document's `<head>` so mobile devices will render correctly.
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
 
 ### To include an MDL **grid** component:
 
