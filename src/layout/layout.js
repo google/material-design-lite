@@ -151,6 +151,7 @@
       // Collapse drawer (if any) when moving to a large screen size.
       if (this.drawer_) {
         this.drawer_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
+        this.obfuscator_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
       }
     }
   };
@@ -162,6 +163,7 @@
    */
   MaterialLayout.prototype.drawerToggleHandler_ = function() {
     this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
+    this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
   };
 
   /**
@@ -340,6 +342,7 @@
         obfuscator.addEventListener('click',
             this.drawerToggleHandler_.bind(this));
         obfuscator.addEventListener('mousewheel', eatEvent);
+        this.obfuscator_ = obfuscator;
       }
 
       // Initialize tabs, if any.

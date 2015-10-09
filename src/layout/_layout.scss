@@ -382,7 +382,7 @@
     transition-property: background-color;
     @include material-animation-default();
 
-    .mdl-layout__drawer.is-visible ~ & {
+    &.is-visible {
       background-color: rgba(0, 0, 0, 0.5);
       visibility: visible;
     }
