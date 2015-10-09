@@ -406,15 +406,13 @@
 
       // Add a click listener to the document, to close the menu.
       var callback = function(e) {
-        var targetIsMenu = Array.prototype.slice.call(
-          this.container_.querySelectorAll('*')).indexOf(e.target) > -1;
         // Check to see if the document is processing the same event that
         // displayed the menu in the first place. If so, do nothing.
         // Also check to see if the menu is in the process of closing itself, and
         // do nothing in that case.
-        // Also check if the clicked element is inside of menu container
+        // Also check if the clicked element is a menu item
         // if so, do nothing.
-        if (e !== evt && !this.closing_ && !targetIsMenu) {
+        if (e !== evt && !this.closing_ && e.target.parentNode !== this.element_) {
           document.removeEventListener('click', callback);
           this.hide();
         }
