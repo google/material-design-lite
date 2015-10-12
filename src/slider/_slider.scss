@@ -185,7 +185,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       background: transparent;
     }
 
-    &.is-lowest-value ~
+    &.is-lowest-value +
         .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px;
     }
@@ -205,7 +205,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       transform: scale(1.5);
     }
 
-    &.is-lowest-value:active ~
+    &.is-lowest-value:active +
         .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 9px;
     }
@@ -271,13 +271,13 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       background: $range-bg-color;
     }
 
-    &:disabled ~
+    &:disabled +
         .mdl-slider__background-flex > .mdl-slider__background-lower {
       background-color: $range-bg-color;
       left: -6px;
     }
 
-    &:disabled ~
+    &:disabled +
         .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px;
     }
@@ -298,7 +298,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       transform: scale(0.667);
     }
 
-    &.is-lowest-value:disabled:active ~
+    &.is-lowest-value:disabled:active +
         .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px;
     }
