@@ -110,7 +110,7 @@ a img{
     width: 800px;
   }
 
-  .android-search-box.is-focused ~ .android-navigation-container {
+  .android-search-box.is-focused + .android-navigation-container {
     opacity: 0;
     width: 100px;
   }
@@ -481,7 +481,8 @@ a img{
     transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .android-search-box.is-focused ~ .android-mobile-title {
+  .android-search-box.is-focused + .android-navigation-container +
+      .android-mobile-title {
     opacity: 0;
   }
 
