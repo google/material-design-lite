@@ -101,5 +101,5 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 (2) The `i` or `span` element in "button"" element can be used interchangeably.
 
->**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<li class="mdl-menu__item" disabled>Medium</li>`
+>**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled` or `data-mdl-disabled`. `<li class="mdl-menu__item" disabled>Medium</li>`
 >This attribute may be added or removed programmatically via scripting.

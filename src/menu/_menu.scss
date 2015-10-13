@@ -151,7 +151,7 @@
     border: 0;
   }
 
-  &[disabled] {
+  &[disabled], &[data-mdl-disabled] {
     color: $disabled-item-text-color;
     background-color: transparent;
     cursor: auto;
