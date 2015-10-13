@@ -8,7 +8,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 ### To include an MDL **menu** component:
 
-&nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` (or `data-for`) attribute of the unordered list coded in the next step. Inside the button, code a `<i>` or `<span>` element to contain an icon of your choice.
+&nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` (or `data-mdl-for`) attribute of the unordered list coded in the next step. Inside the button, code a `<i>` or `<span>` element to contain an icon of your choice.
 ```html
 <button id="menu1">
   <i></i>
