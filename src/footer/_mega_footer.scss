@@ -178,6 +178,11 @@
 
 .mdl-mega-footer--heading-checkbox:checked,
 .mdl-mega-footer__heading-checkbox:checked {
+  // WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10
+  // break consecutive "+" operators in some cases. Therefore, we need to use
+  // both here to cover all the bases.
+  & ~ .mdl-mega-footer--link-list,
+  & ~ .mdl-mega-footer__link-list,
   & + .mdl-mega-footer--heading + .mdl-mega-footer--link-list,
   & + .mdl-mega-footer__heading + .mdl-mega-footer__link-list {
     display: none;
@@ -268,8 +273,13 @@
   }
   .mdl-mega-footer--heading-checkbox:checked,
   .mdl-mega-footer__heading-checkbox:checked {
-    & + .mdl-mega-footer--heading + .mdl-mega-footer__link-list,
-    & + .mdl-mega-footer__heading + .mdl-mega-footer--link-list {
+    // WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10
+    // break consecutive "+" operators in some cases. Therefore, we need to use
+    // both here to cover all the bases.
+    & ~ .mdl-mega-footer--link-list,
+    & ~ .mdl-mega-footer__link-list,
+    & + .mdl-mega-footer__heading + .mdl-mega-footer__link-list,
+    & + .mdl-mega-footer--heading + .mdl-mega-footer--link-list {
       display: block;
     }
 
