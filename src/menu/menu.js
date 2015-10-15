@@ -455,7 +455,7 @@
    *
    * @public
    */
-  MaterialMenu.prototype.isVisible = function(evt) {
+  MaterialMenu.prototype.isVisible = function() {
     return this.container_.classList.contains(this.CssClasses_.IS_VISIBLE);
   };
   MaterialMenu.prototype['isVisible'] = MaterialMenu.prototype.isVisible;
