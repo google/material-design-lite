@@ -451,12 +451,22 @@
   MaterialMenu.prototype['hide'] = MaterialMenu.prototype.hide;
 
   /**
+   * Gives back the current state of the menu.
+   *
+   * @public
+   */
+  MaterialMenu.prototype.isVisible = function() {
+    return this.container_.classList.contains(this.CssClasses_.IS_VISIBLE);
+  };
+  MaterialMenu.prototype['isVisible'] = MaterialMenu.prototype.isVisible;
+
+  /**
    * Displays or hides the menu, depending on current state.
    *
    * @public
    */
   MaterialMenu.prototype.toggle = function(evt) {
-    if (this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+    if (this.isVisible()) {
       this.hide();
     } else {
       this.show(evt);
