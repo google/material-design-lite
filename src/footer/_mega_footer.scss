@@ -169,8 +169,8 @@
   z-index: 1;
   opacity: 0;
 
-  &~.mdl-mega-footer--heading:after,
-  &~.mdl-mega-footer__heading:after {
+  & + .mdl-mega-footer--heading:after,
+  & + .mdl-mega-footer__heading:after {
     font-family: 'Material Icons';
     content: '\E5CE'
   }
@@ -178,12 +178,18 @@
 
 .mdl-mega-footer--heading-checkbox:checked,
 .mdl-mega-footer__heading-checkbox:checked {
-  &~ul {
-    display:none;
+  // WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10
+  // break consecutive "+" operators in some cases. Therefore, we need to use
+  // both here to cover all the bases.
+  & ~ .mdl-mega-footer--link-list,
+  & ~ .mdl-mega-footer__link-list,
+  & + .mdl-mega-footer--heading + .mdl-mega-footer--link-list,
+  & + .mdl-mega-footer__heading + .mdl-mega-footer__link-list {
+    display: none;
   }
 
-  &~.mdl-mega-footer--heading:after,
-  &~.mdl-mega-footer__heading:after {
+  & + .mdl-mega-footer--heading:after,
+  & + .mdl-mega-footer__heading:after {
     font-family: 'Material Icons';
     content: '\E5CF'
   }
@@ -260,19 +266,25 @@
   .mdl-mega-footer__heading-checkbox {
     display: none;
 
-    &~.mdl-mega-footer--heading:after,
-    &~.mdl-mega-footer__heading:after {
+    & + .mdl-mega-footer--heading:after,
+    & + .mdl-mega-footer__heading:after {
       content: '';
     }
   }
   .mdl-mega-footer--heading-checkbox:checked,
   .mdl-mega-footer__heading-checkbox:checked {
-    &~ul {
+    // WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10
+    // break consecutive "+" operators in some cases. Therefore, we need to use
+    // both here to cover all the bases.
+    & ~ .mdl-mega-footer--link-list,
+    & ~ .mdl-mega-footer__link-list,
+    & + .mdl-mega-footer__heading + .mdl-mega-footer__link-list,
+    & + .mdl-mega-footer--heading + .mdl-mega-footer--link-list {
       display: block;
     }
-  
-    &~.mdl-mega-footer--heading:after,
-    &~.mdl-mega-footer__heading:after {
+
+    & + .mdl-mega-footer--heading:after,
+    & + .mdl-mega-footer__heading:after {
       content: '';
     }
   }
