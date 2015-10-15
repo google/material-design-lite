@@ -140,12 +140,13 @@
     & .mdl-navigation {
       flex-direction: column;
       align-items: stretch;
-      padding-top: 16px;
+      padding-top: 8px;
 
       & .mdl-navigation__link {
       display: block;
       flex-shrink: 0;
-      padding: 16px $layout-header-desktop-indent;
+      padding: 12px $layout-header-desktop-indent;
+      line-height: 24px;
       margin: 0;
       color: $layout-drawer-navigation-color;
 
