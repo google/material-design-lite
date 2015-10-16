@@ -188,11 +188,7 @@
    */
   MaterialTextfield.prototype.change = function(value) {
 
-    if (value) {
-      this.input_.value = value;
-    } else {
-      this.input_.value = '';
-    }
+    this.input_.value = value || '';
     this.updateClasses_();
   };
   MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;

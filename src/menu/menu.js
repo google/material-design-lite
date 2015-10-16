@@ -125,15 +125,15 @@
       }
 
       var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
-      this.boundItemKeydown = this.handleItemKeyboardEvent_.bind(this);
-      this.boundItemClick = this.handleItemClick_.bind(this);
+      this.boundItemKeydown_ = this.handleItemKeyboardEvent_.bind(this);
+      this.boundItemClick_ = this.handleItemClick_.bind(this);
       for (var i = 0; i < items.length; i++) {
         // Add a listener to each menu item.
-        items[i].addEventListener('click', this.boundItemClick);
+        items[i].addEventListener('click', this.boundItemClick_);
         // Add a tab index to each menu item.
         items[i].tabIndex = '-1';
         // Add a keyboard listener to each menu item.
-        items[i].addEventListener('keydown', this.boundItemKeydown);
+        items[i].addEventListener('keydown', this.boundItemKeydown_);
       }
 
       // Add ripple classes to each item, if the user has enabled ripples.
@@ -294,7 +294,7 @@
    * @private
    */
   MaterialMenu.prototype.handleItemClick_ = function(evt) {
-    if (evt.target.getAttribute('disabled') !== null) {
+    if (evt.target.hasAttribute('disabled')) {
       evt.stopPropagation();
     } else {
       // Wait some time before closing menu, so the user can see the ripple.
@@ -434,8 +434,9 @@
       }
 
       // Measure the inner element.
-      var height = this.element_.getBoundingClientRect().height;
-      var width = this.element_.getBoundingClientRect().width;
+      var rect = this.element_.getBoundingClientRect();
+      var height = rect.height;
+      var width = rect.width;
 
       // Turn on animation, and apply the final clip. Also make invisible.
       // This triggers the transitions.
@@ -472,8 +473,8 @@
     var items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
 
     for (var i = 0; i < items.length; i++) {
-      items[i].removeEventListener('click', this.boundItemClick);
-      items[i].removeEventListener('keydown', this.boundItemKeydown);
+      items[i].removeEventListener('click', this.boundItemClick_);
+      items[i].removeEventListener('keydown', this.boundItemKeydown_);
     }
   };
 
