@@ -118,12 +118,8 @@
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('mdl-checkbox__input');
-    if (row) {
-      checkbox.addEventListener('change', this.selectRow_(checkbox, row));
-    } else if (opt_rows) {
-      checkbox.addEventListener('change',
-          this.selectRow_(checkbox, null, opt_rows));
-    }
+    checkbox.addEventListener('change',
+        this.selectRow_(checkbox, row, opt_rows));
 
     label.appendChild(checkbox);
     componentHandler.upgradeElement(label, 'MaterialCheckbox');

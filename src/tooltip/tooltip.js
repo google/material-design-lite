@@ -109,7 +109,7 @@
 
       if (this.forElement_) {
         // Tabindex needs to be set for `blur` events to be emitted
-        if (!this.forElement_.getAttribute('tabindex')) {
+        if (!this.forElement_.hasAttribute('tabindex')) {
           this.forElement_.setAttribute('tabindex', '0');
         }
 
