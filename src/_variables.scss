@@ -488,10 +488,10 @@ $bar-height: 4px !default;
 
 /* BADGE */
 $badge-font-size: 12px;
-$badge-color: unquote("rgb(#{$color-white})") !default;
+$badge-color: unquote("rgb(#{$color-accent-contrast})") !default;
 $badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
 $badge-background: unquote("rgb(#{$color-accent})") !default;
-$badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
+$badge-background-inverse: unquote("rgb(#{$color-accent-contrast})") !default;
 $badge-size : 22px;
 $badge-padding: 2px;
 
