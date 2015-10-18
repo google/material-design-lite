@@ -1,12 +1,10 @@
 ## Introduction
+
 The Material Design Lite (MDL) **switch** component is an enhanced version of the standard HTML `<input type="checkbox">` element. A switch consists of a short horizontal "track" with a prominent circular state indicator and, typically, text that clearly communicates a binary condition that will be set or unset when the user clicks or touches it. Like checkboxes, switches may appear individually or in groups, and can be selected and deselected individually. However, switches provide a more intuitive visual representation of their state: left/gray for *off*, right/colored for *on*. The MDL switch component allows you to add both display and click effects.
 
 Switches, particularly as a replacement for certain checkboxes, can be a valuable feature in user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the switch component's [Material Design specifications page](http://www.google.com/design/spec/components/selection-controls.html#selection-controls-switch) for details.
 
 The enhanced switch component has a more vivid visual look than a standard checkbox, and may be initially or programmatically *disabled*.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ### To include an MDL **switch** component:
 
@@ -51,6 +49,7 @@ A switch with a ripple click effect.
 ```
 
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the switch. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |

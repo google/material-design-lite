@@ -1,12 +1,10 @@
 ## Introduction
+
 The Material Design Lite (MDL) **shadow** is not a component in the same sense as an MDL card, menu, or textbox; it is a visual effect that can be assigned to a user interface element. The effect simulates a three-dimensional positioning of the element, as though it is slightly raised above the surface it rests upon &mdash; a positive *z-axis* value, in user interface terms. The shadow starts at the edges of the element and gradually fades outward, providing a realistic 3-D effect.
 
 Shadows are a convenient and intuitive means of distinguishing an element from its surroundings. A shadow can draw the user's eye to an object and emphasize the object's importance, uniqueness, or immediacy.
 
 Shadows are a well-established feature in user interfaces, and provide users with a visual clue to an object's intended use or value. Their design and use is an important factor in the overall user experience.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ### To include an MDL **shadow** effect:
 
@@ -40,6 +38,7 @@ A div with a user-specified class and a medium-large shadow.
 ```
 
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual shadows to the element. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
