@@ -77,7 +77,7 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 @import "functions";
 
 /* ==========  IMAGES  ========== */
-$image_path: '/images';
+$image_path: '/images' !default;
 
 /* ==========  Color & Themes  ========== */
 
