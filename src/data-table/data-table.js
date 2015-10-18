@@ -122,11 +122,11 @@
     if (row) {
       checkbox.checked = row.classList.contains(this.CssClasses_.IS_SELECTED);
       checkbox.addEventListener('change', this.selectRow_(checkbox, row));
-      if (row.dataset['mdlDataTableSelectableName']) {
-        checkbox.name = row.dataset['mdlDataTableSelectableName'];
+      if (row.hasAttribute('data-mdl-data-table-selectable-name')) {
+        checkbox.name = row.getAttribute('data-mdl-data-table-selectable-name');
       }
-      if (row.dataset['mdlDataTableSelectableValue']) {
-        checkbox.value = row.dataset['mdlDataTableSelectableValue'];
+      if (row.hasAttribute('data-mdl-data-table-selectable-value')) {
+        checkbox.value = row.getAttribute('data-mdl-data-table-selectable-value');
       }
     } else if (opt_rows) {
       checkbox.addEventListener('change', this.selectRow_(checkbox, null, opt_rows));
