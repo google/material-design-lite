@@ -14,13 +14,6 @@
  * limitations under the License.
  */
 
-@font-face {
-  font-family: "And Black";
-  src: url("fonts/and_black.eot?#iefix") format('embedded-opentype'),
-       url("fonts/and_black.woff") format('woff'),
-       url("fonts/and_black.ttf") format('truetype');
-}
-
 body {
   margin: 0;
 }
@@ -179,7 +172,7 @@ a img{
 }
 
 .android-font {
-  font-family: 'And Black', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   line-height: 1;
   color: #767777;
   font-weight: 300;
