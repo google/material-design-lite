@@ -198,11 +198,7 @@
    */
   MaterialTextfield.prototype.change = function(value) {
 
-    if (value) {
-      this.input_.value = value;
-    } else {
-      this.input_.value = '';
-    }
+    this.input_.value = value || '';
     this.updateClasses_();
   };
   MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
@@ -241,9 +237,13 @@
           this.boundKeyDownHandler = this.onKeyDown_.bind(this);
           this.input_.addEventListener('keydown', this.boundKeyDownHandler);
         }
-
+        var invalid = this.element_.classList
+          .contains(this.CssClasses_.IS_INVALID);
         this.updateClasses_();
         this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
+        if (invalid) {
+          this.element_.classList.add(this.CssClasses_.IS_INVALID);
+        }
       }
     }
   };

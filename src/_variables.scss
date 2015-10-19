@@ -77,7 +77,7 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 @import "functions";
 
 /* ==========  IMAGES  ========== */
-$image_path: '/images';
+$image_path: '/images' !default;
 
 /* ==========  Color & Themes  ========== */
 
@@ -253,6 +253,7 @@ $card-text-color: unquote("rgb(#{$color-black})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
 $card-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 $card-border-color: rgba(0,0,0,0.1) !default;
+$card-subtitle-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 
 /* ==========  Sliders ========== */
 
@@ -469,7 +470,7 @@ $card-background-image-url: '' !default;
  */
 $button-min-width: 64px !default;
 $button-height: 36px !default;
-$button-padding: 8px !default;
+$button-padding: 16px !default;
 $button-margin: 4px !default;
 $button-border-radius: 2px !default;
 
@@ -494,10 +495,10 @@ $bar-height: 4px !default;
 
 /* BADGE */
 $badge-font-size: 12px !default;
-$badge-color: unquote("rgb(#{$color-white})") !default;
+$badge-color: unquote("rgb(#{$color-accent-contrast})") !default;
 $badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
 $badge-background: unquote("rgb(#{$color-accent})") !default;
-$badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
+$badge-background-inverse: unquote("rgba(#{$color-accent-contrast},0.2)") !default;
 $badge-size : 22px !default;
 $badge-padding: 2px !default;
 

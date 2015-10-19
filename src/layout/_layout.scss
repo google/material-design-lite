@@ -67,6 +67,7 @@
 
 
   // Optional utility classes for formatting special blocks in this component.
+  .mdl-layout__title,
   .mdl-layout-title {
     display: block;
     position: relative;
@@ -127,7 +128,8 @@
       flex-shrink: 0;
     }
 
-    & > .mdl-layout-title {
+    & > .mdl-layout__title,
+    & > .mdl-layout-tile {
       line-height: $layout-desktop-header-height;
       padding-left: $layout-header-desktop-indent;
 

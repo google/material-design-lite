@@ -253,6 +253,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-js-button` | Assigns basic behavior to icon container | For expandable input fields, required on "outer" div's label element |
 | `mdl-button--icon` | Defines label as an MDL icon container | For expandable input fields, required on "outer" div's label element |
 | `mdl-input__expandable-holder` | Defines a container as an MDL component | For expandable input fields, required on "inner" div element |
+| `is-invalid` | Defines the textfield as invalid on initial load. | Optional on `mdl-textfield` element |
 
 (1) The "search" icon is used here as an example. Other icons can be used by modifying the text. For a list of available icons, see [this page](https://www.google.com/design/icons).
 

@@ -221,7 +221,8 @@
       container.appendChild(this.element_);
 
       var directChildren = this.element_.childNodes;
-      for (var c = 0; c < directChildren.length; c++) {
+      var numChildren = directChildren.length;
+      for (var c = 0; c < numChildren; c++) {
         var child = directChildren[c];
         if (child.classList &&
             child.classList.contains(this.CssClasses_.HEADER)) {
@@ -285,7 +286,7 @@
       if (this.drawer_) {
         var drawerButton = this.element_.querySelector('.' +
           this.CssClasses_.DRAWER_BTN);
-        if (typeof(drawerButton) === 'undefined' || drawerButton === null) {
+        if (!drawerButton) {
           drawerButton = document.createElement('div');
           drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
 
@@ -429,27 +430,35 @@
       panel.classList.add(layout.CssClasses_.IS_ACTIVE);
     }
 
-    if (tab) {
-      if (layout.tabBar_.classList.contains(
-          layout.CssClasses_.JS_RIPPLE_EFFECT)) {
-        var rippleContainer = document.createElement('span');
-        rippleContainer.classList.add(layout.CssClasses_.RIPPLE_CONTAINER);
-        rippleContainer.classList.add(layout.CssClasses_.JS_RIPPLE_EFFECT);
-        var ripple = document.createElement('span');
-        ripple.classList.add(layout.CssClasses_.RIPPLE);
-        rippleContainer.appendChild(ripple);
-        tab.appendChild(rippleContainer);
-      }
-
-      tab.addEventListener('click', function(e) {
-        if (tab.getAttribute('href').charAt(0) === '#') {
-          e.preventDefault();
-          selectTab();
-        }
-      });
-
-      tab.show = selectTab;
+    if (layout.tabBar_.classList.contains(
+        layout.CssClasses_.JS_RIPPLE_EFFECT)) {
+      var rippleContainer = document.createElement('span');
+      rippleContainer.classList.add(layout.CssClasses_.RIPPLE_CONTAINER);
+      rippleContainer.classList.add(layout.CssClasses_.JS_RIPPLE_EFFECT);
+      var ripple = document.createElement('span');
+      ripple.classList.add(layout.CssClasses_.RIPPLE);
+      rippleContainer.appendChild(ripple);
+      tab.appendChild(rippleContainer);
     }
+
+    tab.addEventListener('click', function(e) {
+      if (tab.getAttribute('href').charAt(0) === '#') {
+        e.preventDefault();
+        selectTab();
+      }
+    });
+
+    tab.show = selectTab;
+
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      var href = tab.href.split('#')[1];
+      var panel = layout.content_.querySelector('#' + href);
+      layout.resetTabState_(tabs);
+      layout.resetPanelState_(panels);
+      tab.classList.add(layout.CssClasses_.IS_ACTIVE);
+      panel.classList.add(layout.CssClasses_.IS_ACTIVE);
+    });
   }
   window['MaterialLayoutTab'] = MaterialLayoutTab;
 

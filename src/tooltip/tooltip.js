@@ -102,7 +102,7 @@
 
       if (this.forElement_) {
         // It's left here because it prevents accidental text selection on Android
-        if (!this.forElement_.getAttribute('tabindex')) {
+        if (!this.forElement_.hasAttribute('tabindex')) {
           this.forElement_.setAttribute('tabindex', '0');
         }
 

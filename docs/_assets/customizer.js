@@ -42,6 +42,33 @@ function init() {
     });
   });
 
+  var clickCtr = 0;
+  cdn.addEventListener('click', function() {
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+
+    var range = document.createRange();
+    if (clickCtr === 0) {
+      var link = cdn.querySelectorAll('.token.attr-value')[1];
+      range.setStart(link, 2);
+      range.setEnd(link, 3);
+    } else {
+      range.setStart(cdn, 1);
+      range.setEnd(cdn, 2);
+    }
+
+    selection.addRange(range);
+    clickCtr = (clickCtr + 1) % 2;
+  });
+
+  // Prevent browser's selection handling
+  cdn.addEventListener('mouseup', function(ev) {
+    ev.preventDefault();
+  });
+  cdn.addEventListener('mousedown', function(ev) {
+    ev.preventDefault();
+  });
+
   document.addEventListener('mouseup', function() {
     if (window.getSelection().toString().indexOf('.min.css') !== -1) {
       ga('send', {
