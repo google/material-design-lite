@@ -45,6 +45,7 @@
     & .mdl-list__item-secondary-info {
       @include typo-caption();
       margin-bottom: 10px;
+      color: $list-supporting-text-text-color;
     }
   }
 
@@ -83,6 +84,7 @@
 
   .mdl-list__item-text-body {
     @include typo-caption();
+    color: $list-supporting-text-text-color;
     display: block;
     height: 24px;
     padding: 0 0 0 56px;
