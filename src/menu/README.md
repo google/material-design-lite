@@ -91,6 +91,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-menu` | Defines an unordered list container as an MDL component | Required on ul element |
 | `mdl-js-menu` | Assigns basic MDL behavior to menu | Required on ul element |
 | `mdl-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on list item elements |
+| `mdl-menu__item--full-bleed-divider` | Modifies an item to have a full bleed divider between it and the next list item. | Optional on list item elements |
 | `mdl-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |
 | `mdl-menu--top-left` | Positions menu above button, aligns left edge of menu with button  | Optional; goes on unordered list element |
 | (none) | Positions menu below button, aligns left edge of menu with button | Default |

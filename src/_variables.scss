@@ -280,6 +280,7 @@ $default-item-outline-color: unquote("rgb(#{$palette-grey-400})") !default;
 $default-item-hover-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
 $default-item-focus-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
 $default-item-active-bg-color: unquote("rgb(#{$palette-grey-300})") !default;
+$default-item-divider-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 
 // Disabled Button Colors
 $disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
