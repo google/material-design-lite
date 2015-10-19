@@ -6,10 +6,6 @@
   display: block;
   padding: 8px 0 ;
   list-style: none;
-
-  & :hover {
-    background-color: $list__item-hover-color;
-  }
 }
 
 .mdl-list__item {
