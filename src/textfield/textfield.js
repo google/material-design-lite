@@ -225,9 +225,13 @@
           this.boundKeyDownHandler = this.onKeyDown_.bind(this);
           this.input_.addEventListener('keydown', this.boundKeyDownHandler);
         }
-
+        var invalid = this.element_.classList
+          .contains(this.CssClasses_.IS_INVALID);
         this.updateClasses_();
         this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
+        if (invalid) {
+          this.element_.classList.add(this.CssClasses_.IS_INVALID);
+        }
       }
     }
   };
