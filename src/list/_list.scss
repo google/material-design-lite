@@ -35,7 +35,7 @@
     display: flex;
     flex-flow: column;
     align-items: flex-end;
-    & .mdl-list__item-secondary-action label { display: inline; };
+    & .mdl-list__item-secondary-action label { display: inline; }
     & .mdl-list__item-secondary-info {
       @include typo-caption();
       margin-bottom: 10px;
@@ -46,9 +46,6 @@
     }
   }
 }
-
-// Align List:Controls
-.mdl-list__item .mdl-list__item-secondary-action label { display: inline; }
 
 .mdl-list__item-avatar {
   height: 56px;
