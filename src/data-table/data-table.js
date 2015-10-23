@@ -155,6 +155,15 @@
     }
   };
 
+  /**
+   * Downgrade the component.
+   *
+   * @private
+   */
+  MaterialDataTable.prototype.mdlDowngrade_ = function() {
+    // No special downgrading code needed for now.
+  };
+
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
