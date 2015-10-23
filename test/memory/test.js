@@ -6,9 +6,32 @@ var webdriver = drool.webdriver;
 var controlFlow = webdriver.promise.controlFlow();
 var measureSnackbar = require('./snackbar');
 var measureMenu = require('./menu');
+var measureUpgradeDowngrade = require('./upgrade-downgrade');
 var driver = drool.start({chromeOptions: 'no-sandbox'});
 var snackbarStamps = [];
 var menuStamps = [];
+
+// commented out tests require special DOM to bootstrap
+['MaterialButton',
+ 'MaterialSpinner',
+ 'MaterialTooltip',
+// 'MaterialCheckbox',
+// 'MaterialIconToggle',
+ 'MaterialDataTable',
+// 'MaterialIconToggle',
+// 'MaterialLayout',
+// 'MaterialMenu',
+ 'MaterialProgress',
+// 'MaterialRadio',
+ 'MaterialRipple',
+// 'MaterialSlider',
+ 'MaterialSnackbar',
+// 'MaterialSwitch',
+ 'MaterialTabs',
+// 'MaterialTextfield',
+].forEach(function(v) {
+  measureUpgradeDowngrade([], 0, driver, v);
+});
 
 for (var i = 0; i < 3; ++i) {
   measureSnackbar(snackbarStamps, i, driver);
