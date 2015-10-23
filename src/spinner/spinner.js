@@ -68,34 +68,37 @@
    * @public
    */
   MaterialSpinner.prototype.createLayer = function(index) {
-    var layer = document.createElement('div');
-    layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
-    layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
+    var layerName = this.CssClasses_.MDL_SPINNER_LAYER + '-' + index;
+    if (!this.element_.querySelector('.' + layerName)) {
+      var layer = document.createElement('div');
+      layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
+      layer.classList.add(layerName);
 
-    var leftClipper = document.createElement('div');
-    leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
-    leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
+      var leftClipper = document.createElement('div');
+      leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+      leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
 
-    var gapPatch = document.createElement('div');
-    gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
+      var gapPatch = document.createElement('div');
+      gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
 
-    var rightClipper = document.createElement('div');
-    rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
-    rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
+      var rightClipper = document.createElement('div');
+      rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+      rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
 
-    var circleOwners = [leftClipper, gapPatch, rightClipper];
+      var circleOwners = [leftClipper, gapPatch, rightClipper];
 
-    for (var i = 0; i < circleOwners.length; i++) {
-      var circle = document.createElement('div');
-      circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
-      circleOwners[i].appendChild(circle);
+      for (var i = 0; i < circleOwners.length; i++) {
+        var circle = document.createElement('div');
+        circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
+        circleOwners[i].appendChild(circle);
+      }
+
+      layer.appendChild(leftClipper);
+      layer.appendChild(gapPatch);
+      layer.appendChild(rightClipper);
+
+      this.element_.appendChild(layer);
     }
-
-    layer.appendChild(leftClipper);
-    layer.appendChild(gapPatch);
-    layer.appendChild(rightClipper);
-
-    this.element_.appendChild(layer);
   };
   MaterialSpinner.prototype['createLayer'] =
       MaterialSpinner.prototype.createLayer;
@@ -134,6 +137,13 @@
 
       this.element_.classList.add('is-upgraded');
     }
+  };
+
+  /**
+   * Downgrades the component.
+   */
+  MaterialSpinner.prototype.mdlDowngrade_ = function() {
+    // No special downgrading code needed for now.
   };
 
   // The component registers itself. It can assume componentHandler is available
