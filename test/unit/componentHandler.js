@@ -61,12 +61,18 @@ describe('componentHandler', function() {
   });
 
   it('should reveal public methods', function() {
-    expect(componentHandler.upgradeDom).to.be.a('function');
-    expect(componentHandler.upgradeElement).to.be.a('function');
-    expect(componentHandler.upgradeAllRegistered).to.be.a('function');
-    expect(componentHandler.registerUpgradedCallback).to.be.a('function');
-    expect(componentHandler.register).to.be.a('function');
-    expect(componentHandler.downgradeElements).to.be.a('function');
+    var methods = [
+      'upgradeDom',
+      'upgradeElement',
+      'upgradeAllRegistered',
+      'registerUpgradedCallback',
+      'register',
+      'downgradeElements',
+      'removeComponent'
+    ];
+    methods.forEach(function(method) {
+      expect(componentHandler[method]).to.be.a('function');
+    });
   });
 
   it('should throw an error if a duplicate classAsString is provided for registration', function() {
@@ -112,7 +118,7 @@ describe('componentHandler', function() {
     componentHandler.upgradeElement(el, 'MaterialButton');
     componentHandler.upgradeElement(el, 'MaterialRipple');
     expect($(el)).to.have.data('upgraded', ',MaterialButton,MaterialRipple');
-  });  
+  });
 
   it('should upgrade a single component to an element by using its CSS classes', function() {
     var el = document.createElement('button');
@@ -147,8 +153,8 @@ describe('componentHandler', function() {
     var checkbox = createCheckbox();
 
     componentHandler.upgradeElements(checkbox);
-    
-    var child = checkbox.lastChild;    
+
+    var child = checkbox.lastChild;
     expect($(child)).to.have.data('upgraded', ',MaterialRipple');
   });
 

@@ -402,6 +402,27 @@ componentHandler = (function() {
     }
   }
 
+  /**
+  * Remove the element from the internal createdComponents_ array.
+  *
+  * @param {!Element} element
+  */
+  function removeComponentInternal(element) {
+    var foundComponents = [];
+    for (var n = 0; n < createdComponents_.length; n++) {
+      var component = createdComponents_[n];
+      if (component.element_ === element) {
+        foundComponents.push(component);
+      }
+    }
+    for (var i = 0, length = foundComponents.length; i < length; i++) {
+      createdComponents_.splice(createdComponents_.indexOf(foundComponents[i]), 1);
+    }
+    var ev = document.createEvent('Events');
+    ev.initEvent('mdl-componentremoved', true, false);
+    element.dispatchEvent(ev);
+  }
+
   // Now return the functions that should be made public with their publicly
   // facing names...
   return {
@@ -411,7 +432,8 @@ componentHandler = (function() {
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
     register: registerInternal,
-    downgradeElements: downgradeNodesInternal
+    downgradeElements: downgradeNodesInternal,
+    removeComponent: removeComponentInternal
   };
 })();
 
@@ -467,6 +489,7 @@ componentHandler['registerUpgradedCallback'] =
     componentHandler.registerUpgradedCallback;
 componentHandler['register'] = componentHandler.register;
 componentHandler['downgradeElements'] = componentHandler.downgradeElements;
+componentHandler['removeComponent'] = componentHandler.removeComponent;
 window.componentHandler = componentHandler;
 window['componentHandler'] = componentHandler;
 
