@@ -14,30 +14,16 @@
  * limitations under the License.
  */
 
-describe('MaterialIconToggle', function () {
+var creator = require('./creator');
 
-  function createToggle() {
-    var label = document.createElement('label');
-    var input = document.createElement('input');
-    var icon = document.createElement('i');
-    label.className = 'mdl-icon-toggle mdl-js-icon-toggle';
-    label.for = 'testIconToggle';
-    input.id = label.for;
-    input.type = 'checkbox';
-    input.className = 'mdl-icon-toggle__input';
-    label.appendChild(input);
-    icon.className = 'mdl-icon-toggle__label material-icons';
-    icon.text = 'format_bold';
-    label.appendChild(icon);
-    return label;
-  };
+describe('MaterialIconToggle', function () {
 
   it('should be globally available', function () {
     expect(MaterialIconToggle).to.be.a('function');
   });
 
   it('should upgrade successfully', function () {
-    var el = createToggle();
+    var el = creator.iconToggle(document);
     componentHandler.upgradeElement(el, 'MaterialIconToggle');
     expect($(el)).to.have.data('upgraded', ',MaterialIconToggle');
   });

@@ -10,25 +10,25 @@ var measureUpgradeDowngrade = require('./upgrade-downgrade');
 var driver = drool.start({chromeOptions: 'no-sandbox'});
 var snackbarStamps = [];
 var menuStamps = [];
+var creator = require('../unit/creator');
 
 // commented out tests require special DOM to bootstrap
 ['MaterialButton',
  'MaterialSpinner',
  'MaterialTooltip',
-// 'MaterialCheckbox',
-// 'MaterialIconToggle',
+ {name: 'MaterialCheckbox', creator: creator.checkbox},
+ {name: 'MaterialIconToggle', creator: creator.iconToggle},
  'MaterialDataTable',
-// 'MaterialIconToggle',
-// 'MaterialLayout',
-// 'MaterialMenu',
+ {name: 'MaterialLayout', creator: creator.layout},
+ {name: 'MaterialMenu', creator: creator.menu},
  'MaterialProgress',
-// 'MaterialRadio',
+ {name: 'MaterialRadio', creator: creator.radio},
  'MaterialRipple',
-// 'MaterialSlider',
+ {name: 'MaterialSlider', creator: creator.slider},
  'MaterialSnackbar',
-// 'MaterialSwitch',
+ {name: 'MaterialSwitch', creator: creator.switch},
  'MaterialTabs',
-// 'MaterialTextfield',
+ {name: 'MaterialTextfield', creator: creator.textField},
 ].forEach(function(v) {
   measureUpgradeDowngrade([], 0, driver, v);
 });

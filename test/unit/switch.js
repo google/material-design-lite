@@ -14,36 +14,22 @@
  * limitations under the License.
  */
 
-describe('MaterialSwitch', function () {
+var creator = require('./creator');
 
-  function createSwitch() {
-    var label = document.createElement('label');
-    var input = document.createElement('input');
-    var labelText = document.createElement('span');
-    label.for = 'testSwitch';
-    input.id = label.for;
-    label.className = 'mdl-switch mdl-js-switch';
-    input.type = 'checkbox';
-    input.className = 'mdl-switch__input';
-    label.appendChild(input);
-    labelText.text = 'Sound off/on';
-    labelText.className = 'mdl-switch__label';
-    label.appendChild(labelText);
-    return label;
-  };
+describe('MaterialSwitch', function () {
 
   it('should be globally available', function () {
     expect(MaterialSwitch).to.be.a('function');
   });
 
   it('should upgrade successfully', function () {
-    var el = createSwitch();
+    var el = creator.switch(document);
     componentHandler.upgradeElement(el, 'MaterialSwitch');
     expect($(el)).to.have.data('upgraded', ',MaterialSwitch');
   });
 
   it('should get disabled class after being checked', function() {
-    var switchElement = createSwitch();
+    var switchElement = creator.switch(document);
     componentHandler.upgradeElement(switchElement);
     switchElement.querySelector('input').disabled = true;
     switchElement.MaterialSwitch.checkDisabled();
@@ -53,7 +39,7 @@ describe('MaterialSwitch', function () {
   });
 
   it('should get checked class after checking toggle state', function() {
-    var switchElement = createSwitch();
+    var switchElement = creator.switch(document);
     componentHandler.upgradeElement(switchElement);
     switchElement.querySelector('input').checked = true;
     switchElement.MaterialSwitch.checkToggleState();

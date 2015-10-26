@@ -14,48 +14,28 @@
  * limitations under the License.
  */
 
+var creator = require('./creator');
+
 describe('MaterialRadio', function () {
-
-  function createRadio() {
-    return createRadioWithValues('flash', 'on');
-  };
-
-  function createRadioWithValues(name, value) {
-    var label = document.createElement('label');
-    var input = document.createElement('input');
-    var labelText = document.createElement('span');
-    label.for = 'testRadio';
-    input.id = label.for;
-    label.className = 'mdl-radio mdl-js-radio';
-    input.className = 'mdl-radio__button';
-    input.type = 'radio';
-    input.name = name;
-    input.value = value;
-    label.appendChild(input);
-    labelText.className = 'mdl-radio__label';
-    labelText.text = 'Always on';
-    label.appendChild(labelText);
-    return label;
-  }
 
   it('should be globally available', function () {
     expect(MaterialRadio).to.be.a('function');
   });
 
   it('should upgrade successfully', function () {
-    var el = createRadio();
+    var el = creator.radio(document);
     componentHandler.upgradeElement(el, 'MaterialRadio');
     expect($(el)).to.have.data('upgraded', ',MaterialRadio');
   });
 
   it('should be a widget', function() {
-    var radio = createRadio();
+    var radio = creator.radio(document);
     componentHandler.upgradeElement(radio);
     expect(radio.MaterialRadio).to.be.a('object');
   });
 
   it('should have all public methods available in widget', function() {
-    var radio = createRadio();
+    var radio = creator.radio(document);
     componentHandler.upgradeElement(radio);
     var methods = [
       'disable',
@@ -71,7 +51,7 @@ describe('MaterialRadio', function () {
   });
 
   it('should get disabled class after being checked', function() {
-    var radio = createRadio();
+    var radio = creator.radio(document);
     componentHandler.upgradeElement(radio);
     radio.querySelector('input').disabled = true;
     radio.MaterialRadio.checkDisabled();
@@ -81,7 +61,7 @@ describe('MaterialRadio', function () {
   });
 
   it('should get checked class after checking toggle state', function() {
-    var radio = createRadio();
+    var radio = creator.radio(document);
     componentHandler.upgradeElement(radio);
     radio.querySelector('input').checked = true;
     radio.MaterialRadio.checkToggleState();
@@ -92,12 +72,12 @@ describe('MaterialRadio', function () {
 
   it('should update related radios on one changing', function() {
     var radios = [];
-    radios.push(createRadioWithValues('test', 'one'));
-    radios.push(createRadioWithValues('test', 'two'));
-    radios.push(createRadioWithValues('test', 'three'));
-    radios.push(createRadioWithValues('tester', 'A'));
-    radios.push(createRadioWithValues('tester', 'B'));
-    radios.push(createRadioWithValues('tester', 'C'));
+    radios.push(creator.radio(document, 'test', 'one'));
+    radios.push(creator.radio(document, 'test', 'two'));
+    radios.push(creator.radio(document, 'test', 'three'));
+    radios.push(creator.radio(document, 'tester', 'A'));
+    radios.push(creator.radio(document, 'tester', 'B'));
+    radios.push(creator.radio(document, 'tester', 'C'));
     var container = document.createElement('div');
     radios.forEach(function(item) {
       container.appendChild(item);
