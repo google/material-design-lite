@@ -250,6 +250,17 @@
     }
   };
 
+  /**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.mdlDowngrade =
+      MaterialTextfield.prototype.mdlDowngrade_;
+
+  MaterialTextfield.prototype['mdlDowngrade'] =
+      MaterialTextfield.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({

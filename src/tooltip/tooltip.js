@@ -141,6 +141,17 @@
     }
   };
 
+  /**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+  MaterialTooltip.prototype.mdlDowngrade =
+      MaterialTooltip.prototype.mdlDowngrade_;
+
+  MaterialTooltip.prototype['mdlDowngrade'] =
+      MaterialTooltip.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
