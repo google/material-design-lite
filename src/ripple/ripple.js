@@ -267,6 +267,17 @@
     this.element_.removeEventListener('blur', this.boundUpHandler);
   };
 
+  /**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+  MaterialRipple.prototype.mdlDowngrade =
+      MaterialRipple.prototype.mdlDowngrade_;
+
+  MaterialRipple.prototype['mdlDowngrade'] =
+      MaterialRipple.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
