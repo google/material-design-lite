@@ -76,6 +76,7 @@ gulp.task('jscs', function() {
   return gulp.src(['src/**/*.js' , 'gulpfile.js'])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jscs())
+    .pipe($.jscs.reporter())
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
 

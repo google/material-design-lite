@@ -8,7 +8,7 @@
   "validateQuoteMarks": "'",
   "requireDotNotation": false,
   "requireCamelCaseOrUpperCaseIdentifiers": null,
-  "additionalRules": ["utils/jscs-rules/*.js"],
+  "additionalRules": ["./utils/jscs-rules/*.js", "../utils/jscs-rules/*.js"],
   "closureCamelCase": true,
   "jsDoc": {
     "checkAnnotations": {
