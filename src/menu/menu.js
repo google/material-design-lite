@@ -481,6 +481,17 @@
     }
   };
 
+  /**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+  MaterialMenu.prototype.mdlDowngrade =
+      MaterialMenu.prototype.mdlDowngrade_;
+
+  MaterialMenu.prototype['mdlDowngrade'] =
+      MaterialMenu.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
