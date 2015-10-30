@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+{{content|safe}}
+{% for template in page.sites %}
+<section class="template template--{{ template.name }} docs-text-styling mdl-grid mdl-cell mdl-cell--12-col">
+  <img src="{{page.include_prefix}}assets/showcase/{{ template.name }}.jpg"
+    srcset="{{page.include_prefix}}assets/showcase/{{ template.name }}.jpg 1x, {{page.include_prefix}}assets/showcase/{{ template.name }}_2x.jpg 2x"
+    class="template__preview mdl-cell mdl-cell--8-col">
+  <div class="template__meta mdl-cell mdl-cell--4-col mdl-grid mdl-grid--no-spacing">
+    <h3 class="template__header mdl-cell mdl-cell--12-col mdl-typography--body-2">{{ template.title }}</h3>
+    <p class="mdl-cell mdl-cell--12-col">
+      {{ template.description }}
+    </p>
+    <a href="{{page.include_prefix}}assets/showcase/{{ template.name }}_2x.jpg" class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">image</i>
+      </button>
+      Screenshot
+    </a>
+    <a href="{{ template.url }}" target="_blank" class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--2-col-phone">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+      Visit
+    </a>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}
