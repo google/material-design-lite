@@ -157,7 +157,7 @@ and is being used by many other teams on upcoming projects, including Google Sho
 
 <h2 id="mdl-showcase">Is there a showcase available of sites using MDL?</h2>
 
-It's early days, but our [wiki](https://github.com/google/material-design-lite/wiki/) includes a page listing [sites using MDL in production](https://github.com/google/material-design-lite/wiki/Sites-using-Material-Design-Lite).
+See the <a href="/showcase/">Showcase</a> for an early list of Google sites using MDL in production. 
 
 To request your site be added, please file a [new issue](https://github.com/Google/material-design-lite/issues/new?title=Site%20Showcase%20Request&body=Please%20include:%0A*%20Description%0A*%20Primary%20Link%0A*%20Screenshot) on our GitHub issue tracker. The issue should include a link, a description of the site and a suggested screenshot.
 
