@@ -58,18 +58,4 @@ describe('MaterialDataTable', function () {
     document.body.removeChild(table);
   });
 
-  it('should assign a name and value to checkboxes when provided on rows', function() {
-    var table = createTable();
-    table.classList.add('mdl-data-table--selectable');
-    var row = table.insertRow();
-    row.dataset.mdlDataTableSelectableName = 'test';
-    row.dataset.mdlDataTableSelectableValue = 'awesome';
-    row.insertCell();
-
-    document.body.appendChild(table);
-
-    componentHandler.upgradeElement(table);
-    expect(table.querySelector('input[name="test"][value="awesome"]').nodeName).to.equal('INPUT');
-  });
-
 });
