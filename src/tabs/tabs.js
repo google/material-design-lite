@@ -57,6 +57,7 @@
     TAB_CLASS: 'mdl-tabs__tab',
     PANEL_CLASS: 'mdl-tabs__panel',
     ACTIVE_CLASS: 'is-active',
+    SLIDER_CLASS: 'mdl-tabs__slider',
     UPGRADED_CLASS: 'is-upgraded',
 
     MDL_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
@@ -80,6 +81,10 @@
     this.tabs_ = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
     this.panels_ =
         this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
+    // create sliding active-tab-indicator
+    this.slider_ = document.createElement('div');
+    this.slider_.classList.add(this.CssClasses_.SLIDER_CLASS);
+    this.element_.appendChild(this.slider_);
 
     // Create new tabs for each tab element
     for (var i = 0; i < this.tabs_.length; i++) {
@@ -143,10 +148,13 @@
         e.preventDefault();
         var href = tab.href.split('#')[1];
         var panel = ctx.element_.querySelector('#' + href);
+        var slider = tab.parentElement.slider_;
         ctx.resetTabState_();
         ctx.resetPanelState_();
-        tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-        panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+        if (panel) { panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS); }
+        //sliding selected indicator
+        slider.style.width = tab.offsetWidth + 'px';
+        slider.style.left = tab.offsetLeft + 'px';
       });
 
     }
