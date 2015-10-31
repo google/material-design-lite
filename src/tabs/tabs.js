@@ -148,11 +148,11 @@
         e.preventDefault();
         var href = tab.href.split('#')[1];
         var panel = ctx.element_.querySelector('#' + href);
-        var slider = tab.parentElement.slider_;
+        var slider = ctx.slider_;
         ctx.resetTabState_();
         ctx.resetPanelState_();
         tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-        if (panel) { panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS); }
+        panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
         //sliding selected indicator
         slider.style.width = tab.offsetWidth + 'px';
         slider.style.left = tab.offsetLeft + 'px';

@@ -436,7 +436,7 @@
       var slider = layout.tabBar_.slider_;
       layout.resetTabState_(tabs);
       layout.resetPanelState_(panels);
-      if (panel) { panel.classList.add(layout.CssClasses_.IS_ACTIVE); }
+      panel.classList.add(layout.CssClasses_.IS_ACTIVE);
       tab.classList.add(layout.CssClasses_.IS_ACTIVE);
       //sliding selected indicator
       slider.style.width = tab.offsetWidth + 'px';
