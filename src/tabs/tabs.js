@@ -151,6 +151,7 @@
         var slider = tab.parentElement.slider_;
         ctx.resetTabState_();
         ctx.resetPanelState_();
+        tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
         if (panel) { panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS); }
         //sliding selected indicator
         slider.style.width = tab.offsetWidth + 'px';
