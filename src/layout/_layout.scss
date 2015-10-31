@@ -610,19 +610,6 @@
       color: $layout-header-text-color;
     }
 
-    .mdl-layout.is-upgraded &.is-active::after {
-      height: $layout-tab-highlight-thickness;
-      width: 100%;
-      display: block;
-      content: " ";
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      background: $layout-header-tab-highlight;
-      animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0.01s alternate forwards;
-      transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
-    }
-
     & .mdl-layout__tab-ripple-container {
       display: block;
       position: absolute;
@@ -650,3 +637,12 @@
       display: block;
     }
   }
+
+.mdl-tabs__slider {
+    position: absolute;
+    height: $layout-tab-highlight-thickness;
+    background: $layout-header-tab-highlight;
+    bottom: 0;
+    transition: left 0.2s cubic-bezier(0.4, 0.0, 0.4, 1);
+    will-change: left, width;
+}
