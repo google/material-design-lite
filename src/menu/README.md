@@ -1,10 +1,8 @@
 ## Introduction
+
 The Material Design Lite (MDL) **menu** component is a user interface element that allows users to select one of a number of options. The selection typically results in an action initiation, a setting change, or other observable effect. Menu options are always presented in sets of two or more, and options may be programmatically enabled or disabled as required. The menu appears when the user is asked to choose among a series of options, and is usually dismissed after the choice is made.
 
 Menus are an established but non-standardized feature in user interfaces, and allow users to make choices that direct the activity, progress, or characteristics of software. Their design and use is an important factor in the overall user experience. See the menu component's [Material Design specifications page](http://www.google.com/design/spec/components/menus.html) for details.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ### To include an MDL **menu** component:
 
@@ -45,6 +43,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 The menu component is ready for use.
 
 #### Examples
+
 A menu with three options.
 ```html
 <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
@@ -80,6 +79,7 @@ A menu with three options, the second of which is disabled by default.
 ```
 
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the menu. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
@@ -99,7 +99,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 (1) The "more-vert" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
 
-(2) The `i` or `span` element in "button"" element can be used interchangeably. 
+(2) The `i` or `span` element in "button"" element can be used interchangeably.
 
 >**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<li class="mdl-menu__item" disabled>Medium</li>`
 >This attribute may be added or removed programmatically via scripting.
