@@ -286,6 +286,16 @@
     }
   };
 
+  /**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+  MaterialRadio.prototype.mdlDowngrade = MaterialRadio.prototype.mdlDowngrade_;
+
+  MaterialRadio.prototype['mdlDowngrade'] =
+      MaterialRadio.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
