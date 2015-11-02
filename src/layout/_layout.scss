@@ -119,7 +119,7 @@
 
     &.is-visible {
       transform: translateX(0);
-      & ~ .mdl-layout__content {
+      & ~ .mdl-layout__content.mdl-layout__content {
         overflow: hidden;
       }
     }
@@ -129,7 +129,7 @@
     }
 
     & > .mdl-layout__title,
-    & > .mdl-layout-tile {
+    & > .mdl-layout-title {
       line-height: $layout-desktop-header-height;
       padding-left: $layout-header-desktop-indent;
 

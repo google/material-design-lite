@@ -1,12 +1,10 @@
 ## Introduction
+
 The Material Design Lite (MDL) **layout** component is a comprehensive approach to page layout that uses MDL development tenets, allows for efficient use of MDL components, and automatically adapts to different browsers, screen sizes, and devices.
 
 Appropriate and accessible layout is a critical feature of all user interfaces, regardless of a site's content or function. Page design and presentation is therefore an important factor in the overall user experience. See the layout component's [Material Design specifications page](http://www.google.com/design/spec/layout/principles.html) for details.
 
 Use of MDL layout principles simplifies the creation of scalable pages by providing reusable components and encourages consistency across environments by establishing recognizable visual elements, adhering to logical structural grids, and maintaining appropriate spacing across multiple platforms and screen sizes. MDL layout is extremely powerful and dynamic, allowing for great consistency in outward appearance and behavior while maintaining development flexibility and ease of use.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ### To include a basic MDL **layout** component:
 
@@ -188,6 +186,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 The layout component is ready for use.
 
 #### Examples
+
 A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.
 ```html
 <div class="mdl-layout mdl-js-layout">
@@ -298,6 +297,7 @@ A layout with a fixed drawer but no header.
 ```
 
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the layout. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
