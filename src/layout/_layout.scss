@@ -336,6 +336,10 @@
       &.is-casting-shadow {
         @include shadow-2dp();
       }
+
+      &.mdl-layout__header--waterfall-hide-top {
+        justify-content: flex-end;
+      }
     }
 
     .mdl-layout__header-row {
