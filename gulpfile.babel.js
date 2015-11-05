@@ -140,7 +140,7 @@ gulp.task('styles:dev', () => {
 
 // Compile and Automatically Prefix Stylesheet Templates (production)
 gulp.task('styletemplates', () => {
-  // For best performance, don't add Sass partials to `gulp.src`
+  // For best performance, don't add Sass partials to 'gulp.src'
   return gulp.src('src/template.scss')
     // Generate Source Maps
     .pipe($.sourcemaps.init())
@@ -165,7 +165,7 @@ gulp.task('styletemplates', () => {
 
 // Compile and Automatically Prefix Stylesheets (production)
 gulp.task('styles', () => {
-  // For best performance, don't add Sass partials to `gulp.src`
+  // For best performance, don't add Sass partials to 'gulp.src'
   return gulp.src('src/material-design-lite.scss')
     // Generate Source Maps
     .pipe($.sourcemaps.init())
@@ -338,7 +338,7 @@ function applyTemplate() {
     };
 
     const templateFile = path.join(
-        __dirname, 'docs', '_templates', `${file.page.layout}.html`);
+        __dirname, 'docs', '_templates', '${file.page.layout}.html');
     const tpl = swig.compileFile(templateFile, {cache: false});
 
     file.contents = new Buffer(tpl(data));
@@ -556,13 +556,13 @@ gulp.task('zip:templates', () => {
   // Generate a zip file for each template.
   const generateZips = templates.map(template => {
     return gulp.src([
-        `dist/templates/${template}/**/*.*`,
+        'dist/templates/${template}/**/*.*',
         'LICENSE'
       ])
       .pipe($.rename(path => {
-        path.dirname = path.dirname.replace(`dist/templates/${template}`, '');
+        path.dirname = path.dirname.replace('dist/templates/${template}', '');
       }))
-      .pipe($.zip(`${templateArchivePrefix}${template}.zip`))
+      .pipe($.zip('${templateArchivePrefix}${template}.zip'))
       .pipe(gulp.dest('dist'));
   });
 
@@ -578,10 +578,10 @@ gulp.task('genCodeFiles', () => {
   return gulp.src([
       'dist/material.*@(js|css)?(.map)',
       'dist/mdl.zip',
-      `dist/${templateArchivePrefix}*.zip`
+      'dist/${templateArchivePrefix}*.zip'
     ], {read: false})
     .pipe($.tap(file => {
-      codeFiles += ` dist/${path.basename(file.path)}`;
+      codeFiles += ' dist/${path.basename(file.path)}';
     }));
 });
 
@@ -592,7 +592,7 @@ gulp.task('genCodeFiles', () => {
 // For info on gsutil: https://cloud.google.com/storage/docs/gsutil.
 gulp.task('pushCodeFiles', () => {
   const dest = bucketCode;
-  console.log(`Publishing ${pkg.version} to CDN (${dest})`);
+  console.log('Publishing ${pkg.version} to CDN (${dest})');
 
   // Build cache control and gsutil cmd to copy
   // each object into a GCS bucket. The dest is a version specific path.
@@ -603,15 +603,15 @@ gulp.task('pushCodeFiles', () => {
   // 30 days caching is a safe value.
   const cacheControl = '-h "Cache-Control:public,max-age=2592000"';
   const gsutilCpCmd = 'gsutil -m cp -z js,css,map ';
-  const gsutilCacheCmd = `gsutil -m setmeta -R ${cacheControl}`;
+  const gsutilCacheCmd = 'gsutil -m setmeta -R ${cacheControl}';
 
   // Upload the goodies to a separate GCS bucket with versioning.
   // Using a sep bucket avoids the risk of accidentally blowing away
   // old versions in the microsite bucket.
   return gulp.src('')
     .pipe($.shell([
-      `${gsutilCpCmd}${codeFiles} ${dest}/${pkg.version}`,
-      `${gsutilCacheCmd} ${dest}/${pkg.version}`
+      '${gsutilCpCmd}${codeFiles} ${dest}/${pkg.version}',
+      '${gsutilCacheCmd} ${dest}/${pkg.version}'
     ]));
 });
 
@@ -646,13 +646,13 @@ function mdlPublish(pubScope) {
   } else if (pubScope === 'promote') {
     // Set promote (essentially prod) specific vars here.
     cacheTtl = 60;
-    src = `${bucketStaging}/*`;
+    src = '${bucketStaging}/*';
     dest = bucketProd;
   }
 
-  let infoMsg = `Publishing ${pubScope}/${pkg.version} to GCS (${dest})`;
+  let infoMsg = 'Publishing ${pubScope}/${pkg.version} to GCS (${dest})';
   if (src) {
-    infoMsg += ` from ${src}`;
+    infoMsg += ' from ${src}';
   }
   console.log(infoMsg);
 
@@ -660,9 +660,9 @@ function mdlPublish(pubScope) {
   // The gsutil -h option is used to set metadata headers.
   // The gsutil -m option requests parallel copies.
   // The gsutil -R option is used for recursive file copy.
-  const cacheControl = `-h "Cache-Control:public,max-age=${cacheTtl}"`;
-  const gsutilCacheCmd = `gsutil -m setmeta ${cacheControl} ${dest}/**`;
-  const gsutilCpCmd = `gsutil -m cp -r -z html,css,js,svg ${src} ${dest}`;
+  const cacheControl = '-h "Cache-Control:public,max-age=${cacheTtl}"';
+  const gsutilCacheCmd = 'gsutil -m setmeta ${cacheControl} ${dest}/**';
+  const gsutilCpCmd = 'gsutil -m cp -r -z html,css,js,svg ${src} ${dest}';
 
   gulp.src('').pipe($.shell([gsutilCpCmd, gsutilCacheCmd]));
 }
@@ -794,7 +794,7 @@ gulp.task('styles:gen', ['styles'], () => {
       const accentName = accent.toLowerCase().replace(' ', '_');
 
       stream = stream.pipe($.file(
-        `material.${primaryName}-${accentName}.min.css`,
+        'material.${primaryName}-${accentName}.min.css',
         mc.processTemplate(primary, accent)
       ));
     });
