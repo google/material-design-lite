@@ -14,13 +14,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-Notably, the layout cannot be applied directly on the `<body>` element. Always create a nested `<div>` element.
-```html
-<body>
-  <div>
-  </div>
-</body>
-```
+>**Note:** The layout cannot be applied directly on the `<body>` element. Always create a nested `<div>` element.
 
 &nbsp;2. Add MDL classes as indicated, separated by spaces, to the div using the `class` attribute.
 ```html
