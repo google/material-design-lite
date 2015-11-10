@@ -8,13 +8,27 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 
 ### To include a basic MDL **layout** component:
 
-&nbsp;1. Code a `<div>` element. This is the "outer" div that holds the entire layout. Add MDL classes as indicated, separated by spaces, to the div using the `class` attribute.
+&nbsp;1. Code a `<div>` element. This is the "outer" div that holds the entire layout.
+```html
+<div>
+</div>
+```
+
+Notably, the layout cannot be applied directly on the `<body>` element. Always create a nested `<div>` element.
+```html
+<body>
+  <div>
+  </div>
+</body>
+```
+
+&nbsp;2. Add MDL classes as indicated, separated by spaces, to the div using the `class` attribute.
 ```html
 <div class="mdl-layout mdl-js-layout">
 </div>
 ```
 
-&nbsp;2. Inside the div, code a `<header>` element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the `class` attribute.
+&nbsp;3. Inside the div, code a `<header>` element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the `class` attribute.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -22,7 +36,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;3. Inside the header, add a `<div>` to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.
+&nbsp;4. Inside the header, add a `<div>` to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -31,7 +45,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;4. Still inside the header, add another `<div>` to hold the header row's content, and include the MDL class as indicated.
+&nbsp;5. Still inside the header, add another `<div>` to hold the header row's content, and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -42,7 +56,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;5. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.
+&nbsp;6. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -54,7 +68,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;6. Following the span, add a `<div>` to align the header's navigation links to the right, and include the MDL class as indicated.
+&nbsp;7. Following the span, add a `<div>` to align the header's navigation links to the right, and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -67,7 +81,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;7. Following the spacer div, add a `<nav>` element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor `<a>` element for each header link, and include the MDL class as indicated. This completes the layout's header.
+&nbsp;8. Following the spacer div, add a `<nav>` element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor `<a>` element for each header link, and include the MDL class as indicated. This completes the layout's header.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -85,7 +99,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;8. Following the header, add a `<div>` element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.
+&nbsp;9. Following the header, add a `<div>` element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -105,7 +119,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;9. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.
+&nbsp;10. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -126,7 +140,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;10. Following the span, add a `<nav>` element to contain the drawer's navigation links, and one anchor `<a>` element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.
+&nbsp;11. Following the span, add a `<nav>` element to contain the drawer's navigation links, and one anchor `<a>` element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -152,7 +166,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
 </div>
 ```
 
-&nbsp;11. Finally, following the drawer div, add a `<main>` element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.
+&nbsp;12. Finally, following the drawer div, add a `<main>` element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
