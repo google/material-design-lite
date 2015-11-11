@@ -20,7 +20,7 @@
 .mdl-dialog {
     display: block;
     @include dialog-width();
-    margin: auto;
+    margin: 0 auto;
     background: white;
     position: fixed;
     top: 5%;
@@ -28,13 +28,15 @@
     left: 0;
     z-index: 11;
     @include shadow-24dp();
+    max-height: 100%;
+    overflow-y: auto;
 
     @media (min-height: 475px) {
       top: 35%;
     }
 
     &:not([open]) {
-        display:none;
+        display: none;
     }
 
     &::backdrop{
@@ -54,9 +56,7 @@
     }
 
     &__title {
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-top: 24px;
+        padding: 24px 24px 0;
     }
     &__actions {
         padding: 8px 8px 8px 24px;
@@ -82,10 +82,7 @@
         }
     }
     &__content {
-        padding-top: 20px;
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-bottom: 24px;
+        padding: 20px 24px 24px 24px;
         color: $dialog-content-color;
     }
 }
