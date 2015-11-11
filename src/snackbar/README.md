@@ -1,5 +1,3 @@
-# Snackbar
-
 ## Introduction
 
 The Material Design Lite (MDL) **snackbar** component is a container used to notify a user of an operation's status.

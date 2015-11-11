@@ -14,13 +14,6 @@
  * limitations under the License.
  */
 
-@font-face {
-  font-family: "And Black";
-  src: url("fonts/and_black.eot?#iefix") format('embedded-opentype'),
-       url("fonts/and_black.woff") format('woff'),
-       url("fonts/and_black.ttf") format('truetype');
-}
-
 body {
   margin: 0;
 }
@@ -178,11 +171,11 @@ a img{
   background-size: cover;
 }
 
-.android-font {
-  font-family: 'And Black', 'Helvetica', 'Arial', sans-serif;
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   line-height: 1;
   color: #767777;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .android-slogan {

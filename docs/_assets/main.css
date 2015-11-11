@@ -76,6 +76,11 @@ body:not(.about) .docs-layout .docs-layout-header.mdl-layout__header {
   background-image: url('templates.png');
   background-size: auto 29px;
 }
+.showcase .docs-layout-header.mdl-layout__header {
+  background-color: #3E82F7;
+  background-image: url('templates.png');
+  background-size: auto 29px;
+}
 .started .docs-layout-header.mdl-layout__header,
 .faq .docs-layout-header.mdl-layout__header {
   background-color: #2E2E2E;
@@ -227,6 +232,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .about .docs-navigation .about,
 .templates .docs-navigation .templates,
+.showcase .docs-navigation .showcase,
 .started .docs-navigation .started,
 .styles .docs-navigation .styles,
 .components .docs-navigation .components,
@@ -404,6 +410,17 @@ body:not(.about) .mdl-navigation__link.download > button {
 .templates .docs-layout .template  {
   margin-left: -16px;
 }
+
+.showcase .content {
+  padding-left: 24px !important;
+  max-width: 960px;
+}
+.showcase .docs-layout-content .content {
+  padding: 40px 0;
+}
+.showcase .docs-layout .template  {
+  margin-left: -16px;
+}
 .template {
   width: 100%;
   margin-bottom: 72px;
@@ -414,6 +431,9 @@ body:not(.about) .mdl-navigation__link.download > button {
   padding-left: 24px;
 }
 .templates .docs-layout.is-small-screen .template > .template__meta {
+  padding-left: 0;
+}
+.showcase .docs-layout.is-small-screen .template > .template__meta {
   padding-left: 0;
 }
 .template > .template__meta.template__meta > * {
@@ -540,7 +560,8 @@ body:not(.about) .mdl-navigation__link.download > button {
 .customize .subpageheader,
 .styles .subpageheader,
 .faq .subpageheader,
-.templates .subpageheader {
+.templates .subpageheader,
+.showcase .subpageheader {
   width: 960px;
   margin: 40px auto;
 }
@@ -1185,6 +1206,9 @@ code[class*=language-], pre[class*=language-] {
     background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png');
   }
   .templates .docs-layout-header {
+    background-image: url('templates_2x.png');
+  }
+  .showcase .docs-layout-header {
     background-image: url('templates_2x.png');
   }
   .components .docs-layout-header {

@@ -63,7 +63,6 @@
    * @private
    */
   MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
-    event.stopPropagation();
     var props = event.target.getBoundingClientRect();
     var left = props.left + (props.width / 2);
     var marginLeft = -1 * (this.element_.offsetWidth / 2);
@@ -78,21 +77,15 @@
 
     this.element_.style.top = props.top + props.height + 10 + 'px';
     this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
-    window.addEventListener('scroll', this.boundMouseLeaveHandler, false);
-    window.addEventListener('touchmove', this.boundMouseLeaveHandler, false);
   };
 
   /**
    * Handle mouseleave for tooltip.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
-    event.stopPropagation();
+  MaterialTooltip.prototype.handleMouseLeave_ = function() {
     this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
-    window.removeEventListener('scroll', this.boundMouseLeaveHandler);
-    window.removeEventListener('touchmove', this.boundMouseLeaveHandler, false);
   };
 
   /**
@@ -108,21 +101,17 @@
       }
 
       if (this.forElement_) {
-        // Tabindex needs to be set for `blur` events to be emitted
-        if (!this.forElement_.getAttribute('tabindex')) {
+        // It's left here because it prevents accidental text selection on Android
+        if (!this.forElement_.hasAttribute('tabindex')) {
           this.forElement_.setAttribute('tabindex', '0');
         }
 
         this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
         this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
-        this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler,
-            false);
-        this.forElement_.addEventListener('click', this.boundMouseEnterHandler,
-            false);
-        this.forElement_.addEventListener('blur', this.boundMouseLeaveHandler);
-        this.forElement_.addEventListener('touchstart', this.boundMouseEnterHandler,
-            false);
-        this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler);
+        this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
+        this.forElement_.addEventListener('touchend', this.boundMouseEnterHandler, false);
+        this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler, false);
+        window.addEventListener('touchstart', this.boundMouseLeaveHandler);
       }
     }
   };
@@ -135,11 +124,22 @@
   MaterialTooltip.prototype.mdlDowngrade_ = function() {
     if (this.forElement_) {
       this.forElement_.removeEventListener('mouseenter', this.boundMouseEnterHandler, false);
-      this.forElement_.removeEventListener('click', this.boundMouseEnterHandler, false);
-      this.forElement_.removeEventListener('touchstart', this.boundMouseEnterHandler, false);
-      this.forElement_.removeEventListener('mouseleave', this.boundMouseLeaveHandler);
+      this.forElement_.removeEventListener('touchend', this.boundMouseEnterHandler, false);
+      this.forElement_.removeEventListener('mouseleave', this.boundMouseLeaveHandler, false);
+      window.removeEventListener('touchstart', this.boundMouseLeaveHandler);
     }
   };
+
+  /**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+  MaterialTooltip.prototype.mdlDowngrade =
+      MaterialTooltip.prototype.mdlDowngrade_;
+
+  MaterialTooltip.prototype['mdlDowngrade'] =
+      MaterialTooltip.prototype.mdlDowngrade;
 
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.

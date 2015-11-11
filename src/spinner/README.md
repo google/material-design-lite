@@ -1,12 +1,10 @@
 ## Introduction
+
 The Material Design Lite (MDL) **spinner** component is an enhanced replacement for the classic "wait cursor" (which varies significantly among hardware and software versions) and indicates that there is an ongoing process, the results of which are not yet available. A spinner consists of an open circle that changes colors as it animates in a clockwise direction, and clearly communicates that a process has been started but not completed.
 
 A spinner performs no action itself, either by its display nor when the user clicks or touches it, and does not indicate a process's specific progress or degree of completion. The MDL spinner component provides various types of spinners, and allows you to add display effects.
 
 Spinners are a fairly new feature of most user interfaces, and provide users with a consistent visual cue about ongoing activity, regardless of hardware device,  operating system, or browser environment. Their design and use is an important factor in the overall user experience.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ### To include an MDL **spinner** component:
 
@@ -36,6 +34,7 @@ A single-color spinner in a paragraph.
 ```
 
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual enhancements to the spinner. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |

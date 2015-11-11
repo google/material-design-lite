@@ -1,12 +1,10 @@
 ## Introduction
+
 The Material Design Lite (MDL) **layout** component is a comprehensive approach to page layout that uses MDL development tenets, allows for efficient use of MDL components, and automatically adapts to different browsers, screen sizes, and devices.
 
 Appropriate and accessible layout is a critical feature of all user interfaces, regardless of a site's content or function. Page design and presentation is therefore an important factor in the overall user experience. See the layout component's [Material Design specifications page](http://www.google.com/design/spec/layout/principles.html) for details.
 
 Use of MDL layout principles simplifies the creation of scalable pages by providing reusable components and encourages consistency across environments by establishing recognizable visual elements, adhering to logical structural grids, and maintaining appropriate spacing across multiple platforms and screen sizes. MDL layout is extremely powerful and dynamic, allowing for great consistency in outward appearance and behavior while maintaining development flexibility and ease of use.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ### To include a basic MDL **layout** component:
 
@@ -50,7 +48,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Simple Layout</span>
+      <span class="mdl-layout__title">Simple Layout</span>
     </div>
   </header>
 </div>
@@ -62,7 +60,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Simple Layout</span>
+      <span class="mdl-layout__title">Simple Layout</span>
       <div class="mdl-layout-spacer"></div>
     </div>
   </header>
@@ -75,7 +73,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Simple Layout</span>
+      <span class="mdl-layout__title">Simple Layout</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#">Nav link 1</a>
@@ -93,7 +91,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Simple Layout</span>
+      <span class="mdl-layout__title">Simple Layout</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#">Nav link 1</a>
@@ -113,7 +111,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Simple Layout</span>
+      <span class="mdl-layout__title">Simple Layout</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#">Nav link 1</a>
@@ -123,7 +121,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Simple Layout</span>
+    <span class="mdl-layout__title">Simple Layout</span>
   </div>
 </div>
 ```
@@ -134,7 +132,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Simple Layout</span>
+      <span class="mdl-layout__title">Simple Layout</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#">Nav link 1</a>
@@ -144,7 +142,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Simple Layout</span>
+    <span class="mdl-layout__title">Simple Layout</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#">Nav link 2</a>
       <a class="mdl-navigation__link" href="#">Nav link 2</a>
@@ -160,7 +158,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Simple Layout</span>
+      <span class="mdl-layout__title">Simple Layout</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#">Nav link 1</a>
@@ -170,7 +168,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Simple Layout</span>
+    <span class="mdl-layout__title">Simple Layout</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#">Nav link 2</a>
       <a class="mdl-navigation__link" href="#">Nav link 2</a>
@@ -188,13 +186,14 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 The layout component is ready for use.
 
 #### Examples
+
 A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Material Design Lite</span>
+      <span class="mdl-layout__title">Material Design Lite</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#">Hello</a>
@@ -206,7 +205,7 @@ A layout with a fixed header for larger screens and a collapsible drawer for sma
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Material Design Lite</span>
+    <span class="mdl-layout__title">Material Design Lite</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#">Hello</a>
       <a class="mdl-navigation__link" href="#">World.</a>
@@ -227,7 +226,7 @@ The same layout with a non-fixed header that scrolls with the content.
   <header class="mdl-layout__header mdl-layout__header--scroll">
     <img class="mdl-layout-icon"></img>
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Material Design Lite</span>
+      <span class="mdl-layout__title">Material Design Lite</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#">Hello</a>
@@ -239,7 +238,7 @@ The same layout with a non-fixed header that scrolls with the content.
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Material Design Lite</span>
+    <span class="mdl-layout__title">Material Design Lite</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#">Hello</a>
       <a class="mdl-navigation__link" href="#">World.</a>
@@ -259,11 +258,11 @@ A layout with a fixed drawer that serves as sidebar navigation on larger screens
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Fixed drawer layout demo</span>
+      <span class="mdl-layout__title">Fixed drawer layout demo</span>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Material Design Lite</span>
+    <span class="mdl-layout__title">Material Design Lite</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#">Hello</a>
       <a class="mdl-navigation__link" href="#">World.</a>
@@ -282,7 +281,7 @@ A layout with a fixed drawer but no header.
 ```html
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Material Design Lite</span>
+    <span class="mdl-layout__title">Material Design Lite</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#">Hello</a>
       <a class="mdl-navigation__link" href="#">World.</a>
@@ -298,6 +297,7 @@ A layout with a fixed drawer but no header.
 ```
 
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the layout. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
@@ -307,7 +307,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-layout__header` | Defines container as an MDL component | Required on header element |
 | `mdl-layout-icon` | Used for adding an application icon. Gets concealed by menu icon if both are visible.  | Goes on optional icon element |
 | `mdl-layout__header-row` | Defines container as MDL header row | Required on header content div |
-| `mdl-layout-title` | Defines layout title text | Required on layout title span |
+| `mdl-layout__title` | Defines layout title text | Required on layout title span |
 | `mdl-layout-spacer` | Used to align elements inside a header or drawer, by growing to fill remaining space. Commonly used for aligning elements to the right. | Goes on optional div following layout title |
 | `mdl-navigation` | Defines container as MDL navigation group | Required on nav element |
 | `mdl-navigation__link` | Defines anchor as MDL navigation link | Required on header and/or drawer anchor elements |
@@ -321,6 +321,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-layout--large-screen-only` | Hides an element on smaller screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout--small-screen-only` | Hides an element on larger screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout__header--waterfall` | Allows a "waterfall" effect with multiple header lines | Optional; goes on header element |
+| `mdl-layout__header--waterfall-hide-top` | Hides the top rather than the bottom rows on a waterfall header | Optional; goes on header element. Requires `mdl-layout__header--waterfall` |
 | `mdl-layout__header--transparent` | Makes header transparent (draws on top of layout background) | Optional; goes on header element |
 | `mdl-layout__header--seamed` | Uses a header without a shadow | Optional; goes on header element |
 | `mdl-layout__tab-bar` | Defines container as an MDL tab bar | Required on div element inside header (tabbed layout) |

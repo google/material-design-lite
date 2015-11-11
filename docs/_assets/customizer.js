@@ -42,6 +42,33 @@ function init() {
     });
   });
 
+  var clickCtr = 0;
+  cdn.addEventListener('click', function() {
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+
+    var range = document.createRange();
+    if (clickCtr === 0) {
+      var link = cdn.querySelectorAll('.token.attr-value')[1];
+      range.setStart(link, 2);
+      range.setEnd(link, 3);
+    } else {
+      range.setStart(cdn, 1);
+      range.setEnd(cdn, 2);
+    }
+
+    selection.addRange(range);
+    clickCtr = (clickCtr + 1) % 2;
+  });
+
+  // Prevent browser's selection handling
+  cdn.addEventListener('mouseup', function(ev) {
+    ev.preventDefault();
+  });
+  cdn.addEventListener('mousedown', function(ev) {
+    ev.preventDefault();
+  });
+
   document.addEventListener('mouseup', function() {
     if (window.getSelection().toString().indexOf('.min.css') !== -1) {
       ga('send', {
@@ -203,6 +230,7 @@ MaterialCustomizer = (function() {
   MaterialCustomizer.prototype.buildWheel_ = function() {
     var config = this.config;
     var mainG = this.wheel.querySelector('g.wheel--maing');
+    var wheelContainer = this.wheel.parentNode;
 
     this.wheel.setAttribute('viewBox', '0 0 ' +
       this.config.width + ' ' +  this.config.height);
@@ -215,6 +243,7 @@ MaterialCustomizer = (function() {
     var svgNS = 'http://www.w3.org/2000/svg';
     config.colors.forEach(function(color, idx) {
       var field = fieldTpl.cloneNode(true);
+      var tooltip = document.createElement('div');
 
       for (var i = 1; i <= 2; i++) {
         var g = document.createElementNS(svgNS, 'g');
@@ -230,6 +259,7 @@ MaterialCustomizer = (function() {
         field.appendChild(g);
       }
       field.setAttribute('data-color', color);
+      field.id = color;
       field.querySelector('.polygons > *:nth-child(1)').style.fill =
         'rgb(' + this.getColor(color, '500') + ')';
       field.querySelector('.polygons > *:nth-child(2)').style.fill =
@@ -238,10 +268,16 @@ MaterialCustomizer = (function() {
         addEventListener('click', this.fieldClicked_.bind(this));
       field.setAttribute('transform', 'rotate(' + config.alphaDeg * idx + ')');
       mainG.appendChild(field);
+
+      tooltip.setAttribute('for', color);
+      tooltip.className = 'mdl-tooltip mdl-tooltip--large';
+      tooltip.innerHTML = color;
+      wheelContainer.appendChild(tooltip);
     }.bind(this));
 
     mainG.setAttribute('transform',
       'translate(' + config.width / 2 + ',' + config.height / 2 + ')');
+
   };
 
   MaterialCustomizer.prototype.generateFieldTemplate_ = function() {

@@ -1,13 +1,10 @@
 ## Introduction
+
 The Material Design Lite (MDL) **text field** component is an enhanced version of the standard HTML `<input type="text">` and `<input type="textarea">` elements. A text field consists of a horizontal line indicating where keyboard input can occur and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.
 
 Text fields are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the text field component's [Material Design specifications page](http://www.google.com/design/spec/components/text-fields.html) for details.
 
 The enhanced text field component has a more vivid visual look than a standard text field, and may be initially or programmatically *disabled*.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 There are three main types of text fields in the text field component, each with its own basic coding requirements. The types are *single-line*, *multi-line*, and *expandable*.
 
 ### To include a *single-line* MDL **text field** component:
@@ -238,6 +235,7 @@ Expandable text field with a floating label.
 </div>
 ```
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the text field. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
@@ -253,6 +251,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-js-button` | Assigns basic behavior to icon container | For expandable input fields, required on "outer" div's label element |
 | `mdl-button--icon` | Defines label as an MDL icon container | For expandable input fields, required on "outer" div's label element |
 | `mdl-input__expandable-holder` | Defines a container as an MDL component | For expandable input fields, required on "inner" div element |
+| `is-invalid` | Defines the textfield as invalid on initial load. | Optional on `mdl-textfield` element |
 
 (1) The "search" icon is used here as an example. Other icons can be used by modifying the text. For a list of available icons, see [this page](https://www.google.com/design/icons).
 

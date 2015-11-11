@@ -1,12 +1,10 @@
 ## Introduction
+
 The Material Design Lite (MDL) **radio** component is an enhanced version of the standard HTML `<input type="radio">`, or "radio button" element. A radio button consists of a small circle and, typically, text that clearly communicates a condition that will be set when the user clicks or touches it. Radio buttons always appear in groups of two or more and, while they can be individually selected, can only be deselected by selecting a different radio button in the same group (which deselects all other radio buttons in the group). The MDL radio component allows you to add display and click effects.
 
 Radio buttons are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the radio component's [Material Design specifications page](https://www.google.com/design/spec/components/selection-controls.html#selection-controls-radio-button) for details.
 
 The enhanced radio component has a more vivid visual look than a standard radio button, and may be initially or programmatically *disabled*.
-
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
 
 ### To include an MDL **radio** component:
 
@@ -45,6 +43,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 The radio components are ready for use.
 
 #### Example
+
 A group of radio buttons to control a camera's flash setting.
 ```html
 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="flash1">
@@ -62,6 +61,7 @@ A group of radio buttons to control a camera's flash setting.
 </label>
 ```
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the radio button. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
