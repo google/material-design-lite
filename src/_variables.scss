@@ -132,14 +132,14 @@ $target-elements-directly: true !default;
 // Default button colors.
 $button-primary-color: unquote("rgba(#{$palette-grey-500}, 0.20)") !default;
 $button-secondary-color: unquote("rgb(#{$color-black})") !default;
-$button-hover-color: $button-primary-color !default;
+$button-hover-color: unquote("rgba(#{$color-black}, 0.20)") !default;
 $button-active-color: unquote("rgba(#{$palette-grey-500}, 0.40)") !default;
 $button-focus-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 
 // Colored button colors.
 $button-primary-color-alt: unquote("rgb(#{$color-primary})") !default;
 $button-secondary-color-alt: unquote("rgb(#{$color-primary-contrast})") !default;
-$button-hover-color-alt: unquote("rgb(#{$color-primary})") !default;
+$button-hover-color-alt: unquote("rgba(#{$color-primary}, 0.20)") !default;
 $button-active-color-alt: unquote("rgb(#{$color-primary})") !default;
 $button-focus-color-alt: $button-focus-color !default;
 
@@ -152,14 +152,10 @@ $button-secondary-color-disabled: unquote("rgba(#{$color-black}, 0.26)") !defaul
 
 // FAB colors and sizes.
 $button-fab-color-alt: unquote("rgb(#{$color-accent})") !default;
-$button-fab-hover-color-alt: unquote("rgb(#{$color-accent})") !default;
+$button-fab-hover-color-alt: unquote("rgba(#{$color-accent}, 0.20)") !default;
 $button-fab-active-color-alt: unquote("rgb(#{$color-accent})") !default;
 $button-fab-text-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
 $button-fab-ripple-color-alt: unquote("rgb(#{$color-accent-contrast})") !default;
-
-// Icon button colors and sizes.
-$button-icon-color: unquote("rgb(#{$palette-grey-700})") !default;
-$button-icon-focus-color: $button-focus-color !default;
 
 /* ==========  Icon Toggles  ========== */
 
