@@ -238,7 +238,7 @@ input.mdl-button[type="submit"] {
 
 // Colorized buttons
 
-.mdl-button--primary.mdl-button--primary {
+.mdl-button--primary {
   color: $button-primary-color-alt;
   & .mdl-ripple {
     background: $button-secondary-color-alt;
@@ -249,7 +249,7 @@ input.mdl-button[type="submit"] {
   }
 }
 
-.mdl-button--accent.mdl-button--accent {
+.mdl-button--accent {
   color: $button-fab-color-alt;
   & .mdl-ripple {
     background: $button-fab-text-color-alt;
