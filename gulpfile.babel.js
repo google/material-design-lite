@@ -267,7 +267,6 @@ gulp.task('metadata', () => {
 gulp.task('default', ['clean'], cb => {
   runSequence(
     ['styles', 'styles-grid'],
-    ['scripts'],
     ['mocha'],
     cb);
 });
@@ -277,7 +276,6 @@ gulp.task('all', ['clean'], cb => {
   runSequence(
     ['styletemplates'],
     ['styles-grid', 'styles:gen'],
-    ['scripts'],
     ['mocha'],
     ['assets', 'pages',
      'templates', 'images', 'metadata'],
@@ -287,7 +285,7 @@ gulp.task('all', ['clean'], cb => {
 
 // ***** Testing tasks ***** //
 
-gulp.task('mocha', ['styles'], () => {
+gulp.task('mocha', ['scripts'], () => {
   return gulp.src('test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });
