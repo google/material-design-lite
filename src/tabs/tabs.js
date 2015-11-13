@@ -91,7 +91,6 @@
     for (var i = 0; i < this.tabs_.length; i++) {
       new MaterialTab(this.tabs_[i], this);
     }
-    this.tabs_[0].click();
 
     this.element_.classList.add(this.CssClasses_.UPGRADED_CLASS);
   };
@@ -144,6 +143,12 @@
         ripple.classList.add(ctx.CssClasses_.MDL_RIPPLE);
         rippleContainer.appendChild(ripple);
         tab.appendChild(rippleContainer);
+      }
+
+      if (tab.classList.contains(ctx.CssClasses_.ACTIVE_CLASS)) {
+        var slider = ctx.slider_;
+        slider.style.width = tab.offsetWidth + 'px';
+        slider.style.left = tab.offsetLeft + 'px';
       }
 
       tab.addEventListener('click', function(e) {
