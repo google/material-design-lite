@@ -54,6 +54,7 @@
    * @private
    */
   MaterialTabs.prototype.CssClasses_ = {
+    TAB_BAR_CLASS: 'mdl-tabs__tab-bar',
     TAB_CLASS: 'mdl-tabs__tab',
     PANEL_CLASS: 'mdl-tabs__panel',
     ACTIVE_CLASS: 'is-active',
@@ -72,11 +73,11 @@
    * @private
    */
   MaterialTabs.prototype.initTabs_ = function() {
+    var tabBar_ = this.element_.querySelector('.' + this.CssClasses_.TAB_BAR_CLASS);
     if (this.element_.classList.contains(this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
       this.element_.classList.add(
         this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
-
     // Select element tabs, document panels
     this.tabs_ = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
     this.panels_ =
@@ -84,12 +85,13 @@
     // create sliding active-tab-indicator
     this.slider_ = document.createElement('div');
     this.slider_.classList.add(this.CssClasses_.SLIDER_CLASS);
-    this.element_.appendChild(this.slider_);
+    tabBar_.appendChild(this.slider_);
 
     // Create new tabs for each tab element
     for (var i = 0; i < this.tabs_.length; i++) {
       new MaterialTab(this.tabs_[i], this);
     }
+    this.tabs_[0].click();
 
     this.element_.classList.add(this.CssClasses_.UPGRADED_CLASS);
   };

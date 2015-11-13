@@ -23,6 +23,7 @@
 }
 
 .mdl-tabs__tab-bar {
+    position        : relative;
     display         : flex;
     flex-direction  : row;
     justify-content : center; // ⇾
