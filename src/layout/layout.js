@@ -50,6 +50,16 @@
   };
 
   /**
+   * Keycodes, for code readability.
+   *
+   * @enum {number}
+   * @private
+   */
+  MaterialLayout.prototype.Keycodes_ = {
+    ESCAPE: 27
+  };
+
+  /**
    * Modes.
    *
    * @enum {number}
@@ -74,6 +84,7 @@
     CONTAINER: 'mdl-layout__container',
     HEADER: 'mdl-layout__header',
     DRAWER: 'mdl-layout__drawer',
+    DRAWER_LINKS: 'mdl-layout__drawer a',
     CONTENT: 'mdl-layout__content',
     DRAWER_BTN: 'mdl-layout__drawer-button',
 
@@ -139,6 +150,18 @@
   };
 
   /**
+   * Handles a keyboard event on the drawer.
+   *
+   * @param {Event} evt The event that fired.
+   * @private
+   */
+  MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
+    if (evt.keyCode === this.Keycodes_.ESCAPE) {
+      this.drawerToggleHandler_();
+    }
+  };
+
+  /**
    * Handles changes in screen size.
    *
    * @private
@@ -162,8 +185,24 @@
    * @private
    */
   MaterialLayout.prototype.drawerToggleHandler_ = function() {
+    var drawerButton = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
+    var firstLink = document.querySelector('.' + this.CssClasses_.DRAWER_LINKS);
     this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
     this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
+
+    // focus first link if drawer will be opened otherwise focus the drawer button
+    if (this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
+      this.drawer_.setAttribute('aria-hidden', 'false');
+      drawerButton.setAttribute('aria-expanded', 'true');
+
+      if (firstLink) {
+        firstLink.focus();
+      }
+    } else {
+      this.drawer_.setAttribute('aria-hidden', 'true');
+      drawerButton.setAttribute('aria-expanded', 'false');
+      drawerButton.focus();
+    }
   };
 
   /**
@@ -287,7 +326,8 @@
         var drawerButton = this.element_.querySelector('.' +
           this.CssClasses_.DRAWER_BTN);
         if (!drawerButton) {
-          drawerButton = document.createElement('div');
+          drawerButton = document.createElement('button');
+          drawerButton.setAttribute('aria-expanded', 'false');
           drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
 
           var drawerButtonIcon = document.createElement('i');
@@ -326,6 +366,8 @@
         obfuscator.addEventListener('click',
             this.drawerToggleHandler_.bind(this));
         this.obfuscator_ = obfuscator;
+
+        this.drawer_.addEventListener('keydown', this.keyboardEventHandler_.bind(this));
       }
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
