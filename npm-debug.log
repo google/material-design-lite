@@ -1,0 +1,138 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'd:\\nodejs\\node.exe',
+1 verbose cli   'd:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'chai-jquery@2.0.1',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.1
+4 verbose install initial load of d:\workspace\material-design-lite\package.json
+5 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\acorn\package.json
+6 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\babel-core\package.json
+7 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\browser-sync\package.json
+8 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\chai\package.json
+9 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\chai-jquery\package.json
+10 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\del\package.json
+11 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\drool\package.json
+12 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\escodegen\package.json
+13 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\google-closure-compiler\package.json
+14 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp\package.json
+15 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-autoprefixer\package.json
+16 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-cache\package.json
+17 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-closure-compiler\package.json
+18 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-concat\package.json
+19 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-connect\package.json
+20 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-css-inline-images\package.json
+21 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-csso\package.json
+22 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-file\package.json
+23 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-flatten\package.json
+24 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-front-matter\package.json
+25 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-header\package.json
+26 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-if\package.json
+27 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-iife\package.json
+28 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-imagemin\package.json
+29 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-jscs\package.json
+30 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-jshint\package.json
+31 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-load-plugins\package.json
+32 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-marked\package.json
+33 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-mocha-phantomjs\package.json
+34 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-open\package.json
+35 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-rename\package.json
+36 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-replace\package.json
+37 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-sass\package.json
+38 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-shell\package.json
+39 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-size\package.json
+40 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-sourcemaps\package.json
+41 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-subtree\package.json
+42 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-tap\package.json
+43 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-uglify\package.json
+44 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-util\package.json
+45 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\gulp-zip\package.json
+46 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\humanize\package.json
+47 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\jquery\package.json
+48 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\jshint-stylish\package.json
+49 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\merge-stream\package.json
+50 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\mocha\package.json
+51 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\phantomjs\package.json
+52 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\prismjs\package.json
+53 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\run-sequence\package.json
+54 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\swig\package.json
+55 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\through2\package.json
+56 verbose installManyTop reading scoped package data from d:\workspace\material-design-lite\node_modules\vinyl-paths\package.json
+57 info package.json babel-core@5.8.33 No README data
+58 info package.json chai-jquery@2.0.0 No license field.
+59 info package.json drool@0.2.2 No repository field.
+60 info package.json drool@0.2.2 No license field.
+61 info package.json gulp-file@0.2.0 license should be a valid SPDX license expression
+62 info package.json gulp-marked@1.0.0 No repository field.
+63 info package.json gulp-marked@1.0.0 No license field.
+64 info package.json gulp-rename@1.2.2 No license field.
+65 info package.json humanize@0.0.9 No license field.
+66 info package.json jquery@2.1.4 No license field.
+67 verbose readDependencies loading dependencies from d:\workspace\material-design-lite\package.json
+68 silly cache add args [ 'chai-jquery@2.0.1', null ]
+69 verbose cache add spec chai-jquery@2.0.1
+70 silly cache add parsed spec Result {
+70 silly cache add   raw: 'chai-jquery@2.0.1',
+70 silly cache add   scope: null,
+70 silly cache add   name: 'chai-jquery',
+70 silly cache add   rawSpec: '2.0.1',
+70 silly cache add   spec: '2.0.1',
+70 silly cache add   type: 'version' }
+71 silly addNamed chai-jquery@2.0.1
+72 verbose addNamed "2.0.1" is a plain semver version for chai-jquery
+73 silly mapToRegistry name chai-jquery
+74 silly mapToRegistry using default registry
+75 silly mapToRegistry registry https://registry.npmjs.org/
+76 silly mapToRegistry uri https://registry.npmjs.org/chai-jquery
+77 verbose addNameVersion registry:https://registry.npmjs.org/chai-jquery not in flight; fetching
+78 verbose request uri https://registry.npmjs.org/chai-jquery
+79 verbose request no auth needed
+80 info attempt registry request try #1 at 21:14:43
+81 verbose request id 4a31ff84738c3cf5
+82 verbose etag "1JVBRNRNV5UNUGJPU41YHAHXY"
+83 http request GET https://registry.npmjs.org/chai-jquery
+84 http 304 https://registry.npmjs.org/chai-jquery
+85 verbose headers { date: 'Sat, 14 Nov 2015 20:14:39 GMT',
+85 verbose headers   via: '1.1 varnish',
+85 verbose headers   'cache-control': 'max-age=60',
+85 verbose headers   etag: '"1JVBRNRNV5UNUGJPU41YHAHXY"',
+85 verbose headers   age: '0',
+85 verbose headers   connection: 'keep-alive',
+85 verbose headers   'x-served-by': 'cache-fra1244-FRA',
+85 verbose headers   'x-cache': 'HIT',
+85 verbose headers   'x-cache-hits': '1',
+85 verbose headers   'x-timer': 'S1447532079.909804,VS0,VE624',
+85 verbose headers   vary: 'Accept' }
+86 silly get cb [ 304,
+86 silly get   { date: 'Sat, 14 Nov 2015 20:14:39 GMT',
+86 silly get     via: '1.1 varnish',
+86 silly get     'cache-control': 'max-age=60',
+86 silly get     etag: '"1JVBRNRNV5UNUGJPU41YHAHXY"',
+86 silly get     age: '0',
+86 silly get     connection: 'keep-alive',
+86 silly get     'x-served-by': 'cache-fra1244-FRA',
+86 silly get     'x-cache': 'HIT',
+86 silly get     'x-cache-hits': '1',
+86 silly get     'x-timer': 'S1447532079.909804,VS0,VE624',
+86 silly get     vary: 'Accept' } ]
+87 verbose etag https://registry.npmjs.org/chai-jquery from cache
+88 verbose get saving chai-jquery to C:\Users\thomas\AppData\Roaming\npm-cache\registry.npmjs.org\chai-jquery\.cache.json
+89 verbose stack Error: version not found: chai-jquery@2.0.1
+89 verbose stack     at setData (d:\nodejs\node_modules\npm\lib\cache\add-named.js:137:12)
+89 verbose stack     at RES (d:\nodejs\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+89 verbose stack     at f (d:\nodejs\node_modules\npm\node_modules\once\once.js:17:25)
+89 verbose stack     at fixName (d:\nodejs\node_modules\npm\lib\cache\add-named.js:29:5)
+89 verbose stack     at saved (d:\nodejs\node_modules\npm\lib\cache\caching-client.js:173:7)
+89 verbose stack     at d:\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:210:7
+89 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+90 verbose statusCode 404
+91 verbose cwd d:\workspace\material-design-lite
+92 error Windows_NT 6.1.7601
+93 error argv "d:\\nodejs\\node.exe" "d:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "chai-jquery@2.0.1" "--save"
+94 error node v4.2.1
+95 error npm  v2.14.7
+96 error version not found: chai-jquery@2.0.1
+97 error If you need help, you may report this error at:
+97 error     <https://github.com/npm/npm/issues>
+98 verbose exit [ 1, true ]
