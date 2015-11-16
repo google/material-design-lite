@@ -81,8 +81,8 @@ $image_path: '/images' !default;
 
 /* ==========  Color & Themes  ========== */
 
-// Define whether individual color pallet items should have classes created.
-// Setting this to true will remove individual color classes for each color in the pallets.
+// Define whether individual color palette items should have classes created.
+// Setting this to true will remove individual color classes for each color in the palettes.
 // To improve overall performance (assuming they aren't used) by:
 // * Saving server bandwidth sending the extra classes
 // * Save client computation against the classes
@@ -557,7 +557,7 @@ $data-table-cell-top: $data-table-card-padding / 2;
 
 /* SNACKBAR */
 
-// Hard coded since the color is not present in any pallet.
+// Hard coded since the color is not present in any palette.
 $snackbar-background-color: #323232 !default;
 $snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
 $snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
