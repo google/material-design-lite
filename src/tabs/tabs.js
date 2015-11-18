@@ -24,7 +24,7 @@
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
    * @constructor
-   * @param {HTMLElement} element The element that will be upgraded.
+   * @param {Element} element The element that will be upgraded.
    */
   var MaterialTabs = function MaterialTabs(element) {
     // Stores the HTML element.
@@ -124,7 +124,7 @@
    * Constructor for an individual tab.
    *
    * @constructor
-   * @param {HTMLElement} tab The HTML element for the tab.
+   * @param {Element} tab The HTML element for the tab.
    * @param {MaterialTabs} ctx The MaterialTabs object that owns the tab.
    */
   function MaterialTab(tab, ctx) {
