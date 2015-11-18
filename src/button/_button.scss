@@ -277,7 +277,6 @@ input.mdl-button[type="submit"] {
     &.mdl-button--disabled.mdl-button--disabled {
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
-      @include shadow-2dp();
     }
   }
 
@@ -287,7 +286,6 @@ input.mdl-button[type="submit"] {
     &.mdl-button--disabled.mdl-button--disabled {
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
-      @include shadow-2dp();
     }
   }
   &--colored {
