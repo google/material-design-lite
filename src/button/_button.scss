@@ -286,6 +286,7 @@ input.mdl-button[type="submit"] {
     &.mdl-button--disabled.mdl-button--disabled {
       background-color: $button-primary-color-disabled;
       color: $button-secondary-color-disabled;
+      box-shadow: none;
     }
   }
   &--colored {
