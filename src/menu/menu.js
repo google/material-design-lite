@@ -433,7 +433,7 @@
 
       // Remove all transition delays; menu items fade out concurrently.
       for (var i = 0; i < items.length; i++) {
-        items[i].style.transitionDelay = null;
+        items[i].style.removeProperty('transition-delay');
       }
 
       // Measure the inner element.

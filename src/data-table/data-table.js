@@ -24,7 +24,7 @@
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
    * @constructor
-   * @param {HTMLElement} element The element that will be upgraded.
+   * @param {Element} element The element that will be upgraded.
    */
   var MaterialDataTable = function MaterialDataTable(element) {
     this.element_ = element;
@@ -66,7 +66,7 @@
    * single row (or multiple rows).
    *
    * @param {Element} checkbox Checkbox that toggles the selection state.
-   * @param {HTMLElement} row Row to toggle when checkbox changes.
+   * @param {Element} row Row to toggle when checkbox changes.
    * @param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
    * @private
    */
@@ -106,7 +106,7 @@
    * Creates a checkbox for a single or or multiple rows and hooks up the
    * event handling.
    *
-   * @param {HTMLElement} row Row to toggle when checkbox changes.
+   * @param {Element} row Row to toggle when checkbox changes.
    * @param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
    * @private
    */
