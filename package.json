@@ -18,5 +18,36 @@
   },
   "babel": {
     "only": "gulpfile.babel.js"
+  },
+  "dependencies": {
+    "acorn": "^2.6.4",
+    "browser-sync": "^2.10.0",
+    "chai": "^3.4.1",
+    "chai-jquery": "^2.0.0",
+    "escodegen": "^1.7.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.4.0",
+    "gulp-closure-compiler": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-css-inline-images": "^0.1.1",
+    "gulp-csso": "^1.0.1",
+    "gulp-file": "^0.2.0",
+    "gulp-flatten": "^0.2.0",
+    "gulp-header": "^1.7.1",
+    "gulp-if": "^2.0.0",
+    "gulp-iife": "^0.2.4",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-mocha-phantomjs": "^0.10.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-zip": "^3.0.2",
+    "jquery": "^2.1.4",
+    "jshint": "^2.8.0",
+    "through2": "^2.0.0"
   }
 }
