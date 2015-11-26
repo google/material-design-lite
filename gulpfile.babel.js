@@ -24,6 +24,7 @@ import gulp from 'gulp';
 import through from 'through2';
 import path from 'path';
 import fs from 'fs';
+import del from 'del';
 
 import browserSync from 'browser-sync';
 const reload = browserSync.reload;
@@ -34,14 +35,15 @@ const $ = gulpLoadPlugins();
 import MaterialCustomizer from './utils/customizer.js';
 import uniffe from './utils/uniffe.js';
 
-const banner = ['/**',
-  ' * <%= pkg.name %> - <%= pkg.description %>',
-  ' * @version v<%= pkg.version %>',
-  ' * @license <%= pkg.license %>',
-  ' * @copyright 2015 Google, Inc.',
-  ' * @link https://github.com/google/material-design-lite',
-  ' */',
-  ''].join('\n');
+const banner = `
+/**
+ * <%= pkg.name %> - <%= pkg.description %>
+ * @version v<%= pkg.version %>
+ * @license <%= pkg.license %>
+ * @copyright 2015 Google, Inc.
+ * @link https://github.com/google/material-design-lite
+ */
+`;
 
 
 const AUTOPREFIXER_BROWSERS = [
@@ -82,24 +84,20 @@ const SOURCES = [
   'src/ripple/ripple.js'
 ];
 
-// ***** Development tasks ****** //
-
 // Lint JavaScript
-gulp.task('lint', () => {
+function jslint() {
   return gulp.src([
       'src/**/*.js',
       'gulpfile.babel.js'
     ])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
-    .pipe($.jscs())
-});
-
-// ***** Production build tasks ****** //
+    .pipe($.jscs());
+}
 
 // Optimize Images
 // TODO: Update image paths in final CSS to match root/images
-gulp.task('images', () => {
+function images() {
   return gulp.src('src/**/*.{svg,png,jpg}')
     .pipe($.flatten())
     .pipe($.cache($.imagemin({
@@ -107,7 +105,7 @@ gulp.task('images', () => {
       interlaced: true
     })))
     .pipe(gulp.dest('dist/images'));
-});
+}
 
 function cssPipeline(stream) {
   return stream
@@ -130,31 +128,32 @@ function cssPipeline(stream) {
 }
 
 // Compile and Automatically Prefix Stylesheets (production)
-gulp.task('styles', () => {
+function mdlCss() {
   const stream = gulp.src('src/material-design-lite.scss')
     .pipe($.rename('material.css'));
 
   return cssPipeline(stream);
-});
+}
 
 // Compile and Automatically Prefix Stylesheets (production)
-gulp.task('styletemplate', () => {
+function mdlThemeTemplate() {
   const stream = gulp.src('src/template.scss')
     .pipe($.rename('material.template.css'));
 
   return cssPipeline(stream);
-});
+}
 
 // Only generate CSS styles for the MDL grid
-gulp.task('styles-grid', () => {
+function mdlGrid() {
   const stream = gulp.src('src/material-design-lite-grid.scss')
     .pipe($.rename('material-grid.css'));
 
   return cssPipeline(stream);
-});
+}
+
 
 // Build with Google's Closure Compiler, requires Java 1.7+ installed.
-gulp.task('closure', () => {
+function mdlClosureJs() {
   return gulp.src(SOURCES)
     .pipe($.closureCompiler({
       compilerPath: 'node_modules/google-closure-compiler/compiler.jar',
@@ -169,11 +168,11 @@ gulp.task('closure', () => {
       }
     }))
     .pipe(gulp.dest('./dist'));
-});
+}
 
 const noop = through.obj.bind(through);
 // Concatenate And Minify JavaScript
-gulp.task('scripts', gulp.parallel('lint', () => {
+function mdlJs() {
   return gulp.src(SOURCES)
     .pipe($.if(/mdlComponentHandler\.js/, noop(), uniffe()))
     .pipe($.sourcemaps.init())
@@ -191,29 +190,25 @@ gulp.task('scripts', gulp.parallel('lint', () => {
     // Write Source Maps
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('dist'));
-}));
-
-// Clean Output Directory
-gulp.task('clean', () => del(['dist', '.publish']));
+}
 
 // Copy package manger and LICENSE files to dist
-gulp.task('metadata', () => {
+function metadata() {
   return gulp.src([
       'package.json',
       'bower.json',
       'LICENSE'
     ])
     .pipe(gulp.dest('dist'));
-});
+}
 
-// ***** Testing tasks ***** //
-
-gulp.task('mocha', gulp.series('styles', () => {
+function mocha() {
   return gulp.src('test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
-}));
+}
 
-gulp.task('mocha:closure', gulp.series('closure', () => {
+
+function mochaClosure() {
   return gulp.src('test/index.html')
     .pipe($.replace('src="../dist/material.js"',
         'src="../dist/material.closure.min.js"'))
@@ -222,42 +217,17 @@ gulp.task('mocha:closure', gulp.series('closure', () => {
     .pipe($.mochaPhantomjs({reporter: 'tap'}))
     .on('finish', () => del.sync('test/temp.html'))
     .on('error', () => del.sync('test/temp.html'));
-}));
-
-gulp.task('test', gulp.series(
-  'lint',
-  'mocha',
-  'mocha:closure'
-));
+}
 
 function watch() {
   gulp.watch(['src/**/*.js'], gulp.series('scripts', reload));
-  gulp.watch(['src/**/*.{scss,css}'], gulp.series('styles', 'styles-grid', reload));
+  gulp.watch(['src/**/*.{scss,css}'], gulp.series('styles', reload));
   gulp.watch(['src/**/*.{svg,png,jpg}'], gulp.series('images', reload));
   gulp.watch(['package.json', 'bower.json', 'LICENSE'], gulp.series('metadata'));
 }
 
-gulp.task('serve', () => {
-  browserSync({
-    notify: false,
-    server: {
-      baseDir: ['dist']
-    }
-  });
-
-  watch();
-});
-
-// Build Production Files, the Default Task
-gulp.task('default', gulp.series(
-  gulp.parallel('styles', 'styles-grid'),
-  'scripts',
-  'images',
-  'mocha')
-);
-
 // Generate release archive containing just JS, CSS, Source Map deps
-gulp.task('zip:mdl', gulp.series('default', () => {
+function mdlZip() {
   return gulp.src([
       'dist/material?(.min)@(.js|.css)?(.map)',
       'LICENSE',
@@ -266,7 +236,7 @@ gulp.task('zip:mdl', gulp.series('default', () => {
     ])
     .pipe($.zip('mdl.zip'))
     .pipe(gulp.dest('dist'));
-}));
+}
 
 function emptyStream() {
   const stream = through.obj();
@@ -274,7 +244,7 @@ function emptyStream() {
   return stream;
 }
 
-gulp.task('themes', gulp.series('styletemplate', () => {
+function mdlThemes() {
   const templatePath = path.join(__dirname, 'dist', 'material.template.min.css');
   // TODO: This task needs refactoring once we turn MaterialCustomizer
   // into a proper Node module.
@@ -303,6 +273,39 @@ gulp.task('themes', gulp.series('styletemplate', () => {
   });
 
   return stream.pipe(gulp.dest('dist'));
-}));
+}
 
-gulp.task('all', gulp.parallel('themes', 'default'));
+gulp.task('serve', () => {
+  browserSync({
+    notify: false,
+    server: {
+      baseDir: ['dist']
+    }
+  });
+
+  watch();
+});
+
+gulp.task('styles', gulp.parallel(
+  mdlCss,
+  gulp.series(mdlThemeTemplate, mdlThemes),
+  mdlGrid
+));
+
+gulp.task('scripts', gulp.series(
+  jslint,
+  gulp.parallel(mdlJs, mdlClosureJs)
+));
+
+gulp.task('test', gulp.series(
+  gulp.parallel('styles', 'scripts'),
+  mocha,
+  mochaClosure
+));
+
+gulp.task('default', gulp.series(
+  gulp.parallel('styles', 'scripts', images, metadata),
+  mdlZip,
+  mocha,
+  mochaClosure
+));
