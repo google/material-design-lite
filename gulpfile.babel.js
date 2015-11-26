@@ -219,13 +219,6 @@ function mochaClosure() {
     .on('error', () => del.sync('test/temp.html'));
 }
 
-function watch() {
-  gulp.watch(['src/**/*.js'], gulp.series('scripts', reload));
-  gulp.watch(['src/**/*.{scss,css}'], gulp.series('styles', reload));
-  gulp.watch(['src/**/*.{svg,png,jpg}'], gulp.series('images', reload));
-  gulp.watch(['package.json', 'bower.json', 'LICENSE'], gulp.series('metadata'));
-}
-
 // Generate release archive containing just JS, CSS, Source Map deps
 function mdlZip() {
   return gulp.src([
@@ -275,17 +268,6 @@ function mdlThemes() {
   return stream.pipe(gulp.dest('dist'));
 }
 
-gulp.task('serve', () => {
-  browserSync({
-    notify: false,
-    server: {
-      baseDir: ['dist']
-    }
-  });
-
-  watch();
-});
-
 gulp.task('styles', gulp.parallel(
   mdlCss,
   gulp.series(mdlThemeTemplate, mdlThemes),
@@ -309,3 +291,21 @@ gulp.task('default', gulp.series(
   mocha,
   mochaClosure
 ));
+
+function watch() {
+  gulp.watch(['src/**/*.js'], gulp.series('scripts', reload));
+  gulp.watch(['src/**/*.{scss,css}'], gulp.series('styles', reload));
+  gulp.watch(['src/**/*.{svg,png,jpg}'], gulp.series(images, reload));
+  gulp.watch(['package.json', 'bower.json', 'LICENSE'], gulp.series(metadata));
+}
+
+gulp.task('serve', () => {
+  browserSync({
+    notify: false,
+    server: {
+      baseDir: ['.']
+    }
+  });
+
+  watch();
+});
