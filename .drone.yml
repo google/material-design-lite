@@ -1,38 +1,34 @@
-image: crhym3/ci-image
-git:
+clone:
   depth: 1
 cache:
-  - /cache
-env:
-  - CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - WEBDRIVER=http://chromedriver.storage.googleapis.com/2.16/chromedriver_linux64.zip
-  - DISPLAY=:99
-script:
-  # workaround for cache, see https://github.com/drone/drone/issues/147
-  - mkdir -p /cache/node_modules
-  - rm -rf node_modules
-  - ln -s /cache/node_modules node_modules
-  # install dependencies
-  - npm install
-  - Xvfb $DISPLAY &
-  # ensure the build works
-  # this will also run gulp mocha
-  - gulp all
-  - gulp mocha:closure
-  # get the version of chrome and driver we want, for more tests
-  # do this after the build and unit tests to fail fast
-  - curl -sSLo chrome.deb $CHROME && dpkg -i chrome.deb
-  - curl -sSLo driver.zip $WEBDRIVER && unzip -q driver.zip -d /usr/bin
-  # run additional tests
-  - node test/memory/test.js
-deploy:
-  bash:
-    when:
-      owner: google
-      branch: master
-    script:
-      - apt-get install -y python-openssl # gcloud deps for service accounts
-      - openssl aes-256-cbc -d -in .drone.p12.enc -out .drone.p12 -pass env:DRONE_PASS
-      - /gcloud/bin/gcloud components update -q gsutil
-      - /gcloud/bin/gcloud auth activate-service-account $$DRONE_ACCOUNT --key-file .drone.p12
-      - gulp publish:staging
+  mount:
+    - node_modules
+build:
+  image: crhym3/ci-image
+  environment:
+    - CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - WEBDRIVER=http://chromedriver.storage.googleapis.com/2.16/chromedriver_linux64.zip
+    - DISPLAY=:99
+  commands:
+    - Xvfb $DISPLAY &
+    - npm install
+    # ensure the build works
+    # this will also run gulp mocha
+    - gulp all
+    - gulp mocha:closure
+    # do this after the build and unit tests to fail fast
+    - curl -sSLo chrome.deb $CHROME && dpkg -i chrome.deb
+    - curl -sSLo driver.zip $WEBDRIVER && unzip -q driver.zip -d /usr/bin
+    # run additional tests
+    - node test/memory/test.js
+#deploy:
+#  bash:
+#    when:
+#      owner: google
+#      branch: master
+#    script:
+#      - apt-get install -y python-openssl # gcloud deps for service accounts
+#      - openssl aes-256-cbc -d -in .drone.p12.enc -out .drone.p12 -pass env:DRONE_PASS
+#      - /gcloud/bin/gcloud components update -q gsutil
+#      - /gcloud/bin/gcloud auth activate-service-account $$DRONE_ACCOUNT --key-file .drone.p12
+#      - gulp publish:staging
