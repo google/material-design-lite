@@ -268,6 +268,35 @@ function mdlThemes() {
   return stream.pipe(gulp.dest('dist'));
 }
 
+function prepareRelease() {
+  return gulp.src([
+      'dist/material?(.min)@(.js|.css)?(.map)',
+      'LICENSE',
+      'README.md',
+      'bower.json',
+      'package.json',
+      '.jscsrc',
+      '.jshintrc',
+      './sr?/**/*',
+      'gulpfile.babel.js',
+      './util?/**/*'
+    ])
+    .pipe(gulp.dest('release'));
+}
+
+function publishRelease(cb) {
+  if(process.env.PUSH !== 'true') {
+    console.log('$PUSH NOT SET TO "true". NOT PUSHING');
+    cb();
+    return;
+  }
+  return gulp.src('release')
+    .pipe($.subtree({
+      remote: 'origin',
+      branch: 'release'
+    }));
+}
+
 gulp.task('styles', gulp.parallel(
   mdlCss,
   gulp.series(mdlThemeTemplate, mdlThemes),
@@ -287,9 +316,10 @@ gulp.task('test', gulp.series(
 
 gulp.task('default', gulp.series(
   gulp.parallel('styles', 'scripts', images, metadata),
-  mdlZip,
-  mocha,
-  mochaClosure
+  gulp.parallel(
+    mdlZip,
+    gulp.series(mocha, mochaClosure)
+  )
 ));
 
 function watch() {
@@ -309,3 +339,15 @@ gulp.task('serve', () => {
 
   watch();
 });
+
+gulp.task('release', gulp.series(
+  'default',
+  prepareRelease,
+  publishRelease,
+  (cb) => {
+    if(process.env.PUSH === 'true') {
+      del('release');
+    }
+    cb();
+  }
+  ));
