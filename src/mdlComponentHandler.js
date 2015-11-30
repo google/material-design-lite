@@ -339,7 +339,7 @@ componentHandler = (function() {
    * Finds a created component by a given DOM node.
    *
    * @param {!Node} node
-   * @return {*}
+   * @return {?componentHandler.Component}
    */
   function findCreatedComponentByNodeInternal(node) {
     for (var n = 0; n < createdComponents_.length; n++) {
@@ -348,6 +348,7 @@ componentHandler = (function() {
         return component;
       }
     }
+    return null;
   }
 
   /**
@@ -355,7 +356,7 @@ componentHandler = (function() {
    * Execute if found.
    * Remove component from createdComponents list.
    *
-   * @param {*} component
+   * @param {?componentHandler.Component} component
    */
   function deconstructComponentInternal(component) {
     if (component &&

@@ -276,11 +276,12 @@ gulp.task('default', ['clean'], cb => {
 // Build production files and microsite
 gulp.task('all', ['clean'], cb => {
   runSequence(
-    ['default', 'styletemplates'],
-    ['styles:gen'],
-    ['lint', 'scripts', 'assets', 'demos', 'pages',
-     'templates', 'images', 'styles-grid', 'metadata'],
+    ['styletemplates'],
+    ['styles-grid', 'styles:gen'],
+    ['scripts'],
     ['mocha'],
+    ['assets', 'pages',
+     'templates', 'images', 'metadata'],
     ['zip'],
     cb);
 });
