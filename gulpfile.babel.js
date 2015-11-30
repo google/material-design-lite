@@ -303,22 +303,23 @@ gulp.task('styles', gulp.parallel(
   mdlGrid
 ));
 
-gulp.task('scripts', gulp.series(
+gulp.task('scripts', gulp.parallel(
   jslint,
-  gulp.parallel(mdlJs, mdlClosureJs)
+  mdlJs
 ));
 
 gulp.task('test', gulp.series(
   gulp.parallel('styles', 'scripts'),
-  mocha,
-  mochaClosure
+  mocha
 ));
+
+gulp.task('closure', gulp.series(mdlClosureJs, mochaClosure));
 
 gulp.task('default', gulp.series(
   gulp.parallel('styles', 'scripts', images, metadata),
   gulp.parallel(
     mdlZip,
-    gulp.series(mocha, mochaClosure)
+    mocha
   )
 ));
 
