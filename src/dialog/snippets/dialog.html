@@ -1,0 +1,62 @@
+<button class="mdl-button mdl-js-button mdl-button--primary dialog-button">Show Dialog</button>
+<button id="show-modal-example" type="button" class="mdl-button">Show Modal</button>
+
+<dialog id="dialog" class="mdl-dialog">
+  <h3 class="mdl-dialog__title">MDL Dialog</h3>
+  <div class="mdl-dialog__content">
+    <p>
+      This is an example of the Material Design Lite dialog component.
+      Please use responsibly.
+    </p>
+  </div>
+  <div class="mdl-dialog__actions">
+    <button type="button" class="mdl-button">Close</button>
+    <button type="button" class="mdl-button" disabled>Disabled action</button>
+  </div>
+</dialog>
+
+<dialog class="mdl-dialog" id="modal-example">
+  <div class="mdl-dialog__content">
+    <p>
+      This is an example of the MDL Dialog being used as a modal.
+      It is using the full width action design intended for use with buttons
+      that do not fit within the specified <a href="https://www.google.com/design/spec/components/dialogs.html#dialogs-specs">length metrics</a>.
+    </p>
+  </div>
+  <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+    <button type="button" class="mdl-button">Close</button>
+    <button type="button" class="mdl-button" disabled>Inactive action</button>
+  </div>
+</dialog>
+
+<script>
+  (function() {
+    'use strict';
+    var dialogButton = document.querySelector('.dialog-button');
+    var dialog = document.querySelector('#dialog');
+    dialogButton.addEventListener('click', function() {
+       dialog.show();
+    });
+    dialog.querySelector('button:not([disabled])')
+    .addEventListener('click', function() {
+      dialog.close();
+    });
+  }());
+</script>
+
+<script>
+(function() {
+  'use strict';
+  var dialog = document.querySelector('#modal-example');
+  var closeButton = dialog.querySelector('button');
+  var closeClickHandler = function(event) {
+    dialog.close();
+  };
+  var showButton = document.querySelector('#show-modal-example');
+  var showClickHandler = function(event) {
+    dialog.showModal();
+  };
+  showButton.addEventListener('click', showClickHandler);
+  closeButton.addEventListener('click', closeClickHandler);
+}());
+</script>

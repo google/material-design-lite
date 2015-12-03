@@ -555,6 +555,9 @@ $data-table-card-padding: 24px !default;
 $data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2;
 
+/* DIALOG */
+$dialog-content-color: $card-supporting-text-text-color;
+
 /* SNACKBAR */
 
 // Hard coded since the color is not present in any palette.
