@@ -74,6 +74,7 @@
     var marginTop = -1 * (this.element_.offsetHeight / 2);
 
     if (this.element_.classList.contains(this.CssClasses_.LEFT) || this.element_.classList.contains(this.CssClasses_.RIGHT)) {
+      left = (props.width / 2);
       if (top + marginTop < 0) {
         this.element_.style.top = 0;
         this.element_.style.marginTop = 0;
