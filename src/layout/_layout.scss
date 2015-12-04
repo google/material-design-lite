@@ -423,6 +423,18 @@
       background-color: rgba(0, 0, 0, 0.5);
       visibility: visible;
     }
+
+    @supports (pointer-events: auto) {
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition-property: opacity;
+      visibility: visible;
+      pointer-events: none;
+      &.is-visible {
+        pointer-events: auto;
+        opacity: 1;
+      }
+    }
   }
 
 
