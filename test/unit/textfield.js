@@ -59,6 +59,7 @@ describe('MaterialTextfield', function () {
       'checkDisabled',
       'checkValidity',
       'checkDirty',
+      'checkFocus',
       'disable',
       'enable',
       'change'
