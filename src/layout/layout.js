@@ -162,8 +162,7 @@
    * @private
    */
   MaterialLayout.prototype.drawerToggleHandler_ = function() {
-    this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
-    this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
+    this.toggleDrawer();
   };
 
   /**
@@ -208,6 +207,18 @@
       panels[j].classList.remove(this.CssClasses_.IS_ACTIVE);
     }
   };
+
+  /**
+  * Toggle drawer state
+  *
+  * @public
+  */
+  MaterialLayout.prototype.toggleDrawer = function() {
+    this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
+    this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
+  };
+  MaterialLayout.prototype['toggleDrawer'] =
+      MaterialLayout.prototype.toggleDrawer;
 
   /**
    * Initialize element.
