@@ -64,3 +64,7 @@ The MDL CSS classes apply various predefined visual enhancements to the tooltip.
 |-----------|--------|---------|
 | `mdl-tooltip` | Defines a container as an MDL tooltip | Required on tooltip container element |
 | `mdl-tooltip--large` | Applies large-font effect | Optional; goes on tooltip container element |
+| `mdl-tooltip--left` | Positions the tooltip to the left of the target | Optional; goes on tooltip container element |
+| `mdl-tooltip--right` | Positions the tooltip to the right of the target | Optional; goes on tooltip container element |
+| `mdl-tooltip--top` | Positions the tooltip to the top of the target | Optional; goes on tooltip container element |
+| `mdl-tooltip--bottom` | Positions the tooltip to the bottom of the target | Optional; goes on tooltip container element |
