@@ -117,6 +117,7 @@
     this.checkDisabled();
     this.checkValidity();
     this.checkDirty();
+    this.checkFocus();
   };
 
   // Public methods.
@@ -167,6 +168,21 @@
   };
   MaterialTextfield.prototype['checkDirty'] =
       MaterialTextfield.prototype.checkDirty;
+
+  /**
+  * Check the focus state and update field accordingly.
+  *
+  * @public
+  */
+  MaterialTextfield.prototype.checkFocus = function() {
+    if (Boolean(this.element_.querySelector(':focus'))) {
+      this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+    } else {
+      this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+    }
+  };
+  MaterialTextfield.prototype['checkFocus'] =
+      MaterialTextfield.prototype.checkFocus;
 
   /**
    * Disable text field.
