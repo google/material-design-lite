@@ -95,6 +95,22 @@
       bottom: 8px;
       left: 24px;
     }
+    
+    .mdl-data-table--sorted-ascending, .mdl-data-table--sorted-descending {
+      color: $data-table-header-sorted-color;
+      &:before {
+        font-size: $data-table-header-sort-icon-size;
+        @include typo-icon;
+      }
+    }
+    
+    .mdl-data-table--sorted-ascending:before {
+      content: "arrow_upward";
+    }
+    
+    .mdl-data-table--sorted-descending:before {
+      content: "arrow_downward";
+    }
   }
 }
 
