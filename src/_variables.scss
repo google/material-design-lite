@@ -503,6 +503,7 @@ $badge-background: unquote("rgb(#{$color-accent})") !default;
 $badge-background-inverse: unquote("rgba(#{$color-accent-contrast},0.2)") !default;
 $badge-size : 22px !default;
 $badge-padding: 2px !default;
+$badge-overlap: 12px !default;
 
 /* SHADOWS */
 

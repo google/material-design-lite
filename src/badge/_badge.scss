@@ -63,7 +63,10 @@
       box-shadow: 0 0 1px gray;
     }
   }
-  &.mdl-badge--overlap:after {
-    right: -10px;
+  &.mdl-badge--overlap {
+    margin-right: ($badge-size - $badge-overlap);
+    &:after {
+      right: -($badge-size - $badge-overlap);
+    }
   }
 }
