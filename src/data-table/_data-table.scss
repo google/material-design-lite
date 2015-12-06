@@ -105,11 +105,11 @@
     }
     
     .mdl-data-table--sorted-ascending:before {
-      content: "arrow_upward";
+      content: "\e5d8";
     }
     
     .mdl-data-table--sorted-descending:before {
-      content: "arrow_downward";
+      content: "\e5db";
     }
   }
 }
