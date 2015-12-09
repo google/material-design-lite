@@ -17,6 +17,8 @@
  *
  */
 
+// jscs:disable jsDoc
+
 'use strict';
 
 // Include Gulp & Tools We'll Use

@@ -10,18 +10,17 @@ build:
     - WEBDRIVER=http://chromedriver.storage.googleapis.com/2.16/chromedriver_linux64.zip
     - DISPLAY=:99
   commands:
-    - Xvfb $DISPLAY &
-    # gulp mocha:closure inexplicably throws an error w/o without -g phantomjs
-    - npm install -g phantomjs
     - npm install
     # build and unit test
     - gulp all
     - gulp mocha:closure
     # additional browser tests
     # do this after the build and unit tests to fail fast
+    - Xvfb $DISPLAY &
     - curl -sSLo chrome.deb $CHROME && dpkg -i chrome.deb
     - curl -sSLo driver.zip $WEBDRIVER && unzip -q driver.zip -d /usr/bin
-    - node test/memory/test.js
+    - npm install babel-cli
+    - ./node_modules/.bin/babel-node test/memory/test.js
 #deploy:
 #  bash:
 #    when:
