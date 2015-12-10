@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+var creator = require('./creator');
+
 describe('MaterialLayout', function () {
 
   it('should be globally available', function () {
@@ -39,30 +41,7 @@ describe('MaterialLayout', function () {
      var content1, content2;
 
      beforeEach(function() {
-       el = document.createElement('div');
-       el.innerHTML = '' +
-       '  <header class="mdl-layout__header">' +
-       '    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">' +
-       '      <a id="tab1" href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>' +
-       '      <a id="tab2" href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>' +
-       '      <a id="tab3" href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>' +
-       '    </div>' +
-       '  </header>' +
-       '  <main class="mdl-layout__content">' +
-       '    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">' +
-       '      <div class="page-content"><!-- Your content goes here --></div>' +
-       '    </section>' +
-       '    <section class="mdl-layout__tab-panel" id="scroll-tab-2">' +
-       '      <div class="page-content"><!-- Your content goes here --></div>' +
-       '    </section>' +
-       '    <section class="mdl-layout__tab-panel" id="scroll-tab-3">' +
-       '      <div class="page-content"><!-- Your content goes here --></div>' +
-       '    </section>' +
-       '  </main>';
-
-       var parent = document.createElement('div');
-       parent.appendChild(el); // MaterialLayout.init() expects a parent
-
+       el = creator.layout();
        tab1 = el.querySelector('#tab1');
        tab2 = el.querySelector('#tab2');
        content1 = el.querySelector('#scroll-tab-1');

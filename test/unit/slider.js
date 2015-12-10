@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+var creator = require('./creator');
+
 describe('MaterialSlider', function () {
 
   it('should be globally available', function () {
@@ -21,12 +23,7 @@ describe('MaterialSlider', function () {
   });
 
   it('should upgrade successfully', function () {
-    var el = document.createElement('input');
-    el.type = 'range';
-
-    var parent = document.createElement('div');
-    parent.appendChild(el);
-
+    var el = creator.slider(document);
     componentHandler.upgradeElement(el, 'MaterialSlider');
     expect($(el)).to.have.data('upgraded', ',MaterialSlider');
   });

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+var creator = require('./creator');
+
 describe('MaterialMenu', function () {
 
   it('should be globally available', function () {
@@ -21,9 +23,7 @@ describe('MaterialMenu', function () {
   });
 
   it('should upgrade successfully', function () {
-    var parent = document.createElement('div'), // parent must exist for MaterialMenu.init()
-      el = document.createElement('ul');
-    parent.appendChild(el)
+    el = creator.menu(document);
 
     componentHandler.upgradeElement(el, 'MaterialMenu');
     expect($(el)).to.have.data('upgraded', ',MaterialMenu');
@@ -34,9 +34,7 @@ describe('MaterialMenu', function () {
     var el;
 
     before(function() {
-      parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
-      el = document.createElement('ul');
-      parent.appendChild(el)
+      el = creator.menu(document);
       componentHandler.upgradeElement(el, 'MaterialMenu');
     });
 
