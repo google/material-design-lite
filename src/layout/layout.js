@@ -50,6 +50,18 @@
   };
 
   /**
+   * Keycodes, for code readability.
+   *
+   * @enum {number}
+   * @private
+   */
+  MaterialLayout.prototype.Keycodes_ = {
+    ENTER: 13,
+    ESCAPE: 27,
+    SPACE: 32
+  };
+
+  /**
    * Modes.
    *
    * @enum {number}
@@ -139,6 +151,18 @@
   };
 
   /**
+   * Handles a keyboard event on the drawer.
+   *
+   * @param {Event} evt The event that fired.
+   * @private
+   */
+  MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
+    if (evt.keyCode === this.Keycodes_.ESCAPE) {
+      this.toggleDrawer_();
+    }
+  };
+
+  /**
    * Handles changes in screen size.
    *
    * @private
@@ -154,6 +178,26 @@
         this.obfuscator_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
       }
     }
+  };
+
+  /**
+   * Handles events of of drawer button.
+   *
+   * @param {Event} evt The event that fired.
+   * @private
+   */
+  MaterialLayout.prototype.drawerToggleHandler_ = function(evt) {
+    if (evt.type === 'keydown') {
+      if (evt.keyCode === this.Keycodes_.SPACE || evt.keyCode === this.Keycodes_.ENTER) {
+        // prevent scrolling in drawer nav
+        evt.preventDefault();
+      } else {
+        // prevent other keys
+        return;
+      }
+    }
+
+    this.toggleDrawer_();
   };
 
   /**
@@ -214,8 +258,23 @@
   * @public
   */
   MaterialLayout.prototype.toggleDrawer = function() {
+    var drawerButton = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
+    var firstLink = document.querySelector('.' + this.CssClasses_.DRAWER + ' a');
     this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
     this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
+
+    // focus first link if drawer will be opened otherwise focus the drawer button
+    if (this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
+      this.drawer_.setAttribute('aria-hidden', 'false');
+      drawerButton.setAttribute('aria-expanded', 'true');
+      if (firstLink) {
+        firstLink.focus();
+      }
+    } else {
+      this.drawer_.setAttribute('aria-hidden', 'true');
+      drawerButton.setAttribute('aria-expanded', 'false');
+      drawerButton.focus();
+    }
   };
   MaterialLayout.prototype['toggleDrawer'] =
       MaterialLayout.prototype.toggleDrawer;
@@ -299,6 +358,9 @@
           this.CssClasses_.DRAWER_BTN);
         if (!drawerButton) {
           drawerButton = document.createElement('div');
+          drawerButton.setAttribute('aria-expanded', 'false');
+          drawerButton.setAttribute('role', 'button');
+          drawerButton.setAttribute('tabindex', '0');
           drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
 
           var drawerButtonIcon = document.createElement('i');
@@ -316,6 +378,9 @@
         }
 
         drawerButton.addEventListener('click',
+            this.drawerToggleHandler_.bind(this));
+
+        drawerButton.addEventListener('keydown',
             this.drawerToggleHandler_.bind(this));
 
         // Add a class if the layout has a drawer, for altering the left padding.
@@ -337,6 +402,9 @@
         obfuscator.addEventListener('click',
             this.drawerToggleHandler_.bind(this));
         this.obfuscator_ = obfuscator;
+
+        this.drawer_.addEventListener('keydown', this.keyboardEventHandler_.bind(this));
+        this.drawer_.setAttribute('aria-hidden', 'true');
       }
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
