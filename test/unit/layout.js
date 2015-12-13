@@ -97,4 +97,58 @@ describe('MaterialLayout', function () {
        }, 100);
      });
    });
+
+  describe('Drawer', function () {
+    var drawer, drawerBtn;
+    var navLink;
+
+    beforeEach(function() {
+      var el = document.createElement('div');
+      el.innerHTML = '<div class="mdl-layout__header"></div>' +
+        '<div class="mdl-layout__drawer" aria-hidden="true">' +
+        '   <nav class="mdl-navigation">' +
+        '     <a class="mdl-navigation__link" href="">Phones</a>' +
+        '     <a class="mdl-navigation__link" href="">Tablets</a>' +
+        '     <a class="mdl-navigation__link" href="">Wear</a>' +
+        '   </nav>' +
+        '</div>' +
+        '<div class="mdl-layout__content"></div>';
+
+      var parent = document.createElement('div');
+      parent.appendChild(el);
+
+      componentHandler.upgradeElement(el, 'MaterialLayout');
+
+      drawer = el.querySelector('.mdl-layout__drawer');
+      drawerBtn = el.querySelector('.mdl-layout__drawer-button');
+      navLink = el.querySelector('.mdl-layout__drawer a');
+    });
+
+    it('should have attribute aria-hidden="true"', function () {
+      expect($(drawer)).to.have.attr('aria-hidden', 'true');
+    });
+
+    it('button should have attribute aria-expanded="false"', function () {
+      expect($(drawerBtn)).to.have.attr('aria-expanded', 'false');
+    });
+
+    it('and drawer button should have correct values for attributes aria-hidden and aria-expanded', function () {
+      var ev = document.createEvent('MouseEvents');
+      ev.initEvent('click', true, true);
+      drawerBtn.dispatchEvent(ev);
+
+      expect($(drawer)).to.have.attr('aria-hidden', 'false');
+      expect($(drawerBtn)).to.have.attr('aria-expanded', 'true');
+    });
+
+    it('should be closed on hit ESCAPE', function () {
+      var ev = document.createEvent('KeyboardEvent');
+      ev.initEvent('keydown', true, true, null, false, false, false, false, 27, 0);
+      drawer.dispatchEvent(ev);
+
+      expect($(drawer)).to.not.have.class('is-visible');
+      expect($(drawer)).to.have.attr('aria-hidden', 'true');
+      expect($(drawerBtn)).to.have.attr('aria-expanded', 'false');
+    });
+  });
 });
