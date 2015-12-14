@@ -233,29 +233,6 @@
     }
   };
 
-  /**
-   * Downgrade the component
-   *
-   * @private
-   */
-  MaterialSlider.prototype.mdlDowngrade_ = function() {
-    this.element_.removeEventListener('input', this.boundInputHandler);
-    this.element_.removeEventListener('change', this.boundChangeHandler);
-    this.element_.removeEventListener('mouseup', this.boundMouseUpHandler);
-    this.element_.parentElement.removeEventListener('mousedown', this.boundContainerMouseDownHandler);
-  };
-
-  /**
-   * Public alias for the downgrade method.
-   *
-   * @public
-   */
-  MaterialSlider.prototype.mdlDowngrade =
-      MaterialSlider.prototype.mdlDowngrade_;
-
-  MaterialSlider.prototype['mdlDowngrade'] =
-      MaterialSlider.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
