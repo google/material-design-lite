@@ -18,7 +18,7 @@ module.exports = function(stamps, i, driver) {
     },
     assert: function(after, initial) {
       heapDiffPrinter(after, initial, i, 'menu');
-      stamps.push([after.jsEventListeners, initial.jsEventListeners]);
+      stamps.push([after.counts.jsEventListeners, initial.counts.jsEventListeners]);
     }
   }, driver);
 };

@@ -1,3 +1,6 @@
+# Note: if you modify this file, don't forget to update
+# checksum in .drone.sec with:
+# drone secure --repo google/material-design-lite --checksum
 clone:
   depth: 1
 cache:
@@ -10,26 +13,31 @@ build:
     - WEBDRIVER=http://chromedriver.storage.googleapis.com/2.16/chromedriver_linux64.zip
     - DISPLAY=:99
   commands:
-    - Xvfb $DISPLAY &
-    # gulp mocha:closure inexplicably throws an error w/o without -g phantomjs
-    - npm install -g phantomjs
     - npm install
     # build and unit test
     - gulp all
     - gulp mocha:closure
     # additional browser tests
     # do this after the build and unit tests to fail fast
+    - Xvfb $DISPLAY &
     - curl -sSLo chrome.deb $CHROME && dpkg -i chrome.deb
     - curl -sSLo driver.zip $WEBDRIVER && unzip -q driver.zip -d /usr/bin
     - node test/memory/test.js
-#deploy:
-#  bash:
-#    when:
-#      owner: google
-#      branch: master
-#    script:
-#      - apt-get install -y python-openssl # gcloud deps for service accounts
-#      - openssl aes-256-cbc -d -in .drone.p12.enc -out .drone.p12 -pass env:DRONE_PASS
-#      - /gcloud/bin/gcloud components update -q gsutil
-#      - /gcloud/bin/gcloud auth activate-service-account $$DRONE_ACCOUNT --key-file .drone.p12
-#      - gulp publish:staging
+publish:
+  # see http://addons.drone.io/google_cloud_storage/ for details
+  gcs:
+    when:
+      repo: google/material-design-lite
+      branch: master
+    auth_key: >
+      $$SERVICE_ACCOUNT_KEY
+    source: dist
+    target: mdl-staging
+    cache_control: public,max-age=0
+    acl:
+      - allUsers:READER
+    gzip:
+      - html
+      - css
+      - js
+      - svg
