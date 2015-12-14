@@ -262,32 +262,6 @@
     }
   };
 
-  /**
-   * Downgrade the component.
-   *
-   * @private
-   */
-  MaterialSwitch.prototype.mdlDowngrade_ = function() {
-    if (this.rippleContainerElement_) {
-      this.rippleContainerElement_.removeEventListener('mouseup', this.boundMouseUpHandler);
-    }
-    this.inputElement_.removeEventListener('change', this.boundChangeHandler);
-    this.inputElement_.removeEventListener('focus', this.boundFocusHandler);
-    this.inputElement_.removeEventListener('blur', this.boundBlurHandler);
-    this.element_.removeEventListener('mouseup', this.boundMouseUpHandler);
-  };
-
-  /**
-   * Public alias for the downgrade method.
-   *
-   * @public
-   */
-  MaterialSwitch.prototype.mdlDowngrade =
-      MaterialSwitch.prototype.mdlDowngrade_;
-
-  MaterialSwitch.prototype['mdlDowngrade'] =
-      MaterialSwitch.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({

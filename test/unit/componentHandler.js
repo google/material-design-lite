@@ -179,4 +179,12 @@ describe('componentHandler', function() {
     }
   });
 
+  it('should downgrade multiple components at once', function() {
+    var button = document.createElement('button');
+    button.className = 'mdl-button mdl-js-button mdl-js-ripple-effect';
+    componentHandler.upgradeElement(button);
+    expect(button.dataset.upgraded).to.equal(',MaterialButton,MaterialRipple');
+    componentHandler.downgradeElements(button);
+    expect(button.dataset.upgraded).to.equal('');
+  });
 });

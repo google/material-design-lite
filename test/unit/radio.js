@@ -130,13 +130,4 @@ describe('MaterialRadio', function () {
     });
 
   });
-
-  it('should downgrade successfully', function() {
-    var radio = createRadio();
-    componentHandler.upgradeElement(radio);
-    expect(radio.dataset.upgraded).to.equal(',MaterialRadio');
-    componentHandler.downgradeElements(radio);
-    expect(radio.dataset.upgraded).to.equal('');
-  });
-
 });
