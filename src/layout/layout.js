@@ -158,7 +158,7 @@
    */
   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
     if (evt.keyCode === this.Keycodes_.ESCAPE) {
-      this.toggleDrawer_();
+      this.toggleDrawer();
     }
   };
 
@@ -187,7 +187,7 @@
    * @private
    */
   MaterialLayout.prototype.drawerToggleHandler_ = function(evt) {
-    if (evt.type === 'keydown') {
+    if (evt && (evt.type === 'keydown')) {
       if (evt.keyCode === this.Keycodes_.SPACE || evt.keyCode === this.Keycodes_.ENTER) {
         // prevent scrolling in drawer nav
         evt.preventDefault();
@@ -197,15 +197,6 @@
       }
     }
 
-    this.toggleDrawer_();
-  };
-
-  /**
-   * Handles toggling of the drawer.
-   *
-   * @private
-   */
-  MaterialLayout.prototype.drawerToggleHandler_ = function() {
     this.toggleDrawer();
   };
 
