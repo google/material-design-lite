@@ -186,6 +186,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-data-table` | Defines table as an MDL component | Required on table element|
 | `mdl-js-data-table` | Assigns basic MDL behavior to table | Required on table element|
 | `mdl-data-table--selectable` | Applies all/individual selectable behavior (checkboxes) | Optional; goes on table element |
+| `mdl-data-table__header--sorted-ascending` | Applies visual styling to indicate the column is sorted in ascending order | Optional; goes on table header (`th`) |
+| `mdl-data-table__header--sorted-ascending` | Applies visual styling to indicate the column is sorted in descending order | Optional; goes on table header (`th`) |
 | `mdl-data-table__cell--non-numeric` | Applies text formatting to data cell | Optional; goes on both table header and table data cells |
 | (none) | Applies numeric formatting to header or data cell (default) |  |
-
