@@ -85,7 +85,7 @@
    * @private
    */
   MaterialTextfield.prototype.onFocus_ = function(event) {
-    this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+    this.checkFocus();
   };
 
   /**
@@ -136,6 +136,19 @@
   };
   MaterialTextfield.prototype['checkDisabled'] =
       MaterialTextfield.prototype.checkDisabled;
+
+  /**
+  * Check the focus state and update field accordingly.
+  *
+  * @public
+  */
+  MaterialTextfield.prototype.checkFocus = function() {
+    if (document.activeElement === this.input_) {
+      this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+    }
+  };
+  MaterialTextfield.prototype['checkFocus'] =
+    MaterialTextfield.prototype.checkFocus;
 
   /**
    * Check the validity state and update field accordingly.
@@ -259,6 +272,10 @@
         this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
         if (invalid) {
           this.element_.classList.add(this.CssClasses_.IS_INVALID);
+        }
+        if (this.input_.hasAttribute('autofocus')) {
+          this.element_.focus();
+          this.checkFocus();
         }
       }
     }
