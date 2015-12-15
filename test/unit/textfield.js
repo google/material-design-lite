@@ -75,13 +75,4 @@ describe('MaterialTextfield', function () {
     componentHandler.upgradeElement(el);
     expect(el.classList.contains('is-invalid')).to.equal(true);
   });
-
-  it('should focus with an autofocus attribute', function () {
-    var el = createSingleLineTextfield();
-    el.querySelector('input').setAttribute('autofocus', '');
-    document.body.appendChild(el);
-    componentHandler.upgradeElement(el);
-    expect(el.classList.contains('is-focused')).to.equal(true);
-    document.body.removeChild(el);
-  });
 });
