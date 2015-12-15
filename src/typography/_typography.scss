@@ -297,16 +297,5 @@
 }
 
 .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  word-wrap: normal;
-  font-feature-settings: 'liga';
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
+  @include typo-icon;
 }

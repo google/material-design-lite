@@ -536,8 +536,10 @@ $grid-max-columns: $grid-desktop-columns !default;
 
 $data-table-font-size: 13px !default;
 $data-table-header-font-size: 12px !default;
+$data-table-header-sort-icon-size: 16px !default;
 
 $data-table-header-color: rgba(#000, 0.54) !default;
+$data-table-header-sorted-color: rgba(#000, 0.87) !default;
 $data-table-divider-color: rgba(#000, 0.12) !default;
 
 $data-table-hover-color: #eeeeee !default;
