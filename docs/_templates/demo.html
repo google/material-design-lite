@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="{{page.include_prefix}}components/demos.css">
     <script src="{{page.include_prefix}}material.min.js"></script>
 
+    <!-- Dialog polyfill -->
+    <!-- Used for examples to work in non-supporting browsers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.css">
+
     {% set demo_css = "../../dist/components/" + page.component + "/demo.css" %}
     <style>
       {% include demo_css ignore missing %}
