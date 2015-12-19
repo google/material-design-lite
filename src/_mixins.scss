@@ -287,3 +287,15 @@
   transition-duration: $duration;
   transition-timing-function: $animation-curve-default;
 }
+
+/* Dialog */
+
+@mixin dialog-width($units:5) {
+  @if(type_of($units) != 'number') {
+    @error "The unit given to dialog-width should be a number.";
+  }
+  // 56dp is the base unit width for Dialogs.
+  // With 5 units being the number of units for a mobile device.
+  // https://goo.gl/sK2O5o
+  width: $units * 56px;
+}
