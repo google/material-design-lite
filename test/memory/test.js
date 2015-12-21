@@ -25,7 +25,7 @@ var menuStamps = [];
 // 'MaterialRadio',
  'MaterialRipple',
 // 'MaterialSlider',
- 'MaterialSnackbar',
+// 'MaterialSnackbar',
 // 'MaterialSwitch',
  'MaterialTabs',
 // 'MaterialTextfield',
