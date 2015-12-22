@@ -13,7 +13,7 @@ build:
     - WEBDRIVER=http://chromedriver.storage.googleapis.com/2.16/chromedriver_linux64.zip
     - DISPLAY=:99
   commands:
-    - npm install
+    - npm update
     # build and unit test
     - gulp all
     - gulp mocha:closure
