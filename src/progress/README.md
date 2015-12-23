@@ -27,7 +27,7 @@ A static (non-animated) progress indicator.
 An active (animated) progress indicator.
 ```html
 <div id="progactive" style="width:200px" class="mdl-js-progress
- mdl-progress__indeterminate"></div>
+ mdl-progress--indeterminate"></div>
 ```
 
 ## Configuration options
@@ -37,4 +37,6 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
 | `mdl-js-progress` | Assigns basic MDL behavior to progress indicator | Required |
-| `mdl-progress__indeterminate` | Applies animation effect | Optional |
+| `mdl-progress--indeterminate` | Applies animation effect | Optional |
+
+> Note: `mdl-progress__intermediate` does exist within the codebase. It is deprecated since the name is not in BEM alignment. It will be removed in 2.0.
