@@ -85,7 +85,7 @@
    * @private
    */
   MaterialTextfield.prototype.onFocus_ = function(event) {
-    this.checkFocus();
+    this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
