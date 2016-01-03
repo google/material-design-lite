@@ -43,8 +43,7 @@
   MaterialLayout.prototype.Constant_ = {
     MAX_WIDTH: '(max-width: 1024px)',
     TAB_SCROLL_PIXELS: 100,
-
-    MENU_ICON: 'menu',
+    MENU_ICON: '&#xE5D2;',
     CHEVRON_LEFT: 'chevron_left',
     CHEVRON_RIGHT: 'chevron_right'
   };
@@ -292,7 +291,7 @@
 
           var drawerButtonIcon = document.createElement('i');
           drawerButtonIcon.classList.add(this.CssClasses_.ICON);
-          drawerButtonIcon.textContent = this.Constant_.MENU_ICON;
+          drawerButtonIcon.innerHTML = this.Constant_.MENU_ICON;
           drawerButton.appendChild(drawerButtonIcon);
         }
 
