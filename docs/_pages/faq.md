@@ -15,7 +15,7 @@ include_prefix: ../
         <li><a href="#progressive-enhancement">Does MDL support progressive enhancement?</a></li>
         <li><a href="#browser-support">Which browsers does MDL support?</a></li>
         <li><a href="#polymer">Does MDL play nicely with Polymer?</a></li>
-        <li><a href="#bootstrap">Is MDL comparable to Twitter Bootstrap?</a></li>
+        <li><a href="#bootstrap">Is MDL comparable to Bootstrap?</a></li>
         <li><a href="#existing-implementations">How does it compare to existing Material CSS implementations?</a></li>
         <li><a href="#options-available">Should I use the minified, CDN or Sass versions of MDL?</a></li>
         <li><a href="#official-cdn">What service does the official CDN use?</a></li>
@@ -105,7 +105,7 @@ The <a href="https://elements.polymer-project.org/browse?package=paper-elements"
 
 That said, MDL can be used alongside the Polymer element counterparts. Polymer uses the power of Web Components to encapsulate the designs used for those components. MDL does not affect the styling within custom components.
 
-<h2 id="bootstrap">Is MDL comparable to Twitter Bootstrap?</h2>
+<h2 id="bootstrap">Is MDL comparable to Bootstrap?</h2>
 
 *If we're using it instead of Bootstrap, can we expect the same level of component styling?*
 
