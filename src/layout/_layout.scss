@@ -28,9 +28,8 @@
 .mdl-navigation__link {
   color: $layout-text-color;
   text-decoration: none;
-  font-weight: 500;
-  font-size: $layout-nav-link-font-size;
   margin: 0;
+  @include typo-body-1(true);
 
   // Align icons inside link with text
   & .material-icons {
