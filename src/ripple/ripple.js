@@ -101,9 +101,14 @@
       if (event.clientX === 0 && event.clientY === 0) {
         x = Math.round(bound.width / 2);
         y = Math.round(bound.height / 2);
+      } else if (event.touches) {
+        var clientX = event.touches[0].clientX;
+        var clientY = event.touches[0].clientY;
+        x = Math.round(clientX - bound.left);
+        y = Math.round(clientY - bound.top);
       } else {
-        var clientX = event.clientX ? event.clientX : event.touches[0].clientX;
-        var clientY = event.clientY ? event.clientY : event.touches[0].clientY;
+        var clientX = event.clientX ? event.clientX : 0;
+        var clientY = event.clientY ? event.clientY : 0;
         x = Math.round(clientX - bound.left);
         y = Math.round(clientY - bound.top);
       }
