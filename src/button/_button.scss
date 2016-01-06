@@ -63,6 +63,10 @@
     &:focus:not(:active) {
       background-color: $button-focus-color-alt;
     }
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
   }
 }
 
@@ -247,6 +251,9 @@ input.mdl-button[type="submit"] {
     color: $button-secondary-color-alt;
     background-color: $button-primary-color-alt;
   }
+  &:hover {
+    background-color: $button-hover-color-alt;
+  }
 }
 
 .mdl-button--accent.mdl-button--accent {
@@ -257,6 +264,9 @@ input.mdl-button[type="submit"] {
   &.mdl-button--raised, &.mdl-button--fab {
     color: $button-fab-text-color-alt;
     background-color: $button-fab-color-alt;
+  }
+  &:hover {
+    background-color: $button-fab-hover-color-alt;
   }
 }
 
