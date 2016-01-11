@@ -1,0 +1,32 @@
+<button id="show-modal-example" type="button" class="mdl-button">Show Modal</button>
+<div class="mdl-dialog mdl-js-dialog" id="modal-example">
+  <div class="mdl-dialog__content">
+    <p>
+      This is an example of the MDL Dialog being used as a modal.
+      It is using the full width action design intended for use with buttons
+      that do not fit within the specified <a href="https://www.google.com/design/spec/components/dialogs.html#dialogs-specs">length metrics</a>.
+    </p>
+  </div>
+  <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+    <button type="button" class="mdl-button">Close</button>
+    <button type="button" class="mdl-button" disabled>Inactive action</button>
+  </div>
+</div>
+
+
+<script>
+(function() {
+  'use strict';
+  var dialog = document.querySelector('#modal-example');
+  var closeButton = dialog.querySelector('button');
+  var closeClickHandler = function(event) {
+    dialog.MaterialDialog.close();
+  };
+  var showButton = document.querySelector('#show-modal-example');
+  var showClickHandler = function(event) {
+    dialog.MaterialDialog.showModal();
+  };
+  showButton.addEventListener('click', showClickHandler);
+  closeButton.addEventListener('click', closeClickHandler);
+}());
+</script>

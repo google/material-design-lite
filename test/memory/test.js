@@ -6,10 +6,12 @@ var webdriver = drool.webdriver;
 var controlFlow = webdriver.promise.controlFlow();
 var measureSnackbar = require('./snackbar');
 var measureMenu = require('./menu');
+var measureDialogModal = require('./dialog');
 var measureUpgradeDowngrade = require('./upgrade-downgrade');
 var driver = drool.start({chromeOptions: 'no-sandbox'});
 var snackbarStamps = [];
 var menuStamps = [];
+var dialogModalStamps = [];
 
 // commented out tests require special DOM to bootstrap
 ['MaterialButton',
@@ -41,6 +43,10 @@ for (var i = 0; i < 3; ++i) {
   measureMenu(menuStamps, i, driver);
 }
 
+for (var i = 0; i < 3; ++i) {
+  measureDialogModal(dialogModalStamps, i, driver);
+}
+
 controlFlow.execute(function() {
   snackbarStamps.some(function(stamp) {
     assert.equal(true, stamp[0] <= stamp[1]);
@@ -51,6 +57,11 @@ controlFlow.execute(function() {
     assert.equal(true, stamp[0] <= stamp[1]);
     return true;
   });
+
+  dialogModalStamps.some(function(stamp) {
+    assert.equal(true, stamp[0] <= stamp[1]);
+    return true;
+  })
 });
 
 driver.quit();

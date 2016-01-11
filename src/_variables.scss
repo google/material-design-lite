@@ -41,6 +41,7 @@
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -564,6 +565,11 @@ $data-table-cell-top: $data-table-card-padding / 2;
 $snackbar-background-color: #323232 !default;
 $snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
 $snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
+
+/* DIALOG */
+
+$dialog-backdrop-color: rgba(0, 0, 0, .55);
+$dialog-content-color: $card-supporting-text-text-color;
 
 /* TOOLTIP */
 $tooltip-font-size: 10px !default;
