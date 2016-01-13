@@ -160,7 +160,7 @@
       this.actionText_ = undefined;
       this.active = false;
       this.checkQueue_();
-    }.bind(this), this.Constant_.ANIMATION_LENGTH);
+    }.bind(this), /** @type {number} */ (this.Constant_.ANIMATION_LENGTH));
   };
 
   /**
