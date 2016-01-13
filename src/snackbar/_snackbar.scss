@@ -25,13 +25,11 @@
   cursor: default;
   background-color: $snackbar-background-color;
   z-index: 10000;
-  max-height: 0;
-  border-radius: 2px;
   display: flex;
   font-family: $preferred_font;
   will-change: transform;
-  transform: translate3d(0, -50px, 0) rotateZ(0deg);
-  opacity: 0;
+  transform: translate(0, 80px);
+  transition: transform 0.25s $animation-curve-fast-out-linear-in;
   pointer-events: none;
   @media(max-width: $snackbar-tablet-breakpoint - 1) {
     width: 100%;
@@ -42,12 +40,12 @@
   @media(min-width: $snackbar-tablet-breakpoint) {
     min-width: 288px;
     max-width: 568px;
+    border-radius: 2px;
   }
   &--active {
-    max-height: 48px;
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
+    transform: translate(0, 0);
     pointer-events: auto;
+    transition: transform 0.25s $animation-curve-linear-out-slow-in;
   }
 
   &__text {
