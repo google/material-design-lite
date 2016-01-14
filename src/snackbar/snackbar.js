@@ -44,6 +44,17 @@
   window['MaterialSnackbar'] = MaterialSnackbar;
 
   /**
+   * Store constants in one place so they can be updated easily.
+   *
+   * @enum {string | number}
+   * @private
+   */
+  MaterialSnackbar.prototype.Constant_ = {
+    // The duration of the snackbar show/hide animation, in ms.
+    ANIMATION_LENGTH: 250
+  };
+
+  /**
    * Store strings for class names defined by this component that are used in
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
@@ -104,7 +115,7 @@
       if (data['timeout']) {
         this.timeout_ = data['timeout'];
       } else {
-        this.timeout_ = 8000;
+        this.timeout_ = 2750;
       }
       if (data['actionHandler']) {
         this.actionHandler_ = data['actionHandler'];
@@ -136,18 +147,20 @@
    */
   MaterialSnackbar.prototype.cleanup_ = function() {
     this.element_.classList.remove(this.cssClasses_.ACTIVE);
-    this.element_.setAttribute('aria-hidden', 'true');
-    this.textElement_.textContent = '';
-    if (Boolean(this.actionElement_.getAttribute('aria-hidden'))) {
-      this.setActionHidden_(true);
-      this.actionElement_.textContent = '';
-      this.actionElement_.removeEventListener('click', this.actionHandler_);
-    }
-    this.actionHandler_ = undefined;
-    this.message_ = undefined;
-    this.actionText_ = undefined;
-    this.active = false;
-    this.checkQueue_();
+    setTimeout(function() {
+      this.element_.setAttribute('aria-hidden', 'true');
+      this.textElement_.textContent = '';
+      if (Boolean(this.actionElement_.getAttribute('aria-hidden'))) {
+        this.setActionHidden_(true);
+        this.actionElement_.textContent = '';
+        this.actionElement_.removeEventListener('click', this.actionHandler_);
+      }
+      this.actionHandler_ = undefined;
+      this.message_ = undefined;
+      this.actionText_ = undefined;
+      this.active = false;
+      this.checkQueue_();
+    }.bind(this), /** @type {number} */ (this.Constant_.ANIMATION_LENGTH));
   };
 
   /**
