@@ -30,7 +30,7 @@
   display: inline-block;
   @include typo-button();
   overflow: hidden;
-  will-change: box-shadow, transform;
+  will-change: box-shadow;
   transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
