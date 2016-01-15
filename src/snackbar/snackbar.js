@@ -150,7 +150,7 @@
     setTimeout(function() {
       this.element_.setAttribute('aria-hidden', 'true');
       this.textElement_.textContent = '';
-      if (Boolean(this.actionElement_.getAttribute('aria-hidden'))) {
+      if (!Boolean(this.actionElement_.getAttribute('aria-hidden'))) {
         this.setActionHidden_(true);
         this.actionElement_.textContent = '';
         this.actionElement_.removeEventListener('click', this.actionHandler_);
