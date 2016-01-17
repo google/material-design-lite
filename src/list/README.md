@@ -1,5 +1,5 @@
 ## Introduction
-Lists present multiple line items vertically as a single continuous element. Refer the [Material Design 
+Lists present multiple line items vertically as a single continuous element. Refer the [Material Design
 Spec](https://www.google.com/design/spec/components/lists.html) to know more about the content options.
 
 ### To include the MDL **list** component:
@@ -20,7 +20,7 @@ Spec](https://www.google.com/design/spec/components/lists.html) to know more abo
 </ul>
 ```
 
-&nbsp;3. Add your content as the children of the `<li>`, with the appropriate content modification class for example .
+&nbsp;3. Add your content as the children of the `<li>`, with the appropriate content type modification class for example .
 ```html
 <ul class='mdl-list'>
   <li class="mdl-list__item">
