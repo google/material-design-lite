@@ -19,7 +19,11 @@ Lists present multiple line items vertically as a single continuous element. Ref
 </ul>
 ```
 
+<<<<<<< HEAD
 &nbsp;3. Add your content as the children of the `<li>`, with the appropriate content type modification class for example.
+=======
+&nbsp;3. Add your content as the children of the `<li>`, with the appropriate content modification class for example .
+>>>>>>> 8e46af1ec777dc4a51d5039ac9c007c9886f44aa
 ```html
 <ul class='mdl-list'>
   <li class="mdl-list__item">
