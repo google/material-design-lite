@@ -339,7 +339,7 @@
   };
 
   /**
-   * cleanup function to remove animation listeners.
+   * Cleanup function to remove animation listeners.
    *
    * @param {Event} evt
    * @private
