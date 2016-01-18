@@ -54,12 +54,26 @@
     padding: 0 $data-table-column-padding 0 $data-table-column-padding;
     text-align: right;
 
+    [dir="rtl"] & {
+      text-align: left;
+    }
+
     &:first-of-type {
       padding-left: 24px;
+
+      [dir="rtl"] & {
+        padding-left: $data-table-column-padding;
+        padding-right: 24px;
+      }
     }
 
     &:last-of-type {
       padding-right: 24px;
+
+      [dir="rtl"] & {
+        padding-right: $data-table-column-padding;
+        padding-left: 24px;
+      }
     }
   }
 
@@ -76,6 +90,11 @@
       vertical-align: top;
       position: absolute;
       left: 24px;
+
+      [dir="rtl"] & {
+        left: auto;
+        right: 24px;
+      }
     }
   }
 
@@ -94,6 +113,11 @@
       position: absolute;
       bottom: 8px;
       left: 24px;
+
+      [dir="rtl"] & {
+        left: auto;
+        right: 24px;
+      }
     }
     
     .mdl-data-table__header--sorted-ascending, .mdl-data-table__header--sorted-descending {
@@ -120,4 +144,8 @@
 
 .mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
   text-align: left;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
 }
