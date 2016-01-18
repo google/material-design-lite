@@ -268,32 +268,6 @@
     }
   };
 
-  /**
-   * Downgrade the component
-   *
-   * @private
-   */
-  MaterialTextfield.prototype.mdlDowngrade_ = function() {
-    this.input_.removeEventListener('input', this.boundUpdateClassesHandler);
-    this.input_.removeEventListener('focus', this.boundFocusHandler);
-    this.input_.removeEventListener('blur', this.boundBlurHandler);
-    this.input_.removeEventListener('reset', this.boundResetHandler);
-    if (this.boundKeyDownHandler) {
-      this.input_.removeEventListener('keydown', this.boundKeyDownHandler);
-    }
-  };
-
-  /**
-   * Public alias for the downgrade method.
-   *
-   * @public
-   */
-  MaterialTextfield.prototype.mdlDowngrade =
-      MaterialTextfield.prototype.mdlDowngrade_;
-
-  MaterialTextfield.prototype['mdlDowngrade'] =
-      MaterialTextfield.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
