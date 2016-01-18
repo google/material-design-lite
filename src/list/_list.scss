@@ -75,7 +75,7 @@
       vertical-align: text-bottom;
     }
 
-    & .mdl-list__item-sub-title, {
+    & .mdl-list__item-sub-title {
       @include typo-caption();
       display: block;
       padding : 0 0 0 56px;
