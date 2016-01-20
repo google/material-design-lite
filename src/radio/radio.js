@@ -268,34 +268,6 @@
     }
   };
 
-  /**
-   * Downgrade the element.
-   *
-   * @private
-   */
-  MaterialRadio.prototype.mdlDowngrade_ = function() {
-    var rippleContainer = this.element_.querySelector('.' +
-      this.CssClasses_.RIPPLE_CONTAINER);
-    this.btnElement_.removeEventListener('change', this.boundChangeHandler_);
-    this.btnElement_.removeEventListener('focus', this.boundFocusHandler_);
-    this.btnElement_.removeEventListener('blur', this.boundBlurHandler_);
-    this.element_.removeEventListener('mouseup', this.boundMouseUpHandler_);
-    if (rippleContainer) {
-      rippleContainer.removeEventListener('mouseup', this.boundMouseUpHandler_);
-      this.element_.removeChild(rippleContainer);
-    }
-  };
-
-  /**
-   * Public alias for the downgrade method.
-   *
-   * @public
-   */
-  MaterialRadio.prototype.mdlDowngrade = MaterialRadio.prototype.mdlDowngrade_;
-
-  MaterialRadio.prototype['mdlDowngrade'] =
-      MaterialRadio.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({

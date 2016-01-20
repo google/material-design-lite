@@ -112,28 +112,6 @@
     }
   };
 
-  /**
-   * Downgrade the component
-   *
-   * @private
-   */
-  MaterialProgress.prototype.mdlDowngrade_ = function() {
-    while (this.element_.firstChild) {
-      this.element_.removeChild(this.element_.firstChild);
-    }
-  };
-
-  /**
-   * Public alias for the downgrade method.
-   *
-   * @public
-   */
-  MaterialProgress.prototype.mdlDowngrade =
-      MaterialProgress.prototype.mdlDowngrade_;
-
-  MaterialProgress.prototype['mdlDowngrade'] =
-      MaterialProgress.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({

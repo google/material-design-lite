@@ -15,6 +15,7 @@
  */
 
 @import "../variables";
+@import "../mixins";
 
 .mdl-snackbar {
   position: fixed;
@@ -24,49 +25,57 @@
   cursor: default;
   background-color: $snackbar-background-color;
   z-index: 10000;
-  max-height: 0;
-  border-radius: 2px;
   display: flex;
   font-family: $preferred_font;
   will-change: transform;
-  transform: translate3d(0,-50px,0) rotateZ(0deg);
+  transform: translate(0, 80px);
+  transition: transform 0.25s $animation-curve-fast-out-linear-in;
+  pointer-events: none;
   @media(max-width: $snackbar-tablet-breakpoint - 1) {
     width: 100%;
-    left:0;
+    left: 0;
     min-height: 48px;
     max-height: 80px;
   }
   @media(min-width: $snackbar-tablet-breakpoint) {
     min-width: 288px;
     max-width: 568px;
+    border-radius: 2px;
   }
-  &.is-active {
-    max-height: 48px;
-    transform: translate3d(0, 0, 0);
+  &--active {
+    transform: translate(0, 0);
+    pointer-events: auto;
+    transition: transform 0.25s $animation-curve-linear-out-slow-in;
   }
-}
 
-.mdl-snackbar__text {
-  padding: 14px 24px;
-  vertical-align: middle;
-  color: white;
-}
+  &__text {
+    padding: 14px 24px;
+    vertical-align: middle;
+    color: white;
+  }
 
-.mdl-snackbar__action {
-  background: transparent;
-  border: none;
-  color: $snackbar-action-color;
-  text-transform: uppercase;
-  padding: 14px 24px;
-  @include typo-button();
-  overflow: hidden;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
+  &__action {
+    background: transparent;
+    border: none;
+    color: $snackbar-action-color;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    @include typo-button();
+    overflow: hidden;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
 
-  &::-moz-focus-inner {
-    border: 0;
+    &::-moz-focus-inner {
+      border: 0;
+    }
+    &:not([aria-hidden]) {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }

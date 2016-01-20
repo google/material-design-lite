@@ -6,6 +6,8 @@ Menus are an established but non-standardized feature in user interfaces, and al
 
 ### To include an MDL **menu** component:
 
+> **Note:** The menu requires a non-static positioned parent element. Positioning options may not work properly if the menu is inside of a statically positioned node.
+
 &nbsp;1. Code a `<button>` element; this is the clickable toggle that will show and hide the menu options. Include an `id` attribute whose value will match the `for` (or `data-mdl-for`) attribute of the unordered list coded in the next step. Inside the button, code a `<i>` or `<span>` element to contain an icon of your choice.
 ```html
 <button id="menu1">

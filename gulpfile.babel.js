@@ -39,7 +39,7 @@ import pkg from './package.json';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-const hostedLibsUrlPrefix = 'https://storage.googleapis.com/code.getmdl.io';
+const hostedLibsUrlPrefix = 'https://code.getmdl.io';
 const templateArchivePrefix = 'mdl-template-';
 const bucketProd = 'gs://www.getmdl.io';
 const bucketStaging = 'gs://mdl-staging';

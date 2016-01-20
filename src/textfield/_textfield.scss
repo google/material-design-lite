@@ -20,11 +20,8 @@
 // The container for the whole component.
 .mdl-textfield {
   position: relative;
-
   font-size: $input-text-font-size;
-
   display: inline-block;
-
   box-sizing: border-box;
   width: 300px;
   max-width: 100%;
@@ -61,12 +58,23 @@
   border-bottom: 1px solid $input-text-bottom-border-color;
   display: block;
   font-size: $input-text-font-size;
+  font-family: $performance_font;
   margin: 0;
   padding: $input-text-padding 0;
   width: $input-text-width;
   background: none;
   text-align: left;
   color: inherit;
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   .mdl-textfield.is-focused & {
     outline: none;

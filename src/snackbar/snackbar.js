@@ -26,10 +26,33 @@
    */
   var MaterialSnackbar = function MaterialSnackbar(element) {
     this.element_ = element;
+    this.textElement_ = this.element_.querySelector('.' + this.cssClasses_.MESSAGE);
+    this.actionElement_ = this.element_.querySelector('.' + this.cssClasses_.ACTION);
+    if (!this.textElement_) {
+      throw new Error('There must be a message element for a snackbar.');
+    }
+    if (!this.actionElement_) {
+      throw new Error('There must be an action element for a snackbar.');
+    }
     this.active = false;
-    this.init();
+    this.actionHandler_ = undefined;
+    this.message_ = undefined;
+    this.actionText_ = undefined;
+    this.queuedNotifications_ = [];
+    this.setActionHidden_(true);
   };
   window['MaterialSnackbar'] = MaterialSnackbar;
+
+  /**
+   * Store constants in one place so they can be updated easily.
+   *
+   * @enum {string | number}
+   * @private
+   */
+  MaterialSnackbar.prototype.Constant_ = {
+    // The duration of the snackbar show/hide animation, in ms.
+    ANIMATION_LENGTH: 250
+  };
 
   /**
    * Store strings for class names defined by this component that are used in
@@ -43,54 +66,32 @@
     SNACKBAR: 'mdl-snackbar',
     MESSAGE: 'mdl-snackbar__text',
     ACTION: 'mdl-snackbar__action',
-    ACTIVE: 'is-active'
+    ACTIVE: 'mdl-snackbar--active'
   };
 
   /**
-   * Create the internal snackbar markup.
+   * Display the snackbar.
    *
    * @private
    */
-  MaterialSnackbar.prototype.createSnackbar_ = function() {
-    this.snackbarElement_ = document.createElement('div');
-    this.textElement_ = document.createElement('div');
-    this.snackbarElement_.classList.add(this.cssClasses_.SNACKBAR);
-    this.textElement_.classList.add(this.cssClasses_.MESSAGE);
-    this.snackbarElement_.appendChild(this.textElement_);
-    this.snackbarElement_.setAttribute('aria-hidden', true);
+  MaterialSnackbar.prototype.displaySnackbar_ = function() {
+    this.element_.setAttribute('aria-hidden', 'true');
 
     if (this.actionHandler_) {
-      this.actionElement_ = document.createElement('button');
-      this.actionElement_.type = 'button';
-      this.actionElement_.classList.add(this.cssClasses_.ACTION);
       this.actionElement_.textContent = this.actionText_;
-      this.snackbarElement_.appendChild(this.actionElement_);
       this.actionElement_.addEventListener('click', this.actionHandler_);
+      this.setActionHidden_(false);
     }
 
-    this.element_.appendChild(this.snackbarElement_);
     this.textElement_.textContent = this.message_;
-    this.snackbarElement_.classList.add(this.cssClasses_.ACTIVE);
-    this.snackbarElement_.setAttribute('aria-hidden', false);
+    this.element_.classList.add(this.cssClasses_.ACTIVE);
+    this.element_.setAttribute('aria-hidden', 'false');
     setTimeout(this.cleanup_.bind(this), this.timeout_);
 
   };
 
   /**
-   * Remove the internal snackbar markup.
-   *
-   * @private
-   */
-  MaterialSnackbar.prototype.removeSnackbar_ = function() {
-    if (this.actionElement_ && this.actionElement_.parentNode) {
-      this.actionElement_.parentNode.removeChild(this.actionElement_);
-    }
-    this.textElement_.parentNode.removeChild(this.textElement_);
-    this.snackbarElement_.parentNode.removeChild(this.snackbarElement_);
-  };
-
-  /**
-   * Create the internal snackbar markup.
+   * Show the snackbar.
    *
    * @param {Object} data The data for the notification.
    * @public
@@ -114,7 +115,7 @@
       if (data['timeout']) {
         this.timeout_ = data['timeout'];
       } else {
-        this.timeout_ = 8000;
+        this.timeout_ = 2750;
       }
       if (data['actionHandler']) {
         this.actionHandler_ = data['actionHandler'];
@@ -122,7 +123,7 @@
       if (data['actionText']) {
         this.actionText_ = data['actionText'];
       }
-      this.createSnackbar_();
+      this.displaySnackbar_();
     }
   };
   MaterialSnackbar.prototype['showSnackbar'] = MaterialSnackbar.prototype.showSnackbar;
@@ -145,38 +146,36 @@
    * @private
    */
   MaterialSnackbar.prototype.cleanup_ = function() {
-    this.snackbarElement_.classList.remove(this.cssClasses_.ACTIVE);
-    this.snackbarElement_.setAttribute('aria-hidden', true);
-    if (this.actionElement_) {
-      this.actionElement_.removeEventListener('click', this.actionHandler_);
-    }
-    this.setDefaults_();
-    this.active = false;
-    this.removeSnackbar_();
-    this.checkQueue_();
+    this.element_.classList.remove(this.cssClasses_.ACTIVE);
+    setTimeout(function() {
+      this.element_.setAttribute('aria-hidden', 'true');
+      this.textElement_.textContent = '';
+      if (!Boolean(this.actionElement_.getAttribute('aria-hidden'))) {
+        this.setActionHidden_(true);
+        this.actionElement_.textContent = '';
+        this.actionElement_.removeEventListener('click', this.actionHandler_);
+      }
+      this.actionHandler_ = undefined;
+      this.message_ = undefined;
+      this.actionText_ = undefined;
+      this.active = false;
+      this.checkQueue_();
+    }.bind(this), /** @type {number} */ (this.Constant_.ANIMATION_LENGTH));
   };
 
   /**
-   * Clean properties to avoid one entry affecting another.
+   * Set the action handler hidden state.
    *
+   * @param {boolean} value
    * @private
    */
-  MaterialSnackbar.prototype.setDefaults_ = function() {
-    this.actionHandler_ = undefined;
-    this.message_ = undefined;
-    this.actionText_ = undefined;
+  MaterialSnackbar.prototype.setActionHidden_ = function(value) {
+    if (value) {
+      this.actionElement_.setAttribute('aria-hidden', 'true');
+    } else {
+      this.actionElement_.removeAttribute('aria-hidden');
+    }
   };
-
-  /**
-   * Initialize the object.
-   *
-   * @public
-   */
-  MaterialSnackbar.prototype.init = function() {
-    this.setDefaults_();
-    this.queuedNotifications_ = [];
-  };
-  MaterialSnackbar.prototype['init'] = MaterialSnackbar.prototype.init;
 
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
