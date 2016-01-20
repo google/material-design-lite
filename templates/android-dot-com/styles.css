@@ -330,7 +330,8 @@ a img{
 
   .android-link .material-icons {
     position: relative;
-    top: 6px;
+    top: -1px;
+    vertical-align: middle;
   }
 
 .android-alt-link {
@@ -406,7 +407,7 @@ a img{
   .android-card-container .mdl-card__supporting-text {
     height: auto;
     color: black;
-    padding-bottom: 48px;
+    padding-bottom: 56px;
   }
 
   .android-card-container .mdl-card__actions {
@@ -416,7 +417,6 @@ a img{
 
   .android-card-container .mdl-card__actions a {
     border-top: none;
-    line-height: 32px;
     font-size: 16px;
   }
 
