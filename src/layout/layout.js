@@ -301,6 +301,16 @@
         }
       }
 
+      window.addEventListener('pageshow', function(e) {
+        if (e.persisted) { // when page is loaded from back/forward cache
+          // trigger repaint to let layout scroll in safari
+          this.element_.style.overflowY = 'hidden';
+          setTimeout(function() {
+            this.element_.style.overflowY = '';
+          }.bind(this), 0);
+        }
+      }.bind(this), false);
+
       if (this.header_) {
         this.tabBar_ = this.header_.querySelector('.' + this.CssClasses_.TAB_BAR);
       }
