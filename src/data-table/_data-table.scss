@@ -51,7 +51,7 @@
   }
 
   td, th {
-    padding: 0 $data-table-column-padding 0 $data-table-column-padding;
+    padding: 0 $data-table-column-padding 12px $data-table-column-padding;
     text-align: right;
 
     &:first-of-type {
@@ -65,7 +65,7 @@
 
   td {
     position: relative;
-    vertical-align: top;
+    vertical-align: middle;
     height: $data-table-row-height;
     border-top: $data-table-dividers;
     border-bottom: $data-table-dividers;
@@ -73,9 +73,7 @@
     box-sizing: border-box;
 
     .mdl-data-table__select {
-      vertical-align: top;
-      position: absolute;
-      left: 24px;
+      vertical-align: middle;
     }
   }
 
@@ -90,12 +88,6 @@
     padding-bottom: 8px;
     box-sizing: border-box;
 
-    .mdl-data-table__select {
-      position: absolute;
-      bottom: 8px;
-      left: 24px;
-    }
-    
     .mdl-data-table__header--sorted-ascending, .mdl-data-table__header--sorted-descending {
       color: $data-table-header-sorted-color;
       &:before {
