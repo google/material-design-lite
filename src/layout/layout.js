@@ -305,9 +305,9 @@
         if (e.persisted) { // when page is loaded from back/forward cache
           // trigger repaint to let layout scroll in safari
           this.element_.style.overflowY = 'hidden';
-          setTimeout(function() {
+          requestAnimationFrame(function() {
             this.element_.style.overflowY = '';
-          }.bind(this), 0);
+          }.bind(this));
         }
       }.bind(this), false);
 
