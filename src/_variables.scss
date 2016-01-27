@@ -40,6 +40,7 @@
  * -----Shadows
  * -----Grid
  * -----Data table
+ * -----Dialog
  * -----Snackbar
  *
  * Even though all variables have the `!default` directive, most of them
@@ -557,6 +558,9 @@ $data-table-card-title-top: 20px !default;
 $data-table-card-padding: 24px !default;
 $data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2;
+
+/* DIALOG */
+$dialog-content-color: $card-supporting-text-text-color;
 
 /* SNACKBAR */
 
