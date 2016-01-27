@@ -104,10 +104,10 @@ Three tabs, with ripple effect on tab links.
     Formed in 1960, their career spanned just over a decade, yet they are widely
     regarded as the most influential band in history.</p>
     <p>Their songs are among the best-loved music of all time. It is said that every
-    minute of every day, a radio station somewhere is playing a Beatles song.
+    minute of every day, a radio station somewhere is playing a Beatles song.</p>
   </div>
   <div class="mdl-tabs__panel" id="members-panel">
-    <p>The Beatles' members were:
+    <p>The Beatles' members were:</p>
     <ul>
       <li>John Lennon (1940-1980)</li>
       <li>Paul McCartney (1942-)</li>
