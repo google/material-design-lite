@@ -107,7 +107,7 @@ Three tabs, with ripple effect on tab links.
     minute of every day, a radio station somewhere is playing a Beatles song.
   </div>
   <div class="mdl-tabs__panel" id="members-panel">
-    <p>The Beatles' members were:
+    <p>The Beatles' members were:</p>
     <ul>
       <li>John Lennon (1940-1980)</li>
       <li>Paul McCartney (1942-)</li>
