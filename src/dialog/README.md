@@ -10,6 +10,7 @@ Only Chrome and Opera have native support at the time of writing.
 For other browsers you will need to include the [dialog polyfill](https://github.com/GoogleChrome/dialog-polyfill) or create your own.
 
 Once you have dialog support create a dialog element.
+The element when using the polyfill **must** be a child of the `body` element.
 Within that container, add a content element with the class `mdl-dialog__content`.
 Add you content, then create an action container with the class `mdl-dialog__actions`.
 Finally for the markup, add your buttons within this container for triggering dialog functions.
