@@ -14,7 +14,6 @@
         event.target.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
         var handler = function(event) {
             document.querySelector('#demo-show-snackbar').style.backgroundColor = '';
-            event.target.disabled = true;
         };
         var data = {
           message: 'Button color changed.',
