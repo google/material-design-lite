@@ -241,6 +241,19 @@ categories:
             - caption: Starting value
               file: slider-starting-value.html
               demo_file: slider-starting-value-demo.html
+  - name: snackbar
+    title: Snackbar
+    description: Transient popup notifications.
+    components:
+      - name: snackbar
+        class: mdl-snackbar
+        snippets:
+          - snippet_group:
+            - caption: Snackbar
+              file: snackbar.html
+          - snippet_group:
+            - caption: Toast
+              file: toast.html
   - name: toggles
     title: Toggles
     description: Choose between states.

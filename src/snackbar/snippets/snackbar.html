@@ -1,27 +1,27 @@
 <button id="demo-show-snackbar" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Snackbar</button>
 <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-    <div class="mdl-snackbar__text"></div>
-    <button class="mdl-snackbar__action" type="button"></button>
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
 </div>
 <script>
 (function() {
+  'use strict';
+  var snackbarContainer = document.querySelector('#demo-snackbar-example');
+  var showSnackbarButton = document.querySelector('#demo-show-snackbar');
+  var handler = function(event) {
+    showSnackbarButton.style.backgroundColor = '';
+  };
+  showSnackbarButton.addEventListener('click', function() {
     'use strict';
-    window['counter'] = 0;
-    var snackbarContainer = document.querySelector('#demo-snackbar-example'),
-      showSnackbarButton = document.querySelector('#demo-show-snackbar');
-    showSnackbarButton.addEventListener('click', function() {
-        'use strict';
-        event.target.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
-        var handler = function(event) {
-            document.querySelector('#demo-show-snackbar').style.backgroundColor = '';
-        };
-        var data = {
-          message: 'Button color changed.',
-          timeout: 2000,
-          actionHandler: handler,
-          actionText: 'Undo'
-        };
-        snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    showSnackbarButton.style.backgroundColor = '#' +
+        Math.floor(Math.random() * 0xFFFFFF).toString(16);
+    var data = {
+      message: 'Button color changed.',
+      timeout: 2000,
+      actionHandler: handler,
+      actionText: 'Undo'
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
   });
 }());
 </script>
