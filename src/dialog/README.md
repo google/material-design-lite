@@ -44,7 +44,7 @@ See this example live in [codepen](http://codepen.io/Garbee/full/EPoaMj/).
 <body>
   <button id="show-dialog" type="button" class="mdl-button">Show Dialog</button>
   <dialog class="mdl-dialog">
-    <p class="mdl-dialog__title">Allow data collection?</h4>
+    <h4 class="mdl-dialog__title">Allow data collection?</h4>
     <div class="mdl-dialog__content">
       <p>
         Allowing us to collect data will let us get you the information you want faster.
