@@ -60,10 +60,15 @@
         {%- endif %}
 
         {% for component in category.components %}
+
           {% if component.caption %}
             <span class="docs-text-styling">
               <h1 class="mdl-components__classname" id="{{ category.name }}-section/{{ component.name }}">{{ component.caption }}</h1>
             </span>
+          {%- endif %}
+          <!-- Add warning, if the component has one -->
+          {% if component.warning %}
+           <div class="mdl-components__warning"><b>Note: </b>{{ component.warning }}</div>
           {%- endif %}
           <!-- Generating snippets -->
           {% for snippet_group in component.snippets %}

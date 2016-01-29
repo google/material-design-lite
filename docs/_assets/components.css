@@ -149,6 +149,16 @@ mdl-components-dd {
   width: 46px;
 }
 
+.mdl-components__warning {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #FFF9C4;
+  padding: 16px;
+  border-radius: 2px;
+  color: #212121;
+}
+
 .mdl-components__link.is-active .mdl-components__link-image {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
       0 3px 3px -2px rgba(0, 0, 0, 0.2),
