@@ -98,6 +98,16 @@ categories:
               file: image.html
             - caption: Event
               file: event.html
+  - name: dialog
+    title: Dialogs
+    description: Modal windows for dedicated user input.
+    components:
+      - name: dialog
+        class: mdl-dialog
+        warning: Dialogs use the HTML <dialog> element, which currently has very
+          limited cross-browser support. To ensure support across all modern
+          browsers, please consider using a polyfill or creating your own.
+          There is no polyfill included with MDL.
   - name: layout
     title: Layout
     description: Building blocks for constructing a page layout.
