@@ -446,7 +446,6 @@ componentHandler['registerUpgradedCallback'] =
     componentHandler.registerUpgradedCallback;
 componentHandler['register'] = componentHandler.register;
 componentHandler['downgradeElements'] = componentHandler.downgradeElements;
-window.componentHandler = componentHandler;
 window['componentHandler'] = componentHandler;
 
 window.addEventListener('load', function() {
