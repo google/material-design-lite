@@ -224,7 +224,7 @@ componentHandler = (function() {
         }
       } else {
         throw new Error(
-            'Unable to find a registered component for the given class.');
+          'Unable to find a registered component for the given class.');
       }
 
       var ev = document.createEvent('Events');
