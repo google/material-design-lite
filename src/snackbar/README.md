@@ -46,7 +46,7 @@ All snackbars should be shown through the same element.
 
 ### Snackbar
 
-```js
+```javascript
 var notification = document.querySelector('.mdl-js-snackbar');
 var data = {
   message: 'Message Sent',
@@ -59,7 +59,7 @@ notification.MaterialSnackbar.showSnackbar(data);
 
 ### Toast
 
-```js
+```javascript
 var notification = document.querySelector('.mdl-js-snackbar');
 notification.MaterialSnackbar.showSnackbar(
   {

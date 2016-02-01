@@ -25,7 +25,7 @@ After your dialog markup is created, add the event listeners to the page to trig
 
 For example:
 
-```js
+```javascript
   var button = document.querySelector('button');
   var dialog = document.querySelector('dialog');
   button.addEventListener('click', function() {
