@@ -137,16 +137,24 @@
       return;
     }
 
+    var headerVisible =
+        !this.element_.classList.contains(this.CssClasses_.IS_SMALL_SCREEN) ||
+        this.element_.classList.contains(this.CssClasses_.FIXED_HEADER);
+
     if (this.content_.scrollTop > 0 &&
         !this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
       this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
       this.header_.classList.add(this.CssClasses_.IS_COMPACT);
-      this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      if (headerVisible) {
+        this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      }
     } else if (this.content_.scrollTop <= 0 &&
         this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
       this.header_.classList.remove(this.CssClasses_.CASTING_SHADOW);
       this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
-      this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      if (headerVisible) {
+        this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      }
     }
   };
 
