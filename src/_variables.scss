@@ -271,9 +271,10 @@ $progress-image-path: $image_path;
 
 /* ==========  List ========== */
 
-$list-container-item-border-color: unquote("rgb(#{$palette-grey-300})") !default;
-$list-container-view-background: unquote("rgb(#{$color-white})") !default;
+$list-main-text-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
 $list-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$list-icon-color: unquote("rgb(#{$palette-grey-600})") !default;
+$list-avatar-color: white !default;
 
 /* ==========  Item ========== */
 
@@ -364,10 +365,18 @@ $menu-fade-duration: 0.2s !default;
 
 /* LIST */
 
-$list-container-height: 500px !default;
-$list-container-width: 400px !default;
-$list-container-item-height: 70px !default;
-// $list__item-hover-color: unquote("rgb(#{$palette-grey-300})") !default;
+$list-border: 8px !default;
+$list-min-height: 48px !default;
+$list-min-padding: 16px !default;
+$list-bottom-padding: 20px !default;
+$list-avatar-text-left-distance: 72px !default;
+$list-icon-text-left-distance: 72px !default;
+
+$list-avatar-size: 40px !default;
+$list-icon-size: 24px !default;
+
+$list-two-line-height: 72px !default;
+$list-three-line-height: 88px !default;
 
 /* LAYOUT */
 

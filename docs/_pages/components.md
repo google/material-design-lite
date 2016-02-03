@@ -193,17 +193,17 @@ categories:
         class: mdl-list
         snippets:
           - snippet_group:
-            - caption: Action
-              file: action.html
+            - caption: Simple list
+              file: list-item.html
           - snippet_group:
-            - caption: Icon
+            - caption: Icons
               file: icon.html
           - snippet_group:
-            - caption: List control
-              file: list-control.html
+            - caption: Avatars and actions
+              file: action.html
           - snippet_group:
-            - caption: List item
-              file: list-item.html
+            - caption: Avatars and controls
+              file: list-control.html
           - snippet_group:
             - caption: Two line
               file: two-line.html
