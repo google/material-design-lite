@@ -88,19 +88,24 @@
     padding-bottom: 8px;
     box-sizing: border-box;
 
-    .mdl-data-table__header--sorted-ascending, .mdl-data-table__header--sorted-descending {
+    &.mdl-data-table__header--sorted-ascending,
+    &.mdl-data-table__header--sorted-descending {
       color: $data-table-header-sorted-color;
       &:before {
-        font-size: $data-table-header-sort-icon-size;
         @include typo-icon;
+        font-size: $data-table-header-sort-icon-size;
+        content: "\e5d8";
+        margin-right: 5px;
+        vertical-align: sub;
+      }
+      &:hover {
+        cursor: pointer;
+        &:before {
+          color: $data-table-header-sorted-icon-hover-color;
+        }
       }
     }
-    
-    .mdl-data-table__header--sorted-ascending:before {
-      content: "\e5d8";
-    }
-    
-    .mdl-data-table__header--sorted-descending:before {
+    &.mdl-data-table__header--sorted-descending:before {
       content: "\e5db";
     }
   }
