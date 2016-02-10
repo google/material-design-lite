@@ -285,7 +285,7 @@
       container.appendChild(this.element_);
 
       var focusedElement = this.element_.querySelector('[autofocus]');
-      if(focusedElement) {
+      if (focusedElement) {
         focusedElement.focus();
       }
 
