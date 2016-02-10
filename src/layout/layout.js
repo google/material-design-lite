@@ -284,6 +284,11 @@
       this.element_.parentElement.removeChild(this.element_);
       container.appendChild(this.element_);
 
+      var focusedElement = this.element_.querySelector('[autofocus]');
+      if(focusedElement) {
+        focusedElement.focus();
+      }
+
       var directChildren = this.element_.childNodes;
       var numChildren = directChildren.length;
       for (var c = 0; c < numChildren; c++) {
