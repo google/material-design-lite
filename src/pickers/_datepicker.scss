@@ -1,0 +1,129 @@
+// @TODO Remove after development
+body {
+  background-color: unquote("rgb(#{$palette-grey-200})");
+}
+
+.mdl-datepicker {
+  background-color: $datepicker-bg-color;
+  box-shadow: $datepicker-shadow;
+  display: none;
+  font-size: $datepicker-font-size;
+  // @TODO Review height during development
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  margin-bottom: 45px;
+  position: absolute;
+  right: 0;
+  width: 320px;
+
+  &.is-visible {
+    display: block;
+  }
+
+  &__header {
+    background-color: $datepicker-header-bg-color;
+    line-height: initial;
+    padding: $datepicker-header-padding;
+
+    &-year {
+      color: $datepicker-header-color;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    &-date {
+      color: $datepicker-header-active-color;
+      cursor: pointer;
+      font-size: $datepicker-header-date-font-size;
+    }
+  }
+
+  &__content {
+    background-color: $datepicker-content-bg-color;
+    padding: $datepicker-content-padding;
+    padding-bottom: 0;
+  }
+
+  &__navigation {
+    font-size: $datepicker-navigation-font-size;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  &__calendar {
+    .mdl-datepicker__date {
+      &:active,
+      &:focus,
+      &:hover,
+      &--selected {
+        background-color: $datepicker-date-hover-bg-color;
+        border-radius: 50%;
+        color: $datepicker-date-hover-color;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+
+  &__previous-month {
+    float: left;
+  }
+
+  &__current-month {
+    display: inline-block;
+    line-height: 32px;
+  }
+
+  &__next-month {
+    float: right;
+  }
+
+  &__week-days {
+    .mdl-datepicker__date {
+      color: $datepicker-week-daye-color;
+    }
+  }
+
+  &__week {
+    clear: both;
+    margin: 2px 0;
+    overflow: hidden;
+  }
+
+  &__date {
+    background-color: $datepicker-date-bg-color;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    float: left;
+    font-size: $datepicker-date-font-size;
+    height: 41px;
+    line-height: 36px;
+    outline: none;
+    text-align: center;
+    vertical-align: middle;
+    width: 41px;
+    transition: background-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+
+    &--today {
+      color: $datepicker-today-color;
+      font-weight: $datepicker-today-font-weight;
+    }
+
+    &--empty {
+      cursor: default !important;
+      background-color: transparent !important;
+
+      &:hover {
+        cursor: default !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  &__actions {
+    padding: $datepicker-actions-padding;
+    text-align: right;
+  }
+}
