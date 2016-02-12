@@ -43,7 +43,7 @@
     border-radius: 2px;
   }
   &--active {
-    transform: translate(0, 0);
+    transform: translate(-50%, 0);
     pointer-events: auto;
     transition: transform 0.25s $animation-curve-linear-out-slow-in;
   }
