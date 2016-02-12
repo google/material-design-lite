@@ -342,7 +342,7 @@ componentHandler = (function() {
    * @param {?componentHandler.Component} component
    */
   function deconstructComponentInternal(component) {
-    var componentIndex = createdComponents_.indexOf(component);
+    var componentIndex = createdComponents_.indexOf(/** @type {componentHandler.Component} */ (component));
     createdComponents_.splice(componentIndex, 1);
 
     var upgrades = component.element_.getAttribute('data-upgraded').split(',');
