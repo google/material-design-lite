@@ -4,21 +4,34 @@ body {
 }
 
 .mdl-datepicker {
-  background-color: $datepicker-bg-color;
-  box-shadow: $datepicker-shadow;
-  display: none;
-  font-size: $datepicker-font-size;
-  // @TODO Review height during development
-  height: fit-content;
-  left: 0;
-  margin: auto;
-  margin-bottom: 45px;
-  position: absolute;
-  right: 0;
-  width: 320px;
+  &__widget {
+    background-color: $datepicker-bg-color;
+    box-shadow: $datepicker-shadow;
+    display: none;
+    font-size: $datepicker-font-size;
+    // @TODO Review height during development
+    height: fit-content;
+    left: 0;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 45px;
+    position: absolute;
+    right: 0;
+    width: 320px;
+    z-index: 999999;
+  }
 
   &.is-visible {
-    display: block;
+    .mdl-datepicker__widget {
+      display: block;
+    }
+  }
+
+  &--fixed {
+    .mdl-datepicker__widget {
+      position: fixed;
+      top: 0;
+    }
   }
 
   &__header {
@@ -39,7 +52,7 @@ body {
     }
   }
 
-  &__content {
+  &__calendar {
     background-color: $datepicker-content-bg-color;
     padding: $datepicker-content-padding;
     padding-bottom: 0;
@@ -47,11 +60,12 @@ body {
 
   &__navigation {
     font-size: $datepicker-navigation-font-size;
+    height: 32px;
     line-height: 32px;
     text-align: center;
   }
 
-  &__calendar {
+  &__month {
     .mdl-datepicker__date {
       &:active,
       &:focus,
@@ -123,7 +137,13 @@ body {
   }
 
   &__actions {
+    margin: 0 -14px;
     padding: $datepicker-actions-padding;
     text-align: right;
+  }
+
+  .mdl-button {
+    bottom: auto;
+    position: relative;
   }
 }
