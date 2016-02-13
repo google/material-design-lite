@@ -181,6 +181,9 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.inputFocusHandler_ = function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     this.input_.blur();
     this.open();
   };
