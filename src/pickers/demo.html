@@ -22,7 +22,19 @@
     <div class="mdl-cell">
       <h5>Fixed datepicker</h5>
       
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed is-visible">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
+        <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+        <label class="mdl-textfield__label">Select date</label>
+      </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+    </div><!-- /.mdl-cell -->
+  </div><!-- /.mdl-grid -->
+
+  <div class="mdl-grid">
+    <div class="mdl-cell">
+      <h5>Custom format datepicker</h5>
+      
+      <div id="custom-format" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
         <input type="text" class="mdl-textfield__input mdl-datepicker__input">
         <label class="mdl-textfield__label">Select date</label>
       </div><!-- /.mdl-datepicker mdl-js-datepicker -->
@@ -35,15 +47,23 @@
     MaterialDatePicker.settings.format = 'yyyy-mm-dd';
 
     window.onload = function() {
-      var datepickers = document.querySelectorAll('.mdl-js-datepicker');
-      for (var i = 0; i < datepickers.length; i++) {
-        var datepicker = datepickers[i];
-        datepicker.MaterialDatePicker.setSelectedDate(new Date());
-        // datepicker.MaterialDatePicker.settings.format = 'dd.mm.yyyy';
-        datepicker.addEventListener('close', function (e) {
-          console.log(datepicker.MaterialDatePicker.getSelectedDate());
-        });
-      }
+      var customFormat = document.querySelector('#custom-format');
+      customFormat.MaterialDatePicker.settings.format = function (selectedDate) {
+        /**
+         * Append leading zero if necessary
+         * @param {number} number
+         * @return {string}
+         */
+        var addLeadingZero = function(number) {
+          return ('0' + number).substr(-2, 2);
+        };
+
+        return [
+          addLeadingZero(selectedDate.getDate()),
+          addLeadingZero(selectedDate.getMonth() + 1),
+          selectedDate.getFullYear()
+        ].join('+');
+      };
     }
   </script>
 </body>
