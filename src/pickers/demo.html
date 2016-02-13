@@ -23,16 +23,18 @@
 </div><!-- /.mdl-grid -->
 
 <script type="text/javascript">
-  window.onload = function() {
-    var datepicker = document.querySelector('.mdl-js-datepicker');
-    datepicker.MaterialDatePicker.selectedDate(new Date());
-    datepicker.addEventListener('close', function (e) {
-      console.log(datepicker.MaterialDatePicker.selectedDate());
+  // Setup global date format
+  MaterialDatePicker.settings.format = 'yyyy-mm-dd';
 
-      // Reopen datepicker for development purposes
-      // setTimeout(function () {
-      //   datepicker.MaterialDatePicker.open();
-      // }, 1000);
-    });
+  window.onload = function() {
+    var datepickers = document.querySelectorAll('.mdl-js-datepicker');
+    for (var i = 0; i < datepickers.length; i++) {
+      var datepicker = datepickers[i];
+      datepicker.MaterialDatePicker.setSelectedDate(new Date());
+      // datepicker.MaterialDatePicker.settings.format = 'dd.mm.yyyy';
+      datepicker.addEventListener('close', function (e) {
+        console.log(datepicker.MaterialDatePicker.getSelectedDate());
+      });
+    }
   }
 </script>
