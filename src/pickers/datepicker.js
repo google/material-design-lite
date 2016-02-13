@@ -795,6 +795,10 @@
       this.widgetElement_.remove();
       this.widgetElement_ = null;
     }
+
+    // Trigger "destroy" event for all those who are listening
+    // for other component events
+    this.triggerEvent_('destroy');
   };
 
   // The component registers itself. It can assume componentHandler is available
