@@ -501,8 +501,8 @@
       // Bind month change event
       this.boundPreviousMonthHandler = this.previousMonthHandler_.bind(this);
       this.boundNextMonthHandler = this.nextMonthHandler_.bind(this);
-      previousMonth.addEventListener('click', this.boundPreviousMonthHandler);
-      nextMonth.addEventListener('click', this.boundNextMonthHandler);
+      previousMonth.addEventListener('click', this.boundPreviousMonthHandler, true);
+      nextMonth.addEventListener('click', this.boundNextMonthHandler, true);
 
       this.currentMonthTitleElement_ = document.createElement('div');
       this.currentMonthTitleElement_.classList.add(this.CssClasses_.MONTH_CURRENT);
@@ -597,7 +597,7 @@
 
           // Bind select date event
           this.boundPickDateHandler = this.pickDateHandler_.bind(this);
-          weekDay.addEventListener('click', this.boundPickDateHandler);
+          weekDay.addEventListener('click', this.boundPickDateHandler, true);
         } else {
           // Render empty date
           weekDay.classList.add(this.CssClasses_.DATE_EMPTY);
@@ -643,8 +643,8 @@
       this.boundCancelActionHandler = this.cancelHandler_.bind(this);
       this.boundOkActionHandler = this.okHandler_.bind(this);
 
-      this.cancelElement_.addEventListener('click', this.boundCancelActionHandler);
-      this.okElement_.addEventListener('click', this.boundOkActionHandler);
+      this.cancelElement_.addEventListener('click', this.boundCancelActionHandler, true);
+      this.okElement_.addEventListener('click', this.boundOkActionHandler, true);
 
       this.actionsElement_.appendChild(this.cancelElement_);
       this.actionsElement_.appendChild(this.okElement_);
@@ -731,7 +731,7 @@
         this.boundInputFocusHandler = this.inputFocusHandler_.bind(this);
         // this.boundInputBlurHandler = this.inputBlurHandler_.bind(this);
 
-        this.input_.addEventListener('focus', this.boundInputFocusHandler);
+        this.input_.addEventListener('focus', this.boundInputFocusHandler, true);
         // this.input_.addEventListener('blur', this.boundInputBlurHandler);
       }
 
