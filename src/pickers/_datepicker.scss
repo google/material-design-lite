@@ -29,8 +29,19 @@ body {
 
   &--fixed {
     .mdl-datepicker__widget {
+      display: block;
+      opacity: 0;
       position: fixed;
       top: 0;
+      transform: translate(0, -100%);
+      transition: transform .2s linear, opacity .2s linear;
+    }
+
+    &.is-visible {
+      .mdl-datepicker__widget {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
     }
   }
 
