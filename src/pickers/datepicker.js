@@ -763,11 +763,13 @@
       if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
         // Hide datepicker until it is fully rendered
         this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
-        this.render_();
 
         // Once rendered, show datepicker
         this.element_.classList.add(this.CssClasses_.IS_VISIBLE);
       }
+
+      // Render datepicker widget
+      this.render_();
 
       // Set private isInitialized_ property for internal tracking
       this.isInitialized_ = true;
