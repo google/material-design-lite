@@ -663,6 +663,11 @@
    * @return {viod}
    */
   MaterialDatePicker.prototype.open = function() {
+    // Date picker widget already opened
+    if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+      return false;
+    }
+
     if (!this.widgetElement_) {
       this.render_();
     }
@@ -679,6 +684,10 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.close = function() {
+    // Date picker widget already closed
+    if (!this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+      return false;
+    }
     if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
       this.triggerEvent_('close');
