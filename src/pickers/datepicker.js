@@ -59,15 +59,6 @@
   };
 
   /**
-   * Format givven date
-   * @param  {Date}     date
-   * @return {Stirng}
-   */
-  MaterialDatePicker.prototype.formatDate = function(date) {
-
-  };
-
-  /**
    * Instance based date picker settings.
    * Overrides global date picker settings
    *
@@ -105,11 +96,13 @@
    * @private
    */
   MaterialDatePicker.prototype.CssClasses_ = {
+    // General component classes
     IS_UPGRADED: 'is-upgraded',
     IS_VISIBLE: 'is-visible',
     IS_ATTACHED: 'is-attached',
     IS_DIRTY: 'is-dirty',
 
+    // Datepicker related classes
     WIDGET: 'mdl-datepicker__widget',
     INPUT: 'mdl-datepicker__input',
     NAVIGATION: 'mdl-datepicker__navigation',
@@ -174,7 +167,7 @@
     e.preventDefault();
     this.selectedDate_ = this.pickedDate_;
     if (this.input_) {
-      this.input_.value = this.selectedDate_.toLocaleDateString();
+      this.input_.value = this.formatInputDate_(this.selectedDate_);
     }
     this.element_.classList.add(this.CssClasses_.IS_DIRTY);
     this.triggerEvent_('change');
@@ -223,8 +216,8 @@
     var pickedDate = e.target;
     var pickedDateInt = pickedDate.getAttribute('data-date');
     pickedDate.classList.add(this.CssClasses_.DATE_SELECTED);
-    this.pickedDate_.setFullYear(this.currentDate_.getFullYear());
-    this.pickedDate_.setMonth(this.currentDate_.getMonth());
+    this.pickedDate_.setFullYear(this.currentMonth_.getFullYear());
+    this.pickedDate_.setMonth(this.currentMonth_.getMonth());
     this.pickedDate_.setDate(pickedDateInt);
     this.updateHeader_();
   };
@@ -235,14 +228,14 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.previousMonthHandler_ = function(e) {
-    var previousMonth = new Date(this.currentDate_.getTime());
-    previousMonth.setMonth(this.currentDate_.getMonth() - 1);
+    var previousMonth = new Date(this.currentMonth_.getTime());
+    previousMonth.setMonth(this.currentMonth_.getMonth() - 1);
 
     var previousMonthElement = this.renderMonth_(previousMonth);
     this.calendarElement_.insertBefore(previousMonthElement, this.currentMonthElement_);
     this.currentMonthElement_.remove();
     this.currentMonthElement_ = previousMonthElement;
-    this.currentDate_ = previousMonth;
+    this.currentMonth_ = previousMonth;
     this.updateMonthTitle_();
   };
 
@@ -252,15 +245,79 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.nextMonthHandler_ = function(e) {
-    var nextMonth = new Date(this.currentDate_.getTime());
+    var nextMonth = new Date(this.currentMonth_.getTime());
     nextMonth.setMonth(nextMonth.getMonth() + 1);
 
     var nextMonthElement = this.renderMonth_(nextMonth);
     this.calendarElement_.insertBefore(nextMonthElement, this.currentMonthElement_);
     this.currentMonthElement_.remove();
     this.currentMonthElement_ = nextMonthElement;
-    this.currentDate_ = nextMonth;
+    this.currentMonth_ = nextMonth;
     this.updateMonthTitle_();
+  };
+
+  /**
+   * Format given date for input value
+   * @param  {Date}     date
+   * @return {Stirng}
+   */
+  MaterialDatePicker.prototype.formatInputDate_ = function(dateObject) {
+    var dateFormatted;
+
+    /**
+     * Append leading zero if necessary
+     * @param {number} number
+     * @return {string}
+     */
+    var addLeadingZero = function(number) {
+      return ('0' + number).substr(-2, 2);
+    };
+
+    switch (this.settings.format) {
+      case 'dd.mm.yyyy':
+        dateFormatted = [
+          addLeadingZero(dateObject.getDate()),
+          addLeadingZero(dateObject.getMonth() + 1),
+          dateObject.getFullYear()
+        ].join('.');
+        break;
+      case 'yyyy-mm-dd':
+        dateFormatted = [
+          dateObject.getFullYear(),
+          addLeadingZero(dateObject.getMonth() + 1),
+          addLeadingZero(dateObject.getDate())
+        ].join('-');
+        break;
+      case 'mm/dd/yyyy':
+        dateFormatted = [
+          addLeadingZero(dateObject.getMonth() + 1),
+          addLeadingZero(dateObject.getDate()),
+          dateObject.getFullYear()
+        ].join('/');
+        break;
+      default:
+        dateFormatted = [
+          addLeadingZero(dateObject.getMonth() + 1),
+          addLeadingZero(dateObject.getDate()),
+          dateObject.getFullYear()
+        ].join('/');
+        break;
+    }
+
+    return dateFormatted;
+  };
+
+  /**
+   * Format given date for header display
+   * @param  {Date}     date
+   * @return {Stirng}
+   */
+  MaterialDatePicker.prototype.formatHeaderDate_ = function(date) {
+    return (
+      this.settings.weekDaysShort[date.getDay()] + ', ' +
+      this.settings.monthsShort[date.getMonth()] + ' '  +
+      date.getDate()
+    );
   };
 
   /**
@@ -373,11 +430,7 @@
     }
 
     if (this.headerDateElement_) {
-      this.headerDateElement_.innerHTML = (
-        this.settings.weekDaysShort[this.pickedDate_.getDay()] + ', ' +
-        this.settings.monthsShort[this.pickedDate_.getMonth()] + ' '  +
-        this.pickedDate_.getDate()
-      );
+      this.headerDateElement_.innerHTML = this.formatHeaderDate_(this.pickedDate_);
     }
   };
 
@@ -388,8 +441,8 @@
    */
   MaterialDatePicker.prototype.updateMonthTitle_ = function() {
     this.currentMonthTitleElement_.innerHTML = (
-      this.settings.months[this.currentDate_.getMonth()] + ', ' +
-      this.currentDate_.getFullYear()
+      this.settings.months[this.currentMonth_.getMonth()] + ', ' +
+      this.currentMonth_.getFullYear()
     );
   };
 
@@ -406,7 +459,7 @@
 
       this.calendarElement_.appendChild(this.renderNavigation_());
       this.calendarElement_.appendChild(this.renderWeekDays_());
-      this.currentMonthElement_ = this.renderMonth_(this.currentDate_);
+      this.currentMonthElement_ = this.renderMonth_(this.currentMonth_);
       this.calendarElement_.appendChild(this.currentMonthElement_);
       this.calendarElement_.appendChild(this.renderActions_());
     }
@@ -454,7 +507,7 @@
       this.currentMonthTitleElement_ = document.createElement('div');
       this.currentMonthTitleElement_.classList.add(this.CssClasses_.MONTH_CURRENT);
 
-      if (this.currentDate_) {
+      if (this.currentMonth_) {
         this.updateMonthTitle_();
       }
 
@@ -634,24 +687,35 @@
   MaterialDatePicker.prototype['close'] = MaterialDatePicker.prototype.close;
 
   /**
-   * Get or set selected date to datepicker
+   * Get selected date to datepicker
+   *
+   * @public
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.getSelectedDate = function() {
+    return this.selectedDate_;
+  };
+  MaterialDatePicker.prototype['getSelectedDate'] = MaterialDatePicker.prototype.getSelectedDate;
+
+  /**
+   * Set selected date to datepicker
    *
    * @param  {Date} selectedDate
    *
    * @public
    * @return {void}
    */
-  MaterialDatePicker.prototype.selectedDate = function(selectedDate) {
+  MaterialDatePicker.prototype.setSelectedDate = function(selectedDate) {
     if (selectedDate) {
-      this.pickeDate_ = selectedDate;
-      this.currentDate_ = selectedDate;
+      this.pickedDate_ = selectedDate;
+      this.currentMonth_ = selectedDate;
       this.selectedDate_ = selectedDate;
       this.render_();
     }
 
-    return this.selectedDate_;
+    return this.getSelectedDate();
   };
-  MaterialDatePicker.prototype['selectedDate'] = MaterialDatePicker.prototype.selectedDate;
+  MaterialDatePicker.prototype['setSelectedDate'] = MaterialDatePicker.prototype.setSelectedDate;
 
   /**
    * Initialize element.
@@ -673,7 +737,7 @@
 
       // Setup properties default values.
       this.pickedDate_ = new Date();
-      this.currentDate_ = new Date();
+      this.currentMonth_ = new Date();
       this.selectedDate_ = new Date();
 
       if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
@@ -690,6 +754,46 @@
 
       // Add "is-updated" class
       this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
+    }
+  };
+
+  /**
+   * Downgrade datepicker component
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.mdlDowngrade_ = function() {
+    if (this.input_) {
+      this.input_.removeEventListener('click', this.boundInputFocusHandler);
+    }
+    if (this.currentMonthElement_) {
+      var dateButtons = this.currentMonthElement_.querySelectorAll(this.CssClasses_.DATE);
+      for (var i = 0; i < dateButtons.length; i++) {
+        var dateButton = dateButtons[i];
+        dateButton.removeEventListener('click', this.boundPickDateHandler);
+      }
+    }
+    if (this.cancelElement_) {
+      componentHandler.downgradeElements(this.cancelElement_);
+      this.cancelElement_.removeEventListener('click', this.boundCancelActionHandler);
+    }
+    if (this.okElement_) {
+      componentHandler.downgradeElements(this.okElement_);
+      this.okElement_.removeEventListener('click', this.boundOkActionHandler);
+    }
+    if (this.navigationElement_) {
+      var previousMonth = this.navigationElement_.querySelector(this.CssClasses_.MONTH_PREVIOUS);
+      var nextMonth = this.navigationElement_.querySelector(this.CssClasses_.MONTH_NEXT);
+
+      if (previousMonth) {
+        previousMonth.removeEventListener('click', this.boundPreviousMonthHandler);
+      }
+      if (nextMonth) {
+        nextMonth.removeEventListener('click', this.boundNextMonthHandler);
+      }
+    }
+    if (this.widgetElement_) {
+      this.widgetElement_.remove();
+      this.widgetElement_ = null;
     }
   };
 
