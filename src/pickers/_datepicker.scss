@@ -15,6 +15,7 @@ body {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 45px;
+    max-height: 510px;
     position: absolute;
     right: 0;
     width: 320px;
@@ -29,7 +30,9 @@ body {
 
   &--fixed {
     .mdl-datepicker__widget {
-      display: block;
+      bottom: 0;
+      display: inline-block;
+      margin: auto;
       opacity: 0;
       position: fixed;
       top: 0;
