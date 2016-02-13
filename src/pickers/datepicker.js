@@ -140,7 +140,7 @@
    */
   MaterialDatePicker.prototype.triggerEvent_ = function(eventName) {
     var evt = document.createEvent('Events');
-    evt.initEvent(eventName);
+    evt.initEvent(eventName, true, true);
     this.element_.dispatchEvent(evt);
   };
 
