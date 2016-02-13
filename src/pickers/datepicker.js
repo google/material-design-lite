@@ -102,6 +102,10 @@
     IS_ATTACHED: 'is-attached',
     IS_DIRTY: 'is-dirty',
 
+    // Appearance classes
+    INLINE: 'mdl-datepicker--inline',
+    FIXED: 'mdl-datepicker--fixed',
+
     // Datepicker related classes
     WIDGET: 'mdl-datepicker__widget',
     INPUT: 'mdl-datepicker__input',

@@ -28,6 +28,12 @@ body {
     }
   }
 
+  &--inline {
+    .mdl-datepicker__widget {
+      position: relative;
+    }
+  }
+
   &--fixed {
     .mdl-datepicker__widget {
       bottom: 0;
