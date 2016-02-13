@@ -1,40 +1,50 @@
-<div class="mdl-grid">
-  <div class="mdl-cell">
-    <h5>Datepicker attached to input</h5>
-    
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker">
-      <input type="text" class="mdl-textfield__input mdl-datepicker__input">
-      <label class="mdl-textfield__label">Select date</label>
-    </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <title>Date picker</title>
+</head>
+<body>
+  <div class="mdl-grid">
+    <div class="mdl-cell">
+      <h5>Datepicker attached to input</h5>
+      
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker">
+        <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+        <label class="mdl-textfield__label">Select date</label>
+      </div><!-- /.mdl-datepicker mdl-js-datepicker -->
 
-  </div><!-- /.mdl-cell -->
-</div><!-- /.mdl-grid -->
+    </div><!-- /.mdl-cell -->
+  </div><!-- /.mdl-grid -->
 
-<div class="mdl-grid">
-  <div class="mdl-cell">
-    <h5>Fixed datepicker</h5>
-    
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
-      <input type="text" class="mdl-textfield__input mdl-datepicker__input">
-      <label class="mdl-textfield__label">Select date</label>
-    </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+  <div class="mdl-grid">
+    <div class="mdl-cell">
+      <h5>Fixed datepicker</h5>
+      
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed is-visible">
+        <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+        <label class="mdl-textfield__label">Select date</label>
+      </div><!-- /.mdl-datepicker mdl-js-datepicker -->
 
-  </div><!-- /.mdl-cell -->
-</div><!-- /.mdl-grid -->
+    </div><!-- /.mdl-cell -->
+  </div><!-- /.mdl-grid -->
 
-<script type="text/javascript">
-  // Setup global date format
-  MaterialDatePicker.settings.format = 'yyyy-mm-dd';
+  <script type="text/javascript">
+    // Setup global date format
+    MaterialDatePicker.settings.format = 'yyyy-mm-dd';
 
-  window.onload = function() {
-    var datepickers = document.querySelectorAll('.mdl-js-datepicker');
-    for (var i = 0; i < datepickers.length; i++) {
-      var datepicker = datepickers[i];
-      datepicker.MaterialDatePicker.setSelectedDate(new Date());
-      // datepicker.MaterialDatePicker.settings.format = 'dd.mm.yyyy';
-      datepicker.addEventListener('close', function (e) {
-        console.log(datepicker.MaterialDatePicker.getSelectedDate());
-      });
+    window.onload = function() {
+      var datepickers = document.querySelectorAll('.mdl-js-datepicker');
+      for (var i = 0; i < datepickers.length; i++) {
+        var datepicker = datepickers[i];
+        datepicker.MaterialDatePicker.setSelectedDate(new Date());
+        // datepicker.MaterialDatePicker.settings.format = 'dd.mm.yyyy';
+        datepicker.addEventListener('close', function (e) {
+          console.log(datepicker.MaterialDatePicker.getSelectedDate());
+        });
+      }
     }
-  }
-</script>
+  </script>
+</body>
+</html>
