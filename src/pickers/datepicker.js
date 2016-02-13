@@ -267,6 +267,14 @@
   MaterialDatePicker.prototype.formatInputDate_ = function(dateObject) {
     var dateFormatted;
 
+    // If guven format is actually function,
+    // execute in global scope with selected date as parameter
+    if (typeof this.settings.format === 'function') {
+      var formatFunction = this.settings.format;
+      var selectedDate = this.selectedDate_;
+      return formatFunction.call(window, selectedDate);
+    }
+
     /**
      * Append leading zero if necessary
      * @param {number} number
