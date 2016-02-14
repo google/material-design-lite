@@ -23,6 +23,7 @@
 }
 
 .mdl-tabs__tab-bar {
+    position        : relative;
     display         : flex;
     flex-direction  : row;
     justify-content : center; // ⇾
@@ -60,19 +61,6 @@
     color: $tab-active-text-color;
   }
 
-  .mdl-tabs.is-upgraded &.is-active:after {
-    height: 2px;
-    width: 100%;
-    display: block;
-    content: " ";
-    bottom: 0px;
-    left: 0px;
-    position: absolute;
-    background: $tab-highlight-color;
-    animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0.01s alternate forwards;
-    transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
-  }
-
   & .mdl-tabs__ripple-container {
     display: block;
     position: absolute;
@@ -101,14 +89,12 @@
   }
 }
 
-@keyframes border-expand {
-  0% {
-    opacity: 0;
-    width: 0;
-  }
-
-  100% {
-    opacity: 1;
-    width: 100%;
-  }
+.mdl-tabs__slider {
+    position: absolute;
+    height: 2px;
+    background: $tab-highlight-color;
+    bottom: 0;
+    transition: left 0.2s cubic-bezier(0.4, 0.0, 0.4, 1);
+    will-change: left, width;
+    z-index: 4;
 }

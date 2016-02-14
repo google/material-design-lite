@@ -54,9 +54,11 @@
    * @private
    */
   MaterialTabs.prototype.CssClasses_ = {
+    TAB_BAR_CLASS: 'mdl-tabs__tab-bar',
     TAB_CLASS: 'mdl-tabs__tab',
     PANEL_CLASS: 'mdl-tabs__panel',
     ACTIVE_CLASS: 'is-active',
+    SLIDER_CLASS: 'mdl-tabs__slider',
     UPGRADED_CLASS: 'is-upgraded',
 
     MDL_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
@@ -71,15 +73,19 @@
    * @private
    */
   MaterialTabs.prototype.initTabs_ = function() {
+    var tabBar_ = this.element_.querySelector('.' + this.CssClasses_.TAB_BAR_CLASS);
     if (this.element_.classList.contains(this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
       this.element_.classList.add(
         this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
-
     // Select element tabs, document panels
     this.tabs_ = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
     this.panels_ =
         this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
+    // create sliding active-tab-indicator
+    this.slider_ = document.createElement('div');
+    this.slider_.classList.add(this.CssClasses_.SLIDER_CLASS);
+    tabBar_.appendChild(this.slider_);
 
     // Create new tabs for each tab element
     for (var i = 0; i < this.tabs_.length; i++) {
@@ -139,14 +145,24 @@
         tab.appendChild(rippleContainer);
       }
 
+      if (tab.classList.contains(ctx.CssClasses_.ACTIVE_CLASS)) {
+        var slider = ctx.slider_;
+        slider.style.width = tab.offsetWidth + 'px';
+        slider.style.left = tab.offsetLeft + 'px';
+      }
+
       tab.addEventListener('click', function(e) {
         e.preventDefault();
         var href = tab.href.split('#')[1];
         var panel = ctx.element_.querySelector('#' + href);
+        var slider = ctx.slider_;
         ctx.resetTabState_();
         ctx.resetPanelState_();
         tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
         panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+        //sliding selected indicator
+        slider.style.width = tab.offsetWidth + 'px';
+        slider.style.left = tab.offsetLeft + 'px';
       });
 
     }

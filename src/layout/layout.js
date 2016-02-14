@@ -109,6 +109,7 @@
     TAB_BAR_BUTTON: 'mdl-layout__tab-bar-button',
     TAB_BAR_LEFT_BUTTON: 'mdl-layout__tab-bar-left-button',
     TAB_BAR_RIGHT_BUTTON: 'mdl-layout__tab-bar-right-button',
+    TAB_BAR_SLIDER: 'mdl-tabs__slider',
     PANEL: 'mdl-layout__tab-panel',
 
     HAS_DRAWER: 'has-drawer',
@@ -427,6 +428,11 @@
         this.header_.insertBefore(tabContainer, this.tabBar_);
         this.header_.removeChild(this.tabBar_);
 
+        // create sliding active-tab-indicator
+        this.tabBar_.slider_ = document.createElement('div');
+        this.tabBar_.slider_.classList.add(this.CssClasses_.TAB_BAR_SLIDER);
+        tabContainer.appendChild(this.tabBar_.slider_);
+
         var leftButton = document.createElement('div');
         leftButton.classList.add(this.CssClasses_.TAB_BAR_BUTTON);
         leftButton.classList.add(this.CssClasses_.TAB_BAR_LEFT_BUTTON);
@@ -455,6 +461,7 @@
 
         // Add and remove buttons depending on scroll position.
         var tabScrollHandler = function() {
+          var tab = this.tabBar_.querySelector('.' + this.CssClasses_.IS_ACTIVE);
           if (this.tabBar_.scrollLeft > 0) {
             leftButton.classList.add(this.CssClasses_.IS_ACTIVE);
           } else {
@@ -467,6 +474,7 @@
           } else {
             rightButton.classList.remove(this.CssClasses_.IS_ACTIVE);
           }
+          this.tabBar_.slider_.style.left = tab.offsetLeft - this.tabBar_.scrollLeft + 'px';
         }.bind(this);
 
         this.tabBar_.addEventListener('scroll', tabScrollHandler);
@@ -484,6 +492,7 @@
         for (var i = 0; i < tabs.length; i++) {
           new MaterialLayoutTab(tabs[i], tabs, panels, this);
         }
+        tabs[0].show();
       }
 
       this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
@@ -507,10 +516,14 @@
     function selectTab() {
       var href = tab.href.split('#')[1];
       var panel = layout.content_.querySelector('#' + href);
+      var slider = layout.tabBar_.slider_;
       layout.resetTabState_(tabs);
       layout.resetPanelState_(panels);
-      tab.classList.add(layout.CssClasses_.IS_ACTIVE);
       panel.classList.add(layout.CssClasses_.IS_ACTIVE);
+      tab.classList.add(layout.CssClasses_.IS_ACTIVE);
+      //sliding selected indicator
+      slider.style.width = tab.offsetWidth + 'px';
+      slider.style.left = tab.offsetLeft - layout.tabBar_.scrollLeft + 'px';
     }
 
     if (layout.tabBar_.classList.contains(
@@ -522,6 +535,7 @@
       ripple.classList.add(layout.CssClasses_.RIPPLE);
       rippleContainer.appendChild(ripple);
       tab.appendChild(rippleContainer);
+
     }
 
     tab.addEventListener('click', function(e) {
@@ -535,12 +549,7 @@
 
     tab.addEventListener('click', function(e) {
       e.preventDefault();
-      var href = tab.href.split('#')[1];
-      var panel = layout.content_.querySelector('#' + href);
-      layout.resetTabState_(tabs);
-      layout.resetPanelState_(panels);
-      tab.classList.add(layout.CssClasses_.IS_ACTIVE);
-      panel.classList.add(layout.CssClasses_.IS_ACTIVE);
+      selectTab();
     });
   }
   window['MaterialLayoutTab'] = MaterialLayoutTab;
