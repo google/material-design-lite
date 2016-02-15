@@ -241,10 +241,7 @@
             focusYear = focusYear.previousElementSibling;
           }
         }
-        focusYear.scrollIntoView({
-          block: 'end',
-          behavior: 'smooth'
-        });
+        focusYear.parentNode.scrollTop = focusYear.offsetTop;
       }
     }
   };
@@ -593,7 +590,7 @@
         focusYear = focusYear.previousElementSibling;
       }
     }
-    focusYear.scrollIntoView(true);
+    focusYear.parentNode.scrollTop = focusYear.offsetTop;
   };
 
   /**
