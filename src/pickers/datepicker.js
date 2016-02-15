@@ -161,9 +161,13 @@
    */
   MaterialDatePicker.prototype.cancelHandler_ = function(e) {
     e.preventDefault();
-    this.pickedDate_ = this.selectedDate_;
-    this.render_();
     this.close();
+    this.pickedDate_.setFullYear(this.selectedDate_.getFullYear());
+    this.pickedDate_.setMonth(this.selectedDate_.getMonth());
+    this.pickedDate_.setDate(this.selectedDate_.getDate());
+    this.updateHeader_();
+    this.updateMonthTitle_();
+    this.changeCurrentMonth_(this.pickedDate_);
   };
 
   /**
@@ -174,7 +178,9 @@
    */
   MaterialDatePicker.prototype.okHandler_ = function(e) {
     e.preventDefault();
-    this.selectedDate_ = this.pickedDate_;
+    this.selectedDate_.setFullYear(this.pickedDate_.getFullYear());
+    this.selectedDate_.setMonth(this.pickedDate_.getMonth());
+    this.selectedDate_.setDate(this.pickedDate_.getDate());
     if (this.input_) {
       this.input_.value = this.formatInputDate_(this.selectedDate_);
     }
@@ -266,7 +272,6 @@
     this.pickedDate_.setFullYear(currentYearInt);
     this.currentMonth_.setFullYear(currentYearInt);
     this.currentMonth_.setMonth(this.pickedDate_.getMonth());
-    this.selectedDate_.setFullYear(currentYearInt);
 
     this.updateHeader_();
     this.updateMonthTitle_();
