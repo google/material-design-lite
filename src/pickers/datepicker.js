@@ -168,6 +168,9 @@
     this.updateHeader_();
     this.updateMonthTitle_();
     this.changeCurrentMonth_(this.pickedDate_);
+    if (this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
+      this.element_.classList.remove(this.CssClasses_.YEAR_PICKER);
+    }
   };
 
   /**
@@ -185,6 +188,9 @@
       this.input_.value = this.formatInputDate_(this.selectedDate_);
     }
     this.element_.classList.add(this.CssClasses_.IS_DIRTY);
+    if (this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
+      this.element_.classList.remove(this.CssClasses_.YEAR_PICKER);
+    }
     this.triggerEvent_('change');
     this.close();
   };
@@ -783,12 +789,6 @@
         }
 
         this.yearPickerElement_.appendChild(yearButton);
-      }
-
-      // After all years have been rendered, scroll to currenly selected year
-      var selectedYear = this.yearPickerElement_.querySelector(this.CssClasses_.YEAR_SELECTED);
-      if (selectedYear) {
-        selectedYear.scrollIntoView(true);
       }
     }
 
