@@ -831,6 +831,12 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.close = function() {
+    // Inline styles can't be closed.
+    // @TODO: This should be reviewed with Google guys
+    if (this.element_.classList.contains(this.CssClasses_.INLINE)) {
+      return false;
+    }
+
     // Date picker widget already closed
     if (!this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       return false;
