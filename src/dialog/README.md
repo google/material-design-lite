@@ -82,7 +82,7 @@ See this example live in [codepen](http://codepen.io/Garbee/full/JGMowG/).
     <div class="mdl-dialog__content">
       <p>
         Allow this site to collect usage data to improve your experience?
-      <p>
+      </p>
     </div>
     <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
       <button type="button" class="mdl-button">Agree</button>
