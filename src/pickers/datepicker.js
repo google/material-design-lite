@@ -105,6 +105,7 @@
     // Appearance classes
     INLINE: 'mdl-datepicker--inline',
     FIXED: 'mdl-datepicker--fixed',
+    LANDSCAPE: 'mdl-datepicker--landscape',
 
     // Datepicker related classes
     WIDGET: 'mdl-datepicker__widget',

@@ -4,6 +4,28 @@ body {
 }
 
 .mdl-datepicker {
+  * {
+    box-sizing: border-box;
+  }
+
+  &--landscape {
+    .mdl-datepicker__widget {
+      width: 440px;
+    }
+
+    .mdl-datepicker__header {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 160px;
+    }
+
+    .mdl-datepicker__calendar {
+      margin-left: 160px;
+    }
+  }
+
   &__widget {
     background-color: $datepicker-bg-color;
     box-shadow: $datepicker-shadow;
@@ -19,6 +41,10 @@ body {
     right: 0;
     width: 280px;
     z-index: 999999;
+
+    @media (orientation:landscape) {
+      width: 440px;
+    }
   }
 
   &.is-visible {
@@ -61,6 +87,14 @@ body {
     line-height: initial;
     padding: $datepicker-header-padding;
 
+    @media (orientation:landscape) {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 160px;
+    }
+
     &-year {
       color: $datepicker-header-color;
       cursor: pointer;
@@ -78,6 +112,10 @@ body {
     background-color: $datepicker-content-bg-color;
     padding: $datepicker-content-padding;
     padding-bottom: 0;
+
+    @media (orientation:landscape) {
+      margin-left: 160px;
+    }
   }
 
   &__navigation {
