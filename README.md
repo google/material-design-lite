@@ -24,12 +24,18 @@ MDL. If you are looking to use MDL on your website or web app please head to
 
 ## Browser Support
 
-| IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
-|-----|------|------|--------|-------|---------|--------|------------------|---------------|
-| B   | A    | A    | A      | A     | A       | A      | A                | A             |
+Supported evergreen browsers:
 
-A-grade browsers are fully supported. B-grade browsers will gracefully degrade
-to our CSS-only experience.
+- Chrome
+- Edge
+- Firefox
+- Opera
+
+Supported versioned browsers:
+
+- Internet Explorer 11
+- Safari 8
+- Mobile Safari 8
 
 ## Getting Started
 

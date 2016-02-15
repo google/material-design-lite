@@ -56,15 +56,13 @@ const banner = ['/**',
 let codeFiles = '';
 
 const AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4.4',
-  'bb >= 10'
+  'ie >= 11',
+  'edge >= 20',
+  'ff >= 44',
+  'chrome >= 48',
+  'safari >= 8',
+  'opera >= 35',
+  'ios >= 8'
 ];
 
 const SOURCES = [
