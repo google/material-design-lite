@@ -155,6 +155,19 @@ body {
         background-color: transparent !important;
       }
     }
+
+    &--disabled {
+      color: $datepicker-date-disabled-color;
+      cursor: default !important;
+      background-color: transparent !important;
+
+      &:hover {
+        color: $datepicker-date-disabled-color !important;
+        cursor: default !important;
+        background-color: transparent !important;
+      }
+    }
+  }
   }
 
   &__actions {

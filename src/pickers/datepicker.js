@@ -119,6 +119,7 @@
     DATE_TODAY: 'mdl-datepicker__date--today',
     DATE_SELECTED: 'mdl-datepicker__date--selected',
     DATE_EMPTY: 'mdl-datepicker__date--empty',
+    DATE_DISABLED: 'mdl-datepicker__date--disabled',
     MONTH_CURRENT: 'mdl-datepicker__current-month',
     MONTH_PREVIOUS: 'mdl-datepicker__previous-month',
     MONTH_NEXT: 'mdl-datepicker__next-month',
