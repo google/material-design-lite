@@ -211,6 +211,8 @@
    */
   MaterialDatePicker.prototype.pickDateHandler_ = function(e) {
     e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     var previousDate = this.calendarElement_.querySelector(
       '.' + this.CssClasses_.DATE +
       '.' + this.CssClasses_.DATE_SELECTED
@@ -236,15 +238,12 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.previousMonthHandler_ = function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     var previousMonth = new Date(this.currentMonth_.getTime());
     previousMonth.setMonth(this.currentMonth_.getMonth() - 1);
-
-    var previousMonthElement = this.renderMonth_(previousMonth);
-    this.calendarElement_.insertBefore(previousMonthElement, this.currentMonthElement_);
-    this.currentMonthElement_.remove();
-    this.currentMonthElement_ = previousMonthElement;
-    this.currentMonth_ = previousMonth;
-    this.updateMonthTitle_();
+    this.changeCurrentMonth_(previousMonth);
   };
 
   /**
@@ -253,15 +252,12 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.nextMonthHandler_ = function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     var nextMonth = new Date(this.currentMonth_.getTime());
     nextMonth.setMonth(nextMonth.getMonth() + 1);
-
-    var nextMonthElement = this.renderMonth_(nextMonth);
-    this.calendarElement_.insertBefore(nextMonthElement, this.currentMonthElement_);
-    this.currentMonthElement_.remove();
-    this.currentMonthElement_ = nextMonthElement;
-    this.currentMonth_ = nextMonth;
-    this.updateMonthTitle_();
+    this.changeCurrentMonth_(nextMonth);
   };
 
   /**
@@ -361,17 +357,17 @@
    * @param  {Date}     currentDate
    * @return {bool}
    */
-  MaterialDatePicker.prototype.isSelectedDate_ = function(currentDate) {
-    if (!this.selectedDate_) {
+  MaterialDatePicker.prototype.isPickedDate_ = function(currentDate) {
+    if (!this.pickedDate_) {
       return false;
     }
-    if (this.selectedDate_.getFullYear() !== currentDate.getFullYear()) {
+    if (this.pickedDate_.getFullYear() !== currentDate.getFullYear()) {
       return false;
     }
-    if (this.selectedDate_.getMonth() !== currentDate.getMonth()) {
+    if (this.pickedDate_.getMonth() !== currentDate.getMonth()) {
       return false;
     }
-    if (this.selectedDate_.getDate() !== currentDate.getDate()) {
+    if (this.pickedDate_.getDate() !== currentDate.getDate()) {
       return false;
     }
     return true;
@@ -384,6 +380,21 @@
    */
   MaterialDatePicker.prototype.pickDate_ = function(date) {
 
+  };
+
+  /**
+   * Change current month and rerender calendar
+   * @private
+   * @param  {Date} currentMonth
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.changeCurrentMonth_ = function(currentMonth) {
+    var currentMonthElement = this.renderMonth_(currentMonth);
+    this.calendarElement_.insertBefore(currentMonthElement, this.currentMonthElement_);
+    this.currentMonthElement_.remove();
+    this.currentMonthElement_ = currentMonthElement;
+    this.currentMonth_ = currentMonth;
+    this.updateMonthTitle_();
   };
 
   /**
@@ -607,13 +618,15 @@
           }
 
           // Check if current day is selected
-          if (this.isSelectedDate_(currentDay)) {
+          if (this.isPickedDate_(currentDay)) {
             weekDay.classList.add(this.CssClasses_.DATE_SELECTED);
           }
 
           // Bind select date event
-          this.boundPickDateHandler = this.pickDateHandler_.bind(this);
-          weekDay.addEventListener('click', this.boundPickDateHandler, true);
+          if (!weekDay.classList.contains(this.CssClasses_.DATE_DISABLED)) {
+            this.boundPickDateHandler = this.pickDateHandler_.bind(this);
+            weekDay.addEventListener('click', this.boundPickDateHandler, true);
+          }
         } else {
           // Render empty date
           weekDay.classList.add(this.CssClasses_.DATE_EMPTY);
