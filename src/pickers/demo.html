@@ -46,36 +46,48 @@
     <div class="mdl-cell">
       <h6>Inline datepicker</h6>
       
-      <div id="inline-datepicker" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--inline is-visible">
-        <input type="text" class="mdl-textfield__input mdl-datepicker__input">
-        <label class="mdl-textfield__label">Select date</label>
+      <div id="inline-datepicker" class="mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--inline is-visible">
+        <p>Selected date: <span id="inline-selected-date"></span></p>
+        <!-- <input type="text" class="mdl-textfield__input mdl-datepicker__input"> -->
+        <!-- <label class="mdl-textfield__label">Select date</label> -->
       </div><!-- /.mdl-datepicker mdl-js-datepicker -->
 
     </div><!-- /.mdl-cell -->
   </div><!-- /.mdl-grid -->
 
   <script type="text/javascript">
+    /**
+     * Append leading zero if necessary
+     * @param {number} number
+     * @return {string}
+     */
+    var addLeadingZero = function(number) {
+      return ('0' + number).substr(-2, 2);
+    };
+
     // Setup global date format
     MaterialDatePicker.settings.format = 'yyyy-mm-dd';
 
     window.onload = function() {
       var customFormat = document.querySelector('#custom-format');
       customFormat.MaterialDatePicker.settings.format = function (selectedDate) {
-        /**
-         * Append leading zero if necessary
-         * @param {number} number
-         * @return {string}
-         */
-        var addLeadingZero = function(number) {
-          return ('0' + number).substr(-2, 2);
-        };
-
         return [
           addLeadingZero(selectedDate.getDate()),
           addLeadingZero(selectedDate.getMonth() + 1),
           selectedDate.getFullYear()
         ].join('+');
       };
+
+      var inlinePicker = document.querySelector('#inline-datepicker');
+      var inlinePickerSpan = document.querySelector('#inline-selected-date');
+      inlinePicker.addEventListener('change', function(e) {
+        var selectedDate = inlinePicker.MaterialDatePicker.getSelectedDate();
+        inlinePickerSpan.innerHTML = [
+          selectedDate.getFullYear(),
+          addLeadingZero(selectedDate.getMonth() + 1),
+          addLeadingZero(selectedDate.getDate())
+        ].join('-');
+      });
     }
   </script>
 </body>
