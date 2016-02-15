@@ -14,6 +14,8 @@ static content websites. It doesn't rely on any JavaScript frameworks or
 libraries. Optimized for cross-device use, gracefully degrades in older
 browsers, and offers an experience that is accessible from the get-go.
 
+> **Important note for contributors** - The master branch now has breaking V2 changes. As such it can not be merged into `mdl-1.1`. If you are making a contribution to 1.1, then please send pull requests directly to that branch. We will routinely merge that back into master. Thank you!
+
 ## Use MDL on your site?
 
 **This document is targeted at developers that will contribute to or compile
