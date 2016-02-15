@@ -1,7 +1,7 @@
 ## Introduction
 
 The Material Design Lite (MDL) **dialog** component allows for verification of
-user actions, simple data input, and alerts to provide extra information to users.
+user actions, simple data input, and alerts to provide extra information to users.>
 
 ## Basic Usage
 
@@ -48,7 +48,7 @@ See this example live in [codepen](http://codepen.io/Garbee/full/EPoaMj/).
     <div class="mdl-dialog__content">
       <p>
         Allowing us to collect data will let us get you the information you want faster.
-      <p>
+      </p>
     </div>
     <div class="mdl-dialog__actions">
       <button type="button" class="mdl-button">Agree</button>
