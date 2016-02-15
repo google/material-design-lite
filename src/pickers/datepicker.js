@@ -111,6 +111,10 @@
     INPUT: 'mdl-datepicker__input',
     NAVIGATION: 'mdl-datepicker__navigation',
     CALENDAR: 'mdl-datepicker__calendar',
+    YEAR: 'mdl-datepicker__year',
+    YEAR_SELECTED: 'mdl-datepicker__year--selected',
+    YEAR_PICKER: 'mdl-datepicker--year-picker',
+    YEAR_PICKER_ELEMENT: 'mdl-datepicker__year-picker',
     MONTH: 'mdl-datepicker__month',
     WEEKS: 'mdl-datepicker__weeks',
     WEEK: 'mdl-datepicker__week',
@@ -201,6 +205,72 @@
    */
   MaterialDatePicker.prototype.inputBlurHandler_ = function(e) {
     this.close();
+  };
+
+  /**
+   * Header year click handler
+   * @private
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.headerYearClickHandler_ = function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    if (!this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
+      this.element_.classList.add(this.CssClasses_.YEAR_PICKER);
+      var selectedYear = this.yearPickerElement_.querySelector('.' + this.CssClasses_.YEAR_SELECTED);
+      if (selectedYear) {
+        selectedYear
+          .previousElementSibling
+          .previousElementSibling
+          .scrollIntoView({
+            block: 'end',
+            behavior: 'smooth'
+          });
+      }
+    }
+  };
+
+  /**
+   * Header date click handler
+   * @private
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.headerDateClickHandler_ = function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    if (this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
+      this.element_.classList.remove(this.CssClasses_.YEAR_PICKER);
+    }
+  };
+
+  /**
+   * Picker year click handler
+   * @private
+   * @param  {Event} e
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.pickYearHandler_ = function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    var selectedYear = this.yearPickerElement_.querySelector('.' + this.CssClasses_.YEAR_SELECTED);
+    if (selectedYear && selectedYear.classList.contains(this.CssClasses_.YEAR_SELECTED)) {
+      selectedYear.classList.remove(this.CssClasses_.YEAR_SELECTED);
+    }
+    var currentYear = e.target;
+    currentYear.classList.add(this.CssClasses_.YEAR_SELECTED);
+    var currentYearInt = parseInt(currentYear.getAttribute('data-year'));
+    this.pickedDate_.setFullYear(currentYearInt);
+    this.currentMonth_.setFullYear(currentYearInt);
+    this.currentMonth_.setMonth(this.pickedDate_.getMonth());
+    this.selectedDate_.setFullYear(currentYearInt);
+
+    this.updateHeader_();
+    this.updateMonthTitle_();
+    this.changeCurrentMonth_(this.currentMonth_);
   };
 
   /**
@@ -434,6 +504,12 @@
       this.headerYearElement_.classList.add(this.CssClasses_.HEADER_YEAR);
       this.headerDateElement_.classList.add(this.CssClasses_.HEADER_DATE);
 
+      // Bind click events
+      this.boundHeaderYearClickHandler = this.headerYearClickHandler_.bind(this);
+      this.boundHeaderDateClickHandler = this.headerDateClickHandler_.bind(this);
+      this.headerYearElement_.addEventListener('click', this.boundHeaderYearClickHandler);
+      this.headerDateElement_.addEventListener('click', this.boundHeaderDateClickHandler);
+
       // Assemble header element
       this.headerElement_.appendChild(this.headerYearElement_);
       this.headerElement_.appendChild(this.headerDateElement_);
@@ -488,6 +564,7 @@
       this.calendarElement_.appendChild(this.renderWeekDays_());
       this.currentMonthElement_ = this.renderMonth_(this.currentMonth_);
       this.calendarElement_.appendChild(this.currentMonthElement_);
+      this.calendarElement_.appendChild(this.renderYearPicker_());
       this.calendarElement_.appendChild(this.renderActions_());
     }
 
@@ -639,6 +716,47 @@
     }
 
     return month;
+  };
+
+  /**
+   * Render year picker
+   * @private
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.renderYearPicker_ = function() {
+    if (!this.yearPickerElement_) {
+      this.yearPickerElement_ = document.createElement('div');
+      this.yearPickerElement_.classList.add(this.CssClasses_.YEAR_PICKER_ELEMENT);
+
+      var today = new Date();
+      var startYear = today.getFullYear() - 100;
+      var endYear = today.getFullYear() + 100;
+      this.boundPickYearHandler = this.pickYearHandler_.bind(this);
+
+      for (var i = startYear; i <= endYear; i++) {
+        var yearButton = document.createElement('button');
+        yearButton.classList.add(this.CssClasses_.YEAR);
+        yearButton.setAttribute('data-year', i);
+        yearButton.innerHTML = i;
+        yearButton.addEventListener('click', this.boundPickYearHandler);
+
+        if (this.pickedDate_) {
+          if (this.pickedDate_.getFullYear() === i) {
+            yearButton.classList.add(this.CssClasses_.YEAR_SELECTED);
+          }
+        }
+
+        this.yearPickerElement_.appendChild(yearButton);
+      }
+
+      // After all years have been rendered, scroll to currenly selected year
+      var selectedYear = this.yearPickerElement_.querySelector(this.CssClasses_.YEAR_SELECTED);
+      if (selectedYear) {
+        selectedYear.scrollIntoView(true);
+      }
+    }
+
+    return this.yearPickerElement_;
   };
 
   /**

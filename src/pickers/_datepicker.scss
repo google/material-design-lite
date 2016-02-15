@@ -169,6 +169,53 @@ body {
       }
     }
   }
+
+  &__year-picker {
+    display: none;
+    height: 200px;
+    overflow: auto;
+    position: relative;
+  }
+
+  &--year-picker.is-visible {
+    .mdl-datepicker__week-days,
+    .mdl-datepicker__navigation,
+    .mdl-datepicker__month {
+      display: none;
+    }
+
+    .mdl-datepicker__header {
+      &-year {
+        color: $datepicker-header-active-color;
+      }
+
+      &-date {
+        color: $datepicker-header-color;
+      }
+    }
+
+    .mdl-datepicker__year-picker {
+      display: block;
+    }
+  }
+
+  &__year {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: block;
+    font-size: $datepicker-font-size;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    &--selected {
+      color: $datepicker-year-selected-color;
+      font-size: $datepicker-year-selected-font-size;
+    }
   }
 
   &__actions {
