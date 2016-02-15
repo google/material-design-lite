@@ -225,14 +225,19 @@
     if (!this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
       this.element_.classList.add(this.CssClasses_.YEAR_PICKER);
       var selectedYear = this.yearPickerElement_.querySelector('.' + this.CssClasses_.YEAR_SELECTED);
+
       if (selectedYear) {
-        selectedYear
-          .previousElementSibling
-          .previousElementSibling
-          .scrollIntoView({
-            block: 'end',
-            behavior: 'smooth'
-          });
+        var focusYear = selectedYear;
+
+        for (var i = 0; i < 3; i++) {
+          if (focusYear.previousElementSibling) {
+            focusYear = focusYear.previousElementSibling;
+          }
+        }
+        focusYear.scrollIntoView({
+          block: 'end',
+          behavior: 'smooth'
+        });
       }
     }
   };
@@ -572,11 +577,10 @@
     pickedYear.classList.add(this.CssClasses_.YEAR_SELECTED);
 
     var focusYear = pickedYear;
-    if (focusYear.previousElementSibling) {
-      focusYear = focusYear.previousElementSibling;
-    }
-    if (focusYear.previousElementSibling) {
-      focusYear = focusYear.previousElementSibling;
+    for (var i = 0; i < 3; i++) {
+      if (focusYear.previousElementSibling) {
+        focusYear = focusYear.previousElementSibling;
+      }
     }
     focusYear.scrollIntoView(true);
   };

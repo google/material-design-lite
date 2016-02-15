@@ -13,13 +13,11 @@ body {
     // @TODO Review height during development
     height: fit-content;
     left: 0;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 45px;
+    margin: 10px auto 45px 0;
     max-height: 510px;
     position: absolute;
     right: 0;
-    width: 320px;
+    width: 280px;
     z-index: 999999;
   }
 
@@ -110,6 +108,7 @@ body {
 
   &__current-month {
     display: inline-block;
+    font-weight: $datepicker-month-title-font-weight;
     line-height: 32px;
   }
 
@@ -136,12 +135,12 @@ body {
     display: inline-block;
     float: left;
     font-size: $datepicker-date-font-size;
-    height: 41px;
-    line-height: 36px;
+    height: 36px;
+    line-height: 34px;
     outline: none;
     text-align: center;
     vertical-align: middle;
-    width: 41px;
+    width: 36px;
     transition: background-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 
     &--today {
@@ -174,7 +173,7 @@ body {
 
   &__year-picker {
     display: none;
-    height: 210px;
+    height: 235px;
     overflow: auto;
     position: relative;
   }
@@ -207,8 +206,8 @@ body {
     cursor: pointer;
     display: block;
     font-size: $datepicker-font-size;
-    height: 40px;
-    line-height: 40px;
+    height: 32px;
+    line-height: 32px;
     outline: none;
     position: relative;
     text-align: center;
@@ -217,8 +216,8 @@ body {
     &--selected {
       color: $datepicker-year-selected-color;
       font-size: $datepicker-year-selected-font-size;
-      height: 50px;
-      line-height: 50px;
+      height: 40px;
+      line-height: 40px;
     }
   }
 
