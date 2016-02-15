@@ -1,7 +1,7 @@
 ## Introduction
 
 The Material Design Lite (MDL) **dialog** component allows for verification of
-user actions, simple data input, and alerts to provide extra information to users.>
+user actions, simple data input, and alerts to provide extra information to users.
 
 ## Basic Usage
 
