@@ -116,6 +116,7 @@ templates:
 * [Text Heavy Webpage Template](http://www.getmdl.io/templates/text-only)
 * [Stand Alone Article Template](http://www.getmdl.io/templates/article)
 * [Android.com MDL Skin Template](http://www.getmdl.io/templates/android-dot-com)
+* [Portfolio Template](http://www.getmdl.io/templates/portfolio)
 
 > Templates are not officially supported in IE9 and legacy browsers that do not
 pass the minimum-requirements defined in our
