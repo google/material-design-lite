@@ -30,6 +30,8 @@ body {
   }
 
   &--inline {
+    display: inline-block;
+    
     .mdl-datepicker__widget {
       position: relative;
       z-index: auto;
