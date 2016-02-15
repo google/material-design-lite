@@ -318,7 +318,7 @@ $datepicker-today-color: unquote("rgb(#{$color-accent})") !default;
 $datepicker-today-font-weight: 600;
 $datepicker-selected-bg-color: unquote("rgb(#{$color-accent})") !default;
 $datepicker-selected-color: unquote("rgb(#{$color-white})") !default;
-
+$datepicker-font-color: unquote("rgb(#{$palette-grey-900})") !default;
 $datepicker-font-size: 16px !default;
 $datepicker-header-color: unquote("rgba(#{$color-white}, 0.6)") !default;
 $datepicker-header-active-color: unquote("rgb(#{$color-white})") !default;
