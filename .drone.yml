@@ -29,6 +29,7 @@ publish:
     when:
       repo: google/material-design-lite
       branch: master
+      event: push
     auth_key: >
       $$SERVICE_ACCOUNT_KEY
     source: dist
