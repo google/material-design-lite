@@ -478,7 +478,11 @@
   MaterialDatePicker.prototype.changeCurrentMonth_ = function(currentMonth) {
     var currentMonthElement = this.renderMonth_(currentMonth);
     this.calendarElement_.insertBefore(currentMonthElement, this.currentMonthElement_);
-    this.currentMonthElement_.remove();
+    if (this.currentMonthElement_.remove) {
+      this.currentMonthElement_.remove();
+    } else {
+      this.currentMonthElement_.parentNode.removeChild(this.currentMonthElement_);
+    }
     this.currentMonthElement_ = currentMonthElement;
     this.currentMonth_ = currentMonth;
     this.updateMonthTitle_();
