@@ -332,6 +332,7 @@ $datepicker-date-hover-bg-color: unquote("rgb(#{$color-accent})") !default;
 $datepicker-date-hover-color: unquote("rgb(#{$color-white})") !default;
 $datepicker-date-font-size: 12px !default;
 $datepicker-date-disabled-color: unquote("rgb(#{$palette-grey-400})") !default;
+$datepicker-month-title-font-weight: 600;
 $datepicker-year-selected-color: unquote("rgb(#{$color-accent})") !default;
 $datepicker-year-selected-font-size: 24px;
 $datepicker-navigation-font-size: 14px !default;
