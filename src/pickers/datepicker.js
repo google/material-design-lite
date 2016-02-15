@@ -476,6 +476,11 @@
   MaterialDatePicker.prototype.changeCurrentMonth_ = function(currentMonth) {
     var currentMonthElement = this.renderMonth_(currentMonth);
     this.calendarElement_.insertBefore(currentMonthElement, this.currentMonthElement_);
+    var dateButtons = this.currentMonthElement_.querySelectorAll('.' + this.CssClasses_.DATE);
+    for (var i = 0; i < dateButtons.length; i++) {
+      var dateButton = dateButtons[i];
+      dateButton.removeEventListener('click', this.boundPickDateHandler);
+    }
     if (this.currentMonthElement_.remove) {
       this.currentMonthElement_.remove();
     } else {
