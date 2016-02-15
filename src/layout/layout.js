@@ -43,6 +43,7 @@
   MaterialLayout.prototype.Constant_ = {
     MAX_WIDTH: '(max-width: 1024px)',
     TAB_SCROLL_PIXELS: 100,
+    RESIZE_TIMEOUT: 100,
 
     MENU_ICON: '&#xE5D2;',
     CHEVRON_LEFT: 'chevron_left',
@@ -453,8 +454,9 @@
         tabContainer.appendChild(this.tabBar_);
         tabContainer.appendChild(rightButton);
 
-        // Add and remove buttons depending on scroll position.
-        var tabScrollHandler = function() {
+        // Add and remove tab buttons depending on scroll position and total
+        // window size.
+        var tabUpdateHandler = function() {
           if (this.tabBar_.scrollLeft > 0) {
             leftButton.classList.add(this.CssClasses_.IS_ACTIVE);
           } else {
@@ -469,8 +471,22 @@
           }
         }.bind(this);
 
-        this.tabBar_.addEventListener('scroll', tabScrollHandler);
-        tabScrollHandler();
+        this.tabBar_.addEventListener('scroll', tabUpdateHandler);
+        tabUpdateHandler();
+
+        // Update tabs when the window resizes.
+        var windowResizeHandler = function() {
+          // Use timeouts to make sure it doesn't happen too often.
+          if (this.resizeTimeoutId_) {
+            clearTimeout(this.resizeTimeoutId_);
+          }
+          this.resizeTimeoutId_ = setTimeout(function() {
+            tabUpdateHandler();
+            this.resizeTimeoutId_ = null;
+          }.bind(this), /** @type {number} */ (this.Constant_.RESIZE_TIMEOUT));
+        }.bind(this);
+
+        window.addEventListener('resize', windowResizeHandler);
 
         if (this.tabBar_.classList.contains(this.CssClasses_.JS_RIPPLE_EFFECT)) {
           this.tabBar_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
