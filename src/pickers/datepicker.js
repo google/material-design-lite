@@ -300,6 +300,7 @@
     this.pickedDate_.setMonth(this.currentMonth_.getMonth());
     this.pickedDate_.setDate(pickedDateInt);
     this.updateHeader_();
+    this.updateYearPicker_();
   };
 
   /**
@@ -547,6 +548,32 @@
       this.settings.months[this.currentMonth_.getMonth()] + ', ' +
       this.currentMonth_.getFullYear()
     );
+  };
+
+  /**
+   * Update year picker current year
+   * @private
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.updateYearPicker_ = function() {
+    var pickedYear = this.yearPickerElement_.querySelector('.' + this.CssClasses_.YEAR_SELECTED);
+    if (pickedYear) {
+      pickedYear.classList.remove(this.CssClasses_.YEAR_SELECTED);
+    }
+    pickedYear = this.yearPickerElement_.querySelector(
+      '.' + this.CssClasses_.YEAR + '[data-year="' + this.pickedDate_.getFullYear() + '"]'
+    );
+    console.log(pickedYear);
+    pickedYear.classList.add(this.CssClasses_.YEAR_SELECTED);
+
+    var focusYear = pickedYear;
+    if (focusYear.previousElementSibling) {
+      focusYear = focusYear.previousElementSibling;
+    }
+    if (focusYear.previousElementSibling) {
+      focusYear = focusYear.previousElementSibling;
+    }
+    focusYear.scrollIntoView(true);
   };
 
   /**
