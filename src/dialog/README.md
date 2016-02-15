@@ -48,7 +48,7 @@ See this example live in [codepen](http://codepen.io/Garbee/full/EPoaMj/).
     <div class="mdl-dialog__content">
       <p>
         Allowing us to collect data will let us get you the information you want faster.
-      <p>
+      </p>
     </div>
     <div class="mdl-dialog__actions">
       <button type="button" class="mdl-button">Agree</button>
@@ -82,7 +82,7 @@ See this example live in [codepen](http://codepen.io/Garbee/full/JGMowG/).
     <div class="mdl-dialog__content">
       <p>
         Allow this site to collect usage data to improve your experience?
-      <p>
+      </p>
     </div>
     <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
       <button type="button" class="mdl-button">Agree</button>
