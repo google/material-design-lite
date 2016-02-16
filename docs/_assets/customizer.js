@@ -86,7 +86,7 @@ function init() {
     mc.template = this.responseText;
     mc.highlightField('Indigo');
     mc.highlightField('Pink');
-    window.requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
       mc.updateCDN();
       mc.updateStylesheet();
     });
@@ -369,7 +369,7 @@ MaterialCustomizer = (function() {
         }
         this.highlightField(g.getAttribute('data-color'));
         this.wheel.setAttribute('class', '');
-        window.requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
           this.updateCDN();
           this.updateStylesheet();
         }.bind(this));
@@ -385,7 +385,7 @@ MaterialCustomizer = (function() {
         /* falls through */
       case 0:
         this.highlightField(g.getAttribute('data-color'));
-        window.requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
           this.wheel.setAttribute('class', 'hide-nonaccents');
         }.bind(this));
         break;

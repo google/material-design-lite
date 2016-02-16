@@ -68,8 +68,6 @@ const AUTOPREFIXER_BROWSERS = [
 const SOURCES = [
   // Component handler
   'src/mdlComponentHandler.js',
-  // Polyfills/dependencies
-  'src/third_party/**/*.js',
   // Base components
   'src/button/button.js',
   'src/checkbox/checkbox.js',
