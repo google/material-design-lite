@@ -280,11 +280,13 @@
     if (this.element_) {
       var container = document.createElement('div');
       container.classList.add(this.CssClasses_.CONTAINER);
+
+      var focusedElement = this.element_.querySelector(':focus');
+
       this.element_.parentElement.insertBefore(container, this.element_);
       this.element_.parentElement.removeChild(this.element_);
       container.appendChild(this.element_);
 
-      var focusedElement = this.element_.querySelector('[autofocus]');
       if (focusedElement) {
         focusedElement.focus();
       }
