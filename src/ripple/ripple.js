@@ -109,7 +109,7 @@
       }
       this.setRippleXY(x, y);
       this.setRippleStyles(true);
-      window.requestAnimationFrame(this.animFrameHandler.bind(this));
+      requestAnimationFrame(this.animFrameHandler.bind(this));
     }
   };
 
@@ -240,7 +240,7 @@
          */
         this.animFrameHandler = function() {
           if (this.frameCount_-- > 0) {
-            window.requestAnimationFrame(this.animFrameHandler.bind(this));
+            requestAnimationFrame(this.animFrameHandler.bind(this));
           } else {
             this.setRippleStyles(false);
           }

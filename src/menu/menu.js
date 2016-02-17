@@ -399,7 +399,7 @@
 
       // Wait for the next frame, turn on animation, and apply the final clip.
       // Also make it visible. This triggers the transitions.
-      window.requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
         this.element_.classList.add(this.CssClasses_.IS_ANIMATING);
         this.element_.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
         this.container_.classList.add(this.CssClasses_.IS_VISIBLE);
