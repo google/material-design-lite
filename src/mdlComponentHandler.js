@@ -459,9 +459,11 @@ window.addEventListener('load', function() {
    * tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
    * components requiring JavaScript.
    */
-  if ('classList' in document.createElement('div') &&
+  if (
+      'classList' in document.documentElement &&
       'querySelector' in document &&
-      'addEventListener' in window && Array.prototype.forEach) {
+      'addEventListener' in window &&
+      'forEach' in Array.prototype) {
     document.documentElement.classList.add('mdl-js');
     componentHandler.upgradeAllRegistered();
   } else {
