@@ -43,8 +43,8 @@ The MDL CSS classes apply various predefined visual enhancements to the list. Th
 | ------------- |:-------------:| -----:|
 | .mdl-list | Defines list as an MDL component| - |
 | .mdl-list__item | Defines the List's Items | required |
-| .mdl-list__item-two-line | Defines the List's Items as Two Line | Optional Two Line List Variant |
-| .mdl-list__item-three-line | Defines the List's Items  as a Three Line | Optional Three Line List Variant |
+| .mdl-list__item--two-line | Defines the List's Items as Two Line | Optional Two Line List Variant |
+| .mdl-list__item--three-line | Defines the List's Items  as a Three Line | Optional Three Line List Variant |
 | .mdl-list__item-primary-content | Defines the primary content sub-division |-|
 | .mdl-list__item-avatar | Defines the avatar sub-division |-|
 | .mdl-list__item-icon | Defines the icon sub-division |-|
