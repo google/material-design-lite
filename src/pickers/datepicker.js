@@ -281,7 +281,7 @@
     }
     var currentYear = e.target;
     currentYear.classList.add(this.CssClasses_.YEAR_SELECTED);
-    var currentYearInt = parseInt(currentYear.getAttribute('data-year'));
+    var currentYearInt = parseInt(currentYear.getAttribute('data-year'), 10);
     this.pickedDate_.setFullYear(currentYearInt);
     this.currentMonth_.setFullYear(currentYearInt);
     this.currentMonth_.setMonth(this.pickedDate_.getMonth());
@@ -359,8 +359,8 @@
 
   /**
    * Format given date for input value
-   * @param  {Date}     date
-   * @return {Stirng}
+   * @param  {Date}     dateObject
+   * @return {string}
    */
   MaterialDatePicker.prototype.formatInputDate_ = function(dateObject) {
     var dateFormatted;
@@ -419,7 +419,7 @@
   /**
    * Format given date for header display
    * @param  {Date}     date
-   * @return {Stirng}
+   * @return {string}
    */
   MaterialDatePicker.prototype.formatHeaderDate_ = function(date) {
     return (
@@ -432,7 +432,7 @@
   /**
    * Check if gived date is today
    * @param  {Date}     currentDate
-   * @return {bool}
+   * @return {boolean}
    */
   MaterialDatePicker.prototype.isToday_ = function(currentDate) {
     var today = new Date();
@@ -452,7 +452,7 @@
   /**
    * Check if given date is selected date
    * @param  {Date}     currentDate
-   * @return {bool}
+   * @return {boolean}
    */
   MaterialDatePicker.prototype.isPickedDate_ = function(currentDate) {
     if (!this.pickedDate_) {
@@ -484,7 +484,7 @@
         isInRange = false;
       }
     } else if (!this.minDate_ && this.maxDate_) {
-      if (this.maxDate.getTime() < dateObject.getTime()) {
+      if (this.maxDate_.getTime() < dateObject.getTime()) {
         isInRange = false;
       }
     } else if (this.minDate_ && this.maxDate_) {
@@ -512,7 +512,7 @@
         isInRange = false;
       }
     } else if (!this.minDate_ && this.maxDate_) {
-      if (this.maxDate.getFullYear() < year) {
+      if (this.maxDate_.getFullYear() < year) {
         isInRange = false;
       }
     } else if (this.minDate_ && this.maxDate_) {
@@ -524,20 +524,7 @@
       }
     }
 
-    if (this.minDate_ || this.maxDate_) {
-      console.log(year, isInRange);
-    }
-
     return isInRange;
-  };
-
-  /**
-   * Pick date on date picker, but do not store it as selected
-   * @param  {Date}  date
-   * @return {viod}
-   */
-  MaterialDatePicker.prototype.pickDate_ = function(date) {
-
   };
 
   /**
@@ -547,8 +534,17 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.changeCurrentMonth_ = function(currentMonth) {
+    if (!currentMonth) {
+      return undefined;
+    }
     var currentMonthElement = this.renderMonth_(currentMonth);
-    this.calendarElement_.insertBefore(currentMonthElement, this.currentMonthElement_);
+
+    if (this.currentMonthElement_) {
+      this.calendarElement_.insertBefore(currentMonthElement, this.currentMonthElement_);
+    } else {
+      this.calendarElement_.appendChild(currentMonthElement);
+    }
+
     var dateButtons = this.currentMonthElement_.querySelectorAll('.' + this.CssClasses_.DATE);
     for (var i = 0; i < dateButtons.length; i++) {
       var dateButton = dateButtons[i];
@@ -673,7 +669,7 @@
    * Render entire date picker content
    *
    * @private
-   * @return {HTMLElement}
+   * @return {Element}
    */
   MaterialDatePicker.prototype.renderCalendar_ = function() {
     if (!this.calendarElement_) {
@@ -695,7 +691,7 @@
    * Render month navigation
    *
    * @private
-   * @return {HTMLElement}
+   * @return {Element}
    */
   MaterialDatePicker.prototype.renderNavigation_ = function() {
     if (!this.navigationElement_) {
@@ -750,7 +746,7 @@
    * Render date picker week days heading
    *
    * @private
-   * @return {HTMLElement}
+   * @return {Element}
    */
   MaterialDatePicker.prototype.renderWeekDays_ = function() {
     if (!this.weekDaysElement_) {
@@ -771,7 +767,7 @@
 
   /**
    * Render date picker weeks
-   * @return {HTMLElement}
+   * @return {Element}
    */
   MaterialDatePicker.prototype.renderMonth_ = function(monthObject) {
     var month = document.createElement('div');
@@ -844,7 +840,7 @@
   /**
    * Render year picker
    * @private
-   * @return {void}
+   * @return {Element}
    */
   MaterialDatePicker.prototype.renderYearPicker_ = function() {
     var year;
@@ -884,11 +880,11 @@
       for (var i = 0; i < yearButtons.length; i++) {
         yearButton = null;
         yearButton = yearButtons[i];
-        var existingYear = parseInt(yearButton.getAttribute('data-year'));
+        var existingYear = parseInt(yearButton.getAttribute('data-year'), 10);
 
         if (this.isYearInRange_(existingYear)) {
           if (yearButton.classList.contains(this.CssClasses_.YEAR_DISABLED)) {
-            yearButton.classList.remove(this.Css.YEAR_DISABLED);
+            yearButton.classList.remove(this.CssClasses_.YEAR_DISABLED);
           }
           // First try remove, then add event listener again to avoid duplication
           yearButton.removeEventListener('click', this.boundPickYearHandler);
@@ -907,7 +903,7 @@
    * Render date picker actions
    *
    * @private
-   * @return {HTMLElement}
+   * @return {Element}
    */
   MaterialDatePicker.prototype.renderActions_ = function() {
     if (!this.actionsElement_) {
@@ -948,23 +944,83 @@
   };
 
   /**
+   * Destroy all properties and widget elements
+   * @private
+   * @return {void}
+   */
+  MaterialDatePicker.prototype.destroy_ = function() {
+    var i = 0;
+
+    if (this.yearPickerElement_) {
+      var yearButtons = this.yearPickerElement_.querySelectorAll('.' + this.CssClasses_.YEAR);
+      for (i = 0; i < yearButtons.length; i++) {
+        var yearButton = yearButtons[i];
+        yearButton.removeEventListener('click', this.boundPickYearHandler);
+      }
+    }
+    if (this.currentMonthElement_) {
+      var dateButtons = this.currentMonthElement_.querySelectorAll('.' + this.CssClasses_.DATE);
+      for (i = 0; i < dateButtons.length; i++) {
+        var dateButton = dateButtons[i];
+        dateButton.removeEventListener('click', this.boundPickDateHandler);
+      }
+    }
+    if (this.cancelElement_) {
+      componentHandler.downgradeElements(this.cancelElement_);
+      this.cancelElement_.removeEventListener('click', this.boundCancelActionHandler);
+    }
+    if (this.okElement_) {
+      componentHandler.downgradeElements(this.okElement_);
+      this.okElement_.removeEventListener('click', this.boundOkActionHandler);
+    }
+    if (this.navigationElement_) {
+      var previousMonth = this.navigationElement_.querySelector('.' + this.CssClasses_.MONTH_PREVIOUS);
+      var nextMonth = this.navigationElement_.querySelector('.' + this.CssClasses_.MONTH_NEXT);
+
+      if (previousMonth) {
+        previousMonth.removeEventListener('click', this.boundPreviousMonthHandler);
+      }
+      if (nextMonth) {
+        nextMonth.removeEventListener('click', this.boundNextMonthHandler);
+      }
+    }
+    if (this.headerDateElement_) {
+      this.headerDateElement_.removeEventListener('click', this.boundHeaderDateClickHandler);
+    }
+    if (this.headerYearElement_) {
+      this.headerYearElement_.removeEventListener('click', this.boundHeaderYearClickHandler);
+    }
+    if (this.widgetElement_) {
+      if (this.widgetElement_.remove) {
+        this.widgetElement_.remove();
+      } else {
+        this.widgetElement_.parentNode.removeChild(this.widgetElement_);
+      }
+      this.widgetElement_ = null;
+    }
+  };
+
+  /**
    * Open date picker dialog
    *
    * @public
-   * @return {viod}
+   * @return {void}
    */
   MaterialDatePicker.prototype.open = function() {
     // Date picker widget already opened
     if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
-      return false;
+      return;
     }
 
     if (!this.widgetElement_) {
       this.render_();
     }
 
-    this.element_.classList.add(this.CssClasses_.IS_VISIBLE);
-    this.triggerEvent_('open');
+    // Slightly delay picker show to enable animation
+    setTimeout(function() {
+      this.element_.classList.add(this.CssClasses_.IS_VISIBLE);
+      this.triggerEvent_('open');
+    }.bind(this), 0);
   };
   MaterialDatePicker.prototype['open'] = MaterialDatePicker.prototype.open;
 
@@ -978,16 +1034,21 @@
     // Inline styles can't be closed.
     // @TODO: This should be reviewed with Google guys
     if (this.element_.classList.contains(this.CssClasses_.INLINE)) {
-      return false;
+      return;
     }
 
     // Date picker widget already closed
     if (!this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
-      return false;
+      return;
     }
     if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
       this.triggerEvent_('close');
+
+      setTimeout(function() {
+        // Destroy all properties and wiget elements after close
+        this.destroy_();
+      }.bind(this), 200);
     }
   };
   MaterialDatePicker.prototype['close'] = MaterialDatePicker.prototype.close;
@@ -996,7 +1057,7 @@
    * Get selected date to datepicker
    *
    * @public
-   * @return {void}
+   * @return {Date}
    */
   MaterialDatePicker.prototype.getSelectedDate = function() {
     return this.selectedDate_;
@@ -1009,7 +1070,7 @@
    * @param  {Date} selectedDate
    *
    * @public
-   * @return {void}
+   * @return {Date}
    */
   MaterialDatePicker.prototype.setSelectedDate = function(selectedDate) {
     if (selectedDate && this.isInRange_(selectedDate)) {
@@ -1047,8 +1108,11 @@
     }
     this.maxDate_ = maxDate || null;
 
-    this.changeCurrentMonth_(this.currentMonth_);
-    this.renderYearPicker_();
+    // Means that widget exists and is opened
+    if (this.widgetElement_) {
+      this.changeCurrentMonth_(this.currentMonth_);
+      this.renderYearPicker_();
+    }
   };
   MaterialDatePicker.prototype['setRange'] = MaterialDatePicker.prototype.setRange;
 
@@ -1080,11 +1144,8 @@
         this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
 
         // Once rendered, show datepicker
-        this.element_.classList.add(this.CssClasses_.IS_VISIBLE);
+        this.open();
       }
-
-      // Render datepicker widget
-      this.render_();
 
       // Set private isInitialized_ property for internal tracking
       this.isInitialized_ = true;
@@ -1102,36 +1163,7 @@
     if (this.input_) {
       this.input_.removeEventListener('click', this.boundInputFocusHandler);
     }
-    if (this.currentMonthElement_) {
-      var dateButtons = this.currentMonthElement_.querySelectorAll(this.CssClasses_.DATE);
-      for (var i = 0; i < dateButtons.length; i++) {
-        var dateButton = dateButtons[i];
-        dateButton.removeEventListener('click', this.boundPickDateHandler);
-      }
-    }
-    if (this.cancelElement_) {
-      componentHandler.downgradeElements(this.cancelElement_);
-      this.cancelElement_.removeEventListener('click', this.boundCancelActionHandler);
-    }
-    if (this.okElement_) {
-      componentHandler.downgradeElements(this.okElement_);
-      this.okElement_.removeEventListener('click', this.boundOkActionHandler);
-    }
-    if (this.navigationElement_) {
-      var previousMonth = this.navigationElement_.querySelector(this.CssClasses_.MONTH_PREVIOUS);
-      var nextMonth = this.navigationElement_.querySelector(this.CssClasses_.MONTH_NEXT);
-
-      if (previousMonth) {
-        previousMonth.removeEventListener('click', this.boundPreviousMonthHandler);
-      }
-      if (nextMonth) {
-        nextMonth.removeEventListener('click', this.boundNextMonthHandler);
-      }
-    }
-    if (this.widgetElement_) {
-      this.widgetElement_.remove();
-      this.widgetElement_ = null;
-    }
+    this.destroy_();
 
     // Trigger "destroy" event for all those who are listening
     // for other component events
