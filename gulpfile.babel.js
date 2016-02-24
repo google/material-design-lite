@@ -34,7 +34,6 @@ import swig from 'swig';
 import gulp from 'gulp';
 import closureCompiler from 'gulp-closure-compiler';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import uniffe from './utils/uniffe.js';
 import pkg from './package.json';
 
 const $ = gulpLoadPlugins();
@@ -66,27 +65,25 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 const SOURCES = [
-  // Component handler
-  'src/mdlComponentHandler.js',
   // Base components
-  'src/button/button.js',
+  // 'src/button/button.js',
   'src/checkbox/checkbox.js',
-  'src/icon-toggle/icon-toggle.js',
-  'src/menu/menu.js',
-  'src/progress/progress.js',
-  'src/radio/radio.js',
-  'src/slider/slider.js',
-  'src/snackbar/snackbar.js',
-  'src/spinner/spinner.js',
-  'src/switch/switch.js',
-  'src/tabs/tabs.js',
-  'src/textfield/textfield.js',
-  'src/tooltip/tooltip.js',
+  // 'src/icon-toggle/icon-toggle.js',
+  // 'src/menu/menu.js',
+  // 'src/progress/progress.js',
+  // 'src/radio/radio.js',
+  // 'src/slider/slider.js',
+  // 'src/snackbar/snackbar.js',
+  // 'src/spinner/spinner.js',
+  // 'src/switch/switch.js',
+  // 'src/tabs/tabs.js',
+  // 'src/textfield/textfield.js',
+  // 'src/tooltip/tooltip.js',
   // Complex components (which reuse base components)
-  'src/layout/layout.js',
-  'src/data-table/data-table.js',
+  // 'src/layout/layout.js',
+  // 'src/data-table/data-table.js',
   // And finally, the ripples
-  'src/ripple/ripple.js'
+  // 'src/ripple/ripple.js'
 ];
 
 const COMPONENT_HEADER = `---
@@ -237,7 +234,7 @@ gulp.task('styles-grid', () => {
 
 // Build with Google's Closure Compiler, requires Java 1.7+ installed.
 gulp.task('closure', () => {
-  return gulp.src(SOURCES)
+  return gulp.src(['utils/export.js'].concat(SOURCES))
     .pipe(closureCompiler({
       compilerPath: 'node_modules/google-closure-compiler/compiler.jar',
       fileName: 'material.closure.min.js',
@@ -246,8 +243,10 @@ gulp.task('closure', () => {
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         language_in: 'ECMASCRIPT6_STRICT',
         language_out: 'ECMASCRIPT5_STRICT',
-        warning_level: 'VERBOSE'
-        /* eslint-enable camelcase */
+        warning_level: 'VERBOSE',
+        generate_exports: true,
+        export_local_property_definitions: true
+        // eslint-enable camelcase
       }
     }))
     .pipe(gulp.dest('./dist'));
@@ -256,7 +255,6 @@ gulp.task('closure', () => {
 // Concatenate And Minify JavaScript
 gulp.task('scripts', ['lint:sources'], () => {
   return gulp.src(SOURCES)
-    .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
