@@ -282,9 +282,32 @@
     var currentYear = e.target;
     currentYear.classList.add(this.CssClasses_.YEAR_SELECTED);
     var currentYearInt = parseInt(currentYear.getAttribute('data-year'), 10);
+
     this.pickedDate_.setFullYear(currentYearInt);
+    var pickedDate = new Date(this.pickedDate_.getTime());
+    if (!this.isInRange_(pickedDate)) {
+      if (this.minDate_ && !this.maxDate_ && pickedDate.getTime() < this.minDate_.getTime()) {
+        pickedDate.setFullYear(this.minDate_.getFullYear());
+        pickedDate.setMonth(this.minDate_.getMonth());
+        pickedDate.setDate(this.minDate_.getDate());
+      } else if (!this.minDate_ && this.maxDate_ && pickedDate.getTime() > this.maxDate_.getTime()) {
+        pickedDate.setFullYear(this.maxDate_.getFullYear());
+        pickedDate.setMonth(this.maxDate_.getMonth());
+        pickedDate.setDate(this.maxDate_.getDate());
+      } else {
+        pickedDate.setFullYear(this.minDate_.getFullYear());
+        pickedDate.setMonth(this.minDate_.getMonth());
+        pickedDate.setDate(this.minDate_.getDate());
+      }
+
+      this.pickedDate_.setFullYear(pickedDate.getFullYear());
+      this.pickedDate_.setMonth(pickedDate.getMonth());
+      this.pickedDate_.setDate(pickedDate.getDate());
+    }
+
     this.currentMonth_.setFullYear(currentYearInt);
     this.currentMonth_.setMonth(this.pickedDate_.getMonth());
+    this.currentMonth_.setDate(this.pickedDate_.getDate());
 
     this.updateHeader_();
     this.updateMonthTitle_();
