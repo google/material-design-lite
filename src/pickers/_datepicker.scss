@@ -31,7 +31,6 @@
     height: fit-content;
     left: 0;
     margin: 10px auto 45px 0;
-    max-height: 510px;
     position: absolute;
     right: 0;
     width: 280px;
@@ -59,14 +58,14 @@
 
   &--fixed {
     .mdl-datepicker__widget {
-      bottom: 0;
-      display: inline-block;
+      display: block;
       margin: auto;
+      margin-top: 10px;
       opacity: 0;
       position: fixed;
       top: 0;
-      transform: translate(0, -100%);
-      transition: transform .2s linear, opacity .2s linear;
+      transform: translate(0, -200%);
+      transition: transform .5s linear, opacity .2s linear;
     }
 
     &.is-visible {
