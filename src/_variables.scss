@@ -340,6 +340,7 @@ $datepicker-month-title-font-weight: 600;
 $datepicker-year-dark-color: unquote("rgb(#{$color-white})") !default;
 $datepicker-year-selected-color: unquote("rgb(#{$color-accent})") !default;
 $datepicker-year-selected-font-size: 24px;
+$datepicker-year-disabled-color: unquote("rgb(#{$palette-grey-400})") !default;
 $datepicker-navigation-font-size: 14px !default;
 $datepicker-navigation-dark-color: unquote("rgb(#{$color-white})") !default;
 $datepicker-week-days-color: unquote("rgb(#{$palette-grey-500})") !default;

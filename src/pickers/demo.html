@@ -49,6 +49,18 @@
 
   <div class="mdl-grid">
     <div class="mdl-cell">
+      <h6>Custom allowed date range</h6>
+      
+      <div id="custom-range" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
+        <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+        <label class="mdl-textfield__label">Select date</label>
+      </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+    </div><!-- /.mdl-cell -->
+  </div><!-- /.mdl-grid -->
+
+  <div class="mdl-grid">
+    <div class="mdl-cell">
       <h6>Inline datepicker</h6>
       
       <div id="inline-datepicker" class="mdl-datepicker mdl-js-datepicker mdl-datepicker--inline is-visible">
@@ -116,6 +128,13 @@
           selectedDate.getFullYear()
         ].join('+');
       };
+
+      var minDate = new Date(),
+          maxDate = null; // new Date();
+      minDate.setDate(1);
+
+      var customRange = document.querySelector('#custom-range');
+      customRange.MaterialDatePicker.setRange(minDate, maxDate);
 
       var inlinePicker = document.querySelector('#inline-datepicker');
       var inlinePickerSpan = document.querySelector('#inline-selected-date');

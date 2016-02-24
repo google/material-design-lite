@@ -196,6 +196,8 @@
       cursor: default !important;
       background-color: transparent !important;
 
+      &:active,
+      &:focus,
       &:hover {
         color: $datepicker-date-disabled-color !important;
         cursor: default !important;
@@ -251,6 +253,15 @@
       font-size: $datepicker-year-selected-font-size;
       height: 40px;
       line-height: 40px;
+    }
+
+    &--disabled {
+      &,
+      &:active,
+      &:focus {
+        cursor: default;
+        color: $datepicker-year-disabled-color;
+      }
     }
   }
 

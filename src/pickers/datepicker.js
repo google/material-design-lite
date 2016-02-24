@@ -114,6 +114,7 @@
     CALENDAR: 'mdl-datepicker__calendar',
     YEAR: 'mdl-datepicker__year',
     YEAR_SELECTED: 'mdl-datepicker__year--selected',
+    YEAR_DISABLED: 'mdl-datepicker__year--disabled',
     YEAR_PICKER: 'mdl-datepicker--year-picker',
     YEAR_PICKER_ELEMENT: 'mdl-datepicker__year-picker',
     MONTH: 'mdl-datepicker__month',
@@ -141,6 +142,9 @@
   MaterialDatePicker.prototype.isInitialized_ = null;
   MaterialDatePicker.prototype.currentDate_ = null;
   MaterialDatePicker.prototype.selectedDate_ = null;
+  MaterialDatePicker.prototype.pickedDate_ = null;
+  MaterialDatePicker.prototype.minDate_ = null;
+  MaterialDatePicker.prototype.maxDate_ = null;
 
   /**
    * Trigger date picker internal events
@@ -310,11 +314,19 @@
     var pickedDate = e.target;
     var pickedDateInt = pickedDate.getAttribute('data-date');
     pickedDate.classList.add(this.CssClasses_.DATE_SELECTED);
-    this.pickedDate_.setFullYear(this.currentMonth_.getFullYear());
-    this.pickedDate_.setMonth(this.currentMonth_.getMonth());
-    this.pickedDate_.setDate(pickedDateInt);
-    this.updateHeader_();
-    this.updateYearPicker_();
+
+    var nextPickedDate = new Date(this.pickedDate_.getTime());
+    nextPickedDate.setFullYear(this.currentMonth_.getFullYear());
+    nextPickedDate.setMonth(this.currentMonth_.getMonth());
+    nextPickedDate.setDate(pickedDateInt);
+
+    if (this.isInRange_(nextPickedDate)) {
+      this.pickedDate_.setFullYear(this.currentMonth_.getFullYear());
+      this.pickedDate_.setMonth(this.currentMonth_.getMonth());
+      this.pickedDate_.setDate(pickedDateInt);
+      this.updateHeader_();
+      this.updateYearPicker_();
+    }
   };
 
   /**
@@ -459,6 +471,67 @@
   };
 
   /**
+   * Check if given date is in range, if range is set.
+   * @private
+   * @param  {Date}  dateObject
+   * @return {boolean}
+   */
+  MaterialDatePicker.prototype.isInRange_ = function(dateObject) {
+    var isInRange = true;
+
+    if (this.minDate_ && !this.maxDate_) {
+      if (this.minDate_.getTime() > dateObject.getTime()) {
+        isInRange = false;
+      }
+    } else if (!this.minDate_ && this.maxDate_) {
+      if (this.maxDate.getTime() < dateObject.getTime()) {
+        isInRange = false;
+      }
+    } else if (this.minDate_ && this.maxDate_) {
+      if (this.minDate_.getTime() <= dateObject.getTime() &&
+          dateObject.getTime() <= this.maxDate_.getTime()) {
+
+      } else {
+        isInRange = false;
+      }
+    }
+
+    return isInRange;
+  };
+
+  /**
+   * Check if given year is in range, if range is set
+   * @param  {number}  year
+   * @return {boolean}
+   */
+  MaterialDatePicker.prototype.isYearInRange_ = function(year) {
+    var isInRange = true;
+
+    if (this.minDate_ && !this.maxDate_) {
+      if (this.minDate_.getFullYear() > year) {
+        isInRange = false;
+      }
+    } else if (!this.minDate_ && this.maxDate_) {
+      if (this.maxDate.getFullYear() < year) {
+        isInRange = false;
+      }
+    } else if (this.minDate_ && this.maxDate_) {
+      if (this.minDate_.getFullYear() <= year &&
+          year <= this.maxDate_.getFullYear()) {
+        // Everything ok
+      } else {
+        isInRange = false;
+      }
+    }
+
+    if (this.minDate_ || this.maxDate_) {
+      console.log(year, isInRange);
+    }
+
+    return isInRange;
+  };
+
+  /**
    * Pick date on date picker, but do not store it as selected
    * @param  {Date}  date
    * @return {viod}
@@ -498,7 +571,6 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.render_ = function() {
-    console.log('render');
     if (!this.widgetElement_) {
       this.widgetElement_ = document.createElement('div');
       this.widgetElement_.classList.add(this.CssClasses_.WIDGET);
@@ -586,7 +658,6 @@
     pickedYear = this.yearPickerElement_.querySelector(
       '.' + this.CssClasses_.YEAR + '[data-year="' + this.pickedDate_.getFullYear() + '"]'
     );
-    console.log(pickedYear);
     pickedYear.classList.add(this.CssClasses_.YEAR_SELECTED);
 
     var focusYear = pickedYear;
@@ -738,18 +809,21 @@
           weekDay.setAttribute('data-date', currentDayInt);
           currentDayInt++;
 
-          // Check if today
-          if (this.isToday_(currentDay)) {
-            weekDay.classList.add(this.CssClasses_.DATE_TODAY);
-          }
-
-          // Check if current day is selected
-          if (this.isPickedDate_(currentDay)) {
-            weekDay.classList.add(this.CssClasses_.DATE_SELECTED);
+          if (!this.isInRange_(currentDay)) {
+            weekDay.classList.add(this.CssClasses_.DATE_DISABLED);
           }
 
           // Bind select date event
           if (!weekDay.classList.contains(this.CssClasses_.DATE_DISABLED)) {
+            if (this.isToday_(currentDay)) {
+              weekDay.classList.add(this.CssClasses_.DATE_TODAY);
+            }
+
+            // Check if current day is selected
+            if (this.isPickedDate_(currentDay)) {
+              weekDay.classList.add(this.CssClasses_.DATE_SELECTED);
+            }
+
             this.boundPickDateHandler = this.pickDateHandler_.bind(this);
             weekDay.addEventListener('click', this.boundPickDateHandler, true);
           }
@@ -773,6 +847,9 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.renderYearPicker_ = function() {
+    var year;
+    var yearButton;
+
     if (!this.yearPickerElement_) {
       this.yearPickerElement_ = document.createElement('div');
       this.yearPickerElement_.classList.add(this.CssClasses_.YEAR_PICKER_ELEMENT);
@@ -782,20 +859,44 @@
       var endYear = today.getFullYear() + 100;
       this.boundPickYearHandler = this.pickYearHandler_.bind(this);
 
-      for (var i = startYear; i <= endYear; i++) {
-        var yearButton = document.createElement('button');
+      for (year = startYear; year <= endYear; year++) {
+        yearButton = document.createElement('button');
         yearButton.classList.add(this.CssClasses_.YEAR);
-        yearButton.setAttribute('data-year', i);
-        yearButton.innerHTML = i;
-        yearButton.addEventListener('click', this.boundPickYearHandler);
+        yearButton.setAttribute('data-year', year);
+        yearButton.innerHTML = year;
 
-        if (this.pickedDate_) {
-          if (this.pickedDate_.getFullYear() === i) {
-            yearButton.classList.add(this.CssClasses_.YEAR_SELECTED);
+        if (this.isYearInRange_(year)) {
+          yearButton.addEventListener('click', this.boundPickYearHandler);
+          if (this.pickedDate_) {
+            if (this.pickedDate_.getFullYear() === year) {
+              yearButton.classList.add(this.CssClasses_.YEAR_SELECTED);
+            }
           }
+        } else {
+          yearButton.classList.add(this.CssClasses_.YEAR_DISABLED);
         }
 
         this.yearPickerElement_.appendChild(yearButton);
+      }
+    } else {
+      // Year picker already rendered, yust need to update state
+      var yearButtons = this.yearPickerElement_.querySelectorAll('.' + this.CssClasses_.YEAR);
+      for (var i = 0; i < yearButtons.length; i++) {
+        yearButton = null;
+        yearButton = yearButtons[i];
+        var existingYear = parseInt(yearButton.getAttribute('data-year'));
+
+        if (this.isYearInRange_(existingYear)) {
+          if (yearButton.classList.contains(this.CssClasses_.YEAR_DISABLED)) {
+            yearButton.classList.remove(this.Css.YEAR_DISABLED);
+          }
+          // First try remove, then add event listener again to avoid duplication
+          yearButton.removeEventListener('click', this.boundPickYearHandler);
+          yearButton.addEventListener('click', this.boundPickYearHandler);
+        } else {
+          yearButton.removeEventListener('click', this.boundPickYearHandler);
+          yearButton.classList.add(this.CssClasses_.YEAR_DISABLED);
+        }
       }
     }
 
@@ -911,7 +1012,7 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.setSelectedDate = function(selectedDate) {
-    if (selectedDate) {
+    if (selectedDate && this.isInRange_(selectedDate)) {
       this.pickedDate_ = selectedDate;
       this.currentMonth_ = selectedDate;
       this.selectedDate_ = selectedDate;
@@ -921,6 +1022,35 @@
     return this.getSelectedDate();
   };
   MaterialDatePicker.prototype['setSelectedDate'] = MaterialDatePicker.prototype.setSelectedDate;
+
+  /**
+   * Set allowed date picker range. Dates outside of the range can't be selected.
+   * @param {Date} minDate Minimum date
+   * @param {Date} maxDate Maximum date
+   */
+  MaterialDatePicker.prototype.setRange = function(minDate, maxDate) {
+    if (minDate && minDate instanceof Date) {
+      // Set minimum lowest possible value of the date
+      minDate.setHours(0);
+      minDate.setMinutes(0);
+      minDate.setSeconds(0);
+      minDate.setMilliseconds(0);
+    }
+    this.minDate_ = minDate || null;
+
+    if (maxDate && maxDate instanceof Date) {
+      // Set maximum highest possible value of the date
+      maxDate.setHours(23);
+      maxDate.setMinutes(59);
+      maxDate.setSeconds(59);
+      maxDate.setMilliseconds(999);
+    }
+    this.maxDate_ = maxDate || null;
+
+    this.changeCurrentMonth_(this.currentMonth_);
+    this.renderYearPicker_();
+  };
+  MaterialDatePicker.prototype['setRange'] = MaterialDatePicker.prototype.setRange;
 
   /**
    * Initialize element.
