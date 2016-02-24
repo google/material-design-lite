@@ -20,6 +20,11 @@ const numbers_ = Object.freeze({
   TINY_TIMEOUT: 0.001
 });
 
+// String constants used in this component.
+const strings_ = Object.freeze({
+  CLASS_NAME: 'MaterialCheckbox'
+});
+
 // CSS classes used in this component.
 const classes_ = Object.freeze({
   ROOT: 'mdl-checkbox',
@@ -66,6 +71,11 @@ class MaterialCheckbox {
 
     // Refresh component.
     this.refresh();
+  }
+
+  // Return class name as a string. Useful for automation after obfuscation.
+  get classAsString() {
+    return strings_.CLASS_NAME;
   }
 
   /**
@@ -156,5 +166,5 @@ class MaterialCheckbox {
 var nodes = document.querySelectorAll(`.${classes_.ROOT}.${classes_.JS}`);
 for (let i = 0; i < nodes.length; i++) {
   // Attach new component to DOM property.
-  nodes[i]['MaterialCheckbox'] = new MaterialCheckbox(nodes[i]);
+  nodes[i][strings_.CLASS_NAME] = new MaterialCheckbox(nodes[i]);
 }
