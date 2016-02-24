@@ -166,7 +166,9 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.cancelHandler_ = function(e) {
-    e.preventDefault();
+    // e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     this.close();
     this.pickedDate_.setFullYear(this.selectedDate_.getFullYear());
     this.pickedDate_.setMonth(this.selectedDate_.getMonth());
@@ -186,7 +188,9 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.okHandler_ = function(e) {
-    e.preventDefault();
+    // e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     this.selectedDate_.setFullYear(this.pickedDate_.getFullYear());
     this.selectedDate_.setMonth(this.pickedDate_.getMonth());
     this.selectedDate_.setDate(this.pickedDate_.getDate());
@@ -1160,10 +1164,7 @@
       if (this.input_) {
         // Bind input events
         this.boundInputFocusHandler = this.inputFocusHandler_.bind(this);
-        // this.boundInputBlurHandler = this.inputBlurHandler_.bind(this);
-
         this.input_.addEventListener('focus', this.boundInputFocusHandler, true);
-        // this.input_.addEventListener('blur', this.boundInputBlurHandler);
       }
 
       // Setup properties default values.
