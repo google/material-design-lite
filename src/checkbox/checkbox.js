@@ -66,9 +66,6 @@ class MaterialCheckbox {
 
     // Refresh component.
     this.refresh();
-
-    // Attach component to DOM property.
-    this.root_['MaterialCheckbox'] = this;
   }
 
   /**
@@ -158,5 +155,6 @@ class MaterialCheckbox {
 // Initialize all self-managed instances.
 var nodes = document.querySelectorAll(`.${classes_.ROOT}.${classes_.JS}`);
 for (let i = 0; i < nodes.length; i++) {
-  new MaterialCheckbox(nodes[i]);
+  // Attach new component to DOM property.
+  nodes[i]['MaterialCheckbox'] = new MaterialCheckbox(nodes[i]);
 }
