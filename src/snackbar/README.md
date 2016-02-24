@@ -97,6 +97,6 @@ The table below shows the properties and their usage.
 | Property | Effect | Remarks | Type |
 |-----------|--------|---------|---------|
 | message   | The text message to display. | Required | String |
-| timeout   | The amount of time in milliseconds to show the snackbar. | Optional (default 8000) | Integer |
+| timeout   | The amount of time in milliseconds to show the snackbar. | Optional (default 2750) | Integer |
 | actionHandler | The function to execute when the action is clicked. | Optional | Function |
 | actionText | The text to display for the action button. | Required if actionHandler is set |  String. |
