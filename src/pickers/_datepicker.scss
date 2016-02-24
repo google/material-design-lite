@@ -21,6 +21,17 @@
     }
   }
 
+  &__backdrop {
+    background: $datepicker-backdrop-bg-color;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
   &__widget {
     background-color: $datepicker-bg-color;
     box-shadow: $datepicker-shadow;

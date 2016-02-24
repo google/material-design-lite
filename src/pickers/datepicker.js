@@ -108,6 +108,7 @@
     LANDSCAPE: 'mdl-datepicker--landscape',
 
     // Datepicker related classes
+    BACKDROP: 'mdl-datepicker__backdrop',
     WIDGET: 'mdl-datepicker__widget',
     INPUT: 'mdl-datepicker__input',
     NAVIGATION: 'mdl-datepicker__navigation',
@@ -1041,6 +1042,10 @@
 
     // Slightly delay picker show to enable animation
     setTimeout(function() {
+      if (this.backdrop_) {
+        this.backdrop_.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
       this.element_.classList.add(this.CssClasses_.IS_VISIBLE);
       this.triggerEvent_('open');
     }.bind(this), 0);
@@ -1065,6 +1070,10 @@
       return;
     }
     if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+      if (this.backdrop_) {
+        this.backdrop_.style.display = 'none';
+        document.body.style.overflow = 'initial';
+      }
       this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
       this.triggerEvent_('close');
 
@@ -1162,6 +1171,14 @@
       this.currentMonth_ = new Date();
       this.selectedDate_ = new Date();
 
+      if (this.element_.classList.contains(this.CssClasses_.FIXED)) {
+        this.backdrop_ = document.createElement('div');
+        this.backdrop_.classList.add(this.CssClasses_.BACKDROP);
+        this.backdrop_.style.display = 'none';
+        this.backdrop_.setAttribute('tabindex', -1);
+        document.body.appendChild(this.backdrop_);
+      }
+
       if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
         // Hide datepicker until it is fully rendered
         this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
@@ -1185,6 +1202,13 @@
   MaterialDatePicker.prototype.mdlDowngrade_ = function() {
     if (this.input_) {
       this.input_.removeEventListener('click', this.boundInputFocusHandler);
+    }
+    if (this.backdrop_) {
+      if (this.backdrop_.remove) {
+        this.backdrop_.remove();
+      } else {
+        this.backdrop_.parentNode.removeChild(this.backdrop_);
+      }
     }
     this.destroy_();
 
