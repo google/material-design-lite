@@ -28,11 +28,11 @@ class MaterialCheckbox {
    */
   constructor(root) {
     // Check if the root has the right class.
+    this.root_ = root;
     if (!root.classList.contains(MaterialCheckbox.classes_.ROOT)) {
       throw new Error(
           `MaterialCheckbox missing ${MaterialCheckbox.classes_.ROOT} class.`);
     }
-    this.root_ = root;
 
     // Look for required sub-nodes in the root's DOM.
     this.input_ = root.querySelector(`.${MaterialCheckbox.classes_.INPUT}`);
@@ -54,17 +54,6 @@ class MaterialCheckbox {
 
     // Refresh component.
     this.refresh();
-  }
-
-  /**
-   * Numeric constants used in this component.
-   *
-   * @private
-   */
-  static get numbers_() {
-    return {
-      TINY_TIMEOUT: 0.001
-    };
   }
 
   /**
@@ -205,10 +194,7 @@ class MaterialCheckbox {
    * @private
    */
   blur_() {
-    // TODO: figure out why there's a focus event being fired after our blur,
-    // so that we can avoid this hack.
-    setTimeout(() => this.input_.blur(),
-        MaterialCheckbox.numbers_.TINY_TIMEOUT);
+    requestAnimationFrame(() => this.input_.blur());
   }
 
   /**
