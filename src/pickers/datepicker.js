@@ -1090,7 +1090,7 @@
     if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       if (this.backdrop_) {
         this.backdrop_.style.display = 'none';
-        document.body.style.overflow = 'initial';
+        document.body.style.overflow = 'auto';
       }
       this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
       this.triggerEvent_('close');
