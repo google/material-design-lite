@@ -44,7 +44,7 @@ for (var i = 0; i < 3; ++i) {
 }
 
 for (var i = 0; i < 3; ++i) {
-  measurePickers(datepickerStamps, i, driver);
+  measureDatepickers(datepickerStamps, i, driver);
 }
 
 controlFlow.execute(function() {
