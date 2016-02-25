@@ -1162,6 +1162,9 @@
 
       this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
       if (this.input_) {
+        if (!this.input_.getAttribute('upgraded')) {
+          componentHandler.upgradeElement(this.input_, 'MaterialTextfield');
+        }
         // Bind input events
         this.boundInputFocusHandler = this.inputFocusHandler_.bind(this);
         this.input_.addEventListener('focus', this.boundInputFocusHandler, true);
