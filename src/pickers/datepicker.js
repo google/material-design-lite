@@ -45,7 +45,7 @@
      * Date format for input formatting
      * @type {string}
      */
-    format: 'mm/dd/yyyy',
+    format: 'yyyy-mm-dd',
     weekDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     weekDaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     weekDaysLetter: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
@@ -69,9 +69,7 @@
    * @type {Object}
    * @public
    */
-  MaterialDatePicker.prototype.settings = {
-    format: null
-  };
+  MaterialDatePicker.prototype.settings = {};
 
   /**
    * Store constants in one place so they can be updated easily.
