@@ -15,28 +15,6 @@
  * limitations under the License.
  */
 
-// Numeric constants used in this component.
-const numbers_ = Object.freeze({
-  TINY_TIMEOUT: 0.001
-});
-
-// String constants used in this component.
-const strings_ = Object.freeze({
-  CLASS_NAME: 'MaterialCheckbox'
-});
-
-// CSS classes used in this component.
-const classes_ = Object.freeze({
-  ROOT: 'mdl-checkbox',
-  JS: 'mdl-js-checkbox',
-  INPUT: 'mdl-checkbox__input',
-
-  IS_FOCUSED: 'is-focused',
-  IS_DISABLED: 'is-disabled',
-  IS_CHECKED: 'is-checked',
-  IS_UPGRADED: 'is-upgraded'
-});
-
 /**
  * The MaterialCheckbox class wraps a Material Design checkbox component.
  *
@@ -50,32 +28,81 @@ class MaterialCheckbox {
    */
   constructor(root) {
     // Check if the root has the right class.
-    if (!root.classList.contains(classes_.ROOT)) {
-      throw new Error(`MaterialCheckbox missing ${classes_.ROOT} class.`);
+    if (!root.classList.contains(MaterialCheckbox.classes_.ROOT)) {
+      throw new Error(
+          `MaterialCheckbox missing ${MaterialCheckbox.classes_.ROOT} class.`);
     }
     this.root_ = root;
 
     // Look for required sub-nodes in the root's DOM.
-    this.input_ = root.querySelector(`.${classes_.INPUT}`);
+    this.input_ = root.querySelector(`.${MaterialCheckbox.classes_.INPUT}`);
     if (!this.input_) {
-      throw new Error(`MaterialCheckbox missing ${classes_.INPUT} node.`);
+      throw new Error(
+          `MaterialCheckbox missing ${MaterialCheckbox.classes_.INPUT} node.`);
     }
 
     // Initialize events.
     this.input_.addEventListener('change', this.refresh.bind(this));
     this.input_.addEventListener('focus',
-        () => this.root_.classList.add(classes_.IS_FOCUSED));
+        () => this.root_.classList.add(MaterialCheckbox.classes_.IS_FOCUSED));
     this.input_.addEventListener('blur',
-        () => this.root_.classList.remove(classes_.IS_FOCUSED));
+        () => this.root_.classList.remove(
+            MaterialCheckbox.classes_.IS_FOCUSED));
     this.root_.addEventListener('mouseup', this.blur_.bind(this));
 
     // Refresh component.
     this.refresh();
   }
 
+  // Numeric constants used in this component.
+  static get numbers_() {
+    return {
+      TINY_TIMEOUT: 0.001
+    };
+  }
+
+  // String constants used in this component.
+  static get strings_() {
+    return {
+      CLASS_NAME: 'MaterialCheckbox'
+    };
+  }
+
+  // CSS classes used in this component.
+  static get classes_() {
+    return {
+      ROOT: 'mdl-checkbox',
+      JS: 'mdl-js-checkbox',
+      INPUT: 'mdl-checkbox__input',
+
+      IS_FOCUSED: 'is-focused',
+      IS_DISABLED: 'is-disabled',
+      IS_CHECKED: 'is-checked',
+      IS_UPGRADED: 'is-upgraded'
+    };
+  }
+
+  /**
+   * Initialize all self-managed instances under the given node.
+   * This will only initialize components that have specifically been marked
+   * for self-management.
+   *
+   * @param {Node} docRoot The node under which to look for components.
+   * @export
+   */
+  static initComponents(docRoot) {
+    var nodes = docRoot.querySelectorAll(
+        `.${MaterialCheckbox.classes_.ROOT}.${MaterialCheckbox.classes_.JS}`);
+    for (let i = 0; i < nodes.length; i++) {
+      // Attach new component to DOM property.
+      nodes[i][MaterialCheckbox.strings_.CLASS_NAME] =
+          new MaterialCheckbox(nodes[i]);
+    }
+  }
+
   // Return class name as a string. Useful for automation after obfuscation.
   get classAsString() {
-    return strings_.CLASS_NAME;
+    return MaterialCheckbox.strings_.CLASS_NAME;
   }
 
   /**
@@ -136,7 +163,8 @@ class MaterialCheckbox {
   blur_() {
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
-    setTimeout(() => this.input_.blur(), numbers_.TINY_TIMEOUT);
+    setTimeout(() => this.input_.blur(),
+        MaterialCheckbox.numbers_.TINY_TIMEOUT);
   }
 
   /**
@@ -144,9 +172,9 @@ class MaterialCheckbox {
    */
   checkToggleState_() {
     if (this.input_.checked) {
-      this.root_.classList.add(classes_.IS_CHECKED);
+      this.root_.classList.add(MaterialCheckbox.classes_.IS_CHECKED);
     } else {
-      this.root_.classList.remove(classes_.IS_CHECKED);
+      this.root_.classList.remove(MaterialCheckbox.classes_.IS_CHECKED);
     }
   }
 
@@ -155,16 +183,12 @@ class MaterialCheckbox {
    */
   checkDisabled_() {
     if (this.input_.disabled) {
-      this.root_.classList.add(classes_.IS_DISABLED);
+      this.root_.classList.add(MaterialCheckbox.classes_.IS_DISABLED);
     } else {
-      this.root_.classList.remove(classes_.IS_DISABLED);
+      this.root_.classList.remove(MaterialCheckbox.classes_.IS_DISABLED);
     }
   }
 }
 
-// Initialize all self-managed instances.
-var nodes = document.querySelectorAll(`.${classes_.ROOT}.${classes_.JS}`);
-for (let i = 0; i < nodes.length; i++) {
-  // Attach new component to DOM property.
-  nodes[i][strings_.CLASS_NAME] = new MaterialCheckbox(nodes[i]);
-}
+// Initialize all self-managed components in the document.
+MaterialCheckbox.initComponents(document);
