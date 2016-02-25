@@ -41,14 +41,16 @@ class MaterialCheckbox {
           `MaterialCheckbox missing ${MaterialCheckbox.classes_.INPUT} node.`);
     }
 
-    // Initialize events.
-    this.input_.addEventListener('change', this.refresh.bind(this));
-    this.input_.addEventListener('focus',
-        () => this.root_.classList.add(MaterialCheckbox.classes_.IS_FOCUSED));
-    this.input_.addEventListener('blur',
-        () => this.root_.classList.remove(
-            MaterialCheckbox.classes_.IS_FOCUSED));
-    this.root_.addEventListener('mouseup', this.blur_.bind(this));
+    // Initialize event listeners.
+    this.changeListener_ = this.refresh.bind(this);
+    this.focusListener_ =
+        () => this.root_.classList.add(MaterialCheckbox.classes_.IS_FOCUSED);
+    this.blurListener_ =
+        () => this.root_.classList.remove(MaterialCheckbox.classes_.IS_FOCUSED);
+    this.mouseUpListener_ = this.blur_.bind(this);
+
+    // Attach event listeners to the DOM.
+    this.addEventListeners();
 
     // Refresh component.
     this.refresh();
@@ -110,6 +112,30 @@ class MaterialCheckbox {
       nodes[i][MaterialCheckbox.strings_.CLASS_NAME] =
           new MaterialCheckbox(nodes[i]);
     }
+  }
+
+  /**
+   * Attach all listeners to the DOM.
+   *
+   * @export
+   */
+  addEventListeners() {
+    this.input_.addEventListener('change', this.changeListener_);
+    this.input_.addEventListener('focus', this.focusListener_);
+    this.input_.addEventListener('blur', this.blurListener_);
+    this.root_.addEventListener('mouseup', this.mouseUpListener_);
+  }
+
+  /**
+   * Remove all listeners from the DOM.
+   *
+   * @export
+   */
+  removeEventListeners() {
+    this.input_.removeEventListener('change', this.changeListener_);
+    this.input_.removeEventListener('focus', this.focusListener_);
+    this.input_.removeEventListener('blur', this.blurListener_);
+    this.root_.removeEventListener('mouseup', this.mouseUpListener_);
   }
 
   /**
