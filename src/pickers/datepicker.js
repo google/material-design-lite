@@ -36,11 +36,15 @@
 
   /**
    * Global date picker settings
+   * Currently allowed formats: ['mm/dd/yyyy', 'dd.mm.yyyy', 'yyyy-mm-dd']
    * @type {Object}
    * @public
    */
   MaterialDatePicker.settings = {
-    // Currently allowed formats: ['mm/dd/yyyy', 'dd.mm.yyyy', 'yyyy-mm-dd']
+    /**
+     * Date format for input formatting
+     * @type {string}
+     */
     format: 'mm/dd/yyyy',
     weekDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     weekDaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -65,7 +69,9 @@
    * @type {Object}
    * @public
    */
-  MaterialDatePicker.prototype.settings = {};
+  MaterialDatePicker.prototype.settings = {
+    format: null
+  };
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -1001,6 +1007,9 @@
       componentHandler.downgradeElements(this.okElement_);
       this.okElement_.removeEventListener('click', this.boundOkActionHandler);
     }
+    if (this.actionsElement_) {
+      this.actionsElement_ = null;
+    }
     if (this.navigationElement_) {
       var previousMonth = this.navigationElement_.querySelector('.' + this.CssClasses_.MONTH_PREVIOUS);
       var nextMonth = this.navigationElement_.querySelector('.' + this.CssClasses_.MONTH_NEXT);
@@ -1011,12 +1020,19 @@
       if (nextMonth) {
         nextMonth.removeEventListener('click', this.boundNextMonthHandler);
       }
+      this.navigationElement_ = null;
     }
     if (this.headerDateElement_) {
       this.headerDateElement_.removeEventListener('click', this.boundHeaderDateClickHandler);
     }
     if (this.headerYearElement_) {
       this.headerYearElement_.removeEventListener('click', this.boundHeaderYearClickHandler);
+    }
+    if (this.weekDaysElement_) {
+      this.weekDaysElement_ = null;
+    }
+    if (this.calendarElement_) {
+      this.calendarElement_ = null;
     }
     if (this.widgetElement_) {
       if (this.widgetElement_.remove) {
@@ -1114,6 +1130,11 @@
       this.currentMonth_ = selectedDate;
       this.selectedDate_ = selectedDate;
       this.render_();
+
+      if (this.input_) {
+        this.input_.value = this.formatInputDate_(this.selectedDate_);
+      }
+      this.element_.classList.add(this.CssClasses_.IS_DIRTY);
     }
 
     return this.getSelectedDate();
