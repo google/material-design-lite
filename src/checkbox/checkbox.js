@@ -54,21 +54,33 @@ class MaterialCheckbox {
     this.refresh();
   }
 
-  // Numeric constants used in this component.
+  /**
+   * Numeric constants used in this component.
+   *
+   * @private
+   */
   static get numbers_() {
     return {
       TINY_TIMEOUT: 0.001
     };
   }
 
-  // String constants used in this component.
+  /**
+   * String constants used in this component.
+   *
+   * @private
+   */
   static get strings_() {
     return {
       CLASS_NAME: 'MaterialCheckbox'
     };
   }
 
-  // CSS classes used in this component.
+  /**
+   * CSS classes used in this component.
+   *
+   * @private
+   */
   static get classes_() {
     return {
       ROOT: 'mdl-checkbox',
@@ -100,7 +112,11 @@ class MaterialCheckbox {
     }
   }
 
-  // Return class name as a string. Useful for automation after obfuscation.
+  /**
+   * Return class name as a string. Useful for automation after obfuscation.
+   *
+   * @export
+   */
   get classAsString() {
     return MaterialCheckbox.strings_.CLASS_NAME;
   }
@@ -159,6 +175,8 @@ class MaterialCheckbox {
 
   /**
    * Add blur.
+   *
+   * @private
    */
   blur_() {
     // TODO: figure out why there's a focus event being fired after our blur,
@@ -169,6 +187,8 @@ class MaterialCheckbox {
 
   /**
    * Check the input's toggle state and update display.
+   *
+   * @private
    */
   checkToggleState_() {
     if (this.input_.checked) {
@@ -180,6 +200,8 @@ class MaterialCheckbox {
 
   /**
    * Check the input's disabled state and update display.
+   *
+   * @private
    */
   checkDisabled_() {
     if (this.input_.disabled) {
