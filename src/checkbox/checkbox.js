@@ -20,22 +20,18 @@
  *
  * @export
  */
-class MaterialCheckbox {
+class MaterialCheckbox extends MaterialComponent {
   /**
    * Initialize checkbox from a DOM node.
    *
    * @param {Element} root The element being upgraded.
    */
   constructor(root) {
-    // Check if the root has the right class.
-    this.root_ = root;
-    if (!root.classList.contains(MaterialCheckbox.classes_.ROOT)) {
-      throw new Error(
-          `MaterialCheckbox missing ${MaterialCheckbox.classes_.ROOT} class.`);
-    }
+    super(root);
 
     // Look for required sub-nodes in the root's DOM.
-    this.input_ = root.querySelector(`.${MaterialCheckbox.classes_.INPUT}`);
+    this.input_ =
+        this.root_.querySelector(`.${MaterialCheckbox.classes_.INPUT}`);
     if (!this.input_) {
       throw new Error(
           `MaterialCheckbox missing ${MaterialCheckbox.classes_.INPUT} node.`);
@@ -49,17 +45,14 @@ class MaterialCheckbox {
         () => this.root_.classList.remove(MaterialCheckbox.classes_.IS_FOCUSED);
     this.mouseUpListener_ = this.blur_.bind(this);
 
-    // Attach event listeners to the DOM.
-    this.addEventListeners();
-
-    // Refresh component.
-    this.refresh();
+    // Finalize initialization.
+    this.init_();
   }
 
   /**
    * String constants used in this component.
    *
-   * @private
+   * @protected
    */
   static get strings_() {
     return {
@@ -70,7 +63,7 @@ class MaterialCheckbox {
   /**
    * CSS classes used in this component.
    *
-   * @private
+   * @protected
    */
   static get classes_() {
     return {
@@ -83,24 +76,6 @@ class MaterialCheckbox {
       IS_CHECKED: 'is-checked',
       IS_UPGRADED: 'is-upgraded'
     };
-  }
-
-  /**
-   * Initialize all self-managed instances under the given node.
-   * This will only initialize components that have specifically been marked
-   * for self-management.
-   *
-   * @param {Node} docRoot The node under which to look for components.
-   * @export
-   */
-  static initComponents(docRoot) {
-    var nodes = docRoot.querySelectorAll(
-        `.${MaterialCheckbox.classes_.ROOT}.${MaterialCheckbox.classes_.JS}`);
-    for (let i = 0; i < nodes.length; i++) {
-      // Attach new component to DOM property.
-      nodes[i][MaterialCheckbox.strings_.CLASS_NAME] =
-          new MaterialCheckbox(nodes[i]);
-    }
   }
 
   /**
@@ -125,15 +100,6 @@ class MaterialCheckbox {
     this.input_.removeEventListener('focus', this.focusListener_);
     this.input_.removeEventListener('blur', this.blurListener_);
     this.root_.removeEventListener('mouseup', this.mouseUpListener_);
-  }
-
-  /**
-   * Return class name as a string. Useful for automation after obfuscation.
-   *
-   * @export
-   */
-  get classAsString() {
-    return MaterialCheckbox.strings_.CLASS_NAME;
   }
 
   /**

@@ -65,13 +65,14 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 const SOURCES = [
+  'src/component.js',
   // Base components
   // 'src/button/button.js',
   'src/checkbox/checkbox.js',
   // 'src/icon-toggle/icon-toggle.js',
   // 'src/menu/menu.js',
   // 'src/progress/progress.js',
-  // 'src/radio/radio.js',
+  'src/radio/radio.js',
   // 'src/slider/slider.js',
   // 'src/snackbar/snackbar.js',
   // 'src/spinner/spinner.js',

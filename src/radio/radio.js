@@ -15,263 +15,203 @@
  * limitations under the License.
  */
 
-(function() {
-  'use strict';
-
+/**
+ * The MaterialRadio class wraps a Material Design radio component.
+ *
+ * @export
+ */
+class MaterialRadio extends MaterialComponent {
   /**
-   * Class constructor for Radio MDL component.
-   * Implements MDL component design pattern defined at:
-   * https://github.com/jasonmayes/mdl-component-design-pattern
+   * Initialize radio from a DOM node.
    *
-   * @constructor
-   * @param {HTMLElement} element The element that will be upgraded.
+   * @param {Element} root The element being upgraded.
    */
-  var MaterialRadio = function MaterialRadio(element) {
-    this.element_ = element;
+  constructor(root) {
+    super(root);
 
-    // Initialize instance.
-    this.init();
-  };
-  window['MaterialRadio'] = MaterialRadio;
-
-  /**
-   * Store constants in one place so they can be updated easily.
-   *
-   * @enum {string | number}
-   * @private
-   */
-  MaterialRadio.prototype.Constant_ = {
-    TINY_TIMEOUT: 0.001
-  };
-
-  /**
-   * Store strings for class names defined by this component that are used in
-   * JavaScript. This allows us to simply change it in one place should we
-   * decide to modify at a later date.
-   *
-   * @enum {string}
-   * @private
-   */
-  MaterialRadio.prototype.CssClasses_ = {
-    IS_FOCUSED: 'is-focused',
-    IS_DISABLED: 'is-disabled',
-    IS_CHECKED: 'is-checked',
-    IS_UPGRADED: 'is-upgraded',
-    JS_RADIO: 'mdl-js-radio',
-    RADIO_BTN: 'mdl-radio__button',
-    RADIO_OUTER_CIRCLE: 'mdl-radio__outer-circle',
-    RADIO_INNER_CIRCLE: 'mdl-radio__inner-circle',
-    RIPPLE_EFFECT: 'mdl-js-ripple-effect',
-    RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
-    RIPPLE_CONTAINER: 'mdl-radio__ripple-container',
-    RIPPLE_CENTER: 'mdl-ripple--center',
-    RIPPLE: 'mdl-ripple'
-  };
-
-  /**
-   * Handle change of state.
-   *
-   * @private
-   */
-  MaterialRadio.prototype.onChange_ = function() {
-    // Since other radio buttons don't get change events, we need to look for
-    // them to update their classes.
-    var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
-    for (var i = 0; i < radios.length; i++) {
-      var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
-      // Different name == different group, so no point updating those.
-      if (button.getAttribute('name') ===
-          this.btnElement_.getAttribute('name')) {
-        radios[i]['MaterialRadio'].updateClasses_();
-      }
+    // Look for required sub-nodes in the root's DOM.
+    this.input_ = root.querySelector(`.${MaterialRadio.classes_.INPUT}`);
+    if (!this.input_) {
+      throw new Error(
+          `MaterialRadio missing ${MaterialRadio.classes_.INPUT} node.`);
     }
-  };
+
+    // Initialize event listeners.
+    this.changeListener_ = this.onChange_.bind(this);
+    this.focusListener_ =
+        () => this.root_.classList.add(MaterialRadio.classes_.IS_FOCUSED);
+    this.blurListener_ =
+        () => this.root_.classList.remove(MaterialRadio.classes_.IS_FOCUSED);
+    this.mouseUpListener_ = this.blur_.bind(this);
+
+    // Finalize initialization.
+    this.init_();
+  }
 
   /**
-   * Handle focus.
+   * String constants used in this component.
    *
-   * @private
+   * @override
+   * @protected
    */
-  MaterialRadio.prototype.onFocus_ = function() {
-    this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
-  };
+  static get strings_() {
+    return {
+      CLASS_NAME: 'MaterialRadio'
+    };
+  }
 
   /**
-   * Handle lost focus.
+   * CSS classes used in this component.
    *
-   * @private
+   * @override
+   * @protected
    */
-  MaterialRadio.prototype.onBlur_ = function() {
-    this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
-  };
+  static get classes_() {
+    return {
+      ROOT: 'mdl-radio',
+      JS: 'mdl-js-radio',
+      INPUT: 'mdl-radio__input',
+
+      IS_FOCUSED: 'is-focused',
+      IS_DISABLED: 'is-disabled',
+      IS_CHECKED: 'is-checked',
+      IS_UPGRADED: 'is-upgraded'
+    };
+  }
 
   /**
-   * Handle mouseup.
+   * Attach all listeners to the DOM.
    *
-   * @private
+   * @override
+   * @export
    */
-  MaterialRadio.prototype.onMouseup_ = function() {
-    this.blur_();
-  };
+  addEventListeners() {
+    this.input_.addEventListener('change', this.changeListener_);
+    this.input_.addEventListener('focus', this.focusListener_);
+    this.input_.addEventListener('blur', this.blurListener_);
+    this.root_.addEventListener('mouseup', this.mouseUpListener_);
+  }
 
   /**
-   * Update classes.
+   * Remove all listeners from the DOM.
    *
-   * @private
+   * @override
+   * @export
    */
-  MaterialRadio.prototype.updateClasses_ = function() {
-    this.checkDisabled();
-    this.checkToggleState();
-  };
+  removeEventListeners() {
+    this.input_.removeEventListener('change', this.changeListener_);
+    this.input_.removeEventListener('focus', this.focusListener_);
+    this.input_.removeEventListener('blur', this.blurListener_);
+    this.root_.removeEventListener('mouseup', this.mouseUpListener_);
+  }
+
+  /**
+   * Set "checked" value on radio.
+   *
+   * @param {boolean} value The value to set the property to.
+   * @export
+   */
+  set checked(value) {
+    this.input_.checked = value;
+    this.refresh();
+  }
+
+  /**
+   * Return "checked" value on radio.
+   *
+   * @return {boolean} The current value of the property.
+   * @export
+   */
+  get checked() {
+    return this.input_.checked;
+  }
+
+  /**
+   * Disable / enable the radio component.
+   *
+   * @param {boolean} value The value to set the property to.
+   * @export
+   */
+  set disabled(value) {
+    this.input_.disabled = value;
+    this.refresh();
+  }
+
+  /**
+   * Return whether the radio component is disabled or enabled.
+   *
+   * @return {boolean} The current value of the property.
+   * @export
+   */
+  get disabled() {
+    return this.input_.disabled;
+  }
+
+  /**
+   * Run a visual refresh on the component, in case it's gone out of sync.
+   *
+   * @override
+   * @export
+   */
+  refresh() {
+    this.checkDisabled_();
+    this.checkToggleState_();
+  }
 
   /**
    * Add blur.
    *
    * @private
    */
-  MaterialRadio.prototype.blur_ = function() {
-    /**
-     * @todo: figure out why there's a focus event being fired after our blur,
-     * so that we can avoid this hack.
-     */
-    window.setTimeout(function() {
-      this.btnElement_.blur();
-    }.bind(this), /** @type {number} */ (this.Constant_.TINY_TIMEOUT));
-  };
-
-  // Public methods.
+  blur_() {
+    requestAnimationFrame(() => this.input_.blur());
+  }
 
   /**
-   * Check the components disabled state.
+   * Update all radio buttons on the page.
    *
-   * @public
+   * Since other radio buttons don't get change events, we need to look for
+   * them to refresh their appearance.
+   * @private
    */
-  MaterialRadio.prototype.checkDisabled = function() {
-    if (this.btnElement_.disabled) {
-      this.element_.classList.add(this.CssClasses_.IS_DISABLED);
-    } else {
-      this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
-    }
-  };
-  MaterialRadio.prototype['checkDisabled'] =
-      MaterialRadio.prototype.checkDisabled;
-
-  /**
-   * Check the components toggled state.
-   *
-   * @public
-   */
-  MaterialRadio.prototype.checkToggleState = function() {
-    if (this.btnElement_.checked) {
-      this.element_.classList.add(this.CssClasses_.IS_CHECKED);
-    } else {
-      this.element_.classList.remove(this.CssClasses_.IS_CHECKED);
-    }
-  };
-  MaterialRadio.prototype['checkToggleState'] =
-      MaterialRadio.prototype.checkToggleState;
-
-  /**
-   * Disable radio.
-   *
-   * @public
-   */
-  MaterialRadio.prototype.disable = function() {
-    this.btnElement_.disabled = true;
-    this.updateClasses_();
-  };
-  MaterialRadio.prototype['disable'] = MaterialRadio.prototype.disable;
-
-  /**
-   * Enable radio.
-   *
-   * @public
-   */
-  MaterialRadio.prototype.enable = function() {
-    this.btnElement_.disabled = false;
-    this.updateClasses_();
-  };
-  MaterialRadio.prototype['enable'] = MaterialRadio.prototype.enable;
-
-  /**
-   * Check radio.
-   *
-   * @public
-   */
-  MaterialRadio.prototype.check = function() {
-    this.btnElement_.checked = true;
-    this.updateClasses_();
-  };
-  MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
-
-  /**
-   * Uncheck radio.
-   *
-   * @public
-   */
-  MaterialRadio.prototype.uncheck = function() {
-    this.btnElement_.checked = false;
-    this.updateClasses_();
-  };
-  MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
-
-  /**
-   * Initialize element.
-   */
-  MaterialRadio.prototype.init = function() {
-    if (this.element_) {
-      this.btnElement_ = this.element_.querySelector('.' +
-          this.CssClasses_.RADIO_BTN);
-
-      this.boundChangeHandler_ = this.onChange_.bind(this);
-      this.boundFocusHandler_ = this.onChange_.bind(this);
-      this.boundBlurHandler_ = this.onBlur_.bind(this);
-      this.boundMouseUpHandler_ = this.onMouseup_.bind(this);
-
-      var outerCircle = document.createElement('span');
-      outerCircle.classList.add(this.CssClasses_.RADIO_OUTER_CIRCLE);
-
-      var innerCircle = document.createElement('span');
-      innerCircle.classList.add(this.CssClasses_.RADIO_INNER_CIRCLE);
-
-      this.element_.appendChild(outerCircle);
-      this.element_.appendChild(innerCircle);
-
-      var rippleContainer;
-      if (this.element_.classList.contains(
-          this.CssClasses_.RIPPLE_EFFECT)) {
-        this.element_.classList.add(
-            this.CssClasses_.RIPPLE_IGNORE_EVENTS);
-        rippleContainer = document.createElement('span');
-        rippleContainer.classList.add(
-            this.CssClasses_.RIPPLE_CONTAINER);
-        rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
-        rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
-        rippleContainer.addEventListener('mouseup', this.boundMouseUpHandler_);
-
-        var ripple = document.createElement('span');
-        ripple.classList.add(this.CssClasses_.RIPPLE);
-
-        rippleContainer.appendChild(ripple);
-        this.element_.appendChild(rippleContainer);
+  onChange_() {
+    let radios = document.querySelectorAll(`.${MaterialRadio.classes_.JS}`);
+    for (let i = 0; i < radios.length; i++) {
+      let input = radios[i].querySelector(`.${MaterialRadio.classes_.INPUT}`);
+      // Different name == different group, so no point updating those.
+      if (input &&
+          input.getAttribute('name') === this.input_.getAttribute('name')) {
+        radios[i][MaterialRadio.strings_.CLASS_NAME].refresh();
       }
-
-      this.btnElement_.addEventListener('change', this.boundChangeHandler_);
-      this.btnElement_.addEventListener('focus', this.boundFocusHandler_);
-      this.btnElement_.addEventListener('blur', this.boundBlurHandler_);
-      this.element_.addEventListener('mouseup', this.boundMouseUpHandler_);
-
-      this.updateClasses_();
-      this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
     }
-  };
+  }
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialRadio,
-    classAsString: 'MaterialRadio',
-    cssClass: 'mdl-js-radio',
-    widget: true
-  });
-})();
+  /**
+   * Check the input's toggle state and update display.
+   *
+   * @private
+   */
+  checkToggleState_() {
+    if (this.input_.checked) {
+      this.root_.classList.add(MaterialRadio.classes_.IS_CHECKED);
+    } else {
+      this.root_.classList.remove(MaterialRadio.classes_.IS_CHECKED);
+    }
+  }
+
+  /**
+   * Check the input's disabled state and update display.
+   *
+   * @private
+   */
+  checkDisabled_() {
+    if (this.input_.disabled) {
+      this.root_.classList.add(MaterialRadio.classes_.IS_DISABLED);
+    } else {
+      this.root_.classList.remove(MaterialRadio.classes_.IS_DISABLED);
+    }
+  }
+}
+
+// Initialize all self-managed components in the document.
+MaterialRadio.initComponents(document);
