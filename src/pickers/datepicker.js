@@ -1022,9 +1022,14 @@
     }
     if (this.headerDateElement_) {
       this.headerDateElement_.removeEventListener('click', this.boundHeaderDateClickHandler);
+      this.headerDateElement_ = null;
     }
     if (this.headerYearElement_) {
       this.headerYearElement_.removeEventListener('click', this.boundHeaderYearClickHandler);
+      this.headerYearElement_ = null;
+    }
+    if (this.headerElement_) {
+      this.headerElement_ = null;
     }
     if (this.weekDaysElement_) {
       this.weekDaysElement_ = null;
