@@ -166,7 +166,9 @@
    * @private
    */
   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
-    if (evt.keyCode === this.Keycodes_.ESCAPE) {
+    // Only react when the drawer is open.
+    if (evt.keyCode === this.Keycodes_.ESCAPE &&
+        this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
       this.toggleDrawer();
     }
   };
