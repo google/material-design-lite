@@ -371,6 +371,7 @@
     e.stopPropagation();
     e.stopImmediatePropagation();
     var previousMonth = new Date(this.currentMonth_.getTime());
+    previousMonth.setDate(1);
     previousMonth.setMonth(this.currentMonth_.getMonth() - 1);
     this.changeCurrentMonth_(previousMonth);
   };
@@ -385,6 +386,7 @@
     e.stopPropagation();
     e.stopImmediatePropagation();
     var nextMonth = new Date(this.currentMonth_.getTime());
+    nextMonth.setDate(1);
     nextMonth.setMonth(nextMonth.getMonth() + 1);
     this.changeCurrentMonth_(nextMonth);
   };
