@@ -814,8 +814,8 @@
     firstDay.setDate(1);
 
     // Set last day of the month
-    lastDay.setMonth(lastDay.getMonth() + 1);
     lastDay.setDate(1);
+    lastDay.setMonth(lastDay.getMonth() + 1);
     lastDay.setDate(lastDay.getDate() - 1);
 
     var renderDays = true;
