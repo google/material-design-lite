@@ -40,10 +40,12 @@ class MaterialComponent {
    * CSS classes used in this component.
    *
    * @protected
+   * @return {Object<string, string>}
    */
   static get classes_() {
-    // Empty in base class.
-    return {};
+    // Empty in base class. Throw error if not correctly overriden.
+    throw new Error('Should have ROOT and JS keys with the style class names,' +
+      ' e.g. mdl-button and mdl-js-button.');
   }
 
   /**
@@ -62,8 +64,9 @@ class MaterialComponent {
    * @protected
    */
   static get strings_() {
-    // Empty in base class.
-    return {};
+    // Empty in base class. Throw error if not correctly overriden.
+    throw new Error('Should have a CLASS_NAME key with the script class name,' +
+        ' e.g. MaterialButton.');
   }
 
   /**
@@ -114,7 +117,8 @@ class MaterialComponent {
    * @export
    */
   addEventListeners() {
-    // Empty in base class.
+    // Empty in base class. Throw error if not correctly overriden.
+    throw new Error('Should be implemented in components.');
   }
 
   /**
@@ -123,7 +127,8 @@ class MaterialComponent {
    * @export
    */
   removeEventListeners() {
-    // Empty in base class.
+    // Empty in base class. Throw error if not correctly overriden.
+    throw new Error('Should be implemented in components.');
   }
 
   /**
@@ -132,6 +137,7 @@ class MaterialComponent {
    * @export
    */
   refresh() {
-    // Empty in base class.
+    // Empty in base class. Throw error if not correctly overriden.
+    throw new Error('Should be implemented in components.');
   }
 }
