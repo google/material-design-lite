@@ -53,6 +53,7 @@ class MaterialCheckbox extends MaterialComponent {
    * String constants used in this component.
    *
    * @protected
+   * @return {Object<string, string>}
    */
   static get strings_() {
     return {
@@ -64,6 +65,7 @@ class MaterialCheckbox extends MaterialComponent {
    * CSS classes used in this component.
    *
    * @protected
+   * @return {Object<string, string>}
    */
   static get classes_() {
     return {

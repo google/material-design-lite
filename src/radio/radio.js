@@ -53,6 +53,7 @@ class MaterialRadio extends MaterialComponent {
    *
    * @override
    * @protected
+   * @return {Object<string, string>}
    */
   static get strings_() {
     return {
@@ -65,6 +66,7 @@ class MaterialRadio extends MaterialComponent {
    *
    * @override
    * @protected
+   * @return {Object<string, string>}
    */
   static get classes_() {
     return {

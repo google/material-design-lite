@@ -52,6 +52,7 @@ class MaterialComponent {
    * Number constants used in this component.
    *
    * @protected
+   * @return {Object<string, number>}
    */
   static get numbers_() {
     // Empty in base class.
@@ -62,6 +63,7 @@ class MaterialComponent {
    * String constants used in this component.
    *
    * @protected
+   * @return {Object<string, string>}
    */
   static get strings_() {
     // Empty in base class. Throw error if not correctly overriden.
@@ -72,6 +74,7 @@ class MaterialComponent {
   /**
    * Return class name as a string. Useful for automation after obfuscation.
    *
+   * @return {string}
    * @suppress {missingProperties}
    * @nocollapse
    * @export
