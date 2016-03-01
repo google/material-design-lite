@@ -30,6 +30,7 @@
     position: fixed;
     right: 0;
     top: 0;
+    z-index: 2147483646;
   }
 
   &__widget {
@@ -77,6 +78,7 @@
       top: 0;
       transform: translate(0, -200%);
       transition: transform .5s linear, opacity .2s linear;
+      z-index: 2147483647;
     }
 
     &.is-visible {
