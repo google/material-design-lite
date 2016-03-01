@@ -160,7 +160,7 @@ describe('MaterialDatePicker', function () {
           window.setTimeout(function() {
             var selectedDate = element.MaterialDatePicker.getSelectedDate();
             expect(textInput.value).to.equal(
-              [selectedDate.getFullYear(), addLeadingZero(selectedDate.getMonth() + 1), selectedDate.getDate()].join('-')
+              [selectedDate.getFullYear(), addLeadingZero(selectedDate.getMonth() + 1), addLeadingZero(selectedDate.getDate())].join('-')
             );
 
             done();
