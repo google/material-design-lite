@@ -733,6 +733,7 @@
       this.navigationElement_.classList.add(this.CssClasses_.NAVIGATION);
 
       var previousMonth = document.createElement('button');
+      previousMonth.setAttribute('type', 'button');
       previousMonth.classList.add('mdl-button');
       previousMonth.classList.add('mdl-js-button');
       previousMonth.classList.add('mdl-button--icon');
@@ -743,6 +744,7 @@
       previousMonth.appendChild(previousIcon);
 
       var nextMonth = document.createElement('button');
+      nextMonth.setAttribute('type', 'button');
       nextMonth.classList.add('mdl-button');
       nextMonth.classList.add('mdl-js-button');
       nextMonth.classList.add('mdl-button--icon');
@@ -789,6 +791,7 @@
 
       for (var i = 0; i <= 6; i++) {
         var weekDay = document.createElement('button');
+        weekDay.setAttribute('type', 'button');
         weekDay.classList.add(this.CssClasses_.DATE);
         weekDay.classList.add(this.CssClasses_.DATE_EMPTY);
         weekDay.innerHTML = this.settings.weekDaysLetter[i];
@@ -837,6 +840,7 @@
         if (currentDay.getDay() === i && currentDay.getDate() <= lastDay.getDate()) {
           weekDay.innerHTML = currentDayInt;
           weekDay.setAttribute('data-date', currentDayInt);
+          weekDay.setAttribute('type', 'button');
           currentDayInt++;
 
           if (!this.isInRange_(currentDay)) {
@@ -893,6 +897,7 @@
         yearButton = document.createElement('button');
         yearButton.classList.add(this.CssClasses_.YEAR);
         yearButton.setAttribute('data-year', year);
+        yearButton.setAttribute('type', 'button');
         yearButton.innerHTML = year;
 
         if (this.isYearInRange_(year)) {
@@ -950,6 +955,7 @@
       this.cancelElement_.classList.add('mdl-js-button');
       this.cancelElement_.classList.add('mdl-button--accent');
       this.cancelElement_.classList.add(this.CssClasses_.ACTION_CANCEL);
+      this.cancelElement_.setAttribute('type', 'button');
       this.cancelElement_.innerHTML = 'Cancel';
 
       // OK button
@@ -958,6 +964,7 @@
       this.okElement_.classList.add('mdl-js-button');
       this.okElement_.classList.add('mdl-button--accent');
       this.okElement_.classList.add(this.CssClasses_.ACTION_OK);
+      this.okElement_.setAttribute('type', 'button');
       this.okElement_.innerHTML = 'OK';
 
       // Bind events
@@ -1233,6 +1240,7 @@
     if (this.input_) {
       this.input_.removeEventListener('click', this.boundInputFocusHandler);
     }
+    this.destroy_();
     if (this.backdrop_) {
       if (this.backdrop_.remove) {
         this.backdrop_.remove();
@@ -1240,7 +1248,6 @@
         this.backdrop_.parentNode.removeChild(this.backdrop_);
       }
     }
-    this.destroy_();
 
     // Trigger "destroy" event for all those who are listening
     // for other component events
