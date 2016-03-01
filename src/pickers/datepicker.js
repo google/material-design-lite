@@ -170,7 +170,7 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.cancelHandler_ = function(e) {
-    // e.preventDefault();
+    e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
     this.close();
@@ -192,7 +192,7 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.okHandler_ = function(e) {
-    // e.preventDefault();
+    e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
     this.selectedDate_.setFullYear(this.pickedDate_.getFullYear());
