@@ -133,7 +133,7 @@ describe('MaterialDatePicker', function () {
     });
 
     it('should upgrade textfield', function() {
-      expect($(textInput)).to.have.data('upgraded', ',MaterialTextfield');
+      expect($(element).data('upgraded').indexOf('MaterialTextfield') >= 0).to.equal(true);
     });
 
     it('should populate textfield after date selection process', function(done) {
