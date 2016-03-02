@@ -213,11 +213,32 @@
    * @public
    */
   MaterialTextfield.prototype.change = function(value) {
-
     this.input_.value = value || '';
     this.updateClasses_();
   };
   MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
+
+   /**
+   * Focus text field.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.focus = function() {
+    this.input_.focus();
+    this.updateClasses_();
+  };
+  MaterialTextfield.prototype['focus'] = MaterialTextfield.prototype.focus;
+  
+   /**
+   * Blur text field.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.blur = function() {
+    this.input_.blur();
+    this.updateClasses_();
+  };
+  MaterialTextfield.prototype['blur'] = MaterialTextfield.prototype.blur;
 
   /**
    * Initialize element.
