@@ -89,6 +89,10 @@
     }
   }
 
+  &__input {
+    outline: none;
+  }
+
   &__header {
     background-color: $datepicker-header-bg-color;
     line-height: initial;

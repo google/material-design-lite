@@ -104,6 +104,8 @@
     IS_UPGRADED: 'is-upgraded',
     IS_VISIBLE: 'is-visible',
     IS_ATTACHED: 'is-attached',
+    IS_INVALID: 'is-invalid',
+    IS_FOCUSED: 'is-focused',
     IS_DIRTY: 'is-dirty',
 
     // Appearance classes
@@ -200,6 +202,9 @@
     this.selectedDate_.setDate(this.pickedDate_.getDate());
     if (this.input_) {
       this.input_.value = this.formatInputDate_(this.selectedDate_);
+      if (this.element_.MaterialTextfield) {
+        this.element_.MaterialTextfield.checkValidity();
+      }
     }
     this.element_.classList.add(this.CssClasses_.IS_DIRTY);
     if (this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
@@ -230,7 +235,10 @@
    * @return {void}
    */
   MaterialDatePicker.prototype.inputBlurHandler_ = function(e) {
-    this.close();
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    return false;
   };
 
   /**
@@ -1071,6 +1079,9 @@
     if (!this.widgetElement_) {
       this.render_();
     }
+    if (!this.element_.classList.contains(this.CssClasses_.IS_FOCUSED)) {
+      this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+    }
 
     // Slightly delay picker show to enable animation
     setTimeout(function() {
@@ -1100,6 +1111,9 @@
     // Date picker widget already closed
     if (!this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       return;
+    }
+    if (this.element_.classList.contains(this.CssClasses_.IS_FOCUSED)) {
+      this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
     }
     if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       if (this.backdrop_) {
@@ -1195,12 +1209,14 @@
 
       this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
       if (this.input_) {
-        if (!this.input_.getAttribute('upgraded')) {
-          componentHandler.upgradeElement(this.input_, 'MaterialTextfield');
+        if (!this.element_.getAttribute('upgraded')) {
+          componentHandler.upgradeElement(this.element_, 'MaterialTextfield');
         }
         // Bind input events
         this.boundInputFocusHandler = this.inputFocusHandler_.bind(this);
+        this.boundInputBlurHandler = this.inputBlurHandler_.bind(this);
         this.input_.addEventListener('focus', this.boundInputFocusHandler, true);
+        this.input_.addEventListener('focusout', this.boundInputBlurHandler, true);
       }
 
       // Setup properties default values.
@@ -1238,7 +1254,8 @@
    */
   MaterialDatePicker.prototype.mdlDowngrade_ = function() {
     if (this.input_) {
-      this.input_.removeEventListener('click', this.boundInputFocusHandler);
+      this.input_.removeEventListener('focus', this.boundInputFocusHandler);
+      this.input_.removeEventListener('blur', this.boundInputBlurHandler);
     }
     this.destroy_();
     if (this.backdrop_) {
