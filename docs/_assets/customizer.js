@@ -458,12 +458,20 @@ MaterialCustomizer = (function() {
     var primaryDark = this.getColor(primaryColor, '700');
     var accent = this.getColor(secondaryColor, 'A200');
 
-    return this.replaceDict(this.template, {
-      '\\$color-primary-dark': primaryDark,
-      '\\$color-primary-contrast': this.calculateTextColor(primary),
-      '\\$color-accent-contrast': this.calculateTextColor(accent),
-      '\\$color-primary': primary,
-      '\\$color-accent': accent
+    var initial = this.replaceDict(this.template, {
+      'rgba\\(\\#primdark': 'rgba(' + primaryDark,
+      'rgba\\(\\#primcontrast': 'rgba(' + this.calculateTextColor(primary),
+      'rgba\\(\\#acccontrast': 'rgba(' + this.calculateTextColor(accent),
+      'rgba\\(\\#primary': 'rgba(' + primary,
+      'rgba\\(\\#accent': 'rgba(' + accent
+    });
+
+    return this.replaceDict(initial, {
+      '\\#primdark': 'rgb(' + primaryDark + ')',
+      '\\#primcontrast': 'rgb(' + this.calculateTextColor(primary) + ')',
+      '\\#acccontrast': 'rgb(' + this.calculateTextColor(accent) + ')',
+      '\\#primary': 'rgb(' + primary + ')',
+      '\\#accent': 'rgb(' + accent + ')'
     });
   };
 
