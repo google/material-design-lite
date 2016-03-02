@@ -1158,6 +1158,9 @@
 
       if (this.input_) {
         this.input_.value = this.formatInputDate_(this.selectedDate_);
+        if (this.element_.MaterialTextfield) {
+          this.element_.MaterialTextfield.checkValidity();
+        }
       }
       this.element_.classList.add(this.CssClasses_.IS_DIRTY);
     }
