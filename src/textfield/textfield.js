@@ -218,7 +218,7 @@
   };
   MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
 
-   /**
+  /**
    * Focus text field.
    *
    * @public
@@ -229,7 +229,7 @@
   };
   MaterialTextfield.prototype['focus'] = MaterialTextfield.prototype.focus;
   
-   /**
+  /**
    * Blur text field.
    *
    * @public
