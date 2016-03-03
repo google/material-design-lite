@@ -228,7 +228,7 @@
     this.updateClasses_();
   };
   MaterialTextfield.prototype['focus'] = MaterialTextfield.prototype.focus;
-  
+
   /**
    * Blur text field.
    *
