@@ -113,7 +113,8 @@
   white-space: nowrap;
   text-align: left;
 
-  .mdl-textfield.is-dirty & {
+  .mdl-textfield.is-dirty &,
+  .mdl-textfield.has-placeholder & {
     visibility: hidden;
   }
 
@@ -122,13 +123,18 @@
     @include material-animation-default();
   }
 
+  .mdl-textfield--floating-label.has-placeholder & {
+    transition: none;
+  }
+
   fieldset[disabled] .mdl-textfield &,
   .mdl-textfield.is-disabled.is-disabled & {
     color: $input-text-disabled-text-color;
   }
 
   .mdl-textfield--floating-label.is-focused &,
-  .mdl-textfield--floating-label.is-dirty & {
+  .mdl-textfield--floating-label.is-dirty &,
+  .mdl-textfield--floating-label.has-placeholder & {
     color: $input-text-highlight-color;
     font-size : $input-text-floating-label-fontsize;
     top: $input-text-vertical-spacing - ($input-text-floating-label-fontsize + $input-text-padding);
@@ -136,7 +142,8 @@
   }
 
   .mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder &,
-  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder &{
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder &,
+  .mdl-textfield--floating-label.has-placeholder .mdl-textfield__expandable-holder & {
     top: -($input-text-floating-label-fontsize + $input-text-padding);
   }
 
