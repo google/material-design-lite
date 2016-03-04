@@ -1,0 +1,25 @@
+{
+  "preset": "google",
+  "esnext": true,
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "validateLineBreaks": "LF",
+  "validateIndentation": 2,
+  "excludeFiles": ["node_modules/**"],
+  "maximumLineLength": 130,
+  "validateQuoteMarks": "'",
+  "requireDotNotation": false,
+  "requireCamelCaseOrUpperCaseIdentifiers": null,
+  "additionalRules": ["./utils/jscs-rules/*.js", "../utils/jscs-rules/*.js"],
+  "closureCamelCase": true,
+  "jsDoc": {
+    "checkAnnotations": {
+      "preset": "closurecompiler",
+      "extra": {
+        "type": true,
+        "suppress": true
+      }
+    },
+    "checkTypes": "strictNativeCase",
+    "enforceExistence": "exceptExports"
+  }
+}
