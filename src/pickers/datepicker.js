@@ -107,6 +107,7 @@
     IS_INVALID: 'is-invalid',
     IS_FOCUSED: 'is-focused',
     IS_DIRTY: 'is-dirty',
+    IS_FIXED: 'is-fixed',
 
     // Appearance classes
     INLINE: 'mdl-datepicker--inline',
@@ -616,7 +617,12 @@
       this.widgetElement_.appendChild(this.renderHeader_());
       this.widgetElement_.appendChild(this.renderCalendar_());
 
-      this.element_.appendChild(this.widgetElement_);
+      if (this.element_.classList.contains(this.CssClasses_.FIXED)) {
+        this.widgetElement_.classList.add(this.CssClasses_.IS_FIXED);
+        document.body.appendChild(this.widgetElement_);
+      } else {
+        this.element_.appendChild(this.widgetElement_);
+      }
     }
   };
 
@@ -1071,7 +1077,7 @@
    */
   MaterialDatePicker.prototype.open = function() {
     // Date picker widget already opened
-    if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+    if (this.widgetElement_ && this.widgetElement_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       return;
     }
 
@@ -1086,8 +1092,8 @@
     setTimeout(function() {
       if (this.backdrop_) {
         this.backdrop_.style.display = 'block';
-        document.body.style.overflow = 'hidden';
       }
+      this.widgetElement_.classList.add(this.CssClasses_.IS_VISIBLE);
       this.element_.classList.add(this.CssClasses_.IS_VISIBLE);
       this.triggerEvent_('open');
     }.bind(this), 0);
@@ -1108,17 +1114,17 @@
     }
 
     // Date picker widget already closed
-    if (!this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+    if (!this.widgetElement_ || !this.widgetElement_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       return;
     }
     if (this.element_.classList.contains(this.CssClasses_.IS_FOCUSED)) {
       this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
     }
-    if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+    if (this.widgetElement_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       if (this.backdrop_) {
         this.backdrop_.style.display = 'none';
-        document.body.style.overflow = 'auto';
       }
+      this.widgetElement_.classList.remove(this.CssClasses_.IS_VISIBLE);
       this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
       this.triggerEvent_('close');
 

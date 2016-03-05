@@ -26,7 +26,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 2147483646;
+    z-index: 5;
   }
 
   &__widget {
@@ -42,15 +42,13 @@
     position: absolute;
     right: 0;
     width: 280px;
-    z-index: 999999;
+    z-index: 9999;
 
     @media (max-width: $grid-desktop-breakpoint - 1) and (orientation:landscape) {
       width: 440px;
     }
-  }
 
-  &.is-visible {
-    .mdl-datepicker__widget {
+    &.is-visible {
       display: block;
 
       &.is-year-picker {
@@ -75,19 +73,8 @@
         }
       }
     }
-  }
 
-  &--inline {
-    display: inline-block;
-
-    .mdl-datepicker__widget {
-      position: relative;
-      z-index: auto;
-    }
-  }
-
-  &--fixed {
-    .mdl-datepicker__widget {
+    &.is-fixed {
       display: block;
       margin: auto;
       margin-top: 10px;
@@ -96,14 +83,21 @@
       top: 0;
       transform: translate(0, -200%);
       transition: transform .5s linear, opacity .2s linear;
-      z-index: 2147483647;
-    }
+      z-index: 6;
 
-    &.is-visible {
-      .mdl-datepicker__widget {
+      &.is-visible {
         opacity: 1;
         transform: translate(0, 0);
       }
+    }
+  }
+
+  &--inline {
+    display: inline-block;
+
+    .mdl-datepicker__widget {
+      position: relative;
+      z-index: auto;
     }
   }
 
