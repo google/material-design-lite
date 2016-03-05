@@ -56,6 +56,28 @@
   &.is-visible {
     .mdl-datepicker__widget {
       display: block;
+
+      &.is-year-picker {
+        .mdl-datepicker__week-days,
+        .mdl-datepicker__navigation,
+        .mdl-datepicker__month {
+          display: none;
+        }
+
+        .mdl-datepicker__header {
+          &-year {
+            color: $datepicker-header-active-color;
+          }
+
+          &-date {
+            color: $datepicker-header-color;
+          }
+        }
+
+        .mdl-datepicker__year-picker {
+          display: block;
+        }
+      }
     }
   }
 
@@ -229,28 +251,6 @@
     height: 235px;
     overflow: auto;
     position: relative;
-  }
-
-  &--year-picker.is-visible {
-    .mdl-datepicker__week-days,
-    .mdl-datepicker__navigation,
-    .mdl-datepicker__month {
-      display: none;
-    }
-
-    .mdl-datepicker__header {
-      &-year {
-        color: $datepicker-header-active-color;
-      }
-
-      &-date {
-        color: $datepicker-header-color;
-      }
-    }
-
-    .mdl-datepicker__year-picker {
-      display: block;
-    }
   }
 
   &__year {

@@ -122,7 +122,7 @@
     YEAR: 'mdl-datepicker__year',
     YEAR_SELECTED: 'is-selected',
     YEAR_DISABLED: 'is-disabled',
-    YEAR_PICKER: 'mdl-datepicker--year-picker',
+    YEAR_PICKER: 'is-year-picker',
     YEAR_PICKER_ELEMENT: 'mdl-datepicker__year-picker',
     MONTH: 'mdl-datepicker__month',
     WEEKS: 'mdl-datepicker__weeks',
@@ -249,8 +249,8 @@
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
-    if (!this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
-      this.element_.classList.add(this.CssClasses_.YEAR_PICKER);
+    if (this.widgetElement_ && !this.widgetElement_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
+      this.widgetElement_.classList.add(this.CssClasses_.YEAR_PICKER);
       var selectedYear = this.yearPickerElement_.querySelector('.' + this.CssClasses_.YEAR_SELECTED);
 
       if (selectedYear) {
@@ -275,8 +275,8 @@
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
-    if (this.element_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
-      this.element_.classList.remove(this.CssClasses_.YEAR_PICKER);
+    if (this.widgetElement_ && this.widgetElement_.classList.contains(this.CssClasses_.YEAR_PICKER)) {
+      this.widgetElement_.classList.remove(this.CssClasses_.YEAR_PICKER);
     }
   };
 
