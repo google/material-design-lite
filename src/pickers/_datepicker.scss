@@ -281,55 +281,6 @@
     text-align: right;
   }
 
-  // Dark theme
-  /*
-  &--dark {
-    .mdl-datepicker__widget {
-      background-color: $datepicker-bg-dark-color;
-    }
-
-    .mdl-datepicker__header {
-      background-color: $datepicker-header-dark-bg-color;
-    }
-
-    .mdl-datepicker__calendar {
-      background-color: $datepicker-bg-dark-color;
-    }
-
-    .mdl-datepicker__navigation {
-      color: $datepicker-navigation-dark-color;
-    }
-    
-    .mdl-datepicker__week-days {
-      .mdl-datepicker__date {
-        color: $datepicker-week-days-dark-color;
-      }
-    }
-
-    .mdl-datepicker__date {
-      color: $datepicker-date-dark-color;
-
-      &--today {
-        color: $datepicker-today-color;
-      }
-
-      &--selected {
-        color: $datepicker-date-color;
-      }
-    }
-
-    .mdl-datepicker__year-picker {
-      .mdl-datepicker__year {
-        color: $datepicker-year-dark-color;
-
-        &--selected {
-          color: $datepicker-year-selected-color;
-        }
-      }
-    }
-  }
-  */
-
   .mdl-button {
     bottom: auto;
     position: relative;
