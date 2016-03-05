@@ -1,8 +1,4 @@
 .mdl-datepicker {
-  * {
-    box-sizing: border-box;
-  }
-
   &--landscape {
     .mdl-datepicker__widget {
       width: 440px;
@@ -36,11 +32,11 @@
   &__widget {
     background-color: $datepicker-bg-color;
     box-shadow: $datepicker-shadow;
+    box-sizing: border-box;
     color: $datepicker-font-color;
     display: none;
     font-size: $datepicker-font-size;
-    // @TODO Review height during development
-    height: fit-content;
+    height: auto;
     left: 0;
     margin: 10px auto 45px 0;
     position: absolute;
