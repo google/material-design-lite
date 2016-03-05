@@ -35,12 +35,12 @@
   window['MaterialDatePicker'] = MaterialDatePicker;
 
   /**
-   * Global date picker settings
+   * Global date picker locales
    * Currently allowed formats: ['mm/dd/yyyy', 'dd.mm.yyyy', 'yyyy-mm-dd']
    * @type {Object}
    * @public
    */
-  MaterialDatePicker.settings = {
+  MaterialDatePicker.locales = {
     /**
      * Date format for input formatting
      * @type {string}
@@ -63,13 +63,13 @@
   };
 
   /**
-   * Instance based date picker settings.
-   * Overrides global date picker settings
+   * Instance based date picker locales.
+   * Overrides global date picker locales
    *
    * @type {Object}
    * @public
    */
-  MaterialDatePicker.prototype.settings = {};
+  MaterialDatePicker.prototype.locales = {};
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -409,8 +409,8 @@
 
     // If guven format is actually function,
     // execute in global scope with selected date as parameter
-    if (typeof this.settings.format === 'function') {
-      var formatFunction = this.settings.format;
+    if (typeof this.locales.format === 'function') {
+      var formatFunction = this.locales.format;
       var selectedDate = this.selectedDate_;
       return formatFunction.call(window, selectedDate);
     }
@@ -424,7 +424,7 @@
       return ('0' + number).substr(-2, 2);
     };
 
-    switch (this.settings.format) {
+    switch (this.locales.format) {
       case 'dd.mm.yyyy':
         dateFormatted = [
           addLeadingZero(dateObject.getDate()),
@@ -465,8 +465,8 @@
    */
   MaterialDatePicker.prototype.formatHeaderDate_ = function(date) {
     return (
-      this.settings.weekDaysShort[date.getDay()] + ', ' +
-      this.settings.monthsShort[date.getMonth()] + ' '  +
+      this.locales.weekDaysShort[date.getDay()] + ', ' +
+      this.locales.monthsShort[date.getMonth()] + ' '  +
       date.getDate()
     );
   };
@@ -683,7 +683,7 @@
    */
   MaterialDatePicker.prototype.updateMonthTitle_ = function() {
     this.currentMonthTitleElement_.innerHTML = (
-      this.settings.months[this.currentMonth_.getMonth()] + ', ' +
+      this.locales.months[this.currentMonth_.getMonth()] + ', ' +
       this.currentMonth_.getFullYear()
     );
   };
@@ -807,7 +807,7 @@
         weekDay.setAttribute('type', 'button');
         weekDay.classList.add(this.CssClasses_.DATE);
         weekDay.classList.add(this.CssClasses_.DATE_EMPTY);
-        weekDay.innerHTML = this.settings.weekDaysLetter[i];
+        weekDay.innerHTML = this.locales.weekDaysLetter[i];
         this.weekDaysElement_.appendChild(weekDay);
       }
     }
@@ -1213,7 +1213,7 @@
   MaterialDatePicker.prototype.init = function() {
     if (this.element_) {
       // Load default configuration
-      this.settings = Object.create(MaterialDatePicker.settings);
+      this.locales = Object.create(MaterialDatePicker.locales);
 
       this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
       if (this.input_) {
