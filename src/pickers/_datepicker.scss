@@ -113,6 +113,7 @@
 
   &__header {
     background-color: $datepicker-header-bg-color;
+    box-sizing: border-box;
     line-height: initial;
     padding: $datepicker-header-padding;
 
@@ -140,6 +141,7 @@
 
   &__calendar {
     background-color: $datepicker-content-bg-color;
+    box-sizing: border-box;
     padding: $datepicker-content-padding;
     padding-bottom: 0;
 
@@ -149,6 +151,7 @@
   }
 
   &__navigation {
+    box-sizing: border-box;
     font-size: $datepicker-navigation-font-size;
     height: 32px;
     line-height: 32px;
