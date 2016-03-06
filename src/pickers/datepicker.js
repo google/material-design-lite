@@ -407,7 +407,7 @@
   MaterialDatePicker.prototype.formatInputDate_ = function(dateObject) {
     var dateFormatted;
 
-    // If guven format is actually function,
+    // If given format is actually function,
     // execute in global scope with selected date as parameter
     if (typeof this.locales.format === 'function') {
       var formatFunction = this.locales.format;
@@ -472,7 +472,7 @@
   };
 
   /**
-   * Check if gived date is today
+   * Check if given date is today
    * @param  {Date}     currentDate
    * @return {boolean}
    */
@@ -661,7 +661,7 @@
   };
 
   /**
-   * Updat header date and year
+   * Update header date and year
    *
    * @private
    * @return {void}
@@ -927,7 +927,7 @@
         this.yearPickerElement_.appendChild(yearButton);
       }
     } else {
-      // Year picker already rendered, yust need to update state
+      // Year picker already rendered, just need to update state
       var yearButtons = this.yearPickerElement_.querySelectorAll('.' + this.CssClasses_.YEAR);
       for (var i = 0; i < yearButtons.length; i++) {
         yearButton = null;
@@ -1129,7 +1129,7 @@
       this.triggerEvent_('close');
 
       setTimeout(function() {
-        // Destroy all properties and wiget elements after close
+        // Destroy all properties and widget elements after close
         this.destroy_();
       }.bind(this), 200);
     }
