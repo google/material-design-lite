@@ -95,7 +95,7 @@ function init() {
   req.send();
 }
 
-MaterialCustomizer = (function() {
+var MaterialCustomizer = (function() {
   'use strict';
 
   var COLORS = ['Cyan', 'Teal', 'Green', 'Light Green', 'Lime',
