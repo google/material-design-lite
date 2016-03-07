@@ -177,9 +177,11 @@
     e.stopPropagation();
     e.stopImmediatePropagation();
     this.close();
-    this.pickedDate_.setFullYear(this.selectedDate_.getFullYear());
-    this.pickedDate_.setMonth(this.selectedDate_.getMonth());
-    this.pickedDate_.setDate(this.selectedDate_.getDate());
+    if (this.selectedDate_) {
+      this.pickedDate_.setFullYear(this.selectedDate_.getFullYear());
+      this.pickedDate_.setMonth(this.selectedDate_.getMonth());
+      this.pickedDate_.setDate(this.selectedDate_.getDate());
+    }
     this.updateHeader_();
     this.updateMonthTitle_();
     this.changeCurrentMonth_(this.pickedDate_);
@@ -198,6 +200,9 @@
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
+    if (!this.selectedDate_) {
+      this.selectedDate_ = new Date();
+    }
     this.selectedDate_.setFullYear(this.pickedDate_.getFullYear());
     this.selectedDate_.setMonth(this.pickedDate_.getMonth());
     this.selectedDate_.setDate(this.pickedDate_.getDate());
@@ -1230,7 +1235,7 @@
       // Setup properties default values.
       this.pickedDate_ = new Date();
       this.currentMonth_ = new Date();
-      this.selectedDate_ = new Date();
+      this.selectedDate_ = null;
 
       if (this.element_.classList.contains(this.CssClasses_.FIXED)) {
         this.backdrop_ = document.createElement('div');
