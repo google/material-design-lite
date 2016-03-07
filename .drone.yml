@@ -6,14 +6,18 @@ clone:
 cache:
   mount:
     - node_modules
+matrix:
+  NODE_VERSION:
+    - 4
+    - 5
 build:
-  image: crhym3/ci-image
+  image: crhym3/ci:node$$NODE_VERSION-go15
   environment:
     - CHROME=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - WEBDRIVER=http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
     - DISPLAY=:99
   commands:
-    - npm update
+    - npm update -qq
     # build and unit test
     - gulp all
     - gulp mocha:closure
@@ -30,6 +34,8 @@ publish:
       repo: google/material-design-lite
       branch: master
       event: push
+      matrix:
+        NODE_VERSION: 5
     auth_key: >
       $$SERVICE_ACCOUNT_KEY
     source: dist
