@@ -60,7 +60,8 @@
     IS_FOCUSED: 'is-focused',
     IS_DISABLED: 'is-disabled',
     IS_INVALID: 'is-invalid',
-    IS_UPGRADED: 'is-upgraded'
+    IS_UPGRADED: 'is-upgraded',
+    HAS_PLACEHOLDER: 'has-placeholder'
   };
 
   /**
@@ -257,6 +258,10 @@
           if (isNaN(this.maxRows)) {
             this.maxRows = this.Constant_.NO_MAX_ROWS;
           }
+        }
+
+        if (this.input_.hasAttribute('placeholder')) {
+          this.element_.classList.add(this.CssClasses_.HAS_PLACEHOLDER);
         }
 
         this.boundUpdateClassesHandler = this.updateClasses_.bind(this);
