@@ -81,8 +81,9 @@
       opacity: 0;
       position: fixed;
       top: 0;
-      transform: translate(0, -200%);
-      transition: transform .5s linear, opacity .2s linear;
+      transform: translate(0, -50%);
+      transition: transform .3s linear, opacity .3s linear;
+      will-change: transform;
       z-index: 6;
 
       &.is-visible {
