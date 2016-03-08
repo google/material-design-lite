@@ -1267,8 +1267,8 @@
    */
   MaterialDatePicker.prototype.mdlDowngrade_ = function() {
     if (this.input_) {
-      this.input_.removeEventListener('focus', this.boundInputFocusHandler);
-      this.input_.removeEventListener('blur', this.boundInputBlurHandler);
+      this.input_.removeEventListener('focus', this.boundInputFocusHandler, true);
+      this.input_.removeEventListener('focusout', this.boundInputBlurHandler, true);
     }
     this.destroy_();
     if (this.backdrop_) {
