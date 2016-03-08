@@ -46,6 +46,7 @@
      * @type {string}
      */
     format: 'yyyy-mm-dd',
+    weekStart: 0,
     weekDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     weekDaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     weekDaysLetter: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
@@ -806,14 +807,19 @@
     if (!this.weekDaysElement_) {
       this.weekDaysElement_ = document.createElement('div');
       this.weekDaysElement_.classList.add(this.CssClasses_.WEEK_DAYS);
+      var weekStart = this.locales.weekStart;
 
       for (var i = 0; i <= 6; i++) {
         var weekDay = document.createElement('button');
         weekDay.setAttribute('type', 'button');
         weekDay.classList.add(this.CssClasses_.DATE);
         weekDay.classList.add(this.CssClasses_.DATE_EMPTY);
-        weekDay.innerHTML = this.locales.weekDaysLetter[i];
+        weekDay.innerHTML = this.locales.weekDaysLetter[weekStart];
         this.weekDaysElement_.appendChild(weekDay);
+        weekStart += 1;
+        if (weekStart > 6) {
+          weekStart = 0;
+        }
       }
     }
 
@@ -842,6 +848,7 @@
     lastDay.setDate(lastDay.getDate() - 1);
 
     var renderDays = true;
+    var weekStart = this.locales.weekStart;
     while (renderDays) {
       var week = document.createElement('div');
       week.classList.add(this.CssClasses_.WEEK);
@@ -855,7 +862,7 @@
 
         var weekDay = document.createElement('button');
         weekDay.classList.add(this.CssClasses_.DATE);
-        if (currentDay.getDay() === i && currentDay.getDate() <= lastDay.getDate()) {
+        if (currentDay.getDay() === weekStart && currentDay.getDate() <= lastDay.getDate()) {
           weekDay.innerHTML = currentDayInt;
           weekDay.setAttribute('data-date', currentDayInt);
           weekDay.setAttribute('type', 'button');
@@ -883,7 +890,10 @@
           // Render empty date
           weekDay.classList.add(this.CssClasses_.DATE_EMPTY);
         }
-
+        weekStart += 1;
+        if (weekStart > 6) {
+          weekStart = 0;
+        }
         week.appendChild(weekDay);
       }
 
