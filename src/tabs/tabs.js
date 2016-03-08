@@ -71,13 +71,15 @@
    * @private
    */
   MaterialTabs.prototype.initTabs_ = function() {
-    if (this.element_.classList.contains(this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
+    if (this.element_.classList.contains(
+        this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
       this.element_.classList.add(
         this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
 
     // Select element tabs, document panels
-    this.tabs_ = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
+    this.tabs_ =
+        this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
     this.panels_ =
         this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
 
@@ -129,7 +131,8 @@
    */
   function MaterialTab(tab, ctx) {
     if (tab) {
-      if (ctx.element_.classList.contains(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
+      if (ctx.element_.classList.contains(
+          ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
         var rippleContainer = document.createElement('span');
         rippleContainer.classList.add(ctx.CssClasses_.MDL_RIPPLE_CONTAINER);
         rippleContainer.classList.add(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT);
@@ -148,7 +151,6 @@
         tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
         panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
       });
-
     }
   }
 
