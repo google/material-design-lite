@@ -17,26 +17,26 @@
 
 // Allows for automatic exporting of properties with Closure Compiler.
 // Copied from the Closure Compiler library source, with modifications.
-var goog = {};
+let goog = {};
 goog.global = this;
 
 /**
  * Export a symbol with Closure compiler.
  * @param {string} name Unobfuscated name to export.
- * @param {*} opt_object Object the name should point to.
- * @param {Object=} opt_objectToExportTo The object to add the path to.
+ * @param {*} optObject Object the name should point to.
+ * @param {Object=} optObjectToExportTo The object to add the path to.
  */
-goog.exportSymbol = function(name, opt_object, opt_objectToExportTo) {
+goog.exportSymbol = function(name, optObject, optObjectToExportTo) {
   'use strict';
 
-  var parts = name.split('.');
-  var cur = opt_objectToExportTo || goog.global;
+  let parts = name.split('.');
+  let cur = optObjectToExportTo || goog.global;
 
   // Parentheses added to eliminate strict JS warning in Firefox.
-  for (var part; parts.length && (part = parts.shift());) {
-    if (!parts.length && opt_object !== undefined) {
+  for (let part; parts.length && (part = parts.shift());) {
+    if (!parts.length && optObject !== undefined) {
       // last part and we have an object; use it
-      cur[part] = opt_object;
+      cur[part] = optObject;
     } else if (cur[part]) {
       cur = cur[part];
     } else {

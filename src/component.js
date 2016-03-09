@@ -20,7 +20,7 @@
  *
  * @export
  */
-class MaterialComponent {
+class MaterialComponent { // eslint-disable-line no-unused-vars
   /**
    * Initialize component from a DOM node.
    *
@@ -36,11 +36,12 @@ class MaterialComponent {
     }
   }
 
+  // eslint-disable-next-line valid-jsdoc
   /**
    * CSS classes used in this component.
    *
    * @protected
-   * @return {Object<string, string>}
+   * @return {Object<string, string>} The CSS classes used in this component.
    */
   static get classes_() {
     // Empty in base class. Throw error if not correctly overriden.
@@ -52,18 +53,19 @@ class MaterialComponent {
    * Number constants used in this component.
    *
    * @protected
-   * @return {Object<string, number>}
+   * @return {Object<string, number>} The numbers used in this component.
    */
   static get numbers_() {
     // Empty in base class.
     return {};
   }
 
+  // eslint-disable-next-line valid-jsdoc
   /**
    * String constants used in this component.
    *
    * @protected
-   * @return {Object<string, string>}
+   * @return {Object<string, string>} The strings used in this component.
    */
   static get strings_() {
     // Empty in base class. Throw error if not correctly overriden.
@@ -74,7 +76,7 @@ class MaterialComponent {
   /**
    * Return class name as a string. Useful for automation after obfuscation.
    *
-   * @return {string}
+   * @return {string} The JS class name for this component.
    * @suppress {missingProperties}
    * @nocollapse
    * @export
@@ -93,7 +95,7 @@ class MaterialComponent {
    * @export
    */
   static initComponents(docRoot) {
-    var nodes = docRoot.querySelectorAll(
+    let nodes = docRoot.querySelectorAll(
         `.${this.classes_.ROOT}.${this.classes_.JS}`);
     for (let i = 0; i < nodes.length; i++) {
       // Attach new component to DOM property.

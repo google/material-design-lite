@@ -72,7 +72,7 @@ const SOURCES = [
   // 'src/icon-toggle/icon-toggle.js',
   // 'src/menu/menu.js',
   // 'src/progress/progress.js',
-  'src/radio/radio.js',
+  'src/radio/radio.js'
   // 'src/slider/slider.js',
   // 'src/snackbar/snackbar.js',
   // 'src/spinner/spinner.js',
@@ -107,7 +107,7 @@ include_prefix: ../../
 
 // Lint JS sources.
 gulp.task('lint:sources', () => {
-  return gulp.src(SOURCES)
+  return gulp.src(['utils/export.js'].concat(SOURCES))
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));

@@ -6,9 +6,10 @@
     "rules": {
       "dot-notation": 0,
       "no-new": 1,
-      "quotes": [2, "single"]
+      "quotes": [2, "single"],
+      "no-var": 2
     },
     "globals": {
-      "componentHandler": true
+      "MaterialComponent": true
     }
 }
