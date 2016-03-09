@@ -82,6 +82,36 @@ class MaterialRadio extends MaterialComponent {
   }
 
   /**
+   * Check the input's toggle state and update display.
+   *
+   * @param {Element} root The root node of the MaterialRadio.
+   * @param {Element} input The input node of the MaterialRadio.
+   * @private
+   */
+  static checkToggleState_(root, input) {
+    if (input.checked) {
+      root.classList.add(MaterialRadio.classes_.IS_CHECKED);
+    } else {
+      root.classList.remove(MaterialRadio.classes_.IS_CHECKED);
+    }
+  }
+
+  /**
+   * Check the input's disabled state and update display.
+   *
+   * @param {Element} root The root node of the MaterialRadio.
+   * @param {Element} input The input node of the MaterialRadio.
+   * @private
+   */
+  static checkDisabled_(root, input) {
+    if (input.disabled) {
+      root.classList.add(MaterialRadio.classes_.IS_DISABLED);
+    } else {
+      root.classList.remove(MaterialRadio.classes_.IS_DISABLED);
+    }
+  }
+
+  /**
    * Attach all listeners to the DOM.
    *
    * @override
@@ -156,8 +186,8 @@ class MaterialRadio extends MaterialComponent {
    * @export
    */
   refresh() {
-    this.checkDisabled_();
-    this.checkToggleState_();
+    MaterialRadio.checkDisabled_(this.root_, this.input_);
+    MaterialRadio.checkToggleState_(this.root_, this.input_);
   }
 
   /**
@@ -177,41 +207,18 @@ class MaterialRadio extends MaterialComponent {
    * @private
    */
   onChange_() {
-    let radios = document.querySelectorAll(`.${MaterialRadio.classes_.JS}`);
-    for (let i = 0; i < radios.length; i++) {
-      let input = radios[i].querySelector(`.${MaterialRadio.classes_.INPUT}`);
-      // Different name == different group, so no point updating those.
-      if (input &&
-          input.getAttribute('name') === this.input_.getAttribute('name')) {
-        radios[i][MaterialRadio.strings_.CLASS_NAME].refresh();
+    requestAnimationFrame(() => {
+      let radios = document.querySelectorAll(`.${MaterialRadio.classes_.ROOT}`);
+      for (let i = 0; i < radios.length; i++) {
+        let input = radios[i].querySelector(`.${MaterialRadio.classes_.INPUT}`);
+        // Different name == different group, so no point updating those.
+        if (input &&
+            input.getAttribute('name') === this.input_.getAttribute('name')) {
+          MaterialRadio.checkDisabled_(radios[i], input);
+          MaterialRadio.checkToggleState_(radios[i], input);
+        }
       }
-    }
-  }
-
-  /**
-   * Check the input's toggle state and update display.
-   *
-   * @private
-   */
-  checkToggleState_() {
-    if (this.input_.checked) {
-      this.root_.classList.add(MaterialRadio.classes_.IS_CHECKED);
-    } else {
-      this.root_.classList.remove(MaterialRadio.classes_.IS_CHECKED);
-    }
-  }
-
-  /**
-   * Check the input's disabled state and update display.
-   *
-   * @private
-   */
-  checkDisabled_() {
-    if (this.input_.disabled) {
-      this.root_.classList.add(MaterialRadio.classes_.IS_DISABLED);
-    } else {
-      this.root_.classList.remove(MaterialRadio.classes_.IS_DISABLED);
-    }
+    });
   }
 }
 
