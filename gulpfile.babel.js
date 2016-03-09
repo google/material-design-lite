@@ -26,7 +26,7 @@ import fs from 'fs';
 import path from 'path';
 import mergeStream from 'merge-stream';
 import del from 'del';
-import vinylPaths from'vinyl-paths';
+import vinylPaths from 'vinyl-paths';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import through from 'through2';
@@ -89,22 +89,46 @@ const SOURCES = [
   'src/ripple/ripple.js'
 ];
 
+const COMPONENT_HEADER = `---
+layout: component
+bodyclass: component\n
+include_prefix: ../../
+---
+
+`;
+
+const DEMO_HEADER = `---
+layout: demo
+bodyclass: demo\n
+include_prefix: ../../
+---
+
+`;
+
 // ***** Development tasks ****** //
 
-// Lint JavaScript
-gulp.task('lint', () => {
-  return gulp.src([
-      'src/**/*.js',
-      'gulpfile.babel.js'
-    ])
-    .pipe(reload({stream: true, once: true}))
-    .pipe($.jshint())
-    .pipe($.jscs())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.jscs.reporter())
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')))
-    .pipe($.if(!browserSync.active, $.jscs.reporter('fail')));
+// Lint JS sources.
+gulp.task('lint:sources', () => {
+  return gulp.src(SOURCES)
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 });
+
+// Lint auxiliary JS.
+gulp.task('lint:aux', () => {
+  return gulp.src(['gulpfile.babel.js'])
+    .pipe($.eslint({
+      env: {
+        browser: false
+      }
+    }))
+    .pipe($.eslint.format())
+    .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
+});
+
+// Lint JavaScript
+gulp.task('lint', ['lint:sources', 'lint:aux'], () => {});
 
 // ***** Production build tasks ****** //
 
@@ -215,19 +239,19 @@ gulp.task('closure', () => {
       compilerPath: 'node_modules/google-closure-compiler/compiler.jar',
       fileName: 'material.closure.min.js',
       compilerFlags: {
-        // jscs:disable closureCamelCase
+        /* eslint-disable camelcase */
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         language_in: 'ECMASCRIPT6_STRICT',
         language_out: 'ECMASCRIPT5_STRICT',
         warning_level: 'VERBOSE'
-        // jscs:enable closureCamelCase
+        /* eslint-enable camelcase */
       }
     }))
     .pipe(gulp.dest('./dist'));
 });
 
 // Concatenate And Minify JavaScript
-gulp.task('scripts', ['lint'], () => {
+gulp.task('scripts', ['lint:sources'], () => {
   return gulp.src(SOURCES)
     .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
     .pipe($.sourcemaps.init())
@@ -254,11 +278,11 @@ gulp.task('clean', () => del(['dist', '.publish']));
 // Copy package manger and LICENSE files to dist
 gulp.task('metadata', () => {
   return gulp.src([
-      'package.json',
-      'bower.json',
-      'LICENSE'
-    ])
-    .pipe(gulp.dest('dist'));
+    'package.json',
+    'bower.json',
+    'LICENSE'
+  ])
+  .pipe(gulp.dest('dist'));
 });
 
 // Build Production Files, the Default Task
@@ -273,6 +297,7 @@ gulp.task('default', ['clean'], cb => {
 // Build production files and microsite
 gulp.task('all', ['clean'], cb => {
   runSequence(
+    ['lint:aux'],
     ['styletemplates'],
     ['styles-grid', 'styles:gen'],
     ['scripts'],
@@ -327,6 +352,8 @@ const site = {};
 
 /**
  * Generates an HTML file based on a template and file metadata.
+ *
+ * @return {function} function that applies a template
  */
 function applyTemplate() {
   return through.obj((file, enc, cb) => {
@@ -351,7 +378,7 @@ function applyTemplate() {
 gulp.task('components', ['demos'], () => {
   return gulp.src('src/**/README.md', {base: 'src'})
     // Add basic front matter.
-    .pipe($.header('---\nlayout: component\nbodyclass: component\ninclude_prefix: ../../\n---\n\n'))
+    .pipe($.header(COMPONENT_HEADER))
     .pipe($.frontMatter({
       property: 'page',
       remove: true
@@ -364,26 +391,30 @@ gulp.task('components', ['demos'], () => {
       });
     })())
     .pipe(applyTemplate())
-    .pipe($.rename(path => path.basename = 'index'))
+    .pipe($.rename(path => {
+      path.basename = 'index';
+    }))
     .pipe(gulp.dest('dist/components'));
 });
 
 /**
  * Copies demo files from MDL/src directory.
+ *
+ * @return {Object} The set of demo files.
  */
 gulp.task('demoresources', () => {
   return gulp.src([
-      'src/**/demos.css',
-      'src/**/demo.css',
-      'src/**/demo.js'
-    ], {base: 'src'})
-    .pipe($.if('*.scss', $.sass({
-      precision: 10,
-      onError: console.error.bind(console, 'Sass error:')
-    })))
-    .pipe($.cssInlineImages({webRoot: 'src'}))
-    .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
-    .pipe(gulp.dest('dist/components'));
+    'src/**/demos.css',
+    'src/**/demo.css',
+    'src/**/demo.js'
+  ], {base: 'src'})
+  .pipe($.if('*.scss', $.sass({
+    precision: 10,
+    onError: console.error.bind(console, 'Sass error:')
+  })))
+  .pipe($.cssInlineImages({webRoot: 'src'}))
+  .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+  .pipe(gulp.dest('dist/components'));
 });
 
 /**
@@ -393,6 +424,8 @@ gulp.task('demoresources', () => {
 gulp.task('demos', ['demoresources'], () => {
   /**
    * Retrieves the list of component folders.
+   *
+   * @return {Object} The list of component folers.
    */
   function getComponentFolders() {
     return fs.readdirSync('src')
@@ -401,25 +434,25 @@ gulp.task('demos', ['demoresources'], () => {
 
   const tasks = getComponentFolders().map(component => {
     return gulp.src([
-        path.join('src', component, 'snippets', '*.html'),
-        path.join('src', component, 'demo.html')
-      ])
-      .pipe($.concat('/demo.html'))
-      // Add basic front matter.
-      .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
-      .pipe($.frontMatter({
-        property: 'page',
-        remove: true
-      }))
-      .pipe($.marked())
-      .pipe((() => {
-        return through.obj((file, enc, cb) => {
-          file.page.component = component;
-          cb(null, file);
-        });
-      })())
-      .pipe(applyTemplate())
-      .pipe(gulp.dest(path.join('dist', 'components', component)));
+      path.join('src', component, 'snippets', '*.html'),
+      path.join('src', component, 'demo.html')
+    ])
+    .pipe($.concat('/demo.html'))
+    // Add basic front matter.
+    .pipe($.header(DEMO_HEADER))
+    .pipe($.frontMatter({
+      property: 'page',
+      remove: true
+    }))
+    .pipe($.marked())
+    .pipe((() => {
+      return through.obj((file, enc, cb) => {
+        file.page.component = component;
+        cb(null, file);
+      });
+    })())
+    .pipe(applyTemplate())
+    .pipe(gulp.dest(path.join('dist', 'components', component)));
   });
 
   return mergeStream(tasks);
@@ -457,30 +490,30 @@ gulp.task('pages', ['components'], () => {
  */
 gulp.task('assets', () => {
   return gulp.src([
-      'docs/_assets/**/*',
-      'node_modules/clippy/build/clippy.swf',
-      'node_modules/swfobject-npm/swfobject/src/swfobject.js',
-      'node_modules/prismjs/prism.js',
-      'node_modules/prismjs/components/prism-markup.min.js',
-      'node_modules/prismjs/components/prism-javascript.min.js',
-      'node_modules/prismjs/components/prism-css.min.js',
-      'node_modules/prismjs/components/prism-bash.min.js',
-      'node_modules/prismjs/dist/prism-default/prism-default.css'
-    ])
-    .pipe($.if(/\.js/i, $.replace('$$version$$', pkg.version)))
-    .pipe($.if(/\.js/i, $.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix)))
-    .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe($.if(/\.css/i, $.autoprefixer(AUTOPREFIXER_BROWSERS)))
-    .pipe($.if(/\.css/i, $.csso()))
-    .pipe($.if(/\.js/i, $.uglify({
-      preserveComments: 'some',
-      sourceRoot: '.',
-      sourceMapIncludeSources: true
-    })))
-    .pipe(gulp.dest('dist/assets'));
+    'docs/_assets/**/*',
+    'node_modules/clippy/build/clippy.swf',
+    'node_modules/swfobject-npm/swfobject/src/swfobject.js',
+    'node_modules/prismjs/prism.js',
+    'node_modules/prismjs/components/prism-markup.min.js',
+    'node_modules/prismjs/components/prism-javascript.min.js',
+    'node_modules/prismjs/components/prism-css.min.js',
+    'node_modules/prismjs/components/prism-bash.min.js',
+    'node_modules/prismjs/dist/prism-default/prism-default.css'
+  ])
+  .pipe($.if(/\.js/i, $.replace('$$version$$', pkg.version)))
+  .pipe($.if(/\.js/i, $.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix)))
+  .pipe($.if(/\.(svg|jpg|png)$/i, $.imagemin({
+    progressive: true,
+    interlaced: true
+  })))
+  .pipe($.if(/\.css/i, $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+  .pipe($.if(/\.css/i, $.csso()))
+  .pipe($.if(/\.js/i, $.uglify({
+    preserveComments: 'some',
+    sourceRoot: '.',
+    sourceMapIncludeSources: true
+  })))
+  .pipe(gulp.dest('dist/assets'));
 });
 
 /**
@@ -529,13 +562,13 @@ gulp.task('serve', () => {
 // Generate release archive containing just JS, CSS, Source Map deps
 gulp.task('zip:mdl', () => {
   return gulp.src([
-      'dist/material?(.min)@(.js|.css)?(.map)',
-      'LICENSE',
-      'bower.json',
-      'package.json'
-    ])
-    .pipe($.zip('mdl.zip'))
-    .pipe(gulp.dest('dist'));
+    'dist/material?(.min)@(.js|.css)?(.map)',
+    'LICENSE',
+    'bower.json',
+    'package.json'
+  ])
+  .pipe($.zip('mdl.zip'))
+  .pipe(gulp.dest('dist'));
 });
 
 /**
@@ -555,14 +588,14 @@ gulp.task('zip:templates', () => {
   // Generate a zip file for each template.
   const generateZips = templates.map(template => {
     return gulp.src([
-        `dist/templates/${template}/**/*.*`,
-        'LICENSE'
-      ])
-      .pipe($.rename(path => {
-        path.dirname = path.dirname.replace(`dist/templates/${template}`, '');
-      }))
-      .pipe($.zip(`${templateArchivePrefix}${template}.zip`))
-      .pipe(gulp.dest('dist'));
+      `dist/templates/${template}/**/*.*`,
+      'LICENSE'
+    ])
+    .pipe($.rename(path => {
+      path.dirname = path.dirname.replace(`dist/templates/${template}`, '');
+    }))
+    .pipe($.zip(`${templateArchivePrefix}${template}.zip`))
+    .pipe(gulp.dest('dist'));
   });
 
   return mergeStream(generateZips);
@@ -575,13 +608,13 @@ gulp.task('zip', [
 
 gulp.task('genCodeFiles', () => {
   return gulp.src([
-      'dist/material.*@(js|css)?(.map)',
-      'dist/mdl.zip',
-      `dist/${templateArchivePrefix}*.zip`
-    ], {read: false})
-    .pipe($.tap(file => {
-      codeFiles += ` dist/${path.basename(file.path)}`;
-    }));
+    'dist/material.*@(js|css)?(.map)',
+    'dist/mdl.zip',
+    `dist/${templateArchivePrefix}*.zip`
+  ], {read: false})
+  .pipe($.tap(file => {
+    codeFiles += ` dist/${path.basename(file.path)}`;
+  }));
 });
 
 // Push the latest version of code resources (CSS+JS) to Google Cloud Storage.
@@ -700,18 +733,18 @@ gulp.task('publish:staging', () => {
 
 gulp.task('_release', () => {
   return gulp.src([
-      'dist/material?(.min)@(.js|.css)?(.map)',
-      'LICENSE',
-      'README.md',
-      'bower.json',
-      'package.json',
-      '.jscsrc',
-      '.jshintrc',
-      './sr?/**/*',
-      'gulpfile.babel.js',
-      './util?/**/*'
-    ])
-    .pipe(gulp.dest('_release'));
+    'dist/material?(.min)@(.js|.css)?(.map)',
+    'LICENSE',
+    'README.md',
+    'bower.json',
+    'package.json',
+    '.jscsrc',
+    '.jshintrc',
+    './sr?/**/*',
+    'gulpfile.babel.js',
+    './util?/**/*'
+  ])
+  .pipe(gulp.dest('_release'));
 });
 
 gulp.task('publish:release', ['_release'], () => {
@@ -726,9 +759,7 @@ gulp.task('publish:release', ['_release'], () => {
 gulp.task('templates:styles', () => {
   return gulp.src('templates/**/*.css')
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    // FIXME: This crashes. It's a bug in gulp-csso,
-    // not csso itself.
-    //.pipe($.csso())
+    .pipe($.csso())
     .pipe(gulp.dest('dist/templates'));
 });
 
@@ -771,7 +802,8 @@ gulp.task('templates', [
 
 gulp.task('styles:gen', ['styles'], () => {
   const MaterialCustomizer = require('./docs/_assets/customizer.js');
-  const templatePath = path.join(__dirname, 'dist', 'material.min.css.template');
+  const templatePath =
+      path.join(__dirname, 'dist', 'material.min.css.template');
   // TODO: This task needs refactoring once we turn MaterialCustomizer
   // into a proper Node module.
   const mc = new MaterialCustomizer();

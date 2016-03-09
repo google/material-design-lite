@@ -82,30 +82,27 @@
   /**
    * Handle focus.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onFocus_ = function(event) {
+  MaterialTextfield.prototype.onFocus_ = function() {
     this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle lost focus.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onBlur_ = function(event) {
+  MaterialTextfield.prototype.onBlur_ = function() {
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle reset event from out side.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onReset_ = function(event) {
+  MaterialTextfield.prototype.onReset_ = function() {
     this.updateClasses_();
   };
 
@@ -144,7 +141,7 @@
   * @public
   */
   MaterialTextfield.prototype.checkFocus = function() {
-    if (Boolean(this.element_.querySelector(':focus'))) {
+    if (this.element_.querySelector(':focus')) {
       this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
@@ -245,7 +242,6 @@
    * Initialize element.
    */
   MaterialTextfield.prototype.init = function() {
-
     if (this.element_) {
       this.label_ = this.element_.querySelector('.' + this.CssClasses_.LABEL);
       this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);

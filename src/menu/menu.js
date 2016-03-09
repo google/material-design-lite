@@ -141,8 +141,8 @@
       if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
         this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
 
-        for (i = 0; i < items.length; i++) {
-          var item = items[i];
+        for (var j = 0; j < items.length; j++) {
+          var item = items[j];
 
           var rippleContainer = document.createElement('span');
           rippleContainer.classList.add(this.CssClasses_.ITEM_RIPPLE_CONTAINER);
@@ -254,7 +254,8 @@
 
       if (items && items.length > 0 &&
           this.container_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
-        var currentIndex = Array.prototype.slice.call(items).indexOf(evt.target);
+        var currentIndex =
+            Array.prototype.slice.call(items).indexOf(evt.target);
 
         if (evt.keyCode === this.Keycodes_.UP_ARROW) {
           evt.preventDefault();
@@ -300,7 +301,7 @@
     } else {
       // Wait some time before closing menu, so the user can see the ripple.
       this.closing_ = true;
-      window.setTimeout(function(evt) {
+      window.setTimeout(function() {
         this.hide();
         this.closing_ = false;
       }.bind(this), /** @type {number} */ (this.Constant_.CLOSE_TIMEOUT));
@@ -320,10 +321,11 @@
     if (this.element_.classList.contains(this.CssClasses_.UNALIGNED)) {
       // Do not clip.
       this.element_.style.clip = '';
-    } else if (this.element_.classList.contains(this.CssClasses_.BOTTOM_RIGHT)) {
+    } else if (
+        this.element_.classList.contains(this.CssClasses_.BOTTOM_RIGHT)) {
       // Clip to the top right corner of the menu.
       this.element_.style.clip =
-          'rect(0 ' + width + 'px ' + '0 ' + width + 'px)';
+          'rect(0 ' + width + 'px 0 ' + width + 'px)';
     } else if (this.element_.classList.contains(this.CssClasses_.TOP_LEFT)) {
       // Clip to the bottom left corner of the menu.
       this.element_.style.clip =
@@ -341,12 +343,13 @@
   /**
    * Cleanup function to remove animation listeners.
    *
-   * @param {Event} evt
+   * @param {Event} evt The event being handled.
    * @private
    */
 
   MaterialMenu.prototype.removeAnimationEndListener_ = function(evt) {
-    evt.target.classList.remove(MaterialMenu.prototype.CssClasses_.IS_ANIMATING);
+    evt.target.classList.remove(
+        MaterialMenu.prototype.CssClasses_.IS_ANIMATING);
   };
 
   /**
@@ -355,13 +358,16 @@
    * @private
    */
   MaterialMenu.prototype.addAnimationEndListener_ = function() {
-    this.element_.addEventListener('transitionend', this.removeAnimationEndListener_);
-    this.element_.addEventListener('webkitTransitionEnd', this.removeAnimationEndListener_);
+    this.element_.addEventListener(
+        'transitionend', this.removeAnimationEndListener_);
+    this.element_.addEventListener(
+        'webkitTransitionEnd', this.removeAnimationEndListener_);
   };
 
   /**
    * Displays the menu.
    *
+   * @param {Event} evt The event being handled.
    * @public
    */
   MaterialMenu.prototype.show = function(evt) {
@@ -416,7 +422,8 @@
         // do nothing in that case.
         // Also check if the clicked element is a menu item
         // if so, do nothing.
-        if (e !== evt && !this.closing_ && e.target.parentNode !== this.element_) {
+        if (e !== evt && !this.closing_ &&
+            e.target.parentNode !== this.element_) {
           document.removeEventListener('click', callback);
           this.hide();
         }
@@ -460,6 +467,7 @@
   /**
    * Displays or hides the menu, depending on current state.
    *
+   * @param {Event} evt The event being handled.
    * @public
    */
   MaterialMenu.prototype.toggle = function(evt) {
