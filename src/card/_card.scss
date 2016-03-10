@@ -46,7 +46,7 @@
   color: $card-text-color;
   display: block;
   display: flex;
-  justify-content: stretch;
+  justify-content: space-between;
   line-height: normal;
   padding: $card-vertical-padding $card-horizontal-padding;
   perspective-origin: $card-title-perspective-origin-x $card-title-perspective-origin-y;
