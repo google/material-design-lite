@@ -68,10 +68,10 @@
 
 // Mixins for width calculation.
 @mixin partial-size($size, $columns, $gutter) {
-  width: calc(#{(($size / $columns) * 100)+"%"} - #{$gutter});
+  width: calc(#{percentage($size / $columns)} - #{$gutter});
 
   .mdl-grid--no-spacing > & {
-    width: #{(($size / $columns) * 100)+"%"};
+    width: #{percentage($size / $columns)};
   }
 }
 
@@ -80,10 +80,10 @@
 }
 
 @mixin offset-size($size, $columns, $gutter) {
-  margin-left: calc(#{(($size / $columns) * 100)+"%"} + #{$gutter / 2});
+  margin-left: calc(#{percentage($size / $columns)} + #{$gutter / 2});
 
   .mdl-grid.mdl-grid--no-spacing > & {
-    margin-left: #{(($size / $columns) * 100)+"%"};
+    margin-left: #{percentage($size / $columns)};
   }
 }
 
