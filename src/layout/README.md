@@ -197,7 +197,7 @@ The layout component is ready for use.
 
 A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.
 ```html
-<div class="mdl-layout mdl-js-layout">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout-icon"></div>
     <div class="mdl-layout__header-row">
