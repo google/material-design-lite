@@ -114,6 +114,10 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
 
     // Refresh component.
     this.refresh();
+
+    // Add CSS marker that component upgrade is finished.
+    // Useful, but beware flashes of unstyled content when relying on this.
+    this.root_.classList.add(`${this.constructor.classAsString}--is-upgraded`);
   }
 
   /**

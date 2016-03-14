@@ -76,8 +76,7 @@ class MaterialRadio extends MaterialComponent {
 
       IS_FOCUSED: 'is-focused',
       IS_DISABLED: 'is-disabled',
-      IS_CHECKED: 'is-checked',
-      IS_UPGRADED: 'is-upgraded'
+      IS_CHECKED: 'is-checked'
     };
   }
 
