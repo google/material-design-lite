@@ -70,7 +70,7 @@ const SOURCES = [
   // 'src/button/button.js',
   'src/checkbox/checkbox.js',
   // 'src/icon-toggle/icon-toggle.js',
-  // 'src/menu/menu.js',
+  'src/menu/menu.js',
   // 'src/progress/progress.js',
   'src/radio/radio.js',
   // 'src/slider/slider.js',
