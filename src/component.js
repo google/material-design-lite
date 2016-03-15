@@ -149,4 +149,18 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
     // Empty in base class. Throw error if not correctly overriden.
     throw new Error('Should be implemented in components.');
   }
+
+  /**
+   * Kills a component, removing all event listeners and deleting the node from
+   * the DOM.
+   *
+   * @export
+   */
+  kill() {
+    this.removeEventListeners();
+
+    if (this.root_.parentNode) {
+      this.root_.parentNode.removeChild(this.root_);
+    }
+  }
 }
