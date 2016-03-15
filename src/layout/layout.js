@@ -559,7 +559,8 @@
     }
 
     tab.addEventListener('click', function(e) {
-      if (tab.getAttribute('href').charAt(0) === '#') {
+      var href = tab.getAttribute('href');
+      if (href && href.charAt(0) === '#') {
         e.preventDefault();
         selectTab();
       }
