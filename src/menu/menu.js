@@ -149,9 +149,9 @@ class MaterialMenu extends MaterialComponent {
    * Positions the menu relative to an anchor, according to options.
    */
   positionMenu_() {
-    if (this.anchor_) {
-      let menuRect = this.anchor_.getBoundingClientRect();
-      let anchorRect = this.anchor_.parentElement.getBoundingClientRect();
+    if (this.anchor_ && this.anchor_.parentElement) {
+      let anchorRect = this.anchor_.getBoundingClientRect();
+      let parentRect = this.anchor_.parentElement.getBoundingClientRect();
 
       if (this.root_.classList.contains(MaterialMenu.classes_.UNALIGNED)) {
         // Do not position the menu automatically. Requires the developer to
@@ -162,7 +162,7 @@ class MaterialMenu extends MaterialComponent {
         this.root_.style.setProperty('top',
             `${this.anchor_.offsetTop + this.anchor_.offsetHeight}px`);
         this.root_.style.setProperty('right',
-            `${anchorRect.right - menuRect.right}px`);
+            `${parentRect.right - anchorRect.right}px`);
         this.root_.style.removeProperty('bottom');
         this.root_.style.removeProperty('left');
       } else if (this.root_.classList.contains(
@@ -171,16 +171,16 @@ class MaterialMenu extends MaterialComponent {
         this.root_.style.removeProperty('top');
         this.root_.style.removeProperty('right');
         this.root_.style.setProperty('bottom',
-            `${anchorRect.bottom - menuRect.top}px`);
+            `${parentRect.bottom - anchorRect.top}px`);
         this.root_.style.setProperty('left', `${this.anchor_.offsetLeft}px`);
       } else if (this.root_.classList.contains(
             MaterialMenu.classes_.TOP_RIGHT)) {
         // Position above the anchor element, aligned to its right.
         this.root_.style.removeProperty('top');
         this.root_.style.setProperty('right',
-            `${anchorRect.right - menuRect.right}px`);
+            `${parentRect.right - anchorRect.right}px`);
         this.root_.style.setProperty('bottom',
-            `${anchorRect.bottom - menuRect.top}px`);
+            `${parentRect.bottom - anchorRect.top}px`);
         this.root_.style.removeProperty('left');
       } else {
         // Default: position below the anchor element, aligned to its left.
@@ -394,6 +394,9 @@ class MaterialMenu extends MaterialComponent {
    * @export
    */
   set anchor(anchor) {
+    if (!(anchor instanceof Element)) {
+      throw new Error('Anchor should be an Element.');
+    }
     this.anchor_ = anchor;
   }
 
