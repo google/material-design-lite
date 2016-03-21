@@ -367,6 +367,7 @@ componentHandler = (function() {
         ev = document.createEvent('Events');
         ev.initEvent('mdl-componentdowngraded', true, true);
       }
+      component.element_.dispatchEvent(ev);
     }
   }
 
