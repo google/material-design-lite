@@ -1,0 +1,70 @@
+/* ==========  Color Palettes  ========== */
+$palette-base-white:
+rgb(255, 255, 255)
+rgb(246, 250, 253)
+rgb(238, 241, 246)
+rgb(180, 186, 191);
+
+$palette-dark-blue:
+rgb(43, 50, 69);
+
+$palette-pink:
+rgb(251, 65, 106);
+
+$palette-base-white-100: nth($palette-base-white, 1);
+$palette-base-white-80: nth($palette-base-white, 2);
+$palette-base-white-60: nth($palette-base-white, 3);
+$palette-base-white-40: nth($palette-base-white, 4);
+
+
+/* ========== TIPOGRAFIA ========== */
+$preferred_font: 'Avenir Next', 'Helvetica', 'Arial', sans-serif;
+$performance_font: 'Helvetica', 'Arial', sans-serif;
+
+/* ========= COLORES ========== */
+$color-black: $palette-dark-blue;
+$color-light: $palette-base-white-100;
+$color-accent: $palette-pink;
+
+$text-color-primary: rgba-tpl($palette-dark-blue, 0.87);
+
+
+
+/* ==========  Components  ========== */
+$generic-border-radius: 10px;
+
+/* ========= BOTONES ========== */
+$button-min-width: 145px;
+$button-height: 38px;
+$button-border-radius: $generic-border-radius;
+$button-border: 2px solid #FB416A;
+$button-border-colored: 2px solid #2b3245;
+
+$button-primary-color-alt: $palette-dark-blue;
+$button-secondary-color-alt: $palette-base-white-100;
+
+/* ==========  Status Style  ========== */
+$button-hover-color: $palette-pink;
+$button-active-color: rgba-tpl($palette-pink, 0.80);
+
+$button-hover-color-alt: rgba-tpl($palette-dark-blue, 0.80);
+$button-active-color-alt: rgba-tpl($palette-dark-blue, 0.80);
+
+/* ==========  Disabled Style  ========== */
+$button-primary-border-disabled: 2px solid rgba-tpl($color-black, 0.12);
+
+
+
+/* ========= CARDS ========== */
+$card-title-font-size: 27px;
+$card-title-text-font-weight: 700;
+
+$supportingtext-border-top: 1px solid #E0E0E0;
+
+$card-vertical-padding: 35px;
+$card-horizontal-padding: 35px;
+$card-button-padding: 0 35px 35px 35px;
+
+$card-supporting-text-font-size: .9rem;
+
+$card-supporting-text-text-color: rgba-tpl($palette-dark-blue, 0.87);
