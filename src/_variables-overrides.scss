@@ -31,14 +31,40 @@ $text-color-primary: rgba-tpl($palette-dark-blue, 0.87);
 
 
 /* ==========  Components  ========== */
+$generic-border-radius: 10px;
 
 /* ========= BOTONES ========== */
 $button-min-width: 145px;
 $button-height: 38px;
-$button-border-radius: 10px;
+$button-border-radius: $generic-border-radius;
 $button-border: 2px solid #FB416A;
+$button-border-colored: 2px solid #2b3245;
 
+$button-primary-color-alt: $palette-dark-blue;
+$button-secondary-color-alt: $palette-base-white-100;
+
+/* ==========  Status Style  ========== */
 $button-hover-color: $palette-pink;
+$button-active-color: rgba-tpl($palette-pink, 0.80);
+
+$button-hover-color-alt: rgba-tpl($palette-dark-blue, 0.80);
+$button-active-color-alt: rgba-tpl($palette-dark-blue, 0.80);
 
 /* ==========  Disabled Style  ========== */
-$button-primary-border-disabled: 2px solid rgba-tpl($color-black, 0.12) !default;
+$button-primary-border-disabled: 2px solid rgba-tpl($color-black, 0.12);
+
+
+
+/* ========= CARDS ========== */
+$card-title-font-size: 27px;
+$card-title-text-font-weight: 700;
+
+$supportingtext-border-top: 1px solid #E0E0E0;
+
+$card-vertical-padding: 35px;
+$card-horizontal-padding: 35px;
+$card-button-padding: 0 35px 35px 35px;
+
+$card-supporting-text-font-size: .9rem;
+
+$card-supporting-text-text-color: rgba-tpl($palette-dark-blue, 0.87);

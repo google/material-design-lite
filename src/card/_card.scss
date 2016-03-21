@@ -15,6 +15,7 @@
  */
 
 @import "../variables";
+@import "../variables-overrides";
 
 .mdl-card {
   display: flex;
@@ -27,8 +28,14 @@
   z-index: $card-z-index;
   position: relative;
   background: $card-background-color;
-  border-radius: 2px;
+  border-radius: $generic-border-radius;
   box-sizing: border-box;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in;
+
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
 }
 
 .mdl-card__media {
@@ -45,7 +52,7 @@
   align-items: center;
   color: $card-text-color;
   display: block;
-  display: flex;
+  // display: flex;
   justify-content: stretch;
   line-height: normal;
   padding: $card-vertical-padding $card-horizontal-padding;
@@ -53,22 +60,27 @@
   transform-origin: $card-title-transform-origin-x $card-title-transform-origin-y;
   box-sizing: border-box;
 
+  //BILLTRACKER STYLE
+  text-align: center;
+
   &.mdl-card--border {
     border-bottom: 1px solid $card-border-color;
   }
 }
 
 .mdl-card__title-text {
-  align-self: flex-end;
-  color: inherit;
+  color: $palette-dark-blue;
   display: block;
-  display: flex;
+  // display: flex;
   font-size: $card-title-font-size;
   font-weight: $card-title-text-font-weight;
   line-height: normal;
   overflow: hidden;
   transform-origin: $card-title-text-transform-origin-x $card-title-text-transform-origin-y;
-  margin: 0;
+
+  // BILLTRACKER STYLE
+  text-transform: uppercase;
+  margin: 0 auto;
 }
 
 .mdl-card__subtitle-text {
@@ -79,20 +91,27 @@
 
 .mdl-card__supporting-text {
   color: $card-supporting-text-text-color;
-  font-size: $card-supporting-text-font-size;
   line-height: $card-supporting-text-line-height;
   overflow: hidden;
-  padding: $card-vertical-padding $card-horizontal-padding;
   box-sizing: border-box;
+
+  // BILLTRACKER STYLE
+  background: $palette-base-white-60;
+  border-top: $supportingtext-border-top;
+  padding: $card-vertical-padding $card-horizontal-padding;
+  font-size: $card-supporting-text-font-size;
 }
 
 .mdl-card__actions {
   font-size: $card-actions-font-size;
   line-height: normal;
   width: 100%;
-  background-color: rgba(0,0,0,0);
-  padding: 8px;
   box-sizing: border-box;
+
+  // BILLTRACKER STYLE
+  background-color: $palette-base-white-60;
+  padding: $card-button-padding;
+  text-align: center;
 
   &.mdl-card--border {
     border-top: 1px solid $card-border-color;

@@ -92,6 +92,7 @@ input.mdl-button[type="submit"] {
     &.mdl-button--colored {
       background: $button-primary-color-alt;
       color: $button-secondary-color-alt;
+      border: $button-border-colored;
 
       &:hover {
         background-color: $button-hover-color-alt;
