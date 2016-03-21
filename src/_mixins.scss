@@ -196,8 +196,8 @@
 @mixin typo-button($colorContrast: false, $usePreferred: true) {
   @include typo-preferred-font($usePreferred);
   font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 100;
+  text-transform: none;
   line-height: 1;
   letter-spacing: 0;
 

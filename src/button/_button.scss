@@ -14,15 +14,17 @@
  * limitations under the License.
  */
 
+@import "../variables-overrides";
 @import "../variables";
 @import "../mixins";
 
 // The button component. Defaults to a flat button.
+
 .mdl-button {
   background: transparent;
-  border: none;
+  border: $button-border;
   border-radius: $button-border-radius;
-  color: $button-secondary-color;
+  color: $color-accent;
   position: relative;
   height: $button-height;
   margin: 0;
@@ -48,6 +50,7 @@
 
   &:hover {
     background-color: $button-hover-color;
+    color: $color-light;
   }
 
   &:focus:not(:active) {
@@ -268,6 +271,7 @@ input.mdl-button[type="submit"] {
   &[disabled][disabled],
   &.mdl-button--disabled.mdl-button--disabled {
     color: $button-secondary-color-disabled;
+    border: $button-primary-border-disabled;
     cursor: default;
     background-color: transparent;
   }
