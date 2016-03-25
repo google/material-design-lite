@@ -37,8 +37,10 @@ describe('MaterialTabs', function () {
     var el;
     var tab1;
     var tab2;
+    var tab4;
     var content1;
     var content2;
+    var content4;
 
     before(function() {
       el = document.createElement('div');
@@ -64,7 +66,7 @@ describe('MaterialTabs', function () {
       ' <div class="mdl-tabs__panel" id="content2"></div>' +
       ' <div class="mdl-tabs__panel" id="content3"></div>' +
       '</div>';
-      componentHandler.upgradeElement(el, 'MaterialTabs');
+      componentHandler.upgradeElements(el);
 
       tab1 = el.querySelector('#tab1');
       tab2 = el.querySelector('#tab2');

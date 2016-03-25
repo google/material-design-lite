@@ -76,18 +76,23 @@
       this.element_.classList.add(
         this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
-
-    var thatElement = this.element_;
     // Select element tabs, document panels
-    this.tabs_ = Array.from(this.element_.querySelectorAll('.' + this.CssClasses_.TAB_BAR_CLASS + ' > .' + this.CssClasses_.TAB_CLASS))
-                        .filter(function(element) {
-                          return element.parentElement.parentElement === thatElement;
-                        });
-    this.panels_ =
-        Array.from(this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS))
-                            .filter(function(element) {
-                              return element.parentElement === thatElement;
-                            });
+    // the mocha tests did not like Array.from or Array.filter
+    this.tabs_ = [];
+    var tabs = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_BAR_CLASS + ' > .' + this.CssClasses_.TAB_CLASS);
+    for (var t = 0; t < tabs.length; t++) {
+      if (tabs[t].parentElement.parentElement === this.element_) {
+        this.tabs_.push(tabs[t]);
+      }
+    }
+
+    this.panels_ = [];
+    var panels = this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
+    for (var p = 0; p < panels.length; p++) {
+      if (panels[p].parentElement === this.element_) {
+        this.panels_.push(panels[p]);
+      }
+    }
 
     // Create new tabs for each tab element
     for (var i = 0; i < this.tabs_.length; i++) {
