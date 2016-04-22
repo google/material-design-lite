@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MDL stepper</title>
+  <link rel="shortcut icon" href="../../../docs/_assets/comp_stepper.png">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue-pink.min.css" />
+  <link rel="stylesheet" href="./stepper.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      background-color: rgba(0,0,0,.03);
+    }
+    .mdl-grid {
+      max-width: 800px;
+    }
+    .mdl-step__content:not(#demo-error-state-content) {
+      background-color: rgba(0,0,0,0.1);
+    }
+    .stepper-title {
+      font-size: 27px;
+    }
+    .stepper-subtitle {
+      font-size: 23px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <section class="stepper-section" id="navigation">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h1 class="stepper-title">Content</h1>
+              <ul class="stepper-menu-link mdl-list">
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#demo">Demonstration</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#intro">Introduction</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api">Javascript API</a></span>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="stepper-section stepper-section--demo" id="demo">
+
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h1 class="stepper-title">Demonstration</h1>
+              <p>
+                The types of steppers and steps are specified in <a href="https://www.google.com/design/spec/components/steppers.html">Material Design page</a>.
+              </p>
+              <ul class="stepper-list mdl-list">
+                <li class="mdl-list__item mdl-list__item--three-line">
+                  <span class="mdl-list__item-primary-content">
+      <span>Type of steps</span>
+                  <span class="mdl-list__item-text-body">Editable steps, Non-editable steps, Mobile steps and Optional steps.</span>
+                  </span>
+                </li>
+                <li class="mdl-list__item mdl-list__item--three-line">
+                  <span class="mdl-list__item-primary-content">
+      <span>Type of steppers</span>
+                  <span class="mdl-list__item-text-body">Horizontal steppers, Vertical steppers, Linear steppers, Non-linear steppers, Alternative labels and Stepper feedback</span>
+                  </span>
+                </li>
+              </ul>
+
+              <p>Regarding the presented topics, here are the features supported:</p>
+
+              <ul class="stepper-menu-link mdl-list">
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#stepper-linear">Linear stepper</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#stepper-non-linear">Non-linear stepper</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#stepper-feedback">Stepper feedback</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#stepper-editable-steps">Editable steps</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#stepper-optional-steps">Optional steps</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#stepper-error-state">Error state</a></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- LINEAR STEPPER -->
+            <div class="mdl-cell mdl-cell--12-col" id="stepper-linear">
+              <h1 class="stepper-subtitle">Linear stepper</h1>
+              <p class="stepper-guideline-quote">Linear steppers require users to complete one step in order to move on to the next. (Material Design)</p>
+              <ul class="mdl-stepper mdl-stepper--linear" id="demo-stepper-linear">
+                <li class="mdl-step">
+                  <span class="mdl-step__label">
+                    <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 1</span>
+                  <span class="mdl-step__title-message">Summarize if needed</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 2</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 3</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <p>
+                <a href="https://gist.github.com/ahlechandre/66b9593a5a21be4a4c95" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">get linear stepper code</a>
+              </p>
+            </div>
+
+            <!-- NON-LINEAR STEPPER -->
+            <div class="mdl-cell mdl-cell--12-col" id="stepper-non-linear">
+              <h1 class="stepper-subtitle">Non-linear stepper</h1>
+              <p class="stepper-guideline-quote">Non-linear steppers allow users to enter a multi-step flow at any point. (Material Design)</p>
+              <ul class="mdl-stepper" id="demo-stepper-non-linear">
+                <li class="mdl-step">
+                  <span class="mdl-step__label">
+                    <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 1</span>
+                  <span class="mdl-step__title-message">Summarize if needed</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 2</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 3</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <p>
+                <a href="https://gist.github.com/ahlechandre/0760c3fd9db25718706f" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">get non-linear stepper code</a>
+              </p>
+            </div>
+
+            <!-- STEPPER FEEDBACK -->
+            <div class="mdl-cell mdl-cell--12-col" id="stepper-feedback">
+              <h1 class="stepper-subtitle">Stepper feedback</h1>
+              <p class="stepper-guideline-quote">Steppers may display a transient feedback message after a step is saved. Stepper feedback should only be used
+                if there is a long latency between steps. (Material Design)</p>
+              <ul class="mdl-stepper mdl-stepper--feedback mdl-stepper--linear" id="demo-stepper-feedback">
+                <li class="mdl-step">
+                  <span class="mdl-step__label">
+                    <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 1</span>
+                  <span class="mdl-step__title-message">Summarize if needed</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 2</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 3</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <p>
+                <a href="https://gist.github.com/ahlechandre/aee338c0a0acbd6bb4be" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">get stepper feedback code</a>
+              </p>
+            </div>
+
+            <!-- EDITABLE STEPS -->
+            <div class="mdl-cell mdl-cell--12-col" id="stepper-editable-steps">
+              <h1 class="stepper-subtitle">Editable steps</h1>
+              <p class="stepper-guideline-quote">Editable steps allow users to return later to edit a step. These are ideal for workflows that involve editing
+                steps within a session. (Material Design)</p>
+              <ul class="mdl-stepper mdl-stepper--linear" id="demo-editable-steps">
+                <li class="mdl-step mdl-step--editable">
+                  <span class="mdl-step__label">
+                    <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 1</span>
+                  <span class="mdl-step__title-message">You can edit this step later</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 2</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 3</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <p>
+                <a href="https://gist.github.com/ahlechandre/8a0b4a9d606041e3963a" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">get editable steps code</a>
+              </p>
+            </div>
+
+            <!-- OPTIONAL STEPS -->
+            <div class="mdl-cell mdl-cell--12-col" id="stepper-optional-steps">
+              <h1 class="stepper-subtitle">Optional steps</h1>
+              <p class="stepper-guideline-quote">Optional steps within a linear flow should be marked as optional. (Material Design)</p>
+              <p class="stepper-note">
+                Steps marked as optional serve to define their behavior within the stepper and they will not show message "optional" by default.
+                You need to set the <a href="#config-step-title-message">title message</a> manually. Even
+                because this message may vary according to many languages.
+              </p>
+              <ul class="mdl-stepper mdl-stepper--linear" id="demo-optional-steps">
+                <li class="mdl-step">
+                  <span class="mdl-step__label">
+                    <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 1</span>
+                  <span class="mdl-step__title-message">Summarize if needed</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step mdl-step--optional"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 2</span>
+                  <span class="mdl-step__title-message">Optional</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-skip>
+                      Skip
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 3</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <p>
+                <a href="https://gist.github.com/ahlechandre/8f247b07ea97a1e11083" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">get optional steps code</a>
+              </p>
+            </div>
+
+            <!-- ERROR STATE -->
+            <div class="mdl-cell mdl-cell--12-col" id="stepper-error-state">
+              <h1 class="stepper-subtitle">Error state</h1>
+              <ul class="mdl-stepper mdl-stepper--linear" id="demo-error-state">
+                <li class="mdl-step">
+                  <span class="mdl-step__label">
+                    <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 1</span>
+                  <span class="mdl-step__title-message">Input must be greater than 10</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content" id="demo-error-state-content">
+                    <!-- Numeric Textfield -->
+                    <form action="#">
+                      <div class="mdl-textfield mdl-js-textfield">
+                        <input autocomplete="off" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="step-error-number">
+                        <label class="mdl-textfield__label" for="step-error-number">Test less than 10</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                      </div>
+                      <div class="mdl-textfield mdl-js-textfield">
+                        <input autocomplete="off" class="mdl-textfield__input" type="text" id="step-error-message">
+                        <label class="mdl-textfield__label" for="step-error-message">Alert message</label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 2</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+                <li class="mdl-step"><span class="mdl-step__label">
+                  <span class="mdl-step__title"><span class="mdl-step__title-text">Title of step 3</span>
+                  </span>
+                  </span>
+                  <div class="mdl-step__content">
+                  </div>
+                  <div class="mdl-step__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+                      Continue
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+                      Cancel
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+              <a href="https://gist.github.com/ahlechandre/54a5f248ff25023a875d" class="mdl-button mdl-js-button mdl-button--raised">
+                  Get error state code
+                </a>
+            </div>
+          </div>
+          <div id="snackbar-stepper-complete" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+          </div>
+        </section>
+
+        <section class="stepper-section" id="intro">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h1 class="stepper-title">Introduction</h1>
+              <ul class="stepper-menu-link mdl-list">
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#intro-to-include-a-component">To include a stepper component</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#intro-config-options">Configuration options</a></span>
+                </li>
+              </ul>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+              <p>
+                "Steppers display progress through a sequence by breaking it up into multiple logical and numbered steps. Avoid using steppers
+                to break up sections in a short form, or multiple times on one page". See the <a href="https://www.google.com/design/spec/components/steppers.html">Material Design specification page</a>                for more details.
+              </p>
+              <p>By default, the component stays no-linear. The width of a stepper can
+                be defined by its <code>max-width</code> property (default 720px).
+              </p>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col" id="intro-to-include-a-component">
+              <h1 class="stepper-subtitle">To include a stepper component</h1>
+
+              <p>
+                1. Code a <code>ul</code> element and a <code>li</code> for each step. Add class <code>mdl-stepper</code>                to container and <code>mdl-step</code> to the items.
+              </p>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/1c61c056bc193c8189e0.js"></script>
+              </div>
+              <p>
+                2. All step has a label. Label includes a title with text and optionally the supporting message (e.g. <i>Optional</i>).
+              </p>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/b7de563d71ae818fbc21.js"></script>
+              </div>
+              <p>
+                3. Code a <code>div</code> for content. Add class <code>mdl-step__content</code>
+              </p>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/097ac40ea2fcb6e99ed9.js"></script>
+              </div>
+              <p>
+                4. The actions is a <code>div</code> with class <code>mdl-step__actions</code>
+              </p>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/910c21feaa7792e306ab.js"></script>
+              </div>
+              <p>
+                5. Important: each button has your own <code>data-stepper-(action)</code> attribute. A button can has the
+                action of <code>continue</code>, <code>cancel</code>, <code>back</code> or <code>skip</code>.
+              </p>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/d30454def6671c868ffe.js"></script>
+              </div>
+              <p>
+                6. Give style to the action buttons.
+              </p>
+              <p class="stepper-note">
+                We do not recommend that you use more than 3 buttons by step
+              </p>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/4e5838814d32d1e5672e.js"></script>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col" id="intro-config-options">
+              <h1 class="stepper-subtitle">Configuration options</h1>
+              <table>
+                <thead>
+                  <th>Class</th>
+                  <th>Effect</th>
+                  <th>Remarks</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>mdl-stepper</code>
+                    </td>
+                    <td>
+                      Defines a stepper container.
+                    </td>
+                    <td>
+                      Required
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-stepper--linear</code>
+                    </td>
+                    <td>
+                      Defines the stepper as linear and require users to complete one step in order to move on to the next.
+                    </td>
+                    <td>
+                      Manually added
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-stepper--feedback</code>
+                    </td>
+                    <td>
+                      Display a transient feedback message after a step is saved.
+                    </td>
+                    <td>
+                      Manually added
+                    </td>
+                  </tr>
+                  <tr id="config-step">
+                    <td>
+                      <code>mdl-step</code>
+                    </td>
+                    <td>
+                      Defines a step item inside <code>mdl-stepper</code>.
+                    </td>
+                    <td>
+                      Required
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>is-active</code>
+                    </td>
+                    <td>
+                      Defines the active step. The first step will be marked as active if you don't set it.
+                    </td>
+                    <td>
+                      Manually added
+                    </td>
+                  </tr>
+                  <tr id="config-step-optional">
+                    <td>
+                      <code>mdl-step--optional</code>
+                    </td>
+                    <td>
+                      Defines a step as optional.
+                    </td>
+                    <td>
+                      Manually added
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-step--editable</code>
+                    </td>
+                    <td>
+                      Defines a step as editable after saved.
+                    </td>
+                    <td>
+                      Manually added
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-step__label</code>
+                    </td>
+                    <td>
+                      Defines the label section of step.
+                    </td>
+                    <td>
+                      Required
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-step__title</code>
+                    </td>
+                    <td>
+                      Defines title part of label. Must be inside a <code>mdl-step__label</code>
+                    </td>
+                    <td>
+                      Required
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-step__title-text</code>
+                    </td>
+                    <td>
+                      Defines the text content of title. Must be inside a <code>mdl-step__title</code>.
+                    </td>
+                    <td>
+                      Required
+                    </td>
+                  </tr>
+                  <tr id="config-step-title-message">
+                    <td>
+                      <code>mdl-step__title-message</code>
+                    </td>
+                    <td>
+                      Defines an addtional text to the title (e.g. <i>Optional</i>). Must be inside a <code>mdl-step__title</code>.
+                    </td>
+                    <td>
+                      Manually added
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-step__content</code>
+                    </td>
+                    <td>
+                      Defines the content section of step.
+                    </td>
+                    <td>
+                      Required
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>mdl-step__actions</code>
+                    </td>
+                    <td>
+                      Defines the actions section of step
+                    </td>
+                    <td>
+                      Required
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </section>
+
+        <section class="stepper-section" id="api">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h1 class="stepper-title">Javascript API</h1>
+              <ul class="stepper-menu-link mdl-list">
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-methods">Methods</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events">Custom events</a></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-methods">
+              <h1 class="stepper-subtitle">Methods</h1>
+              <table>
+                <thead>
+                  <th>Method</th>
+                  <th>Effect</th>
+                  <th>Return</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>MaterialStepper.next()</code>
+                    </td>
+                    <td>
+                      Complete the current step and move one to the next. Using this method on editable steps (in linear stepper) it will search
+                      by the next step without "completed" state to move. When invoked it dispatch the event
+                      <a href="#api-custom-events-onstepcomplete">onstepcomplete</a> to the step element.
+                    </td>
+                    <td>
+                      <code>boolean</code> - True if move and false if not move (e.g. On the last step)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>MaterialStepper.back()</code>
+                    </td>
+                    <td>
+                      Move to the previous step without change the state of current step. Using this method in linear stepper it will check if
+                      previous step is editable to move.
+                    </td>
+                    <td>
+                      <code>boolean</code> - True if move and false if not move (e.g. On the first step)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>MaterialStepper.skip()</code>
+                    </td>
+                    <td>
+                      Move to the next step without change the state of current step. This method works only in <a href="#config-step-optional">optional steps</a>.
+                    </td>
+                    <td>
+                      <code>boolean</code> - True if move and false if not move (e.g. On non-optional step)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>MaterialStepper.error(message)</code>
+                    </td>
+                    <td>
+                      Defines the current step state to "error" and shows the <code>message</code> parameter on <a href="#config-step-title-message">title message</a>                      element. When invoked it dispatch the event
+                      <a href="#api-custom-events-onsteperror">onsteperror</a> to the step element.
+                    </td>
+                    <td>
+                      <code>undefined</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>MaterialStepper.goto(id)</code>
+                    </td>
+                    <td>
+                      Move "active" to specified step <code>id</code> parameter. The <code>id</code> used as reference is
+                      the integer number shown on the label of each step (e.g. 2).
+                    </td>
+                    <td>
+                      <code>boolean</code> - True if move and false if not move (e.g. On id not found)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>MaterialStepper.getActiveId()</code>
+                    </td>
+                    <td>
+                      Get the current "active" <a href="#config-step">step element</a> <code>id</code> on the stepper. The
+                      <code>id</code> used as reference is the integer number shown on the label of each step (e.g. 2).
+                    </td>
+                    <td>
+                      <code>number</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>MaterialStepper.getActive()</code>
+                    </td>
+                    <td>
+                      Get the current "active" <a href="#config-step">step element</a> on the stepper.
+                    </td>
+                    <td>
+                      <code>HTMLElement</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events">
+              <h1 class="stepper-subtitle">Custom Events</h1>
+              <ul class="stepper-menu-link mdl-list">
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events-onstepback">On step back</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events-onstepcancel">On step cancel</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events-onstepcomplete">On step complete</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events-onsteperror">On step error</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events-onstepnext">On step next</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events-onstepskip">On step skip</a></span>
+                </li>
+                <li class="mdl-list__item">
+                  <span class="mdl-list__item-primary-content"><a href="#api-custom-events-onsteppercomplete">On stepper complete</a></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events-onstepback">
+              <h1 class="stepper-subtitle">On Step Back</h1>
+              <table>
+                <thead>
+                  <th>Event</th>
+                  <th>Target</th>
+                  <th>Fired</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>onstepback</code>
+                    </td>
+                    <td>
+                      <code>.mdl-step</code>
+                    </td>
+                    <td>
+                      When the step action button/link with <code>[data-stepper-back]</code> attribute is clicked.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/ee637f56dcac8313e1ff.js"></script>
+              </div>
+            </div>
+
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events-onstepcancel">
+              <h1 class="stepper-subtitle">On Step Cancel</h1>
+              <table>
+                <thead>
+                  <th>Event</th>
+                  <th>Target</th>
+                  <th>Fired</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>onstepcancel</code>
+                    </td>
+                    <td>
+                      <code>.mdl-step</code>
+                    </td>
+                    <td>
+                      When the step action button/link with <code>[data-stepper-cancel]</code> attribute is clicked. </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/cc908b5c2116821cc216.js"></script>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events-onstepcomplete">
+              <h1 class="stepper-subtitle">On Step Complete</h1>
+              <table>
+                <thead>
+                  <th>Event</th>
+                  <th>Target</th>
+                  <th>Fired</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>onstepcomplete</code>
+                    </td>
+                    <td>
+                      <code>.mdl-step</code>
+                    </td>
+                    <td>When <code>MaterialStepper.next()</code> method is called on step and it returns <code>true</code>.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/a1660ec75c582e3e8eb6.js"></script>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events-onsteperror">
+              <h1 class="stepper-subtitle">On Step Error</h1>
+              <table>
+                <thead>
+                  <th>Event</th>
+                  <th>Target</th>
+                  <th>Fired</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>onsteperror</code>
+                    </td>
+                    <td>
+                      <code>.mdl-step</code>
+                    </td>
+                    <td>When <code>MaterialStepper.error(message)</code> method is called on step.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/1c03c00670124425eb76.js"></script>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events-onstepnext">
+              <h1 class="stepper-subtitle">On Step Next</h1>
+              <table>
+                <thead>
+                  <th>Event</th>
+                  <th>Target</th>
+                  <th>Fired</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>onstepnext</code>
+                    </td>
+                    <td>
+                      <code>.mdl-step</code>
+                    </td>
+                    <td>
+                      When the step action button/link with <code>[data-stepper-next]</code> attribute is clicked.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/14026096cdd8890373e6.js"></script>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events-onstepskip">
+              <h1 class="stepper-subtitle">On Step Skip</h1>
+              <table>
+                <thead>
+                  <th>Event</th>
+                  <th>Target</th>
+                  <th>Fired</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>onstepskip</code>
+                    </td>
+                    <td>
+                      <code>.mdl-step</code>
+                    </td>
+                    <td>
+                      When the step action button/link with <code>[data-stepper-skip]</code> attribute is clicked.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/ffc89270f5273f3bfaea.js"></script>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" id="api-custom-events-onsteppercomplete">
+              <h1 class="stepper-subtitle">On Stepper Complete</h1>
+              <table>
+                <thead>
+                  <th>Event</th>
+                  <th>Target</th>
+                  <th>Fired</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>onsteppercomplete</code>
+                    </td>
+                    <td>
+                      <code>.mdl-stepper</code>
+                    </td>
+                    <td>
+                      When all required steps are completed. Optional steps are ignored for dispatch this event.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="stepper-gist">
+                <script src="https://gist.github.com/ahlechandre/4c122a564f7e0e463a79.js"></script>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+  <script defer src="../stepper.js"></script>
+  <script defer src="./demo.js"></script>
+</body>
+
+</html>

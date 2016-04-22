@@ -42,6 +42,7 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
+ * -----Stepper
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -584,3 +585,27 @@ $snackbar-action-color: $color-accent !default;
 /* TOOLTIP */
 $tooltip-font-size: 10px !default;
 $tooltip-font-size-large: 14px !default;
+
+/* STEPPER */
+$stepper-define-keyframes: true !default;
+
+$stepper-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
+$stepper-background-color: white !default;
+$stepper-max-width: 720px !default;
+$stepper-border-radius: 2px !default;
+$stepper-font-family: 'Roboto';
+
+$step-animation: fadeIn 0.5s ease-in-out !default;
+$step-border-color: rgba(0, 0, 0, 0.1) !default;
+$step-number-text-color: white !default;
+$step-number-background-color: rgba(0, 0, 0, 0.3) !default;
+$step-label-hovered-background-color: rgba(0, 0, 0, 0.06) !default;
+$step-button-raised-colored-background-color: #2196F3 !default;
+$step-active-number-text-color: white !default;
+$step-active-number-text-background-color: #2196F3 !default;
+$step-completed-number-background-color: #2196F3 !default;
+$step-error-number-background-color: #F44336 !default;
+$step-error-title-text-color: #F44336 !default;
+
+$step-transient-animation: 0.3s all ease-in-out !default;
+$step-transient-background-color: rgba(255, 255, 255, 0.8) !default;
