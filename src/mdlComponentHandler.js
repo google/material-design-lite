@@ -246,7 +246,7 @@ componentHandler = (function() {
   /**
    * Upgrades a specific list of elements rather than all in the DOM.
    *
-   * @param {!Element|!Array<!Element>|!NodeList|!HTMLCollection} elements
+   * @param {!Element|!Array<!Element>|!NodeList|!HTMLCollection|ShadowRoot} elements
    * The elements we wish to upgrade.
    */
   function upgradeElementsInternal(elements) {
