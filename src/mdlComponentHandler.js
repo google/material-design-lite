@@ -149,13 +149,15 @@ componentHandler = (function() {
    * need to create a new instance of.
    * @param {string=} optCssClass the name of the CSS class elements of this
    * type will have.
+   * @param {string=} optDom the element which can be document or shadowRoot
+   * instance
    */
-  function upgradeDomInternal(optJsClass, optCssClass) {
+  function upgradeDomInternal(optJsClass, optCssClass, optDom) {
     if (typeof optJsClass === 'undefined' &&
         typeof optCssClass === 'undefined') {
       for (var i = 0; i < registeredComponents_.length; i++) {
         upgradeDomInternal(registeredComponents_[i].className,
-            registeredComponents_[i].cssClass);
+            registeredComponents_[i].cssClass, optDom);
       }
     } else {
       var jsClass = /** @type {string} */ (optJsClass);
@@ -166,7 +168,8 @@ componentHandler = (function() {
         }
       }
 
-      var elements = document.querySelectorAll('.' + optCssClass);
+      var _document = optDom || document;
+      var elements = _document.querySelectorAll('.' + optCssClass);
       for (var n = 0; n < elements.length; n++) {
         upgradeElementInternal(elements[n], jsClass);
       }
@@ -335,10 +338,12 @@ componentHandler = (function() {
   /**
    * Upgrades all registered components found in the current DOM. This is
    * automatically called on window load.
+   * @param {string=} optDom the element which can be document or shadowRoot
+   * instance
    */
-  function upgradeAllRegisteredInternal() {
+  function upgradeAllRegisteredInternal(optDom) {
     for (var n = 0; n < registeredComponents_.length; n++) {
-      upgradeDomInternal(registeredComponents_[n].className);
+      upgradeDomInternal(registeredComponents_[n].className, undefined, optDom);
     }
   }
 
