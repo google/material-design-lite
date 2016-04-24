@@ -566,7 +566,6 @@
     });
 
     tab.show = selectTab;
-
   }
   window['MaterialLayoutTab'] = MaterialLayoutTab;
 
