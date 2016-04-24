@@ -109,7 +109,7 @@
       }
       this.setRippleXY(x, y);
       this.setRippleStyles(true);
-      window.requestAnimationFrame(this.animFrameHandler.bind(this));
+      requestAnimationFrame(this.animFrameHandler.bind(this));
     }
   };
 
@@ -206,15 +206,12 @@
           if (this.rippleElement_ !== null) {
             var transformString;
             var scale;
-            var size;
             var offset = 'translate(' + this.x_ + 'px, ' + this.y_ + 'px)';
 
             if (start) {
               scale = this.Constant_.INITIAL_SCALE;
-              size = this.Constant_.INITIAL_SIZE;
             } else {
               scale = this.Constant_.FINAL_SCALE;
-              size = this.rippleSize_ + 'px';
               if (recentering) {
                 offset = 'translate(' + this.boundWidth / 2 + 'px, ' +
                   this.boundHeight / 2 + 'px)';
@@ -228,7 +225,8 @@
             this.rippleElement_.style.transform = transformString;
 
             if (start) {
-              this.rippleElement_.classList.remove(this.CssClasses_.IS_ANIMATING);
+              this.rippleElement_.classList.remove(
+                  this.CssClasses_.IS_ANIMATING);
             } else {
               this.rippleElement_.classList.add(this.CssClasses_.IS_ANIMATING);
             }
@@ -240,7 +238,7 @@
          */
         this.animFrameHandler = function() {
           if (this.frameCount_-- > 0) {
-            window.requestAnimationFrame(this.animFrameHandler.bind(this));
+            requestAnimationFrame(this.animFrameHandler.bind(this));
           } else {
             this.setRippleStyles(false);
           }

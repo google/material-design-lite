@@ -26,8 +26,10 @@
    */
   var MaterialSnackbar = function MaterialSnackbar(element) {
     this.element_ = element;
-    this.textElement_ = this.element_.querySelector('.' + this.cssClasses_.MESSAGE);
-    this.actionElement_ = this.element_.querySelector('.' + this.cssClasses_.ACTION);
+    this.textElement_ =
+        this.element_.querySelector('.' + this.cssClasses_.MESSAGE);
+    this.actionElement_ =
+        this.element_.querySelector('.' + this.cssClasses_.ACTION);
     if (!this.textElement_) {
       throw new Error('There must be a message element for a snackbar.');
     }
@@ -87,7 +89,6 @@
     this.element_.classList.add(this.cssClasses_.ACTIVE);
     this.element_.setAttribute('aria-hidden', 'false');
     setTimeout(this.cleanup_.bind(this), this.timeout_);
-
   };
 
   /**
@@ -126,7 +127,8 @@
       this.displaySnackbar_();
     }
   };
-  MaterialSnackbar.prototype['showSnackbar'] = MaterialSnackbar.prototype.showSnackbar;
+  MaterialSnackbar.prototype['showSnackbar'] =
+      MaterialSnackbar.prototype.showSnackbar;
 
   /**
    * Check if the queue has items within it.
@@ -150,7 +152,7 @@
     setTimeout(function() {
       this.element_.setAttribute('aria-hidden', 'true');
       this.textElement_.textContent = '';
-      if (!Boolean(this.actionElement_.getAttribute('aria-hidden'))) {
+      if (!this.actionElement_.getAttribute('aria-hidden')) {
         this.setActionHidden_(true);
         this.actionElement_.textContent = '';
         this.actionElement_.removeEventListener('click', this.actionHandler_);
@@ -166,7 +168,7 @@
   /**
    * Set the action handler hidden state.
    *
-   * @param {boolean} value
+   * @param {boolean} value Whether or not to set to 'hidden'.
    * @private
    */
   MaterialSnackbar.prototype.setActionHidden_ = function(value) {
@@ -185,5 +187,4 @@
     cssClass: 'mdl-js-snackbar',
     widget: true
   });
-
 })();
