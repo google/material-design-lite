@@ -346,8 +346,9 @@ componentHandler = (function() {
    * upgrade. If not indicated by default it equals to document
    */
   function upgradeAllRegisteredInternal(optDom) {
+    var _optDom = optDom || document;
     for (var n = 0; n < registeredComponents_.length; n++) {
-      upgradeDomInternal(registeredComponents_[n].className, undefined, optDom);
+      upgradeDomInternal(registeredComponents_[n].className, undefined, _optDom);
     }
   }
 
