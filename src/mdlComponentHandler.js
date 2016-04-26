@@ -35,8 +35,9 @@ var componentHandler = {
    * need to create a new instance of.
    * @param {string=} optCssClass the name of the CSS class elements of this
    * type will have.
+   * @param {!HTMLDocument|!ShadowRoot=} optDom the element we want to upgrade
    */
-  upgradeDom: function(optJsClass, optCssClass) {}, // eslint-disable-line
+  upgradeDom: function(optJsClass, optCssClass, optDom) {}, // eslint-disable-line
   /**
    * Upgrades a specific element rather than all in the DOM.
    *
@@ -152,7 +153,7 @@ componentHandler = (function() {
    * need to create a new instance of.
    * @param {string=} optCssClass the name of the CSS class elements of this
    * type will have.
-   * @param {string=} optDom the element which can be document or shadowRoot
+   * @param {!HTMLDocument|!ShadowRoot=} optDom the element which can be document or shadowRoot
    * instance
    */
   function upgradeDomInternal(optJsClass, optCssClass, optDom) {
