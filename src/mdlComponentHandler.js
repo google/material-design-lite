@@ -59,7 +59,7 @@ var componentHandler = {
    * @param {!HTMLDocument|!ShadowRoot=} element Optional element we want to
    * upgrade. If not indicated by default it equals to document
    */
-  upgradeAllRegistered: function(element) {},
+  upgradeAllRegistered: function(element) {}, // eslint-disable-line
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
    * component type
