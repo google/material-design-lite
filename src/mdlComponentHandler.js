@@ -55,8 +55,11 @@ var componentHandler = {
   /**
    * Upgrades all registered components found in the current DOM. This is
    * automatically called on window load.
+   *
+   * @param {!HTMLDocument|!ShadowRoot=} element Optional element we want to
+   * upgrade. If not indicated by default it equals to document
    */
-  upgradeAllRegistered: function() {},
+  upgradeAllRegistered: function(element) {},
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
    * component type
@@ -246,7 +249,7 @@ componentHandler = (function() {
   /**
    * Upgrades a specific list of elements rather than all in the DOM.
    *
-   * @param {!Element|!Array<!Element>|!NodeList|!HTMLCollection|ShadowRoot} elements
+   * @param {!Element|!Array<!Element>|!NodeList|!HTMLCollection|!ShadowRoot} elements
    * The elements we wish to upgrade.
    */
   function upgradeElementsInternal(elements) {
@@ -338,8 +341,9 @@ componentHandler = (function() {
   /**
    * Upgrades all registered components found in the current DOM. This is
    * automatically called on window load.
-   * @param {string=} optDom the element which can be document or shadowRoot
-   * instance
+   *
+   * @param {!HTMLDocument|!ShadowRoot=} optDom Optional element we want to
+   * upgrade. If not indicated by default it equals to document
    */
   function upgradeAllRegisteredInternal(optDom) {
     for (var n = 0; n < registeredComponents_.length; n++) {
