@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialProgress = function MaterialProgress(element) {
+  var MaterialProgress = function MaterialProgress(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.
@@ -90,17 +94,17 @@
    */
   MaterialProgress.prototype.init = function() {
     if (this.element_) {
-      var el = document.createElement('div');
+      var el = this.document_.createElement('div');
       el.className = 'progressbar bar bar1';
       this.element_.appendChild(el);
       this.progressbar_ = el;
 
-      el = document.createElement('div');
+      el = this.document_.createElement('div');
       el.className = 'bufferbar bar bar2';
       this.element_.appendChild(el);
       this.bufferbar_ = el;
 
-      el = document.createElement('div');
+      el = this.document_.createElement('div');
       el.className = 'auxbar bar bar3';
       this.element_.appendChild(el);
       this.auxbar_ = el;

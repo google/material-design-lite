@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialCheckbox = function MaterialCheckbox(element) {
+  var MaterialCheckbox = function MaterialCheckbox(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.
@@ -211,13 +215,13 @@
       this.inputElement_ = this.element_.querySelector('.' +
           this.CssClasses_.INPUT);
 
-      var boxOutline = document.createElement('span');
+      var boxOutline = this.document_.createElement('span');
       boxOutline.classList.add(this.CssClasses_.BOX_OUTLINE);
 
-      var tickContainer = document.createElement('span');
+      var tickContainer = this.document_.createElement('span');
       tickContainer.classList.add(this.CssClasses_.FOCUS_HELPER);
 
-      var tickOutline = document.createElement('span');
+      var tickOutline = this.document_.createElement('span');
       tickOutline.classList.add(this.CssClasses_.TICK_OUTLINE);
 
       boxOutline.appendChild(tickOutline);
@@ -227,7 +231,7 @@
 
       if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
         this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
-        this.rippleContainerElement_ = document.createElement('span');
+        this.rippleContainerElement_ = this.document_.createElement('span');
         this.rippleContainerElement_.classList.add(
             this.CssClasses_.RIPPLE_CONTAINER);
         this.rippleContainerElement_.classList.add(
@@ -238,7 +242,7 @@
         this.rippleContainerElement_.addEventListener(
             'mouseup', this.boundRippleMouseUp);
 
-        var ripple = document.createElement('span');
+        var ripple = this.document_.createElement('span');
         ripple.classList.add(this.CssClasses_.RIPPLE);
 
         this.rippleContainerElement_.appendChild(ripple);

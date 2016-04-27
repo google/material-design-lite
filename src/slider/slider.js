@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialSlider = function MaterialSlider(element) {
+  var MaterialSlider = function MaterialSlider(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
     // Browser feature detection.
     this.isIE_ = window.navigator.msPointerEnabled;
@@ -189,7 +193,7 @@
         // Since we need to specify a very large height in IE due to
         // implementation limitations, we add a parent here that trims it down to
         // a reasonable size.
-        var containerIE = document.createElement('div');
+        var containerIE = this.document_.createElement('div');
         containerIE.classList.add(this.CssClasses_.IE_CONTAINER);
         this.element_.parentElement.insertBefore(containerIE, this.element_);
         this.element_.parentElement.removeChild(this.element_);
@@ -198,18 +202,18 @@
         // For non-IE browsers, we need a div structure that sits behind the
         // slider and allows us to style the left and right sides of it with
         // different colors.
-        var container = document.createElement('div');
+        var container = this.document_.createElement('div');
         container.classList.add(this.CssClasses_.SLIDER_CONTAINER);
         this.element_.parentElement.insertBefore(container, this.element_);
         this.element_.parentElement.removeChild(this.element_);
         container.appendChild(this.element_);
-        var backgroundFlex = document.createElement('div');
+        var backgroundFlex = this.document_.createElement('div');
         backgroundFlex.classList.add(this.CssClasses_.BACKGROUND_FLEX);
         container.appendChild(backgroundFlex);
-        this.backgroundLower_ = document.createElement('div');
+        this.backgroundLower_ = this.document_.createElement('div');
         this.backgroundLower_.classList.add(this.CssClasses_.BACKGROUND_LOWER);
         backgroundFlex.appendChild(this.backgroundLower_);
-        this.backgroundUpper_ = document.createElement('div');
+        this.backgroundUpper_ = this.document_.createElement('div');
         this.backgroundUpper_.classList.add(this.CssClasses_.BACKGROUND_UPPER);
         backgroundFlex.appendChild(this.backgroundUpper_);
       }

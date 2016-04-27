@@ -30,8 +30,8 @@
    */
   var MaterialTooltip = function MaterialTooltip(element, optDom) {
     var optDom_ = optDom || document;
-    this.element_ = element;
     this.document_ = optDom_;
+    this.element_ = element;
 
     // Initialize instance.
     this.init();

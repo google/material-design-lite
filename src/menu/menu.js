@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialMenu = function MaterialMenu(element) {
+  var MaterialMenu = function MaterialMenu(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.
@@ -98,7 +102,7 @@
   MaterialMenu.prototype.init = function() {
     if (this.element_) {
       // Create container for the menu.
-      var container = document.createElement('div');
+      var container = this.document_.createElement('div');
       container.classList.add(this.CssClasses_.CONTAINER);
       this.element_.parentElement.insertBefore(container, this.element_);
       this.element_.parentElement.removeChild(this.element_);
@@ -106,7 +110,7 @@
       this.container_ = container;
 
       // Create outline for the menu (shadow and background).
-      var outline = document.createElement('div');
+      var outline = this.document_.createElement('div');
       outline.classList.add(this.CssClasses_.OUTLINE);
       this.outline_ = outline;
       container.insertBefore(outline, this.element_);
@@ -116,7 +120,7 @@
                       this.element_.getAttribute('data-mdl-for');
       var forEl = null;
       if (forElId) {
-        forEl = document.getElementById(forElId);
+        forEl = this.document_.getElementById(forElId);
         if (forEl) {
           this.forElement_ = forEl;
           forEl.addEventListener('click', this.handleForClick_.bind(this));
@@ -144,10 +148,10 @@
         for (var j = 0; j < items.length; j++) {
           var item = items[j];
 
-          var rippleContainer = document.createElement('span');
+          var rippleContainer = this.document_.createElement('span');
           rippleContainer.classList.add(this.CssClasses_.ITEM_RIPPLE_CONTAINER);
 
-          var ripple = document.createElement('span');
+          var ripple = this.document_.createElement('span');
           ripple.classList.add(this.CssClasses_.RIPPLE);
           rippleContainer.appendChild(ripple);
 
@@ -424,11 +428,11 @@
         // if so, do nothing.
         if (e !== evt && !this.closing_ &&
             e.target.parentNode !== this.element_) {
-          document.removeEventListener('click', callback);
+          this.document_.removeEventListener('click', callback);
           this.hide();
         }
       }.bind(this);
-      document.addEventListener('click', callback);
+      this.document_.addEventListener('click', callback);
     }
   };
   MaterialMenu.prototype['show'] = MaterialMenu.prototype.show;

@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialRadio = function MaterialRadio(element) {
+  var MaterialRadio = function MaterialRadio(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.
@@ -76,7 +80,7 @@
   MaterialRadio.prototype.onChange_ = function() {
     // Since other radio buttons don't get change events, we need to look for
     // them to update their classes.
-    var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
+    var radios = this.document_.getElementsByClassName(this.CssClasses_.JS_RADIO);
     for (var i = 0; i < radios.length; i++) {
       var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
       // Different name == different group, so no point updating those.
@@ -226,10 +230,10 @@
       this.boundBlurHandler_ = this.onBlur_.bind(this);
       this.boundMouseUpHandler_ = this.onMouseup_.bind(this);
 
-      var outerCircle = document.createElement('span');
+      var outerCircle = this.document_.createElement('span');
       outerCircle.classList.add(this.CssClasses_.RADIO_OUTER_CIRCLE);
 
-      var innerCircle = document.createElement('span');
+      var innerCircle = this.document_.createElement('span');
       innerCircle.classList.add(this.CssClasses_.RADIO_INNER_CIRCLE);
 
       this.element_.appendChild(outerCircle);
@@ -240,14 +244,14 @@
           this.CssClasses_.RIPPLE_EFFECT)) {
         this.element_.classList.add(
             this.CssClasses_.RIPPLE_IGNORE_EVENTS);
-        rippleContainer = document.createElement('span');
+        rippleContainer = this.document_.createElement('span');
         rippleContainer.classList.add(
             this.CssClasses_.RIPPLE_CONTAINER);
         rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
         rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
         rippleContainer.addEventListener('mouseup', this.boundMouseUpHandler_);
 
-        var ripple = document.createElement('span');
+        var ripple = this.document_.createElement('span');
         ripple.classList.add(this.CssClasses_.RIPPLE);
 
         rippleContainer.appendChild(ripple);

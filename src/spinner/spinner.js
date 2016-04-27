@@ -23,10 +23,14 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
-   * @param {HTMLElement} element The element that will be upgraded.
    * @constructor
+   * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialSpinner = function MaterialSpinner(element) {
+  var MaterialSpinner = function MaterialSpinner(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.
@@ -68,25 +72,25 @@
    * @public
    */
   MaterialSpinner.prototype.createLayer = function(index) {
-    var layer = document.createElement('div');
+    var layer = this.document_.createElement('div');
     layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
     layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
 
-    var leftClipper = document.createElement('div');
+    var leftClipper = this.document_.createElement('div');
     leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
     leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
 
-    var gapPatch = document.createElement('div');
+    var gapPatch = this.document_.createElement('div');
     gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
 
-    var rightClipper = document.createElement('div');
+    var rightClipper = this.document_.createElement('div');
     rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
     rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
 
     var circleOwners = [leftClipper, gapPatch, rightClipper];
 
     for (var i = 0; i < circleOwners.length; i++) {
-      var circle = document.createElement('div');
+      var circle = this.document_.createElement('div');
       circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
       circleOwners[i].appendChild(circle);
     }
