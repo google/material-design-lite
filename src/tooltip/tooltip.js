@@ -25,9 +25,13 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialTooltip = function MaterialTooltip(element) {
+  var MaterialTooltip = function MaterialTooltip(element, optDom) {
+    var optDom_ = optDom || document;
     this.element_ = element;
+    this.document_ = optDom_;
 
     // Initialize instance.
     this.init();
@@ -123,7 +127,7 @@
       var forElId = this.element_.getAttribute('for');
 
       if (forElId) {
-        this.forElement_ = document.getElementById(forElId);
+        this.forElement_ = this.document_.getElementById(forElId);
       }
 
       if (this.forElement_) {
