@@ -94,17 +94,17 @@
    */
   MaterialProgress.prototype.init = function() {
     if (this.element_) {
-      var el = this.document_.createElement('div');
+      var el = document.createElement('div');
       el.className = 'progressbar bar bar1';
       this.element_.appendChild(el);
       this.progressbar_ = el;
 
-      el = this.document_.createElement('div');
+      el = document.createElement('div');
       el.className = 'bufferbar bar bar2';
       this.element_.appendChild(el);
       this.bufferbar_ = el;
 
-      el = this.document_.createElement('div');
+      el = document.createElement('div');
       el.className = 'auxbar bar bar3';
       this.element_.appendChild(el);
       this.auxbar_ = el;

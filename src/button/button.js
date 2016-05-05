@@ -101,9 +101,9 @@
   MaterialButton.prototype.init = function() {
     if (this.element_) {
       if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
-        var rippleContainer = this.document_.createElement('span');
+        var rippleContainer = document.createElement('span');
         rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
-        this.rippleElement_ = this.document_.createElement('span');
+        this.rippleElement_ = document.createElement('span');
         this.rippleElement_.classList.add(this.CssClasses_.RIPPLE);
         rippleContainer.appendChild(this.rippleElement_);
         this.boundRippleBlurHandler = this.blurHandler_.bind(this);

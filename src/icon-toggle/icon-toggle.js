@@ -215,7 +215,7 @@
 
       if (this.element_.classList.contains(this.CssClasses_.JS_RIPPLE_EFFECT)) {
         this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
-        this.rippleContainerElement_ = this.document_.createElement('span');
+        this.rippleContainerElement_ = document.createElement('span');
         this.rippleContainerElement_.classList.add(
             this.CssClasses_.RIPPLE_CONTAINER);
         this.rippleContainerElement_.classList.add(
@@ -226,7 +226,7 @@
         this.rippleContainerElement_.addEventListener(
             'mouseup', this.boundRippleMouseUp);
 
-        var ripple = this.document_.createElement('span');
+        var ripple = document.createElement('span');
         ripple.classList.add(this.CssClasses_.RIPPLE);
 
         this.rippleContainerElement_.appendChild(ripple);

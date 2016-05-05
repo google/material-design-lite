@@ -119,7 +119,7 @@
    * @private
    */
   MaterialDataTable.prototype.createCheckbox_ = function(row, optRows) {
-    var label = this.document_.createElement('label');
+    var label = document.createElement('label');
     var labelClasses = [
       'mdl-checkbox',
       'mdl-js-checkbox',
@@ -127,7 +127,7 @@
       this.CssClasses_.SELECT_ELEMENT
     ];
     label.className = labelClasses.join(' ');
-    var checkbox = this.document_.createElement('input');
+    var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('mdl-checkbox__input');
 
@@ -157,7 +157,7 @@
       var rows = bodyRows.concat(footRows);
 
       if (this.element_.classList.contains(this.CssClasses_.SELECTABLE)) {
-        var th = this.document_.createElement('th');
+        var th = document.createElement('th');
         var headerCheckbox = this.createCheckbox_(null, rows);
         th.appendChild(headerCheckbox);
         firstHeader.parentElement.insertBefore(th, firstHeader);
@@ -165,7 +165,7 @@
         for (var i = 0; i < rows.length; i++) {
           var firstCell = rows[i].querySelector('td');
           if (firstCell) {
-            var td = this.document_.createElement('td');
+            var td = document.createElement('td');
             if (rows[i].parentNode.nodeName.toUpperCase() === 'TBODY') {
               var rowCheckbox = this.createCheckbox_(rows[i]);
               td.appendChild(rowCheckbox);

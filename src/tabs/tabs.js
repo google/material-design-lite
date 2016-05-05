@@ -137,10 +137,10 @@
     if (tab) {
       if (ctx.element_.classList.contains(
           ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
-        var rippleContainer = this.document_.createElement('span');
+        var rippleContainer = document.createElement('span');
         rippleContainer.classList.add(ctx.CssClasses_.MDL_RIPPLE_CONTAINER);
         rippleContainer.classList.add(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT);
-        var ripple = this.document_.createElement('span');
+        var ripple = document.createElement('span');
         ripple.classList.add(ctx.CssClasses_.MDL_RIPPLE);
         rippleContainer.appendChild(ripple);
         tab.appendChild(rippleContainer);

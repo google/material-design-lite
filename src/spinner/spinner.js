@@ -72,25 +72,25 @@
    * @public
    */
   MaterialSpinner.prototype.createLayer = function(index) {
-    var layer = this.document_.createElement('div');
+    var layer = document.createElement('div');
     layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
     layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
 
-    var leftClipper = this.document_.createElement('div');
+    var leftClipper = document.createElement('div');
     leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
     leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
 
-    var gapPatch = this.document_.createElement('div');
+    var gapPatch = document.createElement('div');
     gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
 
-    var rightClipper = this.document_.createElement('div');
+    var rightClipper = document.createElement('div');
     rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
     rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
 
     var circleOwners = [leftClipper, gapPatch, rightClipper];
 
     for (var i = 0; i < circleOwners.length; i++) {
-      var circle = this.document_.createElement('div');
+      var circle = document.createElement('div');
       circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
       circleOwners[i].appendChild(circle);
     }

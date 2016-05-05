@@ -230,10 +230,10 @@
       this.boundBlurHandler_ = this.onBlur_.bind(this);
       this.boundMouseUpHandler_ = this.onMouseup_.bind(this);
 
-      var outerCircle = this.document_.createElement('span');
+      var outerCircle = document.createElement('span');
       outerCircle.classList.add(this.CssClasses_.RADIO_OUTER_CIRCLE);
 
-      var innerCircle = this.document_.createElement('span');
+      var innerCircle = document.createElement('span');
       innerCircle.classList.add(this.CssClasses_.RADIO_INNER_CIRCLE);
 
       this.element_.appendChild(outerCircle);
@@ -244,14 +244,14 @@
           this.CssClasses_.RIPPLE_EFFECT)) {
         this.element_.classList.add(
             this.CssClasses_.RIPPLE_IGNORE_EVENTS);
-        rippleContainer = this.document_.createElement('span');
+        rippleContainer = document.createElement('span');
         rippleContainer.classList.add(
             this.CssClasses_.RIPPLE_CONTAINER);
         rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
         rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
         rippleContainer.addEventListener('mouseup', this.boundMouseUpHandler_);
 
-        var ripple = this.document_.createElement('span');
+        var ripple = document.createElement('span');
         ripple.classList.add(this.CssClasses_.RIPPLE);
 
         rippleContainer.appendChild(ripple);
