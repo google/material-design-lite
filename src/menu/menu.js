@@ -102,7 +102,7 @@
   MaterialMenu.prototype.init = function() {
     if (this.element_) {
       // Create container for the menu.
-      var container = this.document_.createElement('div');
+      var container = document.createElement('div');
       container.classList.add(this.CssClasses_.CONTAINER);
       this.element_.parentElement.insertBefore(container, this.element_);
       this.element_.parentElement.removeChild(this.element_);
@@ -110,7 +110,7 @@
       this.container_ = container;
 
       // Create outline for the menu (shadow and background).
-      var outline = this.document_.createElement('div');
+      var outline = document.createElement('div');
       outline.classList.add(this.CssClasses_.OUTLINE);
       this.outline_ = outline;
       container.insertBefore(outline, this.element_);
@@ -148,10 +148,10 @@
         for (var j = 0; j < items.length; j++) {
           var item = items[j];
 
-          var rippleContainer = this.document_.createElement('span');
+          var rippleContainer = document.createElement('span');
           rippleContainer.classList.add(this.CssClasses_.ITEM_RIPPLE_CONTAINER);
 
-          var ripple = this.document_.createElement('span');
+          var ripple = document.createElement('span');
           ripple.classList.add(this.CssClasses_.RIPPLE);
           rippleContainer.appendChild(ripple);
 
