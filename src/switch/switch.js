@@ -214,13 +214,13 @@
       this.inputElement_ = this.element_.querySelector('.' +
           this.CssClasses_.INPUT);
 
-      var track = this.document_.createElement('div');
+      var track = document.createElement('div');
       track.classList.add(this.CssClasses_.TRACK);
 
-      var thumb = this.document_.createElement('div');
+      var thumb = document.createElement('div');
       thumb.classList.add(this.CssClasses_.THUMB);
 
-      var focusHelper = this.document_.createElement('span');
+      var focusHelper = document.createElement('span');
       focusHelper.classList.add(this.CssClasses_.FOCUS_HELPER);
 
       thumb.appendChild(focusHelper);
@@ -234,7 +234,7 @@
           this.CssClasses_.RIPPLE_EFFECT)) {
         this.element_.classList.add(
             this.CssClasses_.RIPPLE_IGNORE_EVENTS);
-        this.rippleContainerElement_ = this.document_.createElement('span');
+        this.rippleContainerElement_ = document.createElement('span');
         this.rippleContainerElement_.classList.add(
             this.CssClasses_.RIPPLE_CONTAINER);
         this.rippleContainerElement_.classList.add(
@@ -244,7 +244,7 @@
         this.rippleContainerElement_.addEventListener('mouseup',
             this.boundMouseUpHandler);
 
-        var ripple = this.document_.createElement('span');
+        var ripple = document.createElement('span');
         ripple.classList.add(this.CssClasses_.RIPPLE);
 
         this.rippleContainerElement_.appendChild(ripple);
