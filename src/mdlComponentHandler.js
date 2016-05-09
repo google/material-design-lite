@@ -261,7 +261,7 @@ componentHandler = (function() {
   function upgradeElementsInternal(elements, optDom) {
     if (!Array.isArray(elements)) {
       if (typeof elements.item === 'function') {
-        elements = Array.prototype.slice.call(/** @type {Array} */ (elements));
+        elements = Array.prototype.slice.call(/** @type {Array<!Element>|!NodeList|!HTMLCollection} */ (elements));
       } else {
         elements = [elements];
       }
@@ -269,7 +269,7 @@ componentHandler = (function() {
     for (var i = 0, n = elements.length, element; i < n; i++) {
       element = elements[i];
       if (element instanceof HTMLElement) {
-        upgradeElementInternal(element, optDom);
+        upgradeElementInternal(element, undefined, optDom);
         if (element.children.length > 0) {
           upgradeElementsInternal(element.children, optDom);
         }
@@ -483,6 +483,16 @@ componentHandler['register'] = componentHandler.register;
 componentHandler['downgradeElements'] = componentHandler.downgradeElements;
 window.componentHandler = componentHandler;
 window['componentHandler'] = componentHandler;
+
+document.currentScript.addEventListener('load', function() {
+  if (
+      'ShadowRoot' in window &&
+      this.parentNode &&
+      this.parentNode instanceof window.ShadowRoot) {
+    this.parentNode.host.classList.add('mdl-js');
+    componentHandler.upgradeAllRegistered(this.parentNode);
+  }
+});
 
 window.addEventListener('load', function() {
   'use strict';
