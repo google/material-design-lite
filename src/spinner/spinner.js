@@ -23,10 +23,14 @@
    * Implements MDL component design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
-   * @param {HTMLElement} element The element that will be upgraded.
    * @constructor
+   * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialSpinner = function MaterialSpinner(element) {
+  var MaterialSpinner = function MaterialSpinner(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.

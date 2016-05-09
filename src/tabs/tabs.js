@@ -25,9 +25,13 @@
    *
    * @constructor
    * @param {Element} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialTabs = function MaterialTabs(element) {
+  var MaterialTabs = function MaterialTabs(element, optDom) {
     // Stores the HTML element.
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.

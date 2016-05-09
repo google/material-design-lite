@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialCheckbox = function MaterialCheckbox(element) {
+  var MaterialCheckbox = function MaterialCheckbox(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.

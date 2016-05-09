@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialSwitch = function MaterialSwitch(element) {
+  var MaterialSwitch = function MaterialSwitch(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.

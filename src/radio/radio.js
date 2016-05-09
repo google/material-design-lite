@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialRadio = function MaterialRadio(element) {
+  var MaterialRadio = function MaterialRadio(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.
@@ -76,7 +80,7 @@
   MaterialRadio.prototype.onChange_ = function() {
     // Since other radio buttons don't get change events, we need to look for
     // them to update their classes.
-    var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
+    var radios = this.document_.getElementsByClassName(this.CssClasses_.JS_RADIO);
     for (var i = 0; i < radios.length; i++) {
       var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
       // Different name == different group, so no point updating those.

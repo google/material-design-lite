@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialMenu = function MaterialMenu(element) {
+  var MaterialMenu = function MaterialMenu(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.
@@ -116,7 +120,7 @@
                       this.element_.getAttribute('data-mdl-for');
       var forEl = null;
       if (forElId) {
-        forEl = document.getElementById(forElId);
+        forEl = this.document_.getElementById(forElId);
         if (forEl) {
           this.forElement_ = forEl;
           forEl.addEventListener('click', this.handleForClick_.bind(this));
@@ -424,11 +428,11 @@
         // if so, do nothing.
         if (e !== evt && !this.closing_ &&
             e.target.parentNode !== this.element_) {
-          document.removeEventListener('click', callback);
+          this.document_.removeEventListener('click', callback);
           this.hide();
         }
       }.bind(this);
-      document.addEventListener('click', callback);
+      this.document_.addEventListener('click', callback);
     }
   };
   MaterialMenu.prototype['show'] = MaterialMenu.prototype.show;

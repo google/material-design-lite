@@ -135,6 +135,18 @@ describe('componentHandler', function() {
     document.body.removeChild(buttonTwo);
   });
 
+  it('should upgrade a given ShadowRoot', function() {
+    var div = document.createElement('div'); // create a :host
+    var shadow = div.createShadowRoot();
+    var button = document.createElement('button');
+    button.classList.add('mdl-js-button');
+    shadow.appendChild(button);
+    document.body.appendChild(div);
+    componentHandler.upgradeDom(undefined, undefined, shadow);
+    expect(shadow.querySelector('button').getAttribute('data-upgraded')).to.equal(',MaterialButton');
+    document.body.removeChild(div);
+  });
+
   it('should upgrade a single component to an element', function() {
     var el = document.createElement('button');
     el.setAttribute('data-upgraded', ',MaterialButtonPostfix');

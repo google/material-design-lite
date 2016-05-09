@@ -25,8 +25,12 @@
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialSlider = function MaterialSlider(element) {
+  var MaterialSlider = function MaterialSlider(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
     // Browser feature detection.
     this.isIE_ = window.navigator.msPointerEnabled;

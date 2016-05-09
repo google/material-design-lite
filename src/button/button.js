@@ -24,8 +24,12 @@
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
    * @param {HTMLElement} element The element that will be upgraded.
+   * @param {HTMLDocument|ShadowRoot=} optDom Optional DOM that will
+   * be upgraded.
    */
-  var MaterialButton = function MaterialButton(element) {
+  var MaterialButton = function MaterialButton(element, optDom) {
+    var optDom_ = optDom || document;
+    this.document_ = optDom_;
     this.element_ = element;
 
     // Initialize instance.

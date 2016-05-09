@@ -35,8 +35,10 @@ var componentHandler = {
    * need to create a new instance of.
    * @param {string=} optCssClass the name of the CSS class elements of this
    * type will have.
+   * @param {!HTMLDocument|!ShadowRoot=} optDom the DOM we want to upgrade.
+   * If not indicated by default it equals to document.
    */
-  upgradeDom: function(optJsClass, optCssClass) {}, // eslint-disable-line
+  upgradeDom: function(optJsClass, optCssClass, optDom) {}, // eslint-disable-line
   /**
    * Upgrades a specific element rather than all in the DOM.
    *
@@ -55,8 +57,11 @@ var componentHandler = {
   /**
    * Upgrades all registered components found in the current DOM. This is
    * automatically called on window load.
+   *
+   * @param {!HTMLDocument|!ShadowRoot=} optDom Optional DOM we want to
+   * upgrade. If not indicated by default it equals to document.
    */
-  upgradeAllRegistered: function() {},
+  upgradeAllRegistered: function(optDom) {}, // eslint-disable-line
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
    * component type
@@ -149,13 +154,15 @@ componentHandler = (function() {
    * need to create a new instance of.
    * @param {string=} optCssClass the name of the CSS class elements of this
    * type will have.
+   * @param {!HTMLDocument|!ShadowRoot=} optDom the element which can be document or shadowRoot
+   * instance
    */
-  function upgradeDomInternal(optJsClass, optCssClass) {
+  function upgradeDomInternal(optJsClass, optCssClass, optDom) {
     if (typeof optJsClass === 'undefined' &&
         typeof optCssClass === 'undefined') {
       for (var i = 0; i < registeredComponents_.length; i++) {
         upgradeDomInternal(registeredComponents_[i].className,
-            registeredComponents_[i].cssClass);
+            registeredComponents_[i].cssClass, optDom);
       }
     } else {
       var jsClass = /** @type {string} */ (optJsClass);
@@ -166,9 +173,10 @@ componentHandler = (function() {
         }
       }
 
-      var elements = document.querySelectorAll('.' + optCssClass);
+      var _document = optDom || document;
+      var elements = _document.querySelectorAll('.' + optCssClass);
       for (var n = 0; n < elements.length; n++) {
-        upgradeElementInternal(elements[n], jsClass);
+        upgradeElementInternal(elements[n], jsClass, _document);
       }
     }
   }
@@ -179,8 +187,11 @@ componentHandler = (function() {
    * @param {!Element} element The element we wish to upgrade.
    * @param {string=} optJsClass Optional name of the class we want to upgrade
    * the element to.
+   * @param {!HTMLDocument|!ShadowRoot=} optDom Optional DOM element we want
+   * to upgrade.
    */
-  function upgradeElementInternal(element, optJsClass) {
+  function upgradeElementInternal(element, optJsClass, optDom) {
+    var _optDom = optDom || document;
     // Verify argument type.
     if (!(typeof element === 'object' && element instanceof Element)) {
       throw new Error('Invalid argument provided to upgrade MDL element.');
@@ -210,7 +221,7 @@ componentHandler = (function() {
         // Mark element as upgraded.
         upgradedList.push(registeredClass.className);
         element.setAttribute('data-upgraded', upgradedList.join(','));
-        var instance = new registeredClass.classConstructor(element); // eslint-disable-line
+        var instance = new registeredClass.classConstructor(element, _optDom); // eslint-disable-line
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
@@ -230,7 +241,7 @@ componentHandler = (function() {
       var ev;
       if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
         ev = new Event('mdl-componentupgraded', {
-          'bubbles': true, 'cancelable': false
+          bubbles: true, cancelable: false
         });
       } else {
         ev = document.createEvent('Events');
@@ -245,11 +256,12 @@ componentHandler = (function() {
    *
    * @param {!Element|!Array<!Element>|!NodeList|!HTMLCollection} elements
    * The elements we wish to upgrade.
+   * @param {!HTMLDocument|!ShadowRoot} optDom The DOM we wish to upgrade.
    */
-  function upgradeElementsInternal(elements) {
+  function upgradeElementsInternal(elements, optDom) {
     if (!Array.isArray(elements)) {
       if (typeof elements.item === 'function') {
-        elements = Array.prototype.slice.call(/** @type {Array} */ (elements));
+        elements = Array.prototype.slice.call(/** @type {Array<!Element>|!NodeList|!HTMLCollection} */ (elements));
       } else {
         elements = [elements];
       }
@@ -257,9 +269,9 @@ componentHandler = (function() {
     for (var i = 0, n = elements.length, element; i < n; i++) {
       element = elements[i];
       if (element instanceof HTMLElement) {
-        upgradeElementInternal(element);
+        upgradeElementInternal(element, undefined, optDom);
         if (element.children.length > 0) {
-          upgradeElementsInternal(element.children);
+          upgradeElementsInternal(element.children, optDom);
         }
       }
     }
@@ -335,10 +347,15 @@ componentHandler = (function() {
   /**
    * Upgrades all registered components found in the current DOM. This is
    * automatically called on window load.
+   *
+   * @param {!HTMLDocument|!ShadowRoot=} optDom Optional DOM we want to
+   * upgrade. If not indicated by default it equals to document
    */
-  function upgradeAllRegisteredInternal() {
+  function upgradeAllRegisteredInternal(optDom) {
+    var _optDom = optDom || document;
     for (var n = 0; n < registeredComponents_.length; n++) {
-      upgradeDomInternal(registeredComponents_[n].className);
+      upgradeDomInternal(registeredComponents_[n].className,
+          undefined, _optDom);
     }
   }
 
@@ -364,7 +381,7 @@ componentHandler = (function() {
       var ev;
       if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
         ev = new Event('mdl-componentdowngraded', {
-          'bubbles': true, 'cancelable': false
+          bubbles: true, cancelable: false
         });
       } else {
         ev = document.createEvent('Events');
@@ -466,6 +483,16 @@ componentHandler['register'] = componentHandler.register;
 componentHandler['downgradeElements'] = componentHandler.downgradeElements;
 window.componentHandler = componentHandler;
 window['componentHandler'] = componentHandler;
+
+document.currentScript.addEventListener('load', function() {
+  if (
+      'ShadowRoot' in window &&
+      this.parentNode &&
+      this.parentNode instanceof window.ShadowRoot) {
+    this.parentNode.host.classList.add('mdl-js');
+    componentHandler.upgradeAllRegistered(this.parentNode);
+  }
+});
 
 window.addEventListener('load', function() {
   'use strict';
