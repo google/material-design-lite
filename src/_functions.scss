@@ -17,3 +17,18 @@
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
 }
+
+/**
+ * If passed a color, behaves just like the built-in `rgba`.
+ * Otherwise, generates an `rgba` literal.
+ *
+ * This is used for generating invalid CSS with placeholders for colors that can
+ * then be customized into valid CSS without using Sass.
+ */
+@function rgba-tpl($color, $alpha) {
+  @if type-of($color) == color {
+    @return rgba($color, $alpha);
+  } @else {
+    @return unquote("rgba(#{$color}, #{$alpha})");
+  }
+}

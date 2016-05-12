@@ -71,40 +71,36 @@
   /**
    * Handle change of state.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialCheckbox.prototype.onChange_ = function(event) {
+  MaterialCheckbox.prototype.onChange_ = function() {
     this.updateClasses_();
   };
 
   /**
    * Handle focus of element.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialCheckbox.prototype.onFocus_ = function(event) {
+  MaterialCheckbox.prototype.onFocus_ = function() {
     this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle lost focus of element.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialCheckbox.prototype.onBlur_ = function(event) {
+  MaterialCheckbox.prototype.onBlur_ = function() {
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle mouseup.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialCheckbox.prototype.onMouseUp_ = function(event) {
+  MaterialCheckbox.prototype.onMouseUp_ = function() {
     this.blur_();
   };
 
@@ -232,11 +228,15 @@
       if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
         this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
         this.rippleContainerElement_ = document.createElement('span');
-        this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
-        this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_EFFECT);
-        this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_CENTER);
+        this.rippleContainerElement_.classList.add(
+            this.CssClasses_.RIPPLE_CONTAINER);
+        this.rippleContainerElement_.classList.add(
+            this.CssClasses_.RIPPLE_EFFECT);
+        this.rippleContainerElement_.classList.add(
+            this.CssClasses_.RIPPLE_CENTER);
         this.boundRippleMouseUp = this.onMouseUp_.bind(this);
-        this.rippleContainerElement_.addEventListener('mouseup', this.boundRippleMouseUp);
+        this.rippleContainerElement_.addEventListener(
+            'mouseup', this.boundRippleMouseUp);
 
         var ripple = document.createElement('span');
         ripple.classList.add(this.CssClasses_.RIPPLE);

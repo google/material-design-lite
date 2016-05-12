@@ -14,6 +14,8 @@ static content websites. It doesn't rely on any JavaScript frameworks or
 libraries. Optimized for cross-device use, gracefully degrades in older
 browsers, and offers an experience that is accessible from the get-go.
 
+> **Important note for contributors** - The master branch now has breaking V2 changes. As such it can not be merged into `mdl-1.1`. If you are making a contribution to 1.1, then please send pull requests directly to that branch. We will routinely merge that back into master. Thank you!
+
 ## Use MDL on your site?
 
 **This document is targeted at developers that will contribute to or compile
@@ -22,12 +24,18 @@ MDL. If you are looking to use MDL on your website or web app please head to
 
 ## Browser Support
 
-| IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
-|-----|------|------|--------|-------|---------|--------|------------------|---------------|
-| B   | A    | A    | A      | A     | A       | A      | A                | A             |
+Supported evergreen browsers:
 
-A-grade browsers are fully supported. B-grade browsers will gracefully degrade
-to our CSS-only experience.
+- Chrome
+- Edge
+- Firefox
+- Opera
+
+Supported versioned browsers:
+
+- Internet Explorer 11
+- Safari 8
+- Mobile Safari 8
 
 ## Getting Started
 

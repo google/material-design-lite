@@ -103,7 +103,8 @@
         this.rippleElement_.classList.add(this.CssClasses_.RIPPLE);
         rippleContainer.appendChild(this.rippleElement_);
         this.boundRippleBlurHandler = this.blurHandler_.bind(this);
-        this.rippleElement_.addEventListener('mouseup', this.boundRippleBlurHandler);
+        this.rippleElement_.addEventListener(
+            'mouseup', this.boundRippleBlurHandler);
         this.element_.appendChild(rippleContainer);
       }
       this.boundButtonBlurHandler = this.blurHandler_.bind(this);
