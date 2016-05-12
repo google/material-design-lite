@@ -563,7 +563,6 @@
     }
 
     @media screen and (max-width: $layout-screen-size-threshold) {
-      display: none;
       width: $layout-header-mobile-baseline - $layout-tab-mobile-padding;
     }
 
