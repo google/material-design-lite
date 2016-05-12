@@ -15,9 +15,6 @@
 <script src="../node_modules/chai/chai.js"></script>
 <script src="../node_modules/chai-jquery/chai-jquery.js"></script>
 <!-- <script src="../js/material.js"></script> -->
-<!-- The following components rely on the requestAnimFrame shim (incomplete list): -->
-<!-- menu -->
-<script src="../src/third_party/rAF.js"></script>
 <script>
   // Only necessary for PhantomJS 1.x
   Function.prototype.bind = Function.prototype.bind || function(to){
@@ -40,6 +37,10 @@
     bound.prototype = fn.prototype;
     return bound;
   };
+
+  // Small requestAnimationFrame shim for running tests.
+  window.requestAnimationFrame =
+      window.requestAnimationFrame || function(callback) { callback() };
 </script>
 <script src="../dist/material.js"></script>
 <script>

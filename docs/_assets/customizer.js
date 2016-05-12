@@ -86,7 +86,7 @@ function init() {
     mc.template = this.responseText;
     mc.highlightField('Indigo');
     mc.highlightField('Pink');
-    window.requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
       mc.updateCDN();
       mc.updateStylesheet();
     });
@@ -95,7 +95,7 @@ function init() {
   req.send();
 }
 
-MaterialCustomizer = (function() {
+var MaterialCustomizer = (function() {
   'use strict';
 
   var COLORS = ['Cyan', 'Teal', 'Green', 'Light Green', 'Lime',
@@ -369,7 +369,7 @@ MaterialCustomizer = (function() {
         }
         this.highlightField(g.getAttribute('data-color'));
         this.wheel.setAttribute('class', '');
-        window.requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
           this.updateCDN();
           this.updateStylesheet();
         }.bind(this));
@@ -385,7 +385,7 @@ MaterialCustomizer = (function() {
         /* falls through */
       case 0:
         this.highlightField(g.getAttribute('data-color'));
-        window.requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
           this.wheel.setAttribute('class', 'hide-nonaccents');
         }.bind(this));
         break;
@@ -458,12 +458,20 @@ MaterialCustomizer = (function() {
     var primaryDark = this.getColor(primaryColor, '700');
     var accent = this.getColor(secondaryColor, 'A200');
 
-    return this.replaceDict(this.template, {
-      '\\$color-primary-dark': primaryDark,
-      '\\$color-primary-contrast': this.calculateTextColor(primary),
-      '\\$color-accent-contrast': this.calculateTextColor(accent),
-      '\\$color-primary': primary,
-      '\\$color-accent': accent
+    var initial = this.replaceDict(this.template, {
+      'rgba\\(\\#primdark': 'rgba(' + primaryDark,
+      'rgba\\(\\#primcontrast': 'rgba(' + this.calculateTextColor(primary),
+      'rgba\\(\\#acccontrast': 'rgba(' + this.calculateTextColor(accent),
+      'rgba\\(\\#primary': 'rgba(' + primary,
+      'rgba\\(\\#accent': 'rgba(' + accent
+    });
+
+    return this.replaceDict(initial, {
+      '\\#primdark': 'rgb(' + primaryDark + ')',
+      '\\#primcontrast': 'rgb(' + this.calculateTextColor(primary) + ')',
+      '\\#acccontrast': 'rgb(' + this.calculateTextColor(accent) + ')',
+      '\\#primary': 'rgb(' + primary + ')',
+      '\\#accent': 'rgb(' + accent + ')'
     });
   };
 

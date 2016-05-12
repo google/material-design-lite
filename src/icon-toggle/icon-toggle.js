@@ -67,40 +67,36 @@
   /**
    * Handle change of state.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialIconToggle.prototype.onChange_ = function(event) {
+  MaterialIconToggle.prototype.onChange_ = function() {
     this.updateClasses_();
   };
 
   /**
    * Handle focus of element.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialIconToggle.prototype.onFocus_ = function(event) {
+  MaterialIconToggle.prototype.onFocus_ = function() {
     this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle lost focus of element.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialIconToggle.prototype.onBlur_ = function(event) {
+  MaterialIconToggle.prototype.onBlur_ = function() {
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle mouseup.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialIconToggle.prototype.onMouseUp_ = function(event) {
+  MaterialIconToggle.prototype.onMouseUp_ = function() {
     this.blur_();
   };
 
@@ -209,7 +205,6 @@
    * Initialize element.
    */
   MaterialIconToggle.prototype.init = function() {
-
     if (this.element_) {
       this.inputElement_ =
           this.element_.querySelector('.' + this.CssClasses_.INPUT);
@@ -217,11 +212,15 @@
       if (this.element_.classList.contains(this.CssClasses_.JS_RIPPLE_EFFECT)) {
         this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
         this.rippleContainerElement_ = document.createElement('span');
-        this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
-        this.rippleContainerElement_.classList.add(this.CssClasses_.JS_RIPPLE_EFFECT);
-        this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_CENTER);
+        this.rippleContainerElement_.classList.add(
+            this.CssClasses_.RIPPLE_CONTAINER);
+        this.rippleContainerElement_.classList.add(
+            this.CssClasses_.JS_RIPPLE_EFFECT);
+        this.rippleContainerElement_.classList.add(
+            this.CssClasses_.RIPPLE_CENTER);
         this.boundRippleMouseUp = this.onMouseUp_.bind(this);
-        this.rippleContainerElement_.addEventListener('mouseup', this.boundRippleMouseUp);
+        this.rippleContainerElement_.addEventListener(
+            'mouseup', this.boundRippleMouseUp);
 
         var ripple = document.createElement('span');
         ripple.classList.add(this.CssClasses_.RIPPLE);
