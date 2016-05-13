@@ -55,6 +55,7 @@
    */
   MaterialTabs.prototype.CssClasses_ = {
     TAB_CLASS: 'mdl-tabs__tab',
+    TAB_BAR_CLASS: 'mdl-tabs__tab-bar',
     PANEL_CLASS: 'mdl-tabs__panel',
     ACTIVE_CLASS: 'is-active',
     UPGRADED_CLASS: 'is-upgraded',
@@ -71,17 +72,27 @@
    * @private
    */
   MaterialTabs.prototype.initTabs_ = function() {
-    if (this.element_.classList.contains(
-        this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
+    if (this.element_.classList.contains(this.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
       this.element_.classList.add(
         this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
-
     // Select element tabs, document panels
-    this.tabs_ =
-        this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
-    this.panels_ =
-        this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
+    // the mocha tests did not like Array.from or Array.filter
+    this.tabs_ = [];
+    var tabs = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_BAR_CLASS + ' > .' + this.CssClasses_.TAB_CLASS);
+    for (var t = 0; t < tabs.length; t++) {
+      if (tabs[t].parentElement.parentElement === this.element_) {
+        this.tabs_.push(tabs[t]);
+      }
+    }
+
+    this.panels_ = [];
+    var panels = this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
+    for (var p = 0; p < panels.length; p++) {
+      if (panels[p].parentElement === this.element_) {
+        this.panels_.push(panels[p]);
+      }
+    }
 
     // Create new tabs for each tab element
     for (var i = 0; i < this.tabs_.length; i++) {
@@ -133,8 +144,7 @@
    */
   function MaterialTab(tab, ctx) {
     if (tab) {
-      if (ctx.element_.classList.contains(
-          ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
+      if (ctx.element_.classList.contains(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
         var rippleContainer = document.createElement('span');
         rippleContainer.classList.add(ctx.CssClasses_.MDL_RIPPLE_CONTAINER);
         rippleContainer.classList.add(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT);
