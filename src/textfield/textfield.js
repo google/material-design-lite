@@ -271,7 +271,7 @@
 
         if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
           /**
-           * @TODO: This should handle pasting multi line text.
+           * @todo: This should handle pasting multi line text.
            * Currently doesn't.
            */
           this.boundKeyDownHandler = this.onKeyDown_.bind(this);

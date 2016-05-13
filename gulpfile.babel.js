@@ -135,7 +135,7 @@ gulp.task('lint', ['lint:sources', 'lint:aux'], () => {});
 /**
  * Optimize Images
  *
- * @TODO: Update image paths in final CSS to match root/images
+ * @todo: Update image paths in final CSS to match root/images
  */
 gulp.task('images', () => {
   return gulp.src('src/**/*.{svg,png,jpg}')
@@ -808,7 +808,7 @@ gulp.task('styles:gen', ['styles'], () => {
   const templatePath =
       path.join(__dirname, 'dist', 'material.min.css.template');
   /**
-   * @TODO: This task needs refactoring once we turn MaterialCustomizer
+   * @todo: This task needs refactoring once we turn MaterialCustomizer
    * into a proper Node module.
    */
   const mc = new MaterialCustomizer();

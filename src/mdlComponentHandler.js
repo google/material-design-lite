@@ -249,7 +249,9 @@ componentHandler = (function() {
   function upgradeElementsInternal(elements) {
     if (!Array.isArray(elements)) {
       if (typeof elements.item === 'function') {
-        elements = Array.prototype.slice.call(/** @type {Array} */ (elements));
+        elements = Array.prototype.slice.call(
+          /** @type {Array.<!Element>|!NodeList|!HTMLCollection} */ (elements)
+        );
       } else {
         elements = [elements];
       }

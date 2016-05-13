@@ -120,7 +120,7 @@
    */
   MaterialSwitch.prototype.blur_ = function() {
     /**
-     * @TODO: figure out why there's a focus event being fired after our blur,
+     * @todo: figure out why there's a focus event being fired after our blur,
      * so that we can avoid this hack.
      */
     window.setTimeout(function() {
