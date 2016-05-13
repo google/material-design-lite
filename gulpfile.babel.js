@@ -132,8 +132,11 @@ gulp.task('lint', ['lint:sources', 'lint:aux'], () => {});
 
 // ***** Production build tasks ****** //
 
-// Optimize Images
-// TODO: Update image paths in final CSS to match root/images
+/**
+ * Optimize Images
+ *
+ * @todo: Update image paths in final CSS to match root/images
+ */
 gulp.task('images', () => {
   return gulp.src('src/**/*.{svg,png,jpg}')
     .pipe($.flatten())
@@ -804,8 +807,10 @@ gulp.task('styles:gen', ['styles'], () => {
   const MaterialCustomizer = require('./docs/_assets/customizer.js');
   const templatePath =
       path.join(__dirname, 'dist', 'material.min.css.template');
-  // TODO: This task needs refactoring once we turn MaterialCustomizer
-  // into a proper Node module.
+  /**
+   * @todo: This task needs refactoring once we turn MaterialCustomizer
+   * into a proper Node module.
+   */
   const mc = new MaterialCustomizer();
   mc.template = fs.readFileSync(templatePath).toString();
 

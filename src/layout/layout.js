@@ -517,7 +517,9 @@
 
         // Create new tabs for each tab element
         for (var i = 0; i < tabs.length; i++) {
+          /* eslint-disable no-new */
           new MaterialLayoutTab(tabs[i], tabs, panels, this);
+          /* eslint-enable no-new */
         }
       }
 
@@ -566,8 +568,8 @@
     });
 
     tab.show = selectTab;
-
   }
+
   window['MaterialLayoutTab'] = MaterialLayoutTab;
 
   // The component registers itself. It can assume componentHandler is available

@@ -119,8 +119,10 @@
    * @private
    */
   MaterialSwitch.prototype.blur_ = function() {
-    // TODO: figure out why there's a focus event being fired after our blur,
-    // so that we can avoid this hack.
+    /**
+     * @todo: figure out why there's a focus event being fired after our blur,
+     * so that we can avoid this hack.
+     */
     window.setTimeout(function() {
       this.inputElement_.blur();
     }.bind(this), /** @type {number} */ (this.Constant_.TINY_TIMEOUT));

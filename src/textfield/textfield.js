@@ -270,8 +270,10 @@
         this.input_.addEventListener('reset', this.boundResetHandler);
 
         if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
-          // TODO: This should handle pasting multi line text.
-          // Currently doesn't.
+          /**
+           * @todo: This should handle pasting multi line text.
+           * Currently doesn't.
+           */
           this.boundKeyDownHandler = this.onKeyDown_.bind(this);
           this.input_.addEventListener('keydown', this.boundKeyDownHandler);
         }

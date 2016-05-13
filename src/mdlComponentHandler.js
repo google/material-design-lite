@@ -230,7 +230,7 @@ componentHandler = (function() {
       var ev;
       if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
         ev = new Event('mdl-componentupgraded', {
-          'bubbles': true, 'cancelable': false
+          bubbles: true, cancelable: false
         });
       } else {
         ev = document.createEvent('Events');
@@ -249,7 +249,9 @@ componentHandler = (function() {
   function upgradeElementsInternal(elements) {
     if (!Array.isArray(elements)) {
       if (typeof elements.item === 'function') {
-        elements = Array.prototype.slice.call(/** @type {Array} */ (elements));
+        elements = Array.prototype.slice.call(
+          /** @type {Array.<!Element>|!NodeList|!HTMLCollection} */ (elements)
+        );
       } else {
         elements = [elements];
       }
@@ -364,7 +366,7 @@ componentHandler = (function() {
       var ev;
       if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
         ev = new Event('mdl-componentdowngraded', {
-          'bubbles': true, 'cancelable': false
+          bubbles: true, cancelable: false
         });
       } else {
         ev = document.createEvent('Events');

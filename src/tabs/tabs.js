@@ -85,7 +85,9 @@
 
     // Create new tabs for each tab element
     for (var i = 0; i < this.tabs_.length; i++) {
+      /* eslint-disable no-new */
       new MaterialTab(this.tabs_[i], this);
+      /* eslint-enable no-new */
     }
 
     this.element_.classList.add(this.CssClasses_.UPGRADED_CLASS);
