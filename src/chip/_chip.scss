@@ -27,6 +27,7 @@
     color: $text-color-primary;
     margin: 2px 0;
     font-size: 0;
+    white-space: nowrap;
 
     .mdl-chip__text {
         font-size: $chip-font-size;
