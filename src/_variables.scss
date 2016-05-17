@@ -42,6 +42,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -582,3 +584,8 @@ $snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
 /* TOOLTIP */
 $tooltip-font-size: 10px !default;
 $tooltip-font-size-large: 14px !default;
+
+/* CHIP */
+$chip-bg-color: rgb(222, 222, 222) !default;
+$chip-height: 32px !default;
+$chip-font-size: 13px !default; 
