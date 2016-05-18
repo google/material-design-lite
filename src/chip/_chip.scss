@@ -30,15 +30,6 @@
     margin: 2px 0;
     font-size: 0;
     white-space: nowrap;
-    
-    &:focus {
-        outline: 0;
-        @include shadow-2dp();
-    }
-    
-    &:active {
-        background-color: $chip-bg-active-color;
-    }
 
     .mdl-chip__text {
         font-size: $chip-font-size;
@@ -74,6 +65,18 @@
         vertical-align: middle;
         margin-right: 8px;
         overflow: hidden;
+        text-align: center;
+        font-size: 18px;
+        line-height: 32px;
+    }
+    
+    &:focus {
+        outline: 0;
+        @include shadow-2dp();
+    }
+    
+    &:active {
+        background-color: $chip-bg-active-color;
     }
     
     &.mdl-chip--deletable {
