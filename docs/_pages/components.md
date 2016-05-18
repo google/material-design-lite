@@ -98,6 +98,26 @@ categories:
               file: image.html
             - caption: Event
               file: event.html
+  - name: chip
+    title: Chips
+    description: Represents complex entities in small blocks.
+    components:
+      - name: chip
+        class: mdl-chip
+        snippets:
+          - snippet_group:
+            - caption: Basic Chip
+              file: basic.html
+            - caption: Deletable Chip
+              file: deletable.html
+          - snippet_group:
+            - caption: Contact Chip
+              file: contact.html
+            - caption: Deletable Contact Chip
+              file: deletable-contact.html
+          - snippet_group:
+            - caption: Button Chip
+              file: button.html
   - name: dialog
     title: Dialogs
     description: Modal windows for dedicated user input.
