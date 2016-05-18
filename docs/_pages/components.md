@@ -110,14 +110,13 @@ categories:
               file: basic.html
             - caption: Deletable Chip
               file: deletable.html
+            - caption: Button Chip
+              file: button.html
           - snippet_group:
             - caption: Contact Chip
               file: contact.html
             - caption: Deletable Contact Chip
               file: deletable-contact.html
-          - snippet_group:
-            - caption: Button Chip
-              file: button.html
   - name: dialog
     title: Dialogs
     description: Modal windows for dedicated user input.
