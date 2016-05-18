@@ -15,12 +15,14 @@
  */
 
 @import "../variables";
+@import "../mixins";
 
 .mdl-chip {
     height: $chip-height;
     font-family: $preferred_font;
     line-height: $chip-height;
     padding: 0 12px;
+    border: 0;
     border-radius: $chip-height / 2;
     background-color: $chip-bg-color;
     display: inline-block;
@@ -28,6 +30,15 @@
     margin: 2px 0;
     font-size: 0;
     white-space: nowrap;
+    
+    &:focus {
+        outline: 0;
+        @include shadow-2dp();
+    }
+    
+    &:active {
+        background-color: $chip-bg-active-color;
+    }
 
     .mdl-chip__text {
         font-size: $chip-font-size;
