@@ -116,6 +116,15 @@
   };
 
   /**
+   * Handle scroll for tooltip.
+   *
+   * @private
+   */
+  MaterialTooltip.prototype.handleScroll_ = function() {
+    this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
+  };
+
+  /**
    * Initialize element.
    */
   MaterialTooltip.prototype.init = function() {
@@ -134,12 +143,14 @@
 
         this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
         this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
+        this.boundScrollHandler = this.handleScroll_.bind(this);
         this.forElement_.addEventListener(
             'mouseenter', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener(
             'touchend', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener(
             'mouseleave', this.boundMouseLeaveHandler, false);
+        window.addEventListener('scroll', this.boundScrollHandler, true);
         window.addEventListener('touchstart', this.boundMouseLeaveHandler);
       }
     }
