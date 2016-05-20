@@ -120,7 +120,8 @@
    */
   MaterialTooltip.prototype.init = function() {
     if (this.element_) {
-      var forElId = this.element_.getAttribute('for');
+      var forElId = this.element_.getAttribute('for') ||
+          this.element_.getAttribute('data-mdl-for');
 
       if (forElId) {
         this.forElement_ = document.getElementById(forElId);
