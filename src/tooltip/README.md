@@ -10,7 +10,7 @@ Tooltips are a ubiquitous feature of most user interfaces, regardless of a site'
 ```html
 <p id="tt1">HTML</p>
 ```
-&nbsp;2. Following the target element, code a second element, such as a `<div>`, `<p>`, or `<span>`; this will be the tooltip itself. Include a `for` attribute whose value matches that of the target's `id`.
+&nbsp;2. Following the target element, code a second element, such as a `<div>`, `<p>`, or `<span>`; this will be the tooltip itself. Include a `for` (or `data-mdl-for`) attribute whose value matches that of the target's `id`.
 ```html
 <p id="tt1">HTML</p>
 <span for="tt1">HyperText Markup Language</span>
