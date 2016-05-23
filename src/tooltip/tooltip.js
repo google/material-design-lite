@@ -107,11 +107,11 @@
   };
 
   /**
-   * Handle mouseleave for tooltip.
+   * Hide tooltip on mouseleave or scroll
    *
    * @private
    */
-  MaterialTooltip.prototype.handleMouseLeave_ = function() {
+  MaterialTooltip.prototype.hideTooltip_ = function() {
     this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
   };
 
@@ -133,13 +133,15 @@
         }
 
         this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
-        this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
+        this.boundMouseLeaveHandler = this.hideTooltip_.bind(this);
+        this.boundScrollHandler = this.hideTooltip_.bind(this);
         this.forElement_.addEventListener(
             'mouseenter', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener(
             'touchend', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener(
             'mouseleave', this.boundMouseLeaveHandler, false);
+        window.addEventListener('scroll', this.boundScrollHandler, true);
         window.addEventListener('touchstart', this.boundMouseLeaveHandler);
       }
     }
