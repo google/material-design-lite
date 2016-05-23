@@ -133,13 +133,12 @@
         }
 
         this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
-        this.boundMouseLeaveHandler = this.hideTooltip_.bind(this);
-        this.boundScrollHandler = this.hideTooltip_.bind(this);
+        this.boundMouseLeaveAndScrollHandler = this.hideTooltip_.bind(this);
         this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener('touchend', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler, false);
-        window.addEventListener('scroll', this.boundScrollHandler, true);
-        window.addEventListener('touchstart', this.boundMouseLeaveHandler);
+        window.addEventListener('scroll', this.boundMouseLeaveAndScrollHandler, true);
+        window.addEventListener('touchstart', this.boundMouseLeaveAndScrollHandler);
       }
     }
   };
