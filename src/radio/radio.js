@@ -71,17 +71,17 @@
   /**
    * Handle change of state.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onChange_ = function(event) {
+  MaterialRadio.prototype.onChange_ = function() {
     // Since other radio buttons don't get change events, we need to look for
     // them to update their classes.
     var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
     for (var i = 0; i < radios.length; i++) {
       var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
       // Different name == different group, so no point updating those.
-      if (button.getAttribute('name') === this.btnElement_.getAttribute('name')) {
+      if (button.getAttribute('name') ===
+          this.btnElement_.getAttribute('name')) {
         radios[i]['MaterialRadio'].updateClasses_();
       }
     }
@@ -90,30 +90,27 @@
   /**
    * Handle focus.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onFocus_ = function(event) {
+  MaterialRadio.prototype.onFocus_ = function() {
     this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle lost focus.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onBlur_ = function(event) {
+  MaterialRadio.prototype.onBlur_ = function() {
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle mouseup.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onMouseup_ = function(event) {
+  MaterialRadio.prototype.onMouseup_ = function() {
     this.blur_();
   };
 
@@ -133,9 +130,10 @@
    * @private
    */
   MaterialRadio.prototype.blur_ = function() {
-
-    // TODO: figure out why there's a focus event being fired after our blur,
-    // so that we can avoid this hack.
+    /**
+     * @todo: figure out why there's a focus event being fired after our blur,
+     * so that we can avoid this hack.
+     */
     window.setTimeout(function() {
       this.btnElement_.blur();
     }.bind(this), /** @type {number} */ (this.Constant_.TINY_TIMEOUT));

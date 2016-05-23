@@ -62,7 +62,8 @@
    * @public
    */
   MaterialProgress.prototype.setProgress = function(p) {
-    if (this.element_.classList.contains(this.CssClasses_.INDETERMINATE_CLASS)) {
+    if (this.element_.classList.contains(
+        this.CssClasses_.INDETERMINATE_CLASS)) {
       return;
     }
 

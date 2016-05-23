@@ -82,30 +82,27 @@
   /**
    * Handle focus.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onFocus_ = function(event) {
+  MaterialTextfield.prototype.onFocus_ = function() {
     this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle lost focus.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onBlur_ = function(event) {
+  MaterialTextfield.prototype.onBlur_ = function() {
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle reset event from out side.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onReset_ = function(event) {
+  MaterialTextfield.prototype.onReset_ = function() {
     this.updateClasses_();
   };
 
@@ -144,7 +141,7 @@
   * @public
   */
   MaterialTextfield.prototype.checkFocus = function() {
-    if (Boolean(this.element_.querySelector(':focus'))) {
+    if (this.element_.querySelector(':focus')) {
       this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
@@ -214,17 +211,37 @@
    * @public
    */
   MaterialTextfield.prototype.change = function(value) {
-
     this.input_.value = value || '';
     this.updateClasses_();
   };
   MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
 
   /**
+   * Focus text field.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.focus = function() {
+    this.input_.focus();
+    this.updateClasses_();
+  };
+  MaterialTextfield.prototype['focus'] = MaterialTextfield.prototype.focus;
+
+  /**
+   * Blur text field.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.blur = function() {
+    this.input_.blur();
+    this.updateClasses_();
+  };
+  MaterialTextfield.prototype['blur'] = MaterialTextfield.prototype.blur;
+
+  /**
    * Initialize element.
    */
   MaterialTextfield.prototype.init = function() {
-
     if (this.element_) {
       this.label_ = this.element_.querySelector('.' + this.CssClasses_.LABEL);
       this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
@@ -253,8 +270,10 @@
         this.input_.addEventListener('reset', this.boundResetHandler);
 
         if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
-          // TODO: This should handle pasting multi line text.
-          // Currently doesn't.
+          /**
+           * @todo: This should handle pasting multi line text.
+           * Currently doesn't.
+           */
           this.boundKeyDownHandler = this.onKeyDown_.bind(this);
           this.input_.addEventListener('keydown', this.boundKeyDownHandler);
         }

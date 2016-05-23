@@ -1,0 +1,14 @@
+{
+    "extends": "google",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "dot-notation": 0,
+      "no-new": 1,
+      "quotes": [2, "single"]
+    },
+    "globals": {
+      "componentHandler": true
+    }
+}
