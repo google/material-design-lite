@@ -229,7 +229,7 @@ componentHandler = (function() {
 
       var ev;
       if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
-        ev = new Event('mdl-componentupgraded', {
+        ev = new CustomEvent('mdl-componentupgraded', {
           bubbles: true, cancelable: false
         });
       } else {
@@ -363,7 +363,7 @@ componentHandler = (function() {
 
       var ev;
       if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
-        ev = new Event('mdl-componentdowngraded', {
+        ev = new CustomEvent('mdl-componentdowngraded', {
           bubbles: true, cancelable: false
         });
       } else {
