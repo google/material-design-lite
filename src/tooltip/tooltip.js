@@ -138,23 +138,12 @@
         }
 
         this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
-<<<<<<< HEAD
-        this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
-        this.forElement_.addEventListener(
-            'mouseenter', this.boundMouseEnterHandler, false);
-        this.forElement_.addEventListener(
-            'touchend', this.boundMouseEnterHandler, false);
-        this.forElement_.addEventListener(
-            'mouseleave', this.boundMouseLeaveHandler, false);
-        window.addEventListener('touchstart', this.boundMouseLeaveHandler);
-=======
         this.boundMouseLeaveAndScrollHandler = this.hideTooltip_.bind(this);
         this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener('touchend', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveAndScrollHandler, false);
         window.addEventListener('scroll', this.boundMouseLeaveAndScrollHandler, true);
         window.addEventListener('touchstart', this.boundMouseLeaveAndScrollHandler);
->>>>>>> mdl-1.1
       }
     }
   };
