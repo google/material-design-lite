@@ -22,7 +22,7 @@ Chips can be used for various types of entities, including free form text, prede
 ```html
 <span class="mdl-chip">
     <span class="mdl-chip__text">Chip Text</span>
-    <a href="#" class="mdl-chip__action "><i class="material-icons">cancel</i></a>
+    <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
 </span>
 ```
 
@@ -31,7 +31,7 @@ Chips can be used for various types of entities, including free form text, prede
 <span class="mdl-chip">
     <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
     <span class="mdl-chip__text">Chip Text</span>
-    <a href="#" class="mdl-chip__action "><i class="material-icons">cancel</i></a>
+    <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
 </span>
 ```
 
@@ -50,7 +50,7 @@ A button based contact chip whose contact image is a `<span>` with a `background
 <button class="mdl-chip demo-chip">
     <span class="mdl-chip__contact">&nbsp;</span>
     <span class="mdl-chip__text">Chip Text</span>
-    <a href="#" class="mdl-chip__action "><i class="material-icons">cancel</i></a>
+    <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
 </button>
 ```
 
