@@ -77,7 +77,7 @@
       left = (props.width / 2);
       if (top + marginTop < 0) {
         this.element_.style.top = '0';
-        this.element_.style.marginTop = 0;
+        this.element_.style.marginTop = '0';
       } else {
         this.element_.style.top = top + 'px';
         this.element_.style.marginTop = marginTop + 'px';
@@ -85,7 +85,7 @@
     } else {
       if (left + marginLeft < 0) {
         this.element_.style.left = '0';
-        this.element_.style.marginLeft = 0;
+        this.element_.style.marginLeft = '0';
       } else {
         this.element_.style.left = left + 'px';
         this.element_.style.marginLeft = marginLeft + 'px';
