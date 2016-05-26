@@ -1,11 +1,11 @@
 ## Introduction
 
-The Material Design Lite (MDL) **chip** component represents complex entities in a compact way.
-Chips can be used for various types of entities, including free form text, predefined text, rules, or contacts. Chips may also contain icons.
+The Material Design Lite (MDL) **chip** component is a small, interactive element.
+Chips are commonly used for contacts, text, rules, icons, and photos.
 
 ## TO INCLUDE AN MDL CHIP COMPONENT:
 
-&nbsp;1. Code the containing element; this can be a `<span>`, `<div>`, or likely any other container element. If interactivity is desired, use a `<button>` or add the `tabindex` attribute to your container.
+&nbsp;1. Create a container element for the chip; typically `<span>` and `<div>` are used, but any container element should work equally well. If you need interactivity, use a `<button>`, or add the `tabindex` attribute to your container.
 ```html
 <span>
 </span>
@@ -18,7 +18,7 @@ Chips can be used for various types of entities, including free form text, prede
 </span>
 ```
 
-&nbsp;3. For deletable chips, add in the delete icon. This can be an `<a>`, `<button>` or other non-interactive tags such as `<span>`.
+&nbsp;3. For deletable chips, add in the delete icon. This can be an `<a>`, `<button>` or non-interactive tags like `<span>`.
 ```html
 <span class="mdl-chip">
     <span class="mdl-chip__text">Chip Text</span>
@@ -26,7 +26,7 @@ Chips can be used for various types of entities, including free form text, prede
 </span>
 ```
 
-&nbsp;4. Contact chips need to add the `mdl-chip--contact` class to the container, along with a container for the contact icon. The icon container for photos is typically an `<img>` tag, but other types of content can be used with a little extra supporting css.
+&nbsp;4. Contact chips need to have the `mdl-chip--contact` class added to the container, along with another container for the contact icon. The icon container for photos is typically an `<img>` tag, but other types of content can be used with a little extra supporting css.
 ```html
 <span class="mdl-chip">
     <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
@@ -62,4 +62,4 @@ A button based contact chip whose contact image is a `<span>` with a `background
 | `mdl-chip--contact` | Defines an MDL chip as a contact style chip | Optional, goes on "outer" container |
 | `mdl-chip__text` | Defines element as the chip's text | Required on "inner" text container |
 | `mdl-chip__action` | Defines element as the chip's action | Required on "inner" action container, if present |
-| `mdl-chip__contact` | Defines element as the chip's contact container | Required on "inner" contact container, if `mdl-chip--contact` class is present on "outer" div |
+| `mdl-chip__contact` | Defines element as the chip's contact container | Required on "inner" contact container, if the `mdl-chip--contact` class is present on "outer" container |
