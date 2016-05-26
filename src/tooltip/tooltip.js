@@ -83,14 +83,12 @@
         this.element_.style.top = top + 'px';
         this.element_.style.marginTop = marginTop + 'px';
       }
+    } else if (left + marginLeft < 0) {
+      this.element_.style.left = '0';
+      this.element_.style.marginLeft = '0';
     } else {
-      if (left + marginLeft < 0) {
-        this.element_.style.left = '0';
-        this.element_.style.marginLeft = '0';
-      } else {
-        this.element_.style.left = left + 'px';
-        this.element_.style.marginLeft = marginLeft + 'px';
-      }
+      this.element_.style.left = left + 'px';
+      this.element_.style.marginLeft = marginLeft + 'px';
     }
 
     if (this.element_.classList.contains(this.CssClasses_.TOP)) {
@@ -136,11 +134,16 @@
 
         this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
         this.boundMouseLeaveAndScrollHandler = this.hideTooltip_.bind(this);
-        this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
-        this.forElement_.addEventListener('touchend', this.boundMouseEnterHandler, false);
-        this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveAndScrollHandler, false);
-        window.addEventListener('scroll', this.boundMouseLeaveAndScrollHandler, true);
-        window.addEventListener('touchstart', this.boundMouseLeaveAndScrollHandler);
+        this.forElement_.addEventListener('mouseenter',
+            this.boundMouseEnterHandler, false);
+        this.forElement_.addEventListener('touchend',
+            this.boundMouseEnterHandler, false);
+        this.forElement_.addEventListener('mouseleave',
+            this.boundMouseLeaveAndScrollHandler, false);
+        window.addEventListener('scroll',
+            this.boundMouseLeaveAndScrollHandler, true);
+        window.addEventListener('touchstart',
+            this.boundMouseLeaveAndScrollHandler);
       }
     }
   };
