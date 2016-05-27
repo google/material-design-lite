@@ -233,12 +233,13 @@ gulp.task('styles-grid', () => {
     .pipe($.size({title: 'styles-grid'}));
 });
 
-// Build with Google's Closure Compiler, requires Java 1.7+ installed.
-gulp.task('closure', () => {
+// Concatenate And Minify JavaScript
+gulp.task('scripts', ['lint:sources'], () => {
   return gulp.src(['utils/export.js'].concat(SOURCES))
+    .pipe($.sourcemaps.init())
     .pipe(closureCompiler({
       compilerPath: 'node_modules/google-closure-compiler/compiler.jar',
-      fileName: 'material.closure.min.js',
+      fileName: 'material.min.js',
       compilerFlags: {
         /* eslint-disable camelcase */
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
@@ -249,22 +250,6 @@ gulp.task('closure', () => {
         export_local_property_definitions: true
         // eslint-enable camelcase
       }
-    }))
-    .pipe(gulp.dest('./dist'));
-});
-
-// Concatenate And Minify JavaScript
-gulp.task('scripts', ['lint:sources'], () => {
-  return gulp.src(SOURCES)
-    .pipe($.sourcemaps.init())
-    // Concatenate Scripts
-    .pipe($.concat('material.js'))
-    .pipe($.iife({useStrict: true}))
-    .pipe(gulp.dest('dist'))
-    // Minify Scripts
-    .pipe($.uglify({
-      sourceRoot: '.',
-      sourceMapIncludeSources: true
     }))
     .pipe($.header(banner, {pkg}))
     .pipe($.concat('material.min.js'))
@@ -317,21 +302,9 @@ gulp.task('mocha', ['styles'], () => {
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });
 
-gulp.task('mocha:closure', ['closure'], () => {
-  return gulp.src('test/index.html')
-    .pipe($.replace('src="../dist/material.js"',
-        'src="../dist/material.closure.min.js"'))
-    .pipe($.rename('temp.html'))
-    .pipe(gulp.dest('test'))
-    .pipe($.mochaPhantomjs({reporter: 'tap'}))
-    .on('finish', () => del.sync('test/temp.html'))
-    .on('error', () => del.sync('test/temp.html'));
-});
-
 gulp.task('test', [
   'lint',
-  'mocha',
-  'mocha:closure'
+  'mocha'
 ]);
 
 gulp.task('test:visual', () => {
