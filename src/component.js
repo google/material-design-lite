@@ -95,11 +95,15 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
    * @export
    */
   static initComponents(docRoot) {
-    let nodes = docRoot.querySelectorAll(
-        `.${this.classes_.ROOT}.${this.classes_.JS}`);
-    for (let i = 0; i < nodes.length; i++) {
-      // Attach new component to DOM property.
-      nodes[i][this.strings_.CLASS_NAME] = new this(nodes[i]);
+    if (docRoot) {
+      let selector = `.${this.classes_.ROOT}.${this.classes_.JS}`;
+
+      // Test the subnodes.
+      let nodes = docRoot.querySelectorAll(selector);
+      for (let i = 0; i < nodes.length; i++) {
+        // Attach new component to DOM property.
+        nodes[i][this.strings_.CLASS_NAME] = new this(nodes[i]);
+      }
     }
   }
 
@@ -117,7 +121,7 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
 
     // Add CSS marker that component upgrade is finished.
     // Useful, but beware flashes of unstyled content when relying on this.
-    this.root_.classList.add(`${this.constructor.classAsString}--is-upgraded`);
+    this.root_.classList.add(`${this.constructor.classes_.ROOT}--is-upgraded`);
   }
 
   /**

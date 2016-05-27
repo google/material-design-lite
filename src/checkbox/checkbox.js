@@ -110,7 +110,7 @@ class MaterialCheckbox extends MaterialComponent {
    * @export
    */
   set checked(value) {
-    this.input_.checked = value;
+    this.input_.checked = Boolean(value);
     this.refresh();
   }
 
@@ -131,7 +131,7 @@ class MaterialCheckbox extends MaterialComponent {
    * @export
    */
   set disabled(value) {
-    this.input_.disabled = value;
+    this.input_.disabled = Boolean(value);
     this.refresh();
   }
 

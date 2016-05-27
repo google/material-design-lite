@@ -17,11 +17,11 @@
 describe('MaterialCheckbox', function () {
 
   function createCheckbox() {
-    var label = document.createElement('label'),
-    input = document.createElement('input'),
-    labelText = document.createElement('span');
+    var label = document.createElement('label');
+    var input = document.createElement('input');
+    var labelText = document.createElement('span');
     label.for = 'testCheckbox';
-    label.className = 'mdl-checkbox mdl-js-checkbox';
+    label.className = 'mdl-checkbox';
     input.type = 'checkbox';
     input.id = 'testCheckbox';
     input.className = 'mdl-checkbox__input';
@@ -30,36 +30,66 @@ describe('MaterialCheckbox', function () {
     labelText.text = 'Test Checkbox';
     label.appendChild(labelText);
     return label;
-  };
+  }
 
-  it('should be globally available', function () {
+  it('should be globally available', function() {
     expect(MaterialCheckbox).to.be.a('function');
   });
 
-  it('should upgrade successfully', function () {
+  it('should upgrade successfully', function() {
     var el = createCheckbox();
-    componentHandler.upgradeElement(el, 'MaterialCheckbox');
-    expect($(el)).to.have.data('upgraded', ',MaterialCheckbox');
+    var checkbox = new MaterialCheckbox(el);
+    expect(checkbox).to.be.an.instanceof(MaterialCheckbox);
+    expect(el.classList.contains('mdl-checkbox--is-upgraded')).to.be.true;
   });
 
-  it('should get disabled class after being checked', function() {
-    var checkbox = createCheckbox();
-    componentHandler.upgradeElement(checkbox);
-    checkbox.querySelector('input').disabled = true;
-    checkbox.MaterialCheckbox.checkDisabled();
-    expect((function() {
-      return checkbox.className;
-    }())).to.equal('mdl-checkbox mdl-js-checkbox is-upgraded is-disabled');
+  it('should auto-upgrade marked components', function() {
+    var page = document.createElement('div');
+    var elAuto = createCheckbox();
+    elAuto.classList.add('mdl-js-checkbox');
+    page.appendChild(elAuto);
+    var elNonAuto = createCheckbox();
+    page.appendChild(elNonAuto);
+    MaterialCheckbox.initComponents(page);
+    expect(elAuto.classList.contains('mdl-checkbox--is-upgraded')).to.be.true;
+    expect(elNonAuto.classList.contains('mdl-checkbox--is-upgraded')).to.be.false;
+  })
+
+  it('should expose its instance when auto-upgraded', function() {
+    var page = document.createElement('div');
+    var el = createCheckbox();
+    el.classList.add('mdl-js-checkbox');
+    page.appendChild(el);
+    MaterialCheckbox.initComponents(page);
+    expect(el.MaterialCheckbox).to.not.be.null;
+    expect(el.MaterialCheckbox.checked).to.not.be.null;
   });
 
-  it('should get checked class after checking toggle state', function() {
-    var checkbox = createCheckbox();
-    componentHandler.upgradeElement(checkbox);
-    checkbox.querySelector('input').checked = true;
-    checkbox.MaterialCheckbox.checkToggleState();
-    expect((function() {
-      return checkbox.className;
-    }())).to.equal('mdl-checkbox mdl-js-checkbox is-upgraded is-checked');
+  it('should get checked class after being checked', function() {
+    var el = createCheckbox();
+    var checkbox = new MaterialCheckbox(el);
+    checkbox.checked = true;
+    expect(el.classList.contains('is-checked')).to.be.true;
   });
 
+  it('should return true in .checked after being checked', function() {
+    var el = createCheckbox();
+    var checkbox = new MaterialCheckbox(el);
+    checkbox.checked = true;
+    expect(checkbox.checked).to.be.true;
+  });
+
+  it('should get disabled class after being disabled', function() {
+    var el = createCheckbox();
+    var checkbox = new MaterialCheckbox(el);
+    checkbox.disabled = true;
+    expect(el.classList.contains('is-disabled')).to.be.true;
+  });
+
+  it('should return true in .disabled after being disabled', function() {
+    var el = createCheckbox();
+    var checkbox = new MaterialCheckbox(el);
+    checkbox.disabled = true;
+    expect(checkbox.disabled).to.be.true;
+  });
 });
