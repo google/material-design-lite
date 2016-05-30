@@ -31,13 +31,13 @@
     font-size: 0;
     white-space: nowrap;
 
-    .mdl-chip__text {
+    &__text {
         font-size: $chip-font-size;
         vertical-align: middle;
         display: inline-block;
     }
 
-    .mdl-chip__action {
+    &__action {
         height: 24px;
         width: 24px;
         background: transparent;
@@ -57,7 +57,7 @@
         overflow: hidden;
     }
     
-    .mdl-chip__contact {
+    &__contact {
         height: $chip-height;
         width: $chip-height;
         border-radius: $chip-height / 2;
@@ -79,11 +79,11 @@
         background-color: $chip-bg-active-color;
     }
     
-    &.mdl-chip--deletable {
+    &--deletable {
         padding-right: 4px;
     }
     
-    &.mdl-chip--contact {
+    &--contact {
         padding-left: 0;
     }
 }
