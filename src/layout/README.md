@@ -152,7 +152,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
   <div class="mdl-layout__drawer">
     <span class="mdl-layout__title">Simple Layout</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="#">Nav link 2</a>
+      <a class="mdl-navigation__link" href="#">Nav link 1</a>
       <a class="mdl-navigation__link" href="#">Nav link 2</a>
       <a class="mdl-navigation__link" href="#">Nav link 3</a>
     </nav>
@@ -178,7 +178,7 @@ Use of MDL layout principles simplifies the creation of scalable pages by provid
   <div class="mdl-layout__drawer">
     <span class="mdl-layout__title">Simple Layout</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="#">Nav link 2</a>
+      <a class="mdl-navigation__link" href="#">Nav link 1</a>
       <a class="mdl-navigation__link" href="#">Nav link 2</a>
       <a class="mdl-navigation__link" href="#">Nav link 3</a>
     </nav>
