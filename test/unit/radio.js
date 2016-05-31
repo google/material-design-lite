@@ -17,117 +17,79 @@
 describe('MaterialRadio', function () {
 
   function createRadio() {
-    return createRadioWithValues('flash', 'on');
-  };
-
-  function createRadioWithValues(name, value) {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var labelText = document.createElement('span');
-    label.for = 'testRadio';
-    input.id = label.for;
-    label.className = 'mdl-radio mdl-js-radio';
-    input.className = 'mdl-radio__button';
+    label.for = 'testCheckbox';
+    label.className = 'mdl-radio';
     input.type = 'radio';
-    input.name = name;
-    input.value = value;
+    input.id = 'testCheckbox';
+    input.className = 'mdl-radio__input';
     label.appendChild(input);
     labelText.className = 'mdl-radio__label';
-    labelText.text = 'Always on';
+    labelText.text = 'Test Radio';
     label.appendChild(labelText);
     return label;
   }
 
-  it('should be globally available', function () {
+  it('should be globally available', function() {
     expect(MaterialRadio).to.be.a('function');
   });
 
-  it('should upgrade successfully', function () {
+  it('should upgrade successfully', function() {
     var el = createRadio();
-    componentHandler.upgradeElement(el, 'MaterialRadio');
-    expect($(el)).to.have.data('upgraded', ',MaterialRadio');
+    var radio = new MaterialRadio(el);
+    expect(radio).to.be.an.instanceof(MaterialRadio);
+    expect(el.classList.contains('mdl-radio--is-upgraded')).to.be.true;
   });
 
-  it('should be a widget', function() {
-    var radio = createRadio();
-    componentHandler.upgradeElement(radio);
-    expect(radio.MaterialRadio).to.be.a('object');
+  it('should auto-upgrade marked components', function() {
+    var page = document.createElement('div');
+    var elAuto = createRadio();
+    elAuto.classList.add('mdl-js-radio');
+    page.appendChild(elAuto);
+    var elNonAuto = createRadio();
+    page.appendChild(elNonAuto);
+    MaterialRadio.initComponents(page);
+    expect(elAuto.classList.contains('mdl-radio--is-upgraded')).to.be.true;
+    expect(elNonAuto.classList.contains('mdl-radio--is-upgraded')).to.be.false;
+  })
+
+  it('should expose its instance when auto-upgraded', function() {
+    var page = document.createElement('div');
+    var el = createRadio();
+    el.classList.add('mdl-js-radio');
+    page.appendChild(el);
+    MaterialRadio.initComponents(page);
+    expect(el.MaterialRadio).to.not.be.null;
+    expect(el.MaterialRadio.checked).to.not.be.null;
   });
 
-  it('should have all public methods available in widget', function() {
-    var radio = createRadio();
-    componentHandler.upgradeElement(radio);
-    var methods = [
-      'disable',
-      'enable',
-      'uncheck',
-      'check',
-      'checkDisabled',
-      'checkToggleState'
-    ];
-    methods.forEach(function(item) {
-      expect(radio.MaterialRadio[item]).to.be.a('function');
-    });
+  it('should get checked class after being checked', function() {
+    var el = createRadio();
+    var radio = new MaterialRadio(el);
+    radio.checked = true;
+    expect(el.classList.contains('is-checked')).to.be.true;
   });
 
-  it('should get disabled class after being checked', function() {
-    var radio = createRadio();
-    componentHandler.upgradeElement(radio);
-    radio.querySelector('input').disabled = true;
-    radio.MaterialRadio.checkDisabled();
-    expect((function() {
-      return radio.className;
-    }())).to.equal('mdl-radio mdl-js-radio is-upgraded is-disabled');
+  it('should return true in .checked after being checked', function() {
+    var el = createRadio();
+    var radio = new MaterialRadio(el);
+    radio.checked = true;
+    expect(radio.checked).to.be.true;
   });
 
-  it('should get checked class after checking toggle state', function() {
-    var radio = createRadio();
-    componentHandler.upgradeElement(radio);
-    radio.querySelector('input').checked = true;
-    radio.MaterialRadio.checkToggleState();
-    expect((function() {
-      return radio.className;
-    }())).to.equal('mdl-radio mdl-js-radio is-upgraded is-checked');
+  it('should get disabled class after being disabled', function() {
+    var el = createRadio();
+    var radio = new MaterialRadio(el);
+    radio.disabled = true;
+    expect(el.classList.contains('is-disabled')).to.be.true;
   });
 
-  it('should update related radios on one changing', function() {
-    var radios = [];
-    radios.push(createRadioWithValues('test', 'one'));
-    radios.push(createRadioWithValues('test', 'two'));
-    radios.push(createRadioWithValues('test', 'three'));
-    radios.push(createRadioWithValues('tester', 'A'));
-    radios.push(createRadioWithValues('tester', 'B'));
-    radios.push(createRadioWithValues('tester', 'C'));
-    var container = document.createElement('div');
-    radios.forEach(function(item) {
-      container.appendChild(item);
-      componentHandler.upgradeElement(item);
-    });
-    document.body.appendChild(container);
-
-    // Prepare the change event for manual firing.
-    // Used to trigger sibling checking as if UX triggered.
-    var changeEvent = document.createEvent("HTMLEvents");
-    changeEvent.initEvent("change", false, true);
-
-    // Check that all inputs are in a clean state
-    Array.prototype.splice.call(document.querySelectorAll('[type="radio"]')).forEach(function(item) {
-      expect(item.className).to.equal('mdl-radio mdl-js-radio is-upgraded');
-    });
-
-    radios[0].MaterialRadio.check();
-    radios[0].querySelector('input').dispatchEvent(changeEvent);
-    expect(radios[0].className).to.equal('mdl-radio mdl-js-radio is-upgraded is-checked');
-
-    radios[1].MaterialRadio.check();
-    radios[1].querySelector('input').dispatchEvent(changeEvent);
-    expect(radios[1].className).to.equal('mdl-radio mdl-js-radio is-upgraded is-checked');
-    expect(radios[0].className).to.equal('mdl-radio mdl-js-radio is-upgraded');
-
-    // Check the extra radio set to verify things with different names are not touched when changing.
-    Array.prototype.splice.call(document.querySelectorAll('[type="radio"][name="tester"]')).forEach(function(item) {
-      expect(item.className).to.equal('mdl-radio mdl-js-radio is-upgraded');
-    });
-
+  it('should return true in .disabled after being disabled', function() {
+    var el = createRadio();
+    var radio = new MaterialRadio(el);
+    radio.disabled = true;
+    expect(radio.disabled).to.be.true;
   });
 });

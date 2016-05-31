@@ -16,106 +16,129 @@
 
 describe('MaterialMenu', function () {
 
+  function createMenu() {
+    var el = document.createElement('div');
+    el.classList.add('mdl-menu');
+
+    var list = document.createElement('ul');
+    list.classList.add('mdl-menu__list');
+    el.appendChild(list);
+
+    return el;
+  }
+
   it('should be globally available', function () {
     expect(MaterialMenu).to.be.a('function');
   });
 
   it('should upgrade successfully', function () {
-    var parent = document.createElement('div'), // parent must exist for MaterialMenu.init()
-      el = document.createElement('ul');
-    parent.appendChild(el)
+    el = createMenu();
 
-    componentHandler.upgradeElement(el, 'MaterialMenu');
-    expect($(el)).to.have.data('upgraded', ',MaterialMenu');
+    var menu = new MaterialMenu(el);
+    expect(menu).to.be.an.instanceof(MaterialMenu);
   });
 
-  describe ('visibility API', function () {
-    var parent;
-    var el;
+  it('should not upgrade without a list', function () {
+    var el = document.createElement('div');
+    el.classList.add('mdl-menu');
 
-    before(function() {
-      parent = document.createElement('div'); // parent must exist for MaterialMenu.init()
-      el = document.createElement('ul');
-      parent.appendChild(el)
-      componentHandler.upgradeElement(el, 'MaterialMenu');
-    });
-
-    it('should start the showing animation on show()', function(done) {
-      expect($(el.parentElement)).to.not.have.class('is-visible');
-      el.MaterialMenu.show();
-      window.setTimeout(function() {
-        expect($(el.parentElement)).to.have.class('is-visible');
-
-        var ev = document.createEvent('HTMLEvents');
-        ev.initEvent('transitionend', true, true)
-        el.dispatchEvent(ev);
-        done();
-      }, 100);
-    });
-
-    it('should start the hiding animation on hide()', function(done) {
-      expect($(el.parentElement)).to.have.class('is-visible');
-      el.MaterialMenu.hide();
-      window.setTimeout(function() {
-        expect($(el.parentElement)).to.not.have.class('is-visible');
-
-        var ev = document.createEvent('HTMLEvents');
-        ev.initEvent('transitionend', true, true)
-        el.dispatchEvent(ev);
-        done();
-      }, 100);
-    });
-
-    it('should start the showing animating on toggle() when invisible', function(done) {
-      expect($(el.parentElement)).to.not.have.class('is-visible');
-      el.MaterialMenu.toggle();
-      window.setTimeout(function() {
-        expect($(el.parentElement)).to.have.class('is-visible');
-
-        var ev = document.createEvent('HTMLEvents');
-        ev.initEvent('transitionend', true, true)
-        el.dispatchEvent(ev);
-        done();
-      }, 100);
-    });
-
-    it('should start the hiding animating on toggle() when visible', function(done) {
-      expect($(el.parentElement)).to.have.class('is-visible');
-      el.MaterialMenu.toggle();
-      window.setTimeout(function() {
-        expect($(el.parentElement)).to.not.have.class('is-visible');
-
-        var ev = document.createEvent('HTMLEvents');
-        ev.initEvent('transitionend', true, true)
-        el.dispatchEvent(ev);
-        done();
-      }, 100);
-    });
-
+    expect(function() { new MaterialMenu(el) }).to.throw(Error);
   });
 
-  it('Should be made visible on button click', function (done) {
-    var ctr = document.createElement('div')
-    ctr.innerHTML = '<button id="clickable">Menu</button>' +
-                    '<ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="clickable">' +
-                    '  <li class="mdl-menu__item">5.0 Lollipop</li>' +
-                    '  <li class="mdl-menu__item">4.4 KitKat</li>' +
-                    '  <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>' +
-                    '  <li class="mdl-menu__item">Android History</li>' +
-                    '</ul>';
-    document.body.appendChild(ctr); // `for` only works in document
+  it('should auto-upgrade marked components', function() {
+    var page = document.createElement('div');
+    var elAuto = createMenu();
+    elAuto.classList.add('mdl-js-menu');
+    page.appendChild(elAuto);
+    var elNonAuto = createMenu();
+    page.appendChild(elNonAuto);
+    MaterialMenu.initComponents(page);
+    expect(elAuto.classList.contains('mdl-menu--is-upgraded')).to.be.true;
+    expect(elNonAuto.classList.contains('mdl-menu--is-upgraded')).to.be.false;
+  });
 
-    var el = ctr.querySelector('ul');
-    componentHandler.upgradeElement(el, 'MaterialMenu');
+  it('should start the showing animation on show()', function(done) {
+    var el = createMenu();
+    var menu = new MaterialMenu(el);
 
-    var ev = document.createEvent('MouseEvents');
-    ev.initEvent('click', true, true);
-    ctr.querySelector('#clickable').dispatchEvent(ev);
+    expect(el.classList.contains('is-visible')).to.be.false;
+    menu.show();
     window.setTimeout(function() {
-      expect($(el.parentElement)).to.have.class('is-visible');
-      document.body.removeChild(ctr);
+      expect(el.classList.contains('is-visible')).to.be.true;
       done();
     }, 100);
   });
 
+  it('should start the hiding animation on hide()', function(done) {
+    var el = createMenu();
+    var menu = new MaterialMenu(el);
+
+    menu.show();
+    window.setTimeout(function() {
+      expect(el.classList.contains('is-visible')).to.be.true;
+      menu.hide();
+      window.setTimeout(function() {
+        expect(el.classList.contains('is-visible')).to.be.false;
+        done();
+      }, 100);
+    }, 100);
+  });
+
+  it('should start the showing animating on toggle() when invisible', function(done) {
+    var el = createMenu();
+    var menu = new MaterialMenu(el);
+
+    expect(el.classList.contains('is-visible')).to.be.false;
+    menu.toggle();
+    window.setTimeout(function() {
+      expect(el.classList.contains('is-visible')).to.be.true;
+      done();
+    }, 100);
+  });
+
+  it('should start the hiding animating on toggle() when visible', function(done) {
+    var el = createMenu();
+    var menu = new MaterialMenu(el);
+
+    menu.show();
+    window.setTimeout(function() {
+      expect(el.classList.contains('is-visible')).to.be.true;
+      menu.toggle();
+      window.setTimeout(function() {
+        expect(el.classList.contains('is-visible')).to.be.false;
+        done();
+      }, 100);
+    }, 100);
+  });
+
+  it('should be anchored to the anchor', function (done) {
+    var anchor = document.createElement('button');
+    anchor.id = 'menuAnchor';
+
+    var el = document.createElement('div');
+    el.classList.add('mdl-menu');
+    el.setAttribute('data-mdl-anchor', 'menuAnchor');
+
+    var list = document.createElement('ul');
+    list.classList.add('mdl-menu__list');
+    list.innerHTML = '<li class="mdl-menu__item">5.0 Lollipop</li> ' +
+                    '<li class="mdl-menu__item">4.4 KitKat</li> ' +
+                    '<li disabled class="mdl-menu__item">4.3 Jelly Bean</li> ' +
+                    '<li class="mdl-menu__item">Android History</li>';
+    el.appendChild(list);
+
+    document.body.appendChild(anchor);
+    document.body.appendChild(el);
+
+    var menu = new MaterialMenu(el);
+    menu.show();
+    window.setTimeout(function() {
+      var anchorRect = anchor.getBoundingClientRect();
+      var menuRect = el.getBoundingClientRect();
+
+      expect(menuRect.left).to.equal(anchorRect.left);
+      expect(menuRect.top).to.equal(anchorRect.bottom);
+      done();
+    }, 100);
+  });
 });
