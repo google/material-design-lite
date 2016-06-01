@@ -30,24 +30,24 @@ class MaterialRadio extends MaterialComponent {
     super(root);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.classes_.ROOT)) {
+    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialRadio missing ' +
-          `${this.constructor.classes_.ROOT} class.`);
+          `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
     // Look for required sub-nodes in the root's DOM.
-    this.input_ = root.querySelector(`.${MaterialRadio.classes_.INPUT}`);
+    this.input_ = root.querySelector(`.${MaterialRadio.cssClasses_.INPUT}`);
     if (!this.input_) {
       throw new Error(
-          `MaterialRadio missing ${MaterialRadio.classes_.INPUT} node.`);
+          `MaterialRadio missing ${MaterialRadio.cssClasses_.INPUT} node.`);
     }
 
     // Initialize event listeners.
     this.changeListener_ = this.onChange_.bind(this);
     this.focusListener_ =
-        () => this.root_.classList.add(MaterialRadio.classes_.IS_FOCUSED);
+        () => this.root_.classList.add(MaterialRadio.cssClasses_.IS_FOCUSED);
     this.blurListener_ =
-        () => this.root_.classList.remove(MaterialRadio.classes_.IS_FOCUSED);
+        () => this.root_.classList.remove(MaterialRadio.cssClasses_.IS_FOCUSED);
     this.mouseUpListener_ = this.blur_.bind(this);
 
     // Finalize initialization.
@@ -61,7 +61,7 @@ class MaterialRadio extends MaterialComponent {
    * @protected
    * @return {Object<string, string>} The CSS classes used in this component.
    */
-  static get classes_() {
+  static get cssClasses_() {
     return {
       ROOT: 'mdl-radio',
       JS: 'mdl-js-radio',
@@ -82,9 +82,9 @@ class MaterialRadio extends MaterialComponent {
    */
   static checkToggleState_(root, input) {
     if (input.checked) {
-      root.classList.add(MaterialRadio.classes_.IS_CHECKED);
+      root.classList.add(MaterialRadio.cssClasses_.IS_CHECKED);
     } else {
-      root.classList.remove(MaterialRadio.classes_.IS_CHECKED);
+      root.classList.remove(MaterialRadio.cssClasses_.IS_CHECKED);
     }
   }
 
@@ -97,9 +97,9 @@ class MaterialRadio extends MaterialComponent {
    */
   static checkDisabled_(root, input) {
     if (input.disabled) {
-      root.classList.add(MaterialRadio.classes_.IS_DISABLED);
+      root.classList.add(MaterialRadio.cssClasses_.IS_DISABLED);
     } else {
-      root.classList.remove(MaterialRadio.classes_.IS_DISABLED);
+      root.classList.remove(MaterialRadio.cssClasses_.IS_DISABLED);
     }
   }
 
@@ -200,9 +200,11 @@ class MaterialRadio extends MaterialComponent {
    */
   onChange_() {
     requestAnimationFrame(() => {
-      let radios = document.querySelectorAll(`.${MaterialRadio.classes_.ROOT}`);
+      let radios =
+          document.querySelectorAll(`.${MaterialRadio.cssClasses_.ROOT}`);
       for (let i = 0; i < radios.length; i++) {
-        let input = radios[i].querySelector(`.${MaterialRadio.classes_.INPUT}`);
+        let input =
+            radios[i].querySelector(`.${MaterialRadio.cssClasses_.INPUT}`);
         // Different name == different group, so no point updating those.
         if (input &&
             input.getAttribute('name') === this.input_.getAttribute('name')) {

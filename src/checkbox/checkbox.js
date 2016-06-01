@@ -30,25 +30,25 @@ class MaterialCheckbox extends MaterialComponent {
     super(root);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.classes_.ROOT)) {
+    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialCheckbox missing ' +
-          `${this.constructor.classes_.ROOT} class.`);
+          `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
     // Look for required sub-nodes in the root's DOM.
     this.input_ =
-        this.root_.querySelector(`.${MaterialCheckbox.classes_.INPUT}`);
+        this.root_.querySelector(`.${MaterialCheckbox.cssClasses_.INPUT}`);
     if (!this.input_) {
-      throw new Error(
-          `MaterialCheckbox missing ${MaterialCheckbox.classes_.INPUT} node.`);
+      throw new Error('MaterialCheckbox missing ' +
+          `${MaterialCheckbox.cssClasses_.INPUT} node.`);
     }
 
     // Initialize event listeners.
     this.changeListener_ = this.refresh.bind(this);
     this.focusListener_ =
-        () => this.root_.classList.add(MaterialCheckbox.classes_.IS_FOCUSED);
-    this.blurListener_ =
-        () => this.root_.classList.remove(MaterialCheckbox.classes_.IS_FOCUSED);
+        () => this.root_.classList.add(MaterialCheckbox.cssClasses_.IS_FOCUSED);
+    this.blurListener_ = () => this.root_.classList.remove(
+        MaterialCheckbox.cssClasses_.IS_FOCUSED);
     this.mouseUpListener_ = this.blur_.bind(this);
 
     // Finalize initialization.
@@ -61,7 +61,7 @@ class MaterialCheckbox extends MaterialComponent {
    * @protected
    * @return {Object<string, string>} The CSS classes used in this component.
    */
-  static get classes_() {
+  static get cssClasses_() {
     return {
       ROOT: 'mdl-checkbox',
       JS: 'mdl-js-checkbox',
@@ -165,9 +165,9 @@ class MaterialCheckbox extends MaterialComponent {
    */
   checkToggleState_() {
     if (this.input_.checked) {
-      this.root_.classList.add(MaterialCheckbox.classes_.IS_CHECKED);
+      this.root_.classList.add(MaterialCheckbox.cssClasses_.IS_CHECKED);
     } else {
-      this.root_.classList.remove(MaterialCheckbox.classes_.IS_CHECKED);
+      this.root_.classList.remove(MaterialCheckbox.cssClasses_.IS_CHECKED);
     }
   }
 
@@ -178,9 +178,9 @@ class MaterialCheckbox extends MaterialComponent {
    */
   checkDisabled_() {
     if (this.input_.disabled) {
-      this.root_.classList.add(MaterialCheckbox.classes_.IS_DISABLED);
+      this.root_.classList.add(MaterialCheckbox.cssClasses_.IS_DISABLED);
     } else {
-      this.root_.classList.remove(MaterialCheckbox.classes_.IS_DISABLED);
+      this.root_.classList.remove(MaterialCheckbox.cssClasses_.IS_DISABLED);
     }
   }
 }

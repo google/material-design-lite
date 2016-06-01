@@ -30,25 +30,25 @@ class MaterialSwitch extends MaterialComponent {
     super(root);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.classes_.ROOT)) {
+    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialSwitch missing ' +
-          `${this.constructor.classes_.ROOT} class.`);
+          `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
     // Look for required sub-nodes in the root's DOM.
     this.input_ =
-        this.root_.querySelector(`.${MaterialSwitch.classes_.INPUT}`);
+        this.root_.querySelector(`.${MaterialSwitch.cssClasses_.INPUT}`);
     if (!this.input_) {
       throw new Error(
-          `MaterialSwitch missing ${MaterialSwitch.classes_.INPUT} node.`);
+          `MaterialSwitch missing ${MaterialSwitch.cssClasses_.INPUT} node.`);
     }
 
     // Initialize event listeners.
     this.changeListener_ = this.refresh.bind(this);
     this.focusListener_ =
-        () => this.root_.classList.add(MaterialSwitch.classes_.IS_FOCUSED);
-    this.blurListener_ =
-        () => this.root_.classList.remove(MaterialSwitch.classes_.IS_FOCUSED);
+        () => this.root_.classList.add(MaterialSwitch.cssClasses_.IS_FOCUSED);
+    this.blurListener_ = () => this.root_.classList.remove(
+        MaterialSwitch.cssClasses_.IS_FOCUSED);
     this.mouseUpListener_ = this.blur_.bind(this);
 
     // Finalize initialization.
@@ -61,7 +61,7 @@ class MaterialSwitch extends MaterialComponent {
    * @protected
    * @return {Object<string, string>} The CSS classes used in this component.
    */
-  static get classes_() {
+  static get cssClasses_() {
     return {
       ROOT: 'mdl-switch',
       JS: 'mdl-js-switch',
@@ -165,9 +165,9 @@ class MaterialSwitch extends MaterialComponent {
    */
   checkToggleState_() {
     if (this.input_.checked) {
-      this.root_.classList.add(MaterialSwitch.classes_.IS_CHECKED);
+      this.root_.classList.add(MaterialSwitch.cssClasses_.IS_CHECKED);
     } else {
-      this.root_.classList.remove(MaterialSwitch.classes_.IS_CHECKED);
+      this.root_.classList.remove(MaterialSwitch.cssClasses_.IS_CHECKED);
     }
   }
 
@@ -178,9 +178,9 @@ class MaterialSwitch extends MaterialComponent {
    */
   checkDisabled_() {
     if (this.input_.disabled) {
-      this.root_.classList.add(MaterialSwitch.classes_.IS_DISABLED);
+      this.root_.classList.add(MaterialSwitch.cssClasses_.IS_DISABLED);
     } else {
-      this.root_.classList.remove(MaterialSwitch.classes_.IS_DISABLED);
+      this.root_.classList.remove(MaterialSwitch.cssClasses_.IS_DISABLED);
     }
   }
 }

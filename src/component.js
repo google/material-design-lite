@@ -37,7 +37,7 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
    * @protected
    * @return {Object<string, string>} The CSS classes used in this component.
    */
-  static get classes_() {
+  static get cssClasses_() {
     // Empty in base class. Throw error if not correctly overriden.
     throw new Error('Should have ROOT and JS keys with the style class names,' +
       ' e.g. mdl-button and mdl-js-button.');
@@ -79,7 +79,8 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
 
     // Add CSS marker that component upgrade is finished.
     // Useful, but beware flashes of unstyled content when relying on this.
-    this.root_.classList.add(`${this.constructor.classes_.ROOT}--is-upgraded`);
+    this.root_.classList.add(
+        `${this.constructor.cssClasses_.ROOT}--is-upgraded`);
   }
 
   /**

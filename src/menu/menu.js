@@ -30,20 +30,20 @@ class MaterialMenu extends MaterialComponent {
     super(root);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.classes_.ROOT)) {
+    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialMenu missing ' +
-          `${this.constructor.classes_.ROOT} class.`);
+          `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
     // Look for sub-nodes in the root's DOM.
-    this.list_ = this.root_.querySelector(`.${MaterialMenu.classes_.LIST}`);
+    this.list_ = this.root_.querySelector(`.${MaterialMenu.cssClasses_.LIST}`);
     if (!this.list_) {
       throw new Error(
-          `MaterialMenu missing ${MaterialMenu.classes_.LIST} node.`);
+          `MaterialMenu missing ${MaterialMenu.cssClasses_.LIST} node.`);
     }
     // Outline is optional, given that it's a visual-only thing.
     this.outline_ =
-        this.root_.querySelector(`.${MaterialMenu.classes_.OUTLINE}`);
+        this.root_.querySelector(`.${MaterialMenu.cssClasses_.OUTLINE}`);
 
     // Initialize event listeners.
     this.itemClickListener_ = this.itemClicked_.bind(this);
@@ -88,7 +88,7 @@ class MaterialMenu extends MaterialComponent {
    * @protected
    * @return {Object<string, string>} The CSS classes used in this component.
    */
-  static get classes_() {
+  static get cssClasses_() {
     return {
       ROOT: 'mdl-menu',
       JS: 'mdl-js-menu',
@@ -119,17 +119,19 @@ class MaterialMenu extends MaterialComponent {
    * @private
    */
   applyClip_(height, width) {
-    if (this.root_.classList.contains(MaterialMenu.classes_.UNALIGNED)) {
+    if (this.root_.classList.contains(MaterialMenu.cssClasses_.UNALIGNED)) {
       // Do not clip.
       this.list_.style.removeProperty('clip');
     } else if (
-        this.root_.classList.contains(MaterialMenu.classes_.BOTTOM_RIGHT)) {
+        this.root_.classList.contains(MaterialMenu.cssClasses_.BOTTOM_RIGHT)) {
       // Clip to the top right corner of the menu.
       this.list_.style.setProperty('clip', `rect(0 ${width}px 0 ${width}px)`);
-    } else if (this.root_.classList.contains(MaterialMenu.classes_.TOP_LEFT)) {
+    } else if (this.root_.classList.contains(
+        MaterialMenu.cssClasses_.TOP_LEFT)) {
       // Clip to the bottom left corner of the menu.
       this.list_.style.setProperty('clip', `rect(${height}px 0 ${height}px 0)`);
-    } else if (this.root_.classList.contains(MaterialMenu.classes_.TOP_RIGHT)) {
+    } else if (this.root_.classList.contains(
+        MaterialMenu.cssClasses_.TOP_RIGHT)) {
       // Clip to the bottom right corner of the menu.
       this.list_.style.setProperty('clip',
           `rect(${height}px ${width}px ${height}px ${width}px)`);
@@ -147,11 +149,11 @@ class MaterialMenu extends MaterialComponent {
       let anchorRect = this.anchor_.getBoundingClientRect();
       let parentRect = this.anchor_.parentElement.getBoundingClientRect();
 
-      if (this.root_.classList.contains(MaterialMenu.classes_.UNALIGNED)) {
+      if (this.root_.classList.contains(MaterialMenu.cssClasses_.UNALIGNED)) {
         // Do not position the menu automatically. Requires the developer to
         // manually specify position.
       } else if (this.root_.classList.contains(
-            MaterialMenu.classes_.BOTTOM_RIGHT)) {
+            MaterialMenu.cssClasses_.BOTTOM_RIGHT)) {
         // Position below the anchor element, aligned to its right.
         this.root_.style.setProperty('top',
             `${this.anchor_.offsetTop + this.anchor_.offsetHeight}px`);
@@ -160,7 +162,7 @@ class MaterialMenu extends MaterialComponent {
         this.root_.style.removeProperty('bottom');
         this.root_.style.removeProperty('left');
       } else if (this.root_.classList.contains(
-            MaterialMenu.classes_.TOP_LEFT)) {
+            MaterialMenu.cssClasses_.TOP_LEFT)) {
         // Position above the anchor element, aligned to its left.
         this.root_.style.removeProperty('top');
         this.root_.style.removeProperty('right');
@@ -168,7 +170,7 @@ class MaterialMenu extends MaterialComponent {
             `${parentRect.bottom - anchorRect.top}px`);
         this.root_.style.setProperty('left', `${this.anchor_.offsetLeft}px`);
       } else if (this.root_.classList.contains(
-            MaterialMenu.classes_.TOP_RIGHT)) {
+            MaterialMenu.cssClasses_.TOP_RIGHT)) {
         // Position above the anchor element, aligned to its right.
         this.root_.style.removeProperty('top');
         this.root_.style.setProperty('right',
@@ -226,7 +228,7 @@ class MaterialMenu extends MaterialComponent {
    * @private
    */
   transitionEnd_(evt) {
-    evt.target.classList.remove(MaterialMenu.classes_.IS_ANIMATING);
+    evt.target.classList.remove(MaterialMenu.cssClasses_.IS_ANIMATING);
     this.animating_ = false;
   }
 
@@ -236,7 +238,8 @@ class MaterialMenu extends MaterialComponent {
    * @export
    */
   addEventListeners() {
-    let items = this.list_.querySelectorAll(`.${MaterialMenu.classes_.ITEM}`);
+    let items =
+        this.list_.querySelectorAll(`.${MaterialMenu.cssClasses_.ITEM}`);
     for (let i = 0; i < items.length; i++) {
       // Add a listener to each menu item.
       items[i].addEventListener('click', this.itemClickListener_);
@@ -257,7 +260,8 @@ class MaterialMenu extends MaterialComponent {
    * @export
    */
   removeEventListeners() {
-    let items = this.list_.querySelectorAll(`.${MaterialMenu.classes_.ITEM}`);
+    let items =
+        this.list_.querySelectorAll(`.${MaterialMenu.cssClasses_.ITEM}`);
     for (let i = 0; i < items.length; i++) {
       // Add a listener to each menu item.
       items[i].removeEventListener('click', this.itemClickListener_);
@@ -311,11 +315,12 @@ class MaterialMenu extends MaterialComponent {
 
       // Calculate transition delays for individual menu items, so that they fade
       // in one at a time.
-      let items = this.list_.querySelectorAll(`.${MaterialMenu.classes_.ITEM}`);
+      let items =
+          this.list_.querySelectorAll(`.${MaterialMenu.cssClasses_.ITEM}`);
       for (let i = 0; i < items.length; i++) {
         let itemDelay = null;
-        if (this.root_.classList.contains(MaterialMenu.classes_.TOP_LEFT) ||
-            this.root_.classList.contains(MaterialMenu.classes_.TOP_RIGHT)) {
+        if (this.root_.classList.contains(MaterialMenu.cssClasses_.TOP_LEFT) ||
+            this.root_.classList.contains(MaterialMenu.cssClasses_.TOP_RIGHT)) {
           itemDelay = ((height - items[i].offsetTop - items[i].offsetHeight) /
               height * transitionDuration);
         } else {
@@ -330,10 +335,10 @@ class MaterialMenu extends MaterialComponent {
       // Wait for the next frame, turn on animation, and apply the final clip.
       // Also make it visible. This triggers the transitions.
       requestAnimationFrame(() => {
-        this.list_.classList.add(MaterialMenu.classes_.IS_ANIMATING);
+        this.list_.classList.add(MaterialMenu.cssClasses_.IS_ANIMATING);
         this.list_.style.setProperty('clip',
             `rect(0 ${width}px ${height}px 0)`);
-        this.root_.classList.add(MaterialMenu.classes_.IS_VISIBLE);
+        this.root_.classList.add(MaterialMenu.cssClasses_.IS_VISIBLE);
       });
     }
   }
@@ -347,7 +352,8 @@ class MaterialMenu extends MaterialComponent {
     if (this.list_) {
       this.animating_ = true;
 
-      let items = this.list_.querySelectorAll(`.${MaterialMenu.classes_.ITEM}`);
+      let items =
+          this.list_.querySelectorAll(`.${MaterialMenu.cssClasses_.ITEM}`);
 
       // Remove all transition delays; menu items fade out concurrently.
       for (let i = 0; i < items.length; i++) {
@@ -361,9 +367,9 @@ class MaterialMenu extends MaterialComponent {
 
       // Turn on animation, and apply the final clip. Also make invisible.
       // This triggers the transitions.
-      this.list_.classList.add(MaterialMenu.classes_.IS_ANIMATING);
+      this.list_.classList.add(MaterialMenu.cssClasses_.IS_ANIMATING);
       this.applyClip_(height, width);
-      this.root_.classList.remove(MaterialMenu.classes_.IS_VISIBLE);
+      this.root_.classList.remove(MaterialMenu.cssClasses_.IS_VISIBLE);
     }
   }
 
@@ -373,7 +379,7 @@ class MaterialMenu extends MaterialComponent {
    * @export
    */
   toggle() {
-    if (this.root_.classList.contains(MaterialMenu.classes_.IS_VISIBLE)) {
+    if (this.root_.classList.contains(MaterialMenu.cssClasses_.IS_VISIBLE)) {
       this.hide();
     } else {
       this.show();
