@@ -27,30 +27,20 @@
 
   box-sizing: border-box;
   margin: 0;
-  padding-left: 0;
-
-  &.is-upgraded {
-    padding-left: $radio-button-size + $radio-padding;
-  }
+  padding-left: $radio-button-size + $radio-padding;
 }
 
-.mdl-radio__button {
+.mdl-radio__input {
   line-height: $radio-label-height;
-
-  .mdl-radio.is-upgraded & {
-    // Hide input element, while still making it respond to focus.
-    position: absolute;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    -ms-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-  }
+  // Hide input element, while still making it respond to focus.
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  appearance: none;
+  border: none;
 }
 
 .mdl-radio__outer-circle {

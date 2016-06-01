@@ -4,11 +4,13 @@
       "browser": true
     },
     "rules": {
-      "dot-notation": 0,
-      "no-new": 1,
-      "quotes": [2, "single"]
+      "dot-notation": "off",
+      "no-new": "warn",
+      "quotes": ["error", "single"],
+      "no-var": "error",
+      "no-unused-vars": ["error", { "varsIgnorePattern": "^Material.*" }]
     },
     "globals": {
-      "componentHandler": true
+      "MaterialComponent": true
     }
 }

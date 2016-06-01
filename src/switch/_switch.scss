@@ -34,36 +34,25 @@
   padding: 0;
 
   overflow: visible;
-
-  &.is-upgraded {
-    padding-left: $switch-track-length - 8px;
-  }
+  padding-left: $switch-track-length - 8px;
 
   // avoids blue box around switch
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
 .mdl-switch__input {
   line-height: $switch-label-height;
 
-  .mdl-switch.is-upgraded & {
-    // Hide input element, while still making it respond to focus.
-    position: absolute;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    -ms-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-  }
+  // Hide input element, while still making it respond to focus.
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  appearance: none;
+  border: none;
 }
 
 .mdl-switch__track {

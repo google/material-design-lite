@@ -34,7 +34,6 @@ import swig from 'swig';
 import gulp from 'gulp';
 import closureCompiler from 'gulp-closure-compiler';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import uniffe from './utils/uniffe.js';
 import pkg from './package.json';
 
 const $ = gulpLoadPlugins();
@@ -66,27 +65,26 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 const SOURCES = [
-  // Component handler
-  'src/mdlComponentHandler.js',
+  'src/component.js',
   // Base components
-  'src/button/button.js',
+  // 'src/button/button.js',
   'src/checkbox/checkbox.js',
-  'src/icon-toggle/icon-toggle.js',
+  // 'src/icon-toggle/icon-toggle.js',
   'src/menu/menu.js',
-  'src/progress/progress.js',
+  // 'src/progress/progress.js',
   'src/radio/radio.js',
-  'src/slider/slider.js',
-  'src/snackbar/snackbar.js',
-  'src/spinner/spinner.js',
-  'src/switch/switch.js',
-  'src/tabs/tabs.js',
-  'src/textfield/textfield.js',
-  'src/tooltip/tooltip.js',
+  // 'src/slider/slider.js',
+  // 'src/snackbar/snackbar.js',
+  // 'src/spinner/spinner.js',
+  'src/switch/switch.js'
+  // 'src/tabs/tabs.js',
+  // 'src/textfield/textfield.js',
+  // 'src/tooltip/tooltip.js',
   // Complex components (which reuse base components)
-  'src/layout/layout.js',
-  'src/data-table/data-table.js',
+  // 'src/layout/layout.js',
+  // 'src/data-table/data-table.js',
   // And finally, the ripples
-  'src/ripple/ripple.js'
+  // 'src/ripple/ripple.js'
 ];
 
 const COMPONENT_HEADER = `---
@@ -109,7 +107,7 @@ include_prefix: ../../
 
 // Lint JS sources.
 gulp.task('lint:sources', () => {
-  return gulp.src(SOURCES)
+  return gulp.src(['utils/export.js'].concat(SOURCES))
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
@@ -235,37 +233,23 @@ gulp.task('styles-grid', () => {
     .pipe($.size({title: 'styles-grid'}));
 });
 
-// Build with Google's Closure Compiler, requires Java 1.7+ installed.
-gulp.task('closure', () => {
-  return gulp.src(SOURCES)
+// Concatenate And Minify JavaScript
+gulp.task('scripts', ['lint:sources'], () => {
+  return gulp.src(['utils/export.js'].concat(SOURCES))
+    .pipe($.sourcemaps.init())
     .pipe(closureCompiler({
       compilerPath: 'node_modules/google-closure-compiler/compiler.jar',
-      fileName: 'material.closure.min.js',
+      fileName: 'material.min.js',
       compilerFlags: {
         /* eslint-disable camelcase */
         compilation_level: 'ADVANCED_OPTIMIZATIONS',
         language_in: 'ECMASCRIPT6_STRICT',
         language_out: 'ECMASCRIPT5_STRICT',
-        warning_level: 'VERBOSE'
-        /* eslint-enable camelcase */
+        warning_level: 'VERBOSE',
+        generate_exports: true,
+        export_local_property_definitions: true
+        // eslint-enable camelcase
       }
-    }))
-    .pipe(gulp.dest('./dist'));
-});
-
-// Concatenate And Minify JavaScript
-gulp.task('scripts', ['lint:sources'], () => {
-  return gulp.src(SOURCES)
-    .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
-    .pipe($.sourcemaps.init())
-    // Concatenate Scripts
-    .pipe($.concat('material.js'))
-    .pipe($.iife({useStrict: true}))
-    .pipe(gulp.dest('dist'))
-    // Minify Scripts
-    .pipe($.uglify({
-      sourceRoot: '.',
-      sourceMapIncludeSources: true
     }))
     .pipe($.header(banner, {pkg}))
     .pipe($.concat('material.min.js'))
@@ -318,21 +302,9 @@ gulp.task('mocha', ['styles'], () => {
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });
 
-gulp.task('mocha:closure', ['closure'], () => {
-  return gulp.src('test/index.html')
-    .pipe($.replace('src="../dist/material.js"',
-        'src="../dist/material.closure.min.js"'))
-    .pipe($.rename('temp.html'))
-    .pipe(gulp.dest('test'))
-    .pipe($.mochaPhantomjs({reporter: 'tap'}))
-    .on('finish', () => del.sync('test/temp.html'))
-    .on('error', () => del.sync('test/temp.html'));
-});
-
 gulp.task('test', [
   'lint',
-  'mocha',
-  'mocha:closure'
+  'mocha'
 ]);
 
 gulp.task('test:visual', () => {
