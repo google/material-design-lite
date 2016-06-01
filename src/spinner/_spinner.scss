@@ -23,11 +23,7 @@
   width: $spinner-size;
   height: $spinner-size;
 
-  &:not(.is-upgraded).is-active:after {
-    content: "Loading...";
-  }
-
-  &.is-upgraded.is-active {
+  &.is-active {
     animation: mdl-spinner__container-rotate $spinner-duration linear infinite;
   }
 }
@@ -37,73 +33,35 @@
 }
 
 .mdl-spinner__layer {
+  display: flex;
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
 }
 
-.mdl-spinner__layer-1 {
-  border-color: $spinner-color-1;
+@for $i from 1 through length($spinner-colors) {
+  .mdl-spinner__layer:nth-of-type(#{length($spinner-colors)}n+#{$i}) {
+    border-color: nth($spinner-colors, $i);
 
-  .mdl-spinner--single-color & {
-    border-color: $spinner-single-color;
-  }
+    .mdl-spinner--single-color & {
+      border-color: $spinner-single-color;
+    }
 
-  .mdl-spinner.is-active & {
-    animation:
-        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both,
-        mdl-spinner__layer-1-fade-in-out (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both;
-  }
-}
+    .mdl-spinner.mdl-spinner--single-color.is-active & {
+      opacity: 1;
+      animation:
+          mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
+              $animation-curve-fast-out-slow-in infinite both;
+    }
 
-.mdl-spinner__layer-2 {
-  border-color: $spinner-color-2;
-
-  .mdl-spinner--single-color & {
-    border-color: $spinner-single-color;
-  }
-
-  .mdl-spinner.is-active & {
-    animation:
-        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both,
-        mdl-spinner__layer-2-fade-in-out (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both;
-  }
-}
-
-.mdl-spinner__layer-3 {
-  border-color: $spinner-color-3;
-
-  .mdl-spinner--single-color & {
-    border-color: $spinner-single-color;
-  }
-
-  .mdl-spinner.is-active & {
-    animation:
-        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both,
-        mdl-spinner__layer-3-fade-in-out (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both;
-  }
-}
-
-.mdl-spinner__layer-4 {
-  border-color: $spinner-color-4;
-
-  .mdl-spinner--single-color & {
-    border-color: $spinner-single-color;
-  }
-
-  .mdl-spinner.is-active & {
-    animation:
-        mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both,
-        mdl-spinner__layer-4-fade-in-out (4 * $spinner-arc-time)
-            $animation-curve-fast-out-slow-in infinite both;
+    .mdl-spinner.is-active & {
+      animation:
+          mdl-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
+              $animation-curve-fast-out-slow-in infinite both,
+          mdl-spinner__layer-#{$i}-fade-in-out #{' '} (4 * $spinner-arc-time)
+              $animation-curve-fast-out-slow-in infinite both;
+    }
   }
 }
 
@@ -128,35 +86,35 @@
 * - https://code.google.com/p/chromium/issues/detail?id=436255
 */
 @keyframes mdl-spinner__layer-1-fade-in-out {
-  from { opacity: 0.99; }
-  25% { opacity: 0.99; }
+  from { opacity: 1; }
+  25% { opacity: 1; }
   26% { opacity: 0; }
   89% { opacity: 0; }
-  90% { opacity: 0.99; }
-  100% { opacity: 0.99; }
+  90% { opacity: 1; }
+  100% { opacity: 1; }
 }
 
 @keyframes mdl-spinner__layer-2-fade-in-out {
   from { opacity: 0; }
   15% { opacity: 0; }
-  25% { opacity: 0.99; }
-  50% { opacity: 0.99; }
+  25% { opacity: 1; }
+  50% { opacity: 1; }
   51% { opacity: 0; }
 }
 
 @keyframes mdl-spinner__layer-3-fade-in-out {
   from { opacity: 0; }
   40% { opacity: 0; }
-  50% { opacity: 0.99; }
-  75% { opacity: 0.99; }
+  50% { opacity: 1; }
+  75% { opacity: 1; }
   76% { opacity: 0; }
 }
 
 @keyframes mdl-spinner__layer-4-fade-in-out {
   from { opacity: 0; }
   65% { opacity: 0; }
-  75% { opacity: 0.99; }
-  90% { opacity: 0.99; }
+  75% { opacity: 1; }
+  90% { opacity: 1; }
   100% { opacity: 0; }
 }
 
@@ -185,9 +143,10 @@
 }
 
 .mdl-spinner__circle-clipper {
+  box-sizing: border-box;
   display: inline-block;
   position: relative;
-  width: 50%;
+  flex-grow: 50;
   height: 100%;
   overflow: hidden;
   border-color: inherit;
