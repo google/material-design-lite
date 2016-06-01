@@ -43,28 +43,6 @@ describe('MaterialRadio', function () {
     expect(el.classList.contains('mdl-radio--is-upgraded')).to.be.true;
   });
 
-  it('should auto-upgrade marked components', function() {
-    var page = document.createElement('div');
-    var elAuto = createRadio();
-    elAuto.classList.add('mdl-js-radio');
-    page.appendChild(elAuto);
-    var elNonAuto = createRadio();
-    page.appendChild(elNonAuto);
-    MaterialRadio.initComponents(page);
-    expect(elAuto.classList.contains('mdl-radio--is-upgraded')).to.be.true;
-    expect(elNonAuto.classList.contains('mdl-radio--is-upgraded')).to.be.false;
-  })
-
-  it('should expose its instance when auto-upgraded', function() {
-    var page = document.createElement('div');
-    var el = createRadio();
-    el.classList.add('mdl-js-radio');
-    page.appendChild(el);
-    MaterialRadio.initComponents(page);
-    expect(el.MaterialRadio).to.not.be.null;
-    expect(el.MaterialRadio.checked).to.not.be.null;
-  });
-
   it('should get checked class after being checked', function() {
     var el = createRadio();
     var radio = new MaterialRadio(el);

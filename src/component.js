@@ -28,12 +28,6 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
    */
   constructor(root) {
     this.root_ = root;
-
-    // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.classes_.ROOT)) {
-      throw new Error(`${this.constructor.classAsString} missing ` +
-          `${this.constructor.classes_.ROOT} class.`);
-    }
   }
 
   // eslint-disable-next-line valid-jsdoc
@@ -60,7 +54,6 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
     return {};
   }
 
-  // eslint-disable-next-line valid-jsdoc
   /**
    * String constants used in this component.
    *
@@ -68,43 +61,8 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
    * @return {Object<string, string>} The strings used in this component.
    */
   static get strings_() {
-    // Empty in base class. Throw error if not correctly overriden.
-    throw new Error('Should have a CLASS_NAME key with the script class name,' +
-        ' e.g. MaterialButton.');
-  }
-
-  /**
-   * Return class name as a string. Useful for automation after obfuscation.
-   *
-   * @return {string} The JS class name for this component.
-   * @suppress {missingProperties}
-   * @nocollapse
-   * @export
-   */
-  static get classAsString() {
-    return this.strings_.CLASS_NAME;
-  }
-
-  /**
-   * Initialize all self-managed instances under the given node.
-   * This will only initialize components that have specifically been marked
-   * for self-management.
-   *
-   * @param {Node} docRoot The node under which to look for components.
-   * @nocollapse
-   * @export
-   */
-  static initComponents(docRoot) {
-    if (docRoot) {
-      let selector = `.${this.classes_.ROOT}.${this.classes_.JS}`;
-
-      // Test the subnodes.
-      let nodes = docRoot.querySelectorAll(selector);
-      for (let i = 0; i < nodes.length; i++) {
-        // Attach new component to DOM property.
-        nodes[i][this.strings_.CLASS_NAME] = new this(nodes[i]);
-      }
-    }
+    // Empty in base class.
+    return {};
   }
 
   /**

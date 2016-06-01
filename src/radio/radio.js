@@ -29,6 +29,12 @@ class MaterialRadio extends MaterialComponent {
   constructor(root) {
     super(root);
 
+    // Check if the root has the right class.
+    if (!root.classList.contains(this.constructor.classes_.ROOT)) {
+      throw new Error('MaterialRadio missing ' +
+          `${this.constructor.classes_.ROOT} class.`);
+    }
+
     // Look for required sub-nodes in the root's DOM.
     this.input_ = root.querySelector(`.${MaterialRadio.classes_.INPUT}`);
     if (!this.input_) {
@@ -46,19 +52,6 @@ class MaterialRadio extends MaterialComponent {
 
     // Finalize initialization.
     this.init_();
-  }
-
-  /**
-   * String constants used in this component.
-   *
-   * @override
-   * @protected
-   * @return {Object<string, string>} The strings used in this component.
-   */
-  static get strings_() {
-    return {
-      CLASS_NAME: 'MaterialRadio'
-    };
   }
 
   /**
@@ -220,6 +213,3 @@ class MaterialRadio extends MaterialComponent {
     });
   }
 }
-
-// Initialize all self-managed components in the document.
-MaterialRadio.initComponents(document);

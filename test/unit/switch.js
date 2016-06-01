@@ -43,28 +43,6 @@ describe('MaterialSwitch', function () {
     expect(el.classList.contains('mdl-switch--is-upgraded')).to.be.true;
   });
 
-  it('should auto-upgrade marked components', function() {
-    var page = document.createElement('div');
-    var elAuto = createSwitch();
-    elAuto.classList.add('mdl-js-switch');
-    page.appendChild(elAuto);
-    var elNonAuto = createSwitch();
-    page.appendChild(elNonAuto);
-    MaterialSwitch.initComponents(page);
-    expect(elAuto.classList.contains('mdl-switch--is-upgraded')).to.be.true;
-    expect(elNonAuto.classList.contains('mdl-switch--is-upgraded')).to.be.false;
-  })
-
-  it('should expose its instance when auto-upgraded', function() {
-    var page = document.createElement('div');
-    var el = createSwitch();
-    el.classList.add('mdl-js-switch');
-    page.appendChild(el);
-    MaterialSwitch.initComponents(page);
-    expect(el.MaterialSwitch).to.not.be.null;
-    expect(el.MaterialSwitch.checked).to.not.be.null;
-  });
-
   it('should get checked class after being checked', function() {
     var el = createSwitch();
     var sw = new MaterialSwitch(el);

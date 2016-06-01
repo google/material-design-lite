@@ -45,18 +45,6 @@ describe('MaterialMenu', function () {
     expect(function() { new MaterialMenu(el) }).to.throw(Error);
   });
 
-  it('should auto-upgrade marked components', function() {
-    var page = document.createElement('div');
-    var elAuto = createMenu();
-    elAuto.classList.add('mdl-js-menu');
-    page.appendChild(elAuto);
-    var elNonAuto = createMenu();
-    page.appendChild(elNonAuto);
-    MaterialMenu.initComponents(page);
-    expect(elAuto.classList.contains('mdl-menu--is-upgraded')).to.be.true;
-    expect(elNonAuto.classList.contains('mdl-menu--is-upgraded')).to.be.false;
-  });
-
   it('should start the showing animation on show()', function(done) {
     var el = createMenu();
     var menu = new MaterialMenu(el);

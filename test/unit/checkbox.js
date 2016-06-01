@@ -43,28 +43,6 @@ describe('MaterialCheckbox', function () {
     expect(el.classList.contains('mdl-checkbox--is-upgraded')).to.be.true;
   });
 
-  it('should auto-upgrade marked components', function() {
-    var page = document.createElement('div');
-    var elAuto = createCheckbox();
-    elAuto.classList.add('mdl-js-checkbox');
-    page.appendChild(elAuto);
-    var elNonAuto = createCheckbox();
-    page.appendChild(elNonAuto);
-    MaterialCheckbox.initComponents(page);
-    expect(elAuto.classList.contains('mdl-checkbox--is-upgraded')).to.be.true;
-    expect(elNonAuto.classList.contains('mdl-checkbox--is-upgraded')).to.be.false;
-  })
-
-  it('should expose its instance when auto-upgraded', function() {
-    var page = document.createElement('div');
-    var el = createCheckbox();
-    el.classList.add('mdl-js-checkbox');
-    page.appendChild(el);
-    MaterialCheckbox.initComponents(page);
-    expect(el.MaterialCheckbox).to.not.be.null;
-    expect(el.MaterialCheckbox.checked).to.not.be.null;
-  });
-
   it('should get checked class after being checked', function() {
     var el = createCheckbox();
     var checkbox = new MaterialCheckbox(el);

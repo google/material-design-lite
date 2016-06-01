@@ -29,6 +29,12 @@ class MaterialSwitch extends MaterialComponent {
   constructor(root) {
     super(root);
 
+    // Check if the root has the right class.
+    if (!root.classList.contains(this.constructor.classes_.ROOT)) {
+      throw new Error('MaterialSwitch missing ' +
+          `${this.constructor.classes_.ROOT} class.`);
+    }
+
     // Look for required sub-nodes in the root's DOM.
     this.input_ =
         this.root_.querySelector(`.${MaterialSwitch.classes_.INPUT}`);
@@ -47,18 +53,6 @@ class MaterialSwitch extends MaterialComponent {
 
     // Finalize initialization.
     this.init_();
-  }
-
-  /**
-   * String constants used in this component.
-   *
-   * @protected
-   * @return {Object<string, string>} The strings used in this component.
-   */
-  static get strings_() {
-    return {
-      CLASS_NAME: 'MaterialSwitch'
-    };
   }
 
   /**
@@ -190,6 +184,3 @@ class MaterialSwitch extends MaterialComponent {
     }
   }
 }
-
-// Initialize all self-managed components in the document.
-MaterialSwitch.initComponents(document);
