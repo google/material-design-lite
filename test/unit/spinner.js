@@ -17,24 +17,19 @@
 describe('MaterialSpinner', function () {
 
   function createSpinner() {
-    var layerHtml = '<div class="mdl-spinner__circle-clipper mdl-spinner__left">' +
-        '<div class="mdl-spinner__circle"></div>' +
-        '</div>' +
-        '<div class="mdl-spinner__gap-patch">' +
-        '<div class="mdl-spinner__circle"></div>' +
-        '</div>' +
-        '<div class="mdl-spinner__circle-clipper mdl-spinner__right">' +
-        '<div class="mdl-spinner__circle"></div>' +
-        '</div>';
-
     var spinner = document.createElement('div');
     spinner.className = 'mdl-spinner';
     for (var i = 0; i < 4; i++) {
       var layer = document.createElement('div');
       layer.className = 'mdl-spinner__layer';
-      layer.innerHTML = layerHtml;
+      var left = document.createElement('div');
+      left.className = 'mdl-spinner__clip';
+      var right = document.createElement('div');
+      right.className = 'mdl-spinner__clip';
+      layer.appendChild(left);
+      layer.appendChild(right);
+      spinner.appendChild(layer);
     }
-
     return spinner;
   }
 
