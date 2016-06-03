@@ -68,17 +68,17 @@ production. Use a tagged state of the repository, npm, or bower for stability!
 
 In the repo you'll find the following directories and files.
 
-| File/Folder     | Provides                                       |
-|-----------------|------------------------------------------------|
-| CONTRIBUTING.md | MDL contribution guidelines.                   |
-| docs            | Files for the documentation site.              |
-| gulpfile.js     | gulp configuration for MDL.                    |
-| LICENSE         | Project license information.                   |
-| package.json    | npm package information.                       |
-| README.md       | Details for quickly understanding the project. |
-| src             | Source code for MDL components.                |
-| templates       | Example templates.                             |
-| test            | Project test files.                            |
+| File/Folder       | Provides                                       |
+|-------------------|------------------------------------------------|
+| CONTRIBUTING.md   | MDL contribution guidelines.                   |
+| docs              | Files for the documentation site.              |
+| gulpfile.babel.js | gulp configuration for MDL.                    |
+| LICENSE           | Project license information.                   |
+| package.json      | npm package information.                       |
+| README.md         | Details for quickly understanding the project. |
+| src               | Source code for MDL components.                |
+| templates         | Example templates.                             |
+| test              | Project test files.                            |
 
 ### Build
 
