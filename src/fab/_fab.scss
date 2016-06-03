@@ -1,0 +1,75 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.mdl-fab {
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0.0625rem 0.09375rem 0 rgba(0,0,0,0.12), 0 0.0625rem 0.0625rem 0 rgba(0,0,0,0.24);
+  background-color: rgb(255, 255, 255);
+  display: inline-flex;
+  justify-content: center;
+
+  &--mini {
+    font-size: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &--colored {
+    background-color: rgba(63, 81, 181, 0.8);
+    color: rgb(255, 255, 255);
+    &:hover,
+    &:focus {
+        background-color: rgba(63, 81, 181, 0.9);
+    }
+    &:active {
+        background-color: rgb(63, 81, 181);
+    }
+    &[disabled] {
+      color: rgba(0, 0, 0, 0.26);
+      background-color: rgba(0, 0, 0, 0.12);
+      cursor: default;
+      &:hover {
+          background-color: rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  &--accent-colored {
+    background-color: rgba(255, 64, 129, 0.8);
+    color: rgb(255, 255, 255);
+    &:hover,
+    &:focus {
+        background-color: rgba(255, 64, 129, 0.9);
+    }
+    &:active {
+        background-color: rgb(255, 64, 129);
+    }
+    &[disabled] {
+        color: rgba(0, 0, 0, 0.26);
+        background-color: rgba(0, 0, 0, 0.12);
+        cursor: default;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.12);
+        }
+    }
+  }
+}
