@@ -64,6 +64,35 @@ class MaterialMenu extends MaterialComponent {
   }
 
   /**
+   * Creates the DOM subtree for a new switch.
+   *
+   * Options:
+   *   - {Array<string>} items: The text for the items to add to the menu.
+   *
+   * @return {Element} The DOM subtree for the component.
+   * @export
+   */
+  static buildDom(/** {items: Array<string>}= */ {
+      items = []
+    } = {}) {
+    let root = document.createElement('div');
+    root.classList.add(MaterialMenu.cssClasses_.ROOT);
+
+    let list = document.createElement('ul');
+    list.classList.add(MaterialMenu.cssClasses_.LIST);
+    root.appendChild(list);
+
+    for (let i = 0; i < items.length; i++) {
+      let item = document.createElement('li');
+      item.classList.add(MaterialMenu.cssClasses_.ITEM);
+      item.textContent = items[i];
+      list.appendChild(item);
+    }
+
+    return root;
+  }
+
+  /**
    * Number constants used in this component.
    *
    * @protected

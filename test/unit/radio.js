@@ -20,10 +20,10 @@ describe('MaterialRadio', function () {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var labelText = document.createElement('span');
-    label.for = 'testCheckbox';
+    label.htmlFor = 'testRadio';
     label.className = 'mdl-radio';
     input.type = 'radio';
-    input.id = 'testCheckbox';
+    input.id = 'testRadio';
     input.className = 'mdl-radio__input';
     label.appendChild(input);
     labelText.className = 'mdl-radio__label';

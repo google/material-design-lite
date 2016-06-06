@@ -56,6 +56,59 @@ class MaterialCheckbox extends MaterialComponent {
   }
 
   /**
+   * Generates an ID for a new checkbox. Keeps a counter to ensure uniqueness.
+   * @return {string} The generated ID.
+   */
+  static generateId_() {
+    MaterialCheckbox.autoCounter_ = (MaterialCheckbox.autoCounter_ || 0) + 1;
+    return `mdlcheckbox-${MaterialCheckbox.autoCounter_}`;
+  }
+
+  /**
+   * Creates the DOM subtree for a new checkbox.
+   *
+   * Options:
+   *   - {string} id: The ID to use on the input element.
+   *   - {string} text: The text to use on the checkbox.
+   *   - {boolean} checked: Whether the checkbox should initially be checked.
+   *   - {boolean} disabled: Whether the checkbox should initially be disabled.
+   *
+   * @return {Element} The DOM subtree for the component.
+   * @export
+   */
+  static buildDom(/** { id: string, text: string, checked: boolean,
+      disabled: boolean }= */ {
+      id = MaterialCheckbox.generateId_(),
+      text = '',
+      checked = false,
+      disabled = false
+    } = {}) {
+    let root = document.createElement('label');
+    let input = document.createElement('input');
+    let label = document.createElement('span');
+    root.htmlFor = id;
+    root.classList.add(MaterialCheckbox.cssClasses_.ROOT);
+    input.type = 'checkbox';
+    input.id = id;
+    input.classList.add(MaterialCheckbox.cssClasses_.INPUT);
+    input.checked = checked;
+    input.disabled = disabled;
+    root.appendChild(input);
+    label.classList.add(MaterialCheckbox.cssClasses_.LABEL);
+    label.text = text;
+    root.appendChild(label);
+
+    // Ensure correct first render.
+    if (checked) {
+      root.classList.add(MaterialCheckbox.cssClasses_.IS_CHECKED);
+    }
+    if (disabled) {
+      root.classList.add(MaterialCheckbox.cssClasses_.IS_DISABLED);
+    }
+    return root;
+  }
+
+  /**
    * CSS classes used in this component.
    *
    * @protected
@@ -66,6 +119,7 @@ class MaterialCheckbox extends MaterialComponent {
       ROOT: 'mdl-checkbox',
       JS: 'mdl-js-checkbox',
       INPUT: 'mdl-checkbox__input',
+      LABEL: 'mdl-checkbox__label',
 
       IS_FOCUSED: 'is-focused',
       IS_DISABLED: 'is-disabled',

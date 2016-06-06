@@ -20,7 +20,7 @@ describe('MaterialCheckbox', function () {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var labelText = document.createElement('span');
-    label.for = 'testCheckbox';
+    label.htmlFor = 'testCheckbox';
     label.className = 'mdl-checkbox';
     input.type = 'checkbox';
     input.id = 'testCheckbox';

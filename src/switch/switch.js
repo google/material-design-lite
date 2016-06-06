@@ -56,6 +56,59 @@ class MaterialSwitch extends MaterialComponent {
   }
 
   /**
+   * Generates an ID for a new switch. Keeps a counter to ensure uniqueness.
+   * @return {string} The generated ID.
+   */
+  static generateId_() {
+    MaterialSwitch.autoCounter_ = (MaterialSwitch.autoCounter_ || 0) + 1;
+    return `mdlswitch-${MaterialSwitch.autoCounter_}`;
+  }
+
+  /**
+   * Creates the DOM subtree for a new switch.
+   *
+   * Options:
+   *   - {string} id: The ID to use on the input element.
+   *   - {string} text: The text to use on the switch.
+   *   - {boolean} checked: Whether the switch should initially be checked.
+   *   - {boolean} disabled: Whether the switch should initially be disabled.
+   *
+   * @return {Element} The DOM subtree for the component.
+   * @export
+   */
+  static buildDom(/** { id: string, text: string, checked: boolean,
+      disabled: boolean }= */ {
+      id = MaterialSwitch.generateId_(),
+      text = '',
+      checked = false,
+      disabled = false
+    } = {}) {
+    let root = document.createElement('label');
+    let input = document.createElement('input');
+    let label = document.createElement('span');
+    root.htmlFor = id;
+    root.classList.add(MaterialSwitch.cssClasses_.ROOT);
+    input.type = 'checkbox';
+    input.id = id;
+    input.classList.add(MaterialSwitch.cssClasses_.INPUT);
+    input.checked = checked;
+    input.disabled = disabled;
+    root.appendChild(input);
+    label.classList.add(MaterialSwitch.cssClasses_.LABEL);
+    label.text = text;
+    root.appendChild(label);
+
+    // Ensure correct first render.
+    if (checked) {
+      root.classList.add(MaterialSwitch.cssClasses_.IS_CHECKED);
+    }
+    if (disabled) {
+      root.classList.add(MaterialSwitch.cssClasses_.IS_DISABLED);
+    }
+    return root;
+  }
+
+  /**
    * CSS classes used in this component.
    *
    * @protected
@@ -66,6 +119,7 @@ class MaterialSwitch extends MaterialComponent {
       ROOT: 'mdl-switch',
       JS: 'mdl-js-switch',
       INPUT: 'mdl-switch__input',
+      LABEL: 'mdl-switch__label',
 
       IS_FOCUSED: 'is-focused',
       IS_DISABLED: 'is-disabled',

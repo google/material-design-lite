@@ -55,6 +55,59 @@ class MaterialRadio extends MaterialComponent {
   }
 
   /**
+   * Generates an ID for a new Radio. Keeps a counter to ensure uniqueness.
+   * @return {string} The generated ID.
+   */
+  static generateId_() {
+    MaterialRadio.autoCounter_ = (MaterialRadio.autoCounter_ || 0) + 1;
+    return `mdlradio-${MaterialRadio.autoCounter_}`;
+  }
+
+  /**
+   * Creates the DOM subtree for a new radio.
+   *
+   * Options:
+   *   - {string} id: The ID to use on the input element.
+   *   - {string} text: The text to use on the radio.
+   *   - {boolean} checked: Whether the radio should initially be checked.
+   *   - {boolean} disabled: Whether the radio should initially be disabled.
+   *
+   * @return {Element} The DOM subtree for the component.
+   * @export
+   */
+  static buildDom(/** { id: string, text: string, checked: boolean,
+      disabled: boolean }= */ {
+      id = MaterialRadio.generateId_(),
+      text = '',
+      checked = false,
+      disabled = false
+    } = {}) {
+    let root = document.createElement('label');
+    let input = document.createElement('input');
+    let label = document.createElement('span');
+    root.htmlFor = id;
+    root.classList.add(MaterialRadio.cssClasses_.ROOT);
+    input.type = 'radio';
+    input.id = id;
+    input.classList.add(MaterialRadio.cssClasses_.INPUT);
+    input.checked = checked;
+    input.disabled = disabled;
+    root.appendChild(input);
+    label.classList.add(MaterialRadio.cssClasses_.LABEL);
+    label.text = text;
+    root.appendChild(label);
+
+    // Ensure correct first render.
+    if (checked) {
+      root.classList.add(MaterialRadio.cssClasses_.IS_CHECKED);
+    }
+    if (disabled) {
+      root.classList.add(MaterialRadio.cssClasses_.IS_DISABLED);
+    }
+    return root;
+  }
+
+  /**
    * CSS classes used in this component.
    *
    * @override
@@ -66,6 +119,7 @@ class MaterialRadio extends MaterialComponent {
       ROOT: 'mdl-radio',
       JS: 'mdl-js-radio',
       INPUT: 'mdl-radio__input',
+      LABEL: 'mdl-radio__label',
 
       IS_FOCUSED: 'is-focused',
       IS_DISABLED: 'is-disabled',

@@ -30,6 +30,21 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
     this.root_ = root;
   }
 
+  /* eslint-disable valid-jsdoc, no-unused-vars */
+  /**
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
+   *
+   * @param {Object} options Component options (component-specific).
+   * @return {Element} The DOM subtree for the component.
+   * @export
+   */
+  static buildDom(options) {
+    // Empty in base class. Throw error if not correctly overriden.
+    throw new Error('Should be implemented in components.');
+  }
+  /* eslint-enable valid-jsdoc, no-unused-vars */
+
   // eslint-disable-next-line valid-jsdoc
   /**
    * CSS classes used in this component.
