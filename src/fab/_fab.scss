@@ -15,17 +15,20 @@
  */
 
 .mdl-fab {
-  border-radius: 50%;
-  height: 56px;
-  width: 56px;
   padding: 0;
+  width: 56px;
+  height: 56px;
   border: none;
-  overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
-  background-color: $button-primary-color;
+  overflow: hidden;
+  border-radius: 50%;
   display: inline-flex;
   justify-content: center;
+  background-color: $button-primary-color;
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 
   &:active {
     @include shadow-4dp();
@@ -43,8 +46,8 @@
   }
 
   &--colored {
-    background-color: $color-primary;
     color: $color-white;
+    background-color: $color-primary;
     &:hover,
     &:focus {
         background-color: rgba-tpl($color-primary, 0.9);
@@ -53,9 +56,9 @@
         background-color: $color-primary;
     }
     &[disabled] {
+      cursor: default;
       color: rgba-tpl($color-black, 0.26);
       background-color: rgba-tpl($color-black, 0.12);
-      cursor: default;
       &:hover {
           background-color: rgba-tpl($color-black, 0.12);
       }
@@ -63,8 +66,8 @@
   }
 
   &--accent-colored {
-    background-color: rgba-tpl($color-accent, 0.8);
     color: $color-white;
+    background-color: rgba-tpl($color-accent, 0.8);
     &:hover,
     &:focus {
         background-color: rgba-tpl($color-accent, 0.9);
@@ -73,9 +76,9 @@
         background-color: $color-accent;
     }
     &[disabled] {
+        cursor: default;
         color: rgba-tpl($color-black, 0.26);
         background-color: rgba-tpl($color-black, 0.12);
-        cursor: default;
         &:hover {
             background-color: rgba-tpl($color-black, 0.12);
         }
