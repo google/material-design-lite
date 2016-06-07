@@ -121,13 +121,6 @@ $color-accent-contrast: $color-dark-contrast !default;
 $text-color-primary: rgba-tpl($color-black, 0.87) !default;
 $text-link-color: $color-accent !default;
 
-// Define whether to target elements directly for typographic enhancements.
-// Turning this off means you need to use mdl-* classes more often.
-// Other components may also fail to adhere to MD without these rules.
-// It is strongly recommended you leave this as true.
-
-$target-elements-directly: true !default;
-
 /* ==========  Components  ========== */
 
 /* ==========  Standard Buttons  ========== */
