@@ -43,6 +43,36 @@ describe('MaterialRadio', function () {
     expect(el.classList.contains('mdl-radio--is-upgraded')).to.be.true;
   });
 
+  describe('.buildDom()', function () {
+    it('should return a valid DOM with no parameters', function() {
+      var el = MaterialRadio.buildDom();
+      expect(el).to.be.an.instanceof(Element);
+      var sw = new MaterialRadio(el);
+      expect(sw).to.be.an.instanceof(MaterialRadio);
+    });
+
+    it('should return a valid DOM with a provided id', function() {
+      var el = MaterialRadio.buildDom({
+        id: 'testId'
+      });
+      expect(el).to.be.an.instanceof(Element);
+      expect(el.querySelector('#testId')).to.not.be.null;
+      var sw = new MaterialRadio(el);
+      expect(sw).to.be.an.instanceof(MaterialRadio);
+    });
+
+    it('should return a valid DOM with a provided text', function() {
+      var el = MaterialRadio.buildDom({
+        text: 'Test radio'
+      });
+      expect(el).to.be.an.instanceof(Element);
+      expect(el.querySelector('.mdl-radio__label').text).to
+          .equal('Test radio');
+      var sw = new MaterialRadio(el);
+      expect(sw).to.be.an.instanceof(MaterialRadio);
+    });
+  });
+
   it('should get checked class after being checked', function() {
     var el = createRadio();
     var radio = new MaterialRadio(el);

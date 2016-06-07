@@ -43,6 +43,36 @@ describe('MaterialCheckbox', function () {
     expect(el.classList.contains('mdl-checkbox--is-upgraded')).to.be.true;
   });
 
+  describe('.buildDom()', function () {
+    it('should return a valid DOM with no parameters', function() {
+      var el = MaterialCheckbox.buildDom();
+      expect(el).to.be.an.instanceof(Element);
+      var sw = new MaterialCheckbox(el);
+      expect(sw).to.be.an.instanceof(MaterialCheckbox);
+    });
+
+    it('should return a valid DOM with a provided id', function() {
+      var el = MaterialCheckbox.buildDom({
+        id: 'testId'
+      });
+      expect(el).to.be.an.instanceof(Element);
+      expect(el.querySelector('#testId')).to.not.be.null;
+      var sw = new MaterialCheckbox(el);
+      expect(sw).to.be.an.instanceof(MaterialCheckbox);
+    });
+
+    it('should return a valid DOM with a provided text', function() {
+      var el = MaterialCheckbox.buildDom({
+        text: 'Test checkbox'
+      });
+      expect(el).to.be.an.instanceof(Element);
+      expect(el.querySelector('.mdl-checkbox__label').text).to
+          .equal('Test checkbox');
+      var sw = new MaterialCheckbox(el);
+      expect(sw).to.be.an.instanceof(MaterialCheckbox);
+    });
+  });
+
   it('should get checked class after being checked', function() {
     var el = createCheckbox();
     var checkbox = new MaterialCheckbox(el);
