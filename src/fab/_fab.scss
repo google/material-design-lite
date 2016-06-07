@@ -16,8 +16,8 @@
 
 .mdl-fab {
   border-radius: 50%;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 56px;
+  width: 56px;
   padding: 0;
   border: none;
   overflow: hidden;
@@ -38,9 +38,8 @@
   }
 
   &--mini {
-    font-size: 2.5rem;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 40px;
+    width: 40px;
   }
 
   &--colored {
