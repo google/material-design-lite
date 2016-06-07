@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Google Inc. All Rights Reserved.
+ * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,222 +14,186 @@
  * limitations under the License.
  */
 
-@import "../variables";
-@import "../mixins";
-
-// The button component. Defaults to a flat button.
 .mdl-button {
-  background: transparent;
+  min-height: 36px;
   border: none;
-  border-radius: $button-border-radius;
-  color: $button-secondary-color;
+  min-width: 88px;
   position: relative;
-  height: $button-height;
-  margin: 0;
-  min-width: $button-min-width;
-  padding: 0 $button-padding;
-  display: inline-block;
-  @include typo-button();
+  color: rgb(0, 0, 0);
+  background: transparent;
+  border-radius: 2px;
+  /*
+  Add 6 top and bottom padding.
+  Provides 12 total for a 48px high touch area.
+  */
+  padding: 6px 16px;
+  font-family: $performance-font;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: inline-flex;
+  font-size: 0.875rem;
+  letter-spacing: 0;
   overflow: hidden;
-  will-change: box-shadow;
-  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
-              background-color 0.2s $animation-curve-default,
-              color 0.2s $animation-curve-default;
   outline: none;
   cursor: pointer;
   text-decoration: none;
-  text-align: center;
-  line-height: $button-height;
+  align-items: center;
+  justify-content: center;
   vertical-align: middle;
+  box-sizing: border-box;
+  will-change: box-shadow, transform;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+  background-color 0.2s $animation-curve-default,
+  color 0.2s $animation-curve-default;
 
   &::-moz-focus-inner {
-    border: 0;
+    border: 0
   }
 
-  &:hover {
-    background-color: $button-hover-color;
-  }
-
-  &:focus:not(:active) {
-    background-color: $button-focus-color;
+  &:hover,
+  &:focus {
+    background-color: rgba-tpl($palette-grey-500, 0.12);
   }
 
   &:active {
-    background-color: $button-active-color;
+    background-color: rgba-tpl($palette-grey-500, 0.2);
   }
 
-  &.mdl-button--colored {
-    color: $button-primary-color-alt;
+  &[disabled],
+  fieldset[disabled] &  {
+    color: rgba-tpl($color-black, 0.26);
+    cursor: default;
 
-    &:focus:not(:active) {
-      background-color: $button-focus-color-alt;
-    }
-  }
-}
-
-input.mdl-button[type="submit"] {
-  -webkit-appearance:none;
-}
-
-  // Raised buttons
-  .mdl-button--raised {
-    background: $button-primary-color;
-    @include shadow-2dp();
-
-    &:active {
-      @include shadow-4dp();
-      background-color: $button-active-color;
-    }
-
-    &:focus:not(:active) {
-      @include focus-shadow();
-      background-color: $button-active-color;
-    }
-
-    &.mdl-button--colored {
-      background: $button-primary-color-alt;
-      color: $button-secondary-color-alt;
-
-      &:hover {
-        background-color: $button-hover-color-alt;
-      }
-
-      &:active {
-        background-color: $button-active-color-alt;
-      }
-
-      &:focus:not(:active) {
-        background-color: $button-active-color-alt;
-      }
-
-      & .mdl-ripple {
-        background: $button-ripple-color-alt;
-      }
-    }
-  }
-
-  // Icon buttons
-  .mdl-button--icon {
-    border-radius: 50%;
-    font-size: $button-fab-font-size;
-    height: $button-icon-size;
-    margin-left: 0;
-    margin-right: 0;
-    min-width: $button-icon-size;
-    width: $button-icon-size;
-    padding: 0;
-    overflow: hidden;
-    color: inherit;
-    line-height: normal;
-
-    & .material-icons {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
-      line-height: $button-fab-font-size;
-      width: $button-fab-font-size;
-    }
-
-    &.mdl-button--mini-icon {
-      height: $button-icon-size-mini;
-      min-width: $button-icon-size-mini;
-      width: $button-icon-size-mini;
-
-      & .material-icons {
-        top: ($button-icon-size-mini - $button-fab-font-size) / 2;
-        left: ($button-icon-size-mini - $button-fab-font-size) / 2;
-      }
-    }
-
-    & .mdl-button__ripple-container {
-      border-radius: 50%;
-      // Fixes clipping bug in Safari.
-      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-    }
-  }
-
-
-  // Ripples
-  .mdl-button__ripple-container {
-    display: block;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    z-index: 0;
-    overflow: hidden;
-
-    .mdl-button[disabled] & .mdl-ripple,
-    .mdl-button.mdl-button--disabled & .mdl-ripple {
+    &:hover {
       background-color: transparent;
     }
   }
 
-// Colorized buttons
+&--raised {
+      background: rgba-tpl($palette-grey-500, 0.2);
+      @include shadow-2dp;
 
-.mdl-button--primary.mdl-button--primary {
-  color: $button-primary-color-alt;
-  & .mdl-ripple {
-    background: $button-secondary-color-alt;
-  }
-  &.mdl-button--raised, &.mdl-button--fab {
-    color: $button-secondary-color-alt;
-    background-color: $button-primary-color-alt;
-  }
-}
+      @media(min-width: 1024px) {
+          box-shadow: none;
+      }
 
-.mdl-button--accent.mdl-button--accent {
-  color: $button-fab-color-alt;
-  & .mdl-ripple {
-    background: $button-fab-text-color-alt;
-  }
-  &.mdl-button--raised, &.mdl-button--fab {
-    color: $button-fab-text-color-alt;
-    background-color: $button-fab-color-alt;
-  }
-}
+      &:hover,
+      &:focus {
+        background-color: rgba-tpl($color-black, 0.2);
+        @include shadow-2dp;
+      }
 
-// Disabled buttons
+      &:active {
+        background: rgba-tpl($palette-grey-500, 0.2);
+        @include shadow-8dp;
+      }
 
-.mdl-button {
-  // Bump up specificity by using [disabled] twice.
-  &[disabled][disabled],
-  &.mdl-button--disabled.mdl-button--disabled {
-    color: $button-secondary-color-disabled;
-    cursor: default;
-    background-color: transparent;
-  }
+      &[disabled],
+      fieldset[disabled] & {
+        color: rgba-tpl($color-black, 0.26);
+        background-color: rgba-tpl($color-black, 0.12);
+        cursor: default;
+        box-shadow: none;
 
-  &--fab {
-    // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled],
-    &.mdl-button--disabled.mdl-button--disabled {
-      background-color: $button-primary-color-disabled;
-      color: $button-secondary-color-disabled;
+        &:hover {
+          box-shadow: none;
+          background-color: rgba-tpl($color-black, 0.12);
+          box-shadow:none;
+        }
+      }
     }
-  }
 
-  &--raised {
-    // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled],
-    &.mdl-button--disabled.mdl-button--disabled {
-      background-color: $button-primary-color-disabled;
-      color: $button-secondary-color-disabled;
-      box-shadow: none;
-    }
-  }
-  &--colored {
-    // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled],
-    &.mdl-button--disabled.mdl-button--disabled {
-      color: $button-secondary-color-disabled;
-    }
-  }
-}
+    &--primary-color-text {
+      color: $color-primary;
 
-// Align icons inside buttons with text
-.mdl-button .material-icons {
-  vertical-align: middle;
+      &:hover,
+      &:focus {
+        background-color: rgba-tpl($color-primary, 0.12);
+      }
+
+      &:active {
+        background-color: rgba-tpl($color-primary, 0.2);
+      }
+    }
+
+    &--accent-color-text {
+      color: $color-accent;
+
+      &:hover,
+      &:focus {
+        background-color: rgba-tpl($color-accent, 0.12);
+      }
+
+      &:active {
+        background-color: rgba-tpl($color-accent, 0.2);
+      }
+    }
+
+    &--colored {
+      background-color: rgba-tpl($color-primary, 0.8);
+      color: $color-primary-contrast;
+      @include shadow-2dp;
+
+      @media(min-width: 1024px) {
+          box-shadow: none;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: rgba-tpl($color-primary, 0.9);
+        @include shadow-2dp;
+      }
+
+      &:active {
+        background-color: $color-primary;
+        @include shadow-8dp;
+      }
+
+      &[disabled],
+      fieldset[disabled] & {
+        color: rgba-tpl($color-black, 0.26);
+        background-color: rgba-tpl($color-black, 0.12);
+        cursor: default;
+        box-shadow: none;
+
+        &:hover {
+          background-color: rgba-tpl($color-black, 0.12);
+          box-shadow: none;
+        }
+      }
+    }
+
+    &--accent-colored {
+      background-color: rgba-tpl($color-accent, 0.8);
+      color: $color-accent-contrast;
+      @include shadow-2dp;
+
+      @media(min-width: 1024px) {
+          box-shadow: none;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: rgba-tpl($color-accent, 0.9);
+        @include shadow-2dp;
+      }
+
+      &:active {
+        background-color: $color-accent;
+        @include shadow-8dp;
+      }
+
+      &[disabled],
+      fieldset[disabled] & {
+        color: rgba-tpl($color-black, 0.26);
+        background-color: rgba-tpl($color-black, 0.12);
+        cursor: default;
+        box-shadow: none;
+
+        &:hover {
+          background-color: rgba-tpl($color-black, 0.12);
+          box-shadow: none;
+        }
+      }
+    }
 }
