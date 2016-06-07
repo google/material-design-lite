@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Google Inc. All Rights Reserved.
+ * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,20 @@
   border: none;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 0.0625rem 0.09375rem 0 rgba(0,0,0,0.12), 0 0.0625rem 0.0625rem 0 rgba(0,0,0,0.24);
-  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+  background-color: $button-primary-color;
   display: inline-flex;
   justify-content: center;
+
+  &:active {
+    @include shadow-4dp();
+    background-color: $button-active-color;
+  }
+
+  &:focus:not(:active) {
+    @include focus-shadow();
+    background-color: $button-active-color;
+  }
 
   &--mini {
     font-size: 2.5rem;
@@ -34,41 +44,41 @@
   }
 
   &--colored {
-    background-color: rgba(63, 81, 181, 0.8);
-    color: rgb(255, 255, 255);
+    background-color: $color-primary;
+    color: $color-white;
     &:hover,
     &:focus {
-        background-color: rgba(63, 81, 181, 0.9);
+        background-color: rgba-tpl($color-primary, 0.9);
     }
     &:active {
-        background-color: rgb(63, 81, 181);
+        background-color: $color-primary;
     }
     &[disabled] {
-      color: rgba(0, 0, 0, 0.26);
-      background-color: rgba(0, 0, 0, 0.12);
+      color: rgba-tpl($color-black, 0.26);
+      background-color: rgba-tpl($color-black, 0.12);
       cursor: default;
       &:hover {
-          background-color: rgba(0, 0, 0, 0.12);
+          background-color: rgba-tpl($color-black, 0.12);
       }
     }
   }
 
   &--accent-colored {
-    background-color: rgba(255, 64, 129, 0.8);
-    color: rgb(255, 255, 255);
+    background-color: rgba-tpl($color-accent, 0.8);
+    color: $color-white;
     &:hover,
     &:focus {
-        background-color: rgba(255, 64, 129, 0.9);
+        background-color: rgba-tpl($color-accent, 0.9);
     }
     &:active {
-        background-color: rgb(255, 64, 129);
+        background-color: $color-accent;
     }
     &[disabled] {
-        color: rgba(0, 0, 0, 0.26);
-        background-color: rgba(0, 0, 0, 0.12);
+        color: rgba-tpl($color-black, 0.26);
+        background-color: rgba-tpl($color-black, 0.12);
         cursor: default;
         &:hover {
-            background-color: rgba(0, 0, 0, 0.12);
+            background-color: rgba-tpl($color-black, 0.12);
         }
     }
   }
