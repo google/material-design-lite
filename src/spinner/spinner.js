@@ -15,133 +15,93 @@
  * limitations under the License.
  */
 
-(function() {
-  'use strict';
-
+/**
+ * The MaterialSpinner class wraps a Material Design spinner component.
+ *
+ * @export
+ */
+class MaterialSpinner extends MaterialComponent {
   /**
-   * Class constructor for Spinner MDL component.
-   * Implements MDL component design pattern defined at:
-   * https://github.com/jasonmayes/mdl-component-design-pattern
+   * Initialize spinner from a DOM node.
    *
-   * @param {HTMLElement} element The element that will be upgraded.
-   * @constructor
+   * @param {Element} root The element being upgraded.
    */
-  var MaterialSpinner = function MaterialSpinner(element) {
-    this.element_ = element;
+  constructor(root) {
+    super(root);
 
-    // Initialize instance.
-    this.init();
-  };
-  window['MaterialSpinner'] = MaterialSpinner;
-
-  /**
-   * Store constants in one place so they can be updated easily.
-   *
-   * @enum {string | number}
-   * @private
-   */
-  MaterialSpinner.prototype.Constant_ = {
-    MDL_SPINNER_LAYER_COUNT: 4
-  };
-
-  /**
-   * Store strings for class names defined by this component that are used in
-   * JavaScript. This allows us to simply change it in one place should we
-   * decide to modify at a later date.
-   *
-   * @enum {string}
-   * @private
-   */
-  MaterialSpinner.prototype.CssClasses_ = {
-    MDL_SPINNER_LAYER: 'mdl-spinner__layer',
-    MDL_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
-    MDL_SPINNER_CIRCLE: 'mdl-spinner__circle',
-    MDL_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
-    MDL_SPINNER_LEFT: 'mdl-spinner__left',
-    MDL_SPINNER_RIGHT: 'mdl-spinner__right'
-  };
-
-  /**
-   * Auxiliary method to create a spinner layer.
-   *
-   * @param {number} index Index of the layer to be created.
-   * @public
-   */
-  MaterialSpinner.prototype.createLayer = function(index) {
-    var layer = document.createElement('div');
-    layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
-    layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
-
-    var leftClipper = document.createElement('div');
-    leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
-    leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
-
-    var gapPatch = document.createElement('div');
-    gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
-
-    var rightClipper = document.createElement('div');
-    rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
-    rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
-
-    var circleOwners = [leftClipper, gapPatch, rightClipper];
-
-    for (var i = 0; i < circleOwners.length; i++) {
-      var circle = document.createElement('div');
-      circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
-      circleOwners[i].appendChild(circle);
+    // Check if the root has the right class.
+    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
+      throw new Error('MaterialSpinner missing ' +
+          `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
-    layer.appendChild(leftClipper);
-    layer.appendChild(gapPatch);
-    layer.appendChild(rightClipper);
-
-    this.element_.appendChild(layer);
-  };
-  MaterialSpinner.prototype['createLayer'] =
-      MaterialSpinner.prototype.createLayer;
+    // Finalize initialization.
+    this.init_();
+  }
 
   /**
-   * Stops the spinner animation.
-   * Public method for users who need to stop the spinner for any reason.
+   * CSS classes used in this component.
    *
-   * @public
+   * @protected
+   * @return {Object<string, string>} The CSS classes used in this component.
    */
-  MaterialSpinner.prototype.stop = function() {
-    this.element_.classList.remove('is-active');
-  };
-  MaterialSpinner.prototype['stop'] = MaterialSpinner.prototype.stop;
+  static get cssClasses_() {
+    return {
+      ROOT: 'mdl-spinner',
+      JS: 'mdl-js-spinner',
+
+      IS_ACTIVE: 'is-active'
+    };
+  }
 
   /**
-   * Starts the spinner animation.
-   * Public method for users who need to manually start the spinner for any reason
-   * (instead of just adding the 'is-active' class to their markup).
+   * Attach all listeners to the DOM.
    *
-   * @public
+   * @export
    */
-  MaterialSpinner.prototype.start = function() {
-    this.element_.classList.add('is-active');
-  };
-  MaterialSpinner.prototype['start'] = MaterialSpinner.prototype.start;
+  addEventListeners() {
+    // No event listeners needed for MaterialSpinner.
+  }
 
   /**
-   * Initialize element.
+   * Remove all listeners from the DOM.
+   *
+   * @export
    */
-  MaterialSpinner.prototype.init = function() {
-    if (this.element_) {
-      for (var i = 1; i <= this.Constant_.MDL_SPINNER_LAYER_COUNT; i++) {
-        this.createLayer(i);
-      }
+  removeEventListeners() {
+    // No event listeners needed for MaterialSpinner.
+  }
 
-      this.element_.classList.add('is-upgraded');
+  /**
+   * Set whether or not the spinner should be active.
+   *
+   * @param {boolean} value The value to set the property to.
+   * @export
+   */
+  set active(value) {
+    if (value) {
+      this.root_.classList.add(MaterialSpinner.cssClasses_.IS_ACTIVE);
+    } else {
+      this.root_.classList.remove(MaterialSpinner.cssClasses_.IS_ACTIVE);
     }
-  };
+  }
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialSpinner,
-    classAsString: 'MaterialSpinner',
-    cssClass: 'mdl-js-spinner',
-    widget: true
-  });
-})();
+  /**
+   * Return whether the spinner is currently active.
+   *
+   * @return {boolean} The current value of the property.
+   * @export
+   */
+  get active() {
+    return this.root_.classList.contains(MaterialSpinner.cssClasses_.IS_ACTIVE);
+  }
+
+  /**
+   * Run a visual refresh on the component, in case it's gone out of sync.
+   *
+   * @export
+   */
+  refresh() {
+    // No refresh logic needed for MaterialSpinner.
+  }
+}

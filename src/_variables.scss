@@ -232,10 +232,11 @@ $switch-disabled-track-color: rgba-tpl($color-black, 0.12) !default;
 
 /* ==========  Spinner  ========== */
 
-$spinner-color-1: $palette-blue-400 !default;
-$spinner-color-2: $palette-red-500 !default;
-$spinner-color-3: $palette-yellow-600 !default;
-$spinner-color-4: $palette-green-500 !default;
+$spinner-colors: (
+  $palette-blue-400,
+  $palette-red-500,
+  $palette-yellow-600,
+  $palette-green-500) !default;
 
 $spinner-single-color: $color-primary !default;
 
