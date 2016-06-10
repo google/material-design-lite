@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -122,6 +122,8 @@
     IS_ACTIVE: 'is-active',
     IS_UPGRADED: 'is-upgraded',
     IS_ANIMATING: 'is-animating',
+    //MME: new class, this will define a branch in the functionality, set on level of the HEADER
+    IS_MOBILE: 'is-mobile',
 
     ON_LARGE_SCREEN: 'mdl-layout--large-screen-only',
     ON_SMALL_SCREEN: 'mdl-layout--small-screen-only'
@@ -133,28 +135,35 @@
    *
    * @private
    */
-  MaterialLayout.prototype.contentScrollHandler_ = function() {
+  MaterialLayout.prototype.contentScrollHandler_ = function () {
     if (this.header_.classList.contains(this.CssClasses_.IS_ANIMATING)) {
       return;
     }
 
-    var headerVisible =
+    //MME: If the is-mobile class is provided on the header, treat it as purely mobile
+    if (this.header_.classList.contains(this.CssClasses_.IS_MOBILE)) {
+      this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
+      this.header_.classList.add(this.CssClasses_.IS_COMPACT);
+    } else {
+
+      var headerVisible =
         !this.element_.classList.contains(this.CssClasses_.IS_SMALL_SCREEN) ||
         this.element_.classList.contains(this.CssClasses_.FIXED_HEADER);
 
-    if (this.content_.scrollTop > 0 &&
+      if (this.content_.scrollTop > 0 &&
         !this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
-      this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
-      this.header_.classList.add(this.CssClasses_.IS_COMPACT);
-      if (headerVisible) {
-        this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
-      }
-    } else if (this.content_.scrollTop <= 0 &&
+        this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
+        this.header_.classList.add(this.CssClasses_.IS_COMPACT);
+        if (headerVisible) {
+          this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+        }
+      } else if (this.content_.scrollTop <= 0 &&
         this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
-      this.header_.classList.remove(this.CssClasses_.CASTING_SHADOW);
-      this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
-      if (headerVisible) {
-        this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+        this.header_.classList.remove(this.CssClasses_.CASTING_SHADOW);
+        this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
+        if (headerVisible) {
+          this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+        }
       }
     }
   };
@@ -165,10 +174,10 @@
    * @param {Event} evt The event that fired.
    * @private
    */
-  MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
+  MaterialLayout.prototype.keyboardEventHandler_ = function (evt) {
     // Only react when the drawer is open.
     if (evt.keyCode === this.Keycodes_.ESCAPE &&
-        this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
+      this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
       this.toggleDrawer();
     }
   };
@@ -178,7 +187,7 @@
    *
    * @private
    */
-  MaterialLayout.prototype.screenSizeHandler_ = function() {
+  MaterialLayout.prototype.screenSizeHandler_ = function () {
     if (this.screenSizeMediaQuery_.matches) {
       this.element_.classList.add(this.CssClasses_.IS_SMALL_SCREEN);
     } else {
@@ -197,16 +206,21 @@
    * @param {Event} evt The event that fired.
    * @private
    */
-  MaterialLayout.prototype.drawerToggleHandler_ = function(evt) {
+  MaterialLayout.prototype.drawerToggleHandler_ = function (evt) {
     if (evt && (evt.type === 'keydown')) {
       if (evt.keyCode === this.Keycodes_.SPACE ||
-          evt.keyCode === this.Keycodes_.ENTER) {
+        evt.keyCode === this.Keycodes_.ENTER) {
         // prevent scrolling in drawer nav
         evt.preventDefault();
       } else {
         // prevent other keys
         return;
       }
+    }
+
+    //MME: In case of mobile, stop event bubbling 
+    if (this.header_.classList.contains(this.CssClasses_.IS_MOBILE)) {
+      evt.preventDefault();
     }
 
     this.toggleDrawer();
@@ -217,7 +231,7 @@
    *
    * @private
    */
-  MaterialLayout.prototype.headerTransitionEndHandler_ = function() {
+  MaterialLayout.prototype.headerTransitionEndHandler_ = function () {
     this.header_.classList.remove(this.CssClasses_.IS_ANIMATING);
   };
 
@@ -226,10 +240,19 @@
    *
    * @private
    */
-  MaterialLayout.prototype.headerClickHandler_ = function() {
+  MaterialLayout.prototype.headerClickHandler_ = function (evt) {
+    //MME: Allow the possibility to stop bubbling in case of prevention
+    if (evt.defaultPrevented) {
+      return;
+    }
+
     if (this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
       this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
       this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+    } else {
+      //MME: Toggle behaviour to show/hide the expanded HEADER view
+      this.header_.classList.add(this.CssClasses_.IS_COMPACT);
+      this.header_.classList.remove(this.CssClasses_.IS_ANIMATING);
     }
   };
 
@@ -239,7 +262,7 @@
    * @param {NodeList} tabs The tabs to reset.
    * @private
    */
-  MaterialLayout.prototype.resetTabState_ = function(tabs) {
+  MaterialLayout.prototype.resetTabState_ = function (tabs) {
     for (var k = 0; k < tabs.length; k++) {
       tabs[k].classList.remove(this.CssClasses_.IS_ACTIVE);
     }
@@ -251,7 +274,7 @@
    * @param {NodeList} panels The panels to reset.
    * @private
    */
-  MaterialLayout.prototype.resetPanelState_ = function(panels) {
+  MaterialLayout.prototype.resetPanelState_ = function (panels) {
     for (var j = 0; j < panels.length; j++) {
       panels[j].classList.remove(this.CssClasses_.IS_ACTIVE);
     }
@@ -262,9 +285,9 @@
   *
   * @public
   */
-  MaterialLayout.prototype.toggleDrawer = function() {
+  MaterialLayout.prototype.toggleDrawer = function () {
     var drawerButton =
-        this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
+      this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
     this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
     this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
 
@@ -278,12 +301,12 @@
     }
   };
   MaterialLayout.prototype['toggleDrawer'] =
-      MaterialLayout.prototype.toggleDrawer;
+    MaterialLayout.prototype.toggleDrawer;
 
   /**
    * Initialize element.
    */
-  MaterialLayout.prototype.init = function() {
+  MaterialLayout.prototype.init = function () {
     if (this.element_) {
       var container = document.createElement('div');
       container.classList.add(this.CssClasses_.CONTAINER);
@@ -303,26 +326,26 @@
       for (var c = 0; c < numChildren; c++) {
         var child = directChildren[c];
         if (child.classList &&
-            child.classList.contains(this.CssClasses_.HEADER)) {
+          child.classList.contains(this.CssClasses_.HEADER)) {
           this.header_ = child;
         }
 
         if (child.classList &&
-            child.classList.contains(this.CssClasses_.DRAWER)) {
+          child.classList.contains(this.CssClasses_.DRAWER)) {
           this.drawer_ = child;
         }
 
         if (child.classList &&
-            child.classList.contains(this.CssClasses_.CONTENT)) {
+          child.classList.contains(this.CssClasses_.CONTENT)) {
           this.content_ = child;
         }
       }
 
-      window.addEventListener('pageshow', function(e) {
+      window.addEventListener('pageshow', function (e) {
         if (e.persisted) { // when page is loaded from back/forward cache
           // trigger repaint to let layout scroll in safari
           this.element_.style.overflowY = 'hidden';
-          requestAnimationFrame(function() {
+          requestAnimationFrame(function () {
             this.element_.style.overflowY = '';
           }.bind(this));
         }
@@ -330,7 +353,7 @@
 
       if (this.header_) {
         this.tabBar_ =
-            this.header_.querySelector('.' + this.CssClasses_.TAB_BAR);
+          this.header_.querySelector('.' + this.CssClasses_.TAB_BAR);
       }
 
       var mode = this.Mode_.STANDARD;
@@ -339,14 +362,14 @@
         if (this.header_.classList.contains(this.CssClasses_.HEADER_SEAMED)) {
           mode = this.Mode_.SEAMED;
         } else if (this.header_.classList.contains(
-            this.CssClasses_.HEADER_WATERFALL)) {
+          this.CssClasses_.HEADER_WATERFALL)) {
           mode = this.Mode_.WATERFALL;
           this.header_.addEventListener('transitionend',
             this.headerTransitionEndHandler_.bind(this));
           this.header_.addEventListener('click',
             this.headerClickHandler_.bind(this));
         } else if (this.header_.classList.contains(
-            this.CssClasses_.HEADER_SCROLL)) {
+          this.CssClasses_.HEADER_SCROLL)) {
           mode = this.Mode_.SCROLL;
           container.classList.add(this.CssClasses_.HAS_SCROLLING_HEADER);
         }
@@ -366,7 +389,7 @@
           // Also add/remove auxiliary class for styling of the compact version of
           // the header.
           this.content_.addEventListener('scroll',
-              this.contentScrollHandler_.bind(this));
+            this.contentScrollHandler_.bind(this));
           this.contentScrollHandler_();
         }
       }
@@ -392,16 +415,16 @@
           // If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
           drawerButton.classList.add(this.CssClasses_.ON_LARGE_SCREEN);
         } else if (this.drawer_.classList.contains(
-              this.CssClasses_.ON_SMALL_SCREEN)) {
+          this.CssClasses_.ON_SMALL_SCREEN)) {
           // If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
           drawerButton.classList.add(this.CssClasses_.ON_SMALL_SCREEN);
         }
 
         drawerButton.addEventListener('click',
-            this.drawerToggleHandler_.bind(this));
+          this.drawerToggleHandler_.bind(this));
 
         drawerButton.addEventListener('keydown',
-            this.drawerToggleHandler_.bind(this));
+          this.drawerToggleHandler_.bind(this));
 
         // Add a class if the layout has a drawer, for altering the left padding.
         // Adds the HAS_DRAWER to the elements since this.header_ may or may
@@ -420,20 +443,20 @@
         obfuscator.classList.add(this.CssClasses_.OBFUSCATOR);
         this.element_.appendChild(obfuscator);
         obfuscator.addEventListener('click',
-            this.drawerToggleHandler_.bind(this));
+          this.drawerToggleHandler_.bind(this));
         this.obfuscator_ = obfuscator;
 
         this.drawer_.addEventListener('keydown',
-            this.keyboardEventHandler_.bind(this));
+          this.keyboardEventHandler_.bind(this));
         this.drawer_.setAttribute('aria-hidden', 'true');
       }
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
       // of small screens.
       this.screenSizeMediaQuery_ = window.matchMedia(
-          /** @type {string} */ (this.Constant_.MAX_WIDTH));
+          /** @type {string} */(this.Constant_.MAX_WIDTH));
       this.screenSizeMediaQuery_.addListener(
-          this.screenSizeHandler_.bind(this));
+        this.screenSizeHandler_.bind(this));
       this.screenSizeHandler_();
 
       // Initialize tabs, if any.
@@ -452,7 +475,7 @@
         leftButtonIcon.classList.add(this.CssClasses_.ICON);
         leftButtonIcon.textContent = this.Constant_.CHEVRON_LEFT;
         leftButton.appendChild(leftButtonIcon);
-        leftButton.addEventListener('click', function() {
+        leftButton.addEventListener('click', function () {
           this.tabBar_.scrollLeft -= this.Constant_.TAB_SCROLL_PIXELS;
         }.bind(this));
 
@@ -463,7 +486,7 @@
         rightButtonIcon.classList.add(this.CssClasses_.ICON);
         rightButtonIcon.textContent = this.Constant_.CHEVRON_RIGHT;
         rightButton.appendChild(rightButtonIcon);
-        rightButton.addEventListener('click', function() {
+        rightButton.addEventListener('click', function () {
           this.tabBar_.scrollLeft += this.Constant_.TAB_SCROLL_PIXELS;
         }.bind(this));
 
@@ -473,7 +496,7 @@
 
         // Add and remove tab buttons depending on scroll position and total
         // window size.
-        var tabUpdateHandler = function() {
+        var tabUpdateHandler = function () {
           if (this.tabBar_.scrollLeft > 0) {
             leftButton.classList.add(this.CssClasses_.IS_ACTIVE);
           } else {
@@ -481,7 +504,7 @@
           }
 
           if (this.tabBar_.scrollLeft <
-              this.tabBar_.scrollWidth - this.tabBar_.offsetWidth) {
+            this.tabBar_.scrollWidth - this.tabBar_.offsetWidth) {
             rightButton.classList.add(this.CssClasses_.IS_ACTIVE);
           } else {
             rightButton.classList.remove(this.CssClasses_.IS_ACTIVE);
@@ -492,28 +515,28 @@
         tabUpdateHandler();
 
         // Update tabs when the window resizes.
-        var windowResizeHandler = function() {
+        var windowResizeHandler = function () {
           // Use timeouts to make sure it doesn't happen too often.
           if (this.resizeTimeoutId_) {
             clearTimeout(this.resizeTimeoutId_);
           }
-          this.resizeTimeoutId_ = setTimeout(function() {
+          this.resizeTimeoutId_ = setTimeout(function () {
             tabUpdateHandler();
             this.resizeTimeoutId_ = null;
-          }.bind(this), /** @type {number} */ (this.Constant_.RESIZE_TIMEOUT));
+          }.bind(this), /** @type {number} */(this.Constant_.RESIZE_TIMEOUT));
         }.bind(this);
 
         window.addEventListener('resize', windowResizeHandler);
 
         if (this.tabBar_.classList.contains(
-            this.CssClasses_.JS_RIPPLE_EFFECT)) {
+          this.CssClasses_.JS_RIPPLE_EFFECT)) {
           this.tabBar_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
         }
 
         // Select element tabs, document panels
         var tabs = this.tabBar_.querySelectorAll('.' + this.CssClasses_.TAB);
         var panels =
-            this.content_.querySelectorAll('.' + this.CssClasses_.PANEL);
+          this.content_.querySelectorAll('.' + this.CssClasses_.PANEL);
 
         // Create new tabs for each tab element
         for (var i = 0; i < tabs.length; i++) {
@@ -550,7 +573,7 @@
     }
 
     if (layout.tabBar_.classList.contains(
-        layout.CssClasses_.JS_RIPPLE_EFFECT)) {
+      layout.CssClasses_.JS_RIPPLE_EFFECT)) {
       var rippleContainer = document.createElement('span');
       rippleContainer.classList.add(layout.CssClasses_.RIPPLE_CONTAINER);
       rippleContainer.classList.add(layout.CssClasses_.JS_RIPPLE_EFFECT);
@@ -560,7 +583,7 @@
       tab.appendChild(rippleContainer);
     }
 
-    tab.addEventListener('click', function(e) {
+    tab.addEventListener('click', function (e) {
       if (tab.getAttribute('href').charAt(0) === '#') {
         e.preventDefault();
         selectTab();
