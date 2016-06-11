@@ -1,0 +1,93 @@
+<!-- style -->
+<style>
+.mdl-stepper > .mdl-step > .mdl-step__content {
+  background-color: rgba(0,0,0,0.2);
+}
+</style>
+
+<!-- markup -->
+<ul class="mdl-stepper mdl-stepper--linear" id="demo-optional-steps">
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+      <span class="mdl-step__title">
+        <span class="mdl-step__title-text">Title of step 1</span>
+        <span class="mdl-step__title-message">Summarize if needed</span>
+      </span>
+    </span>
+    <div class="mdl-step__content"></div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+        Continue
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+        Cancel
+      </button>
+    </div>
+  </li>
+  <li class="mdl-step mdl-step--optional">
+    <span class="mdl-step__label">
+      <span class="mdl-step__title">
+        <span class="mdl-step__title-text">Title of step 2</span>
+        <span class="mdl-step__title-message">Optional</span>
+      </span>
+    </span>
+    <div class="mdl-step__content"></div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+        Continue
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+        Cancel
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-skip>
+        Skip
+      </button>
+    </div>
+  </li>
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+      <span class="mdl-step__title">
+        <span class="mdl-step__title-text">Title of step 3</span>
+      </span>
+    </span>
+    <div class="mdl-step__content"></div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+        Continue
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+        Cancel
+      </button>
+    </div>
+  </li>
+</ul>
+
+<!-- script -->
+<script>
+  // Optional steps demonstration 
+  var demoOptionalSteps = function (e) {
+    var element = document.querySelector('.mdl-stepper#demo-optional-steps');
+    var stepper = element.MaterialStepper;
+    var steps = element.querySelectorAll('.mdl-step');
+    var step;
+    
+    for (var i = 0; i < steps.length; i++) {
+      step = steps[i];
+      // When user clicks on [data-stepper-skip] button of step.                
+      step.addEventListener('onstepskip', function (e) {
+        // {element}.MaterialStepper.skip() move one step forward without change the
+        // state of current step and only works in optionals steps.           
+        stepper.skip();
+      });
+
+      step.addEventListener('onstepnext', function (e) {
+        stepper.next();
+      });
+    }
+    
+    element.addEventListener('onsteppercomplete', function (e) {
+      console.log('Stepper with optional step are completed');
+    });
+  };
+  window.addEventListener('load', demoOptionalSteps);
+</script>

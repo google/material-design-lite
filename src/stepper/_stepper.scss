@@ -1,0 +1,285 @@
+/**
+ * @author Alexandre Thebaldi (ahlechandre@gmail.com).
+ * @contributor Michael Haschke <http://michael.haschke.biz/>
+ */
+
+@import '../variables';
+
+@if $stepper-define-keyframes {
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 100;
+        }
+    }
+
+    @-moz-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 100;
+        }
+    }
+
+    @-ms-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 100;
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 100;
+        }
+    }
+}
+
+.mdl-stepper {
+    display: block;
+    background-color: $stepper-background-color;
+    position: relative;
+    box-shadow: $stepper-box-shadow;
+    padding: 24px 0;
+    max-width: $stepper-max-width;
+    width: 100%;
+    border-radius: $stepper-border-radius;
+    font-family: $stepper-font-family;
+}
+
+@media only screen and (max-width: 375px) {
+    .mdl-stepper {
+        width: 100vw;
+        margin-left: -16px;
+    }
+}
+
+.mdl-stepper li {
+    list-style: none;
+}
+
+.mdl-step {
+    position: relative;
+}
+
+.mdl-step > * {
+    -webkit-animation: $step-animation;
+    -moz-animation: $step-animation;
+    -ms-animation: $step-animation;
+    animation: $step-animation;
+}
+
+.mdl-step:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.mdl-step--completed .mdl-step__label-indicator {
+    background-color: $step-completed-number-background-color;
+}
+
+.mdl-step .mdl-step-error-message {
+    display: none;
+}
+
+.mdl-step--error .mdl-step__label-indicator {
+    background-color: $step-error-number-background-color !important;
+    font-weight: bold;
+}
+
+.mdl-step--error .mdl-step__title {
+    color: $step-error-title-text-color;
+}
+
+.mdl-step--error .mdl-step-error-message {
+    display: block;
+    color: $step-error-title-text-color;
+    font-weight: normal;
+}
+
+.mdl-stepper--linear .mdl-step__label:hover {
+    background: none;
+}
+
+.mdl-step--optional .mdl-step__actions >:last-child {
+    margin-left: auto;
+}
+
+.mdl-step__label-indicator {
+    order: 1;
+    color: $step-number-text-color;
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    background-color: $step-number-background-color;
+    border-radius: 100%;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.mdl-step__label-indicator >:first-child {
+    font-size: 15px;
+}
+
+.mdl-step:not(:last-child) .mdl-step__label-indicator:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 1px;
+    min-height: 40px;
+    background-color: $step-border-color;
+    margin: 32px 4px 0 37px;
+}
+
+.mdl-step__label {
+    cursor: pointer;
+    margin-bottom: 8px;
+    padding: 8px 24px 24px 24px;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.mdl-step__label:hover {
+    background-color: $step-label-hovered-background-color;
+}
+
+.mdl-step__label:not(:first-child) {
+    padding-top: 24px;
+}
+
+.mdl-step__label--with-sublabel {
+    align-items: baseline;
+}
+
+.mdl-step__label .mdl-step__title {
+    order: 2;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    display: flex;
+    flex-direction: column;
+}
+
+.mdl-step__label .mdl-step__title .mdl-step__title-message {
+    position: absolute;
+    font-size: 12px;
+    opacity: .7;
+    font-weight: 400;
+    margin-top: -6px;
+}
+
+.mdl-step__content {
+    display: none;
+    height: 350px;
+    width: inherit;
+    overflow: auto;
+    margin-left: 64px;
+    margin-right: 24px;
+}
+
+.mdl-step__actions {
+    display: none;
+    padding-top: 16px;
+    height: 48px;
+    margin-left: 64px;
+    margin-right: 24px;
+}
+
+.mdl-step__actions .mdl-button--raised.mdl-button--colored {
+    background-color: $step-button-raised-colored-background-color;
+    box-shadow: none;
+}
+
+.mdl-step.is-active .mdl-step__label-indicator {
+    color: $step-active-number-text-color;
+    background-color: $step-active-number-text-background-color;
+}
+
+.mdl-step.mdl-step.is-active:not(:last-child) .mdl-step__label-indicator:after {
+    height: 462px;
+    margin: 32px 0 0 37px;
+}
+
+.mdl-step.is-active .mdl-step__label .mdl-step__title {
+    font-weight: 600;
+}
+
+.mdl-step.is-active .mdl-step__content {
+    display: block;
+}
+
+.mdl-step.is-active .mdl-step__actions {
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mdl-step.is-active .mdl-step__actions [data-stepper-next] {
+    order: 1;
+    margin-right: 8px;
+}
+
+.mdl-step.is-active .mdl-step__actions [data-stepper-cancel] {
+    order: 2;
+}
+
+.mdl-step.is-active .mdl-step__actions [data-stepper-skip] {
+    order: 3;
+    margin-left: auto;
+}
+
+.mdl-step.is-active .mdl-step__actions [data-stepper-back] {
+    order: 4;
+    margin-left: auto;
+}
+
+.mdl-step--transient .mdl-step__content {
+    overflow: hidden !important;
+}
+
+.mdl-step__transient {
+    position: absolute;
+    top: 68px;
+    left: 64px;
+    z-index: 2;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    display: flex;
+    width: calc(100% - 88px);
+    height: 350px;
+    transition: $step-transient-animation;
+}
+
+.mdl-step__transient-overlay {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: $step-transient-background-color;
+}
+
+.mdl-step__transient-loader {
+    z-index: 4;
+    margin: auto;
+}

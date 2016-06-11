@@ -1,0 +1,114 @@
+<!-- style -->
+<style>
+.mdl-stepper > .mdl-step > .mdl-step__content:not(#demo-error-state-content) {
+  background-color: rgba(0,0,0,0.2);
+}
+</style>
+
+<!-- markup -->
+<ul class="mdl-stepper mdl-stepper--linear" id="demo-error-state">
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+      <span class="mdl-step__title">
+        <span class="mdl-step__title-text">Title of step 1</span>
+        <span class="mdl-step__title-message">Input must be greater than 10</span>
+      </span>
+    </span>
+    <div class="mdl-step__content" id="demo-error-state-content">
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="step-error-number">
+          <label class="mdl-textfield__label" for="step-error-number">Test less than 10</label>
+          <span class="mdl-textfield__error">Input is not a number!</span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" id="step-error-message">
+          <label class="mdl-textfield__label" for="step-error-message">Alert message</label>
+        </div>
+      </form>
+    </div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+        Continue
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+        Cancel
+      </button>
+    </div>
+  </li>
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+      <span class="mdl-step__title">
+        <span class="mdl-step__title-text">Title of step 2</span>
+      </span>
+    </span>
+    <div class="mdl-step__content"></div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+        Continue
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+        Cancel
+      </button>
+    </div>
+  </li>
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+      <span class="mdl-step__title">
+        <span class="mdl-step__title-text">Title of step 3</span>
+      </span>
+    </span>
+    <div class="mdl-step__content"></div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+        Continue
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+        Cancel
+      </button>
+    </div>
+  </li>
+</ul>
+
+<!-- script -->
+<script>
+  // Error state demonstration 
+  var demoErrorState = function () {
+    var element = document.querySelector('.mdl-stepper#demo-error-state');
+    var stepper = element.MaterialStepper;
+    var steps = element.querySelectorAll('.mdl-step');
+    var step;
+    
+    for (var i = 0; i < steps.length; i++) {
+      step = steps[i];
+      step.addEventListener('onstepnext', function (e) {
+        var input = this.querySelector('input#step-error-number');
+    
+        if (input) {
+
+          if (input.value > 10) {
+            // If input number > 10 just move forward.          
+            stepper.next();
+          } else {
+            var message = this.querySelector('input#step-error-message').value;
+
+            if (!message) {
+              message = 'Please number greater than 10';
+            }
+            // {element}.MaterialStepper.error(message) change the state of current step to "error"
+            // and display the message passed as parameter.          
+            stepper.error(message);
+          }
+        } else {
+          stepper.next();
+        }
+      });
+    }
+    
+    element.addEventListener('onsteppercomplete', function (e) {
+      console.log('Stepper with error state are completed');
+    });
+  };
+
+  window.addEventListener('load', demoErrorState);
+</script>
