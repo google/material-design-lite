@@ -289,6 +289,7 @@
       container.classList.add(this.CssClasses_.CONTAINER);
 
       var focusedElement = this.element_.querySelector(':focus');
+      var videoElement = this.element_.querySelectorAll('video[autoplay]');
 
       this.element_.parentElement.insertBefore(container, this.element_);
       this.element_.parentElement.removeChild(this.element_);
@@ -296,6 +297,9 @@
 
       if (focusedElement) {
         focusedElement.focus();
+      }
+      for (var v = 0; v < videoElement.length; ++v) {
+        videoElement[v].play();
       }
 
       var directChildren = this.element_.childNodes;
