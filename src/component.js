@@ -20,30 +20,30 @@
  *
  * @export
  */
-class MaterialComponent { // eslint-disable-line no-unused-vars
+class MaterialComponent {
   /**
    * Initialize component from a DOM node.
    *
-   * @param {Element} root The element being upgraded.
+   * @param {Element=} optRoot The element being upgraded. If none, a new DOM
+   *     subtree gets created for the component.
    */
-  constructor(root) {
-    this.root_ = root;
+  constructor(optRoot) {
+    this.root_ = optRoot || this.constructor.buildDom_();
   }
 
-  /* eslint-disable valid-jsdoc, no-unused-vars */
+  // eslint-disable-next-line valid-jsdoc
   /**
    * Creates the DOM subtree for a new component.
    * Greatly simplifies programmatic component creation.
    *
-   * @param {Object} options Component options (component-specific).
+   * @protected
+   * @nocollapse
    * @return {Element} The DOM subtree for the component.
-   * @export
    */
-  static buildDom(options) {
+  static buildDom_() {
     // Empty in base class. Throw error if not correctly overriden.
     throw new Error('Should be implemented in components.');
   }
-  /* eslint-enable valid-jsdoc, no-unused-vars */
 
   // eslint-disable-next-line valid-jsdoc
   /**
@@ -96,6 +96,16 @@ class MaterialComponent { // eslint-disable-line no-unused-vars
     // Useful, but beware flashes of unstyled content when relying on this.
     this.root_.classList.add(
         `${this.constructor.cssClasses_.ROOT}--is-upgraded`);
+  }
+
+  /**
+   * Returns the root element for the component.
+   *
+   * @return {Element} The root element for the component.
+   * @export
+   */
+  get root() {
+    return this.root_;
   }
 
   /**

@@ -18,25 +18,27 @@
 /**
  * The MaterialRadio class wraps a Material Design radio component.
  *
+ * @extends {MaterialComponent}
  * @export
  */
 class MaterialRadio extends MaterialComponent {
   /**
    * Initialize radio from a DOM node.
    *
-   * @param {Element} root The element being upgraded.
+   * @param {Element=} optRoot The element being upgraded.
    */
-  constructor(root) {
-    super(root);
+  constructor(optRoot) {
+    super(optRoot);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
+    if (!this.root_.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialRadio missing ' +
           `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
     // Look for required sub-nodes in the root's DOM.
-    this.input_ = root.querySelector(`.${MaterialRadio.cssClasses_.INPUT}`);
+    this.input_ =
+        this.root_.querySelector(`.${MaterialRadio.cssClasses_.INPUT}`);
     if (!this.input_) {
       throw new Error(
           `MaterialRadio missing ${MaterialRadio.cssClasses_.INPUT} node.`);
@@ -64,46 +66,27 @@ class MaterialRadio extends MaterialComponent {
   }
 
   /**
-   * Creates the DOM subtree for a new radio.
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
    *
-   * Options:
-   *   - {string} id: The ID to use on the input element.
-   *   - {string} text: The text to use on the radio.
-   *   - {boolean} checked: Whether the radio should initially be checked.
-   *   - {boolean} disabled: Whether the radio should initially be disabled.
-   *
+   * @protected
+   * @nocollapse
    * @return {Element} The DOM subtree for the component.
-   * @export
    */
-  static buildDom(/** { id: string, text: string, checked: boolean,
-      disabled: boolean }= */ {
-      id = MaterialRadio.generateId_(),
-      text = '',
-      checked = false,
-      disabled = false
-    } = {}) {
+  static buildDom_() {
     let root = document.createElement('label');
     let input = document.createElement('input');
     let label = document.createElement('span');
+    let id = MaterialRadio.generateId_();
     root.htmlFor = id;
     root.classList.add(MaterialRadio.cssClasses_.ROOT);
     input.type = 'radio';
     input.id = id;
     input.classList.add(MaterialRadio.cssClasses_.INPUT);
-    input.checked = checked;
-    input.disabled = disabled;
     root.appendChild(input);
     label.classList.add(MaterialRadio.cssClasses_.LABEL);
-    label.text = text;
     root.appendChild(label);
 
-    // Ensure correct first render.
-    if (checked) {
-      root.classList.add(MaterialRadio.cssClasses_.IS_CHECKED);
-    }
-    if (disabled) {
-      root.classList.add(MaterialRadio.cssClasses_.IS_DISABLED);
-    }
     return root;
   }
 

@@ -24,13 +24,13 @@ class MaterialCheckbox extends MaterialComponent {
   /**
    * Initialize checkbox from a DOM node.
    *
-   * @param {Element} root The element being upgraded.
+   * @param {Element=} optRoot The element being upgraded.
    */
-  constructor(root) {
-    super(root);
+  constructor(optRoot) {
+    super(optRoot);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
+    if (!this.root_.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialCheckbox missing ' +
           `${this.constructor.cssClasses_.ROOT} class.`);
     }
@@ -65,46 +65,27 @@ class MaterialCheckbox extends MaterialComponent {
   }
 
   /**
-   * Creates the DOM subtree for a new checkbox.
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
    *
-   * Options:
-   *   - {string} id: The ID to use on the input element.
-   *   - {string} text: The text to use on the checkbox.
-   *   - {boolean} checked: Whether the checkbox should initially be checked.
-   *   - {boolean} disabled: Whether the checkbox should initially be disabled.
-   *
+   * @protected
+   * @nocollapse
    * @return {Element} The DOM subtree for the component.
-   * @export
    */
-  static buildDom(/** { id: string, text: string, checked: boolean,
-      disabled: boolean }= */ {
-      id = MaterialCheckbox.generateId_(),
-      text = '',
-      checked = false,
-      disabled = false
-    } = {}) {
+  static buildDom_() {
     let root = document.createElement('label');
     let input = document.createElement('input');
     let label = document.createElement('span');
+    let id = MaterialCheckbox.generateId_();
     root.htmlFor = id;
     root.classList.add(MaterialCheckbox.cssClasses_.ROOT);
     input.type = 'checkbox';
     input.id = id;
     input.classList.add(MaterialCheckbox.cssClasses_.INPUT);
-    input.checked = checked;
-    input.disabled = disabled;
     root.appendChild(input);
     label.classList.add(MaterialCheckbox.cssClasses_.LABEL);
-    label.text = text;
     root.appendChild(label);
 
-    // Ensure correct first render.
-    if (checked) {
-      root.classList.add(MaterialCheckbox.cssClasses_.IS_CHECKED);
-    }
-    if (disabled) {
-      root.classList.add(MaterialCheckbox.cssClasses_.IS_DISABLED);
-    }
     return root;
   }
 

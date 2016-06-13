@@ -43,34 +43,10 @@ describe('MaterialSwitch', function () {
     expect(el.classList.contains('mdl-switch--is-upgraded')).to.be.true;
   });
 
-  describe('.buildDom()', function () {
-    it('should return a valid DOM with no parameters', function() {
-      var el = MaterialSwitch.buildDom();
-      expect(el).to.be.an.instanceof(Element);
-      var sw = new MaterialSwitch(el);
-      expect(sw).to.be.an.instanceof(MaterialSwitch);
-    });
-
-    it('should return a valid DOM with a provided id', function() {
-      var el = MaterialSwitch.buildDom({
-        id: 'testId'
-      });
-      expect(el).to.be.an.instanceof(Element);
-      expect(el.querySelector('#testId')).to.not.be.null;
-      var sw = new MaterialSwitch(el);
-      expect(sw).to.be.an.instanceof(MaterialSwitch);
-    });
-
-    it('should return a valid DOM with a provided text', function() {
-      var el = MaterialSwitch.buildDom({
-        text: 'Test switch'
-      });
-      expect(el).to.be.an.instanceof(Element);
-      expect(el.querySelector('.mdl-switch__label').text).to
-          .equal('Test switch');
-      var sw = new MaterialSwitch(el);
-      expect(sw).to.be.an.instanceof(MaterialSwitch);
-    });
+  it('should build a valid DOM with no parameters', function() {
+    var sw = new MaterialSwitch();
+    expect(sw).to.be.an.instanceof(MaterialSwitch);
+    expect(sw.root).to.be.an.instanceof(Element);
   });
 
   it('should get checked class after being checked', function() {

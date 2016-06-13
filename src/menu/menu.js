@@ -24,13 +24,13 @@ class MaterialMenu extends MaterialComponent {
   /**
    * Initialize checkbox from a DOM node.
    *
-   * @param {Element} root The element being upgraded.
+   * @param {Element=} optRoot The element being upgraded.
    */
-  constructor(root) {
-    super(root);
+  constructor(optRoot) {
+    super(optRoot);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
+    if (!this.root_.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialMenu missing ' +
           `${this.constructor.cssClasses_.ROOT} class.`);
     }
@@ -64,30 +64,20 @@ class MaterialMenu extends MaterialComponent {
   }
 
   /**
-   * Creates the DOM subtree for a new switch.
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
    *
-   * Options:
-   *   - {Array<string>} items: The text for the items to add to the menu.
-   *
+   * @protected
+   * @nocollapse
    * @return {Element} The DOM subtree for the component.
-   * @export
    */
-  static buildDom(/** {items: Array<string>}= */ {
-      items = []
-    } = {}) {
+  static buildDom_() {
     let root = document.createElement('div');
     root.classList.add(MaterialMenu.cssClasses_.ROOT);
 
     let list = document.createElement('ul');
     list.classList.add(MaterialMenu.cssClasses_.LIST);
     root.appendChild(list);
-
-    for (let i = 0; i < items.length; i++) {
-      let item = document.createElement('li');
-      item.classList.add(MaterialMenu.cssClasses_.ITEM);
-      item.textContent = items[i];
-      list.appendChild(item);
-    }
 
     return root;
   }

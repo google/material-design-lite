@@ -45,26 +45,10 @@ describe('MaterialMenu', function () {
     expect(function() { new MaterialMenu(el) }).to.throw(Error);
   });
 
-  describe('.buildDom()', function () {
-    it('should return a valid DOM with no parameters', function() {
-      var el = MaterialMenu.buildDom();
-      expect(el).to.be.an.instanceof(Element);
-      var sw = new MaterialMenu(el);
-      expect(sw).to.be.an.instanceof(MaterialMenu);
-    });
-
-    it('should return a valid DOM with a provided list of items', function() {
-      var testItems = ['foo', 'bar', 'foobar'];
-      var el = MaterialMenu.buildDom({
-        items: testItems
-      });
-      expect(el).to.be.an.instanceof(Element);
-      var items = el.querySelectorAll('.mdl-menu__item');
-      expect(items.length).to.be.equal(3);
-      for (var i = 0; i < items.length; i++) {
-        expect(items[i].textContent).to.be.equal(testItems[i]);
-      }
-    });
+  it('should build a valid DOM with no parameters', function() {
+    var menu = new MaterialMenu();
+    expect(menu).to.be.an.instanceof(MaterialMenu);
+    expect(menu.root).to.be.an.instanceof(Element);
   });
 
   it('should start the showing animation on show()', function(done) {
