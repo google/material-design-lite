@@ -20,10 +20,8 @@ describe('MaterialCheckbox', function () {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var labelText = document.createElement('span');
-    label.for = 'testCheckbox';
     label.className = 'mdl-checkbox';
     input.type = 'checkbox';
-    input.id = 'testCheckbox';
     input.className = 'mdl-checkbox__input';
     label.appendChild(input);
     labelText.className = 'mdl-checkbox__label';
@@ -41,6 +39,12 @@ describe('MaterialCheckbox', function () {
     var checkbox = new MaterialCheckbox(el);
     expect(checkbox).to.be.an.instanceof(MaterialCheckbox);
     expect(el.classList.contains('mdl-checkbox--is-upgraded')).to.be.true;
+  });
+
+  it('should build a valid DOM with no parameters', function() {
+    var checkbox = new MaterialCheckbox();
+    expect(checkbox).to.be.an.instanceof(MaterialCheckbox);
+    expect(checkbox.root).to.be.an.instanceof(Element);
   });
 
   it('should get checked class after being checked', function() {

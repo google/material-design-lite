@@ -20,10 +20,8 @@ describe('MaterialSwitch', function () {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var labelText = document.createElement('span');
-    label.for = 'testSwitch';
     label.className = 'mdl-switch';
     input.type = 'checkbox';
-    input.id = 'testSwitch';
     input.className = 'mdl-switch__input';
     label.appendChild(input);
     labelText.className = 'mdl-switch__label';
@@ -41,6 +39,12 @@ describe('MaterialSwitch', function () {
     var sw = new MaterialSwitch(el);
     expect(sw).to.be.an.instanceof(MaterialSwitch);
     expect(el.classList.contains('mdl-switch--is-upgraded')).to.be.true;
+  });
+
+  it('should build a valid DOM with no parameters', function() {
+    var sw = new MaterialSwitch();
+    expect(sw).to.be.an.instanceof(MaterialSwitch);
+    expect(sw.root).to.be.an.instanceof(Element);
   });
 
   it('should get checked class after being checked', function() {

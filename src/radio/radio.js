@@ -18,25 +18,27 @@
 /**
  * The MaterialRadio class wraps a Material Design radio component.
  *
+ * @extends {MaterialComponent}
  * @export
  */
 class MaterialRadio extends MaterialComponent {
   /**
    * Initialize radio from a DOM node.
    *
-   * @param {Element} root The element being upgraded.
+   * @param {Element=} optRoot The element being upgraded.
    */
-  constructor(root) {
-    super(root);
+  constructor(optRoot) {
+    super(optRoot);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
+    if (!this.root_.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialRadio missing ' +
           `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
     // Look for required sub-nodes in the root's DOM.
-    this.input_ = root.querySelector(`.${MaterialRadio.cssClasses_.INPUT}`);
+    this.input_ =
+        this.root_.querySelector(`.${MaterialRadio.cssClasses_.INPUT}`);
     if (!this.input_) {
       throw new Error(
           `MaterialRadio missing ${MaterialRadio.cssClasses_.INPUT} node.`);
@@ -55,6 +57,28 @@ class MaterialRadio extends MaterialComponent {
   }
 
   /**
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
+   *
+   * @protected
+   * @nocollapse
+   * @return {Element} The DOM subtree for the component.
+   */
+  static buildDom_() {
+    let root = document.createElement('label');
+    let input = document.createElement('input');
+    let label = document.createElement('span');
+    root.classList.add(MaterialRadio.cssClasses_.ROOT);
+    input.type = 'radio';
+    input.classList.add(MaterialRadio.cssClasses_.INPUT);
+    root.appendChild(input);
+    label.classList.add(MaterialRadio.cssClasses_.LABEL);
+    root.appendChild(label);
+
+    return root;
+  }
+
+  /**
    * CSS classes used in this component.
    *
    * @override
@@ -66,6 +90,7 @@ class MaterialRadio extends MaterialComponent {
       ROOT: 'mdl-radio',
       JS: 'mdl-js-radio',
       INPUT: 'mdl-radio__input',
+      LABEL: 'mdl-radio__label',
 
       IS_FOCUSED: 'is-focused',
       IS_DISABLED: 'is-disabled',

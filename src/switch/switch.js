@@ -24,13 +24,13 @@ class MaterialSwitch extends MaterialComponent {
   /**
    * Initialize checkbox from a DOM node.
    *
-   * @param {Element} root The element being upgraded.
+   * @param {Element=} optRoot The element being upgraded.
    */
-  constructor(root) {
-    super(root);
+  constructor(optRoot) {
+    super(optRoot);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
+    if (!this.root_.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialSwitch missing ' +
           `${this.constructor.cssClasses_.ROOT} class.`);
     }
@@ -56,6 +56,28 @@ class MaterialSwitch extends MaterialComponent {
   }
 
   /**
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
+   *
+   * @protected
+   * @nocollapse
+   * @return {Element} The DOM subtree for the component.
+   */
+  static buildDom_() {
+    let root = document.createElement('label');
+    let input = document.createElement('input');
+    let label = document.createElement('span');
+    root.classList.add(MaterialSwitch.cssClasses_.ROOT);
+    input.type = 'checkbox';
+    input.classList.add(MaterialSwitch.cssClasses_.INPUT);
+    root.appendChild(input);
+    label.classList.add(MaterialSwitch.cssClasses_.LABEL);
+    root.appendChild(label);
+
+    return root;
+  }
+
+  /**
    * CSS classes used in this component.
    *
    * @protected
@@ -66,6 +88,7 @@ class MaterialSwitch extends MaterialComponent {
       ROOT: 'mdl-switch',
       JS: 'mdl-js-switch',
       INPUT: 'mdl-switch__input',
+      LABEL: 'mdl-switch__label',
 
       IS_FOCUSED: 'is-focused',
       IS_DISABLED: 'is-disabled',

@@ -20,10 +20,8 @@ describe('MaterialRadio', function () {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var labelText = document.createElement('span');
-    label.for = 'testCheckbox';
     label.className = 'mdl-radio';
     input.type = 'radio';
-    input.id = 'testCheckbox';
     input.className = 'mdl-radio__input';
     label.appendChild(input);
     labelText.className = 'mdl-radio__label';
@@ -41,6 +39,12 @@ describe('MaterialRadio', function () {
     var radio = new MaterialRadio(el);
     expect(radio).to.be.an.instanceof(MaterialRadio);
     expect(el.classList.contains('mdl-radio--is-upgraded')).to.be.true;
+  });
+
+  it('should build a valid DOM with no parameters', function() {
+    var radio = new MaterialRadio();
+    expect(radio).to.be.an.instanceof(MaterialRadio);
+    expect(radio.root).to.be.an.instanceof(Element);
   });
 
   it('should get checked class after being checked', function() {

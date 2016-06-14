@@ -45,6 +45,12 @@ describe('MaterialMenu', function () {
     expect(function() { new MaterialMenu(el) }).to.throw(Error);
   });
 
+  it('should build a valid DOM with no parameters', function() {
+    var menu = new MaterialMenu();
+    expect(menu).to.be.an.instanceof(MaterialMenu);
+    expect(menu.root).to.be.an.instanceof(Element);
+  });
+
   it('should start the showing animation on show()', function(done) {
     var el = createMenu();
     var menu = new MaterialMenu(el);
