@@ -57,15 +57,6 @@ class MaterialRadio extends MaterialComponent {
   }
 
   /**
-   * Generates an ID for a new Radio. Keeps a counter to ensure uniqueness.
-   * @return {string} The generated ID.
-   */
-  static generateId_() {
-    MaterialRadio.autoCounter_ = (MaterialRadio.autoCounter_ || 0) + 1;
-    return `mdlradio-${MaterialRadio.autoCounter_}`;
-  }
-
-  /**
    * Creates the DOM subtree for a new component.
    * Greatly simplifies programmatic component creation.
    *
@@ -77,11 +68,8 @@ class MaterialRadio extends MaterialComponent {
     let root = document.createElement('label');
     let input = document.createElement('input');
     let label = document.createElement('span');
-    let id = MaterialRadio.generateId_();
-    root.htmlFor = id;
     root.classList.add(MaterialRadio.cssClasses_.ROOT);
     input.type = 'radio';
-    input.id = id;
     input.classList.add(MaterialRadio.cssClasses_.INPUT);
     root.appendChild(input);
     label.classList.add(MaterialRadio.cssClasses_.LABEL);

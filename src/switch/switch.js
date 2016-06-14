@@ -56,15 +56,6 @@ class MaterialSwitch extends MaterialComponent {
   }
 
   /**
-   * Generates an ID for a new switch. Keeps a counter to ensure uniqueness.
-   * @return {string} The generated ID.
-   */
-  static generateId_() {
-    MaterialSwitch.autoCounter_ = (MaterialSwitch.autoCounter_ || 0) + 1;
-    return `mdlswitch-${MaterialSwitch.autoCounter_}`;
-  }
-
-  /**
    * Creates the DOM subtree for a new component.
    * Greatly simplifies programmatic component creation.
    *
@@ -76,11 +67,8 @@ class MaterialSwitch extends MaterialComponent {
     let root = document.createElement('label');
     let input = document.createElement('input');
     let label = document.createElement('span');
-    let id = MaterialSwitch.generateId_();
-    root.htmlFor = id;
     root.classList.add(MaterialSwitch.cssClasses_.ROOT);
     input.type = 'checkbox';
-    input.id = id;
     input.classList.add(MaterialSwitch.cssClasses_.INPUT);
     root.appendChild(input);
     label.classList.add(MaterialSwitch.cssClasses_.LABEL);

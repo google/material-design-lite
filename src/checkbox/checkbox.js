@@ -56,15 +56,6 @@ class MaterialCheckbox extends MaterialComponent {
   }
 
   /**
-   * Generates an ID for a new checkbox. Keeps a counter to ensure uniqueness.
-   * @return {string} The generated ID.
-   */
-  static generateId_() {
-    MaterialCheckbox.autoCounter_ = (MaterialCheckbox.autoCounter_ || 0) + 1;
-    return `mdlcheckbox-${MaterialCheckbox.autoCounter_}`;
-  }
-
-  /**
    * Creates the DOM subtree for a new component.
    * Greatly simplifies programmatic component creation.
    *
@@ -76,11 +67,8 @@ class MaterialCheckbox extends MaterialComponent {
     let root = document.createElement('label');
     let input = document.createElement('input');
     let label = document.createElement('span');
-    let id = MaterialCheckbox.generateId_();
-    root.htmlFor = id;
     root.classList.add(MaterialCheckbox.cssClasses_.ROOT);
     input.type = 'checkbox';
-    input.id = id;
     input.classList.add(MaterialCheckbox.cssClasses_.INPUT);
     root.appendChild(input);
     label.classList.add(MaterialCheckbox.cssClasses_.LABEL);

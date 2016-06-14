@@ -20,10 +20,8 @@ describe('MaterialSwitch', function () {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var labelText = document.createElement('span');
-    label.htmlFor = 'testSwitch';
     label.className = 'mdl-switch';
     input.type = 'checkbox';
-    input.id = 'testSwitch';
     input.className = 'mdl-switch__input';
     label.appendChild(input);
     labelText.className = 'mdl-switch__label';
