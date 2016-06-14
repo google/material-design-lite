@@ -24,19 +24,46 @@ class MaterialSpinner extends MaterialComponent {
   /**
    * Initialize spinner from a DOM node.
    *
-   * @param {Element} root The element being upgraded.
+   * @param {Element=} optRoot The element being upgraded.
    */
-  constructor(root) {
-    super(root);
+  constructor(optRoot) {
+    super(optRoot);
 
     // Check if the root has the right class.
-    if (!root.classList.contains(this.constructor.cssClasses_.ROOT)) {
+    if (!this.root_.classList.contains(this.constructor.cssClasses_.ROOT)) {
       throw new Error('MaterialSpinner missing ' +
           `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
     // Finalize initialization.
     this.init_();
+  }
+
+  /**
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
+   *
+   * @protected
+   * @nocollapse
+   * @return {Element} The DOM subtree for the component.
+   */
+  static buildDom_() {
+    let root = document.createElement('div');
+    root.classList.add(MaterialSpinner.cssClasses_.ROOT);
+
+    for (let i = 0; i < MaterialSpinner.numbers_.LAYERS; i++) {
+      let layer = document.createElement('div');
+      layer.classList.add(MaterialSpinner.cssClasses_.LAYER);
+      let left = document.createElement('div');
+      left.classList.add(MaterialSpinner.cssClasses_.CLIP);
+      let right = document.createElement('div');
+      right.classList.add(MaterialSpinner.cssClasses_.CLIP);
+      layer.appendChild(left);
+      layer.appendChild(right);
+      root.appendChild(layer);
+    }
+
+    return root;
   }
 
   /**
@@ -49,8 +76,22 @@ class MaterialSpinner extends MaterialComponent {
     return {
       ROOT: 'mdl-spinner',
       JS: 'mdl-js-spinner',
+      LAYER: 'mdl-spinner__layer',
+      CLIP: 'mdl-spinner__clip',
 
       IS_ACTIVE: 'is-active'
+    };
+  }
+
+  /**
+   * Number constants used in this component.
+   *
+   * @protected
+   * @return {Object<string, number>} The numbers used in this component.
+   */
+  static get numbers_() {
+    return {
+      LAYERS: 4
     };
   }
 
