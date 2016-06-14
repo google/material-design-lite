@@ -465,14 +465,12 @@ gulp.task('pages', ['components'], () => {
 gulp.task('assets', () => {
   return gulp.src([
     'docs/_assets/**/*',
-    'node_modules/clippy/build/clippy.swf',
-    'node_modules/swfobject-npm/swfobject/src/swfobject.js',
     'node_modules/prismjs/prism.js',
     'node_modules/prismjs/components/prism-markup.min.js',
     'node_modules/prismjs/components/prism-javascript.min.js',
     'node_modules/prismjs/components/prism-css.min.js',
     'node_modules/prismjs/components/prism-bash.min.js',
-    'node_modules/prismjs/dist/prism-default/prism-default.css'
+    'node_modules/prismjs/themes/prism.css'
   ])
   .pipe($.if(/\.js/i, $.replace('$$version$$', pkg.version)))
   .pipe($.if(/\.js/i, $.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix)))
