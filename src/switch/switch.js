@@ -43,6 +43,10 @@ class MaterialSwitch extends MaterialComponent {
           `MaterialSwitch missing ${MaterialSwitch.cssClasses_.INPUT} node.`);
     }
 
+    // Look for optional sub-nodes in the root's DOM.
+    this.label_ =
+        this.root_.querySelector(`.${MaterialSwitch.cssClasses_.LABEL}`);
+
     // Initialize event listeners.
     this.changeListener_ = this.refresh.bind(this);
     this.focusListener_ =
@@ -160,6 +164,16 @@ class MaterialSwitch extends MaterialComponent {
    */
   get disabled() {
     return this.input_.disabled;
+  }
+
+  /**
+   * Return the label element for the switch, if any.
+   *
+   * @return {Element?} The label for the switch, if any (null if not).
+   * @export
+   */
+  get label() {
+    return this.label_;
   }
 
   /**

@@ -43,6 +43,10 @@ class MaterialCheckbox extends MaterialComponent {
           `${MaterialCheckbox.cssClasses_.INPUT} node.`);
     }
 
+    // Look for optional sub-nodes in the root's DOM.
+    this.label_ =
+        this.root_.querySelector(`.${MaterialCheckbox.cssClasses_.LABEL}`);
+
     // Initialize event listeners.
     this.changeListener_ = this.refresh.bind(this);
     this.focusListener_ =
@@ -160,6 +164,16 @@ class MaterialCheckbox extends MaterialComponent {
    */
   get disabled() {
     return this.input_.disabled;
+  }
+
+  /**
+   * Return the label element for the checkbox, if any.
+   *
+   * @return {Element?} The label for the checkbox, if any (null if not).
+   * @export
+   */
+  get label() {
+    return this.label_;
   }
 
   /**

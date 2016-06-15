@@ -74,4 +74,24 @@ describe('MaterialSwitch', function () {
     sw.disabled = true;
     expect(sw.disabled).to.be.true;
   });
+  
+  it('should return the label', function() {
+    var el = createSwitch();
+    var sw = new MaterialSwitch(el);
+    expect(sw.label).to.satisfy(function(val) {
+      return val == el.querySelector('.mdl-switch__label');
+    });
+  });
+
+  it('should return null if there is no label', function() {
+    var el = document.createElement('label');
+    var input = document.createElement('input');
+    el.className = 'mdl-switch';
+    input.type = 'checkbox';
+    input.className = 'mdl-switch__input';
+    el.appendChild(input);
+
+    var sw = new MaterialSwitch(el);
+    expect(sw.label).to.be.null;
+  });
 });
