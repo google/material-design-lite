@@ -44,6 +44,12 @@ describe('MaterialSpinner', function () {
     expect(el.classList.contains('mdl-spinner--is-upgraded')).to.be.true;
   });
 
+  it('should build a valid DOM with no parameters', function() {
+    var spinner = new MaterialSpinner();
+    expect(spinner).to.be.an.instanceof(MaterialSpinner);
+    expect(spinner.root).to.be.an.instanceof(Element);
+  });
+
   it('should have public properties available', function() {
     var el = createSpinner();
     var spinner = new MaterialSpinner(el);
