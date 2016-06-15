@@ -74,4 +74,24 @@ describe('MaterialRadio', function () {
     radio.disabled = true;
     expect(radio.disabled).to.be.true;
   });
+
+  it('should return the label', function() {
+    var el = createRadio();
+    var radio = new MaterialRadio(el);
+    expect(radio.label).to.satisfy(function(val) {
+      return val == el.querySelector('.mdl-radio__label');
+    });
+  });
+
+  it('should return null if there is no label', function() {
+    var el = document.createElement('label');
+    var input = document.createElement('input');
+    el.className = 'mdl-radio';
+    input.type = 'radio';
+    input.className = 'mdl-radio__input';
+    el.appendChild(input);
+
+    var radio = new MaterialRadio(el);
+    expect(radio.label).to.be.null;
+  });
 });

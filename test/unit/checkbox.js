@@ -74,4 +74,24 @@ describe('MaterialCheckbox', function () {
     checkbox.disabled = true;
     expect(checkbox.disabled).to.be.true;
   });
+
+  it('should return the label', function() {
+    var el = createCheckbox();
+    var checkbox = new MaterialCheckbox(el);
+    expect(checkbox.label).to.satisfy(function(val) {
+      return val == el.querySelector('.mdl-checkbox__label');
+    });
+  });
+
+  it('should return null if there is no label', function() {
+    var el = document.createElement('label');
+    var input = document.createElement('input');
+    el.className = 'mdl-checkbox';
+    input.type = 'checkbox';
+    input.className = 'mdl-checkbox__input';
+    el.appendChild(input);
+
+    var checkbox = new MaterialCheckbox(el);
+    expect(checkbox.label).to.be.null;
+  });
 });
