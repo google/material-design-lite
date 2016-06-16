@@ -69,7 +69,7 @@ const SOURCES = [
   // Base components
   // 'src/button/button.js',
   'src/checkbox/checkbox.js',
-  // 'src/icon-toggle/icon-toggle.js',
+  'src/icon-toggle/icon-toggle.js',
   'src/menu/menu.js',
   // 'src/progress/progress.js',
   'src/radio/radio.js',

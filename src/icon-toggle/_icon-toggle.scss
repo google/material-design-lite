@@ -32,20 +32,15 @@
 .mdl-icon-toggle__input {
   line-height: $icon-toggle-size;
 
-  .mdl-icon-toggle.is-upgraded & {
-    // Hide input element, while still making it respond to focus.
-    position: absolute;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    -ms-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-  }
+  // Hide input element, while still making it respond to focus.
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  appearance: none;
+  border: none;
 }
 
 .mdl-icon-toggle__label {
