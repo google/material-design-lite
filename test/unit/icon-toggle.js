@@ -16,13 +16,11 @@
 
 describe('MaterialIconToggle', function () {
 
-  function createToggle() {
+  function createIconToggle() {
     var label = document.createElement('label');
     var input = document.createElement('input');
     var icon = document.createElement('i');
-    label.className = 'mdl-icon-toggle mdl-js-icon-toggle';
-    label.for = 'testIconToggle';
-    input.id = label.for;
+    label.className = 'mdl-icon-toggle';
     input.type = 'checkbox';
     input.className = 'mdl-icon-toggle__input';
     label.appendChild(input);
@@ -30,16 +28,58 @@ describe('MaterialIconToggle', function () {
     icon.text = 'format_bold';
     label.appendChild(icon);
     return label;
-  };
+  }
 
-  it('should be globally available', function () {
+  it('should be globally available', function() {
     expect(MaterialIconToggle).to.be.a('function');
   });
 
-  it('should upgrade successfully', function () {
-    var el = createToggle();
-    componentHandler.upgradeElement(el, 'MaterialIconToggle');
-    expect($(el)).to.have.data('upgraded', ',MaterialIconToggle');
+  it('should upgrade successfully', function() {
+    var el = createIconToggle();
+    var toggle = new MaterialIconToggle(el);
+    expect(toggle).to.be.an.instanceof(MaterialIconToggle);
+    expect(el.classList.contains('mdl-icon-toggle--is-upgraded')).to.be.true;
   });
 
+  it('should build a valid DOM with no parameters', function() {
+    var toggle = new MaterialIconToggle();
+    expect(toggle).to.be.an.instanceof(MaterialIconToggle);
+    expect(toggle.root).to.be.an.instanceof(Element);
+  });
+
+  it('should get checked class after being checked', function() {
+    var el = createIconToggle();
+    var toggle = new MaterialIconToggle(el);
+    toggle.checked = true;
+    expect(el.classList.contains('is-checked')).to.be.true;
+  });
+
+  it('should return true in .checked after being checked', function() {
+    var el = createIconToggle();
+    var toggle = new MaterialIconToggle(el);
+    toggle.checked = true;
+    expect(toggle.checked).to.be.true;
+  });
+
+  it('should get disabled class after being disabled', function() {
+    var el = createIconToggle();
+    var toggle = new MaterialIconToggle(el);
+    toggle.disabled = true;
+    expect(el.classList.contains('is-disabled')).to.be.true;
+  });
+
+  it('should return true in .disabled after being disabled', function() {
+    var el = createIconToggle();
+    var toggle = new MaterialIconToggle(el);
+    toggle.disabled = true;
+    expect(toggle.disabled).to.be.true;
+  });
+
+  it('should return the label', function() {
+    var el = createIconToggle();
+    var toggle = new MaterialIconToggle(el);
+    expect(toggle.label).to.satisfy(function(val) {
+      return val == el.querySelector('.mdl-icon-toggle__label');
+    });
+  });
 });
