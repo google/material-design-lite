@@ -16,19 +16,70 @@
 
 describe('MaterialSlider', function () {
 
-  it('should be globally available', function () {
+  function createSlider() {
+    var root = document.createElement('div');
+    var input = document.createElement('input');
+    var background = document.createElement('div');
+    var upper = document.createElement('div');
+    var lower = document.createElement('div');
+    root.classList.add('mdl-slider');
+    background.classList.add('mdl-slider__background');
+    lower.classList.add('mdl-slider__background-lower');
+    background.appendChild(lower);
+    upper.classList.add('mdl-slider__background-upper');
+    background.appendChild(upper);
+    root.appendChild(background);
+    input.type = 'range';
+    input.min = 0;
+    input.max = 100;
+    input.classList.add('mdl-slider__input');
+    root.appendChild(input);
+
+    return root;
+  }
+
+  it('should be globally available', function() {
     expect(MaterialSlider).to.be.a('function');
   });
 
-  it('should upgrade successfully', function () {
-    var el = document.createElement('input');
-    el.type = 'range';
-
-    var parent = document.createElement('div');
-    parent.appendChild(el);
-
-    componentHandler.upgradeElement(el, 'MaterialSlider');
-    expect($(el)).to.have.data('upgraded', ',MaterialSlider');
+  it('should upgrade successfully', function() {
+    var el = createSlider();
+    var slider = new MaterialSlider(el);
+    expect(slider).to.be.an.instanceof(MaterialSlider);
+    expect(el.classList.contains('mdl-slider--is-upgraded')).to.be.true;
   });
 
+  it('should build a valid DOM with no parameters', function() {
+    var slider = new MaterialSlider();
+    expect(slider).to.be.an.instanceof(MaterialSlider);
+    expect(slider.root).to.be.an.instanceof(Element);
+  });
+
+  it('should get disabled class after being disabled', function() {
+    var el = createSlider();
+    var slider = new MaterialSlider(el);
+    slider.disabled = true;
+    expect(el.classList.contains('is-disabled')).to.be.true;
+  });
+
+  it('should return true in .disabled after being disabled', function() {
+    var el = createSlider();
+    var slider = new MaterialSlider(el);
+    slider.disabled = true;
+    expect(slider.disabled).to.be.true;
+  });
+
+  it('should set the value with .value', function() {
+    var el = createSlider();
+    var slider = new MaterialSlider(el);
+    slider.value = 42;
+    expect(el.querySelector('.mdl-slider__input').value).to.equal('42');
+  });
+
+  it('should return value in .value', function() {
+    var el = createSlider();
+    var slider = new MaterialSlider(el);
+    el.querySelector('.mdl-slider__input').value = 42;
+    expect(slider.value).to.equal('42');
+  });
 });

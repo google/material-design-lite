@@ -15,227 +15,230 @@
  * limitations under the License.
  */
 
-(function() {
-  'use strict';
-
+/**
+ * The MaterialSlider class wraps a Material Design slider component.
+ *
+ * @export
+ */
+class MaterialSlider extends MaterialComponent {
   /**
-   * Class constructor for Slider MDL component.
-   * Implements MDL component design pattern defined at:
-   * https://github.com/jasonmayes/mdl-component-design-pattern
+   * Initialize slider from a DOM node.
    *
-   * @constructor
-   * @param {HTMLElement} element The element that will be upgraded.
+   * @param {Element=} optRoot The element being upgraded.
    */
-  var MaterialSlider = function MaterialSlider(element) {
-    this.element_ = element;
-    // Browser feature detection.
-    this.isIE_ = window.navigator.msPointerEnabled;
-    // Initialize instance.
-    this.init();
-  };
-  window['MaterialSlider'] = MaterialSlider;
+  constructor(optRoot) {
+    super(optRoot);
 
-  /**
-   * Store constants in one place so they can be updated easily.
-   *
-   * @enum {string | number}
-   * @private
-   */
-  MaterialSlider.prototype.Constant_ = {
-    // None for now.
-  };
-
-  /**
-   * Store strings for class names defined by this component that are used in
-   * JavaScript. This allows us to simply change it in one place should we
-   * decide to modify at a later date.
-   *
-   * @enum {string}
-   * @private
-   */
-  MaterialSlider.prototype.CssClasses_ = {
-    IE_CONTAINER: 'mdl-slider__ie-container',
-    SLIDER_CONTAINER: 'mdl-slider__container',
-    BACKGROUND_FLEX: 'mdl-slider__background-flex',
-    BACKGROUND_LOWER: 'mdl-slider__background-lower',
-    BACKGROUND_UPPER: 'mdl-slider__background-upper',
-    IS_LOWEST_VALUE: 'is-lowest-value',
-    IS_UPGRADED: 'is-upgraded'
-  };
-
-  /**
-   * Handle input on element.
-   *
-   * @private
-   */
-  MaterialSlider.prototype.onInput_ = function() {
-    this.updateValueStyles_();
-  };
-
-  /**
-   * Handle change on element.
-   *
-   * @private
-   */
-  MaterialSlider.prototype.onChange_ = function() {
-    this.updateValueStyles_();
-  };
-
-  /**
-   * Handle mouseup on element.
-   *
-   * @param {Event} event The event that fired.
-   * @private
-   */
-  MaterialSlider.prototype.onMouseUp_ = function(event) {
-    event.target.blur();
-  };
-
-  /**
-   * Handle mousedown on container element.
-   * This handler is purpose is to not require the use to click
-   * exactly on the 2px slider element, as FireFox seems to be very
-   * strict about this.
-   *
-   * @param {Event} event The event that fired.
-   * @private
-   * @suppress {missingProperties}
-   */
-  MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
-    // If this click is not on the parent element (but rather some child)
-    // ignore. It may still bubble up.
-    if (event.target !== this.element_.parentElement) {
-      return;
+    // Check if the root has the right class.
+    if (!this.root_.classList.contains(this.constructor.cssClasses_.ROOT)) {
+      throw new Error('MaterialSlider missing ' +
+          `${this.constructor.cssClasses_.ROOT} class.`);
     }
 
-    // Discard the original event and create a new event that
-    // is on the slider element.
-    event.preventDefault();
-    var newEvent = new MouseEvent('mousedown', {
-      target: event.target,
-      buttons: event.buttons,
-      clientX: event.clientX,
-      clientY: this.element_.getBoundingClientRect().y
-    });
-    this.element_.dispatchEvent(newEvent);
-  };
+    // Look for required sub-nodes in the root's DOM.
+    this.input_ =
+        this.root_.querySelector(`.${MaterialSlider.cssClasses_.INPUT}`);
+    if (!this.input_) {
+      throw new Error('MaterialSlider missing ' +
+          `${MaterialSlider.cssClasses_.INPUT} node.`);
+    }
+
+    // Look for optional sub-nodes in the root's DOM.
+    this.background_ = this.root_.querySelector(
+        `.${MaterialSlider.cssClasses_.BACKGROUND}`);
+    if (this.background_) {
+      this.backgroundLower_ = this.background_.querySelector(
+          `.${MaterialSlider.cssClasses_.LOWER}`);
+      this.backgroundUpper_ = this.background_.querySelector(
+          `.${MaterialSlider.cssClasses_.UPPER}`);
+    }
+
+    // Initialize event listeners.
+    this.changeListener_ = this.refresh.bind(this);
+    this.focusListener_ =
+        () => this.root_.classList.add(MaterialSlider.cssClasses_.IS_FOCUSED);
+    this.blurListener_ = () => this.root_.classList.remove(
+        MaterialSlider.cssClasses_.IS_FOCUSED);
+    this.mouseUpListener_ = this.blur_.bind(this);
+    this.inputListener_ = this.updateValue_.bind(this);
+
+    // Finalize initialization.
+    this.init_();
+  }
 
   /**
-   * Handle updating of values.
+   * Creates the DOM subtree for a new component.
+   * Greatly simplifies programmatic component creation.
+   *
+   * @protected
+   * @nocollapse
+   * @return {Element} The DOM subtree for the component.
+   */
+  static buildDom_() {
+    let root = document.createElement('div');
+    let input = document.createElement('input');
+    let background = document.createElement('div');
+    let upper = document.createElement('div');
+    let lower = document.createElement('div');
+    root.classList.add(MaterialSlider.cssClasses_.ROOT);
+    background.classList.add(MaterialSlider.cssClasses_.BACKGROUND);
+    lower.classList.add(MaterialSlider.cssClasses_.LOWER);
+    background.appendChild(lower);
+    upper.classList.add(MaterialSlider.cssClasses_.UPPER);
+    background.appendChild(upper);
+    root.appendChild(background);
+    input.type = 'range';
+    input.min = 0;
+    input.max = 100;
+    input.value = 0;
+    input.classList.add(MaterialSlider.cssClasses_.INPUT);
+    root.appendChild(input);
+
+    return root;
+  }
+
+  /**
+   * CSS classes used in this component.
+   *
+   * @protected
+   * @return {Object<string, string>} The CSS classes used in this component.
+   */
+  static get cssClasses_() {
+    return {
+      ROOT: 'mdl-slider',
+      JS: 'mdl-js-slider',
+      INPUT: 'mdl-slider__input',
+      BACKGROUND: 'mdl-slider__background',
+      UPPER: 'mdl-slider__background-upper',
+      LOWER: 'mdl-slider__background-lower',
+
+      IS_FOCUSED: 'is-focused',
+      IS_DISABLED: 'is-disabled',
+      IS_LOWEST_VALUE: 'is-lowest-value'
+    };
+  }
+
+  /**
+   * Attach all listeners to the DOM.
+   *
+   * @export
+   */
+  addEventListeners() {
+    this.input_.addEventListener('change', this.changeListener_);
+    this.input_.addEventListener('focus', this.focusListener_);
+    this.input_.addEventListener('blur', this.blurListener_);
+    this.input_.addEventListener('input', this.inputListener_);
+    this.root_.addEventListener('mouseup', this.mouseUpListener_);
+  }
+
+  /**
+   * Remove all listeners from the DOM.
+   *
+   * @export
+   */
+  removeEventListeners() {
+    this.input_.removeEventListener('change', this.changeListener_);
+    this.input_.removeEventListener('focus', this.focusListener_);
+    this.input_.removeEventListener('blur', this.blurListener_);
+    this.input_.removeEventListener('input', this.inputListener_);
+    this.root_.removeEventListener('mouseup', this.mouseUpListener_);
+  }
+
+  /**
+   * Set value on slider.
+   *
+   * @param {string} num The value to set the property to.
+   * @export
+   */
+  set value(num) {
+    this.input_.value = num;
+    this.refresh();
+  }
+
+  /**
+   * Return value on checkbox.
+   *
+   * @return {string} The current value of the property.
+   * @export
+   */
+  get value() {
+    return this.input_.value;
+  }
+
+  /**
+   * Disable / enable the checkbox component.
+   *
+   * @param {boolean} value The value to set the property to.
+   * @export
+   */
+  set disabled(value) {
+    this.input_.disabled = Boolean(value);
+    this.refresh();
+  }
+
+  /**
+   * Return whether the checkbox component is disabled or enabled.
+   *
+   * @return {boolean} The current value of the property.
+   * @export
+   */
+  get disabled() {
+    return this.input_.disabled;
+  }
+
+  /**
+   * Run a visual refresh on the component, in case it's gone out of sync.
+   *
+   * @export
+   */
+  refresh() {
+    this.checkDisabled_();
+    this.updateValue_();
+  }
+
+  /**
+   * Add blur.
    *
    * @private
    */
-  MaterialSlider.prototype.updateValueStyles_ = function() {
+  blur_() {
+    requestAnimationFrame(() => this.input_.blur());
+  }
+
+  /**
+   * Check the input's value and update display.
+   *
+   * @private
+   */
+  updateValue_() {
     // Calculate and apply percentages to div structure behind slider.
-    var fraction = (this.element_.value - this.element_.min) /
-        (this.element_.max - this.element_.min);
+    let fraction = (this.input_.value - this.input_.min) /
+        (this.input_.max - this.input_.min);
 
     if (fraction === 0) {
-      this.element_.classList.add(this.CssClasses_.IS_LOWEST_VALUE);
+      this.input_.classList.add(MaterialSlider.cssClasses_.IS_LOWEST_VALUE);
     } else {
-      this.element_.classList.remove(this.CssClasses_.IS_LOWEST_VALUE);
+      this.input_.classList.remove(MaterialSlider.cssClasses_.IS_LOWEST_VALUE);
     }
 
-    if (!this.isIE_) {
+    if (this.backgroundLower_ && this.backgroundUpper_) {
       this.backgroundLower_.style.flex = fraction;
       this.backgroundLower_.style.webkitFlex = fraction;
       this.backgroundUpper_.style.flex = 1 - fraction;
       this.backgroundUpper_.style.webkitFlex = 1 - fraction;
     }
-  };
-
-  // Public methods.
+  }
 
   /**
-   * Disable slider.
+   * Check the input's disabled state and update display.
    *
-   * @public
+   * @private
    */
-  MaterialSlider.prototype.disable = function() {
-    this.element_.disabled = true;
-  };
-  MaterialSlider.prototype['disable'] = MaterialSlider.prototype.disable;
-
-  /**
-   * Enable slider.
-   *
-   * @public
-   */
-  MaterialSlider.prototype.enable = function() {
-    this.element_.disabled = false;
-  };
-  MaterialSlider.prototype['enable'] = MaterialSlider.prototype.enable;
-
-  /**
-   * Update slider value.
-   *
-   * @param {number} value The value to which to set the control (optional).
-   * @public
-   */
-  MaterialSlider.prototype.change = function(value) {
-    if (typeof value !== 'undefined') {
-      this.element_.value = value;
+  checkDisabled_() {
+    if (this.input_.disabled) {
+      this.root_.classList.add(MaterialSlider.cssClasses_.IS_DISABLED);
+    } else {
+      this.root_.classList.remove(MaterialSlider.cssClasses_.IS_DISABLED);
     }
-    this.updateValueStyles_();
-  };
-  MaterialSlider.prototype['change'] = MaterialSlider.prototype.change;
-
-  /**
-   * Initialize element.
-   */
-  MaterialSlider.prototype.init = function() {
-    if (this.element_) {
-      if (this.isIE_) {
-        // Since we need to specify a very large height in IE due to
-        // implementation limitations, we add a parent here that trims it down to
-        // a reasonable size.
-        var containerIE = document.createElement('div');
-        containerIE.classList.add(this.CssClasses_.IE_CONTAINER);
-        this.element_.parentElement.insertBefore(containerIE, this.element_);
-        this.element_.parentElement.removeChild(this.element_);
-        containerIE.appendChild(this.element_);
-      } else {
-        // For non-IE browsers, we need a div structure that sits behind the
-        // slider and allows us to style the left and right sides of it with
-        // different colors.
-        var container = document.createElement('div');
-        container.classList.add(this.CssClasses_.SLIDER_CONTAINER);
-        this.element_.parentElement.insertBefore(container, this.element_);
-        this.element_.parentElement.removeChild(this.element_);
-        container.appendChild(this.element_);
-        var backgroundFlex = document.createElement('div');
-        backgroundFlex.classList.add(this.CssClasses_.BACKGROUND_FLEX);
-        container.appendChild(backgroundFlex);
-        this.backgroundLower_ = document.createElement('div');
-        this.backgroundLower_.classList.add(this.CssClasses_.BACKGROUND_LOWER);
-        backgroundFlex.appendChild(this.backgroundLower_);
-        this.backgroundUpper_ = document.createElement('div');
-        this.backgroundUpper_.classList.add(this.CssClasses_.BACKGROUND_UPPER);
-        backgroundFlex.appendChild(this.backgroundUpper_);
-      }
-
-      this.boundInputHandler = this.onInput_.bind(this);
-      this.boundChangeHandler = this.onChange_.bind(this);
-      this.boundMouseUpHandler = this.onMouseUp_.bind(this);
-      this.boundContainerMouseDownHandler =
-          this.onContainerMouseDown_.bind(this);
-      this.element_.addEventListener('input', this.boundInputHandler);
-      this.element_.addEventListener('change', this.boundChangeHandler);
-      this.element_.addEventListener('mouseup', this.boundMouseUpHandler);
-      this.element_.parentElement.addEventListener(
-          'mousedown', this.boundContainerMouseDownHandler);
-
-      this.updateValueStyles_();
-      this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
-    }
-  };
-
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialSlider,
-    classAsString: 'MaterialSlider',
-    cssClass: 'mdl-js-slider',
-    widget: true
-  });
-})();
+  }
+}
