@@ -111,11 +111,6 @@
       this.setRippleXY(x, y);
       this.setRippleStyles(true);
 
-      // Clear an existing ripple animation timeout, should one exist.
-      if (this.rippleTimeout) {
-        window.clearTimeout(this.rippleTimeout);
-      }
-
       // New click event, so clear past record of upHandler_ being triggered.
       this.rippleElement_.mouseUp = false;
       // Indicate to upHandler_ that ripple hasn't run for this.Constant_.ANIMATION_LENGTH
@@ -123,6 +118,11 @@
 
       var ctrl = this;
       window.requestAnimationFrame(function() {
+        // Clear an existing ripple animation timeout, should one exist.
+        if (ctrl.rippleTimeout) {
+          window.clearTimeout(ctrl.rippleTimeout);
+        }
+
         ctrl.animFrameHandler();
         // Allow the animation to complete, even for tap events, which may
         // trigger multiple mouseup events before a final event.detail == 1 event.
@@ -139,6 +139,8 @@
           }
           // Allow upHandler_ to clear animation upon future mouseup event.
           ctrl.rippleElement_.animationCompleted = true;
+          // Avoid triggering clearTimeout more than necessary.
+          ctrl.rippleTimeout = 0;
         }, Number(ctrl.Constant_.ANIMATION_LENGTH));
       });
     }
