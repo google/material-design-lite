@@ -202,7 +202,7 @@
    */
   MaterialRadio.prototype.check = function() {
     this.btnElement_.checked = true;
-    this.onChange_();
+    this.onChange_(null);
   };
   MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
 
@@ -213,7 +213,7 @@
    */
   MaterialRadio.prototype.uncheck = function() {
     this.btnElement_.checked = false;
-    this.onChange_();
+    this.onChange_(null);
   };
   MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
 
