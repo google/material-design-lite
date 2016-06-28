@@ -140,6 +140,8 @@
           this.element_.classList.contains(this.CssClasses_.RIPPLE_CENTER);
       if (!this.element_.classList.contains(
           this.CssClasses_.RIPPLE_EFFECT_IGNORE_EVENTS)) {
+        this.element_.classList.add(
+            this.CssClasses_.RIPPLE_EFFECT_IGNORE_EVENTS);
         this.rippleElement_ = this.element_.querySelector('.' +
             this.CssClasses_.RIPPLE);
         this.frameCount_ = 0;
