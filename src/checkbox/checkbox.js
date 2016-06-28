@@ -58,7 +58,6 @@
     FOCUS_HELPER: 'mdl-checkbox__focus-helper',
     TICK_OUTLINE: 'mdl-checkbox__tick-outline',
     RIPPLE_EFFECT: 'mdl-js-ripple-effect',
-    RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
     RIPPLE_CONTAINER: 'mdl-checkbox__ripple-container',
     RIPPLE_CENTER: 'mdl-ripple--center',
     RIPPLE: 'mdl-ripple',
@@ -230,7 +229,6 @@
       this.element_.appendChild(boxOutline);
 
       if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
-        this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
         this.rippleContainerElement_ = document.createElement('span');
         this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
         this.rippleContainerElement_.classList.add(this.CssClasses_.RIPPLE_EFFECT);

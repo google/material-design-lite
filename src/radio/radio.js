@@ -62,7 +62,6 @@
     RADIO_OUTER_CIRCLE: 'mdl-radio__outer-circle',
     RADIO_INNER_CIRCLE: 'mdl-radio__inner-circle',
     RIPPLE_EFFECT: 'mdl-js-ripple-effect',
-    RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
     RIPPLE_CONTAINER: 'mdl-radio__ripple-container',
     RIPPLE_CENTER: 'mdl-ripple--center',
     RIPPLE: 'mdl-ripple'
@@ -242,8 +241,6 @@
       var rippleContainer;
       if (this.element_.classList.contains(
           this.CssClasses_.RIPPLE_EFFECT)) {
-        this.element_.classList.add(
-            this.CssClasses_.RIPPLE_IGNORE_EVENTS);
         rippleContainer = document.createElement('span');
         rippleContainer.classList.add(
             this.CssClasses_.RIPPLE_CONTAINER);
