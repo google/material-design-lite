@@ -189,7 +189,7 @@
     text-align: center;
     cursor: pointer;
     font-size: 26px;
-    line-height: $layout-drawer-button-desktop-size + 2;
+    line-height: $layout-mobile-header-height;
     font-family: Helvetica, Arial, sans-serif;
     margin: 10px 12px;
     top: 0;
@@ -214,17 +214,13 @@
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      .mdl-layout--fixed-drawer > & {
+      line-height: $layout-header-desktop-row-height;
+
+      .mdl-layout--no-desktop-drawer-button &,
+      .mdl-layout--fixed-drawer > &,
+      .mdl-layout--no-drawer-button & {
         display: none;
       }
-
-      .mdl-layout--no-desktop-drawer-button & {
-        display: none;
-      }
-    }
-
-    .mdl-layout--no-drawer-button & {
-      display: none;
     }
   }
 
