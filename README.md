@@ -21,8 +21,7 @@ If you found a bug, have any questions or want to contribute. Follow our
 and help improve the Material Design Lite. For more information visit our
 [wiki](https://github.com/google/material-design-lite/wiki).
 
-If you are submitting a bug fix, please send those into `mdl-1.1` currently.
-For adding new components, send those pull requests into `mdl-1.2`.
+If you are submitting a bug fix or a new component for the 1.x line, please send those into `mdl-1.x` currently.
 
 The `master` branch is where we are working on 2.0.
 It is currently **highly** experimental and no support building or using it will be provided.
