@@ -67,7 +67,6 @@ const AUTOPREFIXER_BROWSERS = [
 const SOURCES = [
   'src/component.js',
   // Base components
-  // 'src/button/button.js',
   'src/checkbox/checkbox.js',
   'src/icon-toggle/icon-toggle.js',
   'src/menu/menu.js',
