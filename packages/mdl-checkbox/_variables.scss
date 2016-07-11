@@ -1,0 +1,23 @@
+//
+// Theme variables
+//
+$md-checkbox-background-color: #212121 !default;
+$md-checkbox-mark-color: #ffffff !default;
+$md-checkbox-border-color: rgba(black, 0.54) !default;
+// NOTE(traviskaufman): While the spec calls for translucent blacks/whites for disabled colors,
+// this does not work well with elements layered on top of one another. To get around this we
+// blend the colors together based on the base color and the theme background.
+// Black 26% opacity on white background.
+$md-checkbox-disabled-color: #b0b0b0 !default;
+
+//
+// Other variables
+//
+$md-checkbox-size: 18px;
+$md-checkbox-mark-stroke-size: 2/15 * $md-checkbox-size;
+$md-checkbox-border-width: 2px;
+$md-checkbox-transition-duration: 90ms;
+$md-checkbox-item-spacing: 4px;
+// Manual calculation done on SVG
+$_md-checkbox-mark-path-length: 22.910259;
+$_md-checkbox-indeterminate-checked-easing-function: cubic-bezier(0.14, 0, 0, 1);

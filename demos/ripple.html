@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Ripple Demo</title>
+    <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+    <style type="text/css">
+    .surface {
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+      position: relative;
+    }
+     section {
+       margin: 48px;
+     }
+     body {
+       font-family: sans-serif;
+     }
+     button {
+       margin: 16px 0;
+     }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2>Bounded</h2>
+        <div class="surface" style="overflow: hidden; height: 100px; width: 200px"></div>
+        <button>Trigger Ripple</button>
+      </section>
+      <section>
+        <h2>Unbounded</h2>
+        <div class="surface" style="height: 40px; width: 40px;" bounded="false" max-radius="50"></div>
+        <button>Trigger Ripple</button>
+      </section>
+    </main>
+    <script src="assets/material-design-lite.js" charset="utf-8"></script>
+    <script>
+      (function(global) {
+        'use strict';
+        let surfaces = document.querySelectorAll('.surface');
+        for (let i = 0; i < surfaces.length; i++) {
+          let surface = surfaces[i];
+          let component = global.mdl.Ripple.attachTo(surface);
+          let button = surface.parentNode.querySelector('button');
+          button.addEventListener('click', () => {
+            let rect = surface.getBoundingClientRect();
+            component.startTouchEndedAnimationAtPoint(rect.height / 2, rect.width / 2);
+          });
+        }
+      })(this);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "extends": "google",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "max-len": ["error", 120],
+      "dot-notation": "off",
+      "no-new": "warn",
+      "quotes": ["error", "single"],
+      "no-var": "error",
+      "no-unused-vars": ["error", { "varsIgnorePattern": "^Material.*" }]
+    },
+    "globals": {
+      "MaterialComponent": true
+    }
+}
