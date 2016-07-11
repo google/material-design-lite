@@ -1,0 +1,125 @@
+@import './variables';
+
+@keyframes md-checkbox-fade-in-background {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes md-checkbox-fade-out-background {
+  0%, 50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes md-checkbox-unchecked-checked-checkmark-path {
+  0%, 50% {
+    stroke-dashoffset: $_md-checkbox-mark-path-length;
+  }
+
+  50% {
+    @include mdl-animation-linear-out-slow-in;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes md-checkbox-unchecked-indeterminate-mixedmark {
+  0%, 68.2% {
+    transform: scaleX(0);
+  }
+
+  68.2% {
+    animation-timing-function: cubic-bezier(0, 0, 0, 1);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes md-checkbox-checked-unchecked-checkmark-path {
+  from {
+    @include mdl-animation-fast-out-linear-in;
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: $_md-checkbox-mark-path-length * -1;
+  }
+}
+
+@keyframes md-checkbox-checked-indeterminate-checkmark {
+  from {
+    @include mdl-animation-linear-out-slow-in;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  to {
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes md-checkbox-indeterminate-checked-checkmark {
+  from {
+    animation-timing-function: $_md-checkbox-indeterminate-checked-easing-function;
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes md-checkbox-checked-indeterminate-mixedmark {
+  from {
+    @include mdl-animation-linear-out-slow-in;
+    opacity: 0;
+    transform: rotate(-45deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes md-checkbox-indeterminate-checked-mixedmark {
+  from {
+    animation-timing-function: $_md-checkbox-indeterminate-checked-easing-function;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  to {
+    opacity: 0;
+    transform: rotate(315deg);
+  }
+}
+
+@keyframes md-checkbox-indeterminate-unchecked-mixedmark {
+  0% {
+    animation-timing-function: linear;
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  32.8%, 100% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}

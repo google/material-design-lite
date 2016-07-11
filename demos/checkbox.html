@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Checkbox Demo</title>
+    <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <main>
+      <h1>MDL Checkbox Hello</h1>
+      <section>
+        <h2>Auto-initialized checkbox</h2>
+        <!-- TODO change from "md-" to "mdl-" -->
+        <div class="md-checkbox-wrapper">
+          <div class="md-checkbox-wrapper__layout">
+            <div class="md-checkbox" data-mdl-auto-init="MDLCheckbox">
+              <input type="checkbox"
+                     class="md-checkbox__native-control"
+                     aria-labelledby="my-checkbox-label"/>
+              <div class="md-checkbox__frame"></div>
+              <div class="md-checkbox__background">
+                <svg version="1.1"
+                     class="md-checkbox__checkmark"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     xml:space="preserve">
+                  <path class="md-checkbox__checkmark__path"
+                        fill="none"
+                        stroke="white"
+                        d="M4.1,12.7 9,17.6 20.3,6.3"/>
+                </svg>
+                <div class="md-checkbox__mixedmark"></div>
+              </div>
+            </div>
+            <label id="my-checkbox-label">This is my checkbox</label>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="assets/material-design-lite.js" charset="utf-8"></script>
+    <script id="auto-init">
+      (function(global) {
+        'use strict';
+        var mdl = global.mdl;
+        mdl.autoInit();
+      })(this);
+    </script>
+  </body>
+</html>

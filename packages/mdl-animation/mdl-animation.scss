@@ -1,0 +1,15 @@
+@import './mixins';
+
+.mdl-animation {
+  &-linear-out-slow-in {
+    @include mdl-animation-linear-out-slow-in;
+  }
+
+  &-fast-out-slow-in {
+    @include mdl-animation-fast-out-slow-in;
+  }
+
+  &-fast-out-linear-in {
+    @include mdl-animation-fast-out-linear-in;
+  }
+}

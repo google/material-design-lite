@@ -1,0 +1,13 @@
+@import './variables';
+
+@mixin mdl-animation-linear-out-slow-in {
+  animation-timing-function: $mdl-animation-linear-out-slow-in-timing-function;
+}
+
+@mixin mdl-animation-fast-out-slow-in {
+  animation-timing-function: $mdl-animation-fast-out-slow-in-timing-function;
+}
+
+@mixin mdl-animation-fast-out-linear-in {
+  animation-timing-function: $mdl-animation-fast-out-linear-in-timing-function;
+}

@@ -1,0 +1,68 @@
+{
+  "name": "angular2-seed",
+  "version": "1.0.0",
+  "description": "A simple starter Angular2 project",
+  "scripts": {
+    "typings-install": "typings install",
+    "postinstall": "npm run typings-install",
+    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
+    "watch": "npm run build -- --watch",
+    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
+    "start": "npm run server"
+  },
+  "contributors": [
+    "Rob Wormald <robwormald@gmail.com>",
+    "PatrickJS <github@gdi2290.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "awesome-typescript-loader": "~0.16.2",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "es6-promise": "3.0.2",
+    "es6-shim": "0.35.0",
+    "node-sass": "^3.7.0",
+    "postcss-loader": "^0.9.1",
+    "reflect-metadata": "0.1.2",
+    "sass-loader": "^3.2.0",
+    "source-map-loader": "^0.1.5",
+    "typescript": "~1.8.9",
+    "typings": "~1.0.3",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-merge": "^0.8.4"
+  },
+  "dependencies": {
+    "@angular/http": "2.0.0-rc.1",
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/platform-browser": "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "@angular/platform-server": "2.0.0-rc.1",
+    "@angular/router": "2.0.0-rc.1",
+    "core-js": "^2.2.0",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "~0.6.12"
+  },
+  "keywords": [
+    "Angular2",
+    "angular2-seed",
+    "official angular 2 seed",
+    "official angular2 seed"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular2-seed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular2-seed/issues"
+  },
+  "homepage": "https://github.com/angular/angular2-seed#readme",
+  "babel": {
+    "presets": ["es2015"]
+  }
+}
