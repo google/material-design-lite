@@ -1,8 +1,4 @@
 node_modules
-.tmp
-gulp-cache
 .DS_Store
-docs/out
-.publish
-/dist
-.drone.sec.yml
+/build
+packages/*/dist

@@ -21,7 +21,7 @@ We promise to extend courtesy and respect to everyone involved in this project r
 
 If any member of the community violates this code of conduct, the maintainers of the Material Design Lite project may take action, removing issues, comments, and PRs or blocking accounts as deemed appropriate.
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please drop us a line at addyo@google.com.
+If you are subject to or witness unacceptable behavior, or have any other concerns, please drop us a line at sgomes@google.com.
 
 ## <a name="question"></a> Got a Question or Problem?
 
@@ -205,11 +205,7 @@ from the main (upstream) repository:
 
 ## <a name="rules"></a> Coding Rules
 
-We generally follow the [Google JavaScript style guide][js-style-guide] with a few minor exceptions documented in our [JSCS configuration][jscs-config].
-
-[JSCS](http://jscs.info) is a tool for linting code against a style guide and has plugins available for both editors and build tools. Should
-you find that you would prefer to automatically format your code to match our style guide, you can use the JSCS [autoformatting][autoformatting]
-feature.
+See the [Google JavaScript style guide][js-style-guide] for more information.
 
 ## <a name="cla"></a> Signing the CLA
 
@@ -229,5 +225,3 @@ changes to be accepted, the CLA must be signed. It's a quick process, we promise
 [jsbin]: http://jsbin.com/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/material-design-lite
 [global-gitignore]: https://help.github.com/articles/ignoring-files/#create-a-global-gitignore
-[autoformatting]: https://medium.com/@addyosmani/auto-formatting-javascript-code-style-fe0f98a923b8
-[jscs-config]: https://github.com/google/material-design-lite/blob/master/.jscsrc

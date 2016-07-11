@@ -1,88 +1,60 @@
-# Material Design Lite
+# Material Design Lite V2
 
-[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)
-[![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
-[![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
-[![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
-[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
+> Project status: **pre-alpha**
 
-> An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
-components in vanilla CSS, JS, and HTML.
+**NOTE:** This is the experimental, pre-alpha branch for the next version of Material Design Lite. If you are looking for the current stable version, please see the [MDL 1.x branch](https://github.com/google/material-design-lite/tree/mdl-1.x) or visit the [MDL website](https://getmdl.io/).
 
-Material Design Lite (MDL) lets you add a Material Design look and feel to your
-static content websites. It doesn't rely on any JavaScript frameworks or
-libraries. Optimized for cross-device use, gracefully degrades in older
-browsers, and offers an experience that is accessible from the get-go.
+## Overview
 
-## Want to contribute?
+MDL V2 is the next generation of the MDL component library, incorporating the latest in material design thinking and a new, flexible component architecture under the hood.
 
-If you found a bug, have any questions or want to contribute. Follow our
-[guidelines](https://github.com/google/material-design-lite/blob/master/CONTRIBUTING.md),
-and help improve the Material Design Lite. For more information visit our
-[wiki](https://github.com/google/material-design-lite/wiki).
+The project has 3 high-level goals:
 
-If you are submitting a bug fix or a new component for the 1.x line, please send those into `mdl-1.x` currently.
+- Production-ready components consumable in an a-la-carte fashion
+- Best-in-class performance and adherence to the [material design guidelines](https://material.google.com)
+- Seamless integration with other JS frameworks and libraries
 
-The `master` branch is where we are working on 2.0.
-It is currently **highly** experimental and no support building or using it will be provided.
+In order to achieve these goals, we are planning a complete re-architecture of the original MDL component library, alongside new tooling and infrastructure.
 
-## Use MDL on your site?
+Please see our [developer's guide](docs/DEVELOPER.md) for more in-depth information.
 
-**This document is targeted at developers that will contribute to or compile
-MDL. If you are looking to use MDL on your website or web app please head to
-[getmdl.io](http://getmdl.io).**
+
+## Getting Started
+
+Setup the repo:
+
+```
+git clone https://github.com/google/material-design-lite.git && cd material-design-lite
+npm i
+$(npm bin)/lerna bootstrap
+```
+
+Run the development server (served out of `demos/`):
+
+```
+cd /path/to/material-design-lite
+npm run dev
+open http://localhost:8080
+```
 
 ## Browser Support
 
-Supported evergreen browsers:
-
 - Chrome
-- Edge
+- Safari 8+
 - Firefox
+- IE 11/Edge
 - Opera
 
-Supported versioned browsers:
 
-- Internet Explorer 11
-- Safari 8
-- Mobile Safari 8
+## Contributing
 
-### Download / Clone
+We welcome early feedback from the community, though we recommend waiting until an alpha release before opening any pull requests.
 
-Clone the repo using Git:
+See also our [contributing guidelines](CONTRIBUTING.md).
 
-```bash
-git clone https://github.com/google/material-design-lite.git
-```
-
-Alternatively you can [download](https://github.com/google/material-design-lite/archive/master.zip)
-this repository.
-
-Windows users, if you have trouble compiling due to line endings then make sure
-you configure git to checkout the repository with `lf` (unix) line endings. This
-can be achieved by setting `core.eol`.
-
-```bash
-git config core.eol lf
-git config core.autocrlf input
-git rm --cached -r .
-git reset --hard
-```
-
-> Remember, the master branch is considered unstable. Do not use this in
-production. Use a tagged state of the repository, npm, or bower for stability!
-
-## Feature requests
-
-If you find MDL doesn't contain a particular component you think would be
-useful, please check the issue tracker in case work has already started on it.
-If not, you can request a [new component](https://github.com/Google/material-design-lite/issues/new?title=[Component%20Request]%20{Component}&body=Please%20include:%0A*%20Description%0A*%20Material%20Design%20Spec%20link%0A*%20Use%20Case%28s%29).
-Please keep in mind that one of the goals of MDL is to adhere to the Material
-Design specs and therefore some requests might not be within the scope of this
-project.
 
 ## License
 
-© Google, 2015. Licensed under an
-[Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE)
+© Google, 2016. Licensed under an
+[Apache-2](LICENSE)
 license.
