@@ -29,7 +29,7 @@
   padding: $input-text-vertical-spacing 0;
 
   // Align buttons, if used.
-  & .mdl-button {
+  .mdl-button {
     position: absolute;
     bottom: $input-text-vertical-spacing;
   }
@@ -50,6 +50,11 @@
   min-width: $input-text-button-size;
   width: auto;
   min-height: $input-text-button-size;
+  
+  // Align icon button
+  .mdl-button--icon {
+    top: $input-text-expandable-icon-top;
+  }
 }
 
 // Styling for the input element.
