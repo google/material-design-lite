@@ -29,7 +29,7 @@
   padding: $input-text-vertical-spacing 0;
 
   // Align buttons, if used.
-  .mdl-button {
+  & .mdl-button {
     position: absolute;
     bottom: $input-text-vertical-spacing;
   }
