@@ -1,105 +1,150 @@
-import { RippleComponent, Class, Identifier, MAX_RIPPLES } from './base';
+import MDLBaseComponent from 'mdl-base-component';
+import MDLRippleMixin, {
+  Class,
+  Identifier,
+  MAX_RIPPLES,
+  getNormalizedEventCoords,
+} from './mixin';
 
 
-export default class MDLRipple {
-  static attachTo(surface) {
-   let renderer = new MDLRipple(surface);
-   let component = new RippleComponent(renderer);
-   component.isBounded = surface.getAttribute('bounded') != 'false';
-   if (surface.hasAttribute('max-radius')) {
-     component.maxRadius = parseInt(surface.getAttribute('max-radius'), 10);
-   }
-   surface.appendChild(renderer.getRootElement());
-
-   surface.addEventListener('mousedown', (ev) => {
-     let coords = RippleComponent.getNormalizedEventCoords(ev, surface);
-
-     component.startTouchBeganAnimationAtPoint(coords.top, coords.left);
-   });
-   surface.addEventListener('mouseup', (ev) => {
-     let coords = RippleComponent.getNormalizedEventCoords(ev, surface);
-
-     component.startTouchEndedAnimationAtPoint(coords.top, coords.left);
-   });
-   surface.addEventListener('mouseout', () => {
-     component.cancelAnimations();
-   });
-
-    return component;
-  }
-
-
-  /** @param {!Element} */
-  constructor(surface) {
+export default class MDLRipple extends MDLBaseComponent {
+  /**
+   * Convenience helper to build required DOM.
+   */
+  static buildDom() {
     // Create the DOM.
-    let root = document.createElement('div');
+    const root = document.createElement('div');
     root.classList.add(Class.ROOT);
 
-    let background = document.createElement('div');
+    const background = document.createElement('div');
     background.classList.add(Class.BACKGROUND);
     root.appendChild(background);
 
-    this.elements_ = {
-      [Identifier.ROOT]: root,
-      [Identifier.BACKGROUND]: background,
-      [Identifier.SURFACE]: surface,
-    };
-
     for (let i = 0; i < MAX_RIPPLES; i++) {
-      let foreground = document.createElement('div');
+      const foreground = document.createElement('div');
       foreground.classList.add(Class.FOREGROUND);
-      let foregroundCircle = document.createElement('div');
+      const foregroundCircle = document.createElement('div');
       foregroundCircle.classList.add(Class.FOREGROUND_CIRCLE);
       foreground.appendChild(foregroundCircle);
       root.appendChild(foreground);
-
-      this.elements_[this.get(Identifier.FOREGROUND, i)] = foreground;
-      this.elements_[this.get(Identifier.FOREGROUND_CIRCLE, i)] = foregroundCircle;
     }
+    return root;
   }
 
+
+  /**
+   * Bind to a root element and parent surface.
+   */
+  static attachTo(surface, root) {
+    let elements = {
+      [Identifier.SURFACE]: surface,
+      [Identifier.ROOT]: root,
+      [Identifier.BACKGROUND]: root.getElementsByClassName(Class.BACKGROUND)[0]
+    };
+
+    let foregrounds = root.getElementsByClassName(Class.FOREGROUND);
+    let foregroundCircles = root.getElementsByClassName(Class.FOREGROUND_CIRCLE);
+    for (let i = 0; i < foregrounds.length; i++) {
+      elements[ref(Identifier.FOREGROUND, i)] = foregrounds[i];
+      elements[ref(Identifier.FOREGROUND_CIRCLE, i)] = foregroundCircles[i];
+    }
+
+    let options = {
+      bounded: surface.getAttribute('bounded') != 'false'
+    };
+
+    if (surface.hasAttribute('max-radius')) {
+      options.maxRadius = parseFloat(surface.getAttribute('max-radius'), 10);
+    }
+
+    return new MDLRipple(elements, options);
+  }
+
+
+  constructor(elements, options = {}) {
+    super(elements[Identifier.ROOT]);
+
+    this.elements_ = elements;
+
+    this.initMdlRipple_();
+
+    this.isBounded = options.bounded != false;
+
+    this.maxRadius = typeof options.maxRadius == 'number' ? options.maxRadius : 0;
+
+    // TODO(mtlin): Might not be the best place for this..
+    this.addEventListeners();
+  }
+
+
+  addEventListeners() {
+    const surface = this.elements_[Identifier.SURFACE];
+
+    surface.addEventListener('mousedown', ev => {
+      let {top, left} = getNormalizedEventCoords(ev, surface);
+
+      this.startTouchBeganAnimationAtPoint(top, left);
+    });
+    surface.addEventListener('mouseup', ev => {
+      let {top, left} = getNormalizedEventCoords(ev, surface);
+
+      this.startTouchEndedAnimationAtPoint(top, left);
+    });
+    surface.addEventListener('mouseout', () => {
+      this.cancelAnimations();
+    });
+  }
+}
+
+
+MDLRippleMixin.call(MDLRipple.prototype, {
   getRootElement() {
     return this.elements_[this.get(Identifier.ROOT)];
-  }
+  },
 
   getBoundingClientRect(id) {
     return this.elements_[id].getBoundingClientRect();
-  }
+  },
 
   setStyles(id, styles) {
     Object.assign(this.elements_[id].style, styles);
-  }
+  },
 
   forceLayout(id) {
     this.elements_[id].offsetWidth;
-  }
+  },
 
   addClass(id, cls) {
     this.elements_[id].classList.add(cls);
-  }
+  },
 
   removeClass(id, cls) {
     this.elements_[id].classList.remove(cls);
-  }
+  },
 
-  /**
-   * Element refs are concatenated symbol paths of arbitrary length.
-   * e.g.
-   * get('md-ripple__foreground', 0) = `md-ripple__foreground|0`
-   */
   get(...symbolPath) {
-    return symbolPath.join('|');
-  }
+    return ref(...symbolPath);
+  },
 
   getComputedValue(id, property) {
     return window.getComputedStyle(this.elements_[id]).getPropertyValue(property);
-  }
+  },
 
   addEventListener(id, event, listener) {
     return this.elements_[id].addEventListener(event, listener);
-  }
+  },
 
   removeEventListener(id, event, listener) {
     this.elements_[id].removeEventListener(event, listener);
   }
+});
+
+
+/**
+ * Element refs are concatenated symbol paths of arbitrary length.
+ * e.g.
+ * get('md-ripple__foreground', 0) = `md-ripple__foreground|0`
+ */
+function ref(...symbolPath) {
+  return symbolPath.join('|');
 }

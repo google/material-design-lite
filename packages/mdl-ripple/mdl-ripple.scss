@@ -4,6 +4,7 @@
     transform: scale(0);
   }
   to {
+    // This differs slightly from spec.
     transform: scale(1.5);
   }
 }
@@ -18,7 +19,7 @@
   }
 }
 
-.md-ripple {
+.mdl-ripple {
   visibility: hidden;
   pointer-events: none;
 
@@ -26,17 +27,13 @@
   &__foreground,
   &__foreground-circle,
   &__background {
-    width: 100%;
-    height: 100%;
     position: absolute;
+    height: 100%;
+    width: 100%;
   }
 }
 
-.md-ripple__foreground {
-  &-active {
-  transition: transform 300ms cubic-bezier(0.157, 0.72, 0.386, 0.987);
-  }
-
+.mdl-ripple__foreground {
   &-circle {
     background-color: rgba(0,0,0,.06);
     border-radius: 50%;
@@ -44,27 +41,31 @@
     opacity: 0;
   }
 
-  &-circle-active {
+  &--bounded-active {
+    transition: transform 300ms cubic-bezier(0.157, 0.72, 0.386, 0.987);
+  }
+
+  &--bounded-circle-active {
     animation-fill-mode: forwards;
     animation: 800ms radius-in, 400ms opacity-out;
   }
 }
 
-.md-ripple__background {
+.mdl-ripple__background {
   background-color: rgba(0,0,0,.06);
   border-radius: 50%;
   opacity: 0;
   transform: scale(1);
   transition: opacity 480ms linear;
 
-  &-active {
+  &--active {
     transition: opacity 600ms linear;
     // In order for the fill class's duration to be taken into account, the target
     // opacity value must be different between the two classes.
     opacity: 0.99999;
   }
 
-  &-active-fill {
+  &--bounded-active-fill {
     transition-duration: 120ms;
     opacity: 1;
   }
