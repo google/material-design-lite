@@ -221,7 +221,7 @@ changes to be accepted, the CLA must be signed. It's a quick process, we promise
 [github]: https://github.com/google/material-design-lite
 [individual-cla]: http://code.google.com/legal/individual-cla-v1.0.html
 [corporate-cla]: http://code.google.com/legal/corporate-cla-v1.0.html
-[js-style-guide]: http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+[js-style-guide]: https://google.github.io/styleguide/javascriptguide.xml
 [jsbin]: http://jsbin.com/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/material-design-lite
 [global-gitignore]: https://help.github.com/articles/ignoring-files/#create-a-global-gitignore
