@@ -1,20 +1,25 @@
 /**
  * Create a sequential animation/transition from a list of class names.
  */
-export class SequentialAnimation {
-  constructor(ref, renderer, opt_isAnimation = false) {
+export default class SequentialAnimation {
+  constructor(ref, renderer, isAnimation = false) {
     this.elementRef_ = ref;
+
     this.renderer_ = renderer;
-    this.reject_;
-    this.eventName_ = opt_isAnimation ? 'animationend' : 'transitionend';
-    this.isAnimation_ = opt_isAnimation;
-    this.onFinish;
+
+    this.eventName_ = isAnimation ? 'animationend' : 'transitionend';
+
+    this.isAnimation_ = isAnimation;
+
+    this.onFinish = null;
+
+    /**
+     * Store the promise rejection function for use later.
+     */
+    this.reject_ = null;
   }
 
 
-  /**
-   * @param {!Array<string|!Array<string>>} sequence
-   */
   start(...sequence) {
     let promise = sequence.reduce((acc, cur) => {
       let clsName;

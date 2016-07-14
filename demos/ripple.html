@@ -27,29 +27,57 @@
     <main>
       <section>
         <h2>Bounded</h2>
-        <div class="surface" style="overflow: hidden; height: 100px; width: 200px"></div>
+        <div class="surface auto" style="overflow: hidden; height: 100px; width: 200px"></div>
         <button>Trigger Ripple</button>
       </section>
       <section>
         <h2>Unbounded</h2>
-        <div class="surface" style="height: 40px; width: 40px;" bounded="false" max-radius="50"></div>
+        <div class="surface auto" style="height: 40px; width: 40px;" bounded="false" max-radius="50"></div>
         <button>Trigger Ripple</button>
+      </section>
+      <section>
+        <h2>Pre-rendered DOM</h2>
+        <div class="surface" style="overflow: hidden; height: 50px; width: 100px">
+          <div class="mdl-ripple">
+            <div class="mdl-ripple__background"></div>
+            <div class="mdl-ripple__foreground">
+              <div class="mdl-ripple__foreground-circle"></div>
+            </div>
+            <div class="mdl-ripple__foreground">
+              <div class="mdl-ripple__foreground-circle"></div>
+            </div>
+            <div class="mdl-ripple__foreground">
+              <div class="mdl-ripple__foreground-circle"></div>
+            </div>
+            <div class="mdl-ripple__foreground">
+              <div class="mdl-ripple__foreground-circle"></div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <script src="assets/material-design-lite.js" charset="utf-8"></script>
     <script>
       (function(global) {
-        'use strict';
-        let surfaces = document.querySelectorAll('.surface');
-        for (let i = 0; i < surfaces.length; i++) {
-          let surface = surfaces[i];
-          let component = global.mdl.Ripple.attachTo(surface);
-          let button = surface.parentNode.querySelector('button');
-          button.addEventListener('click', () => {
-            let rect = surface.getBoundingClientRect();
-            component.startTouchEndedAnimationAtPoint(rect.height / 2, rect.width / 2);
-          });
-        }
+        var surfaces = document.querySelectorAll('.surface');
+        [].forEach.call(surfaces, function(surface) {
+          var rippleDom;
+          if (surface.classList.contains('auto')) {
+            rippleDom = global.mdl.Ripple.buildDom();
+            surface.appendChild(rippleDom);
+          } else {
+            rippleDom = surface.firstElementChild;
+          }
+
+          var component = global.mdl.Ripple.attachTo(surface, rippleDom);
+          var button = surface.parentNode.querySelector('button');
+          if (button) {
+            button.addEventListener('click', function() {
+              var rect = surface.getBoundingClientRect();
+              component.startTouchEndedAnimationAtPoint(rect.height / 2, rect.width / 2);
+            });
+          }
+        });
       })(this);
     </script>
   </body>
