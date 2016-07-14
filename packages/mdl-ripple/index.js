@@ -3,9 +3,8 @@ import MDLRippleMixin, {
   Class,
   Identifier,
   MAX_RIPPLES,
-  getNormalizedEventCoords,
+  getNormalizedEventCoords
 } from './mixin';
-
 
 export default class MDLRipple extends MDLBaseComponent {
   /**
@@ -31,26 +30,25 @@ export default class MDLRipple extends MDLBaseComponent {
     return root;
   }
 
-
   /**
    * Bind to a root element and parent surface.
    */
   static attachTo(surface, root) {
-    let elements = {
+    const elements = {
       [Identifier.SURFACE]: surface,
       [Identifier.ROOT]: root,
       [Identifier.BACKGROUND]: root.getElementsByClassName(Class.BACKGROUND)[0]
     };
 
-    let foregrounds = root.getElementsByClassName(Class.FOREGROUND);
-    let foregroundCircles = root.getElementsByClassName(Class.FOREGROUND_CIRCLE);
+    const foregrounds = root.getElementsByClassName(Class.FOREGROUND);
+    const foregroundCircles = root.getElementsByClassName(Class.FOREGROUND_CIRCLE);
     for (let i = 0; i < foregrounds.length; i++) {
       elements[ref(Identifier.FOREGROUND, i)] = foregrounds[i];
       elements[ref(Identifier.FOREGROUND_CIRCLE, i)] = foregroundCircles[i];
     }
 
-    let options = {
-      bounded: surface.getAttribute('bounded') != 'false'
+    const options = {
+      bounded: surface.getAttribute('bounded') !== 'false'
     };
 
     if (surface.hasAttribute('max-radius')) {
@@ -60,7 +58,6 @@ export default class MDLRipple extends MDLBaseComponent {
     return new MDLRipple(elements, options);
   }
 
-
   constructor(elements, options = {}) {
     super(elements[Identifier.ROOT]);
 
@@ -68,25 +65,24 @@ export default class MDLRipple extends MDLBaseComponent {
 
     this.initMdlRipple_();
 
-    this.isBounded = options.bounded != false;
+    this.isBounded = options.bounded !== false;
 
-    this.maxRadius = typeof options.maxRadius == 'number' ? options.maxRadius : 0;
+    this.maxRadius = typeof options.maxRadius === 'number' ? options.maxRadius : 0;
 
     // TODO(mtlin): Might not be the best place for this..
     this.addEventListeners();
   }
 
-
   addEventListeners() {
     const surface = this.elements_[Identifier.SURFACE];
 
     surface.addEventListener('mousedown', ev => {
-      let {top, left} = getNormalizedEventCoords(ev, surface);
+      const {top, left} = getNormalizedEventCoords(ev, surface);
 
       this.startTouchBeganAnimationAtPoint(top, left);
     });
     surface.addEventListener('mouseup', ev => {
-      let {top, left} = getNormalizedEventCoords(ev, surface);
+      const {top, left} = getNormalizedEventCoords(ev, surface);
 
       this.startTouchEndedAnimationAtPoint(top, left);
     });
@@ -95,7 +91,6 @@ export default class MDLRipple extends MDLBaseComponent {
     });
   }
 }
-
 
 MDLRippleMixin.call(MDLRipple.prototype, {
   getRootElement() {
@@ -111,7 +106,7 @@ MDLRippleMixin.call(MDLRipple.prototype, {
   },
 
   forceLayout(id) {
-    this.elements_[id].offsetWidth;
+    return this.elements_[id].offsetWidth;
   },
 
   addClass(id, cls) {
@@ -138,7 +133,6 @@ MDLRippleMixin.call(MDLRipple.prototype, {
     this.elements_[id].removeEventListener(event, listener);
   }
 });
-
 
 /**
  * Element refs are concatenated symbol paths of arbitrary length.

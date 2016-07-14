@@ -60,7 +60,7 @@ module.exports = [{
     'mdl-animation': path.resolve('./packages/mdl-animation/mdl-animation.scss'),
     'mdl-checkbox': path.resolve('./packages/mdl-checkbox/mdl-checkbox.scss'),
     'mdl-checkbox-theme': path.resolve('./packages/mdl-checkbox/mdl-checkbox-theme.scss'),
-    'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
+    'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss')
   },
   output: {
     path: OUT_PATH,
