@@ -10,6 +10,7 @@
     "dist": "npm run clean && npm run build && npm run build:min",
     "dev": "npm run clean && MDL_ENV=development webpack-dev-server --content-base demos --inline --hot",
     "lint:js": "eslint --fix packages webpack.config.js",
+    "lint:css": "stylefmt -R packages && stylelint packages/**/*.scss",
     "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
@@ -27,6 +28,11 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
+    "stylefmt": "^4.1.1",
+    "stylelint": "^7.0.3",
+    "stylelint-config-standard": "^11.0.0",
+    "stylelint-scss": "^1.2.1",
+    "stylelint-selector-bem-pattern": "^1.0.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
@@ -34,6 +40,8 @@
     "presets": [
       "es2015"
     ],
-    "plugins": ["transform-object-assign"]
+    "plugins": [
+      "transform-object-assign"
+    ]
   }
 }

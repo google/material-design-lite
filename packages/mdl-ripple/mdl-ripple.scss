@@ -1,8 +1,9 @@
 @keyframes radius-in {
   from {
-    animation-timing-function: cubic-bezier(0.157, 0.72, 0.386, 0.987);
     transform: scale(0);
+    animation-timing-function: cubic-bezier(.157, .72, .386, .987);
   }
+
   to {
     // This differs slightly from spec.
     transform: scale(1.5);
@@ -11,14 +12,16 @@
 
 @keyframes opacity-out {
   from {
-    animation-timing-function: linear;
     opacity: 1;
+    animation-timing-function: linear;
   }
+
   to {
     opacity: 0;
   }
 }
 
+// postcss-bem-linter: define ripple
 .mdl-ripple {
   visibility: hidden;
   pointer-events: none;
@@ -28,21 +31,21 @@
   &__foreground-circle,
   &__background {
     position: absolute;
-    height: 100%;
     width: 100%;
+    height: 100%;
   }
 }
 
 .mdl-ripple__foreground {
   &-circle {
-    background-color: rgba(0,0,0,.06);
-    border-radius: 50%;
     transform: scale(0);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .06);
     opacity: 0;
   }
 
   &--bounded-active {
-    transition: transform 300ms cubic-bezier(0.157, 0.72, 0.386, 0.987);
+    transition: transform 300ms cubic-bezier(.157, .72, .386, .987);
   }
 
   &--bounded-circle-active {
@@ -52,17 +55,17 @@
 }
 
 .mdl-ripple__background {
-  background-color: rgba(0,0,0,.06);
-  border-radius: 50%;
-  opacity: 0;
   transform: scale(1);
   transition: opacity 480ms linear;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .06);
+  opacity: 0;
 
   &--active {
     transition: opacity 600ms linear;
     // In order for the fill class's duration to be taken into account, the target
     // opacity value must be different between the two classes.
-    opacity: 0.99999;
+    opacity: .99999;
   }
 
   &--bounded-active-fill {
@@ -70,3 +73,4 @@
     opacity: 1;
   }
 }
+// postcss-bem-linter: end

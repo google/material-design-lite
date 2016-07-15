@@ -55,11 +55,8 @@ module.exports = [{
   entry: {
     'material-design-lite': path.resolve(
         './packages/material-design-lite/material-design-lite.scss'),
-    'material-design-lite-theme': path.resolve(
-        './packages/material-design-lite/material-design-lite-theme.scss'),
     'mdl-animation': path.resolve('./packages/mdl-animation/mdl-animation.scss'),
     'mdl-checkbox': path.resolve('./packages/mdl-checkbox/mdl-checkbox.scss'),
-    'mdl-checkbox-theme': path.resolve('./packages/mdl-checkbox/mdl-checkbox-theme.scss'),
     'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss')
   },
   output: {
