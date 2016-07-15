@@ -8,7 +8,9 @@
     "build": "mkdir -p build && webpack",
     "build:min": "mkdir -p build && MDL_ENV=production webpack -p",
     "dist": "npm run clean && npm run build && npm run build:min",
-    "dev": "npm run clean && MDL_ENV=development webpack-dev-server --content-base demos --inline --hot"
+    "dev": "npm run clean && MDL_ENV=development webpack-dev-server --content-base demos --inline --hot",
+    "lint:js": "eslint --fix packages webpack.config.js",
+    "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
