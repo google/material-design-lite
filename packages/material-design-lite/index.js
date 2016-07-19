@@ -1,5 +1,6 @@
 import BaseComponent from 'mdl-base-component';
 import Checkbox from 'mdl-checkbox';
+import Radio from 'mdl-radio';
 import Ripple from 'mdl-ripple';
 import autoInit from 'mdl-auto-init';
 
@@ -12,6 +13,7 @@ autoInit.register('MDLCheckbox', Checkbox);
 export {
   BaseComponent,
   Checkbox,
+  Radio,
   Ripple,
   autoInit
 };

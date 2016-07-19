@@ -1,4 +1,6 @@
-import MDLBaseComponent from 'mdl-base-component';
+import MDLBaseComponent, {
+  MDLBaseAdapter, ref
+} from 'mdl-base-component';
 import MDLRippleMixin, {
   Class,
   Identifier,
@@ -92,53 +94,4 @@ export default class MDLRipple extends MDLBaseComponent {
   }
 }
 
-MDLRippleMixin.call(MDLRipple.prototype, {
-  getRootElement() {
-    return this.elements_[this.get(Identifier.ROOT)];
-  },
-
-  getBoundingClientRect(id) {
-    return this.elements_[id].getBoundingClientRect();
-  },
-
-  setStyles(id, styles) {
-    Object.assign(this.elements_[id].style, styles);
-  },
-
-  forceLayout(id) {
-    return this.elements_[id].offsetWidth;
-  },
-
-  addClass(id, cls) {
-    this.elements_[id].classList.add(cls);
-  },
-
-  removeClass(id, cls) {
-    this.elements_[id].classList.remove(cls);
-  },
-
-  get(...symbolPath) {
-    return ref(...symbolPath);
-  },
-
-  getComputedValue(id, property) {
-    return window.getComputedStyle(this.elements_[id]).getPropertyValue(property);
-  },
-
-  addEventListener(id, event, listener) {
-    return this.elements_[id].addEventListener(event, listener);
-  },
-
-  removeEventListener(id, event, listener) {
-    this.elements_[id].removeEventListener(event, listener);
-  }
-});
-
-/**
- * Element refs are concatenated symbol paths of arbitrary length.
- * e.g.
- * get('md-ripple__foreground', 0) = `md-ripple__foreground|0`
- */
-function ref(...symbolPath) {
-  return symbolPath.join('|');
-}
+MDLRippleMixin.call(MDLRipple.prototype, MDLBaseAdapter);
