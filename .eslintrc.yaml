@@ -3,6 +3,8 @@ globals:
   goog: false
 env:
   browser: true
+plugins:
+  - tape
 rules:
   max-len: [error, 120]
   no-new: warn
@@ -17,3 +19,26 @@ rules:
   require-jsdoc: off
   valid-jsdoc: off
   prefer-const: error
+
+  # tape rules
+  # see: https://github.com/atabel/eslint-plugin-tape/blob/master/index.js
+  tape/assertion-message:
+    - off
+    - always
+  tape/max-asserts:
+    - off
+    - 5
+  tape/no-identical-title: error
+  tape/no-ignored-test-files: error
+  tape/no-only-test: error
+  tape/no-skip-assert: error
+  tape/no-skip-test: error
+  tape/no-statement-after-end: error
+  tape/no-unknown-modifiers: error
+  tape/test-ended: error
+  tape/test-title:
+    - error
+    - if-multiple
+  tape/use-t-well: error
+  tape/use-t: error
+  tape/use-test: error
