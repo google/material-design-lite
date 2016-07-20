@@ -45,6 +45,10 @@
   padding: 16px;
 }
 
+.mdl-tooltip--blurfix {
+  will-change: none;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0);
