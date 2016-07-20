@@ -57,7 +57,8 @@
     BOTTOM: 'mdl-tooltip--bottom',
     LEFT: 'mdl-tooltip--left',
     RIGHT: 'mdl-tooltip--right',
-    TOP: 'mdl-tooltip--top'
+    TOP: 'mdl-tooltip--top',
+    BLUR_FIX: 'mdl-tooltip--blurfix'
   };
 
   /**
@@ -103,6 +104,10 @@
     }
 
     this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
+    
+    // Fix blur issue
+    this.element_.classList.add(this.CssClasses_.BLUR_FIX);
+    this.element_.classList.remove(this.CssClasses_.BLUR_FIX);
   };
 
   /**
