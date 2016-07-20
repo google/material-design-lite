@@ -32,6 +32,7 @@
     "eslint-config-google": "^0.5.0",
     "eslint-plugin-tape": "^1.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "ghooks": "^1.3.2",
     "isparta-loader": "^2.0.0",
     "istanbul": "^0.4.4",
     "karma": "^1.1.1",
@@ -54,6 +55,7 @@
     "stylelint-selector-bem-pattern": "^1.0.0",
     "tape": "^4.6.0",
     "testdouble": "^1.6.0",
+    "validate-commit-msg": "^2.6.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
@@ -64,5 +66,13 @@
     "plugins": [
       "transform-object-assign"
     ]
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "helpMessage": "\nNOTE: Please see angular's commit message guidelines (https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit) for information on how to format commit messages.\n\nAs an example, here is a valid commit message: 'docs(slider): Document slider public api'\n\nIf this commit is on a development / WIP branch, you can disable this by running `git commit --no-verify`."
+    }
   }
 }
