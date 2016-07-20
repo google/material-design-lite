@@ -15,6 +15,7 @@ module.exports = [{
     autoInit: [path.resolve('./packages/mdl-auto-init/index.js')],
     BaseComponent: [path.resolve('./packages/mdl-base-component/index.js')],
     Checkbox: [path.resolve('./packages/mdl-checkbox/index.js')],
+    Radio: [path.resolve('./packages/mdl-radio/index.js')],
     Ripple: [path.resolve('./packages/mdl-ripple/index.js')]
   },
   output: {

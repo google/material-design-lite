@@ -1,3 +1,5 @@
+export {MDLBaseAdapter, ref} from './adapter';
+
 /**
  * Base class for all MDL components.
  * @export

@@ -1,0 +1,117 @@
+$mdl-radio-size: 20px !default;
+$mdl-radio-foreground-color: #333 !default;
+$mdl-radio-accent-color: rgba(255, 82, 82, .87) !default;
+$mdl-radio-disabled-color: gray !default;
+$mdl-radio-timing-fn: ease 280ms !default;
+
+// Top-level host container.
+// postcss-bem-linter: define radio
+.mdl-radio {
+  display: inline-block;
+  transition: color $mdl-radio-timing-fn;
+  color: $mdl-radio-foreground-color;
+
+  // Container for radio circles and ripple.
+  &__container {
+    display: inline-block;
+    position: relative;
+    width: $mdl-radio-size;
+    height: $mdl-radio-size;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  // The outer circle for the radio, always present.
+  &__outer-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $mdl-radio-size;
+    height: $mdl-radio-size;
+    transition: border-color $mdl-radio-timing-fn;
+    border: 2px solid $mdl-radio-foreground-color;
+    border-radius: 50%;
+    box-sizing: border-box;
+    will-change: border-color;
+  }
+  // The inner circle for the radio, shown when checked.
+  &__inner-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $mdl-radio-size;
+    height: $mdl-radio-size;
+    transform: scale(0);
+    transition: transform $mdl-radio-timing-fn, background-color $mdl-radio-timing-fn;
+    border-radius: 50%;
+    background-color: $mdl-radio-accent-color;
+    box-sizing: border-box;
+    will-change: transform;
+  }
+  // Underlying native input element.
+  // Visually hidden but still able to respond to focus.
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    text-transform: none;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+}
+
+.mdl-radio__input:checked {
+  ~ .mdl-radio__container {
+    .mdl-radio__outer-circle {
+      border-color: $mdl-radio-accent-color;
+    }
+
+    .mdl-radio__inner-circle {
+      transform: scale(.5);
+    }
+  }
+}
+
+// Basic disabled state.
+.mdl-radio__input:disabled {
+  ~ .mdl-radio__container {
+    cursor: default;
+
+    .mdl-radio__outer-circle {
+      border-color: $mdl-radio-disabled-color;
+    }
+
+    .mdl-radio__inner-circle {
+      background-color: $mdl-radio-disabled-color;
+    }
+  }
+}
+
+.mdl-radio__input:focus {
+  ~ .mdl-radio__container {
+    .mdl-ink-ripple {
+      background-color: rgba(255, 82, 82, .26);
+      // Fade in when radio focused.
+      opacity: 1;
+    }
+  }
+}
+
+// TODO(mtlin): This is temporary and will be removed once the ripple is integrated.
+// postcss-bem-linter: ignore
+.mdl-ink-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  transition: opacity $mdl-radio-timing-fn, background-color $mdl-radio-timing-fn;
+  border-radius: 50%;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+// postcss-bem-linter: end
