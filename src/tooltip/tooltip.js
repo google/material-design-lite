@@ -104,7 +104,7 @@
     }
 
     this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
-    
+
     // Fix blur issue
     this.element_.classList.add(this.CssClasses_.BLUR_FIX);
     this.element_.classList.remove(this.CssClasses_.BLUR_FIX);
