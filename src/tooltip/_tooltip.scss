@@ -19,7 +19,6 @@
 .mdl-tooltip {
   transform: scale(0);
   transform-origin: top center;
-  will-change: transform;
   z-index: 999;
   background: $tooltip-background-color;
   border-radius: 2px;
