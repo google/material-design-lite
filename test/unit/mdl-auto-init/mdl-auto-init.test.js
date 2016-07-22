@@ -21,7 +21,7 @@ const createFixture = () => bel`
 
 const setupTest = () => {
   mdlAutoInit.deregisterAll();
-  mdlAutoInit.register(FakeComponent.name, FakeComponent);
+  mdlAutoInit.register('FakeComponent', FakeComponent);
   return createFixture();
 };
 

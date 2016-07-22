@@ -1,6 +1,90 @@
 const path = require('path');
 const webpackConfig = require('./webpack.config')[0];
 
+const USING_TRAVISCI = Boolean(process.env.TRAVIS);
+const USING_SL = Boolean(process.env.SAUCE_USERNAME && process.env.SAUCE_ACCESS_KEY);
+
+const SL_LAUNCHERS = {
+  'sl-chrome-stable': {
+    base: 'SauceLabs',
+    browserName: 'chrome',
+    version: 'latest',
+    platform: 'OS X 10.11'
+  },
+  'sl-chrome-beta': {
+    base: 'SauceLabs',
+    browserName: 'chrome',
+    version: 'beta'
+  },
+  'sl-chrome-previous': {
+    base: 'SauceLabs',
+    browserName: 'chrome',
+    version: 'latest-1',
+    platform: 'OS X 10.11'
+  },
+  'sl-firefox-stable': {
+    base: 'SauceLabs',
+    browserName: 'firefox',
+    version: 'latest',
+    platform: 'Windows 10'
+  },
+  'sl-firefox-previous': {
+    base: 'SauceLabs',
+    browserName: 'firefox',
+    version: 'latest-1',
+    platform: 'Windows 10'
+  },
+  // NOTE(traviskaufman): Tried adding Firefox beta but it was consistently flaky. Holding off on adding
+  // it in for now. If it proves to be less flaky in the future, we should add it.
+  'sl-safari-stable': {
+    base: 'SauceLabs',
+    browserName: 'safari',
+    version: '9',
+    platform: 'OS X 10.11'
+  },
+  'sl-safari-previous': {
+    base: 'SauceLabs',
+    browserName: 'safari',
+    version: '8',
+    platform: 'OS X 10.10'
+  },
+  'sl-ie': {
+    base: 'SauceLabs',
+    browserName: 'internet explorer',
+    version: '11',
+    platform: 'Windows 8.1'
+  },
+  'sl-edge': {
+    base: 'SauceLabs',
+    browserName: 'microsoftedge',
+    version: 'latest',
+    platform: 'Windows 10'
+  },
+  'sl-android-stable': {
+    base: 'SauceLabs',
+    browserName: 'android',
+    version: '5.0'
+  },
+  'sl-ios-safari-latest': {
+    base: 'SauceLabs',
+    browserName: 'iphone',
+    platform: 'OS X 10.10',
+    version: '9.1'
+  },
+  'sl-ios-safari-previous': {
+    base: 'SauceLabs',
+    browserName: 'iphone',
+    version: '8.4'
+  }
+};
+
+const TRAVISCI_FALLBACK_LAUNCHERS = {
+  'travisci-chrome': {
+    base: 'Chrome',
+    flags: ['--no-sandbox']
+  }
+};
+
 module.exports = function(config) {
   config.set({
     basePath: '',
@@ -15,8 +99,12 @@ module.exports = function(config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: ['Chrome'],
+    browsers: getBrowsers(),
+    browserDisconnectTimeout: 20000,
+    browserNoActivityTimeout: 240000,
+    captureTimeout: 120000,
     concurrency: Infinity,
+    customLaunchers: USING_SL ? SL_LAUNCHERS : TRAVISCI_FALLBACK_LAUNCHERS,
 
     coverageReporter: {
       dir: 'coverage',
@@ -46,4 +134,22 @@ module.exports = function(config) {
       noInfo: true
     }
   });
+
+  // See https://github.com/karma-runner/karma-sauce-launcher/issues/73
+  if (USING_TRAVISCI) {
+    config.set({
+      sauceLabs: {
+        testName: 'Material Design Lite Unit Tests - CI',
+        tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
+        startConnect: false
+      }
+    });
+  }
 };
+
+function getBrowsers() {
+  if (USING_SL) {
+    return Object.keys(SL_LAUNCHERS);
+  }
+  return USING_TRAVISCI ? Object.keys(TRAVISCI_FALLBACK_LAUNCHERS).concat(['Firefox']) : ['Chrome'];
+}
