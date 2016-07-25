@@ -98,7 +98,7 @@ categories:
               file: image.html
             - caption: Event
               file: event.html
-  - name: chip
+  - name: chips
     title: Chips
     description: Represents complex entities in small blocks.
     components:
