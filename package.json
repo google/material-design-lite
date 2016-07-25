@@ -28,6 +28,7 @@
     "babel-preset-es2015": "^6.9.0",
     "bel": "^4.4.3",
     "css-loader": "^0.23.1",
+    "cz-conventional-changelog": "^1.1.6",
     "eslint": "^2.12.0",
     "eslint-config-google": "^0.5.0",
     "eslint-plugin-tape": "^1.1.0",
@@ -75,6 +76,9 @@
     },
     "validate-commit-msg": {
       "helpMessage": "\nNOTE: Please see angular's commit message guidelines (https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit) for information on how to format commit messages.\n\nAs an example, here is a valid commit message: 'docs(slider): Document slider public api'\n\nIf this commit is on a development / WIP branch, you can disable this by running `git commit --no-verify`."
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }

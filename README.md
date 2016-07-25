@@ -26,7 +26,6 @@ Setup the repo:
 ```
 git clone https://github.com/google/material-design-lite.git && cd material-design-lite
 npm i
-$(npm bin)/lerna bootstrap
 ```
 
 Run the development server (served out of `demos/`):
