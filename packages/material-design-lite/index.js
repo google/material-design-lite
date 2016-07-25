@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import BaseComponent from 'mdl-base-component';
+import BaseComponent from 'mdl-base';
 import Checkbox from 'mdl-checkbox';
 import Radio from 'mdl-radio';
 import Ripple from 'mdl-ripple';

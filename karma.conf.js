@@ -94,13 +94,6 @@ const SL_LAUNCHERS = {
   }
 };
 
-const TRAVISCI_FALLBACK_LAUNCHERS = {
-  'travisci-chrome': {
-    base: 'Chrome',
-    flags: ['--no-sandbox']
-  }
-};
-
 module.exports = function(config) {
   config.set({
     basePath: '',
@@ -115,12 +108,12 @@ module.exports = function(config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: getBrowsers(),
+    browsers: USING_SL ? Object.keys(SL_LAUNCHERS) : ['Chrome'],
     browserDisconnectTimeout: 20000,
     browserNoActivityTimeout: 240000,
     captureTimeout: 120000,
     concurrency: Infinity,
-    customLaunchers: USING_SL ? SL_LAUNCHERS : TRAVISCI_FALLBACK_LAUNCHERS,
+    customLaunchers: SL_LAUNCHERS,
 
     coverageReporter: {
       dir: 'coverage',
@@ -158,14 +151,13 @@ module.exports = function(config) {
         testName: 'Material Design Lite Unit Tests - CI',
         tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
         startConnect: false
+      },
+      // Attempt to de-flake Sauce Labs tests on TravisCI.
+      transports: ['polling'],
+      browserDisconnectTolerance: 3,
+      client: {
+        captureConsole: false
       }
     });
   }
 };
-
-function getBrowsers() {
-  if (USING_SL) {
-    return Object.keys(SL_LAUNCHERS);
-  }
-  return USING_TRAVISCI ? Object.keys(TRAVISCI_FALLBACK_LAUNCHERS).concat(['Firefox']) : ['Chrome'];
-}

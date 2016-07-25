@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-import MDLBaseComponent, {
-  MDLBaseAdapter, ref
-} from 'mdl-base-component';
+import MDLComponent, {
+  MDLBaseAdapterLegacy as MDLBaseAdapter,
+  refLegacy as ref
+} from 'mdl-base';
 import MDLRippleMixin, {
   Class,
   Identifier,
@@ -24,7 +25,7 @@ import MDLRippleMixin, {
   getNormalizedEventCoords
 } from './mixin';
 
-export default class MDLRipple extends MDLBaseComponent {
+export default class MDLRipple extends MDLComponent {
   /**
    * Convenience helper to build required DOM.
    */
@@ -89,6 +90,11 @@ export default class MDLRipple extends MDLBaseComponent {
 
     // TODO(mtlin): Might not be the best place for this..
     this.addEventListeners();
+  }
+
+  getDefaultFoundation() {
+    // TODO(traviskaufman): Implement once ripple is ported over from mixin pattern.
+    return {init: () => {}};
   }
 
   addEventListeners() {

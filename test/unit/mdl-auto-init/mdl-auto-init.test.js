@@ -95,8 +95,8 @@ test('#register warns when registered key is being overridden', t => {
   const warn = td.func('warn');
   const {contains} = td.matchers;
 
-  mdlAutoInit.register(FakeComponent.name, () => ({overridden: true}), warn);
+  mdlAutoInit.register('FakeComponent', () => ({overridden: true}), warn);
 
-  t.true(() => td.verify(warn(contains('(mdl-auto-init) Overriding registration'))));
+  t.doesNotThrow(() => td.verify(warn(contains('(mdl-auto-init) Overriding registration'))));
   t.end();
 });
