@@ -1,17 +1,24 @@
-
 # Contributing to Material Design Lite
 
 We'd love for you to contribute to our source code and to make Material Design Lite even better than it is today! Here are the guidelines we'd like you to follow:
 
- - [Code of Conduct](#coc)
- - [Question or Problem?](#question)
- - [Issues and Bugs](#issue)
- - [Feature Requests](#feature)
- - [Submission Guidelines](#submit)
- - [Coding Rules](#rules)
- - [Signing the CLA](#cla)
 
-## <a name="coc"></a> Code of Conduct
+- [Code of Conduct](#code-of-conduct)
+- [Development Process](#development-process)
+  - [Setting up your development environment](#setting-up-your-development-environment)
+  - [Building Components](#building-components)
+  - [Running the development server](#running-the-development-server)
+  - [Building MDL](#building-mdl)
+  - [Linting / Testing / Coverage Enforcement](#linting--testing--coverage-enforcement)
+    - [Running Tests across browsers](#running-tests-across-browsers)
+  - [Coding Style](#coding-style)
+  - [Signing the CLA](#signing-the-cla)
+  - [Submitting Pull Requests](#submitting-pull-requests)
+- [Questions / Problems](#questions--problems)
+- [Issues / Bugs](#issues--bugs)
+- ["What's the core team up to?"](#whats-the-core-team-up-to)
+
+## Code of Conduct
 
 As contributors and maintainers of the Material Design Lite project, we pledge to respect everyone who contributes by posting issues, updating documentation, submitting pull requests, providing feedback in comments, and any other activities.
 
@@ -23,9 +30,113 @@ If any member of the community violates this code of conduct, the maintainers of
 
 If you are subject to or witness unacceptable behavior, or have any other concerns, please drop us a line at sgomes@google.com.
 
-## <a name="question"></a> Got a Question or Problem?
+## Development Process
 
-If you have questions about how to use Material Design Lite, please direct these to [StackOverflow][stackoverflow] and use the `material-design-lite` tag. We are also available on GitHub issues.
+> NOTE: As we are still in **pre-alpha** for v2, this section may be incomplete, in flux, and/or lacking some info. We hope to stabilize it by the time we reach alpha. If you have additional follow-up questions about our development process or find something confusing / ambiguous, reach out to us on [gitter](https://gitter.im/google/material-design-lite) and we may be able to help.
+
+We strive to make developing Material Design Lite as frictionless as possible, both for ourselves and for our community. This section should get you up and running working on the Material Design Lite codebase. Before beginning development, you may want to read through our brief [v2 developer guide](https://github.com/google/material-design-lite/blob/master/docs/DEVELOPER.md) to get a better understanding of our overall architecture.
+
+### Setting up your development environment
+
+You'll need a recent version of [nodejs](https://nodejs.org/en/) to work on MDL. We [test our builds](https://travis-ci.org/google/material-design-lite) using both the latest and LTS node versions, so use of one of those is recommended. You can use [nvm](https://github.com/creationix/nvm) to easily install and manage different versions of node on your system.
+
+Once node is installed, simply clone our repo (or your fork of it) and run `npm install`
+
+```
+git clone git@github.com:google/material-design-lite.git  # or a path to your fork
+cd material-design-lite && npm i
+```
+
+### Building Components
+
+Each component requires the following items in order to be complete:
+
+- A **foundation class** which is integrated into actual components
+- A **component class** using vanilla JS + SCSS
+- A **README.md** in its subdir which contains developer documentation on the component, including usage.
+- A **set of unit tests** within `test/unit/` with adequate coverage (which we enforce automatically).
+- A **demo page** within `demos/` that shows example usage of the component.
+
+### Running the development server
+
+```
+npm run dev
+open http://localhost:8080
+```
+
+`npm run dev` runs a [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) instance that uses `demos/` as its content base. This should aid you in initial development of a component. It's served on port 8080.
+
+### Building MDL
+
+```
+npm run build # Builds an unminified version of MDL within build/
+npm run build:min # Same as above, but enables minification
+npm run dist # Cleans out build/ and runs both of the above commands sequentially
+```
+
+### Linting / Testing / Coverage Enforcement
+
+```
+npm run lint:js # Lints javascript using eslint
+npm run lint:css # Lints (S)CSS using stylelint
+npm run lint # Runs both of the above commands in parallel
+
+npm run fix:js # Runs eslint with the --fix option enabled
+npm run fix:css # Runs stylefmt, which helps fix simple stylelint errors
+npm run fix # Runs both of the above commands in parallel
+
+npm run test:watch # Runs karma on Chrome, re-running when source files change
+
+npm test # Lints all files, runs karma, and then runs coverage enforcement checks.
+```
+
+#### Running Tests across browsers
+
+If you're making big changes or developing new components, we encourage you to be a good citizen and test your changes across browsers! A super simple way to do this is to use [sauce labs](https://saucelabs.com/), which is how we tests our collaborator PRs on TravisCI:
+
+1. [Sign up](https://saucelabs.com/beta/signup) for a sauce labs account (choose "Open Sauce" as your selected plan; [it's free](https://saucelabs.com/opensauce/)!)
+2. [Download sauce connect](https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Connect) for your OS and make sure that the `bin` folder in the downloaded zip is somewhere on your `$PATH`.
+3. Navigate to your dashboard, scroll down to where it says "Access Key", and click "Show"
+4. Enter your password when prompted
+5. Copy your access key
+6. Run `SAUCE_USERNAME=<your-saucelabs-username> SAUCE_ACCESS_KEY=<your-saucelabs-access-key> npm test`
+
+This will have karma run our unit tests across all browsers we support, and ensure your changes will not introduce regressions.
+
+Alternatively, you can run `npm run test:watch` and manually open browsers / use VMs / use emulators to test your changes.
+
+### Coding Style
+
+Our entire coding style is enforced automatically through the use of linters. Check out our [eslint config](https://github.com/google/material-design-lite/blob/master/.eslintrc.yaml) (heavily influenced by [Google's Javascript Styleguide](js-style-guide)) as well as our [stylelint config](css-style-guide) (heavily annotated, with justifications for each rule) for further details.
+
+### Signing the CLA
+
+Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code
+changes to be accepted, the CLA must be signed. It's a quick process, we promise!
+
+* For individuals we have a [simple click-through form][individual-cla].
+* For corporations we'll need you to
+  [print, sign and one of scan+email, fax or mail the form][corporate-cla].
+
+
+### Submitting Pull Requests
+
+We prefer small, incremental changes over large, sweeping ones, so please try to adhere to this when submitting PRs. Also, make sure you're following our commit message conventions (which are the same as [angular's](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit)); our `commit-msg` hook should automatically enforce this. We also support [commitizen](https://www.npmjs.com/package/commitizen), which you can
+use to auto-format commit messages for you.
+
+If you've done some experimental work on your branch/fork and committed these via `git commit --no-verify`, you can rebase them into one correctly-formatted commit before submitting.
+
+Finally, it helps to make sure that your branch/fork is up to date with what's currently on master. You can ensure this by running `git pull --rebase origin master` on your branch.
+
+> **NOTE**: Please do _not merge_ master into your branch. _Always_ `pull --rebase` instead. This ensures a linear history by always putting the work you've done after the work that's already on master, regardless of the date in which those commits were made.
+
+To submit code for v2, open a PR for your fork/branch against `master` (_not_ `mdl-1.x`, which is currently our default branch).
+
+Once you've submitted a PR, it'll be assigned to a core team member for review. If all CI tests pass and you get a `LGTM` from a reviewer, your code will be merged into master.
+
+## Questions / Problems
+
+If you have questions about how to use Material Design Lite, please direct these to [StackOverflow][stackoverflow] and use the `material-design-lite` tag.
 
 If you feel that we're missing an important bit of documentation, feel free to
 file an issue so we can help. Here's an example to get you started:
@@ -40,188 +151,23 @@ Where have you looked?
 Where did you expect to find this information?
 ```
 
-Or, if you're looking for a new design template:
+## Issues / Bugs
 
-```
-Please provide a short summary of the template you’re looking for.
-
-What makes this template interesting or challenging from a design perspective?
-
-Please provide any URLs to good examples of this type of page that you may have come across.
-```
-
-## <a name="issue"></a> Found an Issue?
 If you find a bug in the source code or a mistake in the documentation, you can help us by
-submitting an issue to our [GitHub Repository][github]. Even better you can submit a Pull Request
-with a fix.
+submitting an issue to our [GitHub Repository][github]. Even better, you can submit a Pull Request with a fix. Before submitting issues, please ensure that you've read through our [issue template](https://github.com/google/material-design-lite/blob/mdl-1.x/.github/ISSUE_TEMPLATE.md) to ensure a fast and helpful response from the maintainers.
 
-See [below](#submit) for some guidelines.
+## "What's the core team up to?"
 
-## <a name="feature"></a> Want a Feature?
-You can request a new feature by submitting an issue to our [GitHub Repository][github].
+The core team maintains a [public Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1664011) (**tracker** for short) which details all the items we're working on within our current two-week [iteration](https://www.agilealliance.org/glossary/iteration/). This tracker mirrors in what's in our GH issues. It is used _purely for planning and prioritization purposes, **not** for discussions or community issue filing_. That being said, it's a great place to look at the overall state of our project as well as some the big ticket issues we're working on.
 
-Here is a template to get you started:
+Each tracker story contains a link to its corresponding GH issue within its description. Each GH issue present in tracker is tagged with an `in-tracker` label. This will hopefully make it easy to move between the two if so desired.
 
-```
-Is this a new component, or a missing feature in an existing one?
-Component name:
-Material Design spec URL for the component (if any):
-
-What does this component or feature allow you to do which isn’t possible at the moment?
-
-Please provide any URLs or screenshots of good examples of usage of this component or feature that you may have come across.
-```
-
-If you would like to implement a new feature then consider what kind of change it is:
-
-* **Major Changes** that you wish to contribute to the project should be discussed first on our
-[issue tracker][https://github.com/google/material-design-lite/issues] so that we can better coordinate our efforts, prevent
-duplication of work, and help you to craft the change so that it is successfully accepted into the
-project.
-* **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull Request.
-
-## <a name="submit"></a> Submission Guidelines
-
-### Submitting an Issue
-Before you submit your issue search the archive, maybe your question was already answered.
-
-If your issue appears to be a bug, and hasn't been reported, open a new issue.
-Help us to maximize the effort we can spend fixing issues and adding new
-features, by not reporting duplicate issues.  Providing the following information will increase the
-chances of your issue being dealt with quickly:
-
-* **Overview of the Issue** - if an error is being thrown a non-minified stack trace helps
-* **Motivation for or Use Case** - explain why this is a bug for you
-* **Material Design Lite Version(s)** - is it a regression?
-* **Browsers and Operating System** - is this a problem with all browsers or only IE9?
-* **Reproduce the Error** - provide a live example (using JSBin) or a unambiguous set of steps.
-* **Related Issues** - has a similar issue been reported before?
-* **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
-  causing the problem (line of code or commit)
-
-**If you get help, help others. Good karma rulez!**
-
-Here's a template to get you started:
-
-```
-MDL version:
-Browser:
-Browser version:
-Operating system:
-Operating system version:
-URL, if applicable (you can use a [codepen as a starting point][http://codepen.io/pen/def?fork=xGWgXa]):
-
-What steps will reproduce the problem:
-1.
-2.
-3.
-
-What is the expected result?
-
-What happens instead of that?
-
-Please provide any other information below, and attach a screenshot if possible.
-```
-
-### Submitting a Pull Request
-Before you submit your pull request consider the following guidelines:
-
-* Search [GitHub](https://github.com/google/material-design-lite/pulls) for an open or closed Pull Request
-  that relates to your submission. You don't want to duplicate effort.
-* Please sign our [Contributor License Agreement (CLA)](#cla) before sending pull
-  requests. We cannot accept code without this.
-* Make your changes in a new git branch:
-
-     ```shell
-     git checkout -b my-fix-branch master
-     ```
-
-* Create your patch, **including appropriate test cases**.
-* Follow our [Coding Rules](#rules).
-* Run the full Material Design Lite test suite (`gulp test`),
-  and ensure that all tests pass.
-* Avoid checking in files that shouldn't be tracked (e.g `node_modules`, `gulp-cache`, `.tmp`, `.idea`). We recommend using a [global .gitignore](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) for this.
-* Make sure **not** to include a recompiled version of the files found in `/css` and `/js` as part of your PR. We will generate these automatically.
-* Commit your changes using a descriptive commit message.
-
-     ```shell
-     git commit -a
-     ```
-  Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
-
-* Build your changes locally to ensure all the tests pass:
-
-    ```shell
-   gulp
-    ```
-
-* Push your branch to GitHub:
-
-    ```shell
-    git push origin my-fix-branch
-    ```
-
-* In GitHub, send a pull request to `material-design-lite:master`.
-* If we suggest changes then:
-  * Make the required updates.
-  * Re-run the Material Design Lite test suite to ensure tests are still passing.
-  * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
-
-    ```shell
-    git rebase master -i
-    git push origin my-fix-branch -f
-    ```
-
-That's it! Thank you for your contribution!
-
-#### After your pull request is merged
-
-After your pull request is merged, you can safely delete your branch and pull the changes
-from the main (upstream) repository:
-
-* Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:
-
-    ```shell
-    git push origin --delete my-fix-branch
-    ```
-
-* Check out the master branch:
-
-    ```shell
-    git checkout master -f
-    ```
-
-* Delete the local branch:
-
-    ```shell
-    git branch -D my-fix-branch
-    ```
-
-* Update your master with the latest upstream version:
-
-    ```shell
-    git pull --ff upstream master
-    ```
-
-## <a name="rules"></a> Coding Rules
-
-See the [Google JavaScript style guide][js-style-guide] for more information.
-
-## <a name="cla"></a> Signing the CLA
-
-Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code
-changes to be accepted, the CLA must be signed. It's a quick process, we promise!
-
-* For individuals we have a [simple click-through form][individual-cla].
-* For corporations we'll need you to
-  [print, sign and one of scan+email, fax or mail the form][corporate-cla].
-
-*This guide was inspired by the [AngularJS contribution guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md).*
 
 [github]: https://github.com/google/material-design-lite
 [individual-cla]: http://code.google.com/legal/individual-cla-v1.0.html
 [corporate-cla]: http://code.google.com/legal/corporate-cla-v1.0.html
-[js-style-guide]: https://google.github.io/styleguide/javascriptguide.xml
+[js-style-guide]: https://github.com/google/material-design-lite/blob/master/.eslintrc.yaml
+[css-style-guide]: https://github.com/google/material-design-lite/blob/master/.stylelintrc.yaml
 [jsbin]: http://jsbin.com/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/material-design-lite
 [global-gitignore]: https://help.github.com/articles/ignoring-files/#create-a-global-gitignore

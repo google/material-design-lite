@@ -10,7 +10,7 @@ To make this possible, our new component library is internally split into two pa
 - **MDL V2 Vanilla**: ready-to-use components (what the majority of our current users are interested in)
 - **MDL V2 Foundation**: shared UI code (for lower-level usage by other frameworks or complex rendering scenarios)
 
-On the whole, many of these changes will be transparent to Vanilla end-users, and are primarily intended to enable MDL to work at web and Google-scale.
+On the whole, many of these changes will be transparent to Vanilla end-users, and are primarily intended to enable MDL to work across the entire web platform.
 
 ## Component Architecture
 
@@ -21,6 +21,8 @@ There are several key design decisions that underpin MDL V2 Foundation:
 - Minimal assumptions about component lifecycle
 
 The aim being to push forward a clear separation of concerns, with the Foundation code being entirely about UI-related matters - as opposed to data-binding, templating, key/input handling, etc. In the case of Vanilla, we take a plain JS approach towards wrapping Foundation and providing the necessary code to make things usable out-of-the-box.
+
+> NOTE: This next section is currently being reworked. See [#4568](https://github.com/google/material-design-lite/issues/4568)
 
 Foundation components are implemented as [functional mixins](http://raganwald.com/2015/06/17/functional-mixins.html) and thus must be bound to a host class in order to be used. The mixin automatically binds when called with the host prototype as the receiver. Additionally, each mixin must be passed in an `adapter` implementation at creation time which is the contract by which the component communicates with its host.
 
@@ -59,14 +61,3 @@ When cloning the repo for the first time, you must run `lerna bootstrap` which i
 
 In this manner, each MDL component is isolated and can be versioned and published independently.
 
-### Testing
-
-TODO.
-
-## Theming
-
-TODO.
-
-## FAQ
-
-TODO.
