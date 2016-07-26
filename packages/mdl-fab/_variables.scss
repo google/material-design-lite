@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/mdl-animation";
-@import "mdl-button/mdl-button";
-@import "mdl-checkbox/mdl-checkbox";
-@import "mdl-fab/mdl-fab";
-@import "mdl-radio/mdl-radio";
-@import "mdl-ripple/mdl-ripple";
-@import "mdl-typography/mdl-typography";
+/* @TODO Remove this internally once the theme base is in place. */
+:root {
+  --mdl-theme-color-accent: rgb(255, 64, 129);
+}
