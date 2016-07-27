@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/mdl-animation";
-@import "mdl-button/mdl-button";
-@import "mdl-checkbox/mdl-checkbox";
-@import "mdl-radio/mdl-radio";
-@import "mdl-ripple/mdl-ripple";
-@import "mdl-typography/mdl-typography";
+/* @TODO(Garbee) Remove these once we have theming land */
+:root {
+  --mdl-theme-color-primary: #3f51b5;
+  --mdl-theme-color-accent: #ff4081;
+}
