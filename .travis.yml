@@ -1,4 +1,5 @@
 sudo: required
+dist: trusty
 language: node_js
 node_js:
   - node # stable
@@ -11,7 +12,7 @@ before_install:
   - '[ -n "$SAUCE_ACCESS_KEY" ] || export CHROME_BIN=/usr/bin/google-chrome'
   - '[ -n "$SAUCE_ACCESS_KEY" ] || export DISPLAY=:99.0'
   - '[ -n "$SAUCE_ACCESS_KEY" ] || sh -e /etc/init.d/xvfb start'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || sudo apt-get update'
+  - '[ -n "$SAUCE_ACCESS_KEY" ] || sudo apt-get update -qq'
   - '[ -n "$SAUCE_ACCESS_KEY" ] || sudo apt-get install -y libappindicator1 fonts-liberation'
   - '[ -n "$SAUCE_ACCESS_KEY" ] || wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
   - '[ -n "$SAUCE_ACCESS_KEY" ] || sudo dpkg -i google-chrome*.deb'
