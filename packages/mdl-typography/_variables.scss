@@ -1,0 +1,125 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+$mdl-typography-font-family: Roboto, sans-serif;
+
+$mdl-typography-font-weight-values: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900
+);
+
+/* TODO(sgomes): Figure out what to do about desktop font sizes. */
+
+/* TODO(sgomes): Figure out what to do about i18n and i18n font sizes. */
+
+$mdl-typography-styles: (
+  display4: (
+    font-size: 7rem, /* 112sp */
+    line-height: 7rem, /* 112sp */
+    font-weight: map-get($mdl-typography-font-weight-values, light),
+    letter-spacing: -.04em,
+    margin: -1rem 0 3.5rem -.085em /* -16sp 0 56sp -.085em */
+  ),
+  display3: (
+    font-size: 3.5rem, /* 56px */
+    line-height: 3.5rem, /* 56px */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: -.02em,
+    margin: -8px 0 64px -.07em
+  ),
+  display2: (
+    font-size: 2.813rem, /* 45px */
+    line-height: 3rem, /* 48px */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: normal,
+    margin: -.5rem 0 4rem -.07em /* -8sp 0 64sp -.07em */
+  ),
+  display1: (
+    font-size: 2.125rem, /* 34sp */
+    line-height: 2.5rem, /* 40sp */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: normal,
+    margin: -.5rem 0 4rem -.07em /* -8sp 0 64sp -.07em */
+  ),
+  headline: (
+    font-size: 1.5rem, /* 24sp */
+    line-height: 2rem, /* 32sp */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: normal,
+    margin: -.5rem 0 1rem -.06em /* -8sp 0 16sp -.06em */
+  ),
+  title: (
+    font-size: 1.25rem, /* 20sp */
+    line-height: 2rem, /* 32sp */
+    font-weight: map-get($mdl-typography-font-weight-values, medium),
+    letter-spacing: .02em,
+    margin: -.5rem 0 1rem -.05em /* -8sp 0 16sp -.05em */
+  ),
+  subheading2: (
+    font-size: 1rem, /* 16sp */
+    line-height: 1.75rem, /* 28sp */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: .04em,
+    margin: -.5rem 0 1rem -.06em /* -8sp 0 16sp -.06em */
+  ),
+  subheading1: (
+    font-size: .938rem, /* 15sp */
+    line-height: 1.5rem, /* 24sp */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: .04em,
+    margin: -.313rem 0 .813rem -.06em /* -5sp 0 13sp -.06em */
+  ),
+  body2: (
+    font-size: .875rem, /* 14sp */
+    line-height: 1.5rem, /* 24sp */
+    font-weight: map-get($mdl-typography-font-weight-values, medium),
+    letter-spacing: .04em,
+    margin: -.25rem 0 .75rem 0 /* -4sp 0 12sp 0 */
+  ),
+  body1: (
+    font-size: .875rem, /* 14sp */
+    line-height: 1.25rem, /* 20sp */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: .04em,
+    margin: -.25rem 0 .75rem 0 /* -4sp 0 12sp 0 */
+  ),
+  caption: (
+    font-size: .75rem, /* 12sp */
+    line-height: 1.25rem, /* 20sp */
+    font-weight: map-get($mdl-typography-font-weight-values, regular),
+    letter-spacing: .08em,
+    margin: -.5rem 0 1rem -.04em /* -8sp 0 16sp -.04em */
+  )
+);
+
+$mdl-typography-colors-dark: (
+  primary: rgba(black, .87),
+  secondary: rgba(black, .54),
+  hint: rgba(black, .38),
+  disabled: rgba(black, .38),
+  icon: rgba(black, .38)
+);
+
+$mdl-typography-colors-light: (
+  primary: white,
+  secondary: rgba(white, .7),
+  hint: rgba(white, .5),
+  disabled: rgba(white, .5),
+  icon: rgba(white, .5)
+);

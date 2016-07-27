@@ -77,7 +77,8 @@ module.exports = [{
         './packages/material-design-lite/material-design-lite.scss'),
     'mdl-animation': path.resolve('./packages/mdl-animation/mdl-animation.scss'),
     'mdl-checkbox': path.resolve('./packages/mdl-checkbox/mdl-checkbox.scss'),
-    'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss')
+    'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
+    'mdl-typography': path.resolve('./packages/mdl-typography/mdl-typography.scss')
   },
   output: {
     path: OUT_PATH,
