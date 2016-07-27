@@ -228,7 +228,7 @@ export default function MDLRippleMixin(renderer) {
 
   Object.defineProperty(this, 'maxRadius', {
     get: function() {
-      if (this.maxRadius_) {
+      if (this.maxRadius_ || !this.boundingRect_) {
         return this.maxRadius_;
       }
 
