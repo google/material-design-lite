@@ -1,5 +1,5 @@
+# Force TravisCI to run outside of a container
 sudo: required
-dist: trusty
 language: node_js
 node_js:
   - node # stable
@@ -7,20 +7,9 @@ node_js:
 branches:
   only:
     - master
-before_install:
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || echo "NON-SECURE BUILD. Falling back to Chrome + FF only."'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || export CHROME_BIN=/usr/bin/google-chrome'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || export DISPLAY=:99.0'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || sh -e /etc/init.d/xvfb start'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || sudo apt-get update -qq'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || sudo apt-get install -y libappindicator1 fonts-liberation'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-  - '[ -n "$SAUCE_ACCESS_KEY" ] || sudo dpkg -i google-chrome*.deb'
 env:
   global:
     - SAUCE_USERNAME=material-sauce
-    -
-      secure: aJ9IOc3ngZAujpeNdRRfEZf32tEiPJhNEt/QeoKspP+ivDDxtX4tP+5PlefnQqu5z4M1puF4A6UyiKXZJ5AThFBX0L+FP531lCNibZppyK7KZgl68O92iBooA0EZH45Pb36v9rN5Xl4ZwzJhcx8QiFWXwHp3fQHCgtoxiSdaOBt3l63Wg1vCFPSPPI/8BGiJDwxrOretholor63gMBXUoxJl2ZCMG8NnT5KF1YBzi6ZEWtMLBnuEeKxQcgi3l70UJfR9K/VTfxaoctGrc9UfmyJmD27gGHdBZc0HfZF0Z00SufXn7hILUqfaioJPzRylKxEy0h0KTeX5ZBEQNeLXSIxfcnFHbKk5OeTCkIF+cs9hUrhQfwTpoxyLNPNNeg8P2DMkUvBy/QllEuiESg3LcJlM/ziLhHJpZ7MerbSAZC91rQKX7N/2R8UkaKH6GkEMf5JtK+t1s1fgInBMfPt6oqY250GFq6QJaO/n9a5ndBnDIkjBqbUQYD+8IE793t9HjAN7XwYBk+WgLiStWR+FACLN1VLg8+9K6SfnQujOO2ZYXe2Q2Bdbwk5QqJQCvvb1WHKRMOG2+DN9A2S8zOVfGdC1B9Ih/UZXmXF0r+fEOiY2yuWhgSwd5r16KERxgnG189Gs+7kveT0gfl8SUdEXTEF+fATGEcG+RIv2LSrCNVY=
+    - SAUCE_ACCESS_KEY=5e3395b4-2026-48a4-82a0-35bc756a0d2b
 addons:
-  firefox: latest
   sauce_connect: true

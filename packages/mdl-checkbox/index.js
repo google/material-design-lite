@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import MDLBaseComponent from 'mdl-base-component';
+import MDLComponent from 'mdl-base';
 import MDLCheckboxMixin from './mixin';
 import {cssClasses, strings, numbers} from './constants';
 
@@ -24,7 +24,7 @@ import {cssClasses, strings, numbers} from './constants';
  * @final
  * @extends MDLBaseComponent
  */
-export default class MDLCheckbox extends MDLBaseComponent {
+export default class MDLCheckbox extends MDLComponent {
   static attachTo(root) {
     return new MDLCheckbox(root);
   }

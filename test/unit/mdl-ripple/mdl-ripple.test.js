@@ -68,6 +68,7 @@ test('constructor initializes with options', t => {
 test('ripple activates on click', t => {
   const root = MDLRipple.buildDom();
   const surface = bel`<div></div>`;
+  document.body.appendChild(surface);
   const background = root.querySelector(`.${Class.BACKGROUND}`);
   const firstForeground = root.querySelector(`.${Class.FOREGROUND}`);
 
@@ -80,12 +81,14 @@ test('ripple activates on click', t => {
   t.false(background.classList.contains(Class.BACKGROUND_ACTIVE));
   t.true(firstForeground.classList.contains(Class.FOREGROUND_BOUNDED_ACTIVE));
 
+  document.body.removeChild(surface);
   t.end();
 });
 
 test('ripple cancels on mouseout', t => {
   const root = MDLRipple.buildDom();
   const surface = bel`<div></div>`;
+  document.body.appendChild(surface);
   const background = root.querySelector(`.${Class.BACKGROUND}`);
   const firstForeground = root.querySelector(`.${Class.FOREGROUND}`);
 
@@ -98,5 +101,6 @@ test('ripple cancels on mouseout', t => {
   t.false(background.classList.contains(Class.BACKGROUND_ACTIVE));
   t.false(firstForeground.classList.contains(Class.FOREGROUND_BOUNDED_ACTIVE));
 
+  document.body.removeChild(surface);
   t.end();
 });

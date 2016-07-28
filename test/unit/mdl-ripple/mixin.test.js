@@ -161,7 +161,7 @@ test('startTouchEndedAnimationAtPoint begins unbounded animation', t => {
       })));
 
   // Check styles only reset after animation.
-  clock.tick(66);
+  clock.tick(65);
   t.doesNotThrow(() =>
       td.verify(adapter.setStyles('FC0', {
         opacity: '',
@@ -170,7 +170,7 @@ test('startTouchEndedAnimationAtPoint begins unbounded animation', t => {
       }), {times: 0}));
 
   // Tick past opacity finished.
-  clock.tick(1);
+  clock.tick(2);
   t.doesNotThrow(() =>
       td.verify(adapter.setStyles('FC0', {
         opacity: '',

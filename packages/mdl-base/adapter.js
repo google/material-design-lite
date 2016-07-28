@@ -1,3 +1,5 @@
+// TODO: Remove this file once mdl-radio and mdl-ripple have been converted.
+
 /**
  * Copyright 2016 Google Inc. All Rights Reserved.
  *

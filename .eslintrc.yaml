@@ -8,7 +8,7 @@ plugins:
 rules:
   max-len: [error, 120]
   no-new: warn
-  quotes: [error, single]
+  quotes: [error, single, {"avoidEscape": true}]
   no-var: error
   curly: error
   no-floating-decimal: error

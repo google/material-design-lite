@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-import MDLBaseComponent, {
-  MDLBaseAdapter
-} from 'mdl-base-component';
+import MDLComponent, {MDLBaseAdapterLegacy as MDLBaseAdapter} from 'mdl-base';
 import MDLRadioMixin, {
   Identifier
 } from './mixin';
 
-export default class MDLRadio extends MDLBaseComponent {
+export default class MDLRadio extends MDLComponent {
   static attachTo(root) {
     return new MDLRadio(root);
   }
