@@ -13,3 +13,10 @@ env:
     - SAUCE_ACCESS_KEY=5e3395b4-2026-48a4-82a0-35bc756a0d2b
 addons:
   sauce_connect: true
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/8bceea29a64b5fb7f608
+    on_success: change
+    on_failure: always
+    on_start: never
