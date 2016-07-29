@@ -76,6 +76,7 @@ module.exports = [{
     'material-design-lite': path.resolve(
         './packages/material-design-lite/material-design-lite.scss'),
     'mdl-animation': path.resolve('./packages/mdl-animation/mdl-animation.scss'),
+    'mdl-button': path.resolve('./packages/mdl-button/mdl-button.scss'),
     'mdl-checkbox': path.resolve('./packages/mdl-checkbox/mdl-checkbox.scss'),
     'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
     'mdl-typography': path.resolve('./packages/mdl-typography/mdl-typography.scss')
@@ -105,7 +106,8 @@ module.exports = [{
   },
   postcss: function() {
     return [
-      require('autoprefixer')
+      require('autoprefixer'),
+      require('postcss-custom-properties')
     ];
   }
 }];
