@@ -50,48 +50,48 @@ const SL_LAUNCHERS = {
     version: 'latest-1',
     platform: 'Windows 10'
   },
-  // NOTE(traviskaufman): Tried adding Firefox beta but it was consistently flaky. Holding off on adding
-  // it in for now. If it proves to be less flaky in the future, we should add it.
-  'sl-safari-stable': {
-    base: 'SauceLabs',
-    browserName: 'safari',
-    version: '9',
-    platform: 'OS X 10.11'
-  },
-  'sl-safari-previous': {
-    base: 'SauceLabs',
-    browserName: 'safari',
-    version: '8',
-    platform: 'OS X 10.10'
-  },
   'sl-ie': {
     base: 'SauceLabs',
     browserName: 'internet explorer',
     version: '11',
     platform: 'Windows 8.1'
   },
-  'sl-edge': {
-    base: 'SauceLabs',
-    browserName: 'microsoftedge',
-    version: 'latest',
-    platform: 'Windows 10'
-  },
   'sl-android-stable': {
     base: 'SauceLabs',
     browserName: 'android',
     version: '5.0'
-  },
-  'sl-ios-safari-latest': {
-    base: 'SauceLabs',
-    browserName: 'iphone',
-    platform: 'OS X 10.10',
-    version: '9.1'
-  },
-  'sl-ios-safari-previous': {
-    base: 'SauceLabs',
-    browserName: 'iphone',
-    version: '8.4'
   }
+  // NOTE(traviskaufman): Temporarily disabling these browsers as they are consistently flaky using
+  // Sauce Labs and almost always yield false negatives.
+  // 'sl-edge': {
+  //   base: 'SauceLabs',
+  //   browserName: 'microsoftedge',
+  //   version: 'latest',
+  //   platform: 'Windows 10'
+  // },
+  // 'sl-safari-stable': {
+  //   base: 'SauceLabs',
+  //   browserName: 'safari',
+  //   version: '9',
+  //   platform: 'OS X 10.11'
+  // },
+  // 'sl-safari-previous': {
+  //   base: 'SauceLabs',
+  //   browserName: 'safari',
+  //   version: '8',
+  //   platform: 'OS X 10.10'
+  // },
+  // 'sl-ios-safari-latest': {
+  //   base: 'SauceLabs',
+  //   browserName: 'iphone',
+  //   platform: 'OS X 10.10',
+  //   version: '9.1'
+  // },
+  // 'sl-ios-safari-previous': {
+  //   base: 'SauceLabs',
+  //   browserName: 'iphone',
+  //   version: '8.4'
+  // }
 };
 
 module.exports = function(config) {
@@ -112,7 +112,7 @@ module.exports = function(config) {
     browserDisconnectTimeout: 20000,
     browserNoActivityTimeout: 240000,
     captureTimeout: 120000,
-    concurrency: Infinity,
+    concurrency: USING_SL ? 4 : Infinity,
     customLaunchers: SL_LAUNCHERS,
 
     coverageReporter: {
@@ -154,10 +154,7 @@ module.exports = function(config) {
       },
       // Attempt to de-flake Sauce Labs tests on TravisCI.
       transports: ['polling'],
-      browserDisconnectTolerance: 3,
-      client: {
-        captureConsole: false
-      }
+      browserDisconnectTolerance: 3
     });
   }
 };
