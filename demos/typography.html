@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2016 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Typography Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+    <style>
+      .demo-typography--section {
+        padding: 16px;
+        border: 1px solid #ddd;
+      }
+      .demo-typography--color-styles {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .demo-typography--light-bg {
+        background-color: #fafafa;
+      }
+      .demo-typography--dark-bg {
+        background-color: #1d1d1d;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>MDL Typography</h1>
+      <h2>Styles</h2>
+      <section class="demo-typography--section mdl-typography">
+        <h1 class="mdl-typography--display4">Display 4</h1>
+        <h1 class="mdl-typography--display3">Display 3</h1>
+        <h1 class="mdl-typography--display2">Display 2</h1>
+        <h1 class="mdl-typography--display1">Display 1</h1>
+        <h1 class="mdl-typography--headline">Headline</h2>
+        <h2 class="mdl-typography--title">
+          Title <span class="mdl-typography--caption">Caption.</span>
+        </h3>
+        <h3 class="mdl-typography--subheading2">Subheading 2</h3>
+        <h4 class="mdl-typography--subheading1">Subheading 1</h4>
+        <p class="mdl-typography--body1">Body 1 paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <aside class="mdl-typography--body2">Body 2 text, calling something out.</aside>
+      </section>
+
+      <h2>Styles with margin adjustments</h2>
+      <section class="demo-typography--section mdl-typography">
+        <h1 class="mdl-typography--display4 mdl-typography--adjust-margin">Display 4</h1>
+        <h1 class="mdl-typography--display3 mdl-typography--adjust-margin">Display 3</h1>
+        <h1 class="mdl-typography--display2 mdl-typography--adjust-margin">Display 2</h1>
+        <h1 class="mdl-typography--display1 mdl-typography--adjust-margin">Display 1</h1>
+        <h1 class="mdl-typography--headline mdl-typography--adjust-margin">Headline</h2>
+        <h2 class="mdl-typography--title mdl-typography--adjust-margin">
+          Title <span class="mdl-typography--caption mdl-typography--adjust-margin">Caption.</span>
+        </h3>
+        <h3 class="mdl-typography--subheading2 mdl-typography--adjust-margin">Subheading 2</h3>
+        <h4 class="mdl-typography--subheading1 mdl-typography--adjust-margin">Subheading 1</h4>
+        <p class="mdl-typography--body1 mdl-typography--adjust-margin">Body 1 paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <aside class="mdl-typography--body2 mdl-typography--adjust-margin">Body 2 text, calling something out.</aside>
+      </section>
+
+      <h2>Color Classes</h2>
+      <section class="demo-typography--section mdl-typography">
+        <p class="demo-typography--color-styles demo-typography--light-bg mdl-typography--body2">
+          <span class="mdl-typography--color-primary-dark">Primary Dark</span>
+          <span class="mdl-typography--color-secondary-dark">Secondary Dark</span>
+          <span class="mdl-typography--color-hint-dark">Hint Dark</span>
+          <span class="mdl-typography--color-disabled-dark">Disabled Dark</span>
+          <span class="mdl-typography--color-icon-dark">
+            <span class="material-icons">favorite</span> (Icon Dark)
+          </span>
+        </p>
+        <p class="demo-typography--color-styles demo-typography--dark-bg mdl-typography--body2">
+          <span class="mdl-typography--color-primary-light">Primary Light</span>
+          <span class="mdl-typography--color-secondary-light">Secondary Light</span>
+          <span class="mdl-typography--color-hint-light">Hint Light</span>
+          <span class="mdl-typography--color-disabled-light">Disabled Light</span>
+          <span class="mdl-typography--color-icon-light">
+            <span class="material-icons">favorite</span> (Icon Light)
+          </span>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
