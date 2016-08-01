@@ -11,6 +11,9 @@ rules:
   quotes: [error, single, {"avoidEscape": true}]
   no-var: error
   curly: error
+  # Turn off warning comment checking (TODO) while under active development.
+  # Turn this back on once we hit Beta.
+  no-warning-comments: off
   no-floating-decimal: error
   no-unused-vars: error
   # Disabling jsdoc rules for the time being, but should be discussed as to whether or not this is
