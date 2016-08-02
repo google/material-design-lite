@@ -83,6 +83,7 @@ module.exports = [{
     'mdl-fab': path.resolve('./packages/mdl-fab/mdl-fab.scss'),
     'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
     'mdl-theme': path.resolve('./packages/mdl-theme/mdl-theme.scss'),
+    'mdl-tooltip': path.resolve('./packages/mdl-tooltip/mdl-tooltip.scss'),
     'mdl-typography': path.resolve('./packages/mdl-typography/mdl-typography.scss')
   },
   output: {
