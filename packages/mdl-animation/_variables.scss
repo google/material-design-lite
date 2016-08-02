@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-$mdl-animation-linear-out-slow-in-timing-function: cubic-bezier(0, 0, .2, .1) !default;
+$mdl-animation-linear-out-slow-in-timing-function: cubic-bezier(0, 0, .2, 1) !default;
 $mdl-animation-fast-out-slow-in-timing-function: cubic-bezier(.4, 0, .2, 1) !default;
 $mdl-animation-fast-out-linear-in-timing-function: cubic-bezier(.4, 0, 1, 1) !default;
