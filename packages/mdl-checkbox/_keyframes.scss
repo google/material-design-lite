@@ -16,31 +16,60 @@
 
 @import "./variables";
 
-@keyframes md-checkbox-fade-in-background {
+@keyframes mdl-checkbox-fade-in-background {
   0% {
-    opacity: 0;
+    border-color: $mdl-checkbox-border-color;
+    background-color: transparent;
   }
 
   50% {
-    opacity: 1;
+    border-color: $mdl-checkbox-background-color;
+    background-color: $mdl-checkbox-background-color;
   }
 }
 
-@keyframes md-checkbox-fade-out-background {
+@keyframes mdl-checkbox-fade-out-background {
   0%,
-  50% {
-    opacity: 1;
+  80% {
+    border-color: $mdl-checkbox-background-color;
+    background-color: $mdl-checkbox-background-color;
   }
 
   100% {
-    opacity: 0;
+    border-color: $mdl-checkbox-border-color;
+    background-color: transparent;
   }
 }
 
-@keyframes md-checkbox-unchecked-checked-checkmark-path {
+@keyframes mdl-checkbox-fade-in-background-dark {
+  0% {
+    border-color: $mdl-checkbox-border-color-dark;
+    background-color: transparent;
+  }
+
+  50% {
+    border-color: $mdl-checkbox-background-color;
+    background-color: $mdl-checkbox-background-color;
+  }
+}
+
+@keyframes mdl-checkbox-fade-out-background-dark {
+  0%,
+  80% {
+    border-color: $mdl-checkbox-background-color;
+    background-color: $mdl-checkbox-background-color;
+  }
+
+  100% {
+    border-color: $mdl-checkbox-border-color-dark;
+    background-color: transparent;
+  }
+}
+
+@keyframes mdl-checkbox-unchecked-checked-checkmark-path {
   0%,
   50% {
-    stroke-dashoffset: $_md-checkbox-mark-path-length;
+    stroke-dashoffset: $_mdl-checkbox-mark-path-length;
   }
 
   50% {
@@ -52,7 +81,7 @@
   }
 }
 
-@keyframes md-checkbox-unchecked-indeterminate-mixedmark {
+@keyframes mdl-checkbox-unchecked-indeterminate-mixedmark {
   0%,
   68.2% {
     transform: scaleX(0);
@@ -67,18 +96,20 @@
   }
 }
 
-@keyframes md-checkbox-checked-unchecked-checkmark-path {
+@keyframes mdl-checkbox-checked-unchecked-checkmark-path {
   from {
     @include mdl-animation-fast-out-linear-in;
+    opacity: 1;
     stroke-dashoffset: 0;
   }
 
   to {
-    stroke-dashoffset: $_md-checkbox-mark-path-length * -1;
+    opacity: 0;
+    stroke-dashoffset: $_mdl-checkbox-mark-path-length * -1;
   }
 }
 
-@keyframes md-checkbox-checked-indeterminate-checkmark {
+@keyframes mdl-checkbox-checked-indeterminate-checkmark {
   from {
     transform: rotate(0deg);
     opacity: 1;
@@ -92,11 +123,11 @@
   }
 }
 
-@keyframes md-checkbox-indeterminate-checked-checkmark {
+@keyframes mdl-checkbox-indeterminate-checked-checkmark {
   from {
     transform: rotate(45deg);
     opacity: 0;
-    animation-timing-function: $_md-checkbox-indeterminate-checked-easing-function;
+    animation-timing-function: $_mdl-checkbox-indeterminate-checked-easing-function;
   }
 
   to {
@@ -105,7 +136,7 @@
   }
 }
 
-@keyframes md-checkbox-checked-indeterminate-mixedmark {
+@keyframes mdl-checkbox-checked-indeterminate-mixedmark {
   from {
     transform: rotate(-45deg);
     opacity: 0;
@@ -119,11 +150,11 @@
   }
 }
 
-@keyframes md-checkbox-indeterminate-checked-mixedmark {
+@keyframes mdl-checkbox-indeterminate-checked-mixedmark {
   from {
     transform: rotate(0deg);
     opacity: 1;
-    animation-timing-function: $_md-checkbox-indeterminate-checked-easing-function;
+    animation-timing-function: $_mdl-checkbox-indeterminate-checked-easing-function;
   }
 
   to {
@@ -132,7 +163,7 @@
   }
 }
 
-@keyframes md-checkbox-indeterminate-unchecked-mixedmark {
+@keyframes mdl-checkbox-indeterminate-unchecked-mixedmark {
   0% {
     transform: scaleX(1);
     opacity: 1;

@@ -14,26 +14,20 @@
  * limitations under the License.
  */
 
-//
-// Theme variables
-//
-$md-checkbox-background-color: #212121 !default;
-$md-checkbox-mark-color: #fff !default;
-$md-checkbox-border-color: rgba(black, .54) !default;
-// NOTE(traviskaufman): While the spec calls for translucent blacks/whites for disabled colors,
-// this does not work well with elements layered on top of one another. To get around this we
-// blend the colors together based on the base color and the theme background.
-// Black 26% opacity on white background.
-$md-checkbox-disabled-color: #b0b0b0 !default;
+/* TODO: Revisit once MDL theming lands */
+$mdl-checkbox-background-color: #3f51b5 !default;
+$mdl-checkbox-mark-color: white !default;
+$mdl-checkbox-border-color: rgba(black, .54) !default;
+$mdl-checkbox-border-color-dark: white !default;
+$mdl-checkbox-disabled-color: rgba(black, .26) !default;
+$mdl-checkbox-disabled-color-dark: rgba(white, .3) !default;
 
-//
-// Other variables
-//
-$md-checkbox-size: 18px;
-$md-checkbox-mark-stroke-size: 2/15 * $md-checkbox-size;
-$md-checkbox-border-width: 2px;
-$md-checkbox-transition-duration: 90ms;
-$md-checkbox-item-spacing: 4px;
-// Manual calculation done on SVG
-$_md-checkbox-mark-path-length: 22.910259;
-$_md-checkbox-indeterminate-checked-easing-function: cubic-bezier(.14, 0, 0, 1);
+$mdl-checkbox-size: 18px;
+$mdl-checkbox-mark-stroke-size: 2/15 * $mdl-checkbox-size;
+$mdl-checkbox-border-width: 2px;
+$mdl-checkbox-transition-duration: 90ms;
+$mdl-checkbox-item-spacing: 4px;
+
+/* Manual calculation done on SVG */
+$_mdl-checkbox-mark-path-length: 29.7833385;
+$_mdl-checkbox-indeterminate-checked-easing-function: cubic-bezier(.14, 0, 0, 1);

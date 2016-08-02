@@ -188,7 +188,7 @@ rules:
   # Because we adhere to BEM we can limit the amount of necessary compound selectors. Most should
   # just be 1 level selector. However, modifiers can introduce an additional compound selector.
   # Futhermore, generic qualifying selectors (e.g. `[dir="rtl"]`) can introduce yet another level.
-  selector-max-compound-selectors: 3
+  selector-max-compound-selectors: 4
   # For specificity: disallow IDs (0). Allow for complex combinations of classes, pseudo-classes,
   # attribute modifiers based on selector-max-compound-selectors, plus an addition for
   # pseudo-classes (4). Allow for pseudo-elements (1).
@@ -208,9 +208,14 @@ rules:
   selector-no-qualifying-type: true
   # In general, we should *never* be modifying elements within our components, since we can't
   # predict the use cases in which users would add a certain type of element into a component.
-  # An exception to this may be in packages/material-design-lite, in which case this rule could be
-  # disabled for that file, with an explanation.
-  selector-no-type: true
+  # The only hard exception to this are `fieldset` elements, which can be disabled and in that case
+  # we want our UI components within that fieldset to be disabled as well.
+  # Other exceptions to this may be in packages/material-design-lite, in which case this rule could
+  # be disabled for that file, with an explanation.
+  selector-no-type:
+    - true
+    - ignoreTypes:
+        - fieldset
   # Styles for components should never need the universal selector.
   selector-no-universal: true
   # Ensure any defined symbols are prefixed with "mdl-"
@@ -219,8 +224,7 @@ rules:
   custom-property-pattern: ^mdl?-.+
   selector-class-pattern:
     - ^mdl?-.+
-    -
-      resolveNestedSelectors: true
+    - resolveNestedSelectors: true
   selector-id-pattern: ^mdl?-.+
   # Names are more semantic than numbers
   font-weight-notation: named-where-possible
@@ -235,8 +239,7 @@ rules:
     -
       - /^TODO:/
       - /^FIXME:/
-    -
-      severity: warning
+    - severity: warning
   # Part of google's style guide
   number-leading-zero: never
 
@@ -249,6 +252,7 @@ rules:
     componentSelectors: ^\.mdl?-{componentName}(?:__[a-z]+(?:-[a-z]+)*)*(?:--[a-z]+(?:-[a-z]+)*)*(?:\[.+\])*$
     ignoreSelectors:
       - ^fieldset
+      - ^\[aria\-disabled=(?:.+)\]
 
   # SCSS naming patterns, just like our CSS conventions above.
   # (note for $-vars we use a leading underscore for "private" variables)

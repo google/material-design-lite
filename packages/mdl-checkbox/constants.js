@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-const ROOT = 'md-checkbox';
+const ROOT = 'mdl-checkbox';
 const ANIM = `${ROOT}--anim`;
 
 export const cssClasses = {
   ROOT,
   CHECKED: `${ROOT}--checked`,
   INDETERMINATE: `${ROOT}--indeterminate`,
-  FOCUSED: `${ROOT}--focused`,
   ANIM_UNCHECKED_CHECKED: `${ANIM}-unchecked-checked`,
   ANIM_UNCHECKED_INDETERMINATE: `${ANIM}-unchecked-indeterminate`,
   ANIM_CHECKED_UNCHECKED: `${ANIM}-checked-unchecked`,
@@ -39,7 +38,7 @@ export const strings = {
     // which use the 'webkit' prefix.
     return 'animation' in el.style ? 'animationend' : 'webkitAnimationEnd';
   })(),
-  NATIVE_CONTROL_SELECTOR: '.md-checkbox__native-control',
+  NATIVE_CONTROL_SELECTOR: `.${ROOT}__native-control`,
   TRANSITION_STATE_INIT: 'init',
   TRANSITION_STATE_CHECKED: 'checked',
   TRANSITION_STATE_UNCHECKED: 'unchecked',

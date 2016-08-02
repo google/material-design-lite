@@ -15,70 +15,56 @@
  */
 
 import MDLComponent from 'mdl-base';
-import MDLCheckboxMixin from './mixin';
-import {cssClasses, strings, numbers} from './constants';
+import MDLCheckboxFoundation from './foundation';
 
-/**
- * A Material Design Checkbox.
- * @constructor
- * @final
- * @extends MDLBaseComponent
- */
+let idCounter = 0;
+
 export default class MDLCheckbox extends MDLComponent {
+  static buildDom({id = `mdl-checkbox-${++idCounter}`, labelId = `mdl-checkbox-label-${id}`} = {}) {
+    const {ROOT: CSS_ROOT} = MDLCheckboxFoundation.cssClasses;
+
+    const root = document.createElement('div');
+    root.classList.add(CSS_ROOT);
+    root.innerHTML = `
+      <input type="checkbox"
+             class="${CSS_ROOT}__native-control"
+             id="${id}"
+             aria-labelledby="${labelId}"/>
+      <div class="${CSS_ROOT}__frame"></div>
+      <div class="${CSS_ROOT}__background">
+        <svg version="1.1"
+             class="${CSS_ROOT}__checkmark"
+             xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 24 24">
+          <path class="${CSS_ROOT}__checkmark__path"
+                fill="none"
+                stroke="white"
+                d="M4.1,12.7 9,17.6 20.3,6.3"/>
+        </svg>
+        <div class="md-checkbox__mixedmark"></div>
+      </div>
+    `;
+
+    return root;
+  }
+
   static attachTo(root) {
     return new MDLCheckbox(root);
   }
 
-  static mixInto(CtorOrProto, options) {
-    const proto = typeof CtorOrProto === 'function' ? CtorOrProto.prototype : CtorOrProto;
-    MDLCheckboxMixin.call(proto, options);
-  }
-
-  static get cssClasses() {
-    return cssClasses;
-  }
-
-  static get strings() {
-    return strings;
-  }
-
-  static get numbers() {
-    return numbers;
-  }
-
-  constructor(root) {
-    super(root);
-    this.nativeCb_ = this.root_.querySelector(strings.NATIVE_CONTROL_SELECTOR);
-    this.initMdlCheckbox_();
+  getDefaultFoundation() {
+    const {ANIM_END_EVENT_NAME, NATIVE_CONTROL_SELECTOR} = MDLCheckboxFoundation.strings;
+    const nativeCb = this.root_.querySelector(NATIVE_CONTROL_SELECTOR);
+    return new MDLCheckboxFoundation({
+      addClass: className => this.root_.classList.add(className),
+      removeClass: className => this.root_.classList.remove(className),
+      registerAnimationEndHandler: handler => this.root_.addEventListener(ANIM_END_EVENT_NAME, handler),
+      deregisterAnimationEndHandler: handler => this.root_.removeEventListener(ANIM_END_EVENT_NAME, handler),
+      registerChangeHandler: handler => nativeCb.addEventListener('change', handler),
+      deregisterChangeHandler: handler => nativeCb.removeEventListener('change', handler),
+      getNativeControl: () => nativeCb,
+      forceLayout: () => this.root_.offsetWidth,
+      isAttachedToDOM: () => Boolean(this.root_.parentNode)
+    });
   }
 }
-MDLCheckboxMixin.call(MDLCheckbox.prototype, {
-  addClass(className) {
-    this.root_.classList.add(className);
-  },
-  removeClass(className) {
-    this.root_.classList.remove(className);
-  },
-  addEventListener(type, listener) {
-    this.root_.addEventListener(type, listener);
-  },
-  removeEventListener(type, listener) {
-    this.root_.removeEventListener(type, listener);
-  },
-  getNativeCheckbox() {
-    return this.nativeCb_;
-  },
-  addNativeCheckboxListener(type, listener) {
-    this.nativeCb_.addEventListener(type, listener);
-  },
-  removeNativeCheckboxListener(type, listener) {
-    this.nativeCb_.removeEventListener(type, listener);
-  },
-  forceLayout() {
-    // Return to prevent optimizers thinking this is dead code.
-    return this.root_.offsetWidth;
-  },
-  isAttachedToDOM() {
-    return Boolean(this.root_.parentNode);
-  }
-});

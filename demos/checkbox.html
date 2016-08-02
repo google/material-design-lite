@@ -14,50 +14,143 @@
   See the License for the specific language governing permissions and
   limitations under the License
 -->
-<html>
+<html class="mdl-typography">
   <head>
     <meta charset="utf-8">
     <title>MDL Checkbox Demo</title>
     <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+    <style media="screen">
+      section {
+        margin-top: .5rem;
+        padding: 0 .5rem 1rem .5rem;
+      }
+
+      .dark-theme {
+        background: #262626;
+        color: white;
+      }
+
+      .dark-theme > h2 {
+        margin-top: 0;
+      }
+
+      /* Example of manually theming a checkbox. Note that this does not take JS-provided animations
+         into account. */
+      .dark-theme .mdl-checkbox__native-control:checked:not(:disabled) ~ .mdl-checkbox__background,
+      .dark-theme .mdl-checkbox__native-control:indeterminate:not(:disabled) ~ .mdl-checkbox__background {
+        background-color: #E91E63;
+        border-color: #E91E63;
+      }
+      .dark-theme .mdl-checkbox__background::before {
+        background-color: #E91E63;
+      }
+      .dark-theme .mdl-checkbox__checkmark__path {
+        stroke: #262626 !important;
+      }
+      .dark-theme .mdl-checkbox__mixedmark {
+        background-color: #262626;
+      }
+    </style>
   </head>
   <body>
     <main>
-      <h1>MDL Checkbox Hello</h1>
+      <h1>MDL Checkbox</h1>
       <section>
-        <h2>Auto-initialized checkbox</h2>
-        <!-- TODO change from "md-" to "mdl-" -->
-        <div class="md-checkbox-wrapper">
-          <div class="md-checkbox-wrapper__layout">
-            <div class="md-checkbox" data-mdl-auto-init="MDLCheckbox">
+        <h2>Basic Example, no Javascript</h2>
+        <div class="mdl-checkbox-wrapper">
+          <div class="mdl-checkbox-wrapper__layout">
+            <div class="mdl-checkbox">
               <input type="checkbox"
-                     class="md-checkbox__native-control"
-                     aria-labelledby="my-checkbox-label"/>
-              <div class="md-checkbox__frame"></div>
-              <div class="md-checkbox__background">
+                     id="basic-checkbox"
+                     class="mdl-checkbox__native-control"
+                     aria-labelledby="basic-checkbox-label"/>
+              <div class="mdl-checkbox__background">
                 <svg version="1.1"
-                     class="md-checkbox__checkmark"
+                     class="mdl-checkbox__checkmark"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24"
                      xml:space="preserve">
-                  <path class="md-checkbox__checkmark__path"
+                  <path class="mdl-checkbox__checkmark__path"
                         fill="none"
                         stroke="white"
-                        d="M4.1,12.7 9,17.6 20.3,6.3"/>
+                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
                 </svg>
-                <div class="md-checkbox__mixedmark"></div>
+                <div class="mdl-checkbox__mixedmark"></div>
               </div>
             </div>
-            <label id="my-checkbox-label">This is my checkbox</label>
+            <label for="basic-checkbox" id="basic-checkbox-label">This is my checkbox</label>
           </div>
         </div>
+        <button type="button" onclick="document.getElementById('basic-checkbox').indeterminate = true;">Make indeterminate</button>
+        <button type="button" onclick="this.parentElement.hasAttribute('dir') ? this.parentElement.removeAttribute('dir') : this.parentElement.setAttribute('dir', 'rtl');">Toggle RTL</button>
+        <button type="button" onclick="document.querySelector('.mdl-checkbox-wrapper').classList.toggle('mdl-checkbox-wrapper--align-end');">Toggle Align End</button>
+        <button type="button" onclick="document.getElementById('basic-checkbox').disabled = !document.getElementById('basic-checkbox').disabled;">Toggle Disabled</button>
+      </section>
+      <section>
+        <h2>With Javascript</h2>
+        <div class="mdl-checkbox-wrapper">
+          <div class="mdl-checkbox-wrapper__layout">
+            <div id="mdl-js-checkbox" class="mdl-checkbox">
+              <input type="checkbox"
+                     id="my-checkbox"
+                     class="mdl-checkbox__native-control"
+                     aria-labelledby="my-checkbox-label"/>
+              <div class="mdl-checkbox__background">
+                <svg version="1.1"
+                     class="mdl-checkbox__checkmark"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     xml:space="preserve">
+                  <path class="mdl-checkbox__checkmark__path"
+                        fill="none"
+                        stroke="white"
+                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                </svg>
+                <div class="mdl-checkbox__mixedmark"></div>
+              </div>
+            </div>
+            <label for="my-checkbox" id="my-checkbox-label">This is my checkbox</label>
+          </div>
+        </div>
+        <button type="button" id="make-ind">Make indeterminate</button>
+      </section>
+      <section class="dark-theme">
+        <h2>Dark Theme</h2>
+        <div class="mdl-checkbox-wrapper">
+          <div class="mdl-checkbox-wrapper__layout">
+            <div id="mdl-checkbox-dark" class="mdl-checkbox mdl-checkbox--dark-theme">
+              <input type="checkbox"
+                     id="checkbox-dark"
+                     class="mdl-checkbox__native-control"
+                     aria-labelledby="my-checkbox-label"/>
+              <div class="mdl-checkbox__background">
+                <svg version="1.1"
+                     class="mdl-checkbox__checkmark"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     xml:space="preserve">
+                  <path class="mdl-checkbox__checkmark__path"
+                        fill="none"
+                        stroke="white"
+                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                </svg>
+                <div class="mdl-checkbox__mixedmark"></div>
+              </div>
+            </div>
+            <label for="my-checkbox" id="my-checkbox-label">This is my checkbox</label>
+          </div>
+        </div>
+        <button type="button" onclick="document.getElementById('checkbox-dark').disabled = !document.getElementById('checkbox-dark').disabled;">Toggle Disabled</button>
       </section>
     </main>
     <script src="assets/material-design-lite.js" charset="utf-8"></script>
-    <script id="auto-init">
+    <script>
       (function(global) {
         'use strict';
-        var mdl = global.mdl;
-        mdl.autoInit();
+        var checkbox = new global.mdl.Checkbox(document.getElementById('mdl-js-checkbox'));
+        document.getElementById('make-ind').addEventListener('click', function() {
+          document.getElementById('my-checkbox').indeterminate = true;
+        });
       })(this);
     </script>
   </body>
