@@ -17,6 +17,7 @@
 @import "variables";
 @import "mdl-typography/mixins";
 
+/* postcss-bem-linter: define button */
 /* stylelint-disable declaration-property-unit-whitelist */
 .mdl-button {
   @include mdl-typography(body2);
@@ -51,6 +52,7 @@
     content: "";
   }
 
+  /* postcss-bem-linter: ignore */
   &::before {
     background: currentColor;
     opacity: 0;
@@ -111,10 +113,12 @@
   &--primary {
     color: var(--mdl-theme-color-primary);
 
+    /* postcss-bem-linter: ignore */
     &.mdl-button--raised {
       background-color: var(--mdl-theme-color-primary);
       color: rgba(0, 0, 0, .87);
 
+      /* postcss-bem-linter: ignore */
       &::before {
         color: black;
       }
@@ -124,10 +128,12 @@
   &--accent {
     color: var(--mdl-theme-color-accent);
 
+    /* postcss-bem-linter: ignore */
     &.mdl-button--raised {
       background-color: var(--mdl-theme-color-accent);
       color: rgba(0, 0, 0, .87);
 
+      /* postcss-bem-linter: ignore */
       &::before {
         color: black;
       }
@@ -149,3 +155,5 @@
     box-shadow: none;
   }
 }
+
+/* postcss-bem-linter: end */
