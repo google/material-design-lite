@@ -1,0 +1,119 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* postcss-bem-linter: define toolbar */
+.mdl-toolbar {
+
+  &__row {
+    display: flex;
+    position: static;
+    position: sticky;
+    top: 0; /* stylelint-disable-line declaration-block-no-ignored-properties */
+    width: 100%;
+    height: 54px;
+    background: transparent;
+    color: white;
+
+    @media (min-width: 1024px) {
+      height: 64px;
+    }
+  }
+
+  &__action {
+    display: inline-flex;
+    position: relative;
+    flex-basis: auto;
+    width: auto;
+    height: 100%;
+    padding: 0 16px;
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+    color: white;
+    fill: currentColor;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    @media (min-width: 1024px) {
+      padding: 0 24px;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 120ms cubic-bezier(0, 0, .2, 1);
+      border-radius: inherit;
+      background: black;
+      content: "";
+      opacity: 0;
+    }
+
+    &:focus::before {
+      opacity: .12;
+    }
+
+    &:active::before {
+      opacity: .18;
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 16px;
+    color: currentColor;
+    font-family: Roboto, sans-serif;
+    fill: currentColor;
+    font-size: 1.25rem; /* 20sp */
+
+    @media (min-width: 1024px) {
+      padding-left: 24px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    margin-left: auto;
+  }
+
+  &--primary {
+    background: indigo;
+  }
+
+  &--dark {
+    background: black;
+  }
+
+  /*
+  Appbar modifier so it sits on top of the
+  content area so no other toolbars overlap.
+  */
+  &--appbar {
+    z-index: 2;
+  }
+}
+
+/* postcss-bem-linter: end */
