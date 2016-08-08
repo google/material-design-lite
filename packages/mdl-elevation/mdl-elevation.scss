@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/mdl-animation";
-@import "mdl-button/mdl-button";
-@import "mdl-card/mdl-card";
-@import "mdl-checkbox/mdl-checkbox";
-@import "mdl-elevation/mdl-elevation";
-@import "mdl-fab/mdl-fab";
-@import "mdl-radio/mdl-radio";
-@import "mdl-ripple/mdl-ripple";
-@import "mdl-typography/mdl-typography";
+@import "./mixins";
+
+@for $z-value from 0 through 24 {
+  .mdl-elevation--z#{$z-value} {
+    @include mdl-elevation($z-value);
+  }
+}
+
+.mdl-elevation-transition {
+  @include mdl-elevation-transition;
+}
