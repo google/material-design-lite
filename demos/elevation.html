@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2016 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html class="mdl-typography">
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Elevation Demo</title>
+    <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+    <style>
+      .demo-surfaces {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .demo-surface {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 200px;
+        height: 100px;
+        margin: 0 60px 80px;
+
+        border-radius: 3px;
+        font-size: .8em;
+        color: #9E9E9E;
+        background: white;
+      }
+
+      #hover-el {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>MDL Elevation</h1>
+      <aside style="margin-bottom:1rem;">Demo adapted from <a href="http://codepen.io/shyndman/pen/ojxmdY" target="_blank">http://codepen.io/shyndman/pen/ojxmdY</a></aside>
+      <section class="demo-surfaces">
+        <figure class="demo-surface mdl-elevation--z0">
+          <figcaption>0dp (<code>mdl-elevation--z0</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z1">
+          <figcaption>1dp (<code>mdl-elevation--z1</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z2">
+          <figcaption>2dp (<code>mdl-elevation--z2</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z3">
+          <figcaption>3dp (<code>mdl-elevation--z3</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z4">
+          <figcaption>4dp (<code>mdl-elevation--z4</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z5">
+          <figcaption>5dp (<code>mdl-elevation--z5</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z6">
+          <figcaption>6dp (<code>mdl-elevation--z6</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z7">
+          <figcaption>7dp (<code>mdl-elevation--z7</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z8">
+          <figcaption>8dp (<code>mdl-elevation--z8</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z9">
+          <figcaption>9dp (<code>mdl-elevation--z9</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z10">
+          <figcaption>10dp (<code>mdl-elevation--z10</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z11">
+          <figcaption>11dp (<code>mdl-elevation--z11</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z12">
+          <figcaption>12dp (<code>mdl-elevation--z12</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z13">
+          <figcaption>13dp (<code>mdl-elevation--z13</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z14">
+          <figcaption>14dp (<code>mdl-elevation--z14</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z15">
+          <figcaption>15dp (<code>mdl-elevation--z15</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z16">
+          <figcaption>16dp (<code>mdl-elevation--z16</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z17">
+          <figcaption>17dp (<code>mdl-elevation--z17</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z18">
+          <figcaption>18dp (<code>mdl-elevation--z18</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z19">
+          <figcaption>19dp (<code>mdl-elevation--z19</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z20">
+          <figcaption>20dp (<code>mdl-elevation--z20</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z21">
+          <figcaption>21dp (<code>mdl-elevation--z21</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z22">
+          <figcaption>22dp (<code>mdl-elevation--z22</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z23">
+          <figcaption>23dp (<code>mdl-elevation--z23</code>)</figcaption>
+        </figure>
+        <figure class="demo-surface mdl-elevation--z24">
+          <figcaption>24dp (<code>mdl-elevation--z24</code>)</figcaption>
+        </figure>
+      </section>
+      <section>
+        <div id="hover-el" class="mdl-elevation--z2 mdl-elevation-transition">
+          <p>Hover over me for a transition</p>
+        </div>
+      </section>
+    </main>
+    <script>
+      (function() {
+        var hoverEl = document.getElementById('hover-el');
+        hoverEl.addEventListener('mouseenter', function() {
+          this.classList.remove('mdl-elevation--z2');
+          this.classList.add('mdl-elevation--z8');
+        });
+        hoverEl.addEventListener('mouseleave', function() {
+          this.classList.remove('mdl-elevation--z8');
+          this.classList.add('mdl-elevation--z2');
+        });
+      })();
+    </script>
+  </body>
+</html>
