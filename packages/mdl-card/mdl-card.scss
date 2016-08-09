@@ -1,0 +1,147 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-typography/mixins";
+
+/* postcss-bem-linter: define card */
+.mdl-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+
+  /* TODO(sgomes): replace with elevation mixin once mdl-elevation is in. */
+  box-shadow:
+    0 3px 1px -2px rgba(0, 0, 0, .2),
+    0 2px 2px 0 rgba(0, 0, 0, .14),
+    0 1px 5px 0 rgba(0, 0, 0, .12);
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &__primary {
+    padding: 16px;
+
+    /* Add extra space before large title. */
+    .mdl-card__title--large {
+      padding-top: 8px;
+    }
+
+    /* Add extra padding if this is the last block. */
+    &:last-child {
+      padding-bottom: 24px;
+    }
+  }
+
+  &__supporting-text {
+    padding: 8px 16px;
+
+    @include mdl-typography(body1);
+    @include mdl-typography-color(primary, true);
+
+    /* Adjust text color for dark theme. */
+    .mdl-card--dark-theme > &,
+    .mdl-theme--dark & {
+      @include mdl-typography-color(primary, false);
+    }
+
+    /* Remove top padding if immediately preceded by a primary block. */
+    .mdl-card__primary + & {
+      margin-top: -8px;
+      padding-top: 0;
+    }
+
+    /* Add extra padding if this is the last block. */
+    &:last-child {
+      padding-bottom: 24px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    padding: 8px;
+    box-sizing: border-box;
+
+    /* Adjust text color for dark theme. */
+    .mdl-card--dark-theme > &,
+    .mdl-theme--dark & {
+      @include mdl-typography-color(primary, false);
+    }
+
+    /* Tweak button paddings and margins when they're used as actions */
+    .mdl-card__action {
+      margin: 0 8px 0 0;
+    }
+    .mdl-card__action:last-child {
+      margin-right: 0;
+    }
+
+    /* Vertical actions (one per line) */
+    &--vertical {
+      flex-flow: column;
+      align-items: flex-start;
+
+      .mdl-card__action {
+        margin: 0 0 4px;
+      }
+      .mdl-card__action:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__media {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  &__title {
+    @include mdl-typography(body2);
+    @include mdl-typography-color(primary, true);
+
+    /* Adjust text color for dark theme. */
+    .mdl-card--dark-theme &,
+    .mdl-theme--dark & {
+      @include mdl-typography-color(primary, false);
+    }
+
+    margin: -.063rem 0; /* -1sp 0 */
+  }
+
+  &__title--large {
+    @include mdl-typography(headline);
+
+    margin: 0;
+  }
+
+  &__subtitle {
+    @include mdl-typography(body1);
+    @include mdl-typography-color(secondary, true);
+
+    /* Adjust text color for dark theme. */
+    .mdl-card--dark-theme &,
+    .mdl-theme--dark & {
+      @include mdl-typography-color(primary, false);
+    }
+
+    margin: -.063rem 0; /* -1sp 0 */
+  }
+}
+
+/* postcss-bem-linter: end */
