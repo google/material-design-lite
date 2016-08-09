@@ -82,6 +82,7 @@ module.exports = [{
     'mdl-elevation': path.resolve('./packages/mdl-elevation/mdl-elevation.scss'),
     'mdl-fab': path.resolve('./packages/mdl-fab/mdl-fab.scss'),
     'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
+    'mdl-theme': path.resolve('./packages/mdl-theme/mdl-theme.scss'),
     'mdl-typography': path.resolve('./packages/mdl-typography/mdl-typography.scss')
   },
   output: {
@@ -109,8 +110,7 @@ module.exports = [{
   },
   postcss: function() {
     return [
-      require('autoprefixer'),
-      require('postcss-custom-properties')
+      require('autoprefixer')
     ];
   }
 }];
