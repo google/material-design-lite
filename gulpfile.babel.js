@@ -189,6 +189,35 @@ gulp.task('styles', () => {
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'styles'}));
+
+});
+
+// Compile and Automatically Prefix Stylesheets (production)
+gulp.task('styles-rtl', () => {
+  // For best performance, don't add Sass partials to `gulp.src`
+  return gulp.src('src/material-design-lite.scss')
+    // Generate Source Maps
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.cssInlineImages({webRoot: 'src'}))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(gulp.dest('.tmp'))    
+    // Concatenate RTL Styles    
+    .pipe($.concat('material-rtl.css'))
+    .pipe($.rtlcss())
+    .pipe($.header(banner, {pkg}))
+    .pipe(gulp.dest('dist'))
+     // Minify RTL Styles    
+    .pipe($.if('*.css', $.csso()))
+    .pipe($.rtlcss())
+    .pipe($.concat('material-rtl.min.css'))
+    .pipe($.header(banner, {pkg}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist'))
+    .pipe($.size({title: 'styles'}));
 });
 
 // Only generate CSS styles for the MDL grid
@@ -204,9 +233,20 @@ gulp.task('styles-grid', () => {
     .pipe($.concat('material-grid.css'))
     .pipe($.header(banner, {pkg}))
     .pipe(gulp.dest('dist'))
+    // Concatenate rtl Styles
+    .pipe($.rtlcss())
+    .pipe($.concat('material-grid-rtl.css'))
+    .pipe(gulp.dest('dist'))
     // Minify Styles
     .pipe($.if('*.css', $.csso()))
     .pipe($.concat('material-grid.min.css'))
+    .pipe($.header(banner, {pkg}))
+    .pipe(gulp.dest('dist'))
+    .pipe($.size({title: 'styles-grid'}))
+     // Minify rtl Styles
+     .pipe($.rtlcss())
+    .pipe($.if('*.css', $.csso()))
+    .pipe($.concat('material-grid-rtl.min.css'))
     .pipe($.header(banner, {pkg}))
     .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'styles-grid'}));
@@ -268,7 +308,7 @@ gulp.task('metadata', () => {
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], cb => {
   runSequence(
-    ['styles', 'styles-grid'],
+    ['styles', 'styles-grid','styles-rtl'],
     ['scripts'],
     ['mocha'],
     cb);
@@ -278,7 +318,7 @@ gulp.task('default', ['clean'], cb => {
 gulp.task('all', ['clean'], cb => {
   runSequence(
     ['styletemplates'],
-    ['styles-grid', 'styles:gen'],
+    ['styles-grid','styles-rtl', 'styles:gen'],
     ['scripts'],
     ['mocha'],
     ['assets', 'pages',
@@ -494,7 +534,7 @@ function watch() {
   gulp.watch(['src/**/*.js', '!src/**/README.md'],
     ['scripts', 'demos', 'components', reload]);
   gulp.watch(['src/**/*.{scss,css}'],
-    ['styles', 'styles-grid', 'styletemplates', reload]);
+    ['styles','styles-rtl', 'styles-grid', 'styletemplates', reload]);
   gulp.watch(['src/**/*.html'], ['pages', reload]);
   gulp.watch(['src/**/*.{svg,png,jpg}'], ['images', reload]);
   gulp.watch(['src/**/README.md'], ['pages', reload]);
