@@ -144,7 +144,7 @@ Here is the full list of colors available to the mixin:
 #### mdl-theme-dark mixin
 
 This mixin is mostly used for MDL component development, and provides a standard way of applying dark themes to
-components. It creates a suitable top-level selector for a component, and applies the provided content inside of it:
+components. It creates a suitable selector for a component, and applies the provided content inside of it:
 
 ```scss
 .mdl-foo {
@@ -157,12 +157,15 @@ components. It creates a suitable top-level selector for a component, and applie
   &__bar {
     background: black;
 
-    @include mdl-theme-dark {
+    @include mdl-theme-dark(".mdl-foo") {
       background: white;
     }
   }
 }
 ```
+
+> Note: If using the mixin on anything other than the base selector, you need to specify the base selector as a
+parameter. This ensures that the `--theme-dark` option is appended to the right class.
 
 The above generates the following CSS:
 
@@ -187,7 +190,7 @@ A user could thus apply a dark theme to a component by either targeting it speci
 <div class="mdl-foo mdl-foo--theme-dark"></div>
 ```
 
-Or by using the `mdl-theme--dark` global modifier class that affects all children:
+Or instead apply it to everything under a parent element, by using the `mdl-theme--dark` global modifier class:
 
 ```html
 <body class="mdl-theme--dark">
