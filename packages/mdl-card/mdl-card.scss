@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
 
 /* postcss-bem-linter: define card */
@@ -50,12 +51,10 @@
     padding: 8px 16px;
 
     @include mdl-typography(body1);
-    @include mdl-typography-color(primary, true);
+    @include mdl-theme-prop(color, text-primary-on-background);
 
-    /* Adjust text color for dark theme. */
-    .mdl-card--dark-theme > &,
-    .mdl-theme--dark & {
-      @include mdl-typography-color(primary, false);
+    @include mdl-theme-dark(".mdl-card") {
+      @include mdl-theme-prop(color, text-primary-on-dark);
     }
 
     /* Remove top padding if immediately preceded by a primary block. */
@@ -76,9 +75,8 @@
     box-sizing: border-box;
 
     /* Adjust text color for dark theme. */
-    .mdl-card--dark-theme > &,
-    .mdl-theme--dark & {
-      @include mdl-typography-color(primary, false);
+    @include mdl-theme-dark(".mdl-card") {
+      @include mdl-theme-prop(color, text-primary-on-dark);
     }
 
     /* Tweak button paddings and margins when they're used as actions */
@@ -113,12 +111,11 @@
 
   &__title {
     @include mdl-typography(body2);
-    @include mdl-typography-color(primary, true);
+    @include mdl-theme-prop(color, text-primary-on-background);
 
     /* Adjust text color for dark theme. */
-    .mdl-card--dark-theme &,
-    .mdl-theme--dark & {
-      @include mdl-typography-color(primary, false);
+    @include mdl-theme-dark(".mdl-card") {
+      @include mdl-theme-prop(color, text-primary-on-dark);
     }
 
     margin: -.063rem 0; /* -1sp 0 */
@@ -132,12 +129,11 @@
 
   &__subtitle {
     @include mdl-typography(body1);
-    @include mdl-typography-color(secondary, true);
+    @include mdl-theme-prop(color, text-primary-on-background);
 
     /* Adjust text color for dark theme. */
-    .mdl-card--dark-theme &,
-    .mdl-theme--dark & {
-      @include mdl-typography-color(primary, false);
+    @include mdl-theme-dark(".mdl-card") {
+      @include mdl-theme-prop(color, text-primary-on-dark);
     }
 
     margin: -.063rem 0; /* -1sp 0 */
