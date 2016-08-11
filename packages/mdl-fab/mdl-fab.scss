@@ -93,7 +93,18 @@
     border: 0;
   }
 
+  /*
+    This allows for using SVGs within them to align properly in all browsers.
+    Can remove once: https://bugzilla.mozilla.org/show_bug.cgi?id=1294515 is resolved.
+  */
+
   /* stylelint-disable selector-no-type */
+
+  /* postcss-bem-linter: ignore */
+  > svg {
+    width: 100%;
+  }
+
   fieldset:disabled &,
   &:disabled {
     background-color: rgba(0, 0, 0, .12);
