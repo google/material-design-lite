@@ -24,8 +24,8 @@ developers as a set of CSS classes.
     commodo consequat.
   </section>
   <section class="mdl-card__actions">
-    <button class="mdl-button mdl-card__action">Action 1</button>
-    <button class="mdl-button mdl-card__action">Action 2</button>
+    <button class="mdl-button mdl-button--compact mdl-card__action">Action 1</button>
+    <button class="mdl-button mdl-button--compact mdl-card__action">Action 2</button>
   </section>
 </div>
 ```
@@ -72,8 +72,8 @@ This area is used for showing rich media in cards. Use the `mdl-card__media` CSS
 
 ```html
 <section class="mdl-card__actions">
-  <button class="mdl-button mdl-card__action">Action 1</button>
-  <button class="mdl-button mdl-card__action">Action 2</button>
+  <button class="mdl-button mdl-button--compact mdl-card__action">Action 1</button>
+  <button class="mdl-button mdl-button--compact mdl-card__action">Action 2</button>
 </section>
 ```
 
@@ -86,12 +86,14 @@ You can use the `mdl-card__actions--vertical` option to lay actions out vertical
 
 ```html
 <section class="mdl-card__actions mdl-card__actions--vertical">
-  <button class="mdl-button mdl-card__action">Action 1</button>
-  <button class="mdl-button mdl-card__action">Action 2</button>
+  <button class="mdl-button mdl-button--compact mdl-card__action">Action 1</button>
+  <button class="mdl-button mdl-button--compact mdl-card__action">Action 2</button>
 </section>
 ```
 
-Be sure to include the `mdl-card__action` class on every action for correct positioning.
+Be sure to include the `mdl-card__action` class on every action for correct positioning. Also, be sure to include the
+`mdl-button--compact` class on buttons for correct alignment.
+
 
 #### Primary title / text
 
