@@ -45,6 +45,42 @@ If you'd like to maintain a consistent height and width across cards, you'll nee
 Content will be bottom-aligned if it's smaller than the height of the card.
 
 
+### Dark theme
+
+Cards can use a dark theme by either having the `mdl-card--theme-dark` option directly applied to the card:
+
+```html
+<div class="mdl-card mdl-card--theme-dark">
+  <section class="mdl-card__primary">
+    <h1 class="mdl-card__title mdl-card__title--large">Title goes here</h1>
+    <h2 class="mdl-card__subtitle">Subtitle here</h2>
+  </section>
+  <section class="mdl-card__actions">
+    <button class="mdl-button mdl-button--compact mdl-card__action">Action 1</button>
+    <button class="mdl-button mdl-button--compact mdl-card__action">Action 2</button>
+  </section>
+</div>
+```
+
+Or by using the `mdl-theme--dark` global modifier class that affects all children:
+
+```html
+<body class="mdl-theme--dark">
+  <div class="mdl-card">
+    <section class="mdl-card__primary">
+      <h1 class="mdl-card__title mdl-card__title--large">Title goes here</h1>
+      <h2 class="mdl-card__subtitle">Subtitle here</h2>
+    </section>
+    <section class="mdl-card__actions">
+      <button class="mdl-button mdl-button--compact mdl-card__action">Action 1</button>
+      <button class="mdl-button mdl-button--compact mdl-card__action">Action 2</button>
+    </section>
+  </div>
+</body>
+```
+
+
+
 ### Content blocks
 
 Cards are composed of different content blocks, which are typically laid out in vertical succession.
