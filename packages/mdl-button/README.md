@@ -57,9 +57,10 @@ The button component has no inner elements.
 
 The provided modifiers are:
 
-| Class                 | Description                                           |
-| --------------------- | ------------------------------------------------------|
-| `mdl-button--dense`   | Compresses the button to make it slightly smaller.    |
-| `mdl-button--raised`  | Elevates the button and creates a colored background. |
-| `mdl-button--primary` | Colors the button with the primary color.             |
-| `mdl-button--accent`  | Colors the button with the accent color.              |
+| Class                 | Description                                             |
+| --------------------- | ------------------------------------------------------- |
+| `mdl-button--dense`   | Compresses the button text to make it slightly smaller. |
+| `mdl-button--raised`  | Elevates the button and creates a colored background.   |
+| `mdl-button--compact` | Reduces the amount of horizontal padding in the button. |
+| `mdl-button--primary` | Colors the button with the primary color.               |
+| `mdl-button--accent`  | Colors the button with the accent color.                |

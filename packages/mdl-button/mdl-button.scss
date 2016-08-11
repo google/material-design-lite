@@ -128,6 +128,10 @@
     }
   }
 
+  &--compact {
+    padding: 0 8px;
+  }
+
   /* stylelint-disable selector-no-type */
   fieldset:disabled &,
   &:disabled {
