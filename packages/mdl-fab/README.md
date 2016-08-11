@@ -62,16 +62,14 @@ Developers must position it as-needed within their applications designs.
   }
 }
 </style>
-<!--
-  You may also use SVG icons instead of an icon font.
-  `fill` is to `currentColor` so you don't need to set the color value in the SVG.
--->
 <button class="mdl-fab app-fab--absolute" aria-label="Edit">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
   </svg>
 </button>
 ```
+
+> **Note** In this example we are using an SVG icon. When you are using SVG icons do _not_ specifiy the `fill` attribute. Fill is set by the components where SVGs may be used.
 
 ## Classes
 
