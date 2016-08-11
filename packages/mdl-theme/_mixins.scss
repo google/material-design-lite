@@ -35,7 +35,7 @@
 
 /**
  * Creates a rule to be used in MDL components for dark theming, and applies the provided contents.
- * Can be applied to the component, sub-components (&__foo) and options (&--foo), but only if done separately.
+ * Should provide the $root-selector option if applied to anything other than the root selector.
  *
  * Usage example:
  *
@@ -50,42 +50,25 @@
  *   &__bar {
  *     background: black;
  *
- *     @include mdl-theme-dark {
+ *     @include mdl-theme-dark(".mdl-foo") {
  *       background: white;
  *     }
  *   }
  * }
  * ```
  */
-@mixin mdl-theme-dark() {
-  $selector: #{&};
-  $component: $selector;
-
-  // Are we inside of a subcomponent (e.g. mdl-foo__bar)?
-  $index: str-index($component, "__");
-
-  @if $index {
-    $component: str-slice($component, 1, $index - 1);
-  }
-
-  // Are we inside of an option (e.g. mdl-foo--bar)?
-  $index: str-index($component, "--");
-
-  @if $index {
-    $component: str-slice($component, 1, $index - 1);
-  }
-
-  // Now $component refers to the base class (e.g. mdl-foo).
-
-  // Is the mixin being injected into the base class (e.g. mdl-foo)?
-  @if $component == $selector {
-    @at-root #{$component}--theme-dark, .mdl-theme--dark & {
-      @content;
+@mixin mdl-theme-dark($root-selector: null) {
+  @if ($root-selector) {
+    @at-root {
+      #{$root-selector}--theme-dark &,
+      .mdl-theme--dark & {
+        @content;
+      }
     }
   }
 
   @else {
-    #{$component}--theme-dark &,
+    &--theme-dark,
     .mdl-theme--dark & {
       @content;
     }
