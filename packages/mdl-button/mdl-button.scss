@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-@import "variables";
+@import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
 
 /* postcss-bem-linter: define button */
 /* stylelint-disable declaration-property-unit-whitelist */
 .mdl-button {
   @include mdl-typography(body2);
+  @include mdl-theme-prop(color, text-primary-on-light);
   display: inline-block;
   position: relative;
   min-width: 64px;
@@ -30,7 +31,6 @@
   border-radius: 2px;
   outline: none;
   background: transparent;
-  color: rgba(0, 0, 0, .87);
   font-size: 14px; /* Override font to specifically be px as spec defined pt */
   font-weight: 500;
   line-height: 36px; /* Override line-height so text aligns centered */
@@ -39,6 +39,10 @@
   vertical-align: middle;
   box-sizing: border-box;
   -webkit-appearance: none;
+
+  @include mdl-theme-dark {
+    @include mdl-theme-prop(color, text-primary-on-dark);
+  }
 
   /* postcss-bem-linter: ignore */
   &::before {
@@ -59,6 +63,11 @@
   }
 
   &:active::before {
+    /*
+      Slightly darker value for visual distinction.
+      This allows a full base that has distinct modes.
+      Progressive enhancement with ripples will provide complete button spec alignment.
+    */
     opacity: .18;
   }
 
@@ -96,15 +105,34 @@
         0 8px 10px 1px rgba(0, 0, 0, .14),
         0 3px 14px 2px rgba(0, 0, 0, .12);
     }
+
+    @include mdl-theme-dark(".mdl-button") {
+      @include mdl-theme-prop(background-color, primary);
+
+      /* postcss-bem-linter: ignore */
+      &::before {
+        /*
+          We are explicitly not fully adhering to Material Design here.
+          This should be the 700-shade when active instead of a black shade.
+          Due to the complexity involved in adhering fully it is being ignored.
+          Instead re-using the existing architecture for shading works just fine.
+        */
+        color: black;
+      }
+    }
   }
 
   &--primary {
-    color: var(--mdl-theme-color-primary);
+    @include mdl-theme-prop(color, primary);
+
+    @include mdl-theme-dark(".mdl-button") {
+      @include mdl-theme-prop(color, primary);
+    }
 
     /* postcss-bem-linter: ignore */
     &.mdl-button--raised {
-      background-color: var(--mdl-theme-color-primary);
-      color: rgba(0, 0, 0, .87);
+      @include mdl-theme-prop(background-color, primary);
+      @include mdl-theme-prop(color, text-primary-on-primary);
 
       /* postcss-bem-linter: ignore */
       &::before {
@@ -114,12 +142,16 @@
   }
 
   &--accent {
-    color: var(--mdl-theme-color-accent);
+    @include mdl-theme-prop(color, accent);
+
+    @include mdl-theme-dark(".mdl-button") {
+      @include mdl-theme-prop(color, accent);
+    }
 
     /* postcss-bem-linter: ignore */
     &.mdl-button--raised {
-      background-color: var(--mdl-theme-color-accent);
-      color: rgba(0, 0, 0, .87);
+      @include mdl-theme-prop(background-color, accent);
+      @include mdl-theme-prop(color, text-primary-on-accent);
 
       /* postcss-bem-linter: ignore */
       &::before {
@@ -138,6 +170,10 @@
     color: rgba(0, 0, 0, .26);
     cursor: default;
     pointer-events: none;
+
+    @include mdl-theme-dark(".mdl-button") {
+      color: rgba(255, 255, 255, .3);
+    }
   }
 
   fieldset:disabled &--raised,
@@ -145,6 +181,10 @@
     background-color: rgba(0, 0, 0, .12);
     pointer-events: none;
     box-shadow: none;
+
+    @include mdl-theme-dark(".mdl-button") {
+      background-color: rgba(255, 255, 255, .12);
+    }
   }
 }
 
