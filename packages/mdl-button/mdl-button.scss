@@ -63,7 +63,12 @@
   }
 
   &:active::before {
-    opacity: .18; // Slightly darker value for visual distinction, based on eyeballing the spec.
+    /*
+      Slightly darker value for visual distinction.
+      This allows a full base that has distinct modes.
+      Progressive enhancement with ripples will provide complete button spec alignment.
+    */
+    opacity: .18;
   }
 
   &:active {
@@ -103,6 +108,17 @@
 
     @include mdl-theme-dark(".mdl-button") {
       @include mdl-theme-prop(background-color, primary);
+
+      /* postcss-bem-linter: ignore */
+      &::before {
+        /*
+          We are explicitly not fully adhering to Material Design here.
+          This should be the 700-shade when active instead of a black shade.
+          Due to the complexity involved in adhering fully it is being ignored.
+          Instead re-using the existing architecture for shading works just fine.
+        */
+        color: black;
+      }
     }
   }
 
