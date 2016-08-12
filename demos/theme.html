@@ -18,6 +18,7 @@
   <head>
     <meta charset="utf-8">
     <title>MDL Theme Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
@@ -46,7 +47,15 @@
         padding: 16px;
         border: 1px solid black;
         align-items: center;
+        flex-direction: column;
       }
+
+      @media(min-width: 768px) {
+        .demo-theme__text-styles {
+          flex-direction: row;
+        }
+      }
+
       .demo-theme__text-styles > span {
         padding: 0 16px;
       }

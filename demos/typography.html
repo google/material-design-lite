@@ -18,6 +18,7 @@
   <head>
     <meta charset="utf-8">
     <title>MDL Typography Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
@@ -31,7 +32,15 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-direction: column;
       }
+
+      @media(min-width: 768px) {
+        .demo-typography--color-styles {
+          flex-direction: row;
+        }
+      }
+
       .demo-typography--light-bg {
         background-color: #fafafa;
       }

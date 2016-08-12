@@ -18,13 +18,20 @@
   <head>
     <meta charset="utf-8">
     <title>MDL Card Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
     <style>
       .demo-card {
         max-width: 21.875rem; /* 350sp */
-        margin-bottom: 24px;
+        margin-bottom: 48px;
+      }
+
+      @media(min-width: 768px) {
+        .demo-card {
+          margin-bottom: 24px;
+        }
       }
 
       .demo-card--with-avatar .mdl-card__primary {
