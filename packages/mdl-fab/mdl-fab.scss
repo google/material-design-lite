@@ -39,6 +39,7 @@
   fill: currentColor;
   -moz-appearance: none;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &--mini {
     width: 40px;
