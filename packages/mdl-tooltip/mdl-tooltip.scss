@@ -1,0 +1,93 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@keyframes mdl-tooltip-fade-in {
+  from {
+    transform: scale(.9, .9) translateX(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1, 1) translateX(-50%);
+    opacity: .9;
+  }
+}
+
+@keyframes mdl-tooltip-fade-out {
+  to {
+    transform: scale(1, 1) translateX(-50%);
+    opacity: 0;
+  }
+}
+
+/* postcss-bem-linter: define tooltip */
+.mdl-tooltip {
+  position: relative;
+
+  &::after {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    margin-top: 24px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    transform: scale(.9, .9) translateX(-50%);
+    transform-origin: -14px 50%;
+    transition:
+      opacity 75ms cubic-bezier(0, 0, .2, 1),
+      transform 0s 75ms cubic-bezier(0, 0, .2, 1);
+    border-radius: 2px;
+    background: #616161;
+    color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    content: attr(aria-label);
+    opacity: 0;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &:focus::after,
+  &:hover::after {
+    transform: scale(1, 1) translateX(-50%);
+    transition:
+      opacity 150ms cubic-bezier(0, 0, .2, 1),
+      transform 150ms cubic-bezier(0, 0, .2, 1);
+    opacity: .9;
+  }
+
+  &:hover::after {
+    transition-delay: .8s;
+  }
+
+  /* @TODO(garbee) Update this media query to use the global queries setup by theming. */
+  @media (min-width: 1024px) {
+    &::after {
+      height: 22px;
+      margin-top: 14px;
+      padding: 0 8px;
+      font-size: 10px;
+    }
+  }
+}
+
+/* postcss-bem-linter: end */
