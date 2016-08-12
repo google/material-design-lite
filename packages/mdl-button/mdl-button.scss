@@ -41,6 +41,7 @@
   vertical-align: middle;
   box-sizing: border-box;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   @include mdl-theme-dark {
     @include mdl-theme-prop(color, text-primary-on-dark);
@@ -112,6 +113,7 @@
           This should be the 700-shade when active instead of a black shade.
           Due to the complexity involved in adhering fully it is being ignored.
           Instead re-using the existing architecture for shading works just fine.
+          - With <3 from Garbee
         */
         color: black;
       }
