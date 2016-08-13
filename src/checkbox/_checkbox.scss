@@ -111,7 +111,7 @@
     background-color: $checkbox-focus-color;
   }
 }
-
+/*rtl:begin:ignore*/
 .mdl-checkbox__tick-outline {
   position: absolute;
   top: 0;
@@ -133,7 +133,7 @@
     background: $checkbox-disabled-color url("#{$checkbox-image-path}/tick.svg?embed");
   }
 }
-
+/*rtl:end:ignore*/
 .mdl-checkbox__label {
   position: relative;
   cursor: pointer;

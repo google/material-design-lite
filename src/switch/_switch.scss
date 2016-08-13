@@ -17,7 +17,7 @@
 
 @import "../variables";
 @import "../mixins";
-
+/*rtl:begin:ignore*/
 .mdl-switch {
   position: relative;
 
@@ -201,3 +201,4 @@
         $switch-thumb-size / 2;
   }
 }
+/*rtl:end:ignore*/

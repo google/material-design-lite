@@ -16,7 +16,7 @@
 
 @import "../variables";
 @import "../mixins";
-
+/*rtl:begin:ignore*/
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -74,7 +74,7 @@
     transform-origin: 100% 100%;
   }
 }
-
+/*rtl:end:ignore*/
 .mdl-menu {
   position: absolute;
   list-style: none;

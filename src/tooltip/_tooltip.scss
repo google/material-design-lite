@@ -15,7 +15,7 @@
  */
 
 @import "../variables";
-
+/*rtl:begin:ignore*/
 .mdl-tooltip {
   transform: scale(0);
   transform-origin: top center;
@@ -63,3 +63,4 @@
     visibility: visible;
   }
 }
+/*rtl:end:ignore*/

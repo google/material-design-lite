@@ -204,20 +204,14 @@ gulp.task('styles-rtl', () => {
     }))
     .pipe($.cssInlineImages({webRoot: 'src'}))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp'))    
-    // Concatenate RTL Styles    
-    .pipe($.concat('material-rtl.css'))
-    .pipe($.rtlcss())
-    .pipe($.header(banner, {pkg}))
-    .pipe(gulp.dest('dist'))
-     // Minify RTL Styles    
-    .pipe($.if('*.css', $.csso()))
-    .pipe($.rtlcss())
+    .pipe(gulp.dest('.tmp'))        
+    // Minify RTL Styles
     .pipe($.concat('material-rtl.min.css'))
+    .pipe($.rtlcss())
+    .pipe($.csso())
     .pipe($.header(banner, {pkg}))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('dist'))
-    .pipe($.size({title: 'styles'}));
 });
 
 // Only generate CSS styles for the MDL grid
