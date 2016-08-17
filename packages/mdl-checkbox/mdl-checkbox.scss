@@ -15,6 +15,7 @@
  */
 
 @import "mdl-animation/mixins";
+@import "mdl-theme/mixins";
 @import "./variables";
 @import "./keyframes";
 
@@ -134,7 +135,9 @@
       transform: scale(0, 0);
       transition: mdl-checkbox-transition-exit(opacity), mdl-checkbox-transition-exit(transform);
       border-radius: 50%;
-      background: $mdl-checkbox-background-color;
+
+      @include mdl-theme-prop(background-color, primary);
+
       content: "";
       opacity: 0;
       pointer-events: none;
@@ -201,8 +204,9 @@
     transition:
       mdl-checkbox-transition-enter(border-color),
       mdl-checkbox-transition-enter(background-color);
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+
+    @include mdl-theme-prop(background-color, primary);
+    @include mdl-theme-prop(border-color, primary);
 
     .mdl-checkbox__checkmark {
       transition:
@@ -223,8 +227,8 @@
 
 .mdl-checkbox__native-control:indeterminate {
   ~ .mdl-checkbox__background {
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+    @include mdl-theme-prop(background-color, primary);
+    @include mdl-theme-prop(border-color, primary);
 
     .mdl-checkbox__checkmark {
       transform: rotate(45deg);

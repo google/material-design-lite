@@ -1,0 +1,72 @@
+{
+  "private": true,
+  "description": "MDL Custom Elements example",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "scripts": {
+    "clean": "del-cli build/**",
+    "build": "mkdirp build && webpack",
+    "build:min": "mkdirp build && cross-env MDL_ENV=production webpack -p",
+    "dist": "npm run clean && npm run build && npm run build:min",
+    "dev": "npm run clean && cross-env MDL_ENV=development webpack-dev-server --content-base . --inline --hot"
+  },
+  "dependencies": {
+    "file-loader": "^0.9.0",
+    "mdl-checkbox": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "bel": "^4.4.3",
+    "cross-env": "^2.0.0",
+    "css-loader": "^0.23.1",
+    "cz-conventional-changelog": "^1.1.6",
+    "del-cli": "^0.2.0",
+    "dom-compare": "^0.2.1",
+    "dom-events": "^0.1.1",
+    "es6-promise": "^3.2.1",
+    "eslint": "^2.12.0",
+    "eslint-config-google": "^0.5.0",
+    "eslint-plugin-tape": "^1.1.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "ghooks": "^1.3.2",
+    "html-loader": "^0.4.3",
+    "isparta-loader": "^2.0.0",
+    "istanbul": "^0.4.4",
+    "json-loader": "^0.5.4",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.1.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-sauce-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-tap": "^2.1.4",
+    "karma-webpack": "^1.7.0",
+    "lerna": "2.0.0-beta.18",
+    "lolex": "^1.5.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^3.7.0",
+    "npm-run-all": "^2.3.0",
+    "postcss-loader": "^0.9.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "stylefmt": "^4.1.1",
+    "stylelint": "^7.1.0",
+    "stylelint-config-standard": "^11.0.0",
+    "stylelint-scss": "^1.2.1",
+    "stylelint-selector-bem-pattern": "^1.0.0",
+    "tape": "^4.6.0",
+    "testdouble": "^1.6.0",
+    "validate-commit-msg": "^2.6.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "babel": {
+    "plugins": [
+      "babel-plugin-transform-es2015-modules-umd"
+    ]
+  }
+}
