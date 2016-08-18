@@ -40,7 +40,7 @@ function getFixture() {
                 stroke="white"
                 d="M4.1,12.7 9,17.6 20.3,6.3"/>
         </svg>
-        <div class="md-checkbox__mixedmark"></div>
+        <div class="mdl-checkbox__mixedmark"></div>
       </div>
     </div>
   `;
