@@ -123,7 +123,7 @@
     background-color: transparent;
     will-change: background-color, border-color;
 
-    .mdl-checkbox--dark-theme & {
+    @include mdl-theme-dark(".mdl-checkbox") {
       border-color: $mdl-checkbox-border-color-dark;
     }
 
@@ -134,11 +134,12 @@
       transform: scale(0, 0);
       transition: mdl-checkbox-transition-exit(opacity), mdl-checkbox-transition-exit(transform);
       border-radius: 50%;
-      background: $mdl-checkbox-background-color;
       content: "";
       opacity: 0;
       pointer-events: none;
       will-change: opacity, transform;
+
+      @include mdl-theme-prop(background, primary);
     }
   }
 
@@ -201,8 +202,9 @@
     transition:
       mdl-checkbox-transition-enter(border-color),
       mdl-checkbox-transition-enter(background-color);
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+
+    @include mdl-theme-prop(border-color, primary);
+    @include mdl-theme-prop(background-color, primary);
 
     .mdl-checkbox__checkmark {
       transition:
@@ -223,8 +225,8 @@
 
 .mdl-checkbox__native-control:indeterminate {
   ~ .mdl-checkbox__background {
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+    @include mdl-theme-prop(border-color, primary);
+    @include mdl-theme-prop(background-color, primary);
 
     .mdl-checkbox__checkmark {
       transform: rotate(45deg);
@@ -254,7 +256,7 @@ fieldset:disabled .mdl-checkbox__native-control,
   ~ .mdl-checkbox__background {
     border-color: $mdl-checkbox-disabled-color;
 
-    .mdl-checkbox--dark-theme & {
+    @include mdl-theme-dark(".mdl-checkbox") {
       border-color: $mdl-checkbox-disabled-color-dark;
     }
   }
@@ -265,7 +267,7 @@ fieldset:disabled .mdl-checkbox__native-control,
       border-color: transparent;
       background-color: $mdl-checkbox-disabled-color;
       /* stylelint-disable selector-max-compound-selectors, selector-max-specificity */
-      .mdl-checkbox--dark-theme & {
+      @include mdl-theme-dark(".mdl-checkbox") {
         background-color: $mdl-checkbox-disabled-color-dark;
       }
       /* stylelint-enable selector-max-compound-selectors, selector-max-specificity */
@@ -281,7 +283,7 @@ fieldset:disabled .mdl-checkbox__native-control,
     .mdl-checkbox__background {
       animation: mdl-checkbox-fade-in-background $mdl-checkbox-transition-duration * 2 linear;
 
-      .mdl-checkbox--dark-theme & {
+      @include mdl-theme-dark(".mdl-checkbox") {
         animation-name: mdl-checkbox-fade-in-background-dark;
       }
     }
@@ -292,7 +294,7 @@ fieldset:disabled .mdl-checkbox__native-control,
     .mdl-checkbox__background {
       animation: mdl-checkbox-fade-out-background $mdl-checkbox-transition-duration * 2 linear;
 
-      .mdl-checkbox--dark-theme & {
+      @include mdl-theme-dark(".mdl-checkbox") {
         animation-name: mdl-checkbox-fade-out-background-dark;
       }
     }
