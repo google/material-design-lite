@@ -43,13 +43,3 @@
 @mixin mdl-typography-adjust-margin($style) {
   margin: map-get(map-get($mdl-typography-styles, $style), margin);
 }
-
-@mixin mdl-typography-color($color-style, $dark: false) {
-  $color-map: if($dark, $mdl-typography-colors-dark, $mdl-typography-colors-light);
-
-  color: map-get($color-map, $color-style);
-
-  @if not map-has-key($color-map, $color-style) {
-    @error "Invalid typography style. Specify one of #{map-keys($color-map)}";
-  }
-}
