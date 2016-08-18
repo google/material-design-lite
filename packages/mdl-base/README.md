@@ -57,7 +57,7 @@ MDLFoundation provides the basic mechanisms for implementing a foundation classe
 ```javascript
 import {MDLFoundation} from 'mdl-base';
 
-export default class MyFoundation extends MDLFoundation {
+export default class MyComponentFoundation extends MDLFoundation {
   static get cssClasses() {
     return {
       ROOT: 'my-component',
@@ -76,8 +76,8 @@ export default class MyFoundation extends MDLFoundation {
   }
 
   constructor(adapter) {
-    super(Object.assign(MyFoundation.defaultAdapter, adapter));
-    const {TOGGLED} = MyFoundation.cssClasses;
+    super(Object.assign(MyComponentFoundation.defaultAdapter, adapter));
+    const {TOGGLED} = MyComponentFoundation.cssClasses;
     this.clickHandler_ = () => this.adapter_.toggleClass(TOGGLED);
   }
 
