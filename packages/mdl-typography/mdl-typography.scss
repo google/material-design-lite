@@ -30,17 +30,3 @@
     @include mdl-typography-adjust-margin($style);
   }
 }
-
-// TODO(sgomes): Reconsider the below approach when we decide how to do dark theming.
-
-@each $color-style in map-keys($mdl-typography-colors-light) {
-  .mdl-typography--color-#{$color-style}-light {
-    @include mdl-typography-color($color-style);
-  }
-}
-
-@each $color-style in map-keys($mdl-typography-colors-dark) {
-  .mdl-typography--color-#{$color-style}-dark {
-    @include mdl-typography-color($color-style, true);
-  }
-}

@@ -107,19 +107,3 @@ $mdl-typography-styles: (
     margin: -.5rem 0 1rem -.04em /* -8sp 0 16sp -.04em */
   )
 );
-
-$mdl-typography-colors-dark: (
-  primary: rgba(black, .87),
-  secondary: rgba(black, .54),
-  hint: rgba(black, .38),
-  disabled: rgba(black, .38),
-  icon: rgba(black, .38)
-);
-
-$mdl-typography-colors-light: (
-  primary: white,
-  secondary: rgba(white, .7),
-  hint: rgba(white, .5),
-  disabled: rgba(white, .5),
-  icon: rgba(white, .5)
-);
