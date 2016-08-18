@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@import "mdl-theme/mixins";
 @import "./variables";
 
 @keyframes mdl-checkbox-fade-in-background {
@@ -23,16 +24,16 @@
   }
 
   50% {
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+    @include mdl-theme-prop(border-color, primary);
+    @include mdl-theme-prop(background-color, primary);
   }
 }
 
 @keyframes mdl-checkbox-fade-out-background {
   0%,
   80% {
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+    @include mdl-theme-prop(border-color, primary);
+    @include mdl-theme-prop(background-color, primary);
   }
 
   100% {
@@ -48,16 +49,16 @@
   }
 
   50% {
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+    @include mdl-theme-prop(border-color, primary);
+    @include mdl-theme-prop(background-color, primary);
   }
 }
 
 @keyframes mdl-checkbox-fade-out-background-dark {
   0%,
   80% {
-    border-color: $mdl-checkbox-background-color;
-    background-color: $mdl-checkbox-background-color;
+    @include mdl-theme-prop(border-color, primary);
+    @include mdl-theme-prop(background-color, primary);
   }
 
   100% {
