@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@import "./variables";
+@import "./mixins";
 
 :root {
   @each $style in map-keys($mdl-theme-property-values) {
@@ -24,13 +24,13 @@
 
 /* Special case, so that .mdl-theme--background changes background color, not text color. */
 .mdl-theme--background {
-  background-color: map-get($mdl-theme-property-values, background);
+  @include mdl-theme-prop(background-color, background);
 }
 
 @each $style in map-keys($mdl-theme-property-values) {
   @if $style != "background" {
     .mdl-theme--#{$style} {
-      color: map-get($mdl-theme-property-values, $style);
+      @include mdl-theme-prop(color, $style);
     }
   }
 }
@@ -38,6 +38,6 @@
 /* CSS rules for using primary and accent as background colors. */
 @each $style in ("primary", "accent") {
   .mdl-theme--#{$style}-bg {
-    background-color: map-get($mdl-theme-property-values, $style);
+    @include mdl-theme-prop(background-color, $style);
   }
 }

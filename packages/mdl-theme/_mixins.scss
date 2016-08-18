@@ -30,7 +30,7 @@
   }
 
   #{$property}: map-get($mdl-theme-property-values, $style);
-  #{$property}: var(--mdl-theme-#{$style});
+  #{$property}: var(--mdl-theme-#{$style}, map-get($mdl-theme-property-values, $style));
 }
 
 /**
