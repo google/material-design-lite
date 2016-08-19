@@ -45,6 +45,7 @@
 
   &__supporting-text {
     padding: 8px 16px;
+    box-sizing: border-box;
 
     @include mdl-typography(body1);
     @include mdl-theme-prop(color, text-primary-on-background);
@@ -105,6 +106,22 @@
     box-sizing: border-box;
   }
 
+  &__media-item {
+    display: inline-block;
+    width: auto;
+    height: 80px;
+    margin: 16px 0 0;
+    padding: 0;
+
+    @each $mult, $name in (1.5: "1dot5", 2: "2", 3: "3") {
+      // postcss-bem-linter: ignore
+      &--#{$name}x {
+        width: auto;
+        height: $mult * 80px;
+      }
+    }
+  }
+
   &__title {
     @include mdl-typography(body2);
     @include mdl-theme-prop(color, text-primary-on-background);
@@ -133,6 +150,28 @@
     }
 
     margin: -.063rem 0; /* -1sp 0 */
+  }
+
+  &__horizontal-block {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 16px 0 0;
+    box-sizing: border-box;
+
+    // postcss-bem-linter: ignore
+    .mdl-card__actions--vertical {
+      margin: 16px;
+    }
+
+    .mdl-card__media-item {
+      margin-left: 16px;
+    }
+
+    &:last-child .mdl-card__media-item {
+      margin-bottom: 16px;
+    }
   }
 }
 
