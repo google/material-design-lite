@@ -101,7 +101,7 @@ Cards are composed of different content blocks, which are typically laid out in 
 <section class="mdl-card__media"></section>
 ```
 
-This area is used for showing rich media in cards. Use the `mdl-card__media` CSS class.
+This area is used for showing rich media in cards, and optionally as a container. Use the `mdl-card__media` CSS class.
 
 
 #### Actions
@@ -165,3 +165,46 @@ Note that the title and subtitle classes can also be used outside of the primary
 
 This area is used for displaying the bulk of the textual content of the card. Use the `mdl-card__supporting-text` CSS
 class.
+
+
+### Horizontal blocks
+
+You can stack multiple card blocks horizontally instead of vertically, by placing them inside of a horizontal block:
+
+```html
+<div class="mdl-card__horizontal-block">
+  <section class="mdl-card__primary">
+    <h1 class="mdl-card__title mdl-card__title--large">Title here</h1>
+    <h2 class="mdl-card__subtitle">Subtitle here</h2>
+  </section>
+  <section class="mdl-card__actions">
+    <button class="mdl-button mdl-button--compact mdl-card__action">Action</button>
+  </section>
+</div>
+```
+
+#### Media items
+
+Media items are designed to be used in horizontal blocks, taking up a fixed height, rather than stretching to the width
+of the card.
+
+> Note: Unlike media blocks, media items are not designed to be used as optional containers.
+
+```html
+<div class="mdl-card__horizontal-block">
+  <section class="mdl-card__primary">
+    <h1 class="mdl-card__title mdl-card__title--large">Title here</h1>
+    <h2 class="mdl-card__subtitle">Subtitle here</h2>
+  </section>
+  <img class="mdl-card__media-item mdl-card__media-item--1x" src="image.jpg"></img>
+</div>
+```
+
+There are several predefined media item sizes you can use:
+
+| Class                           | Description                                                      |
+| ------------------------------- | ---------------------------------------------------------------- |
+| `mdl-card__media-item`          | Defines a media item and sets it to the default height of 80px.  |
+| `mdl-card__media-item--1dot5x`  | Sets the media item height to 120px.                             |
+| `mdl-card__media-item--2x`      | Sets the media item height to 160px.                             |
+| `mdl-card__media-item--3x`      | Sets the media item height to 240px.                             |
