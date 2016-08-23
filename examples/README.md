@@ -1,6 +1,9 @@
-# NOTE: Not currently functional.
+# MDL Framework Integration Examples
 
-We've recently [changed our architecture]() such that these examples are outdated and probably don't
-work. We will fix them up before our beta release, as things may still change until then.
+> NOTE: Angular2 example currently not functional. It will be updated before our alpha launch.
 
-Working framework examples for v2 can be found on our [POC branch](https://github.com/google/material-design-lite/tree/experimental/v2-architecture-poc/examples).
+This directory contains examples which show how you can easily integrate MDL components into any
+framework by using their foundations and providing adapters for them. The examples in this directory
+show how you can wrap a checkbox component.
+
+For more information on foundations and adapters, see our developer guide (_TK!!!_)

@@ -20,8 +20,8 @@ import React from 'react';
 
 export default function CheckboxWrapper({children}) {
   return (
-    <div className="md-checkbox-wrapper">
-      <div className="md-checkbox-wrapper__layout">
+    <div className="mdl-checkbox-wrapper">
+      <div className="mdl-checkbox-wrapper__layout">
         {children}
       </div>
     </div>

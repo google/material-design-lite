@@ -1,6 +1,6 @@
 # MDL Checkbox Example - React
 
-This folder contains a POC for using mdl-checkbox within React.
+This folder contains an example of using mdl-checkbox within React.
 
 It is based off of [react-hot-boilerplate](https://github.com/gaearon/react-hot-boilerplate)
 
@@ -12,6 +12,4 @@ It is based off of [react-hot-boilerplate](https://github.com/gaearon/react-hot-
 
 ## Notes
 
-The checkbox wrapper is implemented within `src/Checkbox.js`. There are also
-simple wrapper components for both the checkbox wrapper classes and the checkbox label (both
-implemented as pure functions).
+The checkbox wrapper is implemented within `src/Checkbox.js`, which is annotated with comments. There are also simple wrapper components for both the checkbox wrapper classes and the checkbox label (both implemented as pure functions).
