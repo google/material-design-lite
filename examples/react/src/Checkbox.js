@@ -16,19 +16,28 @@
 
 /* eslint-disable */
 
+/**
+ * @fileoverview This file shows how you can easily integrate MDL components into React, using
+ * checkbox as an example. Within the constructor, a foundation is initialized and given an adapter that
+ * allows it to perform UI operations in a way idiomatic to React.
+ */
+
 import React, {Component, PropTypes} from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {Set as ImmutableSet} from 'immutable';
-// lol super hack
-import MDLCheckbox from '../../../packages/mdl-checkbox';
+// Temporarily using relative reference until we publish on npm.
+import {MDLCheckboxFoundation} from '../../../packages/mdl-checkbox';
 import '../../../packages/mdl-checkbox/mdl-checkbox.scss';
+
+const {ANIM_END_EVENT_NAME} = MDLCheckboxFoundation.strings;
 
 export default class Checkbox extends Component {
   static propTypes = {
+    id: PropTypes.string,
+    labelId: PropTypes.string,
     checked: PropTypes.bool,
     indeterminate: PropTypes.bool,
-    onChange: PropTypes.func,
-    labelId: PropTypes.string
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
@@ -46,13 +55,63 @@ export default class Checkbox extends Component {
   classesToRemove = new ImmutableSet();
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 
+  // Here we initialize a foundation class, passing it an adapter which tells it how to
+  // work with the React component in an idiomatic way.
+  foundation = new MDLCheckboxFoundation({
+    addClass: className => this.setState(prevState => ({
+      classes: prevState.classes.add(className)
+    })),
+    removeClass: className => this.setState(prevState => ({
+      classes: prevState.classes.remove(className)
+    })),
+    registerAnimationEndHandler: handler => {
+      if (this.refs.root) {
+        this.refs.root.addEventListener(ANIM_END_EVENT_NAME, handler);
+      }
+    },
+    deregisterAnimationEndHandler: handler => {
+      if (this.refs.root) {
+        this.refs.root.removeEventListener(ANIM_END_EVENT_NAME, handler);
+      }
+    },
+    registerChangeHandler: handler => {
+      // Note that this could also be handled outside of using the native DOM API.
+      // For example, onChange within render could delegate to a function which calls
+      // the handler passed here, as well as performs the other business logic. The point
+      // being our foundations are designed to be adaptable enough to fit the needs of the host
+      // platform.
+      if (this.refs.nativeCb) {
+        this.refs.nativeCb.addEventListener('change', handler);
+      }
+    },
+    deregisterChangeHandler: handler => {
+      if (this.refs.nativeCb) {
+        this.refs.nativeCb.removeEventListener('change', handler);
+      }
+    },
+    getNativeControl: () => {
+      if (!this.refs.nativeCb) {
+        throw new Error('Invalid state for operation');
+      }
+      return this.refs.nativeCb;
+    },
+    forceLayout: () => {
+      if (this.refs.nativeCb) {
+        this.refs.nativeCb.offsetWidth;
+      }
+    },
+    isAttachedToDOM: () => Boolean(this.refs.nativeCb)
+  });
+
   render() {
+    // Within render, we generate the html needed to render a proper MDL checkbox.
     return (
-      <div ref="root" className={`md-checkbox ${this.state.classes.toJS().join(' ')}`}>
+      <div ref="root" className={`mdl-checkbox ${this.state.classes.toJS().join(' ')}`}>
         <input ref="nativeCb"
+               id={this.props.controlId}
                type="checkbox"
-               className="md-checkbox__native-control"
-               ariaLabelledBy={this.props.labelId}
+               className="mdl-checkbox__native-control"
+               aria-labelledby={this.props.labelId}
                checked={this.state.checkedInternal}
                onChange={evt => {
                  this.setState({
@@ -61,32 +120,32 @@ export default class Checkbox extends Component {
                  });
                  this.props.onChange(evt);
                }}/>
-        <div className="md-checkbox__frame"></div>
-        <div className="md-checkbox__background">
+        <div className="mdl-checkbox__background">
           <svg version="1.1"
-               className="md-checkbox__checkmark"
+               className="mdl-checkbox__checkmark"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 24 24">
-            <path className="md-checkbox__checkmark__path"
+            <path className="mdl-checkbox__checkmark__path"
                   fill="none"
                   stroke="white"
-                  d="M4.1,12.7 9,17.6 20.3,6.3"/>
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
           </svg>
-          <div className="md-checkbox__mixedmark"></div>
+          <div className="mdl-checkbox__mixedmark"></div>
         </div>
       </div>
     );
   }
 
+  // Within the two component lifecycle methods below, we invoke the foundation's lifecycle hooks
+  // so that proper work can be performed.
   componentDidMount() {
-    this.initMdlCheckbox_();
+    this.foundation.init();
   }
-
   componentWillUnmount() {
-    // From MDLCheckboxMixin
-    this.removeEventListeners();
+    this.foundation.destroy();
   }
 
+  // Here we synchronize the internal state of the UI component based on what the user has specified.
   componentWillReceiveProps(props) {
     if (props.checked !== this.props.checked) {
       this.setState({checkedInternal: props.checked, indeterminateInternal: false});
@@ -96,56 +155,12 @@ export default class Checkbox extends Component {
     }
   }
 
+  // Since we cannot set an indeterminate attribute on a native checkbox, we use componentDidUpdate to update
+  // the indeterminate value of the native checkbox whenever a change occurs (as opposed to doing so within
+  // render()).
   componentDidUpdate() {
     if (this.refs.nativeCb) {
       this.refs.nativeCb.indeterminate = this.state.indeterminateInternal;
     }
   }
 }
-MDLCheckbox.mixInto(Checkbox, {
-  addClass(className) {
-    this.setState(prevState => ({
-      classes: prevState.classes.add(className)
-    }));
-  },
-  removeClass(className) {
-    this.setState(prevState => ({
-      classes: prevState.classes.remove(className)
-    }));
-  },
-  addEventListener(type, listener) {
-    if (this.refs.root) {
-      this.refs.root.addEventListener(type, listener);
-    }
-  },
-  removeEventListener(type, listener) {
-    if (this.refs.root) {
-      this.refs.root.removeEventListener(type, listener);
-    }
-  },
-  addNativeCheckboxListener(type, listener) {
-    if (this.refs.nativeCb) {
-      this.refs.nativeCb.addEventListener(type, listener);
-    }
-  },
-  removeNativeCheckboxListener(type, listener) {
-    if (this.refs.nativeCb) {
-      this.refs.nativeCb.removeEventListener(type, listener);
-    }
-  },
-  getNativeCheckbox() {
-    if (!this.refs.nativeCb) {
-      throw new Error('Invalid state for operation');
-    }
-    return this.refs.nativeCb;
-  },
-  forceLayout() {
-    if (this.refs.nativeCb) {
-      this.refs.nativeCb.offsetWidth;
-    }
-  },
-  isAttachedToDOM() {
-    // Return true??
-    return Boolean(this.refs.nativeCb);
-  }
-});

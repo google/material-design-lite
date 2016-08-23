@@ -18,8 +18,10 @@
 
 import React from 'react';
 
-export default function CheckboxLabel({id, children}) {
+export default function CheckboxLabel(props) {
+  const {id, children} = props;
+  const controlId = props['for'];
   return (
-    <label className="md-checkbox-label" id={id}>{children}</label>
+    <label className="mdl-checkbox-label" id={id} htmlFor={controlId}>{children}</label>
   );
 }

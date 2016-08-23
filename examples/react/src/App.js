@@ -37,13 +37,17 @@ export default class App extends Component {
       <main>
         <h1>MDL Checkbox - React Example</h1>
         <CheckboxWrapper>
-          <Checkbox indeterminate={indeterminate}
+          <Checkbox id="my-checkbox"
+                    labelId="my-checkbox-label"
+                    indeterminate={indeterminate}
                     onChange={({target}) => this.setState({
                       changeEventCount: changeEventCount + 1,
                       checked: target.checked,
                       indeterminate: false
                     })}/>
-          <CheckboxLabel>The checkbox is currently {this.status()}</CheckboxLabel>
+          <CheckboxLabel id="my-checkbox-label" for="my-checkbox">
+            The checkbox is currently {this.status()}
+          </CheckboxLabel>
         </CheckboxWrapper>
         <div style={{paddingTop: '12px'}}>
           <button onClick={() => this.setState({indeterminate: true})}>Make Indeterminate</button>

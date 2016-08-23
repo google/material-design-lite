@@ -17,6 +17,8 @@
 import MDLComponent from 'mdl-base';
 import MDLCheckboxFoundation from './foundation';
 
+export {MDLCheckboxFoundation};
+
 let idCounter = 0;
 
 export default class MDLCheckbox extends MDLComponent {
