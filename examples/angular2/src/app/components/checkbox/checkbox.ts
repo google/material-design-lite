@@ -31,8 +31,9 @@ import {
   forwardRef
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/common';
+
 // Since we don't have typings (yet) we require mdl-checkbox manually.
-const {default: MDLCheckbox} = require('mdl-checkbox');
+const {MDLCheckboxFoundation} = require('mdl-checkbox');
 // Use webpack's require function to load the css
 const MDL_CHECKBOX_STYLES = require('mdl-checkbox-styles');
 
@@ -45,9 +46,24 @@ const MD_CHECKBOX_CONTROL_VALUE_ACCESSOR = new Provider(
 
 type UnlistenerMap = WeakMap<EventListener, Function>;
 
+// Before we create our component, let's leverage Typescript's awesome type system to create a
+// first-class interface for our foundation. Note that we will have type definitions by the time
+// we reach an RC.
+interface MDLCheckboxAdapter {
+  addClass: (string) => void
+  removeClass: (string) => void
+  registerAnimationEndHandler: (EventListener) => void
+  deregisterAnimationEndHandler: (EventListener) => void
+  registerChangeHandler: (EventListener) => void
+  deregisterChangeHandler: (EventListener) => void
+  getNativeControl: () => {checked: boolean, indeterminate: boolean}
+  forceLayout: () => void
+  isAttachedToDOM: () => boolean
+}
+
 @Component({
   moduleId: module.id,
-  selector: 'md-checkbox',
+  selector: 'mdl-checkbox',
   templateUrl: 'app/components/checkbox/checkbox.html',
   styles: [String(MDL_CHECKBOX_STYLES)],
   encapsulation: ViewEncapsulation.None,
@@ -59,7 +75,7 @@ export class CheckboxComponent implements AfterViewInit, OnDestroy {
   @Input() indeterminate: boolean = false;
   @Input() labelId: string;
   @Output() change: EventEmitter<Event> = new EventEmitter();
-  @HostBinding('class') className: string = 'md-checkbox';
+  @HostBinding('class') className: string = 'mdl-checkbox';
   @ViewChild('nativeCb') nativeCb: ElementRef;
   // value accessor stuff
   onTouched: () => any = () => {};
@@ -67,15 +83,61 @@ export class CheckboxComponent implements AfterViewInit, OnDestroy {
   private _controlValueAccessorChangeFn: (value: any) => void = (value) => {};
   private _unlisteners: Map<string, UnlistenerMap> = new Map<string, UnlistenerMap>();
 
+  // Here we instantiate our checkbox adapter, using angular's abstraction mechanisms to interop
+  // with the angular2 environment.
+  private _mdlAdapter: MDLCheckboxAdapter = {
+    addClass: (className: string) => {
+      const {_renderer: renderer, _root: root} = this;
+      renderer.setElementClass(root.nativeElement, className, true);
+    },
+    removeClass: (className: string) => {
+      const {_renderer: renderer, _root: root} = this;
+      renderer.setElementClass(root.nativeElement, className, false);
+    },
+    registerAnimationEndHandler: (handler: EventListener) => {
+      if (this._root) {
+        this.listen_(MDLCheckboxFoundation.strings.ANIM_END_EVENT_NAME, handler);
+      }
+    },
+    deregisterAnimationEndHandler: (handler: EventListener) => {
+      this.unlisten_(MDLCheckboxFoundation.strings.ANIM_END_EVENT_NAME, handler);
+    },
+    registerChangeHandler: (handler: EventListener) => {
+      if (this._root) {
+        this.listen_('change', handler, this.nativeCb);
+      }
+    },
+    deregisterChangeHandler: (handler: EventListener) => {
+      this.unlisten_('change', handler);
+    },
+    getNativeControl: () => {
+      const {nativeCb} = this;
+      if (!nativeCb) {
+        throw new Error('Invalid state');
+      }
+      return nativeCb.nativeElement;
+    },
+    forceLayout: () => {
+      if (this._root) {
+        // Return to prevent optimizers thinking this is dead code.
+        return this._root.nativeElement.offsetWidth;
+      }
+    },
+    isAttachedToDOM: () => Boolean(this._root)
+  };
+
+  // Now we simply instantiate our foundation given our adapter.
+  private _foundation: {init: Function, destroy: Function} =
+      new MDLCheckboxFoundation(this._mdlAdapter);
+
   constructor(private _renderer: Renderer, private _root: ElementRef) {}
 
+  // Lifecycle methods where we initialize and destroy (respectively) the checkbox foundation.
   ngAfterViewInit() {
-    (<any>this).initMdlCheckbox_();
+    this._foundation.init();
   }
-
   ngOnDestroy() {
-    // inherited from MDLCheckbox
-    (<any>this).removeEventListeners();
+    this._foundation.destroy();
   }
 
   handleChange(evt: Event) {
@@ -98,79 +160,24 @@ export class CheckboxComponent implements AfterViewInit, OnDestroy {
   registerOnTouched(fn: any) {
     this.onTouched = fn;
   }
-}
-// NOTE: We can make this better by providing type definitions for MixInto
-MDLCheckbox.mixInto(CheckboxComponent, {
-  addClass(className: string) {
-    const {_renderer: renderer, _root: root} = <any>this;
-    renderer.setElementClass(root.nativeElement, className, true);
-  },
 
-  removeClass(className: string) {
-    const {_renderer: renderer, _root: root} = <any>this;
-    renderer.setElementClass(root.nativeElement, className, false);
-  },
-
-  addEventListener(type: string, listener: EventListener) {
-    const self = <any>this;
-    if (self._root) {
-      listen.call(self, self._root, type, listener);
+  listen_(type: string, listener: EventListener, ref: ElementRef = this._root) {
+    if (!this._unlisteners.has(type)) {
+      this._unlisteners.set(type, new WeakMap<EventListener, Function>());
     }
-  },
+    const unlistener = this._renderer.listen(ref.nativeElement, type, listener);
+    this._unlisteners.get(type).set(listener, unlistener);
+  }
 
-  removeEventListener(type: string, listener: EventListener) {
-    unlisten.call(<any>this, type, listener);
-  },
-
-  getNativeCheckbox() {
-    const {nativeCb} = <any>this;
-    if (!nativeCb) {
-      throw new Error('Invalid state');
+  unlisten_(type: string, listener: EventListener) {
+    if (!this._unlisteners.has(type)) {
+      return;
     }
-    return nativeCb.nativeElement;
-  },
-
-  addNativeCheckboxListener(type: string, listener: EventListener) {
-    const self = <any>this;
-    if (self.nativeCb) {
-      listen.call(self, self.nativeCb, type, listener);
+    const unlisteners = this._unlisteners.get(type);
+    if (!unlisteners.has(listener)) {
+      return;
     }
-  },
-
-  removeNativeCheckboxListener(type, listener) {
-    unlisten.call(<any>this, type, listener);
-  },
-
-  forceLayout() {
-    const {_root: root} = <any>this;
-    // Return to prevent optimizers thinking this is dead code.
-    return root.offsetWidth;
-  },
-
-  isAttachedToDOM() {
-    const self = <any>this;
-    return !!self._root && !!self._root.nativeElement;
+    unlisteners.get(listener)();
+    unlisteners.delete(listener);
   }
-});
-
-function listen(ref: ElementRef, type: string, listener: EventListener) {
-  const self = <any>this;
-  if (!self._unlisteners.has(type)) {
-    self._unlisteners.set(type, new WeakMap<EventListener, Function>());
-  }
-  const unlistener = self._renderer.listen(ref.nativeElement, type, listener);
-  self._unlisteners.get(type).set(listener, unlistener);
-}
-
-function unlisten(type: string, listener: EventListener) {
-  const self = <any>this;
-  if (!self._unlisteners.has(type)) {
-    return;
-  }
-  const unlisteners = self._unlisteners.get(type);
-  if (!unlisteners.has(listener)) {
-    return;
-  }
-  unlisteners.get(listener)();
-  unlisteners.delete(listener);
 }

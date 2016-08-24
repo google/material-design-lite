@@ -1,9 +1,10 @@
 # MDL Framework Integration Examples
 
-> NOTE: Angular2 example currently not functional. It will be updated before our alpha launch.
-
 This directory contains examples which show how you can easily integrate MDL components into any
 framework by using their foundations and providing adapters for them. The examples in this directory
 show how you can wrap a checkbox component.
 
-For more information on foundations and adapters, see our developer guide (_TK!!!_)
+We will _happily_ accept PRs showing how to wrap components within other frameworks as well! The
+more the merrier :smile:.
+
+For more information on foundations and adapters, see our developer guide (_coming soon_).
