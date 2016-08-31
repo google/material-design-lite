@@ -1,0 +1,224 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-theme/mixins";
+@import "mdl-typography/mixins";
+@import "mdl-typography/variables";
+
+/* stylelint-disable scss/dollar-variable-pattern, scss/at-mixin-pattern */
+@mixin _mdl-list-reflexive-margin($default-side, $value, $reset-opposite-margin: true) {
+  @if (index((right, left), $default-side) == null) {
+    @error "Invalid default margin side #{default-side}. Please specifiy either right or left";
+  }
+
+  $rtl-side: left;
+
+  @if ($default-side == left) {
+    $rtl-side: right;
+  }
+
+  margin-#{$default-side}: $value;
+  [dir="rtl"] & {
+    margin-#{$rtl-side}: $value;
+
+    @if ($reset-opposite-margin) {
+      margin-#{$default-side}: 0;
+    }
+  }
+}
+
+/**
+ * Sets the width and height of a detail element to the specified dimension.
+ */
+@mixin _mdl-list-detail-size($size) {
+  width: $size;
+  height: $size;
+}
+
+/**
+ * Sets the width and height of the start detail element, as well as calculates the margins for
+ * the start detail element such that the text is always offset by 72px, which is defined within
+ * the spec.
+ */
+@mixin _mdl-list-start-detail-size($size) {
+  $text-offset: 72px;
+  $side-padding: 16px;
+  $margin-value: $text-offset - $side-padding - $size;
+
+  @include _mdl-list-detail-size($size);
+  @include _mdl-list-reflexive-margin(right, $margin-value);
+}
+/* stylelint-enable scss/dollar-variable-pattern, scss/at-mixin-pattern */
+
+/* postcss-bem-linter: define list */
+
+.mdl-list {
+  @include mdl-typography(subheading2);
+  @include mdl-theme-prop(color, text-primary-on-background);
+
+  @include mdl-theme-dark {
+    @include mdl-theme-prop(color, text-primary-on-dark);
+  }
+
+  margin: 0;
+  padding: 8px 16px 0;
+
+  /* According to the mocks and stickersheet, the line-height is adjusted to 24px for text content,
+   * same as for subheading1. */
+  line-height: map-get(map-get($mdl-typography-styles, subheading1), line-height);
+  list-style-type: none;
+}
+
+.mdl-list--dense {
+  padding-top: 4px;
+  font-size: .812rem;
+}
+
+/* postcss-bem-linter: end */
+
+/* postcss-bem-linter: define list-item */
+
+.mdl-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 48px;
+
+  &__start-detail {
+    @include _mdl-list-start-detail-size(24px);
+  }
+
+  &__end-detail {
+    @include _mdl-list-detail-size(24px);
+    @include _mdl-list-reflexive-margin(left, auto, false);
+    @include _mdl-list-reflexive-margin(right, 16px, false);
+  }
+
+  &__text {
+    display: inline-flex;
+    flex-direction: column;
+
+    &__secondary {
+      @include mdl-typography(body1);
+      @include mdl-theme-prop(color, text-secondary-on-background);
+
+      @include mdl-theme-dark {
+        @include mdl-theme-prop(color, text-secondary-on-dark);
+      }
+
+      /* Match the font size to the primary text when dense */
+      /* stylelint-disable plugin/selector-bem-pattern */
+      .mdl-list--dense & {
+        font-size: inherit;
+      }
+      /* stylelint-enable plugin/selector-bem-pattern */
+    }
+  }
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .mdl-list--dense & {
+    height: 40px;
+
+    &__start-detail {
+      @include _mdl-list-start-detail-size(20px);
+    }
+
+    &__end-detail {
+      @include _mdl-list-detail-size(20px);
+    }
+  }
+
+  .mdl-list--avatar-list & {
+    height: 56px;
+
+    &__start-detail {
+      @include _mdl-list-start-detail-size(40px);
+      border-radius: 50%;
+    }
+  }
+
+  .mdl-list--avatar-list.mdl-list--dense .mdl-list__item {
+    height: 48px;
+
+    &__start-detail {
+      @include _mdl-list-start-detail-size(36px);
+    }
+  }
+
+  .mdl-list--two-line & {
+    height: 72px;
+  }
+
+  .mdl-list--two-line.mdl-list--dense & {
+    height: 60px;
+  }
+  /* stylelint-enable plugin/selector-bem-pattern */
+}
+
+/* postcss-bem-linter: end */
+
+/* postcss-bem-linter: define list-divider */
+
+.mdl-list-divider {
+  height: 0;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+
+  @include mdl-theme-dark(".mdl-list") {
+    border-bottom-color: rgba(255, 255, 255, .2);
+  }
+}
+
+.mdl-list-divider--inset {
+  $mdl-list-divider-inset-amt: /* text offset */ 72px - /* padding offset */ 16px;
+
+  @include _mdl-list-reflexive-margin(left, $mdl-list-divider-inset-amt);
+  width: calc(100% - #{$mdl-list-divider-inset-amt});
+}
+
+/* postcss-bem-linter: end */
+
+/* postcss-bem-linter: define list-group */
+
+.mdl-list-group {
+  padding: 0 16px;
+
+  &__subheader {
+    $mdl-list-subheader-virtual-height: 3rem;
+    $mdl-list-subheader-leading: map-get(map-get($mdl-typography-styles, body2), line-height);
+    $mdl-list-subheader-margin:
+      ($mdl-list-subheader-virtual-height - $mdl-list-subheader-leading) / 2;
+
+    @include mdl-typography(body2);
+    @include mdl-theme-prop(color, text-primary-on-background);
+
+    @include mdl-theme-dark {
+      @include mdl-theme-prop(color, text-primary-on-dark);
+    }
+
+    margin: $mdl-list-subheader-margin 0;
+  }
+
+  /* Reset padding on mdl-list since it's already accounted for by the list group. */
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .mdl-list {
+    padding: 0;
+  }
+  /* stylelint-enable plugin/selector-bem-pattern */
+}
+
+/* postcss-bem-linter: end */
