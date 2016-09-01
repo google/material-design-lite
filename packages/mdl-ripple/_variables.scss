@@ -14,7 +14,4 @@
  * limitations under the License.
  */
 
-/** @fileoverview Bootstraps the test bundle for karma-webpack. */
-
-const testsContext = require.context('.', true, /\.test\.js$/);
-testsContext.keys().forEach(testsContext);
+$mdl-ripple-easing-fn: cubic-bezier(.157, .72, .386, .987);
