@@ -81,6 +81,7 @@ module.exports = [{
     'mdl-checkbox': path.resolve('./packages/mdl-checkbox/mdl-checkbox.scss'),
     'mdl-elevation': path.resolve('./packages/mdl-elevation/mdl-elevation.scss'),
     'mdl-fab': path.resolve('./packages/mdl-fab/mdl-fab.scss'),
+    'mdl-list': path.resolve('./packages/mdl-list/mdl-list.scss'),
     'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
     'mdl-theme': path.resolve('./packages/mdl-theme/mdl-theme.scss'),
     'mdl-typography': path.resolve('./packages/mdl-typography/mdl-typography.scss')
