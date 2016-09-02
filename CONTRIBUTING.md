@@ -81,29 +81,18 @@ npm run lint:js # Lints javascript using eslint
 npm run lint:css # Lints (S)CSS using stylelint
 npm run lint # Runs both of the above commands in parallel
 
-npm run fix:js # Runs eslint with the --fix option enabled
-npm run fix:css # Runs stylefmt, which helps fix simple stylelint errors
-npm run fix # Runs both of the above commands in parallel
+npm run fix # Runs eslint with the --fix option enabled
 
-npm run test:watch # Runs karma on Chrome, re-running when source files change
+npm run test:unit # Runs ava tests for all code within test/unit
 
-npm test # Lints all files, runs karma, and then runs coverage enforcement checks.
+npm test # Lints all files, runs ava, and then runs coverage enforcement and reporting.
 ```
 
-#### Running Tests across browsers
+> NOTE: You can continuously run tests and watch for file changes using `npm run test:unit -- --watch`
 
-If you're making big changes or developing new components, we encourage you to be a good citizen and test your changes across browsers! A super simple way to do this is to use [sauce labs](https://saucelabs.com/), which is how we tests our collaborator PRs on TravisCI:
+#### Running Functional Tests
 
-1. [Sign up](https://saucelabs.com/beta/signup) for a sauce labs account (choose "Open Sauce" as your selected plan; [it's free](https://saucelabs.com/opensauce/)!)
-2. [Download sauce connect](https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Connect) for your OS and make sure that the `bin` folder in the downloaded zip is somewhere on your `$PATH`.
-3. Navigate to your dashboard, scroll down to where it says "Access Key", and click "Show"
-4. Enter your password when prompted
-5. Copy your access key
-6. Run `SAUCE_USERNAME=<your-saucelabs-username> SAUCE_ACCESS_KEY=<your-saucelabs-access-key> npm test`
-
-This will have karma run our unit tests across all browsers we support, and ensure your changes will not introduce regressions.
-
-Alternatively, you can run `npm run test:watch` and manually open browsers / use VMs / use emulators to test your changes.
+> Functional test support coming soon!
 
 ### Coding Style
 

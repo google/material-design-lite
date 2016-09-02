@@ -20,7 +20,7 @@ import {testFoundation, captureHandlers} from './helpers';
 import {cssClasses, strings} from '../../../packages/mdl-ripple/constants';
 
 testFoundation('re-lays out the component on resize event', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   td.when(adapter.computeBoundingRect()).thenReturn({
     width: 100,
     height: 200
@@ -39,28 +39,21 @@ testFoundation('re-lays out the component on resize event', t => {
   t.true(isResizeHandlerFunction, 'sanity check for resize handler');
   if (!isResizeHandlerFunction) {
     // Short-circuit test so further ones don't fail.
-    return t.end();
+    return;
   }
 
-  t.doesNotThrow(
-    () => td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_WIDTH, '100px')),
-    'initial layout sanity check'
-  );
-  t.doesNotThrow(
-    () => td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_HEIGHT, '200px')),
-    'initial layout sanity check'
-  );
+  td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_WIDTH, '100px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_HEIGHT, '200px'));
 
   resizeHandler();
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_WIDTH, '50px')));
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_HEIGHT, '100px')));
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_WIDTH, '50px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_HEIGHT, '100px'));
 });
 
 testFoundation('debounces layout within the same frame on resize', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   td.when(adapter.computeBoundingRect()).thenReturn({
     width: 100,
     height: 200
@@ -78,41 +71,36 @@ testFoundation('debounces layout within the same frame on resize', t => {
   t.true(isResizeHandlerFunction, 'sanity check for resize handler');
   if (!isResizeHandlerFunction) {
     // Short-circuit test so further ones don't fail.
-    return t.end();
+    return;
   }
 
   resizeHandler();
   resizeHandler();
   resizeHandler();
   mockRaf.flush();
-  t.doesNotThrow(
-    () => td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_WIDTH, td.matchers.isA(String)), {
-      times: 2
-    })
-  );
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_SURFACE_WIDTH, td.matchers.isA(String)), {
+    times: 2
+  });
 });
 
 testFoundation('activates the background on focus', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
 
   handlers.focus();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE)));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE));
 });
 
 testFoundation('deactivates the background on blur', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
 
   handlers.blur();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_ACTIVE)));
-  t.end();
+  td.verify(adapter.removeClass(cssClasses.BG_ACTIVE));
 });

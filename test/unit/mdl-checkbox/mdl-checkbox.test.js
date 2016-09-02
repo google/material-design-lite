@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import test from 'tape';
+import test from 'ava';
 import bel from 'bel';
 import {compare} from 'dom-compare';
 import domEvents from 'dom-events';
@@ -57,7 +57,7 @@ test('buildDom returns a built checkbox element using the supplied id + label id
   const actual = MDLCheckbox.buildDom({id: 'my-checkbox', labelId: 'my-checkbox-label'});
   // NOTE: bel chokes on xmlns. See https://github.com/shama/bel/issues/21
   const svg = actual.querySelector('svg');
-  t.equal(svg.getAttribute('xmlns'), 'http://www.w3.org/2000/svg');
+  t.is(svg.getAttribute('xmlns'), 'http://www.w3.org/2000/svg');
   svg.removeAttribute('xmlns');
 
   const comparison = compare(expected, actual);
@@ -69,8 +69,6 @@ test('buildDom returns a built checkbox element using the supplied id + label id
   } else {
     t.pass();
   }
-
-  t.end();
 });
 
 test('buildDom attaches a generated id / label-id when none supplied', t => {
@@ -78,8 +76,7 @@ test('buildDom attaches a generated id / label-id when none supplied', t => {
   const id = dom.querySelector('.mdl-checkbox__native-control').id;
   const labelId = dom.querySelector('.mdl-checkbox__native-control').getAttribute('aria-labelledby');
   t.true(/^mdl\-checkbox-\d$/.test(id), 'id matches "mdl-checkbox-<number>"');
-  t.equal(labelId, `mdl-checkbox-label-${id}`, 'labelId matches "mdl-checkbox-label-<id>"');
-  t.end();
+  t.is(labelId, `mdl-checkbox-label-${id}`, 'labelId matches "mdl-checkbox-label-<id>"');
 });
 
 test('buildDom ensures generated ids are unique', t => {
@@ -87,27 +84,23 @@ test('buildDom ensures generated ids are unique', t => {
   const dom2 = MDLCheckbox.buildDom();
   const id1 = dom1.querySelector('.mdl-checkbox__native-control').id;
   const id2 = dom2.querySelector('.mdl-checkbox__native-control').id;
-  t.notEqual(id1, id2);
-  t.end();
+  t.not(id1, id2);
 });
 
 test('buildDom ensures labelId matches supplied id when only id given', t => {
   const dom = MDLCheckbox.buildDom({id: 'foo'});
   const labelId = dom.querySelector('.mdl-checkbox__native-control').getAttribute('aria-labelledby');
-  t.equal(labelId, 'mdl-checkbox-label-foo', 'labelId matches "mdl-checkbox-label-<id>"');
-  t.end();
+  t.is(labelId, 'mdl-checkbox-label-foo', 'labelId matches "mdl-checkbox-label-<id>"');
 });
 
 test('attachTo initializes and returns a MDLCheckbox instance', t => {
   t.true(MDLCheckbox.attachTo(getFixture()) instanceof MDLCheckbox);
-  t.end();
 });
 
 test('foundationAdapter#addClass adds a class to the root element', t => {
   const {root, component} = setupTest();
   component.getDefaultFoundation().adapter_.addClass('foo');
   t.true(root.classList.contains('foo'));
-  t.end();
 });
 
 test('adapter#removeClass removes a class from the root element', t => {
@@ -115,20 +108,18 @@ test('adapter#removeClass removes a class from the root element', t => {
   root.classList.add('foo');
   component.getDefaultFoundation().adapter_.removeClass('foo');
   t.false(root.classList.contains('foo'));
-  t.end();
 });
 
-test('adapter#registerAnimationEndHandler adds an animation end event listener on the root element', t => {
+test('adapter#registerAnimationEndHandler adds an animation end event listener on the root element', () => {
   const {root, component} = setupTest();
   const handler = td.func('animationEndHandler');
   component.getDefaultFoundation().adapter_.registerAnimationEndHandler(handler);
   domEvents.emit(root, strings.ANIM_END_EVENT_NAME);
 
-  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
-  t.end();
+  td.verify(handler(td.matchers.anything()));
 });
 
-test('adapter#deregisterAnimationEndHandler removes an animation end event listener on the root el', t => {
+test('adapter#deregisterAnimationEndHandler removes an animation end event listener on the root el', () => {
   const {root, component} = setupTest();
   const handler = td.func('animationEndHandler');
   root.addEventListener(strings.ANIM_END_EVENT_NAME, handler);
@@ -136,11 +127,10 @@ test('adapter#deregisterAnimationEndHandler removes an animation end event liste
   component.getDefaultFoundation().adapter_.deregisterAnimationEndHandler(handler);
   domEvents.emit(root, strings.ANIM_END_EVENT_NAME);
 
-  t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
-  t.end();
+  td.verify(handler(td.matchers.anything()), {times: 0});
 });
 
-test('adapter#registerChangeHandler adds a change event listener to the native checkbox element', t => {
+test('adapter#registerChangeHandler adds a change event listener to the native checkbox element', () => {
   const {root, component} = setupTest();
   const nativeCb = root.querySelector(strings.NATIVE_CONTROL_SELECTOR);
   const handler = td.func('changeHandler');
@@ -148,11 +138,10 @@ test('adapter#registerChangeHandler adds a change event listener to the native c
   component.getDefaultFoundation().adapter_.registerChangeHandler(handler);
   domEvents.emit(nativeCb, 'change');
 
-  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
-  t.end();
+  td.verify(handler(td.matchers.anything()));
 });
 
-test('adapter#deregisterChangeHandler adds a change event listener to the native checkbox element', t => {
+test('adapter#deregisterChangeHandler adds a change event listener to the native checkbox element', () => {
   const {root, component} = setupTest();
   const nativeCb = root.querySelector(strings.NATIVE_CONTROL_SELECTOR);
   const handler = td.func('changeHandler');
@@ -161,18 +150,16 @@ test('adapter#deregisterChangeHandler adds a change event listener to the native
   component.getDefaultFoundation().adapter_.deregisterChangeHandler(handler);
   domEvents.emit(nativeCb, 'change');
 
-  t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
-  t.end();
+  td.verify(handler(td.matchers.anything()), {times: 0});
 });
 
 test('adapter#getNativeControl returns the native checkbox element', t => {
   const {root, component} = setupTest();
   const nativeCb = root.querySelector(strings.NATIVE_CONTROL_SELECTOR);
-  t.equal(component.getDefaultFoundation().adapter_.getNativeControl(), nativeCb);
-  t.end();
+  t.is(component.getDefaultFoundation().adapter_.getNativeControl(), nativeCb);
 });
 
-test('adapter#forceLayout touches "offsetWidth" on the root in order to force layout', t => {
+test('adapter#forceLayout touches "offsetWidth" on the root in order to force layout', () => {
   const {root, component} = setupTest();
   const mockGetter = td.func('.offsetWidth');
   Object.defineProperty(root, 'offsetWidth', {
@@ -183,8 +170,7 @@ test('adapter#forceLayout touches "offsetWidth" on the root in order to force la
   });
 
   component.getDefaultFoundation().adapter_.forceLayout();
-  t.doesNotThrow(() => td.verify(mockGetter()));
-  t.end();
+  td.verify(mockGetter());
 });
 
 test('adapter#isAttachedToDOM returns true when root is attached to DOM', t => {
@@ -192,11 +178,9 @@ test('adapter#isAttachedToDOM returns true when root is attached to DOM', t => {
   document.body.appendChild(root);
   t.true(component.getDefaultFoundation().adapter_.isAttachedToDOM());
   document.body.removeChild(root);
-  t.end();
 });
 
 test('adapter#isAttachedToDOM returns false when root is not attached to DOM', t => {
   const {component} = setupTest();
   t.false(component.getDefaultFoundation().adapter_.isAttachedToDOM());
-  t.end();
 });

@@ -1,5 +1,3 @@
-# Force TravisCI to run outside of a container
-sudo: required
 language: node_js
 node_js:
   - node # stable
@@ -7,12 +5,13 @@ node_js:
 branches:
   only:
     - master
-env:
-  global:
-    - SAUCE_USERNAME=material-sauce
-    - SAUCE_ACCESS_KEY=5e3395b4-2026-48a4-82a0-35bc756a0d2b
-addons:
-  sauce_connect: true
+# NOTE(traviskaufman): Temporarily disabling SAUCE stuff until we get e2e tests set up.
+# env:
+#   global:
+#     - SAUCE_USERNAME=material-sauce
+#     - SAUCE_ACCESS_KEY=5e3395b4-2026-48a4-82a0-35bc756a0d2b
+# addons:
+#   sauce_connect: true
 notifications:
   webhooks:
     urls:

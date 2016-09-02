@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import test from 'tape';
+import test from 'ava';
 import td from 'testdouble';
 import MDLComponent from '../../../packages/mdl-base';
 
@@ -41,73 +41,64 @@ class FakeComponent extends MDLComponent {
 
 test('provides a static buildDom() method that returns an empty div by default', t => {
   const dom = MDLComponent.buildDom();
-  t.equal(dom.tagName.toLowerCase(), 'div');
-  t.equal(dom.innerHTML, '');
-  t.end();
+  t.is(dom.tagName.toLowerCase(), 'div');
+  t.is(dom.innerHTML, '');
 });
 
 test('provides a static attachTo() method that returns a basic instance with the specified root', t => {
   const root = document.createElement('div');
   const b = MDLComponent.attachTo(root);
   t.true(b instanceof MDLComponent);
-  t.end();
 });
 
 test('takes a root node constructor param and assigns it to the "root_" property', t => {
   const root = document.createElement('div');
   const f = new FakeComponent(root);
-  t.equal(f.root, root);
-  t.end();
+  t.is(f.root, root);
 });
 
 test('takes an optional foundation constructor param and assigns it to the "foundation_" property', t => {
   const root = document.createElement('div');
   const foundation = {init: () => {}};
   const f = new FakeComponent(root, foundation);
-  t.equal(f.foundation, foundation);
-  t.end();
+  t.is(f.foundation, foundation);
 });
 
 test('assigns the result of "getDefaultFoundation()" to "foundation_" by default', t => {
   const root = document.createElement('div');
   const f = new FakeComponent(root);
   t.true(f.foundation.isDefaultFoundation);
-  t.end();
 });
 
-test("calls the foundation's init() method within the constructor", t => {
+test("calls the foundation's init() method within the constructor", () => {
   const root = document.createElement('div');
   const foundation = td.object({init: () => {}});
   // Testing side effects of constructor
   // eslint-disable-next-line no-new
   new FakeComponent(root, foundation);
-  t.doesNotThrow(() => td.verify(foundation.init()));
-  t.end();
+  td.verify(foundation.init());
 });
 
 test('throws an error if getDefaultFoundation() is not overridden', t => {
   const root = document.createElement('div');
   t.throws(() => new MDLComponent(root));
-  t.end();
 });
 
 test('calls initialSyncWithDOM() when initialized', t => {
   const root = document.createElement('div');
   const f = new FakeComponent(root);
   t.true(f.synced);
-  t.end();
 });
 
 test('provides a default initialSyncWithDOM() no-op if none provided by subclass', t => {
-  t.doesNotThrow(MDLComponent.prototype.initialSyncWithDOM.bind({}));
-  t.end();
+  MDLComponent.prototype.initialSyncWithDOM();
+  t.pass();
 });
 
-test("provides a default destroy() method which calls the foundation's destroy() method", t => {
+test("provides a default destroy() method which calls the foundation's destroy() method", () => {
   const root = document.createElement('div');
   const foundation = td.object({init: () => {}, destroy: () => {}});
   const f = new FakeComponent(root, foundation);
   f.destroy();
-  t.doesNotThrow(() => td.verify(foundation.destroy()));
-  t.end();
+  td.verify(foundation.destroy());
 });

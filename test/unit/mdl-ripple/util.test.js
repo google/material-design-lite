@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import test from 'tape';
+import test from 'ava';
 import td from 'testdouble';
 import * as util from '../../../packages/mdl-ripple/util';
 
@@ -26,7 +26,6 @@ test('#supportsCssVariables returns true when CSS.supports() returns true for cs
   };
   td.when(windowObj.CSS.supports('--css-vars', td.matchers.anything())).thenReturn(true);
   t.true(util.supportsCssVariables(windowObj));
-  t.end();
 });
 
 test('#supportsCssVariables returns true when feature-detecting its way around Safari < 10', t => {
@@ -46,8 +45,6 @@ test('#supportsCssVariables returns true when feature-detecting its way around S
 
   td.when(windowObj.CSS.supports('color', '#00000000')).thenReturn(false);
   t.false(util.supportsCssVariables(windowObj), 'false if #rgba is supported but not CSS Vars');
-
-  t.end();
 });
 
 test('#supportsCssVariables returns false when CSS.supports() returns false for css vars', t => {
@@ -58,7 +55,6 @@ test('#supportsCssVariables returns false when CSS.supports() returns false for 
   };
   td.when(windowObj.CSS.supports('--css-vars', td.matchers.anything())).thenReturn(false);
   t.false(util.supportsCssVariables(windowObj));
-  t.end();
 });
 
 test('#supportsCssVariables returns false when CSS.supports is not a function', t => {
@@ -68,7 +64,6 @@ test('#supportsCssVariables returns false when CSS.supports is not a function', 
     }
   };
   t.false(util.supportsCssVariables(windowObj));
-  t.end();
 });
 
 test('#supportsCssVariables returns false when CSS is not an object', t => {
@@ -76,19 +71,16 @@ test('#supportsCssVariables returns false when CSS is not an object', t => {
     CSS: null
   };
   t.false(util.supportsCssVariables(windowObj));
-  t.end();
 });
 
 test('#getMatchesProperty returns the correct property for selector matching', t => {
-  t.equal(util.getMatchesProperty({matches: () => {}}), 'matches');
-  t.equal(util.getMatchesProperty({webkitMatchesSelector: () => {}}), 'webkitMatchesSelector');
-  t.equal(util.getMatchesProperty({msMatchesSelector: () => {}}), 'msMatchesSelector');
-  t.end();
+  t.is(util.getMatchesProperty({matches: () => {}}), 'matches');
+  t.is(util.getMatchesProperty({webkitMatchesSelector: () => {}}), 'webkitMatchesSelector');
+  t.is(util.getMatchesProperty({msMatchesSelector: () => {}}), 'msMatchesSelector');
 });
 
 test('#getMatchesProperty returns the standard function if more than one method is present', t => {
-  t.equal(util.getMatchesProperty({matches: () => {}, webkitMatchesSelector: () => {}}), 'matches');
-  t.end();
+  t.is(util.getMatchesProperty({matches: () => {}, webkitMatchesSelector: () => {}}), 'matches');
 });
 
 class FakeRippleAdapter {
@@ -120,59 +112,55 @@ function setupAnimateWithClassTest() {
 test('#animateWithClass attaches class and handler which removes class once specified event is fired', t => {
   const {adapter, className, endEvent} = setupAnimateWithClassTest();
   util.animateWithClass(adapter, className, endEvent);
-  t.doesNotThrow(() => td.verify(adapter.addClass(className)));
-  t.equal(adapter.eventType, endEvent);
+  td.verify(adapter.addClass(className));
+  t.is(adapter.eventType, endEvent);
   t.true(typeof adapter.interactionHandler === 'function');
 
   adapter.interactionHandler();
 
-  t.doesNotThrow(() => td.verify(adapter.removeClass(className)));
-  t.end();
+  td.verify(adapter.removeClass(className));
 });
 
 test('#animateWithClass removes the event listener it used for the end event', t => {
   const {adapter, className, endEvent} = setupAnimateWithClassTest();
   util.animateWithClass(adapter, className, endEvent);
-  t.doesNotThrow(() => td.verify(adapter.addClass(className)));
-  t.equal(adapter.eventType, endEvent);
+  td.verify(adapter.addClass(className));
+  t.is(adapter.eventType, endEvent);
   t.true(typeof adapter.interactionHandler === 'function');
 
   adapter.interactionHandler();
 
-  t.equal(adapter.eventType, '');
-  t.equal(adapter.interactionHandler, null);
-  t.end();
+  t.is(adapter.eventType, '');
+  t.is(adapter.interactionHandler, null);
 });
 
 test('#animateWithClass returns a function which allows you to manually remove class/unlisten', t => {
   const {adapter, className, endEvent} = setupAnimateWithClassTest();
   const cancel = util.animateWithClass(adapter, className, endEvent);
 
-  t.doesNotThrow(() => td.verify(adapter.addClass(className)), 'addClass sanity check');
-  t.equal(adapter.eventType, endEvent, 'event registration sanity check (type)');
+  adapter.addClass(className);
+  t.is(adapter.eventType, endEvent, 'event registration sanity check (type)');
   t.true(typeof adapter.interactionHandler === 'function', 'event registration sanity check (handler)');
 
   cancel();
 
-  t.doesNotThrow(() => td.verify(adapter.removeClass(className)));
-  t.equal(adapter.eventType, '');
-  t.equal(adapter.interactionHandler, null);
-  t.end();
+  td.verify(adapter.removeClass(className));
+  t.is(adapter.eventType, '');
+  t.is(adapter.interactionHandler, null);
 });
 
 test('#animateWithClass return function can only be called once', t => {
   const {adapter, className, endEvent} = setupAnimateWithClassTest();
   const cancel = util.animateWithClass(adapter, className, endEvent);
 
-  t.doesNotThrow(() => td.verify(adapter.addClass(className)), 'addClass sanity check');
-  t.equal(adapter.eventType, endEvent, 'event registration sanity check (type)');
+  adapter.addClass(className);
+  t.is(adapter.eventType, endEvent, 'event registration sanity check (type)');
   t.true(typeof adapter.interactionHandler === 'function', 'event registration sanity check (handler)');
 
   cancel();
   cancel();
 
-  t.doesNotThrow(() => td.verify(adapter.removeClass(className), {times: 1}));
-  t.end();
+  td.verify(adapter.removeClass(className), {times: 1});
 });
 
 test('#getNormalizedEventCoords maps event coords into the relative coordinates of the given rect', t => {
@@ -184,7 +172,6 @@ test('#getNormalizedEventCoords maps event coords into the relative coordinates 
     left: 10,
     top: 10
   });
-  t.end();
 });
 
 test('#getNormalizedEventCoords works with touchend events', t => {
@@ -196,5 +183,4 @@ test('#getNormalizedEventCoords works with touchend events', t => {
     left: 10,
     top: 10
   });
-  t.end();
 });

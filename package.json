@@ -9,20 +9,18 @@
     "build:min": "mkdirp build && cross-env MDL_ENV=production webpack -p",
     "dist": "npm run clean && npm run build && npm run build:min",
     "dev": "npm run clean && cross-env MDL_ENV=development webpack-dev-server --content-base demos --inline --hot",
-    "fix:js": "eslint --fix packages test webpack.config.js karma.conf.js",
-    "fix:css": "stylefmt -R packages",
-    "fix": "npm-run-all --parallel fix:*",
-    "lint:js": "eslint packages test webpack.config.js karma.conf.js",
+    "lint:js": "eslint packages test webpack.config.js",
     "lint:css": "stylelint packages/**/*.scss",
     "lint": "npm-run-all --parallel lint:*",
+    "fix": "eslint --fix packages test webpack.config.js",
     "postinstall": "lerna bootstrap",
     "pretest": "npm run lint",
-    "test": "karma start --single-run",
-    "posttest": "istanbul report --root coverage text-summary && istanbul check-coverage --lines 85 --statements 85 --branches 85 --functions 85",
-    "test:watch": "karma start --auto-watch"
+    "test:unit": "ava",
+    "test": "cross-env BABEL_ENV=test nyc npm run test:unit"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "ava": "^0.16.0",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-assign": "^6.8.0",
@@ -41,25 +39,21 @@
     "ghooks": "^1.3.2",
     "isparta-loader": "^2.0.0",
     "istanbul": "^0.4.4",
+    "jsdom": "^9.4.5",
+    "jsdom-global": "^2.1.0",
     "json-loader": "^0.5.4",
-    "karma": "^1.1.1",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-coverage": "^1.1.0",
-    "karma-firefox-launcher": "^1.0.0",
-    "karma-sauce-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-tap": "^2.1.4",
-    "karma-webpack": "^1.7.0",
     "lerna": "2.0.0-beta.18",
     "lolex": "^1.5.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.7.0",
     "npm-run-all": "^2.3.0",
+    "nyc": "^8.1.0",
     "postcss-loader": "^0.9.1",
+    "raf": "^3.3.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
-    "stylefmt": "^4.1.1",
     "stylelint": "^7.1.0",
     "stylelint-config-standard": "^11.0.0",
     "stylelint-scss": "^1.2.1",
@@ -71,12 +65,39 @@
     "webpack-dev-server": "^1.14.1"
   },
   "babel": {
+    "env": {
+      "test": {
+        "sourceMaps": "inline"
+      }
+    },
     "presets": [
       "es2015"
     ],
     "plugins": [
       "transform-object-assign"
     ]
+  },
+  "ava": {
+    "files": [
+      "test/unit/**/*.test.js"
+    ],
+    "babel": "inherit",
+    "require": [
+      "babel-register",
+      "jsdom-global/register",
+      "raf/polyfill"
+    ]
+  },
+  "nyc": {
+    "lines": 85,
+    "statements": 85,
+    "branches": 85,
+    "functions": 85,
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "check-coverage": true
   },
   "config": {
     "ghooks": {

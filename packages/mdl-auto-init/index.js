@@ -24,7 +24,7 @@ const CONSOLE_WARN = console.warn.bind(console);
 export default function mdlAutoInit(root = document, warn = CONSOLE_WARN) {
   const nodes = root.querySelectorAll('[data-mdl-auto-init]');
   for (let i = 0, node; (node = nodes[i]); i++) {
-    const ctorName = node.dataset.mdlAutoInit;
+    const ctorName = node.getAttribute('data-mdl-auto-init');
     if (!ctorName) {
       throw new Error('(mdl-auto-init) Constructor name must be given.');
     }

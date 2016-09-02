@@ -21,7 +21,7 @@ import {testFoundation, captureHandlers} from './helpers';
 import {cssClasses, strings, numbers} from '../../../packages/mdl-ripple/constants';
 
 testFoundation('runs deactivation UX on touchend after touchstart', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
@@ -31,22 +31,21 @@ testFoundation('runs deactivation UX on touchend after touchstart', t => {
   handlers.touchend({changedTouches: [{pageX: 0, pageY: 0}]});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_ACTIVE)));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL)));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL)));
+  td.verify(adapter.removeClass(cssClasses.BG_ACTIVE));
+  td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL));
+  td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL));
 
   // Test removal of classes on end event
   handlers[strings.TRANSITION_END_EVENT]();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_BOUNDED_ACTIVE_FILL), {times: 2}));
+  td.verify(adapter.removeClass(cssClasses.BG_BOUNDED_ACTIVE_FILL), {times: 2});
   handlers[strings.ANIMATION_END_EVENT]();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.FG_BOUNDED_ACTIVE_FILL), {times: 2}));
-  t.end();
+  td.verify(adapter.removeClass(cssClasses.FG_BOUNDED_ACTIVE_FILL), {times: 2});
 });
 
 testFoundation('runs deactivation UX on pointerup after pointerdown', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
@@ -56,14 +55,13 @@ testFoundation('runs deactivation UX on pointerup after pointerdown', t => {
   handlers.pointerup({pageX: 0, pageY: 0});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_ACTIVE)));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL)));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL)));
-  t.end();
+  td.verify(adapter.removeClass(cssClasses.BG_ACTIVE));
+  td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL));
+  td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL));
 });
 
 testFoundation('runs deactivation UX on mouseup after mousedown', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
@@ -73,14 +71,13 @@ testFoundation('runs deactivation UX on mouseup after mousedown', t => {
   handlers.mouseup({pageX: 0, pageY: 0});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_ACTIVE)));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL)));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL)));
-  t.end();
+  td.verify(adapter.removeClass(cssClasses.BG_ACTIVE));
+  td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL));
+  td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL));
 });
 
 testFoundation('only re-activates when there are no additional pointer events to be processed', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
@@ -96,23 +93,23 @@ testFoundation('only re-activates when there are no additional pointer events to
 
   // At this point, the deactivation UX should have run, since the initial activation was triggered by
   // a pointerdown event.
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_ACTIVE), {times: 1}));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL), {times: 1}));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL), {times: 1}));
+  td.verify(adapter.removeClass(cssClasses.BG_ACTIVE), {times: 1});
+  td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL), {times: 1});
+  td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL), {times: 1});
 
   handlers.touchend({changedTouches: [{pageX: 0, pageY: 0}]});
   mockRaf.flush();
 
   // Verify that deactivation UX has not been run redundantly
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_ACTIVE), {times: 1}));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL), {times: 1}));
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL), {times: 1}));
+  td.verify(adapter.removeClass(cssClasses.BG_ACTIVE), {times: 1});
+  td.verify(adapter.addClass(cssClasses.BG_BOUNDED_ACTIVE_FILL), {times: 1});
+  td.verify(adapter.addClass(cssClasses.FG_BOUNDED_ACTIVE_FILL), {times: 1});
 
   handlers.mousedown();
   mockRaf.flush();
 
   // Verify that activation only happened once, at pointerdown
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 1}));
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 1});
 
   handlers.mouseup({pageX: 0, pageY: 0});
   mockRaf.flush();
@@ -121,13 +118,11 @@ testFoundation('only re-activates when there are no additional pointer events to
   handlers.mousedown();
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 2}));
-
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 2});
 });
 
 testFoundation('sets FG position to the coords within surface on pointer deactivation', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 50, top: 50});
   foundation.init();
@@ -138,13 +133,12 @@ testFoundation('sets FG position to the coords within surface on pointer deactiv
   handlers.mouseup({pageX: 100, pageY: 75});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_LEFT, '50px')));
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_TOP, '25px')));
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_LEFT, '50px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_TOP, '25px'));
 });
 
 testFoundation('takes scroll offset into account when computing position', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 25, top: 25});
   td.when(adapter.getWindowPageOffset()).thenReturn({x: 25, y: 25});
@@ -156,13 +150,12 @@ testFoundation('takes scroll offset into account when computing position', t => 
   handlers.mouseup({pageX: 100, pageY: 75});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_LEFT, '50px')));
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_TOP, '25px')));
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_LEFT, '50px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_TOP, '25px'));
 });
 
 testFoundation('sets unbounded FG position to center on non-pointer deactivation', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 50, top: 50});
   td.when(adapter.isSurfaceActive()).thenReturn(true, false);
@@ -174,14 +167,13 @@ testFoundation('sets unbounded FG position to center on non-pointer deactivation
   handlers.keyup();
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_LEFT, '50px')));
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_TOP, '50px')));
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_LEFT, '50px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_TOP, '50px'));
 });
 
 testFoundation('triggers unbounded deactivation based on time it took to activate', t => {
   const clock = lolex.install();
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.isUnbounded()).thenReturn(true);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 0, top: 0});
@@ -202,28 +194,19 @@ testFoundation('triggers unbounded deactivation based on time it took to activat
   const xfDuration = 1000 * Math.sqrt(maxRadius / 1024);
 
   const scaleVal = baseElapsedTime / xfDuration;
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_FG_APPROX_XF, `scale(${scaleVal})`)));
-  t.doesNotThrow(
-    () => td.verify(
-      adapter.updateCssVariable(
-        strings.VAR_FG_UNBOUNDED_TRANSFORM_DURATION, `${numbers.UNBOUNDED_TRANSFORM_DURATION_MS}ms`
-      )
-    )
-  );
+  td.verify(adapter.updateCssVariable(strings.VAR_FG_APPROX_XF, `scale(${scaleVal})`));
+  td.verify(adapter.updateCssVariable(
+    strings.VAR_FG_UNBOUNDED_TRANSFORM_DURATION, `${numbers.UNBOUNDED_TRANSFORM_DURATION_MS}ms`
+  ));
   const opacity = ((baseElapsedTime + numbers.FG_TRANSFORM_DELAY_MS) / numbers.ACTIVE_OPACITY_DURATION_MS);
   const opacityDuration = 1000 * opacity / numbers.OPACITY_DURATION_DIVISOR;
-  t.doesNotThrow(
-    () => td.verify(
-      adapter.updateCssVariable(strings.VAR_FG_UNBOUNDED_OPACITY_DURATION, `${opacityDuration}ms`)
-    )
-  );
+  td.verify(adapter.updateCssVariable(strings.VAR_FG_UNBOUNDED_OPACITY_DURATION, `${opacityDuration}ms`));
   clock.uninstall();
-  t.end();
 });
 
 testFoundation('clamps opacity duration to minimum value for unbounded deactivation', t => {
   const clock = lolex.install();
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.isUnbounded()).thenReturn(true);
   foundation.init();
@@ -235,16 +218,13 @@ testFoundation('clamps opacity duration to minimum value for unbounded deactivat
   handlers.mouseup();
   mockRaf.flush();
 
-  t.doesNotThrow(
-    () => td.verify(adapter.updateCssVariable(strings.VAR_FG_UNBOUNDED_OPACITY_DURATION, '200ms'))
-  );
+  td.verify(adapter.updateCssVariable(strings.VAR_FG_UNBOUNDED_OPACITY_DURATION, '200ms'));
   clock.uninstall();
-  t.end();
 });
 
 testFoundation('clamps opacity duration to max value for unbounded deactivation', t => {
   const clock = lolex.install();
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.isUnbounded()).thenReturn(true);
   foundation.init();
@@ -260,16 +240,13 @@ testFoundation('clamps opacity duration to max value for unbounded deactivation'
     const ms = parseFloat(duration);
     return ms.toFixed(2) === '333.33';
   });
-  t.doesNotThrow(
-    () => td.verify(adapter.updateCssVariable(strings.VAR_FG_UNBOUNDED_OPACITY_DURATION, about333ms))
-  );
+  td.verify(adapter.updateCssVariable(strings.VAR_FG_UNBOUNDED_OPACITY_DURATION, about333ms));
   clock.uninstall();
-  t.end();
 });
 
 testFoundation('toggles unbounded activation classes', t => {
   const clock = lolex.install();
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.isUnbounded()).thenReturn(true);
   foundation.init();
@@ -281,17 +258,16 @@ testFoundation('toggles unbounded activation classes', t => {
   handlers.mouseup();
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_UNBOUNDED_DEACTIVATION)));
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_ACTIVATION)));
+  td.verify(adapter.addClass(cssClasses.FG_UNBOUNDED_DEACTIVATION));
+  td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_ACTIVATION));
   clock.tick(/* past opacity duration */300);
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_DEACTIVATION)));
+  td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_DEACTIVATION));
   clock.uninstall();
-  t.end();
 });
 
 testFoundation('cancels unbounded deactivation class removal on deactivation', t => {
   const clock = lolex.install();
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.isUnbounded()).thenReturn(true);
   foundation.init();
@@ -307,7 +283,6 @@ testFoundation('cancels unbounded deactivation class removal on deactivation', t
   mockRaf.flush();
   clock.tick(/* past opacity duration */300);
   // Verify this is only called twice on both initial activations, but not as part of a deactivation timeout.
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_DEACTIVATION), {times: 2}));
+  td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_DEACTIVATION), {times: 2});
   clock.uninstall();
-  t.end();
 });

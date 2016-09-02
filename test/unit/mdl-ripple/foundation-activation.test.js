@@ -20,43 +20,40 @@ import {testFoundation, captureHandlers} from './helpers';
 import {cssClasses, strings} from '../../../packages/mdl-ripple/constants';
 
 testFoundation(`adds ${cssClasses.BG_ACTIVE} on mousedown`, t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
 
   handlers.mousedown();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE)));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE));
 });
 
 testFoundation(`adds ${cssClasses.BG_ACTIVE} on touchstart`, t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
 
   handlers.touchstart();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE)));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE));
 });
 
 testFoundation(`adds ${cssClasses.BG_ACTIVE} on pointerdown`, t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
 
   handlers.pointerdown();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE)));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE));
 });
 
 testFoundation(`adds ${cssClasses.BG_ACTIVE} on keydown when surface is made active`, t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.isSurfaceActive()).thenReturn(true);
   foundation.init();
@@ -65,12 +62,11 @@ testFoundation(`adds ${cssClasses.BG_ACTIVE} on keydown when surface is made act
   handlers.keydown();
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE)));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE));
 });
 
 testFoundation('does not redundantly add classes on touchstart followed by mousedown', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
@@ -79,12 +75,11 @@ testFoundation('does not redundantly add classes on touchstart followed by mouse
   mockRaf.flush();
   handlers.mousedown();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 1}));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 1});
 });
 
 testFoundation('does not redundantly add classes on touchstart followed by pointerstart', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
@@ -93,12 +88,11 @@ testFoundation('does not redundantly add classes on touchstart followed by point
   mockRaf.flush();
   handlers.pointerdown();
   mockRaf.flush();
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 1}));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.BG_ACTIVE), {times: 1});
 });
 
 testFoundation('removes deactivation classes on activate to ensure ripples can be retriggered', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   foundation.init();
   mockRaf.flush();
@@ -110,14 +104,13 @@ testFoundation('removes deactivation classes on activate to ensure ripples can b
   handlers.mousedown();
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.BG_BOUNDED_ACTIVE_FILL)));
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_DEACTIVATION)));
-  t.doesNotThrow(() => td.verify(adapter.removeClass(cssClasses.FG_BOUNDED_ACTIVE_FILL)));
-  t.end();
+  td.verify(adapter.removeClass(cssClasses.BG_BOUNDED_ACTIVE_FILL));
+  td.verify(adapter.removeClass(cssClasses.FG_UNBOUNDED_DEACTIVATION));
+  td.verify(adapter.removeClass(cssClasses.FG_BOUNDED_ACTIVE_FILL));
 });
 
 testFoundation('displays the foreground ripple on activation when unbounded', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 0, top: 0});
   td.when(adapter.isUnbounded()).thenReturn(true);
@@ -127,12 +120,11 @@ testFoundation('displays the foreground ripple on activation when unbounded', t 
   handlers.mousedown({pageX: 0, pageY: 0});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_UNBOUNDED_ACTIVATION)));
-  t.end();
+  td.verify(adapter.addClass(cssClasses.FG_UNBOUNDED_ACTIVATION));
 });
 
 testFoundation('sets unbounded FG xf origin to the coords within surface on pointer activation', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 50, top: 50});
   td.when(adapter.isUnbounded()).thenReturn(true);
@@ -142,13 +134,12 @@ testFoundation('sets unbounded FG xf origin to the coords within surface on poin
   handlers.mousedown({pageX: 100, pageY: 75});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_X, '50px')));
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_Y, '25px')));
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_X, '50px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_Y, '25px'));
 });
 
 testFoundation('takes scroll offset into account when computing transform origin', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 25, top: 25});
   td.when(adapter.getWindowPageOffset()).thenReturn({x: 25, y: 25});
@@ -159,13 +150,12 @@ testFoundation('takes scroll offset into account when computing transform origin
   handlers.mousedown({pageX: 100, pageY: 75});
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_X, '50px')));
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_Y, '25px')));
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_X, '50px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_Y, '25px'));
 });
 
 testFoundation('sets unbounded FG xf origin to center on non-pointer activation', t => {
-  const {foundation, adapter, mockRaf} = t.data;
+  const {foundation, adapter, mockRaf} = t.context;
   const handlers = captureHandlers(adapter);
   td.when(adapter.computeBoundingRect()).thenReturn({width: 100, height: 100, left: 50, top: 50});
   td.when(adapter.isUnbounded()).thenReturn(true);
@@ -176,7 +166,6 @@ testFoundation('sets unbounded FG xf origin to center on non-pointer activation'
   handlers.keydown();
   mockRaf.flush();
 
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_X, '50px')));
-  t.doesNotThrow(() => td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_Y, '50px')));
-  t.end();
+  td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_X, '50px'));
+  td.verify(adapter.updateCssVariable(strings.VAR_XF_ORIGIN_Y, '50px'));
 });

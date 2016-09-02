@@ -17,7 +17,7 @@
 export function supportsCssVariables(windowObj) {
   const supportsFunctionPresent = windowObj.CSS && typeof windowObj.CSS.supports === 'function';
   if (!supportsFunctionPresent) {
-    return;
+    return false;
   }
 
   const explicitlySupportsCssVars = windowObj.CSS.supports('--css-vars', 'yes');
@@ -27,7 +27,7 @@ export function supportsCssVariables(windowObj) {
     windowObj.CSS.supports('(--css-vars: yes)') &&
     windowObj.CSS.supports('color', '#00000000')
   );
-  return explicitlySupportsCssVars || weAreFeatureDetectingSafari10plus;
+  return Boolean(explicitlySupportsCssVars || weAreFeatureDetectingSafari10plus);
 }
 
 export function getMatchesProperty(HTMLElementPrototype) {

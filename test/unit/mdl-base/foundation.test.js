@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import test from 'tape';
+import test from 'ava';
 import {MDLFoundation} from '../../../packages/mdl-base';
 
 class FakeFoundation extends MDLFoundation {
@@ -25,45 +25,37 @@ class FakeFoundation extends MDLFoundation {
 
 test('cssClasses getter returns an empty object', t => {
   t.deepEqual(MDLFoundation.cssClasses, {});
-  t.end();
 });
 
 test('strings getter returns an empty object', t => {
   t.deepEqual(MDLFoundation.strings, {});
-  t.end();
 });
 
 test('numbers getter returns an empty object', t => {
   t.deepEqual(MDLFoundation.numbers, {});
-  t.end();
 });
 
 test('defaultAdapter getter returns an empty object', t => {
   t.deepEqual(MDLFoundation.defaultAdapter, {});
-  t.end();
 });
 
 test('takes an adapter object in its constructor, assigns it to "adapter_"', t => {
   const adapter = {adapter: true};
   const f = new FakeFoundation(adapter);
   t.deepEqual(f.adapter, adapter);
-  t.end();
 });
 
 test('assigns adapter to an empty object when none given', t => {
   const f = new FakeFoundation();
   t.deepEqual(f.adapter, {});
-  t.end();
 });
 
-test('provides an init() lifecycle method, which defaults to a no-op', t => {
+test('provides an init() lifecycle method, which defaults to a no-op', () => {
   const f = new FakeFoundation();
-  t.doesNotThrow(() => f.init());
-  t.end();
+  f.init();
 });
 
-test('provides a destroy() lifecycle method, which defaults to a no-op', t => {
+test('provides a destroy() lifecycle method, which defaults to a no-op', () => {
   const f = new FakeFoundation();
-  t.doesNotThrow(() => f.destroy());
-  t.end();
+  f.destroy();
 });

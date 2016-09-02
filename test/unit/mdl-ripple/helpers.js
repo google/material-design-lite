@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import test from 'tape';
+import test from 'ava';
 import td from 'testdouble';
 import MDLRippleFoundation from '../../../packages/mdl-ripple/foundation';
 
@@ -42,8 +42,8 @@ export function createMockRaf() {
     restore() {
       this.lastFrameId = 0;
       this.pendingFrames = [];
-      window.requestAnimationFrame = origRaf;
-      window.cancelAnimationFrame = origCancel;
+      global.requestAnimationFrame = origRaf;
+      global.cancelAnimationFrame = origCancel;
     },
     requestAnimationFrame(fn) {
       const frameId = ++this.lastFrameId;
@@ -60,8 +60,8 @@ export function createMockRaf() {
     }
   };
 
-  window.requestAnimationFrame = fn => mockRaf.requestAnimationFrame(fn);
-  window.cancelAnimationFrame = id => mockRaf.cancelAnimationFrame(id);
+  global.requestAnimationFrame = fn => mockRaf.requestAnimationFrame(fn);
+  global.cancelAnimationFrame = id => mockRaf.cancelAnimationFrame(id);
 
   return mockRaf;
 }
@@ -78,15 +78,9 @@ export function testFoundation(desc, isCssVarsSupported, runTests) {
     // eslint-tape-plugin complains when we reference an unknown member on t,
     // so we disable that so we can supplement t.
     // eslint-disable-next-line tape/use-t-well
-    t.data = {adapter, foundation, mockRaf};
-
-    // Override end so that animation frame functions are always restored.
-    const {end} = t;
-    t.end = function(...args) {
-      mockRaf.restore();
-      end.apply(t, args);
-    };
+    Object.assign(t.context, {adapter, foundation, mockRaf});
     runTests(t, {adapter, foundation, mockRaf});
+    mockRaf.restore();
   });
 }
 
