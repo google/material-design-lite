@@ -1,6 +1,7 @@
 
 <template>
 <div>
+  <div class="demo-surface" v-ripple><p>{{label}}</p></div>
   <div>
     <checkbox-wrapper :align-end='alignEnd'>
       <checkbox v-model="checked" label="Test me" id="my-check" label-id="my-check-label"></checkbox>
@@ -21,9 +22,10 @@
 </template>
 
 <script lang="babel">
-import Checkbox from './Checkbox';
-import CheckboxLabel from './CheckboxLabel';
-import CheckboxWrapper from './CheckboxWrapper';
+import Ripple from './v-mdl-ripple/Ripple';
+import Checkbox from './v-mdl-checkbox/Checkbox';
+import CheckboxLabel from './v-mdl-checkbox/CheckboxLabel';
+import CheckboxWrapper from './v-mdl-checkbox/CheckboxWrapper';
 
 export default {
   data () {
@@ -35,6 +37,7 @@ export default {
     }
   },
   components: { Checkbox, CheckboxWrapper, CheckboxLabel },
+  directives: { Ripple },
   watch: {
     checked () {
       this.changeCount++;
@@ -42,3 +45,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import 'mdl-ripple/mdl-ripple.scss';
+@import 'mdl-elevation/mdl-elevation.scss';
+
+.demo-surface {
+  @include mdl-elevation(2);
+  width: 150px;
+  height: 150px;
+}
+</style>
