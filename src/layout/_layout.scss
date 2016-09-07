@@ -191,7 +191,7 @@
     font-size: 26px;
     line-height: $layout-mobile-header-height;
     font-family: Helvetica, Arial, sans-serif;
-    margin: 10px 12px;
+    margin: ($layout-mobile-header-height - $layout-drawer-button-desktop-size) 12px;
     top: 0;
     left: 0;
     color: $layout-header-text-color;
@@ -214,7 +214,7 @@
     }
 
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
-      line-height: $layout-header-desktop-row-height;
+      line-height: 54px;
 
       .mdl-layout--no-desktop-drawer-button &,
       .mdl-layout--fixed-drawer > &,
