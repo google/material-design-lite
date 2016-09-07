@@ -5,13 +5,13 @@ node_js:
 branches:
   only:
     - master
-# NOTE(traviskaufman): Temporarily disabling SAUCE stuff until we get e2e tests set up.
-# env:
-#   global:
-#     - SAUCE_USERNAME=material-sauce
-#     - SAUCE_ACCESS_KEY=5e3395b4-2026-48a4-82a0-35bc756a0d2b
-# addons:
-#   sauce_connect: true
+env:
+  global:
+    - SAUCE_USERNAME=material-sauce
+addons:
+  sauce_connect: true
+  jwt:
+    secure: Iqwp6+hgpn8vhJAXxTbVgbScE8Q87qWCG+VhNvYFp38174QqLgmF80mjB501gCjrQ69BSePARVWN7VWAB0zt7H+QRs2Zqzyhkm0ctMtZhWFE5XmiOmyXtKpJQspmNMPeXVSrlY6BJRckK/cQ0aJDq9Ic/834AGXm9W2yHhnnxpHRRBuJHFeII4rDmO5fUKvikwtWFSnEXF0RuuhwH8DY0Wl/mGz9NiGqhq4QLIQOx/JzCs/06M+WEpMJH1hhowmgNztJDUI5cLUPot7b0YSzjtgVUF8oGjssh7pZ09NHZwMVUKG5PMxDEUDVrIrkYNQ0cDaFqDdRvXWdW64SSYVqikF9HSsha1XR9RObTfpHL3/SML8swXrkcnefBZHqNOoUnXsw/LRSCJ0kEOHovIb/rP9oU/L/OcqHeol4TDgDR41yQCYdEPnE7lX0L4GGl/GUVVdQ7cSPvi/V58kQrMIc1t1w5cGRwHexoI5kcLOMqJb48uHgtVdyXlulgXcQag8eu7E28p6eTKXiLs79a2GuL3+fhdpBqTF0+5b9ohp28jVE8PEdKMa5fc8+m/SUuKEuXHs4vbDAG+KFwSmWx/qBWks9Kp1Eh23nBscbLFbVrkFjQw6gLe/UspNv/WLbfAz74dLJe1SaoTV8fXD5LX7Yd0kwfCzaPVTvEHlvsUGQu2I=
 notifications:
   webhooks:
     urls:

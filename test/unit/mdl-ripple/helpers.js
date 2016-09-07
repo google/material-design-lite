@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import test from 'ava';
+import test from 'ava'; // eslint-disable-line ava/no-ignored-test-files
 import td from 'testdouble';
 import MDLRippleFoundation from '../../../packages/mdl-ripple/foundation';
 

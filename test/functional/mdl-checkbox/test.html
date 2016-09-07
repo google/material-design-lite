@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2016 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Checkbox Functional Test</title>
+    <link rel="stylesheet" href="/__build__/material-design-lite.css">
+  </head>
+  <body>
+    <div>
+      <div id="js-checkbox" class="mdl-checkbox">
+        <input type="checkbox" id="native-checkbox" class="mdl-checkbox__native-control" />
+        <div class="mdl-checkbox__background">
+          <svg version="1.1"
+               class="mdl-checkbox__checkmark"
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               xml:space="preserve">
+            <path class="mdl-checkbox__checkmark__path"
+                  fill="none"
+                  stroke="white"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+          </svg>
+          <div class="mdl-checkbox__mixedmark"></div>
+        </div>
+      </div>
+      <button id="make-indeterminate"
+              type="button"
+              onclick="document.getElementById('native-checkbox').indeterminate = true;">
+        Make Indeterminate
+      </button>
+    </div>
+
+    <div id="build-dom"></div>
+
+    <script src="/__build__/material-design-lite.js"></script>
+    <script>
+      mdl.Checkbox.attachTo(document.getElementById('js-checkbox'));
+      const dom = mdl.Checkbox.buildDom({
+        id: 'build-dom-checkbox',
+        labelId: 'build-dom-checkbox-label'
+      });
+      mdl.Checkbox.attachTo(dom);
+      document.getElementById('build-dom').appendChild(dom);
+    </script>
+  </body>
+</html>

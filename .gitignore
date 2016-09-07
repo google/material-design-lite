@@ -4,5 +4,8 @@ node_modules
 /coverage
 packages/*/dist
 *.log
+*.pid
 .idea
 .nyc_output
+test/functional/__build__
+tests_output
