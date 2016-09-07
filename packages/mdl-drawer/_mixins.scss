@@ -1,0 +1,157 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "./functions";
+@import "mdl-theme/mixins";
+@import "mdl-typography/mixins";
+
+/* All variables are local, so disable pattern checking. */
+/* stylelint-disable scss/dollar-variable-pattern */
+
+@mixin mdl-drawer-dir_($property, $value) {
+  $directions: (
+    ltr: (
+      "start": "left",
+      "end": "right"
+    ),
+    rtl: (
+      "start": "right",
+      "end": "left"
+    )
+  );
+
+  #{mdl-drawer-replace($property, map-get($directions, ltr))}: $value;
+
+  [dir="rtl"] & {
+    #{mdl-drawer-replace($property, map-get($directions, ltr))}: auto;
+    #{mdl-drawer-replace($property, map-get($directions, rtl))}: $value;
+  }
+}
+
+@mixin mdl-drawer-toolbar-spacer_() {
+  &__toolbar-spacer {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: flex-center;
+    height: 56px;
+    padding: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    box-sizing: border-box;
+
+    @include mdl-theme-dark(quote(#{&})) {
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    /* TODO(sgomes): replace with global breakpoints when we have them */
+    @media (min-width: 600px) {
+      height: 64px;
+    }
+  }
+}
+
+@mixin mdl-drawer-header_() {
+  /* Use aspect ratio trick to maintain 16:9 aspect ratio on the header */
+  &__header {
+    position: relative;
+  }
+
+  &__header::before {
+    display: block;
+    padding-top: 9 / 16 * 100%;
+    content: "";
+  }
+
+  &__header-content {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: flex-end;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+}
+
+@mixin mdl-drawer-list_() {
+  .mdl-list-group,
+  .mdl-list {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .mdl-list-item {
+    position: relative;
+    padding: 0 16px;
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+
+    @include mdl-typography(body2);
+  }
+
+  .mdl-list-item__start-detail {
+    color: rgba(0, 0, 0, .54);
+
+    @include mdl-theme-dark(#{&}) {
+      color: rgba(255, 255, 255, .54);
+    }
+  }
+
+  /* stylelint-disable selector-no-qualifying-type */
+  &--selected.mdl-list-item,
+  &--selected.mdl-list-item .mdl-list-item__start-detail {
+    @include mdl-theme-prop(color, primary);
+  }
+  /* stylelint-enable selector-no-qualifying-type */
+
+  /* TODO(sgomes): Revisit when we have interactive lists. */
+  .mdl-list-item::before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    border-radius: inherit;
+    background: currentColor;
+    content: "";
+    opacity: 0;
+  }
+
+  .mdl-list-item:focus::before {
+    opacity: .12;
+  }
+
+  .mdl-list-item:active::before {
+    /*
+      Slightly darker value for visual distinction.
+      This allows a full base that has distinct modes.
+      Progressive enhancement with ripples will provide complete button spec alignment.
+    */
+    opacity: .18;
+  }
+}
+
+@mixin mdl-drawer-base_() {
+  @include mdl-drawer-toolbar-spacer_;
+  @include mdl-drawer-header_;
+  @include mdl-drawer-list_;
+}
+
+/* stylelint-enable scss/dollar-variable-pattern */

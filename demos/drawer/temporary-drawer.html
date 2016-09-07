@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2016 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Drawer Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="../assets/material-design-lite.css.js" charset="utf-8"></script>
+    <style>
+    .demo-body {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    /* A quick and simple toolbar, while we're waiting for mdl-toolbar. */
+    .demo-toolbar {
+      width: 100%;
+      height: 56px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+    @media (min-width: 600px) {
+      .demo-toolbar {
+        height: 64px;
+      }
+    }
+
+    /* A simple menu button. */
+    .demo-menu {
+      background: none;
+      border: none;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      margin: 0;
+      color: #FFF;
+      box-sizing: border-box;
+    }
+
+    .demo-main {
+      padding-left: 16px;
+    }
+    </style>
+  </head>
+  <body class="mdl-typography demo-body">
+    <div class="demo-toolbar mdl-theme--primary-bg mdl-theme--text-primary-on-primary mdl-typography--title mdl-elevation--z4">
+      <button class="demo-menu material-icons">menu</button>
+    </div>
+
+    <aside class="mdl-temporary-drawer">
+      <nav class="mdl-temporary-drawer__drawer">
+        <header class="mdl-temporary-drawer__header">
+          <div class="mdl-temporary-drawer__header-content mdl-theme--primary-bg mdl-theme--text-primary-on-primary">
+            Header here
+          </div>
+        </header>
+        <nav class="mdl-list-group">
+          <div id="icon-with-text-demo" class="mdl-list">
+            <a class="mdl-list-item mdl-temporary-drawer--selected" href="#">
+              <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">inbox</i>Inbox
+            </a>
+            <a class="mdl-list-item" href="#">
+              <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">star</i>Star
+            </a>
+            <a class="mdl-list-item" href="#">
+              <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">send</i>Sent Mail
+            </a>
+            <a class="mdl-list-item" href="#">
+              <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">drafts</i>Drafts
+            </a>
+          </div>
+
+          <hr class="mdl-list-divider">
+
+          <div class="mdl-list">
+            <a class="mdl-list-item" href="#">
+              <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">email</i>All Mail
+            </a>
+            <a class="mdl-list-item" href="#">
+              <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">delete</i>Trash
+            </a>
+            <a class="mdl-list-item" href="#">
+              <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">report</i>Spam
+            </a>
+          </div>
+        </nav>
+      </nav>
+    </aside>
+    <main class="demo-main">
+      <h1 class="mdl-typography--display1">Temporary Drawer</h1>
+      <p class="mdl-typography--body1">Click the menu icon above to open.</p>
+    </main>
+
+    <script src="../assets/material-design-lite.js" charset="utf-8"></script>
+    <script>
+      var drawer = new mdl.TemporaryDrawer(document.querySelector('.mdl-temporary-drawer'));
+      document.querySelector('.demo-menu').addEventListener('click', function() {
+        drawer.open = true;
+      });
+    </script>
+  </body>
+</html>

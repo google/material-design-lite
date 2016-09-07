@@ -14,25 +14,18 @@
  * limitations under the License.
  */
 
-import BaseComponent from 'mdl-base';
-import Checkbox from 'mdl-checkbox';
-import Radio from 'mdl-radio';
-import Ripple from 'mdl-ripple';
-import {MDLTemporaryDrawer as TemporaryDrawer} from 'mdl-drawer';
-import autoInit from 'mdl-auto-init';
+const ROOT = 'mdl-temporary-drawer';
 
-console.info('Hello, MDL!!!');
+export const cssClasses = {
+  ROOT,
+  OPEN: `${ROOT}--open`,
+  ANIMATING: `${ROOT}--animating`,
+  RIGHT: `${ROOT}--right`
+};
 
-// Register all components
-autoInit.register('MDLCheckbox', Checkbox);
-autoInit.register('MDLTemporaryDrawer', TemporaryDrawer);
-
-// Export all components.
-export {
-  BaseComponent,
-  Checkbox,
-  Radio,
-  Ripple,
-  TemporaryDrawer,
-  autoInit
+export const strings = {
+  DRAWER_SELECTOR: `.${ROOT}__drawer`,
+  OPACITY_VAR_NAME: `--${ROOT}-opacity`,
+  FOCUSABLE_ELEMENTS: 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), ' +
+      'button:not([disabled]), iframe, object, embed, [tabindex], [contenteditable]'
 };
