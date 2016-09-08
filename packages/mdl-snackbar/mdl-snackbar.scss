@@ -1,0 +1,140 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-animation/mixins";
+@import "mdl-theme/mixins";
+@import "mdl-typography/mixins";
+@import "./variables";
+
+/* stylelint-disable scss/dollar-variable-pattern, scss/at-mixin-pattern */
+@mixin _mdl-snackbar-reflexive-margin($default-side, $value, $reset-opposite-margin: true) {
+  @if (index((right, left), $default-side) == null) {
+    @error "Invalid default margin side #{default-side}. Please specifiy either right or left";
+  }
+
+  $rtl-side: left;
+
+  @if ($default-side == left) {
+    $rtl-side: right;
+  }
+
+  margin-#{$default-side}: $value;
+  [dir="rtl"] & {
+    margin-#{$rtl-side}: $value;
+
+    @if ($reset-opposite-margin) {
+      margin-#{$default-side}: 0;
+    }
+  }
+}
+
+/* stylelint-enable scss/dollar-variable-pattern, scss/at-mixin-pattern */
+
+/* postcss-bem-linter: define snackbar */
+.mdl-snackbar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 24px;
+  padding-left: 24px;
+  transform: translate(0, 100%);
+  transition: transform .25s $mdl-animation-fast-out-linear-in-timing-function;
+  background-color: $mdl-snackbar-background-color;
+  will-change: transform;
+  pointer-events: none;
+
+  @media (max-width: ($mdl-snackbar-tablet-breakpoint - 1)) {
+    left: 0;
+    width: calc(100% - 48px);
+  }
+
+  @media (min-width: $mdl-snackbar-tablet-breakpoint) {
+    min-width: 288px;
+    max-width: 568px;
+    transform: translate(-50%, 100%);
+    border-radius: 2px;
+  }
+
+  &--active {
+    transform: translate(0, 0);
+    pointer-events: auto;
+    transition: transform .25s $mdl-animation-linear-out-slow-in-timing-function;
+
+    @media (min-width: $mdl-snackbar-tablet-breakpoint) {
+      transform: translate(-50%, 0);
+    }
+  }
+
+  &--action-on-bottom {
+    flex-direction: column;
+  }
+
+  &--action-on-bottom &__text {
+    margin-right: inherit;
+  }
+
+  &--action-on-bottom &__action-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: -12px;
+    margin-bottom: 8px;
+    margin-left: auto;
+  }
+
+  &__text {
+    @include mdl-typography(body1);
+    @include _mdl-snackbar-reflexive-margin(right, auto, true);
+    display: flex;
+    align-items: center;
+    height: 48px;
+    transition: opacity .3s $mdl-animation-fast-out-linear-in-timing-function;
+    color: $mdl-snackbar-foreground-color;
+    opacity: 0;
+  }
+
+  &--active &__text {
+    opacity: 1;
+  }
+
+  &--multiline &__text {
+    height: 80px;
+  }
+
+  &__action-button {
+    @include mdl-theme-prop(color, accent);
+    min-width: auto;
+    height: inherit;
+    margin-right: -16px;
+    transition: opacity .3s $mdl-animation-fast-out-linear-in-timing-function;
+
+    opacity: 0;
+    visibility: hidden;
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+    &:not([aria-hidden]) {
+      @include _mdl-snackbar-reflexive-margin(left, 8px, true);
+      opacity: 1;
+      visibility: inherit;
+    }
+  }
+}
+
+/* postcss-bem-linter: end */

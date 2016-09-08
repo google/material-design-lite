@@ -20,6 +20,7 @@ import IconToggle from 'mdl-icon-toggle';
 import Radio from 'mdl-radio';
 import Ripple from 'mdl-ripple';
 import {MDLTemporaryDrawer as TemporaryDrawer} from 'mdl-drawer';
+import Snackbar from 'mdl-snackbar';
 import autoInit from 'mdl-auto-init';
 
 // Register all components
@@ -28,6 +29,7 @@ autoInit.register('MDLTemporaryDrawer', TemporaryDrawer);
 autoInit.register('MDLRipple', Ripple);
 autoInit.register('MDLIconToggle', IconToggle);
 autoInit.register('MDLRadio', Radio);
+autoInit.register('MDLSnackbar', Snackbar);
 
 // Export all components.
 export {
@@ -36,6 +38,7 @@ export {
   IconToggle,
   Radio,
   Ripple,
+  Snackbar,
   TemporaryDrawer,
   autoInit
 };
