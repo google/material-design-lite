@@ -1,5 +1,3 @@
-# Force TravisCI to run outside of a container
-sudo: required
 language: node_js
 node_js:
   - node # stable
@@ -10,9 +8,10 @@ branches:
 env:
   global:
     - SAUCE_USERNAME=material-sauce
-    - SAUCE_ACCESS_KEY=5e3395b4-2026-48a4-82a0-35bc756a0d2b
 addons:
   sauce_connect: true
+  jwt:
+    secure: "Z6mGHTjqv+eICZ+BscNnyzMGKJNwhZSzDS477VassOsCfPJ21idue/iEAzbz78bFKDxNoO+j6YCg/k+YP9/K1vbBRVCAJyWKqOMxo2Hr2lE3Ny4QO56sH0YoSebA85BBDkNNZtwwat8/mzSb8yqQOvYctt1YgnKZVlgHTkjxwygl7lqScvfSCmCAvraHAxdY3vLWpyo7fuz7SJigu1LXsjwKoWUF+rl6K0X+rhOUz1RH/+UHzqAABsszMwNkhu8P5Qlx0OHK6FsJ4vk6GrPtSHvKU/xMymdMMaAR2zVmiGISNT5CMZq+Ws4OLvH+9WOKZsgSa3k9QpJEloGt7qRK6OnYxXfQi9Wi3DXvL5nxDrRMb7b+Vf7H4C+oMq+rq1C1KojL5vbs5YKf080PJNhDiyti3H4AvIZI51X5QWL2pP96xdyJ0KQtYccjId8CIG6N5cHZQ59ShaNrulPdI+Jyp4dulO6MNyZJUYtNmSy1O+A0GejBrSavBXydS1zF4Gwfr7iseL1SPc8vauDYxu6zU34QRB2Ira56P+BgjLqZ6mDARnu/uiytRC4cbR2hr5YuHcn5riCb9w8GwI0l53STh63CoMiB5P+Doj5ZFyJZOId6JSckw3/oqx698oQYuqhJiC88Jt/9Vj9VqBGRk8uOcX4ZRgz4mO/6+2aUg/RaEjU="
 notifications:
   webhooks:
     urls:
