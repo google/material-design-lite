@@ -36,6 +36,8 @@
 /**
  * Creates a rule to be used in MDL components for dark theming, and applies the provided contents.
  * Should provide the $root-selector option if applied to anything other than the root selector.
+ * When used with a modifier class, provide a second argument of `true` for the $compound parameter
+ * to specify that this should be attached as a compound class.
  *
  * Usage example:
  *
@@ -55,14 +57,31 @@
  *     }
  *   }
  * }
+ *
+ * .mdl-foo--disabled {
+ *   opacity: .38;
+ *
+ *   @include mdl-theme-dark(".mdl-foo", true) {
+ *     opacity: .5;
+ *   }
+ * }
  * ```
  */
-@mixin mdl-theme-dark($root-selector: null) {
+@mixin mdl-theme-dark($root-selector: null, $compound: false) {
   @if ($root-selector) {
     @at-root {
-      #{$root-selector}--theme-dark &,
-      .mdl-theme--dark & {
-        @content;
+      @if ($compound) {
+        #{$root-selector}--theme-dark#{&},
+        .mdl-theme--dark & {
+          @content;
+        }
+      }
+
+      @else {
+        #{$root-selector}--theme-dark &,
+        .mdl-theme--dark & {
+          @content;
+        }
       }
     }
   }
