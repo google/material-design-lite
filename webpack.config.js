@@ -31,6 +31,7 @@ module.exports = [{
     autoInit: [path.resolve('./packages/mdl-auto-init/index.js')],
     Base: [path.resolve('./packages/mdl-base/index.js')],
     Checkbox: [path.resolve('./packages/mdl-checkbox/index.js')],
+    IconToggle: [path.resolve('./packages/mdl-icon-toggle/index.js')],
     Radio: [path.resolve('./packages/mdl-radio/index.js')],
     Ripple: [path.resolve('./packages/mdl-ripple/index.js')],
     Drawer: [path.resolve('./packages/mdl-drawer/index.js')]
@@ -83,6 +84,7 @@ module.exports = [{
     'mdl-checkbox': path.resolve('./packages/mdl-checkbox/mdl-checkbox.scss'),
     'mdl-elevation': path.resolve('./packages/mdl-elevation/mdl-elevation.scss'),
     'mdl-fab': path.resolve('./packages/mdl-fab/mdl-fab.scss'),
+    'mdl-icon-toggle': path.resolve('./packages/mdl-icon-toggle/mdl-icon-toggle.scss'),
     'mdl-list': path.resolve('./packages/mdl-list/mdl-list.scss'),
     'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
     'mdl-theme': path.resolve('./packages/mdl-theme/mdl-theme.scss'),

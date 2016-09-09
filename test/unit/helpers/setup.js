@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/mdl-animation";
-@import "mdl-button/mdl-button";
-@import "mdl-card/mdl-card";
-@import "mdl-checkbox/mdl-checkbox";
-@import "mdl-drawer/mdl-drawer";
-@import "mdl-elevation/mdl-elevation";
-@import "mdl-fab/mdl-fab";
-@import "mdl-icon-toggle/mdl-icon-toggle";
-@import "mdl-list/mdl-list";
-@import "mdl-radio/mdl-radio";
-@import "mdl-ripple/mdl-ripple";
-@import "mdl-theme/mdl-theme";
-@import "mdl-typography/mdl-typography";
+import td from 'testdouble';
+
+// Returns a foundation configured to use a mock object with the same api as a default adapter,
+// as well as that adapter itself.
+export function setupFoundationTest(FoundationClass) {
+  const mockAdapter = td.object(FoundationClass.defaultAdapter);
+  const foundation = new FoundationClass(mockAdapter);
+  return {mockAdapter, foundation};
+}

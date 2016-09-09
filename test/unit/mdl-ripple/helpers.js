@@ -16,54 +16,18 @@
 
 import test from 'tape';
 import td from 'testdouble';
+
+import {setupFoundationTest} from '../helpers/setup';
+import {createMockRaf} from '../helpers/raf';
+import {captureHandlers as baseCaptureHandlers} from '../helpers/foundation';
 import MDLRippleFoundation from '../../../packages/mdl-ripple/foundation';
 
 export function setupTest(isCssVarsSupported = true) {
-  const adapter = td.object(MDLRippleFoundation.defaultAdapter);
-  td.when(adapter.browserSupportsCssVars()).thenReturn(isCssVarsSupported);
-  td.when(adapter.computeBoundingRect()).thenReturn({width: 0, height: 0, left: 0, top: 0});
-  td.when(adapter.getWindowPageOffset()).thenReturn({x: 0, y: 0});
-  const foundation = new MDLRippleFoundation(adapter);
-  return {foundation, adapter};
-}
-
-export function createMockRaf() {
-  const origRaf = window.requestAnimationFrame;
-  const origCancel = window.cancelAnimationFrame;
-  const mockRaf = {
-    lastFrameId: 0,
-    pendingFrames: [],
-    flush() {
-      while (this.pendingFrames.length > 0) {
-        const {fn} = this.pendingFrames.shift();
-        fn();
-      }
-    },
-    restore() {
-      this.lastFrameId = 0;
-      this.pendingFrames = [];
-      window.requestAnimationFrame = origRaf;
-      window.cancelAnimationFrame = origCancel;
-    },
-    requestAnimationFrame(fn) {
-      const frameId = ++this.lastFrameId;
-      this.pendingFrames.push({id: frameId, fn});
-      return frameId;
-    },
-    cancelAnimationFrame(id) {
-      for (let i = 0, frame; (frame = this.pendingFrames[i]); i++) {
-        if (frame.id === id) {
-          this.pendingFrames.splice(i, 1);
-          return;
-        }
-      }
-    }
-  };
-
-  window.requestAnimationFrame = fn => mockRaf.requestAnimationFrame(fn);
-  window.cancelAnimationFrame = id => mockRaf.cancelAnimationFrame(id);
-
-  return mockRaf;
+  const {foundation, mockAdapter} = setupFoundationTest(MDLRippleFoundation);
+  td.when(mockAdapter.browserSupportsCssVars()).thenReturn(isCssVarsSupported);
+  td.when(mockAdapter.computeBoundingRect()).thenReturn({width: 0, height: 0, left: 0, top: 0});
+  td.when(mockAdapter.getWindowPageOffset()).thenReturn({x: 0, y: 0});
+  return {foundation, adapter: mockAdapter};
 }
 
 export function testFoundation(desc, isCssVarsSupported, runTests) {
@@ -91,10 +55,5 @@ export function testFoundation(desc, isCssVarsSupported, runTests) {
 }
 
 export function captureHandlers(adapter) {
-  const {isA} = td.matchers;
-  const handlers = {};
-  td.when(adapter.registerInteractionHandler(isA(String), isA(Function))).thenDo((type, handler) => {
-    handlers[type] = (evtInfo = {}) => handler(Object.assign({type}, evtInfo));
-  });
-  return handlers;
+  return baseCaptureHandlers(adapter, 'registerInteractionHandler');
 }
