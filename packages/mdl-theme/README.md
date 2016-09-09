@@ -162,10 +162,20 @@ components. It creates a suitable selector for a component, and applies the prov
     }
   }
 }
+
+.mdl-foo--disabled {
+  opacity: .38;
+
+  @include mdl-theme-dark(".mdl-foo", /* $compound: */ true) {
+    opacity: .5;
+  }
+}
 ```
 
 > Note: If using the mixin on anything other than the base selector, you need to specify the base selector as a
 parameter. This ensures that the `--theme-dark` option is appended to the right class.
+
+> Note: If using the mixin with a modifier class, pass `true` for the second argument. This will tell the mixin to treat the selector it's being mixed into as a compound class rather than a descendant selector.
 
 The above generates the following CSS:
 
@@ -181,6 +191,14 @@ The above generates the following CSS:
 }
 .mdl-foo--theme-dark .mdl-foo__bar, .mdl-theme--dark .mdl-foo__bar {
   background: white;
+}
+
+.mdl-foo--disabled {
+  opacity: .38;
+}
+.mdl-foo--theme-dark.mdl-foo--disabled,
+.mdl-theme--dark .mdl-foo--disabled {
+  opacity: .5;
 }
 ```
 
