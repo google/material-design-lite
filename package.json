@@ -16,7 +16,7 @@
     "lint:js": "eslint packages test webpack.config.js karma.conf.js",
     "lint:css": "stylelint packages/**/*.scss",
     "lint": "npm-run-all --parallel lint:*",
-    "postinstall": "lerna bootstrap",
+    "postinstall": "lerna init && lerna bootstrap",
     "pretest": "npm run lint",
     "test": "karma start --single-run",
     "posttest": "istanbul report --root coverage text-summary && istanbul check-coverage --lines 85 --statements 85 --branches 85 --functions 85",
