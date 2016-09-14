@@ -16,9 +16,12 @@
       - [Using DOM (Component Only)](#using-dom-component-only)
     - [The mdl-ripple-surface class](#the-mdl-ripple-surface-class)
     - [Using the foundation](#using-the-foundation)
+    - [Using the vanilla DOM adapter](#using-the-vanilla-DOM-adapter)
   - [Tips/Tricks](#tipstricks)
     - [Integrating ripples into MDL components](#integrating-ripples-into-mdl-components)
     - [Using a sentinel element for a ripple](#using-a-sentinel-element-for-a-ripple)
+    - [Keyboard interaction for custom UI components](#keyboard-interaction-for-custom-ui-components)
+    - [Specifying known element dimensions](#specifying-known-element-dimensions)
   - [Caveat: Safari](#caveat-safari)
   - [Caveat: Theme Custom Variables](#caveat-theme-custom-variables)
 
@@ -265,6 +268,26 @@ ripple to. The adapter API is as follows:
 | `computeBoundingRect() => ClientRect` | Returns the ClientRect for the surface. |
 | `getWindowPageOffset() => {x: number, y: number}` | Returns the `page{X,Y}Offset` values for the window object as `x` and `y` properties of an object (respectively). |
 
+### Using the vanilla DOM adapter
+
+Because ripples are used so ubiquitously throughout our codebase, `MDLRipple` has a static
+`createAdapter(instance)` method that can be used to instantiate an adapter object that can be used by
+any `MDLComponent` that needs to instantiate an `MDLRippleFoundation` with custom functionality.
+
+```js
+class MyMDLComponent extends MDLComponent {
+  constructor() {
+    super(...arguments);
+    this.ripple_ = new MDLRippleFoundation(Object.assign(MDLRipple.createAdapter(this), {
+      isSurfaceActive: () => this.isActive_
+    }));
+    this.ripple_.init();
+  }
+
+  // ...
+}
+```
+
 ## Tips/Tricks
 
 ### Integrating ripples into MDL components
@@ -284,6 +307,68 @@ the same effect.
   <div class="mdl-ripple-surface"></div>
   <!-- your component DOM -->
 </div>
+```
+
+### Keyboard interaction for custom UI components
+
+Different keyboard events activate different elements. For example, the space key activate buttons, while the enter key activates links. Handling this by sniffing the key/keyCode of an event is brittle and error-prone, so instead we take the approach of using `adapter.isSurfaceActive()`. The
+way in which our default vanilla DOM adapter determines this is by using
+`element.matches(':active')`. However, this approach will _not_ work for custom components that
+the browser does not apply this pseudo-class to.
+
+If you want your component to work properly with keyboard events, you'll have to listen for both `keydown` and `keyup` and set some sort of state that the adapter can use to determine whether or
+not the surface is "active", e.g.
+
+```js
+class MyComponent {
+  constructor(el) {
+    this.el = el;
+    this.active = false;
+    this.ripple_ = new MDLRippleFoundation({
+      // ...
+      isSurfaceActive: () => this.active
+    });
+    this.el.addEventListener('keydown', evt => {
+      if (isSpace(evt)) {
+        this.active = true;
+      }
+    });
+    this.el.addEventListener('keyup', evt => {
+      if (isSpace(evt)) {
+        this.active = false;
+      }
+    });
+  }
+}
+```
+
+### Specifying known element dimensions
+
+If you asynchronously load style resources, such as loading stylesheets dynamically via scripts
+or loading fonts, then `adapter.getClientRect()` may by default return _incorrect_ dimensions when
+the ripple foundation is initialized. For example, if you put a ripple on an element that uses an
+icon font, and the size of the icon font isn't specified at initialization time, then if that icon
+font hasn't loaded it may report the intrinsic width/height incorrectly. In order to prevent this,
+you can override the default behavior of `getClientRect()` to return the correct results. For
+example, if you know an icon font sizes its elements to `24px` width/height, you can do the
+following:
+
+```js
+this.ripple_ = new MDLRippleFoundation({
+  // ...
+  computeBoundingRect: () => {
+    const {left, top} = element.getBoundingClientRect();
+    const dim = 24;
+    return {
+      left,
+      top,
+      width: dim,
+      height: dim,
+      right: left + dim,
+      bottom: top + dim
+    };
+  }
+});
 ```
 
 ## Caveat: Safari

@@ -32,6 +32,23 @@ export default class MDLRipple extends MDLComponent {
     return ripple;
   }
 
+  static createAdapter(instance) {
+    return {
+      browserSupportsCssVars: () => supportsCssVariables(window),
+      isUnbounded: () => instance.unbounded,
+      isSurfaceActive: () => instance.root_[MATCHES](':active'),
+      addClass: className => instance.root_.classList.add(className),
+      removeClass: className => instance.root_.classList.remove(className),
+      registerInteractionHandler: (evtType, handler) => instance.root_.addEventListener(evtType, handler),
+      deregisterInteractionHandler: (evtType, handler) => instance.root_.removeEventListener(evtType, handler),
+      registerResizeHandler: handler => window.addEventListener('resize', handler),
+      deregisterResizeHandler: handler => window.removeEventListener('resize', handler),
+      updateCssVariable: (varName, value) => instance.root_.style.setProperty(varName, value),
+      computeBoundingRect: () => instance.root_.getBoundingClientRect(),
+      getWindowPageOffset: () => ({x: window.pageXOffset, y: window.pageYOffset})
+    };
+  }
+
   get unbounded() {
     return this.unbounded_;
   }
@@ -47,20 +64,7 @@ export default class MDLRipple extends MDLComponent {
   }
 
   getDefaultFoundation() {
-    return new MDLRippleFoundation({
-      browserSupportsCssVars: () => supportsCssVariables(window),
-      isUnbounded: () => this.unbounded,
-      isSurfaceActive: () => this.root_[MATCHES](':active'),
-      addClass: className => this.root_.classList.add(className),
-      removeClass: className => this.root_.classList.remove(className),
-      registerInteractionHandler: (evtType, handler) => this.root_.addEventListener(evtType, handler),
-      deregisterInteractionHandler: (evtType, handler) => this.root_.removeEventListener(evtType, handler),
-      registerResizeHandler: handler => window.addEventListener('resize', handler),
-      deregisterResizeHandler: handler => window.removeEventListener('resize', handler),
-      updateCssVariable: (varName, value) => this.root_.style.setProperty(varName, value),
-      computeBoundingRect: () => this.root_.getBoundingClientRect(),
-      getWindowPageOffset: () => ({x: window.pageXOffset, y: window.pageYOffset})
-    });
+    return new MDLRippleFoundation(MDLRipple.createAdapter(this));
   }
 
   initialSyncWithDOM() {

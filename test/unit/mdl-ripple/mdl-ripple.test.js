@@ -51,6 +51,13 @@ test('attachTo overrides unbounded data attr when explicitly specified', t => {
   t.end();
 });
 
+test('createAdapter() returns the same adapter used by default for the ripple', t => {
+  const root = bel`<div></div>`;
+  const component = MDLRipple.attachTo(root);
+  t.deepEqual(Object.keys(MDLRipple.createAdapter()), Object.keys(component.foundation_.adapter_));
+  t.end();
+});
+
 function setupTest() {
   const root = bel`<div></div>`;
   const component = new MDLRipple(root);
