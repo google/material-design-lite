@@ -15,6 +15,7 @@
  */
 
 @import "mdl-animation/variables";
+@import "mdl-theme/mixins";
 @import "./mixins";
 
 /* postcss-bem-linter: define ripple-surface */
@@ -51,8 +52,28 @@
 
   &.mdl-ripple-upgraded {
     @include mdl-ripple-base;
-    @include mdl-ripple-bg("::before", rgba(black, .06));
-    @include mdl-ripple-fg("::after", rgba(black, .06));
+    @include mdl-ripple-bg((pseudo: "::before"));
+    @include mdl-ripple-fg((pseudo: "::after"));
+  }
+
+  &--primary.mdl-ripple-upgraded {
+    &::before,
+    &::after {
+      @include mdl-theme-prop(background-color, primary);
+    }
+
+    @include mdl-ripple-bg((pseudo: "::before", theme-style: primary, opacity: .14));
+    @include mdl-ripple-fg((pseudo: "::after", theme-style: primary, opacity: .14));
+  }
+
+  &--accent.mdl-ripple-upgraded {
+    &::before,
+    &::after {
+      @include mdl-theme-prop(background-color, primary);
+    }
+
+    @include mdl-ripple-bg((pseudo: "::before", theme-style: accent, opacity: .14));
+    @include mdl-ripple-fg((pseudo: "::after", theme-style: accent, opacity: .14));
   }
 }
 
