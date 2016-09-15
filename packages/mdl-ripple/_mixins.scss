@@ -14,8 +14,19 @@
  * limitations under the License.
  */
 
+@import "mdl-theme/variables";
 @import "./keyframes";
 @import "./variables";
+
+@function mdl-ripple-default-config_() {
+  @return (
+    pseudo: null,
+    radius: 100%,
+    base-color: black,
+    opacity: .06,
+    theme-style: null
+  );
+}
 
 @mixin mdl-ripple-base() {
   --mdl-ripple-left: 0;
@@ -33,7 +44,39 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-@mixin mdl-ripple-bg-base($color, $radius: 100%) {
+@mixin mdl-ripple-color_($config) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $base-color: map-get($config, base-color);
+  $opacity: map-get($config, opacity);
+  $theme-style: map-get($config, theme-style);
+
+  /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
+  @if ($theme-style) {
+    $theme-value: map-get($mdl-theme-property-values, $theme-style);
+    $css-var: var(--mdl-theme-#{$theme-style}, $theme-value);
+    /* stylelint-enable scss/dollar-variable-pattern */
+
+    background-color: rgba($theme-value, $opacity);
+
+    // See: https://drafts.csswg.org/css-color/#modifying-colors
+    // While this is currently unsupported as of now, it will begin to work by default as browsers
+    // begin to implement the CSS 4 color spec.
+    @supports (background-color: color(green a(10%))) {
+      background-color: color(#{$css-var} a(#{percentage($opacity)}));
+    }
+  } @else {
+    background-color: rgba($base-color, $opacity);
+  }
+  /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
+}
+
+@mixin mdl-ripple-bg-base_($config) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $radius: map-get($config, radius);
+  /* stylelint-enable scss/dollar-variable-pattern */
+
+  @include mdl-ripple-color_($config);
+
   position: absolute;
   top: calc(50% - #{$radius});
   left: calc(50% - #{$radius});
@@ -42,20 +85,24 @@
   transform: scale(1);
   transition: opacity 200ms linear;
   border-radius: 50%;
-  background-color: $color;
   opacity: 0;
   pointer-events: none;
 }
 
-@mixin mdl-ripple-bg($pseudo: null, $color: rgba(black, .06)) {
+@mixin mdl-ripple-bg($config: ()) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $config: map-merge(mdl-ripple-default-config_(), $config);
+  $pseudo: map-get($config, pseudo);
+  /* stylelint-enable scss/dollar-variable-pattern */
+
   /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
   @if ($pseudo) {
     &#{$pseudo} {
-      @include mdl-ripple-bg-base($color);
+      @include mdl-ripple-bg-base_($config);
       content: "";
     }
   } @else {
-    @include mdl-ripple-bg-base($color);
+    @include mdl-ripple-bg-base_($config);
   }
   /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
 
@@ -83,27 +130,33 @@
   }
 }
 
-@mixin mdl-ripple-fg-base($color) {
+@mixin mdl-ripple-fg-base_($config) {
+  @include mdl-ripple-color_($config);
+
   position: absolute;
   width: var(--mdl-ripple-fg-size);
   height: var(--mdl-ripple-fg-size);
   transform: scale(0);
   transform-origin: center center;
   border-radius: 50%;
-  background-color: $color;
   opacity: 0;
   pointer-events: none;
 }
 
-@mixin mdl-ripple-fg($pseudo: null, $color: rgba(black, .06)) {
+@mixin mdl-ripple-fg($config: ()) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $config: map-merge(mdl-ripple-default-config_(), $config);
+  $pseudo: map-get($config, pseudo);
+  /* stylelint-enable scss/dollar-variable-pattern */
+
   /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
   @if ($pseudo) {
     &#{$pseudo} {
-      @include mdl-ripple-fg-base($color);
+      @include mdl-ripple-fg-base_($config);
       content: "";
     }
   } @else {
-    @include mdl-ripple-fg-base($color);
+    @include mdl-ripple-fg-base_($config);
   }
   /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
 
