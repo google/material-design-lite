@@ -19,6 +19,7 @@ const webpackConfig = require('./webpack.config')[0];
 
 const USING_TRAVISCI = Boolean(process.env.TRAVIS);
 const USING_SL = Boolean(process.env.SAUCE_USERNAME && process.env.SAUCE_ACCESS_KEY);
+const IS_SECURE = Boolean(process.env.SECURE);
 
 const SL_LAUNCHERS = {
   'sl-chrome-stable': {
@@ -164,7 +165,7 @@ module.exports = function(config) {
 
 function determineBrowsers() {
   var browsers = USING_SL ? Object.keys(SL_LAUNCHERS) : ['Chrome'];
-  if (USING_TRAVISCI && !process.env.IS_SECURE) {
+  if (USING_TRAVISCI && !IS_SECURE) {
     console.warn(
       'NOTICE: Falling back to firefox browser, as travis-ci JWT addon is currently not working ' +
       'with Sauce Labs. See - https://github.com/travis-ci/travis-ci/issues/6569'
