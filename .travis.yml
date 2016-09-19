@@ -7,20 +7,19 @@ branches:
     - master
 # TODO: remove when https://github.com/travis-ci/travis-ci/issues/6569 is fixed
 before_install:
-  - 'if [[ -z "$IS_SECURE" ]]; then echo "Using Firefox Fallback"; export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; fi;'
+  - 'if [[ -z "$SECURE" ]]; then echo "Using Firefox Fallback"; export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; fi;'
 env:
   global:
     - SAUCE_USERNAME=material-sauce
-    # IS_SECURE=1. This is used to help us determine whether or not we need to fall back to Firefox.
+    # SECURE=true. This is used to help us determine whether or not we need to fall back to Firefox.
     # TODO: remove when https://github.com/travis-ci/travis-ci/issues/6569 is fixed
-    -
-      secure: "StuPKLoYKeKnQMtCc+uRkI9rPvVjEqUZtElUBhKRxG3XUtv+EKlqR4bmH04I/QnWCk46LaqHcU5Uc78OuoWO8+/Y+HkFqcPNLB5/RuAlrdr5eT4kOebL/2kz/7dt1/2HaRvX0sNjtznObXe2gH3847p4S1eZ0ml3wCEwBgqbGe7leJ35YWvALESMikwlStJZWKb+gOC++gKvPDbYUf4E8u22c6xuJvYEkIPTBYi5cxer2DU9S6Dzad8GFoGHomi1zlfk02yFgobfvdXvFYbmFu7Ap3hGOeUfJSNQdE/C5WmB88gXOdXDxr5ft6OC4ZAsjVXdJpdK+436cXepWPH5iWzwYkX4QWigYhuXWBQvtwXKuzqUO6newoLCuS5d3bbc00w7LQHuN/zYkaKdDaD2reYBHlSNZPnLmfRJ+iL1eaaF0N+kLkS6kLV3sqrpZVzEcHVcf9GY785gHNj27+5FJZlBDhTu4yc+vQ+abG/yn1q7eEM3llIl1ejA65NoF4eqq7LWHAJS5Zczt18rH4rqDiHst2aMBgtBWY4uDH+2ZAv+TaUnfQ2e+GBucih0Na856hZ8IoJzS3bFuF96Ce8CAyzcyM/1/VpvdtuUYcwN/+6elx1iV0T7dqogzPLuBLqKMqunVPPwegUQ05JaUR/EwK/r1fNfiU6avqW6bwofuzM="
+    - secure: AxiBF/aKR7YjYP9WYLcAoeFzm4d1XE0loDxk7+K8npWqWTnSnTe8ewrdPPmqHvQaeUqBYHRsFuBTxPXvPYDs2s5s7EUotLVU83Gh3iQw2dmBvuNi81sXlvXbYyJE7qZ/E418bEZBrfNaZ/Mm37ehoLs0+suSy3UjDacfPltObzF7vWedyOmZa5fRVd2/VoX11MMZybGJykUml4jSSg5qrve1P49SgybUaNnvwMMEzGuRi9jwSngvMsHtjS6uCHE/CWNJla3Zt3qjsKBPcwsSZHm/wNEX7frufZ7ReqTZjsMyOidPjlZfH8Yk5fgM610h7noWeav3l0CwsrEgWX0nFdop/3JUfWodqpXWVrTqd1scna4kFvfAcH9qltqXkxlRzetQrURsUiPHC4RkL8E9bUkol++JNhW4Cur287FxP4NVO5Mo3071dwBU7Jh/aQpq0ANJx/js5bZAUIDsEno3uHZe4LLMUBaowU1Jr03wZnis5A7w97kOz0HaUw0W1r5mBo7rB3Fb+CAUnFeVzxoSnkf2npJ1vai8HM7No+qnuV9I/C157LmATyY/UqBScbKe/kk7EeF/YBWfyaeWXxAi68Xmiw4PytAapRn7xfI56hZ28Dc/xdx2uDjPJnu5cKjDjDOxkdSoYO9eG7ZSSbIoD1MskaTjb2y9B6GlAmmSu/I=
 addons:
   # TODO: remove firefox when https://github.com/travis-ci/travis-ci/issues/6569 is fixed
   firefox: latest
   sauce_connect: true
   jwt:
-    secure: "Z6mGHTjqv+eICZ+BscNnyzMGKJNwhZSzDS477VassOsCfPJ21idue/iEAzbz78bFKDxNoO+j6YCg/k+YP9/K1vbBRVCAJyWKqOMxo2Hr2lE3Ny4QO56sH0YoSebA85BBDkNNZtwwat8/mzSb8yqQOvYctt1YgnKZVlgHTkjxwygl7lqScvfSCmCAvraHAxdY3vLWpyo7fuz7SJigu1LXsjwKoWUF+rl6K0X+rhOUz1RH/+UHzqAABsszMwNkhu8P5Qlx0OHK6FsJ4vk6GrPtSHvKU/xMymdMMaAR2zVmiGISNT5CMZq+Ws4OLvH+9WOKZsgSa3k9QpJEloGt7qRK6OnYxXfQi9Wi3DXvL5nxDrRMb7b+Vf7H4C+oMq+rq1C1KojL5vbs5YKf080PJNhDiyti3H4AvIZI51X5QWL2pP96xdyJ0KQtYccjId8CIG6N5cHZQ59ShaNrulPdI+Jyp4dulO6MNyZJUYtNmSy1O+A0GejBrSavBXydS1zF4Gwfr7iseL1SPc8vauDYxu6zU34QRB2Ira56P+BgjLqZ6mDARnu/uiytRC4cbR2hr5YuHcn5riCb9w8GwI0l53STh63CoMiB5P+Doj5ZFyJZOId6JSckw3/oqx698oQYuqhJiC88Jt/9Vj9VqBGRk8uOcX4ZRgz4mO/6+2aUg/RaEjU="
+    secure: Z6mGHTjqv+eICZ+BscNnyzMGKJNwhZSzDS477VassOsCfPJ21idue/iEAzbz78bFKDxNoO+j6YCg/k+YP9/K1vbBRVCAJyWKqOMxo2Hr2lE3Ny4QO56sH0YoSebA85BBDkNNZtwwat8/mzSb8yqQOvYctt1YgnKZVlgHTkjxwygl7lqScvfSCmCAvraHAxdY3vLWpyo7fuz7SJigu1LXsjwKoWUF+rl6K0X+rhOUz1RH/+UHzqAABsszMwNkhu8P5Qlx0OHK6FsJ4vk6GrPtSHvKU/xMymdMMaAR2zVmiGISNT5CMZq+Ws4OLvH+9WOKZsgSa3k9QpJEloGt7qRK6OnYxXfQi9Wi3DXvL5nxDrRMb7b+Vf7H4C+oMq+rq1C1KojL5vbs5YKf080PJNhDiyti3H4AvIZI51X5QWL2pP96xdyJ0KQtYccjId8CIG6N5cHZQ59ShaNrulPdI+Jyp4dulO6MNyZJUYtNmSy1O+A0GejBrSavBXydS1zF4Gwfr7iseL1SPc8vauDYxu6zU34QRB2Ira56P+BgjLqZ6mDARnu/uiytRC4cbR2hr5YuHcn5riCb9w8GwI0l53STh63CoMiB5P+Doj5ZFyJZOId6JSckw3/oqx698oQYuqhJiC88Jt/9Vj9VqBGRk8uOcX4ZRgz4mO/6+2aUg/RaEjU=
 notifications:
   webhooks:
     urls:
