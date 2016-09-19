@@ -14,86 +14,204 @@
   See the License for the specific language governing permissions and
   limitations under the License
 -->
-<html>
+<html class="mdl-typography">
   <head>
     <meta charset="utf-8">
     <title>MDL Radio Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
     <style type="text/css">
-    .surface {
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-      0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-      0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      .mdl-theme--dark {
+        background-color: #303030;
+      }
 
-      position: relative;
-    }
-     section {
-       margin: 48px;
-     }
-     body {
-       font-family: sans-serif;
-     }
-     button {
-       display: block;
-       margin: 16px 0;
-     }
-     .mdl-radio {
-       margin: 8px;
-     }
-     .mdl-radio span {
-       display: inline-block;
-       line-height: 20px;
-       margin-left: 4px;
-       vertical-align: top;
-     }
+      /* Example of manually theming a radio. In a real app, the primary color would have enough
+         contrast from the dark background that this wouldn't be necessary. */
+      .mdl-theme--dark .mdl-radio__native-control:checked:not(:disabled) ~ .mdl-radio__background .mdl-radio__outer-circle {
+        border-color: #e91e63;
+      }
+      .mdl-theme--dark .mdl-radio__native-control:checked:not(:disabled) ~ .mdl-radio__background .mdl-radio__inner-circle {
+        background-color: #e91e63;
+      }
+      .mdl-theme--dark .mdl-radio__background::before {
+        background-color: #e91e63;
+      }
+      .mdl-theme--dark .mdl-radio.mdl-ripple-upgraded::before,
+      .mdl-theme--dark .mdl-radio.mdl-ripple-upgraded::after {
+        background-color: rgba(233, 31, 99, .2);
+      }
+
+      /* NOTE: This will eventually be split out into its own component, similar to
+       * mdl-checkbox-wrapper (which will be consolidated into this as well). */
+      .mdl-form-field {
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+      }
+
+      .mdl-form-field > label {
+        order: 1;
+        margin-left: 4px;
+        margin-right: auto;
+      }
+
+      .mdl-form-field.mdl-form-field--align-end > label {
+        margin-left: auto;
+        margin-right: 4px;
+      }
+
+      [dir="rtl"] .mdl-form-field > label {
+        order: 0;
+        margin-left: auto;
+        margin-right: 4px;
+      }
+
+      [dir="rtl"] .mdl-form-field.mdl-form-field--align-end > label,
+      .mdl-form-field.mdl-form-field--align-end[dir="rtl"] > label {
+        margin-left: 4px;
+        margin-right: auto;
+      }
+
+      .mdl-theme--dark .mdl-form-field {
+        color: white;
+      }
     </style>
   </head>
   <body>
     <main>
+      <h1>MDL Radio</h1>
       <section>
-        <label for="radio1" class="mdl-radio">
-          <input class="mdl-radio__input" type="radio"
-                 id="radio1"
-                 checked
-                 name="myVariable">
-          <div class="mdl-radio__container">
-            <div class="mdl-radio__outer-circle"></div>
-            <div class="mdl-radio__inner-circle"></div>
-            <div class="mdl-ink-ripple"></div>
-          </div>
-          <span>My Radio Button 1</span>
-        </label>
+        <h2>Basic Example, No Javascript</h2>
 
-        <label for="radio2" class="mdl-radio">
-          <input class="mdl-radio__input" type="radio"
-                 id="radio2"
-                 name="myVariable">
-          <div class="mdl-radio__container">
-            <div class="mdl-radio__outer-circle"></div>
-            <div class="mdl-radio__inner-circle"></div>
-            <div class="mdl-ink-ripple"></div>
+        <div class="mdl-form-field">
+          <div class="mdl-radio" data-demo-no-js>
+            <input class="mdl-radio__native-control" type="radio" id="ex1-radio1" checked name="ex1">
+            <div class="mdl-radio__background">
+              <div class="mdl-radio__outer-circle"></div>
+              <div class="mdl-radio__inner-circle"></div>
+            </div>
           </div>
-          <span>My Radio Button 2</span>
-        </label>
-        <button id="disable">Disable</button>
+          <label id="ex1-radio1-label" for="ex1-radio1">Radio 1</label>
+        </div>
+        <div class="mdl-form-field">
+          <div class="mdl-radio" data-demo-no-js>
+            <input class="mdl-radio__native-control" type="radio" id="ex1-radio2" name="ex1">
+            <div class="mdl-radio__background">
+              <div class="mdl-radio__outer-circle"></div>
+              <div class="mdl-radio__inner-circle"></div>
+            </div>
+          </div>
+          <label id="ex1-radio2-label" for="ex1-radio2">Radio 2</label>
+        </div>
+      </section>
+
+      <section>
+        <h2>With Javascript</h2>
+        <div class="mdl-form-field">
+          <div class="mdl-radio">
+            <input class="mdl-radio__native-control" type="radio" id="ex2-radio1" checked name="ex2">
+            <div class="mdl-radio__background">
+              <div class="mdl-radio__outer-circle"></div>
+              <div class="mdl-radio__inner-circle"></div>
+            </div>
+          </div>
+          <label id="ex2-radio1-label" for="ex2-radio1">Radio 1</label>
+        </div>
+        <div class="mdl-form-field">
+          <div class="mdl-radio">
+            <input class="mdl-radio__native-control" type="radio" id="ex2-radio2" name="ex2">
+            <div class="mdl-radio__background">
+              <div class="mdl-radio__outer-circle"></div>
+              <div class="mdl-radio__inner-circle"></div>
+            </div>
+          </div>
+          <label id="ex2-radio2-label" for="ex2-radio2">Radio 2</label>
+        </div>
+      </section>
+
+      <section class="mdl-theme--dark">
+        <h2 class="mdl-theme--text-primary-on-dark">Dark Theme</h2>
+
+        <div class="mdl-form-field">
+          <div class="mdl-radio">
+            <input class="mdl-radio__native-control" type="radio" id="ex3-radio1" checked name="ex3">
+            <div class="mdl-radio__background">
+              <div class="mdl-radio__outer-circle"></div>
+              <div class="mdl-radio__inner-circle"></div>
+            </div>
+          </div>
+          <label id="ex3-radio1-label" for="ex3-radio1">Radio 1</label>
+        </div>
+        <div class="mdl-form-field">
+          <div class="mdl-radio">
+            <input class="mdl-radio__native-control" type="radio" id="ex3-radio2" name="ex3">
+            <div class="mdl-radio__background">
+              <div class="mdl-radio__outer-circle"></div>
+              <div class="mdl-radio__inner-circle"></div>
+            </div>
+          </div>
+          <label id="ex3-radio2-label" for="ex3-radio2">Radio 2</label>
+        </div>
+      </section>
+
+      <section>
+        <h2>Disabled</h2>
+
+        <div>
+          <div class="mdl-form-field">
+            <div class="mdl-radio mdl-radio--disabled">
+              <input class="mdl-radio__native-control" type="radio" id="ex4a-radio1" checked disabled name="ex4a">
+              <div class="mdl-radio__background">
+                <div class="mdl-radio__outer-circle"></div>
+                <div class="mdl-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label id="ex4a-radio1-label" for="ex4a-radio1">Disabled Radio 1</label>
+          </div>
+          <div class="mdl-form-field">
+            <div class="mdl-radio mdl-radio--disabled">
+              <input class="mdl-radio__native-control" type="radio" id="ex4a-radio2" disabled name="ex4a">
+              <div class="mdl-radio__background">
+                <div class="mdl-radio__outer-circle"></div>
+                <div class="mdl-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label id="ex4a-radio2-label" for="ex4a-radio2">Disabled Radio 2</label>
+          </div>
+        </div>
+        <div class="mdl-theme--dark">
+          <div class="mdl-form-field">
+            <div class="mdl-radio mdl-radio--disabled">
+              <input class="mdl-radio__native-control" type="radio" id="ex4b-radio1" checked disabled name="ex4b">
+              <div class="mdl-radio__background">
+                <div class="mdl-radio__outer-circle"></div>
+                <div class="mdl-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label id="ex4b-radio1-label" for="ex4b-radio1">Disabled Radio 1</label>
+          </div>
+          <div class="mdl-form-field">
+            <div class="mdl-radio mdl-radio--disabled">
+              <input class="mdl-radio__native-control" type="radio" id="ex4b-radio2" name="ex4b" disabled>
+              <div class="mdl-radio__background">
+                <div class="mdl-radio__outer-circle"></div>
+                <div class="mdl-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label id="ex4b-radio2-label" for="ex4b-radio2">Disabled Radio 2</label>
+          </div>
+        </div>
       </section>
     </main>
     <script src="assets/material-design-lite.js" charset="utf-8"></script>
     <script>
       (function(global) {
         'use strict';
-        var radios = document.querySelectorAll('.mdl-radio');
+        var radios = document.querySelectorAll('.mdl-radio:not([data-demo-no-js])');
         var components = []
         for (var i = 0; i < radios.length; i++) {
           components.push(new global.mdl.Radio(radios[i]));
         }
-        var disable = document.getElementById('disable');
-        disable.addEventListener('click', function() {
-          for (var i = 0; i < components.length; i++) {
-            components[i].disabled = !components[i].disabled;
-          }
-        });
       })(this);
     </script>
   </body>

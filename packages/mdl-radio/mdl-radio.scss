@@ -14,120 +14,188 @@
  * limitations under the License.
  */
 
-$mdl-radio-size: 20px !default;
-$mdl-radio-foreground-color: #333 !default;
-$mdl-radio-accent-color: rgba(255, 82, 82, .87) !default;
-$mdl-radio-disabled-color: gray !default;
-$mdl-radio-timing-fn: ease 280ms !default;
+@import "mdl-animation/variables";
+@import "mdl-ripple/mixins";
+@import "mdl-theme/mixins";
 
-// Top-level host container.
-// postcss-bem-linter: define radio
+$mdl-radio-touch-area: 40px;
+$mdl-radio-ui-size: 20px;
+$mdl-radio-ui-pct: percentage($mdl-radio-ui-size / $mdl-radio-touch-area);
+
+/* postcss-bem-linter: define radio */
 .mdl-radio {
   display: inline-block;
-  transition: color $mdl-radio-timing-fn;
-  color: $mdl-radio-foreground-color;
+  position: relative;
+  box-sizing: border-box;
+  width: $mdl-radio-touch-area;
+  height: $mdl-radio-touch-area;
+  padding: ($mdl-radio-touch-area - $mdl-radio-ui-size) / 2;
+  cursor: pointer;
+  will-change: opacity, transform, border-color, background-color, color;
 
   // Container for radio circles and ripple.
-  &__container {
+  &__background {
     display: inline-block;
-    position: relative;
-    width: $mdl-radio-size;
-    height: $mdl-radio-size;
-    cursor: pointer;
+    position: absolute;
+    width: $mdl-radio-ui-pct;
+    height: $mdl-radio-ui-pct;
     box-sizing: border-box;
+
+    &::before {
+      @include mdl-theme-prop(background-color, primary);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: scale(0, 0);
+      transition:
+        opacity 120ms $mdl-animation-fast-out-linear-in-timing-function,
+        transform 120ms $mdl-animation-fast-out-linear-in-timing-function;
+      border-radius: 50%;
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+    }
   }
-  // The outer circle for the radio, always present.
+
   &__outer-circle {
+    @include mdl-theme-prop(border-color, text-secondary-on-light);
+
+    @include mdl-theme-dark(".mdl-radio") {
+      @include mdl-theme-prop(border-color, text-secondary-on-dark);
+    }
+
     position: absolute;
     top: 0;
     left: 0;
-    width: $mdl-radio-size;
-    height: $mdl-radio-size;
-    transition: border-color $mdl-radio-timing-fn;
-    border: 2px solid $mdl-radio-foreground-color;
+    width: 100%;
+    height: 100%;
+    transition: border-color 120ms $mdl-animation-fast-out-linear-in-timing-function;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 50%;
     box-sizing: border-box;
-    will-change: border-color;
   }
-  // The inner circle for the radio, shown when checked.
+
   &__inner-circle {
+    @include mdl-theme-prop(background-color, text-secondary-on-light);
+
+    @include mdl-theme-dark(".mdl-radio") {
+      @include mdl-theme-prop(background-color, text-secondary-on-dark);
+    }
+
     position: absolute;
     top: 0;
     left: 0;
-    width: $mdl-radio-size;
-    height: $mdl-radio-size;
-    transform: scale(0);
-    transition: transform $mdl-radio-timing-fn, background-color $mdl-radio-timing-fn;
+    width: 100%;
+    height: 100%;
+    transform: scale(0, 0);
+    transition:
+      transform 120ms $mdl-animation-fast-out-linear-in-timing-function,
+      background-color 120ms $mdl-animation-fast-out-linear-in-timing-function;
     border-radius: 50%;
-    background-color: $mdl-radio-accent-color;
     box-sizing: border-box;
-    will-change: transform;
   }
-  // Underlying native input element.
-  // Visually hidden but still able to respond to focus.
-  &__input {
+
+  &__native-control {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     padding: 0;
-    border: 0;
-    text-transform: none;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
+    cursor: inherit;
+    opacity: 0;
+    z-index: 1;
   }
 }
 
-.mdl-radio__input:checked {
-  ~ .mdl-radio__container {
+.mdl-radio__native-control:checked,
+.mdl-radio__native-control:disabled {
+  + .mdl-radio__background {
+    transition:
+      opacity 120ms $mdl-animation-linear-out-slow-in-timing-function,
+      transform 120ms $mdl-animation-linear-out-slow-in-timing-function;
+
     .mdl-radio__outer-circle {
-      border-color: $mdl-radio-accent-color;
+      transition: border-color 120ms $mdl-animation-linear-out-slow-in-timing-function;
     }
 
     .mdl-radio__inner-circle {
-      transform: scale(.5);
+      transition:
+        transform 120ms $mdl-animation-linear-out-slow-in-timing-function,
+        background-color 120ms $mdl-animation-linear-out-slow-in-timing-function;
     }
   }
 }
 
-// Basic disabled state.
-.mdl-radio__input:disabled {
-  ~ .mdl-radio__container {
+.mdl-radio--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.mdl-radio__native-control:checked {
+  + .mdl-radio__background {
+    .mdl-radio__outer-circle {
+      @include mdl-theme-prop(border-color, primary);
+    }
+
+    .mdl-radio__inner-circle {
+      @include mdl-theme-prop(background-color, primary);
+
+      transform: scale(.5);
+      transition:
+        transform 120ms $mdl-animation-linear-out-slow-in-timing-function,
+        background-color 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    }
+  }
+}
+
+.mdl-radio__native-control:disabled,
+fieldset:disabled .mdl-radio__native-control,
+[aria-disabled="true"] .mdl-radio__native-control {
+  + .mdl-radio__background {
     cursor: default;
 
     .mdl-radio__outer-circle {
-      border-color: $mdl-radio-disabled-color;
+      border-color: rgba(black, .26);
+
+      @include mdl-theme-dark(".mdl-radio") {
+        border-color: rgba(white, .3);
+      }
     }
 
     .mdl-radio__inner-circle {
-      background-color: $mdl-radio-disabled-color;
+      background-color: rgba(black, .26);
+
+      @include mdl-theme-dark(".mdl-radio") {
+        background-color: rgba(white, .3);
+      }
     }
   }
 }
 
-.mdl-radio__input:focus {
-  ~ .mdl-radio__container {
-    .mdl-ink-ripple {
-      background-color: rgba(255, 82, 82, .26);
-      // Fade in when radio focused.
-      opacity: 1;
-    }
+.mdl-radio__native-control:focus {
+  + .mdl-radio__background::before {
+    transform: scale(2.8, 2.8);
+    transition:
+      opacity 120ms $mdl-animation-linear-out-slow-in-timing-function,
+      transform 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    opacity: .26;
   }
 }
 
-// TODO(mtlin): This is temporary and will be removed once the ripple is integrated.
-// postcss-bem-linter: ignore
-.mdl-ink-ripple {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 48px;
-  height: 48px;
-  transform: translate(-50%, -50%);
-  transition: opacity $mdl-radio-timing-fn, background-color $mdl-radio-timing-fn;
-  border-radius: 50%;
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
+/* postcss-bem-linter: end */
+
+.mdl-radio.mdl-ripple-upgraded {
+  @include mdl-ripple-base;
+  @include mdl-ripple-bg((pseudo: "::before", theme-style: primary, opacity: .14));
+  @include mdl-ripple-fg((pseudo: "::after", theme-style: primary, opacity: .14));
+
+  .mdl-radio__background::before {
+    content: none;
+  }
 }
-// postcss-bem-linter: end

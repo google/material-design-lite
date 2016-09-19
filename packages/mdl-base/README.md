@@ -1,8 +1,5 @@
 # mdl-base
 
-> NOTE: Please do not use or rely on `adapter.js`. It is deprecated and in the process of being
-> removed.
-
 MDL base contains core foundation and component classes that serve as the base classes for all of MDL's foundation classes and components (respectively).
 
 Most of the time, you shouldn't need to depend on `mdl-base` directly. It is useful however if you'd like to write custom components that follow MDL's pattern and elegantly integrate with the MDL ecosystem.

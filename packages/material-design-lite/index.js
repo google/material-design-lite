@@ -27,6 +27,7 @@ autoInit.register('MDLCheckbox', Checkbox);
 autoInit.register('MDLTemporaryDrawer', TemporaryDrawer);
 autoInit.register('MDLRipple', Ripple);
 autoInit.register('MDLIconToggle', IconToggle);
+autoInit.register('MDLRadio', Radio);
 
 // Export all components.
 export {
