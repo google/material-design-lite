@@ -2,7 +2,7 @@
   "private": true,
   "description": "Material Design Lite",
   "version": "2.0.0",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "clean": "del-cli build/**",
     "build": "mkdirp build && webpack",
