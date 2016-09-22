@@ -18,6 +18,9 @@ import test from 'tape';
 import bel from 'bel';
 import lolex from 'lolex';
 import td from 'testdouble';
+
+import {setupFoundationTest} from '../helpers/setup';
+import {verifyDefaultAdapter} from '../helpers/foundation';
 import MDLCheckboxFoundation from '../../../packages/mdl-checkbox/foundation';
 import {cssClasses, strings, numbers} from '../../../packages/mdl-checkbox/constants';
 
@@ -29,11 +32,9 @@ const DESC_UNDEFINED = {
 };
 
 function setupTest() {
+  const {foundation, mockAdapter} = setupFoundationTest(MDLCheckboxFoundation);
   const nativeControl = bel`<input type="checkbox">`;
-  const mockAdapter = td.object(MDLCheckboxFoundation.defaultAdapter);
   td.when(mockAdapter.getNativeControl()).thenReturn(nativeControl);
-
-  const foundation = new MDLCheckboxFoundation(mockAdapter);
   return {foundation, mockAdapter, nativeControl};
 }
 
@@ -113,17 +114,11 @@ test('exports numbers', t => {
 });
 
 test('defaultAdapter returns a complete adapter implementation', t => {
-  const {defaultAdapter} = MDLCheckboxFoundation;
-  const methods = Object.keys(defaultAdapter).filter(k => typeof defaultAdapter[k] === 'function');
-
-  t.equal(methods.length, Object.keys(defaultAdapter).length, 'Every adapter key must be a function');
-  t.deepEqual(methods, [
+  verifyDefaultAdapter(MDLCheckboxFoundation, [
     'addClass', 'removeClass', 'registerAnimationEndHandler', 'deregisterAnimationEndHandler',
     'registerChangeHandler', 'deregisterChangeHandler', 'getNativeControl', 'forceLayout',
     'isAttachedToDOM'
-  ]);
-  // Test default methods
-  methods.forEach(m => t.doesNotThrow(defaultAdapter[m]));
+  ], t);
 
   t.end();
 });

@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/mdl-animation";
-@import "mdl-button/mdl-button";
-@import "mdl-card/mdl-card";
-@import "mdl-checkbox/mdl-checkbox";
-@import "mdl-drawer/mdl-drawer";
-@import "mdl-elevation/mdl-elevation";
-@import "mdl-fab/mdl-fab";
-@import "mdl-icon-toggle/mdl-icon-toggle";
-@import "mdl-list/mdl-list";
-@import "mdl-radio/mdl-radio";
-@import "mdl-ripple/mdl-ripple";
-@import "mdl-theme/mdl-theme";
-@import "mdl-typography/mdl-typography";
+import {compare} from 'dom-compare';
+
+export function verifyBuildDom(Component, t, expected, opts = undefined) {
+  const actual = Component.buildDom(opts);
+  const comparison = compare(expected, actual);
+  const diffs = comparison.getDifferences();
+
+  if (diffs.length) {
+    const diffMsgs = diffs.map(({node, message}) => `\t* ${node} - ${message}`).join('\n');
+    t.fail(`Improper DOM Object. Diff failed:\n${diffMsgs}\n`);
+  } else {
+    t.pass();
+  }
+}
