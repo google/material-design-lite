@@ -14,25 +14,15 @@
  * limitations under the License.
  */
 
-import BaseComponent from 'mdl-base';
-import Checkbox from 'mdl-checkbox';
-import Radio from 'mdl-radio';
-import Ripple from 'mdl-ripple';
-import {MDLTemporaryDrawer as TemporaryDrawer} from 'mdl-drawer';
-import autoInit from 'mdl-auto-init';
+/* All variables are local, so disable pattern checking. */
+/* stylelint-disable scss/dollar-variable-pattern */
 
-console.info('Hello, MDL!!!');
+@function mdl-drawer-replace($string, $replacement-map) {
+  @each $key, $value in $replacement-map {
+    @if str-index($string, $key) {
+      $string: str-slice($string, 0, str-index($string, $key) - 1) + $value;
+    }
+  }
 
-// Register all components
-autoInit.register('MDLCheckbox', Checkbox);
-autoInit.register('MDLTemporaryDrawer', TemporaryDrawer);
-
-// Export all components.
-export {
-  BaseComponent,
-  Checkbox,
-  Radio,
-  Ripple,
-  TemporaryDrawer,
-  autoInit
-};
+  @return $string;
+}

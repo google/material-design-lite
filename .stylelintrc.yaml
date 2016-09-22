@@ -201,7 +201,10 @@ rules:
   at-rule-blacklist:
     - extend
   # Extremely useful for typos, and anything emergent can be ignored by this rule
-  property-no-unknown: true
+  property-no-unknown:
+    - true
+    - ignoreProperties:
+        - contain
   # There is no reason that a specific ID would be needed for UI components
   selector-no-id: true
   # Qualifying types are not needed when using a naming system like BEM
