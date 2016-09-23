@@ -21,6 +21,18 @@
 
   <button type="button" @click="showSnackbar">Show Snackbar</button>
   <snackbar event='mailSent'></snackbar>
+
+  <icon-toggle v-model="favorited"
+               :toggle-on="{'label': favoritedLabel, 'content': 'favorite'}"
+               :toggle-off="{'label': 'Add to favorites', 'content': 'favorite_border'}">
+  </icon-toggle>
+  <div>
+   <div>
+     <label for="favorited-label">Favorited Label</label>
+     <input id="favorited-label" v-model="favoritedLabel"></input>
+   </div>
+   <p>Favorited?: {{favorited}}</p>
+  </div>
 </div>
 </template>
 
@@ -28,6 +40,7 @@
 import Ripple from './v-mdl-ripple/Ripple';
 import Snackbar from './v-mdl-snackbar/Snackbar';
 import Checkbox from './v-mdl-checkbox/Checkbox';
+import IconToggle from './v-mdl-icon-toggle/IconToggle';
 import CheckboxLabel from './v-mdl-checkbox/CheckboxLabel';
 import CheckboxWrapper from './v-mdl-checkbox/CheckboxWrapper';
 
@@ -37,10 +50,12 @@ export default {
       label: 'Test Me',
       checked: true,
       alignEnd: false,
-      changeCount: 0
+      changeCount: 0,
+      favorited: true,
+      favoritedLabel: 'Remove from favorites'
     }
   },
-  components: { Checkbox, CheckboxWrapper, CheckboxLabel, Snackbar },
+  components: { Checkbox, CheckboxWrapper, CheckboxLabel, IconToggle, Snackbar },
   directives: { Ripple },
   watch: {
     checked () {
