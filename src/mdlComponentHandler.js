@@ -28,6 +28,12 @@
 // static verification.
 var componentHandler = {
   /**
+   * Configuration for component handler, such as preventing initial upgrade.
+   *
+   * @type {componentHandler.ComponentHanderConfig}
+   */
+  config: {},
+  /**
    * Searches existing DOM for elements of our component type and upgrades them
    * if they have not already been upgraded.
    *
@@ -92,6 +98,15 @@ componentHandler = (function() {
   var createdComponents_ = [];
 
   var componentConfigProperty_ = 'mdlComponentConfigInternal_';
+
+  var configInternal = {
+    preventAutoUpgrade: false
+  };
+
+  var globalConfig_ = window.componentHandlerConfig || {};
+  if ('preventAutoUpgrade' in globalConfig_) {
+    configInternal.preventAutoUpgrade = globalConfig_.preventAutoUpgrade;
+  }
 
   /**
    * Searches registered components for a class we are interested in using.
@@ -397,9 +412,10 @@ componentHandler = (function() {
     }
   }
 
-  // Now return the functions that should be made public with their publicly
+  // Now return the functions and members that should be made public with their publicly
   // facing names...
   return {
+    config: configInternal,
     upgradeDom: upgradeDomInternal,
     upgradeElement: upgradeElementInternal,
     upgradeElements: upgradeElementsInternal,
@@ -409,6 +425,16 @@ componentHandler = (function() {
     downgradeElements: downgradeNodesInternal
   };
 })();
+
+/**
+ * Describes the type of the config object for componentHandler.
+ * Provided for benefit of the Closure compiler.
+ *
+ * @typedef {{
+ *   preventAutoUpgrade: boolean
+ * }}
+ */
+componentHandler.ComponentHandlerConfig;  // jshint ignore: line
 
 /**
  * Describes the type of a registered component type managed by
@@ -453,6 +479,7 @@ componentHandler.Component;  // jshint ignore:line
 
 // Export all symbols, for the benefit of Closure compiler.
 // No effect on uncompiled code.
+componentHandler['config'] = componentHandler.config;
 componentHandler['upgradeDom'] = componentHandler.upgradeDom;
 componentHandler['upgradeElement'] = componentHandler.upgradeElement;
 componentHandler['upgradeElements'] = componentHandler.upgradeElements;
@@ -477,7 +504,9 @@ window.addEventListener('load', function() {
       'querySelector' in document &&
       'addEventListener' in window && Array.prototype.forEach) {
     document.documentElement.classList.add('mdl-js');
-    componentHandler.upgradeAllRegistered();
+    if (!componentHandler.config.preventAutoUpgrade) {
+      componentHandler.upgradeAllRegistered();
+    }
   } else {
     /**
      * Dummy function to avoid JS errors.
