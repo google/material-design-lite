@@ -18,6 +18,8 @@ import MDLComponent from 'mdl-base';
 import MDLTemporaryDrawerFoundation from './foundation';
 import * as util from '../util';
 
+export {MDLTemporaryDrawerFoundation};
+
 export default class MDLTemporaryDrawer extends MDLComponent {
   static buildDom() {
     const {ROOT: CSS_ROOT} = MDLTemporaryDrawerFoundation.cssClasses;
