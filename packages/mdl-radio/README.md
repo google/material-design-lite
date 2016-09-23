@@ -83,7 +83,7 @@ require(['path/to/mdl-radio'], mdlRadio => {
 ##### Global
 
 ```javascript
-const MDLRadio = mdl.Radio.default;
+const MDLRadio = mdl.Radio;
 const MDLRadioFoundation = mdl.Radio.MDLRadioFoundation;
 ```
 
