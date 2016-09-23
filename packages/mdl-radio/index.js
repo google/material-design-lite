@@ -14,29 +14,99 @@
  * limitations under the License.
  */
 
-import MDLComponent, {MDLBaseAdapterLegacy as MDLBaseAdapter} from 'mdl-base';
-import MDLRadioMixin, {
-  Identifier
-} from './mixin';
+import MDLComponent from 'mdl-base';
+import MDLRipple, {MDLRippleFoundation} from 'mdl-ripple';
+
+import MDLRadioFoundation from './foundation';
+
+export {MDLRadioFoundation};
+
+let idCounter = 0;
 
 export default class MDLRadio extends MDLComponent {
+  static buildDom({
+    id = `mdl-radio-${++idCounter}`,
+    labelId = `mdl-radio-label-${id}`,
+    groupId = ''
+  } = {}) {
+    const {ROOT: CSS_ROOT} = MDLRadioFoundation.cssClasses;
+    const root = document.createElement('div');
+    root.classList.add(MDLRadioFoundation.cssClasses.ROOT);
+    root.innerHTML = `
+      <input id="${id}" type="radio" class="${CSS_ROOT}__native-control"
+             ${groupId ? ` name="${groupId}" ` : ''}aria-labelledby="${labelId}">
+      <div class="${CSS_ROOT}__background">
+        <div class="${CSS_ROOT}__outer-circle"></div>
+        <div class="${CSS_ROOT}__inner-circle"></div>
+      </div>
+    `;
+    return root;
+  }
+
   static attachTo(root) {
     return new MDLRadio(root);
   }
 
-  constructor(root) {
-    super(root);
+  get checked() {
+    return this.foundation_.isChecked();
+  }
 
-    const nativeInput = root.getElementsByClassName(Identifier.NATIVE_INPUT)[0];
-    const elements = {
-      [Identifier.ROOT]: root,
-      [Identifier.NATIVE_INPUT]: nativeInput
-    };
+  set checked(checked) {
+    this.foundation_.setChecked(checked);
+  }
 
-    this.elements_ = elements;
+  get disabled() {
+    return this.foundation_.isDisabled();
+  }
 
-    this.initMdlRadio_();
+  set disabled(disabled) {
+    this.foundation_.setDisabled(disabled);
+  }
+
+  constructor() {
+    super(...arguments);
+    this.ripple_ = this.initRipple_();
+  }
+
+  initRipple_() {
+    const adapter = Object.assign(MDLRipple.createAdapter(this), {
+      isUnbounded: () => true,
+      // Radio buttons technically go "active" whenever there is *any* keyboard interaction. This is not the
+      // UI we desire.
+      isSurfaceActive: () => false,
+      registerInteractionHandler: (type, handler) => this.nativeControl_.addEventListener(type, handler),
+      deregisterInteractionHandler: (type, handler) => this.nativeControl_.removeEventListener(type, handler),
+      computeBoundingRect: () => {
+        const {left, top} = this.root_.getBoundingClientRect();
+        const DIM = 40;
+        return {
+          top,
+          left,
+          right: left + DIM,
+          bottom: top + DIM,
+          width: DIM,
+          height: DIM
+        };
+      }
+    });
+    const foundation = new MDLRippleFoundation(adapter);
+    return new MDLRipple(this.root_, foundation);
+  }
+
+  get nativeControl_() {
+    return this.root_.querySelector(MDLRadioFoundation.strings.NATIVE_CONTROL_SELECTOR);
+  }
+
+  destroy() {
+    this.ripple_.destroy();
+    super.destroy();
+  }
+
+  getDefaultFoundation() {
+    return new MDLRadioFoundation({
+      addClass: className => this.root_.classList.add(className),
+      removeClass: className => this.root_.classList.remove(className),
+      getNativeControl: () => this.root_.querySelector(MDLRadioFoundation.strings.NATIVE_CONTROL_SELECTOR)
+    });
   }
 }
-
-MDLRadioMixin.call(MDLRadio.prototype, MDLBaseAdapter);

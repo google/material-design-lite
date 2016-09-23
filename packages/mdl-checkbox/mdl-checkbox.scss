@@ -113,6 +113,7 @@
     align-items: center;
     justify-content: center;
     transition:
+      // TODO: Refactor into mdl-animation
       mdl-checkbox-transition-exit(background-color),
       mdl-checkbox-transition-exit(border-color);
 
