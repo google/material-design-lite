@@ -30,9 +30,9 @@ var componentHandler = {
   /**
    * Configuration for component handler, such as preventing initial upgrade.
    *
-   * @type {componentHandler.ComponentHandlerConfig}
+   * @type {componentHandler.ComponentHanderConfig}
    */
-  config: {preventAutoUpgrade: false},
+  config: {},
   /**
    * Searches existing DOM for elements of our component type and upgrades them
    * if they have not already been upgraded.
