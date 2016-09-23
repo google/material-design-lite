@@ -18,11 +18,15 @@
   <div>
    <p>Change count: {{changeCount}}</p>
   </div>
+
+  <button type="button" @click="showSnackbar">Show Snackbar</button>
+  <snackbar event='mailSent'></snackbar>
 </div>
 </template>
 
 <script lang="babel">
 import Ripple from './v-mdl-ripple/Ripple';
+import Snackbar from './v-mdl-snackbar/Snackbar';
 import Checkbox from './v-mdl-checkbox/Checkbox';
 import CheckboxLabel from './v-mdl-checkbox/CheckboxLabel';
 import CheckboxWrapper from './v-mdl-checkbox/CheckboxWrapper';
@@ -36,11 +40,20 @@ export default {
       changeCount: 0
     }
   },
-  components: { Checkbox, CheckboxWrapper, CheckboxLabel },
+  components: { Checkbox, CheckboxWrapper, CheckboxLabel, Snackbar },
   directives: { Ripple },
   watch: {
     checked () {
       this.changeCount++;
+    }
+  },
+  methods: {
+    showSnackbar () {
+      this.$root.$emit('mailSent', {
+        message: 'Mail Sent',
+        actionText: 'Undo',
+        actionHandler: () => console.log('Undo it')
+      });
     }
   }
 }

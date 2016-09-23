@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2016 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html class="mdl-typography">
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Snackbar Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <style>
+      .mdl-snackbar { transform: translateY(100%); }
+    </style>
+    <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <main>
+      <h1>MDL Snackbar</h1>
+      <section>
+        <h2>Basic Example</h2>
+        <div>
+          <div class="mdl-checkbox-wrapper">
+            <div class="mdl-checkbox-wrapper__layout">
+              <div class="mdl-checkbox">
+                <input type="checkbox"
+                       class="mdl-checkbox__native-control"
+                       id="multiline"
+                       aria-labelledby="multiline-label" />
+                <div class="mdl-checkbox__background">
+                  <svg version="1.1" class="mdl-checkbox__checkmark"
+                       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                       xml:space="preserve">
+                    <path class="mdl-checkbox__checkmark__path" fill="none" stroke="white"
+                          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                  </svg>
+                <div class="mdl-checkbox__mixedmark"></div>
+              </div>
+            </div>
+            <label for="multiline" id="multiline-label">Multiline</label>
+          </div>
+
+          <div class="mdl-checkbox-wrapper">
+            <div class="mdl-checkbox-wrapper__layout">
+              <div class="mdl-checkbox">
+                <input type="checkbox"
+                       class="mdl-checkbox__native-control"
+                       id="action-on-bottom"
+                       aria-labelledby="action-on-bottom-label" />
+                <div class="mdl-checkbox__background">
+                  <svg version="1.1" class="mdl-checkbox__checkmark"
+                       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                       xml:space="preserve">
+                    <path class="mdl-checkbox__checkmark__path" fill="none" stroke="white"
+                          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                  </svg>
+                <div class="mdl-checkbox__mixedmark"></div>
+              </div>
+            </div>
+            <label for="action-on-bottom" id="action-on-bottom-label">Action On Bottom</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message Text</label>
+          <input type="text" id="message" value="Message deleted">
+        </div>
+
+        <div>
+          <label for="action">Action Text</label>
+          <input type="text" id="action" value="Undo">
+        </div>
+
+        <button type="button" id="show-snackbar">Show</button>
+        <button type="button" id="show-rtl-snackbar">Show RTL</button>
+
+        <div id="mdl-js-snackbar"
+             class="mdl-snackbar"
+             aria-live="assertive"
+             aria-atomic="true"
+             aria-hidden="true">
+          <div class="mdl-snackbar__text"></div>
+          <div class="mdl-snackbar__action-wrapper">
+            <button type="button" class="mdl-button mdl-snackbar__action-button"></button>
+          </div>
+        </div>
+        <div dir="rtl">
+          <div id="mdl-rtl-js-snackbar"
+               class="mdl-snackbar"
+               aria-live="assertive"
+               aria-atomic="true"
+               aria-hidden="true">
+            <div class="mdl-snackbar__text"></div>
+            <div class="mdl-snackbar__action-wrapper">
+              <button type="button" class="mdl-button mdl-snackbar__action-button"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="assets/material-design-lite.js" charset="utf-8"></script>
+    <script>
+      (function(global) {
+        'use strict';
+        var snackbar = new global.mdl.Snackbar(document.getElementById('mdl-js-snackbar'));
+        var rtlSnackbar = new global.mdl.Snackbar(document.getElementById('mdl-rtl-js-snackbar'));
+        var messageInput = document.getElementById('message');
+        var actionInput = document.getElementById('action');
+        var multilineInput = document.getElementById('multiline');
+        var actionOnBottomInput = document.getElementById('action-on-bottom');
+
+        var show = function(sb) {
+          var data =  {
+            message: messageInput.value,
+            actionOnBottom: actionOnBottomInput.checked,
+            multiline: multilineInput.checked
+          };
+          if (actionInput.value) {
+            data.actionText = actionInput.value;
+            data.actionHandler = function() {
+              console.log(data);
+            }
+          }
+          sb.show(data);
+        };
+
+        document.getElementById('show-snackbar').addEventListener('click', function() {
+          show(snackbar);
+        });
+
+        document.getElementById('show-rtl-snackbar').addEventListener('click', function() {
+          show(rtlSnackbar);
+        });
+      })(this);
+    </script>
+  </body>
+</html>

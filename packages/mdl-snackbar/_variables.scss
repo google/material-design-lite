@@ -14,17 +14,9 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/mdl-animation";
-@import "mdl-button/mdl-button";
-@import "mdl-card/mdl-card";
-@import "mdl-checkbox/mdl-checkbox";
-@import "mdl-drawer/mdl-drawer";
-@import "mdl-elevation/mdl-elevation";
-@import "mdl-fab/mdl-fab";
-@import "mdl-icon-toggle/mdl-icon-toggle";
-@import "mdl-list/mdl-list";
-@import "mdl-radio/mdl-radio";
-@import "mdl-ripple/mdl-ripple";
-@import "mdl-snackbar/mdl-snackbar";
-@import "mdl-theme/mdl-theme";
-@import "mdl-typography/mdl-typography";
+// Hard coded since the color is not present in any palette.
+$mdl-snackbar-background-color: #323232;
+$mdl-snackbar-foreground-color: white;
+// TODO: Better spot to pull this breakpoint?
+//$snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
+$mdl-snackbar-tablet-breakpoint: 600px;

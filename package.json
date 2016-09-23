@@ -8,7 +8,7 @@
     "build": "mkdirp build && webpack",
     "build:min": "mkdirp build && cross-env MDL_ENV=production webpack -p",
     "dist": "npm run clean && npm run build && npm run build:min",
-    "dev": "npm run clean && cross-env MDL_ENV=development webpack-dev-server --content-base demos --inline --hot",
+    "dev": "npm run clean && cross-env MDL_ENV=development webpack-dev-server --content-base demos --inline --hot --host 0.0.0.0",
     "fix:js": "eslint --fix packages test webpack.config.js karma.conf.js",
     "fix:css": "stylefmt -R packages",
     "fix": "npm-run-all --parallel fix:*",
