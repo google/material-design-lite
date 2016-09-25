@@ -1,0 +1,193 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-theme/variables";
+@import "./keyframes";
+@import "./variables";
+
+@function mdl-ripple-default-config_() {
+  @return (
+    pseudo: null,
+    radius: 100%,
+    base-color: black,
+    opacity: .06,
+    theme-style: null
+  );
+}
+
+@mixin mdl-ripple-base() {
+  --mdl-ripple-left: 0;
+  --mdl-ripple-top: 0;
+  --mdl-ripple-fg-size: 0;
+  --mdl-ripple-surface-height: 0;
+  --mdl-ripple-surface-width: 0;
+  --mdl-ripple-fg-unbounded-transform-duration: 0ms;
+  --mdl-ripple-xfo-x: center;
+  --mdl-ripple-xfo-y: center;
+  --mdl-ripple-fg-unbounded-opacity-duration: 0ms;
+  --mdl-ripple-fg-unbounded-transform-duration: 0ms;
+  --mdl-ripple-fg-approx-xf: 0;
+  will-change: transition, opacity;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@mixin mdl-ripple-color_($config) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $base-color: map-get($config, base-color);
+  $opacity: map-get($config, opacity);
+  $theme-style: map-get($config, theme-style);
+
+  /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
+  @if ($theme-style) {
+    $theme-value: map-get($mdl-theme-property-values, $theme-style);
+    $css-var: var(--mdl-theme-#{$theme-style}, $theme-value);
+    /* stylelint-enable scss/dollar-variable-pattern */
+
+    background-color: rgba($theme-value, $opacity);
+
+    // See: https://drafts.csswg.org/css-color/#modifying-colors
+    // While this is currently unsupported as of now, it will begin to work by default as browsers
+    // begin to implement the CSS 4 color spec.
+    @supports (background-color: color(green a(10%))) {
+      background-color: color(#{$css-var} a(#{percentage($opacity)}));
+    }
+  } @else {
+    background-color: rgba($base-color, $opacity);
+  }
+  /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
+}
+
+@mixin mdl-ripple-bg-base_($config) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $radius: map-get($config, radius);
+  /* stylelint-enable scss/dollar-variable-pattern */
+
+  @include mdl-ripple-color_($config);
+
+  position: absolute;
+  top: calc(50% - #{$radius});
+  left: calc(50% - #{$radius});
+  width: $radius * 2;
+  height: $radius * 2;
+  transform: scale(1);
+  transition: opacity 200ms linear;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@mixin mdl-ripple-bg($config: ()) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $config: map-merge(mdl-ripple-default-config_(), $config);
+  $pseudo: map-get($config, pseudo);
+  /* stylelint-enable scss/dollar-variable-pattern */
+
+  /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
+  @if ($pseudo) {
+    &#{$pseudo} {
+      @include mdl-ripple-bg-base_($config);
+      content: "";
+    }
+  } @else {
+    @include mdl-ripple-bg-base_($config);
+  }
+  /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
+
+  &.mdl-ripple-upgraded--background-active#{$pseudo} {
+    opacity: .99999;
+  }
+
+  // When an element goes active, a foreground ripple will be triggered.
+  // Therefore, we adjust the transition duration for the correct "wind-
+  // up" animation.
+  &.mdl-ripple-upgraded--background-active:active#{$pseudo} {
+    transition-duration: 600ms;
+  }
+
+  &.mdl-ripple-upgraded--background-bounded-active-fill#{$pseudo} {
+    transition-duration: 120ms;
+    opacity: 1;
+  }
+
+  &.mdl-ripple-upgraded--unbounded#{$pseudo} {
+    top: var(--mdl-ripple-top);
+    left: var(--mdl-ripple-left);
+    width: var(--mdl-ripple-fg-size);
+    height: var(--mdl-ripple-fg-size);
+  }
+}
+
+@mixin mdl-ripple-fg-base_($config) {
+  @include mdl-ripple-color_($config);
+
+  position: absolute;
+  width: var(--mdl-ripple-fg-size);
+  height: var(--mdl-ripple-fg-size);
+  transform: scale(0);
+  transform-origin: center center;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@mixin mdl-ripple-fg($config: ()) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $config: map-merge(mdl-ripple-default-config_(), $config);
+  $pseudo: map-get($config, pseudo);
+  /* stylelint-enable scss/dollar-variable-pattern */
+
+  /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
+  @if ($pseudo) {
+    &#{$pseudo} {
+      @include mdl-ripple-fg-base_($config);
+      content: "";
+    }
+  } @else {
+    @include mdl-ripple-fg-base_($config);
+  }
+  /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
+
+  &:not(.mdl-ripple-upgraded--unbounded)#{$pseudo} {
+    top: calc(var(--mdl-ripple-top) - var(--mdl-ripple-fg-size) / 2);
+    left: calc(var(--mdl-ripple-left) - var(--mdl-ripple-fg-size) / 2);
+    transform-origin: center center;
+  }
+
+  &.mdl-ripple-upgraded--unbounded#{$pseudo} {
+    top: var(--mdl-ripple-top);
+    left: var(--mdl-ripple-left);
+    transform-origin: var(--mdl-ripple-xfo-x) var(--mdl-ripple-xfo-y);
+  }
+
+  &.mdl-ripple-upgraded--foreground-bounded-active-fill#{$pseudo} {
+    animation-fill-mode: forwards;
+    animation: 800ms mdl-ripple-fg-radius-in, 400ms mdl-ripple-fg-opacity-out;
+  }
+
+  &.mdl-ripple-upgraded--unbounded.mdl-ripple-upgraded--foreground-unbounded-activation#{$pseudo} {
+    transform: scale(1);
+    transition:
+      opacity 110ms linear,
+      transform var(--mdl-ripple-fg-unbounded-transform-duration) linear 80ms;
+    opacity: 1;
+  }
+
+  &.mdl-ripple-upgraded--unbounded.mdl-ripple-upgraded--foreground-unbounded-deactivation#{$pseudo} {
+    animation:
+      mdl-ripple-fg-unbounded-opacity-deactivate var(--mdl-ripple-fg-unbounded-opacity-duration) linear,
+      mdl-ripple-fg-unbounded-transform-deactivate var(--mdl-ripple-fg-unbounded-transform-duration) $mdl-ripple-easing-fn;
+  }
+}

@@ -14,79 +14,67 @@
  * limitations under the License.
  */
 
-@keyframes radius-in {
-  from {
-    transform: scale(0);
-    animation-timing-function: cubic-bezier(.157, .72, .386, .987);
+@import "mdl-animation/variables";
+@import "mdl-theme/mixins";
+@import "./mixins";
+
+/* postcss-bem-linter: define ripple-surface */
+
+.mdl-ripple-surface {
+  position: relative;
+  outline: none;
+  overflow: hidden;
+
+  &[data-mdl-ripple-is-unbounded] {
+    overflow: visible;
   }
 
-  to {
-    // This differs slightly from spec.
-    transform: scale(1.5);
-  }
-}
-
-@keyframes opacity-out {
-  from {
-    opacity: 1;
-    animation-timing-function: linear;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-// postcss-bem-linter: define ripple
-.mdl-ripple {
-  visibility: hidden;
-  pointer-events: none;
-
-  &,
-  &__foreground,
-  &__foreground-circle,
-  &__background {
+  &::before {
     position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.mdl-ripple__foreground {
-  &-circle {
-    transform: scale(0);
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, .06);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    border-radius: inherit;
+    background: currentColor;
+    content: "";
     opacity: 0;
   }
 
-  &--bounded-active {
-    transition: transform 300ms cubic-bezier(.157, .72, .386, .987);
+  &:focus::before {
+    opacity: .12;
   }
 
-  &--bounded-circle-active {
-    animation-fill-mode: forwards;
-    animation: 800ms radius-in, 400ms opacity-out;
+  &:active::before {
+    opacity: .18;
+  }
+
+  &.mdl-ripple-upgraded {
+    @include mdl-ripple-base;
+    @include mdl-ripple-bg((pseudo: "::before"));
+    @include mdl-ripple-fg((pseudo: "::after"));
+  }
+
+  &--primary.mdl-ripple-upgraded {
+    &::before,
+    &::after {
+      @include mdl-theme-prop(background-color, primary);
+    }
+
+    @include mdl-ripple-bg((pseudo: "::before", theme-style: primary, opacity: .14));
+    @include mdl-ripple-fg((pseudo: "::after", theme-style: primary, opacity: .14));
+  }
+
+  &--accent.mdl-ripple-upgraded {
+    &::before,
+    &::after {
+      @include mdl-theme-prop(background-color, primary);
+    }
+
+    @include mdl-ripple-bg((pseudo: "::before", theme-style: accent, opacity: .14));
+    @include mdl-ripple-fg((pseudo: "::after", theme-style: accent, opacity: .14));
   }
 }
 
-.mdl-ripple__background {
-  transform: scale(1);
-  transition: opacity 480ms linear;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, .06);
-  opacity: 0;
-
-  &--active {
-    transition: opacity 600ms linear;
-    // In order for the fill class's duration to be taken into account, the target
-    // opacity value must be different between the two classes.
-    opacity: .99999;
-  }
-
-  &--bounded-active-fill {
-    transition-duration: 120ms;
-    opacity: 1;
-  }
-}
-// postcss-bem-linter: end
+/* postcss-bem-linter: end */

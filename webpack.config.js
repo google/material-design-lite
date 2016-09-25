@@ -31,8 +31,11 @@ module.exports = [{
     autoInit: [path.resolve('./packages/mdl-auto-init/index.js')],
     Base: [path.resolve('./packages/mdl-base/index.js')],
     Checkbox: [path.resolve('./packages/mdl-checkbox/index.js')],
+    IconToggle: [path.resolve('./packages/mdl-icon-toggle/index.js')],
+    Snackbar: [path.resolve('./packages/mdl-snackbar/index.js')],
     Radio: [path.resolve('./packages/mdl-radio/index.js')],
-    Ripple: [path.resolve('./packages/mdl-ripple/index.js')]
+    Ripple: [path.resolve('./packages/mdl-ripple/index.js')],
+    Drawer: [path.resolve('./packages/mdl-drawer/index.js')]
   },
   output: {
     path: OUT_PATH,
@@ -78,9 +81,14 @@ module.exports = [{
     'mdl-animation': path.resolve('./packages/mdl-animation/mdl-animation.scss'),
     'mdl-button': path.resolve('./packages/mdl-button/mdl-button.scss'),
     'mdl-card': path.resolve('./packages/mdl-card/mdl-card.scss'),
+    'mdl-drawer': path.resolve('./packages/mdl-drawer/mdl-drawer.scss'),
     'mdl-checkbox': path.resolve('./packages/mdl-checkbox/mdl-checkbox.scss'),
+    'mdl-snackbar': path.resolve('./packages/mdl-snackbar/mdl-snackbar.scss'),
     'mdl-elevation': path.resolve('./packages/mdl-elevation/mdl-elevation.scss'),
     'mdl-fab': path.resolve('./packages/mdl-fab/mdl-fab.scss'),
+    'mdl-icon-toggle': path.resolve('./packages/mdl-icon-toggle/mdl-icon-toggle.scss'),
+    'mdl-list': path.resolve('./packages/mdl-list/mdl-list.scss'),
+    'mdl-radio': path.resolve('./packages/mdl-radio/mdl-radio.scss'),
     'mdl-ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
     'mdl-theme': path.resolve('./packages/mdl-theme/mdl-theme.scss'),
     'mdl-typography': path.resolve('./packages/mdl-typography/mdl-typography.scss')

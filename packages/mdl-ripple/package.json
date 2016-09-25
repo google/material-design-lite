@@ -1,8 +1,10 @@
 {
   "name": "mdl-ripple",
+  "description": "Material Ink Ripple effects for web element interactions",
   "version": "1.0.0",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
-    "mdl-base": "^1.0.0"
+    "mdl-base": "^1.0.0",
+    "mdl-animation": "^1.0.0"
   }
 }

@@ -18,9 +18,6 @@
 @import "./variables";
 @import "./keyframes";
 
-// TODO: Docs
-// TODO: x-browser test!
-
 @function mdl-checkbox-transition($property, $timing-function, $delay: 0ms, $duration: $mdl-checkbox-transition-duration) {
   @return $property $duration $timing-function $delay;
 }
@@ -116,6 +113,7 @@
     align-items: center;
     justify-content: center;
     transition:
+      // TODO: Refactor into mdl-animation
       mdl-checkbox-transition-exit(background-color),
       mdl-checkbox-transition-exit(border-color);
 

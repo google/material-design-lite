@@ -16,8 +16,5 @@
 
 /** @fileoverview Bootstraps the test bundle for karma-webpack. */
 
-// TODO(traviskaufman): Remove once animation.js is removed when ripple is refactored.
-window.Promise = require('es6-promise').Promise;
-
 const testsContext = require.context('.', true, /\.test\.js$/);
 testsContext.keys().forEach(testsContext);

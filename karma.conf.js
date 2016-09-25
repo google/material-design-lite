@@ -19,6 +19,7 @@ const webpackConfig = require('./webpack.config')[0];
 
 const USING_TRAVISCI = Boolean(process.env.TRAVIS);
 const USING_SL = Boolean(process.env.SAUCE_USERNAME && process.env.SAUCE_ACCESS_KEY);
+const IS_SECURE = Boolean(process.env.SECURE);
 
 const SL_LAUNCHERS = {
   'sl-chrome-stable': {
@@ -108,7 +109,7 @@ module.exports = function(config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: USING_SL ? Object.keys(SL_LAUNCHERS) : ['Chrome'],
+    browsers: determineBrowsers(),
     browserDisconnectTimeout: 20000,
     browserNoActivityTimeout: 240000,
     captureTimeout: 120000,
@@ -158,3 +159,18 @@ module.exports = function(config) {
     });
   }
 };
+
+// Block-scoped declarations are not supported in Node 4.
+/* eslint-disable no-var */
+
+function determineBrowsers() {
+  var browsers = USING_SL ? Object.keys(SL_LAUNCHERS) : ['Chrome'];
+  if (USING_TRAVISCI && !IS_SECURE) {
+    console.warn(
+      'NOTICE: Falling back to firefox browser, as travis-ci JWT addon is currently not working ' +
+      'with Sauce Labs. See - https://github.com/travis-ci/travis-ci/issues/6569'
+    );
+    browsers = ['Firefox'];
+  }
+  return browsers;
+}

@@ -34,7 +34,7 @@ If you are subject to or witness unacceptable behavior, or have any other concer
 
 > NOTE: As we are still in **pre-alpha** for v2, this section may be incomplete, in flux, and/or lacking some info. We hope to stabilize it by the time we reach alpha. If you have additional follow-up questions about our development process or find something confusing / ambiguous, reach out to us on [gitter](https://gitter.im/google/material-design-lite) and we may be able to help.
 
-We strive to make developing Material Design Lite as frictionless as possible, both for ourselves and for our community. This section should get you up and running working on the Material Design Lite codebase. Before beginning development, you may want to read through our brief [v2 developer guide](https://github.com/google/material-design-lite/blob/master/docs/DEVELOPER.md) to get a better understanding of our overall architecture.
+We strive to make developing Material Design Lite as frictionless as possible, both for ourselves and for our community. This section should get you up and running working on the Material Design Lite codebase. Before beginning development, you may want to read through our brief [v2 developer guide](./docs/developer.md) to get a better understanding of our overall architecture.
 
 ### Setting up your development environment
 

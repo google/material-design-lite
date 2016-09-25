@@ -1,0 +1,55 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-animation/variables";
+@import "mdl-elevation/mixins";
+@import "mdl-theme/mixins";
+@import "../mixins";
+
+$mdl-permanent-drawer-width: 240px;
+
+.mdl-permanent-drawer {
+  @include mdl-drawer-base_;
+  @include mdl-theme-prop(background, background);
+  @include mdl-drawer-dir_(border-end, 1px solid #e4e4e4);
+  @include mdl-drawer-dir_(start, 0);
+
+  @include mdl-theme-dark {
+    background: #212121;
+
+    @include mdl-theme-prop(color, text-primary-on-dark);
+    @include mdl-drawer-dir_(border-end, 1px solid rgba(255, 255, 255, .12));
+  }
+
+  display: inline-flex;
+  flex-direction: column;
+  width: $mdl-permanent-drawer-width;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &--floating {
+    background: none;
+
+    @include mdl-drawer-dir_(border-end, none);
+
+    @include mdl-theme-dark {
+      background: none;
+
+      @include mdl-drawer-dir_(border-end, none);
+    }
+  }
+}

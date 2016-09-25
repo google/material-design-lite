@@ -2,7 +2,7 @@
   "name": "material-design-lite",
   "description": "The canonical material design implementation for the web platform",
   "version": "1.0.0",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "mdl-animation": "^1.0.0",
     "mdl-auto-init": "^1.0.0",
@@ -10,10 +10,13 @@
     "mdl-button": "^1.0.0",
     "mdl-card": "^1.0.0",
     "mdl-checkbox": "^1.0.0",
+    "mdl-drawer": "^1.0.0",
     "mdl-elevation": "^1.0.0",
     "mdl-fab": "^1.0.0",
+    "mdl-icon-toggle": "^1.0.0",
     "mdl-radio": "^1.0.0",
     "mdl-ripple": "^1.0.0",
+    "mdl-snackbar": "^1.0.0",
     "mdl-typography": "^1.0.0"
   }
 }

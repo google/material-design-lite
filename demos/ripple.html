@@ -14,85 +14,119 @@
   See the License for the specific language governing permissions and
   limitations under the License
 -->
-<html>
+<html class="mdl-typography">
   <head>
     <meta charset="utf-8">
     <title>MDL Ripple Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+    <script>
+      if (!window.CSS || !window.CSS.supports ||
+        !window.CSS.supports('--css-vars', 'yes') && !(window.CSS.supports('color', '#00000000'))) {
+        document.documentElement.classList.add('unsupported');
+      }
+    </script>
     <style type="text/css">
-    .surface {
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-      0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-      0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      .demo-surface {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 100px;
+        padding: 1rem;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+      }
 
-      position: relative;
-    }
-     section {
-       margin: 48px;
-     }
-     body {
-       font-family: sans-serif;
-     }
-     button {
-       margin: 16px 0;
-     }
+      .demo-surface[data-mdl-ripple-is-unbounded] {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border-radius: 50%;
+      }
+
+      button.demo-surface {
+        display: inline-block; /* Safari does not center button text otherwise :( */
+        background: none;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+      section {
+        margin: 48px;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      #unsupported-msg {
+        padding: 1rem;
+        border: 1px solid red;
+        color: red;
+        border-radius: 4px;
+        display: none;
+      }
+
+      .unsupported #unsupported-msg {
+        display: block;
+      }
+
+      .unsupported main {
+        opacity: .2;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
     </style>
   </head>
   <body>
+    <aside id="unsupported-msg">
+      It appears your browser does not support custom properties, or has a broken implementation.
+      Please try this in Desktop Chrome or Desktop Firefox.
+    </aside>
     <main>
+      <h1>MDL Ripple</h1>
       <section>
         <h2>Bounded</h2>
-        <div class="surface auto" style="overflow: hidden; height: 100px; width: 200px"></div>
-        <button>Trigger Ripple</button>
+        <div class="mdl-ripple-surface demo-surface mdl-elevation--z2" tabindex="0">
+          Interact with me!
+        </div>
       </section>
       <section>
         <h2>Unbounded</h2>
-        <div class="surface auto" style="height: 40px; width: 40px;" bounded="false" max-radius="50"></div>
-        <button>Trigger Ripple</button>
+        <div class="mdl-ripple-surface demo-surface material-icons" data-mdl-ripple-is-unbounded
+             aria-label="Favorite" tabindex="0">
+          favorite
+        </div>
       </section>
       <section>
-        <h2>Pre-rendered DOM</h2>
-        <div class="surface" style="overflow: hidden; height: 50px; width: 100px">
-          <div class="mdl-ripple">
-            <div class="mdl-ripple__background"></div>
-            <div class="mdl-ripple__foreground">
-              <div class="mdl-ripple__foreground-circle"></div>
-            </div>
-            <div class="mdl-ripple__foreground">
-              <div class="mdl-ripple__foreground-circle"></div>
-            </div>
-            <div class="mdl-ripple__foreground">
-              <div class="mdl-ripple__foreground-circle"></div>
-            </div>
-            <div class="mdl-ripple__foreground">
-              <div class="mdl-ripple__foreground-circle"></div>
-            </div>
-          </div>
+        <h2>Theme Styles</h2>
+        <div
+          class="mdl-ripple-surface mdl-ripple-surface--primary
+                 mdl-theme--primary demo-surface mdl-elevation--z2" tabindex="0">
+          Primary
         </div>
+        <div
+          class="mdl-ripple-surface mdl-ripple-surface--accent
+                 mdl-theme--accent demo-surface mdl-elevation--z2" tabindex="0">
+          Accent
+        </div>
+      </section>
+      <section>
+        <h2>Applied to <code>&lt;button&gt; element</h2>
+          <button type="button" class="mdl-ripple-surface mdl-elevation--z2 demo-surface">button</button>
       </section>
     </main>
     <script src="assets/material-design-lite.js" charset="utf-8"></script>
     <script>
       (function(global) {
-        var surfaces = document.querySelectorAll('.surface');
-        [].forEach.call(surfaces, function(surface) {
-          var rippleDom;
-          if (surface.classList.contains('auto')) {
-            rippleDom = global.mdl.Ripple.buildDom();
-            surface.appendChild(rippleDom);
-          } else {
-            rippleDom = surface.firstElementChild;
-          }
-
-          var component = global.mdl.Ripple.attachTo(surface, rippleDom);
-          var button = surface.parentNode.querySelector('button');
-          if (button) {
-            button.addEventListener('click', function() {
-              var rect = surface.getBoundingClientRect();
-              component.startTouchEndedAnimationAtPoint(rect.height / 2, rect.width / 2);
-            });
-          }
+        [].forEach.call(document.querySelectorAll('.mdl-ripple-surface'), function(surface) {
+          mdl.Ripple.attachTo(surface);
         });
       })(this);
     </script>
