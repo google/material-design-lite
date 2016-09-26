@@ -38,7 +38,7 @@ const {MDLCheckboxFoundation} = require('mdl-checkbox');
 const MDL_CHECKBOX_STYLES = require('mdl-checkbox-styles');
 
 // Needed for ngModel to work properly.
-export const MD_CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
+export const MD_CHECKBOX_CONTROL_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => CheckboxComponent),
   multi: true
