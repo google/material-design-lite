@@ -30,7 +30,7 @@ import {
   ViewEncapsulation,
   forwardRef
 } from '@angular/core';
-import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/common';
+import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
 // Since we don't have typings (yet) we require mdl-checkbox manually.
 const {MDLCheckboxFoundation} = require('mdl-checkbox');
@@ -38,11 +38,11 @@ const {MDLCheckboxFoundation} = require('mdl-checkbox');
 const MDL_CHECKBOX_STYLES = require('mdl-checkbox-styles');
 
 // Needed for ngModel to work properly.
-const MD_CHECKBOX_CONTROL_VALUE_ACCESSOR = new Provider(
-    NG_VALUE_ACCESSOR, {
-      useExisting: forwardRef(() => CheckboxComponent),
-      multi: true
-    });
+export const MD_CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => CheckboxComponent),
+  multi: true
+};
 
 type UnlistenerMap = WeakMap<EventListener, Function>;
 
@@ -62,7 +62,6 @@ interface MDLCheckboxAdapter {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'mdl-checkbox',
   templateUrl: 'app/components/checkbox/checkbox.html',
   styles: [String(MDL_CHECKBOX_STYLES)],
@@ -74,7 +73,7 @@ export class CheckboxComponent implements AfterViewInit, OnDestroy {
   @Input() checked: boolean = false;
   @Input() indeterminate: boolean = false;
   @Input() labelId: string;
-  @Output() change: EventEmitter<Event> = new EventEmitter();
+  @Output() change: EventEmitter<Event> = new EventEmitter<Event>();
   @HostBinding('class') className: string = 'mdl-checkbox';
   @ViewChild('nativeCb') nativeCb: ElementRef;
   // value accessor stuff

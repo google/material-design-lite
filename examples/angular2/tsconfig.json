@@ -7,13 +7,11 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "types": ["node"]
   },
   "exclude": [
-    "typings/main.d.ts",
-    "typings/main",
-    "node_modules",
-    "src/app/components/checkbox/vendored-*"
+    "node_modules"
   ],
   "compileOnSave": false,
   "buildOnSave": false,
