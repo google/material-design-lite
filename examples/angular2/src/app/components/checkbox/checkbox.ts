@@ -46,20 +46,6 @@ export const MD_CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
 
 type UnlistenerMap = WeakMap<EventListener, Function>;
 
-// Before we create our component, let's leverage Typescript's awesome type system to create a
-// first-class interface for our foundation. Note that we will have type definitions by the time
-// we reach an RC.
-interface MDLCheckboxAdapter {
-  addClass: (string) => void
-  removeClass: (string) => void
-  registerAnimationEndHandler: (EventListener) => void
-  deregisterAnimationEndHandler: (EventListener) => void
-  registerChangeHandler: (EventListener) => void
-  deregisterChangeHandler: (EventListener) => void
-  getNativeControl: () => {checked: boolean, indeterminate: boolean}
-  forceLayout: () => void
-  isAttachedToDOM: () => boolean
-}
 
 @Component({
   selector: 'mdl-checkbox',
@@ -84,7 +70,7 @@ export class CheckboxComponent implements AfterViewInit, OnDestroy {
 
   // Here we instantiate our checkbox adapter, using angular's abstraction mechanisms to interop
   // with the angular2 environment.
-  private _mdlAdapter: MDLCheckboxAdapter = {
+  private _mdlAdapter: MDLFoudationAdapter = {
     addClass: (className: string) => {
       const {_renderer: renderer, _root: root} = this;
       renderer.setElementClass(root.nativeElement, className, true);
