@@ -13,21 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {provide, enableProdMode} from '@angular/core';
-import {HTTP_PROVIDERS} from '@angular/http';
-import {ROUTER_PROVIDERS} from '@angular/router';
-
-import {SeedApp} from './app/seed-app';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
 
 
-// enableProdMode()
-
-bootstrap(SeedApp, [
-  HTTP_PROVIDERS,
-  ROUTER_PROVIDERS,
-  provide(LocationStrategy, {useClass: HashLocationStrategy})
-])
-.catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(AppModule);

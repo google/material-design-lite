@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {Directive, HostBinding, Input} from 'angular2/core';
+import {Directive, HostBinding, Input} from '@angular/core';
 
 @Directive({
   selector: '[mdl-checkbox-label]'

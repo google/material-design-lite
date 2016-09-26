@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {Component, HostBinding, ViewEncapsulation} from 'angular2/core';
+import {Component, HostBinding, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'mdl-checkbox-wrapper',

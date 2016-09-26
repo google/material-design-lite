@@ -80,25 +80,11 @@ var defaultConfig = {
     chunkFilename: '[id].chunk.js'
   },
 
-  module: {
-    noParse: [
-      path.join(__dirname, 'node_modules', 'zone.js', 'dist'),
-      path.join(__dirname, 'node_modules', 'angular2', 'bundles')
-    ]
-  },
-
   resolve: {
     root: [ path.join(__dirname, 'src') ],
     extensions: ['', '.ts', '.js'],
     alias: {
-      'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-      '@angular/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-      'angular2/core': path.join(__dirname, 'node_modules', '@angular', 'core', 'index.js'),
-      'angular2/platform/browser': path.join(__dirname, 'node_modules', '@angular', 'platform-browser', 'index.js'),
-      'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'testing', 'index.js'),
-      'angular2/router': path.join(__dirname, 'node_modules', '@angular', 'router', 'index.js'),
-      'angular2/http': path.join(__dirname, 'node_modules', '@angular', 'http', 'index.js'),
-      'angular2/http/testing': path.join(__dirname, 'node_modules', '@angular', 'http', 'testing.js')
+
     },
   },
 
