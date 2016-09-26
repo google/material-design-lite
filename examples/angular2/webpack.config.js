@@ -52,11 +52,7 @@ var webpackConfig = {
         include: [
           path.resolve('../../packages')
         ]
-      },
-			{
-				test: /\.html$/,
-				loader: 'html'
-			}
+      }
     ]
   },
 

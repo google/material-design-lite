@@ -1,7 +1,7 @@
 // Before we create our component, let's leverage Typescript's awesome type system to create a
 // first-class interface for our foundation. Note that we will have type definitions by the time
 // we reach an RC.
-interface MDLFoudationAdapter {
+interface MDLCheckboxAdapter {
   addClass: (string) => void
   removeClass: (string) => void
   registerAnimationEndHandler: (EventListener) => void

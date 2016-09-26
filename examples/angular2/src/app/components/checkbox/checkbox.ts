@@ -70,7 +70,7 @@ export class CheckboxComponent implements AfterViewInit, OnDestroy {
 
   // Here we instantiate our checkbox adapter, using angular's abstraction mechanisms to interop
   // with the angular2 environment.
-  private _mdlAdapter: MDLFoudationAdapter = {
+  private _mdlAdapter: MDLCheckboxAdapter = {
     addClass: (className: string) => {
       const {_renderer: renderer, _root: root} = this;
       renderer.setElementClass(root.nativeElement, className, true);
