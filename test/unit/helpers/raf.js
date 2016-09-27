@@ -24,7 +24,7 @@
 //   requestAnimationFrame(() => console.log('first frame inner'));
 // });
 // const id2 = requestAnimationFrame(() => console.log('second frame'));
-// cancelAnimationFrame(id1);
+// cancelAnimationFrame(id2);
 // raf.flush(); // logs "first frame"
 // raf.flush(); // logs "first frame inner"
 // raf.restore(); // window.{rAF,cAF} set back to normal.
