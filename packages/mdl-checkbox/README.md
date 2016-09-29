@@ -132,6 +132,25 @@ import MDLCheckbox from 'mdl-checkbox';
 const checkbox = new MDLCheckbox(document.querySelector('.mdl-checkbox'));
 ```
 
+#### MDLCheckbox API
+
+The MDLCheckbox API provides accessor properties similar to those found on a native checkbox element.
+
+##### MDLCheckbox.checked
+
+Boolean. Returns whether or not the checkbox is checked. Setting this property will update the
+underlying checkbox element.
+
+##### MDLCheckbox.indeterminate
+
+Boolean. Returns whether or not the checkbox is indeterminate. Setting this property will update the
+underlying checkbox element.
+
+##### MDLCheckbox.disabled
+
+Boolean. Returns whether or not the checkbox is disabled. Setting this property will update the
+underlying checkbox element.
+
 ### Using the Foundation Class
 
 MDL Checkbox ships with an `MDLCheckboxFoundation` class that external frameworks and libraries can
@@ -151,6 +170,36 @@ vendor prefixes in order for this to work correctly. |
 | `forceLayout() => void` | Force-trigger a layout on the root element. This is needed to restart
 animations correctly. If you find that you do not need to do this, you can simply make it a no-op. |
 | `isAttachedToDOM() => boolean` | Returns true if the component is currently attached to the DOM, false otherwise.` |
+
+#### MDLCheckboxFoundation API
+
+##### MDLCheckboxFoundation.isChecked() => boolean
+
+Returns whether or not the underlying input is checked. Returns false when no input is available.
+
+##### MDLCheckboxFoundation.setChecked(checked: boolean)
+
+Updates the `checked` property on the underlying input. Does nothing when the underlying input is
+not present.
+
+##### MDLCheckboxFoundation.isIndeterminate() => boolean
+
+Returns whether or not the underlying input is indeterminate. Returns false when no input is
+available.
+
+##### MDLCheckboxFoundation.setIndeterminate(indeterminate: boolean)
+
+Updates the `indeterminate` property on the underlying input. Does nothing when the underlying input
+is not present.
+
+##### MDLCheckboxFoundation.isDisabled() => boolean
+
+Returns whether or not the underlying input is disabled. Returns false when no input is available.
+
+##### MDLCheckboxFoundation.setDisabled(disabled: boolean)
+
+Updates the `disabled` property on the underlying input. Does nothing when the underlying input is
+not present.
 
 ## Theming
 

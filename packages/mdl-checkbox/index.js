@@ -24,19 +24,47 @@ export default class MDLCheckbox extends MDLComponent {
     return new MDLCheckbox(root);
   }
 
+  get nativeCb_() {
+    const {NATIVE_CONTROL_SELECTOR} = MDLCheckboxFoundation.strings;
+    return this.root_.querySelector(NATIVE_CONTROL_SELECTOR);
+  }
+
   getDefaultFoundation() {
-    const {ANIM_END_EVENT_NAME, NATIVE_CONTROL_SELECTOR} = MDLCheckboxFoundation.strings;
-    const nativeCb = this.root_.querySelector(NATIVE_CONTROL_SELECTOR);
+    const {ANIM_END_EVENT_NAME} = MDLCheckboxFoundation.strings;
     return new MDLCheckboxFoundation({
       addClass: className => this.root_.classList.add(className),
       removeClass: className => this.root_.classList.remove(className),
       registerAnimationEndHandler: handler => this.root_.addEventListener(ANIM_END_EVENT_NAME, handler),
       deregisterAnimationEndHandler: handler => this.root_.removeEventListener(ANIM_END_EVENT_NAME, handler),
-      registerChangeHandler: handler => nativeCb.addEventListener('change', handler),
-      deregisterChangeHandler: handler => nativeCb.removeEventListener('change', handler),
-      getNativeControl: () => nativeCb,
+      registerChangeHandler: handler => this.nativeCb_.addEventListener('change', handler),
+      deregisterChangeHandler: handler => this.nativeCb_.removeEventListener('change', handler),
+      getNativeControl: () => this.nativeCb_,
       forceLayout: () => this.root_.offsetWidth,
       isAttachedToDOM: () => Boolean(this.root_.parentNode)
     });
+  }
+
+  get checked() {
+    return this.foundation_.isChecked();
+  }
+
+  set checked(checked) {
+    this.foundation_.setChecked(checked);
+  }
+
+  get indeterminate() {
+    return this.foundation_.isIndeterminate();
+  }
+
+  set indeterminate(indeterminate) {
+    this.foundation_.setIndeterminate(indeterminate);
+  }
+
+  get disabled() {
+    return this.foundation_.isDisabled();
+  }
+
+  set disabled(disabled) {
+    this.foundation_.setDisabled(disabled);
   }
 }
