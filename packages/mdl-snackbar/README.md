@@ -61,17 +61,7 @@ const MDLSnackbar = mdl.Snackbar.default;
 const MDLSnackbarFoundation = mdl.Snackbar.MDLSnackbarFoundation;
 ```
 
-#### Fully-automatic: DOM Rendering + Initialization
-
-```javascript
-const root = MDLSnackbar.buildDom();
-const snackbar = MDLSnackbar.attachTo(root);
-// append root to element, etc...
-```
-
-You can use `MDLSnackbar.buildDom` to dynamically construct snackbar DOM for you.
-
-#### Using an existing element.
+#### Automatic Instantiation
 
 If you do not care about retaining the component instance for the snackbar, simply call `attachTo()`
 and pass it a DOM element.  

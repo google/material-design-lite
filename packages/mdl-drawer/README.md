@@ -202,17 +202,7 @@ const MDLTemporaryDrawer = mdl.Drawer.MDLTemporaryDrawer;
 const MDLTemporaryDrawerFoundation = mdl.Drawer.MDLTemporaryDrawerFoundation;
 ```
 
-#### Fully-automatic: DOM Rendering + Initialization
-
-```javascript
-const root = MDLTemporaryDrawer.buildDom();
-const drawer = MDLTemporaryDrawer.attachTo(root);
-// append root to element, etc...
-```
-
-You can use `MDLTemporaryDrawer.buildDom` to dynamically construct the temporary DOM for you.
-
-#### Using an existing element.
+#### Automatic Instantiation
 
 If you do not care about retaining the component instance for the temporary drawer, simply call `attachTo()`
 and pass it a DOM element.  

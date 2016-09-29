@@ -21,28 +21,7 @@ import MDLRadioFoundation from './foundation';
 
 export {MDLRadioFoundation};
 
-let idCounter = 0;
-
 export default class MDLRadio extends MDLComponent {
-  static buildDom({
-    id = `mdl-radio-${++idCounter}`,
-    labelId = `mdl-radio-label-${id}`,
-    groupId = ''
-  } = {}) {
-    const {ROOT: CSS_ROOT} = MDLRadioFoundation.cssClasses;
-    const root = document.createElement('div');
-    root.classList.add(MDLRadioFoundation.cssClasses.ROOT);
-    root.innerHTML = `
-      <input id="${id}" type="radio" class="${CSS_ROOT}__native-control"
-             ${groupId ? ` name="${groupId}" ` : ''}aria-labelledby="${labelId}">
-      <div class="${CSS_ROOT}__background">
-        <div class="${CSS_ROOT}__outer-circle"></div>
-        <div class="${CSS_ROOT}__inner-circle"></div>
-      </div>
-    `;
-    return root;
-  }
-
   static attachTo(root) {
     return new MDLRadio(root);
   }

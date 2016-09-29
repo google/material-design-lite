@@ -20,24 +20,6 @@ import MDLSnackbarFoundation from './foundation';
 export {MDLSnackbarFoundation};
 
 export default class MDLSnackbar extends MDLComponent {
-  static buildDom() {
-    const {ROOT: CSS_ROOT, TEXT, ACTION_WRAPPER, ACTION_BUTTON} = MDLSnackbarFoundation.cssClasses;
-
-    const root = document.createElement('div');
-    root.classList.add(CSS_ROOT);
-    root.setAttribute('aria-live', 'assertive');
-    root.setAttribute('aria-atomic', 'true');
-    root.setAttribute('aria-hidden', 'true');
-    root.innerHTML = `
-      <div class="${TEXT}"></div>
-      <div class="${ACTION_WRAPPER}">
-        <button type="button" class="mdl-button ${ACTION_BUTTON}"></button>
-      </div>
-    `;
-
-    return root;
-  }
-
   static attachTo(root) {
     return new MDLSnackbar(root);
   }

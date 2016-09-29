@@ -19,37 +19,7 @@ import MDLCheckboxFoundation from './foundation';
 
 export {MDLCheckboxFoundation};
 
-let idCounter = 0;
-
 export default class MDLCheckbox extends MDLComponent {
-  static buildDom({id = `mdl-checkbox-${++idCounter}`, labelId = `mdl-checkbox-label-${id}`} = {}) {
-    const {ROOT: CSS_ROOT} = MDLCheckboxFoundation.cssClasses;
-
-    const root = document.createElement('div');
-    root.classList.add(CSS_ROOT);
-    root.innerHTML = `
-      <input type="checkbox"
-             class="${CSS_ROOT}__native-control"
-             id="${id}"
-             aria-labelledby="${labelId}"/>
-      <div class="${CSS_ROOT}__frame"></div>
-      <div class="${CSS_ROOT}__background">
-        <svg version="1.1"
-             class="${CSS_ROOT}__checkmark"
-             xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 24 24">
-          <path class="${CSS_ROOT}__checkmark__path"
-                fill="none"
-                stroke="white"
-                d="M4.1,12.7 9,17.6 20.3,6.3"/>
-        </svg>
-        <div class="mdl-checkbox__mixedmark"></div>
-      </div>
-    `;
-
-    return root;
-  }
-
   static attachTo(root) {
     return new MDLCheckbox(root);
   }

@@ -16,7 +16,6 @@
 
 import test from 'tape';
 import bel from 'bel';
-import {compare} from 'dom-compare';
 import domEvents from 'dom-events';
 import td from 'testdouble';
 
@@ -51,52 +50,6 @@ function setupTest() {
   const component = new MDLCheckbox(root);
   return {root, component};
 }
-
-test('buildDom returns a built checkbox element using the supplied id + label id', t => {
-  const expected = getFixture();
-  const actual = MDLCheckbox.buildDom({id: 'my-checkbox', labelId: 'my-checkbox-label'});
-  // NOTE: bel chokes on xmlns. See https://github.com/shama/bel/issues/21
-  const svg = actual.querySelector('svg');
-  t.equal(svg.getAttribute('xmlns'), 'http://www.w3.org/2000/svg');
-  svg.removeAttribute('xmlns');
-
-  const comparison = compare(expected, actual);
-  const diffs = comparison.getDifferences();
-
-  if (diffs.length) {
-    const diffMsgs = diffs.map(({node, message}) => `\t* ${node} - ${message}`).join('\n');
-    t.fail(`Improper DOM Object. Diff failed:\n${diffMsgs}\n`);
-  } else {
-    t.pass();
-  }
-
-  t.end();
-});
-
-test('buildDom attaches a generated id / label-id when none supplied', t => {
-  const dom = MDLCheckbox.buildDom();
-  const id = dom.querySelector('.mdl-checkbox__native-control').id;
-  const labelId = dom.querySelector('.mdl-checkbox__native-control').getAttribute('aria-labelledby');
-  t.true(/^mdl\-checkbox-\d$/.test(id), 'id matches "mdl-checkbox-<number>"');
-  t.equal(labelId, `mdl-checkbox-label-${id}`, 'labelId matches "mdl-checkbox-label-<id>"');
-  t.end();
-});
-
-test('buildDom ensures generated ids are unique', t => {
-  const dom1 = MDLCheckbox.buildDom();
-  const dom2 = MDLCheckbox.buildDom();
-  const id1 = dom1.querySelector('.mdl-checkbox__native-control').id;
-  const id2 = dom2.querySelector('.mdl-checkbox__native-control').id;
-  t.notEqual(id1, id2);
-  t.end();
-});
-
-test('buildDom ensures labelId matches supplied id when only id given', t => {
-  const dom = MDLCheckbox.buildDom({id: 'foo'});
-  const labelId = dom.querySelector('.mdl-checkbox__native-control').getAttribute('aria-labelledby');
-  t.equal(labelId, 'mdl-checkbox-label-foo', 'labelId matches "mdl-checkbox-label-<id>"');
-  t.end();
-});
 
 test('attachTo initializes and returns a MDLCheckbox instance', t => {
   t.true(MDLCheckbox.attachTo(getFixture()) instanceof MDLCheckbox);

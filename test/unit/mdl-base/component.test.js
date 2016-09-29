@@ -39,13 +39,6 @@ class FakeComponent extends MDLComponent {
   }
 }
 
-test('provides a static buildDom() method that returns an empty div by default', t => {
-  const dom = MDLComponent.buildDom();
-  t.equal(dom.tagName.toLowerCase(), 'div');
-  t.equal(dom.innerHTML, '');
-  t.end();
-});
-
 test('provides a static attachTo() method that returns a basic instance with the specified root', t => {
   const root = document.createElement('div');
   const b = MDLComponent.attachTo(root);
