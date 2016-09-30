@@ -18,7 +18,7 @@
     "postinstall": "lerna bootstrap",
     "pretest": "npm run lint",
     "test": "karma start --single-run",
-    "posttest": "istanbul report --root coverage text-summary && istanbul check-coverage --lines 85 --statements 85 --branches 85 --functions 85",
+    "posttest": "istanbul report --root coverage text-summary && istanbul check-coverage --lines 95 --statements 95 --branches 95 --functions 95",
     "test:watch": "karma start --auto-watch"
   },
   "devDependencies": {
