@@ -26,7 +26,7 @@ import fs from 'fs';
 import path from 'path';
 import mergeStream from 'merge-stream';
 import del from 'del';
-import vinylPaths from'vinyl-paths';
+import vinylPaths from 'vinyl-paths';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import through from 'through2';
