@@ -54,47 +54,6 @@
     mdl-checkbox-transition(transform, $timing-fn, 0ms, 80ms);
 }
 
-/* postcss-bem-linter: define checkbox-wrapper */
-.mdl-checkbox-wrapper {
-  display: inline-block;
-
-  &__layout {
-    display: inline-flex;
-    align-items: baseline;
-    vertical-align: middle;
-  }
-
-  /* postcss-bem-linter: ignore */
-  .mdl-checkbox {
-    order: 0;
-    margin: auto;
-    margin-right: $mdl-checkbox-item-spacing;
-
-    /* postcss-bem-linter: ignore */
-    [dir="rtl"] & {
-      margin-right: auto;
-      margin-left: $mdl-checkbox-item-spacing;
-    }
-  }
-}
-
-.mdl-checkbox-wrapper--align-end {
-  /* postcss-bem-linter: ignore */
-  .mdl-checkbox {
-    order: 1;
-    margin-right: auto;
-    margin-left: $mdl-checkbox-item-spacing;
-
-    /* postcss-bem-linter: ignore */
-    [dir="rtl"] & {
-      margin-right: $mdl-checkbox-item-spacing;
-      margin-left: auto;
-    }
-  }
-}
-
-/* postcss-bem-linter: end */
-
 /* postcss-bem-linter: define checkbox */
 .mdl-checkbox {
   display: inline-block;

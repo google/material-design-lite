@@ -358,3 +358,10 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
     }
   }
 }
+
+// mdl-form-field tweaks to align text field label correctly
+/* stylelint-disable selector-no-type */
+.mdl-form-field > .mdl-textfield + label {
+  align-self: flex-start;
+}
+/* stylelint-enable selector-no-type */
