@@ -61,6 +61,18 @@ test('attachTo initializes and returns a MDLTemporaryDrawer instance', t => {
   t.end();
 });
 
+test('get/set open', t => {
+  const {root, component} = setupTest();
+  component.open = true;
+  t.true(root.classList.contains('mdl-temporary-drawer--open'));
+  t.true(component.open);
+
+  component.open = false;
+  t.false(root.classList.contains('mdl-temporary-drawer--open'));
+  t.false(component.open);
+  t.end();
+});
+
 test('foundationAdapter#addClass adds a class to the root element', t => {
   const {root, component} = setupTest();
   component.getDefaultFoundation().adapter_.addClass('foo');
@@ -187,6 +199,18 @@ test('adapter#setTranslateX sets the correct transform on the drawer', t => {
   const drawer = root.querySelector(strings.DRAWER_SELECTOR);
   component.getDefaultFoundation().adapter_.setTranslateX(42);
   t.equal(drawer.style.getPropertyValue(getTransformPropertyName()), 'translateX(42px)');
+  t.end();
+});
+
+test('adapter#setTranslateX sets translateX to null when given the null value', t => {
+  const {root, component} = setupTest();
+  const drawer = root.querySelector(strings.DRAWER_SELECTOR);
+  component.getDefaultFoundation().adapter_.setTranslateX(null);
+  const transformPropertyName = getTransformPropertyName();
+  const nonStyledElement = document.createElement('div');
+  t.equal(
+    drawer.style.getPropertyValue(transformPropertyName), nonStyledElement.style.getPropertyValue(transformPropertyName)
+  );
   t.end();
 });
 

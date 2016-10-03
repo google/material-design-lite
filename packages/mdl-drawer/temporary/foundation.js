@@ -35,7 +35,7 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
       addClass: (/* className: string */) => {},
       removeClass: (/* className: string */) => {},
       hasClass: (/* className: string */) => {},
-      hasNecessaryDom: () => /* boolean */ {},
+      hasNecessaryDom: () => /* boolean */ false,
       registerInteractionHandler: (/* evt: string, handler: EventListener */) => {},
       deregisterInteractionHandler: (/* evt: string, handler: EventListener */) => {},
       registerDrawerInteractionHandler: (/* evt: string, handler: EventListener */) => {},
@@ -48,7 +48,8 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
       saveElementTabState: (/* el: Element */) => {},
       restoreElementTabState: (/* el: Element */) => {},
       makeElementUntabbable: (/* el: Element */) => {},
-      isRtl: () => /* boolean */ {}
+      isRtl: () => /* boolean */ false,
+      getDrawerWidth: () => /* number */ 0
     };
   }
 
@@ -187,9 +188,6 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
   }
 
   handleTouchMove_(evt) {
-    if (!this.touchingSideNav_) {
-      return;
-    }
     if (evt.pointerType && evt.pointerType !== 'touch') {
       return;
     }
@@ -202,9 +200,6 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
   }
 
   handleTouchEnd_(evt) {
-    if (!this.touchingSideNav_) {
-      return;
-    }
     if (evt.pointerType && evt.pointerType !== 'touch') {
       return;
     }
