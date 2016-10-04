@@ -185,12 +185,20 @@
 }
 
 .mdl-spinner__circle-clipper {
-  display: inline-block;
+  display: block;
   position: relative;
   width: 50%;
   height: 100%;
   overflow: hidden;
   border-color: inherit;
+
+  &.mdl-spinner__left {
+    float: left;
+  }
+
+  &.mdl-spinner__right {
+    float: right;
+  }
 
   & .mdl-spinner__circle {
     width: 200%;
