@@ -18,6 +18,7 @@
 @import "mdl-theme/variables";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
+@import "mdl-typography/variables";
 
 $mdl-textfield-error-on-light: #d50000;
 $mdl-textfield-error-on-dark: #ff6e6e;
@@ -32,13 +33,17 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
 
 /* postcss-bem-linter: define textfield */
 .mdl-textfield {
-  @include mdl-typography(subheading1);
+  @include mdl-typography-base;
+
+  // We use only a subset of the MDL typography values here as changing things such as line-height
+  // affects how the labels are transformed.
+  @each $prop in (font-size, letter-spacing) {
+    #{$prop}: map-get(map-get($mdl-typography-styles, subheading2), $prop);
+  }
 
   display: inline-block;
   margin-bottom: 8px;
   will-change: opacity, transform, color;
-  // Override mdl-typography changes
-  line-height: 1rem;
 
   &__input {
     @include mdl-theme-prop(color, text-primary-on-light);
@@ -90,7 +95,6 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
     transform-origin: left top;
     transition: mdl-textfield-transition(transform), mdl-textfield-transition(color);
     cursor: text;
-    will-change: transform, color;
 
     /* stylelint-disable plugin/selector-bem-pattern */
     [dir="rtl"] & {
@@ -168,11 +172,7 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
 .mdl-textfield--dense {
   margin-top: 12px;
   margin-bottom: 4px;
-
-  .mdl-textfield__input,
-  .mdl-textfield__label {
-    font-size: .813rem;
-  }
+  font-size: .813rem;
 
   .mdl-textfield__label--float-above {
     // NOTE: This is an eyeball'd approximation of what's in the mocks.
