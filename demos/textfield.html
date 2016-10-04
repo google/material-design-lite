@@ -83,7 +83,7 @@
     <section>
       <h2>Password field with validation</h2>
       <div class="mdl-textfield">
-        <input required minlength=8 type="password" class="mdl-textfield__input" id="pw"
+        <input required pattern=".{8,}" type="password" class="mdl-textfield__input" id="pw"
                aria-controls="pw-validation-msg">
         <label for="pw" class="mdl-textfield__label">Choose password</label>
       </div>
