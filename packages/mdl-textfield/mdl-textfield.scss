@@ -56,7 +56,7 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
 
     &::placeholder {
       @include mdl-theme-prop(color, text-hint-on-light);
-
+      transition: mdl-textfield-transition(color);
       opacity: 1;
     }
 
@@ -263,43 +263,119 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
   }
 }
 
+.mdl-textfield--multiline {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $padding-inset: 4px;
+  $label-offset-y: $padding-inset + 2;
+  $label-offset-x: $padding-inset;
+  /* stylelint-enable scss/dollar-variable-pattern */
+
+  display: flex;
+  height: initial;
+  transition: none;
+
+  &::after {
+    content: initial;
+  }
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+
+  .mdl-textfield__input {
+    padding: $padding-inset;
+    transition: mdl-textfield-transition(border-color);
+    border: 1px solid $mdl-textfield-divider-on-light;
+    border-radius: 2px;
+
+    @include mdl-theme-dark(".mdl-textfield") {
+      border-color: $mdl-textfield-divider-on-dark;
+    }
+
+    &:focus {
+      @include mdl-theme-prop(border-color, primary);
+    }
+
+    &:invalid:not(:focus) {
+      border-color: $mdl-textfield-error-on-light;
+    }
+
+    @include mdl-theme-dark(".mdl-textfield") {
+      &:invalid:not(:focus) {
+        border-color: $mdl-textfield-error-on-dark;
+      }
+    }
+  }
+
+  .mdl-textfield__label {
+    top: $label-offset-y;
+    bottom: initial;
+    left: $label-offset-x;
+
+    [dir="rtl"] & {
+      right: $label-offset-x;
+      left: auto;
+    }
+
+    &--float-above {
+      // Translate above the top of the input, and compensate for the amount of offset needed
+      // to position the label within the bounds of the inset padding.
+      // Note that the scale factor is an eyeball'd approximation of what's shown in the mocks.
+      transform: translateY(calc(-100% - #{$label-offset-y})) scale(.923, .923);
+    }
+  }
+
+  &.mdl-textfield--disabled {
+    border-bottom: none;
+
+    .mdl-textfield__input {
+      border: 1px dotted $mdl-textfield-disabled-border-on-light;
+
+      @include mdl-theme-dark(".mdl-textfield") {
+        border-color: $mdl-textfield-disabled-border-on-dark;
+      }
+    }
+  }
+  /* stylelint-enable plugin/selector-bem-pattern */
+}
+
 // Graceful degredation for css-only inputs
 
 .mdl-textfield {
-  &:not(.mdl-textfield--upgraded) .mdl-textfield__input {
+  &:not(.mdl-textfield--upgraded):not(.mdl-textfield--multiline) .mdl-textfield__input {
     transition: mdl-textfield-transition(border-bottom-color);
     border-bottom: 1px solid $mdl-textfield-divider-on-light;
+  }
 
+  &:not(.mdl-textfield--upgraded) .mdl-textfield__input {
     &:focus {
-      @include mdl-theme-prop(border-bottom-color, primary);
+      @include mdl-theme-prop(border-color, primary);
     }
 
     &:disabled {
       @include mdl-theme-prop(color, text-disabled-on-light);
 
-      border-bottom-style: dotted;
-      border-bottom-color: $mdl-textfield-disabled-border-on-light;
+      border-style: dotted;
+      border-color: $mdl-textfield-disabled-border-on-light;
     }
 
     &:invalid:not(:focus) {
-      border-bottom-color: $mdl-textfield-error-on-light;
+      border-color: $mdl-textfield-error-on-light;
     }
   }
 
   @include mdl-theme-dark {
     &:not(.mdl-textfield--upgraded) .mdl-textfield__input {
       &:not(:focus) {
-        border-bottom-color: rgba(white, .12);
+        border-color: rgba(white, .12);
       }
 
       &:disabled {
         @include mdl-theme-prop(color, text-disabled-on-dark);
 
-        border-bottom-color: $mdl-textfield-disabled-border-on-dark;
+        border-color: $mdl-textfield-disabled-border-on-dark;
       }
 
       &:invalid:not(:focus) {
-        border-bottom-color: $mdl-textfield-error-on-dark;
+        border-color: $mdl-textfield-error-on-dark;
       }
     }
   }

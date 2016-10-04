@@ -111,6 +111,41 @@
         </label>
       </div>
     </section>
+    <section>
+      <h2>Multi-line Textfields</h2>
+      <section id="demo-textfield-multiline-wrapper" style="overflow:hidden;">
+        <div class="mdl-textfield mdl-textfield--multiline">
+          <textarea id="multi-line" class="mdl-textfield__input" rows="8" cols="40"></textarea>
+          <label for="multi-line" class="mdl-textfield__label">Multi-line Label</label>
+        </div>
+      </section>
+      <div>
+        <input id="multi-disable" type="checkbox">
+        <label for="multi-disable">Disable</label>
+      </div>
+      <div>
+        <input id="multi-rtl" type="checkbox">
+        <label for="multi-rtl">RTL</label>
+      </div>
+      <div>
+        <input id="multi-dark-theme" type="checkbox">
+        <label for="multi-dark-theme">Dark Theme</label>
+      </div>
+      <div>
+        <input id="multi-required" type="checkbox">
+        <label for="multi-required">Required</label>
+      </div>
+    </section>
+    <section>
+      <h2>Multi-line Textfields - CSS Only</h2>
+      <label for="css-only-multiline" style="margin-bottom:4px;">About you:</label>
+      <div class="mdl-textfield mdl-textfield--multiline" data-no-js>
+        <textarea class="mdl-textfield__input"
+                  id="css-only-multiline"
+                  rows="8" cols="40"
+                  placeholder="Tell the world something about yourself!"></textarea>
+      </div>
+    </section>
     <script src="assets/material-design-lite.js" charset="utf-8"></script>
     <script>
       (function() {
@@ -171,6 +206,33 @@
           helptext.classList[target.checked ? 'add' : 'remove'](
             'mdl-textfield-helptext--validation-msg'
           );
+        });
+      })();
+    </script>
+    <script>
+      (function() {
+        var section = document.getElementById('demo-textfield-multiline-wrapper');
+        var tfRoot = section.querySelector('.mdl-textfield');
+        var tf = new mdl.Textfield(tfRoot);
+        document.getElementById('multi-disable').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tf.disabled = target.checked;
+        });
+        document.getElementById('multi-rtl').addEventListener('change', function(evt) {
+          var target = evt.target;
+          if (target.checked) {
+            section.setAttribute('dir', 'rtl');
+          } else {
+            section.removeAttribute('dir');
+          }
+        });
+        document.getElementById('multi-dark-theme').addEventListener('change', function(evt) {
+          var target = evt.target;
+          section.classList[target.checked ? 'add' : 'remove']('mdl-theme--dark');
+        });
+        document.getElementById('multi-required').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tfRoot.querySelector('.mdl-textfield__input').required = target.checked;
         });
       })();
     </script>
