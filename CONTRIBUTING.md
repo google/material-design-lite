@@ -75,7 +75,7 @@ Please provide any URLs or screenshots of good examples of usage of this compone
 If you would like to implement a new feature then consider what kind of change it is:
 
 * **Major Changes** that you wish to contribute to the project should be discussed first on our
-[issue tracker][https://github.com/google/material-design-lite/issues] so that we can better coordinate our efforts, prevent
+[issue tracker][] so that we can better coordinate our efforts, prevent
 duplication of work, and help you to craft the change so that it is successfully accepted into the
 project.
 * **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull Request.
@@ -223,6 +223,7 @@ changes to be accepted, the CLA must be signed. It's a quick process, we promise
 *This guide was inspired by the [AngularJS contribution guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md).*
 
 [github]: https://github.com/google/material-design-lite
+[issue tracker]: https://github.com/google/material-design-lite/issues
 [individual-cla]: http://code.google.com/legal/individual-cla-v1.0.html
 [corporate-cla]: http://code.google.com/legal/corporate-cla-v1.0.html
 [js-style-guide]: http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
