@@ -2,7 +2,7 @@
 
 The MDL Checkbox component is a spec-aligned checkbox component adhering to the
 [Material Design checkbox requirements](https://material.google.com/components/selection-controls.html#selection-controls-checkbox).
-It works without JavaScript with basic functionality for all states. If you use the JavaScript object for a checkbox, then it will be add more intricate animation effects when switching between states.
+It works without JavaScript with basic functionality for all states. If you use the JavaScript object for a checkbox, it will add more intricate animation effects when switching between states.
 
 ## Installation
 
@@ -15,9 +15,7 @@ It works without JavaScript with basic functionality for all states. If you use 
 ```html
 <div class="mdl-checkbox">
   <input type="checkbox"
-         class="mdl-checkbox__native-control"
-         id="my-checkbox"
-         aria-labelledby="my-checkbox-label" />
+         class="mdl-checkbox__native-control"/>
   <div class="mdl-checkbox__background">
     <svg version="1.1" class="mdl-checkbox__checkmark"
          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -27,7 +25,6 @@ It works without JavaScript with basic functionality for all states. If you use 
     </svg>
   <div class="mdl-checkbox__mixedmark"></div>
 </div>
-<label for="my-checkbox" id="my-checkbox-label">My Checkbox</label>
 ```
 
 The checkbox component is driven by an underlying native checkbox element. This element is sized and
@@ -37,41 +34,26 @@ devices.
 You can also add an `mdl-checkbox--theme-dark` modifier class to the component to use the dark theme
 checkbox styles.
 
-### Checkbox wrapper class
-
-MDL Checkbox comes with an `mdl-checkbox-wrapper` class which you can use to easily lay out a
-checkbox / label combo side-by-side. The wrapper is RTL-aware and supports start and end alignment.
+Additionally, the checkbox can be used in conjunction with [mdl-form-field](../mdl-form-field) to
+easily position checkboxes and their labels.
 
 ```html
-<div class="mdl-checkbox-wrapper">
-  <div class="mdl-checkbox-wrapper__layout">
-    <div class="mdl-checkbox">
-      <input type="checkbox"
-             class="mdl-checkbox__native-control"
-             id="my-checkbox"
-             aria-labelledby="my-checkbox-label" />
-      <div class="mdl-checkbox__background">
-        <svg version="1.1" class="mdl-checkbox__checkmark"
-             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             xml:space="preserve">
-          <path class="mdl-checkbox__checkmark__path" fill="none" stroke="white"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-        </svg>
-      <div class="mdl-checkbox__mixedmark"></div>
-    </div>
-    <label for="my-checkbox" id="my-checkbox-label">My Checkbox</label>
+<div class="mdl-form-field">
+  <div class="mdl-checkbox">
+    <input type="checkbox"
+           class="mdl-checkbox__native-control"
+           id="my-checkbox"/>
+    <div class="mdl-checkbox__background">
+      <svg version="1.1" class="mdl-checkbox__checkmark"
+           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           xml:space="preserve">
+        <path class="mdl-checkbox__checkmark__path" fill="none" stroke="white"
+              d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+      </svg>
+    <div class="mdl-checkbox__mixedmark"></div>
   </div>
-</div>
-```
 
-To switch the order of the checkbox and label, no DOM modification is necessary. Simply add a
-`mdl-checkbox-wrapper--align-end` modifier class the the wrapper block.
-
-```html
-<div class="mdl-checkbox-wrapper mdl-checkbox-wrapper--align-end">
-  <div class="mdl-checkbox-wrapper__layout">
-    <!-- ... -->
-  </div>
+  <label for="my-checkbox">My Checkbox Label</label>
 </div>
 ```
 

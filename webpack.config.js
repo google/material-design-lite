@@ -86,6 +86,7 @@ module.exports = [{
     'mdl-drawer': path.resolve('./packages/mdl-drawer/mdl-drawer.scss'),
     'mdl-elevation': path.resolve('./packages/mdl-elevation/mdl-elevation.scss'),
     'mdl-fab': path.resolve('./packages/mdl-fab/mdl-fab.scss'),
+    'mdl-form-field': path.resolve('./packages/mdl-form-field/mdl-form-field.scss'),
     'mdl-icon-toggle': path.resolve('./packages/mdl-icon-toggle/mdl-icon-toggle.scss'),
     'mdl-list': path.resolve('./packages/mdl-list/mdl-list.scss'),
     'mdl-radio': path.resolve('./packages/mdl-radio/mdl-radio.scss'),
