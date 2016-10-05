@@ -56,7 +56,34 @@ test('attachTo initializes and returns a MDLCheckbox instance', t => {
   t.end();
 });
 
-test('foundationAdapter#addClass adds a class to the root element', t => {
+test('get/set checked updates the checked property on the native checkbox element', t => {
+  const {root, component} = setupTest();
+  const cb = root.querySelector(strings.NATIVE_CONTROL_SELECTOR);
+  component.checked = true;
+  t.true(cb.checked);
+  t.equal(component.checked, cb.checked);
+  t.end();
+});
+
+test('get/set indeterminate updates the indeterminate property on the native checkbox element', t => {
+  const {root, component} = setupTest();
+  const cb = root.querySelector(strings.NATIVE_CONTROL_SELECTOR);
+  component.indeterminate = true;
+  t.true(cb.indeterminate);
+  t.equal(component.indeterminate, cb.indeterminate);
+  t.end();
+});
+
+test('get/set disabled updates the indeterminate property on the native checkbox element', t => {
+  const {root, component} = setupTest();
+  const cb = root.querySelector(strings.NATIVE_CONTROL_SELECTOR);
+  component.disabled = true;
+  t.true(cb.disabled);
+  t.equal(component.disabled, cb.disabled);
+  t.end();
+});
+
+test('adapter#addClass adds a class to the root element', t => {
   const {root, component} = setupTest();
   component.getDefaultFoundation().adapter_.addClass('foo');
   t.true(root.classList.contains('foo'));
