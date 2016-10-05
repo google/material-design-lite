@@ -113,29 +113,7 @@ const MDLCheckbox = mdl.Checkbox.default;
 const MDLCheckboxFoundation = mdl.Checkbox.MDLCheckboxFoundation;
 ```
 
-#### Fully-automatic: DOM Rendering + Initialization
-
-```javascript
-const root = MDLCheckbox.buildDom({id: 'my-checkbox', labelId: 'my-checkbox-label'});
-const checkbox = MDLCheckbox.attachTo(root);
-// append root to element, etc...
-```
-
-You can use `MDLCheckbox.buildDom` to dynamically construct checkbox DOM for you.
-`MDLCheckbox.buildDom` takes an options object with values described below:
-
-| Option | Type | Default | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | `mdl-checkbox-<unique_id>` | The id for the native checkbox control. |
-| `labelId` | `string` | `mdl-checkbox-label-<id_value>` | The id of the element which label's this checkbox. The default will use the `id` param and prefix it with `mdl-checkbox-label`. This value is
-attached to the `aria-labelledby` attribute on the native control. |
-
-> **NOTE**: Regardless of how you instantiate a checkbox element, you should always strive to
-> provide an id for the checkbox that's used within its label's `for` attribute, as well as an id
-> for its label which is used in the native control's `aria-labelledby` attribute. This will ensure
-> that assistive devices function properly when using this component.
-
-#### Using an existing element.
+#### Automatic Instantiation
 
 If you do not care about retaining the component instance for the checkbox, simply call `attachTo()`
 and pass it a DOM element.  

@@ -112,8 +112,6 @@ Each foundation class has two lifecycle methods: `init()` and `destroy()`, which
 | init() | called by a host class when a component is ready to be initialized | add event listeners, query for info via adapters, etc. |
 | destroy() | called by a host class when a component is no longer in use | remove event listeners, reset any transient state, etc. |
 
-> Please note: _the lifecycle methods are **not** a safe place to perform DOM reads/writes that would invalidate layout or cause a repaint_. If this needs to be done within these methods, it should be put into a `requestAnimationFrame()` call so that it's synchronized with the browser's refresh cycle and does not [cause jank](http://www.html5rocks.com/en/tutorials/speed/rendering/).
-
 ### MDLComponent
 
 MDLComponent provides the basic mechanisms for implementing component classes.
@@ -122,23 +120,6 @@ MDLComponent provides the basic mechanisms for implementing component classes.
 import MyComponentFoundation from './foundation';
 
 export default class MyComponent extends MDLComponent {
-  static buildDom() {
-    const {ROOT, MESSAGE, BUTTON} = MyComponentFoundation.cssClasses;
-    const root = document.createElement('div');
-    root.classList.add(ROOT);
-
-    const message = document.createElement('p');
-    message.classList.add(MESSAGE);
-    root.appendChild(message);
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.classList.add(BUTTON);
-    root.appendChild(button);
-
-    return root;
-  }
-
   static attachTo(root) {
     return new MyComponent(root);
   }
@@ -185,7 +166,6 @@ In addition to methods inherited, subclasses should implement the following two 
 
 | method | description |
 | --- | --- |
-| `buildDom(...any) => HTMLElement` | Subclasses may implement this as a convenience method to construct the proper DOM for a component. Users could then rely on this as an alternative to having to construct the DOM themselves. However, it should exist purely for convenience and _never_ be used as a dependency for the component itself. |
 | `attachTo(root) => <ComponentClass>` | Subclasses must implement this as a convenience method to instantiate and return an instance of the class using the root element provided. This will be used within `mdl-auto-init`, and in the future its presence may be enforced via a custom lint rule.|
 
 #### Foundation Lifecycle handling
@@ -204,8 +184,8 @@ class MyComponent {
   // ...
   getDefaultFoundation() {
     return new MyComponentFoundation({
-        toggleClass: className => util.toggleClass(this.root_, className),
-        // ...
+      toggleClass: className => util.toggleClass(this.root_, className),
+      // ...
     });
   }
 }

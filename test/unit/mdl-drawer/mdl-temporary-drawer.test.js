@@ -16,7 +16,6 @@
 
 import test from 'tape';
 import bel from 'bel';
-import {compare} from 'dom-compare';
 import domEvents from 'dom-events';
 import td from 'testdouble';
 
@@ -38,23 +37,6 @@ function setupTest() {
   const component = new MDLTemporaryDrawer(root);
   return {root, component};
 }
-
-test('buildDom returns a built DOM structure', t => {
-  const expected = getFixture();
-  const actual = MDLTemporaryDrawer.buildDom();
-
-  const comparison = compare(expected, actual);
-  const diffs = comparison.getDifferences();
-
-  if (diffs.length) {
-    const diffMsgs = diffs.map(({node, message}) => `\t* ${node} - ${message}`).join('\n');
-    t.fail(`Improper DOM Object. Diff failed:\n${diffMsgs}\n`);
-  } else {
-    t.pass();
-  }
-
-  t.end();
-});
 
 test('attachTo initializes and returns a MDLTemporaryDrawer instance', t => {
   t.true(MDLTemporaryDrawer.attachTo(getFixture()) instanceof MDLTemporaryDrawer);

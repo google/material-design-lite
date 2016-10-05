@@ -21,16 +21,6 @@ import * as util from '../util';
 export {MDLTemporaryDrawerFoundation};
 
 export default class MDLTemporaryDrawer extends MDLComponent {
-  static buildDom() {
-    const {ROOT: CSS_ROOT} = MDLTemporaryDrawerFoundation.cssClasses;
-
-    const root = document.createElement('aside');
-    root.classList.add(CSS_ROOT);
-    root.innerHTML = `<nav class="${CSS_ROOT}__drawer"></nav>`;
-
-    return root;
-  }
-
   static attachTo(root) {
     return new MDLTemporaryDrawer(root);
   }
