@@ -157,6 +157,27 @@ UX for client-side form field validation.
 </p>
 ```
 
+### Multi-line - With Javascript
+
+```html
+<div class="mdl-textfield mdl-textfield--multiline">
+  <textarea id="multi-line" class="mdl-textfield__input" rows="8" cols="40"></textarea>
+  <label for="multi-line" class="mdl-textfield__label">Multi-line Label</label>
+</div>
+```
+
+### Multi-line - Gracefully Degraded
+
+```html
+<label for="css-only-multiline">Multi-line label: </label>
+<div class="mdl-textfield mdl-textfield--multiline">
+  <textarea class="mdl-textfield__input"
+            id="css-only-multiline"
+            rows="8" cols="40"
+            placeholder="Tell the world something about yourself!"></textarea>
+</div>
+```
+
 ### Using the JS component
 
 MDL Textfield ships with Component / Foundation classes which are used to provide a full-fidelity
