@@ -58,8 +58,18 @@ export default class MDLTextfield extends MDLComponent {
     return new MDLTextfieldFoundation(Object.assign({
       addClass: className => this.root_.classList.add(className),
       removeClass: className => this.root_.classList.remove(className),
-      addClassToLabel: className => this.label_.classList.add(className),
-      removeClassFromLabel: className => this.label_.classList.remove(className)
+      addClassToLabel: className => {
+        const label = this.label_;
+        if (label) {
+          label.classList.add(className);
+        }
+      },
+      removeClassFromLabel: className => {
+        const label = this.label_;
+        if (label) {
+          label.classList.remove(className);
+        }
+      }
     }, this.getInputAdapterMethods_(), this.getHelptextAdapterMethods_()));
   }
 

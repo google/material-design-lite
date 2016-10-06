@@ -95,12 +95,26 @@ test('#adapter.addClassToLabel adds a class to the label element', t => {
   t.end();
 });
 
+test('#adapter.addClassToLabel does nothing if no label element present', t => {
+  const {root, component} = setupTest();
+  root.removeChild(root.querySelector('.mdl-textfield__label'));
+  t.doesNotThrow(() => component.getDefaultFoundation().adapter_.addClassToLabel('foo'));
+  t.end();
+});
+
 test('#adapter.removeClassFromLabel removes a class from the label element', t => {
   const {root, component} = setupTest();
   const label = root.querySelector('.mdl-textfield__label');
   label.classList.add('foo');
   component.getDefaultFoundation().adapter_.removeClassFromLabel('foo');
   t.false(label.classList.contains('foo'));
+  t.end();
+});
+
+test('#adapter.removeClassFromLabel does nothing if no label element present', t => {
+  const {root, component} = setupTest();
+  root.removeChild(root.querySelector('.mdl-textfield__label'));
+  t.doesNotThrow(() => component.getDefaultFoundation().adapter_.removeClassFromLabel('foo'));
   t.end();
 });
 
