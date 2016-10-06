@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/variables";
+@import "mdl-animation/functions";
 @import "mdl-theme/mixins";
 @import "./mixins";
 
@@ -35,7 +35,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    transition: opacity 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    transition: mdl-animation-exit(opacity, 120ms);
     border-radius: inherit;
     background: currentColor;
     content: "";
