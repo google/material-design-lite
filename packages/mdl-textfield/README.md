@@ -1,14 +1,5 @@
 # MDL Textfield
 
-> Status:
->
-> - [x] Single-line text fields
-> - [ ] Full-width text fields
-> - [ ] Character counter support
-> - :no_entry_sign: Auto-complete (will be covered in #4500)
->
-> See #4479
-
 The MDL Textfield component provides a textual input field adhering to the [Material Design Specification](https://material.google.com/components/text-fields.html).
 It is fully accessible, ships with RTL support, and includes a gracefully-degraded version that does
 not require any javascript.
@@ -178,6 +169,23 @@ UX for client-side form field validation.
 </div>
 ```
 
+### Full-width
+
+```html
+<div class="mdl-textfield mdl-textfield--fullwidth">
+  <input class="mdl-textfield__input"
+         type="text"
+         placeholder="Full-Width Textfield"
+         aria-label="Full-Width Textfield">
+</div>
+<div class="mdl-textfield mdl-textfield--multiline mdl-textfield--fullwidth">
+  <textarea class="mdl-textfield__input"
+            placeholder="Full-Width multiline textfield"
+            rows="8" cols="40"
+            aria-label="Full-Width multiline textfield"></textarea>
+</div>
+```
+
 ### Using the JS component
 
 MDL Textfield ships with Component / Foundation classes which are used to provide a full-fidelity
@@ -255,7 +263,7 @@ complicated.
 | --- | --- |
 | addClass(className: string) => void | Adds a class to the root element |
 | removeClass(className: string) => void | Removes a class from the root element |
-| addClassToLabel(className: string) => void | Adds a class to the label element. Note that we assume here that if the foundation is being used, the user has opted to put the label inside of the `mdl-textfield` element. We make this assumption in our vanilla component. You could accommodate an optional label by adding a check to make sure there is a label element |
+| addClassToLabel(className: string) => void | Adds a class to the label element. We recommend you add a conditional check here, and in `removeClassFromLabel` for whether or not the label is present so that the JS component could be used with text fields that don't require a label, such as the full-width text field. |
 | removeClassFromLabel(className: string) => void | Removes a class from the label element |
 | addClassToHelptext(className: string) => void | Adds a class to the help text element. Note that in our code we check for whether or not we have a help text element and if we don't, we simply return. |
 | removeClassFromHelptext(className: string) => void | Removes a class from the help text element. |

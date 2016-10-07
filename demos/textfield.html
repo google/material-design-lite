@@ -37,7 +37,7 @@
       <section id="demo-textfield-wrapper">
         <div class="mdl-textfield">
           <input type="text" class="mdl-textfield__input" id="my-textfield"
-                 aria-controls="my-textfield-helptext">
+                 aria-controls="my-textfield-helptext" data-demo-no-auto-js>
           <label for="my-textfield" class="mdl-textfield__label">Label text</label>
         </div>
         <p id="my-textfield-helptext" class="mdl-textfield-helptext"
@@ -47,7 +47,7 @@
       </section>
       <div>
         <input id="disable" type="checkbox">
-        <label for="disable">Disable</label>
+        <label for="disable">Disabled</label>
       </div>
       <div>
         <input id="rtl" type="checkbox">
@@ -95,7 +95,7 @@
     <section>
       <h2>CSS Only</h2>
       <div class="mdl-form-field mdl-form-field--align-end">
-        <div class="mdl-textfield" data-no-js>
+        <div class="mdl-textfield" data-demo-no-auto-js>
           <input type="text" class="mdl-textfield__input" id="css-only-textfield"
                  placeholder="Name">
         </div>
@@ -121,7 +121,7 @@
       </section>
       <div>
         <input id="multi-disable" type="checkbox">
-        <label for="multi-disable">Disable</label>
+        <label for="multi-disable">Disabled</label>
       </div>
       <div>
         <input id="multi-rtl" type="checkbox">
@@ -139,18 +139,41 @@
     <section>
       <h2>Multi-line Textfields - CSS Only</h2>
       <label for="css-only-multiline" style="margin-bottom:4px;">About you:</label>
-      <div class="mdl-textfield mdl-textfield--multiline" data-no-js>
+      <div class="mdl-textfield mdl-textfield--multiline" data-demo-no-auto-js>
         <textarea class="mdl-textfield__input"
                   id="css-only-multiline"
                   rows="8" cols="40"
                   placeholder="Tell the world something about yourself!"></textarea>
       </div>
     </section>
+    <section>
+      <h2>Full-Width Textfields</h2>
+      <div id="demo-fullwidth-wrapper">
+        <div class="mdl-textfield mdl-textfield--fullwidth" data-demo-no-auto-js>
+          <input class="mdl-textfield__input" type="text" placeholder="Subject" aria-label="Subject">
+        </div>
+        <div class="mdl-textfield mdl-textfield--multiline mdl-textfield--fullwidth" data-demo-no-auto-js>
+          <textarea class="mdl-textfield__input" placeholder="Message" rows="8" cols="40" aria-label="Message"></textarea>
+        </div>
+      </div>
+      <div>
+        <input type="checkbox" id="fullwidth-disable">
+        <label for="fullwidth-disable">Disabled</label>
+      </div>
+      <div>
+        <input type="checkbox" id="fullwidth-dense">
+        <label for="fullwidth-dense">Dense</label>
+      </div>
+      <div>
+        <input type="checkbox" id="fullwidth-dark-theme">
+        <label for="fullwidth-dark-theme">Dark Theme</label>
+      </div>
+    </section>
     <script src="assets/material-design-lite.js" charset="utf-8"></script>
     <script>
       (function() {
         var tfs = document.querySelectorAll(
-          ':not(#textfield-wrapper) .mdl-textfield:not([data-no-js])'
+          '.mdl-textfield:not([data-demo-no-auto-js])'
         );
         for (var i = 0, tf; tf = tfs[i]; i++) {
           mdl.Textfield.attachTo(tf);
@@ -233,6 +256,34 @@
         document.getElementById('multi-required').addEventListener('change', function(evt) {
           var target = evt.target;
           tfRoot.querySelector('.mdl-textfield__input').required = target.checked;
+        });
+      })();
+    </script>
+    <script charset="utf-8">
+      (function() {
+        var section = document.getElementById('demo-fullwidth-wrapper');
+        var tfRoot = section.querySelector('.mdl-textfield');
+        var tfMultiRoot = section.querySelector('.mdl-textfield--multiline');
+        var tf = new mdl.Textfield(tfRoot);
+        var tfMulti = new mdl.Textfield(tfMultiRoot);
+
+        document.getElementById('fullwidth-disable').addEventListener('change', function(evt) {
+          var target = evt.target;
+          [tf, tfMulti].forEach(function(component) {
+            component.disabled = target.checked;
+          });
+        });
+
+        document.getElementById('fullwidth-dense').addEventListener('change', function(evt) {
+          var target = evt.target;
+          [tfRoot, tfMultiRoot].forEach(function(el) {
+            el.classList[target.checked ? 'add' : 'remove']('mdl-textfield--dense');
+          });
+        });
+
+        document.getElementById('fullwidth-dark-theme').addEventListener('change', function(evt) {
+          var target = evt.target;
+          section.classList[target.checked ? 'add' : 'remove']('mdl-theme--dark');
         });
       })();
     </script>

@@ -34,7 +34,6 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
 /* postcss-bem-linter: define textfield */
 .mdl-textfield {
   @include mdl-typography-base;
-
   // We use only a subset of the MDL typography values here as changing things such as line-height
   // affects how the labels are transformed.
   @each $prop in (font-size, letter-spacing) {
@@ -115,28 +114,32 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
   }
 }
 
-.mdl-textfield--upgraded {
+.mdl-textfield--upgraded:not(.mdl-textfield--fullwidth) {
   display: inline-flex;
   position: relative;
   box-sizing: border-box;
   align-items: flex-end;
-  height: 48px;
+
   margin-top: 16px;
 
-  &::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    transform: translateY(50%) scaleY(1);
-    transform-origin: center bottom;
-    transition: mdl-textfield-transition(background-color), mdl-textfield-transition(transform);
-    background-color: $mdl-textfield-divider-on-light;
-    content: "";
+  &:not(.mdl-textfield--multiline) {
+    height: 48px;
 
-    @include mdl-theme-dark(".mdl-textfield") {
-      background-color: $mdl-textfield-divider-on-dark;
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      transform: translateY(50%) scaleY(1);
+      transform-origin: center bottom;
+      transition: mdl-textfield-transition(background-color), mdl-textfield-transition(transform);
+      background-color: $mdl-textfield-divider-on-light;
+      content: "";
+
+      @include mdl-theme-dark(".mdl-textfield") {
+        background-color: $mdl-textfield-divider-on-dark;
+      }
     }
   }
 }
@@ -335,6 +338,65 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
     }
   }
   /* stylelint-enable plugin/selector-bem-pattern */
+}
+
+.mdl-textfield--fullwidth {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid $mdl-textfield-divider-on-light;
+  outline: none;
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+
+  &:not(.mdl-textfield--multiline) {
+    height: 56px;
+  }
+
+  &.mdl-textfield--multiline {
+    padding: 20px 0 0;
+  }
+
+  &.mdl-textfield--dense {
+    &:not(.mdl-textfield--multiline) {
+      height: 48px;
+    }
+
+    &.mdl-textfield--multiline {
+      padding: 16px 0 0;
+    }
+  }
+
+  &.mdl-textfield--disabled {
+    &,
+    &.mdl-textfield--multiline {
+      border-bottom: 1px dotted $mdl-textfield-divider-on-light;
+    }
+  }
+
+  @include mdl-theme-dark {
+    border-bottom: 1px solid $mdl-textfield-divider-on-dark;
+
+    &.mdl-textfield--disabled {
+      &,
+      &.mdl-textfield--multiline {
+        border-bottom: 1px dotted $mdl-textfield-divider-on-dark;
+      }
+    }
+  }
+
+  /* stylelint-enable plugin/selector-bem-pattern */
+
+  .mdl-textfield__input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    resize: none;
+    // Use !important here to override all other border treatments
+    border: none !important;
+  }
 }
 
 // Graceful degredation for css-only inputs
