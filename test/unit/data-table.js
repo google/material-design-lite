@@ -14,48 +14,49 @@
  * limitations under the License.
  */
 
-/*global describe, it, expect, MaterialDataTable, componentHandler */
+var TABLE_TEMPLATE = '<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable" id="data-table-test">' +
+      '<thead>' +
+      '  <tr>' +
+      '    <th class="mdl-data-table__cell--non-numeric">Material</th>' +
+      '    <th>Quantity</th>' +
+      '    <th>Unit price</th>' +
+      '  </tr>' +
+      '</thead>' +
+      '<tbody>' +
+      '  <tr>' +
+      '    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>' +
+      '    <td>25</td>' +
+      '    <td>$2.90</td>' +
+      '  </tr>' +
+      '  <tr class="is-selected second-row">' +
+      '    <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>' +
+      '    <td>50</td>' +
+      '    <td>$1.25</td>' +
+      '  </tr>' +
+      '</tbody>' +
+    '</table>';
 
 describe('MaterialDataTable', function () {
-
-  function createTable() {
-    var table = document.createElement('table');
-    table.classList.add('mdl-data-table');
-    table.classList.add('mdl-js-data-table');
-
-    table.createTHead();
-    var headTh = document.createElement('th');
-    table.querySelector('thead').appendChild(headTh);
-
-    var tBodyRow = table.insertRow(0);
-    tBodyRow.insertCell(0);
-
-    return table;
-  }
 
   it('should be globally available', function () {
     expect(MaterialDataTable).to.be.a('function');
   });
 
   it('should upgrade successfully', function () {
-    var table = createTable();
+    var el = document.createElement('div');
+    el.innerHTML = TABLE_TEMPLATE;
 
-    componentHandler.upgradeElement(table, 'MaterialDataTable');
-    expect($(table)).to.have.data('upgraded', ',MaterialDataTable');
+    componentHandler.upgradeElement(el, 'MaterialDataTable');
+    expect($(el)).to.have.data('upgraded', ',MaterialDataTable');
   });
 
   it('should have is-checked class when the row has the is-selected class', function () {
-    var table = createTable();
-    table.classList.add('mdl-data-table--selectable');
-    var row = table.insertRow();
-    row.classList.add('is-selected');
-    row.insertCell();
-
-    document.body.appendChild(table);
-
+    var el = document.createElement('div');
+    el.innerHTML = TABLE_TEMPLATE;
+    document.body.appendChild(el);
+    table = document.querySelector('#data-table-test')
     componentHandler.upgradeElement(table, 'MaterialDataTable');
-    expect(table.querySelector('tbody:nth-child(2) label').classList.contains('is-checked')).to.be.true;
-    document.body.removeChild(table);
+    expect(table.querySelector('.second-row label').classList.contains('is-checked')).to.be.true;
   });
 
 });
