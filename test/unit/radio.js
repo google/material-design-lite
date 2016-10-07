@@ -111,8 +111,8 @@ describe('MaterialRadio', function () {
     changeEvent.initEvent("change", false, true);
 
     // Check that all inputs are in a clean state
-    Array.prototype.splice.call(document.querySelectorAll('[type="radio"]')).forEach(function(item) {
-      expect(item.className).to.equal('mdl-radio mdl-js-radio is-upgraded');
+    document.querySelectorAll('[type="radio"]').forEach(function(item) {
+      expect(item.parentElement.className).to.equal('mdl-radio mdl-js-radio is-upgraded');
     });
 
     radios[0].MaterialRadio.check();
@@ -125,9 +125,9 @@ describe('MaterialRadio', function () {
     expect(radios[0].className).to.equal('mdl-radio mdl-js-radio is-upgraded');
 
     // Check the extra radio set to verify things with different names are not touched when changing.
-    Array.prototype.splice.call(document.querySelectorAll('[type="radio"][name="tester"]')).forEach(function(item) {
-      expect(item.className).to.equal('mdl-radio mdl-js-radio is-upgraded');
+    document.querySelectorAll('[type="radio"][name="tester"]').forEach(function(item) {
+      expect(item.parentElement.className).to.equal('mdl-radio mdl-js-radio is-upgraded');
     });
-
+    
   });
 });
