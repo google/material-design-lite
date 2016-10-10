@@ -275,3 +275,22 @@ test('adapter#isRtl returns false for implicit LTR documents', t => {
   t.false(component.getDefaultFoundation().adapter_.isRtl());
   t.end();
 });
+
+test('adapter#registerDocumentKeydownHandler attaches a "keydown" handler to the document', t => {
+  const {component} = setupTest();
+  const handler = td.func('keydownHandler');
+  component.getDefaultFoundation().adapter_.registerDocumentKeydownHandler(handler);
+  domEvents.emit(document, 'keydown');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
+  t.end();
+});
+
+test('adapter#deregisterDocumentKeydownHandler removes a "keydown" handler from the document', t => {
+  const {component} = setupTest();
+  const handler = td.func('keydownHandler');
+  document.addEventListener('keydown', handler);
+  component.getDefaultFoundation().adapter_.deregisterDocumentKeydownHandler(handler);
+  domEvents.emit(document, 'keydown');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
+  t.end();
+});

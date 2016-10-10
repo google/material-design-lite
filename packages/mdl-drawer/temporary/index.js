@@ -57,6 +57,8 @@ export default class MDLTemporaryDrawer extends MDLComponent {
           this.drawer.removeEventListener(util.remapEvent(evt), handler),
       registerTransitionEndHandler: handler => this.drawer.addEventListener('transitionend', handler),
       deregisterTransitionEndHandler: handler => this.drawer.removeEventListener('transitionend', handler),
+      registerDocumentKeydownHandler: handler => document.addEventListener('keydown', handler),
+      deregisterDocumentKeydownHandler: handler => document.removeEventListener('keydown', handler),
       getDrawerWidth: () => this.drawer.offsetWidth,
       setTranslateX: value => this.drawer.style.setProperty(
           util.getTransformPropertyName(), value === null ? null : `translateX(${value}px)`),
