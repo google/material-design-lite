@@ -143,8 +143,8 @@ export default class MDLRippleFoundation extends MDLFoundation {
       e.type === 'mousedown' || e.type === 'touchstart' || e.type === 'pointerdown'
     );
 
+    activationState.activationStartTime = Date.now();
     requestAnimationFrame(() => {
-      activationState.activationStartTime = Date.now();
       // This needs to be wrapped in an rAF call b/c web browsers
       // report active states inconsistently when they're called within
       // event handling code:
@@ -234,9 +234,9 @@ export default class MDLRippleFoundation extends MDLFoundation {
     }
   }
 
-  animateDeactivation_(e, {wasElementMadeActive, activationStartTime}) {
+  animateDeactivation_(e, {wasActivatedByPointer, wasElementMadeActive, activationStartTime}) {
     const {BG_ACTIVE} = MDLRippleFoundation.cssClasses;
-    if (wasElementMadeActive) {
+    if (wasActivatedByPointer || wasElementMadeActive) {
       this.adapter_.removeClass(BG_ACTIVE);
       const isPointerEvent = (
         e.type === 'touchend' || e.type === 'pointerup' || e.type === 'mouseup'
@@ -259,7 +259,6 @@ export default class MDLRippleFoundation extends MDLFoundation {
       VAR_FG_UNBOUNDED_TRANSFORM_DURATION,
       VAR_FG_APPROX_XF
     } = MDLRippleFoundation.strings;
-
     this.adapter_.updateCssVariable(VAR_FG_APPROX_XF, `scale(${approxCurScale})`);
     this.adapter_.updateCssVariable(VAR_FG_UNBOUNDED_OPACITY_DURATION, `${opacityDuration}ms`);
     this.adapter_.updateCssVariable(VAR_FG_UNBOUNDED_TRANSFORM_DURATION, `${transformDuration}ms`);
