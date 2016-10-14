@@ -84,6 +84,10 @@
   overflow: hidden;
   padding: $card-vertical-padding $card-horizontal-padding;
   width: 90%;
+
+  &.mdl-card--border {
+    border-bottom: 1px solid $card-border-color;
+  }
 }
 
 .mdl-card__actions {
