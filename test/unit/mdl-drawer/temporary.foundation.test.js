@@ -53,9 +53,9 @@ test('defaultAdapter returns a complete adapter implementation', t => {
   t.deepEqual(methods, [
     'addClass', 'removeClass', 'hasClass', 'hasNecessaryDom', 'registerInteractionHandler',
     'deregisterInteractionHandler', 'registerDrawerInteractionHandler', 'deregisterDrawerInteractionHandler',
-    'registerTransitionEndHandler', 'deregisterTransitionEndHandler', 'setTranslateX',
-    'updateCssVariable', 'getFocusableElements', 'saveElementTabState', 'restoreElementTabState',
-    'makeElementUntabbable', 'isRtl', 'getDrawerWidth'
+    'registerTransitionEndHandler', 'deregisterTransitionEndHandler', 'registerDocumentKeydownHandler',
+    'deregisterDocumentKeydownHandler', 'setTranslateX', 'updateCssVariable', 'getFocusableElements',
+    'saveElementTabState', 'restoreElementTabState', 'makeElementUntabbable', 'isRtl', 'getDrawerWidth'
   ]);
   // Test default methods
   methods.forEach(m => t.doesNotThrow(defaultAdapter[m]));
@@ -106,6 +106,14 @@ test('#destroy calls component and drawer event deregistrations', t => {
   t.doesNotThrow(() => td.verify(mockAdapter.deregisterDrawerInteractionHandler('touchstart', isA(Function))));
   t.doesNotThrow(() => td.verify(mockAdapter.deregisterInteractionHandler('touchmove', isA(Function))));
   t.doesNotThrow(() => td.verify(mockAdapter.deregisterInteractionHandler('touchend', isA(Function))));
+  t.end();
+});
+
+test('#destroy ensures any currently attached document keydown handler is cleaned up', t => {
+  const {foundation, mockAdapter} = setupTest();
+  foundation.init();
+  foundation.destroy();
+  t.doesNotThrow(() => td.verify(mockAdapter.deregisterDocumentKeydownHandler(td.matchers.isA(Function))));
   t.end();
 });
 
@@ -173,6 +181,14 @@ test('#close works when there are no elements to make untabbable', t => {
   td.when(mockAdapter.getFocusableElements()).thenReturn(null);
   foundation.init();
   t.doesNotThrow(() => foundation.close());
+  t.end();
+});
+
+test('#close cleans up the document keydown handler', t => {
+  const {foundation, mockAdapter} = setupTest();
+  foundation.init();
+  foundation.close();
+  t.doesNotThrow(() => td.verify(mockAdapter.deregisterDocumentKeydownHandler(td.matchers.isA(Function))));
   t.end();
 });
 
@@ -530,5 +546,81 @@ test('on touch does nothing for non touch pointer events', t => {
   });
   t.doesNotThrow(() => td.verify(mockAdapter.addClass('mdl-temporary-drawer--open'), {times: 0}));
   raf.restore();
+  t.end();
+});
+
+test('on document keydown closes the drawer via the escape key', t => {
+  const {foundation, mockAdapter} = setupTest();
+  let keydown;
+  td.when(mockAdapter.registerDocumentKeydownHandler(td.matchers.isA(Function))).thenDo(handler => {
+    keydown = handler;
+  });
+  foundation.init();
+  foundation.open();
+
+  keydown({
+    key: 'Escape'
+  });
+  t.doesNotThrow(() => td.verify(mockAdapter.removeClass('mdl-temporary-drawer--open')));
+  t.end();
+});
+
+test('on document keydown closes the drawer via the escape keyCode when key prop not available', t => {
+  const {foundation, mockAdapter} = setupTest();
+  let keydown;
+  td.when(mockAdapter.registerDocumentKeydownHandler(td.matchers.isA(Function))).thenDo(handler => {
+    keydown = handler;
+  });
+  foundation.init();
+  foundation.open();
+
+  keydown({
+    keyCode: 27
+  });
+  t.doesNotThrow(() => td.verify(mockAdapter.removeClass('mdl-temporary-drawer--open')));
+  t.end();
+});
+
+test('on document keydown does nothing when key present but not "Escape"', t => {
+  const {foundation, mockAdapter} = setupTest();
+  let keydown;
+  td.when(mockAdapter.registerDocumentKeydownHandler(td.matchers.isA(Function))).thenDo(handler => {
+    keydown = handler;
+  });
+  foundation.init();
+  foundation.open();
+
+  keydown({
+    key: 'Enter'
+  });
+  t.doesNotThrow(() => td.verify(mockAdapter.removeClass('mdl-temporary-drawer--open'), {times: 0}));
+  t.end();
+});
+
+test('on document keydown does nothing when key prop not present and keyCode is not 27', t => {
+  const {foundation, mockAdapter} = setupTest();
+  let keydown;
+  td.when(mockAdapter.registerDocumentKeydownHandler(td.matchers.isA(Function))).thenDo(handler => {
+    keydown = handler;
+  });
+  foundation.init();
+  foundation.open();
+
+  keydown({
+    keyCode: 32
+  });
+  t.doesNotThrow(() => td.verify(mockAdapter.removeClass('mdl-temporary-drawer--open'), {times: 0}));
+  t.end();
+});
+
+test('on document keydown does nothing if drawer is not opened', t => {
+  const {foundation, mockAdapter} = setupTest();
+  let keydown;
+  td.when(mockAdapter.registerDocumentKeydownHandler(td.matchers.isA(Function))).thenDo(handler => {
+    keydown = handler;
+  });
+  foundation.init();
+
+  t.true(keydown === undefined);
   t.end();
 });

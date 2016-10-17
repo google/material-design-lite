@@ -42,6 +42,8 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
       deregisterDrawerInteractionHandler: (/* evt: string, handler: EventListener */) => {},
       registerTransitionEndHandler: (/* handler: EventListener */) => {},
       deregisterTransitionEndHandler: (/* handler: EventListener */) => {},
+      registerDocumentKeydownHandler: (/* handler: EventListener */) => {},
+      deregisterDocumentKeydownHandler: (/* handler: EventListener */) => {},
       setTranslateX: (/* value: number | null */) => {},
       updateCssVariable: (/* value: string */) => {},
       getFocusableElements: () => /* NodeList */ {},
@@ -68,6 +70,11 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
     this.componentTouchStartHandler_ = evt => this.handleTouchStart_(evt);
     this.componentTouchMoveHandler_ = evt => this.handleTouchMove_(evt);
     this.componentTouchEndHandler_ = evt => this.handleTouchEnd_(evt);
+    this.documentKeydownHandler_ = evt => {
+      if (evt.key && evt.key === 'Escape' || evt.keyCode === 27) {
+        this.close();
+      }
+    };
   }
 
   init() {
@@ -105,6 +112,8 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
     this.adapter_.deregisterDrawerInteractionHandler('touchstart', this.componentTouchStartHandler_);
     this.adapter_.deregisterInteractionHandler('touchmove', this.componentTouchMoveHandler_);
     this.adapter_.deregisterInteractionHandler('touchend', this.componentTouchEndHandler_);
+    // Deregister the document keydown handler just in case the component is destroyed while the menu is open.
+    this.adapter_.deregisterDocumentKeydownHandler(this.documentKeydownHandler_);
   }
 
   open() {
@@ -112,6 +121,7 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
     this.adapter_.updateCssVariable('');
 
     this.adapter_.registerTransitionEndHandler(this.transitionEndHandler_);
+    this.adapter_.registerDocumentKeydownHandler(this.documentKeydownHandler_);
     this.adapter_.addClass(MDLTemporaryDrawerFoundation.cssClasses.ANIMATING);
     this.adapter_.addClass(MDLTemporaryDrawerFoundation.cssClasses.OPEN);
     this.retabinate_();
@@ -122,6 +132,7 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
     // Make sure custom property values are cleared before making any changes.
     this.adapter_.updateCssVariable('');
 
+    this.adapter_.deregisterDocumentKeydownHandler(this.documentKeydownHandler_);
     this.adapter_.registerTransitionEndHandler(this.transitionEndHandler_);
     this.adapter_.addClass(MDLTemporaryDrawerFoundation.cssClasses.ANIMATING);
     this.adapter_.removeClass(MDLTemporaryDrawerFoundation.cssClasses.OPEN);
