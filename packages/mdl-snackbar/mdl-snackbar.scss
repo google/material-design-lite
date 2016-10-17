@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/mixins";
+@import "mdl-animation/functions";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
 @import "./variables";
@@ -54,7 +54,7 @@
   padding-right: 24px;
   padding-left: 24px;
   transform: translate(0, 100%);
-  transition: transform .25s $mdl-animation-fast-out-linear-in-timing-function;
+  transition: mdl-animation-exit(transform, .25s);
   background-color: $mdl-snackbar-background-color;
   will-change: transform;
   pointer-events: none;
@@ -74,7 +74,7 @@
   &--active {
     transform: translate(0, 0);
     pointer-events: auto;
-    transition: transform .25s $mdl-animation-linear-out-slow-in-timing-function;
+    transition: mdl-animation-enter(transform, .25s);
 
     @media (min-width: $mdl-snackbar-tablet-breakpoint) {
       transform: translate(-50%, 0);
@@ -103,13 +103,9 @@
     display: flex;
     align-items: center;
     height: 48px;
-    transition: opacity .3s $mdl-animation-fast-out-linear-in-timing-function;
+    transition: mdl-animation-exit(opacity, .3s);
     color: $mdl-snackbar-foreground-color;
     opacity: 0;
-  }
-
-  &--active &__text {
-    opacity: 1;
   }
 
   &--multiline &__text {
@@ -121,7 +117,7 @@
     min-width: auto;
     height: inherit;
     margin-right: -16px;
-    transition: opacity .3s $mdl-animation-fast-out-linear-in-timing-function;
+    transition: mdl-animation-exit(opacity, .3s);
 
     opacity: 0;
     visibility: hidden;
@@ -131,9 +127,14 @@
     }
     &:not([aria-hidden]) {
       @include _mdl-snackbar-reflexive-margin(left, 8px, true);
-      opacity: 1;
       visibility: inherit;
     }
+  }
+
+  &--active &__text,
+  &--active &__action-button:not([aria-hidden]) {
+    transition: mdl-animation-exit(opacity, .3s);
+    opacity: 1;
   }
 }
 

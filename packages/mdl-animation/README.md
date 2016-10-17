@@ -37,6 +37,46 @@ property:
 
 Every mixin has the same name as its corresponding variable, without the `-timing-function` suffix.
 
+MDL Animation also provides helper functions for defining transitions for when something enters and exits the frame. A
+very common example of this is something that fades in and then fades out using opacity.
+
+```scss
+@import "mdl-animation/functions";
+
+.mdl-thing {
+  transition: mdl-animation-exit(/* $name: */ opacity, /* $duration: */ 175ms, /* $delay: */ 150ms);
+  opacity: 0;
+  will-change: opacity;
+
+  &:active {
+    transition: mdl-animation-enter(opacity, 175ms /*, $delay: 0ms by default */);
+    opacity: 1;
+  }
+}
+```
+
+Note that these functions also work with the `animation` property.
+
+```scss
+@import "mdl-animation/functions";
+
+@keyframes fade-in {
+  from {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mdl-thing {
+  animation: mdl-animation-enter(fade-in, 350ms);
+}
+```
+
 ### CSS Classes
 
 > NOTE: dist/ will be available when installing via NPM.

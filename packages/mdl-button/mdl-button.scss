@@ -15,6 +15,7 @@
  */
 
 @import "mdl-animation/variables";
+@import "mdl-animation/functions";
 @import "mdl-elevation/mixins";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
@@ -54,7 +55,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    transition: opacity 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    transition: mdl-animation-exit(opacity, 120ms);
     border-radius: inherit;
     background: currentColor;
     content: "";
@@ -62,16 +63,23 @@
   }
 
   &:focus::before {
+    transition: mdl-animation-enter(opacity, 120ms);
     opacity: .12;
   }
 
   &:active::before {
+    transition: mdl-animation-enter(opacity, 120ms);
+
     /*
       Slightly darker value for visual distinction.
       This allows a full base that has distinct modes.
       Progressive enhancement with ripples will provide complete button spec alignment.
     */
     opacity: .18;
+  }
+
+  &:focus:active::before {
+    transition-timing-function: $mdl-animation-fast-out-slow-in-timing-function;
   }
 
   &:active {

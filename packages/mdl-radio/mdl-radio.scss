@@ -14,13 +14,22 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/variables";
+@import "mdl-animation/functions";
 @import "mdl-ripple/mixins";
 @import "mdl-theme/mixins";
 
 $mdl-radio-touch-area: 40px;
 $mdl-radio-ui-size: 20px;
 $mdl-radio-ui-pct: percentage($mdl-radio-ui-size / $mdl-radio-touch-area);
+$mdl-radio-transition-duration: 120ms;
+
+@function mdl-radio-enter($name) {
+  @return mdl-animation-enter($name, $mdl-radio-transition-duration);
+}
+
+@function mdl-radio-exit($name) {
+  @return mdl-animation-exit($name, $mdl-radio-transition-duration);
+}
 
 /* postcss-bem-linter: define radio */
 .mdl-radio {
@@ -50,9 +59,7 @@ $mdl-radio-ui-pct: percentage($mdl-radio-ui-size / $mdl-radio-touch-area);
       width: 100%;
       height: 100%;
       transform: scale(0, 0);
-      transition:
-        opacity 120ms $mdl-animation-fast-out-linear-in-timing-function,
-        transform 120ms $mdl-animation-fast-out-linear-in-timing-function;
+      transition: mdl-radio-exit(opacity), mdl-radio-exit(transform);
       border-radius: 50%;
       content: "";
       opacity: 0;
@@ -72,7 +79,7 @@ $mdl-radio-ui-pct: percentage($mdl-radio-ui-size / $mdl-radio-touch-area);
     left: 0;
     width: 100%;
     height: 100%;
-    transition: border-color 120ms $mdl-animation-fast-out-linear-in-timing-function;
+    transition: mdl-radio-exit(border-color);
     border-width: 2px;
     border-style: solid;
     border-radius: 50%;
@@ -92,9 +99,7 @@ $mdl-radio-ui-pct: percentage($mdl-radio-ui-size / $mdl-radio-touch-area);
     width: 100%;
     height: 100%;
     transform: scale(0, 0);
-    transition:
-      transform 120ms $mdl-animation-fast-out-linear-in-timing-function,
-      background-color 120ms $mdl-animation-fast-out-linear-in-timing-function;
+    transition: mdl-radio-exit(transform), mdl-radio-exit(background-color);
     border-radius: 50%;
     box-sizing: border-box;
   }
@@ -116,18 +121,14 @@ $mdl-radio-ui-pct: percentage($mdl-radio-ui-size / $mdl-radio-touch-area);
 .mdl-radio__native-control:checked,
 .mdl-radio__native-control:disabled {
   + .mdl-radio__background {
-    transition:
-      opacity 120ms $mdl-animation-linear-out-slow-in-timing-function,
-      transform 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    transition: mdl-radio-enter(opacity), mdl-radio-enter(transform);
 
     .mdl-radio__outer-circle {
-      transition: border-color 120ms $mdl-animation-linear-out-slow-in-timing-function;
+      transition: mdl-radio-enter(border-color);
     }
 
     .mdl-radio__inner-circle {
-      transition:
-        transform 120ms $mdl-animation-linear-out-slow-in-timing-function,
-        background-color 120ms $mdl-animation-linear-out-slow-in-timing-function;
+      transition: mdl-radio-enter(transform), mdl-radio-enter(background-color);
     }
   }
 }
@@ -147,9 +148,7 @@ $mdl-radio-ui-pct: percentage($mdl-radio-ui-size / $mdl-radio-touch-area);
       @include mdl-theme-prop(background-color, primary);
 
       transform: scale(.5);
-      transition:
-        transform 120ms $mdl-animation-linear-out-slow-in-timing-function,
-        background-color 120ms $mdl-animation-linear-out-slow-in-timing-function;
+      transition: mdl-radio-enter(transform), mdl-radio-enter(background-color);
     }
   }
 }
@@ -181,9 +180,7 @@ fieldset:disabled .mdl-radio__native-control,
 .mdl-radio__native-control:focus {
   + .mdl-radio__background::before {
     transform: scale(2.8, 2.8);
-    transition:
-      opacity 120ms $mdl-animation-linear-out-slow-in-timing-function,
-      transform 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    transition: mdl-radio-enter(opacity), mdl-radio-enter(transform);
     opacity: .26;
   }
 }
