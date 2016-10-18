@@ -155,7 +155,7 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
     @include mdl-theme-prop(color, primary);
   }
 
-  &::after {
+  &.mdl-textfield--upgraded:not(.mdl-textfield--fullwidth):not(.mdl-textfield--multiline)::after {
     @include mdl-textfield-after-styles;
 
     @include mdl-theme-dark(".mdl-textfield", true) {
