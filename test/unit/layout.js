@@ -151,4 +151,49 @@ describe('MaterialLayout', function () {
       expect($(drawerBtn)).to.have.attr('aria-expanded', 'false');
     });
   });
+
+  describe('Manual switch mode', function () {
+    it('should disable content switching', function (done) {
+      var el = document.createElement('div');
+      el.innerHTML = '' +
+        '  <header class="mdl-layout__header">' +
+        '    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-layout__tab-manual-switch">' +
+        '      <a id="tab1" href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>' +
+        '      <a id="tab2" href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>' +
+        '    </div>' +
+        '  </header>' +
+        '  <main class="mdl-layout__content">' +
+        '    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">' +
+        '      <div class="page-content"><!-- Your content goes here --></div>' +
+        '    </section>' +
+        '    <section class="mdl-layout__tab-panel" id="scroll-tab-2">' +
+        '      <div class="page-content"><!-- Your content goes here --></div>' +
+        '    </section>' +
+        '  </main>';
+
+      var parent = document.createElement('div');
+      parent.appendChild(el); // MaterialLayout.init() expects a parent
+
+      var tab1 = el.querySelector('#tab1');
+      var tab2 = el.querySelector('#tab2');
+      var content1 = el.querySelector('#scroll-tab-1');
+      var content2 = el.querySelector('#scroll-tab-2');
+
+      componentHandler.upgradeElement(el, 'MaterialLayout');
+
+      var ev = document.createEvent('MouseEvents');
+      ev.initEvent('click', true, true);
+      tab2.dispatchEvent(ev);
+
+      window.setTimeout(function() {
+        // Since content switching has been set to manual, layout shouldn't
+        // have been switched.
+        expect($(tab1)).to.have.class('is-active');
+        expect($(content1)).to.have.class('is-active');
+        expect($(tab2)).to.not.have.class('is-active');
+        expect($(content2)).to.not.have.class('is-active');
+        done();
+      }, 100);
+    });
+  });
 });
