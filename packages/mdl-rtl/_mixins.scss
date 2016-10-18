@@ -1,0 +1,251 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Creates a rule that will be applied when an MDL component is within the context of an RTL layout.
+ *
+ * Usage Example:
+ * ```scss
+ * .mdl-foo {
+ *   position: absolute;
+ *   left: 0;
+ *
+ *   @include mdl-rtl {
+ *     left: auto;
+ *     right: 0;
+ *   }
+ *
+ *   &__bar {
+ *     margin-left: 4px;
+ *     @include mdl-rtl(".mdl-foo") {
+ *       margin-left: auto;
+ *       margin-right: 4px;
+ *     }
+ *   }
+ * }
+ *
+ * .mdl-foo--mod {
+ *   padding-left: 4px;
+ *
+ *   @include mdl-rtl {
+ *     padding-left: auto;
+ *     padding-right: 4px;
+ *   }
+ * }
+ * ```
+ *
+ * Note that this works by checking for [dir="rtl"] on an ancestor element. While this will work
+ * in most cases, it will in some cases lead to false negatives, e.g.
+ *
+ * ```html
+ * <html dir="rtl">
+ *   <!-- ... -->
+ *   <div dir="ltr">
+ *     <div class="mdl-foo">Styled incorrectly as RTL!</div>
+ *   </div>
+ * </html>
+ * ```
+ *
+ * In the future, selectors such as :dir (http://mdn.io/:dir) will help us mitigate this.
+ */
+@mixin mdl-rtl($root-selector: null) {
+  @if ($root-selector) {
+    @at-root {
+      [dir="rtl"] #{$root-selector} &,
+      #{$root-selector}[dir="rtl"] & {
+        @content;
+      }
+    }
+  }
+
+  @else {
+    [dir="rtl"] &,
+    &[dir="rtl"] {
+      @content;
+    }
+  }
+}
+
+/**
+ * Takes a base box-model property - e.g. margin / border / padding - along with a default
+ * direction and value, and emits rules which apply the value to the
+ * "<base-property>-<default-direction>" property by default, but flips the direction
+ * when within an RTL context.
+ *
+ * For example:
+ *
+ * ```scss
+ * .mdl-foo {
+ *   @include mdl-rtl-reflexive-box(margin, left, 8px);
+ * }
+ * ```
+ * is equivalent to:
+ *
+ * ```scss
+ * .mdl-foo {
+ *   margin-left: 8px;
+ *
+ *   @include mdl-rtl {
+ *     margin-right: 8px;
+ *     margin-left: 0;
+ *   }
+ * }
+ * ```
+ * whereas:
+ *
+ * ```scss
+ * .mdl-foo {
+ *   @include mdl-rtl-reflexive-box(margin, right, 8px);
+ * }
+ * ```
+ * is equivalent to:
+ *
+ * ```scss
+ * .mdl-foo {
+ *   margin-right: 8px;
+ *
+ *   @include mdl-rtl {
+ *     margin-right: 0;
+ *     margin-left: 8px;
+ *   }
+ * }
+ * ```
+ *
+ * You can also pass a 4th optional $root-selector argument which will be forwarded to `mdl-rtl`,
+ * e.g. `@include mdl-rtl-reflexive-box-property(margin, left, 8px, ".mdl-component")`.
+ *
+ * Note that this function will always zero out the original value in an RTL context. If you're
+ * trying to flip the values, use mdl-rtl-reflexive-property().
+ */
+@mixin mdl-rtl-reflexive-box($base-property, $default-direction, $value, $root-selector: null) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+
+  @if (index((right, left), $default-direction) == null) {
+    @error "Invalid default direction #{default-direction}. Please specifiy either right or left";
+  }
+
+  $left-value: $value;
+  $right-value: 0;
+
+  @if ($default-direction == right) {
+    $left-value: 0;
+    $right-value: $value;
+  }
+
+  @include mdl-rtl-reflexive-property($base-property, $left-value, $right-value, $root-selector);
+
+  /* stylelint-enable scss/dollar-variable-pattern */
+}
+
+/**
+ * Takes a base property and emits rules that assign <base-property>-left to <left-value> and
+ * <base-property>-right to <right-value> in a LTR context, and vice versa in a RTL context.
+ * For example:
+ *
+ * ```scss
+ * .mdl-foo {
+ *   @include mdl-rtl-reflexive-property(margin, auto, 12px);
+ * }
+ * ```
+ * is equivalent to:
+ *
+ * ```scss
+ * .mdl-foo {
+ *   margin-left: auto;
+ *   margin-right: 12px;
+ *
+ *   @include mdl-rtl {
+ *     margin-left: 12px;
+ *     margin-right: auto;
+ *   }
+ * }
+ * ```
+ *
+ * A 4th optional $root-selector argument can be given, which will be passed to `mdl-rtl`.
+ */
+@mixin mdl-rtl-reflexive-property($base-property, $left-value, $right-value, $root-selector: null) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+
+  $prop-left: #{$base-property}-left;
+  $prop-right: #{$base-property}-right;
+
+  @include mdl-rtl-reflexive_($prop-left, $left-value, $prop-right, $right-value, $root-selector);
+
+  /* stylelint-enable scss/dollar-variable-pattern */
+}
+
+/**
+ * Takes an argument specifying a horizontal position property (either "left" or "right") as well
+ * as a value, and applies that value to the specified position in a LTR context, and flips it in a
+ * RTL context. For example:
+ *
+ * ```scss
+ * .mdl-foo {
+ *   @include mdl-rtl-reflexive-position(left, 0);
+ *   position: absolute;
+ * }
+ * ```
+ * is equivalent to:
+ *
+ * ```scss
+ *  .mdl-foo {
+ *    position: absolute;
+ *    left: 0;
+ *    right: initial;
+ *
+ *    @include mdl-rtl {
+ *      right: 0;
+ *      left: initial;
+ *    }
+ *  }
+ * ```
+ * An optional third $root-selector argument may also be given, which is passed to `mdl-rtl`.
+ */
+@mixin mdl-rtl-reflexive-position($pos, $value, $root-selector: null) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+
+  @if (index((right, left), $pos) == null) {
+    @error "Invalid position #{pos}. Please specifiy either right or left";
+  }
+
+  $left-value: $value;
+  $right-value: initial;
+
+  @if ($pos == right) {
+    $right-value: $value;
+    $left-value: initial;
+  }
+
+  @include mdl-rtl-reflexive_(left, $left-value, right, $right-value, $root-selector);
+
+  /* stylelint-enable scss/dollar-variable-pattern */
+}
+
+@mixin mdl-rtl-reflexive_(
+  $left-property,
+  $left-value,
+  $right-property,
+  $right-value,
+  $root-selector: null
+) {
+  #{$left-property}: $left-value;
+  #{$right-property}: $right-value;
+
+  @include mdl-rtl($root-selector) {
+    #{$left-property}: $right-value;
+    #{$right-property}: $left-value;
+  }
+}

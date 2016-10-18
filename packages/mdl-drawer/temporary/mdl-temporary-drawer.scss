@@ -16,6 +16,7 @@
 
 @import "mdl-animation/functions";
 @import "mdl-elevation/mixins";
+@import "mdl-rtl/mixins";
 @import "mdl-theme/mixins";
 @import "../mixins";
 
@@ -51,6 +52,7 @@
   &__drawer {
     @include mdl-theme-prop(background, background);
     @include mdl-elevation(16);
+    @include mdl-rtl-reflexive-position(left, 0);
 
     @include mdl-theme-dark(".mdl-temporary-drawer") {
       background: #303030;
@@ -60,7 +62,6 @@
 
     display: flex;
     position: absolute;
-    left: 0;
     flex-direction: column;
     width: calc(100% - 56px);
     max-width: 280px;
@@ -70,9 +71,7 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    [dir="rtl"] & {
-      right: 0;
-      left: auto;
+    @include mdl-rtl(".mdl-temporary-drawer") {
       transform: translateX(calc(100% + 20px));
     }
 
@@ -121,6 +120,13 @@
 
     .mdl-temporary-drawer__drawer {
       transform: none;
+    }
+
+    // Specificity fix to ensure that mdl-drawer is not translated off-screen within an RTL context
+    @include mdl-rtl {
+      .mdl-temporary-drawer__drawer {
+        transform: none;
+      }
     }
   }
 }

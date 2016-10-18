@@ -15,33 +15,10 @@
  */
 
 @import "mdl-animation/functions";
+@import "mdl-rtl/mixins";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
 @import "./variables";
-
-/* stylelint-disable scss/dollar-variable-pattern, scss/at-mixin-pattern */
-@mixin _mdl-snackbar-reflexive-margin($default-side, $value, $reset-opposite-margin: true) {
-  @if (index((right, left), $default-side) == null) {
-    @error "Invalid default margin side #{default-side}. Please specifiy either right or left";
-  }
-
-  $rtl-side: left;
-
-  @if ($default-side == left) {
-    $rtl-side: right;
-  }
-
-  margin-#{$default-side}: $value;
-  [dir="rtl"] & {
-    margin-#{$rtl-side}: $value;
-
-    @if ($reset-opposite-margin) {
-      margin-#{$default-side}: 0;
-    }
-  }
-}
-
-/* stylelint-enable scss/dollar-variable-pattern, scss/at-mixin-pattern */
 
 /* postcss-bem-linter: define snackbar */
 .mdl-snackbar {
@@ -94,12 +71,13 @@
     justify-content: flex-start;
     margin-top: -12px;
     margin-bottom: 8px;
-    margin-left: auto;
+
+    @include mdl-rtl-reflexive-box(margin, left, auto);
   }
 
   &__text {
     @include mdl-typography(body1);
-    @include _mdl-snackbar-reflexive-margin(right, auto, true);
+    @include mdl-rtl-reflexive-box(margin, right, auto, ".mdl-snackbar");
     display: flex;
     align-items: center;
     height: 48px;
@@ -112,11 +90,18 @@
     height: 80px;
   }
 
+  /* stylelint-disable plugin/selector-bem-pattern */
+  &--multiline#{&}--action-on-bottom &__text {
+    margin: 0;
+  }
+  /* stylelint-enable plugin/selector-bem-pattern */
+
   &__action-button {
     @include mdl-theme-prop(color, accent);
+    @include mdl-rtl-reflexive-box(margin, right, -16px, ".mdl-snackbar");
+
     min-width: auto;
     height: inherit;
-    margin-right: -16px;
     transition: mdl-animation-exit(opacity, .3s);
 
     opacity: 0;
@@ -126,7 +111,6 @@
       border: 0;
     }
     &:not([aria-hidden]) {
-      @include _mdl-snackbar-reflexive-margin(left, 8px, true);
       visibility: inherit;
     }
   }
