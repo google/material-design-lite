@@ -45,12 +45,17 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "react": "^15.1.0",
     "react-addons-pure-render-mixin": "^15.1.0",
     "react-dom": "^15.1.0"
   },
   "babel": {
-    "presets": ["es2015", "stage-0", "react"]
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ]
   }
 }

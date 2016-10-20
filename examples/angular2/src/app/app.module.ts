@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SeedApp } from './seed-app';
 import { appRoutes } from './app.routs';
 import { Home } from './components/home';
+import { FormFieldModule } from './components/form-field';
 import { CheckboxModule } from './components/checkbox';
 
 
@@ -14,6 +15,7 @@ import { CheckboxModule } from './components/checkbox';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    FormFieldModule,
     CheckboxModule
   ],
   declarations: [

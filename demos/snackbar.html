@@ -113,8 +113,9 @@
     <script>
       (function(global) {
         'use strict';
-        var snackbar = new global.mdl.Snackbar(document.getElementById('mdl-js-snackbar'));
-        var rtlSnackbar = new global.mdl.Snackbar(document.getElementById('mdl-rtl-js-snackbar'));
+        var MDLSnackbar = global.mdl.snackbar.MDLSnackbar;
+        var snackbar = new MDLSnackbar(document.getElementById('mdl-js-snackbar'));
+        var rtlSnackbar = new MDLSnackbar(document.getElementById('mdl-rtl-js-snackbar'));
         var messageInput = document.getElementById('message');
         var actionInput = document.getElementById('action');
         var multilineInput = document.getElementById('multiline');

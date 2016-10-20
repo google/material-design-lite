@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-import MDLComponent from 'mdl-base';
+import {MDLComponent} from 'mdl-base';
 import MDLTemporaryDrawerFoundation from './foundation';
 import * as util from '../util';
 
 export {MDLTemporaryDrawerFoundation};
 
-export default class MDLTemporaryDrawer extends MDLComponent {
+export class MDLTemporaryDrawer extends MDLComponent {
   static attachTo(root) {
     return new MDLTemporaryDrawer(root);
   }

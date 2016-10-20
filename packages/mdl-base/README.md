@@ -15,12 +15,12 @@ Then include it in your code in one of the following ways:
 #### ES2015+
 
 ```javascript
-import MDLComponent, {MDLFoundation} from 'mdl-base';
+import {MDLComponent, MDLFoundation} from 'mdl-base';
 ```
 #### CommonJS
 
 ```javascript
-const MDLComponent = require('mdl-base').default;
+const MDLComponent = require('mdl-base').MDLComponent;
 const MDLFoundation = require('mdl-base').MDLFoundation;
 ```
 
@@ -28,7 +28,7 @@ const MDLFoundation = require('mdl-base').MDLFoundation;
 
 ```javascript
 require(['path/to/mdl-base'], function(mdlBase) {
-  const MDLComponent = mdlBase.default;
+  const MDLComponent = mdlBase.MDLComponent;
   const MDLFoundation = mdlBase.MDLFoundation;
 });
 ```
@@ -36,8 +36,8 @@ require(['path/to/mdl-base'], function(mdlBase) {
 #### Vanilla
 
 ```javascript
-const MDLComponent = mdl.Base.default;
-const MDLFoundation = mdl.Base.MDLFoundation;
+const MDLComponent = mdl.base.MDLComponent;
+const MDLFoundation = mdl.base.MDLFoundation;
 ```
 
 ## Usage
@@ -119,7 +119,7 @@ MDLComponent provides the basic mechanisms for implementing component classes.
 ```javascript
 import MyComponentFoundation from './foundation';
 
-export default class MyComponent extends MDLComponent {
+export class MyComponent extends MDLComponent {
   static attachTo(root) {
     return new MyComponent(root);
   }

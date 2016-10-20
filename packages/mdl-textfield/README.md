@@ -196,14 +196,14 @@ Material Design text field component.
 ##### ES2015
 
 ```javascript
-import MDLTextfield, {MDLTextfieldFoundation} from 'mdl-textfield';
+import {MDLTextfield, MDLTextfieldFoundation} from 'mdl-textfield';
 ```
 
 ##### CommonJS
 
 ```javascript
 const mdlTextfield = require('mdl-textfield');
-const MDLTextfield = mdlTextfield.default;
+const MDLTextfield = mdlTextfield.MDLTextfield;
 const MDLTextfieldFoundation = mdlTextfield.MDLTextfieldFoundation;
 ```
 
@@ -211,7 +211,7 @@ const MDLTextfieldFoundation = mdlTextfield.MDLTextfieldFoundation;
 
 ```javascript
 require(['path/to/mdl-textfield'], mdlTextfield => {
-  const MDLTextfield = mdlTextfield.default;
+  const MDLTextfield = mdlTextfield.MDLTextfield;
   const MDLTextfieldFoundation = mdlTextfield.MDLTextfieldFoundation;
 });
 ```
@@ -219,20 +219,20 @@ require(['path/to/mdl-textfield'], mdlTextfield => {
 ##### Global
 
 ```javascript
-const MDLTextfield = mdl.Textfield;
-const MDLTextfieldFoundation = mdl.Textfield.MDLTextfieldFoundation;
+const MDLTextfield = mdl.textfield.MDLTextfield;
+const MDLTextfieldFoundation = mdl.textfield.MDLTextfieldFoundation;
 ```
 
 #### Automatic Instantiation
 
 ```javascript
-mdl.Textfield.attachTo(document.querySelector('.mdl-textfield'));
+mdl.textfield.attachTo(document.querySelector('.mdl-textfield'));
 ```
 
 #### Manual Instantiation
 
 ```javascript
-import MDLTextfield from 'mdl-textfield';
+import {MDLTextfield} from 'mdl-textfield';
 
 const textfield = new MDLTextfield(document.querySelector('.mdl-textfield'));
 ```

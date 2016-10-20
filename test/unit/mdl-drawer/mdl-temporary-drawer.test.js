@@ -19,7 +19,7 @@ import bel from 'bel';
 import domEvents from 'dom-events';
 import td from 'testdouble';
 
-import MDLTemporaryDrawer from '../../../packages/mdl-drawer/temporary';
+import {MDLTemporaryDrawer} from '../../../packages/mdl-drawer/temporary';
 import {strings} from '../../../packages/mdl-drawer/temporary/constants';
 import {getTransformPropertyName, supportsCssCustomProperties} from '../../../packages/mdl-drawer/util';
 

@@ -23,7 +23,7 @@ In order to use MDL Icon Toggle, you will need to import an icon set, such as [M
 Then in JS
 
 ```js
-import MDLIconToggle from 'mdl-icon-toggle';
+import {MDLIconToggle} from 'mdl-icon-toggle';
 
 MDLIconToggle.attachTo(document.querySelector('.mdl-icon-toggle'));
 ```

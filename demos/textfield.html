@@ -176,7 +176,7 @@
           '.mdl-textfield:not([data-demo-no-auto-js])'
         );
         for (var i = 0, tf; tf = tfs[i]; i++) {
-          mdl.Textfield.attachTo(tf);
+          mdl.textfield.MDLTextfield.attachTo(tf);
         }
       })();
     </script>
@@ -185,7 +185,7 @@
         var section = document.getElementById('demo-textfield-wrapper');
         var tfRoot = section.querySelector('.mdl-textfield');
         var helptext = section.querySelector('.mdl-textfield-helptext');
-        var tf = new mdl.Textfield(tfRoot);
+        var tf = new mdl.textfield.MDLTextfield(tfRoot);
 
         document.getElementById('disable').addEventListener('change', function(evt) {
           var target = evt.target;
@@ -236,7 +236,7 @@
       (function() {
         var section = document.getElementById('demo-textfield-multiline-wrapper');
         var tfRoot = section.querySelector('.mdl-textfield');
-        var tf = new mdl.Textfield(tfRoot);
+        var tf = new mdl.textfield.MDLTextfield(tfRoot);
         document.getElementById('multi-disable').addEventListener('change', function(evt) {
           var target = evt.target;
           tf.disabled = target.checked;
@@ -264,8 +264,8 @@
         var section = document.getElementById('demo-fullwidth-wrapper');
         var tfRoot = section.querySelector('.mdl-textfield');
         var tfMultiRoot = section.querySelector('.mdl-textfield--multiline');
-        var tf = new mdl.Textfield(tfRoot);
-        var tfMulti = new mdl.Textfield(tfMultiRoot);
+        var tf = new mdl.textfield.MDLTextfield(tfRoot);
+        var tfMulti = new mdl.textfield.MDLTextfield(tfMultiRoot);
 
         document.getElementById('fullwidth-disable').addEventListener('change', function(evt) {
           var target = evt.target;

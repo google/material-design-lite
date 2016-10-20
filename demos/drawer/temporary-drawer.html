@@ -113,7 +113,8 @@
 
     <script src="../assets/material-design-lite.js" charset="utf-8"></script>
     <script>
-      var drawer = new mdl.TemporaryDrawer(document.querySelector('.mdl-temporary-drawer'));
+      var MDLTemporaryDrawer = mdl.drawer.MDLTemporaryDrawer;
+      var drawer = new MDLTemporaryDrawer(document.querySelector('.mdl-temporary-drawer'));
       document.querySelector('.demo-menu').addEventListener('click', function() {
         drawer.open = true;
       });

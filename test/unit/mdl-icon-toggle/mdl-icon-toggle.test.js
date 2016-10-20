@@ -21,7 +21,7 @@ import test from 'tape';
 
 import {supportsCssVariables} from '../../../packages/mdl-ripple/util';
 import {createMockRaf} from '../helpers/raf';
-import MDLIconToggle, {MDLIconToggleFoundation} from '../../../packages/mdl-icon-toggle';
+import {MDLIconToggle, MDLIconToggleFoundation} from '../../../packages/mdl-icon-toggle';
 
 function setupTest({useInnerIconElement = false} = {}) {
   const root = document.createElement(useInnerIconElement ? 'span' : 'i');

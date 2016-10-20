@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-import MDLComponent from 'mdl-base';
+import {MDLComponent} from 'mdl-base';
 import MDLSnackbarFoundation from './foundation';
 
 export {MDLSnackbarFoundation};
 
-export default class MDLSnackbar extends MDLComponent {
+export class MDLSnackbar extends MDLComponent {
   static attachTo(root) {
     return new MDLSnackbar(root);
   }

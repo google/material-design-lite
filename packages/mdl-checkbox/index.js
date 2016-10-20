@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-import MDLComponent from 'mdl-base';
+import {MDLComponent} from 'mdl-base';
 import MDLCheckboxFoundation from './foundation';
 
 export {MDLCheckboxFoundation};
 
-export default class MDLCheckbox extends MDLComponent {
+export class MDLCheckbox extends MDLComponent {
   static attachTo(root) {
     return new MDLCheckbox(root);
   }

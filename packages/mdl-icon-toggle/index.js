@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import MDLComponent from 'mdl-base';
-import MDLRipple, {MDLRippleFoundation} from 'mdl-ripple';
+import {MDLComponent} from 'mdl-base';
+import {MDLRipple, MDLRippleFoundation} from 'mdl-ripple';
 
 import MDLIconToggleFoundation from './foundation';
 
 export {MDLIconToggleFoundation};
 
-export default class MDLIconToggle extends MDLComponent {
+export class MDLIconToggle extends MDLComponent {
   static attachTo(root) {
     return new MDLIconToggle(root);
   }

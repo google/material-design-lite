@@ -19,7 +19,7 @@ import bel from 'bel';
 import domEvents from 'dom-events';
 import td from 'testdouble';
 
-import MDLRipple from '../../../packages/mdl-ripple';
+import {MDLRipple} from '../../../packages/mdl-ripple';
 import {cssClasses} from '../../../packages/mdl-ripple/constants';
 import * as util from '../../../packages/mdl-ripple/util';
 
