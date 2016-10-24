@@ -19,7 +19,7 @@ import bel from 'bel';
 import domEvents from 'dom-events';
 import td from 'testdouble';
 
-import MDLCheckbox from '../../../packages/mdl-checkbox';
+import {MDLCheckbox} from '../../../packages/mdl-checkbox';
 import {strings} from '../../../packages/mdl-checkbox/constants';
 
 function getFixture() {

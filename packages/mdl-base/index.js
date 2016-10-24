@@ -14,6 +14,5 @@
  * limitations under the License.
  */
 
-import MDLComponent from './component';
 export {default as MDLFoundation} from './foundation';
-export default MDLComponent;
+export {default as MDLComponent} from './component';

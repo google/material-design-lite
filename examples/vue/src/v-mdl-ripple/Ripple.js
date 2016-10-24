@@ -1,4 +1,4 @@
-import MDLRipple from 'mdl-ripple';
+import {MDLRipple} from 'mdl-ripple';
 
 export default {
   bind (el, context) {

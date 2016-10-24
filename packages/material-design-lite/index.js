@@ -14,34 +14,34 @@
  * limitations under the License.
  */
 
-import BaseComponent from 'mdl-base';
-import Checkbox from 'mdl-checkbox';
-import IconToggle from 'mdl-icon-toggle';
-import Radio from 'mdl-radio';
-import Ripple from 'mdl-ripple';
-import {MDLTemporaryDrawer as TemporaryDrawer} from 'mdl-drawer';
-import Textfield from 'mdl-textfield';
-import Snackbar from 'mdl-snackbar';
+import * as base from 'mdl-base';
+import * as checkbox from 'mdl-checkbox';
+import * as iconToggle from 'mdl-icon-toggle';
+import * as radio from 'mdl-radio';
+import * as ripple from 'mdl-ripple';
+import * as drawer from 'mdl-drawer';
+import * as textfield from 'mdl-textfield';
+import * as snackbar from 'mdl-snackbar';
 import autoInit from 'mdl-auto-init';
 
 // Register all components
-autoInit.register('MDLCheckbox', Checkbox);
-autoInit.register('MDLTemporaryDrawer', TemporaryDrawer);
-autoInit.register('MDLRipple', Ripple);
-autoInit.register('MDLIconToggle', IconToggle);
-autoInit.register('MDLRadio', Radio);
-autoInit.register('MDLSnackbar', Snackbar);
-autoInit.register('MDLTextfield', Textfield);
+autoInit.register('MDLCheckbox', checkbox.MDLCheckbox);
+autoInit.register('MDLTemporaryDrawer', drawer.MDLTemporaryDrawer);
+autoInit.register('MDLRipple', ripple.MDLRipple);
+autoInit.register('MDLIconToggle', iconToggle.MDLIconToggle);
+autoInit.register('MDLRadio', radio.MDLRadio);
+autoInit.register('MDLSnackbar', snackbar.MDLSnackbar);
+autoInit.register('MDLTextfield', textfield.MDLTextfield);
 
 // Export all components.
 export {
-  BaseComponent,
-  Checkbox,
-  IconToggle,
-  Radio,
-  Ripple,
-  Snackbar,
-  TemporaryDrawer,
-  Textfield,
+  base,
+  checkbox,
+  iconToggle,
+  radio,
+  ripple,
+  snackbar,
+  drawer,
+  textfield,
   autoInit
 };

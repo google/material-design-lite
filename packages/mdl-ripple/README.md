@@ -140,13 +140,13 @@ First import the ripple JS
 ##### ES2015
 
 ```javascript
-import MDLRipple, {MDLRippleFoundation} from 'mdl-ripple';
+import {MDLRipple, MDLRippleFoundation} from 'mdl-ripple';
 ```
 
 ##### CommonJS
 
 ```javascript
-const MDLRipple = require('mdl-ripple').default;
+const MDLRipple = require('mdl-ripple').MDLRipple;
 const MDLRippleFoundation = require('mdl-ripple').MDLRippleFoundation;
 ```
 
@@ -154,7 +154,7 @@ const MDLRippleFoundation = require('mdl-ripple').MDLRippleFoundation;
 
 ```javascript
 require('path/to/mdl-ripple', function(mdlRipple) {
-  const MDLRipple = mdlRipple.default;
+  const MDLRipple = mdlRipple.MDLRipple;
   const MDLRippleFoundation = mdlRipple.MDLRippleFoundation;
 });
 ```
@@ -162,8 +162,8 @@ require('path/to/mdl-ripple', function(mdlRipple) {
 ##### Global
 
 ```javascript
-const MDLRipple = global.mdl.Ripple.default;
-const MDLRippleFoundation = global.mdl.Ripple.MDLRippleFoundation;
+const MDLRipple = mdl.ripple.MDLRipple;
+const MDLRippleFoundation = mdl.ripple.MDLRippleFoundation;
 ```
 
 Then, simply attach initialize the ripple with the correct DOM.
@@ -182,8 +182,8 @@ MDLRipple.attachTo(document.querySelector('.surface'));
 
 ### Unbounded Ripples
 
-If you'd like to use _unbounded_ ripples, such as those used for checkboxes and radio buttons
-(_TK_), you can do so either imperatively in JS _or_ declaratively using the DOM.
+If you'd like to use _unbounded_ ripples, such as those used for checkboxes and radio buttons, you
+can do so either imperatively in JS _or_ declaratively using the DOM.
 
 #### Using JS
 

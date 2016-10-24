@@ -16,7 +16,7 @@
 
 import test from 'tape';
 import td from 'testdouble';
-import MDLComponent from '../../../packages/mdl-base';
+import {MDLComponent} from '../../../packages/mdl-base';
 
 class FakeComponent extends MDLComponent {
   get root() {

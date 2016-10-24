@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-import {Component, HostBinding, ViewEncapsulation} from '@angular/core';
+import {Component, HostBinding, Input, ViewEncapsulation} from '@angular/core';
+
+const MDL_FORM_FIELD_STYLES = require('mdl-form-field-styles');
 
 @Component({
-  selector: 'mdl-checkbox-wrapper',
-  template: `
-    <div class="mdl-checkbox-wrapper__layout">
-      <ng-content></ng-content>
-    </div>
-  `,
-  // Style URLs are pulled in by mdl-checkbox, which we assume we are using.
+  selector: 'mdl-form-field',
+  styles: [String(MDL_FORM_FIELD_STYLES)],
+  template: `<ng-content></ng-content>`,
   encapsulation: ViewEncapsulation.None
 })
-export class CheckboxWrapperComponent {
-  @HostBinding('class') className: string = 'mdl-checkbox-wrapper';
-};
+export class FormFieldComponent {
+  @Input() alignEnd: boolean = false;
+  @HostBinding('class') get className(): string {
+    return `mdl-form-field${this.alignEnd ? ' mdl-form-field--align-end' : ''}`;
+  }
+}

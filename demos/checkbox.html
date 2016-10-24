@@ -139,7 +139,8 @@
     <script>
       (function(global) {
         'use strict';
-        var checkbox = new global.mdl.Checkbox(document.getElementById('mdl-js-checkbox'));
+        var MDLCheckbox = global.mdl.checkbox.MDLCheckbox;
+        var checkbox = new MDLCheckbox(document.getElementById('mdl-js-checkbox'));
         document.getElementById('make-ind').addEventListener('click', function() {
           checkbox.indeterminate = true;
         });

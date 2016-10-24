@@ -2,7 +2,7 @@
 <template>
 <aside class="mdl-temporary-drawer mdl-typography" :class="classes">
   <nav ref="drawer" class="mdl-temporary-drawer__drawer">
-    
+
     <div class="mdl-temporary-drawer__toolbar-spacer" v-if="$slots['toolbar-spacer'] || toolbarSpacer">
       <slot name="toolbar-spacer"></slot>
     </div>
@@ -64,6 +64,12 @@ export default {
       },
       deregisterTransitionEndHandler (handler) {
         vm.$refs.drawer.removeEventListener('transitionend', handler);
+      },
+      registerDocumentKeydownHandler (handler) {
+        document.addEventListener('keydown', handler);
+      },
+      deregisterDocumentKeydownHandler (handler) {
+        document.removeEventListener('keydown', handler);
       },
       getDrawerWidth () {
         return vm.$refs.drawer.clientWidth;

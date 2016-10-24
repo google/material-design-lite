@@ -19,7 +19,7 @@ import domEvents from 'dom-events';
 import td from 'testdouble';
 import test from 'tape';
 
-import MDLTextfield, {MDLTextfieldFoundation} from '../../../packages/mdl-textfield';
+import {MDLTextfield, MDLTextfieldFoundation} from '../../../packages/mdl-textfield';
 
 const {cssClasses} = MDLTextfieldFoundation;
 

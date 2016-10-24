@@ -34,14 +34,14 @@ messages with optional action.
 ##### ES2015
 
 ```javascript
-import MDLSnackbar, {MDLSnackbarFoundation} from 'mdl-snackbar';
+import {MDLSnackbar, MDLSnackbarFoundation} from 'mdl-snackbar';
 ```
 
 ##### CommonJS
 
 ```javascript
 const mdlSnackbar = require('mdl-snackbar');
-const MDLSnackbar = mdlSnackbar.default;
+const MDLSnackbar = mdlSnackbar.MDLSnackbar;
 const MDLSnackbarFoundation = mdlSnackbar.MDLSnackbarFoundation;
 ```
 
@@ -49,7 +49,7 @@ const MDLSnackbarFoundation = mdlSnackbar.MDLSnackbarFoundation;
 
 ```javascript
 require(['path/to/mdl-snackbar'], mdlSnackbar => {
-  const MDLSnackbar = mdlSnackbar.default;
+  const MDLSnackbar = mdlSnackbar.MDLSnackbar;
   const MDLSnackbarFoundation = mdlSnackbar.MDLSnackbarFoundation;
 });
 ```
@@ -57,8 +57,8 @@ require(['path/to/mdl-snackbar'], mdlSnackbar => {
 ##### Global
 
 ```javascript
-const MDLSnackbar = mdl.Snackbar.default;
-const MDLSnackbarFoundation = mdl.Snackbar.MDLSnackbarFoundation;
+const MDLSnackbar = mdl.snackbar.MDLSnackbar;
+const MDLSnackbarFoundation = mdl.snackbar.MDLSnackbarFoundation;
 ```
 
 #### Automatic Instantiation
@@ -67,7 +67,7 @@ If you do not care about retaining the component instance for the snackbar, simp
 and pass it a DOM element.  
 
 ```javascript
-mdl.Snackbar.attachTo(document.querySelector('.mdl-snackbar'));
+mdl.snackbar.MDLSnackbar.attachTo(document.querySelector('.mdl-snackbar'));
 ```
 
 #### Manual Instantiation
@@ -75,7 +75,7 @@ mdl.Snackbar.attachTo(document.querySelector('.mdl-snackbar'));
 Snackbars can easily be initialized using their default constructors as well, similar to `attachTo`.
 
 ```javascript
-import MDLSnackbar from 'mdl-snackbar';
+import {MDLSnackbar} from 'mdl-snackbar';
 
 const snackbar = new MDLSnackbar(document.querySelector('.mdl-snackbar'));
 ```

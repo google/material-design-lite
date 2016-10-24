@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import MDLComponent from 'mdl-base';
-import MDLRipple, {MDLRippleFoundation} from 'mdl-ripple';
+import {MDLComponent} from 'mdl-base';
+import {MDLRipple, MDLRippleFoundation} from 'mdl-ripple';
 
 import MDLRadioFoundation from './foundation';
 
 export {MDLRadioFoundation};
 
-export default class MDLRadio extends MDLComponent {
+export class MDLRadio extends MDLComponent {
   static attachTo(root) {
     return new MDLRadio(root);
   }

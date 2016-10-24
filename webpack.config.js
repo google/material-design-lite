@@ -29,14 +29,14 @@ module.exports = [{
   name: 'js-components',
   entry: {
     autoInit: [path.resolve('./packages/mdl-auto-init/index.js')],
-    Base: [path.resolve('./packages/mdl-base/index.js')],
-    Checkbox: [path.resolve('./packages/mdl-checkbox/index.js')],
-    Drawer: [path.resolve('./packages/mdl-drawer/index.js')],
-    IconToggle: [path.resolve('./packages/mdl-icon-toggle/index.js')],
-    Radio: [path.resolve('./packages/mdl-radio/index.js')],
-    Ripple: [path.resolve('./packages/mdl-ripple/index.js')],
-    Snackbar: [path.resolve('./packages/mdl-snackbar/index.js')],
-    Textfield: [path.resolve('./packages/mdl-textfield/index.js')]
+    base: [path.resolve('./packages/mdl-base/index.js')],
+    checkbox: [path.resolve('./packages/mdl-checkbox/index.js')],
+    drawer: [path.resolve('./packages/mdl-drawer/index.js')],
+    iconToggle: [path.resolve('./packages/mdl-icon-toggle/index.js')],
+    radio: [path.resolve('./packages/mdl-radio/index.js')],
+    ripple: [path.resolve('./packages/mdl-ripple/index.js')],
+    snackbar: [path.resolve('./packages/mdl-snackbar/index.js')],
+    textfield: [path.resolve('./packages/mdl-textfield/index.js')]
   },
   output: {
     path: OUT_PATH,

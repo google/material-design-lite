@@ -17,13 +17,14 @@
 /* eslint-disable */
 
 import React from 'react';
+import classnames from 'classnames';
 
-export default function CheckboxWrapper({children}) {
+import '../../../packages/mdl-form-field/mdl-form-field.scss';
+
+export default function FormField({alignEnd, children}) {
   return (
-    <div className="mdl-checkbox-wrapper">
-      <div className="mdl-checkbox-wrapper__layout">
-        {children}
-      </div>
+    <div className={classnames('mdl-form-field', {'mdl-form-field--align-end': alignEnd})}>
+      {children}
     </div>
   );
 }

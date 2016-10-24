@@ -19,7 +19,7 @@ import bel from 'bel';
 
 import {supportsCssVariables} from '../../../packages/mdl-ripple/util';
 import {createMockRaf} from '../helpers/raf';
-import MDLRadio, {MDLRadioFoundation} from '../../../packages/mdl-radio';
+import {MDLRadio, MDLRadioFoundation} from '../../../packages/mdl-radio';
 
 const {NATIVE_CONTROL_SELECTOR} = MDLRadioFoundation.strings;
 

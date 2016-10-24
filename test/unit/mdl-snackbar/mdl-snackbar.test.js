@@ -19,7 +19,7 @@ import bel from 'bel';
 import td from 'testdouble';
 import domEvents from 'dom-events';
 
-import MDLSnackbar, {MDLSnackbarFoundation} from '../../../packages/mdl-snackbar';
+import {MDLSnackbar, MDLSnackbarFoundation} from '../../../packages/mdl-snackbar';
 
 const {strings} = MDLSnackbarFoundation;
 

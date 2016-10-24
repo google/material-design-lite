@@ -45,16 +45,16 @@
   <main>
     <div class="demo-surface" v-ripple><p>{{label}}</p></div>
     <div>
-      <checkbox-wrapper :align-end='alignEnd'>
+      <form-field :align-end='alignEnd'>
         <checkbox v-model="checked" label="Test me" id="my-check" label-id="my-check-label"></checkbox>
         <checkbox-label id="my-check-label" for="my-check" :label="label"></checkbox-label>
-      </checkbox-wrapper>
+      </form-field>
     </div>
     <div>
-      <checkbox-wrapper>
+      <form-field>
         <checkbox v-model="alignEnd" label="Test me" id="my-check" label-id="my-check-label"></checkbox>
         <checkbox-label id="my-check-label" for="my-check" label="Align End?"></checkbox-label>
-      </checkbox-wrapper>
+      </form-field>
       <input v-model="label"></input>
     </div>
     <div>
@@ -84,7 +84,7 @@ import Snackbar from './v-mdl-snackbar/Snackbar';
 import Checkbox from './v-mdl-checkbox/Checkbox';
 import IconToggle from './v-mdl-icon-toggle/IconToggle';
 import CheckboxLabel from './v-mdl-checkbox/CheckboxLabel';
-import CheckboxWrapper from './v-mdl-checkbox/CheckboxWrapper';
+import FormField from './v-mdl-form-field/FormField';
 import TemporaryDrawer from './v-mdl-drawer/TemporaryDrawer';
 
 export default {
@@ -98,7 +98,7 @@ export default {
       favoritedLabel: 'Remove from favorites'
     }
   },
-  components: { Checkbox, CheckboxWrapper, CheckboxLabel, IconToggle, Snackbar, TemporaryDrawer },
+  components: { FormField, Checkbox, CheckboxLabel, IconToggle, Snackbar, TemporaryDrawer },
   directives: { Ripple },
   watch: {
     checked () {

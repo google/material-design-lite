@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import MDLComponent from 'mdl-base';
+import {MDLComponent} from 'mdl-base';
 import MDLRippleFoundation from './foundation';
 import {supportsCssVariables, getMatchesProperty} from './util';
 
@@ -22,7 +22,7 @@ const MATCHES = getMatchesProperty(HTMLElement.prototype);
 
 export {MDLRippleFoundation};
 
-export default class MDLRipple extends MDLComponent {
+export class MDLRipple extends MDLComponent {
   static attachTo(root, {isUnbounded = undefined} = {}) {
     const ripple = new MDLRipple(root);
     // Only override unbounded behavior if option is explicitly specified

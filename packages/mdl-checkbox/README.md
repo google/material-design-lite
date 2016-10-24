@@ -68,14 +68,14 @@ states.
 ##### ES2015
 
 ```javascript
-import MDLCheckbox, {MDLCheckboxFoundation} from 'mdl-checkbox';
+import {MDLCheckbox, MDLCheckboxFoundation} from 'mdl-checkbox';
 ```
 
 ##### CommonJS
 
 ```javascript
 const mdlCheckbox = require('mdl-checkbox');
-const MDLCheckbox = mdlCheckbox.default;
+const MDLCheckbox = mdlCheckbox.MDLCheckbox;
 const MDLCheckboxFoundation = mdlCheckbox.MDLCheckboxFoundation;
 ```
 
@@ -83,7 +83,7 @@ const MDLCheckboxFoundation = mdlCheckbox.MDLCheckboxFoundation;
 
 ```javascript
 require(['path/to/mdl-checkbox'], mdlCheckbox => {
-  const MDLCheckbox = mdlCheckbox.default;
+  const MDLCheckbox = mdlCheckbox.MDLCheckbox;
   const MDLCheckboxFoundation = mdlCheckbox.MDLCheckboxFoundation;
 });
 ```
@@ -91,8 +91,8 @@ require(['path/to/mdl-checkbox'], mdlCheckbox => {
 ##### Global
 
 ```javascript
-const MDLCheckbox = mdl.Checkbox.default;
-const MDLCheckboxFoundation = mdl.Checkbox.MDLCheckboxFoundation;
+const MDLCheckbox = mdl.checkbox.MDLCheckbox;
+const MDLCheckboxFoundation = mdl.checkbox.MDLCheckboxFoundation;
 ```
 
 #### Automatic Instantiation
@@ -101,7 +101,7 @@ If you do not care about retaining the component instance for the checkbox, simp
 and pass it a DOM element.  
 
 ```javascript
-mdl.Checkbox.attachTo(document.querySelector('.mdl-checkbox'));
+mdl.checkbox.MDLCheckbox.attachTo(document.querySelector('.mdl-checkbox'));
 ```
 
 #### Manual Instantiation
@@ -109,7 +109,7 @@ mdl.Checkbox.attachTo(document.querySelector('.mdl-checkbox'));
 Checkboxes can easily be initialized using their default constructors as well, similar to `attachTo`.
 
 ```javascript
-import MDLCheckbox from 'mdl-checkbox';
+import {MDLCheckbox} from 'mdl-checkbox';
 
 const checkbox = new MDLCheckbox(document.querySelector('.mdl-checkbox'));
 ```

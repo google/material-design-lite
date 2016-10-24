@@ -97,7 +97,7 @@ for any display size.
 ```
 
 ```js
-let drawer = new mdl.TemporaryDrawer(document.querySelector('.mdl-temporary-drawer'));
+let drawer = new mdl.drawer.MDLTemporaryDrawer(document.querySelector('.mdl-temporary-drawer'));
 document.querySelector('.menu').addEventListener('click', () => drawer.open = true);
 ```
 
@@ -198,8 +198,8 @@ require(['path/to/mdl-drawer'], mdlDrawer => {
 ##### Global
 
 ```javascript
-const MDLTemporaryDrawer = mdl.Drawer.MDLTemporaryDrawer;
-const MDLTemporaryDrawerFoundation = mdl.Drawer.MDLTemporaryDrawerFoundation;
+const MDLTemporaryDrawer = mdl.drawer.MDLTemporaryDrawer;
+const MDLTemporaryDrawerFoundation = mdl.drawer.MDLTemporaryDrawerFoundation;
 ```
 
 #### Automatic Instantiation
@@ -208,7 +208,7 @@ If you do not care about retaining the component instance for the temporary draw
 and pass it a DOM element.  
 
 ```javascript
-mdl.TemporaryDrawer.attachTo(document.querySelector('.mdl-temporary-drawer'));
+mdl.drawer.MDLTemporaryDrawer.attachTo(document.querySelector('.mdl-temporary-drawer'));
 ```
 
 #### Manual Instantiation
@@ -216,7 +216,7 @@ mdl.TemporaryDrawer.attachTo(document.querySelector('.mdl-temporary-drawer'));
 Temporary drawers can easily be initialized using their default constructors as well, similar to `attachTo`.
 
 ```javascript
-import MDLTemporaryDrawer from 'mdl-temporary-drawer';
+import {MDLTemporaryDrawer} from 'mdl-drawer';
 
 const drawer = new MDLTemporaryDrawer(document.querySelector('.mdl-temporary-drawer'));
 ```

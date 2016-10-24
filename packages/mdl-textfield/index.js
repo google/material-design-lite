@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import MDLComponent from 'mdl-base';
+import {MDLComponent} from 'mdl-base';
 
 import MDLTextfieldFoundation from './foundation';
 
@@ -22,7 +22,7 @@ export {MDLTextfieldFoundation};
 
 const {cssClasses} = MDLTextfieldFoundation;
 
-export default class MDLTextfield extends MDLComponent {
+export class MDLTextfield extends MDLComponent {
   static attachTo(root) {
     return new MDLTextfield(root);
   }

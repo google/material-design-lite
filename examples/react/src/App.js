@@ -21,7 +21,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import Checkbox from './Checkbox';
 import CheckboxLabel from './CheckboxLabel';
-import CheckboxWrapper from './CheckboxWrapper';
+import FormField from './FormField';
 
 export default class App extends Component {
   state = {
@@ -36,7 +36,7 @@ export default class App extends Component {
     return (
       <main>
         <h1>MDL Checkbox - React Example</h1>
-        <CheckboxWrapper>
+        <FormField>
           <Checkbox id="my-checkbox"
                     labelId="my-checkbox-label"
                     indeterminate={indeterminate}
@@ -48,7 +48,7 @@ export default class App extends Component {
           <CheckboxLabel id="my-checkbox-label" for="my-checkbox">
             The checkbox is currently {this.status()}
           </CheckboxLabel>
-        </CheckboxWrapper>
+        </FormField>
         <div style={{paddingTop: '12px'}}>
           <button onClick={() => this.setState({indeterminate: true})}>Make Indeterminate</button>
         </div>

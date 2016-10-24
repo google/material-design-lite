@@ -173,9 +173,8 @@
       (function(global) {
         'use strict';
         var radios = document.querySelectorAll('.mdl-radio:not([data-demo-no-js])');
-        var components = []
-        for (var i = 0; i < radios.length; i++) {
-          components.push(new global.mdl.Radio(radios[i]));
+        for (var i = 0, radio; radio = radios[i]; i++) {
+          global.mdl.radio.MDLRadio.attachTo(radio);
         }
       })(this);
     </script>

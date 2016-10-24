@@ -60,14 +60,14 @@ MDL Radio ships with Component / Foundation classes which provide enhanced inter
 ##### ES2015
 
 ```javascript
-import MDLRadio, {MDLRadioFoundation} from 'mdl-radio';
+import {MDLRadio, MDLRadioFoundation} from 'mdl-radio';
 ```
 
 ##### CommonJS
 
 ```javascript
 const mdlRadio = require('mdl-radio');
-const MDLRadio = mdlRadio.default;
+const MDLRadio = mdlRadio.MDLRadio;
 const MDLRadioFoundation = mdlRadio.MDLRadioFoundation;
 ```
 
@@ -75,7 +75,7 @@ const MDLRadioFoundation = mdlRadio.MDLRadioFoundation;
 
 ```javascript
 require(['path/to/mdl-radio'], mdlRadio => {
-  const MDLRadio = mdlRadio.default;
+  const MDLRadio = mdlRadio.MDLRadio;
   const MDLRadioFoundation = mdlRadio.MDLRadioFoundation;
 });
 ```
@@ -83,8 +83,8 @@ require(['path/to/mdl-radio'], mdlRadio => {
 ##### Global
 
 ```javascript
-const MDLRadio = mdl.Radio;
-const MDLRadioFoundation = mdl.Radio.MDLRadioFoundation;
+const MDLRadio = mdl.radio.MDLRadio;
+const MDLRadioFoundation = mdl.radio.MDLRadioFoundation;
 ```
 
 #### Automatic Instantiation
@@ -93,7 +93,7 @@ If you do not care about retaining the component instance for the radio, simply 
 and pass it a DOM element.  
 
 ```javascript
-mdl.Radio.attachTo(document.querySelector('.mdl-radio'));
+mdl.radio.MDLRadio.attachTo(document.querySelector('.mdl-radio'));
 ```
 
 #### Manual Instantiation
@@ -101,7 +101,7 @@ mdl.Radio.attachTo(document.querySelector('.mdl-radio'));
 Radios can easily be initialized using their default constructors as well, similar to `attachTo`.
 
 ```javascript
-import MDLRadio from 'mdl-radio';
+import {MDLRadio} from 'mdl-radio';
 
 const radio = new MDLRadio(document.querySelector('.mdl-radio'));
 ```
