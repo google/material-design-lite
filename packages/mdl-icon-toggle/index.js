@@ -26,33 +26,6 @@ export default class MDLIconToggle extends MDLComponent {
     return new MDLIconToggle(root);
   }
 
-  static buildDom({
-    iconCssClass = 'material-icons',
-    useInnerIconElement = false,
-    toggleOnData = {},
-    toggleOffData = {}
-  } = {}) {
-    const root = document.createElement(useInnerIconElement ? 'span' : 'i');
-    const iconEl = useInnerIconElement ? document.createElement('i') : root;
-    if (iconEl !== root) {
-      iconEl.setAttribute('aria-hidden', 'true');
-      root.appendChild(iconEl);
-    }
-    const {ROOT} = MDLIconToggleFoundation.cssClasses;
-    root.classList.add(ROOT);
-    iconEl.classList.add(iconCssClass);
-    root.setAttribute('role', 'button');
-    root.setAttribute('aria-pressed', 'false');
-    root.tabIndex = 0;
-    root.dataset.toggleOn = JSON.stringify(toggleOnData);
-    root.dataset.toggleOff = JSON.stringify(toggleOffData);
-    if (useInnerIconElement) {
-      root.dataset.iconInnerSelector = `.${iconCssClass}`;
-    }
-
-    return root;
-  }
-
   constructor() {
     super(...arguments);
     this.ripple_ = this.initRipple_();

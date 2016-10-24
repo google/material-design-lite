@@ -21,53 +21,16 @@ import test from 'tape';
 
 import {supportsCssVariables} from '../../../packages/mdl-ripple/util';
 import {createMockRaf} from '../helpers/raf';
-import {verifyBuildDom} from '../helpers/component';
 import MDLIconToggle, {MDLIconToggleFoundation} from '../../../packages/mdl-icon-toggle';
 
-test('buildDom creates an icon button element', t => {
-  verifyBuildDom(MDLIconToggle, t, bel`
-    <i class="mdl-icon-toggle material-icons" role="button"
-       aria-pressed="false" tabindex="0" data-toggle-on="{}" data-toggle-off="{}"></i>
-  `);
-  t.end();
-});
-
-test('buildDom adds the iconCssClass to the icon button element', t => {
-  const iconCssClass = 'fa';
-  verifyBuildDom(MDLIconToggle, t, bel`
-    <i class="mdl-icon-toggle fa" role="button" aria-pressed="false"
-       tabindex="0" data-toggle-on="{}" data-toggle-off="{}"></i>
-  `, {iconCssClass});
-  t.end();
-});
-
-test('buildDom serializes toggleOnData and toggleOffData into their respective attributes', t => {
-  verifyBuildDom(MDLIconToggle, t, bel`
-    <i class="mdl-icon-toggle material-icons" role="button" aria-pressed="false"
-       tabindex="0" data-toggle-on='{"content":"favorite"}'
-       data-toggle-off='{"content":"favorite_border"}'></i>
-  `, {
-    toggleOnData: {content: 'favorite'},
-    toggleOffData: {content: 'favorite_border'}
-  });
-  t.end();
-});
-
-test('buildDom attaches icon classes to an inner icon element and appends that el when specified', t => {
-  verifyBuildDom(MDLIconToggle, t, bel`
-    <span class="mdl-icon-toggle" role="button" aria-pressed="false" tabindex="0"
-          data-toggle-off="{}" data-toggle-on="{}" data-icon-inner-selector=".my-icon-set">
-      <i class="my-icon-set" aria-hidden="true"></i>
-    </span>
-  `, {
-    iconCssClass: 'my-icon-set',
-    useInnerIconElement: true
-  });
-  t.end();
-});
-
-function setupTest() {
-  const root = document.createElement('i');
+function setupTest({useInnerIconElement = false} = {}) {
+  const root = document.createElement(useInnerIconElement ? 'span' : 'i');
+  if (useInnerIconElement) {
+    const icon = document.createElement('i');
+    icon.id = 'icon';
+    root.dataset.iconInnerSelector = `#${icon.id}`;
+    root.appendChild(icon);
+  }
   const component = new MDLIconToggle(root);
   return {root, component};
 }
@@ -156,10 +119,9 @@ test('#adapter.addClass adds a class to the root element', t => {
 });
 
 test('#adapter.addClass adds a class to the inner icon element when used', t => {
-  const root = MDLIconToggle.buildDom({useInnerIconElement: true});
-  const component = new MDLIconToggle(root);
+  const {root, component} = setupTest({useInnerIconElement: true});
   component.getDefaultFoundation().adapter_.addClass('foo');
-  t.true(root.querySelector('.material-icons').classList.contains('foo'));
+  t.true(root.querySelector('#icon').classList.contains('foo'));
   t.end();
 });
 
@@ -172,11 +134,10 @@ test('#adapter.removeClass removes a class from the root element', t => {
 });
 
 test('#adapter.removeClass adds a class to the inner icon element when used', t => {
-  const root = MDLIconToggle.buildDom({useInnerIconElement: true});
-  root.querySelector('.material-icons').classList.add('foo');
-  const component = new MDLIconToggle(root);
+  const {root, component} = setupTest({useInnerIconElement: true});
+  root.querySelector('#icon').classList.add('foo');
   component.getDefaultFoundation().adapter_.removeClass('foo');
-  t.false(root.querySelector('.material-icons').classList.contains('foo'));
+  t.false(root.querySelector('#icon').classList.contains('foo'));
   t.end();
 });
 
@@ -212,10 +173,9 @@ test('#adapter.setText sets the text content of the root element', t => {
 });
 
 test('#adapter.setText sets the text content of the inner icon element when used', t => {
-  const root = MDLIconToggle.buildDom({useInnerIconElement: true});
-  const component = new MDLIconToggle(root);
+  const {root, component} = setupTest({useInnerIconElement: true});
   component.getDefaultFoundation().adapter_.setText('foo');
-  t.equal(root.querySelector('.material-icons').textContent, 'foo');
+  t.equal(root.querySelector('#icon').textContent, 'foo');
   t.end();
 });
 

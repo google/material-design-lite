@@ -18,7 +18,7 @@
     "postinstall": "lerna bootstrap",
     "pretest": "npm run lint",
     "test": "karma start --single-run",
-    "posttest": "istanbul report --root coverage text-summary && istanbul check-coverage --lines 85 --statements 85 --branches 85 --functions 85",
+    "posttest": "istanbul report --root coverage text-summary && istanbul check-coverage --lines 95 --statements 95 --branches 95 --functions 95",
     "test:watch": "karma start --auto-watch"
   },
   "devDependencies": {
@@ -32,7 +32,6 @@
     "css-loader": "^0.23.1",
     "cz-conventional-changelog": "^1.1.6",
     "del-cli": "^0.2.0",
-    "dom-compare": "^0.2.1",
     "dom-events": "^0.1.1",
     "eslint": "^2.12.0",
     "eslint-config-google": "^0.5.0",

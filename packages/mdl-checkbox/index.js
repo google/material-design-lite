@@ -19,54 +19,52 @@ import MDLCheckboxFoundation from './foundation';
 
 export {MDLCheckboxFoundation};
 
-let idCounter = 0;
-
 export default class MDLCheckbox extends MDLComponent {
-  static buildDom({id = `mdl-checkbox-${++idCounter}`, labelId = `mdl-checkbox-label-${id}`} = {}) {
-    const {ROOT: CSS_ROOT} = MDLCheckboxFoundation.cssClasses;
-
-    const root = document.createElement('div');
-    root.classList.add(CSS_ROOT);
-    root.innerHTML = `
-      <input type="checkbox"
-             class="${CSS_ROOT}__native-control"
-             id="${id}"
-             aria-labelledby="${labelId}"/>
-      <div class="${CSS_ROOT}__frame"></div>
-      <div class="${CSS_ROOT}__background">
-        <svg version="1.1"
-             class="${CSS_ROOT}__checkmark"
-             xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 24 24">
-          <path class="${CSS_ROOT}__checkmark__path"
-                fill="none"
-                stroke="white"
-                d="M4.1,12.7 9,17.6 20.3,6.3"/>
-        </svg>
-        <div class="mdl-checkbox__mixedmark"></div>
-      </div>
-    `;
-
-    return root;
-  }
-
   static attachTo(root) {
     return new MDLCheckbox(root);
   }
 
+  get nativeCb_() {
+    const {NATIVE_CONTROL_SELECTOR} = MDLCheckboxFoundation.strings;
+    return this.root_.querySelector(NATIVE_CONTROL_SELECTOR);
+  }
+
   getDefaultFoundation() {
-    const {ANIM_END_EVENT_NAME, NATIVE_CONTROL_SELECTOR} = MDLCheckboxFoundation.strings;
-    const nativeCb = this.root_.querySelector(NATIVE_CONTROL_SELECTOR);
+    const {ANIM_END_EVENT_NAME} = MDLCheckboxFoundation.strings;
     return new MDLCheckboxFoundation({
       addClass: className => this.root_.classList.add(className),
       removeClass: className => this.root_.classList.remove(className),
       registerAnimationEndHandler: handler => this.root_.addEventListener(ANIM_END_EVENT_NAME, handler),
       deregisterAnimationEndHandler: handler => this.root_.removeEventListener(ANIM_END_EVENT_NAME, handler),
-      registerChangeHandler: handler => nativeCb.addEventListener('change', handler),
-      deregisterChangeHandler: handler => nativeCb.removeEventListener('change', handler),
-      getNativeControl: () => nativeCb,
+      registerChangeHandler: handler => this.nativeCb_.addEventListener('change', handler),
+      deregisterChangeHandler: handler => this.nativeCb_.removeEventListener('change', handler),
+      getNativeControl: () => this.nativeCb_,
       forceLayout: () => this.root_.offsetWidth,
       isAttachedToDOM: () => Boolean(this.root_.parentNode)
     });
+  }
+
+  get checked() {
+    return this.foundation_.isChecked();
+  }
+
+  set checked(checked) {
+    this.foundation_.setChecked(checked);
+  }
+
+  get indeterminate() {
+    return this.foundation_.isIndeterminate();
+  }
+
+  set indeterminate(indeterminate) {
+    this.foundation_.setIndeterminate(indeterminate);
+  }
+
+  get disabled() {
+    return this.foundation_.isDisabled();
+  }
+
+  set disabled(disabled) {
+    this.foundation_.setDisabled(disabled);
   }
 }

@@ -16,7 +16,6 @@
 
 import test from 'tape';
 import bel from 'bel';
-import {compare} from 'dom-compare';
 
 import {supportsCssVariables} from '../../../packages/mdl-ripple/util';
 import {createMockRaf} from '../helpers/raf';
@@ -36,58 +35,6 @@ function getFixture() {
     </div>
   `;
 }
-
-test('buildDom returns a built radio element using the supplied id, group id, and label id', t => {
-  const expected = getFixture();
-  const actual = MDLRadio.buildDom({
-    id: 'my-radio',
-    groupId: 'my-radio-group',
-    labelId: 'my-radio-label'
-  });
-
-  const comparison = compare(expected, actual);
-  const diffs = comparison.getDifferences();
-
-  if (diffs.length) {
-    const diffMsgs = diffs.map(({node, message}) => `\t* ${node} - ${message}`).join('\n');
-    t.fail(`Improper DOM Object. Diff failed:\n${diffMsgs}\n`);
-  } else {
-    t.pass();
-  }
-
-  t.end();
-});
-
-test('buildDom attaches a generated id / label-id when none supplied', t => {
-  const dom = MDLRadio.buildDom();
-  const id = dom.querySelector(NATIVE_CONTROL_SELECTOR).id;
-  const labelId = dom.querySelector(NATIVE_CONTROL_SELECTOR).getAttribute('aria-labelledby');
-  t.true(/^mdl\-radio-\d$/.test(id), 'id matches "mdl-radio-<number>"');
-  t.equal(labelId, `mdl-radio-label-${id}`, 'labelId matches "mdl-radio-label-<id>"');
-  t.end();
-});
-
-test('buildDom ensures generated ids are unique', t => {
-  const dom1 = MDLRadio.buildDom();
-  const dom2 = MDLRadio.buildDom();
-  const id1 = dom1.querySelector(NATIVE_CONTROL_SELECTOR).id;
-  const id2 = dom2.querySelector(NATIVE_CONTROL_SELECTOR).id;
-  t.notEqual(id1, id2);
-  t.end();
-});
-
-test('buildDom ensures labelId matches supplied id when only id given', t => {
-  const dom = MDLRadio.buildDom({id: 'foo'});
-  const labelId = dom.querySelector(NATIVE_CONTROL_SELECTOR).getAttribute('aria-labelledby');
-  t.equal(labelId, 'mdl-radio-label-foo', 'labelId matches "mdl-radio-label-<id>"');
-  t.end();
-});
-
-test('buildDom does not add a "name" when none given', t => {
-  const dom = MDLRadio.buildDom();
-  t.false(dom.querySelector(NATIVE_CONTROL_SELECTOR).hasAttribute('name'));
-  t.end();
-});
 
 function setupTest() {
   const root = getFixture();

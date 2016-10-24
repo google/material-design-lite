@@ -18,17 +18,9 @@ import MDLComponent from 'mdl-base';
 import MDLTemporaryDrawerFoundation from './foundation';
 import * as util from '../util';
 
+export {MDLTemporaryDrawerFoundation};
+
 export default class MDLTemporaryDrawer extends MDLComponent {
-  static buildDom() {
-    const {ROOT: CSS_ROOT} = MDLTemporaryDrawerFoundation.cssClasses;
-
-    const root = document.createElement('aside');
-    root.classList.add(CSS_ROOT);
-    root.innerHTML = `<nav class="${CSS_ROOT}__drawer"></nav>`;
-
-    return root;
-  }
-
   static attachTo(root) {
     return new MDLTemporaryDrawer(root);
   }
@@ -65,6 +57,8 @@ export default class MDLTemporaryDrawer extends MDLComponent {
           this.drawer.removeEventListener(util.remapEvent(evt), handler),
       registerTransitionEndHandler: handler => this.drawer.addEventListener('transitionend', handler),
       deregisterTransitionEndHandler: handler => this.drawer.removeEventListener('transitionend', handler),
+      registerDocumentKeydownHandler: handler => document.addEventListener('keydown', handler),
+      deregisterDocumentKeydownHandler: handler => document.removeEventListener('keydown', handler),
       getDrawerWidth: () => this.drawer.offsetWidth,
       setTranslateX: value => this.drawer.style.setProperty(
           util.getTransformPropertyName(), value === null ? null : `translateX(${value}px)`),

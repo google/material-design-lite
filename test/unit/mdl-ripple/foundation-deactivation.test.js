@@ -311,3 +311,22 @@ testFoundation('cancels unbounded deactivation class removal on deactivation', t
   clock.uninstall();
   t.end();
 });
+
+testFoundation('ensures pointer event deactivation occurs even if activation rAF not run', t => {
+  const clock = lolex.install();
+  const {foundation, adapter, mockRaf} = t.data;
+  const handlers = captureHandlers(adapter);
+  td.when(adapter.isUnbounded()).thenReturn(true);
+  foundation.init();
+  mockRaf.flush();
+
+  handlers.mousedown({pageX: 0, pageY: 0});
+  mockRaf.pendingFrames.shift();
+  clock.tick(100);
+  handlers.mouseup();
+  mockRaf.flush();
+
+  t.doesNotThrow(() => td.verify(adapter.addClass(cssClasses.FG_UNBOUNDED_DEACTIVATION)));
+  clock.uninstall();
+  t.end();
+});

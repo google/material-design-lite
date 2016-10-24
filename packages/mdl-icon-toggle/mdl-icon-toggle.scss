@@ -16,7 +16,7 @@
 
 /** postcss-bem-linter: define icon-toggle */
 
-@import "mdl-animation/mixins";
+@import "mdl-animation/functions";
 @import "mdl-ripple/mixins";
 @import "mdl-theme/mixins";
 
@@ -43,9 +43,7 @@
     left: 0;
 
     transform: scale(0, 0);
-    transition:
-      opacity 80ms $mdl-animation-fast-out-linear-in-timing-function,
-      transform 80ms $mdl-animation-fast-out-linear-in-timing-function;
+    transition: mdl-animation-exit(opacity, 80ms), mdl-animation-exit(transform, 80ms);
     border-radius: 50%;
     background-color: currentColor;
     content: "";
@@ -55,9 +53,7 @@
 
   &:focus::after {
     transform: scale(1.3, 1.3);
-    transition:
-      opacity 80ms $mdl-animation-linear-out-slow-in-timing-function,
-      transform 80ms $mdl-animation-linear-out-slow-in-timing-function;
+    transition: mdl-animation-enter(opacity, 80ms), mdl-animation-enter(transform, 80ms);
     opacity: .12;
   }
 

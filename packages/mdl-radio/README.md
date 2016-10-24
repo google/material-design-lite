@@ -83,33 +83,11 @@ require(['path/to/mdl-radio'], mdlRadio => {
 ##### Global
 
 ```javascript
-const MDLRadio = mdl.Radio.default;
+const MDLRadio = mdl.Radio;
 const MDLRadioFoundation = mdl.Radio.MDLRadioFoundation;
 ```
 
-#### Fully-automatic: DOM Rendering + Initialization
-
-```javascript
-const root = MDLRadio.buildDom({id: 'my-radio', labelId: 'my-radio-label'});
-const radio = MDLRadio.attachTo(root);
-// append root to element, etc...
-```
-
-You can use `MDLRadio.buildDom` to dynamically construct radio DOM for you.
-`MDLRadio.buildDom` takes an options object with values described below:
-
-| Option | Type | Default | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | `mdl-radio-<unique_id>` | The id for the native radio control. |
-| `labelId` | `string` | `mdl-radio-label-<id_value>` | The id of the element which label's this radio. The default will use the `id` param and prefix it with `mdl-radio-label`. This value is attached to the `aria-labelledby` attribute on the native control. |
-| `groupId` | `string` | '' | When supplied, this will be given to the "name" attribute on the native radio control, allowing you to specify that a collection of buttons are part of the same radio group. |
-
-> **NOTE**: Regardless of how you instantiate a radio element, you should always strive to
-> provide an id for the radio that's used within its label's `for` attribute, as well as an id
-> for its label which is used in the native control's `aria-labelledby` attribute. This will ensure
-> that assistive devices function properly when using this component.
-
-#### Using an existing element.
+#### Automatic Instantiation
 
 If you do not care about retaining the component instance for the radio, simply call `attachTo()`
 and pass it a DOM element.  

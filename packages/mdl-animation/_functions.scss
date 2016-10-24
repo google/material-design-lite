@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-import {compare} from 'dom-compare';
+@import "./variables";
 
-export function verifyBuildDom(Component, t, expected, opts = undefined) {
-  const actual = Component.buildDom(opts);
-  const comparison = compare(expected, actual);
-  const diffs = comparison.getDifferences();
+@function mdl-animation-enter($name, $duration, $delay: 0ms) {
+  @return $name $duration $delay $mdl-animation-linear-out-slow-in-timing-function;
+}
 
-  if (diffs.length) {
-    const diffMsgs = diffs.map(({node, message}) => `\t* ${node} - ${message}`).join('\n');
-    t.fail(`Improper DOM Object. Diff failed:\n${diffMsgs}\n`);
-  } else {
-    t.pass();
-  }
+@function mdl-animation-exit($name, $duration, $delay: 0ms) {
+  @return $name $duration $delay $mdl-animation-fast-out-linear-in-timing-function;
 }

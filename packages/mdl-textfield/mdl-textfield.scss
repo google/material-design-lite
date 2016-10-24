@@ -1,0 +1,505 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-animation/variables";
+@import "mdl-theme/variables";
+@import "mdl-theme/mixins";
+@import "mdl-typography/mixins";
+@import "mdl-typography/variables";
+
+$mdl-textfield-error-on-light: #d50000;
+$mdl-textfield-error-on-dark: #ff6e6e;
+$mdl-textfield-divider-on-light: rgba(black, .12);
+$mdl-textfield-divider-on-dark: rgba(white, .12);
+$mdl-textfield-disabled-border-on-light: rgba(#231f20, .26);
+$mdl-textfield-disabled-border-on-dark: rgba(white, .3);
+
+@function mdl-textfield-transition($property) {
+  @return #{$property} 180ms $mdl-animation-fast-out-slow-in-timing-function;
+}
+
+/* postcss-bem-linter: define textfield */
+.mdl-textfield {
+  @include mdl-typography-base;
+  // We use only a subset of the MDL typography values here as changing things such as line-height
+  // affects how the labels are transformed.
+  @each $prop in (font-size, letter-spacing) {
+    #{$prop}: map-get(map-get($mdl-typography-styles, subheading2), $prop);
+  }
+
+  display: inline-block;
+  margin-bottom: 8px;
+  will-change: opacity, transform, color;
+
+  &__input {
+    @include mdl-theme-prop(color, text-primary-on-light);
+
+    padding: 0 0 8px;
+    border: none;
+    background: none;
+    font-size: inherit;
+    appearance: none;
+
+    &::placeholder {
+      @include mdl-theme-prop(color, text-hint-on-light);
+      transition: mdl-textfield-transition(color);
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+
+      &::placeholder {
+        @include mdl-theme-prop(color, text-secondary-on-light);
+      }
+    }
+
+    // Remove red outline on firefox
+    &:invalid {
+      box-shadow: none;
+    }
+
+    @include mdl-theme-dark {
+      color: white;
+
+      &::placeholder {
+        @include mdl-theme-prop(color, text-hint-on-dark);
+      }
+
+      &:focus::placeholder {
+        @include mdl-theme-prop(color, text-secondary-on-dark);
+      }
+    }
+  }
+
+  &__label {
+    @include mdl-theme-prop(color, text-hint-on-light);
+
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    transform-origin: left top;
+    transition: mdl-textfield-transition(transform), mdl-textfield-transition(color);
+    cursor: text;
+
+    /* stylelint-disable plugin/selector-bem-pattern */
+    [dir="rtl"] & {
+      right: 0;
+      left: auto;
+      transform-origin: right top;
+    }
+    /* stylelint-enable plugin/selector-bem-pattern */
+
+    @include mdl-theme-dark(".mdl-textfield") {
+      @include mdl-theme-prop(color, text-hint-on-dark);
+    }
+
+    &--float-above {
+      transform: translateY(-100%) scale(.75, .75);
+      cursor: auto;
+    }
+  }
+}
+
+.mdl-textfield--upgraded:not(.mdl-textfield--fullwidth) {
+  display: inline-flex;
+  position: relative;
+  box-sizing: border-box;
+  align-items: flex-end;
+
+  margin-top: 16px;
+
+  &:not(.mdl-textfield--multiline) {
+    height: 48px;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      transform: translateY(50%) scaleY(1);
+      transform-origin: center bottom;
+      transition: mdl-textfield-transition(background-color), mdl-textfield-transition(transform);
+      background-color: $mdl-textfield-divider-on-light;
+      content: "";
+
+      @include mdl-theme-dark(".mdl-textfield") {
+        background-color: $mdl-textfield-divider-on-dark;
+      }
+    }
+  }
+}
+
+.mdl-textfield--focused {
+  @mixin mdl-textfield-after-styles {
+    @include mdl-theme-prop(background-color, primary);
+    transform: translateY(100%) scaleY(2);
+    transition: mdl-textfield-transition(transform);
+  }
+
+  @mixin mdl-textfield-label-styles {
+    @include mdl-theme-prop(color, primary);
+  }
+
+  &.mdl-textfield--upgraded:not(.mdl-textfield--fullwidth):not(.mdl-textfield--multiline)::after {
+    @include mdl-textfield-after-styles;
+
+    @include mdl-theme-dark(".mdl-textfield", true) {
+      @include mdl-textfield-after-styles;
+    }
+  }
+
+  .mdl-textfield__label {
+    @include mdl-textfield-label-styles;
+
+    @include mdl-theme-dark(".mdl-textfield") {
+      @include mdl-textfield-label-styles;
+    }
+  }
+}
+
+.mdl-textfield--dense {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-size: .813rem;
+
+  .mdl-textfield__label--float-above {
+    // NOTE: This is an eyeball'd approximation of what's in the mocks.
+    transform: translateY(calc(-100% - 2px)) scale(.923, .923);
+  }
+}
+
+.mdl-textfield--invalid {
+  &:not(.mdl-textfield--focused) {
+    &::after {
+      background-color: $mdl-textfield-error-on-light;
+    }
+
+    .mdl-textfield__label {
+      color: $mdl-textfield-error-on-light;
+    }
+  }
+
+  @include mdl-theme-dark(".mdl-textfield", true) {
+    &:not(.mdl-textfield--focused) {
+      &::after {
+        background-color: $mdl-textfield-error-on-dark;
+      }
+
+      .mdl-textfield__label {
+        color: $mdl-textfield-error-on-dark;
+      }
+    }
+  }
+}
+
+.mdl-textfield--disabled {
+  &::after {
+    display: none;
+  }
+
+  // Account for offset by border
+  .mdl-textfield__input {
+    padding-bottom: 7px;
+  }
+  border-bottom: 1px dotted $mdl-textfield-disabled-border-on-light;
+
+  @include mdl-theme-dark(".mdl-textfield", true) {
+    border-bottom: 1px dotted $mdl-textfield-disabled-border-on-dark;
+  }
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .mdl-textfield__input,
+  .mdl-textfield__label,
+  & + .mdl-textfield-helptext {
+    @include mdl-theme-prop(color, text-disabled-on-light);
+  }
+  /* stylelint-enable plugin/selector-bem-pattern */
+
+  .mdl-textfield__input,
+  .mdl-textfield__label {
+    @include mdl-theme-dark(".mdl-textfield") {
+      @include mdl-theme-prop(color, text-disabled-on-dark);
+    }
+  }
+
+  @include mdl-theme-dark(".mdl-textfield", true) {
+    /* stylelint-disable plugin/selector-bem-pattern */
+    + .mdl-textfield-helptext {
+      @include mdl-theme-prop(colr, text-disabled-on-dark);
+    }
+    /* stylelint-enable plugin/selector-bem-pattern */
+  }
+
+  .mdl-textfield__label {
+    bottom: 7px;
+    cursor: default;
+  }
+}
+
+.mdl-textfield__input:required + .mdl-textfield__label::after {
+  margin-left: 1px;
+  content: "*";
+
+  .mdl-textfield--focused & {
+    color: $mdl-textfield-error-on-light;
+  }
+
+  @include mdl-theme-dark(".mdl-textfield") {
+    .mdl-textfield--focused & {
+      color: $mdl-textfield-error-on-dark;
+    }
+  }
+}
+
+.mdl-textfield--multiline {
+  /* stylelint-disable scss/dollar-variable-pattern */
+  $padding-inset: 4px;
+  $label-offset-y: $padding-inset + 2;
+  $label-offset-x: $padding-inset;
+  /* stylelint-enable scss/dollar-variable-pattern */
+
+  display: flex;
+  height: initial;
+  transition: none;
+
+  &::after {
+    content: initial;
+  }
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+
+  .mdl-textfield__input {
+    padding: $padding-inset;
+    transition: mdl-textfield-transition(border-color);
+    border: 1px solid $mdl-textfield-divider-on-light;
+    border-radius: 2px;
+
+    @include mdl-theme-dark(".mdl-textfield") {
+      border-color: $mdl-textfield-divider-on-dark;
+    }
+
+    &:focus {
+      @include mdl-theme-prop(border-color, primary);
+    }
+
+    &:invalid:not(:focus) {
+      border-color: $mdl-textfield-error-on-light;
+    }
+
+    @include mdl-theme-dark(".mdl-textfield") {
+      &:invalid:not(:focus) {
+        border-color: $mdl-textfield-error-on-dark;
+      }
+    }
+  }
+
+  .mdl-textfield__label {
+    top: $label-offset-y;
+    bottom: initial;
+    left: $label-offset-x;
+
+    [dir="rtl"] & {
+      right: $label-offset-x;
+      left: auto;
+    }
+
+    &--float-above {
+      // Translate above the top of the input, and compensate for the amount of offset needed
+      // to position the label within the bounds of the inset padding.
+      // Note that the scale factor is an eyeball'd approximation of what's shown in the mocks.
+      transform: translateY(calc(-100% - #{$label-offset-y})) scale(.923, .923);
+    }
+  }
+
+  &.mdl-textfield--disabled {
+    border-bottom: none;
+
+    .mdl-textfield__input {
+      border: 1px dotted $mdl-textfield-disabled-border-on-light;
+
+      @include mdl-theme-dark(".mdl-textfield") {
+        border-color: $mdl-textfield-disabled-border-on-dark;
+      }
+    }
+  }
+  /* stylelint-enable plugin/selector-bem-pattern */
+}
+
+.mdl-textfield--fullwidth {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid $mdl-textfield-divider-on-light;
+  outline: none;
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+
+  &:not(.mdl-textfield--multiline) {
+    height: 56px;
+  }
+
+  &.mdl-textfield--multiline {
+    padding: 20px 0 0;
+  }
+
+  &.mdl-textfield--dense {
+    &:not(.mdl-textfield--multiline) {
+      height: 48px;
+    }
+
+    &.mdl-textfield--multiline {
+      padding: 16px 0 0;
+    }
+  }
+
+  &.mdl-textfield--disabled {
+    &,
+    &.mdl-textfield--multiline {
+      border-bottom: 1px dotted $mdl-textfield-divider-on-light;
+    }
+  }
+
+  @include mdl-theme-dark {
+    border-bottom: 1px solid $mdl-textfield-divider-on-dark;
+
+    &.mdl-textfield--disabled {
+      &,
+      &.mdl-textfield--multiline {
+        border-bottom: 1px dotted $mdl-textfield-divider-on-dark;
+      }
+    }
+  }
+
+  /* stylelint-enable plugin/selector-bem-pattern */
+
+  .mdl-textfield__input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    resize: none;
+    // Use !important here to override all other border treatments
+    border: none !important;
+  }
+}
+
+// Graceful degredation for css-only inputs
+
+.mdl-textfield {
+  &:not(.mdl-textfield--upgraded):not(.mdl-textfield--multiline) .mdl-textfield__input {
+    transition: mdl-textfield-transition(border-bottom-color);
+    border-bottom: 1px solid $mdl-textfield-divider-on-light;
+  }
+
+  &:not(.mdl-textfield--upgraded) .mdl-textfield__input {
+    &:focus {
+      @include mdl-theme-prop(border-color, primary);
+    }
+
+    &:disabled {
+      @include mdl-theme-prop(color, text-disabled-on-light);
+
+      border-style: dotted;
+      border-color: $mdl-textfield-disabled-border-on-light;
+    }
+
+    &:invalid:not(:focus) {
+      border-color: $mdl-textfield-error-on-light;
+    }
+  }
+
+  @include mdl-theme-dark {
+    &:not(.mdl-textfield--upgraded) .mdl-textfield__input {
+      &:not(:focus) {
+        border-color: rgba(white, .12);
+      }
+
+      &:disabled {
+        @include mdl-theme-prop(color, text-disabled-on-dark);
+
+        border-color: $mdl-textfield-disabled-border-on-dark;
+      }
+
+      &:invalid:not(:focus) {
+        border-color: $mdl-textfield-error-on-dark;
+      }
+    }
+  }
+}
+
+/* postcss-bem-linter: end */
+
+/* postcss-bem-linter: define textfield-helptext */
+
+.mdl-textfield-helptext {
+  @include mdl-theme-prop(color, text-hint-on-light);
+
+  margin: 0;
+  transition: mdl-textfield-transition(opacity);
+  font-size: .75rem;
+  opacity: 0;
+  will-change: opacity;
+
+  @include mdl-theme-dark {
+    @include mdl-theme-prop(color, text-hint-on-dark);
+  }
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .mdl-textfield + & {
+    margin-bottom: 8px;
+  }
+
+  .mdl-textfield--dense + & {
+    margin-bottom: 4px;
+  }
+
+  .mdl-textfield--focused + &:not(#{&}--validation-msg) {
+    opacity: 1;
+  }
+
+  /* stylelint-enable plugin/selector-bem-pattern */
+}
+
+.mdl-textfield-helptext--persistent {
+  transition: none;
+  opacity: 1;
+  will-change: initial;
+}
+
+/* postcss-bem-linter: end */
+
+.mdl-textfield--invalid {
+  + .mdl-textfield-helptext--validation-msg {
+    color: $mdl-textfield-error-on-light;
+    opacity: 1;
+  }
+
+  @include mdl-theme-dark(".mdl-textfield", true) {
+    + .mdl-textfield-helptext--validation-msg {
+      color: $mdl-textfield-error-on-dark;
+    }
+  }
+}
+
+// mdl-form-field tweaks to align text field label correctly
+/* stylelint-disable selector-no-type */
+.mdl-form-field > .mdl-textfield + label {
+  align-self: flex-start;
+}
+/* stylelint-enable selector-no-type */

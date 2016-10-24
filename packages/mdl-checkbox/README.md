@@ -2,7 +2,7 @@
 
 The MDL Checkbox component is a spec-aligned checkbox component adhering to the
 [Material Design checkbox requirements](https://material.google.com/components/selection-controls.html#selection-controls-checkbox).
-It works without JavaScript with basic functionality for all states. If you use the JavaScript object for a checkbox, then it will be add more intricate animation effects when switching between states.
+It works without JavaScript with basic functionality for all states. If you use the JavaScript object for a checkbox, it will add more intricate animation effects when switching between states.
 
 ## Installation
 
@@ -15,9 +15,7 @@ It works without JavaScript with basic functionality for all states. If you use 
 ```html
 <div class="mdl-checkbox">
   <input type="checkbox"
-         class="mdl-checkbox__native-control"
-         id="my-checkbox"
-         aria-labelledby="my-checkbox-label" />
+         class="mdl-checkbox__native-control"/>
   <div class="mdl-checkbox__background">
     <svg version="1.1" class="mdl-checkbox__checkmark"
          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -27,7 +25,6 @@ It works without JavaScript with basic functionality for all states. If you use 
     </svg>
   <div class="mdl-checkbox__mixedmark"></div>
 </div>
-<label for="my-checkbox" id="my-checkbox-label">My Checkbox</label>
 ```
 
 The checkbox component is driven by an underlying native checkbox element. This element is sized and
@@ -37,41 +34,26 @@ devices.
 You can also add an `mdl-checkbox--theme-dark` modifier class to the component to use the dark theme
 checkbox styles.
 
-### Checkbox wrapper class
-
-MDL Checkbox comes with an `mdl-checkbox-wrapper` class which you can use to easily lay out a
-checkbox / label combo side-by-side. The wrapper is RTL-aware and supports start and end alignment.
+Additionally, the checkbox can be used in conjunction with [mdl-form-field](../mdl-form-field) to
+easily position checkboxes and their labels.
 
 ```html
-<div class="mdl-checkbox-wrapper">
-  <div class="mdl-checkbox-wrapper__layout">
-    <div class="mdl-checkbox">
-      <input type="checkbox"
-             class="mdl-checkbox__native-control"
-             id="my-checkbox"
-             aria-labelledby="my-checkbox-label" />
-      <div class="mdl-checkbox__background">
-        <svg version="1.1" class="mdl-checkbox__checkmark"
-             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             xml:space="preserve">
-          <path class="mdl-checkbox__checkmark__path" fill="none" stroke="white"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-        </svg>
-      <div class="mdl-checkbox__mixedmark"></div>
-    </div>
-    <label for="my-checkbox" id="my-checkbox-label">My Checkbox</label>
+<div class="mdl-form-field">
+  <div class="mdl-checkbox">
+    <input type="checkbox"
+           class="mdl-checkbox__native-control"
+           id="my-checkbox"/>
+    <div class="mdl-checkbox__background">
+      <svg version="1.1" class="mdl-checkbox__checkmark"
+           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           xml:space="preserve">
+        <path class="mdl-checkbox__checkmark__path" fill="none" stroke="white"
+              d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+      </svg>
+    <div class="mdl-checkbox__mixedmark"></div>
   </div>
-</div>
-```
 
-To switch the order of the checkbox and label, no DOM modification is necessary. Simply add a
-`mdl-checkbox-wrapper--align-end` modifier class the the wrapper block.
-
-```html
-<div class="mdl-checkbox-wrapper mdl-checkbox-wrapper--align-end">
-  <div class="mdl-checkbox-wrapper__layout">
-    <!-- ... -->
-  </div>
+  <label for="my-checkbox">My Checkbox Label</label>
 </div>
 ```
 
@@ -113,29 +95,7 @@ const MDLCheckbox = mdl.Checkbox.default;
 const MDLCheckboxFoundation = mdl.Checkbox.MDLCheckboxFoundation;
 ```
 
-#### Fully-automatic: DOM Rendering + Initialization
-
-```javascript
-const root = MDLCheckbox.buildDom({id: 'my-checkbox', labelId: 'my-checkbox-label'});
-const checkbox = MDLCheckbox.attachTo(root);
-// append root to element, etc...
-```
-
-You can use `MDLCheckbox.buildDom` to dynamically construct checkbox DOM for you.
-`MDLCheckbox.buildDom` takes an options object with values described below:
-
-| Option | Type | Default | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | `mdl-checkbox-<unique_id>` | The id for the native checkbox control. |
-| `labelId` | `string` | `mdl-checkbox-label-<id_value>` | The id of the element which label's this checkbox. The default will use the `id` param and prefix it with `mdl-checkbox-label`. This value is
-attached to the `aria-labelledby` attribute on the native control. |
-
-> **NOTE**: Regardless of how you instantiate a checkbox element, you should always strive to
-> provide an id for the checkbox that's used within its label's `for` attribute, as well as an id
-> for its label which is used in the native control's `aria-labelledby` attribute. This will ensure
-> that assistive devices function properly when using this component.
-
-#### Using an existing element.
+#### Automatic Instantiation
 
 If you do not care about retaining the component instance for the checkbox, simply call `attachTo()`
 and pass it a DOM element.  
@@ -153,6 +113,25 @@ import MDLCheckbox from 'mdl-checkbox';
 
 const checkbox = new MDLCheckbox(document.querySelector('.mdl-checkbox'));
 ```
+
+#### MDLCheckbox API
+
+The MDLCheckbox API provides accessor properties similar to those found on a native checkbox element.
+
+##### MDLCheckbox.checked
+
+Boolean. Returns whether or not the checkbox is checked. Setting this property will update the
+underlying checkbox element.
+
+##### MDLCheckbox.indeterminate
+
+Boolean. Returns whether or not the checkbox is indeterminate. Setting this property will update the
+underlying checkbox element.
+
+##### MDLCheckbox.disabled
+
+Boolean. Returns whether or not the checkbox is disabled. Setting this property will update the
+underlying checkbox element.
 
 ### Using the Foundation Class
 
@@ -173,6 +152,36 @@ vendor prefixes in order for this to work correctly. |
 | `forceLayout() => void` | Force-trigger a layout on the root element. This is needed to restart
 animations correctly. If you find that you do not need to do this, you can simply make it a no-op. |
 | `isAttachedToDOM() => boolean` | Returns true if the component is currently attached to the DOM, false otherwise.` |
+
+#### MDLCheckboxFoundation API
+
+##### MDLCheckboxFoundation.isChecked() => boolean
+
+Returns whether or not the underlying input is checked. Returns false when no input is available.
+
+##### MDLCheckboxFoundation.setChecked(checked: boolean)
+
+Updates the `checked` property on the underlying input. Does nothing when the underlying input is
+not present.
+
+##### MDLCheckboxFoundation.isIndeterminate() => boolean
+
+Returns whether or not the underlying input is indeterminate. Returns false when no input is
+available.
+
+##### MDLCheckboxFoundation.setIndeterminate(indeterminate: boolean)
+
+Updates the `indeterminate` property on the underlying input. Does nothing when the underlying input
+is not present.
+
+##### MDLCheckboxFoundation.isDisabled() => boolean
+
+Returns whether or not the underlying input is disabled. Returns false when no input is available.
+
+##### MDLCheckboxFoundation.setDisabled(disabled: boolean)
+
+Updates the `disabled` property on the underlying input. Does nothing when the underlying input is
+not present.
 
 ## Theming
 

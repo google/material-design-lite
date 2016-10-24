@@ -17,13 +17,6 @@
 import MDLFoundation from './foundation';
 
 export default class MDLComponent {
-  static buildDom() {
-    // Classes which extend MDLBase should provide a buildDom() method which returns a node containing the basic
-    // DOM needed for rendering the component. Clients can then opt to use buildDom() as a convenience method
-    // rather than having to write the DOM themselves.
-    return document.createElement('div');
-  }
-
   static attachTo(root) {
     // Subclasses which extend MDLBase should provide an attachTo() method that takes a root element and
     // returns an instantiated component with its root set to that element. Also note that in the cases of

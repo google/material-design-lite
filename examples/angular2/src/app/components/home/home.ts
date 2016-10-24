@@ -14,22 +14,11 @@
  * limitations under the License.
  */
 
-import {Component} from '@angular/core';
-import {CheckboxComponent} from '../checkbox/checkbox';
-import {CheckboxWrapperComponent} from '../checkbox/checkbox-wrapper';
-import {CheckboxLabelDirective} from '../checkbox/checkbox-label';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'home',
-  templateUrl: 'app/components/home/home.html',
-  styleUrls: ['app/components/home/home.css'],
-  providers: [],
-  directives: [
-    CheckboxComponent,
-    CheckboxLabelDirective,
-    CheckboxWrapperComponent
-  ],
-  pipes: []
+  templateUrl: 'app/components/home/home.html'
 })
 export class Home {
   public isChecked: boolean = false;

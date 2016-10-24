@@ -33,7 +33,7 @@ export function verifyDefaultAdapter(FoundationClass, expectedMethods, t) {
 
 // Returns an object that intercepts calls to an adapter method used to register event handlers, and adds
 // it to that object where the key is the event name and the value is the function being used. This is the
-// preferred way of testing interaction handlers when testing:
+// preferred way of testing interaction handlers.
 //
 // ```javascript
 // test('#init adds a click listener which adds a "foo" class', t => {

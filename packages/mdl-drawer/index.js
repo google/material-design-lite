@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-import MDLTemporaryDrawer from './temporary';
+import MDLTemporaryDrawer, {MDLTemporaryDrawerFoundation} from './temporary';
 
-export {MDLTemporaryDrawer};
+export {MDLTemporaryDrawer, MDLTemporaryDrawerFoundation};

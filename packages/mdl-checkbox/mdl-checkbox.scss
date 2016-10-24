@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@import "mdl-animation/functions";
 @import "mdl-animation/mixins";
 @import "./variables";
 @import "./keyframes";
@@ -23,13 +24,11 @@
 }
 
 @function mdl-checkbox-transition-enter($property, $delay: 0ms, $duration: $mdl-checkbox-transition-duration) {
-  @return mdl-checkbox-transition(
-    $property, $mdl-animation-linear-out-slow-in-timing-function, $delay, $duration);
+  @return mdl-animation-enter($property, $duration, $delay);
 }
 
 @function mdl-checkbox-transition-exit($property, $delay: 0ms, $duration: $mdl-checkbox-transition-duration) {
-  @return mdl-checkbox-transition(
-    $property, $mdl-animation-fast-out-linear-in-timing-function, $delay, $duration);
+  @return mdl-animation-exit($property, $duration, $delay);
 }
 
 @mixin mdl-checkbox-cover-element {
@@ -47,53 +46,6 @@
   box-sizing: border-box;
   pointer-events: none;
 }
-
-@mixin mdl-checkbox-focus-ring-transition($timing-fn) {
-  transition:
-    mdl-checkbox-transition(opacity, $timing-fn, 0ms, 80ms),
-    mdl-checkbox-transition(transform, $timing-fn, 0ms, 80ms);
-}
-
-/* postcss-bem-linter: define checkbox-wrapper */
-.mdl-checkbox-wrapper {
-  display: inline-block;
-
-  &__layout {
-    display: inline-flex;
-    align-items: baseline;
-    vertical-align: middle;
-  }
-
-  /* postcss-bem-linter: ignore */
-  .mdl-checkbox {
-    order: 0;
-    margin: auto;
-    margin-right: $mdl-checkbox-item-spacing;
-
-    /* postcss-bem-linter: ignore */
-    [dir="rtl"] & {
-      margin-right: auto;
-      margin-left: $mdl-checkbox-item-spacing;
-    }
-  }
-}
-
-.mdl-checkbox-wrapper--align-end {
-  /* postcss-bem-linter: ignore */
-  .mdl-checkbox {
-    order: 1;
-    margin-right: auto;
-    margin-left: $mdl-checkbox-item-spacing;
-
-    /* postcss-bem-linter: ignore */
-    [dir="rtl"] & {
-      margin-right: $mdl-checkbox-item-spacing;
-      margin-left: auto;
-    }
-  }
-}
-
-/* postcss-bem-linter: end */
 
 /* postcss-bem-linter: define checkbox */
 .mdl-checkbox {
@@ -113,7 +65,6 @@
     align-items: center;
     justify-content: center;
     transition:
-      // TODO: Refactor into mdl-animation
       mdl-checkbox-transition-exit(background-color),
       mdl-checkbox-transition-exit(border-color);
 
@@ -189,8 +140,10 @@
 
 .mdl-checkbox__native-control:focus {
   ~ .mdl-checkbox__background::before {
-    @include mdl-checkbox-focus-ring-transition($mdl-animation-linear-out-slow-in-timing-function);
     transform: scale(2.75, 2.75);
+    transition:
+      mdl-checkbox-transition-enter(opacity, 0ms, 80ms),
+      mdl-checkbox-transition-enter(transform, 0ms, 80ms);
     opacity: .26;
   }
 }

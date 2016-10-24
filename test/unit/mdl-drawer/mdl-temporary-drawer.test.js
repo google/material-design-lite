@@ -16,7 +16,6 @@
 
 import test from 'tape';
 import bel from 'bel';
-import {compare} from 'dom-compare';
 import domEvents from 'dom-events';
 import td from 'testdouble';
 
@@ -39,25 +38,20 @@ function setupTest() {
   return {root, component};
 }
 
-test('buildDom returns a built DOM structure', t => {
-  const expected = getFixture();
-  const actual = MDLTemporaryDrawer.buildDom();
-
-  const comparison = compare(expected, actual);
-  const diffs = comparison.getDifferences();
-
-  if (diffs.length) {
-    const diffMsgs = diffs.map(({node, message}) => `\t* ${node} - ${message}`).join('\n');
-    t.fail(`Improper DOM Object. Diff failed:\n${diffMsgs}\n`);
-  } else {
-    t.pass();
-  }
-
+test('attachTo initializes and returns a MDLTemporaryDrawer instance', t => {
+  t.true(MDLTemporaryDrawer.attachTo(getFixture()) instanceof MDLTemporaryDrawer);
   t.end();
 });
 
-test('attachTo initializes and returns a MDLTemporaryDrawer instance', t => {
-  t.true(MDLTemporaryDrawer.attachTo(getFixture()) instanceof MDLTemporaryDrawer);
+test('get/set open', t => {
+  const {root, component} = setupTest();
+  component.open = true;
+  t.true(root.classList.contains('mdl-temporary-drawer--open'));
+  t.true(component.open);
+
+  component.open = false;
+  t.false(root.classList.contains('mdl-temporary-drawer--open'));
+  t.false(component.open);
   t.end();
 });
 
@@ -190,6 +184,18 @@ test('adapter#setTranslateX sets the correct transform on the drawer', t => {
   t.end();
 });
 
+test('adapter#setTranslateX sets translateX to null when given the null value', t => {
+  const {root, component} = setupTest();
+  const drawer = root.querySelector(strings.DRAWER_SELECTOR);
+  component.getDefaultFoundation().adapter_.setTranslateX(null);
+  const transformPropertyName = getTransformPropertyName();
+  const nonStyledElement = document.createElement('div');
+  t.equal(
+    drawer.style.getPropertyValue(transformPropertyName), nonStyledElement.style.getPropertyValue(transformPropertyName)
+  );
+  t.end();
+});
+
 test('adapter#updateCssVariable sets custom property on root', t => {
   const {root, component} = setupTest();
   component.getDefaultFoundation().adapter_.updateCssVariable('0');
@@ -267,5 +273,24 @@ test('adapter#isRtl returns false for implicit LTR documents', t => {
   document.body.appendChild(root);
   const component = new MDLTemporaryDrawer(root);
   t.false(component.getDefaultFoundation().adapter_.isRtl());
+  t.end();
+});
+
+test('adapter#registerDocumentKeydownHandler attaches a "keydown" handler to the document', t => {
+  const {component} = setupTest();
+  const handler = td.func('keydownHandler');
+  component.getDefaultFoundation().adapter_.registerDocumentKeydownHandler(handler);
+  domEvents.emit(document, 'keydown');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
+  t.end();
+});
+
+test('adapter#deregisterDocumentKeydownHandler removes a "keydown" handler from the document', t => {
+  const {component} = setupTest();
+  const handler = td.func('keydownHandler');
+  document.addEventListener('keydown', handler);
+  component.getDefaultFoundation().adapter_.deregisterDocumentKeydownHandler(handler);
+  domEvents.emit(document, 'keydown');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
   t.end();
 });

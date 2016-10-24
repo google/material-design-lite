@@ -72,11 +72,32 @@ export default class MDLCheckboxFoundation extends MDLFoundation {
     this.uninstallPropertyChangeHooks_();
   }
 
+  isChecked() {
+    return this.getNativeControl_().checked;
+  }
+
+  setChecked(checked) {
+    this.getNativeControl_().checked = checked;
+  }
+
+  isIndeterminate() {
+    return this.getNativeControl_().indeterminate;
+  }
+
+  setIndeterminate(indeterminate) {
+    this.getNativeControl_().indeterminate = indeterminate;
+  }
+
+  isDisabled() {
+    return this.getNativeControl_().disabled;
+  }
+
+  setDisabled(disabled) {
+    this.getNativeControl_().disabled = disabled;
+  }
+
   installPropertyChangeHooks_() {
-    const nativeCb = this.adapter_.getNativeControl();
-    if (!nativeCb) {
-      return;
-    }
+    const nativeCb = this.getNativeControl_();
     const cbProto = Object.getPrototypeOf(nativeCb);
 
     CB_PROTO_PROPS.forEach(controlState => {
@@ -98,10 +119,7 @@ export default class MDLCheckboxFoundation extends MDLFoundation {
   }
 
   uninstallPropertyChangeHooks_() {
-    const nativeCb = this.adapter_.getNativeControl();
-    if (!nativeCb) {
-      return;
-    }
+    const nativeCb = this.getNativeControl_();
     const cbProto = Object.getPrototypeOf(nativeCb);
 
     CB_PROTO_PROPS.forEach(controlState => {
@@ -186,6 +204,14 @@ export default class MDLCheckboxFoundation extends MDLFoundation {
         return newState === TRANSITION_STATE_CHECKED ?
           ANIM_INDETERMINATE_CHECKED : ANIM_INDETERMINATE_UNCHECKED;
     }
+  }
+
+  getNativeControl_() {
+    return this.adapter_.getNativeControl() || {
+      checked: false,
+      indeterminate: false,
+      disabled: false
+    };
   }
 }
 

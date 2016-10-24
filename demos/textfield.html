@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2016 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html class="mdl-typography">
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Textfield Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .mdl-theme--dark {
+        background-color: #303030;
+      }
+
+      input[type="checkbox"]:disabled + label {
+        opacity: .4;
+      }
+    </style>
+    <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>MDL Textfield</h1>
+    <section class="interactive-demo">
+      <h2>Full Functionality JS Component (Floating Label, Validation)</h2>
+      <section id="demo-textfield-wrapper">
+        <div class="mdl-textfield">
+          <input type="text" class="mdl-textfield__input" id="my-textfield"
+                 aria-controls="my-textfield-helptext" data-demo-no-auto-js>
+          <label for="my-textfield" class="mdl-textfield__label">Label text</label>
+        </div>
+        <p id="my-textfield-helptext" class="mdl-textfield-helptext"
+           aria-hidden="true" style="display:none;">
+          Help Text (possibly validation message)
+        </p>
+      </section>
+      <div>
+        <input id="disable" type="checkbox">
+        <label for="disable">Disabled</label>
+      </div>
+      <div>
+        <input id="rtl" type="checkbox">
+        <label for="rtl">RTL</label>
+      </div>
+      <div>
+        <input id="dark-theme" type="checkbox">
+        <label for="dark-theme">Dark Theme</label>
+      </div>
+      <div>
+        <input id="dense" type="checkbox">
+        <label for="dense">Dense</label>
+      </div>
+      <div>
+        <input id="required" type="checkbox">
+        <label for="required">Required</label>
+      </div>
+      <div>
+        <input id="use-helptext" type="checkbox">
+        <label for="use-helptext">Use Helper Text</label>
+      </div>
+      <div>
+        <input id="persistent-help-text" type="checkbox" disabled>
+        <label for="persistent-help-text">Make helper text persistent</label>
+      </div>
+      <div>
+        <input id="helptext-as-validation" type="checkbox" disabled>
+        <label for="helptext-as-validation">
+          Use helper text as validation message
+        </label>
+      </div>
+    </section>
+    <section>
+      <h2>Password field with validation</h2>
+      <div class="mdl-textfield">
+        <input required pattern=".{8,}" type="password" class="mdl-textfield__input" id="pw"
+               aria-controls="pw-validation-msg">
+        <label for="pw" class="mdl-textfield__label">Choose password</label>
+      </div>
+      <p class="mdl-textfield-helptext mdl-textfield-helptext--persistent mdl-textfield-helptext--validation-msg"
+         id="pw-validation-msg">
+        Must be at least 8 characters long
+      </p>
+    </section>
+    <section>
+      <h2>CSS Only</h2>
+      <div class="mdl-form-field mdl-form-field--align-end">
+        <div class="mdl-textfield" data-demo-no-auto-js>
+          <input type="text" class="mdl-textfield__input" id="css-only-textfield"
+                 placeholder="Name">
+        </div>
+        <label for="css-only-textfield">Your name:</label>
+      </div>
+    </section>
+    <section>
+      <h2>Preventing FOUC</h2>
+      <div class="mdl-textfield mdl-textfield--upgraded">
+        <input id="fouc" type="text" class="mdl-textfield__input" value="Pre-filled value">
+        <label for="fouc" class="mdl-textfield__label mdl-textfield__label--float-above">
+          Label floating above
+        </label>
+      </div>
+    </section>
+    <section>
+      <h2>Multi-line Textfields</h2>
+      <section id="demo-textfield-multiline-wrapper" style="overflow:hidden;">
+        <div class="mdl-textfield mdl-textfield--multiline">
+          <textarea id="multi-line" class="mdl-textfield__input" rows="8" cols="40"></textarea>
+          <label for="multi-line" class="mdl-textfield__label">Multi-line Label</label>
+        </div>
+      </section>
+      <div>
+        <input id="multi-disable" type="checkbox">
+        <label for="multi-disable">Disabled</label>
+      </div>
+      <div>
+        <input id="multi-rtl" type="checkbox">
+        <label for="multi-rtl">RTL</label>
+      </div>
+      <div>
+        <input id="multi-dark-theme" type="checkbox">
+        <label for="multi-dark-theme">Dark Theme</label>
+      </div>
+      <div>
+        <input id="multi-required" type="checkbox">
+        <label for="multi-required">Required</label>
+      </div>
+    </section>
+    <section>
+      <h2>Multi-line Textfields - CSS Only</h2>
+      <label for="css-only-multiline" style="margin-bottom:4px;">About you:</label>
+      <div class="mdl-textfield mdl-textfield--multiline" data-demo-no-auto-js>
+        <textarea class="mdl-textfield__input"
+                  id="css-only-multiline"
+                  rows="8" cols="40"
+                  placeholder="Tell the world something about yourself!"></textarea>
+      </div>
+    </section>
+    <section>
+      <h2>Full-Width Textfields</h2>
+      <div id="demo-fullwidth-wrapper">
+        <div class="mdl-textfield mdl-textfield--fullwidth" data-demo-no-auto-js>
+          <input class="mdl-textfield__input" type="text" placeholder="Subject" aria-label="Subject">
+        </div>
+        <div class="mdl-textfield mdl-textfield--multiline mdl-textfield--fullwidth" data-demo-no-auto-js>
+          <textarea class="mdl-textfield__input" placeholder="Message" rows="8" cols="40" aria-label="Message"></textarea>
+        </div>
+      </div>
+      <div>
+        <input type="checkbox" id="fullwidth-disable">
+        <label for="fullwidth-disable">Disabled</label>
+      </div>
+      <div>
+        <input type="checkbox" id="fullwidth-dense">
+        <label for="fullwidth-dense">Dense</label>
+      </div>
+      <div>
+        <input type="checkbox" id="fullwidth-dark-theme">
+        <label for="fullwidth-dark-theme">Dark Theme</label>
+      </div>
+    </section>
+    <script src="assets/material-design-lite.js" charset="utf-8"></script>
+    <script>
+      (function() {
+        var tfs = document.querySelectorAll(
+          '.mdl-textfield:not([data-demo-no-auto-js])'
+        );
+        for (var i = 0, tf; tf = tfs[i]; i++) {
+          mdl.Textfield.attachTo(tf);
+        }
+      })();
+    </script>
+    <script>
+      (function() {
+        var section = document.getElementById('demo-textfield-wrapper');
+        var tfRoot = section.querySelector('.mdl-textfield');
+        var helptext = section.querySelector('.mdl-textfield-helptext');
+        var tf = new mdl.Textfield(tfRoot);
+
+        document.getElementById('disable').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tf.disabled = target.checked;
+        });
+        document.getElementById('rtl').addEventListener('change', function(evt) {
+          var target = evt.target;
+          if (target.checked) {
+            section.setAttribute('dir', 'rtl');
+          } else {
+            section.removeAttribute('dir');
+          }
+        });
+        document.getElementById('dark-theme').addEventListener('change', function(evt) {
+          var target = evt.target;
+          section.classList[target.checked ? 'add' : 'remove']('mdl-theme--dark');
+        });
+        document.getElementById('dense').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tfRoot.classList[target.checked ? 'add' : 'remove']('mdl-textfield--dense');
+        });
+        document.getElementById('required').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tfRoot.querySelector('.mdl-textfield__input').required = target.checked;
+        });
+        document.getElementById('use-helptext').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tf.helptextElement = target.checked ? helptext : null;
+          helptext.style.display = target.checked ? 'block' : 'none';
+          document.getElementById('persistent-help-text').disabled = !target.checked;
+          document.getElementById('helptext-as-validation').disabled = !target.checked;
+        });
+        document.getElementById('persistent-help-text').addEventListener('change', function(evt) {
+          var target = evt.target;
+          helptext.classList[target.checked ? 'add' : 'remove'](
+            'mdl-textfield-helptext--persistent'
+          );
+        });
+        document.getElementById('helptext-as-validation').addEventListener('change', function(evt) {
+          var target = evt.target;
+          helptext.classList[target.checked ? 'add' : 'remove'](
+            'mdl-textfield-helptext--validation-msg'
+          );
+        });
+      })();
+    </script>
+    <script>
+      (function() {
+        var section = document.getElementById('demo-textfield-multiline-wrapper');
+        var tfRoot = section.querySelector('.mdl-textfield');
+        var tf = new mdl.Textfield(tfRoot);
+        document.getElementById('multi-disable').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tf.disabled = target.checked;
+        });
+        document.getElementById('multi-rtl').addEventListener('change', function(evt) {
+          var target = evt.target;
+          if (target.checked) {
+            section.setAttribute('dir', 'rtl');
+          } else {
+            section.removeAttribute('dir');
+          }
+        });
+        document.getElementById('multi-dark-theme').addEventListener('change', function(evt) {
+          var target = evt.target;
+          section.classList[target.checked ? 'add' : 'remove']('mdl-theme--dark');
+        });
+        document.getElementById('multi-required').addEventListener('change', function(evt) {
+          var target = evt.target;
+          tfRoot.querySelector('.mdl-textfield__input').required = target.checked;
+        });
+      })();
+    </script>
+    <script charset="utf-8">
+      (function() {
+        var section = document.getElementById('demo-fullwidth-wrapper');
+        var tfRoot = section.querySelector('.mdl-textfield');
+        var tfMultiRoot = section.querySelector('.mdl-textfield--multiline');
+        var tf = new mdl.Textfield(tfRoot);
+        var tfMulti = new mdl.Textfield(tfMultiRoot);
+
+        document.getElementById('fullwidth-disable').addEventListener('change', function(evt) {
+          var target = evt.target;
+          [tf, tfMulti].forEach(function(component) {
+            component.disabled = target.checked;
+          });
+        });
+
+        document.getElementById('fullwidth-dense').addEventListener('change', function(evt) {
+          var target = evt.target;
+          [tfRoot, tfMultiRoot].forEach(function(el) {
+            el.classList[target.checked ? 'add' : 'remove']('mdl-textfield--dense');
+          });
+        });
+
+        document.getElementById('fullwidth-dark-theme').addEventListener('change', function(evt) {
+          var target = evt.target;
+          section.classList[target.checked ? 'add' : 'remove']('mdl-theme--dark');
+        });
+      })();
+    </script>
+  </body>
+</html>

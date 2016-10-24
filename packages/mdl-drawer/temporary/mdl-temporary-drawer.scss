@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@import "mdl-animation/variables";
+@import "mdl-animation/functions";
 @import "mdl-elevation/mixins";
 @import "mdl-theme/mixins";
 @import "../mixins";
@@ -99,15 +99,15 @@
 
   &--animating {
     &::before {
-      transition: opacity .3s $mdl-animation-linear-out-slow-in-timing-function;
+      transition: mdl-animation-enter(opacity, .3s);
     }
 
     &.mdl-temporary-drawer--open .mdl-temporary-drawer__drawer {
-      transition: transform .33s $mdl-animation-linear-out-slow-in-timing-function;
+      transition: mdl-animation-enter(transform, .33s);
     }
 
     .mdl-temporary-drawer__drawer {
-      transition: transform .13s $mdl-animation-linear-out-slow-in-timing-function;
+      transition: mdl-animation-enter(transform, .13s);
     }
   }
 
