@@ -14,36 +14,15 @@
  * limitations under the License.
  */
 
+@import "mdl-rtl/mixins";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
 @import "mdl-typography/variables";
 
-/* stylelint-disable scss/dollar-variable-pattern, scss/at-mixin-pattern */
-@mixin _mdl-list-reflexive-margin($default-side, $value, $reset-opposite-margin: true) {
-  @if (index((right, left), $default-side) == null) {
-    @error "Invalid default margin side #{default-side}. Please specifiy either right or left";
-  }
-
-  $rtl-side: left;
-
-  @if ($default-side == left) {
-    $rtl-side: right;
-  }
-
-  margin-#{$default-side}: $value;
-  [dir="rtl"] & {
-    margin-#{$rtl-side}: $value;
-
-    @if ($reset-opposite-margin) {
-      margin-#{$default-side}: 0;
-    }
-  }
-}
-
 /**
  * Sets the width and height of a detail element to the specified dimension.
  */
-@mixin _mdl-list-detail-size($size) {
+@mixin mdl-list-detail-size_($size) {
   width: $size;
   height: $size;
 }
@@ -53,15 +32,18 @@
  * the start detail element such that the text is always offset by 72px, which is defined within
  * the spec.
  */
-@mixin _mdl-list-start-detail-size($size) {
+@mixin mdl-list-start-detail-size_($size) {
+  /* stylelint-disable scss/dollar-variable-pattern */
+
   $text-offset: 72px;
   $side-padding: 16px;
   $margin-value: $text-offset - $side-padding - $size;
 
-  @include _mdl-list-detail-size($size);
-  @include _mdl-list-reflexive-margin(right, $margin-value);
+  @include mdl-list-detail-size_($size);
+  @include mdl-rtl-reflexive-box(margin, right, $margin-value, ".mdl-list-item");
+
+  /* stylelint-enable scss/dollar-variable-pattern */
 }
-/* stylelint-enable scss/dollar-variable-pattern, scss/at-mixin-pattern */
 
 /* postcss-bem-linter: define list */
 
@@ -98,13 +80,12 @@
   height: 48px;
 
   &__start-detail {
-    @include _mdl-list-start-detail-size(24px);
+    @include mdl-list-start-detail-size_(24px);
   }
 
   &__end-detail {
-    @include _mdl-list-detail-size(24px);
-    @include _mdl-list-reflexive-margin(left, auto, false);
-    @include _mdl-list-reflexive-margin(right, 16px, false);
+    @include mdl-list-detail-size_(24px);
+    @include mdl-rtl-reflexive-property(margin, auto, 16px, ".mdl-list-item");
   }
 
   &__text {
@@ -133,11 +114,11 @@
     height: 40px;
 
     &__start-detail {
-      @include _mdl-list-start-detail-size(20px);
+      @include mdl-list-start-detail-size_(20px);
     }
 
     &__end-detail {
-      @include _mdl-list-detail-size(20px);
+      @include mdl-list-detail-size_(20px);
     }
   }
 
@@ -145,7 +126,7 @@
     height: 56px;
 
     &__start-detail {
-      @include _mdl-list-start-detail-size(40px);
+      @include mdl-list-start-detail-size_(40px);
       border-radius: 50%;
     }
   }
@@ -154,7 +135,7 @@
     height: 48px;
 
     &__start-detail {
-      @include _mdl-list-start-detail-size(36px);
+      @include mdl-list-start-detail-size_(36px);
     }
   }
 
@@ -186,7 +167,7 @@
 .mdl-list-divider--inset {
   $mdl-list-divider-inset-amt: /* text offset */ 72px - /* padding offset */ 16px;
 
-  @include _mdl-list-reflexive-margin(left, $mdl-list-divider-inset-amt);
+  @include mdl-rtl-reflexive-box(margin, left, $mdl-list-divider-inset-amt, ".mdl-list-group");
   width: calc(100% - #{$mdl-list-divider-inset-amt});
 }
 

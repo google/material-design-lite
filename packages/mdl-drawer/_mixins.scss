@@ -18,30 +18,9 @@
 @import "mdl-animation/variables";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
-@import "./functions";
 
 /* All variables are local, so disable pattern checking. */
 /* stylelint-disable scss/dollar-variable-pattern */
-
-@mixin mdl-drawer-dir_($property, $value) {
-  $directions: (
-    ltr: (
-      "start": "left",
-      "end": "right"
-    ),
-    rtl: (
-      "start": "right",
-      "end": "left"
-    )
-  );
-
-  #{mdl-drawer-replace($property, map-get($directions, ltr))}: $value;
-
-  [dir="rtl"] & {
-    #{mdl-drawer-replace($property, map-get($directions, ltr))}: auto;
-    #{mdl-drawer-replace($property, map-get($directions, rtl))}: $value;
-  }
-}
 
 @mixin mdl-drawer-toolbar-spacer_() {
   &__toolbar-spacer {

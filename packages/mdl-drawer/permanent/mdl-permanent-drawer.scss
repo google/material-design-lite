@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@import "mdl-rtl/mixins";
 @import "mdl-theme/mixins";
 @import "../mixins";
 
@@ -22,14 +23,14 @@ $mdl-permanent-drawer-width: 240px;
 .mdl-permanent-drawer {
   @include mdl-drawer-base_;
   @include mdl-theme-prop(background, background);
-  @include mdl-drawer-dir_(border-end, 1px solid #e4e4e4);
-  @include mdl-drawer-dir_(start, 0);
+  @include mdl-rtl-reflexive-box(border, right, 1px solid #e4e4e4);
+  @include mdl-rtl-reflexive-position(left, 0);
 
   @include mdl-theme-dark {
     background: #212121;
 
     @include mdl-theme-prop(color, text-primary-on-dark);
-    @include mdl-drawer-dir_(border-end, 1px solid rgba(255, 255, 255, .12));
+    @include mdl-rtl-reflexive-box(border, right, 1px solid rgba(white, .12));
   }
 
   display: inline-flex;
@@ -42,12 +43,12 @@ $mdl-permanent-drawer-width: 240px;
   &--floating {
     background: none;
 
-    @include mdl-drawer-dir_(border-end, none);
+    @include mdl-rtl-reflexive-box(border, right, none);
 
     @include mdl-theme-dark {
       background: none;
 
-      @include mdl-drawer-dir_(border-end, none);
+      @include mdl-rtl-reflexive-box(border, right, none);
     }
   }
 }

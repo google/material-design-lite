@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@import "mdl-rtl/mixins";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
 
@@ -38,20 +39,26 @@ $mdl-form-field-item-spacing: 4px;
     margin-left: $mdl-form-field-item-spacing;
   }
 
-  &--align-end > label {
+  @include mdl-rtl {
+    > label {
+      margin-right: $mdl-form-field-item-spacing;
+      margin-left: auto;
+    }
+  }
+}
+
+.mdl-form-field--align-end {
+  > label {
     order: -1;
     margin-right: $mdl-form-field-item-spacing;
     margin-left: auto;
   }
 
-  [dir="rtl"] & > label,
-  &[dir="rtl"] > label {
-    order: -1;
-  }
-
-  [dir="rtl"] &--align-end > label,
-  &--align-end[dir="rtl"] > label {
-    order: 0;
+  @include mdl-rtl {
+    > label {
+      margin-right: auto;
+      margin-left: $mdl-form-field-item-spacing;
+    }
   }
 }
 /* stylelint-enable selector-no-type */

@@ -15,6 +15,7 @@
  */
 
 @import "mdl-animation/variables";
+@import "mdl-rtl/mixins";
 @import "mdl-theme/variables";
 @import "mdl-theme/mixins";
 @import "mdl-typography/mixins";
@@ -96,7 +97,7 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
     cursor: text;
 
     /* stylelint-disable plugin/selector-bem-pattern */
-    [dir="rtl"] & {
+    @include mdl-rtl(".mdl-textfield") {
       right: 0;
       left: auto;
       transform-origin: right top;
@@ -313,7 +314,7 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
     bottom: initial;
     left: $label-offset-x;
 
-    [dir="rtl"] & {
+    @include mdl-rtl(".mdl-textfield--multiline") {
       right: $label-offset-x;
       left: auto;
     }
