@@ -16,7 +16,7 @@ The project has 3 high-level goals:
 
 In order to achieve these goals, we are planning a complete re-architecture of the original MDL component library, alongside new tooling and infrastructure.
 
-Please see our [developer's guide](docs/DEVELOPER.md) for more in-depth information.
+Please see our [developer's guide](docs/developer.md) for more in-depth information.
 
 
 ## Getting Started
