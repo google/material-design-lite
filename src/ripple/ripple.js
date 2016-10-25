@@ -102,8 +102,8 @@
         x = Math.round(bound.width / 2);
         y = Math.round(bound.height / 2);
       } else {
-        var clientX = event.clientX ? event.clientX : event.touches[0].clientX;
-        var clientY = event.clientY ? event.clientY : event.touches[0].clientY;
+        var clientX = event.clientX !== undefined ? event.clientX : event.touches[0].clientX;
+        var clientY = event.clientY !== undefined ? event.clientY : event.touches[0].clientY;
         x = Math.round(clientX - bound.left);
         y = Math.round(clientY - bound.top);
       }
