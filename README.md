@@ -29,8 +29,9 @@ It is currently **highly** experimental and no support building or using it will
 ## Use MDL on your site?
 
 **This document is targeted at developers that will contribute to or compile
-MDL. If you are looking to use MDL on your website or web app please head to
-[getmdl.io](http://getmdl.io).**
+MDL. 
+If you are looking to use MDL on your website or web app please head to
+[getmdl.io](http://getmdl.io).The site contains code samples and customize features for components**
 
 ## Browser Support in v1
 
