@@ -1,0 +1,191 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-animation/variables";
+@import "mdl-elevation/mixins";
+@import "mdl-theme/mixins";
+@import "mdl-typography/mixins";
+
+$mdl-simple-menu-fade-duration: .2s;
+$mdl-simple-menu-item-fade-duration: .3s;
+
+// Move text slightly when opening the menu, to improve visual flow.
+$mdl-simple-menu-item-offset: 10px;
+
+/* postcss-bem-linter: define simple-menu */
+.mdl-simple-menu {
+  display: none;
+  position: absolute;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  margin: 0;
+  padding: 0;
+  transform: scale(0);
+  transform-origin: top left;
+  border-radius: 2px;
+  background-color: white;
+  opacity: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  will-change: transform, opacity;
+
+  @include mdl-elevation(2);
+
+  @include mdl-theme-dark(".mdl-simple-menu") {
+    background-color: #424242;
+  }
+
+  &--open {
+    display: inline-block;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &--animating {
+    display: inline-block;
+    transition: opacity $mdl-simple-menu-fade-duration $mdl-animation-linear-out-slow-in-timing-function;
+  }
+
+  &__items {
+    display: inline-block;
+    transform-origin: $mdl-simple-menu-item-offset $mdl-simple-menu-item-offset;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    will-change: transform;
+
+    /* stylelint-disable plugin/selector-bem-pattern, selector-no-universal */
+    > * {
+      opacity: 0;
+    }
+
+    > .mdl-list-item {
+      cursor: pointer;
+    }
+
+    .mdl-simple-menu--animating & {
+      overflow-y: hidden;
+      > * {
+        transition-duration: $mdl-simple-menu-item-fade-duration;
+        transition-property: opacity;
+        transition-timing-function: $mdl-animation-linear-out-slow-in-timing-function;
+      }
+    }
+
+    .mdl-simple-menu--open & {
+      > * {
+        opacity: 1;
+        will-change: opacity;
+      }
+    }
+    /* stylelint-enable plugin/selector-bem-pattern, selector-no-universal */
+  }
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+  [dir="rtl"] & {
+    transform-origin: top right;
+  }
+  [dir="rtl"] &__items {
+    transform-origin: calc(100% - #{$mdl-simple-menu-item-offset}) $mdl-simple-menu-item-offset;
+  }
+  /* stylelint-enable plugin/selector-bem-pattern */
+
+  &--open-from-top-right {
+    transform-origin: top right;
+
+    .mdl-simple-menu__items {
+      transform-origin: calc(100% - #{$mdl-simple-menu-item-offset}) $mdl-simple-menu-item-offset;
+    }
+  }
+
+  &--open-from-bottom-left {
+    transform-origin: bottom left;
+
+    .mdl-simple-menu__items {
+      transform-origin: $mdl-simple-menu-item-offset calc(100% - #{$mdl-simple-menu-item-offset});
+    }
+  }
+
+  &--open-from-bottom-right {
+    transform-origin: bottom right;
+
+    .mdl-simple-menu__items {
+      transform-origin: calc(100% - #{$mdl-simple-menu-item-offset}) calc(100% - #{$mdl-simple-menu-item-offset});
+    }
+  }
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .mdl-list-group,
+  .mdl-list {
+    padding: 0;
+  }
+
+  .mdl-list-item {
+    position: relative;
+    padding: 0 16px;
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+
+    @include mdl-typography(body2);
+  }
+
+  .mdl-list-item__start-detail {
+    color: rgba(black, .54);
+
+    @include mdl-theme-dark(#{&}) {
+      color: rgba(white, .54);
+    }
+  }
+
+  /* stylelint-disable selector-no-qualifying-type */
+  &--selected.mdl-list-item,
+  &--selected.mdl-list-item .mdl-list-item__start-detail {
+    @include mdl-theme-prop(color, primary);
+  }
+  /* stylelint-enable selector-no-qualifying-type */
+
+  /* TODO(sgomes): Revisit when we have interactive lists. */
+  .mdl-list-item::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 120ms $mdl-animation-linear-out-slow-in-timing-function;
+    border-radius: inherit;
+    background: currentColor;
+    content: "";
+    opacity: 0;
+  }
+
+  .mdl-list-item:focus::before {
+    opacity: .12;
+  }
+
+  .mdl-list-item:active::before {
+    /*
+      Slightly darker value for visual distinction.
+      This allows a full base that has distinct modes.
+      Progressive enhancement with ripples will provide complete button spec alignment.
+    */
+    opacity: .18;
+  }
+
+  /* stylelint-enable plugin/selector-bem-pattern */
+}
+
+/* postcss-bem-linter: end */

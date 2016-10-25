@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2016 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MDL Simple Menu Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
+    <style>
+      .demo-content {
+        margin-top: 16px;
+        height: 500px;
+        width: 100%;
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>MDL Simple Menu</h1>
+      <label>
+        <input type="radio" name="position" value="" checked>
+        Top left
+      </label>
+      <label>
+        <input type="radio" name="position" value="mdl-simple-menu--open-from-top-right">
+        Top right
+      </label>
+      <label>
+        <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-left">
+        Bottom left
+      </label>
+      <label>
+        <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-right">
+        Bottom right
+      </label>
+      <div><button class="toggle">Toggle</button></div>
+      <div class="mdl-simple-menu">
+        <ul class="mdl-simple-menu__items mdl-list" role="menu" aria-hidden="true">
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Back</li>
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Forward</li>
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Reload</li>
+          <li class="mdl-list-divider" role="separator"></li>
+
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Save As...</li>
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Print...</li>
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Cast...</li>
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Translate to English</li>
+          <li class="mdl-list-divider" role="separator"></li>
+
+          <li class="mdl-list-item" role="menuitem" tabindex="0">View Page Source</li>
+          <li class="mdl-list-item" role="menuitem" tabindex="0">Inspect</li>
+        </ul>
+      </div>
+      <div class="demo-content"></div>
+    </main>
+
+    <script src="../assets/material-design-lite.js" charset="utf-8"></script>
+    <script>
+      var menu = new mdl.SimpleMenu(document.querySelector('.mdl-simple-menu'));
+      document.querySelector('.toggle').addEventListener('click', function() {
+        menu.open = !menu.open;
+      });
+
+      var radios = document.querySelectorAll('input[name="position"]');
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].addEventListener('change', function(evt) {
+          if (evt.target.checked) {
+            var menuEl = document.querySelector('.mdl-simple-menu');
+            menuEl.classList.remove('mdl-simple-menu--open-from-top-right');
+            menuEl.classList.remove('mdl-simple-menu--open-from-bottom-left');
+            menuEl.classList.remove('mdl-simple-menu--open-from-bottom-right');
+            if (evt.target.value) {
+              menuEl.classList.add(evt.target.value);
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

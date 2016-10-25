@@ -22,6 +22,7 @@ import * as ripple from 'mdl-ripple';
 import * as drawer from 'mdl-drawer';
 import * as textfield from 'mdl-textfield';
 import * as snackbar from 'mdl-snackbar';
+import * as menu from 'mdl-menu';
 import autoInit from 'mdl-auto-init';
 
 // Register all components
@@ -32,6 +33,7 @@ autoInit.register('MDLIconToggle', iconToggle.MDLIconToggle);
 autoInit.register('MDLRadio', radio.MDLRadio);
 autoInit.register('MDLSnackbar', snackbar.MDLSnackbar);
 autoInit.register('MDLTextfield', textfield.MDLTextfield);
+autoInit.register('MDLSimpleMenu', menu.MDLSimpleMenu);
 
 // Export all components.
 export {
@@ -43,5 +45,6 @@ export {
   snackbar,
   drawer,
   textfield,
+  menu,
   autoInit
 };
