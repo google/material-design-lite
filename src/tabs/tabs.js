@@ -140,13 +140,15 @@
       }
 
       tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        var href = tab.href.split('#')[1];
-        var panel = ctx.element_.querySelector('#' + href);
-        ctx.resetTabState_();
-        ctx.resetPanelState_();
-        tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-        panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+        if (tab.getAttribute('href').charAt(0) === '#') {
+          e.preventDefault();
+          var href = tab.href.split('#')[1];
+          var panel = ctx.element_.querySelector('#' + href);
+          ctx.resetTabState_();
+          ctx.resetPanelState_();
+          tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+          panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+        }
       });
 
     }
