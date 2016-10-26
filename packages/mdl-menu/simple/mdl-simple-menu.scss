@@ -44,7 +44,7 @@ $mdl-simple-menu-item-offset: 10px;
 
   @include mdl-elevation(2);
 
-  @include mdl-theme-dark(".mdl-simple-menu") {
+  @include mdl-theme-dark {
     background-color: #424242;
   }
 
@@ -141,12 +141,22 @@ $mdl-simple-menu-item-offset: 10px;
     text-decoration: none;
 
     @include mdl-typography(body2);
+
+    @include mdl-theme-dark(".mdl-simple-menu", true) {
+      color: white;
+    }
+  }
+
+  .mdl-list-divider {
+    @include mdl-theme-dark(".mdl-simple-menu", true) {
+      border-color: rgba(white, .12);
+    }
   }
 
   .mdl-list-item__start-detail {
     color: rgba(black, .54);
 
-    @include mdl-theme-dark(#{&}) {
+    @include mdl-theme-dark(".mdl-simple-menu", true) {
       color: rgba(white, .54);
     }
   }
