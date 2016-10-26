@@ -14,6 +14,7 @@ We'd love for you to contribute to our source code and to make Material Design L
   - [Coding Style](#coding-style)
   - [Signing the CLA](#signing-the-cla)
   - [Submitting Pull Requests](#submitting-pull-requests)
+  - [Releasing MDL](#releasing-mdl)
 - [Questions / Problems](#questions--problems)
 - [Issues / Bugs](#issues--bugs)
 - ["What's the core team up to?"](#whats-the-core-team-up-to)
@@ -133,6 +134,26 @@ Finally, it helps to make sure that your branch/fork is up to date with what's c
 To submit code for v2, open a PR for your fork/branch against `master` (_not_ `mdl-1.x`, which is currently our default branch).
 
 Once you've submitted a PR, it'll be assigned to a core team member for review. If all CI tests pass and you get a `LGTM` from a reviewer, your code will be merged into master.
+
+### Releasing MDL
+
+> NOTE: This section is for collaborators only. Contributors without repo write access can ignore
+> this section.
+
+To release MDL, you should perform the following steps.
+
+1. Run `./scripts/pre-release.sh`. This will run `npm test`, build MDL, copy the built assets over
+   to each module's `dist/` folder, and then print out a summary of all of the new versions that
+   should be used for changed components. The summary is printed out to both the console, as well
+   as a `.new-versions.log` file in the repo root. This information should be used within the
+   following steps.
+2. Run `lerna publish`. When prompted for versions for each component, you should use the
+   version info output above. In some cases, e.g. repo-wide refactors that cause all component
+   versions to be updated, you can ignore this info. However, _it is strongly recommended to adhere
+   to those specified versions in order to minimize human error_.
+3. Run `./scripts/post-release.sh`. This will update our `CHANGELOG.md` with information for the
+   current release of the overarching `material-design-lite` library, and commit those changes.
+4. Push the changelog changes to master, and call it a day!
 
 ## Questions / Problems
 
