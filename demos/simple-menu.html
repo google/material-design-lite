@@ -34,22 +34,30 @@
   <body>
     <main>
       <h1>MDL Simple Menu</h1>
-      <label>
-        <input type="radio" name="position" value="" checked>
-        Top left
-      </label>
-      <label>
-        <input type="radio" name="position" value="mdl-simple-menu--open-from-top-right">
-        Top right
-      </label>
-      <label>
-        <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-left">
-        Bottom left
-      </label>
-      <label>
-        <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-right">
-        Bottom right
-      </label>
+      <p>
+        <label>
+          <input type="radio" name="position" value="" checked>
+          Top left
+        </label>
+        <label>
+          <input type="radio" name="position" value="mdl-simple-menu--open-from-top-right">
+          Top right
+        </label>
+        <label>
+          <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-left">
+          Bottom left
+        </label>
+        <label>
+          <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-right">
+          Bottom right
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" name="dark">
+          Dark mode
+        </label>
+      </p>
       <div><button class="toggle">Toggle</button></div>
       <div class="mdl-simple-menu">
         <ul class="mdl-simple-menu__items mdl-list" role="menu" aria-hidden="true">
@@ -73,16 +81,25 @@
 
     <script src="../assets/material-design-lite.js" charset="utf-8"></script>
     <script>
-      var menu = new mdl.menu.MDLSimpleMenu(document.querySelector('.mdl-simple-menu'));
+      var menuEl = document.querySelector('.mdl-simple-menu');
+      var menu = new mdl.menu.MDLSimpleMenu(menuEl);
       document.querySelector('.toggle').addEventListener('click', function() {
         menu.open = !menu.open;
+      });
+
+      var dark = document.querySelector('input[name="dark"]');
+      dark.addEventListener('change', function(evt) {
+        if (evt.target.checked) {
+          menuEl.classList.add('mdl-simple-menu--theme-dark');
+        } else {
+          menuEl.classList.remove('mdl-simple-menu--theme-dark');
+        }
       });
 
       var radios = document.querySelectorAll('input[name="position"]');
       for (var i = 0; i < radios.length; i++) {
         radios[i].addEventListener('change', function(evt) {
           if (evt.target.checked) {
-            var menuEl = document.querySelector('.mdl-simple-menu');
             menuEl.classList.remove('mdl-simple-menu--open-from-top-right');
             menuEl.classList.remove('mdl-simple-menu--open-from-bottom-left');
             menuEl.classList.remove('mdl-simple-menu--open-from-bottom-right');
