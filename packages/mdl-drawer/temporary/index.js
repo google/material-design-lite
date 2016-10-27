@@ -50,9 +50,12 @@ export class MDLTemporaryDrawer extends MDLComponent {
       removeClass: className => this.root_.classList.remove(className),
       hasClass: className => this.root_.classList.contains(className),
       hasNecessaryDom: () => Boolean(this.drawer),
-      registerInteractionHandler: (evt, handler) => this.root_.addEventListener(util.remapEvent(evt), handler),
-      deregisterInteractionHandler: (evt, handler) => this.root_.removeEventListener(util.remapEvent(evt), handler),
-      registerDrawerInteractionHandler: (evt, handler) => this.drawer.addEventListener(util.remapEvent(evt), handler),
+      registerInteractionHandler: (evt, handler) =>
+          this.root_.addEventListener(util.remapEvent(evt), handler, util.applyPassive()),
+      deregisterInteractionHandler: (evt, handler) =>
+          this.root_.removeEventListener(util.remapEvent(evt), handler, util.applyPassive()),
+      registerDrawerInteractionHandler: (evt, handler) =>
+          this.drawer.addEventListener(util.remapEvent(evt), handler),
       deregisterDrawerInteractionHandler: (evt, handler) =>
           this.drawer.removeEventListener(util.remapEvent(evt), handler),
       registerTransitionEndHandler: handler => this.drawer.addEventListener('transitionend', handler),

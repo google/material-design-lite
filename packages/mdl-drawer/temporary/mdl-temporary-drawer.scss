@@ -70,6 +70,7 @@
     will-change: transform;
     box-sizing: border-box;
     overflow: hidden;
+    touch-action: none;
 
     @include mdl-rtl(".mdl-temporary-drawer") {
       transform: translateX(calc(100% + 20px));
@@ -89,6 +90,7 @@
     overflow-y: auto;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
 
   &__footer {
