@@ -83,7 +83,7 @@ for any display size.
         Header here
       </div>
     </header>
-    <nav id="icon-with-text-demo" class="mdl-list">
+    <nav id="icon-with-text-demo" class="mdl-temporary-drawer__content mdl-list">
       <a class="mdl-list-item mdl-temporary-drawer--selected" href="#">
         <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">inbox</i>Inbox
       </a>
@@ -114,7 +114,7 @@ very useful for visual alignment and consistency. Note that you can place conten
 
     <div class="mdl-temporary-drawer__toolbar-spacer"></div>
 
-    <nav id="icon-with-text-demo" class="mdl-list">
+    <nav id="icon-with-text-demo" class="mdl-temporary-drawer__content mdl-list">
       <a class="mdl-list-item mdl-temporary-drawer--selected" href="#">
         <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">inbox</i>Inbox
       </a>
@@ -142,7 +142,7 @@ for placing the actual content, which will be bottom-aligned.
       </div>
     </header>
 
-    <nav id="icon-with-text-demo" class="mdl-list">
+    <nav id="icon-with-text-demo" class="mdl-temporary-drawer__content mdl-list">
       <a class="mdl-list-item mdl-temporary-drawer--selected" href="#">
         <i class="material-icons mdl-list-item__start-detail" aria-hidden="true">inbox</i>Inbox
       </a>
@@ -161,6 +161,7 @@ CSS classes:
 | -------------------------------------- | -------------------------------------------------------------------------- |
 | `mdl-temporary-drawer`                 | Mandatory. Needs to be set on the root element of the component.           |
 | `mdl-temporary-drawer__drawer`         | Mandatory. Needs to be set on the container node for the drawer content.   |
+| `mdl-temporary-drawer__content`        | Optional. Should be set on the list of items inside the drawer.            |
 | `mdl-temporary-drawer__toolbar-spacer` | Optional. Add to node to provide the matching amount of space for toolbar. |
 | `mdl-temporary-drawer__header`         | Optional. Add to container node to create a 16:9 drawer header.            |
 | `mdl-temporary-drawer__header-content` | Optional. Add to content node inside `mdl-temporary-drawer__header`.       |

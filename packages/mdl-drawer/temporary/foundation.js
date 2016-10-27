@@ -204,10 +204,6 @@ export default class MDLTemporaryDrawerFoundation extends MDLFoundation {
     }
 
     this.currentX_ = evt.touches ? evt.touches[0].pageX : evt.pageX;
-
-    if (this.direction_ * (this.currentX_ - this.startX_) < 0) {
-      evt.preventDefault();
-    }
   }
 
   handleTouchEnd_(evt) {

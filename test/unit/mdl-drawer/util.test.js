@@ -55,7 +55,7 @@ test('getTransformPropertyName returns "transform" for browsers that support it'
       }
     }
   };
-  t.equal(utils.getTransformPropertyName(mockWindow), 'transform');
+  t.equal(utils.getTransformPropertyName(mockWindow, true), 'transform');
   t.end();
 });
 
@@ -67,7 +67,7 @@ test('getTransformPropertyName returns "-webkit-transform" for browsers that do 
       }
     }
   };
-  t.equal(utils.getTransformPropertyName(mockWindow), '-webkit-transform');
+  t.equal(utils.getTransformPropertyName(mockWindow, true), '-webkit-transform');
   t.end();
 });
 
@@ -88,6 +88,30 @@ test('supportsCssCustomProperties returns dalse for browsers that do not support
     CSS: {supports: supports}
   };
   t.false(utils.supportsCssCustomProperties(mockWindow));
+  t.end();
+});
+
+test('applyPassive returns an options object for browsers that support passive event listeners', t => {
+  const mockWindow = {
+    document: {
+      addEventListener: function(name, method, options) {
+        return options.passive;
+      }
+    }
+  };
+  t.deepEqual(utils.applyPassive(mockWindow, true), {passive: true});
+  t.end();
+});
+
+test('applyPassive returns false for browsers that do not support passive event listeners', t => {
+  const mockWindow = {
+    document: {
+      addEventListener: function() {
+        throw new Error();
+      }
+    }
+  };
+  t.false(utils.applyPassive(mockWindow, true));
   t.end();
 });
 
