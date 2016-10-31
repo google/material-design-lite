@@ -94,8 +94,8 @@ switch (ENV) {
       require('@easy-webpack/config-common-chunks-simple')
         ({appChunkName: 'app', firstChunk: 'aurelia-bootstrap'}),
 
-      require('@easy-webpack/config-copy-files')
-        ({patterns: [{ from: 'favicon.ico', to: 'favicon.ico' }]}),
+      // require('@easy-webpack/config-copy-files')
+      //   ({patterns: [{ from: 'favicon.ico', to: 'favicon.ico' }]}),
 
       require('@easy-webpack/config-uglify')
         ({debug: false})
@@ -154,13 +154,41 @@ switch (ENV) {
       require('@easy-webpack/config-generate-index-html')
         ({minify: false}),
 
-      require('@easy-webpack/config-copy-files')
-        ({patterns: [{ from: 'favicon.ico', to: 'favicon.ico' }]}),
+      // require('@easy-webpack/config-copy-files')
+      //   ({patterns: [{ from: 'favicon.ico', to: 'favicon.ico' }]}),
 
       require('@easy-webpack/config-common-chunks-simple')
         ({appChunkName: 'app', firstChunk: 'aurelia-bootstrap'})
     );
     break;
 }
+// console.log(config);
+config.module.loaders.push({
+  test: /\.js$/,
+  loader: 'babel-loader',
+  include: [
+    path.resolve('../../packages')
+  ]
+},{
+  test: /\.scss$/,
+  loader: 'css-loader!postcss-loader!sass-loader',
+  include: [
+    path.resolve('../../packages'),
+    path.resolve('./src')
+  ]
+});
+config.sassLoader = {
+  includePaths: [path.resolve('../../packages'), path.resolve('./src')]
+};
+if (!config.resolve) {
+  config.resolve = {};
+}
+if (!config.resolve.alias) {
+  config.resolve.alias = {};
+}
+config.resolve.alias = Object.assign({}, {
+  'mdl-checkbox': path.resolve('../../packages/mdl-checkbox/index.js'),
+  'mdl-checkbox-styles': path.resolve('../../packages/mdl-checkbox/mdl-checkbox.scss')
+});
 
 module.exports = config;
