@@ -5,6 +5,7 @@
 To run the app execute the following command:
 
 ```shell
+npm install
 npm start
 ```
 

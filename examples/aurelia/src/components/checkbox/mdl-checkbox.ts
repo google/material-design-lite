@@ -1,8 +1,8 @@
 import {inject, bindable, bindingMode, DOM} from 'aurelia-framework';
 
 // Since we don't have typings (yet) we require mdl-checkbox manually.
-const MDLCheckboxModule = require('mdl-checkbox');
-const MDLCheckbox = MDLCheckboxModule.default;
+// const MDLCheckboxModule = require('mdl-checkbox');
+const {MDLCheckbox} = require('mdl-checkbox');
 // Use webpack's require function to load the css
 const MDL_CHECKBOX_STYLES = require('mdl-checkbox-styles');
 DOM.injectStyles(MDL_CHECKBOX_STYLES);
