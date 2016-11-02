@@ -188,7 +188,10 @@ if (!config.resolve.alias) {
 }
 config.resolve.alias = Object.assign({}, {
   'mdl-checkbox': path.resolve('../../packages/mdl-checkbox/index.js'),
-  'mdl-checkbox-styles': path.resolve('../../packages/mdl-checkbox/mdl-checkbox.scss')
+  'mdl-checkbox-styles': path.resolve('../../packages/mdl-checkbox/mdl-checkbox.scss'),
+  'mdl-button-styles': path.resolve('../../packages/mdl-button/mdl-button.scss'),
+  'mdl-ripple': path.resolve('../../packages/mdl-ripple/index.js'),
+  'mdl-ripple-styles': path.resolve('../../packages/mdl-ripple/mdl-ripple.scss')
 });
 
 module.exports = config;
