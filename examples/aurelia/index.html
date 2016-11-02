@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- webpackConfig.metadata.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="<%- webpackConfig.metadata.baseUrl %>">
+    <!-- imported CSS are concatenated and added automatically -->
+  </head>
+  <body aurelia-app="main">
+    <div class="splash">
+      <div class="message"><%- webpackConfig.metadata.title %></div>
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() { console.log('document.ready'); }, false);
+    </script>
+    <% if (webpackConfig.metadata.ENV === 'development') { %>
+    <!-- Webpack Dev Server reload -->
+    <script src="/webpack-dev-server.js"></script>
+    <% } %>
+  </body>
+</html>

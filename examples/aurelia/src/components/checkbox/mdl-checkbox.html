@@ -1,0 +1,15 @@
+<template class="mdl-checkbox">
+    <input type="checkbox" checked.bind="isChecked" change.delegate="handleChange($event)" class="mdl-checkbox__native-control">
+    <div class="mdl-checkbox__background">
+        <svg version="1.1"
+            class="mdl-checkbox__checkmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24">
+            <path class="mdl-checkbox__checkmark__path"
+                fill="none"
+                stroke="white"
+                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdl-checkbox__mixedmark"></div>
+    </div>
+</template>
