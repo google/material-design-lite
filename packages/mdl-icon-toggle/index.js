@@ -78,7 +78,7 @@ export class MDLIconToggle extends MDLComponent {
       getAttr: (name, value) => this.root_.getAttribute(name, value),
       setAttr: (name, value) => this.root_.setAttribute(name, value),
       rmAttr: (name, value) => this.root_.removeAttribute(name, value),
-      notifyChange: evtData => this.emitChange_(evtData)
+      notifyChange: evtData => this.emit('MDLIconToggle:change', evtData)
     });
   }
 
@@ -105,21 +105,5 @@ export class MDLIconToggle extends MDLComponent {
 
   refreshToggleData() {
     this.foundation_.refreshToggleData();
-  }
-
-  // NOTE(traviskaufman): This will most likely be refactored into a generic event mechanism
-  // within mdl-base at some point. Until the time when it's needed by more than just this component, we'll
-  // keep it simple and local for now.
-  emitChange_(evtData) {
-    const evtType = 'MDLIconToggle:change';
-    let evt;
-    if (typeof CustomEvent === 'function') {
-      evt = new CustomEvent(evtType, {detail: evtData});
-    } else {
-      evt = document.createEvent('CustomEvent');
-      evt.initCustomEvent(evtType, false, false, evtData);
-    }
-
-    this.root_.dispatchEvent(evt);
   }
 }
