@@ -51,4 +51,18 @@ export default class MDLComponent {
     // attached. An example of this might be deregistering a resize event from the window object.
     this.foundation_.destroy();
   }
+
+  // Fires a cross-browser-compatible custom event from the component root of the given type,
+  // with the given data.
+  emit(evtType, evtData) {
+    let evt;
+    if (typeof CustomEvent === 'function') {
+      evt = new CustomEvent(evtType, {detail: evtData});
+    } else {
+      evt = document.createEvent('CustomEvent');
+      evt.initCustomEvent(evtType, false, false, evtData);
+    }
+
+    this.root_.dispatchEvent(evt);
+  }
 }

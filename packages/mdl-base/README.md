@@ -159,6 +159,7 @@ export class MyComponent extends MDLComponent {
 | `getDefaultFoundation()` | Returns an instance of a foundation class properly configured for the component. Called when no foundation instance is given within the constructor. Subclasses **must** implement this method. |
 | `initialSyncWithDOM()` | Called within the constructor. Subclasses may override this method if they wish to perform initial synchronization of state with the host DOM element. For example, a slider may want to check if its host element contains a pre-set value, and adjust its internal state accordingly. Note that the same caveats apply to this method as to foundation class lifecycle methods. Defaults to a no-op. |
 | `destroy()` | Subclasses may override this method if they wish to perform any additional cleanup work when a component is destroyed. For example, a component may want to deregister a window resize listener. |
+| `emit(type: string, data: Object)` | Dispatches a custom event of type `type` with detail `data` from the component's root node. This is the preferred way of dispatching events within our vanilla components. |
 
 #### Static Methods
 

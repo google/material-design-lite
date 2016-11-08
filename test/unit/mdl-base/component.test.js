@@ -104,3 +104,22 @@ test("provides a default destroy() method which calls the foundation's destroy()
   t.doesNotThrow(() => td.verify(foundation.destroy()));
   t.end();
 });
+
+test('#emit dispatches a custom event with the supplied data', t => {
+  const root = document.createElement('div');
+  const f = new FakeComponent(root);
+  const handler = td.func('eventHandler');
+  let evt = null;
+  td.when(handler(td.matchers.isA(Object))).thenDo(evt_ => {
+    evt = evt_;
+  });
+  const data = {evtData: true};
+  const type = 'customeventtype';
+
+  root.addEventListener(type, handler);
+  f.emit(type, data);
+  t.true(evt !== null);
+  t.equal(evt.type, type);
+  t.deepEqual(evt.detail, data);
+  t.end();
+});
