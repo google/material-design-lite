@@ -58,7 +58,10 @@
           Dark mode
         </label>
       </p>
-      <div><button class="toggle">Toggle</button></div>
+      <div>
+        <button class="toggle">Toggle</button>
+        <span>Last Selected item: <em id="last-selected">&lt;none selected&gt;</em></span>
+      </div>
       <div class="mdl-simple-menu">
         <ul class="mdl-simple-menu__items mdl-list" role="menu" aria-hidden="true">
           <li class="mdl-list-item" role="menuitem" tabindex="0">Back</li>
@@ -109,6 +112,13 @@
           }
         });
       }
+
+      var lastSelected = document.getElementById('last-selected');
+      menuEl.addEventListener('MDLSimpleMenu:selected', function(evt) {
+        const detail = evt.detail;
+        lastSelected.textContent = '"' + detail.item.textContent.trim() +
+          '" at index ' + detail.index;
+      });
     </script>
   </body>
 </html>

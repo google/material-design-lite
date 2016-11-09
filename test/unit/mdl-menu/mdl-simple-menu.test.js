@@ -16,6 +16,8 @@
 
 import test from 'tape';
 import bel from 'bel';
+import domEvents from 'dom-events';
+import td from 'testdouble';
 
 import {MDLSimpleMenu} from '../../../packages/mdl-menu/simple';
 import {strings} from '../../../packages/mdl-menu/simple/constants';
@@ -24,8 +26,10 @@ import {getTransformPropertyName} from '../../../packages/mdl-menu/util';
 function getFixture() {
   return bel`
     <div class="mdl-simple-menu">
-      <nav class="mdl-simple-menu__items mdl-list">
-        <a class="mdl-list-item" href="#">Item</a>
+      <ul class="mdl-simple-menu__items mdl-list" role="menu">
+        <li class="mdl-list-item" role="menuitem">Item</a>
+        <li role="separator"></li>
+        <li class="mdl-list-item" role="menuitem">Another Item</a>
       </nav>
     </div>
   `;
@@ -52,10 +56,24 @@ test('get/set open', t => {
   t.end();
 });
 
-test('items returns the container element for the menu items', t => {
+test('constructor throws if no role on menu items', t => {
+  t.throws(() => new MDLSimpleMenu(bel`
+    <div class="mdl-simple-menu"><ul class="mdl-simple-menu__items"></ul></div>
+  `));
+  t.end();
+});
+
+test('constructor throws if role on menu is invalid (not menu or listbox)', t => {
+  t.throws(() => new MDLSimpleMenu(bel`
+    <div class="mdl-simple-menu"><ul class="mdl-simple-menu__items" role="dialog"></ul></div>
+  `));
+  t.end();
+});
+
+test('items returns all menu items', t => {
   const {root, component} = setupTest();
-  const items = root.querySelector(strings.ITEMS_SELECTOR);
-  t.equal(component.items, items);
+  const items = [].slice.call(root.querySelectorAll('[role="menuitem"]'));
+  t.deepEqual(component.items, items);
   t.end();
 });
 
@@ -124,10 +142,29 @@ test('adapter#setInnerScale sets the correct transform on the items container', 
   t.end();
 });
 
-test('adapter#getNumberOfItems returns the number of elements within the items container', t => {
+test('adapter#getNumberOfItems returns the number of item elements within the items container', t => {
   const {root, component} = setupTest();
-  const items = root.querySelector(strings.ITEMS_SELECTOR);
-  t.equal(component.getDefaultFoundation().adapter_.getNumberOfItems(), items.children.length);
+  const numberOfItems = root.querySelectorAll('[role="menuitem"]').length;
+  t.equal(component.getDefaultFoundation().adapter_.getNumberOfItems(), numberOfItems);
+  t.end();
+});
+
+test('adapter#registerInteractionHandler proxies to addEventListener', t => {
+  const {root, component} = setupTest();
+  const handler = td.func('interactionHandler');
+  component.getDefaultFoundation().adapter_.registerInteractionHandler('foo', handler);
+  domEvents.emit(root, 'foo');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
+  t.end();
+});
+
+test('adapter#deregisterInteractionHandler proxies to removeEventListener', t => {
+  const {root, component} = setupTest();
+  const handler = td.func('interactionHandler');
+  root.addEventListener('foo', handler);
+  component.getDefaultFoundation().adapter_.deregisterInteractionHandler('foo', handler);
+  domEvents.emit(root, 'foo');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
   t.end();
 });
 
@@ -153,5 +190,31 @@ test('adapter#setTransitionDelayForItemAtIndex sets the correct transition-delay
   const {root, component} = setupTest();
   component.getDefaultFoundation().adapter_.setTransitionDelayForItemAtIndex(0, '0.42s');
   t.equal(root.querySelector(strings.ITEMS_SELECTOR).children[0].style.transitionDelay, '0.42s');
+  t.end();
+});
+
+test('adapter#getIndexForEventTarget returns the item index of the event target', t => {
+  const {root, component} = setupTest();
+  const target = root.querySelectorAll('[role="menuitem"]')[1];
+  t.equal(component.getDefaultFoundation().adapter_.getIndexForEventTarget(target), 1);
+  t.equal(component.getDefaultFoundation().adapter_.getIndexForEventTarget({}), -1, 'missing index = -1');
+  t.end();
+});
+
+test('adapter#notifySelected fires an "MDLSimpleMenu:selected" custom event with the item and index', t => {
+  const {root, component} = setupTest();
+  const item = root.querySelectorAll('[role="menuitem"]')[0];
+  const handler = td.func('notifySelected handler');
+  let evtData = null;
+  td.when(handler(td.matchers.isA(Object))).thenDo(evt => {
+    evtData = evt.detail;
+  });
+  root.addEventListener('MDLSimpleMenu:selected', handler);
+  component.getDefaultFoundation().adapter_.notifySelected({index: 0});
+  t.true(evtData !== null);
+  t.deepEqual(evtData, {
+    item,
+    index: 0
+  });
   t.end();
 });
