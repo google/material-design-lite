@@ -30,6 +30,10 @@ export const strings = {
 };
 
 export const numbers = {
+  // Amount of time to wait before triggering a selected event on the menu. Note that this time
+  // will most likely be bumped up once interactive lists are supported to allow for the ripple to
+  // animate before closing the menu
+  SELECTED_TRIGGER_DELAY: 50,
   // Total duration of the menu animation.
   TRANSITION_DURATION_MS: 300,
   // The menu starts its open animation with the X axis at this time value (0 - 1).
@@ -41,4 +45,14 @@ export const numbers = {
   TRANSITION_Y1: 0,
   TRANSITION_X2: 0.2,
   TRANSITION_Y2: 1
+};
+
+// Mapping between composite aria roles supported by the simple menu to roles owned
+// by that composite role. This should be used in order to query for DOM elements within
+// the menu that represent actual menu items, e.g. `[role="menuitem"]` for a simple menu with
+// role="menu", or `[role="option"]` for a simple menu with role="listbox". For more information
+// see https://www.w3.org/TR/wai-aria/roles#composite.
+export const PARENT_CHILD_ROLES = {
+  menu: 'menuitem',
+  listbox: 'option'
 };

@@ -15,6 +15,7 @@
  */
 
 import {MDLComponent} from 'mdl-base';
+import {PARENT_CHILD_ROLES} from './constants';
 import MDLSimpleMenuFoundation from './foundation';
 import {getTransformPropertyName} from '../util';
 
@@ -38,8 +39,18 @@ export class MDLSimpleMenu extends MDLComponent {
   }
 
   /* Return the item container element inside the component. */
-  get items() {
+  get itemsContainer_() {
     return this.root_.querySelector(MDLSimpleMenuFoundation.strings.ITEMS_SELECTOR);
+  }
+
+  /* Return the items within the menu. Note that this only contains the set of elements within
+   * the items container that are proper list items, and not supplemental / presentational DOM
+   * elements.
+   */
+  get items() {
+    const {itemsContainer_: itemsContainer} = this;
+    const childRole = PARENT_CHILD_ROLES[itemsContainer.getAttribute('role')];
+    return [].slice.call(itemsContainer.querySelectorAll(`[role="${childRole}"]`));
   }
 
   getDefaultFoundation() {
@@ -47,24 +58,49 @@ export class MDLSimpleMenu extends MDLComponent {
       addClass: className => this.root_.classList.add(className),
       removeClass: className => this.root_.classList.remove(className),
       hasClass: className => this.root_.classList.contains(className),
-      hasNecessaryDom: () => Boolean(this.items),
+      hasNecessaryDom: () => Boolean(this.itemsContainer_),
       getInnerDimensions: () => {
-        const {items} = this;
-        return {width: items.offsetWidth, height: items.offsetHeight};
+        const {itemsContainer_: itemsContainer} = this;
+        return {width: itemsContainer.offsetWidth, height: itemsContainer.offsetHeight};
       },
       setScale: (x, y) => {
         this.root_.style[getTransformPropertyName(window)] = `scale(${x}, ${y})`;
       },
       setInnerScale: (x, y) => {
-        this.items.style[getTransformPropertyName(window)] = `scale(${x}, ${y})`;
+        this.itemsContainer_.style[getTransformPropertyName(window)] = `scale(${x}, ${y})`;
       },
-      getNumberOfItems: () => this.items.children.length,
+      getNumberOfItems: () => this.items.length,
+      registerInteractionHandler: (type, handler) => this.root_.addEventListener(type, handler),
+      deregisterInteractionHandler: (type, handler) => this.root_.removeEventListener(type, handler),
       getYParamsForItemAtIndex: index => {
-        const {offsetTop: top, offsetHeight: height} = this.items.children[index];
+        const {offsetTop: top, offsetHeight: height} = this.items[index];
         return {top, height};
       },
       setTransitionDelayForItemAtIndex: (index, value) =>
-        this.items.children[index].style.setProperty('transition-delay', value)
+        this.items[index].style.setProperty('transition-delay', value),
+      getIndexForEventTarget: target => this.items.indexOf(target),
+      notifySelected: evtData => this.emit('MDLSimpleMenu:selected', {
+        index: evtData.index,
+        item: this.items[evtData.index]
+      })
     });
+  }
+
+  initialSyncWithDOM() {
+    this.validateRole_();
+  }
+
+  validateRole_() {
+    const VALID_ROLES = Object.keys(PARENT_CHILD_ROLES);
+    const role = this.itemsContainer_.getAttribute('role');
+    if (!role) {
+      throw new Error(
+        'Missing "role" attribute on menu items list element. A "role" attribute is needed for the menu to ' +
+        `function properly. Please choose one of ${VALID_ROLES}`
+      );
+    }
+    if (VALID_ROLES.indexOf(role) < 0) {
+      throw new Error(`Invalid menu items list role "${role}." Please choose one of ${VALID_ROLES}`);
+    }
   }
 }

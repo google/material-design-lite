@@ -41,13 +41,34 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
       setScale: (/* x: number, y: number */) => {},
       setInnerScale: (/* x: number, y: number */) => {},
       getNumberOfItems: () => /* number */ 0,
+      registerInteractionHandler: (/* type: string, handler: EventListener */) => {},
+      deregisterInteractionHandler: (/* type: string, handler: EventListener */) => {},
       getYParamsForItemAtIndex: (/* index: number */) => /* {top: number, height: number} */ ({}),
-      setTransitionDelayForItemAtIndex: (/* index: number, value: string */) => {}
+      setTransitionDelayForItemAtIndex: (/* index: number, value: string */) => {},
+      getIndexForEventTarget: (/* target: EventTarget */) => /* number */ 0,
+      notifySelected: (/* evtData: {index: number} */) => {}
     };
   }
 
   constructor(adapter) {
     super(Object.assign(MDLSimpleMenuFoundation.defaultAdapter, adapter));
+    this.keyupHandler_ = evt => {
+      const {keyCode, key} = evt;
+      const isEnter = key === 'Enter' || keyCode === 13;
+      const isSpace = key === 'Space' || keyCode === 32;
+      if (isEnter || isSpace) {
+        this.handlePossibleSelected_(evt);
+      }
+    };
+    this.clickHandler_ = evt => this.handlePossibleSelected_(evt);
+    this.isOpen_ = false;
+    this.startScaleX_ = 0;
+    this.startScaleY_ = 0;
+    this.targetScale_ = 1;
+    this.scaleX_ = 0;
+    this.scaleY_ = 0;
+    this.running_ = false;
+    this.selectedTriggerTimerId_ = 0;
   }
 
   init() {
@@ -63,16 +84,32 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
 
     if (this.adapter_.hasClass(OPEN)) {
       this.isOpen_ = true;
-    } else {
-      this.isOpen_ = false;
     }
 
-    this.startScaleX_ = 0;
-    this.startScaleY_ = 0;
-    this.targetScale_ = 1;
-    this.scaleX_ = 0;
-    this.scaleY_ = 0;
-    this.running_ = false;
+    this.adapter_.registerInteractionHandler('click', this.clickHandler_);
+    this.adapter_.registerInteractionHandler('keyup', this.keyupHandler_);
+  }
+
+  destroy() {
+    clearTimeout(this.selectedTriggerTimerId_);
+    this.adapter_.deregisterInteractionHandler('click', this.clickHandler_);
+    this.adapter_.deregisterInteractionHandler('keyup', this.keyupHandler_);
+  }
+
+  handlePossibleSelected_(evt) {
+    const targetIndex = this.adapter_.getIndexForEventTarget(evt.target);
+    if (targetIndex < 0) {
+      return;
+    }
+    // Debounce multiple selections
+    if (this.selectedTriggerTimerId_) {
+      return;
+    }
+    this.selectedTriggerTimerId_ = setTimeout(() => {
+      this.selectedTriggerTimerId_ = 0;
+      this.close();
+      this.adapter_.notifySelected({index: targetIndex});
+    }, numbers.SELECTED_TRIGGER_DELAY);
   }
 
   // Calculate transition delays for individual menu items, so that they fade in one at a time.

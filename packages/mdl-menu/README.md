@@ -40,8 +40,12 @@ You can start the menu in its open state by adding the `mdl-simple-menu--open` c
 </div>
 ```
 
-
 ### Using the JS Component
+
+> **N.B.**: The use of `role` on both the menu's internal items list, as well as on each item, is
+> _mandatory_. You may either use the role of `menu` on the list with a role of `menuitem` on each
+> list item, or a role of `listbox` on the list with a role of `option` on each list item. Further
+> composite roles may be supported in the future.
 
 MDL Simple Menu ships with a Component / Foundation combo which allows for frameworks to richly integrate the
 correct menu behaviors into idiomatic components.
@@ -108,6 +112,16 @@ import MDLSimpleMenu from 'mdl-menu';
 const menu = new MDLSimpleMenu(document.querySelector('.mdl-simple-menu'));
 ```
 
+#### Handling selection events
+
+When a menu item is selected, the menu component will emit a `MDLSimpleMenu:selected` custom event
+with the following `detail` data:
+
+| property name | type | description |
+| --- | --- | --- |
+| `item` | `HTMLElement` | The DOM element for the selected item |
+| `index` | `number` | The index of the selected item |
+
 ### Using the Foundation Class
 
 MDL Simple Menu ships with an `MDLSimpleMenuFoundation` class that external frameworks and libraries can use to
@@ -123,6 +137,10 @@ The adapter for temporary drawers must provide the following functions, with cor
 | `getInnerDimensions() => {width: number, height: number}` | Returns an object with the items container width and height |
 | `setScale(x: string, y: string) => void` | Sets the transform on the root element to the provided (x, y) scale. |
 | `setInnerScale(x: string, y: string) => void` | Sets the transform on the items container to the provided (x, y) scale. |
-| `getNumberOfItems() => numbers` | Returns the number of elements inside the items container. |
-| `getYParamsForItemAtIndex(index: number) => {top: number, height: number}` | Returns an object with the offset top and offset height values for the element inside the items container at the provided index |
-| `setTransitionDelayForItemAtIndex(index: number, value: string) => void` | Sets the transition delay on the element inside the items container at the provided index to the provided value. |
+| `getNumberOfItems() => numbers` | Returns the number of _item_ elements inside the items container. In our vanilla component, we determine this by counting the number of list items whose `role` attribute corresponds to the correct child role of the role present on the menu list element. For example, if the list element has a role of `menu` this queries for all elements that have a role of `menuitem`. |
+| `registerInteractionHandler(type: string, handler: EventListener) => void` | Adds an event listener `handler` for event type `type`. |
+| `deregisterInteractionHandler(type: string, handler: EventListener) => void` | Removes an event listener `handler` for event type `type`. |
+| `getYParamsForItemAtIndex(index: number) => {top: number, height: number}` | Returns an object with the offset top and offset height values for the _item_ element inside the items container at the provided index. Note that this is an index into the list of _item_ elements, and not necessarily every child element of the list. |
+| `setTransitionDelayForItemAtIndex(index: number, value: string) => void` | Sets the transition delay on the element inside the items container at the provided index to the provided value. The same notice for `index` applies here as above. |
+| `getIndexForEventTarget(target: EventTarget) => number` | Checks to see if the `target` of an event pertains to one of the menu items, and if so returns the index of that item. Returns -1 if the target is not one of the menu items. The same notice for `index` applies here as above. |
+| `notifySelected(evtData: {index: number}) => void` | Dispatches an event notifying listeners that a menu item has been selected. The function should accept an `evtData` parameter containing the an object with an `index` property representing the index of the selected item. Implementations may choose to supplement this data with additional data, such as the item itself. |
