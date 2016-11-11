@@ -23,20 +23,20 @@ import {MDLSimpleMenu} from '../../../packages/mdl-menu/simple';
 import {strings} from '../../../packages/mdl-menu/simple/constants';
 import {getTransformPropertyName} from '../../../packages/mdl-menu/util';
 
-function getFixture() {
+function getFixture(open) {
   return bel`
-    <div class="mdl-simple-menu">
+    <div class="mdl-simple-menu ${open ? 'mdl-simple-menu--open' : ''}" tabindex="-1">
       <ul class="mdl-simple-menu__items mdl-list" role="menu">
-        <li class="mdl-list-item" role="menuitem">Item</a>
+        <li class="mdl-list-item" role="menuitem" tabindex="0">Item</a>
         <li role="separator"></li>
-        <li class="mdl-list-item" role="menuitem">Another Item</a>
+        <li class="mdl-list-item" role="menuitem" tabindex="0">Another Item</a>
       </nav>
     </div>
   `;
 }
 
-function setupTest() {
-  const root = getFixture();
+function setupTest(open = false) {
+  const root = getFixture(open);
   const component = new MDLSimpleMenu(root);
   return {root, component};
 }
@@ -168,6 +168,27 @@ test('adapter#deregisterInteractionHandler proxies to removeEventListener', t =>
   t.end();
 });
 
+test('adapter#registerDocumentClickHandler proxies to addEventListener', t => {
+  const {root, component} = setupTest();
+  const handler = td.func('interactionHandler');
+  document.body.appendChild(root);
+  component.getDefaultFoundation().adapter_.registerDocumentClickHandler(handler);
+  domEvents.emit(document, 'click');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
+  t.end();
+});
+
+test('adapter#deregisterDocumentClickHandler proxies to removeEventListener', t => {
+  const {root, component} = setupTest();
+  const handler = td.func('interactionHandler');
+  document.body.appendChild(root);
+  root.addEventListener('click', handler);
+  component.getDefaultFoundation().adapter_.deregisterInteractionHandler(handler);
+  domEvents.emit(document, 'click');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
+  t.end();
+});
+
 test('adapter#getYParamsForItemAtIndex returns the height and top of the item at the provided index', t => {
   const {root, component} = setupTest();
   const items = root.querySelector(strings.ITEMS_SELECTOR);
@@ -216,5 +237,66 @@ test('adapter#notifySelected fires an "MDLSimpleMenu:selected" custom event with
     item,
     index: 0
   });
+  t.end();
+});
+
+test('adapter#notifyCancel fires an "MDLSimpleMenu:cancel" custom event', t => {
+  const {root, component} = setupTest();
+  const handler = td.func('notifyCancel handler');
+  root.addEventListener('MDLSimpleMenu:cancel', handler);
+  component.getDefaultFoundation().adapter_.notifyCancel();
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
+  t.end();
+});
+
+test('adapter#restoreFocus restores the focus saved by adapter#saveFocus', t => {
+  const {root, component} = setupTest(true);
+  const button = bel`<button>Foo</button>`;
+  document.body.appendChild(button);
+  document.body.appendChild(root);
+  button.focus();
+  component.getDefaultFoundation().adapter_.saveFocus();
+  root.focus();
+  component.getDefaultFoundation().adapter_.restoreFocus();
+  t.equal(document.activeElement, button);
+  t.end();
+});
+
+test('adapter#isFocused returns whether the menu is focused', t => {
+  const {root, component} = setupTest(true);
+  document.body.appendChild(root);
+  root.focus();
+  t.true(component.getDefaultFoundation().adapter_.isFocused());
+  t.end();
+});
+
+test('adapter#focus focuses the menu', t => {
+  const {root, component} = setupTest(true);
+  document.body.appendChild(root);
+  component.getDefaultFoundation().adapter_.focus();
+  t.equal(document.activeElement, root);
+  t.end();
+});
+
+test('adapter#getFocusedItemIndex returns the item index of the focused menu element', t => {
+  const {root, component} = setupTest(true);
+  const item = root.querySelectorAll('[role="menuitem"]')[1];
+  document.body.appendChild(root);
+  item.focus();
+  t.equal(component.getDefaultFoundation().adapter_.getFocusedItemIndex(), 1);
+  root.focus();
+  t.equal(component.getDefaultFoundation().adapter_.getFocusedItemIndex(), -1, 'missing index = -1');
+  t.end();
+});
+
+test('adapter#focusItemAtIndex focuses the right menu element', t => {
+  const {root, component} = setupTest(true);
+  const item1 = root.querySelectorAll('[role="menuitem"]')[1];
+  const item2 = root.querySelectorAll('[role="menuitem"]')[0];
+  document.body.appendChild(root);
+  component.getDefaultFoundation().adapter_.focusItemAtIndex(1);
+  t.equal(document.activeElement, item1);
+  component.getDefaultFoundation().adapter_.focusItemAtIndex(0);
+  t.equal(document.activeElement, item2);
   t.end();
 });

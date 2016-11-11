@@ -43,24 +43,31 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
       getNumberOfItems: () => /* number */ 0,
       registerInteractionHandler: (/* type: string, handler: EventListener */) => {},
       deregisterInteractionHandler: (/* type: string, handler: EventListener */) => {},
+      registerDocumentClickHandler: (/* handler: EventListener */) => {},
+      deregisterDocumentClickHandler: (/* handler: EventListener */) => {},
       getYParamsForItemAtIndex: (/* index: number */) => /* {top: number, height: number} */ ({}),
       setTransitionDelayForItemAtIndex: (/* index: number, value: string */) => {},
       getIndexForEventTarget: (/* target: EventTarget */) => /* number */ 0,
-      notifySelected: (/* evtData: {index: number} */) => {}
+      notifySelected: (/* evtData: {index: number} */) => {},
+      notifyCancel: () => {},
+      saveFocus: () => {},
+      restoreFocus: () => {},
+      isFocused: () => /* boolean */ false,
+      focus: () => {},
+      getFocusedItemIndex: () => /* number */ -1,
+      focusItemAtIndex: (/* index: number */) => {}
     };
   }
 
   constructor(adapter) {
     super(Object.assign(MDLSimpleMenuFoundation.defaultAdapter, adapter));
-    this.keyupHandler_ = evt => {
-      const {keyCode, key} = evt;
-      const isEnter = key === 'Enter' || keyCode === 13;
-      const isSpace = key === 'Space' || keyCode === 32;
-      if (isEnter || isSpace) {
-        this.handlePossibleSelected_(evt);
-      }
-    };
     this.clickHandler_ = evt => this.handlePossibleSelected_(evt);
+    this.keydownHandler_ = evt => this.handleKeyboardDown_(evt);
+    this.keyupHandler_ = evt => this.handleKeyboardUp_(evt);
+    this.documentClickHandler_ = evt => {
+      this.adapter_.notifyCancel();
+      this.close();
+    };
     this.isOpen_ = false;
     this.startScaleX_ = 0;
     this.startScaleY_ = 0;
@@ -88,28 +95,15 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
 
     this.adapter_.registerInteractionHandler('click', this.clickHandler_);
     this.adapter_.registerInteractionHandler('keyup', this.keyupHandler_);
+    this.adapter_.registerInteractionHandler('keydown', this.keydownHandler_);
   }
 
   destroy() {
     clearTimeout(this.selectedTriggerTimerId_);
     this.adapter_.deregisterInteractionHandler('click', this.clickHandler_);
     this.adapter_.deregisterInteractionHandler('keyup', this.keyupHandler_);
-  }
-
-  handlePossibleSelected_(evt) {
-    const targetIndex = this.adapter_.getIndexForEventTarget(evt.target);
-    if (targetIndex < 0) {
-      return;
-    }
-    // Debounce multiple selections
-    if (this.selectedTriggerTimerId_) {
-      return;
-    }
-    this.selectedTriggerTimerId_ = setTimeout(() => {
-      this.selectedTriggerTimerId_ = 0;
-      this.close();
-      this.adapter_.notifySelected({index: targetIndex});
-    }, numbers.SELECTED_TRIGGER_DELAY);
+    this.adapter_.deregisterInteractionHandler('keydown', this.keydownHandler_);
+    this.adapter_.deregisterDocumentClickHandler(this.documentClickHandler_);
   }
 
   // Calculate transition delays for individual menu items, so that they fade in one at a time.
@@ -206,20 +200,123 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
     }
   }
 
-  // Open the menu.
-  open() {
+  focusOnOpen_(focusIndex) {
+    if (focusIndex === null) {
+      // First, try focusing the menu.
+      this.adapter_.focus();
+      // If that doesn't work, focus first item instead.
+      if (!this.adapter_.isFocused()) {
+        this.adapter_.focusItemAtIndex(0);
+      }
+    } else {
+      this.adapter_.focusItemAtIndex(focusIndex);
+    }
+  }
+
+  // Handle keys that we want to repeat on hold (tab and arrows).
+  handleKeyboardDown_(evt) {
+    // Do nothing if Alt, Ctrl or Meta are pressed.
+    if (evt.altKey || evt.ctrlKey || evt.metaKey) {
+      return true;
+    }
+
+    const {keyCode, key, shiftKey} = evt;
+    const isTab = key === 'Tab' || keyCode === 9;
+    const isArrowUp = key === 'ArrowUp' || keyCode === 38;
+    const isArrowDown = key === 'ArrowDown' || keyCode === 40;
+
+    const focusedItemIndex = this.adapter_.getFocusedItemIndex();
+    const lastItemIndex = this.adapter_.getNumberOfItems() - 1;
+
+    if (shiftKey && isTab && focusedItemIndex === 0) {
+      this.adapter_.focusItemAtIndex(lastItemIndex);
+      evt.preventDefault();
+      return false;
+    }
+
+    if (!shiftKey && isTab && focusedItemIndex === lastItemIndex) {
+      this.adapter_.focusItemAtIndex(0);
+      evt.preventDefault();
+      return false;
+    }
+
+    if (isArrowUp) {
+      if (focusedItemIndex === 0 || this.adapter_.isFocused()) {
+        this.adapter_.focusItemAtIndex(lastItemIndex);
+      } else {
+        this.adapter_.focusItemAtIndex(focusedItemIndex - 1);
+      }
+    }
+
+    if (isArrowDown) {
+      if (focusedItemIndex === lastItemIndex || this.adapter_.isFocused()) {
+        this.adapter_.focusItemAtIndex(0);
+      } else {
+        this.adapter_.focusItemAtIndex(focusedItemIndex + 1);
+      }
+    }
+
+    return true;
+  }
+
+  // Handle keys that we don't want to repeat on hold (Enter, Space, Escape).
+  handleKeyboardUp_(evt) {
+    // Do nothing if Alt, Ctrl or Meta are pressed.
+    if (evt.altKey || evt.ctrlKey || evt.metaKey) {
+      return true;
+    }
+
+    const {keyCode, key} = evt;
+    const isEnter = key === 'Enter' || keyCode === 13;
+    const isSpace = key === 'Space' || keyCode === 32;
+    const isEscape = key === 'Escape' || keyCode === 27;
+
+    if (isEnter || isSpace) {
+      this.handlePossibleSelected_(evt);
+    }
+
+    if (isEscape) {
+      this.adapter_.notifyCancel();
+      this.close();
+    }
+
+    return true;
+  }
+
+  handlePossibleSelected_(evt) {
+    const targetIndex = this.adapter_.getIndexForEventTarget(evt.target);
+    if (targetIndex < 0) {
+      return;
+    }
+    // Debounce multiple selections
+    if (this.selectedTriggerTimerId_) {
+      return;
+    }
+    this.selectedTriggerTimerId_ = setTimeout(() => {
+      this.selectedTriggerTimerId_ = 0;
+      this.close();
+      this.adapter_.notifySelected({index: targetIndex});
+    }, numbers.SELECTED_TRIGGER_DELAY);
+  }
+
+  // Open the menu. Optionally focus on provided item.
+  open({focusIndex = null} = {}) {
+    this.adapter_.saveFocus();
     this.adapter_.addClass(MDLSimpleMenuFoundation.cssClasses.ANIMATING);
     requestAnimationFrame(() => {
       this.dimensions_ = this.adapter_.getInnerDimensions();
       this.applyTransitionDelays_();
       this.animateMenu_();
       this.adapter_.addClass(MDLSimpleMenuFoundation.cssClasses.OPEN);
+      this.focusOnOpen_(focusIndex);
+      this.adapter_.registerDocumentClickHandler(this.documentClickHandler_);
     });
     this.isOpen_ = true;
   }
 
   // Close the menu.
   close() {
+    this.adapter_.deregisterDocumentClickHandler(this.documentClickHandler_);
     this.adapter_.addClass(MDLSimpleMenuFoundation.cssClasses.ANIMATING);
     requestAnimationFrame(() => {
       this.removeTransitionDelays_();
@@ -227,6 +324,7 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
       this.adapter_.removeClass(MDLSimpleMenuFoundation.cssClasses.OPEN);
     });
     this.isOpen_ = false;
+    this.adapter_.restoreFocus();
   }
 
   isOpen() {

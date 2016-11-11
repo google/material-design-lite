@@ -14,8 +14,8 @@ first render.
 A simple menu is usually closed, appearing when opened. It is appropriate for any display size.
 
 ```html
-<div class="mdl-simple-menu">
-  <ul class="mdl-simple-menu__items mdl-list" role="menu">
+<div class="mdl-simple-menu" tabindex="-1">
+  <ul class="mdl-simple-menu__items mdl-list" role="menu" aria-hidden="true">
     <li class="mdl-list-item" role="menuitem" tabindex="0">
       A Menu Item
     </li>
@@ -25,6 +25,11 @@ A simple menu is usually closed, appearing when opened. It is appropriate for an
   </ul>
 </div>
 ```
+> Note: adding a `tabindex` of `0` to the menu items places them in the tab order.
+  Adding a `tabindex` of `-1` to the root element makes it programmatically focusable, without
+  placing it in the tab order. This allows the menu to be focused on open, so that the next Tab
+  keypress moves to the first menu item. If you would like the first menu item to be automatically
+  focused instead, remove `tabindex="-1"` from the root element.
 
 ```js
 let menu = new mdl.SimpleMenu(document.querySelector('.mdl-simple-menu'));
@@ -60,6 +65,26 @@ menu.open = true;
 // Close menu.
 menu.open = false;
 ```
+
+It also has two lower level methods, which control the menu directly, by showing (opening) and
+hiding (closing) it:
+
+```js
+// Show (open) menu.
+menu.show();
+// Hide (close) menu.
+menu.hide();
+// Show (open) menu, and focus the menu item at index 1.
+menu.show({focusIndex: 1});
+```
+
+You can still use the `open` getter property even if showing and hiding directly:
+
+```js
+menu.show();
+console.log(`Menu is ${menu.open ? 'open' : 'closed'}.`);
+```
+
 
 #### Including in code
 
@@ -122,6 +147,8 @@ with the following `detail` data:
 | `item` | `HTMLElement` | The DOM element for the selected item |
 | `index` | `number` | The index of the selected item |
 
+If the menu is closed with no selection made (for example, if the user hits `Escape` while it's open), a `MDLSimpleMenu:cancel` custom event is emitted instead, with no data attached.
+
 ### Using the Foundation Class
 
 MDL Simple Menu ships with an `MDLSimpleMenuFoundation` class that external frameworks and libraries can use to
@@ -140,7 +167,16 @@ The adapter for temporary drawers must provide the following functions, with cor
 | `getNumberOfItems() => numbers` | Returns the number of _item_ elements inside the items container. In our vanilla component, we determine this by counting the number of list items whose `role` attribute corresponds to the correct child role of the role present on the menu list element. For example, if the list element has a role of `menu` this queries for all elements that have a role of `menuitem`. |
 | `registerInteractionHandler(type: string, handler: EventListener) => void` | Adds an event listener `handler` for event type `type`. |
 | `deregisterInteractionHandler(type: string, handler: EventListener) => void` | Removes an event listener `handler` for event type `type`. |
+| `registerDocumentClickHandler(handler: EventListener) => void` | Adds an event listener `handler` for event type 'click'. |
+| `deregisterDocumentClickHandler(handler: EventListener) => void` | Removes an event listener `handler` for event type 'click'. |
 | `getYParamsForItemAtIndex(index: number) => {top: number, height: number}` | Returns an object with the offset top and offset height values for the _item_ element inside the items container at the provided index. Note that this is an index into the list of _item_ elements, and not necessarily every child element of the list. |
 | `setTransitionDelayForItemAtIndex(index: number, value: string) => void` | Sets the transition delay on the element inside the items container at the provided index to the provided value. The same notice for `index` applies here as above. |
 | `getIndexForEventTarget(target: EventTarget) => number` | Checks to see if the `target` of an event pertains to one of the menu items, and if so returns the index of that item. Returns -1 if the target is not one of the menu items. The same notice for `index` applies here as above. |
 | `notifySelected(evtData: {index: number}) => void` | Dispatches an event notifying listeners that a menu item has been selected. The function should accept an `evtData` parameter containing the an object with an `index` property representing the index of the selected item. Implementations may choose to supplement this data with additional data, such as the item itself. |
+| `notifyCancel() => void` | Dispatches an event notifying listeners that the menu has been closed with no selection made. |
+| `saveFocus() => void` | Stores the currently focused element on the document, for restoring with `restoreFocus`. |
+| `restoreFocus() => void` | Restores the previously saved focus state, by making the previously focused element the active focus again. |
+| `isFocused() => boolean` | Returns a boolean value indicating whether the root element of the simple menu is focused. |
+| `focus() => void` | Focuses the root element of the simple menu. |
+| `getFocusedItemIndex() => number` | Returns the index of the currently focused menu item (-1 if none). |
+| `focusItemAtIndex(index: number) => void` | Focuses the menu item with the provided index. |

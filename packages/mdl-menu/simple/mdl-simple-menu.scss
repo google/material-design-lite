@@ -48,6 +48,10 @@ $mdl-simple-menu-item-offset: 10px;
     background-color: #424242;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &--open {
     display: inline-block;
     transform: scale(1);

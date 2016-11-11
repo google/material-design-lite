@@ -38,6 +38,14 @@ export class MDLSimpleMenu extends MDLComponent {
     }
   }
 
+  show({focusIndex = null} = {}) {
+    this.foundation_.open({focusIndex: focusIndex});
+  }
+
+  hide() {
+    this.foundation_.close();
+  }
+
   /* Return the item container element inside the component. */
   get itemsContainer_() {
     return this.root_.querySelector(MDLSimpleMenuFoundation.strings.ITEMS_SELECTOR);
@@ -72,6 +80,8 @@ export class MDLSimpleMenu extends MDLComponent {
       getNumberOfItems: () => this.items.length,
       registerInteractionHandler: (type, handler) => this.root_.addEventListener(type, handler),
       deregisterInteractionHandler: (type, handler) => this.root_.removeEventListener(type, handler),
+      registerDocumentClickHandler: handler => document.addEventListener('click', handler),
+      deregisterDocumentClickHandler: handler => document.removeEventListener('click', handler),
       getYParamsForItemAtIndex: index => {
         const {offsetTop: top, offsetHeight: height} = this.items[index];
         return {top, height};
@@ -82,7 +92,20 @@ export class MDLSimpleMenu extends MDLComponent {
       notifySelected: evtData => this.emit('MDLSimpleMenu:selected', {
         index: evtData.index,
         item: this.items[evtData.index]
-      })
+      }),
+      notifyCancel: () => this.emit('MDLSimpleMenu:cancel'),
+      saveFocus: () => {
+        this.previousFocus_ = document.activeElement;
+      },
+      restoreFocus: () => {
+        if (this.previousFocus_) {
+          this.previousFocus_.focus();
+        }
+      },
+      isFocused: () => document.activeElement === this.root_,
+      focus: () => this.root_.focus(),
+      getFocusedItemIndex: () => this.items.indexOf(document.activeElement),
+      focusItemAtIndex: index => this.items[index].focus()
     });
   }
 
