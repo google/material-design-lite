@@ -36,6 +36,7 @@ module.exports = [{
     menu: [path.resolve('./packages/mdl-menu/index.js')],
     radio: [path.resolve('./packages/mdl-radio/index.js')],
     ripple: [path.resolve('./packages/mdl-ripple/index.js')],
+    select: [path.resolve('./packages/mdl-select/index.js')],
     snackbar: [path.resolve('./packages/mdl-snackbar/index.js')],
     textfield: [path.resolve('./packages/mdl-textfield/index.js')]
   },
@@ -93,6 +94,7 @@ module.exports = [{
     'mdl.menu': path.resolve('./packages/mdl-menu/mdl-menu.scss'),
     'mdl.radio': path.resolve('./packages/mdl-radio/mdl-radio.scss'),
     'mdl.ripple': path.resolve('./packages/mdl-ripple/mdl-ripple.scss'),
+    'mdl.select': path.resolve('./packages/mdl-select/mdl-select.scss'),
     'mdl.snackbar': path.resolve('./packages/mdl-snackbar/mdl-snackbar.scss'),
     'mdl.textfield': path.resolve('./packages/mdl-textfield/mdl-textfield.scss'),
     'mdl.theme': path.resolve('./packages/mdl-theme/mdl-theme.scss'),

@@ -56,20 +56,6 @@ test('get/set open', t => {
   t.end();
 });
 
-test('constructor throws if no role on menu items', t => {
-  t.throws(() => new MDLSimpleMenu(bel`
-    <div class="mdl-simple-menu"><ul class="mdl-simple-menu__items"></ul></div>
-  `));
-  t.end();
-});
-
-test('constructor throws if role on menu is invalid (not menu or listbox)', t => {
-  t.throws(() => new MDLSimpleMenu(bel`
-    <div class="mdl-simple-menu"><ul class="mdl-simple-menu__items" role="dialog"></ul></div>
-  `));
-  t.end();
-});
-
 test('items returns all menu items', t => {
   const {root, component} = setupTest();
   const items = [].slice.call(root.querySelectorAll('[role="menuitem"]'));

@@ -39,18 +39,20 @@ const SL_LAUNCHERS = {
     version: 'latest-1',
     platform: 'OS X 10.11'
   },
-  'sl-firefox-stable': {
-    base: 'SauceLabs',
-    browserName: 'firefox',
-    version: 'latest',
-    platform: 'Windows 10'
-  },
-  'sl-firefox-previous': {
-    base: 'SauceLabs',
-    browserName: 'firefox',
-    version: 'latest-1',
-    platform: 'Windows 10'
-  },
+  // NOTE(traviskaufman): Disabling firefox for now as it has been consistently flaky recently. See
+  // https://github.com/google/material-design-lite/issues/4922
+  // 'sl-firefox-stable': {
+  //   base: 'SauceLabs',
+  //   browserName: 'firefox',
+  //   version: 'latest',
+  //   platform: 'Windows 10'
+  // },
+  // 'sl-firefox-previous': {
+  //   base: 'SauceLabs',
+  //   browserName: 'firefox',
+  //   version: 'latest-1',
+  //   platform: 'Windows 10'
+  // },
   'sl-ie': {
     base: 'SauceLabs',
     browserName: 'internet explorer',
@@ -110,9 +112,9 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     browsers: determineBrowsers(),
-    browserDisconnectTimeout: 20000,
-    browserNoActivityTimeout: 240000,
-    captureTimeout: 120000,
+    browserDisconnectTimeout: 40000,
+    browserNoActivityTimeout: 480000,
+    captureTimeout: 240000,
     concurrency: USING_SL ? 4 : Infinity,
     customLaunchers: SL_LAUNCHERS,
 

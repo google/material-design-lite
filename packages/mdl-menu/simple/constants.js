@@ -46,13 +46,3 @@ export const numbers = {
   TRANSITION_X2: 0.2,
   TRANSITION_Y2: 1
 };
-
-// Mapping between composite aria roles supported by the simple menu to roles owned
-// by that composite role. This should be used in order to query for DOM elements within
-// the menu that represent actual menu items, e.g. `[role="menuitem"]` for a simple menu with
-// role="menu", or `[role="option"]` for a simple menu with role="listbox". For more information
-// see https://www.w3.org/TR/wai-aria/roles#composite.
-export const PARENT_CHILD_ROLES = {
-  menu: 'menuitem',
-  listbox: 'option'
-};
