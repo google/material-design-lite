@@ -15,7 +15,9 @@
  */
 
 import test from 'tape';
+import domEvents from 'dom-events';
 import td from 'testdouble';
+
 import {MDLComponent} from '../../../packages/mdl-base';
 
 class FakeComponent extends MDLComponent {
@@ -32,6 +34,11 @@ class FakeComponent extends MDLComponent {
       isDefaultFoundation: true,
       init: () => {}
     });
+  }
+
+  initialize(...args) {
+    this.initializeArgs = args;
+    this.initializeComesBeforeFoundation = !this.foundation_;
   }
 
   initialSyncWithDOM() {
@@ -102,6 +109,39 @@ test("provides a default destroy() method which calls the foundation's destroy()
   const f = new FakeComponent(root, foundation);
   f.destroy();
   t.doesNotThrow(() => td.verify(foundation.destroy()));
+  t.end();
+});
+
+test('#initialize is called within constructor and passed any additional positional component args', t => {
+  const f = new FakeComponent(document.createElement('div'), /* foundation */ undefined, 'foo', 42);
+  t.deepEqual(f.initializeArgs, ['foo', 42]);
+  t.end();
+});
+
+test('#initialize is called before getDefaultFoundation()', t => {
+  const f = new FakeComponent(document.createElement('div'));
+  t.true(f.initializeComesBeforeFoundation);
+  t.end();
+});
+
+test('#listen adds an event listener to the root element', t => {
+  const root = document.createElement('div');
+  const f = new FakeComponent(root);
+  const handler = td.func('eventHandler');
+  f.listen('FakeComponent:customEvent', handler);
+  domEvents.emit(root, 'FakeComponent:customEvent');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
+  t.end();
+});
+
+test('#unlisten removes an event listener from the root element', t => {
+  const root = document.createElement('div');
+  const f = new FakeComponent(root);
+  const handler = td.func('eventHandler');
+  root.addEventListener('FakeComponent:customEvent', handler);
+  f.unlisten('FakeComponent:customEvent', handler);
+  domEvents.emit(root, 'FakeComponent:customEvent');
+  t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
   t.end();
 });
 

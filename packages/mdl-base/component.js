@@ -25,11 +25,18 @@ export default class MDLComponent {
     return new MDLComponent(root, new MDLFoundation());
   }
 
-  constructor(root, foundation) {
+  constructor(root, foundation, ...args) {
     this.root_ = root;
+    this.initialize(...args);
     this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
     this.foundation_.init();
     this.initialSyncWithDOM();
+  }
+
+  initialize(/* ...args */) {
+    // Subclasses can override this to do any additional setup work that would be considered part of a
+    // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
+    // initialized. Any additional arguments besides root and foundation will be passed in here.
   }
 
   getDefaultFoundation() {
@@ -50,6 +57,18 @@ export default class MDLComponent {
     // Subclasses may implement this method to release any resources / deregister any listeners they have
     // attached. An example of this might be deregistering a resize event from the window object.
     this.foundation_.destroy();
+  }
+
+  // Wrapper method to add an event listener to the component's root element. This is most useful when
+  // listening for custom events.
+  listen(evtType, handler) {
+    this.root_.addEventListener(evtType, handler);
+  }
+
+  // Wrapper method to remove an event listener to the component's root element. This is most useful when
+  // unlistening for custom events.
+  unlisten(evtType, handler) {
+    this.root_.removeEventListener(evtType, handler);
   }
 
   // Fires a cross-browser-compatible custom event from the component root of the given type,
