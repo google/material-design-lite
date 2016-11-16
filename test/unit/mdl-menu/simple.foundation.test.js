@@ -73,12 +73,12 @@ test('exports numbers', t => {
 
 test('defaultAdapter returns a complete adapter implementation', t => {
   verifyDefaultAdapter(MDLSimpleMenuFoundation, [
-    'addClass', 'removeClass', 'hasClass', 'hasNecessaryDom', 'getInnerDimensions', 'setScale',
-    'setInnerScale', 'getNumberOfItems', 'registerInteractionHandler', 'deregisterInteractionHandler',
-    'registerDocumentClickHandler', 'deregisterDocumentClickHandler',
-    'getYParamsForItemAtIndex', 'setTransitionDelayForItemAtIndex', 'getIndexForEventTarget',
-    'notifySelected', 'notifyCancel', 'saveFocus', 'restoreFocus', 'isFocused', 'focus',
-    'getFocusedItemIndex', 'focusItemAtIndex'
+    'addClass', 'removeClass', 'hasClass', 'hasNecessaryDom', 'getInnerDimensions', 'hasAnchor',
+    'getAnchorDimensions', 'getWindowDimensions', 'setScale', 'setInnerScale', 'getNumberOfItems',
+    'registerInteractionHandler', 'deregisterInteractionHandler', 'registerDocumentClickHandler',
+    'deregisterDocumentClickHandler', 'getYParamsForItemAtIndex', 'setTransitionDelayForItemAtIndex',
+    'getIndexForEventTarget', 'notifySelected', 'notifyCancel', 'saveFocus', 'restoreFocus', 'isFocused', 'focus',
+    'getFocusedItemIndex', 'focusItemAtIndex', 'isRtl', 'setTransformOrigin', 'setPosition'
   ], t);
   t.end();
 });
@@ -160,6 +160,146 @@ testFoundation('#open focuses the menu at the end of the animation', t => {
   td.when(mockNow()).thenReturn(500);
   mockRaf.flush();
   t.doesNotThrow(() => td.verify(mockAdapter.focus()));
+
+  window.performance.now = now;
+  t.end();
+});
+
+testFoundation('#open anchors the menu on the top left in LTR, given enough room', t => {
+  const {foundation, mockAdapter, mockRaf} = t.data;
+  const {now} = window.performance;
+  const mockNow = td.func('window.performance.now');
+  window.performance.now = mockNow;
+
+  td.when(mockAdapter.hasAnchor()).thenReturn(true);
+  td.when(mockAdapter.isRtl()).thenReturn(false);
+  td.when(mockAdapter.getInnerDimensions()).thenReturn({height: 200, width: 100});
+  td.when(mockAdapter.getWindowDimensions()).thenReturn({height: 1000, width: 1000});
+  td.when(mockAdapter.getAnchorDimensions()).thenReturn({
+    height: 20, width: 40, top: 20, bottom: 40, left: 20, right: 60
+  });
+  td.when(mockNow()).thenReturn(0);
+
+  foundation.open();
+  mockRaf.flush();
+  mockRaf.flush();
+
+  td.when(mockNow()).thenReturn(500);
+  mockRaf.flush();
+  t.doesNotThrow(() => td.verify(mockAdapter.setTransformOrigin('top left')));
+  t.doesNotThrow(() => td.verify(mockAdapter.setPosition({left: '0', top: '0'})));
+
+  window.performance.now = now;
+  t.end();
+});
+
+testFoundation('#open anchors the menu on the top right in LTR when close to the right edge', t => {
+  const {foundation, mockAdapter, mockRaf} = t.data;
+  const {now} = window.performance;
+  const mockNow = td.func('window.performance.now');
+  window.performance.now = mockNow;
+
+  td.when(mockAdapter.hasAnchor()).thenReturn(true);
+  td.when(mockAdapter.isRtl()).thenReturn(false);
+  td.when(mockAdapter.getInnerDimensions()).thenReturn({height: 200, width: 100});
+  td.when(mockAdapter.getWindowDimensions()).thenReturn({height: 1000, width: 1000});
+  td.when(mockAdapter.getAnchorDimensions()).thenReturn({
+    height: 20, width: 40, top: 20, bottom: 40, left: 950, right: 990
+  });
+  td.when(mockNow()).thenReturn(0);
+
+  foundation.open();
+  mockRaf.flush();
+  mockRaf.flush();
+
+  td.when(mockNow()).thenReturn(500);
+  mockRaf.flush();
+  t.doesNotThrow(() => td.verify(mockAdapter.setTransformOrigin('top right')));
+  t.doesNotThrow(() => td.verify(mockAdapter.setPosition({right: '0', top: '0'})));
+
+  window.performance.now = now;
+  t.end();
+});
+
+testFoundation('#open anchors the menu on the top right in RTL, given enough room', t => {
+  const {foundation, mockAdapter, mockRaf} = t.data;
+  const {now} = window.performance;
+  const mockNow = td.func('window.performance.now');
+  window.performance.now = mockNow;
+
+  td.when(mockAdapter.hasAnchor()).thenReturn(true);
+  td.when(mockAdapter.isRtl()).thenReturn(true);
+  td.when(mockAdapter.getInnerDimensions()).thenReturn({height: 200, width: 100});
+  td.when(mockAdapter.getWindowDimensions()).thenReturn({height: 1000, width: 1000});
+  td.when(mockAdapter.getAnchorDimensions()).thenReturn({
+    height: 20, width: 40, top: 20, bottom: 40, left: 500, right: 540
+  });
+  td.when(mockNow()).thenReturn(0);
+
+  foundation.open();
+  mockRaf.flush();
+  mockRaf.flush();
+
+  td.when(mockNow()).thenReturn(500);
+  mockRaf.flush();
+  t.doesNotThrow(() => td.verify(mockAdapter.setTransformOrigin('top right')));
+  t.doesNotThrow(() => td.verify(mockAdapter.setPosition({right: '0', top: '0'})));
+
+  window.performance.now = now;
+  t.end();
+});
+
+testFoundation('#open anchors the menu on the top left in RTL when close to the left edge', t => {
+  const {foundation, mockAdapter, mockRaf} = t.data;
+  const {now} = window.performance;
+  const mockNow = td.func('window.performance.now');
+  window.performance.now = mockNow;
+
+  td.when(mockAdapter.hasAnchor()).thenReturn(true);
+  td.when(mockAdapter.isRtl()).thenReturn(true);
+  td.when(mockAdapter.getInnerDimensions()).thenReturn({height: 200, width: 100});
+  td.when(mockAdapter.getWindowDimensions()).thenReturn({height: 1000, width: 1000});
+  td.when(mockAdapter.getAnchorDimensions()).thenReturn({
+    height: 20, width: 40, top: 20, bottom: 40, left: 10, right: 50
+  });
+  td.when(mockNow()).thenReturn(0);
+
+  foundation.open();
+  mockRaf.flush();
+  mockRaf.flush();
+
+  td.when(mockNow()).thenReturn(500);
+  mockRaf.flush();
+  t.doesNotThrow(() => td.verify(mockAdapter.setTransformOrigin('top left')));
+  t.doesNotThrow(() => td.verify(mockAdapter.setPosition({left: '0', top: '0'})));
+
+  window.performance.now = now;
+  t.end();
+});
+
+testFoundation('#open anchors the menu on the bottom left in LTR when close to the bottom edge', t => {
+  const {foundation, mockAdapter, mockRaf} = t.data;
+  const {now} = window.performance;
+  const mockNow = td.func('window.performance.now');
+  window.performance.now = mockNow;
+
+  td.when(mockAdapter.hasAnchor()).thenReturn(true);
+  td.when(mockAdapter.isRtl()).thenReturn(false);
+  td.when(mockAdapter.getInnerDimensions()).thenReturn({height: 200, width: 100});
+  td.when(mockAdapter.getWindowDimensions()).thenReturn({height: 1000, width: 1000});
+  td.when(mockAdapter.getAnchorDimensions()).thenReturn({
+    height: 20, width: 40, top: 900, bottom: 920, left: 10, right: 50
+  });
+  td.when(mockNow()).thenReturn(0);
+
+  foundation.open();
+  mockRaf.flush();
+  mockRaf.flush();
+
+  td.when(mockNow()).thenReturn(500);
+  mockRaf.flush();
+  t.doesNotThrow(() => td.verify(mockAdapter.setTransformOrigin('bottom left')));
+  t.doesNotThrow(() => td.verify(mockAdapter.setPosition({left: '0', bottom: '0'})));
 
   window.performance.now = now;
   t.end();

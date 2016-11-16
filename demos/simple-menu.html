@@ -23,11 +23,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="assets/material-design-lite.css.js" charset="utf-8"></script>
     <style>
+      html,
+      body,
+      main {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
       .demo-content {
+        position: relative;
+        flex: 1;
         margin-top: 16px;
-        height: 500px;
-        width: 100%;
         background-color: antiquewhite;
+      }
+
+      .mdl-menu-anchor {
+        position: absolute;
       }
     </style>
   </head>
@@ -35,20 +47,21 @@
     <main>
       <h1>MDL Simple Menu</h1>
       <p>
+        Button position:
         <label>
-          <input type="radio" name="position" value="" checked>
+          <input type="radio" name="position" value="top left" checked>
           Top left
         </label>
         <label>
-          <input type="radio" name="position" value="mdl-simple-menu--open-from-top-right">
+          <input type="radio" name="position" value="top right">
           Top right
         </label>
         <label>
-          <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-left">
+          <input type="radio" name="position" value="bottom left">
           Bottom left
         </label>
         <label>
-          <input type="radio" name="position" value="mdl-simple-menu--open-from-bottom-right">
+          <input type="radio" name="position" value="bottom right">
           Bottom right
         </label>
       </p>
@@ -59,34 +72,39 @@
         </label>
       </p>
       <div>
-        <button class="toggle">Toggle</button>
         <span>Last Selected item: <em id="last-selected">&lt;none selected&gt;</em></span>
       </div>
-      <div class="mdl-simple-menu" tabindex="-1">
-        <ul class="mdl-simple-menu__items mdl-list" role="menu" aria-hidden="true">
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Back</li>
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Forward</li>
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Reload</li>
-          <li class="mdl-list-divider" role="separator"></li>
+      <div class="demo-content">
+        <div class="mdl-menu-anchor">
+          <button class="toggle">Toggle</button>
 
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Save As...</li>
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Print...</li>
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Cast...</li>
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Translate to English</li>
-          <li class="mdl-list-divider" role="separator"></li>
+          <div class="mdl-simple-menu" style="position: absolute;" tabindex="-1">
+            <ul class="mdl-simple-menu__items mdl-list" role="menu" aria-hidden="true">
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Back</li>
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Forward</li>
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Reload</li>
+              <li class="mdl-list-divider" role="separator"></li>
 
-          <li class="mdl-list-item" role="menuitem" tabindex="0">View Page Source</li>
-          <li class="mdl-list-item" role="menuitem" tabindex="0">Inspect</li>
-        </ul>
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Save As...</li>
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Print...</li>
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Cast...</li>
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Translate to English</li>
+              <li class="mdl-list-divider" role="separator"></li>
+
+              <li class="mdl-list-item" role="menuitem" tabindex="0">View Page Source</li>
+              <li class="mdl-list-item" role="menuitem" tabindex="0">Inspect</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="demo-content"></div>
     </main>
 
     <script src="../assets/material-design-lite.js" charset="utf-8"></script>
     <script>
       var menuEl = document.querySelector('.mdl-simple-menu');
       var menu = new mdl.menu.MDLSimpleMenu(menuEl);
-      document.querySelector('.toggle').addEventListener('click', function() {
+      var toggle = document.querySelector('.toggle');
+      toggle.addEventListener('click', function() {
         menu.open = !menu.open;
       });
 
@@ -103,11 +121,17 @@
       for (var i = 0; i < radios.length; i++) {
         radios[i].addEventListener('change', function(evt) {
           if (evt.target.checked) {
-            menuEl.classList.remove('mdl-simple-menu--open-from-top-right');
-            menuEl.classList.remove('mdl-simple-menu--open-from-bottom-left');
-            menuEl.classList.remove('mdl-simple-menu--open-from-bottom-right');
             if (evt.target.value) {
-              menuEl.classList.add(evt.target.value);
+              var anchor = document.querySelector('.mdl-menu-anchor');
+              anchor.style.removeAttribute('top');
+              anchor.style.removeAttribute('right');
+              anchor.style.removeAttribute('bottom');
+              anchor.style.removeAttribute('left');
+
+              var vertical = evt.target.value.split(' ')[0];
+              var horizontal = evt.target.value.split(' ')[1];
+              anchor.style.setAttribute(vertical, '0');
+              anchor.style.setAttribute(horizontal, '0');
             }
           }
         });

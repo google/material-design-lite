@@ -71,6 +71,11 @@ export class MDLSimpleMenu extends MDLComponent {
         const {itemsContainer_: itemsContainer} = this;
         return {width: itemsContainer.offsetWidth, height: itemsContainer.offsetHeight};
       },
+      hasAnchor: () => this.root_.parentElement && this.root_.parentElement.classList.contains('mdl-menu-anchor'),
+      getAnchorDimensions: () => this.root_.parentElement.getBoundingClientRect(),
+      getWindowDimensions: () => {
+        return {width: window.innerWidth, height: window.innerHeight};
+      },
       setScale: (x, y) => {
         this.root_.style[getTransformPropertyName(window)] = `scale(${x}, ${y})`;
       },
@@ -105,7 +110,17 @@ export class MDLSimpleMenu extends MDLComponent {
       isFocused: () => document.activeElement === this.root_,
       focus: () => this.root_.focus(),
       getFocusedItemIndex: () => this.items.indexOf(document.activeElement),
-      focusItemAtIndex: index => this.items[index].focus()
+      focusItemAtIndex: index => this.items[index].focus(),
+      isRtl: () => getComputedStyle(this.root_).getPropertyValue('direction') === 'rtl',
+      setTransformOrigin: origin => {
+        this.root_.style[`${getTransformPropertyName(window)}-origin`] = origin;
+      },
+      setPosition: position => {
+        this.root_.style.left = 'left' in position ? position.left : null;
+        this.root_.style.right = 'right' in position ? position.right : null;
+        this.root_.style.top = 'top' in position ? position.top : null;
+        this.root_.style.bottom = 'bottom' in position ? position.bottom : null;
+      }
     });
   }
 

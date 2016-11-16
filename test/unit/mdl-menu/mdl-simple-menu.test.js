@@ -300,3 +300,79 @@ test('adapter#focusItemAtIndex focuses the right menu element', t => {
   t.equal(document.activeElement, item2);
   t.end();
 });
+
+test('adapter#hasAnchor returns true if it has an anchor', t => {
+  const anchor = bel`<div class="mdl-menu-anchor"></div>`;
+  const {root, component} = setupTest(true);
+  anchor.appendChild(root);
+  t.true(component.getDefaultFoundation().adapter_.hasAnchor());
+  t.end();
+});
+
+test('adapter#hasAnchor returns false if it does not have an anchor', t => {
+  const notAnAnchor = bel`<div></div>`;
+  const {root, component} = setupTest(true);
+  notAnAnchor.appendChild(root);
+  t.false(component.getDefaultFoundation().adapter_.hasAnchor());
+  t.end();
+});
+
+test('adapter#getAnchorDimensions returns the dimensions of the anchor container', t => {
+  const anchor = bel`<div class="mdl-menu-anchor" style="height: 21px; width: 42px;"></div>`;
+  const {root, component} = setupTest(true);
+  anchor.appendChild(root);
+  document.body.appendChild(anchor);
+  t.equal(component.getDefaultFoundation().adapter_.getAnchorDimensions().height, 21);
+  t.equal(component.getDefaultFoundation().adapter_.getAnchorDimensions().width, 42);
+  t.end();
+});
+
+test('adapter#getWindowDimensions returns the dimensions of the window', t => {
+  const {root, component} = setupTest(true);
+  document.body.appendChild(root);
+  t.equal(component.getDefaultFoundation().adapter_.getWindowDimensions().height, window.innerHeight);
+  t.equal(component.getDefaultFoundation().adapter_.getWindowDimensions().width, window.innerWidth);
+  t.end();
+});
+
+test('adapter#isRtl returns true for RTL documents', t => {
+  const anchor = bel`<div dir="rtl" class="mdl-menu-anchor"></div>`;
+  const {root, component} = setupTest(true);
+  anchor.appendChild(root);
+  document.body.appendChild(anchor);
+  t.true(component.getDefaultFoundation().adapter_.isRtl());
+  t.end();
+});
+
+test('adapter#isRtl returns false for explicit LTR documents', t => {
+  const anchor = bel`<div dir="ltr" class="mdl-menu-anchor"></div>`;
+  const {root, component} = setupTest(true);
+  anchor.appendChild(root);
+  document.body.appendChild(anchor);
+  t.false(component.getDefaultFoundation().adapter_.isRtl());
+  t.end();
+});
+
+test('adapter#isRtl returns false for implicit LTR documents', t => {
+  const anchor = bel`<div class="mdl-menu-anchor"></div>`;
+  const {root, component} = setupTest(true);
+  anchor.appendChild(root);
+  document.body.appendChild(anchor);
+  t.false(component.getDefaultFoundation().adapter_.isRtl());
+  t.end();
+});
+
+test('adapter#setTransformOrigin sets the correct transform origin on the menu element', t => {
+  const {root, component} = setupTest();
+  component.getDefaultFoundation().adapter_.setTransformOrigin('left top 10px');
+  t.equal(root.style.getPropertyValue(`${getTransformPropertyName(window)}-origin`), 'left top 10px');
+  t.end();
+});
+
+test('adapter#setPosition sets the correct position on the menu element', t => {
+  const {root, component} = setupTest();
+  component.getDefaultFoundation().adapter_.setPosition({top: '10px', left: '11px'});
+  t.equal(root.style.top, '10px');
+  t.equal(root.style.left, '11px');
+  t.end();
+});
