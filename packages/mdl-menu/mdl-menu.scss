@@ -15,3 +15,8 @@
  */
 
 @import "./simple/mdl-simple-menu";
+
+.mdl-menu-anchor {
+  position: relative;
+  overflow: visible;
+}

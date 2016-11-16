@@ -38,6 +38,10 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
       hasClass: (/* className: string */) => {},
       hasNecessaryDom: () => /* boolean */ false,
       getInnerDimensions: () => /* { width: number, height: number } */ ({}),
+      hasAnchor: () => /* boolean */ false,
+      getAnchorDimensions: () =>
+          /* { width: number, height: number, top: number, right: number, bottom: number, left: number } */ ({}),
+      getWindowDimensions: () => /* { width: number, height: number } */ ({}),
       setScale: (/* x: number, y: number */) => {},
       setInnerScale: (/* x: number, y: number */) => {},
       getNumberOfItems: () => /* number */ 0,
@@ -55,7 +59,10 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
       isFocused: () => /* boolean */ false,
       focus: () => {},
       getFocusedItemIndex: () => /* number */ -1,
-      focusItemAtIndex: (/* index: number */) => {}
+      focusItemAtIndex: (/* index: number */) => {},
+      isRtl: () => /* boolean */ false,
+      setTransformOrigin: (/* origin: string */) => {},
+      setPosition: (/* position: { top: string, right: string, bottom: string, left: string } */) => {}
     };
   }
 
@@ -299,13 +306,60 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
     }, numbers.SELECTED_TRIGGER_DELAY);
   }
 
-  // Open the menu. Optionally focus on provided item.
+  autoPosition_() {
+    if (!this.adapter_.hasAnchor()) {
+      return;
+    }
+
+    // Defaults: open from the top left.
+    let vertical = 'top';
+    let horizontal = 'left';
+
+    const anchor = this.adapter_.getAnchorDimensions();
+    const windowDimensions = this.adapter_.getWindowDimensions();
+
+    const topOverflow = anchor.top + this.dimensions_.height - windowDimensions.height;
+    const bottomOverflow = this.dimensions_.height - anchor.bottom;
+    const extendsBeyondTopBounds = topOverflow > 0;
+
+    if (extendsBeyondTopBounds) {
+      if (bottomOverflow < topOverflow) {
+        vertical = 'bottom';
+      }
+    }
+
+    const leftOverflow = anchor.left + this.dimensions_.width - windowDimensions.width;
+    const rightOverflow = this.dimensions_.width - anchor.right;
+    const extendsBeyondLeftBounds = leftOverflow > 0;
+    const extendsBeyondRightBounds = rightOverflow > 0;
+
+    if (this.adapter_.isRtl()) {
+      // In RTL, we prefer to open from the right.
+      horizontal = 'right';
+      if (extendsBeyondRightBounds && leftOverflow < rightOverflow) {
+        horizontal = 'left';
+      }
+    } else if (extendsBeyondLeftBounds && rightOverflow < leftOverflow) {
+      horizontal = 'right';
+    }
+
+    const position = {
+      [horizontal]: '0',
+      [vertical]: '0'
+    };
+
+    this.adapter_.setTransformOrigin(`${vertical} ${horizontal}`);
+    this.adapter_.setPosition(position);
+  }
+
+  // Open the menu.
   open({focusIndex = null} = {}) {
     this.adapter_.saveFocus();
     this.adapter_.addClass(MDLSimpleMenuFoundation.cssClasses.ANIMATING);
     requestAnimationFrame(() => {
       this.dimensions_ = this.adapter_.getInnerDimensions();
       this.applyTransitionDelays_();
+      this.autoPosition_();
       this.animateMenu_();
       this.adapter_.addClass(MDLSimpleMenuFoundation.cssClasses.OPEN);
       this.focusOnOpen_(focusIndex);

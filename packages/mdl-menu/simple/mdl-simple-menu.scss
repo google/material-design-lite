@@ -22,9 +22,6 @@
 $mdl-simple-menu-fade-duration: .2s;
 $mdl-simple-menu-item-fade-duration: .3s;
 
-// Move text slightly when opening the menu, to improve visual flow.
-$mdl-simple-menu-item-offset: 10px;
-
 /* postcss-bem-linter: define simple-menu */
 .mdl-simple-menu {
   display: none;
@@ -37,6 +34,7 @@ $mdl-simple-menu-item-offset: 10px;
   transform-origin: top left;
   border-radius: 2px;
   background-color: white;
+  white-space: nowrap;
   opacity: 0;
   overflow: hidden;
   box-sizing: border-box;
@@ -65,7 +63,6 @@ $mdl-simple-menu-item-offset: 10px;
 
   &__items {
     display: inline-block;
-    transform-origin: $mdl-simple-menu-item-offset $mdl-simple-menu-item-offset;
     overflow-x: hidden;
     overflow-y: auto;
     box-sizing: border-box;
@@ -102,33 +99,25 @@ $mdl-simple-menu-item-offset: 10px;
   [dir="rtl"] & {
     transform-origin: top right;
   }
-  [dir="rtl"] &__items {
-    transform-origin: calc(100% - #{$mdl-simple-menu-item-offset}) $mdl-simple-menu-item-offset;
-  }
   /* stylelint-enable plugin/selector-bem-pattern */
 
-  &--open-from-top-right {
-    transform-origin: top right;
+  // Note: it's appropriate to use `!important` for these since:
+  // - they override defaults at several levels of specificity;
+  // - they're optional classes that are purposely added by the developer to obtain a desired behaviour.
+  &--open-from-top-left {
+    transform-origin: top left !important;
+  }
 
-    .mdl-simple-menu__items {
-      transform-origin: calc(100% - #{$mdl-simple-menu-item-offset}) $mdl-simple-menu-item-offset;
-    }
+  &--open-from-top-right {
+    transform-origin: top right !important;
   }
 
   &--open-from-bottom-left {
-    transform-origin: bottom left;
-
-    .mdl-simple-menu__items {
-      transform-origin: $mdl-simple-menu-item-offset calc(100% - #{$mdl-simple-menu-item-offset});
-    }
+    transform-origin: bottom left !important;
   }
 
   &--open-from-bottom-right {
-    transform-origin: bottom right;
-
-    .mdl-simple-menu__items {
-      transform-origin: calc(100% - #{$mdl-simple-menu-item-offset}) calc(100% - #{$mdl-simple-menu-item-offset});
-    }
+    transform-origin: bottom right !important;
   }
 
   /* stylelint-disable plugin/selector-bem-pattern */

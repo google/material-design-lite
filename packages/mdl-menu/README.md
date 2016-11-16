@@ -45,6 +45,68 @@ You can start the menu in its open state by adding the `mdl-simple-menu--open` c
 </div>
 ```
 
+### Positioning the menu
+
+The menu can either be positioned manually, or automatically, by anchoring it to an element.
+
+#### Automatic Positioning
+
+The menu understands the concept of an anchor, which it can use to determine how to position itself, and which corner
+to open from.
+
+The anchor can either be a visible element that the menu is a child of:
+
+```html
+<div class="toolbar mdl-menu-anchor">
+  <div class="mdl-simple-menu">
+  ...
+  </div>
+</div>
+```
+
+or a wrapper element that contains the actual visible element to attach to:
+
+```html
+<div class="mdl-menu-anchor">
+  <button>Open Menu</button>
+  <div class="mdl-simple-menu">
+  ...
+  </div>
+</div>
+```
+
+> Note: `overflow: visible` and `position: relative` will be set on the element with `mdl-menu-anchor` to ensure that
+the menu is positioned and displayed correctly.
+
+The menu will check if its parent element has the `mdl-menu-anchor` class set, and if so, it will automatically position
+itself relative to this anchor element. It will open from the top left (top right in RTL) corner of the anchor by
+default, but will choose an appropriate different corner if close to the edge of the screen.
+
+#### Manual Positioning
+
+The menu is `position: absolute` by default, and must be positioned by the user when doing manual positioning.
+
+```html
+<div class="container">
+  <div class="mdl-simple-menu" style="top:0; left: 0;">
+  ...
+  </div>
+</div>
+```
+
+The menu will open from the top left by default (top right in RTL). Depending on how you've positioned your button, you
+may want to change the point it opens from.
+To override the opening point, you can style `transform-origin` directly, or use one of the following convenience
+classes:
+
+| class name                                | description                          |
+| ----------------------------------------- | ------------------------------------ |
+| `mdl-simple-menu--open-from-top-left`     | Open the menu from the top left.     |
+| `mdl-simple-menu--open-from-top-right`    | Open the menu from the top right.    |
+| `mdl-simple-menu--open-from-bottom-left`  | Open the menu from the bottom left.  |
+| `mdl-simple-menu--open-from-bottom-right` | Open the menu from the bottom right. |
+
+
 ### Using the JS Component
 
 > **N.B.**: The use of `role` on both the menu's internal items list, as well as on each item, is
@@ -162,6 +224,9 @@ The adapter for temporary drawers must provide the following functions, with cor
 | `hasClass(className: string) => boolean` | Returns boolean indicating whether element has a given class. |
 | `hasNecessaryDom() => boolean` | Returns boolean indicating whether the necessary DOM is present (namely, the `mdl-temporary-drawer__drawer` drawer container). |
 | `getInnerDimensions() => {width: number, height: number}` | Returns an object with the items container width and height |
+| `hasAnchor: () => boolean` | Returns whether the menu has an anchor for positioning. |
+| `getAnchorDimensions() => { width: number, height: number, top: number, right: number, bottom: number, left: number }` | Returns an object with the dimensions and position of the anchor (same semantics as `DOMRect`). |
+| `getWindowDimensions() => {width: number, height: number}` | Returns an object with width and height of the page, in pixels. |
 | `setScale(x: string, y: string) => void` | Sets the transform on the root element to the provided (x, y) scale. |
 | `setInnerScale(x: string, y: string) => void` | Sets the transform on the items container to the provided (x, y) scale. |
 | `getNumberOfItems() => numbers` | Returns the number of _item_ elements inside the items container. In our vanilla component, we determine this by counting the number of list items whose `role` attribute corresponds to the correct child role of the role present on the menu list element. For example, if the list element has a role of `menu` this queries for all elements that have a role of `menuitem`. |
@@ -180,3 +245,6 @@ The adapter for temporary drawers must provide the following functions, with cor
 | `focus() => void` | Focuses the root element of the simple menu. |
 | `getFocusedItemIndex() => number` | Returns the index of the currently focused menu item (-1 if none). |
 | `focusItemAtIndex(index: number) => void` | Focuses the menu item with the provided index. |
+| `isRtl() => boolean` | Returns boolean indicating whether the current environment is RTL. |
+| `setTransformOrigin(value: string) => void` | Sets the transform origin for the menu element. |
+| `setPosition(position: { top: string, right: string, bottom: string, left: string }) => void` | Sets the position of the menu element. |
