@@ -1,7 +1,5 @@
 # MDL v2 Architecture Overview
 
-> TL;DR to get up to speed on integrating with react skim through the "Component Architecture" section and check out our [react example](https://github.com/google/material-design-lite/tree/master/examples/react). Also [mdl-base](https://github.com/google/material-design-lite/tree/master/packages/mdl-base) is the best starting point to learn v2 from a code perspective. You can also look at [mdl-checkbox](https://github.com/google/material-design-lite/tree/master/packages/mdl-checkbox) for an example of a concrete implementation.
-
 The following is an outline of the MDLv2 architecture. Many of the architectural decisions we made were in response to the problems and feedback the team has received around MDLv1. The goals of the MDLv2 architecture are to not only provide an easy way to provide a material UI for static websites, but for _dynamic websites and frameworks as well_. Essentially, _the goal of MDLv2 is to be the canonical material design implementation for the web platform_. We want MDLv2 to be:
 
 * Accurate to the [material design spec](https://material.google.com/) with the highest possible fidelity, with graceful degredation in situations where this cannot be achieved.
