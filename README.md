@@ -25,6 +25,7 @@ Setup the repo:
 
 ```
 git clone https://github.com/google/material-design-lite.git && cd material-design-lite
+git checkout master
 npm i
 ```
 
