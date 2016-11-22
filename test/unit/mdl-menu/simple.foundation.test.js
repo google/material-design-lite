@@ -771,6 +771,27 @@ test('on ArrowDown keydown on the first element, it moves to the second', t => {
   t.end();
 });
 
+test('on ArrowDown keydown prevents default on the event', t => {
+  const {foundation, mockAdapter} = setupTest();
+  const handlers = captureHandlers(mockAdapter, 'registerInteractionHandler');
+  const clock = lolex.install();
+  const raf = createMockRaf();
+  const target = {};
+  const preventDefault = td.func('event.preventDefault');
+  td.when(mockAdapter.getNumberOfItems()).thenReturn(3);
+  td.when(mockAdapter.getFocusedItemIndex()).thenReturn(0);
+
+  foundation.init();
+  handlers.keydown({target, key: 'ArrowDown', preventDefault});
+  clock.tick(numbers.SELECTED_TRIGGER_DELAY);
+  raf.flush();
+  t.doesNotThrow(() => td.verify(preventDefault()));
+
+  raf.restore();
+  clock.uninstall();
+  t.end();
+});
+
 test('on ArrowUp keydown on the first element, it moves to the last', t => {
   const {foundation, mockAdapter} = setupTest();
   const handlers = captureHandlers(mockAdapter, 'registerInteractionHandler');
@@ -805,6 +826,48 @@ test('on ArrowUp keydown on the last element, it moves to the previous', t => {
   clock.tick(numbers.SELECTED_TRIGGER_DELAY);
   raf.flush();
   t.doesNotThrow(() => td.verify(mockAdapter.focusItemAtIndex(1)));
+
+  raf.restore();
+  clock.uninstall();
+  t.end();
+});
+
+test('on ArrowUp keydown prevents default on the event', t => {
+  const {foundation, mockAdapter} = setupTest();
+  const handlers = captureHandlers(mockAdapter, 'registerInteractionHandler');
+  const clock = lolex.install();
+  const raf = createMockRaf();
+  const target = {};
+  const preventDefault = td.func('event.preventDefault');
+  td.when(mockAdapter.getNumberOfItems()).thenReturn(3);
+  td.when(mockAdapter.getFocusedItemIndex()).thenReturn(2);
+
+  foundation.init();
+  handlers.keydown({target, key: 'ArrowUp', preventDefault});
+  clock.tick(numbers.SELECTED_TRIGGER_DELAY);
+  raf.flush();
+  t.doesNotThrow(() => td.verify(preventDefault()));
+
+  raf.restore();
+  clock.uninstall();
+  t.end();
+});
+
+test('on spacebar keydown prevents default on the event', t => {
+  const {foundation, mockAdapter} = setupTest();
+  const handlers = captureHandlers(mockAdapter, 'registerInteractionHandler');
+  const clock = lolex.install();
+  const raf = createMockRaf();
+  const target = {};
+  const preventDefault = td.func('event.preventDefault');
+  td.when(mockAdapter.getNumberOfItems()).thenReturn(3);
+  td.when(mockAdapter.getFocusedItemIndex()).thenReturn(2);
+
+  foundation.init();
+  handlers.keydown({target, key: 'Space', preventDefault});
+  clock.tick(numbers.SELECTED_TRIGGER_DELAY);
+  raf.flush();
+  t.doesNotThrow(() => td.verify(preventDefault()));
 
   raf.restore();
   clock.uninstall();

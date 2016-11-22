@@ -1,0 +1,167 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "mdl-animation/functions";
+@import "mdl-typography/mixins";
+@import "mdl-theme/mixins";
+@import "mdl-rtl/mixins";
+
+@mixin mdl-select-dd-arrow-svg-bg_($fill-hex-number: 000000, $opacity: .54) {
+  // stylelint-disable scss/dollar-variable-pattern
+  background-image: url(data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%23#{$fill-hex-number}%22%20fill-rule%3D%22evenodd%22%20opacity%3D%22#{$opacity}%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E);
+  // stylelint-enable scss/dollar-variable-pattern
+}
+
+// postcss-bem-linter: define select
+.mdl-select {
+  @include mdl-typography(subheading2);
+  @include mdl-theme-prop(color, text-primary-on-light);
+  @include mdl-rtl-reflexive-box(padding, right, 24px);
+
+  // Resets for <select> element
+  appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 32px;
+  transition:
+    mdl-animation-exit(border-bottom-color, 150ms),
+    mdl-animation-exit(background-color, 150ms);
+
+  border: none;
+  border-bottom: 1px solid rgba(black, .12);
+  border-radius: 0;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: right center;
+
+  @include mdl-select-dd-arrow-svg-bg_;
+
+  font-family: Roboto, sans-serif;
+  font-size: .936rem;
+  cursor: pointer;
+
+  &:focus {
+    @include mdl-theme-prop(border-bottom-color, primary);
+    outline: none;
+    background-color: rgba(black, .06);
+  }
+
+  @include mdl-rtl {
+    background-position: left center;
+  }
+
+  @include mdl-theme-dark {
+    @include mdl-theme-prop(color, text-primary-on-dark);
+    @include mdl-select-dd-arrow-svg-bg_(ffffff);
+    border-bottom: 1px solid rgba(white, .12);
+
+    &:focus {
+      @include mdl-theme-prop(border-bottom-color, primary);
+      background-color: rgba(white, .09);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    // TODO: https://www.pivotaltracker.com/story/show/129706423
+    top: 0;
+    left: 0;
+    transform-origin: center center;
+  }
+
+  &__selected-text {
+    transition:
+      mdl-animation-exit(opacity, 125ms),
+      mdl-animation-exit(transform, 125ms);
+  }
+}
+
+.mdl-select--open {
+  .mdl-select__selected-text {
+    transform: translateY(8px);
+    transition:
+      mdl-animation-enter(opacity, 125ms, 125ms),
+      mdl-animation-enter(transform, 125ms, 125ms);
+    opacity: 0;
+  }
+}
+
+.mdl-select--disabled,
+.mdl-select[disabled] {
+  @include mdl-theme-prop(color, text-disabled-on-light);
+  @include mdl-select-dd-arrow-svg-bg_(000000, .38);
+  border-bottom-style: dotted;
+  cursor: default;
+  pointer-events: none;
+  // Imitate native disabled functionality
+  user-select: none;
+
+  @include mdl-theme-dark(".mdl-select", true) {
+    @include mdl-theme-prop(color, text-disabled-on-dark);
+    @include mdl-select-dd-arrow-svg-bg_(ffffff, .38);
+    border-bottom: 1px dotted rgba(white, .38);
+  }
+}
+
+// postcss-bem-linter: end
+
+.mdl-select__menu {
+  .mdl-list-item {
+    @include mdl-typography(subheading2);
+    @include mdl-theme-prop(color, text-secondary-on-light);
+
+    &[aria-selected="true"] {
+      @include mdl-theme-prop(color, text-primary-on-light);
+    }
+
+    @include mdl-theme-dark(".mdl-select") {
+      @include mdl-theme-prop(color, text-secondary-on-dark);
+
+      &[aria-selected="true"] {
+        @include mdl-theme-prop(color, text-primary-on-dark);
+      }
+    }
+  }
+
+  .mdl-list-group,
+  .mdl-list-group > .mdl-list-item:first-child {
+    margin-top: 12px;
+  }
+
+  .mdl-list-group {
+    @include mdl-theme-prop(color, text-hint-on-light);
+    font-weight: normal;
+
+    .mdl-list-item {
+      @include mdl-theme-prop(color, text-primary-on-light);
+    }
+  }
+
+  @include mdl-theme-dark(".mdl-select") {
+    .mdl-list-group {
+      @include mdl-theme-prop(color, text-hint-on-dark);
+
+      .mdl-list-item {
+        @include mdl-theme-prop(color, text-primary-on-dark);
+      }
+    }
+  }
+}

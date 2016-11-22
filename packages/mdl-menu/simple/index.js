@@ -15,7 +15,6 @@
  */
 
 import {MDLComponent} from 'mdl-base';
-import {PARENT_CHILD_ROLES} from './constants';
 import MDLSimpleMenuFoundation from './foundation';
 import {getTransformPropertyName} from '../util';
 
@@ -57,8 +56,7 @@ export class MDLSimpleMenu extends MDLComponent {
    */
   get items() {
     const {itemsContainer_: itemsContainer} = this;
-    const childRole = PARENT_CHILD_ROLES[itemsContainer.getAttribute('role')];
-    return [].slice.call(itemsContainer.querySelectorAll(`[role="${childRole}"]`));
+    return [].slice.call(itemsContainer.querySelectorAll('.mdl-list-item[role]'));
   }
 
   getDefaultFoundation() {
@@ -122,23 +120,5 @@ export class MDLSimpleMenu extends MDLComponent {
         this.root_.style.bottom = 'bottom' in position ? position.bottom : null;
       }
     });
-  }
-
-  initialSyncWithDOM() {
-    this.validateRole_();
-  }
-
-  validateRole_() {
-    const VALID_ROLES = Object.keys(PARENT_CHILD_ROLES);
-    const role = this.itemsContainer_.getAttribute('role');
-    if (!role) {
-      throw new Error(
-        'Missing "role" attribute on menu items list element. A "role" attribute is needed for the menu to ' +
-        `function properly. Please choose one of ${VALID_ROLES}`
-      );
-    }
-    if (VALID_ROLES.indexOf(role) < 0) {
-      throw new Error(`Invalid menu items list role "${role}." Please choose one of ${VALID_ROLES}`);
-    }
   }
 }

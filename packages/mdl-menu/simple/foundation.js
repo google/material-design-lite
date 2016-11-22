@@ -231,6 +231,7 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
     const isTab = key === 'Tab' || keyCode === 9;
     const isArrowUp = key === 'ArrowUp' || keyCode === 38;
     const isArrowDown = key === 'ArrowDown' || keyCode === 40;
+    const isSpace = key === 'Space' || keyCode === 32;
 
     const focusedItemIndex = this.adapter_.getFocusedItemIndex();
     const lastItemIndex = this.adapter_.getNumberOfItems() - 1;
@@ -247,15 +248,18 @@ export default class MDLSimpleMenuFoundation extends MDLFoundation {
       return false;
     }
 
+    // Ensure Arrow{Up,Down} and space do not cause inadvertent scrolling
+    if (isArrowUp || isArrowDown || isSpace) {
+      evt.preventDefault();
+    }
+
     if (isArrowUp) {
       if (focusedItemIndex === 0 || this.adapter_.isFocused()) {
         this.adapter_.focusItemAtIndex(lastItemIndex);
       } else {
         this.adapter_.focusItemAtIndex(focusedItemIndex - 1);
       }
-    }
-
-    if (isArrowDown) {
+    } else if (isArrowDown) {
       if (focusedItemIndex === lastItemIndex || this.adapter_.isFocused()) {
         this.adapter_.focusItemAtIndex(0);
       } else {

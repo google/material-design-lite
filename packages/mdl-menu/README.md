@@ -32,7 +32,7 @@ A simple menu is usually closed, appearing when opened. It is appropriate for an
   focused instead, remove `tabindex="-1"` from the root element.
 
 ```js
-let menu = new mdl.SimpleMenu(document.querySelector('.mdl-simple-menu'));
+let menu = new mdl.menu.SimpleMenu(document.querySelector('.mdl-simple-menu'));
 // Add event listener to some button to toggle the menu on and off.
 document.querySelector('.some-button').addEventListener('click', () => menu.open = !menu.open);
 ```
@@ -108,11 +108,6 @@ classes:
 
 
 ### Using the JS Component
-
-> **N.B.**: The use of `role` on both the menu's internal items list, as well as on each item, is
-> _mandatory_. You may either use the role of `menu` on the list with a role of `menuitem` on each
-> list item, or a role of `listbox` on the list with a role of `option` on each list item. Further
-> composite roles may be supported in the future.
 
 MDL Simple Menu ships with a Component / Foundation combo which allows for frameworks to richly integrate the
 correct menu behaviors into idiomatic components.

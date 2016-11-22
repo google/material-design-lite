@@ -23,6 +23,7 @@ import * as drawer from 'mdl-drawer';
 import * as textfield from 'mdl-textfield';
 import * as snackbar from 'mdl-snackbar';
 import * as menu from 'mdl-menu';
+import * as select from 'mdl-select';
 import autoInit from 'mdl-auto-init';
 
 // Register all components
@@ -34,6 +35,7 @@ autoInit.register('MDLRadio', radio.MDLRadio);
 autoInit.register('MDLSnackbar', snackbar.MDLSnackbar);
 autoInit.register('MDLTextfield', textfield.MDLTextfield);
 autoInit.register('MDLSimpleMenu', menu.MDLSimpleMenu);
+autoInit.register('MDLSelect', select.MDLSelect);
 
 // Export all components.
 export {
@@ -46,5 +48,6 @@ export {
   drawer,
   textfield,
   menu,
+  select,
   autoInit
 };
