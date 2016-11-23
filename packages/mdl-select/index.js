@@ -64,8 +64,9 @@ export class MDLSelect extends MDLComponent {
     return null;
   }
 
-  initialize(menu = null) {
-    this.menu_ = menu ? menu : new MDLSimpleMenu(this.root_.querySelector('.mdl-select__menu'));
+  initialize(menuFactory = el => new MDLSimpleMenu(el)) {
+    this.menuEl_ = this.root_.querySelector('.mdl-select__menu');
+    this.menu_ = menuFactory(this.menuEl_);
     this.selectedText_ = this.root_.querySelector('.mdl-select__selected-text');
   }
 
@@ -75,6 +76,7 @@ export class MDLSelect extends MDLComponent {
       removeClass: className => this.root_.classList.remove(className),
       setAttr: (attr, value) => this.root_.setAttribute(attr, value),
       rmAttr: (attr, value) => this.root_.removeAttribute(attr, value),
+      computeBoundingRect: () => this.root_.getBoundingClientRect(),
       registerInteractionHandler: (type, handler) => this.root_.addEventListener(type, handler),
       deregisterInteractionHandler: (type, handler) => this.root_.removeEventListener(type, handler),
       focus: () => this.root_.focus(),
@@ -87,7 +89,12 @@ export class MDLSelect extends MDLComponent {
       getComputedStyleValue: prop => window.getComputedStyle(this.root_).getPropertyValue(prop),
       setStyle: (propertyName, value) => this.root_.style.setProperty(propertyName, value),
       create2dRenderingContext: () => document.createElement('canvas').getContext('2d'),
+      setMenuElStyle: (propertyName, value) => this.menuEl_.style.setProperty(propertyName, value),
+      setMenuElAttr: (attr, value) => this.menuEl_.setAttribute(attr, value),
+      rmMenuElAttr: attr => this.menuEl_.removeAttribute(attr),
+      getMenuElOffsetHeight: () => this.menuEl_.offsetHeight,
       openMenu: focusIndex => this.menu_.show({focusIndex}),
+      isMenuOpen: () => this.menu_.open,
       setSelectedTextContent: selectedTextContent => {
         this.selectedText_.textContent = selectedTextContent;
       },
@@ -95,9 +102,11 @@ export class MDLSelect extends MDLComponent {
       getTextForOptionAtIndex: index => this.options[index].textContent,
       setAttrForOptionAtIndex: (index, attr, value) => this.options[index].setAttribute(attr, value),
       rmAttrForOptionAtIndex: (index, attr) => this.options[index].removeAttribute(attr),
+      getOffsetTopForOptionAtIndex: index => this.options[index].offsetTop,
       registerMenuInteractionHandler: (type, handler) => this.menu_.listen(type, handler),
       deregisterMenuInteractionHandler: (type, handler) => this.menu_.unlisten(type, handler),
-      notifyChange: () => this.emit('MDLSelect:change', this)
+      notifyChange: () => this.emit('MDLSelect:change', this),
+      getWindowInnerHeight: () => window.innerHeight
     });
   }
 

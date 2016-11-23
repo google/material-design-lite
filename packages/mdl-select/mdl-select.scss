@@ -81,10 +81,11 @@
 
   &__menu {
     position: fixed;
-    // TODO: https://www.pivotaltracker.com/story/show/129706423
     top: 0;
     left: 0;
+    max-height: 100%;
     transform-origin: center center;
+    overflow-y: scroll;
   }
 
   &__selected-text {

@@ -161,6 +161,7 @@ test('adapter#registerDocumentClickHandler proxies to addEventListener', t => {
   component.getDefaultFoundation().adapter_.registerDocumentClickHandler(handler);
   domEvents.emit(document, 'click');
   t.doesNotThrow(() => td.verify(handler(td.matchers.anything())));
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -172,6 +173,7 @@ test('adapter#deregisterDocumentClickHandler proxies to removeEventListener', t 
   component.getDefaultFoundation().adapter_.deregisterInteractionHandler(handler);
   domEvents.emit(document, 'click');
   t.doesNotThrow(() => td.verify(handler(td.matchers.anything()), {times: 0}));
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -245,6 +247,8 @@ test('adapter#restoreFocus restores the focus saved by adapter#saveFocus', t => 
   root.focus();
   component.getDefaultFoundation().adapter_.restoreFocus();
   t.equal(document.activeElement, button);
+  document.body.removeChild(button);
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -253,6 +257,7 @@ test('adapter#isFocused returns whether the menu is focused', t => {
   document.body.appendChild(root);
   root.focus();
   t.true(component.getDefaultFoundation().adapter_.isFocused());
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -261,6 +266,7 @@ test('adapter#focus focuses the menu', t => {
   document.body.appendChild(root);
   component.getDefaultFoundation().adapter_.focus();
   t.equal(document.activeElement, root);
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -272,6 +278,7 @@ test('adapter#getFocusedItemIndex returns the item index of the focused menu ele
   t.equal(component.getDefaultFoundation().adapter_.getFocusedItemIndex(), 1);
   root.focus();
   t.equal(component.getDefaultFoundation().adapter_.getFocusedItemIndex(), -1, 'missing index = -1');
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -284,6 +291,7 @@ test('adapter#focusItemAtIndex focuses the right menu element', t => {
   t.equal(document.activeElement, item1);
   component.getDefaultFoundation().adapter_.focusItemAtIndex(0);
   t.equal(document.activeElement, item2);
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -310,6 +318,7 @@ test('adapter#getAnchorDimensions returns the dimensions of the anchor container
   document.body.appendChild(anchor);
   t.equal(component.getDefaultFoundation().adapter_.getAnchorDimensions().height, 21);
   t.equal(component.getDefaultFoundation().adapter_.getAnchorDimensions().width, 42);
+  document.body.removeChild(anchor);
   t.end();
 });
 
@@ -318,6 +327,7 @@ test('adapter#getWindowDimensions returns the dimensions of the window', t => {
   document.body.appendChild(root);
   t.equal(component.getDefaultFoundation().adapter_.getWindowDimensions().height, window.innerHeight);
   t.equal(component.getDefaultFoundation().adapter_.getWindowDimensions().width, window.innerWidth);
+  document.body.removeChild(root);
   t.end();
 });
 
@@ -327,6 +337,7 @@ test('adapter#isRtl returns true for RTL documents', t => {
   anchor.appendChild(root);
   document.body.appendChild(anchor);
   t.true(component.getDefaultFoundation().adapter_.isRtl());
+  document.body.removeChild(anchor);
   t.end();
 });
 
@@ -336,6 +347,7 @@ test('adapter#isRtl returns false for explicit LTR documents', t => {
   anchor.appendChild(root);
   document.body.appendChild(anchor);
   t.false(component.getDefaultFoundation().adapter_.isRtl());
+  document.body.removeChild(anchor);
   t.end();
 });
 
@@ -345,6 +357,7 @@ test('adapter#isRtl returns false for implicit LTR documents', t => {
   anchor.appendChild(root);
   document.body.appendChild(anchor);
   t.false(component.getDefaultFoundation().adapter_.isRtl());
+  document.body.removeChild(anchor);
   t.end();
 });
 

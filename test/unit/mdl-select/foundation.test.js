@@ -29,12 +29,14 @@ test('exports cssClasses', t => {
 
 test('default adapter returns a complete adapter implementation', t => {
   verifyDefaultAdapter(MDLSelectFoundation, [
-    'addClass', 'removeClass', 'setAttr', 'rmAttr', 'registerInteractionHandler',
-    'deregisterInteractionHandler', 'focus', 'makeTabbable', 'makeUntabbable',
-    'getComputedStyleValue', 'setStyle', 'create2dRenderingContext', 'openMenu',
-    'setSelectedTextContent', 'getNumberOfOptions', 'getTextForOptionAtIndex',
-    'setAttrForOptionAtIndex', 'rmAttrForOptionAtIndex', 'registerMenuInteractionHandler',
-    'deregisterMenuInteractionHandler', 'notifyChange'
+    'addClass', 'removeClass', 'setAttr', 'rmAttr', 'computeBoundingRect',
+    'registerInteractionHandler', 'deregisterInteractionHandler', 'focus', 'makeTabbable',
+    'makeUntabbable', 'getComputedStyleValue', 'setStyle', 'create2dRenderingContext',
+    'setMenuElStyle', 'setMenuElAttr', 'rmMenuElAttr', 'getMenuElOffsetHeight', 'openMenu',
+    'isMenuOpen', 'setSelectedTextContent', 'getNumberOfOptions', 'getTextForOptionAtIndex',
+    'setAttrForOptionAtIndex', 'rmAttrForOptionAtIndex', 'getOffsetTopForOptionAtIndex',
+    'registerMenuInteractionHandler', 'deregisterMenuInteractionHandler', 'notifyChange',
+    'getWindowInnerHeight'
   ], t);
   t.end();
 });

@@ -32,6 +32,7 @@ class FakeMenu {
     this.unlisten = td.func('menu.unlisten');
     this.show = td.func('menu.show');
     this.hide = td.func('menu.hide');
+    this.open = false;
   }
 }
 
@@ -56,8 +57,9 @@ test('attachTo returns a component instance', t => {
 function setupTest() {
   const menu = new FakeMenu();
   const fixture = getFixture();
-  const component = new MDLSelect(fixture, /* foundation */ undefined, menu);
-  return {menu, fixture, component};
+  const menuEl = fixture.querySelector('.mdl-select__menu');
+  const component = new MDLSelect(fixture, /* foundation */ undefined, () => menu);
+  return {menu, menuEl, fixture, component};
 }
 
 test('options returns the menu items', t => {
@@ -134,7 +136,7 @@ test('#initialSyncWithDOM sets the selected index if a menu item contains an ari
   menu.items[1].setAttribute('aria-selected', 'true');
   fixture.appendChild(menu.items[1]);
 
-  const component = new MDLSelect(fixture, /* foundation */ undefined, menu);
+  const component = new MDLSelect(fixture, /* foundation */ undefined, () => menu);
   t.equal(component.selectedIndex, 1);
   t.end();
 });
@@ -174,6 +176,15 @@ test('adapter#rmAttr removes an attribute from the root element', t => {
   fixture.setAttribute('aria-disabled', 'true');
   component.getDefaultFoundation().adapter_.rmAttr('aria-disabled');
   t.false(fixture.hasAttribute('aria-disabled'));
+  t.end();
+});
+
+test('adapter#computeBoundingRect returns the result of getBoundingClientRect() on the root element', t => {
+  const {component, fixture} = setupTest();
+  t.deepEqual(
+    component.getDefaultFoundation().adapter_.computeBoundingRect(),
+    fixture.getBoundingClientRect()
+  );
   t.end();
 });
 
@@ -263,10 +274,48 @@ test('adapter#create2dRenderingContext returns a CanvasRenderingContext2d instan
   t.end();
 });
 
+test('adapter#setMenuElStyle sets a style property on the menu element', t => {
+  const {component, menuEl} = setupTest();
+  component.getDefaultFoundation().adapter_.setMenuElStyle('font-size', '10px');
+  t.equal(menuEl.style.fontSize, '10px');
+  t.end();
+});
+
+test('adapter#setMenuElAttr sets an attribute on the menu element', t => {
+  const {component, menuEl} = setupTest();
+  component.getDefaultFoundation().adapter_.setMenuElAttr('aria-hidden', 'true');
+  t.equal(menuEl.getAttribute('aria-hidden'), 'true');
+  t.end();
+});
+
+test('adapter#rmMenuElAttr removes an attribute from the menu element', t => {
+  const {component, menuEl} = setupTest();
+  menuEl.setAttribute('aria-hidden', 'true');
+  component.getDefaultFoundation().adapter_.rmMenuElAttr('aria-hidden');
+  t.false(menuEl.hasAttribute('aria-hidden'));
+  t.end();
+});
+
+test('adapter#getMenuElOffsetHeight returns the menu element\'s offsetHeight', t => {
+  const {component, menuEl} = setupTest();
+  t.equal(component.getDefaultFoundation().adapter_.getMenuElOffsetHeight(), menuEl.offsetHeight);
+  t.end();
+});
+
 test('adapter#openMenu shows the menu with the given focusIndex', t => {
   const {component, menu} = setupTest();
   component.getDefaultFoundation().adapter_.openMenu(1);
   t.doesNotThrow(() => td.verify(menu.show({focusIndex: 1})));
+  t.end();
+});
+
+test('adapter#isMenuOpen returns whether or not the menu is open', t => {
+  const {component, menu} = setupTest();
+  const {adapter_: adapter} = component.getDefaultFoundation();
+  menu.open = true;
+  t.true(adapter.isMenuOpen());
+  menu.open = false;
+  t.false(adapter.isMenuOpen());
   t.end();
 });
 
@@ -308,6 +357,15 @@ test('adapter#rmAttrForOptionAtIndex removes the given attribute for the option 
   t.end();
 });
 
+test('adapter#getOffsetTopForOptionAtIndex returns the offsetTop for the option at the given index', t => {
+  const {component, menu} = setupTest();
+  t.equal(
+    component.getDefaultFoundation().adapter_.getOffsetTopForOptionAtIndex(1),
+    menu.items[1].offsetTop
+  );
+  t.end();
+});
+
 test('adapter#registerMenuInteractionHandler listens for an interaction handler on the menu', t => {
   const {component, menu} = setupTest();
   const handler = () => {};
@@ -329,5 +387,11 @@ test('adapter#notifyChange emits an "MDLSelect:change" custom event from the roo
   const handler = td.func('MDLSelect:change handler');
   fixture.addEventListener('MDLSelect:change', handler);
   component.getDefaultFoundation().adapter_.notifyChange();
+  t.end();
+});
+
+test('adapter#getWindowInnerHeight returns window.innerHeight', t => {
+  const {component} = setupTest();
+  t.equal(component.getDefaultFoundation().adapter_.getWindowInnerHeight(), window.innerHeight);
   t.end();
 });
