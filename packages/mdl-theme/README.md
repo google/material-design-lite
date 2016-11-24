@@ -51,7 +51,8 @@ The correct text colors will automatically be calculated based on the provided t
 #### mdl-theme-prop mixin
 
 MDL Theme exports an `mdl-theme-prop` mixin, which can be used to apply a theme color to a property. The mixin takes the
-property name as the first parameter, and the desired color as the second one.
+property name as the first parameter, and the desired color as the second one. It also has an optional boolean parameter
+for whether `!important` should be applied to the value.
 
 For example, if you wanted to set the background of `.foo` to the primary color, and the text color to suit primary text
 on top of it:
@@ -258,6 +259,9 @@ Determines whether to use light or dark text on top of a given color.
 </span>
 ```
 
+> Note: These classes use `!important` on the values, since they're user-specified and are applied to ensure that a
+particular color gets used.
+
 There are a number of CSS classes available for taking advantage of theming.
 
 #### Theme color classes
@@ -338,7 +342,7 @@ calculate the correct text colors to use, based on the chosen theme colors. Thes
 
 #### Theme colors
 
-| Class                    | Description                 |
+| Custom property          | Description                 |
 | ------------------------ | --------------------------- |
 | `--mdl-theme-primary`    | The theme primary color.    |
 | `--mdl-theme-accent`     | The theme accent color.     |
@@ -346,7 +350,7 @@ calculate the correct text colors to use, based on the chosen theme colors. Thes
 
 #### Text on a theme primary color background
 
-| Class                                      | Description                                                |
+| Custom property                            | Description                                                |
 | ------------------------------------------ | ---------------------------------------------------------- |
 | `--mdl-theme-text-primary-on-primary`      | Primary text on top of a theme primary color background.   |
 | `--mdl-theme-text-secondary-on-primary`    | Secondary text on top of a theme primary color background. |
@@ -356,7 +360,7 @@ calculate the correct text colors to use, based on the chosen theme colors. Thes
 
 #### Text on a theme accent color background
 
-| Class                                      | Description                                                |
+| Custom property                            | Description                                                |
 | ------------------------------------------ | ---------------------------------------------------------- |
 | `--mdl-theme-text-primary-on-accent`       | Primary text on top of a theme accent color background.    |
 | `--mdl-theme-text-secondary-on-accent`     | Secondary text on top of a theme accent color background.  |
@@ -366,7 +370,7 @@ calculate the correct text colors to use, based on the chosen theme colors. Thes
 
 #### Text on the theme background
 
-| Class                                      | Description                                                |
+| Custom property                            | Description                                                |
 | ------------------------------------------ | ---------------------------------------------------------- |
 | `--mdl-theme-text-primary-on-background`   | Primary text on top of the theme background.               |
 | `--mdl-theme-text-secondary-on-background` | Secondary text on top of the theme background.             |
@@ -376,7 +380,7 @@ calculate the correct text colors to use, based on the chosen theme colors. Thes
 
 #### Text on a light-colored background (useful for custom backgrounds)
 
-| Class                                      | Description                                                |
+| Custom property                            | Description                                                |
 | ------------------------------------------ | ---------------------------------------------------------- |
 | `--mdl-theme-text-primary-on-light`        | Primary text on top of a light-colored background.         |
 | `--mdl-theme-text-secondary-on-light`      | Secondary text on top of a light-colored background.       |
@@ -386,7 +390,7 @@ calculate the correct text colors to use, based on the chosen theme colors. Thes
 
 #### Text on a dark-colored background (useful for custom backgrounds)
 
-| Class                                      | Description                                                |
+| Custom property                            | Description                                                |
 | ------------------------------------------ | ---------------------------------------------------------- |
 | `--mdl-theme-text-primary-on-dark`         | Primary text on top of a dark-colored background.          |
 | `--mdl-theme-text-secondary-on-dark`       | Secondary text on top of a dark-colored background.        |

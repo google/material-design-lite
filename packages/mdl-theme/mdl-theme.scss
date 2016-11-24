@@ -30,7 +30,7 @@
 @each $style in map-keys($mdl-theme-property-values) {
   @if $style != "background" {
     .mdl-theme--#{$style} {
-      @include mdl-theme-prop(color, $style);
+      @include mdl-theme-prop(color, $style, true);
     }
   }
 }
@@ -38,6 +38,6 @@
 /* CSS rules for using primary and accent as background colors. */
 @each $style in ("primary", "accent") {
   .mdl-theme--#{$style}-bg {
-    @include mdl-theme-prop(background-color, $style);
+    @include mdl-theme-prop(background-color, $style, true);
   }
 }

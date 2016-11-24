@@ -24,13 +24,20 @@
  * $property is typically color or background-color, but can be any CSS property that accepts color values.
  * $style should be one of the map keys in $mdl-theme-property-values (_variables.scss).
  */
-@mixin mdl-theme-prop($property, $style) {
+@mixin mdl-theme-prop($property, $style, $important: false) {
   @if not map-has-key($mdl-theme-property-values, $style) {
     @error "Invalid style specified! Choose one of #{map-keys($mdl-theme-property-values)}";
   }
 
-  #{$property}: map-get($mdl-theme-property-values, $style);
-  #{$property}: var(--mdl-theme-#{$style}, map-get($mdl-theme-property-values, $style));
+  @if $important {
+    #{$property}: map-get($mdl-theme-property-values, $style) !important;
+    #{$property}: var(--mdl-theme-#{$style}, map-get($mdl-theme-property-values, $style)) !important;
+  }
+
+  @else {
+    #{$property}: map-get($mdl-theme-property-values, $style);
+    #{$property}: var(--mdl-theme-#{$style}, map-get($mdl-theme-property-values, $style));
+  }
 }
 
 /**
