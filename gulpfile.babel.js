@@ -283,6 +283,7 @@ gulp.task('all', ['clean'], cb => {
     ['mocha'],
     ['assets', 'pages',
      'templates', 'images', 'metadata'],
+    ['generate-service-worker'],
     ['zip'],
     cb);
 });
@@ -804,4 +805,15 @@ gulp.task('styles:gen', ['styles'], () => {
   });
 
   stream.pipe(gulp.dest('dist'));
+});
+
+gulp.task('generate-service-worker', function(callback) {
+  var path = require('path');
+  var swPrecache = require('sw-precache');
+  var rootDir = 'dist';
+
+  swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: rootDir
+  }, callback);
 });
