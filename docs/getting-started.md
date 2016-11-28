@@ -8,7 +8,7 @@ This guide will help you get started using MDLv2 on your own sites and within yo
 > If you are interested in integrating MDLv2 into a framework, or building a component library for
 your framework that wraps MDLv2, check out our [framework integration guide](./integrating-into-frameworks.md).
 
-## MDL Quickstart: Building a simple greeting app
+## MDL Quick Start: Building a simple greeting app
 
 The best way to learn any new technology is to get your hands dirty and build something with it, so
 that's what we'll do here! We'll be building a simple web page which lets you enter a first and/or
@@ -24,7 +24,7 @@ First, let's set up our project. Throughout this guide, we'll assume you have a 
 [NodeJS](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) available on your `$PATH`. You can get the latest NodeJS download [here](https://nodejs.org/en/download/), or use a
 tool like [nvm](https://github.com/creationix/nvm) to install it.
 
-Once node is installed, create a directory for the site and install MDLv2 inside of it.
+Once node is installed, create a directory for the site, and install MDLv2 inside of it.
 
 ```
 mkdir greeting-app
@@ -48,7 +48,7 @@ will be available on your path.
 
 ### Creating the skeleton index.html file
 
-Now that we have a sane environment set up, let's create a simple `index.html` file and include
+Now that we have a sane environment set up, let's create a simple `index.html` file, and include
 the assets needed for MDLv2. Put the following within `index.html` in the `greeting-app` directory:
 
 ```html
@@ -75,14 +75,13 @@ the duration of this guide.
 
 Let's take a look at a few aspects of the above HTML.
 
-* **No javascript necessary (yet)** - Because we aren't using any dynamic components, we only need
-  to include the MDLv2 CSS so that we can apply the proper CSS classes to our elements. With MDLv2,
-  javascript is only necessary for dynamic components whose UI needs to be made aware of events
-  happening on the page which can't be hooked into using CSS. As we develop our greeting app, we'll
-  add in the necessary javascript.
+* **No JavaScript necessary (yet)** - Because we aren't using any dynamic components, we only need
+  to include the MDLv2 CSS, so that we can apply the proper CSS classes to our elements. With MDLv2,
+  JavaScript is only necessary for dynamic components whose UI needs to be made aware of events
+  happening on the page. As we develop our greeting app, we'll
+  add in the necessary JavaScript.
 * **No automatic DOM rendering** - For all components, MDL does not render _any_ DOM elements
-  itself. MDLv2 is similar to [Bootsrap](http://getbootstrap.com/) in this respect; it expects rhe end user to render the DOM
-  and provide the proper CSS classes. This avoids a litany of problems for integrating MDL into
+  itself. MDLv2 is similar to [Bootstrap](http://getbootstrap.com/) in this respect; it expects you to render the DOM using the proper CSS classes. This avoids a litany of problems for integrating MDL into
   complex applications.
 * **Elements are not natively styled** - Notice how above, we give the `<html>` element a class of
   `mdl-typography`, the `<h1>` element a class of `mdl-typography--display1`, and the button a class
@@ -90,13 +89,13 @@ Let's take a look at a few aspects of the above HTML.
   which elements are being used for our components, instead relying on CSS classes for maximum
   flexibility. Our CSS class names follow a slightly modified version of the [BEM](http://getbem.com/) system.
 
-### Adding in javascript for dynamic components
+### Adding in JavaScript for dynamic components
 
 Now that we've gotten the gist of MDLv2, let's build our greeting app. The app consists of
-two input fields for a first and last name, as well as a submit button. Because Material Design
-text input fields contain a lot of functionality, we must include javascript to provide a
+two input fields (for first and last name) and a submit button. Because Material Design
+text input fields contain a lot of functionality, we must include JavaScript to provide a
 full-fidelity experience for them. Furthermore, it would be nice if our submit button featured a
-ripple effect. We can include that using javascript as well.
+ripple effect. We can include that using JavaScript as well.
 
 > Note that we currently have an [issue out](https://github.com/google/material-design-lite/issues/4614) to integrate ripples directly into buttons.
 
@@ -146,8 +145,7 @@ Replace the contents of the `<body>` tag in `index.html` with the following:
 ```
 
 If you save the file return to your browser, you'll now see that we have two very nicely styled
-form fields, as well as a button that - when pressed - displays a material ink ripple, albeit a
-very subtle one. We'll be taking care of that shortly. For now, let's go back and take a look at
+form fields, as well as a button that - when pressed - displays a material ink ripple. The ripple is a bit subtle though - we'll address that shortly. For now, let's go back and take a look at
 what we just wrote.
 
 The two main things to notice are the `data-mdl-auto-init` attributes, as well as the final script
