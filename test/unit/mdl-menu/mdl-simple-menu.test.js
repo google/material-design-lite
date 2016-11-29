@@ -350,8 +350,14 @@ test('adapter#isRtl returns false for implicit LTR documents', t => {
 
 test('adapter#setTransformOrigin sets the correct transform origin on the menu element', t => {
   const {root, component} = setupTest();
+  // Write expected value and read canonical value from browser.
+  root.style.webkitTransformOrigin = root.style.transformOrigin = 'left top 10px';
+  const expected = root.style.getPropertyValue(`${getTransformPropertyName(window)}-origin`);
+  // Reset value.
+  root.style.webkitTransformOrigin = root.style.transformOrigin = '';
+
   component.getDefaultFoundation().adapter_.setTransformOrigin('left top 10px');
-  t.equal(root.style.getPropertyValue(`${getTransformPropertyName(window)}-origin`), 'left top 10px');
+  t.equal(root.style.getPropertyValue(`${getTransformPropertyName(window)}-origin`), expected);
   t.end();
 });
 
