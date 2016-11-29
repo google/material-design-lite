@@ -31,6 +31,10 @@
   &.mdl-grid--no-spacing {
     padding: 0;
   }
+  
+  &.mdl-grid--center {
+    justify-content: center;
+  }
 }
 
 .mdl-cell {
