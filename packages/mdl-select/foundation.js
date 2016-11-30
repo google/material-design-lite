@@ -38,6 +38,7 @@ export default class MDLSelectFoundation extends MDLFoundation {
       removeClass: (/* className: string */) => {},
       setAttr: (/* attr: string, value: string */) => {},
       rmAttr: (/* attr: string */) => {},
+      computeBoundingRect: () => /* {left: number, top: number} */ ({left: 0, top: 0}),
       registerInteractionHandler: (/* type: string, handler: EventListener */) => {},
       deregisterInteractionHandler: (/* type: string, handler: EventListener */) => {},
       focus: () => {},
@@ -49,15 +50,22 @@ export default class MDLSelectFoundation extends MDLFoundation {
         font: '',
         measureText: () => ({width: 0})
       }),
+      setMenuElStyle: (/* propertyName: string, value: string */) => {},
+      setMenuElAttr: (/* attr: string, value: string */) => {},
+      rmMenuElAttr: (/* attr: string */) => {},
+      getMenuElOffsetHeight: () => /* number */ 0,
       openMenu: (/* focusIndex: number */) => {},
+      isMenuOpen: () => /* boolean */ false,
       setSelectedTextContent: (/* textContent: string */) => {},
       getNumberOfOptions: () => /* number */ 0,
       getTextForOptionAtIndex: (/* index: number */) => /* string */ '',
       setAttrForOptionAtIndex: (/* index: number, attr: string, value: string */) => {},
       rmAttrForOptionAtIndex: (/* index: number, attr: string */) => {},
+      getOffsetTopForOptionAtIndex: (/* index: number */) => /* number */ 0,
       registerMenuInteractionHandler: (/* type: string, handler: EventListener */) => {},
       deregisterMenuInteractionHandler: (/* type: string, handler: EventListener */) => {},
-      notifyChange: () => {}
+      notifyChange: () => {},
+      getWindowInnerHeight: () => /* number */ 0
     };
   }
 
@@ -68,7 +76,9 @@ export default class MDLSelectFoundation extends MDLFoundation {
     this.disabled_ = false;
     this.displayHandler_ = evt => {
       evt.preventDefault();
-      this.open_();
+      if (!this.adapter_.isMenuOpen()) {
+        this.open_();
+      }
     };
     this.displayViaKeyboardHandler_ = evt => this.handleDisplayViaKeyboard_(evt);
     this.selectionHandler_ = ({detail}) => {
@@ -165,8 +175,41 @@ export default class MDLSelectFoundation extends MDLFoundation {
   open_() {
     const {OPEN} = MDLSelectFoundation.cssClasses;
     const focusIndex = this.selectedIndex_ < 0 ? 0 : this.selectedIndex_;
+    const {left, top, transformOrigin} = this.computeMenuStylesForOpenAtIndex_(focusIndex);
+
+    this.adapter_.setMenuElStyle('left', left);
+    this.adapter_.setMenuElStyle('top', top);
+    this.adapter_.setMenuElStyle('transform-origin', transformOrigin);
     this.adapter_.addClass(OPEN);
     this.adapter_.openMenu(focusIndex);
+  }
+
+  computeMenuStylesForOpenAtIndex_(index) {
+    const innerHeight = this.adapter_.getWindowInnerHeight();
+    const {left, top} = this.adapter_.computeBoundingRect();
+
+    this.adapter_.setMenuElAttr('aria-hidden', 'true');
+    this.adapter_.setMenuElStyle('display', 'block');
+    const menuHeight = this.adapter_.getMenuElOffsetHeight();
+    const itemOffsetTop = this.adapter_.getOffsetTopForOptionAtIndex(index);
+    this.adapter_.setMenuElStyle('display', '');
+    this.adapter_.rmMenuElAttr('aria-hidden');
+
+    let adjustedTop = top - itemOffsetTop;
+    const adjustedHeight = menuHeight - itemOffsetTop;
+    const overflowsTop = adjustedTop < 0;
+    const overflowsBottom = adjustedTop + adjustedHeight > innerHeight;
+    if (overflowsTop) {
+      adjustedTop = 0;
+    } else if (overflowsBottom) {
+      adjustedTop = Math.max(0, adjustedTop - adjustedHeight);
+    }
+
+    return {
+      left: `${left}px`,
+      top: `${adjustedTop}px`,
+      transformOrigin: `center ${itemOffsetTop}px`
+    };
   }
 
   close_() {

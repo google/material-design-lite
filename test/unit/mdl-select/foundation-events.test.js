@@ -33,6 +33,12 @@ function setupTest() {
     measureText: () => ({width: 100})
   });
   td.when(mockAdapter.getComputedStyleValue('font')).thenReturn('16px Times');
+  td.when(mockAdapter.computeBoundingRect()).thenReturn({
+    left: 100,
+    top: 100
+  });
+  td.when(mockAdapter.getWindowInnerHeight()).thenReturn(500);
+  td.when(mockAdapter.getMenuElOffsetHeight()).thenReturn(100);
   const handlers = captureHandlers(mockAdapter, 'registerInteractionHandler');
   const menuHandlers = captureHandlers(mockAdapter, 'registerMenuInteractionHandler');
   foundation.init();
@@ -224,5 +230,81 @@ test('on MDLSimpleMenu:cancel re-focuses the select element', t => {
   const cancel = menuHandlers['MDLSimpleMenu:cancel'];
   cancel(createEvent());
   t.doesNotThrow(() => td.verify(mockAdapter.removeClass(cssClasses.OPEN)));
+  t.end();
+});
+
+// NOTE: For purposes of brevity, positioning tests are only done for the click handler.
+test('when opened the select positions the menu such that the selected option is over the select', t => {
+  const {foundation, mockAdapter, handlers} = setupTest();
+  const mockLocation = mockAdapter.computeBoundingRect();
+  foundation.setSelectedIndex(1);
+  td.when(mockAdapter.getOffsetTopForOptionAtIndex(1)).thenReturn(20);
+  handlers.click(createEvent());
+
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('left', `${mockLocation.left}px`)));
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('top', `${mockLocation.top - 20}px`)));
+  t.end();
+});
+
+test('when opened sets the transform-origin y-coord to be the offset top of the selected item', t => {
+  const {foundation, mockAdapter, handlers} = setupTest();
+  foundation.setSelectedIndex(1);
+  td.when(mockAdapter.getOffsetTopForOptionAtIndex(1)).thenReturn(20);
+  handlers.click(createEvent());
+
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('transform-origin', 'center 20px')));
+  t.end();
+});
+
+test('when opened clamps the menu position to the top of the window if it would be ' +
+     'positioned above the window', t => {
+  const {foundation, mockAdapter, handlers} = setupTest();
+  const mockLocation = mockAdapter.computeBoundingRect();
+  foundation.setSelectedIndex(1);
+  td.when(mockAdapter.getOffsetTopForOptionAtIndex(1)).thenReturn(mockLocation.top + 20);
+  handlers.click(createEvent());
+
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('left', `${mockLocation.left}px`)));
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('top', '0px')));
+  t.end();
+});
+
+test('when opened clamps the menu position to the bottom of the window if it would be ' +
+          'positioned below the window', t => {
+  const {foundation, mockAdapter, handlers} = setupTest();
+  const mockInnerHeight = mockAdapter.getWindowInnerHeight();
+  const mockMenuHeight = mockAdapter.getMenuElOffsetHeight();
+
+  foundation.setSelectedIndex(1);
+  td.when(mockAdapter.computeBoundingRect()).thenReturn({
+    left: 100,
+    top: mockInnerHeight
+  });
+  td.when(mockAdapter.getOffsetTopForOptionAtIndex(1)).thenReturn(20);
+  handlers.click(createEvent());
+
+  const mockLocation = mockAdapter.computeBoundingRect();
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('left', `${mockLocation.left}px`)));
+  t.doesNotThrow(
+    () => td.verify(mockAdapter.setMenuElStyle('top', `${mockLocation.top - mockMenuHeight}px`))
+  );
+  t.end();
+});
+
+test('when opened clamps the menu position to the top of the window if it cannot ' +
+          'find a suitable menu position', t => {
+  const {foundation, mockAdapter, handlers} = setupTest();
+  const mockMenuHeight = mockAdapter.getMenuElOffsetHeight();
+
+  foundation.setSelectedIndex(1);
+  td.when(mockAdapter.getWindowInnerHeight()).thenReturn(mockMenuHeight - 10);
+  // Bump off offsetHeight to simulate no good possible placement
+  td.when(mockAdapter.getMenuElOffsetHeight()).thenReturn(mockMenuHeight + 10);
+  td.when(mockAdapter.getOffsetTopForOptionAtIndex(1)).thenReturn(20);
+  handlers.click(createEvent());
+
+  const mockLocation = mockAdapter.computeBoundingRect();
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('left', `${mockLocation.left}px`)));
+  t.doesNotThrow(() => td.verify(mockAdapter.setMenuElStyle('top', '0px')));
   t.end();
 });

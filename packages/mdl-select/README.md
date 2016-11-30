@@ -3,7 +3,7 @@
 > **Status:**
 > - [x] Pure CSS Select
 > - [x] Initial Functionality / Styles for JS Select
-> - [ ] Select Menu Auto-positioning
+> - [x] Select Menu Auto-positioning
 > - [ ] Multi-select
 
 MDL Select provides a material design single-option select menu. It functions analogously to the
@@ -67,11 +67,63 @@ style dependencies for both the mdl-list and mdl-menu for this component to func
 
 #### Select with pre-selected option
 
-> TK
+```html
+<div class="mdl-select" role="listbox" tabindex="0">
+  <span class="mdl-select__selected-text">Vegetables</span>
+  <div class="mdl-simple-menu mdl-select__menu">
+    <ul class="mdl-list mdl-simple-menu__items">
+      <li class="mdl-list-item" role="option" id="grains" tabindex="0">
+        Bread, Cereal, Rice, and Pasta
+      </li>
+      <li class="mdl-list-item" role="option" aria-selected id="vegetables" tabindex="0">
+        Vegetables
+      </li>
+      <li class="mdl-list-item" role="option" id="fruit" tabindex="0">
+        Fruit
+      </li>
+      <li class="mdl-list-item" role="option" id="dairy" tabindex="0">
+        Milk, Yogurt, and Cheese
+      </li>
+      <li class="mdl-list-item" role="option" id="meat" tabindex="0">
+        Meat, Poultry, Fish, Dry Beans, Eggs, and Nuts
+      </li>
+      <li class="mdl-list-item" role="option" id="fats" tabindex="0">
+        Fats, Oils, and Sweets
+      </li>
+    </ul>
+  </div>
+</div>
+```
 
 #### Disabled select
 
-> TK
+```html
+<div class="mdl-select mdl-select--disabled" role="listbox" aria-disabled="true" tabindex="-1">
+  <span class="mdl-select__selected-text">Pick a food group</span>
+  <div class="mdl-simple-menu mdl-select__menu">
+    <ul class="mdl-list mdl-simple-menu__items">
+      <li class="mdl-list-item" role="option" id="grains" tabindex="0">
+        Bread, Cereal, Rice, and Pasta
+      </li>
+      <li class="mdl-list-item" role="option" id="vegetables" tabindex="0">
+        Vegetables
+      </li>
+      <li class="mdl-list-item" role="option" id="fruit" tabindex="0">
+        Fruit
+      </li>
+      <li class="mdl-list-item" role="option" id="dairy" tabindex="0">
+        Milk, Yogurt, and Cheese
+      </li>
+      <li class="mdl-list-item" role="option" id="meat" tabindex="0">
+        Meat, Poultry, Fish, Dry Beans, Eggs, and Nuts
+      </li>
+      <li class="mdl-list-item" role="option" id="fats" tabindex="0">
+        Fats, Oils, and Sweets
+      </li>
+    </ul>
+  </div>
+</div>
+```
 
 ### Using the Pure CSS Select
 
@@ -117,6 +169,26 @@ is outlined below.
 The MDL Select JS component emits an `MDLSelect:change` event when the selected option changes as
 the result of a user action.
 
+#### Instantiating using a custom `MDLSimpleMenu` component.
+
+`MDLSelect` controls an [MDLSimpleMenu](../mdl-menu) instance under the hood in order to display
+its options. If you'd like to instantiate a custom menu instance, you can provide an optional 3rd
+`menuFactory` argument to `MDLSelect`'s constructor.
+
+```js
+const menuFactory = menuEl => {
+  const menu = new MDLSimpleMenu(menuEl);
+  // Do stuff with menu...
+  return menu;
+};
+const selectEl = document.querySelector('.mdl-select');
+const select = new MDLSelect(selectEl, /* foundation */ undefined, menuFactory);
+```
+
+The `menuFactory` function is passed an `HTMLElement` and is expected to return an `MDLSimpleMenu`
+instance attached to that element. This is mostly used for testing purposes, but it's there if you
+need it nonetheless.
+
 ## Using the foundation class
 
 MDL Select ships with a foundation class that framework authors can use to integrate MDL Select
@@ -126,9 +198,17 @@ to use via GH Issues or on Gitter if they run into problems.
 
 ### Notes for component implementors
 
-The `MDLSelectFoundation` expects that the select component _controls an instance of
-`MDLSimpleMenu`_. We achieve this via composition in our vanilla `MDLSelect` component, and
-recommend a similar approach for framework authors.
+The `MDLSelectFoundation` expects that the select component conforms to the following two requirements:
+
+1. The component owns an element that's used as its select menu, e.g. its **menu element**.
+
+2. The component controls an instance of `MDLSimpleMenu`, which is attached to its menu element.
+
+We achieve this by accepting a `menuFactory` optional constructor parameter, which is a function
+which is passed our menu element, and is expected to return an `MDLSimpleMenu` component instance.
+If you are attempting to implement mdl-select for your framework, and you find that this approach
+does not work for you, and there is no suitable way to satisfy the above two requirements, please
+[open an issue](https://github.com/google/material-design-lite/issues/new).
 
 `MDLSelectFoundation` also has the ability to resize itself whenever its options change, via the
 `resize()` method. We recommend calling this method on initialization, or when the menu items are
@@ -141,8 +221,9 @@ within `componentDidUpdate`.
 | --- | --- |
 | `addClass(className: string) => void` | Adds a class to the root element. |
 | `removeClass(className: string) => void` | Removes a class from the root element. |
-| `setAttr(attr: string, value: string) => void` | Sets attribute `name` to value `value` on the root element. |
+| `setAttr(attr: string, value: string) => void` | Sets attribute `attr` to value `value` on the root element. |
 | `rmAttr(attr: string) => void` | Removes attribute `attr` from the root element. |
+| `computeBoundingRect() => {left: number, top: number}` | Returns an object with a shape similar to a `ClientRect` object, with a `left` and `top` property specifying the element's position on the page relative to the viewport. The easiest way to achieve this is by calling `getBoundingClientRect()` on the root element. |
 | `registerInteractionHandler(type: string, handler: EventListener) => void` | Adds an event listener `handler` for event type `type` on the root element. |
 | `deregisterInteractionHandler(type: string, handler: EventListener) => void` | Removes an event listener `handler` for event type `type` on the root element. |
 | `focus() => void` | Focuses the root element |
@@ -151,7 +232,13 @@ within `componentDidUpdate`.
 | `getComputedStyleValue(propertyName: string) => string` | Get the root element's computed style value of the given dasherized css property `propertyName`. We achieve this via `getComputedStyle(...).getPropertyValue(propertyName). `|
 | `setStyle(propertyName: string, value: string) => void` | Sets a dasherized css property `propertyName` to the value `value` on the root element. We achieve this via `root.style.setProperty(propertyName, value)`. |
 | `create2dRenderingContext() => {font: string, measureText: (string) => {width: number}}` | Returns an object which has the shape of a CanvasRenderingContext2d instance. Namely, it has a string property `font` which is writable, and a method `measureText` which given a string of text returns an object containing a `width` property specifying how wide that text should be rendered in the `font` specified by the font property. An easy way to achieve this is simply `document.createElement('canvas').getContext('2d');`. |
+| `setMenuElStyle(propertyName: string) => void` | Sets a dasherized css property `propertyName` to the value `value` on the menu element. |
+| `setMenuElAttr(attr: string, value: string) => void` | Sets attribute `attr` to value `value` on the menu element. |
+| `rmMenuElAttr(attr: string) => void` | Removes attribute `attr` from the menu element. |
+| `getMenuElOffsetHeight() => number` | Returns the `offsetHeight` of the menu element. |
+| `getOffsetTopForOptionAtIndex(index: number) => number` | Returns the `offsetTop` of the option element at the specified index. The index is guaranteed to be in bounds. |
 | `openMenu(focusIndex: string) => void` | Opens the select's menu with focus on the option at the given `focusIndex`. The focusIndex is guaranteed to be in bounds. |
+| `isMenuOpen() => boolean` | Returns true if the menu is open, false otherwise. |
 | `setSelectedTextContent(selectedTextContent: string) => void` | Sets the text content of the `.mdl-select__selected-text` element to `selectedTextContent`. |
 | `getNumberOfOptions() => number` | Returns the number of options contained in the select's menu. |
 | `getTextForOptionAtIndex(index: number) => string` | Returns the text content for the option at the specified index within the select's menu. |
@@ -159,6 +246,7 @@ within `componentDidUpdate`.
 | `rmAttrForOptionAtIndex(index: number, attr: string) => void` | Removes an attribute `attr` for the option at the specified index within the select's menu. |
 | `registerMenuInteractionHandler(type: string, handler: EventListener) => void` | Registers an event listener on the menu component's root element. Note that we will always listen for `MDLSimpleMenu:selected` for change events, and `MDLSimpleMenu:cancel` to know that we need to close the menu. If you are using a different events system, you could check the event type for either one of these strings and take the necessary steps to wire it up. |
 | `deregisterMenuInteractionHandler(type: string, handler: EventListener) => void` | Opposite of `registerMenuInteractionHandler`. |
+| `getWindowInnerHeight() => number` | Returns the `innerHeight` property of the `window` element. |
 
 ### The full foundation API
 
