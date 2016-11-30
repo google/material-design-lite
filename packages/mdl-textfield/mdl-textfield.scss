@@ -143,6 +143,10 @@ $mdl-textfield-disabled-border-on-dark: rgba(white, .3);
       }
     }
   }
+
+  .mdl-textfield__label {
+    pointer-events: none;
+  }
 }
 
 .mdl-textfield--focused {
