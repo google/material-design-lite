@@ -43,7 +43,7 @@ will be available on your `$PATH`.
 
 ### Creating the skeleton index.html file
 
-Now that we have a the environment set up, let us create a simple `index.html` file, and include
+Now that we have the environment set up, create a simple `index.html` file, and include
 the assets needed for MDLv2. Put the following within `index.html` in the `greeting-app` directory:
 
 ```html
