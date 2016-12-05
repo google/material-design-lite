@@ -11,7 +11,7 @@ your framework that wraps MDLv2, check out our [framework integration guide](./i
 ## MDL quick start: building a simple greeting app
 
 The best way to learn any new technology is to get your hands dirty and build something with it, so
-that is what we will do here!  We will be building a simple greeting page which lets you enter a name and greets you as such. Here is the [finished example](https://plnkr.co/edit/ahd84pIgOF7OTKgavvPP?p=preview).
+that is what we will do here!  You will be building a simple greeting page which lets you enter a name and greets you as such. Here is the [finished example](https://plnkr.co/edit/ahd84pIgOF7OTKgavvPP?p=preview).
 
 As you go through this guide, we encourage you to code along with it. By the end, you will have
 learned the fundamentals incorporating MDLv2 into simple sites, as well as worked with some of the
@@ -43,7 +43,7 @@ will be available on your `$PATH`.
 
 ### Creating the skeleton index.html file
 
-Now that we have the environment set up, create a simple `index.html` file, and include
+Now that you have the environment set up, create a simple `index.html` file, and include
 the assets needed for MDLv2. Put the following within `index.html` in the `greeting-app` directory:
 
 ```html
@@ -166,7 +166,7 @@ quickly, and recommended for static sites that use the comprehensive `material-d
 
 #### All components are modular
 
-Although when we initially set up this project we installed the `material-design-lite` package, that
+Although when you initially set up this project you installed the `material-design-lite` package, that
 package is simply a thin wrapper around individual component packages, such as [mdl-typography](../packages/mdl-typography), [mdl-button](../packages/mdl-button), [mdl-textfield](../packages/mdl-textfield), and [mdl-ripple](../packages/mdl-ripple).
 Even the `autoInit()` function [lives in its own package](../packages/mdl-auto-init), which the
 `material-design-lite` package uses to register all of the individual components to their names used
