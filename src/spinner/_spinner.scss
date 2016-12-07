@@ -192,6 +192,14 @@
   overflow: hidden;
   border-color: inherit;
 
+  &.mdl-spinner__left {
+    float: left;
+  }
+
+  &.mdl-spinner__right {
+    float: right;
+  }
+
   & .mdl-spinner__circle {
     width: 200%;
   }
