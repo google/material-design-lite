@@ -25,7 +25,10 @@
 
   display: inline-block;
 
+  vertical-align: middle;
+
   box-sizing: border-box;
+  height: $radio-label-height;
   margin: 0;
   padding-left: 0;
 
