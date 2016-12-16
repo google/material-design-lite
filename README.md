@@ -14,17 +14,13 @@ static content websites. It doesn't rely on any JavaScript frameworks or
 libraries. Optimized for cross-device use, gracefully degrades in older
 browsers, and offers an experience that is accessible from the get-go.
 
-## Want to contribute?
+> ### Limited support
 
-If you found a bug, have any questions or want to contribute. Follow our
-[guidelines](https://github.com/google/material-design-lite/blob/master/CONTRIBUTING.md),
-and help improve the Material Design Lite. For more information visit our
-[wiki](https://github.com/google/material-design-lite/wiki).
+> Material Design Lite is now in limited support, with development having moved to the
+> [Material Components for the web](https://github.com/material-components/material-components-web) repository.
 
-If you are submitting a bug fix or a new component for the 1.x line, please send those into `mdl-1.x` currently.
-
-The `master` branch is where we are working on 2.0.
-It is currently **highly** experimental and no support building or using it will be provided.
+> No further development is taking place in MDL by the core team, but we are happy to review PRs, fix critical bugs and
+> push out new releases. No breaking changes will be accepted.
 
 ## Use MDL on your site?
 
@@ -32,7 +28,7 @@ It is currently **highly** experimental and no support building or using it will
 MDL. If you are looking to use MDL on your website or web app please head to
 [getmdl.io](http://getmdl.io).**
 
-## Browser Support in v1
+## Browser Support
 
 
 | IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
@@ -41,21 +37,6 @@ MDL. If you are looking to use MDL on your website or web app please head to
 
 A-grade browsers are fully supported. B-grade browsers will gracefully degrade
 to our CSS-only experience.
-
-## Browser Support in v2 (in development)
-
-Supported evergreen browsers:
-
-- Chrome
-- Edge
-- Firefox
-- Opera
-
-Supported versioned browsers:
-
-- Internet Explorer 11
-- Safari 8
-- Mobile Safari 8
 
 ### Download / Clone
 
@@ -84,12 +65,18 @@ production. Use a tagged state of the repository, npm, or bower for stability!
 
 ## Feature requests
 
-If you find MDL doesn't contain a particular component you think would be
-useful, please check the issue tracker in case work has already started on it.
-If not, you can request a [new component](https://github.com/Google/material-design-lite/issues/new?title=[Component%20Request]%20{Component}&body=Please%20include:%0A*%20Description%0A*%20Material%20Design%20Spec%20link%0A*%20Use%20Case%28s%29).
-Please keep in mind that one of the goals of MDL is to adhere to the Material
-Design specs and therefore some requests might not be within the scope of this
-project.
+MDL is currently in limited support mode, with no further development taking place by the core team.
+We are happy to accept and review pull requests for new functionality, however, as long as there are no breaking
+changes.
+
+## Want to contribute?
+
+If you found a bug, have any questions or want to contribute. Follow our
+[guidelines](https://github.com/google/material-design-lite/blob/master/CONTRIBUTING.md),
+and help improve the Material Design Lite. For more information visit our
+[wiki](https://github.com/google/material-design-lite/wiki).
+
+Please use the default branch, `mdl-1.x`.
 
 ## License
 
