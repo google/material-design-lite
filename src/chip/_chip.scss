@@ -1,0 +1,88 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "../variables";
+@import "../mixins";
+
+.mdl-chip {
+    height: $chip-height;
+    font-family: $preferred_font;
+    line-height: $chip-height;
+    padding: 0 12px;
+    border: 0;
+    border-radius: $chip-height / 2;
+    background-color: $chip-bg-color;
+    display: inline-block;
+    color: $text-color-primary;
+    margin: 2px 0;
+    font-size: 0;
+    white-space: nowrap;
+
+    &__text {
+        font-size: $chip-font-size;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    &__action {
+        height: 24px;
+        width: 24px;
+        background: transparent;
+        opacity: 0.54;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+        margin: 0 0 0 4px;
+        font-size: $chip-font-size;
+        text-decoration: none;
+        color: $text-color-primary;
+        border: none;
+        outline: none;
+        overflow: hidden;
+    }
+    
+    &__contact {
+        height: $chip-height;
+        width: $chip-height;
+        border-radius: $chip-height / 2;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        overflow: hidden;
+        text-align: center;
+        font-size: 18px;
+        line-height: 32px;
+    }
+    
+    &:focus {
+        outline: 0;
+        @include shadow-2dp();
+    }
+    
+    &:active {
+        background-color: $chip-bg-active-color;
+    }
+    
+    &--deletable {
+        padding-right: 4px;
+    }
+    
+    &--contact {
+        padding-left: 0;
+    }
+}
