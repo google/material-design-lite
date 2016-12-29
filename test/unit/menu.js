@@ -40,8 +40,8 @@ describe('MaterialMenu', function () {
     componentHandler.upgradeElement(el, 'MaterialMenu');
     expect($(el)).to.have.data('upgraded', ',MaterialMenu');
     expect($(el.parentElement)).to.have.class('mdl-menu__container');
-    expect($(el.parentElement.parentElement)).to.have.class('dummy-container');
-    expect($(el.parentElement.parentElement)).to.have.class('mdl-menu__container');
+    expect($(el.parentElement)).to.have.class('dummy-container');
+    expect(el.parentElement.parentElement).to.be.null;
   });
 
   describe ('visibility API', function () {
