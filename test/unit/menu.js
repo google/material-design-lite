@@ -41,7 +41,7 @@ describe('MaterialMenu', function () {
     expect($(el)).to.have.data('upgraded', ',MaterialMenu');
     expect($(el.parentElement)).to.have.class('mdl-menu__container');
     expect($(el.parentElement)).to.have.class('dummy-container');
-    expect(el.parentElement.parentElement).to.be.null;
+    expect($(el.parentElement.parentElement)).not.to.exist;
   });
 
   describe ('visibility API', function () {
