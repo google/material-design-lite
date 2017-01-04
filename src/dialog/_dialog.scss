@@ -43,7 +43,8 @@
           padding: 0 0 8px 0;
           > * {
             height: 48px;
-            flex: 0 0 100%;
+            flex: 0 0 auto;
+            width: 100%; //@see https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box
             padding-right: 16px;
             margin-right: 0;
             text-align: right;
