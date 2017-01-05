@@ -30,6 +30,7 @@
     this.element_ = element;
     // Browser feature detection.
     this.isIE_ = window.navigator.msPointerEnabled;
+    this.isEdge_ = !this.isIE_ && !!window.StyleMedia;
     // Initialize instance.
     this.init();
   };
@@ -138,7 +139,7 @@
       this.element_.classList.remove(this.CssClasses_.IS_LOWEST_VALUE);
     }
 
-    if (!this.isIE_) {
+    if (!this.isIE_ && !this.isEdge_) {
       this.backgroundLower_.style.flex = fraction;
       this.backgroundLower_.style.webkitFlex = fraction;
       this.backgroundUpper_.style.flex = 1 - fraction;
@@ -190,7 +191,7 @@
   MaterialSlider.prototype.init = function() {
 
     if (this.element_) {
-      if (this.isIE_) {
+      if (this.isIE_ || this.isEdge_) {
         // Since we need to specify a very large height in IE due to
         // implementation limitations, we add a parent here that trims it down to
         // a reasonable size.
