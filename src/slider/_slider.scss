@@ -24,6 +24,7 @@ _:-ms-lang(x), .mdl-slider.mdl-slider.is-upgraded {
   height: 32px;
   margin: 0;
   
+  // Targets Edge as it also supports WebKit APIs
   &:focus:not(:active)::-webkit-slider-thumb {
     box-shadow: none;
   }  
