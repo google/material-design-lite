@@ -23,6 +23,10 @@ _:-ms-lang(x), .mdl-slider.mdl-slider.is-upgraded {
   // need to make it tall enough to contain the largest version of the thumb.
   height: 32px;
   margin: 0;
+  
+  &:focus:not(:active)::-webkit-slider-thumb {
+    box-shadow: none;
+  }  
 }
 
 // Slider component (styled input[type=range]).
