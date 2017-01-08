@@ -203,11 +203,17 @@
         // For non-IE browsers, we need a div structure that sits behind the
         // slider and allows us to style the left and right sides of it with
         // different colors.
-        var container = document.createElement('div');
-        container.classList.add(this.CssClasses_.SLIDER_CONTAINER);
-        this.element_.parentElement.insertBefore(container, this.element_);
-        this.element_.parentElement.removeChild(this.element_);
-        container.appendChild(this.element_);
+        var parent = this.element_.parentElement;
+        var container;
+        if (parent.classList.contains(this.CssClasses_.SLIDER_CONTAINER)) {
+          container = parent;
+        } else {
+          container = document.createElement('div');
+          container.classList.add(this.CssClasses_.SLIDER_CONTAINER);
+          this.element_.parentElement.insertBefore(container, this.element_);
+          this.element_.parentElement.removeChild(this.element_);
+          container.appendChild(this.element_);
+        }
         var backgroundFlex = document.createElement('div');
         backgroundFlex.classList.add(this.CssClasses_.BACKGROUND_FLEX);
         container.appendChild(backgroundFlex);
