@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Class constructor for Animation MDL component.
  * Implements MDL component design pattern defined at:
