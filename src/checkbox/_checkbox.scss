@@ -122,15 +122,16 @@
 
   background: transparent;
   @include material-animation-default(0.28s);
-  transition-property: background;
+  transition-property: background-image;
 
   .mdl-checkbox.is-checked & {
-    background: $checkbox-color url("#{$checkbox-image-path}/tick.svg?embed");
+    background-color: $checkbox-color;
+    background-image: url("#{$checkbox-image-path}/tick.svg?embed");
   }
 
   fieldset[disabled] .mdl-checkbox.is-checked &,
   .mdl-checkbox.is-checked.is-disabled & {
-    background: $checkbox-disabled-color url("#{$checkbox-image-path}/tick.svg?embed");
+    background-color: $checkbox-disabled-color;
   }
 }
 
