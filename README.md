@@ -78,6 +78,10 @@ and help improve the Material Design Lite. For more information visit our
 
 Please use the default branch, `mdl-1.x`.
 
+Take note that [Material Components for Web](https://github.com/material-components/material-components-web), which is MDL v2, is under early Alpha stages (which means everything is a moving target, and we can change anything at any moment). Use with caution.
+
+However, we would absolutely love to have people testing MCW and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
+
 ## License
 
 © Google, 2015. Licensed under an
