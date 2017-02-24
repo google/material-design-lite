@@ -69,7 +69,7 @@
     left: 0px;
     position: absolute;
     background: $tab-highlight-color;
-    animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) 0.01s alternate forwards;
+    animation: border-expand 0.2s cubic-bezier(0.4, 0.0, 0.4, 1) alternate forwards;
     transition: all 1s cubic-bezier(0.4, 0.0, 1, 1);
   }
 
