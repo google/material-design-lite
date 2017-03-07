@@ -31,7 +31,10 @@
     // Initialize instance.
     this.init();
   };
-  window['MaterialProgress'] = MaterialProgress;
+
+  if (typeof window !== 'undefined') {
+    window['MaterialProgress'] = MaterialProgress;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -111,12 +114,12 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialProgress,
-    classAsString: 'MaterialProgress',
-    cssClass: 'mdl-js-progress',
-    widget: true
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialProgress,
+      classAsString: 'MaterialProgress',
+      cssClass: 'mdl-js-progress',
+      widget: true
+    });
+  }
 })();

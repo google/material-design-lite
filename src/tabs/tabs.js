@@ -32,7 +32,10 @@
     // Initialize instance.
     this.init();
   };
-  window['MaterialTabs'] = MaterialTabs;
+
+  if (typeof window !== 'undefined') {
+    window['MaterialTabs'] = MaterialTabs;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -153,11 +156,11 @@
     }
   }
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialTabs,
-    classAsString: 'MaterialTabs',
-    cssClass: 'mdl-js-tabs'
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialTabs,
+      classAsString: 'MaterialTabs',
+      cssClass: 'mdl-js-tabs'
+    });
+  }
 })();

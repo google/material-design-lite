@@ -31,7 +31,10 @@
     // Initialize instance.
     this.init();
   };
-  window['MaterialTextfield'] = MaterialTextfield;
+
+  if (typeof window !== 'undefined') {
+    window['MaterialTextfield'] = MaterialTextfield;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -272,12 +275,12 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialTextfield,
-    classAsString: 'MaterialTextfield',
-    cssClass: 'mdl-js-textfield',
-    widget: true
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialTextfield,
+      classAsString: 'MaterialTextfield',
+      cssClass: 'mdl-js-textfield',
+      widget: true
+    });
+  }
 })();

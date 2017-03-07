@@ -31,7 +31,10 @@
     // Initialize instance.
     this.init();
   };
-  window['MaterialSwitch'] = MaterialSwitch;
+
+  if (typeof window !== 'undefined') {
+    window['MaterialSwitch'] = MaterialSwitch;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -261,12 +264,12 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialSwitch,
-    classAsString: 'MaterialSwitch',
-    cssClass: 'mdl-js-switch',
-    widget: true
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialSwitch,
+      classAsString: 'MaterialSwitch',
+      cssClass: 'mdl-js-switch',
+      widget: true
+    });
+  }
 })();

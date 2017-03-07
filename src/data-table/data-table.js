@@ -32,7 +32,9 @@
     this.init();
   };
 
-  window['MaterialDataTable'] = MaterialDataTable;
+  if (typeof window !== 'undefined') {
+    window['MaterialDataTable'] = MaterialDataTable;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -166,11 +168,11 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialDataTable,
-    classAsString: 'MaterialDataTable',
-    cssClass: 'mdl-js-data-table'
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialDataTable,
+      classAsString: 'MaterialDataTable',
+      cssClass: 'mdl-js-data-table'
+    });
+  }
 })();
