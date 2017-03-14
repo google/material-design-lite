@@ -24,6 +24,7 @@
  * -----Textfield
  * -----Switch
  * -----Spinner
+ * -----Search
  * -----Radio
  * -----Menu
  * -----List
@@ -308,6 +309,11 @@ $footer-heading-color: unquote("rgb(#{$palette-grey-300})") !default;
 $footer-button-fill-color: $footer-color !default;
 $footer-underline-color: $footer-color !default;
 
+/* ==========  Search  ========== */
+
+$search-bg-color: unquote("rgb(#{$color-white})") !default;
+$search-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
+
 
 /* TEXTFIELD */
 
@@ -347,6 +353,29 @@ $spinner-arc-start-rot: 216deg !default;
 
 $spinner-duration: 360 * $spinner-arc-time / (
     strip-units($spinner-arc-start-rot + (360deg - $spinner-arc-size)));
+
+
+/* SEARCH */
+
+$search-font-size: 16px !default;
+$search-width: 300px !default;
+$search-inset-height: 48px !default;
+$search-input-padding: 8px !default;
+$search-item-padding: 8px !default;
+
+$search-icon-size: 32px !default;
+$search-icon-margin: 8px !default;
+$search-icon-full-size: $search-icon-size + $search-icon-margin * 2;
+$search-drawer-fix-padding: $search-input-padding - $search-item-padding - $search-icon-size;
+// Values taken from $layout-header-mobile-baseline and $layout-header-desktop-baseline.
+$search-drawer-fix-mobile: 72px + $search-drawer-fix-padding;
+$search-drawer-fix-desktop: 80px + $search-drawer-fix-padding;
+
+$search-expand-bg-duration: 0.2s !default;
+$search-expand-col-duration: 0.1s !default;
+$search-expand-width-duration: 0.3s !default;
+$search-dropdown-fade-duration: 0.2s !default;
+$search-dropdown-expand-duration: 0.3s !default;
 
 
 /* RADIO */

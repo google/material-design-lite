@@ -1,0 +1,339 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import "../variables";
+@import "../mixins";
+
+// The container for the whole component.
+.mdl-search {
+  position: relative;
+  font-size: $search-font-size;
+  display: inline-block;
+  box-sizing: border-box;
+  width: $search-width;
+  max-width: 100%;
+  margin: 0;
+  
+  // Optional, if search is combined with textfield.
+  .mdl-textfield__label {
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    padding-top: 4px;
+  }
+}
+
+// Optional class to align right.
+.mdl-search--align-right {
+  text-align: right;
+}
+
+// Optional class to display at full width.
+.mdl-search--full-width {
+  width: 100%;
+}
+
+// Optional class to display as an inset box.
+.mdl-search--inset {
+  height: $search-inset-height;
+  @include shadow-2dp();
+}
+
+// Optional class to use the component in a header.
+.mdl-search--header {
+  height: 100%;
+  width: 100px;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+// Optional class to make the component expandable.
+.mdl-search--expandable {
+  overflow: hidden;
+  width: $search-icon-size;
+  height: $search-icon-size;
+  transition: background $search-expand-bg-duration $animation-curve-default,
+    color $search-expand-col-duration $animation-curve-default,
+    width $search-expand-width-duration $animation-curve-default;
+  
+  // Expand when focused or dirty.
+  &.is-focused,
+  &.is-dirty {
+    display: block;
+    position: absolute;
+    background: $search-bg-color;
+    color: black;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    
+    // Expand from the left if using align-right.
+    &.mdl-search--align-right {
+      right: initial;
+      left: 0;
+    }
+  }
+  
+  // Handle left and right icons when not expanded.
+  &:not(.is-focused):not(.is-dirty) {
+    .mdl-search__left-icon {
+      margin-left: 0;
+    }
+    .mdl-search__right-icon {
+      display: none;
+    }
+  }
+}
+
+// Header wrapper, if component is being used in the header.
+.mdl-search__header-wrapper {
+  display: block;
+  position: relative;
+}
+
+// Icons: left (search/back) and right (mic/cancel).
+.mdl-search__left-icon,
+.mdl-search__right-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0!important;
+  margin: auto;
+}
+.mdl-search__left-icon {
+  left: 0;
+  margin-left: $search-icon-margin;
+  &~.mdl-search__input,
+  &~.mdl-textfield__label {
+    padding-left: $search-icon-full-size;
+  }
+}
+.mdl-search__right-icon {
+  right: 0;
+  margin-right: $search-icon-margin;
+  &~.mdl-search__input,
+  &~.mdl-textfield__label {
+    padding-right: $search-icon-full-size;
+  }
+}
+
+// Styling for the input element.
+.mdl-search__input {
+  border: none;
+  display: block;
+  box-sizing: border-box;
+  font-size: $search-font-size;
+  font-family: $performance_font;
+  margin: 0;
+  padding: $search-input-padding;
+  width: 100%;
+  height: 100%;
+  background: none;
+  text-align: left;
+  color: inherit;
+  outline: none;
+  
+  // Borrowed from textfield styling.
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  fieldset[disabled] .mdl-textfield &,
+  .mdl-textfield.is-disabled & {
+      background-color: transparent;
+      border-bottom: 1px dotted $input-text-disabled-color;
+      color: $input-text-disabled-text-color;
+  }
+  
+  // Disable default MS clear icon.
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+// Styling for the dropdown element.
+.mdl-search__dropdown {
+  position: absolute;
+  list-style: none;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: auto;
+  min-width: 124px;
+  padding: 4px 0;
+  margin: 0;
+  opacity: 0;
+  clip: rect(0 0 0 0);
+  z-index: -1;
+  
+  // Handle visibility and animations.
+  .mdl-search__dropdown-container.is-visible & {
+    opacity: 1;
+    z-index: 999;
+  }
+  &.is-animating {
+    transition: opacity $search-dropdown-fade-duration $animation-curve-default,
+      clip $search-dropdown-expand-duration $animation-curve-default;
+  }
+}
+
+// Styling for the dropdown container.
+.mdl-search__dropdown-container {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  position: absolute;
+  overflow: visible;
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  z-index: -1;
+  
+  // Handle visibility and animations.
+  &.is-visible,
+  &.is-animating {
+    z-index: 999;
+    visibility: visible;
+  }
+}
+
+// Styling for the dropdown outline.
+.mdl-search__dropdown-outline {
+  display: block;
+  background: $search-dropdown-bg-color;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  opacity: 0;
+  @include shadow-2dp();
+  z-index: -1;
+  
+  // Handle visibility and animations.
+  .mdl-search__dropdown-container.is-visible & {
+    opacity: 1;
+    z-index: 999;
+  }
+  .mdl-search--animate & {
+    will-change: height;
+    transition: height $search-dropdown-expand-duration $animation-curve-default,
+      opacity $search-dropdown-fade-duration $animation-curve-default;
+  }
+}
+
+// Styling for search suggestion items.
+.mdl-search__item {
+  border: none;
+  color: $default-item-text-color;
+  background-color: transparent;
+  text-align: left;
+  margin: 0;
+  padding: 0 $search-item-padding;
+  outline-color: $default-item-outline-color;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  height: 48px;
+  line-height: 48px;
+  white-space: nowrap;
+  user-select: none;
+  
+  // Dropdown opacity.
+  .mdl-search__dropdown & {
+    opacity: 0;
+  }
+  .mdl-search__dropdown.is-animating & {
+    transition: opacity $search-dropdown-fade-duration $animation-curve-default;
+  }
+  .mdl-search__dropdown-container.is-visible & {
+    opacity: 1;
+  }
+  
+  // Borrowed from menu styling.
+  .mdl-search__item::-moz-focus-inner {
+    border: 0;
+  }
+  &--full-bleed-divider {
+    border-bottom: 1px solid $default-item-divider-color;
+  }
+  &[disabled], &[data-mdl-disabled] {
+    color: $disabled-item-text-color;
+    background-color: transparent;
+    cursor: auto;
+    &:hover {
+      background-color: transparent;
+    }
+    &:focus {
+      background-color: transparent;
+    }
+    & .mdl-ripple {
+      background: transparent;
+    }
+  }
+  &:hover {
+    background-color: $default-item-hover-bg-color;
+  }
+  &:focus {
+    outline: none;
+    background-color: $default-item-focus-bg-color;
+  }
+  &:active {
+    background-color: $default-item-active-bg-color;
+  }
+  
+  // Ripple container styling.
+  &--ripple-container {
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  // Item icon styling.
+  .mdl-search__item-icon {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-right: $search-icon-margin;
+    
+    // Special handling to align header dropdown items with search field.
+    .mdl-search__dropdown[left-icon] & {
+      @media screen and (min-width: $layout-screen-size-threshold + 1px) {
+        .mdl-layout.has-drawer:not(.mdl-layout--fixed-drawer) & {
+          margin-right: $search-drawer-fix-desktop;
+        }
+      }
+      @media screen and (max-width: $layout-screen-size-threshold) {
+        margin-right: $search-drawer-fix-mobile;
+      }
+    }
+  }
+}

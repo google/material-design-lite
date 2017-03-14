@@ -79,6 +79,7 @@ const SOURCES = [
   'src/menu/menu.js',
   'src/progress/progress.js',
   'src/radio/radio.js',
+  'src/search/search.js',
   'src/slider/slider.js',
   'src/snackbar/snackbar.js',
   'src/spinner/spinner.js',
