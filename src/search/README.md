@@ -105,7 +105,7 @@ Fully unstyled search component.
 Search component with MDL textfield styling.
 ```html
 <div class="mdl-search mdl-js-search mdl-textfield mdl-textfield--floating-label" search="mySearchFcn" submit="mySubmitFcn" debounce="100">
-  <input id="search" class="mdl-search__input" type="text">
+  <input id="search" class="mdl-search__input mdl-textfield__input" type="text">
   <label class="mdl-textfield__label" for="search">Search here</label>
   <ul class="mdl-search__dropdown"></ul>
 </div>
