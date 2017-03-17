@@ -26,7 +26,7 @@
   width: $search-width;
   max-width: 100%;
   margin: 0;
-  
+
   // Optional, if search is combined with textfield.
   .mdl-textfield__label {
     box-sizing: border-box;
@@ -68,7 +68,7 @@
   transition: background $search-expand-bg-duration $animation-curve-default,
     color $search-expand-col-duration $animation-curve-default,
     width $search-expand-width-duration $animation-curve-default;
-  
+
   // Expand when focused or dirty.
   &.is-focused,
   &.is-dirty {
@@ -88,7 +88,7 @@
       left: 0;
     }
   }
-  
+
   // Handle left and right icons when not expanded.
   &:not(.is-focused):not(.is-dirty) {
     .mdl-search__left-icon {
@@ -109,12 +109,31 @@
 // Icons: left (search/back) and right (mic/cancel).
 .mdl-search__left-icon,
 .mdl-search__right-icon {
-  position: absolute;
-  top: 0;
-  bottom: 0!important;
-  margin: auto;
+  // Only position icons inside the mdl-search component.
+  .mdl-search & {
+    position: absolute;
+    top: 0;
+    bottom: 0 !important;
+    margin: auto;
+  }
+
+  // Handle icon visibility and animation.
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  &.is-rotated {
+    transform: rotate(360deg);
+  }
+  &.mdl-search--animate {
+    background: 0 0 !important;
+    outline: none !important;
+    transition: opacity $search-icon-duration $animation-curve-default,
+      visibility $search-icon-duration $animation-curve-default,
+      transform $search-icon-duration $animation-curve-default;
+  }
 }
-.mdl-search__left-icon {
+.mdl-search .mdl-search__left-icon {
   left: 0;
   margin-left: $search-icon-margin;
   &~.mdl-search__input,
@@ -122,7 +141,7 @@
     padding-left: $search-icon-full-size;
   }
 }
-.mdl-search__right-icon {
+.mdl-search .mdl-search__right-icon {
   right: 0;
   margin-right: $search-icon-margin;
   &~.mdl-search__input,
@@ -146,7 +165,7 @@
   text-align: left;
   color: inherit;
   outline: none;
-  
+
   // Borrowed from textfield styling.
   &[type="number"] {
     -moz-appearance: textfield;
@@ -162,7 +181,7 @@
       border-bottom: 1px dotted $input-text-disabled-color;
       color: $input-text-disabled-text-color;
   }
-  
+
   // Disable default MS clear icon.
   &::-ms-clear {
     display: none;
@@ -183,7 +202,7 @@
   opacity: 0;
   clip: rect(0 0 0 0);
   z-index: -1;
-  
+
   // Handle visibility and animations.
   .mdl-search__dropdown-container.is-visible & {
     opacity: 1;
@@ -207,7 +226,7 @@
   width: 0;
   visibility: hidden;
   z-index: -1;
-  
+
   // Handle visibility and animations.
   &.is-visible,
   &.is-animating {
@@ -231,7 +250,7 @@
   opacity: 0;
   @include shadow-2dp();
   z-index: -1;
-  
+
   // Handle visibility and animations.
   .mdl-search__dropdown-container.is-visible & {
     opacity: 1;
@@ -261,7 +280,7 @@
   line-height: 48px;
   white-space: nowrap;
   user-select: none;
-  
+
   // Dropdown opacity.
   .mdl-search__dropdown & {
     opacity: 0;
@@ -272,7 +291,7 @@
   .mdl-search__dropdown-container.is-visible & {
     opacity: 1;
   }
-  
+
   // Borrowed from menu styling.
   .mdl-search__item::-moz-focus-inner {
     border: 0;
@@ -304,7 +323,7 @@
   &:active {
     background-color: $default-item-active-bg-color;
   }
-  
+
   // Ripple container styling.
   &--ripple-container {
     display: block;
@@ -316,7 +335,7 @@
     z-index: 0;
     overflow: hidden;
   }
-  
+
   // Item icon styling.
   .mdl-search__item-icon {
     display: inline-block;

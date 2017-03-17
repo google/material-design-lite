@@ -74,9 +74,9 @@ Inset search component without responsive icons.
 
 Full-width inset search component with animated dropdown and ripple effects.
 ```html
-<div class="mdl-search mdl-js-search mdl-search--inset mdl-search--full-width mdl-search--animate mdl-search--ripple" search="mySearchFcn" submit="mySubmitFcn" debounce="100">
+<div class="mdl-search mdl-js-search mdl-search--inset mdl-search--full-width mdl-search--ripple" search="mySearchFcn" submit="mySubmitFcn" debounce="100">
   <input class="mdl-search__input" type="text" placeholder="Search here">
-  <ul class="mdl-search__dropdown"></ul>
+  <ul class="mdl-search__dropdown mdl-search--animate"></ul>
 </div>
 ```
 
@@ -121,11 +121,11 @@ Search component with MDL textfield styling.
   ...
 </div>
 ```
-&nbsp;2. Code a `<div>` element for the mdl-layout's `drawer-button`, and give it an `id` attribute of your choice (normally, this element is automatically created by the mdl-layout component).
+&nbsp;2. Code a `<div>` element for the mdl-layout's `drawer-button`, give it an `id` attribute of your choice, and an additional `mdl-search__left-icon` class (normally, this element is automatically created by the mdl-layout component).
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__left-icon">
       <i class="material-icons">menu</i>
     </div>
   </header>
@@ -136,7 +136,7 @@ Search component with MDL textfield styling.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -151,7 +151,7 @@ Search component with MDL textfield styling.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -168,7 +168,7 @@ Search component with MDL textfield styling.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -186,7 +186,7 @@ Search component with MDL textfield styling.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -203,7 +203,7 @@ Search component with MDL textfield styling.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -222,7 +222,7 @@ Search component with MDL textfield styling.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -244,7 +244,7 @@ Search component with MDL textfield styling.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -266,11 +266,11 @@ The header search component is ready for use.
 
 #### Examples
 
-Header search component with dropdown.
+Header search component with dropdown and animated menu/back button.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button" aria-expanded="false" role="button" tabindex="0">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon mdl-search--animate" aria-expanded="false" role="button" tabindex="0">
       <i class="material-icons">menu</i>
     </div>
     <div id="header-wrapper" class="mdl-search__header-wrapper">
@@ -293,7 +293,7 @@ Header search component with external suggestion list instead of dropdown (using
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
-    <div id="drawer-button" class="mdl-layout__drawer-button" aria-expanded="false" role="button" tabindex="0">
+    <div id="drawer-button" class="mdl-layout__drawer-button mdl-search__lefticon" aria-expanded="false" role="button" tabindex="0">
       <i class="material-icons">menu</i>
     </div>
     <div class="mdl-search__header-wrapper">
@@ -532,8 +532,8 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-search__header-wrapper` | Defines container as an MDL component | For header search bars, required on a div enclosing the MDL "header-row" |
 | `mdl-search--full-width` | Applies full-width styling | Optional; goes on "outer" div element |
 | `mdl-search--align-right` | Applies right-aligned text styling | Optional; goes on "outer" div element |
-| `mdl-search--animate` | Enable dropdown animations | Optional; goes on "outer" div element | 
-| `mdl-search--ripple` | Enable dropdown ripple effects | Optional; goes on "outer" div element |
+| `mdl-search--animate` | Enable dropdown/icon animations | Optional; goes on dropdown div and/or icon label elements | 
+| `mdl-search--ripple` | Enable item ripple effects | Optional; goes on "outer" div element |
 
 (1) The "search" and "mic" icons are used here as an example. Other icons can be used by modifying the text. For a list of available icons, see [this page](https://www.google.com/design/icons).
 

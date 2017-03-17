@@ -371,6 +371,7 @@ $search-drawer-fix-padding: $search-input-padding - $search-item-padding - $sear
 $search-drawer-fix-mobile: 72px + $search-drawer-fix-padding;
 $search-drawer-fix-desktop: 80px + $search-drawer-fix-padding;
 
+$search-icon-duration: 0.5s !default;
 $search-expand-bg-duration: 0.2s !default;
 $search-expand-col-duration: 0.1s !default;
 $search-expand-width-duration: 0.3s !default;

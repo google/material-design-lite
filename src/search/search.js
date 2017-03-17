@@ -93,12 +93,14 @@
     ENABLE_RIPPLE: 'mdl-search--ripple',
     ENABLE_ANIMATION: 'mdl-search--animate',
     // Statuses
+    IS_ANIMATING: 'is-animating',
     IS_DIRTY: 'is-dirty',
-    IS_FOCUSED: 'is-focused',
     IS_DISABLED: 'is-disabled',
+    IS_FOCUSED: 'is-focused',
+    IS_HIDDEN: 'is-hidden',
+    IS_ROTATED: 'is-rotated',
     IS_UPGRADED: 'is-upgraded',
-    IS_VISIBLE: 'is-visible',
-    IS_ANIMATING: 'is-animating'
+    IS_VISIBLE: 'is-visible'
   };
 
   /**
@@ -154,7 +156,7 @@
         this.dropdown_.parentElement.removeChild(this.dropdown_);
         container.appendChild(this.dropdown_);
         this.dropdownContainer_ = container;
-        if (this.element_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
+        if (this.dropdown_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
           this.dropdownContainer_.classList.add(this.CssClasses_.ENABLE_ANIMATION);
           this.boundRemoveAnimationEndListener_ = this.removeAnimationEndListener_.bind(this);
         }
@@ -182,6 +184,8 @@
         this.leftIconNew_ = this.leftIcon_.cloneNode(true);
         this.leftIconNew_.innerHTML = this.Constant_.LEFT_ICON_HTML;
         this.leftIconNew_.addEventListener('click', this.leftIconClick_.bind(this));
+        this.leftIconNew_.classList.add(this.CssClasses_.IS_HIDDEN);
+        this.leftIcon_.parentElement.appendChild(this.leftIconNew_);
         this.leftIconChanged_ = false;
       }
       // Initialize the right icon (mic/cancel button).
@@ -189,6 +193,8 @@
         this.rightIconNew_ = this.rightIcon_.cloneNode(true);
         this.rightIconNew_.innerHTML = this.Constant_.RIGHT_ICON_HTML;
         this.rightIconNew_.addEventListener('click', this.rightIconClick_.bind(this));
+        this.rightIconNew_.classList.add(this.CssClasses_.IS_HIDDEN);
+        this.rightIcon_.parentElement.appendChild(this.rightIconNew_);
         this.rightIconChanged_ = false;
       }
       // Activate the component.
@@ -540,22 +546,39 @@
     // Left icon should turn into a back button if searchbox is focused or dirty.
     if (this.leftIcon_) {
       if (this.leftIconChanged_ && !(isFocused || isDirty)) {
-        this.leftIconNew_.parentElement.replaceChild(this.leftIcon_, this.leftIconNew_);
+        this.iconAnimation_(this.leftIconNew_, this.leftIcon_);
         this.leftIconChanged_ = false;
       } else if (!this.leftIconChanged_ && (isFocused || isDirty)) {
-        this.leftIcon_.parentElement.replaceChild(this.leftIconNew_, this.leftIcon_);
+        this.iconAnimation_(this.leftIcon_, this.leftIconNew_);
         this.leftIconChanged_ = true;
       }
     }
     // Right icon should turn into a cancel button if searchbox is dirty.
     if (this.rightIcon_) {
       if (this.rightIconChanged_ && !isDirty) {
-        this.rightIconNew_.parentNode.replaceChild(this.rightIcon_, this.rightIconNew_);
+        this.iconAnimation_(this.rightIconNew_, this.rightIcon_);
         this.rightIconChanged_ = false;
       } else if (!this.rightIconChanged_ && isDirty) {
-        this.rightIcon_.parentNode.replaceChild(this.rightIconNew_, this.rightIcon_);
+        this.iconAnimation_(this.rightIcon_, this.rightIconNew_);
         this.rightIconChanged_ = true;
       }
+    }
+  };
+
+  /**
+   * Animate the icon change, if icon animation is enabled.
+   *
+   * @param {Element} oldIcon Icon to hide.
+   * @param {Element} newIcon Icon to show.
+   * @private
+   */
+  MaterialSearch.prototype.iconAnimation_ = function(oldIcon, newIcon) {
+    oldIcon.classList.toggle(this.CssClasses_.IS_HIDDEN);
+    newIcon.classList.toggle(this.CssClasses_.IS_HIDDEN);
+    // Rotate the icons, if animation is enabled.
+    if (oldIcon.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
+      oldIcon.classList.toggle(this.CssClasses_.IS_ROTATED);
+      newIcon.classList.toggle(this.CssClasses_.IS_ROTATED);
     }
   };
 
@@ -587,7 +610,7 @@
    * @private
    */
   MaterialSearch.prototype.dropdownAnimation_ = function(height, width, heightOrig) {
-    if (height !== heightOrig && this.element_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
+    if (height !== heightOrig && this.dropdown_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
       // Apply the initial clip to the text before we start animating.
       this.dropdownSetSize_(heightOrig, width);
       // Wait for the next frame, turn on animation, and apply the final clip.
@@ -783,7 +806,7 @@
       var width = this.dropdownTarget_.getBoundingClientRect().width;
       var height = this.dropdown_.getBoundingClientRect().height;
       // Initialize animations.
-      if (this.element_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
+      if (this.dropdown_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
         // Fade in individual dropdown items one at a time.
         var transitionDuration = this.Constant_.TRANSITION_DURATION_SECONDS * this.Constant_.TRANSITION_DURATION_FRACTION;
         for (var i = 0; i < items.length; i++) {
@@ -807,7 +830,7 @@
     if (this.dropdown_ && this.dropdownContainer_ && this.dropdownOutline_ &&
         this.dropdownContainer_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
       // Perform animations.
-      if (this.element_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
+      if (this.dropdown_.classList.contains(this.CssClasses_.ENABLE_ANIMATION)) {
         this.dropdown_.classList.add(this.CssClasses_.IS_ANIMATING);
         this.addAnimationEndListener_();
       }

@@ -35,7 +35,7 @@ describe('MaterialSearch', function () {
     container.appendChild(dropdown);
     return container;
   };
-  
+
   function createSearchWithSuggestions() {
     var container = createSearch();
     var dropdown = container.querySelector('.mdl-search__dropdown');
@@ -45,7 +45,7 @@ describe('MaterialSearch', function () {
     dropdown.appendChild(item);
     return container;
   }
-  
+
   it('should be globally available', function () {
     expect(MaterialSearch).to.be.a('function');
   });
@@ -134,40 +134,40 @@ describe('MaterialSearch', function () {
     });
 
     it('should change the left icon to "back" when the input is focused', function () {
-        var leftIcon = el.querySelector('.mdl-search__left-icon');
+      var leftIcon = el.querySelector('.mdl-search__left-icon:not(.is-hidden)');
       expect(leftIcon.firstElementChild.innerHTML).to.equal('search');
-      
+
       // Force the focus (HTMLEvent focus doesn't work here).
       el.MaterialSearch.focus(true);
-      leftIcon = el.querySelector('.mdl-search__left-icon');
+      leftIcon = el.querySelector('.mdl-search__left-icon:not(.is-hidden)');
       expect(leftIcon.firstElementChild.innerHTML).to.equal('arrow_back');
     });
 
     it('should change the right icon to "clear" when the input is dirty', function () {
-      var rightIcon = el.querySelector('.mdl-search__right-icon');
+      var rightIcon = el.querySelector('.mdl-search__right-icon:not(.is-hidden)');
       expect(rightIcon.firstElementChild.innerHTML).to.equal('mic');
-      
+
       el.MaterialSearch.change('test');
-      rightIcon = el.querySelector('.mdl-search__right-icon');
+      rightIcon = el.querySelector('.mdl-search__right-icon:not(.is-hidden)');
       expect(rightIcon.firstElementChild.innerHTML).to.equal('clear');
     });
 
     it('should keep the left icon as "back" with dirty input and no focus', function () {
-      var leftIcon = el.querySelector('.mdl-search__left-icon');
+      var leftIcon = el.querySelector('.mdl-search__left-icon:not(.is-hidden)');
       expect(leftIcon.firstElementChild.innerHTML).to.equal('arrow_back');
-      
+
       // Force the blur (HTMLEvent blur doesn't work here).
       el.MaterialSearch.blur();
-      leftIcon = el.querySelector('.mdl-search__left-icon');
+      leftIcon = el.querySelector('.mdl-search__left-icon:not(.is-hidden)');
       expect(leftIcon.firstElementChild.innerHTML).to.equal('arrow_back');
     });
 
     it('should return the left and right icons to original when the input is empty', function () {
-      var rightIcon = el.querySelector('.mdl-search__right-icon');
+      var rightIcon = el.querySelector('.mdl-search__right-icon:not(.is-hidden)');
       expect(rightIcon.firstElementChild.innerHTML).to.equal('clear');
-      
+
       el.MaterialSearch.change('');
-      rightIcon = el.querySelector('.mdl-search__right-icon');
+      rightIcon = el.querySelector('.mdl-search__right-icon:not(.is-hidden)');
       expect(rightIcon.firstElementChild.innerHTML).to.equal('mic');
     });
 
