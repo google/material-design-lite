@@ -117,6 +117,9 @@
   }
 
   // Handle icon visibility and animation.
+  &:empty {
+    display: none;
+  }
   &.is-hidden {
     visibility: hidden;
     opacity: 0;
