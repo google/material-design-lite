@@ -184,6 +184,7 @@
         this.leftIconNew_ = this.leftIcon_.cloneNode(true);
         this.leftIconNew_.innerHTML = this.Constant_.LEFT_ICON_HTML;
         this.leftIconNew_.addEventListener('click', this.leftIconClick_.bind(this));
+        this.leftIconNew_.addEventListener('touchend', this.leftIconClick_.bind(this));
         this.leftIconNew_.classList.add(this.CssClasses_.IS_HIDDEN);
         this.leftIcon_.parentElement.appendChild(this.leftIconNew_);
         this.leftIconChanged_ = false;
@@ -516,6 +517,7 @@
   MaterialSearch.prototype.leftIconClick_ = function(evt) {
     // Activate the 'Back' action.
     evt.stopPropagation();
+    evt.preventDefault();
     this.input_.blur();
     this.change('');
   };
