@@ -76,7 +76,7 @@
           row.classList.add(this.CssClasses_.IS_SELECTED);
         } else {
           row.classList.remove(this.CssClasses_.IS_SELECTED);
-          if(this.headerCheckbox['MaterialCheckbox'].inputElement_.checked){
+          if (this.headerCheckbox['MaterialCheckbox'].inputElement_.checked) {
             this.headerCheckbox['MaterialCheckbox'].uncheck();
           }
         }
