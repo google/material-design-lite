@@ -76,6 +76,10 @@
           row.classList.add(this.CssClasses_.IS_SELECTED);
         } else {
           row.classList.remove(this.CssClasses_.IS_SELECTED);
+          var thead_checkbox = this.element_.tHead.querySelector('.mdl-checkbox.is-checked');
+          if(thead_checkbox !== null){
+            thead_checkbox['MaterialCheckbox'].uncheck();
+          }
         }
       }.bind(this);
     }
