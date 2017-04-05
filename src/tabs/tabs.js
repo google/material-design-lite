@@ -61,8 +61,54 @@
     MDL_JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
     MDL_RIPPLE_CONTAINER: 'mdl-tabs__ripple-container',
     MDL_RIPPLE: 'mdl-ripple',
-    MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events'
+    MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+    TAB_BAR_CLASS: 'mdl-tabs__tab-bar'
   };
+
+  /**
+     * Keycodes, for code readability.
+     *
+     * @enum {number}
+     * @private
+     */
+  MaterialTabs.prototype.Keycodes_ = {
+      LEFT_ARROW: 37,
+      RIGHT_ARROW: 39
+    };
+
+  /**
+     * Handles a keyboard navigation events on the drawer.
+     *
+     * @param {Event} evt The event that fired.
+     * @private
+     */
+  MaterialTabs.prototype.handleTabKeyboardEvent_ = function(evt) {
+      // Only react when left or right arrow pressed and tabs exist.
+      if ((evt.keyCode === this.Keycodes_.LEFT_ARROW || evt.keyCode === this.Keycodes_.RIGHT_ARROW) && this.tabsBar_) {
+        var currentIndex = Array.prototype.slice.call(this.tabs_).indexOf(evt.target);
+        // Navigate tabs in tablist with left and right arrow keys.
+        if (evt.keyCode === this.Keycodes_.LEFT_ARROW) {
+          evt.preventDefault();
+          if (0 < currentIndex) {
+            // Give element focus and call click listener to activate panel.
+            this.tabs_[currentIndex - 1].focus();
+            this.tabs_[currentIndex - 1].click();
+          } else {
+            this.tabs_[this.tabs_.length - 1].focus();
+            this.tabs_[this.tabs_.length - 1].click();
+          }
+        } else {
+          evt.preventDefault();
+          if (this.tabs_.length > currentIndex + 1) {
+            this.tabs_[currentIndex + 1].focus();
+            this.tabs_[currentIndex + 1].click();
+          } else {
+            this.tabs_[0].focus();
+            this.tabs_[0].click();
+          }
+        }
+      }
+    };
 
   /**
    * Handle clicks to a tabs component
@@ -75,10 +121,12 @@
         this.CssClasses_.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
 
-    // Select element tabs, document panels
+    // Select element tab_bar, tabs, document panels
     this.tabs_ = this.element_.querySelectorAll('.' + this.CssClasses_.TAB_CLASS);
     this.panels_ =
         this.element_.querySelectorAll('.' + this.CssClasses_.PANEL_CLASS);
+    this.tabsBar_ =
+        this.element_.querySelector('.'  + this.CssClasses_.TAB_BAR_CLASS);
 
     // Create new tabs for each tab element
     for (var i = 0; i < this.tabs_.length; i++) {
@@ -86,6 +134,28 @@
     }
 
     this.element_.classList.add(this.CssClasses_.UPGRADED_CLASS);
+
+    this.tabsBar_.setAttribute('role', 'tablist');
+
+    // Set attributes for newly created tabs.
+    for (var ind = 0; ind < this.tabs_.length; ind++) {
+      if (this.tabs_[ind].classList.contains(this.CssClasses_.ACTIVE_CLASS)) {
+        this.tabs_[ind].setAttribute('aria-selected', 'true');
+        this.tabs_[ind].setAttribute('tabindex', '0');
+      } else {
+        this.tabs_[ind].setAttribute('aria-selected', 'false');
+        this.tabs_[ind].setAttribute('tabindex', '-1');
+      }
+      this.tabs_[ind].addEventListener('keydown', this.handleTabKeyboardEvent_.bind(this));
+    }
+
+    // Set attributes for newly created panels.
+    for (var index = 0; index < this.panels_.length; index++) {
+      this.panels_[index].setAttribute('role', 'tabpanel');
+      var tabId = this.panels_[index].id + '-tab';
+      this.panels_[index].setAttribute('aria-labelledby', tabId);
+    }
+
   };
 
   /**
@@ -96,6 +166,8 @@
   MaterialTabs.prototype.resetTabState_ = function() {
     for (var k = 0; k < this.tabs_.length; k++) {
       this.tabs_[k].classList.remove(this.CssClasses_.ACTIVE_CLASS);
+      this.tabs_[k].setAttribute('aria-selected', 'false');
+      this.tabs_[k].setAttribute('tabindex', '-1');
     }
   };
 
@@ -128,6 +200,9 @@
    */
   function MaterialTab(tab, ctx) {
     if (tab) {
+
+      tab.setAttribute('role', 'tab');
+
       if (ctx.element_.classList.contains(ctx.CssClasses_.MDL_JS_RIPPLE_EFFECT)) {
         var rippleContainer = document.createElement('span');
         rippleContainer.classList.add(ctx.CssClasses_.MDL_RIPPLE_CONTAINER);
@@ -138,17 +213,23 @@
         tab.appendChild(rippleContainer);
       }
 
-      tab.addEventListener('click', function(e) {
-        if (tab.getAttribute('href').charAt(0) === '#') {
-          e.preventDefault();
-          var href = tab.href.split('#')[1];
-          var panel = ctx.element_.querySelector('#' + href);
-          ctx.resetTabState_();
-          ctx.resetPanelState_();
-          tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-          panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-        }
-      });
+      if (tab.getAttribute('href').charAt(0) === '#') {
+        var href = tab.href.split('#')[1];
+        var tabId = href + '-tab';
+        tab.setAttribute('aria-controls', href);
+        tab.setAttribute('id', tabId);
+
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            var panel = ctx.element_.querySelector('#' + href);
+            ctx.resetTabState_();
+            ctx.resetPanelState_();
+            tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+            panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+            tab.setAttribute('aria-selected', 'true');
+            tab.setAttribute('tabindex', '0');
+          });
+      }
 
     }
   }
