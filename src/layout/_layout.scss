@@ -47,15 +47,18 @@
   overflow-x: hidden;
   position: relative;
   -webkit-overflow-scrolling: touch;
-}
 
-// Utility classes for screen sizes.
-.mdl-layout.is-small-screen .mdl-layout--large-screen-only {
-  display: none;
-}
-
-.mdl-layout:not(.is-small-screen) .mdl-layout--small-screen-only {
-  display: none;
+  // Utility classes for screen sizes.
+  @media screen and (max-width: $layout-screen-size-threshold) {
+    & .mdl-layout--large-screen-only {
+      display: none;
+    }
+  }
+  @media screen and (min-width: $layout-screen-size-threshold + 1px) {
+    & .mdl-layout--small-screen-only {
+      display: none;
+    }
+  }
 }
 
 .mdl-layout__container {
@@ -251,13 +254,11 @@
       min-height: $layout-mobile-header-height;
     }
 
-    .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > & {
-      margin-left: $layout-drawer-width;
-      width: calc(100% - #{$layout-drawer-width});
-    }
-
     @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .mdl-layout--fixed-drawer > & {
+        margin-left: $layout-drawer-width;
+        width: calc(100% - #{$layout-drawer-width});
+
         .mdl-layout__header-row {
           padding-left: 40px;
         }
