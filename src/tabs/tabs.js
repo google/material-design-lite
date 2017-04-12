@@ -111,6 +111,24 @@
   };
 
   /**
+   * Set the active tab.
+   *
+   * @public
+   * @param {Element|number} tab The tab element or index to set active.
+   */
+  MaterialTabs.prototype.setTab = function(tab) {
+    tab = (typeof tab === 'number') ? this.tabs_[tab] : tab;
+    if (tab && tab.getAttribute('href').charAt(0) === '#') {
+      var href = tab.href.split('#')[1];
+      var panel = this.element_.querySelector('#' + href);
+      this.resetTabState_();
+      this.resetPanelState_();
+      tab.classList.add(this.CssClasses_.ACTIVE_CLASS);
+      panel.classList.add(this.CssClasses_.ACTIVE_CLASS);
+    }
+  };
+
+  /**
    * Initialize element.
    */
   MaterialTabs.prototype.init = function() {
@@ -141,12 +159,7 @@
       tab.addEventListener('click', function(e) {
         if (tab.getAttribute('href').charAt(0) === '#') {
           e.preventDefault();
-          var href = tab.href.split('#')[1];
-          var panel = ctx.element_.querySelector('#' + href);
-          ctx.resetTabState_();
-          ctx.resetPanelState_();
-          tab.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
-          panel.classList.add(ctx.CssClasses_.ACTIVE_CLASS);
+          ctx.setTab(tab);
         }
       });
 
