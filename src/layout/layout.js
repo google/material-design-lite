@@ -58,7 +58,12 @@
   MaterialLayout.prototype.Keycodes_ = {
     ENTER: 13,
     ESCAPE: 27,
-    SPACE: 32
+    SPACE: 32,
+    UP_ARROW: 38,
+    DOWN_ARROW: 40,
+    HOME: 36,
+    END: 35,
+    TAB: 9
   };
 
   /**
@@ -170,8 +175,61 @@
     if (evt.keyCode === this.Keycodes_.ESCAPE &&
         this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
       this.toggleDrawer();
+    } else if (evt.keyCode === this.Keycodes_.SPACE && this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
+      evt.preventDefault();
+      // Send mousedown and mouseup to trigger ripple.
+      var e = new MouseEvent('mousedown');
+      evt.target.dispatchEvent(e);
+      e = new MouseEvent('mouseup');
+      evt.target.dispatchEvent(e);
+      // Send click.
+      evt.target.click();
+    } else if (evt.keyCode === this.Keycodes_.HOME && this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
+      this.drawerMenuItems_[0].focus();
+    } else if (evt.keyCode === this.Keycodes_.END && this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
+      this.drawerMenuItems_[this.drawerMenuItems_.length - 1].focus();
     }
   };
+
+  /**
+   * Handles a keyboard navigation events on the drawer.
+   *
+   * @param {Event} evt The event that fired.
+   * @private
+   */
+  MaterialLayout.prototype.handleMenuNavKeyboardEvent_ = function(evt) {
+      // Only react when a draw exists, is open and tab is pressed.
+      if ((evt.keyCode === this.Keycodes_.TAB || evt.keyCode === this.Keycodes_.DOWN_ARROW ||
+            evt.keyCode === this.Keycodes_.UP_ARROW) && this.drawer_ &&
+            this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
+        var currentIndex = Array.prototype.slice.call(this.drawerMenuItems_).indexOf(evt.target);
+        // Tab forward and backward through navigation links. Collapse drawer
+        // when user reaches the end of the links.
+        if ((evt.shiftKey && evt.keyCode === this.Keycodes_.TAB) || evt.keyCode === this.Keycodes_.UP_ARROW) {
+          evt.preventDefault();
+          if (0 < currentIndex) {
+            this.drawerMenuItems_[currentIndex - 1].focus();
+          } else {
+            // This would loop to the top of the menu but blocks the user
+            // from accessing the browser itself. Instead I've opted to
+            // close the drawer and continue in the tab order.
+            // this.drawerMenuItems_[this.drawerMenuItems_.length - 1].focus();
+            this.toggleDrawer();
+          }
+        } else {
+          evt.preventDefault();
+          if (this.drawerMenuItems_.length > currentIndex + 1) {
+            this.drawerMenuItems_[currentIndex + 1].focus();
+          } else {
+            // This would loop to the top of the menu but blocks the user
+            // from accessing the browser itself. Instead I've opted to
+            // close the drawer and continue in the tab order.
+            // this.drawerMenuItems_[0].focus();
+            this.toggleDrawer();
+          }
+        }
+      }
+    };
 
   /**
    * Handles changes in screen size.
@@ -179,14 +237,36 @@
    * @private
    */
   MaterialLayout.prototype.screenSizeHandler_ = function() {
+    var drawerButton;
     if (this.screenSizeMediaQuery_.matches) {
       this.element_.classList.add(this.CssClasses_.IS_SMALL_SCREEN);
+      // Hide drawer button and display drawer when moving to a small screen.
+      if (this.drawer_) {
+        drawerButton = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
+        drawerButton.setAttribute('aria-hidden', 'false');
+        drawerButton.setAttribute('tabindex', '0');
+        drawerButton.setAttribute('aria-label', 'Toggle menu');
+        drawerButton.setAttribute('aria-haspopup', 'true');
+        this.drawer_.setAttribute('aria-hidden', 'true');
+        for (var i = 0; i < this.drawerMenuItems_.length; i++) {
+          this.drawerMenuItems_[i].setAttribute('tabIndex', '-1');
+        }
+      }
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_SMALL_SCREEN);
       // Collapse drawer (if any) when moving to a large screen size.
       if (this.drawer_) {
         this.drawer_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
         this.obfuscator_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
+        // When not a small screen hide small screen drawer and overlay and
+        // display large screen menu and let it be focusable.
+        drawerButton = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
+        drawerButton.setAttribute('aria-hidden', 'true');
+        drawerButton.setAttribute('tabindex', '-1');
+        this.drawer_.setAttribute('aria-hidden', 'false');
+        for (var d = 0; d < this.drawerMenuItems_.length; d++) {
+          this.drawerMenuItems_[d].setAttribute('tabIndex', '0');
+        }
       }
     }
   };
@@ -268,9 +348,21 @@
     if (this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
       this.drawer_.setAttribute('aria-hidden', 'false');
       drawerButton.setAttribute('aria-expanded', 'true');
+      // Let navigation links be focusable by the keyboard.
+      for (var i = 0; i < this.drawerMenuItems_.length; i++) {
+        this.drawerMenuItems_[i].setAttribute('tabIndex', '0');
+      }
+      // Set focus to first navigation link.
+      this.drawerMenuItems_[0].focus();
     } else {
       this.drawer_.setAttribute('aria-hidden', 'true');
       drawerButton.setAttribute('aria-expanded', 'false');
+      // Remove keyboard focus ability once drawer is hidden.
+      for (var e = 0; e < this.drawerMenuItems_.length; e++) {
+        this.drawerMenuItems_[e].setAttribute('tabIndex', '-1');
+      }
+      // Set focus to previously focused element.
+      drawerButton.focus();
     }
   };
   MaterialLayout.prototype['toggleDrawer'] =
@@ -328,6 +420,10 @@
         this.tabBar_ = this.header_.querySelector('.' + this.CssClasses_.TAB_BAR);
       }
 
+      if (this.drawer_) {
+        this.drawerMenuItems_ = this.drawer_.querySelectorAll('.mdl-navigation__link');
+      }
+
       var mode = this.Mode_.STANDARD;
 
       if (this.header_) {
@@ -370,11 +466,16 @@
       if (this.drawer_) {
         var drawerButton = this.element_.querySelector('.' +
           this.CssClasses_.DRAWER_BTN);
+        var drawerNav = this.drawer_.querySelector('.mdl-navigation');
+        if (drawerNav) {
+          drawerNav.setAttribute('role', 'menu');
+        }
         if (!drawerButton) {
           drawerButton = document.createElement('div');
           drawerButton.setAttribute('aria-expanded', 'false');
           drawerButton.setAttribute('role', 'button');
           drawerButton.setAttribute('tabindex', '0');
+          drawerButton.setAttribute('aria-haspopup', 'true');
           drawerButton.classList.add(this.CssClasses_.DRAWER_BTN);
 
           var drawerButtonIcon = document.createElement('i');
@@ -419,6 +520,11 @@
 
         this.drawer_.addEventListener('keydown', this.keyboardEventHandler_.bind(this));
         this.drawer_.setAttribute('aria-hidden', 'true');
+        // Watch for keyboard events in the navigation.
+        for (var f = 0; f < this.drawerMenuItems_.length; f++) {
+          this.drawerMenuItems_[f].addEventListener('keydown', this.handleMenuNavKeyboardEvent_.bind(this));
+          this.drawerMenuItems_[f].setAttribute('role', 'menuitem');
+        }
       }
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling

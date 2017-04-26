@@ -124,6 +124,18 @@ describe('MaterialLayout', function () {
       navLink = el.querySelector('.mdl-layout__drawer a');
     });
 
+    it('should have attribute role="menu"', function () {
+      expect($(drawer.querySelector('nav.mdl-navigation'))).to.have.attr('role', 'menu');
+    });
+    
+    it('should have attribute tabindex="-1"', function () {
+      expect($(drawer.querySelector('.mdl-navigation__link'))).to.have.attr('tabindex', '-1');
+    });    
+
+    it('should have attribute role="menuitem"', function () {
+      expect($(drawer.querySelector('.mdl-navigation__link'))).to.have.attr('role', 'menuitem');
+    });
+
     it('should have attribute aria-hidden="true"', function () {
       expect($(drawer)).to.have.attr('aria-hidden', 'true');
     });
@@ -132,12 +144,29 @@ describe('MaterialLayout', function () {
       expect($(drawerBtn)).to.have.attr('aria-expanded', 'false');
     });
 
+    it('button should have attribute aria-hidden="false"', function () {
+      expect($(drawerBtn)).to.have.attr('aria-expanded', 'false');
+    });
+    
+    it('button should have attribute aria-label="Toggle menu"', function () {
+      expect($(drawerBtn)).to.have.attr('aria-label', 'Toggle menu');
+    });
+
+    it('button should have attribute aria-haspopup="true"', function () {
+      expect($(drawerBtn)).to.have.attr('aria-haspopup', 'true');
+    });    
+
+    it('button should have attribute tabindex="0"', function () {
+      expect($(drawerBtn)).to.have.attr('tabindex', '0');
+    });    
+    
     it('and drawer button should have correct values for attributes aria-hidden and aria-expanded', function () {
       var ev = document.createEvent('MouseEvents');
       ev.initEvent('click', true, true);
       drawerBtn.dispatchEvent(ev);
 
       expect($(drawer)).to.have.attr('aria-hidden', 'false');
+      expect($(drawer.querySelector('.mdl-navigation__link'))).to.have.attr('tabindex', '0');
       expect($(drawerBtn)).to.have.attr('aria-expanded', 'true');
     });
 
@@ -147,6 +176,7 @@ describe('MaterialLayout', function () {
       drawer.dispatchEvent(ev);
 
       expect($(drawer)).to.not.have.class('is-visible');
+      expect($(drawer.querySelector('.mdl-navigation__link'))).to.have.attr('tabindex', '-1');
       expect($(drawer)).to.have.attr('aria-hidden', 'true');
       expect($(drawerBtn)).to.have.attr('aria-expanded', 'false');
     });
