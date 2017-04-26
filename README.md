@@ -72,7 +72,7 @@ changes.
 ## Want to contribute?
 
 If you found a bug, have any questions or want to contribute. Follow our
-[guidelines](https://github.com/google/material-design-lite/blob/master/CONTRIBUTING.md),
+[guidelines](https://github.com/google/material-design-lite/blob/mdl-1.x/CONTRIBUTING.md),
 and help improve the Material Design Lite. For more information visit our
 [wiki](https://github.com/google/material-design-lite/wiki).
 
