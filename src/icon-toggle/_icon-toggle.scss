@@ -118,4 +118,22 @@
   .mdl-icon-toggle.is-disabled & .mdl-ripple {
     background: transparent;
   }
+
+  #favorite {
+    color:blue;
+    opacity:0.3;
+  }
+
+  #favorite:hover {
+    color:lightblue;
+  }
+
+  #favorite1{
+    color:green;
+    opacity: 1.5;
+  }
+
+  #favorite1:hover {
+    color:#8BF397;
+  }
 }
