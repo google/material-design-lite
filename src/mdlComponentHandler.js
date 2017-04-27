@@ -476,7 +476,7 @@ componentHandler['downgradeElements'] = componentHandler.downgradeElements;
 window.componentHandler = componentHandler;
 window['componentHandler'] = componentHandler;
 
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
   /**
