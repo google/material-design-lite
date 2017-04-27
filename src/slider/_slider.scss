@@ -16,13 +16,18 @@
 
 @import "../variables";
 
-// Some CSS magic to target only IE.
-_:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
+// Some CSS magic to target only IE and Edge
+_:-ms-lang(x), .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   // The thumb can't overflow the track or the rest of the control in IE, so we
   // need to make it tall enough to contain the largest version of the thumb.
   height: 32px;
   margin: 0;
+  
+  // Targets Edge as it also supports WebKit APIs
+  &:focus:not(:active)::-webkit-slider-thumb {
+    box-shadow: none;
+  }  
 }
 
 // Slider component (styled input[type=range]).
