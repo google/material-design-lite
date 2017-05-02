@@ -202,6 +202,7 @@
       position: absolute;
       color: $layout-header-text-color;
       background-color: inherit;
+      outline: none;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
         margin: 4px;
