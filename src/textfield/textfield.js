@@ -175,7 +175,7 @@
    * @public
    */
   MaterialTextfield.prototype.checkDirty = function() {
-    if (this.input_.value && this.input_.value.length > 0) {
+    if ((this.input_.value && this.input_.value.length > 0) || this.input_.placeholder) {
       this.element_.classList.add(this.CssClasses_.IS_DIRTY);
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
