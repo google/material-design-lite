@@ -101,6 +101,7 @@
     HEADER_SCROLL: 'mdl-layout__header--scroll',
 
     FIXED_HEADER: 'mdl-layout--fixed-header',
+    FIXED_DRAWER: 'mdl-layout--fixed-drawer',
     OBFUSCATOR: 'mdl-layout__obfuscator',
 
     TAB_BAR: 'mdl-layout__tab-bar',
@@ -126,6 +127,17 @@
     ON_LARGE_SCREEN: 'mdl-layout--large-screen-only',
     ON_SMALL_SCREEN: 'mdl-layout--small-screen-only'
 
+  };
+
+  /**
+   * Provide local version of matchMedia. This is needed in order to support
+   * monkey-patching of matchMedia in the unit tests. Due to peculiarities in
+   * PhantomJS, it doesn't work to monkey patch window.matchMedia directly.
+   *
+   * @private
+   */
+  MaterialLayout.prototype.matchMedia_ = function(query) {
+    return window.matchMedia(query);
   };
 
   /**
@@ -181,12 +193,20 @@
   MaterialLayout.prototype.screenSizeHandler_ = function() {
     if (this.screenSizeMediaQuery_.matches) {
       this.element_.classList.add(this.CssClasses_.IS_SMALL_SCREEN);
+
+      if (this.drawer_) {
+        this.drawer_.setAttribute('aria-hidden', 'true');
+      }
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_SMALL_SCREEN);
       // Collapse drawer (if any) when moving to a large screen size.
       if (this.drawer_) {
         this.drawer_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
         this.obfuscator_.classList.remove(this.CssClasses_.IS_DRAWER_OPEN);
+
+        if (this.element_.classList.contains(this.CssClasses_.FIXED_DRAWER)) {
+          this.drawer_.setAttribute('aria-hidden', 'false');
+        }
       }
     }
   };
@@ -423,7 +443,7 @@
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
       // of small screens.
-      this.screenSizeMediaQuery_ = window.matchMedia(
+      this.screenSizeMediaQuery_ = this.matchMedia_(
           /** @type {string} */ (this.Constant_.MAX_WIDTH));
       this.screenSizeMediaQuery_.addListener(this.screenSizeHandler_.bind(this));
       this.screenSizeHandler_();
