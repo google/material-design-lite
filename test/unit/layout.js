@@ -16,6 +16,33 @@
 
 describe('MaterialLayout', function () {
 
+  MockMediaQueryList = function(media) {
+    this.media = media;
+    this.listeners = [];
+  }
+
+  MockMediaQueryList.registry = {};
+
+  MockMediaQueryList.mockMatchMedia = function(query) {
+    if (! MockMediaQueryList.registry.hasOwnProperty(query)) {
+      MockMediaQueryList.registry[query] = new MockMediaQueryList(query);
+    }
+    return MockMediaQueryList.registry[query];
+  }
+
+  MockMediaQueryList.prototype.addListener = function(listener) {
+    this.listeners.push(listener);
+  }
+
+  MockMediaQueryList.prototype.triggerMatch = function(matches) {
+    this.matches = matches;
+    this.listeners.forEach(function(listener) {
+      // PhantomJS doesn't support MediaQueryListEvent() so mock the event.
+      var event = {media: this.media, matches: this.matches};
+      listener(event);
+    }.bind(this));
+  }
+
   it('should be globally available', function () {
     expect(MaterialLayout).to.be.a('function');
   });
@@ -99,13 +126,18 @@ describe('MaterialLayout', function () {
    });
 
   describe('Drawer', function () {
+    var el;
     var drawer, drawerBtn;
     var navLink;
 
     beforeEach(function() {
-      var el = document.createElement('div');
+      this.originalMatchMedia = window.MaterialLayout.prototype.matchMedia_;
+      window.MaterialLayout.prototype.matchMedia_ = MockMediaQueryList.mockMatchMedia;
+      window.patched = 'yes patched';
+
+      el = document.createElement('div');
       el.innerHTML = '<div class="mdl-layout__header"></div>' +
-        '<div class="mdl-layout__drawer" aria-hidden="true">' +
+        '<div class="mdl-layout__drawer">' +
         '   <nav class="mdl-navigation">' +
         '     <a class="mdl-navigation__link" href="">Phones</a>' +
         '     <a class="mdl-navigation__link" href="">Tablets</a>' +
@@ -124,7 +156,35 @@ describe('MaterialLayout', function () {
       navLink = el.querySelector('.mdl-layout__drawer a');
     });
 
+    afterEach(function() {
+      window.MaterialLayout.prototype.matchMedia_ = this.originalMatchMedia;
+    });
+
     it('should have attribute aria-hidden="true"', function () {
+      var screenSizeHandler = MockMediaQueryList.registry[
+          '(max-width: 1024px)'];
+
+      // Expect hidden on small screen
+      screenSizeHandler.triggerMatch(true);
+      expect($(drawer)).to.have.attr('aria-hidden', 'true');
+
+      // Expect hidden on wide screen
+      screenSizeHandler.triggerMatch(false);
+      expect($(drawer)).to.have.attr('aria-hidden', 'true');
+    });
+
+    it('should have attribute aria-hidden="false" for fixed drawer', function () {
+      $(el).addClass('mdl-layout--fixed-drawer');
+
+      var screenSizeHandler = MockMediaQueryList.registry[
+          '(max-width: 1024px)'];
+
+      // Expect hidden on small screen
+      screenSizeHandler.triggerMatch(true);
+      expect($(drawer)).to.have.attr('aria-hidden', 'true');
+
+      // Expect shown on wide screen
+      screenSizeHandler.triggerMatch(true);
       expect($(drawer)).to.have.attr('aria-hidden', 'true');
     });
 
