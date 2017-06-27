@@ -89,6 +89,7 @@ const SOURCES = [
   // Complex components (which reuse base components)
   'src/layout/layout.js',
   'src/data-table/data-table.js',
+  'src/datepicker/datepicker.js',
   // And finally, the ripples
   'src/ripple/ripple.js'
 ];

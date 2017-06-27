@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <title>Date picker</title>
+  <style type="text/css">
+    body {
+      background-color: #eee;
+    }
+
+    body > div {
+      padding-top: 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Date picker demo</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Date picker demo</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#attached">Attached to input</a>
+        <a class="mdl-navigation__link" href="#fixed">Fixed picker</a>
+        <a class="mdl-navigation__link" href="#custom-format">Custom format</a>
+        <a class="mdl-navigation__link" href="#custom-range">Custom range</a>
+        <a class="mdl-navigation__link" href="#inline">Inline picker</a>
+        <a class="mdl-navigation__link" href="#landscape">Landscape picker</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">        
+        <div class="mdl-grid">
+          <div class="mdl-cell">
+            <div><a name="attached"></a></div>
+            <h6>Datepicker attached to input</h6>
+            
+            <div id="demo-picker" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker">
+              <input type="text" class="mdl-textfield__input mdl-datepicker__input" required>
+              <label class="mdl-textfield__label">Select date</label>
+            </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+          </div><!-- /.mdl-cell -->
+        </div><!-- /.mdl-grid -->
+
+        <div class="mdl-grid">
+          <div class="mdl-cell">
+            <div><a name="fixed"></a></div>
+            <h6>Fixed datepicker</h6>
+            
+            <div id="fixed-picker" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
+              <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+              <label class="mdl-textfield__label">Select date</label>
+            </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+          </div><!-- /.mdl-cell -->
+        </div><!-- /.mdl-grid -->
+
+        <div class="mdl-grid">
+          <div class="mdl-cell">
+            <div><a name="custom-format"></a></div>
+            <h6>Custom format datepicker</h6>
+            
+            <div id="custom-format" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
+              <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+              <label class="mdl-textfield__label">Select date</label>
+            </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+          </div><!-- /.mdl-cell -->
+        </div><!-- /.mdl-grid -->
+
+        <div class="mdl-grid">
+          <div class="mdl-cell">
+            <div><a name="custom-min-range"></a></div>
+            <h6>Custom allowed min date range</h6>
+            
+            <div id="custom-min-range" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
+              <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+              <label class="mdl-textfield__label">Select date</label>
+            </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+          </div><!-- /.mdl-cell -->
+        </div><!-- /.mdl-grid -->
+
+        <div class="mdl-grid">
+          <div class="mdl-cell">
+            <div><a name="custom-max-range"></a></div>
+            <h6>Custom allowed max date range</h6>
+            
+            <div id="custom-max-range" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed">
+              <input type="text" class="mdl-textfield__input mdl-datepicker__input">
+              <label class="mdl-textfield__label">Select date</label>
+            </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+          </div><!-- /.mdl-cell -->
+        </div><!-- /.mdl-grid -->
+
+        <div class="mdl-grid">
+          <div class="mdl-cell">
+            <div><a name="inline"></a></div>
+            <h6>Inline datepicker</h6>
+            
+            <div id="inline-datepicker" class="mdl-datepicker mdl-js-datepicker mdl-datepicker--inline is-visible">
+              <p>Selected date: <span id="inline-selected-date"></span></p>
+            </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+          </div><!-- /.mdl-cell -->
+        </div><!-- /.mdl-grid -->
+
+        <div class="mdl-grid">
+          <div class="mdl-cell">
+            <div><a name="landscape"></a></div>
+            <h6>Landscape datepicker</h6>
+            
+            <div id="landscape-datepicker" class="mdl-datepicker mdl-js-datepicker mdl-datepicker--landscape mdl-datepicker--inline is-visible">
+              <p>Selected date: <span id="landscape-selected-date"></span></p>
+            </div><!-- /.mdl-datepicker mdl-js-datepicker -->
+
+          </div><!-- /.mdl-cell -->
+        </div><!-- /.mdl-grid -->
+
+      </div>
+    </main>
+  </div>
+
+  <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+  </div>
+
+  <script type="text/javascript">
+    /**
+     * Append leading zero if necessary
+     * @param {number} number
+     * @return {string}
+     */
+    var addLeadingZero = function(number) {
+      return ('0' + number).substr(-2, 2);
+    };
+
+    // Setup global date format
+    MaterialDatePicker.locales.format = 'yyyy-mm-dd';
+
+    window.onload = function() {
+      var snackbarContainer = document.querySelector('#demo-snackbar-example');
+      var fixedPicker = document.querySelector('#fixed-picker');
+      fixedPicker.addEventListener('open', function() {
+        snackbarContainer.MaterialSnackbar.showSnackbar({
+          message: 'Fixed date picker opened',
+          timeout: 2000
+        });
+      });
+      fixedPicker.addEventListener('close', function() {
+        snackbarContainer.MaterialSnackbar.showSnackbar({
+          message: 'Fixed date picker closed',
+          timeout: 2000
+        });
+      });
+
+      var customFormat = document.querySelector('#custom-format');
+      customFormat.MaterialDatePicker.locales.format = function (selectedDate) {
+        return [
+          addLeadingZero(selectedDate.getDate()),
+          addLeadingZero(selectedDate.getMonth() + 1),
+          selectedDate.getFullYear()
+        ].join('+');
+      };
+
+      var minDate_1 = new Date(),
+          maxDate_1 = null,
+          minDate_2 = null,
+          maxDate_2 = new Date();
+      minDate_1.setDate(minDate_1.getDate() + 3);
+      maxDate_2.setDate(maxDate_2.getDate() + 3);
+
+      var customRange_1 = document.querySelector('#custom-min-range');
+      var customRange_2 = document.querySelector('#custom-max-range');
+      customRange_1.MaterialDatePicker.setRange(minDate_1, maxDate_1);
+      customRange_2.MaterialDatePicker.setRange(minDate_2, maxDate_2);
+
+      var inlinePicker = document.querySelector('#inline-datepicker');
+      var inlinePickerSpan = document.querySelector('#inline-selected-date');
+      inlinePicker.addEventListener('change', function(e) {
+        var selectedDate = inlinePicker.MaterialDatePicker.getSelectedDate();
+        inlinePickerSpan.innerHTML = [
+          selectedDate.getFullYear(),
+          addLeadingZero(selectedDate.getMonth() + 1),
+          addLeadingZero(selectedDate.getDate())
+        ].join('-');
+      });
+
+      var landscapePicker = document.querySelector('#landscape-datepicker');
+      var landscapePickerSpan = document.querySelector('#landscape-selected-date');
+      landscapePicker.addEventListener('change', function(e) {
+        var selectedDate = landscapePicker.MaterialDatePicker.getSelectedDate();
+        landscapePickerSpan.innerHTML = [
+          selectedDate.getFullYear(),
+          addLeadingZero(selectedDate.getMonth() + 1),
+          addLeadingZero(selectedDate.getDate())
+        ].join('-');
+      });
+    }
+  </script>
+</body>
+</html>
