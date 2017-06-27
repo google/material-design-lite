@@ -175,10 +175,9 @@
    * @public
    */
   MaterialTextfield.prototype.checkDirty = function() {
-    var placeholder = this.input_.placeholder;
     if (
       (this.input_.value && this.input_.value.length > 0) ||
-      (placeholder !== undefined || placeholder.trim() !== "")
+      (this.input_.placeholder.trim() !== '')
     ) {
       this.element_.classList.add(this.CssClasses_.IS_DIRTY);
     } else {
