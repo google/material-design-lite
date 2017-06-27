@@ -31,4 +31,18 @@ describe('MaterialSlider', function () {
     expect($(el)).to.have.data('upgraded', ',MaterialSlider');
   });
 
+  it('should upgrade successfully without creating div.mdl-slider__container', function () {
+    var parent = document.createElement('div'), // parent must exist for MaterialMenu.init()
+      el = document.createElement('input');
+    el.type = 'range';
+    parent.classList.add('mdl-slider__container');
+    parent.classList.add('dummy-container');
+    parent.appendChild(el);
+
+    componentHandler.upgradeElement(el, 'MaterialSlider');
+    expect($(el)).to.have.data('upgraded', ',MaterialSlider');
+    expect($(el.parentElement)).to.have.class('mdl-slider__container');
+    expect($(el.parentElement)).to.have.class('dummy-container');
+    expect($(el.parentElement.parentElement)).not.to.exist;
+  });
 });

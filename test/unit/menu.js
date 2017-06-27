@@ -23,10 +23,25 @@ describe('MaterialMenu', function () {
   it('should upgrade successfully', function () {
     var parent = document.createElement('div'), // parent must exist for MaterialMenu.init()
       el = document.createElement('ul');
-    parent.appendChild(el)
+    parent.appendChild(el);
 
     componentHandler.upgradeElement(el, 'MaterialMenu');
     expect($(el)).to.have.data('upgraded', ',MaterialMenu');
+    expect($(el.parentElement)).to.have.class('mdl-menu__container');
+  });
+
+  it('should upgrade successfully without creating div.mdl-menu__container', function () {
+    var parent = document.createElement('div'), // parent must exist for MaterialMenu.init()
+      el = document.createElement('ul');
+    parent.classList.add('mdl-menu__container');
+    parent.classList.add('dummy-container');
+    parent.appendChild(el);
+
+    componentHandler.upgradeElement(el, 'MaterialMenu');
+    expect($(el)).to.have.data('upgraded', ',MaterialMenu');
+    expect($(el.parentElement)).to.have.class('mdl-menu__container');
+    expect($(el.parentElement)).to.have.class('dummy-container');
+    expect($(el.parentElement.parentElement)).not.to.exist;
   });
 
   describe ('visibility API', function () {
