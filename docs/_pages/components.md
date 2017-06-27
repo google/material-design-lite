@@ -292,6 +292,33 @@ categories:
             - caption: Top right
               file: top-right.html
               demo_file: top-right-demo.html
+  - name: search
+    title: Search
+    description: Search with dropdown suggestions.
+    components:
+      - name: search
+        class: mdl-search
+        snippets:
+          - snippet_group:
+            - caption: Unstyled
+              file: search-unstyled.html
+              demo_file: search-unstyled-demo.html
+            - caption: Inset
+              file: search-inset.html
+              demo_file: search-inset-demo.html
+            - caption: Textfield
+              file: search-textfield.html
+              demo_file: search-textfield-demo.html
+          - snippet_group:
+            - caption: Header
+              file: search-header.html
+              demo_file: search-header-demo.html
+              full_width: true
+          - snippet_group:
+            - caption: Expandable
+              file: search-expand.html
+              demo_file: search-expand-demo.html
+              full_width: true
   - name: sliders
     title: Sliders
     description: Selecting a value out of a range.

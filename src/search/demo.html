@@ -1,0 +1,24 @@
+<script>
+  function demo_search__search(val, done) {
+    if (val) {
+      // Create search suggestions.
+      var itemText = val.split('');
+      var items = this.createItems(itemText, ' ', itemText);
+    } else {
+      // Create historical suggestions.
+      var historyText = ['History 1', 'History 2', 'History 3'];
+      var items = this.createItems(historyText, 'access_time', historyText);
+    }
+    // Display the suggestions.
+    done(items);
+  }
+  
+  function demo_search__submit(val, index) {
+    // Check for `mdlSearchData` (`val` will be string if user pressed enter from input).
+    if (val.mdlSearchData) {
+      alert('You selected item ' + (index+1) + ': ' + val.mdlSearchData);
+    } else {
+      alert('You submitted ' + val);
+    }
+  }
+</script>

@@ -1,0 +1,26 @@
+<!-- Header search (within mdl-layout) -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="header__drawer-button" class="mdl-layout__drawer-button mdl-search__left-icon mdl-search--animate" aria-expanded="false" role="button" tabindex="0">
+      <i class="material-icons">menu</i>
+    </div>
+    <div id="header__header-wrapper" class="mdl-search__header-wrapper">
+      <div class="mdl-layout__header-row">
+        <!-- Search component -->
+        <div class="mdl-search mdl-js-search mdl-search--header" search="demo_search__search" submit="demo_search__submit" debounce="100" left-icon="header__drawer-button">
+          <label class="mdl-search__right-icon mdl-button--icon mdl-button mdl-js-button">
+            <i class="material-icons">mic</i>
+          </label>
+          <input class="mdl-search__input" type="text" placeholder="Search here">
+          <ul class="mdl-search__dropdown" for="header__header-wrapper"></ul>
+        </div>
+        <!-- End of search component -->
+      </div>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+  </div>
+  <main class="mdl-layout__content">
+  </main>
+</div>
