@@ -150,6 +150,11 @@
     <!-- end shims -->
 
 
+    <div id="sw-status-snackbar" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+
     <!-- Material Design Lite -->
     <script src="{{page.include_prefix}}material.min.js"></script>
     <!-- Add Copy-to-CodePen buttons to code blocks -->
@@ -162,5 +167,36 @@
     <script src="{{page.include_prefix}}assets/prism-bash.min.js"></script>
     <script src="{{page.include_prefix}}assets/main.js"></script>
     <!-- Built with love using Material Design Lite -->
+
+    <!-- Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function (reg) {
+            reg.onupdatefound = function() {
+            var installingWorker = reg.installing;
+
+            installingWorker.onstatechange = function() {
+              switch(installingWorker.state) {
+                case 'installed':
+                  var snackbarContainer = document.querySelector('#sw-status-snackbar');
+                  var data = {
+                    timeout: 2000,
+                    message: navigator.serviceWorker.controller ?
+                      'New content is available, please refresh the page':
+                      'Content is now available offline'
+                  };
+
+                  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+                  break;
+                }
+              };
+            };
+          })
+          .catch(function(e) {
+            console.error('Error during service worker registration', e);
+          });
+      }
+    </script>
   </body>
 </html>
