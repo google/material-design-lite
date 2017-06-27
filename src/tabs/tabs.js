@@ -157,7 +157,7 @@
       }
 
       tab.addEventListener('click', function(e) {
-        if (tab.getAttribute('href').charAt(0) === '#') {
+        if (tab.href && tab.href.charAt(0) === '#') {
           e.preventDefault();
           ctx.setTab(tab);
         }
