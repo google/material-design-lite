@@ -31,7 +31,9 @@
     // Initialize instance.
     this.init();
   };
-  window['MaterialRipple'] = MaterialRipple;
+  if (typeof window !== 'undefined') {
+    window['MaterialRipple'] = MaterialRipple;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -248,12 +250,12 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialRipple,
-    classAsString: 'MaterialRipple',
-    cssClass: 'mdl-js-ripple-effect',
-    widget: false
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialRipple,
+      classAsString: 'MaterialRipple',
+      cssClass: 'mdl-js-ripple-effect',
+      widget: false
+    });
+  }
 })();

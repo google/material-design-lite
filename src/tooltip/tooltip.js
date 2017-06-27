@@ -31,7 +31,9 @@
     // Initialize instance.
     this.init();
   };
-  window['MaterialTooltip'] = MaterialTooltip;
+  if (typeof window !== 'undefined') {
+    window['MaterialTooltip'] = MaterialTooltip;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -143,11 +145,11 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialTooltip,
-    classAsString: 'MaterialTooltip',
-    cssClass: 'mdl-tooltip'
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialTooltip,
+      classAsString: 'MaterialTooltip',
+      cssClass: 'mdl-tooltip'
+    });
+  }
 })();

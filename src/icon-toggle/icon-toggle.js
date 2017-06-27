@@ -31,7 +31,10 @@
     // Initialize instance.
     this.init();
   };
-  window['MaterialIconToggle'] = MaterialIconToggle;
+
+  if (typeof window !== 'undefined') {
+    window['MaterialIconToggle'] = MaterialIconToggle;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -243,12 +246,12 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialIconToggle,
-    classAsString: 'MaterialIconToggle',
-    cssClass: 'mdl-js-icon-toggle',
-    widget: true
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialIconToggle,
+      classAsString: 'MaterialIconToggle',
+      cssClass: 'mdl-js-icon-toggle',
+      widget: true
+    });
+  }
 })();

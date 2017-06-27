@@ -42,7 +42,10 @@
     this.queuedNotifications_ = [];
     this.setActionHidden_(true);
   };
-  window['MaterialSnackbar'] = MaterialSnackbar;
+
+  if (typeof window !== 'undefined') {
+    window['MaterialSnackbar'] = MaterialSnackbar;
+  }
 
   /**
    * Store constants in one place so they can be updated easily.
@@ -193,13 +196,13 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialSnackbar,
-    classAsString: 'MaterialSnackbar',
-    cssClass: 'mdl-js-snackbar',
-    widget: true
-  });
+  if (typeof componentHandler !== 'undefined') {
+    componentHandler.register({
+      constructor: MaterialSnackbar,
+      classAsString: 'MaterialSnackbar',
+      cssClass: 'mdl-js-snackbar',
+      widget: true
+    });
+  }
 
 })();
