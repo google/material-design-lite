@@ -1,11 +1,25 @@
 $(document).ready(function() {
   $("#sideMenu").swipe({
-    swipeRight: function(event, distance, duration, fingerCount, fingerData) {
-      $(".mdl-layout__drawer").addClass("is-visible").attr("aria-hidden", "false");
-      $(".mdl-layout__drawer-button").attr("aria-expanded", "true");
-      $(".mdl-layout__obfuscator").addClass("is-visible");
+    swipeStatus: function(event, phase, direction, distance) {
+      if (direction == "right" && distance <= 120) {
+        $(".mdl-layout__drawer").css({
+          "-webkit-transform": "translateX(" + (distance - 120) + "px)",
+          "transform": "translateX(" + (distance - 120) + "px)"
+        });
+        if ((phase == "cancel" || phase == "end") && distance > 100) {
+          $(".mdl-layout__drawer-button").attr("aria-expanded", "true");
+          $(".mdl-layout__obfuscator").addClass("is-visible");
+          $(".mdl-layout__drawer").addClass("is-visible").attr("aria-hidden", "true").css({
+            "-webkit-transform": "translateX(0px)",
+            "transform": "translateX(0px)"
+          });
+        }
+        if ((phase == "cancel" || phase == "end") && distance < 100) {
+          $(".mdl-layout__drawer").attr("style", "");
+        }
+      }
     },
-    threshold: 0
+    allowPageScroll: "horizontal"
   });
   $(".mdl-layout__drawer").swipe({
     swipeStatus: function(event, phase, direction, distance) {
