@@ -67,7 +67,7 @@ include_prefix: ../
       </dd>
     </dl>
     <div class="code-with-text">
-      <strong>Note</strong>: This portion is only to demonstrate header and display styles for out CSS. For more typography guidelines, please refer to the <a href="https://www.google.com/design/spec/material-design">Material Design spec</a>.
+      <strong>Note</strong>: This portion is only to demonstrate header and display styles for our CSS. For more typography guidelines, please refer to the <a href="https://www.google.com/design/spec/material-design">Material Design spec</a>.
     </div>
     <div class="styles__download">
       <a class="download-btn download-btn--font" href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B0J8hsRkk91LRjU4U1NSeXdjd1U/RobotoTTF.zip">
