@@ -6,7 +6,7 @@
 [![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
 [![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
 
-> An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
+> Implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 components in vanilla CSS, JS, and HTML.
 
 Material Design Lite (MDL) lets you add a Material Design look and feel to your
@@ -19,7 +19,7 @@ browsers, and offers an experience that is accessible from the get-go.
 > Material Design Lite is now in limited support, with development having moved to the
 > [Material Components for the web](https://github.com/material-components/material-components-web) repository.
 
-> No further development is taking place in MDL by the core team, but we are happy to review PRs, fix critical bugs and
+> No further development is taking place in MDL by the core team, but we are happy to review PRs, fix critical bugs, and
 > push out new releases. No breaking changes will be accepted.
 
 ## Use MDL on your site?
@@ -46,11 +46,11 @@ Clone the repo using Git:
 git clone https://github.com/google/material-design-lite.git
 ```
 
-Alternatively you can [download](https://github.com/google/material-design-lite/archive/master.zip)
+Alternatively, you can [download](https://github.com/google/material-design-lite/archive/master.zip)
 this repository.
 
 Windows users, if you have trouble compiling due to line endings then make sure
-you configure git to checkout the repository with `lf` (unix) line endings. This
+you configure git to checkout the repository with `lf` (Unix) line endings. This
 can be achieved by setting `core.eol`.
 
 ```bash
