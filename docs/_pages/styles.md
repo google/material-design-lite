@@ -189,15 +189,7 @@ include_prefix: ../
       <h3>License</h3>
       <p>All icons are released under <strong>Attribution 4.0 International license</strong>.</p>
     </div>
-  </div>
-  <div class="styles__ribbon styles__ribbon--colors">
-    <a class="ribbon__imagecontainer">
-      <img src="../assets/colors.svg" class="ribbon__image">
-      <div class="ribbon__caption">
-        Color palette
-      </div>
-    </a>
-  </div>
+  
   <div class="styles__content mdl-grid mdl-grid--no-spacing">
     <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-desktop left-col">
       <h3>Color palette</h3>
@@ -211,13 +203,9 @@ include_prefix: ../
         <span class="download__size">0.02 MB (.zip)</span>
       </div>
       <div class="styles__download">
-        <a class="download-btn download-btn--customizer" href="../customize/index.html">
-          <i class="material-icons">arrow_forward</i>
-          Try the custom CSS Theme Builder
+        <a class="download-btn download-btn--customizer">
         </a>
       </div>
     </div>
-    <div class="mdl-cell mdl-cell--8-col mdl-cell--7-col-desktop right-col">
-      <a href="../customize/index.html"><img class="customizer" src="../assets/customizer.png"></a>
-    </div>
+    
   </div>
