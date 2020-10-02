@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
 [![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
 [![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
-[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
+[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite?type=dev)
 
 > An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 components in vanilla CSS, JS, and HTML.
@@ -66,8 +66,7 @@ production. Use a tagged state of the repository, npm, or bower for stability!
 ## Feature requests
 
 MDL is currently in limited support mode, with no further development taking place by the core team.
-We are happy to accept and review pull requests for new functionality, however, as long as there are no breaking
-changes.
+We are happy to accept and review pull requests for new functionality, as long as there are no breaking changes.
 
 ## Want to contribute?
 
@@ -80,10 +79,10 @@ Please use the default branch, `mdl-1.x`.
 
 Take note that [Material Components for Web](https://github.com/material-components/material-components-web), which is MDL v2, is under early Alpha stages (which means everything is a moving target, and we can change anything at any moment). Use with caution.
 
-However, we would absolutely love to have people testing MCW and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
+However, we would love to have people testing MCW and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
 
 ## License
 
-© Google, 2015. Licensed under an
+© Google, 2015. Licensed under
 [Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE)
 license.
