@@ -101,7 +101,7 @@ We do not officially support IE8. That said, some components will degrade using 
 
 MDL focuses on delivering an experience that is optimised for static content sites, like blogs, marketing pages and more traditional text-based web pages.
 
-The <a href="https://elements.polymer-project.org/browse?package=paper-elements">Paper</a> elements built with <a href="http://polymer-project.org">Polymer</a> are fully encapsulated components that can be used individually or composed together to create a material design-style site, and support more advanced user interaction.
+The <a href="https://github.com/PolymerElements/paper-styles">Paper</a> elements built with <a href="http://polymer-project.org">Polymer</a> are fully encapsulated components that can be used individually or composed together to create a material design-style site, and support more advanced user interaction.
 
 That said, MDL can be used alongside the Polymer element counterparts. Polymer uses the power of Web Components to encapsulate the designs used for those components. MDL does not affect the styling within custom components.
 
