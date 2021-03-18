@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
+  Copyright 2015 Google Inc  . All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,6 +18,16 @@
 
 <html lang="en">
   <head>
+<!-- Google Tag Manager -->
+<script> 
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5HDPKZN');
+  </script>
+  <!-- End Google Tag Manager -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
@@ -27,29 +37,23 @@
     <!-- Page styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.min.css">
+    <link rel="stylesheet" href="material.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
   </head>
   <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HDPKZN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+   <!-- End Google Tag Manager (noscript) -->
 
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
           <span class="android-title mdl-layout-title">
             <img class="android-logo-image" src="images/android-logo.png">
           </span>
-          <!-- Add spacer, to align navigation to the right in desktop -->
+          <!-- Add spacer, to align navigation to the right in desktop --> 
+
           <div class="android-header-spacer mdl-layout-spacer"></div>
           <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
@@ -62,13 +66,13 @@
           <!-- Navigation -->
           <div class="android-navigation-container">
             <nav class="android-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Phones</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Tablets</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Wear</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">TV</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Auto</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">One</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Play</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#" onclick="dataLayer.push({'event':'clickHeader', 'pageClick':'Phones'})">Phones </a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#" onclick="dataLayer.push({'event':'clickHeader', 'pageClick':'Tablets'})">Tablets</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#" onclick="dataLayer.push({'event':'clickHeader', 'pageClick':'Wear'})">Wear</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#" onclick="dataLayer.push({'event':'clickHeader', 'pageClick':'TV'})">TV</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#" onclick="dataLayer.push({'event':'clickHeader', 'pageClick':'Auto'})">Auto</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#" onclick="dataLayer.push({'event':'clickHeader', 'pageClick':'One'})">One</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#" onclick="dataLayer.push({'event':'clickHeader', 'pageClick':'Play'})">Play</a>
             </nav>
           </div>
           <span class="android-mobile-title mdl-layout-title">
@@ -179,7 +183,7 @@
               </p>
               <p>
                 <a class="mdl-typography--font-regular mdl-typography--text-uppercase android-alt-link" href="">
-                  See what's new in the Play Store&nbsp;<i class="material-icons">chevron_right</i>
+-                  See what's new  in the Play Store&nbsp;<i class="material-icons">chevron_right</i>
                 </a>
               </p>
             </div>
@@ -191,7 +195,7 @@
             <p class="mdl-typography--font-light">
               Put the stuff that you care about right on your home screen: the latest news, the weather or a stream of your recent photos.
               <br>
-              <a href="" class="android-link mdl-typography--font-light">Customise your phone</a>
+              <a href="" class="android-link mdl-typography--font-light--customised">Customise your phone</a>
             </p>
           </div>
           <div class="android-customized-section-image"></div>
@@ -210,7 +214,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">Four tips to make your switch to Android quick and easy</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase--make" href="">
                    Make the switch
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -228,7 +232,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">Turn the little green Android mascot into you, your friends, anyone!</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase--make" href="">
                    androidify.com
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -246,7 +250,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">A clean, simple, customisable home screen that comes with the power of Google Now: Traffic alerts, weather and much more, just a swipe away.</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase--make" href="">
                    Download now
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -264,7 +268,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">Hail a taxi, find a recipe, run through a temple – Google Play has all the apps and games that let you make your Android device uniquely yours.</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase--make" href="">
                    Find apps
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -296,7 +300,7 @@
           </div>
 
           <div class="mdl-mega-footer--bottom-section">
-            <a class="android-link android-link-menu mdl-typography--font-light" id="version-dropdown">
+            <a class="android-link android-link-menu mdl-typography--font-light--footer" id="version-dropdown">
               Versions
               <i class="material-icons">arrow_drop_up</i>
             </a>
@@ -306,7 +310,7 @@
               <li class="mdl-menu__item">4.3 Jelly Bean</li>
               <li class="mdl-menu__item">Android History</li>
             </ul>
-            <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
+            <a class="android-link android-link-menu mdl-typography--font-light--footer" id="developers-dropdown">
               For Developers
               <i class="material-icons">arrow_drop_up</i>
             </a>
@@ -316,14 +320,14 @@
               <li class="mdl-menu__item">Android SDK</li>
               <li class="mdl-menu__item">Android for Work</li>
             </ul>
-            <a class="android-link mdl-typography--font-light" href="">Blog</a>
-            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
+            <a class="android-link android-link-menu mdl-typography--font-light--footer" href="">Blog</a>
+            <a class="android-link android-link-menu mdl-typography--font-light--footer" href="">Privacy Policy</a>
           </div>
 
         </footer>
       </div>
     </div>
     <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/android-dot-com/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
-    <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
+    <script src="material.min.js"></script>
   </body>
 </html>
