@@ -35,7 +35,7 @@ include_prefix: ../
 
 <h2 id="where-should-i-use">Where should I use Material Design Lite (MDL)?</h2>
 
-If you’re interested in a [Material Design](https://www.google.com/design/spec/material-design/introduction.html) experience using vanilla Web technologies like CSS, JavaScript and HTML, MDL might be a useful option to consider. We optimise for websites heavy on content, such as marketing pages, articles, blogs and general web content that isn’t particularly app-y.  If you just want to pick some colors, customise a template and ship a Material experience, we try to help make that process simpler.
+If you’re interested in a [Material Design](https://www.google.com/design/spec/introduction) experience using vanilla Web technologies like CSS, JavaScript and HTML, MDL might be a useful option to consider. We optimise for websites heavy on content, such as marketing pages, articles, blogs and general web content that isn’t particularly app-y.  If you just want to pick some colors, customise a template and ship a Material experience, we try to help make that process simpler.
 
 Whilst there exist several community-driven options for Material Design, our experience has shown that there are several gaps in the Material specification when it comes to the web. Rather than guessing how these gaps should be filled (something we know the community has struggled with), we’ve opted for a close collaboration with the Material Design team to provide a Material library that is both spec compatible for today and provides guidance on aspects of the spec still being evolved.
 

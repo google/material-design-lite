@@ -1,7 +1,7 @@
 # Material Design Lite
 
 ## Introduction
-**Material Design Light (MDL)** is a library of components for web developers based on Google's **Material Design** philosophy: "A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science." Understanding the goals and principles of Material Design is critical to the proper use of the MDL components. If you have not yet read the [Material Design Introduction](http://www.google.com/design/spec/material-design/introduction.html), you should do so before attempting to use the components.
+**Material Design Light (MDL)** is a library of components for web developers based on Google's **Material Design** philosophy: "A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science." Understanding the goals and principles of Material Design is critical to the proper use of the MDL components. If you have not yet read the [Material Design Introduction](http://www.google.com/design/spec/introduction), you should do so before attempting to use the components.
 
 The MDL components are created with CSS, JavaScript, and HTML. You can use the components to construct web pages and web apps that are attractive, consistent, and functional. Pages developed with MDL will adhere to modern web design principles like browser portability, device independence, and graceful degradation.
 
