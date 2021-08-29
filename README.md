@@ -6,7 +6,7 @@
 [![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
 [![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
 
-> An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
+> An implementation of [Material Design](http://www.google.com/design/spec/introduction)
 components in vanilla CSS, JS, and HTML.
 
 Material Design Lite (MDL) lets you add a Material Design look and feel to your
