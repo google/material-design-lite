@@ -167,7 +167,7 @@ We hope to add a properly polished showcase to the site in the near future.
 
 For V1 of MDL we are focused on the use-case of folks who are likely to need a few different components on their page and will want to include most of the MDL library. This means that support and docs around just plucking single components on their own is minimal.
 
-That said, if you need to generate a build using just a single (or smaller number of) components, you will need to use Gulp with our Sass build. You can [comment out](https://github.com/google/material-design-lite/blob/master/src/material-design-lite.scss) those components you don’t need in material-design-lite.scss, [comment out](https://github.com/google/material-design-lite/blob/master/gulpfile.js#L191) the scripts you don’t need in the Gulpfile and then run `gulp` to create your build.
+That said, if you need to generate a build using just a single (or smaller number of) components, you will need to use Gulp with our Sass build. You can [comment out](https://github.com/google/material-design-lite/blob/mdl-1.x/src/material-design-lite.scss) those components you don’t need in material-design-lite.scss, [comment out](https://github.com/google/material-design-lite/blob/mdl-1.x/gulpfile.babel.js#L191) the scripts you don’t need in the Gulpfile and then run `gulp` to create your build.
 
 We have talked about offering up components in a more modular fashion but will be exploring this in the post V1 timeline.
 
