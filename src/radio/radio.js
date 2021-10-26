@@ -222,7 +222,7 @@
    * Initialize element.
    */
   MaterialRadio.prototype.init = function() {
-    if (this.element_) {
+    if (this.element_.inited) {
       this.btnElement_ = this.element_.querySelector('.' +
           this.CssClasses_.RADIO_BTN);
 

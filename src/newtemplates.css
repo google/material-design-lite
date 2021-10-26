@@ -1,0 +1,30 @@
+/* Material Design Lite */
+
+$styleguide-generate-template: true;
+
+@import "styleguide";
+
+
+
+<body>
+
+<h1>The template Element</h1>
+
+<p>Click the button below to display the hidden content from the template element.</p>
+
+<button onclick="showContent()">Show Template</button>
+
+<template>
+  <h2>Elon</h2>
+  <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic4.businessinsider.com%2Fimage%2F593732c4b1bd565c028b4784-1507%2Ft171ma6592.jpg&f=1&nofb=1" width="214" height="204">
+</template>
+
+<script>
+function showContent() {
+  var temp = document.getElementsByTagName("template")[0];
+  var clon = temp.content.cloneNode(true);
+  document.body.appendChild(clon);
+}
+</script>
+
+</body>
