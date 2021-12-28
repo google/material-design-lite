@@ -99,7 +99,7 @@ chances of your issue being dealt with quickly:
 * **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
   causing the problem (line of code or commit)
 
-**If you get help, help others. Good karma rulez!**
+**If you get help, help others. Good karma rules!**
 
 Here's a template to get you started:
 
