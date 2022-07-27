@@ -4,7 +4,6 @@
 [![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
 [![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
 [![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
-[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
 [![Tests](https://github.com/rodydavis/material-design-lite/actions/workflows/tests.yml/badge.svg)](https://github.com/rodydavis/material-design-lite/actions/workflows/tests.yml)
 [![Demo](https://github.com/rodydavis/material-design-lite/actions/workflows/demo.yml/badge.svg)](https://github.com/rodydavis/material-design-lite/actions/workflows/demo.yml)
 
