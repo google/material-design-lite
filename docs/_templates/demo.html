@@ -22,9 +22,7 @@
 
   {% set demo_css = "../../dist/components/" + page.component + "/demo.css" %}
   <style>
-    {
-      % include demo_css ignore missing %
-    }
+    {% include demo_css ignore missing %}
   </style>
   <style>
     body {
