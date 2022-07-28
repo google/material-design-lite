@@ -24,13 +24,14 @@
   float: left;
 }
 
-@media screen and (max-width: 360px ) {
+@media screen and (max-width: 360px) {
   .demo-palette {
     width: 272px;
   }
 }
 
-.demo-palette-color, .demo-palette-heading {
+.demo-palette-color,
+.demo-palette-heading {
   max-width: 300px;
   padding: 15px;
   color: white;
