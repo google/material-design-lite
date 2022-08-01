@@ -1,5 +1,4 @@
 import type { FunctionalComponent } from 'preact';
-import { h, Fragment } from 'preact';
 import { useState, useEffect, useRef } from 'preact/hooks';
 import { MarkdownHeading } from 'astro';
 
@@ -36,9 +35,8 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 					.filter(({ depth }) => depth > 1 && depth < 4)
 					.map((heading) => (
 						<li
-							class={`heading-link depth-${heading.depth} ${
-								activeId === heading.slug ? 'active' : ''
-							}`.trim()}
+							class={`heading-link depth-${heading.depth} ${activeId === heading.slug ? 'active' : ''
+								}`.trim()}
 						>
 							<a href={`#${heading.slug}`}>{heading.text}</a>
 						</li>
