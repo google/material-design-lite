@@ -1,0 +1,149 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Primary */
+
+.mdl-color--primary {
+  background-color: unquote("var(--md-sys-color-primary)") !important;
+}
+
+.mdl-color-text--primary {
+  color: unquote("var(--md-sys-color-on-primary)") !important;
+}
+
+.mdl-color--primary-container {
+  background-color: unquote("var(--md-sys-color-primary-container)") !important;
+}
+
+.mdl-color-text--primary-container {
+  color: unquote("var(--md-sys-color-on-primary-container)") !important;
+}
+
+/* Secondary */
+
+.mdl-color--secondary {
+  background-color: unquote("var(--md-sys-color-secondary)") !important;
+}
+
+.mdl-color-text--secondary {
+  color: unquote("var(--md-sys-color-on-secondary)") !important;
+}
+
+.mdl-color--secondary-container {
+  background-color: unquote(
+    "var(--md-sys-color-secondary-container)"
+  ) !important;
+}
+
+.mdl-color-text--secondary-container {
+  color: unquote("var(--md-sys-color-on-secondary-container)") !important;
+}
+
+/* Tertiary */
+
+.mdl-color--tertiary {
+  background-color: unquote("var(--md-sys-color-tertiary)") !important;
+}
+
+.mdl-color-text--tertiary {
+  color: unquote("var(--md-sys-color-on-tertiary)") !important;
+}
+
+.mdl-color--tertiary-container {
+  background-color: unquote(
+    "var(--md-sys-color-tertiary-container)"
+  ) !important;
+}
+
+.mdl-color-text--tertiary-container {
+  color: unquote("var(--md-sys-color-on-tertiary-container)") !important;
+}
+
+/* Error */
+
+.mdl-color--error {
+  background-color: unquote("var(--md-sys-color-error)") !important;
+}
+
+.mdl-color-text--error {
+  color: unquote("var(--md-sys-color-on-error)") !important;
+}
+
+.mdl-color--error-container {
+  background-color: unquote("var(--md-sys-color-error-container)") !important;
+}
+
+.mdl-color-text--error-container {
+  color: unquote("var(--md-sys-color-on-error-container)") !important;
+}
+
+/* Background */
+
+.mdl-color--background {
+  background-color: unquote("var(--md-sys-color-background)") !important;
+}
+
+.mdl-color-text--background {
+  color: unquote("var(--md-sys-color-on-background)") !important;
+}
+
+/* Surface */
+
+.mdl-color--surface {
+  background-color: unquote("var(--md-sys-color-surface)") !important;
+}
+
+.mdl-color-text--surface {
+  color: unquote("var(--md-sys-color-on-surface)") !important;
+}
+
+/* Surface Variant */
+
+.mdl-color--surface-variant {
+  background-color: unquote("var(--md-sys-color-surface-variant)") !important;
+}
+
+.mdl-color-text--surface-variant {
+  color: unquote("var(--md-sys-color-on-surface-variant)") !important;
+}
+
+/* Inverse Surface */
+
+.mdl-color--inverse-surface {
+  background-color: unquote("var(--md-sys-color-inverse-surface)") !important;
+}
+
+.mdl-color-text--inverse-surface {
+  color: unquote("var(--md-sys-color-inverse-on-surface)") !important;
+}
+
+/* White */
+.mdl.color--white {
+  background-color: unquote("var(--md-ref-palette-white)") !important;
+}
+
+.mdl.color-text--white {
+  color: unquote("var(--md-ref-palette-white)") !important;
+}
+
+/* Black */
+.mdl.color--black {
+  background-color: unquote("var(--md-ref-palette-black)") !important;
+}
+
+.mdl.color-text--black {
+  color: unquote("var(--md-ref-palette-black)") !important;
+}

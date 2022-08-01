@@ -1,0 +1,15 @@
+@import url(base.css);
+
+.button.extended-fab {
+  border-radius: var(--md-sys-shape-medium);
+  height: 56px;
+  font-size: 16px;
+
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.button.extended-fab > i {
+  font-size: 24px;
+  margin-right: 8px;
+}
