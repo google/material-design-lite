@@ -33,8 +33,8 @@
   overflow: hidden;
   will-change: box-shadow;
   transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
-              background-color 0.2s $animation-curve-default,
-              color 0.2s $animation-curve-default;
+    background-color 0.2s $animation-curve-default,
+    color 0.2s $animation-curve-default;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -68,174 +68,180 @@
 }
 
 input.mdl-button[type="submit"] {
-  -webkit-appearance:none;
+  -webkit-appearance: none;
 }
 
-  // Raised buttons
-  .mdl-button--raised {
-    background: $button-primary-color;
-    @include shadow-2dp();
+// Raised buttons
+.mdl-button--raised {
+  background: $button-primary-color;
+  @include shadow-2dp();
 
-    &:active {
-      @include shadow-4dp();
-      background-color: $button-active-color;
-    }
-
-    &:focus:not(:active) {
-      @include focus-shadow();
-      background-color: $button-active-color;
-    }
-
-    &.mdl-button--colored {
-      background: $button-primary-color-alt;
-      color: $button-secondary-color-alt;
-
-      &:hover {
-        background-color: $button-hover-color-alt;
-      }
-
-      &:active {
-        background-color: $button-active-color-alt;
-      }
-
-      &:focus:not(:active) {
-        background-color: $button-active-color-alt;
-      }
-
-      & .mdl-ripple {
-        background: $button-ripple-color-alt;
-      }
-    }
+  &:active {
+    @include shadow-4dp();
+    background-color: $button-active-color;
   }
 
+  &:focus:not(:active) {
+    @include focus-shadow();
+    background-color: $button-active-color;
+  }
 
-  // FABs
-  .mdl-button--fab {
-    border-radius: 50%;
-    font-size: $button-fab-font-size;
-    height: $button-fab-size;
-    margin: auto;
-    min-width: $button-fab-size;
-    width: $button-fab-size;
-    padding: 0;
-    overflow: hidden;
-    background: $button-primary-color;
-    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
-    position: relative;
-    line-height: normal;
+  &.mdl-button--colored {
+    background: $button-primary-color-alt;
+    color: $button-secondary-color-alt;
 
-    & .material-icons {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
-      line-height: $button-fab-font-size;
-      width: $button-fab-font-size;
-    }
-
-    &.mdl-button--mini-fab {
-      height: $button-fab-size-mini;
-      min-width: $button-fab-size-mini;
-      width: $button-fab-size-mini;
-    }
-
-    & .mdl-button__ripple-container {
-      border-radius: 50%;
-      // Fixes clipping bug in Safari.
-      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+    &:hover {
+      background-color: $button-hover-color-alt;
     }
 
     &:active {
-      @include shadow-4dp();
-      background-color: $button-active-color;
+      background-color: $button-active-color-alt;
     }
 
     &:focus:not(:active) {
-      @include focus-shadow();
-      background-color: $button-active-color;
+      background-color: $button-active-color-alt;
     }
 
-    &.mdl-button--colored {
-      background: $button-fab-color-alt;
-      color: $button-fab-text-color-alt;
-
-      &:hover {
-        background-color: $button-fab-hover-color-alt;
-      }
-
-      &:focus:not(:active) {
-        background-color: $button-fab-active-color-alt;
-      }
-
-      &:active {
-        background-color: $button-fab-active-color-alt;
-      }
-
-      & .mdl-ripple {
-        background: $button-fab-ripple-color-alt;
-      }
+    & .mdl-ripple {
+      background: $button-ripple-color-alt;
     }
   }
+}
 
+// FABs
+.mdl-button--fab {
+  border-radius: 50%;
+  font-size: $button-fab-font-size;
+  height: $button-fab-size;
+  margin: auto;
+  min-width: $button-fab-size;
+  width: $button-fab-size;
+  padding: 0;
+  overflow: hidden;
+  background: $button-primary-color;
+  box-shadow: 0 1px 1.5px 0 var(--md-sys-color-shadow),
+    0 1px 1px 0 var(--md-sys-color-shadow);
+  position: relative;
+  line-height: normal;
 
-  // Icon buttons
-  .mdl-button--icon {
-    border-radius: 50%;
-    font-size: $button-fab-font-size;
-    height: $button-icon-size;
-    margin-left: 0;
-    margin-right: 0;
-    min-width: $button-icon-size;
-    width: $button-icon-size;
-    padding: 0;
-    overflow: hidden;
-    color: inherit;
-    line-height: normal;
-
-    & .material-icons {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
-      line-height: $button-fab-font-size;
-      width: $button-fab-font-size;
-    }
-
-    &.mdl-button--mini-icon {
-      height: $button-icon-size-mini;
-      min-width: $button-icon-size-mini;
-      width: $button-icon-size-mini;
-
-      & .material-icons {
-        top: ($button-icon-size-mini - $button-fab-font-size) / 2;
-        left: ($button-icon-size-mini - $button-fab-font-size) / 2;
-      }
-    }
-
-    & .mdl-button__ripple-container {
-      border-radius: 50%;
-      // Fixes clipping bug in Safari.
-      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-    }
-  }
-
-
-  // Ripples
-  .mdl-button__ripple-container {
-    display: block;
-    height: 100%;
-    left: 0px;
+  & .material-icons {
     position: absolute;
-    top: 0px;
-    width: 100%;
-    z-index: 0;
-    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+      -$button-fab-font-size / 2,
+      -$button-fab-font-size / 2
+    );
+    line-height: $button-fab-font-size;
+    width: $button-fab-font-size;
+  }
 
-    .mdl-button[disabled] & .mdl-ripple,
-    .mdl-button.mdl-button--disabled & .mdl-ripple {
-      background-color: transparent;
+  &.mdl-button--mini-fab {
+    height: $button-fab-size-mini;
+    min-width: $button-fab-size-mini;
+    width: $button-fab-size-mini;
+  }
+
+  & .mdl-button__ripple-container {
+    border-radius: 50%;
+    // Fixes clipping bug in Safari.
+    mask-image: -webkit-radial-gradient(circle, white, black);
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+  }
+
+  &:active {
+    @include shadow-4dp();
+    background-color: $button-active-color;
+  }
+
+  &:focus:not(:active) {
+    @include focus-shadow();
+    background-color: $button-active-color;
+  }
+
+  &.mdl-button--colored {
+    background: $button-fab-color-alt;
+    color: $button-fab-text-color-alt;
+
+    &:hover {
+      background-color: $button-fab-hover-color-alt;
+    }
+
+    &:focus:not(:active) {
+      background-color: $button-fab-active-color-alt;
+    }
+
+    &:active {
+      background-color: $button-fab-active-color-alt;
+    }
+
+    & .mdl-ripple {
+      background: $button-fab-ripple-color-alt;
     }
   }
+}
+
+// Icon buttons
+.mdl-button--icon {
+  border-radius: 50%;
+  font-size: $button-fab-font-size;
+  height: $button-icon-size;
+  margin-left: 0;
+  margin-right: 0;
+  min-width: $button-icon-size;
+  width: $button-icon-size;
+  padding: 0;
+  overflow: hidden;
+  color: inherit;
+  line-height: normal;
+
+  & .material-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+      -$button-fab-font-size / 2,
+      -$button-fab-font-size / 2
+    );
+    line-height: $button-fab-font-size;
+    width: $button-fab-font-size;
+  }
+
+  &.mdl-button--mini-icon {
+    height: $button-icon-size-mini;
+    min-width: $button-icon-size-mini;
+    width: $button-icon-size-mini;
+
+    & .material-icons {
+      top: ($button-icon-size-mini - $button-fab-font-size) / 2;
+      left: ($button-icon-size-mini - $button-fab-font-size) / 2;
+    }
+  }
+
+  & .mdl-button__ripple-container {
+    border-radius: 50%;
+    // Fixes clipping bug in Safari.
+    mask-image: -webkit-radial-gradient(circle, white, black);
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+  }
+}
+
+// Ripples
+.mdl-button__ripple-container {
+  display: block;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+
+  .mdl-button[disabled] & .mdl-ripple,
+  .mdl-button.mdl-button--disabled & .mdl-ripple {
+    background-color: transparent;
+  }
+}
 
 // Colorized buttons
 
@@ -244,7 +250,8 @@ input.mdl-button[type="submit"] {
   & .mdl-ripple {
     background: $button-secondary-color-alt;
   }
-  &.mdl-button--raised, &.mdl-button--fab {
+  &.mdl-button--raised,
+  &.mdl-button--fab {
     color: $button-secondary-color-alt;
     background-color: $button-primary-color-alt;
   }
@@ -255,7 +262,8 @@ input.mdl-button[type="submit"] {
   & .mdl-ripple {
     background: $button-fab-text-color-alt;
   }
-  &.mdl-button--raised, &.mdl-button--fab {
+  &.mdl-button--raised,
+  &.mdl-button--fab {
     color: $button-fab-text-color-alt;
     background-color: $button-fab-color-alt;
   }

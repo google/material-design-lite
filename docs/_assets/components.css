@@ -40,7 +40,7 @@
   height: 90%;
   width: 90%;
   max-height: 600px;
-  background: url('../assets/compindex_2x.png') no-repeat top left / contain;
+  background: url("../assets/compindex_2x.png") no-repeat top left / contain;
 }
 
 .mdl-components-text {
@@ -67,7 +67,7 @@ mdl-components-dd {
 
 .mdl-components .mdl-components__nav {
   display: inline-block;
-  background: #fff;
+  background: var(--md-sys-color-surface);
   width: 200px;
   box-sizing: border-box;
   padding: 24px 0;
@@ -85,7 +85,7 @@ mdl-components-dd {
 .mdl-components .mdl-components__link {
   margin: 16px;
   font-weight: normal;
-  color: rgba(0, 0, 0, 0.66);
+  color: var(--md-sys-color-on-surface);
   position: relative;
   padding-left: 72px;
   min-height: 48px;
@@ -99,7 +99,7 @@ mdl-components-dd {
 }
 
 .content {
-  background: #fafafa;
+  background: var(--md-sys-color-surface);
 }
 
 .mdl-components .mdl-components__page {
@@ -153,16 +153,15 @@ mdl-components-dd {
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  background-color: #FFF9C4;
+  background-color: #fff9c4;
   padding: 16px;
   border-radius: 2px;
   color: #212121;
 }
 
 .mdl-components__link.is-active .mdl-components__link-image {
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
-      0 3px 3px -2px rgba(0, 0, 0, 0.2),
-      0 1px 8px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0 1px 8px 0 rgba(0, 0, 0, 0.12);
 }
 .docs-readme {
   width: 100%;
@@ -224,7 +223,7 @@ mdl-components-dd {
     padding-top: 10px;
   }
 
-  .mdl-components__nav .mdl-components__link > *{
+  .mdl-components__nav .mdl-components__link > * {
     display: block;
     width: auto;
     margin: 0 auto;
