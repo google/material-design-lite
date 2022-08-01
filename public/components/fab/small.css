@@ -1,0 +1,15 @@
+@import url(base.css);
+
+.button.fab-small {
+  padding: 16px;
+  font-size: 24px;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+.button.fab-small > i {
+  font-size: 24px;
+}

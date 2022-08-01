@@ -1,7 +1,7 @@
 ---
 import { getLanguageFromURL, KNOWN_LANGUAGE_CODES } from "../../languages.ts";
 import * as CONFIG from "../../config.ts";
-import AstroLogo from "./AstroLogo.astro";
+import MaterialLogo from "./MaterialLogo.astro";
 import SkipToContent from "./SkipToContent.astro";
 import SidebarToggle from "./SidebarToggle.tsx";
 import LanguageSelect from "./LanguageSelect.tsx";
@@ -19,8 +19,8 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		</div>
 		<div class="logo flex">
 			<a href="/">
-				<AstroLogo size={40} />
-				<h1>{CONFIG.SITE.title ?? "Documentation"}</h1>
+				<MaterialLogo size={40} />
+				<h1>{CONFIG.SITE.title ?? "Material Design Lite"}</h1>
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
