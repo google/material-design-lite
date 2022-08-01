@@ -1,0 +1,17 @@
+@import url(base.css);
+
+.top-app-bar.medium {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "leading actions" "title title";
+}
+
+.top-app-bar.medium .title {
+  padding-top: 16px;
+
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+}

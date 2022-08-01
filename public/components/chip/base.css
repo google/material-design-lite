@@ -1,0 +1,34 @@
+.chip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-radius: var(--md-sys-shape-large);
+  outline: none;
+  padding: 8px 16px;
+
+  cursor: pointer;
+
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  font-size: var(--md-sys-typescale-label-large-size);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+
+.chip > i {
+  color: var(--md-sys-color-primary);
+}
+
+.chip > i:first-child {
+  margin-right: 8px;
+}
+
+.chip > i:last-child {
+  margin-left: 8px;
+}
+
+.chip > i:only-child {
+  margin-right: 0px;
+  margin-left: 0px;
+}
