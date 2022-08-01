@@ -4,8 +4,6 @@ import * as CONFIG from "../../config.ts";
 import MaterialLogo from "./MaterialLogo.astro";
 import SkipToContent from "./SkipToContent.astro";
 import SidebarToggle from "./SidebarToggle.tsx";
-import LanguageSelect from "./LanguageSelect.tsx";
-import Search from "./Search.tsx";
 
 const { currentPage } = Astro.props;
 const lang = currentPage && getLanguageFromURL(currentPage);
@@ -24,21 +22,19 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
-		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
-		{CONFIG.ALGOLIA && (
-			<div class="search-item">
-				<Search client:idle />
-			</div>
-		)}
+		<material-theme-control></material-theme-control>
 	</nav>
 </header>
+
+<script type="module" src="https://rodydavis.github.io/material-theme-control/material-theme-control.es.js"></script>
 
 <style>
 	header {
 		z-index: 11;
 		height: var(--theme-navbar-height);
 		width: 100%;
-		background-color: var(--theme-navbar-bg);
+		background-color: var(--md-sys-color-background);
+		color: var(--md-sys-color-on-background);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -56,7 +52,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		flex-shrink: 0;
 		font-weight: 600;
 		line-height: 1;
-		color: hsla(var(--color-base-white), 100%, 1);
+		color: var(--md-sys-color-on-background);
 		gap: 0.25em;
 		z-index: -1;
 	}
@@ -71,7 +67,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 
 	.logo a {
 		transition: color 100ms ease-out;
-		color: var(--theme-text);
+		color: var(--md-sys-color-on-background);
 	}
 
 	.logo a:hover,
@@ -84,6 +80,15 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		font: inherit;
 		color: inherit;
 		margin: 0;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		background-color: var(--md-sys-color-background);
+		background-image: linear-gradient(45deg, var(--md-ref-palette-primary40), var(--md-ref-palette-primary60), var(--md-ref-palette-primary80));
+		background-size: 100%;
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		-moz-text-fill-color: transparent;
 	}
 
 	.nav-wrapper {
@@ -101,14 +106,17 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 			position: static;
 			padding: 2rem 0rem;
 		}
+
 		.logo {
 			width: auto;
 			margin: 0;
 			z-index: 0;
 		}
+
 		.logo h1 {
 			display: initial;
 		}
+
 		.menu-toggle {
 			display: none;
 		}
@@ -129,9 +137,11 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		display: flex;
 		max-width: 200px;
 	}
+
 	:global(.search-item > *) {
 		flex-grow: 1;
 	}
+
 	@media (min-width: 50em) {
 		.search-item {
 			max-width: 400px;
