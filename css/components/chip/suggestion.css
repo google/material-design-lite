@@ -1,0 +1,7 @@
+@import url(base.css);
+
+.chip.suggestion {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+}

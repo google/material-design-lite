@@ -1,0 +1,7 @@
+@import url(base.css);
+
+.chip.filter {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+}

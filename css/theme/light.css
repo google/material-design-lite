@@ -1,0 +1,77 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:root {
+  color-scheme: light;
+  /* Surface tint */
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+  /* Surface tint color */
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+  /* On error container */
+  --md-sys-color-on-error-container: var(--md-ref-palette-error10);
+  /* On error */
+  --md-sys-color-on-error: var(--md-ref-palette-error100);
+  /* Error container */
+  --md-sys-color-error-container: var(--md-ref-palette-error90);
+  /* On tertiary container */
+  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
+  /* On tertiary */
+  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
+  /* Tertiary container */
+  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
+  /* Tertiary */
+  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
+  /* Shadow */
+  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+  /* Error */
+  --md-sys-color-error: var(--md-ref-palette-error40);
+  /* Outline */
+  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
+  /* On background */
+  --md-sys-color-on-background: var(--md-ref-palette-neutral10);
+  /* Background */
+  --md-sys-color-background: var(--md-ref-palette-neutral99);
+  /* Inverse on surface */
+  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
+  /* Inverse surface */
+  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
+  /* On surface variant */
+  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
+  /* On surface */
+  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
+  /* Surface Variant */
+  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
+  /* Surface */
+  --md-sys-color-surface: var(--md-ref-palette-neutral99);
+  /* On secondary container */
+  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
+  /* On secondary */
+  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
+  /* Secondary container */
+  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
+  /* Secondary */
+  --md-sys-color-secondary: var(--md-ref-palette-secondary40);
+  /* Inverse primary */
+  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
+  /* On primary container */
+  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
+  /* On primary */
+  --md-sys-color-on-primary: var(--md-ref-palette-primary100);
+  /* Primary container */
+  --md-sys-color-primary-container: var(--md-ref-palette-primary90);
+  /* Primary */
+  --md-sys-color-primary: var(--md-ref-palette-primary40);
+}

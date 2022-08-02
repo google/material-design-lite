@@ -6,8 +6,6 @@ setup: |
   import ComponentPreview from "../../../components/ComponentPreview.astro";
 ---
 
-<link rel="stylesheet" href="/css/components/button.css">
-
 <ComponentPreview >
 <button>Button</button>
 <button>
