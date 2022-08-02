@@ -1,8 +1,8 @@
 button {
+  --button-border: 1px solid var(--md-sys-color-primary);
   padding: 8px 24px;
   border-radius: var(--md-sys-shape-small);
   outline: none;
-  --button-border: 1px solid var(--md-sys-color-primary);
   border: none;
 
   cursor: pointer;
@@ -18,8 +18,8 @@ button {
   line-height: var(--md-sys-typescale-label-large-line-height);
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
 
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-on-secondary);
+  background-color: var(--md-sys-color-secondary);
 }
 
 button > i {
@@ -57,4 +57,9 @@ button[variant="outlined"] {
 button[variant="text"] {
   background-color: transparent;
   color: var(--md-sys-color-primary);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }

@@ -25,23 +25,21 @@ const sidebarSections = SIDEBAR[langCode].reduce((col, item, i) => {
 <nav aria-labelledby="grid-left">
 	<ul class="nav-groups">
 		{sidebarSections.map((section) => (
-			<li>
-				<div class="nav-group">
-					<h2 class="nav-group-title">{section.text}</h2>
-					<ul>
-						{section.children.map((child) => (
-							<li class="nav-link">
-								<a
-									href={`${Astro.site.pathname}${child.link}`}
-									aria-current={`${currentPageMatch === child.link ? "page" : "false"}`}
-								>
-									{child.text}
-								</a>
-							</li>
-						))}
-					</ul>
-				</div>
-			</li>
+		<li>
+			<div class="nav-group">
+				<h2 class="nav-group-title">{section.text}</h2>
+				<ul>
+					{section.children.map((child) => (
+					<li class="nav-link">
+						<a href={`${Astro.site.pathname}${child.link}`} aria-current={`${currentPageMatch===child.link
+							? "page" : "false" }`}>
+							{child.text}
+						</a>
+					</li>
+					))}
+				</ul>
+			</div>
+		</li>
 		))}
 	</ul>
 </nav>
@@ -60,6 +58,7 @@ const sidebarSections = SIDEBAR[langCode].reduce((col, item, i) => {
 		width: 100%;
 		margin-right: 1rem;
 	}
+
 	.nav-groups {
 		height: 100%;
 		padding: 2rem 0;
@@ -68,15 +67,15 @@ const sidebarSections = SIDEBAR[langCode].reduce((col, item, i) => {
 		max-height: 100vh;
 	}
 
-	.nav-groups > li + li {
+	.nav-groups>li+li {
 		margin-top: 2rem;
 	}
 
-	.nav-groups > :first-child {
+	.nav-groups> :first-child {
 		padding-top: var(--doc-padding);
 	}
 
-	.nav-groups > :last-child {
+	.nav-groups> :last-child {
 		padding-bottom: 2rem;
 		margin-bottom: var(--theme-navbar-height);
 	}
@@ -98,14 +97,15 @@ const sidebarSections = SIDEBAR[langCode].reduce((col, item, i) => {
 		text-decoration: none;
 		display: block;
 	}
+
 	.nav-link a:hover,
 	.nav-link a:focus {
-		background-color: var(--theme-bg-hover);
+		background-color: var(--md-sys-color-surface-variant);
 	}
 
 	.nav-link a[aria-current="page"] {
-		color: var(--theme-text-accent);
-		background-color: var(--theme-bg-accent);
+		color: var(--md-sys-color-surface-variant);
+		background-color: var(--md-sys-color-on-surface-variant);
 		font-weight: 600;
 	}
 
