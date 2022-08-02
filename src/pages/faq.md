@@ -1,7 +1,7 @@
 ---
 title: FAQ
 description: Questions and answers about Material Design Lite.
-layout: ../../layouts/MainLayout.astro
+layout: ../layouts/MainLayout.astro
 ---
 
 ## Where should I use Material Design Lite (MDL)?

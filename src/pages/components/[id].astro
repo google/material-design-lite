@@ -1,8 +1,8 @@
 ---
-import MainLayout from '../../../layouts/MainLayout.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
-    const docs = await Astro.glob('../../../data/components/**/readme.md');
+    const docs = await Astro.glob('../../data/components/**/readme.md');
     return docs.map(p => {
         const file = p.file;
         const idxOfSecondToLastSlash = file.lastIndexOf('/', file.lastIndexOf('/') - 1);
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { id } = Astro.params;
-const readmes = await Astro.glob('../../../data/components/**/readme.md');
+const readmes = await Astro.glob('../../data/components/**/readme.md');
 const readmeForComponent = readmes.filter(d => d.file.includes(`/${id}/`))[0]!;
 const { Content } = readmeForComponent;
 const compiled = readmeForComponent.compiledContent();
