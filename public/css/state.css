@@ -1,0 +1,38 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:root {
+  /* Dragged state layer opacity */
+  --md-sys-state-dragged-state-layer-opacity: 0.1599999964237213;
+  /* Pressed state layer opacity */
+  --md-sys-state-pressed-state-layer-opacity: 0.11999999731779099;
+  /* Focus state layer opacity */
+  --md-sys-state-focus-state-layer-opacity: 0.11999999731779099;
+  /* Hover state layer opacity */
+  --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
+}
+.hover-state-layer {
+  opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+.pressed-state-layer {
+  opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+.dragged-state-layer {
+  opacity: var(--md-sys-state-dragged-state-layer-opacity);
+}
+.focus-state-layer {
+  opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
