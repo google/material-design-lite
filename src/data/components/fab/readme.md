@@ -1,6 +1,6 @@
 ---
-title: Buttons
-description: Variations on Material Design buttons.
+title: Floating Action Button
+description: Variations on Material Design fabs.
 setup: |
   import Preview from "../../../components/Preview.astro";
 ---
@@ -20,7 +20,7 @@ setup: |
 <button class="button fab"></button>
 ```
 
-## FAB Small
+## Small
 
 <Preview>
      <button class="button fab small">
@@ -35,7 +35,7 @@ setup: |
 <button class="button fab small"></button>
 ```
 
-## FAB Large
+## Large
 
 <Preview>
      <button class="button fab large">
@@ -50,7 +50,7 @@ setup: |
 <button class="button fab large"></button>
 ```
 
-## Extended FAB
+## Extended
 
 <Preview>
     <button class="button fab extended">Button</button>
@@ -63,10 +63,4 @@ setup: |
 
 ```html
 <button class="button fab extended"></button>
-```
-
-## Segmented
-
-```html
-<button class="button" variant="segmented"></button>
 ```
