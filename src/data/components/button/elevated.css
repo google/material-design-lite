@@ -5,3 +5,7 @@
   box-shadow: 0px 2px 3px
     var(--md-sys-color-shadow, var(--md-sys-color-outline));
 }
+
+.button.elevated[disabled] {
+  box-shadow: none;
+}

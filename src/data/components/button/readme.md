@@ -2,19 +2,19 @@
 title: Buttons
 description: Variations on Material Design buttons.
 setup: |
-  import ComponentPreview from "../../../components/ComponentPreview.astro";
+  import Preview from "../../../components/Preview.astro";
 ---
 
 ## Default
 
-<ComponentPreview >
-<button class="button">Button</button>
-<button class="button">
-    <i class="material-icons">add</i>
-    <label>Label</label>
-</button>
-<button class="button" disabled>Disabled</button>
-</ComponentPreview>
+<Preview>
+    <button class="button">Button</button>
+    <button class="button">
+        <i class="material-icons">add</i>
+        <label>Label</label>
+    </button>
+    <button class="button" disabled>Disabled</button>
+</Preview>
 
 ```html
 <button class="button">My Button</button>
@@ -22,14 +22,14 @@ setup: |
 
 ## Elevated
 
-<ComponentPreview >
-<button class="button elevated" >Button</button>
-<button class="button elevated" >
-    <i class="material-icons">add</i>
-    <label>Label</label>
-</button>
-<button class="button elevated"  disabled>Disabled</button>
-</ComponentPreview>
+<Preview>
+    <button class="button elevated" >Button</button>
+    <button class="button elevated" >
+        <i class="material-icons">add</i>
+        <label>Label</label>
+    </button>
+    <button class="button elevated"  disabled>Disabled</button>
+</Preview>
 
 ```html
 <button class="button elevated"></button>
@@ -37,14 +37,14 @@ setup: |
 
 ## Filled
 
-<ComponentPreview >
-<button class="button filled" >Button</button>
-<button class="button filled" >
-    <i class="material-icons">add</i>
-    <label>Label</label>
-</button>
-<button class="button filled"  disabled>Disabled</button>
-</ComponentPreview>
+<Preview>
+    <button class="button filled" >Button</button>
+    <button class="button filled" >
+        <i class="material-icons">add</i>
+        <label>Label</label>
+    </button>
+    <button class="button filled"  disabled>Disabled</button>
+</Preview>
 
 ```html
 <button class="button filled"></button>
@@ -52,14 +52,14 @@ setup: |
 
 ## Filled tonal
 
-<ComponentPreview >
-<button class="button filled-tonal" >Button</button>
-<button class="button filled-tonal" >
-    <i class="material-icons">add</i>
-    <label>Label</label>
-</button>
-<button class="button filled-tonal"  disabled>Disabled</button>
-</ComponentPreview>
+<Preview>
+    <button class="button filled-tonal" >Button</button>
+    <button class="button filled-tonal" >
+        <i class="material-icons">add</i>
+        <label>Label</label>
+    </button>
+    <button class="button filled-tonal"  disabled>Disabled</button>             
+</Preview>
 
 ```html
 <button class="button filled-tonal"></button>
@@ -67,14 +67,14 @@ setup: |
 
 ## Outlined
 
-<ComponentPreview >
-<button class="button outlined" >Button</button>
-<button class="button outlined" >
-    <i class="material-icons">add</i>
-    <label>Label</label>
-</button>
-<button class="button outlined"  disabled>Disabled</button>
-</ComponentPreview>
+<Preview>
+    <button class="button outlined" >Button</button>
+    <button class="button outlined" >
+        <i class="material-icons">add</i>
+        <label>Label</label>
+    </button>
+    <button class="button outlined"  disabled>Disabled</button>
+</Preview>
 
 ```html
 <button class="button outlined"></button>
@@ -82,14 +82,14 @@ setup: |
 
 ## Text
 
-<ComponentPreview >
-<button class="button text" >Button</button>
-<button class="button text" >
-    <i class="material-icons">add</i>
-    <label>Label</label>
-</button>
-<button class="button text"  disabled>Disabled</button>
-</ComponentPreview>
+<Preview>
+    <button class="button text" >Button</button>
+    <button class="button text" >
+        <i class="material-icons">add</i>
+        <label>Label</label>
+    </button>
+    <button class="button text"  disabled>Disabled</button>
+</Preview>
 
 ```html
 <button class="button text"></button>
@@ -97,31 +97,13 @@ setup: |
 
 ## Icon
 
-<ComponentPreview >
-<button class="button" >
-    <i class="material-icons">add</i>
-</button>
-<button class="button"  disabled><i class="material-icons">add</i></button>
-</ComponentPreview>
+<Preview>
+    <button class="button" >
+        <i class="material-icons">add</i>
+    </button>
+    <button class="button"  disabled><i class="material-icons">add</i></button>
+</Preview>
 
 ```html
 <button class="button"><i class="material-icons">add</i></button>
-```
-
-## FAB
-
-```html
-<button class="button" variant="fab"></button>
-```
-
-## Extended FAB
-
-```html
-<button class="button" variant="extended-fab"></button>
-```
-
-## Segmented
-
-```html
-<button class="button" variant="segmented"></button>
 ```

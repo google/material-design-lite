@@ -1,4 +1,4 @@
-.button.fab {
+.fab {
   padding: 16px;
   font-size: 24px;
   border-radius: var(--md-sys-shape-medium);
@@ -8,6 +8,6 @@
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
 }
-.button.fab > i {
+.fab > i {
   font-size: 24px;
 }

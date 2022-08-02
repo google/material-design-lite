@@ -14,7 +14,6 @@
  limitations under the License.
 */
 
-@import url(palette.css);
 @import url(typography.css);
 @import url(colors.css);
 @import url(shape.css);
@@ -22,10 +21,7 @@
 @import url(state.css);
 @import url(elevation.css);
 
-/* Theme */
-@import url(theme/light.css) screen and (prefers-color-scheme: light);
-@import url(theme/dark.css) screen and (prefers-color-scheme: dark);
-
 /* Components */
 @import url(components/button/style.css);
+@import url(components/fab/style.css);
 @import url(components/card/style.css);
