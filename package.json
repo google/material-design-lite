@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "build:css": "postcss css/baseline.css --o dist/mdl.css",
+    "watch:css": "postcss css/baseline.css --o dist/mdl.css -w",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -22,6 +24,13 @@
     "@astrojs/mdx": "^0.4.0",
     "@astrojs/preact": "^0.5.2",
     "@astrojs/react": "^0.4.2",
-    "astro": "^1.0.0-rc.3"
+    "@types/node": "^18.6.3",
+    "astro": "^1.0.0-rc.3",
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0",
+    "postcss-color-hct": "^0.0.2",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6"
   }
 }

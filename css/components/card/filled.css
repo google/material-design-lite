@@ -1,0 +1,6 @@
+@import url(base.css);
+
+.card.filled {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+}

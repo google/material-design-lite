@@ -13,7 +13,7 @@ export default defineConfig({
     lit(),
     mdx(),
   ],
-  site: `http://astro.build`,
+  site: `https://getmdl.io/`,
   legacy: {
     astroFlavoredMarkdown: true,
   },
