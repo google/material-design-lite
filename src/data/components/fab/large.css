@@ -1,15 +1,12 @@
 @import url(base.css);
 
-.button.fab-large {
+.fab.large {
   padding: 16px;
   font-size: 36px;
   border-radius: var(--md-sys-shape-medium);
   width: 96px;
   height: 96px;
-
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
 }
-.button.fab-large > i {
+.fab.large > i {
   font-size: 36px;
 }

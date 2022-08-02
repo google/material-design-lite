@@ -1,0 +1,43 @@
+---
+const { group } = Astro.props;
+const tones = [100, 99, 98, 95, 90, 80, 70, 60, 50, 40, 35, 30, 25, 20, 10, 0];
+const tokens = tones.map(tone => {
+    return {
+        name: tone,
+        token: `--md-ref-palette-${group}${tone}`
+    };
+});
+---
+
+<style>
+    .palette {
+        display: flex;
+        width: 100%;
+    }
+
+    .tone {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tone-color {
+        flex: 1;
+        outline: 1px solid var(--md-sys-color-outline);
+        min-height: 60px;
+    }
+
+    .tone-name {
+        font-size: 0.8rem;
+        opacity: 0.72;
+    }
+</style>
+
+<div class="palette">
+    {tokens.map(tone => {
+    return <div class="tone">
+        <div class="tone-color" style={`background-color: var(${tone.token})`}></div>
+        <div class="tone-name">{tone.name}</div>
+    </div>;
+    })}
+</div>
