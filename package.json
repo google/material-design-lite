@@ -3,8 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build:css": "postcss css/baseline.css --o dist/mdl.css",
-    "watch:css": "postcss css/baseline.css --o dist/mdl.css -w",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -31,6 +29,7 @@
     "postcss-cli": "^10.0.0",
     "postcss-color-hct": "^0.0.2",
     "postcss-import": "^14.1.0",
+    "postcss-minify": "^1.1.0",
     "postcss-nested": "^5.0.6"
   }
 }
