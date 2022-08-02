@@ -7,9 +7,12 @@
     "moduleResolution": "node",
     // Enable JSON imports.
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
     // Add type definitions for our Astro runtime.
-    "types": ["astro/client"]
+    "types": [
+      "astro/client"
+    ]
   }
 }
