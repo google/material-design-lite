@@ -2,9 +2,9 @@ name: Demo
 
 on:
   push:
-    branches: [mdl-3.x]
+    branches: [dev]
   pull_request:
-    branches: [mdl-3.x]
+    branches: [dev]
 
   workflow_dispatch:
 

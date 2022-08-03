@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 300px;
+  padding: 16px;
+  border-radius: var(--md-sys-shape-medium);
+
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+
+  text-align: start;
+}
+
+.card .title {
+  padding: 8px;
+
+  font-family: var(--md-sys-typescale-title-large-font);
+  font-weight: var(--md-sys-typescale-title-large-weight);
+  font-size: var(--md-sys-typescale-title-large-size);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+}
+
+.card .subtitle {
+  padding: 8px;
+
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  font-size: var(--md-sys-typescale-body-large-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+}
+
+.card .actions {
+  padding: 8px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+

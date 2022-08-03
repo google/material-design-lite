@@ -1,0 +1,12 @@
+@import url(base.css);
+
+.fab.large {
+  padding: 16px;
+  font-size: 36px;
+  border-radius: var(--md-sys-shape-medium);
+  width: 96px;
+  height: 96px;
+}
+.fab.large > i {
+  font-size: 36px;
+}

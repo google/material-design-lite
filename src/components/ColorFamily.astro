@@ -1,0 +1,56 @@
+---
+const { group } = Astro.props;
+const titleCase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+const tokens = [
+    {
+        name: `${titleCase(group)}`,
+        token: `--md-sys-color-${group}`,
+    },
+    {
+        name: `On ${titleCase(group)}`,
+        token: `--md-sys-color-on-${group}`,
+    },
+    {
+        name: `${titleCase(group)} Container`,
+        token: `--md-sys-color-${group}-container`,
+    },
+    {
+        name: `On ${titleCase(group)} Container`,
+        token: `--md-sys-color-on-${group}-container`,
+    },
+];
+---
+
+<style>
+    .color-family {
+        display: flex;
+        width: 100%;
+    }
+
+    .role {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .role-color {
+        flex: 1;
+        outline: 1px solid var(--md-sys-color-outline);
+        min-height: 70px;
+    }
+
+    .role-name {
+        white-space: nowrap;
+        font-size: 0.8rem;
+        opacity: 0.72;
+    }
+</style>
+
+<div class="color-family">
+    {tokens.map(role => {
+    return <div class="role">
+        <div class="role-color" style={`background-color: var(${role.token})`}></div>
+        <div class="role-name">{role.name}</div>
+    </div>;
+    })}
+</div>

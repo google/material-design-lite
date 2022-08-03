@@ -1,0 +1,27 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+    const docs = await Astro.glob('../../data/components/**/readme.md');
+    return docs.map(p => {
+        const file = p.file;
+        const idxOfSecondToLastSlash = file.lastIndexOf('/', file.lastIndexOf('/') - 1);
+        const slug = file.substring(idxOfSecondToLastSlash + 1, file.lastIndexOf('/'));
+        return {
+            params: { id: slug }
+        };
+    });
+}
+
+const { id } = Astro.params;
+const readmes = await Astro.glob('../../data/components/**/readme.md');
+const readmeForComponent = readmes.filter(d => d.file.includes(`/${id}/`))[0]!;
+const { Content } = readmeForComponent;
+const compiled = readmeForComponent.compiledContent();
+const headings = await readmeForComponent.getHeadings();
+const content = { ...readmeForComponent.frontmatter, ...compiled, astro: { headings } };
+---
+
+<MainLayout content={content}>
+    <Content />
+</MainLayout>

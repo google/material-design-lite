@@ -1,0 +1,85 @@
+.top-app-bar {
+  padding: 16px;
+  width: calc(100% - 32px);
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto;
+  grid-template-areas: "leading title actions";
+
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+}
+
+.top-app-bar .actions {
+  grid-area: actions;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.top-app-bar .button {
+  background-color: unset;
+  color: unset;
+  padding: unset;
+  padding-left: 24px;
+}
+
+.top-app-bar .title {
+  grid-area: title;
+  flex: 1;
+
+  font-family: var(--md-sys-typescale-title-large-font);
+  font-weight: var(--md-sys-typescale-title-large-weight);
+  font-size: var(--md-sys-typescale-title-large-size);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+}
+.top-app-bar .leading {
+  grid-area: leading;
+  padding: unset;
+}
+
+.top-app-bar {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto;
+  grid-template-areas: "leading title actions";
+}
+
+.top-app-bar.center-aligned .title {
+  text-align: center;
+}
+
+.top-app-bar.medium,
+.top-app-bar.large {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "leading actions" "title title";
+}
+
+.top-app-bar.small .title {
+  text-align: start;
+  padding-left: 16px;
+}
+
+.top-app-bar.medium .title {
+  padding-top: 16px;
+
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+}
+
+.top-app-bar.large .title {
+  padding-top: 20px;
+
+  font-family: var(--md-sys-typescale-headline-medium-font);
+  font-weight: var(--md-sys-typescale-headline-medium-weight);
+  font-size: var(--md-sys-typescale-headline-medium-size);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+}

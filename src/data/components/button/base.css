@@ -1,0 +1,36 @@
+.button {
+  --button-border: 1px solid var(--md-sys-color-primary);
+  padding: 8px 24px;
+  border-radius: var(--md-comp-button-shape, 20px);
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  font-size: var(--md-sys-typescale-label-large-size);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+
+  color: var(--md-sys-color-on-secondary);
+  background-color: var(--md-sys-color-secondary);
+
+  i {
+    margin-right: 8px;
+  }
+
+  i:only-child {
+    margin-right: 0px;
+  }
+}
+
+.button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
