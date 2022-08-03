@@ -35,8 +35,12 @@ const tokens = [
 
     .role-color {
         flex: 1;
-        outline: 1px solid var(--md-sys-color-outline);
+        outline: 1px solid #eee;
         min-height: 70px;
+    }
+
+    body.dark-theme .role-color {
+        outline: 1px solid #333;
     }
 
     .role-name {

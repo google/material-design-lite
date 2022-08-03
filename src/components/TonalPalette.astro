@@ -23,8 +23,12 @@ const tokens = tones.map(tone => {
 
     .tone-color {
         flex: 1;
-        outline: 1px solid var(--md-sys-color-outline);
+        outline: 1px solid #eee;
         min-height: 60px;
+    }
+
+    body.dark-theme .tone-color {
+        outline: 1px solid #333;
     }
 
     .tone-name {
