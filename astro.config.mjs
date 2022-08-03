@@ -6,6 +6,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+  base: "/material-design-lite/",
   integrations: [
     // Enable Preact to support Preact JSX components.
     preact(), // Enable React for the Algolia search component.
@@ -16,8 +17,5 @@ export default defineConfig({
   site: `https://getmdl.io/`,
   legacy: {
     astroFlavoredMarkdown: true,
-  },
-  vite: {
-    base: "/material-design-lite/",
   },
 });
