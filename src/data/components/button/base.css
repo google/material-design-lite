@@ -18,15 +18,11 @@
   line-height: var(--md-sys-typescale-label-large-line-height);
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
 
-  color: var(--md-sys-color-on-secondary);
-  background-color: var(--md-sys-color-secondary);
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
 
   i {
     margin-right: 8px;
-  }
-
-  i:only-child {
-    margin-right: 0px;
   }
 }
 
