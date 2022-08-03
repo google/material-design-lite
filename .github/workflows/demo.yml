@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set Node.js 12
+      - name: Set Node.js 16
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
 
       - name: Install dependencies
         run: npm i
