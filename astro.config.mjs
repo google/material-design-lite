@@ -17,4 +17,7 @@ export default defineConfig({
   legacy: {
     astroFlavoredMarkdown: true,
   },
+  vite: {
+    base: "/material-design-lite/",
+  },
 });
