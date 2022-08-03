@@ -20,9 +20,4 @@
 @import url(motion.css);
 @import url(state.css);
 @import url(elevation.css);
-
-/* Components */
-@import url(components/button/style.css);
-@import url(components/fab/style.css);
-@import url(components/card/style.css);
-@import url(components/chip/style.css);
+@import url(components.css);
