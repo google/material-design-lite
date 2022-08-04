@@ -3,8 +3,9 @@ title: Color
 description: Material color system based on HCT.
 layout: ../layouts/MainLayout.astro
 setup: |
-  import TonalPalette from "../components/TonalPalette.astro";
-  import ColorFamily from "../components/ColorFamily.astro";
+  import TonalPalette from "../components/colors/TonalPalette.astro";
+  import ColorFamily from "../components/colors/ColorFamily.astro";
+  import Surfaces from "../components/colors/Surfaces.astro";
 ---
 
 ## Schemes
@@ -42,3 +43,7 @@ setup: |
 ### Error
 
 <TonalPalette group="error" />
+
+## Surfaces
+
+<Surfaces />

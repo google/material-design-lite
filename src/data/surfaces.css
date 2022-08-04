@@ -1,0 +1,32 @@
+:root {
+  --md-surface-1: rgba(var(--md-sys-color-primary-rgb), 0.05);
+  --md-surface-2: rgba(var(--md-sys-color-primary-rgb), 0.08);
+  --md-surface-3: rgba(var(--md-sys-color-primary-rgb), 0.11);
+  --md-surface-4: rgba(var(--md-sys-color-primary-rgb), 0.12);
+  --md-surface-5: rgba(var(--md-sys-color-primary-rgb), 0.14);
+}
+
+.surface-1 {
+  background-color: var(--md-surface-1);
+  color: var(--md-sys-color-on-surface);
+}
+
+.surface-2 {
+  background-color: var(--md-surface-2);
+  color: var(--md-sys-color-on-surface);
+}
+
+.surface-3 {
+  background-color: var(--md-surface-3);
+  color: var(--md-sys-color-on-surface);
+}
+
+.surface-4 {
+  background-color: var(--md-surface-4);
+  color: var(--md-sys-color-on-surface);
+}
+
+.surface-5 {
+  background-color: var(--md-surface-5);
+  color: var(--md-sys-color-on-surface);
+}

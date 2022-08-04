@@ -1,0 +1,61 @@
+---
+const tokens = [
+    {
+        name: `Surface +5%`,
+        token: `--md-surface-1`,
+    },
+    {
+        name: `Surface +8%`,
+        token: `--md-surface-2`,
+    }, {
+        name: `Surface +11%`,
+        token: `--md-surface-3`,
+    },
+    {
+        name: `Surface +12%`,
+        token: `--md-surface-4`,
+    },
+    {
+        name: `Surface +14%`,
+        token: `--md-surface-5`,
+    },
+];
+---
+
+<style>
+    .surfaces {
+        display: flex;
+        width: 100%;
+    }
+
+    .role {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .role-color {
+        flex: 1;
+        outline: 1px solid #eee;
+        min-height: 70px;
+    }
+
+    body.dark-theme .role-color {
+        outline: 1px solid #333;
+    }
+
+    .role-name {
+        white-space: nowrap;
+        font-size: 0.8rem;
+        opacity: 0.72;
+    }
+</style>
+
+<div class="surfaces">
+    {tokens.map(role => {
+    return <div class="role">
+        <div class="role-color" style={`background-color: var(${role.token})`}></div>
+        <div class="role-name">{role.name}</div>
+    </div>;
+    })}
+</div>

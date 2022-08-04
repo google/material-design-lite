@@ -1,5 +1,7 @@
 .button.outlined {
-  border: var(--button-border);
   background-color: transparent;
   color: var(--md-sys-color-primary);
+
+  border: var(--button-border);
+  box-shadow: unset;
 }

@@ -84,15 +84,34 @@
 .surface-tint {
   background-color: var(--md-sys-color-on-surface-tint);
 }
+.surface-1 {
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.05);
+}
+
+.surface-2 {
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.08);
+}
+
+.surface-3 {
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.11);
+}
+
+.surface-4 {
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.12);
+}
+
+.surface-5 {
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.14);
+}
 .black {
-  background-color: var(--md-ref-palette-black);
+  background-color: var(--md-ref-palette-black, #000);
 }
 .black-text {
-  color: var(--md-ref-palette-black);
+  color: var(--md-ref-palette-black, #000);
 }
 .white {
-  background-color: var(--md-ref-palette-white);
+  background-color: var(--md-ref-palette-white, #fff);
 }
 .white-text {
-  color: var(--md-ref-palette-white);
+  color: var(--md-ref-palette-white, #fff);
 }
