@@ -1,6 +1,35 @@
 .button.filled {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
+  box-shadow: var(--md-sys-elevation-0);
+}
 
-  box-shadow: unset;
+.button.filled:hover {
+  box-shadow: var(--md-sys-elevation-1);
+  background-color: rgba(
+    var(--md-sys-color-primary-rgb),
+    var(--md-sys-state-hover-state-layer-opacity)
+  );
+}
+
+.button.filled:focus {
+  box-shadow: var(--md-sys-elevation-0);
+  background-color: rgba(
+    var(--md-sys-color-primary-rgb),
+    var(--md-sys-state-focus-state-layer-opacity)
+  );
+}
+
+.button.filled:active {
+  box-shadow: var(--md-sys-elevation-0);
+  background-color: rgba(
+    var(--md-sys-color-primary-rgb),
+    var(--md-sys-state-pressed-state-layer-opacity)
+  );
+}
+
+.button.filled[disabled] {
+  box-shadow: var(--md-sys-elevation-0);
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
 }

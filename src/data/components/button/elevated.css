@@ -1,10 +1,35 @@
 .button.elevated {
-  background-color: transparent;
-  border: var(--button-border);
+  border: 1px solid var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
-  box-shadow: 0px 2px 3px var(--md-sys-color-shadow);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.button.elevated:hover {
+  box-shadow: var(--md-sys-elevation-2);
+  background-color: rgba(
+    var(--md-sys-color-primary-rgb),
+    var(--md-sys-state-hover-state-layer-opacity)
+  );
+}
+
+.button.elevated:focus {
+  box-shadow: var(--md-sys-elevation-1);
+  background-color: rgba(
+    var(--md-sys-color-primary-rgb),
+    var(--md-sys-state-focus-state-layer-opacity)
+  );
+}
+
+.button.elevated:active {
+  box-shadow: var(--md-sys-elevation-1);
+  background-color: rgba(
+    var(--md-sys-color-primary-rgb),
+    var(--md-sys-state-pressed-state-layer-opacity)
+  );
 }
 
 .button.elevated[disabled] {
-  box-shadow: none;
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
 }

@@ -1,9 +1,9 @@
 .button {
-  --button-border: 1px solid var(--md-sys-color-primary);
   padding: 8px 24px;
   border-radius: var(--md-comp-button-shape, 20px);
   outline: none;
   border: none;
+  height: var(--button-height, 40px);
 
   cursor: pointer;
 
@@ -21,15 +21,28 @@
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
 
-  box-shadow: 0px 2px 3px var(--md-sys-color-shadow);
+  box-shadow: var(--md-sys-elevation-1);
 }
 
 .button :where(i) {
   margin-right: 8px;
 }
 
+.button:hover {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+.button:focus {
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.button:active {
+  box-shadow: var(--md-sys-elevation-1);
+}
+
 .button[disabled] {
   cursor: not-allowed;
-  background-color: var(--md-sys-color-on-surface);
-  color: var(--md-sys-color-surface);
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  box-shadow: var(--md-sys-elevation-0);
 }
