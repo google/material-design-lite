@@ -1,8 +1,7 @@
 .button.elevated {
-  border: 1px solid var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
-  box-shadow: var(--md-sys-elevation-1);
 }
 
 .button.elevated:hover {
