@@ -3,7 +3,7 @@
   flex-direction: column;
 
   min-width: 300px;
-  padding: 16px;
+
   border-radius: var(--md-sys-shape-medium);
 
   background-color: var(--md-sys-color-surface);
@@ -12,8 +12,13 @@
   text-align: start;
 }
 
+.card img {
+  padding: 0;
+  border-radius: var(--md-sys-shape-medium);
+}
+
 .card .title {
-  padding: 8px;
+  padding: 8px 16px;
 
   font-family: var(--md-sys-typescale-title-large-font);
   font-weight: var(--md-sys-typescale-title-large-weight);
@@ -23,7 +28,7 @@
 }
 
 .card .subtitle {
-  padding: 8px;
+  padding: 8px 16px;
 
   font-family: var(--md-sys-typescale-body-large-font);
   font-weight: var(--md-sys-typescale-body-large-weight);
@@ -33,11 +38,9 @@
 }
 
 .card .actions {
-  padding: 8px;
+  padding: 16px;
 
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
-
-

@@ -1,0 +1,15 @@
+.icon.toggle {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-primary);
+}
+
+.icon.toggle[selected] {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.icon.toggle[disabled] {
+  box-shadow: var(--md-sys-elevation-0);
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+}

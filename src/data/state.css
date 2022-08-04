@@ -1,13 +1,3 @@
-:root {
-  /* Dragged state layer opacity */
-  --md-sys-state-dragged-state-layer-opacity: 0.16;
-  /* Pressed state layer opacity */
-  --md-sys-state-pressed-state-layer-opacity: 0.12;
-  /* Focus state layer opacity */
-  --md-sys-state-focus-state-layer-opacity: 0.12;
-  /* Hover state layer opacity */
-  --md-sys-state-hover-state-layer-opacity: 0.08;
-}
 .hover-state-layer {
   opacity: var(--md-sys-state-hover-state-layer-opacity);
 }

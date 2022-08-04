@@ -12,14 +12,11 @@ Icons visually communicate the button’s action. Their meaning should be clear 
 - On hover, include a tooltip that describes the button’s action, rather than the name of the icon itself.
 - Use the outline-style icons to indicate an unselected state and a filled style to indicate selection.
 
-## Standard
+## Default
 
 <Preview>
     <button class="icon">
         <i class="material-icons">add</i>
-    </button>
-    <button class="icon" selected>
-        <i class="material-icons">check</i>
     </button>
     <button class="icon" disabled>
         <i class="material-icons">add</i>
@@ -28,6 +25,43 @@ Icons visually communicate the button’s action. Their meaning should be clear 
 
 ```html
 <button class="icon">
+  <i class="material-icons">add</i>
+</button>
+```
+
+## Selected
+
+<Preview>
+    <button class="icon" selected>
+        <i class="material-icons">check</i>
+    </button>
+    <button class="icon" selected disabled>
+        <i class="material-icons">add</i>
+    </button>
+</Preview>
+
+```html
+<button class="icon" selected>
+  <i class="material-icons">add</i>
+</button>
+```
+
+## Toggle
+
+<Preview>
+    <button class="icon toggle">
+        <i class="material-icons">check</i>
+    </button>
+    <button class="icon toggle" selected>
+        <i class="material-icons">check</i>
+    </button>
+    <button class="icon toggle" selected disabled>
+        <i class="material-icons">add</i>
+    </button>
+</Preview>
+
+```html
+<button class="icon toggle" selected>
   <i class="material-icons">add</i>
 </button>
 ```
@@ -41,23 +75,6 @@ Contained icon buttons can have one of three styles:
 - Filled
 - Filled tonal
 - Outlined
-
-## Elevated
-
-<Preview>
-    <button class="icon elevated">
-        <i class="material-icons">add</i>
-    </button>
-    <button class="icon elevated" disabled>
-        <i class="material-icons">add</i>
-    </button>
-</Preview>
-
-```html
-<button class="icon elevated">
-  <i class="material-icons">add</i>
-</button>
-```
 
 ## Filled
 
