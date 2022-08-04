@@ -1,6 +1,7 @@
 ---
 import MoreMenu from "../RightSidebar/MoreMenu.astro";
 import TableOfContents from "../RightSidebar/TableOfContents.tsx";
+import componnetsScript from '../../components.ts?url';
 
 const { content, githubEditUrl } = Astro.props;
 const title = content.title;
@@ -46,3 +47,5 @@ const headings = content.astro?.headings ?? [];
 		}
 	}
 </style>
+
+<script src={componnetsScript} type="module"> </script>
