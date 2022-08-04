@@ -9,12 +9,12 @@ setup: |
 
 <Preview>
  <header class="top-app-bar center-aligned">
-    <button class="button leading">
+    <button class="button icon leading">
     <i class="material-icons">menu</i>
     </button>
     <span class="title">Title Large</span>
     <div class="actions">
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">search</i>
     </button>
     </div>
@@ -23,12 +23,12 @@ setup: |
 
 ```html
 <header class="top-app-bar center-aligned">
-  <button class="button leading">
+  <button class="button icon leading">
     <i class="material-icons">menu</i>
   </button>
   <span class="title">Title Large</span>
   <div class="actions">
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">search</i>
     </button>
   </div>
@@ -39,18 +39,18 @@ setup: |
 
 <Preview>
  <header class="top-app-bar small">
-    <button class="button leading">
+    <button class="button icon leading">
     <i class="material-icons">arrow_back</i>
     </button>
     <span class="title">Title Large</span>
     <div class="actions">
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">info_outline</i>
     </button>
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">filter_list</i>
     </button>
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">settings</i>
     </button>
     </div>
@@ -59,18 +59,18 @@ setup: |
 
 ```html
 <header class="top-app-bar small">
-  <button class="button leading">
+  <button class="button icon leading">
     <i class="material-icons">arrow_back</i>
   </button>
   <span class="title">Title Large</span>
   <div class="actions">
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">info_outline</i>
     </button>
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">filter_list</i>
     </button>
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">settings</i>
     </button>
   </div>
@@ -81,15 +81,15 @@ setup: |
 
 <Preview>
 <header class="top-app-bar medium">
-    <button class="button leading">
+    <button class="button icon leading">
     <i class="material-icons">menu</i>
     </button>
     <span class="title">Headline Small</span>
     <div class="actions">
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">info_outline</i>
     </button>
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">settings</i>
     </button>
     </div>
@@ -98,15 +98,15 @@ setup: |
 
 ```html
 <header class="top-app-bar medium">
-  <button class="button leading">
+  <button class="button icon leading">
     <i class="material-icons">menu</i>
   </button>
   <span class="title">Headline Small</span>
   <div class="actions">
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">info_outline</i>
     </button>
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">settings</i>
     </button>
   </div>
@@ -117,15 +117,15 @@ setup: |
 
 <Preview>
  <header class="top-app-bar large">
-    <button class="button leading">
+    <button class="button icon leading">
     <i class="material-icons">menu</i>
     </button>
     <span class="title">Headline Medium</span>
     <div class="actions">
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">info_outline</i>
     </button>
-    <button class="button">
+    <button class="button icon">
         <i class="material-icons">settings</i>
     </button>
     </div>
@@ -134,15 +134,15 @@ setup: |
 
 ```html
 <header class="top-app-bar large">
-  <button class="button leading">
+  <button class="button icon leading">
     <i class="material-icons">menu</i>
   </button>
   <span class="title">Headline Medium</span>
   <div class="actions">
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">info_outline</i>
     </button>
-    <button class="button">
+    <button class="button icon">
       <i class="material-icons">settings</i>
     </button>
   </div>

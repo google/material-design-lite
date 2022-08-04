@@ -21,6 +21,13 @@
    *
    */
 
+
+  --md-token-rgb: 0, 0, 0;
+  --md-token: rgba(var(--md-token-rgb), 1);
+  --md-token-with-alpha: rgba(var(--md-token-rgb), 0.87);
+
+
+
   --color-base-white: 0, 0%;
   --color-base-black: 240, 100%;
   --color-base-gray: 215, 14%;
