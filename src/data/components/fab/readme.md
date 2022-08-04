@@ -64,3 +64,48 @@ setup: |
 ```html
 <button class="button fab extended"></button>
 ```
+
+## Surface
+
+<Preview>
+     <button class="button fab surface">
+        <i class="material-icons">add</i>
+    </button>
+    <button class="button fab surface" disabled>
+        <i class="material-icons">add</i>
+    </button>
+</Preview>
+
+```html
+<button class="button fab surface"></button>
+```
+
+## Secondary
+
+<Preview>
+     <button class="button fab secondary">
+        <i class="material-icons">add</i>
+    </button>
+    <button class="button fab secondary" disabled>
+        <i class="material-icons">add</i>
+    </button>
+</Preview>
+
+```html
+<button class="button fab secondary"></button>
+```
+
+## Tertiary
+
+<Preview>
+     <button class="button fab tertiary">
+        <i class="material-icons">add</i>
+    </button>
+    <button class="button fab tertiary" disabled>
+        <i class="material-icons">add</i>
+    </button>
+</Preview>
+
+```html
+<button class="button fab tertiary"></button>
+```

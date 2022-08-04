@@ -1,0 +1,28 @@
+.fab.surface {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+}
+
+.fab.surface:hover {
+  box-shadow: var(--md-sys-elevation-4);
+  background-color: rgba(
+    var(--md-sys-color-on-surface-rgb),
+    var(--md-sys-state-hover-state-layer-opacity)
+  );
+}
+
+.fab.surface:focus {
+  box-shadow: var(--md-sys-elevation-2);
+  background-color: rgba(
+    var(--md-sys-color-on-surface-rgb),
+    var(--md-sys-state-focus-state-layer-opacity)
+  );
+}
+
+.fab.surface:active {
+  box-shadow: var(--md-sys-elevation-2);
+  background-color: rgba(
+    var(--md-sys-color-on-surface-rgb),
+    var(--md-sys-state-pressed-state-layer-opacity)
+  );
+}
