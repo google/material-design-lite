@@ -9,6 +9,7 @@
     "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
     "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco,
     "Courier New", Courier, monospace;
+  accent-color: var(--md-sys-color-primary);
 
   /*
    * Variables with --color-base prefix define
@@ -20,13 +21,6 @@
    * --color-base-{color}: {hue}, {saturation};
    *
    */
-
-
-  --md-token-rgb: 0, 0, 0;
-  --md-token: rgba(var(--md-token-rgb), 1);
-  --md-token-with-alpha: rgba(var(--md-token-rgb), 0.87);
-
-
 
   --color-base-white: 0, 0%;
   --color-base-black: 240, 100%;
@@ -65,12 +59,32 @@
   --color-purple: var(--color-base-purple), 54%;
   --color-red: var(--color-base-red), 54%;
   --color-yellow: var(--color-base-yellow), 59%;
+
+  /* Theme Clors */
+  --theme-accent: var(--md-sys-color-primary);
+  --theme-text-accent: var(--md-sys-color-primary);
+  --theme-accent-opacity: 0.15;
+  --theme-divider: hsla(var(--color-gray-95), 1);
+  --theme-text: hsla(var(--color-gray-10), 1);
+  --theme-text-light: hsla(var(--color-gray-40), 1);
+  /* @@@: not used anywhere */
+  --theme-text-lighter: hsla(var(--color-gray-80), 1);
+  --theme-bg: hsla(var(--color-base-white), 100%, 1);
+  --theme-bg-hover: hsla(var(--color-gray-95), 1);
+  --theme-bg-offset: hsla(var(--color-gray-90), 1);
+  --theme-bg-accent: hsla(var(--color-blue), var(--theme-accent-opacity));
+  --theme-code-inline-bg: hsla(var(--color-gray-95), 1);
+  --theme-code-inline-text: var(--theme-text);
+  --theme-code-bg: hsla(217, 19%, 27%, 1);
+  --theme-code-text: hsla(var(--color-gray-95), 1);
+  --theme-navbar-bg: hsla(var(--color-base-white), 100%, 1);
+  --theme-navbar-height: 6rem;
+  --theme-selection-color: hsla(var(--color-blue), 1);
+  --theme-selection-bg: hsla(var(--color-blue), var(--theme-accent-opacity));
 }
 
 :root {
   color-scheme: light;
-  --theme-accent: hsla(var(--color-blue), 1);
-  --theme-text-accent: hsla(var(--color-blue), 1);
   --theme-accent-opacity: 0.15;
   --theme-divider: hsla(var(--color-gray-95), 1);
   --theme-text: hsla(var(--color-gray-10), 1);
@@ -99,8 +113,6 @@ body {
 :root.theme-dark {
   color-scheme: dark;
   --theme-accent-opacity: 0.15;
-  --theme-accent: hsla(var(--color-blue), 1);
-  --theme-text-accent: hsla(var(--color-blue), 1);
   --theme-divider: hsla(var(--color-gray-10), 1);
   --theme-text: hsla(var(--color-gray-90), 1);
   --theme-text-light: hsla(var(--color-gray-80), 1);

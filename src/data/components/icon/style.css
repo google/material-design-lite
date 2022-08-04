@@ -1,21 +1,5 @@
-.button i:only-child {
-  margin-right: 0px;
-}
-
-.icon {
-  padding: 4px;
-  margin: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-
-  background-color: transparent;
-  color: var(--md-sys-color-on-surface-variant);
-
-  box-shadow: none;
-}
-
-.icon i {
-  font-size: 24px;
-  vertical-align: middle;
-}
+@import url(base.css);
+@import url(filled.css);
+@import url(filled-tonal.css);
+@import url(outlined.css);
+@import url(elevated.css);

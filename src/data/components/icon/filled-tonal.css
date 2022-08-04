@@ -1,10 +1,10 @@
-.button.filled-tonal {
+.icon.contained.filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.button.filled-tonal:hover {
+.icon.contained.filled-tonal:hover {
   box-shadow: var(--md-sys-elevation-1);
   background-color: rgba(
     var(--md-sys-color-on-secondary-container-rgb),
@@ -12,7 +12,7 @@
   );
 }
 
-.button.filled-tonal:focus {
+.icon.contained.filled-tonal:focus {
   box-shadow: var(--md-sys-elevation-0);
   background-color: rgba(
     var(--md-sys-color-on-secondary-container-rgb),
@@ -20,7 +20,7 @@
   );
 }
 
-.button.filled-tonal:active {
+.icon.contained.filled-tonal:active {
   box-shadow: var(--md-sys-elevation-0);
   background-color: rgba(
     var(--md-sys-color-on-secondary-container-rgb),
@@ -28,7 +28,7 @@
   );
 }
 
-.button.filled-tonal[disabled] {
+.icon.contained.filled-tonal[disabled] {
   box-shadow: var(--md-sys-elevation-0);
   background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
   color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
