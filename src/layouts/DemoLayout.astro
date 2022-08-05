@@ -1,0 +1,14 @@
+---
+import HeadCommon from "../components/HeadCommon.astro";
+
+const { content } = Astro.props;
+---
+<html>
+  <head>
+    <HeadCommon />
+    <title>{content.title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
