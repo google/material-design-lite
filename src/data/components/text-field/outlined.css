@@ -1,0 +1,187 @@
+/* Codepen: https://codepen.io/finnhvman/pen/xyOORQ */
+
+.text-field.outlined {
+  padding-top: 6px;
+}
+
+/* Input, Textarea */
+.text-field.outlined > input,
+.text-field.outlined > textarea {
+  box-sizing: border-box;
+  margin: 0;
+  border: solid 1px; /* Safari */
+  border-color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+  border-top-color: transparent;
+  border-radius: 4px;
+  padding: 15px 13px 15px;
+  width: 100%;
+  height: inherit;
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+  background-color: transparent;
+  box-shadow: none; /* Firefox */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: var(--md-sys-color-primary);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Span */
+.text-field.outlined > input + span,
+.text-field.outlined > textarea + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  border-color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+  width: 100%;
+  max-height: 100%;
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+  font-size: 75%;
+  line-height: 15px;
+  cursor: text;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Corners */
+.text-field.outlined > input + span::before,
+.text-field.outlined > input + span::after,
+.text-field.outlined > textarea + span::before,
+.text-field.outlined > textarea + span::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  margin-top: 6px;
+  border-top: solid 1px;
+  border-top-color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+  min-width: 10px;
+  height: 8px;
+  pointer-events: none;
+  box-shadow: inset 0 1px transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.text-field.outlined > input + span::before,
+.text-field.outlined > textarea + span::before {
+  margin-right: 4px;
+  border-left: solid 1px transparent;
+  border-radius: 4px 0;
+}
+
+.text-field.outlined > input + span::after,
+.text-field.outlined > textarea + span::after {
+  flex-grow: 1;
+  margin-left: 4px;
+  border-right: solid 1px transparent;
+  border-radius: 0 4px;
+}
+
+/* Hover */
+.text-field.outlined:hover > input,
+.text-field.outlined:hover > textarea {
+  border-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+  border-top-color: transparent;
+}
+
+.text-field.outlined:hover > input + span::before,
+.text-field.outlined:hover > textarea + span::before,
+.text-field.outlined:hover > input + span::after,
+.text-field.outlined:hover > textarea + span::after {
+  border-top-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+}
+
+.text-field.outlined:hover > input:not(:focus):placeholder-shown,
+.text-field.outlined:hover > textarea:not(:focus):placeholder-shown {
+  border-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+}
+
+/* Placeholder-shown */
+.text-field.outlined > input:not(:focus):placeholder-shown,
+.text-field.outlined > textarea:not(:focus):placeholder-shown {
+  border-top-color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+}
+
+.text-field.outlined > input:not(:focus):placeholder-shown + span,
+.text-field.outlined > textarea:not(:focus):placeholder-shown + span {
+  font-size: inherit;
+  line-height: 68px;
+}
+
+.text-field.outlined > input:not(:focus):placeholder-shown + span::before,
+.text-field.outlined > textarea:not(:focus):placeholder-shown + span::before,
+.text-field.outlined > input:not(:focus):placeholder-shown + span::after,
+.text-field.outlined > textarea:not(:focus):placeholder-shown + span::after {
+  border-top-color: transparent;
+}
+
+/* Focus */
+.text-field.outlined > input:focus,
+.text-field.outlined > textarea:focus {
+  border-color: var(--md-sys-color-primary);
+  border-top-color: transparent;
+  box-shadow: inset 1px 0 var(--md-sys-color-primary),
+    inset -1px 0 var(--md-sys-color-primary),
+    inset 0 -1px var(--md-sys-color-primary);
+  outline: none;
+}
+
+.text-field.outlined > input:focus + span,
+.text-field.outlined > textarea:focus + span {
+  color: var(--md-sys-color-primary);
+}
+
+.text-field.outlined > input:focus + span::before,
+.text-field.outlined > input:focus + span::after,
+.text-field.outlined > textarea:focus + span::before,
+.text-field.outlined > textarea:focus + span::after {
+  border-top-color: var(--md-sys-color-primary) !important;
+  box-shadow: inset 0 1px var(--md-sys-color-primary);
+}
+
+/* Disabled */
+.text-field.outlined > input:disabled,
+.text-field.outlined > input:disabled + span,
+.text-field.outlined > textarea:disabled,
+.text-field.outlined > textarea:disabled + span {
+  border-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38) !important;
+  border-top-color: transparent !important;
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  pointer-events: none;
+}
+
+.text-field.outlined > input:disabled + span::before,
+.text-field.outlined > input:disabled + span::after,
+.text-field.outlined > textarea:disabled + span::before,
+.text-field.outlined > textarea:disabled + span::after {
+  border-top-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38) !important;
+}
+
+.text-field.outlined > input:disabled:placeholder-shown,
+.text-field.outlined > input:disabled:placeholder-shown + span,
+.text-field.outlined > textarea:disabled:placeholder-shown,
+.text-field.outlined > textarea:disabled:placeholder-shown + span {
+  border-top-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38) !important;
+}
+
+.text-field.outlined > input:disabled:placeholder-shown + span::before,
+.text-field.outlined > input:disabled:placeholder-shown + span::after,
+.text-field.outlined > textarea:disabled:placeholder-shown + span::before,
+.text-field.outlined > textarea:disabled:placeholder-shown + span::after {
+  border-top-color: transparent !important;
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .text-field.outlined > input,
+    .text-field.outlined > input + span,
+    .text-field.outlined > textarea,
+    .text-field.outlined > textarea + span,
+    .text-field.outlined > input + span::before,
+    .text-field.outlined > input + span::after,
+    .text-field.outlined > textarea + span::before,
+    .text-field.outlined > textarea + span::after {
+      transition-duration: 0.1s;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.text-field {
+  font-family: var(
+    --pure-material-font,
+    "Roboto",
+    "Segoe UI",
+    BlinkMacSystemFont,
+    system-ui,
+    -apple-system
+  );
+  font-size: 16px;
+  line-height: 1.5;
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}

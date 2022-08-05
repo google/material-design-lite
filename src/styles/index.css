@@ -103,7 +103,7 @@ p {
 
 p,
 .content ul {
-  color: var(--theme-text-light);
+  color: var(--md-sys-color-on-surface);
 }
 
 small,
@@ -146,7 +146,7 @@ article > section nav {
 
 article > section ::marker {
   font-weight: bold;
-  color: var(--theme-text-light);
+  color: var(--md-sys-color-on-surface);
 }
 
 article > section iframe {
@@ -170,7 +170,7 @@ a > code::before {
   bottom: 0;
   left: 0;
   display: block;
-  background: var(--theme-accent);
+  background: var(--md-sys-color-primary);
   opacity: var(--theme-accent-opacity);
   border-radius: var(--border-radius);
 }
@@ -245,7 +245,7 @@ tr:nth-of-type(odd) {
 }
 th {
   background: var(--color-black);
-  color: var(--theme-color);
+  color: var(--md-sys-color-primary);
   font-weight: bold;
 }
 td,
@@ -255,12 +255,12 @@ th {
 }
 
 pre {
-  background-color: var(--theme-code-bg);
-  color: var(--theme-code-text);
+  background-color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-surface-variant);
 }
 
 blockquote code {
-  background-color: var(--theme-bg);
+  background-color: var(--md-sys-color-background);
 }
 
 @media (min-width: 37.75em) {
@@ -275,8 +275,8 @@ blockquote code {
 blockquote {
   margin: 2rem 0;
   padding: 1.25em 1.5rem;
-  border-left: 3px solid var(--theme-text-light);
-  background-color: var(--theme-bg-offset);
+  border-left: 3px solid var(--md-sys-color-on-surface-variant);
+  background-color: var(--md-sys-color-surface-variant);
   border-radius: 0 0.25rem 0.25rem 0;
   line-height: 1.7;
 }
@@ -297,14 +297,14 @@ button {
   gap: 0.25em;
   padding: 0.33em 0.67em;
   border: 0;
-  background: var(--theme-bg);
+  background: var(--md-sys-color-background);
   display: flex;
   font-size: 1rem;
   align-items: center;
   gap: 0.25em;
   border-radius: 99em;
-  color: var(--theme-text);
-  background-color: var(--theme-bg);
+  color: var(--md-sys-color-on-background);
+  background-color: var(--md-sys-color-background);
 }
 
 h2.heading {
@@ -323,11 +323,11 @@ h2.heading {
 
 .heading-link:hover,
 .heading-link:focus {
-  border-left-color: var(--theme-accent);
-  color: var(--theme-accent);
+  border-left-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-primary);
 }
 .heading-link:focus-within {
-  color: var(--theme-text-light);
+  color: var(--md-sys-color-on-surface);
   border-left-color: hsla(var(--color-gray-40), 1);
 }
 .heading-link svg {
