@@ -32,6 +32,23 @@ Default button styling.
 <button class="button">My Button</button>
 ```
 
+## Ripple
+
+Default button with ripple.
+
+<Preview>
+    <button class="button ripple">Button</button>
+    <button class="button ripple">
+        <i class="material-icons">add</i>
+        <label>Label</label>
+    </button>
+    <button class="button ripple" disabled>Disabled</button>
+</Preview>
+
+```html
+<button class="button ripple">My Button</button>
+```
+
 ## Elevated
 
 Elevated buttons are essentially filled tonal buttons with a shadow. To prevent shadow creep, only use them when absolutely necessary, such as when the button requires visual separation from a patterned background.
@@ -54,7 +71,7 @@ Elevated buttons are essentially filled tonal buttons with a shadow. To prevent 
 Filled buttons have the most visual impact after the FAB, and should be used for important, final actions that complete a flow, like Save, Join now, or Confirm.
 
 <Preview>
-    <button class="button filled" >Button</button>
+    <button class="button filled ripple" >Button</button>
     <button class="button filled" >
         <i class="material-icons">add</i>
         <label>Label</label>

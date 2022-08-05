@@ -5,6 +5,8 @@
   border: none;
   height: var(--button-height, 40px);
 
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
 
   display: flex;

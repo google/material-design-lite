@@ -5,28 +5,28 @@
  * 
  * @param {Event} event 
  */
-export function createRipple(event: MouseEvent) {
-  const item = event.currentTarget as HTMLElement;
+// export function createRipple(event: MouseEvent) {
+//   const item = event.currentTarget as HTMLElement;
 
-  const circle = document.createElement("span");
-  const diameter = Math.max(item.clientWidth, item.clientHeight);
-  const radius = diameter / 2;
+//   const circle = document.createElement("span");
+//   const diameter = Math.max(item.clientWidth, item.clientHeight);
+//   const radius = diameter / 2;
 
-  circle.style.width = circle.style.height = `${diameter}px`;
-  circle.style.left = `${event.clientX - item.offsetLeft - radius}px`;
-  circle.style.top = `${event.clientY - item.offsetTop - radius}px`;
-  circle.classList.add("ripple-effect");
+//   circle.style.width = circle.style.height = `${diameter}px`;
+//   circle.style.left = `${event.clientX - item.offsetLeft - radius}px`;
+//   circle.style.top = `${event.clientY - item.offsetTop - radius}px`;
+//   circle.classList.add("ripple-effect");
 
-  const ripple = item.getElementsByClassName("ripple-effect")[0];
+//   const ripple = item.getElementsByClassName("ripple-effect")[0];
 
-  if (ripple) {
-    ripple.remove();
-  }
+//   if (ripple) {
+//     ripple.remove();
+//   }
 
-  item.appendChild(circle);
-}
+//   item.appendChild(circle);
+// }
 
-const ripples = document.querySelectorAll(".ripple");
-for (const item of ripples) {
-  item.addEventListener("mousedown", createRipple);
-}
+// const ripples = document.querySelectorAll(".ripple, .button");
+// for (const item of ripples) {
+//   item.addEventListener("mousedown", createRipple);
+// }

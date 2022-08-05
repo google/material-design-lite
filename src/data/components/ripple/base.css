@@ -1,20 +1,17 @@
 .ripple {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
+  --ripple-bg: rgba(var(--md-sys-color-surface-rgb), 0.4);
+  --ripple-fg: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
 }
-
-.ripple-effect {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple 600ms linear;
-  background-color: rgba(255, 255, 255, 0.7);
+.ripple:enabled {
+  background-position: center;
+  transition: background 0.8s;
 }
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
+.ripple:enabled:hover {
+  background: var(--ripple-bg)
+    radial-gradient(circle, transparent 1%, var(--ripple-bg) 1%) center/15000%;
+}
+.ripple:enabled:active {
+  background-color: var(--ripple-fg);
+  background-size: 100%;
+  transition: background 0s;
 }
