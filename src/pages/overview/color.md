@@ -1,7 +1,7 @@
 ---
 title: Color
 description: Material color system based on HCT.
-layout: ../layouts/MainLayout.astro
+layout: ../../layouts/MainLayout.astro
 setup: |
   import TonalPalette from "../components/colors/TonalPalette.astro";
   import ColorFamily from "../components/colors/ColorFamily.astro";

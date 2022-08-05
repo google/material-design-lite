@@ -43,19 +43,21 @@ export const SIDEBAR = [
   // { text: "Theming", link: "material-design-lite/theming" ,},
   {
     text: "Typography",
-    link: "material-design-lite/typography",
+    link: "material-design-lite/overview/typography",
   },
   {
     text: "Color",
-    link: "material-design-lite/color",
+    link: "material-design-lite/overview/color",
   },
   {
     text: "Icons",
-    link: "material-design-lite/icons",
+    link: "material-design-lite/overview/icons",
+    draft: true,
   },
   {
     text: "Shape",
-    link: "material-design-lite/shape",
+    link: "material-design-lite/overview/shape",
+    draft: true,
   },
   {
     text: "FAQ",
