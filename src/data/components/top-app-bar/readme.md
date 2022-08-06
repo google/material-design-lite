@@ -3,7 +3,22 @@ title: Top app bar
 description: Variations on Material Design top app bars.
 setup: |
   import Preview from "../../../components/Preview.astro";
+  import Playground from "../../../components/Playground.astro";
 ---
+
+<Playground>
+ <header class="top-app-bar center-aligned" style="width: 300px">
+    <button class="icon leading">
+    <i class="material-icons">menu</i>
+    </button>
+    <span class="title">Title Large</span>
+    <div class="actions">
+    <button class="icon">
+        <i class="material-icons">search</i>
+    </button>
+    </div>
+</header>
+</Playground>
 
 ## Default
 

@@ -1,14 +1,20 @@
 ---
 const { id, height } = Astro.props;
 
-const code = `
-<button class="button">Button</button>
-<button class="button">
-    <i class="material-icons">add</i>
-    <label>Label</label>
-</button>
-<button class="button" disabled>Disabled</button>
-`;
+const content = await Astro.slots.render('default');
+
+function formatXml(xml: string, tab = '\t') { // tab = optional indent value, default is tab (\t)
+    var formatted = '', indent = '';
+    tab = tab || '\t';
+    xml.split(/>\s*</).forEach(function (node) {
+        if (node.match(/^\/\w/)) indent = indent.substring(tab.length); // decrease indent by one 'tab'
+        formatted += indent + '<' + node + '>\r\n';
+        if (node.match(/^<?\w[^>]*[^\/]$/)) indent += tab;              // increase indent
+    });
+    return formatted.substring(1, formatted.length - 3);
+}
+
+const formattd = formatXml(content);
 
 const htmlSrc = [
     `<!-- playground-fold -->`,
@@ -16,15 +22,33 @@ const htmlSrc = [
     `<head>`,
     `    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">`,
     `    <link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/mdl.css">`,
+    `    <link rel="stylesheet" href="style.css">`,
     `</head>`,
     `<body>`,
     `<!-- playground-fold-end -->`,
     ``,
-    `${code}`,
-    ``,
+    ...formattd.split('\n'),
     `<!-- playground-fold -->`,
     `</body>`,
 ].join('\n');
+
+const codeSrc = [].join('\n');
+
+const stylesSrc = [
+    ':root {',
+    '  display: flex;',
+    '  flex-direction: column;',
+    '  align-items: center;',
+    '  justify-content: center;',
+    '  height: 100vh;',
+    '  width: 100vw;',
+    '  background: transparent',
+    '}',
+    'body {',
+    '  background: transparent',
+    '}',
+].join('\n');
+
 
 const config = {
     "files": {
@@ -32,7 +56,10 @@ const config = {
             "content": htmlSrc,
         },
         "main.ts": {
-            "content": "console.log('hello');"
+            "content": codeSrc,
+        },
+        "style.css": {
+            "content": stylesSrc,
         },
     }
 };
@@ -40,26 +67,34 @@ const config = {
 const scriptSrc = [
     `const ide = document.querySelector('#editor-${id}');`,
     `ide.config = ${JSON.stringify(config)};`,
+    'const previews = document.querySelectorAll("playground-preview");',
+    'previews.forEach(preview => {',
+    `  preview.iframe?.setAttribute('allowtransparency', '');`,
+    '});',
 ].join('\n');
 ---
 
-<style define:vars={{ height: height ?? '200px' }}>
+<style define:vars={{ height: height ?? 'auto' }}>
     .demo {
         width: 100%;
-        border: 1px solid var(--md-sys-color-outline);
         background-color: var(--md-sys-color-background);
         border-radius: var(--md-sys-shape-small);
         overflow: hidden;
+
+        --playground-preview-toolbar-background: var(--md-sys-color-background);
+        --playground-highlight-color: var(--md-sys-color-primary);
+        --playground-code-background: transparent;
+        --playground-code-default-color: var(--md-sys-color-on-background);
+        --playground-code-selection-background: var(--md-sys-color-surface-variant);
+        --playground-border: none;
     }
 
     .demo>playground-file-editor {
-        height: var(--height);
+        height: auto;
     }
 
     .demo>playground-preview {
         height: var(--height);
-        border-bottom: 1px solid var(--md-sys-color-outline);
-        --playground-preview-toolbar-background: var(--md-sys-color-background);
     }
 </style>
 <playground-project id={`editor-${id}`}></playground-project>

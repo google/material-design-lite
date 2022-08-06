@@ -152,12 +152,12 @@ export const SIDEBAR = [
     draft: true
   },
   {
-    text: "Icon",
-    link: "material-design-lite/components/icon",
-  },
-  {
     text: "Floating action button",
     link: "material-design-lite/components/fab",
+  },
+  {
+    text: "Icon",
+    link: "material-design-lite/components/icon",
   },
   {
     text: "Grid list",

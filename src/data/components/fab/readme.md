@@ -3,7 +3,14 @@ title: Floating Action Button
 description: Variations on Material Design fabs.
 setup: |
   import Preview from "../../../components/Preview.astro";
+  import Playground from "../../../components/Playground.astro";
 ---
+
+<Playground>
+<button class="button fab">
+    <i class="material-icons">add</i>
+</button>
+</Playground>
 
 ## Default
 

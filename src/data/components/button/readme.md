@@ -3,7 +3,12 @@ title: Buttons
 description: Variations on Material Design buttons.
 setup: |
   import Preview from "../../../components/Preview.astro";
+  import Playground from "../../../components/Playground.astro";
 ---
+
+<Playground height="200px">
+<button class="button">Button</button>
+</Playground>
 
 Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
 

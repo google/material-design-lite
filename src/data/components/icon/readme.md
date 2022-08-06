@@ -3,7 +3,14 @@ title: Buttons
 description: Variations on Material Design buttons.
 setup: |
   import Preview from "../../../components/Preview.astro";
+  import Playground from "../../../components/Playground.astro";
 ---
+
+<Playground>
+<button class="icon">
+  <i class="material-icons">add</i>
+</button>
+</Playground>
 
 Icons visually communicate the button’s action. Their meaning should be clear and unambiguous. Icon buttons can be grouped **together** or they can **stand alone**.
 

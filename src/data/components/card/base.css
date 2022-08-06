@@ -8,6 +8,7 @@
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
+  box-shadow: var(--md-sys-elevation-1);
 
   text-align: start;
 }

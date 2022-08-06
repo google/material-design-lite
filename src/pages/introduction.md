@@ -4,7 +4,7 @@ description: Lightweight implementation of Material Design.
 layout: ../layouts/MainLayout.astro
 ---
 
- Lightweight implementation of [Material Design](https://material.io/).
+Lightweight implementation of [Material Design](https://material.io/).
 
 ## Todo
 

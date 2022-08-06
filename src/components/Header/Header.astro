@@ -22,6 +22,9 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
+		<a class="icon" href="/material-design-lite/css/mdl.css" download class="surface">
+			<i class="material-icons">file_download</i>
+		</a>
 		<material-theme-control rgb></material-theme-control>
 	</nav>
 </header>
@@ -99,6 +102,12 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		width: 100%;
 		max-width: 82em;
 		padding: 0 1rem;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		text-decoration: none !important;
 	}
 
 	@media (min-width: 50em) {

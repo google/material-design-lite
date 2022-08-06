@@ -3,7 +3,18 @@ title: Cards
 description: Variations on Material Design cards.
 setup: |
   import Preview from "../../../components/Preview.astro";
+  import Playground from "../../../components/Playground.astro";
 ---
+
+<Playground height="300px">
+ <div class="card filled">
+    <div class="title">Play relaxing songs</div>
+        <div class="subtitle">From your recent favorites</div>
+        <div class="actions">
+        <button class="button filled">Get started</button>
+    </div>
+</div>
+</Playground>
 
 Use a card to display content and actions on a single topic.
 

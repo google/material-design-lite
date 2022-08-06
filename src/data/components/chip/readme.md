@@ -3,7 +3,12 @@ title: Chips
 description: Variations on Material Design chips.
 setup: |
   import Preview from "../../../components/Preview.astro";
+  import Playground from "../../../components/Playground.astro";
 ---
+
+<Playground>
+<div class="chip filter">Chip</div>
+</Playground>
 
 ## Default
 
