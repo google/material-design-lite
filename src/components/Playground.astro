@@ -1,0 +1,72 @@
+---
+const { id, height } = Astro.props;
+
+const code = `
+<button class="button">Button</button>
+<button class="button">
+    <i class="material-icons">add</i>
+    <label>Label</label>
+</button>
+<button class="button" disabled>Disabled</button>
+`;
+
+const htmlSrc = [
+    `<!-- playground-fold -->`,
+    `<!doctype html>`,
+    `<head>`,
+    `    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">`,
+    `    <link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/mdl.css">`,
+    `</head>`,
+    `<body>`,
+    `<!-- playground-fold-end -->`,
+    ``,
+    `${code}`,
+    ``,
+    `<!-- playground-fold -->`,
+    `</body>`,
+].join('\n');
+
+const config = {
+    "files": {
+        "index.html": {
+            "content": htmlSrc,
+        },
+        "main.ts": {
+            "content": "console.log('hello');"
+        },
+    }
+};
+
+const scriptSrc = [
+    `const ide = document.querySelector('#editor-${id}');`,
+    `ide.config = ${JSON.stringify(config)};`,
+].join('\n');
+---
+
+<style define:vars={{ height: height ?? '200px' }}>
+    .demo {
+        width: 100%;
+        border: 1px solid var(--md-sys-color-outline);
+        background-color: var(--md-sys-color-background);
+        border-radius: var(--md-sys-shape-small);
+        overflow: hidden;
+    }
+
+    .demo>playground-file-editor {
+        height: var(--height);
+    }
+
+    .demo>playground-preview {
+        height: var(--height);
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        --playground-preview-toolbar-background: var(--md-sys-color-background);
+    }
+</style>
+<playground-project id={`editor-${id}`}></playground-project>
+
+<div class="demo">
+    <playground-preview project={ `editor-${id}` }></playground-preview>
+    <playground-file-editor project={ `editor-${id}` } filename="index.html"></playground-file-editor>
+</div>
+
+<script async set:html={scriptSrc}></script>

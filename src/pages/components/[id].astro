@@ -1,5 +1,5 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
+import ComponentLayout from '../../layouts/ComponentLayout.astro';
 
 export async function getStaticPaths() {
     const docs = await Astro.glob('../../data/components/**/readme.md');
@@ -22,6 +22,6 @@ const headings = await readmeForComponent.getHeadings();
 const content = { ...readmeForComponent.frontmatter, ...compiled, astro: { headings } };
 ---
 
-<MainLayout content={content}>
+<ComponentLayout content={content}>
     <Content />
-</MainLayout>
+</ComponentLayout>
