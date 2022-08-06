@@ -6,12 +6,12 @@ setup: |
   import Playground from "../../../components/Playground.astro";
 ---
 
-<Playground>
+<!-- <Playground>
 <label class="text-field filled">
   <input placeholder=" " />
   <span>Textfield</span>
 </label>
-</Playground>
+</Playground> -->
 
 ## Filled
 

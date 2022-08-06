@@ -7,7 +7,7 @@ setup: |
 
 ## Default
 
-<Playground>
+<!-- <Playground>
 <label class="text-field filled">
   <input placeholder=" " list="browsers">
   <span>Textfield</span>
@@ -19,7 +19,7 @@ setup: |
   <option value="Opera"></option>
   <option value="Safari"></option>
 </datalist>
-</Playground>
+</Playground> -->
 
 ```html
 <label class="text-field filled">

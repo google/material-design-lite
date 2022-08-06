@@ -6,9 +6,9 @@ setup: |
   import Playground from "../../../components/Playground.astro";
 ---
 
-<Playground>
+<!-- <Playground>
 <div class="chip filter">Chip</div>
-</Playground>
+</Playground> -->
 
 ## Default
 

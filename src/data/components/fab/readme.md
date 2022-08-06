@@ -6,11 +6,11 @@ setup: |
   import Playground from "../../../components/Playground.astro";
 ---
 
-<Playground>
+<!-- <Playground>
 <button class="button fab">
     <i class="material-icons">add</i>
 </button>
-</Playground>
+</Playground> -->
 
 ## Default
 

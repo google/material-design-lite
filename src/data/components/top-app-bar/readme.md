@@ -6,7 +6,7 @@ setup: |
   import Playground from "../../../components/Playground.astro";
 ---
 
-<Playground>
+<!-- <Playground>
  <header class="top-app-bar center-aligned" style="width: 300px">
     <button class="icon leading">
     <i class="material-icons">menu</i>
@@ -18,7 +18,7 @@ setup: |
     </button>
     </div>
 </header>
-</Playground>
+</Playground> -->
 
 ## Default
 

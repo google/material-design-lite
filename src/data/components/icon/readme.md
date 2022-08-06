@@ -6,11 +6,11 @@ setup: |
   import Playground from "../../../components/Playground.astro";
 ---
 
-<Playground>
+<!-- <Playground>
 <button class="icon">
   <i class="material-icons">add</i>
 </button>
-</Playground>
+</Playground> -->
 
 Icons visually communicate the button’s action. Their meaning should be clear and unambiguous. Icon buttons can be grouped **together** or they can **stand alone**.
 
