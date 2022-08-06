@@ -2,12 +2,12 @@
 title: Autocomplete
 description: Material autocomplete text field.
 setup: |
-  import Playground from "../../../components/Playground.astro";
+  import Preview from "../../../components/Preview.astro";
 ---
 
 ## Default
 
-<!-- <Playground>
+<Preview>
 <label class="text-field filled">
   <input placeholder=" " list="browsers">
   <span>Textfield</span>
@@ -19,7 +19,7 @@ setup: |
   <option value="Opera"></option>
   <option value="Safari"></option>
 </datalist>
-</Playground> -->
+</Preview>
 
 ```html
 <label class="text-field filled">
