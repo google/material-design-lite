@@ -76,7 +76,7 @@ Elevated buttons are essentially filled tonal buttons with a shadow. To prevent 
 Filled buttons have the most visual impact after the FAB, and should be used for important, final actions that complete a flow, like Save, Join now, or Confirm.
 
 <Preview>
-    <button class="button filled ripple" >Button</button>
+    <button class="button filled" >Button</button>
     <button class="button filled" >
         <i class="material-icons">add</i>
         <label>Label</label>
