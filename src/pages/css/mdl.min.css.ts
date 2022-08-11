@@ -1,15 +1,11 @@
-import rawStylesCSS from "../../data/baseline.css?raw";
 import postcss from "postcss";
+import rawStylesCSS from "../../data/baseline.css?raw";
 import { cssPlugins } from "../../utils/css-plugins";
 
 export async function get() {
-  let base = postcss();
-  for (const plugin of cssPlugins({
+  const result = await postcss(cssPlugins({
     minify: true
-  })) {
-    base = base.use(plugin);
-  }
-  const result = await base
+  }))
     .process(rawStylesCSS, {
       from: "src/data/baseline.css",
     })
