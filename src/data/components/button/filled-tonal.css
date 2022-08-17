@@ -2,34 +2,34 @@
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
   box-shadow: var(--md-sys-elevation-0);
-}
 
-.button.filled-tonal:hover {
-  box-shadow: var(--md-sys-elevation-1);
-  background-color: rgba(
-    var(--md-sys-color-on-secondary-container-rgb),
-    var(--md-sys-state-hover-state-layer-opacity)
-  );
-}
+  &:hover {
+    box-shadow: var(--md-sys-elevation-1);
+    background-color: rgba(
+      var(--md-sys-color-on-secondary-container-rgb),
+      var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
 
-.button.filled-tonal:focus {
-  box-shadow: var(--md-sys-elevation-0);
-  background-color: rgba(
-    var(--md-sys-color-on-secondary-container-rgb),
-    var(--md-sys-state-focus-state-layer-opacity)
-  );
-}
+  &:focus {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgba(
+      var(--md-sys-color-on-secondary-container-rgb),
+      var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
 
-.button.filled-tonal:active {
-  box-shadow: var(--md-sys-elevation-0);
-  background-color: rgba(
-    var(--md-sys-color-on-secondary-container-rgb),
-    var(--md-sys-state-pressed-state-layer-opacity)
-  );
-}
+  &:active {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgba(
+      var(--md-sys-color-on-secondary-container-rgb),
+      var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
 
-.button.filled-tonal[disabled] {
-  box-shadow: var(--md-sys-elevation-0);
-  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  &[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  }
 }

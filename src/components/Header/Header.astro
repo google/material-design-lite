@@ -1,12 +1,8 @@
 ---
-import { getLanguageFromURL, KNOWN_LANGUAGE_CODES } from "../../languages.ts";
-import * as CONFIG from "../../config.ts";
+import * as CONFIG from "../../config";
 import MaterialLogo from "./MaterialLogo.astro";
 import SkipToContent from "./SkipToContent.astro";
-import SidebarToggle from "./SidebarToggle.tsx";
-
-const { currentPage } = Astro.props;
-const lang = currentPage && getLanguageFromURL(currentPage);
+import SidebarToggle from "./SidebarToggle";
 ---
 
 <header>
@@ -22,14 +18,17 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
-		<a class="icon" href="/material-design-lite/css/mdl.css" download class="surface">
+		<a
+			class="icon"
+			href="/material-design-lite/css/mdl.css"
+			download
+			class="surface"
+		>
 			<i class="material-icons">file_download</i>
 		</a>
-		<material-theme-control rgb></material-theme-control>
+		<material-theme-control rgb />
 	</nav>
 </header>
-
-<script type="module" src="https://rodydavis.github.io/material-theme-control/material-theme-control.es.js"></script>
 
 <style>
 	header {
@@ -86,7 +85,12 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		padding-top: 4px;
 		padding-bottom: 4px;
 		background-color: var(--md-sys-color-background);
-		background-image: linear-gradient(45deg, var(--md-ref-palette-primary40), var(--md-ref-palette-primary60), var(--md-ref-palette-primary80));
+		background-image: linear-gradient(
+			45deg,
+			var(--md-ref-palette-primary40),
+			var(--md-ref-palette-primary60),
+			var(--md-ref-palette-primary80)
+		);
 		background-size: 100%;
 		-webkit-background-clip: text;
 		-moz-background-clip: text;

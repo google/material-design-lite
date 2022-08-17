@@ -6,33 +6,33 @@
     var(--md-sys-color-primary-rgb),
     var(--md-sys-state-hover-state-layer-opacity)
   );
-}
 
-.button.text:hover {
-  box-shadow: var(--md-sys-elevation-`);
-  background-color: rgba(
-    var(--md-sys-color-primary-rgb),
-    var(--md-sys-state-hover-state-layer-opacity)
-  );
-}
+  &:hover {
+    box-shadow: var(--md-sys-elevation-`);
+    background-color: rgba(
+      var(--md-sys-color-primary-rgb),
+      var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
 
-.button.text:focus {
-  box-shadow: var(--md-sys-elevation-1);
-  background-color: rgba(
-    var(--md-sys-color-primary-rgb),
-    var(--md-sys-state-focus-state-layer-opacity)
-  );
-}
+  &:focus {
+    box-shadow: var(--md-sys-elevation-1);
+    background-color: rgba(
+      var(--md-sys-color-primary-rgb),
+      var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
 
-.button.text:active {
-  box-shadow: var(--md-sys-elevation-0);
-  background-color: rgba(
-    var(--md-sys-color-primary-rgb),
-    var(--md-sys-state-pressed-state-layer-opacity)
-  );
-}
+  &:active {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgba(
+      var(--md-sys-color-primary-rgb),
+      var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
 
-.button.text[disabled] {
-  box-shadow: none;
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  &[disabled] {
+    box-shadow: none;
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  }
 }

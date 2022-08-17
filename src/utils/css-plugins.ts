@@ -16,22 +16,22 @@ export function cssPlugins(options?: {
 }) {
   const plugins = [];
   if (options?.import ?? true) {
-    plugins.push(pluginImport());
+    plugins.push(pluginImport);
   }
   if (options?.nested ?? true) {
-    plugins.push(pluginNested());
+    plugins.push(pluginNested);
   }
   if (options?.hct ?? true) {
-    plugins.push(pluginHct());
+    plugins.push(pluginHct);
   }
   if (options?.autoprefixer ?? true) {
-    plugins.push(pluginAutoprefixer());
-  }
-  if (options?.format ?? true) {
-    plugins.push(pluginFormat());
+    plugins.push(pluginAutoprefixer);
   }
   if (options?.minify ?? false) {
-    plugins.push(pluginMinify());
+    plugins.push(pluginMinify);
+  }
+  if (options?.format ?? true) {
+    plugins.push(pluginFormat);
   }
   return plugins;
 }

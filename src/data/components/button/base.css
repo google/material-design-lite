@@ -26,31 +26,31 @@
   color: var(--md-sys-color-primary);
 
   box-shadow: var(--md-sys-elevation-1);
-}
 
-.button i:only-child {
-  margin-right: 0px;
-}
+  & i {
+    margin-right: 8px;
+  }
 
-.button:where(i) {
-  margin-right: 8px;
-}
+  & i:only-child {
+    margin-right: 0px;
+  }
 
-.button:hover {
-  box-shadow: var(--md-sys-elevation-2);
-}
+  &:hover {
+    box-shadow: var(--md-sys-elevation-2);
+  }
 
-.button:focus {
-  box-shadow: var(--md-sys-elevation-1);
-}
+  &:focus {
+    box-shadow: var(--md-sys-elevation-1);
+  }
 
-.button:active {
-  box-shadow: var(--md-sys-elevation-1);
-}
+  &:active {
+    box-shadow: var(--md-sys-elevation-1);
+  }
 
-.button[disabled] {
-  cursor: not-allowed;
-  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-  box-shadow: var(--md-sys-elevation-0);
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    box-shadow: var(--md-sys-elevation-0);
+  }
 }
