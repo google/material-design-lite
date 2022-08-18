@@ -43,6 +43,10 @@
     text-decoration: none;
   }
 
+  & a:focus {
+    text-decoration: none;
+  }
+
   &:hover {
     box-shadow: var(--md-sys-elevation-2);
   }
