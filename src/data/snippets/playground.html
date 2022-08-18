@@ -1,0 +1,16 @@
+<style>
+    body {
+        background-color: var(--md-sys-color-background);
+        color: var(--md-sys-color-on-background);
+    }
+</style>
+<button id="btn" class="button filled">
+    <i class="material-icons">add</i>
+    <span>Button</span>
+</button>
+<script>
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', () => {
+        console.log('Button clicked!');
+    });
+</script>

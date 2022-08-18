@@ -2,24 +2,8 @@ import { createRef, FunctionalComponent } from 'preact';
 import { useEffect } from 'preact/hooks';
 import 'playground-elements/themes/material.css';
 
-const defaultSource = [
-    `<style>`,
-    `  body {`,
-    `    background-color: var(--md-sys-color-background);`,
-    `    color: var(--md-sys-color-on-background);`,
-    `  }`,
-    `</style>`,
-    `<script>`,
-    `  console.log('Welcome to MDL for M3!');`,
-    `</script>`,
-    `<button class="button filled">`,
-    `  <i class="material-icons">add</i>`,
-    `  <span>Button</span>`,
-    `</button>`,
-];
-
 const Playground: FunctionalComponent<{ source: string }> = ({
-    source = defaultSource.join('\n'),
+    source = '',
 }) => {
     const ref = createRef<HTMLElement>();
 
@@ -33,23 +17,21 @@ const Playground: FunctionalComponent<{ source: string }> = ({
             let content = htmlSource;
             content = content.trim();
             content = [
-                `<!DOCTYPE html>`,
-                `<html lang="en">`,
+                `<!DOCTYPE html> `,
+                `<html lang="en"> `,
                 `<head>`,
-                `  <meta charset="utf-8">`,
-                `  <link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/mdl.min.css">`,
-                // Material icons
-                `  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">`,
-                // Roboto font
-                `  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">`,
-                `  <title>Material Design Lite</title>`,
-                ...(stylesBetweenTags ? [`  <link rel="stylesheet" href="./style.css">`] : []),
-                `</head>`,
+                `  <meta charset="utf-8"> `,
+                `  <link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/mdl.min.css"> `,
+                `  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> `,
+                `  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"> `,
+                `  <title>Material Design Lite</title> `,
+                ...(stylesBetweenTags ? [`  <link rel="stylesheet" href="./style.css"> `] : []),
+                `</head> `,
                 `<body>`,
                 `${content.split('\n').map((line) => `  ${line}`).join('\n')}`,
-                ...(stylesBetweenTags ? [`  <script src="./main.ts"></script>`] : []),
-                `</body>`,
-                `</html>`,
+                ...(stylesBetweenTags ? [`  <script src="./main.js"></script> `] : []),
+                `</body> `,
+                `</html> `,
             ].join('\n');
             config.files['index.html'] = { content };
         }
@@ -57,7 +39,7 @@ const Playground: FunctionalComponent<{ source: string }> = ({
             let content = stylesBetweenTags.join('\n');
             content = content.replace(/<style>/g, '');
             content = content.replace(/<\/style>/g, '');
-            content = content.split('\n').map((line) => line.replace(/^  /, '')).join('\n');
+            content = content.split('\n').map((line) => line.replace(/^    /, '')).join('\n');
             content = content.trim();
             config.files['style.css'] = { content };
         }
@@ -65,17 +47,14 @@ const Playground: FunctionalComponent<{ source: string }> = ({
             let content = scriptsBetweenTags.join('\n');
             content = content.replace(/<script>/g, '');
             content = content.replace(/<\/script>/g, '');
-            content = content.split('\n').map((line) => line.replace(/^  /, '')).join('\n');
+            content = content.split('\n').map((line) => line.replace(/^    /, '')).join('\n');
             content = content.trim();
             config.files['main.ts'] = { content };
         }
         editor.config = config;
-        console.log(config);
     }
 
-    useEffect(() => {
-        loadConfig();
-    }, []);
+    useEffect(() => loadConfig(), []);
 
     return (
         <>

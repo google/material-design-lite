@@ -4,6 +4,10 @@ title: "Playground"
 ---
 
 import Playground from "../components/Playground";
+import * as fs from "fs";
 
-<Playground client:only="preact" />
+export const defaultSource = fs
+  .readFileSync("./src/data/snippets/playground.html")
+  .toString();
 
+<Playground client:only="preact" source={defaultSource} />
