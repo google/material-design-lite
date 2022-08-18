@@ -65,18 +65,20 @@ export const SIDEBAR = [
   },
   // { text: "Tokens", link: "material-design-lite/tokens" },
 
+
   {
     text: "Demos",
     header: true
   },
   {
     text: "Sticker sheet",
-    link: "material-design-lite/demos/sticker-sheet",
+    link: "material-design-lite/sticker-sheet",
   },
-  // {
-  //   text: "Dashboard",
-  //   link: "material-design-lite/demos/dashboard",
-  // },
+  {
+    text: "Playground",
+    link: "material-design-lite/playground",
+  },
+
 
   {
     text: "Components",

@@ -1,5 +1,21 @@
-<playground-ide editable-file-system line-numbers resizable project-src="playground.json"></playground-ide>
+---
+const {maxSize}  = Astro.props;
+---
+
+<playground-ide 
+    editable-file-system 
+    line-numbers 
+    resizable 
+    project-src="playground.json" 
+    data-max-size={maxSize !== undefined}>
+</playground-ide>
 
 <script>
     import 'playground-elements/playground-ide.js';
 </script>
+
+<style>
+    playground-ide[data-max-size] {
+        min-width: 100%;
+    }
+</style>

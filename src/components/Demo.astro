@@ -2,13 +2,19 @@
 import * as fs from "fs";
 import { Code } from "astro/components";
 
-const { root, group } = Astro.props;
+const { root, group, outline } = Astro.props;
 
 const allSnippets = fs.readdirSync(`src/${root}`);
-let groupSnippets = allSnippets.filter((s) => s.includes(`${group}.`));
+let groupSnippets = group
+    ? allSnippets.filter((s) => s.includes(`${group}.`))
+    : allSnippets;
 const snippets = [];
 // Order the snippets by name [default, default.ripple, deffault.disabled]
-if (groupSnippets.length > 0 && groupSnippets[0].includes("disabled")) {
+if (
+    group &&
+    groupSnippets.length > 0 &&
+    groupSnippets[0].includes("disabled")
+) {
     // Move to end
     const disabled = groupSnippets.shift();
     groupSnippets.push(disabled);
@@ -33,7 +39,11 @@ for (const snippet of groupSnippets) {
         {
             snippets.map(({ content, snippet, name }) => (
                 <div id={snippet} class="snippet">
-                    <div class="prefix" set:html={content} />
+                    <div
+                        class="render"
+                        data-outline={outline !== undefined}
+                        set:html={content}
+                    />
                     <div class="label">{name}</div>
                 </div>
             ))
@@ -57,6 +67,9 @@ for (const snippet of groupSnippets) {
         align-items: center;
         margin: 2rem;
         gap: 1rem;
+    }
+    .render[data-outline] {
+        outline: 1px solid var(--md-sys-color-outline);
     }
     .snippet {
         padding: 1rem;

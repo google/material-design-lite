@@ -35,6 +35,14 @@
     margin-right: 0px;
   }
 
+  & a {
+    text-decoration: none;
+  }
+
+  & a:hover {
+    text-decoration: none;
+  }
+
   &:hover {
     box-shadow: var(--md-sys-elevation-2);
   }

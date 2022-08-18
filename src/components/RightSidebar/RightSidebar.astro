@@ -1,7 +1,6 @@
 ---
 import TableOfContents from "./TableOfContents";
-const { content } = Astro.props;
-const headings = content.astro?.headings ?? [];
+const { content, headings } = Astro.props;
 ---
 
 <nav class="sidebar-nav" aria-labelledby="grid-right">

@@ -1,13 +1,31 @@
 {
   "files": {
-    "typescript.ts": {
-      "content": "console.log('hello');"
-    },
-    "styles.css": {
-      "content": "body { background-color: red; }"
-    },
     "index.html": {
-      "content": "<html><body>Hello World</body></html>"
+      "content": [
+        "<!DOCTYPE html>",
+        "<html>",
+        "  <head>",
+        "    <title>Hello World</title>",
+        "    <link rel=\"stylesheet\" href=\"https://rodydavis.github.io/material-design-lite/css/mdl.min.css\">",
+        "    <link rel=\"stylesheet\" href=\"style.css\">",
+        "  </head>",
+        "  <body>",
+        "    <button class=\"button filled\">Button</button>",
+        "    <script src=\"main.ts\"></script>",
+        "  </body>",
+        "</html>"
+      ]
+    },
+    "style.css": {
+      "content": [
+        "body {",
+        " background-color: var(--md-sys-color-background);",
+        " color: var(--md-sys-color-on-background);",
+        "}"
+      ]
+    },
+    "main.ts": {
+      "content": ["console.log('Welcome to MDL for M3!');"]
     }
   }
 }

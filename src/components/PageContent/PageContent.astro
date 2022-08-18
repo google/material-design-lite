@@ -1,9 +1,8 @@
 ---
 import TableOfContents from "../RightSidebar/TableOfContents";
 
-const { content } = Astro.props;
+const { content, headings } = Astro.props;
 const title = content.title || "";
-const headings = content.astro?.headings ?? [];
 ---
 
 <article id="article" class="content">
