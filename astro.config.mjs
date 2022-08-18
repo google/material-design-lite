@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
-import react from "@astrojs/react";
 import lit from "@astrojs/lit";
 import mdx from "@astrojs/mdx";
 
@@ -14,13 +13,7 @@ import pluginAutoprefixer from "autoprefixer";
 export default defineConfig({
   site: "https://rodydavis.github.io/",
   base: "/material-design-lite",
-  integrations: [
-    // Enable Preact to support Preact JSX components.
-    preact(), // Enable React for the Algolia search component.
-    react(),
-    lit(),
-    mdx(),
-  ],
+  integrations: [preact(), lit(), mdx()],
   markdown: {
     syntaxHighlight: "prism",
   },

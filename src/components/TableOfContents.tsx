@@ -31,7 +31,7 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 				<li class={`heading-link depth-2 ${activeId === 'overview' ? 'active' : ''}`.trim()}>
 					<a href="#overview">Overview</a>
 				</li>
-				{headings
+				{(headings ?? [])
 					.filter(({ depth }) => depth > 1 && depth < 4)
 					.map((heading) => (
 						<li

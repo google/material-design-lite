@@ -50,6 +50,9 @@ for (const snippet of groupSnippets) {
         }
     </div>
     <div class="code">
+        <form class="codepen-button">
+            <i class="material-icons">exit_to_app</i>
+        </form>
         <Code
             code={snippets
                 .map((e) => `<!-- ${e.name} -->\n${e.content}`)
@@ -84,5 +87,15 @@ for (const snippet of groupSnippets) {
         margin-top: 0.5rem;
         opacity: 0.5;
         text-align: center;
+    }
+    .code {
+        position: relative;
+        width: 100%;
+    }
+    .codepen-button {
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        text-align: right;
     }
 </style>

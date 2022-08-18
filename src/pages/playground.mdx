@@ -1,18 +1,9 @@
 ---
-layout: "../layouts/MainLayout.astro"
+layout: "../layouts/PlaygroundLayout.astro"
 title: "Playground"
 ---
 
-import Playground from "../components/Playground.astro";
+import Playground from "../components/Playground";
 
-<Playground maxSize />
+<Playground client:only="preact" />
 
-<button class="button filled-tonal">
-  <a
-    href="https://lit.dev/playground/#gist=714c643074780b49afb80212f3638057"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Open Playground
-  </a>
-</button>

@@ -63,9 +63,6 @@ export const SIDEBAR = [
     text: "FAQ",
     link: "material-design-lite/faq",
   },
-  // { text: "Tokens", link: "material-design-lite/tokens" },
-
-
   {
     text: "Demos",
     header: true
@@ -74,12 +71,6 @@ export const SIDEBAR = [
     text: "Sticker sheet",
     link: "material-design-lite/sticker-sheet",
   },
-  {
-    text: "Playground",
-    link: "material-design-lite/playground",
-  },
-
-
   {
     text: "Components",
     header: true
