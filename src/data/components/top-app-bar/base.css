@@ -1,7 +1,7 @@
 .top-app-bar {
   --top-app-bar-padding: 16px;
   padding: var(--top-app-bar-padding);
-  width: calc(100% - var(--top-app-bar-padding) * 2);
+  /* width: calc(100% - var(--top-app-bar-padding) * 2); */
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
@@ -10,40 +10,51 @@
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
-}
 
-.top-app-bar .actions {
-  grid-area: actions;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.top-app-bar .icon {
-  background-color: unset;
-  color: unset;
-  padding: unset;
-}
-
-.top-app-bar .title {
-  grid-area: title;
-  flex: 1;
-
-  font-family: var(--md-sys-typescale-title-large-font);
-  font-weight: var(--md-sys-typescale-title-large-weight);
-  font-size: var(--md-sys-typescale-title-large-size);
-  line-height: var(--md-sys-typescale-title-large-line-height);
-  letter-spacing: var(--md-sys-typescale-title-large-tracking);
-}
-.top-app-bar .leading {
-  grid-area: leading;
-  padding: unset;
-}
-
-.top-app-bar {
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
+
+  transition: background 0.8s;
+
+  & .actions {
+    grid-area: actions;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  & .icon {
+    background-color: unset;
+    color: unset;
+    padding: unset;
+  }
+
+  & .title {
+    grid-area: title;
+    flex: 1;
+
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    font-size: var(--md-sys-typescale-title-large-size);
+    line-height: var(--md-sys-typescale-title-large-line-height);
+    letter-spacing: var(--md-sys-typescale-title-large-tracking);
+  }
+  & .leading {
+    grid-area: leading;
+    padding: unset;
+  }
+
+  &.scrolled {
+    --tint-opacity: 0.09;
+    --tint-color-rgb: var(--md-sys-color-primary-rgb);
+    --tint-color: rgba(var(--md-sys-color-primary-rgb), var(--tint-opacity));
+    z-index: 1000;
+    box-shadow: var(--md-sys-elevation-2);
+    background: linear-gradient(var(--tint-color), var(--tint-color)) no-repeat,
+      linear-gradient(var(--md-sys-color-surface), var(--md-sys-color-surface))
+        no-repeat;
+  }
 }

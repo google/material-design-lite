@@ -69,7 +69,11 @@ export const SIDEBAR = [
   },
   {
     text: "Sticker sheet",
-    link: "material-design-lite/sticker-sheet",
+    link: "material-design-lite/demos/sticker-sheet",
+  }, 
+  {
+    text: "Scaffold",
+    link: "material-design-lite/demos/scaffold",
   },
   {
     text: "Components",

@@ -485,7 +485,10 @@
   --md-sys-motion-path-standard-path: 1;
 
   /* Surface tint color */
-  --md-sys-elevation-surface-tint-color: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
   /* +5 */
   --md-sys-elevation-level5-value: 12px;
   --md-sys-elevation-level5-unit: 1px;

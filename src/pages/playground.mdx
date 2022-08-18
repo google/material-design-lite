@@ -3,8 +3,8 @@ layout: "../layouts/PlaygroundLayout.astro"
 title: "Playground"
 ---
 
-import Playground from "../components/Playground";
 import * as fs from "fs";
+import Playground from "../components/Playground";
 
 export const defaultSource = fs
   .readFileSync("./src/data/snippets/playground.html")

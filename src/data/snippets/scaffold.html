@@ -1,0 +1,79 @@
+<main>
+    <header class="top-app-bar center-aligned">
+        <button class="icon leading">
+            <i class="material-icons">menu</i>
+        </button>
+        <span class="title">Scaffold Example</span>
+        <div class="actions">
+            <button class="icon">
+                <i class="material-icons">search</i>
+            </button>
+        </div>
+    </header>
+
+    <div class="cards"></div>
+
+    <button id="cta" class="button fab extended">
+        <i class="material-icons">add</i>
+        <label>Button</label>
+    </button>
+</main>
+
+<footer>
+
+</footer>
+
+<style>
+    body {
+        background-color: var(--md-sys-color-background);
+        color: var(--md-sys-color-on-background);
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 16px;
+        padding: 16px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    #cta {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+    }
+</style>
+
+<script>
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', (e) => {
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    const cards = document.querySelector('.cards');
+
+    // Randomly generate 100 cards
+    for (let i = 0; i < 100; i++) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+            <div class="title">Play relaxing songs</div>
+            <div class="subtitle">From your recent favorites</div>
+            <div class="actions">
+                <button class="button filled">Get started</button>
+            </div>
+        `;
+        cards.appendChild(card);
+    }
+</script>
