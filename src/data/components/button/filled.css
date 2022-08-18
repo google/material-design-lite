@@ -33,3 +33,8 @@
     color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
   }
 }
+
+.button.filled.ripple {
+  --ripple-bg: rgba(var(--md-sys-color-primary-rgb), 0.4);
+  --ripple-fg: rgba(var(--md-sys-color-on-primary-rgb), 0.6);
+}

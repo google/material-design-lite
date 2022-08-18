@@ -1,10 +1,8 @@
 ---
-import MoreMenu from "../RightSidebar/MoreMenu.astro";
-import TableOfContents from "../RightSidebar/TableOfContents.tsx";
-import componnetsScript from '../../components.ts?url';
+import TableOfContents from "../RightSidebar/TableOfContents";
 
-const { content, githubEditUrl } = Astro.props;
-const title = content.title;
+const { content } = Astro.props;
+const title = content.title || "";
 const headings = content.astro?.headings ?? [];
 ---
 
@@ -16,9 +14,6 @@ const headings = content.astro?.headings ?? [];
 		</nav>
 		<slot />
 	</section>
-	<nav class="block sm:hidden">
-		<MoreMenu editHref={githubEditUrl} />
-	</nav>
 </article>
 
 <style>
@@ -31,7 +26,7 @@ const headings = content.astro?.headings ?? [];
 		flex-direction: column;
 	}
 
-	.content>section {
+	.content > section {
 		margin-bottom: 4rem;
 		margin-left: 8px;
 		margin-right: 8px;
@@ -47,5 +42,3 @@ const headings = content.astro?.headings ?? [];
 		}
 	}
 </style>
-
-<script src={componnetsScript} type="module"> </script>

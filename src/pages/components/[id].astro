@@ -17,6 +17,9 @@ export async function getStaticPaths() {
             params: {
                 id: slug,
             },
+            props: {
+                file,
+            },
         };
     });
 }

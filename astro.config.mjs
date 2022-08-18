@@ -21,9 +21,12 @@ export default defineConfig({
     lit(),
     mdx(),
   ],
+  markdown: {
+    syntaxHighlight: "prism",
+  },
   site: `https://getmdl.io/`,
   legacy: {
-    astroFlavoredMarkdown: true,
+    // astroFlavoredMarkdown: true,
   },
   vite: {
     css: {

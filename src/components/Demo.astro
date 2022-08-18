@@ -1,0 +1,75 @@
+---
+import * as fs from "fs";
+import { Code } from "astro/components";
+
+const { root, group } = Astro.props;
+
+const allSnippets = fs.readdirSync(`src/${root}`);
+let groupSnippets = allSnippets.filter((s) => s.includes(`${group}.`));
+const snippets = [];
+// Order the snippets by name [default, default.ripple, deffault.disabled]
+if (groupSnippets.length > 0 && groupSnippets[0].includes("disabled")) {
+    // Move to end
+    const disabled = groupSnippets.shift();
+    groupSnippets.push(disabled);
+}
+
+for (const snippet of groupSnippets) {
+    const name = snippet
+        .split(".")
+        .filter((e) => e !== "html")
+        .join(" ")
+        .replaceAll("-", " ")
+        .split(" ")
+        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+        .join(" ");
+    const content = fs.readFileSync(`src/${root}/${snippet}`, "utf8");
+    snippets.push({ content, snippet, name });
+}
+---
+
+<section>
+    <div class="preview row">
+        {
+            snippets.map(({ content, snippet, name }) => (
+                <div id={snippet} class="snippet">
+                    <div class="prefix" set:html={content} />
+                    <div class="label">{name}</div>
+                </div>
+            ))
+        }
+    </div>
+    <div class="code">
+        <Code
+            code={snippets
+                .map((e) => `<!-- ${e.name} -->\n${e.content}`)
+                .join("\n\n")}
+            lang="html"
+        />
+    </div>
+</section>
+
+<style>
+    .preview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+        gap: 1rem;
+    }
+    .snippet {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .label {
+        font-size: 0.8rem;
+        text-align: center;
+        margin-top: 0.5rem;
+        opacity: 0.5;
+        text-align: center;
+    }
+</style>
