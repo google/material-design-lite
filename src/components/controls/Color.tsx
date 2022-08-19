@@ -1,7 +1,7 @@
 import { createRef, FunctionalComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import { themeFromSourceColor, argbFromHex, hexFromArgb } from '@material/material-color-utilities';
-import { useEventListener } from './event';
+import { useEventListener } from '../hooks/event';
 
 function setMeta(value: string) {
     // <meta name="theme-color" content="#4285f4">
