@@ -15,6 +15,8 @@
 */
 
 @import url(baseline.css);
+@import url(theme/light.css);
+@import url(theme/dark.css);
 @import url(adapter.css);
 @import url(typography.css);
 @import url(colors.css);
