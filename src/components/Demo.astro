@@ -4,7 +4,7 @@ import { Code } from "astro/components";
 
 const { root, group, outline } = Astro.props;
 
-const allSnippets = fs.readdirSync(`src/${root}`);
+const allSnippets = fs.readdirSync(`lib/${root}`);
 let groupSnippets = group
     ? allSnippets.filter((s) => s.includes(`${group}.`))
     : allSnippets;
@@ -36,7 +36,7 @@ for (const snippet of groupSnippets) {
         .split(" ")
         .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
         .join(" ");
-    const content = fs.readFileSync(`src/${root}/${snippet}`, "utf8");
+    const content = fs.readFileSync(`lib/${root}/${snippet}`, "utf8");
     snippets.push({ content, snippet, name });
 }
 ---

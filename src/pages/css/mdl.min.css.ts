@@ -1,5 +1,5 @@
 import postcss from "postcss";
-import rawStylesCSS from "../../data/styles.css?raw";
+import rawStylesCSS from "../../../lib/styles.css?raw";
 import { cssPlugins } from "../../utils/css-plugins";
 
 export async function get() {
@@ -7,7 +7,7 @@ export async function get() {
     minify: true
   }))
     .process(rawStylesCSS, {
-      from: "src/data/styles.css",
+      from: "lib/styles.css",
     })
     .then((result) => result.css);
   return {

@@ -3,7 +3,7 @@ import DemoLayout from "../../layouts/DemoLayout.astro";
 import * as fs from "fs";
 
 export async function getStaticPaths() {
-  const prefix = "./src/data/snippets";
+  const prefix = "./lib/snippets";
   const allSnippets = fs
     .readdirSync(prefix)
     .filter((file) => file !== "playground.html");

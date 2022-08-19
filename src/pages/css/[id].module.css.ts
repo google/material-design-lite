@@ -4,7 +4,7 @@ import { cssPlugins } from "../../utils/css-plugins";
 import type { APIContext } from 'astro';
 
 export function getStaticPaths() {
-    const components = fs.readdirSync(`./src/data`).filter((file) => file.endsWith(".css") && ![
+    const components = fs.readdirSync(`./lib`).filter((file) => file.endsWith(".css") && ![
         'adapter.css',
         'styles.css'
     ].includes(file));
@@ -15,7 +15,7 @@ export function getStaticPaths() {
 
 export async function get({ params, request }: APIContext) {
     const id = params.id;
-    const cssFile = `src/data/${id}.css`;
+    const cssFile = `lib/${id}.css`;
     const cssContent = fs.readFileSync(cssFile, "utf8");
     const result = await postcss(cssPlugins())
         .process(cssContent, { from: cssFile })
