@@ -25,14 +25,28 @@
   -webkit-font-smoothing: antialiased;
 }
 
+:root,
+.material-symbols {
+  --material-symbols-fill: 0;
+  --material-symbols-wght: 400;
+  --material-symbols-grad: 0;
+  --material-symbols-opsz: 48;
+}
+
 .material-symbols-sharp {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-variation-settings: "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
+    "opsz" var(--material-symbols-opsz);
 }
 
 .material-symbols-rounded {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-variation-settings: "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
+    "opsz" var(--material-symbols-opsz);
 }
 
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-variation-settings: "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
+    "opsz" var(--material-symbols-opsz);
 }
