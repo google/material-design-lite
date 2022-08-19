@@ -8,12 +8,14 @@ export function getStaticPaths() {
         'adapter.css',
         'styles.css'
     ].includes(file));
-    return components.map((component) => ({ params: { id: component } }));
+    return components.map((component) => {
+        return { params: { id: component.split('.')[0] } };
+    });
 }
 
 export async function get({ params, request }: APIContext) {
     const id = params.id;
-    const cssFile = `src/data/${id}`;
+    const cssFile = `src/data/${id}.css`;
     const cssContent = fs.readFileSync(cssFile, "utf8");
     const result = await postcss(cssPlugins())
         .process(cssContent, { from: cssFile })
