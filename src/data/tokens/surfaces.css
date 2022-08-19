@@ -1,0 +1,9 @@
+body,
+.tokens,
+.surfaces {
+  --md-surface-1: rgba(var(--md-sys-color-primary-rgb), 0.05);
+  --md-surface-2: rgba(var(--md-sys-color-primary-rgb), 0.08);
+  --md-surface-3: rgba(var(--md-sys-color-primary-rgb), 0.11);
+  --md-surface-4: rgba(var(--md-sys-color-primary-rgb), 0.12);
+  --md-surface-5: rgba(var(--md-sys-color-primary-rgb), 0.14);
+}

@@ -1,0 +1,61 @@
+body,
+.tokens,
+.scheme {
+  /* light */
+  --md-sys-color-primary-rgb-light: 103, 80, 164;
+  --md-sys-color-on-primary-rgb-light: 255, 255, 255;
+  --md-sys-color-primary-container-rgb-light: 233, 221, 255;
+  --md-sys-color-on-primary-container-rgb-light: 34, 0, 93;
+  --md-sys-color-secondary-rgb-light: 98, 91, 113;
+  --md-sys-color-on-secondary-rgb-light: 255, 255, 255;
+  --md-sys-color-secondary-container-rgb-light: 232, 222, 248;
+  --md-sys-color-on-secondary-container-rgb-light: 30, 25, 43;
+  --md-sys-color-tertiary-rgb-light: 126, 82, 96;
+  --md-sys-color-on-tertiary-rgb-light: 255, 255, 255;
+  --md-sys-color-tertiary-container-rgb-light: 255, 217, 227;
+  --md-sys-color-on-tertiary-container-rgb-light: 49, 16, 29;
+  --md-sys-color-error-rgb-light: 186, 26, 26;
+  --md-sys-color-on-error-rgb-light: 255, 255, 255;
+  --md-sys-color-error-container-rgb-light: 255, 218, 214;
+  --md-sys-color-on-error-container-rgb-light: 65, 0, 2;
+  --md-sys-color-background-rgb-light: 255, 251, 255;
+  --md-sys-color-on-background-rgb-light: 28, 27, 30;
+  --md-sys-color-surface-rgb-light: 255, 251, 255;
+  --md-sys-color-on-surface-rgb-light: 28, 27, 30;
+  --md-sys-color-surface-variant-rgb-light: 231, 224, 235;
+  --md-sys-color-on-surface-variant-rgb-light: 73, 69, 78;
+  --md-sys-color-outline-rgb-light: 122, 117, 127;
+  --md-sys-color-shadow-rgb-light: 0, 0, 0;
+  --md-sys-color-inverse-surface-rgb-light: 49, 48, 51;
+  --md-sys-color-inverse-on-surface-rgb-light: 244, 239, 244;
+  --md-sys-color-inverse-primary-rgb-light: 207, 188, 255;
+
+  /* dark */
+  --md-sys-color-primary-rgb-dark: 207, 188, 255;
+  --md-sys-color-on-primary-rgb-dark: 56, 30, 114;
+  --md-sys-color-primary-container-rgb-dark: 79, 55, 138;
+  --md-sys-color-on-primary-container-rgb-dark: 233, 221, 255;
+  --md-sys-color-secondary-rgb-dark: 203, 194, 219;
+  --md-sys-color-on-secondary-rgb-dark: 51, 45, 65;
+  --md-sys-color-secondary-container-rgb-dark: 74, 68, 88;
+  --md-sys-color-on-secondary-container-rgb-dark: 232, 222, 248;
+  --md-sys-color-tertiary-rgb-dark: 239, 184, 200;
+  --md-sys-color-on-tertiary-rgb-dark: 74, 37, 50;
+  --md-sys-color-tertiary-container-rgb-dark: 99, 59, 72;
+  --md-sys-color-on-tertiary-container-rgb-dark: 255, 217, 227;
+  --md-sys-color-error-rgb-dark: 255, 180, 171;
+  --md-sys-color-on-error-rgb-dark: 105, 0, 5;
+  --md-sys-color-error-container-rgb-dark: 147, 0, 10;
+  --md-sys-color-on-error-container-rgb-dark: 255, 180, 171;
+  --md-sys-color-background-rgb-dark: 28, 27, 30;
+  --md-sys-color-on-background-rgb-dark: 230, 225, 230;
+  --md-sys-color-surface-rgb-dark: 28, 27, 30;
+  --md-sys-color-on-surface-rgb-dark: 230, 225, 230;
+  --md-sys-color-surface-variant-rgb-dark: 73, 69, 78;
+  --md-sys-color-on-surface-variant-rgb-dark: 202, 196, 207;
+  --md-sys-color-outline-rgb-dark: 148, 143, 153;
+  --md-sys-color-shadow-rgb-dark: 0, 0, 0;
+  --md-sys-color-inverse-surface-rgb-dark: 230, 225, 230;
+  --md-sys-color-inverse-on-surface-rgb-dark: 49, 48, 51;
+  --md-sys-color-inverse-primary-rgb-dark: 103, 80, 164;
+}

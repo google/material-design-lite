@@ -63,7 +63,7 @@ export function generateTokens(color: string) {
     const theme = themeFromSourceColor(argbFromHex(color));
     const output: string[] = [];
 
-    output.push(':root, .tokens {');
+    output.push('body, .tokens {');
     output.push(`--md-source: ${color};`);
 
     function convertColors(key, value) {

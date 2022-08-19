@@ -1,0 +1,64 @@
+body,
+.tokens,
+.shape {
+  /* Fully rounded */
+  --md-sys-shape-corner-full-family: 3px;
+  /* Extra large top rounding */
+  --md-sys-shape-corner-extra-large-top-family: 1px;
+  --md-sys-shape-corner-extra-large-top: 0px;
+  --md-sys-shape-corner-extra-large-top-top-left: 28px;
+  --md-sys-shape-corner-extra-large-top-top-right-unit: 1px;
+  --md-sys-shape-corner-extra-large-top-top-right: 28px;
+  /* Extra large rounding */
+  --md-sys-shape-corner-extra-large-family: 1px;
+  --md-sys-shape-corner-extra-large-unit: 1px;
+  --md-sys-shape-corner-extra-large: 28px;
+  /* Large top rounding */
+  --md-sys-shape-corner-large-top-family: 1px;
+  --md-sys-shape-corner-large-top-unit: 1px;
+  --md-sys-shape-corner-large-top: 0px;
+  --md-sys-shape-corner-large-top-top-left-unit: 1px;
+  --md-sys-shape-corner-large-top-top-left: 16px;
+  --md-sys-shape-corner-large-top-top-right-unit: 1px;
+  --md-sys-shape-corner-large-top-top-right: 16px;
+  /* Large end rounding */
+  --md-sys-shape-corner-large-end-family: 1px;
+  --md-sys-shape-corner-large-end-unit: 1px;
+  --md-sys-shape-corner-large-end: 0px;
+  --md-sys-shape-corner-large-end-top-right-unit: 1px;
+  --md-sys-shape-corner-large-end-top-right: 16px;
+  --md-sys-shape-corner-large-end-bottom-right-unit: 1px;
+  --md-sys-shape-corner-large-end-bottom-right: 16px;
+  /* Large rounding */
+  --md-sys-shape-corner-large-family: 1px;
+  --md-sys-shape-corner-large-unit: 1px;
+  --md-sys-shape-corner-large: 16px;
+  /* Medium rounding */
+  --md-sys-shape-corner-medium-family: 1px;
+  --md-sys-shape-corner-medium-unit: 1px;
+  --md-sys-shape-corner-medium: 12px;
+  /* Small rounding */
+  --md-sys-shape-corner-small-family: 1px;
+  --md-sys-shape-corner-small-unit: 1px;
+  --md-sys-shape-corner-small: 8px;
+  /* Extra small top rounding */
+  --md-sys-shape-corner-extra-small-top-family: 1px;
+  --md-sys-shape-corner-extra-small-top-unit: 1px;
+  --md-sys-shape-corner-extra-small-top: 0px;
+  --md-sys-shape-corner-extra-small-top-top-left-unit: 1px;
+  --md-sys-shape-corner-extra-small-top-top-left: 4px;
+  --md-sys-shape-corner-extra-small-top-top-right-unit: 1px;
+  --md-sys-shape-corner-extra-small-top-top-right: 4px;
+  /* Extra small rounding */
+  --md-sys-shape-corner-extra-small-family: 1px;
+  --md-sys-shape-corner-extra-small-unit: 1px;
+  --md-sys-shape-corner-extra-small: 4px;
+  /* No rounding */
+  --md-sys-shape-corner-none-family: 1px;
+  --md-sys-shape-corner-none-unit: 1px;
+  --md-sys-shape-corner-none: 0px;
+
+  --md-sys-shape-small: var(--md-sys-shape-corner-small);
+  --md-sys-shape-medium: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-large: var(--md-sys-shape-corner-large);
+}

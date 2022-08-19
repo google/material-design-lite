@@ -1,0 +1,48 @@
+body,
+.tokens,
+.elevation {
+  /* +5 */
+  --md-sys-elevation-level5-value: 12px;
+  --md-sys-elevation-level5-unit: 1px;
+  --md-sys-elevation-level5: 12px;
+  /* +4 */
+  --md-sys-elevation-level4-value: 8px;
+  --md-sys-elevation-level4-unit: 1px;
+  --md-sys-elevation-level4: 8px;
+  /* +3 */
+  --md-sys-elevation-level3-value: 6px;
+  --md-sys-elevation-level3-unit: 1px;
+  --md-sys-elevation-level3: 6px;
+  /* +2 */
+  --md-sys-elevation-level2-value: 3px;
+  --md-sys-elevation-level2-unit: 1px;
+  --md-sys-elevation-level2: 3px;
+  /* +1 */
+  --md-sys-elevation-level1-value: 1px;
+  --md-sys-elevation-level1-unit: 1px;
+  --md-sys-elevation-level1: 1px;
+  /* 0 */
+  --md-sys-elevation-level0-value: 0px;
+  --md-sys-elevation-level0-unit: 1px;
+  --md-sys-elevation-level0: 0px;
+
+  --md-sys-elevation-0: 0px 0px 0px 0px
+      rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 0px 0px 0px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 0px 0px 0px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-1: 0px 3px 1px -2px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 2px 2px 0px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 1px 5px 0px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-2: 0px 2px 4px -1px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 4px 5px 0px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 1px 10px 0px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-3: 0px 5px 5px -3px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 8px 10px 1px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 3px 14px 2px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-4: 0px 5px 5px -3px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 8px 10px 1px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 3px 14px 2px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-5: 0px 8px 10px -6px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 16px 24px 2px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 6px 30px 5px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+}
