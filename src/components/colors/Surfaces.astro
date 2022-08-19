@@ -7,7 +7,8 @@ const tokens = [
     {
         name: `Surface +8%`,
         token: `--md-surface-2`,
-    }, {
+    },
+    {
         name: `Surface +11%`,
         token: `--md-surface-3`,
     },
@@ -36,12 +37,8 @@ const tokens = [
 
     .role-color {
         flex: 1;
-        outline: 1px solid #eee;
+        outline: 1px solid var(--md-sys-color-outline);
         min-height: 70px;
-    }
-
-    body.dark-theme .role-color {
-        outline: 1px solid #333;
     }
 
     .role-name {
@@ -52,10 +49,17 @@ const tokens = [
 </style>
 
 <div class="surfaces">
-    {tokens.map(role => {
-    return <div class="role">
-        <div class="role-color" style={`background-color: var(${role.token})`}></div>
-        <div class="role-name">{role.name}</div>
-    </div>;
-    })}
+    {
+        tokens.map((role) => {
+            return (
+                <div class="role">
+                    <div
+                        class="role-color"
+                        style={`background-color: var(${role.token})`}
+                    />
+                    <div class="role-name">{role.name}</div>
+                </div>
+            );
+        })
+    }
 </div>

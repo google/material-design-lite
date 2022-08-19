@@ -1,6 +1,7 @@
-import type { FunctionalComponent } from 'preact';
+import { createRef, FunctionalComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import { themeFromSourceColor, argbFromHex, hexFromArgb } from '@material/material-color-utilities';
+import { useEventListener } from './event';
 
 function setMeta(value: string) {
     // <meta name="theme-color" content="#4285f4">
@@ -101,7 +102,8 @@ export function generateTokens(color: string) {
     for (const [section, palette] of Object.entries(convertedTheme.palettes)) {
         output.push(`  /* ${section} */`);
         for (const [tone, value] of Object.entries(palette)) {
-            output.push(`  --md-ref-palette-${section}${tone}: ${value};`);
+            const token = section.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+            output.push(`  --md-ref-palette-${token}${tone}: ${value};`);
         }
     }
 
@@ -111,8 +113,17 @@ export function generateTokens(color: string) {
     return result;
 }
 
+export function setThemeColor(value: string) {
+    const result = generateTokens(value);
+    updateStyle('tokens', result);
+    setMeta(value);
+    localStorage.setItem('theme-color', value);
+    window.dispatchEvent(new CustomEvent('theme-color-changed', { detail: value }));
+}
+
 const ColorPicker: FunctionalComponent = () => {
     const [color, setColor] = useState<string>(getCurrentColor());
+    const inputRef = createRef<HTMLInputElement>();
 
     const setColorValue = (value: string) => {
         setColor(value);
@@ -125,9 +136,18 @@ const ColorPicker: FunctionalComponent = () => {
         updateStyle('tokens', result);
     }, [color]);
 
+    useEventListener('theme-color-changed', (e) => {
+        console.log(e);
+        const value = e.detail;
+        setColor(value);
+        setMeta(value);
+        inputRef.current!.value = value;
+    }, window)
+
     return (
         <>
             <input
+                ref={inputRef}
                 type="color"
                 value={color}
                 onInput={(e) => {

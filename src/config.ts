@@ -50,6 +50,10 @@ export const SIDEBAR = [
     link: "material-design-lite/overview/color",
   },
   {
+    text: "Themes",
+    link: "material-design-lite/overview/themes",
+  },
+  {
     text: "Icons",
     link: "material-design-lite/overview/icons",
     draft: true,
@@ -68,9 +72,13 @@ export const SIDEBAR = [
     header: true
   },
   {
+    text: "Playground",
+    link: "material-design-lite/playground",
+  },
+  {
     text: "Sticker sheet",
     link: "material-design-lite/demos/sticker-sheet",
-  }, 
+  },
   {
     text: "Scaffold",
     link: "material-design-lite/demos/scaffold",

@@ -1,10 +1,10 @@
 ---
 const { group } = Astro.props;
 const tones = [100, 99, 98, 95, 90, 80, 70, 60, 50, 40, 35, 30, 25, 20, 10, 0];
-const tokens = tones.map(tone => {
+const tokens = tones.map((tone) => {
     return {
         name: tone,
-        token: `--md-ref-palette-${group}${tone}`
+        token: `--md-ref-palette-${group}${tone}`,
     };
 });
 ---
@@ -23,12 +23,8 @@ const tokens = tones.map(tone => {
 
     .tone-color {
         flex: 1;
-        outline: 1px solid #eee;
+        outline: 1px solid var(--md-sys-color-outline);
         min-height: 60px;
-    }
-
-    body.dark-theme .tone-color {
-        outline: 1px solid #333;
     }
 
     .tone-name {
@@ -38,10 +34,17 @@ const tokens = tones.map(tone => {
 </style>
 
 <div class="palette">
-    {tokens.map(tone => {
-    return <div class="tone">
-        <div class="tone-color" style={`background-color: var(${tone.token})`}></div>
-        <div class="tone-name">{tone.name}</div>
-    </div>;
-    })}
+    {
+        tokens.map((tone) => {
+            return (
+                <div class="tone">
+                    <div
+                        class="tone-color"
+                        style={`background-color: var(${tone.token})`}
+                    />
+                    <div class="tone-name">{tone.name}</div>
+                </div>
+            );
+        })
+    }
 </div>

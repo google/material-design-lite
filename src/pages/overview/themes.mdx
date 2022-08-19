@@ -1,0 +1,26 @@
+---
+title: Themes
+description: Prebuilt Material Themes
+layout: ../../layouts/MainLayout.astro
+---
+
+import { Code } from "astro/components";
+import { COLORS } from "../css/themes/[id].css";
+import ColorPreview from "../../components/controls/preview";
+
+export const changeTheme = (e) => {
+  e.preventDefault();
+  console.log("hello");
+};
+
+{ COLORS.map(({ name, value }) => {
+const code = `<link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/themes/${name}.css">`;
+return <>
+
+<div style={{display: 'flex'}}>
+    <h2 style={{flex: 1}}>{name}</h2>
+    <ColorPreview color={value} client:only="preact" />
+</div>
+<Code lang="html" code={code}></Code>
+</>;
+}) }

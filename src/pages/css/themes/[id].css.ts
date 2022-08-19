@@ -1,7 +1,7 @@
 import { generateTokens } from '../../../components/controls/Color';
 import type { APIContext } from 'astro';
 
-const colors = [
+export const COLORS = [
     { name: "Baseline", value: "6750a4" },
     { name: "Black", value: "000000" },
     { name: "Navy", value: "000080" },
@@ -159,7 +159,7 @@ const colors = [
 
 export function getStaticPaths() {
     const routes = [];
-    for (const color of colors) {
+    for (const color of COLORS) {
         routes.push({ params: { id: color.name } });
     }
     return routes;
@@ -167,7 +167,7 @@ export function getStaticPaths() {
 
 export async function get({ params, request }: APIContext) {
     const id = params.id;
-    const value = colors.find((color) => color.name === id).value;
+    const value = COLORS.find((color) => color.name === id).value;
     const result = generateTokens(value);
     return { body: result };
 }
