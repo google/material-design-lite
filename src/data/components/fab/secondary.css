@@ -1,28 +1,28 @@
 .fab.secondary {
   background-color: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
-}
 
-.fab.secondary:hover {
-  box-shadow: var(--md-sys-elevation-4);
-  background-color: rgba(
-    var(--md-sys-color-secondary-rgb),
-    var(--md-sys-state-hover-state-layer-opacity)
-  );
-}
+  &:hover, .hover {
+    box-shadow: var(--md-sys-elevation-4);
+    background-color: rgba(
+      var(--md-sys-color-secondary-rgb),
+      var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
 
-.fab.secondary:focus {
-  box-shadow: var(--md-sys-elevation-2);
-  background-color: rgba(
-    var(--md-sys-color-secondary-rgb),
-    var(--md-sys-state-focus-state-layer-opacity)
-  );
-}
+  &:focus, .focus {
+    box-shadow: var(--md-sys-elevation-2);
+    background-color: rgba(
+      var(--md-sys-color-secondary-rgb),
+      var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
 
-.fab.secondary:active {
-  box-shadow: var(--md-sys-elevation-2);
-  background-color: rgba(
-    var(--md-sys-color-secondary-rgb),
-    var(--md-sys-state-pressed-state-layer-opacity)
-  );
+  &:active, .active {
+    box-shadow: var(--md-sys-elevation-2);
+    background-color: rgba(
+      var(--md-sys-color-secondary-rgb),
+      var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
 }

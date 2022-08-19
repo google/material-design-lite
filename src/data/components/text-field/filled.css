@@ -1,120 +1,122 @@
 /* Codepen: https://codepen.io/finnhvman/pen/bxXPqN */
 
-/* Input, Textarea */
-.text-field.filled > input,
-.text-field.filled > textarea {
-  display: block;
-  box-sizing: border-box;
-  margin: 0;
-  border: none;
-  border-top: solid 27px transparent;
-  border-bottom: solid 1px rgba(var(--md-sys-color-on-surface-rgb), 0.6);
-  border-radius: 4px 4px 0 0;
-  padding: 0 12px 10px;
-  width: 100%;
-  height: inherit;
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
-  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.04);
-  box-shadow: none; /* Firefox */
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  caret-color: var(--md-sys-color-primary);
-  transition: border-bottom 0.2s, background-color 0.2s;
-}
+.text-field.filled {
+  /* Input, Textarea */
+  & > input,
+  & > textarea {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    border-top: solid 27px transparent;
+    border-bottom: solid 1px rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+    border-radius: 4px 4px 0 0;
+    padding: 0 12px 10px;
+    width: 100%;
+    height: inherit;
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.04);
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: var(--md-sys-color-primary);
+    transition: border-bottom 0.2s, background-color 0.2s;
+  }
 
-/* Span */
-.text-field.filled > input + span,
-.text-field.filled > textarea + span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  box-sizing: border-box;
-  padding: 7px 12px 0;
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
-  font-size: 75%;
-  line-height: 18px;
-  pointer-events: none;
-  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-}
+  /* Span */
+  & > input + span,
+  & > textarea + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    box-sizing: border-box;
+    padding: 7px 12px 0;
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+    font-size: 75%;
+    line-height: 18px;
+    pointer-events: none;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+  }
 
-/* Underline */
-.text-field.filled > input + span::after,
-.text-field.filled > textarea + span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: var(--md-sys-color-primary);
-  transform-origin: bottom center;
-  transform: scaleX(0);
-  transition: transform 0.3s;
-}
+  /* Underline */
+  & > input + span::after,
+  & > textarea + span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--md-sys-color-primary);
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
 
-/* Hover */
-.text-field.filled > input:hover,
-.text-field.filled > textarea:hover {
-  border-bottom-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
-  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.08);
-}
+  /* Hover */
+  & > input:hover,
+  & > textarea:hover {
+    border-bottom-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.08);
+  }
 
-/* Placeholder-shown */
-.text-field.filled > input:not(:focus):placeholder-shown + span,
-.text-field.filled > textarea:not(:focus):placeholder-shown + span {
-  font-size: inherit;
-  line-height: 48px;
-}
+  /* Placeholder-shown */
+  & > input:not(:focus):placeholder-shown + span,
+  & > textarea:not(:focus):placeholder-shown + span {
+    font-size: inherit;
+    line-height: 48px;
+  }
 
-/* Focus */
-.text-field.filled > input:focus,
-.text-field.filled > textarea:focus {
-  outline: none;
-}
+  /* Focus */
+  & > input:focus,
+  & > textarea:focus {
+    outline: none;
+  }
 
-.text-field.filled > input:focus + span,
-.text-field.filled > textarea:focus + span {
-  color: var(--md-sys-color-primary);
-}
+  & > input:focus + span,
+  & > textarea:focus + span {
+    color: var(--md-sys-color-primary);
+  }
 
-.text-field.filled > input:focus + span::before,
-.text-field.filled > textarea:focus + span::before {
-  opacity: 0.12;
-}
+  & > input:focus + span::before,
+  & > textarea:focus + span::before {
+    opacity: 0.12;
+  }
 
-.text-field.filled > input:focus + span::after,
-.text-field.filled > textarea:focus + span::after {
-  transform: scale(1);
-}
+  & > input:focus + span::after,
+  & > textarea:focus + span::after {
+    transform: scale(1);
+  }
 
-/* Disabled */
-.text-field.filled > input:disabled,
-.text-field.filled > textarea:disabled {
-  border-bottom-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.24);
-}
+  /* Disabled */
+  & > input:disabled,
+  & > textarea:disabled {
+    border-bottom-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.24);
+  }
 
-.text-field.filled > input:disabled + span,
-.text-field.filled > textarea:disabled + span {
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-}
+  & > input:disabled + span,
+  & > textarea:disabled + span {
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  }
 
-/* Faster transition in Safari for less noticable fractional font-size issue */
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
-    .text-field.filled > input,
-    .text-field.filled > input + span,
-    .text-field.filled > input + span::after,
-    .text-field.filled > textarea,
-    .text-field.filled > textarea + span,
-    .text-field.filled > textarea + span::after {
-      transition-duration: 0.1s;
+  /* Faster transition in Safari for less noticable fractional font-size issue */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      & > input,
+      & > input + span,
+      & > input + span::after,
+      & > textarea,
+      & > textarea + span,
+      & > textarea + span::after {
+        transition-duration: 0.1s;
+      }
     }
   }
 }

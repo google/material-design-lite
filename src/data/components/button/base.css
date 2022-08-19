@@ -47,15 +47,18 @@
     text-decoration: none;
   }
 
-  &:hover {
+  &:hover,
+  &.hover {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:focus {
+  &:focus,
+  &.focus {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-  &:active {
+  &:active,
+  &.active {
     box-shadow: var(--md-sys-elevation-1);
   }
 

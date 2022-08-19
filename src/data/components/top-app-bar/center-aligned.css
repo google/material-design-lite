@@ -1,5 +1,7 @@
 @import url(base.css);
 
-.top-app-bar.center-aligned .title {
-  text-align: center;
+.top-app-bar.center-aligned {
+  & .title {
+    text-align: center;
+  }
 }

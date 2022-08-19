@@ -1,17 +1,18 @@
 .ripple {
   --ripple-bg: rgba(var(--md-sys-color-surface-rgb), 0.4);
   --ripple-fg: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
-}
-.ripple:not([disabled]) {
-  background-position: center;
-  transition: background 0.8s;
-}
-.ripple:not([disabled]):hover {
-  background: var(--ripple-bg)
-    radial-gradient(circle, transparent 1%, var(--ripple-bg) 1%) center/15000%;
-}
-.ripple:not([disabled]):active {
-  background-color: var(--ripple-fg);
-  background-size: 100%;
-  transition: background 0s;
+
+  &:not([disabled]) {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  &:not([disabled]):hover {
+    background: var(--ripple-bg)
+      radial-gradient(circle, transparent 1%, var(--ripple-bg) 1%) center/15000%;
+  }
+  &:not([disabled]):active {
+    background-color: var(--ripple-fg);
+    background-size: 100%;
+    transition: background 0s;
+  }
 }

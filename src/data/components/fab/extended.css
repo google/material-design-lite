@@ -5,9 +5,9 @@
   height: 56px;
   font-size: 16px;
   width: unset;
-}
 
-.fab.extended > i {
-  font-size: 24px;
-  margin-right: 8px;
+  & > i {
+    font-size: 24px;
+    margin-right: 8px;
+  }
 }

@@ -4,7 +4,8 @@
   border: 1px solid var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
 
-  &:hover {
+  &:hover,
+  &.hover {
     box-shadow: var(--md-sys-elevation-1);
     background-color: rgba(
       var(--md-sys-color-primary-rgb),
@@ -12,7 +13,8 @@
     );
   }
 
-  &:focus {
+  &:focus,
+  &.focus {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgba(
@@ -21,7 +23,8 @@
     );
   }
 
-  &:active {
+  &:active,
+  &.active {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgba(

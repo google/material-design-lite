@@ -20,6 +20,13 @@ if (
     groupSnippets.push(disabled);
 }
 
+// Move default to start
+const idx = groupSnippets.findIndex((s) => s.split(".").length == 2);
+if (idx > -1) {
+    const defaultSnippet = groupSnippets.splice(idx, 1)[0];
+    groupSnippets.unshift(defaultSnippet);
+}
+
 for (const snippet of groupSnippets) {
     const name = snippet
         .split(".")

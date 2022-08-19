@@ -1,6 +1,8 @@
 @import url(base.css);
 
-.top-app-bar.small .title {
-  text-align: start;
-  padding-left: 16px;
+.top-app-bar.small {
+  & .title {
+    text-align: start;
+    padding-left: 16px;
+  }
 }

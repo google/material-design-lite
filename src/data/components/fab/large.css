@@ -6,7 +6,8 @@
   border-radius: var(--md-sys-shape-medium);
   width: 96px;
   height: 96px;
-}
-.fab.large > i {
-  font-size: 36px;
+
+  & > i {
+    font-size: 36px;
+  }
 }

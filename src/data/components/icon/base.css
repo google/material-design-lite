@@ -30,31 +30,31 @@
   color: var(--md-sys-color-on-surface-variant);
 
   box-shadow: none;
-}
 
-.icon[selected] {
-  color: var(--md-sys-color-primary);
-}
+  &[selected] {
+    color: var(--md-sys-color-primary);
+  }
 
-.icon:hover {
-  box-shadow: var(--md-sys-elevation-2);
-}
+  &:hover, .hover {
+    box-shadow: var(--md-sys-elevation-2);
+  }
 
-.icon:focus {
-  box-shadow: var(--md-sys-elevation-1);
-}
+  &:focus, .focus {
+    box-shadow: var(--md-sys-elevation-1);
+  }
 
-.icon:active {
-  box-shadow: var(--md-sys-elevation-1);
-}
+  &:active, .active {
+    box-shadow: var(--md-sys-elevation-1);
+  }
 
-.icon[disabled] {
-  cursor: not-allowed;
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-  box-shadow: var(--md-sys-elevation-0);
-}
+  &[disabled] {
+    cursor: not-allowed;
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    box-shadow: var(--md-sys-elevation-0);
+  }
 
-.icon i {
-  font-size: 24px;
-  vertical-align: middle;
+  & i {
+    font-size: 24px;
+    vertical-align: middle;
+  }
 }

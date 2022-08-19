@@ -14,21 +14,21 @@
   font-size: var(--md-sys-typescale-label-large-size);
   line-height: var(--md-sys-typescale-label-large-line-height);
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
-}
 
-.chip > i {
-  color: var(--md-sys-color-primary);
-}
+  & > i {
+    color: var(--md-sys-color-primary);
+  }
 
-.chip > i:first-child {
-  margin-right: 8px;
-}
+  & > i:first-child {
+    margin-right: 8px;
+  }
 
-.chip > i:last-child {
-  margin-left: 8px;
-}
+  & > i:last-child {
+    margin-left: 8px;
+  }
 
-.chip > i:only-child {
-  margin-right: 0px;
-  margin-left: 0px;
+  & > i:only-child {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 }
