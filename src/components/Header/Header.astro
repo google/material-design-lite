@@ -3,6 +3,8 @@ import * as CONFIG from "../../config";
 import MaterialLogo from "./MaterialLogo.astro";
 import SkipToContent from "./SkipToContent.astro";
 import SidebarToggle from "./SidebarToggle";
+import ColorPicker from "../controls/Color";
+import BrightnessToggle from "../controls/Brightness";
 ---
 
 <header>
@@ -18,6 +20,8 @@ import SidebarToggle from "./SidebarToggle";
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
+		<ColorPicker client:only="preact" />
+		<BrightnessToggle client:only="preact" />
 		<a
 			class="icon"
 			href="/material-design-lite/css/mdl.css"
@@ -26,7 +30,6 @@ import SidebarToggle from "./SidebarToggle";
 		>
 			<i class="material-icons">file_download</i>
 		</a>
-		<material-theme-control rgb />
 	</nav>
 </header>
 

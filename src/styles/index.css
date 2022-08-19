@@ -31,8 +31,6 @@ body {
   font-size: clamp(0.9rem, 0.75rem + 0.375vw + var(--user-font-scale), 1rem);
   line-height: 1.5;
   max-width: 100vw;
-  background-color: var(--md-sys-color-background);
-  color: var(--md-sys-color-on-background);
 }
 
 nav ul {

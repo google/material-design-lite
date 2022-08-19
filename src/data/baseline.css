@@ -1,26 +1,506 @@
-/*
- Copyright 2016 Google Inc. All rights reserved.
+:where(html) {
+  /* Color */
+  color-scheme: light dark;
+  --md-source: #6750a4;
+  --md-source-hue: 298.98099721070395;
+  --md-source-chroma: 47.856526374970294;
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+  /* primary */
+  --md-ref-palette-primary0: #000000;
+  --md-ref-palette-primary5: #160041;
+  --md-ref-palette-primary10: #22005d;
+  --md-ref-palette-primary20: #381e72;
+  --md-ref-palette-primary25: #432b7e;
+  --md-ref-palette-primary30: #4f378a;
+  --md-ref-palette-primary35: #5b4397;
+  --md-ref-palette-primary40: #6750a4;
+  --md-ref-palette-primary50: #8069bf;
+  --md-ref-palette-primary60: #9a83db;
+  --md-ref-palette-primary70: #b69df8;
+  --md-ref-palette-primary80: #cfbcff;
+  --md-ref-palette-primary90: #e9ddff;
+  --md-ref-palette-primary95: #f6eeff;
+  --md-ref-palette-primary98: #fdf7ff;
+  --md-ref-palette-primary99: #fffbff;
+  --md-ref-palette-primary100: #ffffff;
+  /* secondary */
+  --md-ref-palette-secondary0: #000000;
+  --md-ref-palette-secondary5: #130e20;
+  --md-ref-palette-secondary10: #1e192b;
+  --md-ref-palette-secondary20: #332d41;
+  --md-ref-palette-secondary25: #3e384c;
+  --md-ref-palette-secondary30: #4a4458;
+  --md-ref-palette-secondary35: #564f64;
+  --md-ref-palette-secondary40: #625b71;
+  --md-ref-palette-secondary50: #7b748a;
+  --md-ref-palette-secondary60: #958da4;
+  --md-ref-palette-secondary70: #b0a7c0;
+  --md-ref-palette-secondary80: #cbc2db;
+  --md-ref-palette-secondary90: #e8def8;
+  --md-ref-palette-secondary95: #f6eeff;
+  --md-ref-palette-secondary98: #fdf7ff;
+  --md-ref-palette-secondary99: #fffbff;
+  --md-ref-palette-secondary100: #ffffff;
+  /* tertiary */
+  --md-ref-palette-tertiary0: #000000;
+  --md-ref-palette-tertiary5: #240612;
+  --md-ref-palette-tertiary10: #31101d;
+  --md-ref-palette-tertiary20: #4a2532;
+  --md-ref-palette-tertiary25: #56303d;
+  --md-ref-palette-tertiary30: #633b48;
+  --md-ref-palette-tertiary35: #704654;
+  --md-ref-palette-tertiary40: #7e5260;
+  --md-ref-palette-tertiary50: #996a79;
+  --md-ref-palette-tertiary60: #b58392;
+  --md-ref-palette-tertiary70: #d29dad;
+  --md-ref-palette-tertiary80: #efb8c8;
+  --md-ref-palette-tertiary90: #ffd9e3;
+  --md-ref-palette-tertiary95: #ffecf0;
+  --md-ref-palette-tertiary98: #fff8f8;
+  --md-ref-palette-tertiary99: #fffbff;
+  --md-ref-palette-tertiary100: #ffffff;
+  /* neutral */
+  --md-ref-palette-neutral0: #000000;
+  --md-ref-palette-neutral5: #121014;
+  --md-ref-palette-neutral10: #1c1b1e;
+  --md-ref-palette-neutral20: #313033;
+  --md-ref-palette-neutral25: #3d3b3e;
+  --md-ref-palette-neutral30: #48464a;
+  --md-ref-palette-neutral35: #545156;
+  --md-ref-palette-neutral40: #605d62;
+  --md-ref-palette-neutral50: #79767a;
+  --md-ref-palette-neutral60: #938f94;
+  --md-ref-palette-neutral70: #aeaaae;
+  --md-ref-palette-neutral80: #cac5ca;
+  --md-ref-palette-neutral90: #e6e1e6;
+  --md-ref-palette-neutral95: #f4eff4;
+  --md-ref-palette-neutral98: #fdf8fd;
+  --md-ref-palette-neutral99: #fffbff;
+  --md-ref-palette-neutral100: #ffffff;
+  /* neutralVariant */
+  --md-ref-palette-neutralVariant0: #000000;
+  --md-ref-palette-neutralVariant5: #121017;
+  --md-ref-palette-neutralVariant10: #1d1a22;
+  --md-ref-palette-neutralVariant20: #322f38;
+  --md-ref-palette-neutralVariant25: #3d3a43;
+  --md-ref-palette-neutralVariant30: #49454e;
+  --md-ref-palette-neutralVariant35: #54515a;
+  --md-ref-palette-neutralVariant40: #615d66;
+  --md-ref-palette-neutralVariant50: #7a757f;
+  --md-ref-palette-neutralVariant60: #948f99;
+  --md-ref-palette-neutralVariant70: #afa9b4;
+  --md-ref-palette-neutralVariant80: #cac4cf;
+  --md-ref-palette-neutralVariant90: #e7e0eb;
+  --md-ref-palette-neutralVariant95: #f5eefa;
+  --md-ref-palette-neutralVariant98: #fdf7ff;
+  --md-ref-palette-neutralVariant99: #fffbff;
+  --md-ref-palette-neutralVariant100: #ffffff;
+  /* error */
+  --md-ref-palette-error0: #000000;
+  --md-ref-palette-error5: #2d0001;
+  --md-ref-palette-error10: #410002;
+  --md-ref-palette-error20: #690005;
+  --md-ref-palette-error25: #7e0007;
+  --md-ref-palette-error30: #93000a;
+  --md-ref-palette-error35: #a80710;
+  --md-ref-palette-error40: #ba1a1a;
+  --md-ref-palette-error50: #de3730;
+  --md-ref-palette-error60: #ff5449;
+  --md-ref-palette-error70: #ff897d;
+  --md-ref-palette-error80: #ffb4ab;
+  --md-ref-palette-error90: #ffdad6;
+  --md-ref-palette-error95: #ffedea;
+  --md-ref-palette-error98: #fff8f7;
+  --md-ref-palette-error99: #fffbff;
+  --md-ref-palette-error100: #ffffff;
 
-     http://www.apache.org/licenses/LICENSE-2.0
+  /* light */
+  --md-sys-color-primary-rgb-light: 103, 80, 164;
+  --md-sys-color-on-primary-rgb-light: 255, 255, 255;
+  --md-sys-color-primary-container-rgb-light: 233, 221, 255;
+  --md-sys-color-on-primary-container-rgb-light: 34, 0, 93;
+  --md-sys-color-secondary-rgb-light: 98, 91, 113;
+  --md-sys-color-on-secondary-rgb-light: 255, 255, 255;
+  --md-sys-color-secondary-container-rgb-light: 232, 222, 248;
+  --md-sys-color-on-secondary-container-rgb-light: 30, 25, 43;
+  --md-sys-color-tertiary-rgb-light: 126, 82, 96;
+  --md-sys-color-on-tertiary-rgb-light: 255, 255, 255;
+  --md-sys-color-tertiary-container-rgb-light: 255, 217, 227;
+  --md-sys-color-on-tertiary-container-rgb-light: 49, 16, 29;
+  --md-sys-color-error-rgb-light: 186, 26, 26;
+  --md-sys-color-on-error-rgb-light: 255, 255, 255;
+  --md-sys-color-error-container-rgb-light: 255, 218, 214;
+  --md-sys-color-on-error-container-rgb-light: 65, 0, 2;
+  --md-sys-color-background-rgb-light: 255, 251, 255;
+  --md-sys-color-on-background-rgb-light: 28, 27, 30;
+  --md-sys-color-surface-rgb-light: 255, 251, 255;
+  --md-sys-color-on-surface-rgb-light: 28, 27, 30;
+  --md-sys-color-surface-variant-rgb-light: 231, 224, 235;
+  --md-sys-color-on-surface-variant-rgb-light: 73, 69, 78;
+  --md-sys-color-outline-rgb-light: 122, 117, 127;
+  --md-sys-color-shadow-rgb-light: 0, 0, 0;
+  --md-sys-color-inverse-surface-rgb-light: 49, 48, 51;
+  --md-sys-color-inverse-on-surface-rgb-light: 244, 239, 244;
+  --md-sys-color-inverse-primary-rgb-light: 207, 188, 255;
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
+  /* dark */
+  --md-sys-color-primary-rgb-dark: 207, 188, 255;
+  --md-sys-color-on-primary-rgb-dark: 56, 30, 114;
+  --md-sys-color-primary-container-rgb-dark: 79, 55, 138;
+  --md-sys-color-on-primary-container-rgb-dark: 233, 221, 255;
+  --md-sys-color-secondary-rgb-dark: 203, 194, 219;
+  --md-sys-color-on-secondary-rgb-dark: 51, 45, 65;
+  --md-sys-color-secondary-container-rgb-dark: 74, 68, 88;
+  --md-sys-color-on-secondary-container-rgb-dark: 232, 222, 248;
+  --md-sys-color-tertiary-rgb-dark: 239, 184, 200;
+  --md-sys-color-on-tertiary-rgb-dark: 74, 37, 50;
+  --md-sys-color-tertiary-container-rgb-dark: 99, 59, 72;
+  --md-sys-color-on-tertiary-container-rgb-dark: 255, 217, 227;
+  --md-sys-color-error-rgb-dark: 255, 180, 171;
+  --md-sys-color-on-error-rgb-dark: 105, 0, 5;
+  --md-sys-color-error-container-rgb-dark: 147, 0, 10;
+  --md-sys-color-on-error-container-rgb-dark: 255, 180, 171;
+  --md-sys-color-background-rgb-dark: 28, 27, 30;
+  --md-sys-color-on-background-rgb-dark: 230, 225, 230;
+  --md-sys-color-surface-rgb-dark: 28, 27, 30;
+  --md-sys-color-on-surface-rgb-dark: 230, 225, 230;
+  --md-sys-color-surface-variant-rgb-dark: 73, 69, 78;
+  --md-sys-color-on-surface-variant-rgb-dark: 202, 196, 207;
+  --md-sys-color-outline-rgb-dark: 148, 143, 153;
+  --md-sys-color-shadow-rgb-dark: 0, 0, 0;
+  --md-sys-color-inverse-surface-rgb-dark: 230, 225, 230;
+  --md-sys-color-inverse-on-surface-rgb-dark: 49, 48, 51;
+  --md-sys-color-inverse-primary-rgb-dark: 103, 80, 164;
 
-@import url(tokens.css);
-@import url(typography.css);
-@import url(colors.css);
-@import url(shape.css);
-@import url(palettes.css);
-@import url(surfaces.css);
-@import url(motion.css);
-@import url(state.css);
-@import url(elevation.css);
-@import url(components.css);
+  /* Typescale */
+
+  /* label - small */
+  --md-sys-typescale-label-small-font-family-name: Roboto;
+  --md-sys-typescale-label-small-font-family-style: Medium;
+  --md-sys-typescale-label-small-font-weight: 500px;
+  --md-sys-typescale-label-small-font-size: 11px;
+  --md-sys-typescale-label-small-letter-spacing: 0.5px;
+  --md-sys-typescale-label-small-line-height: 16px;
+  /* label - medium */
+  --md-sys-typescale-label-medium-font-family-name: Roboto;
+  --md-sys-typescale-label-medium-font-family-style: Medium;
+  --md-sys-typescale-label-medium-font-weight: 500px;
+  --md-sys-typescale-label-medium-font-size: 12px;
+  --md-sys-typescale-label-medium-letter-spacing: 0.5px;
+  --md-sys-typescale-label-medium-line-height: 16px;
+  /* label - large */
+  --md-sys-typescale-label-large-font-family-name: Roboto;
+  --md-sys-typescale-label-large-font-family-style: Medium;
+  --md-sys-typescale-label-large-font-weight: 500px;
+  --md-sys-typescale-label-large-font-size: 14px;
+  --md-sys-typescale-label-large-letter-spacing: 0.1px;
+  --md-sys-typescale-label-large-line-height: 20px;
+  /* body - small */
+  --md-sys-typescale-body-small-font-family-name: Roboto;
+  --md-sys-typescale-body-small-font-family-style: Regular;
+  --md-sys-typescale-body-small-font-weight: 400px;
+  --md-sys-typescale-body-small-font-size: 12px;
+  --md-sys-typescale-body-small-letter-spacing: 0.4px;
+  --md-sys-typescale-body-small-line-height: 16px;
+  /* body - medium */
+  --md-sys-typescale-body-medium-font-family-name: Roboto;
+  --md-sys-typescale-body-medium-font-family-style: Regular;
+  --md-sys-typescale-body-medium-font-weight: 400px;
+  --md-sys-typescale-body-medium-font-size: 14px;
+  --md-sys-typescale-body-medium-letter-spacing: 0.25px;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  /* body - large */
+  --md-sys-typescale-body-large-font-family-name: Roboto;
+  --md-sys-typescale-body-large-font-family-style: Regular;
+  --md-sys-typescale-body-large-font-weight: 400px;
+  --md-sys-typescale-body-large-font-size: 16px;
+  --md-sys-typescale-body-large-letter-spacing: 0.5px;
+  --md-sys-typescale-body-large-line-height: 24px;
+  /* headline - small */
+  --md-sys-typescale-headline-small-font-family-name: Roboto;
+  --md-sys-typescale-headline-small-font-family-style: Regular;
+  --md-sys-typescale-headline-small-font-weight: 400px;
+  --md-sys-typescale-headline-small-font-size: 24px;
+  --md-sys-typescale-headline-small-letter-spacing: 0px;
+  --md-sys-typescale-headline-small-line-height: 32px;
+  /* headline - medium */
+  --md-sys-typescale-headline-medium-font-family-name: Roboto;
+  --md-sys-typescale-headline-medium-font-family-style: Regular;
+  --md-sys-typescale-headline-medium-font-weight: 400px;
+  --md-sys-typescale-headline-medium-font-size: 28px;
+  --md-sys-typescale-headline-medium-letter-spacing: 0px;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  /* headline - large */
+  --md-sys-typescale-headline-large-font-family-name: Roboto;
+  --md-sys-typescale-headline-large-font-family-style: Regular;
+  --md-sys-typescale-headline-large-font-weight: 400px;
+  --md-sys-typescale-headline-large-font-size: 32px;
+  --md-sys-typescale-headline-large-letter-spacing: 0px;
+  --md-sys-typescale-headline-large-line-height: 40px;
+  /* display - small */
+  --md-sys-typescale-display-small-font-family-name: Roboto;
+  --md-sys-typescale-display-small-font-family-style: Regular;
+  --md-sys-typescale-display-small-font-weight: 400px;
+  --md-sys-typescale-display-small-font-size: 36px;
+  --md-sys-typescale-display-small-letter-spacing: 0px;
+  --md-sys-typescale-display-small-line-height: 44px;
+  /* display - medium */
+  --md-sys-typescale-display-medium-font-family-name: Roboto;
+  --md-sys-typescale-display-medium-font-family-style: Regular;
+  --md-sys-typescale-display-medium-font-weight: 400px;
+  --md-sys-typescale-display-medium-font-size: 45px;
+  --md-sys-typescale-display-medium-letter-spacing: 0px;
+  --md-sys-typescale-display-medium-line-height: 52px;
+  /* display - large */
+  --md-sys-typescale-display-large-font-family-name: Roboto;
+  --md-sys-typescale-display-large-font-family-style: Regular;
+  --md-sys-typescale-display-large-font-weight: 400px;
+  --md-sys-typescale-display-large-font-size: 57px;
+  --md-sys-typescale-display-large-letter-spacing: -0.25px;
+  --md-sys-typescale-display-large-line-height: 64px;
+  /* title - small */
+  --md-sys-typescale-title-small-font-family-name: Roboto;
+  --md-sys-typescale-title-small-font-family-style: Medium;
+  --md-sys-typescale-title-small-font-weight: 500px;
+  --md-sys-typescale-title-small-font-size: 14px;
+  --md-sys-typescale-title-small-letter-spacing: 0.1px;
+  --md-sys-typescale-title-small-line-height: 20px;
+  /* title - medium */
+  --md-sys-typescale-title-medium-font-family-name: Roboto;
+  --md-sys-typescale-title-medium-font-family-style: Medium;
+  --md-sys-typescale-title-medium-font-weight: 500px;
+  --md-sys-typescale-title-medium-font-size: 16px;
+  --md-sys-typescale-title-medium-letter-spacing: 0.15px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  /* title - large */
+  --md-sys-typescale-title-large-font-family-name: Roboto;
+  --md-sys-typescale-title-large-font-family-style: Regular;
+  --md-sys-typescale-title-large-font-weight: 400px;
+  --md-sys-typescale-title-large-font-size: 22px;
+  --md-sys-typescale-title-large-letter-spacing: 0px;
+  --md-sys-typescale-title-large-line-height: 28px;
+
+  /* Shape */
+  --md-sys-shape-small: 4px;
+  --md-sys-shape-medium: 12px;
+  --md-sys-shape-large: 16px;
+
+  /* States */
+
+  /* Dragged state layer opacity */
+  --md-sys-state-dragged-state-layer-opacity: 0.16;
+  /* Pressed state layer opacity */
+  --md-sys-state-pressed-state-layer-opacity: 0.12;
+  /* Focus state layer opacity */
+  --md-sys-state-focus-state-layer-opacity: 0.12;
+  /* Hover state layer opacity */
+  --md-sys-state-hover-state-layer-opacity: 0.08;
+
+  /* Surfaces */
+
+  --md-surface-1: rgba(var(--md-sys-color-primary-rgb), 0.05);
+  --md-surface-2: rgba(var(--md-sys-color-primary-rgb), 0.08);
+  --md-surface-3: rgba(var(--md-sys-color-primary-rgb), 0.11);
+  --md-surface-4: rgba(var(--md-sys-color-primary-rgb), 0.12);
+  --md-surface-5: rgba(var(--md-sys-color-primary-rgb), 0.14);
+
+  /* Elevation */
+
+  --md-sys-elevation-0: 0px 0px 0px 0px
+      rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 0px 0px 0px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 0px 0px 0px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-1: 0px 3px 1px -2px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 2px 2px 0px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 1px 5px 0px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-2: 0px 2px 4px -1px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 4px 5px 0px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 1px 10px 0px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-3: 0px 5px 5px -3px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 8px 10px 1px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 3px 14px 2px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+  --md-sys-elevation-4: 0px 5px 5px -3px rgba(var(--md-sys-color-shadow-rgb), 0.2),
+    0px 8px 10px 1px rgba(var(--md-sys-color-shadow-rgb), 0.14),
+    0px 3px 14px 2px rgba(var(--md-sys-color-shadow-rgb), 0.12);
+}
+
+.light-theme {
+  --md-sys-color-primary-rgb: var(--md-sys-color-primary-rgb-light);
+  --md-sys-color-on-primary-rgb: var(--md-sys-color-on-primary-rgb-light);
+  --md-sys-color-primary-container-rgb: var(
+    --md-sys-color-primary-container-rgb-light
+  );
+  --md-sys-color-on-primary-container-rgb: var(
+    --md-sys-color-on-primary-container-rgb-light
+  );
+  --md-sys-color-secondary-rgb: var(--md-sys-color-secondary-rgb-light);
+  --md-sys-color-on-secondary-rgb: var(--md-sys-color-on-secondary-rgb-light);
+  --md-sys-color-secondary-container-rgb: var(
+    --md-sys-color-secondary-container-rgb-light
+  );
+  --md-sys-color-on-secondary-container-rgb: var(
+    --md-sys-color-on-secondary-container-rgb-light
+  );
+  --md-sys-color-tertiary-rgb: var(--md-sys-color-tertiary-rgb-light);
+  --md-sys-color-on-tertiary-rgb: var(--md-sys-color-on-tertiary-rgb-light);
+  --md-sys-color-tertiary-container-rgb: var(
+    --md-sys-color-tertiary-container-rgb-light
+  );
+  --md-sys-color-on-tertiary-container-rgb: var(
+    --md-sys-color-on-tertiary-container-rgb-light
+  );
+  --md-sys-color-error-rgb: var(--md-sys-color-error-rgb-light);
+  --md-sys-color-on-error-rgb: var(--md-sys-color-on-error-rgb-light);
+  --md-sys-color-error-container-rgb: var(
+    --md-sys-color-error-container-rgb-light
+  );
+  --md-sys-color-on-error-container-rgb: var(
+    --md-sys-color-on-error-container-rgb-light
+  );
+  --md-sys-color-background-rgb: var(--md-sys-color-background-rgb-light);
+  --md-sys-color-on-background-rgb: var(--md-sys-color-on-background-rgb-light);
+  --md-sys-color-surface-rgb: var(--md-sys-color-surface-rgb-light);
+  --md-sys-color-on-surface-rgb: var(--md-sys-color-on-surface-rgb-light);
+  --md-sys-color-surface-variant-rgb: var(
+    --md-sys-color-surface-variant-rgb-light
+  );
+  --md-sys-color-on-surface-variant-rgb: var(
+    --md-sys-color-on-surface-variant-rgb-light
+  );
+  --md-sys-color-outline-rgb: var(--md-sys-color-outline-rgb-light);
+  --md-sys-color-shadow-rgb: var(--md-sys-color-shadow-rgb-light);
+  --md-sys-color-inverse-surface-rgb: var(
+    --md-sys-color-inverse-surface-rgb-light
+  );
+  --md-sys-color-inverse-on-surface-rgb: var(
+    --md-sys-color-inverse-on-surface-rgb-light
+  );
+  --md-sys-color-inverse-primary-rgb: var(
+    --md-sys-color-inverse-primary-rgb-light
+  );
+}
+
+.dark-theme {
+  --md-sys-color-primary-rgb: var(--md-sys-color-primary-rgb-dark);
+  --md-sys-color-on-primary-rgb: var(--md-sys-color-on-primary-rgb-dark);
+  --md-sys-color-primary-container-rgb: var(
+    --md-sys-color-primary-container-rgb-dark
+  );
+  --md-sys-color-on-primary-container-rgb: var(
+    --md-sys-color-on-primary-container-rgb-dark
+  );
+  --md-sys-color-secondary-rgb: var(--md-sys-color-secondary-rgb-dark);
+  --md-sys-color-on-secondary-rgb: var(--md-sys-color-on-secondary-rgb-dark);
+  --md-sys-color-secondary-container-rgb: var(
+    --md-sys-color-secondary-container-rgb-dark
+  );
+  --md-sys-color-on-secondary-container-rgb: var(
+    --md-sys-color-on-secondary-container-rgb-dark
+  );
+  --md-sys-color-tertiary-rgb: var(--md-sys-color-tertiary-rgb-dark);
+  --md-sys-color-on-tertiary-rgb: var(--md-sys-color-on-tertiary-rgb-dark);
+  --md-sys-color-tertiary-container-rgb: var(
+    --md-sys-color-tertiary-container-rgb-dark
+  );
+  --md-sys-color-on-tertiary-container-rgb: var(
+    --md-sys-color-on-tertiary-container-rgb-dark
+  );
+  --md-sys-color-error-rgb: var(--md-sys-color-error-rgb-dark);
+  --md-sys-color-on-error-rgb: var(--md-sys-color-on-error-rgb-dark);
+  --md-sys-color-error-container-rgb: var(
+    --md-sys-color-error-container-rgb-dark
+  );
+  --md-sys-color-on-error-container-rgb: var(
+    --md-sys-color-on-error-container-rgb-dark
+  );
+  --md-sys-color-background-rgb: var(--md-sys-color-background-rgb-dark);
+  --md-sys-color-on-background-rgb: var(--md-sys-color-on-background-rgb-dark);
+  --md-sys-color-surface-rgb: var(--md-sys-color-surface-rgb-dark);
+  --md-sys-color-on-surface-rgb: var(--md-sys-color-on-surface-rgb-dark);
+  --md-sys-color-surface-variant-rgb: var(
+    --md-sys-color-surface-variant-rgb-dark
+  );
+  --md-sys-color-on-surface-variant-rgb: var(
+    --md-sys-color-on-surface-variant-rgb-dark
+  );
+  --md-sys-color-outline-rgb: var(--md-sys-color-outline-rgb-dark);
+  --md-sys-color-shadow-rgb: var(--md-sys-color-shadow-rgb-dark);
+  --md-sys-color-inverse-surface-rgb: var(
+    --md-sys-color-inverse-surface-rgb-dark
+  );
+  --md-sys-color-inverse-on-surface-rgb: var(
+    --md-sys-color-inverse-on-surface-rgb-dark
+  );
+  --md-sys-color-inverse-primary-rgb: var(
+    --md-sys-color-inverse-primary-rgb-dark
+  );
+}
+
+body {
+  --md-sys-color-primary: rgba(var(--md-sys-color-primary-rgb), 1);
+  --md-sys-color-on-primary: rgba(var(--md-sys-color-on-primary-rgb), 1);
+  --md-sys-color-primary-container: rgba(
+    var(--md-sys-color-primary-container-rgb),
+    1
+  );
+  --md-sys-color-on-primary-container: rgba(
+    var(--md-sys-color-on-primary-container-rgb),
+    1
+  );
+  --md-sys-color-secondary: rgba(var(--md-sys-color-secondary-rgb), 1);
+  --md-sys-color-on-secondary: rgba(var(--md-sys-color-on-secondary-rgb), 1);
+  --md-sys-color-secondary-container: rgba(
+    var(--md-sys-color-secondary-container-rgb),
+    1
+  );
+  --md-sys-color-on-secondary-container: rgba(
+    var(--md-sys-color-on-secondary-container-rgb),
+    1
+  );
+  --md-sys-color-tertiary: rgba(var(--md-sys-color-tertiary-rgb), 1);
+  --md-sys-color-on-tertiary: rgba(var(--md-sys-color-on-tertiary-rgb), 1);
+  --md-sys-color-tertiary-container: rgba(
+    var(--md-sys-color-tertiary-container-rgb),
+    1
+  );
+  --md-sys-color-on-tertiary-container: rgba(
+    var(--md-sys-color-on-tertiary-container-rgb),
+    1
+  );
+  --md-sys-color-error: rgba(var(--md-sys-color-error-rgb), 1);
+  --md-sys-color-on-error: rgba(var(--md-sys-color-on-error-rgb), 1);
+  --md-sys-color-error-container: rgba(
+    var(--md-sys-color-error-container-rgb),
+    1
+  );
+  --md-sys-color-on-error-container: rgba(
+    var(--md-sys-color-on-error-container-rgb),
+    1
+  );
+  --md-sys-color-background: rgba(var(--md-sys-color-background-rgb), 1);
+  --md-sys-color-on-background: rgba(var(--md-sys-color-on-background-rgb), 1);
+  --md-sys-color-surface: rgba(var(--md-sys-color-surface-rgb), 1);
+  --md-sys-color-on-surface: rgba(var(--md-sys-color-on-surface-rgb), 1);
+  --md-sys-color-surface-variant: rgba(
+    var(--md-sys-color-surface-variant-rgb),
+    1
+  );
+  --md-sys-color-on-surface-variant: rgba(
+    var(--md-sys-color-on-surface-variant-rgb),
+    1
+  );
+  --md-sys-color-outline: rgba(var(--md-sys-color-outline-rgb), 1);
+  --md-sys-color-shadow: rgba(var(--md-sys-color-shadow-rgb), 1);
+  --md-sys-color-inverse-surface: rgba(
+    var(--md-sys-color-inverse-surface-rgb),
+    1
+  );
+  --md-sys-color-inverse-on-surface: rgba(
+    var(--md-sys-color-inverse-on-surface-rgb),
+    1
+  );
+  --md-sys-color-inverse-primary: rgba(
+    var(--md-sys-color-inverse-primary-rgb),
+    1
+  );
+}

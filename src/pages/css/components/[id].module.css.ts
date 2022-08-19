@@ -13,11 +13,7 @@ export async function get({ params, request }: APIContext) {
     const cssFile = `src/data/components/${id}/style.css`;
     const cssContent = fs.readFileSync(cssFile, "utf8");
     const result = await postcss(cssPlugins())
-        .process(cssContent, {
-            from: cssFile
-        })
+        .process(cssContent, { from: cssFile })
         .then((result) => result.css);
-    return {
-        body: result,
-    };
+    return { body: result };
 }
