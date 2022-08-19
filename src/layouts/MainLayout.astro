@@ -1,10 +1,8 @@
 ---
 import HeadCommon from "../components/HeadCommon.astro";
 import HeadSEO from "../components/HeadSEO.astro";
-import Header from "../components/Header/Header.astro";
-import PageContent from "../components/PageContent/PageContent.astro";
-import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
-import RightSidebar from "../components/RightSidebar/RightSidebar.astro";
+import Header from "../components/Header";
+import Menu from "../components/Menu";
 import * as CONFIG from "../config";
 import "../styles/main.css";
 
@@ -27,27 +25,10 @@ const currentPage = Astro.url.pathname;
 	</head>
 
 	<body class="light-theme">
-		<Header {currentPage} />
-		<main class="layout">
-			<aside id="grid-left" class="grid-sidebar" title="Site Navigation">
-				<LeftSidebar {currentPage} />
-			</aside>
-			<div id="grid-main">
-				<PageContent {content}>
-					<slot />
-				</PageContent>
-			</div>
-			<aside
-				id="grid-right"
-				class="grid-sidebar"
-				title="Table of Contents"
-			>
-				<RightSidebar {content} />
-			</aside>
+		<Header {currentPage} client:only="preact" />
+		<main class="content">
+			<slot />
 		</main>
-		<script
-			type="module"
-			src="https://rodydavis.github.io/material-theme-control/material-theme-control.es.js"
-		></script>
+		<Menu items={CONFIG.SIDEBAR} client:only="preact" />
 	</body>
 </html>

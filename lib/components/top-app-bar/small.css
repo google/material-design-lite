@@ -1,6 +1,7 @@
-@import url(base.css);
+:where(.top-app-bar.small) {
+  display: flex;
+  align-items: center;
 
-.top-app-bar.small {
   & .title {
     text-align: start;
     padding-left: 16px;

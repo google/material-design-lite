@@ -1,12 +1,11 @@
-@import url(base.css);
-
-.top-app-bar.medium {
+:where(.top-app-bar.medium) {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "leading actions" "title title";
 
   & .title {
     padding-top: 16px;
+    margin-left: 8px;
 
     @apply --headline-small;
   }

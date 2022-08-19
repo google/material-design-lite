@@ -1,0 +1,32 @@
+/* #header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+} */
+
+#header a {
+  text-decoration: none;
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+#title span {
+  background-color: var(--md-sys-color-background);
+  background-image: linear-gradient(
+    45deg,
+    var(--md-ref-palette-primary40),
+    var(--md-ref-palette-primary60),
+    var(--md-ref-palette-primary80)
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}

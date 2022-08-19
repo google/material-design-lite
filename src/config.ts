@@ -38,34 +38,34 @@ export const SIDEBAR = [
   },
   {
     text: "Introduction",
-    link: "material-design-lite/introduction",
+    link: "introduction",
   },
-  // { text: "Theming", link: "material-design-lite/theming" ,},
+  // { text: "Theming", link: "theming" ,},
   {
     text: "Typography",
-    link: "material-design-lite/overview/typography",
+    link: "overview/typography",
   },
   {
     text: "Color",
-    link: "material-design-lite/overview/color",
+    link: "overview/color",
   },
   {
     text: "Themes",
-    link: "material-design-lite/overview/themes",
+    link: "overview/themes",
   },
   {
     text: "Icons",
-    link: "material-design-lite/overview/icons",
+    link: "overview/icons",
     draft: true,
   },
   {
     text: "Shape",
-    link: "material-design-lite/overview/shape",
+    link: "overview/shape",
     draft: true,
   },
   {
     text: "FAQ",
-    link: "material-design-lite/faq",
+    link: "faq",
   },
   {
     text: "Demos",
@@ -73,15 +73,15 @@ export const SIDEBAR = [
   },
   {
     text: "Playground",
-    link: "material-design-lite/playground",
+    link: "playground",
   },
   {
     text: "Sticker sheet",
-    link: "material-design-lite/demos/sticker-sheet",
+    link: "demos/sticker-sheet",
   },
   {
     text: "Scaffold",
-    link: "material-design-lite/demos/scaffold",
+    link: "demos/scaffold",
   },
   {
     text: "Components",
@@ -89,181 +89,181 @@ export const SIDEBAR = [
   },
   {
     text: "Autocomplete",
-    link: "material-design-lite/components/autocomplete",
+    link: "components/autocomplete",
   },
   {
-    text: "Badge", link: "material-design-lite/components/badge",
+    text: "Badge", link: "components/badge",
     draft: true
   },
   {
-    text: "Banner", link: "material-design-lite/components/banner",
+    text: "Banner", link: "components/banner",
     draft: true
   },
   {
     text: "Button",
-    link: "material-design-lite/components/button",
+    link: "components/button",
   },
   {
     text: "Bottom app bar",
-    link: "material-design-lite/components/bottom-app-bar",
+    link: "components/bottom-app-bar",
     draft: true
   },
   {
     text: "Bottom sheet",
-    link: "material-design-lite/components/bottom-sheet",
+    link: "components/bottom-sheet",
     draft: true
   },
   {
     text: "Card",
-    link: "material-design-lite/components/card",
+    link: "components/card",
   },
   {
     text: "Chip",
-    link: "material-design-lite/components/chip",
+    link: "components/chip",
   },
   {
     text: "Checkbox",
-    link: "material-design-lite/components/checkbox",
+    link: "components/checkbox",
     draft: true
   },
   {
     text: "Data Table",
-    link: "material-design-lite/components/data-table",
+    link: "components/data-table",
     draft: true
   },
   {
     text: "Divider",
-    link: "material-design-lite/components/data-table",
+    link: "components/data-table",
     draft: true
   },
   {
     text: "Date picker",
-    link: "material-design-lite/components/divider",
+    link: "components/divider",
     draft: true
   },
   {
     text: "Dialog",
-    link: "material-design-lite/components/dialog",
+    link: "components/dialog",
     draft: true
   },
   {
     text: "Expansion Panel",
-    link: "material-design-lite/components/expansion-panel",
+    link: "components/expansion-panel",
     draft: true
   },
   {
     text: "Image list",
-    link: "material-design-lite/components/image-list",
+    link: "components/image-list",
     draft: true
   },
   {
     text: "Floating action button",
-    link: "material-design-lite/components/fab",
+    link: "components/fab",
   },
   {
     text: "Icon",
-    link: "material-design-lite/components/icon",
+    link: "components/icon",
   },
   {
     text: "Grid list",
-    link: "material-design-lite/components/grid-list",
+    link: "components/grid-list",
     draft: true
   },
   {
     text: "List",
-    link: "material-design-lite/components/list",
+    link: "components/list",
     draft: true
   },
   {
     text: "Menu",
-    link: "material-design-lite/components/menu",
+    link: "components/menu",
     draft: true
   },
   {
     text: "Progress indicator",
-    link: "material-design-lite/components/progress-indicator",
+    link: "components/progress-indicator",
     draft: true
   },
   {
     text: "Navigation bar",
-    link: "material-design-lite/components/navigation-bar",
+    link: "components/navigation-bar",
     draft: true
   },
   {
     text: "Navigation drawer",
-    link: "material-design-lite/components/navigation-drawer",
+    link: "components/navigation-drawer",
     draft: true
   },
   {
     text: "Navigation rail",
-    link: "material-design-lite/components/navigation-rail",
+    link: "components/navigation-rail",
     draft: true
   },
   {
     text: "Radio button",
-    link: "material-design-lite/components/radio-button",
+    link: "components/radio-button",
     draft: true
   },
   {
     text: "Ripple",
-    link: "material-design-lite/components/ripple",
+    link: "components/ripple",
   },
   {
     text: "Slider",
-    link: "material-design-lite/components/slide",
+    link: "components/slide",
     draft: true
   },
   {
     text: "Select",
-    link: "material-design-lite/components/select",
+    link: "components/select",
     draft: true
   },
   {
     text: "Segmented",
-    link: "material-design-lite/components/segmented",
+    link: "components/segmented",
     draft: true
   },
   {
     text: "Stepper",
-    link: "material-design-lite/components/stepper",
+    link: "components/stepper",
     draft: true
   },
   {
     text: "Sort header",
-    link: "material-design-lite/components/sort-header",
+    link: "components/sort-header",
     draft: true
   },
   {
     text: "Snackbar",
-    link: "material-design-lite/components/snackbar",
+    link: "components/snackbar",
     draft: true
   },
   {
     text: "Switch",
-    link: "material-design-lite/components/switch",
+    link: "components/switch",
     draft: true
   },
   {
     text: "Text field",
-    link: "material-design-lite/components/text-field",
+    link: "components/text-field",
   },
   {
     text: "Tree",
-    link: "material-design-lite/components/tree",
+    link: "components/tree",
     draft: true
   },
   {
     text: "Tooltip",
-    link: "material-design-lite/components/tooltip",
+    link: "components/tooltip",
     draft: true
   },
   {
     text: "Tab",
-    link: "material-design-lite/components/tab",
+    link: "components/tab",
     draft: true
   },
   {
     text: "Top app bar",
-    link: "material-design-lite/components/top-app-bar",
+    link: "components/top-app-bar",
   },
 ];
