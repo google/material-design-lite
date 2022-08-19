@@ -16,14 +16,10 @@
 
   white-space: nowrap;
 
-  font-family: var(--md-sys-typescale-label-large-font);
-  font-weight: var(--md-sys-typescale-label-large-weight);
-  font-size: var(--md-sys-typescale-label-large-size);
-  line-height: var(--md-sys-typescale-label-large-line-height);
-  letter-spacing: var(--md-sys-typescale-label-large-tracking);
-
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
+
+  @apply --label-large;
 
   box-shadow: var(--md-sys-elevation-1);
 

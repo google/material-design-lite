@@ -4,6 +4,8 @@ import pluginHct from "postcss-color-hct";
 import pluginFormat from "stylefmt";
 import pluginMinify from "postcss-minify";
 import pluginAutoprefixer from "autoprefixer";
+import pluginApply from "postcss-apply";
+import { CLASSES } from './classes.mjs';
 
 
 export function cssPlugins(options?: {
@@ -12,6 +14,7 @@ export function cssPlugins(options?: {
   hct?: boolean;
   autoprefixer?: boolean;
   format?: boolean;
+  apply?: boolean;
   minify?: boolean;
 }) {
   const plugins = [];
@@ -20,6 +23,9 @@ export function cssPlugins(options?: {
   }
   if (options?.nested ?? true) {
     plugins.push(pluginNested);
+  }
+  if (options?.apply ?? true) {
+    plugins.push(pluginApply({ sets: CLASSES }));
   }
   if (options?.hct ?? true) {
     plugins.push(pluginHct);

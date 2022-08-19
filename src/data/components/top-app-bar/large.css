@@ -8,10 +8,6 @@
   & .title {
     padding-top: 20px;
 
-    font-family: var(--md-sys-typescale-headline-medium-font);
-    font-weight: var(--md-sys-typescale-headline-medium-weight);
-    font-size: var(--md-sys-typescale-headline-medium-size);
-    line-height: var(--md-sys-typescale-headline-medium-line-height);
-    letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+    @apply --headline-medium;
   }
 }

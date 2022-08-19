@@ -1,9 +1,5 @@
 .text-field {
-  font-family: var(--md-sys-typescale-body-large-font);
-  font-weight: var(--md-sys-typescale-body-large-weight);
-  font-size: var(--md-sys-typescale-body-large-size);
-  line-height: var(--md-sys-typescale-body-large-line-height);
-  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  @apply --body-large;
 
   position: relative;
   display: inline-block;

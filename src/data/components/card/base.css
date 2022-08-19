@@ -20,21 +20,13 @@
   & .title {
     padding: 8px 16px;
 
-    font-family: var(--md-sys-typescale-title-large-font);
-    font-weight: var(--md-sys-typescale-title-large-weight);
-    font-size: var(--md-sys-typescale-title-large-size);
-    line-height: var(--md-sys-typescale-title-large-line-height);
-    letter-spacing: var(--md-sys-typescale-title-large-tracking);
+    @apply --title-large;
   }
 
   & .subtitle {
     padding: 8px 16px;
 
-    font-family: var(--md-sys-typescale-body-large-font);
-    font-weight: var(--md-sys-typescale-body-large-weight);
-    font-size: var(--md-sys-typescale-body-large-size);
-    line-height: var(--md-sys-typescale-body-large-line-height);
-    letter-spacing: var(--md-sys-typescale-body-large-tracking);
+    @apply --body-large;
   }
 
   & .actions {

@@ -36,11 +36,7 @@
     grid-area: title;
     flex: 1;
 
-    font-family: var(--md-sys-typescale-title-large-font);
-    font-weight: var(--md-sys-typescale-title-large-weight);
-    font-size: var(--md-sys-typescale-title-large-size);
-    line-height: var(--md-sys-typescale-title-large-line-height);
-    letter-spacing: var(--md-sys-typescale-title-large-tracking);
+    @apply --title-large;
   }
   & .leading {
     grid-area: leading;

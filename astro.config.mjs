@@ -8,6 +8,8 @@ import pluginImport from "postcss-import";
 import pluginNested from "postcss-nested";
 import pluginHct from "postcss-color-hct";
 import pluginAutoprefixer from "autoprefixer";
+import pluginApply from "postcss-apply";
+import { CLASSES } from "./src/utils/classes.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +26,13 @@ export default defineConfig({
   vite: {
     css: {
       postcss: {
-        plugins: [pluginImport, pluginNested, pluginHct, pluginAutoprefixer],
+        plugins: [
+          pluginImport,
+          pluginNested,
+          pluginApply({ sets: CLASSES }),
+          pluginHct,
+          pluginAutoprefixer,
+        ],
       },
     },
   },
