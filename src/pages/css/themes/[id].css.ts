@@ -152,6 +152,7 @@ export const COLORS = [
     { name: "Ivory", value: "FFFFF0" },
     { name: "White", value: "FFFFFF" }
 ].map(function (color) {
+    Object(color).title = color.name;
     color.name = color.name.toLowerCase();
     color.value = "#" + color.value;
     return color;

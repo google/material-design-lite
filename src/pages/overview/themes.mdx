@@ -13,15 +13,15 @@ export const changeTheme = (e) => {
   console.log("hello");
 };
 
-{ COLORS.map(({ name, value }) => {
+{ COLORS.map(({ title, name, value }) => {
 const code = `<link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/themes/${name}.css">`;
-return <>
+return <div class="pad-v">
 
-<div style={{display: 'flex'}}>
-    <h2 style={{flex: 1}}>{name}</h2>
-    <ColorPreview color={value} client:only="preact" />
+<div style={{ display: "flex" }}>
+  <h2 style={{ flex: 1 }}>{title}</h2>
+  <ColorPreview color={value} client:only="preact" />
 </div>
 <Code lang="html" code={code}></Code>
 
-</>;
+</div>;
 }) }

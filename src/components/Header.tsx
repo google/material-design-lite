@@ -27,6 +27,7 @@ const Header: FunctionalComponent = () => {
                     <MaterialLogo size={40} />
                     <span id="title-text">Material Design Lite</span>
                 </div>
+                <div class="spacer"></div>
                 <div class="actions">
                     <ColorPicker />
                     <BrightnessToggle />

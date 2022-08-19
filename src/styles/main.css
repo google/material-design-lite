@@ -18,6 +18,16 @@ body.menu-open nav.menu {
   display: block;
 }
 
+.pad-v {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.pad-h {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 header {
   width: 100%;
 }

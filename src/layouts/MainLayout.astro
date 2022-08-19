@@ -9,24 +9,22 @@ import "../styles/main.css";
 const { content = {} } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentPage = Astro.url.pathname;
+const title = content.title
+	? `${content.title} 🎨 ${CONFIG.SITE.title}`
+	: CONFIG.SITE.title;
 ---
 
 <html dir={content.dir ?? "ltr"} lang={content.lang ?? "en-us"} class="initial">
 	<head>
 		<HeadCommon />
 		<HeadSEO {content} canonicalURL={canonicalURL} />
-		<title>
-			{
-				content.title
-					? `${content.title} 🎨 ${CONFIG.SITE.title}`
-					: CONFIG.SITE.title
-			}
-		</title>
+		<title>{title}</title>
 	</head>
 
 	<body class="light-theme">
 		<Header {currentPage} client:only="preact" />
 		<main class="content">
+			<h1>{content.title}</h1>
 			<slot />
 		</main>
 		<Menu items={CONFIG.SIDEBAR} client:only="preact" />

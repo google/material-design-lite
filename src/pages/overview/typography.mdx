@@ -4,32 +4,27 @@ description: Material typography system based.
 layout: ../../layouts/MainLayout.astro
 ---
 
-<div class="display-large">Display Large</div>
+export const TYPES = [
+  "display-large",
+  "display-medium",
+  "display-small",
+  "headline-large",
+  "headline-medium",
+  "headline-small",
+  "title-large",
+  "title-medium",
+  "title-small",
+  "body-large",
+  "body-medium",
+  "body-small",
+  "label-large",
+  "label-medium",
+  "label-small",
+];
 
-<div class="display-medium">Display Medium</div>
-
-<div class="display-small">Display Small</div>
-
-<div class="headline-large">Headline Large</div>
-
-<div class="headline-medium">Headline Medium</div>
-
-<div class="headline-small">Label Small</div>
-
-<div class="title-large">Title Large</div>
-
-<div class="title-medium">Title Medium</div>
-
-<div class="title-small">Title Small</div>
-
-<div class="label-large">Label Large</div>
-
-<div class="label-medium">Label Medium</div>
-
-<div class="label-small">Label Small</div>
-
-<div class="body-large">Body Large</div>
-
-<div class="body-medium">Body Medium</div>
-
-<div class="body-small">Body Small</div>
+{
+TYPES.map(type => {
+const titleCase = type.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+return <div class={`pad-v ${type}`}>{titleCase}</div>;
+})
+}

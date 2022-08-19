@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.spacer {
+  flex: 1;
+}
+
 #title span {
   background-color: var(--md-sys-color-background);
   background-image: linear-gradient(
