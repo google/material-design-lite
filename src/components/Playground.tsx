@@ -24,7 +24,6 @@ const Playground: FunctionalComponent<{ source: string }> = ({
                 `  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> `,
                 `  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"> `,
                 `  <link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/mdl.min.css"> `,
-                `  <link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/themes/baseline.css"> `,
                 `  <title>Material Design Lite</title> `,
                 ...(stylesBetweenTags ? [`  <link rel="stylesheet" href="./style.css"> `] : []),
                 `</head> `,
