@@ -1,8 +1,8 @@
-:where(.focus-ring, .button, .icon, .fab, .card) {
+:where(.focus-ring, .button, .icon, .fab) {
   position: relative;
 }
 
-:where(.focus-ring, .button, .icon, .fab, .card):focus-within::before {
+:where(.focus-ring, .button, .icon, .fab):focus-within::before {
   content: "";
   border: 2px solid var(--md-sys-color-on-surface-variant);
   border-radius: inherit;

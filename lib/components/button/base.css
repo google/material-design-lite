@@ -1,6 +1,6 @@
 .button {
   padding: 8px 24px;
-  border-radius: var(--md-comp-button-shape, 20px);
+  border-radius: 20px;
   outline: none;
   border: none;
   height: var(--button-height, 40px);
@@ -62,5 +62,9 @@
     background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
     color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
     box-shadow: var(--md-sys-elevation-0);
+  }
+
+  &:focus-within::before {
+    border-radius: 40px;
   }
 }
