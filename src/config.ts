@@ -126,7 +126,6 @@ export const SIDEBAR = [
   {
     text: "Data Table",
     link: "components/data-table",
-    draft: true
   },
   {
     text: "Divider",
