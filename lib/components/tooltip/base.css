@@ -18,14 +18,11 @@
     @apply --label-small;
     border-radius: var(--md-sys-shape-small);
 
-    --tint-opacity: 0.09;
-    --tint-color-rgb: var(--md-sys-color-primary-rgb);
-    --tint-color: rgba(var(--md-sys-color-primary-rgb), var(--tint-opacity));
-    z-index: 1000;
+    background-color: var(--md-sys-color-inverse-surface);
+    color: var(--md-sys-color-inverse-on-surface);
+
+    z-index: 1;
     box-shadow: var(--md-sys-elevation-2);
-    background: linear-gradient(var(--tint-color), var(--tint-color)) no-repeat,
-      linear-gradient(var(--md-sys-color-surface), var(--md-sys-color-surface))
-        no-repeat;
   }
 
   &[aria-label]:hover:before {
