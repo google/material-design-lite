@@ -1,0 +1,251 @@
+/* Codepen: https://codepen.io/finnhvman/pen/LJWJVR */
+
+.slider {
+  --safari-helper1: rgba(var(--md-sys-color-primary-rgb), 0.04);
+  --safari-helper2: rgba(var(--md-sys-color-primary-rgb), 0.12);
+  --safari-helper3: rgba(var(--md-sys-color-primary-rgb), 0.16);
+  --safari-helper4: rgba(var(--md-sys-color-primary-rgb), 0.24);
+  display: inline-block;
+  width: 200px;
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+  font-family: var(
+    --font,
+    "Roboto",
+    "Segoe UI",
+    BlinkMacSystemFont,
+    system-ui,
+    -apple-system
+  );
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Input */
+.slider > input {
+  -webkit-appearance: none;
+  position: relative;
+  top: 24px;
+  display: block;
+  margin: 0 0 -36px;
+  width: 100%;
+  height: 36px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Without Span */
+.slider > input:last-child {
+  position: static;
+  margin: 0;
+}
+
+/* Span */
+.slider > span {
+  display: inline-block;
+  margin-bottom: 36px;
+}
+
+/* Focus */
+.slider > input:focus {
+  outline: none;
+}
+
+/* Disabled */
+.slider > input:disabled {
+  cursor: default;
+  opacity: 0.38;
+}
+
+.slider > input:disabled + span {
+  color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+}
+
+/* Webkit | Track */
+.slider > input::-webkit-slider-runnable-track {
+  margin: 17px 0;
+  border-radius: 1px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.24);
+}
+
+/* Webkit | Thumb */
+.slider > input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 50%;
+  height: 2px;
+  width: 2px;
+  background-color: rgb(var(--md-sys-color-primary-rgb));
+  transform: scale(6, 6);
+  transition: box-shadow 0.2s;
+}
+
+/* Webkit | Hover, Focus */
+.slider:hover > input::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--safari-helper1);
+}
+
+.slider > input:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--safari-helper2);
+}
+
+.slider:hover > input:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--safari-helper3);
+}
+
+/* Webkit | Active */
+.slider > input:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--safari-helper4) !important;
+}
+
+/* Webkit | Disabled */
+.slider > input:disabled::-webkit-slider-runnable-track {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+}
+
+.slider > input:disabled::-webkit-slider-thumb {
+  background-color: rgb(var(--md-sys-color-on-surface-rgb));
+  color: var(--md-sys-color-surface); /* Safari */
+  box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
+  transform: scale(4, 4);
+}
+
+/* Moz | Track */
+.slider > input::-moz-range-track {
+  margin: 17px 0;
+  border-radius: 1px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.24);
+}
+
+/* Moz | Thumb */
+.slider > input::-moz-range-thumb {
+  appearance: none;
+  -moz-appearance: none;
+  border: none;
+  border-radius: 50%;
+  height: 2px;
+  width: 2px;
+  background-color: rgb(var(--md-sys-color-primary-rgb));
+  transform: scale(6, 6);
+  transition: box-shadow 0.2s;
+}
+
+/* Moz | Progress */
+.slider > input::-moz-range-progress {
+  border-radius: 1px;
+  height: 2px;
+  background-color: rgb(var(--md-sys-color-primary-rgb));
+}
+
+/* Moz | Hover, Focus */
+.slider:hover > input:hover::-moz-range-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.04);
+}
+
+.slider > input:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.12);
+}
+
+.slider:hover > input:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.16);
+}
+
+/* Moz | Active */
+.slider > input:active::-moz-range-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.24) !important;
+}
+
+/* Moz | Disabled */
+.slider > input:disabled::-moz-range-track {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+}
+
+.slider > input:disabled::-moz-range-progress {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+}
+
+.slider > input:disabled::-moz-range-thumb {
+  background-color: rgb(var(--md-sys-color-on-surface-rgb));
+  box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
+  transform: scale(4, 4);
+}
+
+.slider > input::-moz-focus-outer {
+  border: none;
+}
+
+/* MS | Track */
+.slider > input::-ms-track {
+  box-sizing: border-box;
+  margin: 17px 0;
+  border: none;
+  border-radius: 1px;
+  padding: 0 17px;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+}
+
+.slider > input::-ms-fill-lower {
+  border-radius: 1px;
+  height: 2px;
+  background-color: rgb(var(--md-sys-color-primary-rgb));
+}
+
+/* MS | Progress */
+.slider > input::-ms-fill-upper {
+  border-radius: 1px;
+  height: 2px;
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.24);
+}
+
+/* MS | Thumb */
+.slider > input::-ms-thumb {
+  appearance: none;
+  margin: 0 17px;
+  border: none;
+  border-radius: 50%;
+  height: 2px;
+  width: 2px;
+  background-color: rgb(var(--md-sys-color-primary-rgb));
+  transform: scale(6, 6);
+  transition: box-shadow 0.2s;
+}
+
+/* MS | Hover, Focus */
+.slider:hover > input::-ms-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.04);
+}
+
+.slider > input:focus::-ms-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.12);
+}
+
+.slider:hover > input:focus::-ms-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.16);
+}
+
+/* MS | Active */
+.slider > input:active::-ms-thumb {
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.24) !important;
+}
+
+/* MS | Disabled */
+.slider > input:disabled::-ms-fill-lower {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+}
+
+.slider > input:disabled::-ms-fill-upper {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+  opacity: 0.38;
+}
+
+.slider > input:disabled::-ms-thumb {
+  background-color: rgb(var(--md-sys-color-on-surface-rgb));
+  box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
+  transform: scale(4, 4);
+}
