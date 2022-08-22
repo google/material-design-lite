@@ -18,12 +18,24 @@
     margin: 16px;
   }
 
-  & .fab {
+  & :where(.fab) {
     margin: 16px;
 
     box-shadow: var(--md-sys-elevation-0);
 
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
+
+    &:hover {
+      box-shadow: var(--md-sys-elevation-1);
+    }
+
+    &:focus {
+      box-shadow: var(--md-sys-elevation-0);
+    }
+
+    &:active {
+      box-shadow: var(--md-sys-elevation-0);
+    }
   }
 }
