@@ -13,15 +13,25 @@
 
     <div class="cards"></div>
 
-    <button id="cta" class="button fab extended">
-        <i class="material-icons">add</i>
-        <label>Button</label>
-    </button>
+    <footer class="bottom-app-bar" style="min-width: 400px">
+        <div class="actions">
+            <button class="icon">
+                <i class="material-icons">search</i>
+            </button>
+            <button class="icon">
+                <i class="material-icons">delete</i>
+            </button>
+            <button class="icon">
+                <i class="material-icons">archive</i>
+            </button>
+        </div>
+        <button class="button fab">
+            <i class="material-icons">add</i>
+        </button>
+    </footer>
 </main>
 
-<footer>
 
-</footer>
 
 <style>
     body {
@@ -29,25 +39,32 @@
         color: var(--md-sys-color-on-background);
     }
 
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+
     header {
         position: sticky;
         top: 0;
         width: 100%;
     }
 
+    footer {
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+    }
+
     .cards {
+        flex: 1;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-gap: 16px;
         padding: 16px;
         justify-items: center;
         align-items: center;
-    }
-
-    #cta {
-        position: fixed;
-        bottom: 16px;
-        right: 16px;
     }
 </style>
 
