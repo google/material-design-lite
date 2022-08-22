@@ -52,7 +52,6 @@ export const SIDEBAR = [
   {
     text: "Icons",
     link: "overview/icons",
-    draft: true,
   },
   {
     text: "Shape",

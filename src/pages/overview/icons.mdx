@@ -1,0 +1,113 @@
+---
+title: Icons
+description: Material Design icons.
+layout: ../../layouts/MainLayout.astro
+---
+
+import { Code } from "astro/components";
+export const iconGridStyle = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+  gridGap: "1rem",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "1rem",
+};
+
+Material Design uses the [Material Icons](https://fonts.google.com/icons) from Google fonts in the components.
+
+export const materialIcons = [
+  "add",
+  "add_circle",
+  "add_circle_outline",
+  "archive",
+  "backspace",
+  "block",
+  "clear",
+  "content_copy",
+  "content_cut",
+  "content_paste",
+  "create",
+  "drafts",
+  "filter_list",
+  "flag",
+  "forward",
+  "gesture",
+  "inbox",
+  "link",
+  "mail",
+  "markunread",
+  "move_to_inbox",
+  "redo",
+  "remove",
+  "remove_circle",
+  "remove_circle_outline",
+  "reply",
+  "reply_all",
+  "report",
+  "save",
+  "select_all",
+  "send",
+  "sort",
+  "text_format",
+  "undo",
+  "access_alarm",
+  "access_alarms",
+  "access_time",
+  "add_alarm",
+];
+
+<div class="pad-v" style={iconGridStyle}>
+  {materialIcons.map((icon) => (
+    <i class="material-icons">{icon}</i>
+  ))}
+</div>
+
+<Code lang="html" code={`<i class="material-icons">add</i>`} />
+
+## Material Symbols
+
+It is possible to use the variable font for [Material Symbols](https://developers.google.com/fonts/docs/material_symbols) with a simple change.
+
+> To change an axis of the symbol, use the following variables
+
+<Code
+  lang="css"
+  code={`:root {
+    --material-symbols-fill: 0;
+    --material-symbols-wght: 400;
+    --material-symbols-grad: 0;
+    --material-symbols-opsz: 48;
+}
+`}
+/>
+
+### Rounded
+
+<div class="pad-v" style={iconGridStyle}>
+  {materialIcons.map((icon) => (
+    <i class="material-symbols-rounded">{icon}</i>
+  ))}
+</div>
+
+<Code lang="html" code={`<i class="material-symbols-rounded">add</i>`} />
+
+### Sharp
+
+<div class="pad-v" style={iconGridStyle}>
+  {materialIcons.map((icon) => (
+    <i class="material-symbols-sharp">{icon}</i>
+  ))}
+</div>
+
+<Code lang="html" code={`<i class="material-symbols-sharp">add</i>`} />
+
+### Outlined
+
+<div class="pad-v" style={iconGridStyle}>
+  {materialIcons.map((icon) => (
+    <i class="material-symbols-outlined">{icon}</i>
+  ))}
+</div>
+
+<Code lang="html" code={`<i class="material-symbols-outlined">add</i>`} />

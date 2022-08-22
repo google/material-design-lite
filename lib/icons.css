@@ -26,7 +26,7 @@
 }
 
 :root,
-.material-symbols {
+[class*="material-symbols-"] {
   --material-symbols-fill: 0;
   --material-symbols-wght: 400;
   --material-symbols-grad: 0;
