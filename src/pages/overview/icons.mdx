@@ -4,7 +4,7 @@ description: Material Design icons.
 layout: ../../layouts/MainLayout.astro
 ---
 
-import { Code } from "astro/components";
+import CodeBlock from "../../components/CodeBlock.astro";
 export const iconGridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
@@ -63,7 +63,7 @@ export const materialIcons = [
   ))}
 </div>
 
-<Code lang="html" code={`<i class="material-icons">add</i>`} />
+<CodeBlock lang="html" code={`<i class="material-icons">add</i>`} />
 
 ## Material Symbols
 
@@ -71,7 +71,7 @@ It is possible to use the variable font for [Material Symbols](https://developer
 
 > To change an axis of the symbol, use the following variables
 
-<Code
+<CodeBlock
   lang="css"
   code={`:root {
     --material-symbols-fill: 0;
@@ -90,7 +90,7 @@ It is possible to use the variable font for [Material Symbols](https://developer
   ))}
 </div>
 
-<Code lang="html" code={`<i class="material-symbols-rounded">add</i>`} />
+<CodeBlock lang="html" code={`<i class="material-symbols-rounded">add</i>`} />
 
 ### Sharp
 
@@ -100,7 +100,7 @@ It is possible to use the variable font for [Material Symbols](https://developer
   ))}
 </div>
 
-<Code lang="html" code={`<i class="material-symbols-sharp">add</i>`} />
+<CodeBlock lang="html" code={`<i class="material-symbols-sharp">add</i>`} />
 
 ### Outlined
 
@@ -110,4 +110,4 @@ It is possible to use the variable font for [Material Symbols](https://developer
   ))}
 </div>
 
-<Code lang="html" code={`<i class="material-symbols-outlined">add</i>`} />
+<CodeBlock lang="html" code={`<i class="material-symbols-outlined">add</i>`} />

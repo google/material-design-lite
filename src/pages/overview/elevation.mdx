@@ -4,7 +4,7 @@ description: Material Design elevation system.
 layout: ../../layouts/MainLayout.astro
 ---
 
-import { Code } from "astro/components";
+import CodeBlock from "../../components/CodeBlock.astro";
 
 export const style = {
   backgroundColor: "var(--md-sys-color-surface-variant)",
@@ -23,7 +23,7 @@ export const style = {
   0
 </div>
 
-<Code lang="html" code={`<div class="elevation-0"></div>`} />
+<CodeBlock lang="html" code={`<div class="elevation-0"></div>`} />
 
 ## Level 1
 
@@ -31,7 +31,7 @@ export const style = {
   1
 </div>
 
-<Code lang="html" code={`<div class="elevation-1"></div>`} />
+<CodeBlock lang="html" code={`<div class="elevation-1"></div>`} />
 
 ## Level 2
 
@@ -39,7 +39,7 @@ export const style = {
   2
 </div>
 
-<Code lang="html" code={`<div class="elevation-2"></div>`} />
+<CodeBlock lang="html" code={`<div class="elevation-2"></div>`} />
 
 ## Level 3
 
@@ -47,7 +47,7 @@ export const style = {
   3
 </div>
 
-<Code lang="html" code={`<div class="elevation-3"></div>`} />
+<CodeBlock lang="html" code={`<div class="elevation-3"></div>`} />
 
 ## Level 4
 
@@ -55,7 +55,7 @@ export const style = {
   4
 </div>
 
-<Code lang="html" code={`<div class="elevation-4"></div>`} />
+<CodeBlock lang="html" code={`<div class="elevation-4"></div>`} />
 
 ## Level 5
 
@@ -63,4 +63,4 @@ export const style = {
   5
 </div>
 
-<Code lang="html" code={`<div class="elevation-5"></div>`} />
+<CodeBlock lang="html" code={`<div class="elevation-5"></div>`} />

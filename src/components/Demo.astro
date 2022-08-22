@@ -1,6 +1,6 @@
 ---
 import * as fs from "fs";
-import { Code } from "astro/components";
+import CodeBlock from "./CodeBlock.astro";
 
 const { root, group, outline } = Astro.props;
 
@@ -57,7 +57,7 @@ for (const snippet of groupSnippets) {
         }
     </div>
     <div class="code">
-        <Code
+        <CodeBlock
             code={snippets
                 .map((e) => `<!-- ${e.name} -->\n${e.content}`)
                 .join("\n\n")}
@@ -96,11 +96,5 @@ for (const snippet of groupSnippets) {
     .code {
         position: relative;
         width: 100%;
-    }
-    .codepen-button {
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-        text-align: right;
     }
 </style>

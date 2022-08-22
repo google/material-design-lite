@@ -4,7 +4,7 @@ description: Material Design shape system.
 layout: ../../layouts/MainLayout.astro
 ---
 
-import { Code } from "astro/components";
+import CodeBlock from "../../components/CodeBlock.astro";
 
 export const style = {
   backgroundColor: "var(--md-sys-color-surface-variant)",
@@ -23,7 +23,7 @@ export const style = {
   Small
 </div>
 
-<Code lang="html" code={`<div class="shape-small"></div>`} />
+<CodeBlock lang="html" code={`<div class="shape-small"></div>`} />
 
 ## Medium
 
@@ -31,7 +31,7 @@ export const style = {
   Medium
 </div>
 
-<Code lang="html" code={`<div class="shape-medium"></div>`} />
+<CodeBlock lang="html" code={`<div class="shape-medium"></div>`} />
 
 ## Large
 
@@ -39,4 +39,4 @@ export const style = {
   Large
 </div>
 
-<Code lang="html" code={`<div class="shape-large"></div>`} />
+<CodeBlock lang="html" code={`<div class="shape-large"></div>`} />

@@ -1,0 +1,15 @@
+---
+import { Code } from "astro/components";
+const { code, lang } = Astro.props;
+---
+
+<Code code={code} lang={lang} />
+
+<style>
+    .codepen-button {
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        text-align: right;
+    }
+</style>
