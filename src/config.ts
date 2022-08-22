@@ -74,16 +74,13 @@ export const SIDEBAR = [
     header: true
   },
   {
-    text: "Playground",
-    link: "playground",
+    text: "Scaffold",
+    link: "demos/scaffold",
   },
   {
     text: "Sticker sheet",
     link: "demos/sticker-sheet",
-  },
-  {
-    text: "Scaffold",
-    link: "demos/scaffold",
+    draft: true
   },
   {
     text: "Components",
@@ -125,7 +122,6 @@ export const SIDEBAR = [
   {
     text: "Checkbox",
     link: "components/checkbox",
-    draft: true
   },
   {
     text: "Data Table",
