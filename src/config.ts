@@ -57,7 +57,10 @@ export const SIDEBAR = [
   {
     text: "Shape",
     link: "overview/shape",
-    draft: true,
+  },
+  {
+    text: "Elevation",
+    link: "overview/elevation",
   },
   {
     text: "Themes",

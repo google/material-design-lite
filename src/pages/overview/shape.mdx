@@ -1,0 +1,42 @@
+---
+title: Shape
+description: Material Design shape system.
+layout: ../../layouts/MainLayout.astro
+---
+
+import { Code } from "astro/components";
+
+export const style = {
+  backgroundColor: "var(--md-sys-color-surface-variant)",
+  width: "100px",
+  height: "100px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "20px",
+  marginBottom: "20px",
+};
+
+## Small
+
+<div class="shape-small" style={style}>
+  Small
+</div>
+
+<Code lang="html" code={`<div class="shape-small"></div>`} />
+
+## Medium
+
+<div class="shape-medium" style={style}>
+  Medium
+</div>
+
+<Code lang="html" code={`<div class="shape-medium"></div>`} />
+
+## Large
+
+<div class="shape-large" style={style}>
+  Large
+</div>
+
+<Code lang="html" code={`<div class="shape-large"></div>`} />

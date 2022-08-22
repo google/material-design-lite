@@ -1,0 +1,66 @@
+---
+title: Elevation
+description: Material Design elevation system.
+layout: ../../layouts/MainLayout.astro
+---
+
+import { Code } from "astro/components";
+
+export const style = {
+  backgroundColor: "var(--md-sys-color-surface-variant)",
+  width: "100px",
+  height: "100px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "20px",
+  marginBottom: "20px",
+};
+
+## Level 0
+
+<div class="elevation-0" style={style}>
+  0
+</div>
+
+<Code lang="html" code={`<div class="elevation-0"></div>`} />
+
+## Level 1
+
+<div class="elevation-1" style={style}>
+  1
+</div>
+
+<Code lang="html" code={`<div class="elevation-1"></div>`} />
+
+## Level 2
+
+<div class="elevation-2" style={style}>
+  2
+</div>
+
+<Code lang="html" code={`<div class="elevation-2"></div>`} />
+
+## Level 3
+
+<div class="elevation-3" style={style}>
+  3
+</div>
+
+<Code lang="html" code={`<div class="elevation-3"></div>`} />
+
+## Level 4
+
+<div class="elevation-4" style={style}>
+  4
+</div>
+
+<Code lang="html" code={`<div class="elevation-4"></div>`} />
+
+## Level 5
+
+<div class="elevation-5" style={style}>
+  5
+</div>
+
+<Code lang="html" code={`<div class="elevation-5"></div>`} />

@@ -17,8 +17,6 @@
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
 
-  transition: background 0.8s;
-
   & .actions {
     grid-area: actions;
     display: flex;
@@ -45,11 +43,15 @@
     padding: unset;
   }
 
+  &.fixed {
+    transition: background 0.8s;
+    z-index: 1000;
+  }
+
   &.scrolled {
     --tint-opacity: 0.09;
     --tint-color-rgb: var(--md-sys-color-primary-rgb);
     --tint-color: rgba(var(--md-sys-color-primary-rgb), var(--tint-opacity));
-    z-index: 1000;
     box-shadow: var(--md-sys-elevation-2);
     background: linear-gradient(var(--tint-color), var(--tint-color)) no-repeat,
       linear-gradient(var(--md-sys-color-surface), var(--md-sys-color-surface))
