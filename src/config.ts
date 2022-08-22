@@ -207,7 +207,7 @@ export const SIDEBAR = [
   },
   {
     text: "Slider",
-    link: "components/slide",
+    link: "components/slider",
   },
   {
     text: "Select",
