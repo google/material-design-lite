@@ -1,4 +1,4 @@
-.dark-theme {
+body.dark-theme {
   color-scheme: dark;
   --md-sys-color-primary-rgb: var(--md-sys-color-primary-rgb-dark);
   --md-sys-color-on-primary-rgb: var(--md-sys-color-on-primary-rgb-dark);

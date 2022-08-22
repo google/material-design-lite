@@ -1,0 +1,34 @@
+.tooltip {
+  text-decoration: none;
+
+  &[aria-label] {
+    position: relative;
+  }
+
+  &[aria-label]:before {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    padding: 8px;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top;
+
+    @apply --label-small;
+    border-radius: var(--md-sys-shape-small);
+
+    --tint-opacity: 0.09;
+    --tint-color-rgb: var(--md-sys-color-primary-rgb);
+    --tint-color: rgba(var(--md-sys-color-primary-rgb), var(--tint-opacity));
+    z-index: 1000;
+    box-shadow: var(--md-sys-elevation-2);
+    background: linear-gradient(var(--tint-color), var(--tint-color)) no-repeat,
+      linear-gradient(var(--md-sys-color-surface), var(--md-sys-color-surface))
+        no-repeat;
+  }
+
+  &[aria-label]:hover:before {
+    transform: translateX(-50%) scale(1);
+  }
+}

@@ -1,4 +1,5 @@
-.light-theme {
+body,
+body.light-theme {
   color-scheme: light;
   --md-sys-color-primary-rgb: var(--md-sys-color-primary-rgb-light);
   --md-sys-color-on-primary-rgb: var(--md-sys-color-on-primary-rgb-light);

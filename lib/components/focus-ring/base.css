@@ -1,0 +1,12 @@
+:where(.focus-ring, .button, .icon, .fab, .card) {
+  position: relative;
+}
+
+:where(.focus-ring, .button, .icon, .fab, .card):focus-within::before {
+  content: "";
+  border: 2px solid var(--md-sys-color-on-surface-variant);
+  border-radius: inherit;
+  position: absolute;
+  inset: -6px;
+  box-sizing: border-box;
+}

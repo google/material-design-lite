@@ -27,3 +27,17 @@
 @import url(state.css);
 @import url(elevation.css);
 @import url(components.css);
+
+/* button {
+  border-radius: 20px;
+  position: relative;
+}
+
+:where(button, .icon):focus::before {
+  content: "";
+  border: 2px solid black;
+  border-radius: inherit;
+  position: absolute;
+  inset: -6px;
+  box-sizing: border-box;
+} */

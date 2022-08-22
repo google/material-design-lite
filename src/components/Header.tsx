@@ -21,7 +21,7 @@ const Header: FunctionalComponent = () => {
         <>
             <header id="header" class="top-app-bar small" style="min-width: 400px">
                 <button id="menu" class="icon leading" onClick={toggleMenu}>
-                    <i class="material-symbols-outlined">{open ? 'close' : 'menu'}</i>
+                    <i class="material-symbols-outlined">{open ? 'close' : 'menu_open'}</i>
                 </button>
                 <div id="title" class="title" onClick={goHome}>
                     <MaterialLogo size={40} />

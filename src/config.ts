@@ -50,10 +50,6 @@ export const SIDEBAR = [
     link: "overview/color",
   },
   {
-    text: "Themes",
-    link: "overview/themes",
-  },
-  {
     text: "Icons",
     link: "overview/icons",
     draft: true,
@@ -62,6 +58,10 @@ export const SIDEBAR = [
     text: "Shape",
     link: "overview/shape",
     draft: true,
+  },
+  {
+    text: "Themes",
+    link: "overview/themes",
   },
   {
     text: "FAQ",
@@ -255,7 +255,10 @@ export const SIDEBAR = [
   {
     text: "Tooltip",
     link: "components/tooltip",
-    draft: true
+  },
+  {
+    text: "Focus Ring",
+    link: "components/focus-ring",
   },
   {
     text: "Tab",
