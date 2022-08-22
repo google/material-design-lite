@@ -1,0 +1,6 @@
+.badge.tertiary {
+  &[data-badge]:after {
+    background-color: var(--md-sys-color-tertiary);
+    color: var(--md-sys-color-on-tertiary);
+  }
+}

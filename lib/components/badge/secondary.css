@@ -1,0 +1,6 @@
+.badge.secondary {
+  &[data-badge]:after {
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+  }
+}

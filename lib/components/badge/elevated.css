@@ -1,0 +1,5 @@
+.badge.elevated {
+  &[data-badge]:after {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+}

@@ -93,7 +93,6 @@ export const SIDEBAR = [
   },
   {
     text: "Badge", link: "components/badge",
-    draft: true
   },
   {
     text: "Banner", link: "components/banner",

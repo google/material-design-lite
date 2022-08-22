@@ -1,185 +1,185 @@
-.primary {
+.color-primary {
   @apply --primary;
 }
-.primary-text {
+.color-primary-text {
   @apply --primary-text;
 }
-.on-primary {
+.color-on-primary {
   @apply --on-primary;
 }
-.on-primary-text {
+.color-on-primary-text {
   @apply --on-primary-text;
 }
-.primary-container {
+.color-primary-container {
   @apply --primary-container;
 }
-.primary-container-text {
+.color-primary-container-text {
   @apply --primary-container-text;
 }
-.on-primary-container {
+.color-on-primary-container {
   @apply --on-primary-container;
 }
-.on-primary-container-text {
+.color-on-primary-container-text {
   @apply --on-primary-container-text;
 }
-.secondary {
+.color-secondary {
   @apply --secondary;
 }
-.secondary-text {
+.color-secondary-text {
   @apply --secondary-text;
 }
-.on-secondary {
+.color-on-secondary {
   @apply --on-secondary;
 }
-.on-secondary-text {
+.color-on-secondary-text {
   @apply --on-secondary-text;
 }
-.secondary-container {
+.color-secondary-container {
   @apply --secondary-container;
 }
-.secondary-container-text {
+.color-secondary-container-text {
   @apply --secondary-container-text;
 }
-.on-secondary-container {
+.color-on-secondary-container {
   @apply --on-secondary-container;
 }
-.on-secondary-container-text {
+.color-on-secondary-container-text {
   @apply --on-secondary-container-text;
 }
-.tertiary {
+.color-tertiary {
   @apply --tertiary;
 }
-.tertiary-text {
+.color-tertiary-text {
   @apply --tertiary-text;
 }
-.on-tertiary {
+.color-on-tertiary {
   @apply --on-tertiary;
 }
-.on-tertiary-text {
+.color-on-tertiary-text {
   @apply --on-tertiary-text;
 }
-.tertiary-container {
+.color-tertiary-container {
   @apply --tertiary-container;
 }
-.tertiary-container-text {
+.color-tertiary-container-text {
   @apply --tertiary-container-text;
 }
-.on-tertiary-container {
+.color-on-tertiary-container {
   @apply --on-tertiary-container;
 }
-.on-tertiary-container-text {
+.color-on-tertiary-container-text {
   @apply --on-tertiary-container-text;
 }
-.error {
+.color-error {
   @apply --error;
 }
-.error-text {
+.color-error-text {
   @apply --error-text;
 }
-.error-container {
+.color-error-container {
   @apply --error-container;
 }
-.error-container-text {
+.color-error-container-text {
   @apply --error-container-text;
 }
-.on-error {
+.color-on-error {
   @apply --on-error;
 }
-.on-error-text {
+.color-on-error-text {
   @apply --on-error-text;
 }
-.on-error-container {
+.color-on-error-container {
   @apply --on-error-container;
 }
-.on-error-container-text {
+.color-on-error-container-text {
   @apply --on-error-container-text;
 }
-.background {
+.color-background {
   @apply --background;
 }
-.background-text {
+.color-background-text {
   @apply --background-text;
 }
-.on-background {
+.color-on-background {
   @apply --on-background;
 }
-.on-background-text {
+.color-on-background-text {
   @apply --on-background-text;
 }
-.surface {
+.color-surface {
 }
-.surface-text {
+.color-surface-text {
   @apply --surface-text;
 }
-.on-surface {
+.color-on-surface {
   @apply --on-surface;
 }
-.on-surface-text {
+.color-on-surface-text {
   @apply --on-surface-text;
 }
-.surface-variant {
+.color-surface-variant {
   @apply --surface-variant;
 }
-.surface-variant-text {
+.color-surface-variant-text {
   @apply --surface-variant-text;
 }
-.on-surface-variant {
+.color-on-surface-variant {
   @apply --on-surface-variant;
 }
-.on-surface-variant-text {
+.color-on-surface-variant-text {
   @apply --on-surface-variant-text;
 }
-.outline {
+.color-outline {
   @apply --outline;
 }
-.outline-text {
+.color-outline-text {
   @apply --outline-text;
 }
-.inverse-on-surface {
+.color-inverse-on-surface {
   @apply --inverse-on-surface;
 }
-.inverse-on-surface-text {
+.color-inverse-on-surface-text {
   @apply --inverse-on-surface-text;
 }
-.inverse-surface {
+.color-inverse-surface {
   @apply --inverse-surface;
 }
-.inverse-surface-text {
+.color-inverse-surface-text {
   @apply --inverse-surface-text;
 }
-.inverse-primary {
+.color-inverse-primary {
   @apply --inverse-primary;
 }
-.inverse-primary-text {
+.color-inverse-primary-text {
   @apply --inverse-primary-text;
 }
-.shadow {
+.color-shadow {
   @apply --shadow;
 }
-.shadow-text {
+.color-shadow-text {
   @apply --shadow-text;
 }
-.surface-tint {
+.color-surface-tint {
   @apply --surface-tint;
 }
-.surface-tint-text {
+.color-surface-tint-text {
   @apply --surface-tint-text;
 }
-.surface-tint-color {
+.color-surface-tint-color {
   @apply --surface-tint-color;
 }
-.surface-tint-color-text {
+.color-surface-tint-color-text {
   @apply --surface-tint-color-text;
 }
-.black {
+.color-black {
   @apply --black;
 }
-.black-text {
+.color-black-text {
   @apply --black-text;
 }
-.white {
+.color-white {
   @apply --white;
 }
-.white-text {
+.color-white-text {
   @apply --white-text;
 }
