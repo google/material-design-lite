@@ -104,7 +104,6 @@ export const SIDEBAR = [
   {
     text: "Bottom app bar",
     link: "components/bottom-app-bar",
-    draft: true
   },
   {
     text: "Bottom sheet",

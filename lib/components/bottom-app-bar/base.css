@@ -1,0 +1,29 @@
+.bottom-app-bar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  box-shadow: var(--md-sys-elevation-1);
+
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+
+  & .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    flex: 1;
+
+    margin: 16px;
+  }
+
+  & .fab {
+    margin: 16px;
+
+    box-shadow: var(--md-sys-elevation-0);
+
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+}

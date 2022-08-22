@@ -32,10 +32,4 @@
   & tbody :where(:first-child, :nth-child(4), :last-child) {
     text-align: start;
   }
-
-  & .skipped {
-    & tbody tr:nth-child(odd) td {
-      background-color: rgba(var(--md-sys-color-outline-rgb), 0.67);
-    }
-  }
 }
