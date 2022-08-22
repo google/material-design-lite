@@ -241,7 +241,6 @@ export const SIDEBAR = [
   {
     text: "Switch",
     link: "components/switch",
-    draft: true
   },
   {
     text: "Text field",
