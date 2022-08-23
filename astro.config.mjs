@@ -14,7 +14,7 @@ import { CLASSES } from "./src/utils/classes.mjs";
 // https://astro.build/config
 export default defineConfig({
   site: "https://rodydavis.github.io/",
-  base: "/material-design-lite",
+  base: "/material-design-lite/",
   integrations: [preact(), lit(), mdx()],
   markdown: {
     syntaxHighlight: "prism",
