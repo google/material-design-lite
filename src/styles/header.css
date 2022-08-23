@@ -2,7 +2,7 @@
   text-decoration: none;
 }
 
-#title {
+#app-title {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -15,7 +15,7 @@
   flex: 1;
 }
 
-#title span {
+#app-title span {
   background-color: var(--md-sys-color-background);
   background-image: linear-gradient(
     45deg,

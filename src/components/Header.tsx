@@ -5,9 +5,9 @@ import ColorPicker from './controls/Color';
 import BrightnessToggle from './controls/Brightness';
 import DownloadButton from './controls/Download';
 import CodeButton from './controls/Code';
+import { useState } from 'preact/hooks';
 
 import "../styles/header.css";
-import {  useState } from 'preact/hooks';
 
 const Header: FunctionalComponent = () => {
     const [open, setOpen] = useState<boolean>(document.body.classList.contains('menu-open'));
@@ -26,7 +26,7 @@ const Header: FunctionalComponent = () => {
                 <button id="menu-toggle" class="icon leading" onClick={toggleMenu} >
                     <i class="material-symbols-outlined">{open ? 'close' : 'menu_open'}</i>
                 </button>
-                <div id="title" class="title" onClick={goHome} style={{
+                <div id="app-title" class="title" onClick={goHome} style={{
                     userSelect: 'none',
                 }}>
                     <MaterialLogo size={40} />
