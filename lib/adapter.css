@@ -65,4 +65,157 @@ body {
     var(--md-sys-color-inverse-primary-rgb),
     1
   );
+
+  --md-sys-color-outline-variant: rgba(
+    var(--md-sys-color-outline-variant-rgb),
+    1
+  );
+
+  /* primary */
+  --md-ref-palette-primary0: rgba(var(--md-ref-palette-primary0-rgb));
+  --md-ref-palette-primary5: rgba(var(--md-ref-palette-primary5-rgb));
+  --md-ref-palette-primary10: rgba(var(--md-ref-palette-primary10-rgb));
+  --md-ref-palette-primary20: rgba(var(--md-ref-palette-primary20-rgb));
+  --md-ref-palette-primary25: rgba(var(--md-ref-palette-primary25-rgb));
+  --md-ref-palette-primary30: rgba(var(--md-ref-palette-primary30-rgb));
+  --md-ref-palette-primary35: rgba(var(--md-ref-palette-primary35-rgb));
+  --md-ref-palette-primary40: rgba(var(--md-ref-palette-primary40-rgb));
+  --md-ref-palette-primary50: rgba(var(--md-ref-palette-primary50-rgb));
+  --md-ref-palette-primary60: rgba(var(--md-ref-palette-primary60-rgb));
+  --md-ref-palette-primary70: rgba(var(--md-ref-palette-primary70-rgb));
+  --md-ref-palette-primary80: rgba(var(--md-ref-palette-primary80-rgb));
+  --md-ref-palette-primary90: rgba(var(--md-ref-palette-primary90-rgb));
+  --md-ref-palette-primary95: rgba(var(--md-ref-palette-primary95-rgb));
+  --md-ref-palette-primary98: rgba(var(--md-ref-palette-primary98-rgb));
+  --md-ref-palette-primary99: rgba(var(--md-ref-palette-primary99-rgb));
+  --md-ref-palette-primary100: rgba(var(--md-ref-palette-primary100-rgb));
+
+  /* secondary */
+  --md-ref-palette-secondary0: rgba(var(--md-ref-palette-secondary0-rgb));
+  --md-ref-palette-secondary5: rgba(var(--md-ref-palette-secondary5-rgb));
+  --md-ref-palette-secondary10: rgba(var(--md-ref-palette-secondary10-rgb));
+  --md-ref-palette-secondary20: rgba(var(--md-ref-palette-secondary20-rgb));
+  --md-ref-palette-secondary25: rgba(var(--md-ref-palette-secondary25-rgb));
+  --md-ref-palette-secondary30: rgba(var(--md-ref-palette-secondary30-rgb));
+  --md-ref-palette-secondary35: rgba(var(--md-ref-palette-secondary35-rgb));
+  --md-ref-palette-secondary40: rgba(var(--md-ref-palette-secondary40-rgb));
+  --md-ref-palette-secondary50: rgba(var(--md-ref-palette-secondary50-rgb));
+  --md-ref-palette-secondary60: rgba(var(--md-ref-palette-secondary60-rgb));
+  --md-ref-palette-secondary70: rgba(var(--md-ref-palette-secondary70-rgb));
+  --md-ref-palette-secondary80: rgba(var(--md-ref-palette-secondary80-rgb));
+  --md-ref-palette-secondary90: rgba(var(--md-ref-palette-secondary90-rgb));
+  --md-ref-palette-secondary95: rgba(var(--md-ref-palette-secondary95-rgb));
+  --md-ref-palette-secondary98: rgba(var(--md-ref-palette-secondary98-rgb));
+  --md-ref-palette-secondary99: rgba(var(--md-ref-palette-secondary99-rgb));
+  --md-ref-palette-secondary100: rgba(var(--md-ref-palette-secondary100-rgb));
+
+  /* tertiary */
+  --md-ref-palette-tertiary0: rgba(var(--md-ref-palette-tertiary0-rgb));
+  --md-ref-palette-tertiary5: rgba(var(--md-ref-palette-tertiary5-rgb));
+  --md-ref-palette-tertiary10: rgba(var(--md-ref-palette-tertiary10-rgb));
+  --md-ref-palette-tertiary20: rgba(var(--md-ref-palette-tertiary20-rgb));
+  --md-ref-palette-tertiary25: rgba(var(--md-ref-palette-tertiary25-rgb));
+  --md-ref-palette-tertiary30: rgba(var(--md-ref-palette-tertiary30-rgb));
+  --md-ref-palette-tertiary35: rgba(var(--md-ref-palette-tertiary35-rgb));
+  --md-ref-palette-tertiary40: rgba(var(--md-ref-palette-tertiary40-rgb));
+  --md-ref-palette-tertiary50: rgba(var(--md-ref-palette-tertiary50-rgb));
+  --md-ref-palette-tertiary60: rgba(var(--md-ref-palette-tertiary60-rgb));
+  --md-ref-palette-tertiary70: rgba(var(--md-ref-palette-tertiary70-rgb));
+  --md-ref-palette-tertiary80: rgba(var(--md-ref-palette-tertiary80-rgb));
+  --md-ref-palette-tertiary90: rgba(var(--md-ref-palette-tertiary90-rgb));
+  --md-ref-palette-tertiary95: rgba(var(--md-ref-palette-tertiary95-rgb));
+  --md-ref-palette-tertiary98: rgba(var(--md-ref-palette-tertiary98-rgb));
+  --md-ref-palette-tertiary99: rgba(var(--md-ref-palette-tertiary99-rgb));
+  --md-ref-palette-tertiary100: rgba(var(--md-ref-palette-tertiary100-rgb));
+
+  /* error */
+  --md-ref-palette-error0: rgba(var(--md-ref-palette-error0-rgb));
+  --md-ref-palette-error5: rgba(var(--md-ref-palette-error5-rgb));
+  --md-ref-palette-error10: rgba(var(--md-ref-palette-error10-rgb));
+  --md-ref-palette-error20: rgba(var(--md-ref-palette-error20-rgb));
+  --md-ref-palette-error25: rgba(var(--md-ref-palette-error25-rgb));
+  --md-ref-palette-error30: rgba(var(--md-ref-palette-error30-rgb));
+  --md-ref-palette-error35: rgba(var(--md-ref-palette-error35-rgb));
+  --md-ref-palette-error40: rgba(var(--md-ref-palette-error40-rgb));
+  --md-ref-palette-error50: rgba(var(--md-ref-palette-error50-rgb));
+  --md-ref-palette-error60: rgba(var(--md-ref-palette-error60-rgb));
+  --md-ref-palette-error70: rgba(var(--md-ref-palette-error70-rgb));
+  --md-ref-palette-error80: rgba(var(--md-ref-palette-error80-rgb));
+  --md-ref-palette-error90: rgba(var(--md-ref-palette-error90-rgb));
+  --md-ref-palette-error95: rgba(var(--md-ref-palette-error95-rgb));
+  --md-ref-palette-error98: rgba(var(--md-ref-palette-error98-rgb));
+  --md-ref-palette-error99: rgba(var(--md-ref-palette-error99-rgb));
+  --md-ref-palette-error100: rgba(var(--md-ref-palette-error100-rgb));
+
+  /* neutral */
+  --md-ref-palette-neutral0: rgba(var(--md-ref-palette-neutral0-rgb));
+  --md-ref-palette-neutral5: rgba(var(--md-ref-palette-neutral5-rgb));
+  --md-ref-palette-neutral10: rgba(var(--md-ref-palette-neutral10-rgb));
+  --md-ref-palette-neutral20: rgba(var(--md-ref-palette-neutral20-rgb));
+  --md-ref-palette-neutral25: rgba(var(--md-ref-palette-neutral25-rgb));
+  --md-ref-palette-neutral30: rgba(var(--md-ref-palette-neutral30-rgb));
+  --md-ref-palette-neutral35: rgba(var(--md-ref-palette-neutral35-rgb));
+  --md-ref-palette-neutral40: rgba(var(--md-ref-palette-neutral40-rgb));
+  --md-ref-palette-neutral50: rgba(var(--md-ref-palette-neutral50-rgb));
+  --md-ref-palette-neutral60: rgba(var(--md-ref-palette-neutral60-rgb));
+  --md-ref-palette-neutral70: rgba(var(--md-ref-palette-neutral70-rgb));
+  --md-ref-palette-neutral80: rgba(var(--md-ref-palette-neutral80-rgb));
+  --md-ref-palette-neutral90: rgba(var(--md-ref-palette-neutral90-rgb));
+  --md-ref-palette-neutral95: rgba(var(--md-ref-palette-neutral95-rgb));
+  --md-ref-palette-neutral98: rgba(var(--md-ref-palette-neutral98-rgb));
+  --md-ref-palette-neutral99: rgba(var(--md-ref-palette-neutral99-rgb));
+  --md-ref-palette-neutral100: rgba(var(--md-ref-palette-neutral100-rgb));
+
+  /* neutral-variant */
+  --md-ref-palette-neutral-variant0: rgba(
+    var(--md-ref-palette-neutral-variant0-rgb)
+  );
+  --md-ref-palette-neutral-variant5: rgba(
+    var(--md-ref-palette-neutral-variant5-rgb)
+  );
+  --md-ref-palette-neutral-variant10: rgba(
+    var(--md-ref-palette-neutral-variant10-rgb)
+  );
+  --md-ref-palette-neutral-variant20: rgba(
+    var(--md-ref-palette-neutral-variant20-rgb)
+  );
+  --md-ref-palette-neutral-variant25: rgba(
+    var(--md-ref-palette-neutral-variant25-rgb)
+  );
+  --md-ref-palette-neutral-variant30: rgba(
+    var(--md-ref-palette-neutral-variant30-rgb)
+  );
+  --md-ref-palette-neutral-variant35: rgba(
+    var(--md-ref-palette-neutral-variant35-rgb)
+  );
+  --md-ref-palette-neutral-variant40: rgba(
+    var(--md-ref-palette-neutral-variant40-rgb)
+  );
+  --md-ref-palette-neutral-variant50: rgba(
+    var(--md-ref-palette-neutral-variant50-rgb)
+  );
+  --md-ref-palette-neutral-variant60: rgba(
+    var(--md-ref-palette-neutral-variant60-rgb)
+  );
+  --md-ref-palette-neutral-variant70: rgba(
+    var(--md-ref-palette-neutral-variant70-rgb)
+  );
+  --md-ref-palette-neutral-variant80: rgba(
+    var(--md-ref-palette-neutral-variant80-rgb)
+  );
+  --md-ref-palette-neutral-variant90: rgba(
+    var(--md-ref-palette-neutral-variant90-rgb)
+  );
+  --md-ref-palette-neutral-variant95: rgba(
+    var(--md-ref-palette-neutral-variant95-rgb)
+  );
+  --md-ref-palette-neutral-variant98: rgba(
+    var(--md-ref-palette-neutral-variant98-rgb)
+  );
+  --md-ref-palette-neutral-variant99: rgba(
+    var(--md-ref-palette-neutral-variant99-rgb)
+  );
+  --md-ref-palette-neutral-variant100: rgba(
+    var(--md-ref-palette-neutral-variant100-rgb)
+  );
 }

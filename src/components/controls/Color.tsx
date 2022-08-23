@@ -103,11 +103,14 @@ export function generateTokens(color: string) {
         output.push(`  /* ${section} */`);
         for (const [tone, value] of Object.entries(palette)) {
             const token = section.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-            output.push(`  --md-ref-palette-${token}${tone}: ${value};`);
+            const [r, g, b] = hexToRgb(value);
+            output.push(`  --md-ref-palette-${token}${tone}-rgb: ${r}, ${g}, ${b};`);
         }
     }
 
     output.push('}');
+
+    console.log(output.join('\n'));
 
     const result = output.join('\n');
     return result;
