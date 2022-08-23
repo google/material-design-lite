@@ -7,7 +7,6 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
-
   white-space: nowrap;
 }
 
@@ -28,4 +27,11 @@
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+}
+
+/* Hide title text smaller than 550px */
+@media (max-width: 550px) {
+  #app-title span {
+    display: none;
+  }
 }

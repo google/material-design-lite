@@ -7,8 +7,6 @@ import DownloadButton from './controls/Download';
 import CodeButton from './controls/Code';
 import { useState } from 'preact/hooks';
 
-import "../styles/header.css";
-
 const Header: FunctionalComponent = () => {
     const [open, setOpen] = useState<boolean>(document.body.classList.contains('menu-open'));
     const goHome = () => {
@@ -32,7 +30,7 @@ const Header: FunctionalComponent = () => {
                     <MaterialLogo size={40} />
                     <span id="title-text">Material Design Lite</span>
                 </div>
-                <div class="spacer"></div>
+                <div class="spacer" style={{ flex: 1 }}></div>
                 <div class="actions">
                     <ColorPicker />
                     <BrightnessToggle />
