@@ -1,0 +1,58 @@
+.segmented-button {
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: relative;
+  user-select: none;
+
+  border-radius: 20px;
+  border: 1px solid var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface);
+
+  @apply --label-large;
+
+  & input {
+    display: none;
+  }
+
+  & label {
+    min-width: 40px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  & label:last-of-type {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  & label:first-of-type {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  & label:not(:last-child) {
+    border-right: 1px solid var(--md-sys-color-outline);
+  }
+
+  & input:checked + label {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+  }
+}

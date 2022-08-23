@@ -26,7 +26,7 @@
 
   & :where(th) {
     border-top: none;
-    background: var(--md-surface-2);
+    background-color: var(--md-surface-2);
     color: var(--md-sys-color-on-surface-variant);
     font-weight: 500;
   }

@@ -1,4 +1,4 @@
-.data-table.striped {
+.data-table.zebra {
   & tr:nth-of-type(even) {
     background-color: var(--md-surface-1);
   }

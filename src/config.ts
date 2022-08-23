@@ -213,9 +213,8 @@ export const SIDEBAR = [
     draft: true
   },
   {
-    text: "Segmented",
-    link: "components/segmented",
-    draft: true
+    text: "Segmented Button",
+    link: "components/segmented-button",
   },
   {
     text: "Stepper",
