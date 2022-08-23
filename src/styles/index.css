@@ -1,4 +1,5 @@
 @import url(layout.css);
+@import url(adapter.css);
 
 * {
   box-sizing: border-box;
@@ -110,7 +111,7 @@ small,
 }
 
 a {
-  color: var(--theme-text-accent);
+  color: var(--md-sys-color-primary);
   font-weight: 400;
   text-underline-offset: 0.08em;
   align-items: center;

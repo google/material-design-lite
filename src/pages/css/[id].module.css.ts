@@ -5,7 +5,6 @@ import type { APIContext } from 'astro';
 
 export function getStaticPaths() {
     const components = fs.readdirSync(`./lib`).filter((file) => file.endsWith(".css") && ![
-        'adapter.css',
         'styles.css'
     ].includes(file));
     return components.map((component) => {

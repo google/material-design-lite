@@ -1,6 +1,5 @@
-body,
-.tokens,
-.elevation {
+:where(html),
+.tokens {
   /* +5 */
   --md-sys-elevation-level5-value: 12px;
   --md-sys-elevation-level5-unit: 1px;

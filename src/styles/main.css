@@ -60,6 +60,7 @@ article {
 
 #menu .link {
   opacity: 0.75;
+  color: var(--md-sys-color-on-surface);
 }
 
 #menu .link.draft {

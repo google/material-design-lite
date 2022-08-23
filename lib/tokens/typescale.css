@@ -1,6 +1,5 @@
-body,
-.tokens,
-.typescale {
+:where(html),
+.tokens {
   /* label - small */
   --md-sys-typescale-label-small-font-family-name: Roboto;
   --md-sys-typescale-label-small-font-family-style: Medium;

@@ -1,6 +1,5 @@
-body,
-.tokens,
-.state {
+:where(html),
+.tokens {
   /* Dragged state layer opacity */
   --md-sys-state-dragged-state-layer-opacity: 0.16;
   /* Pressed state layer opacity */

@@ -1,6 +1,4 @@
-body,
-.tokens,
-.palettes {
+:where(html), .tokens {
   /* Color */
   --md-source: #6750a4;
   --md-source-hue: 298.98099721070395;

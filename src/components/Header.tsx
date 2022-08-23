@@ -4,9 +4,10 @@ import MaterialLogo from './Logo'
 import ColorPicker from './controls/Color';
 import BrightnessToggle from './controls/Brightness';
 import DownloadButton from './controls/Download';
+import CodeButton from './controls/Code';
 
 import "../styles/header.css";
-import { useEffect, useState } from 'preact/hooks';
+import {  useState } from 'preact/hooks';
 
 const Header: FunctionalComponent = () => {
     const [open, setOpen] = useState<boolean>(document.body.classList.contains('menu-open'));
@@ -35,6 +36,7 @@ const Header: FunctionalComponent = () => {
                 <div class="actions">
                     <ColorPicker />
                     <BrightnessToggle />
+                    <CodeButton />
                     <DownloadButton />
                 </div>
             </header>

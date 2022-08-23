@@ -1,6 +1,5 @@
-body,
-.tokens,
-.surfaces {
+:where(html),
+.tokens {
   --md-surface-1: rgba(var(--md-sys-color-primary-rgb), 0.05);
   --md-surface-2: rgba(var(--md-sys-color-primary-rgb), 0.08);
   --md-surface-3: rgba(var(--md-sys-color-primary-rgb), 0.11);

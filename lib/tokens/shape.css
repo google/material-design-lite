@@ -1,6 +1,5 @@
-body,
-.tokens,
-.shape {
+:where(html),
+.tokens {
   /* Fully rounded */
   --md-sys-shape-corner-full-family: 3px;
   /* Extra large top rounding */
