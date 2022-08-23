@@ -17,6 +17,8 @@
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
 
+  z-index: 1;
+
   & .actions {
     grid-area: actions;
     display: flex;
