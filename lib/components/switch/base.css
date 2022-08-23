@@ -60,10 +60,11 @@
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background-color: rgb(var(--md-sys-color-on-primary-rgb));
+  background-color: var(--md-sys-color-on-primary);
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
   transition: background-color 0.2s, transform 0.2s;
+  z-index: 2;
 }
 
 /* Checked */
@@ -115,7 +116,7 @@
 }
 
 .switch > input:disabled + span {
-  color: rgb(var(--md-sys-color-on-surface-rgb));
+  color: var(--md-sys-color-on-surface);
   opacity: 0.38;
   cursor: default;
 }

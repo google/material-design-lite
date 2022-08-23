@@ -14,24 +14,22 @@ body.light-theme {
   --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);
   --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);
   --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);
-  --md-sys-color-on-primary-rgb: var(--md-ref-palette-on-primary100-rgb);
-  --md-sys-color-on-primary-container-rgb: var(
-    --md-ref-palette-on-primary10-rgb
-  );
-  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-on-secondary100-rgb);
+  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);
+  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary10-rgb);
+  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);
   --md-sys-color-on-secondary-container-rgb: var(
-    --md-ref-palette-on-secondary10 -rgb
+    --md-ref-palette-secondary10 -rgb
   );
-  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-on-tertiary100-rgb);
+  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);
   --md-sys-color-on-tertiary-container-rgb: var(
-    --md-ref-palette-on-tertiary10-rgb
+    --md-ref-palette-tertiary10-rgb
   );
   --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);
   --md-sys-color-on-surface-variant-rgb: var(
     --md-ref-palette-neutral-variant30 -rgb
   );
-  --md-sys-color-on-error-rgb: var(--md-ref-palette-on-error100-rgb);
-  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-on-error10-rgb);
+  --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);
+  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);
   --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);
   --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);
   --md-sys-color-outline-variant-rgb: var(
