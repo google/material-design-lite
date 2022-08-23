@@ -1,14 +1,16 @@
-import type { FunctionalComponent } from 'preact';
+import { createRef, FunctionalComponent } from 'preact';
 
 import MaterialLogo from './Logo'
 import ColorPicker from './controls/Color';
 import BrightnessToggle from './controls/Brightness';
 import DownloadButton from './controls/Download';
 import CodeButton from './controls/Code';
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 const Header: FunctionalComponent = () => {
+    const ref = createRef<HTMLElement>();
     const [open, setOpen] = useState<boolean>(document.body.classList.contains('menu-open'));
+    const [scrolled, setScrolled] = useState<boolean>(false);
     const goHome = () => {
         window.location.href = '/material-design-lite/';
     };
@@ -16,9 +18,22 @@ const Header: FunctionalComponent = () => {
         document.body.classList.toggle('menu-open');
         setOpen(!open);
     };
+
+    useEffect(() => {
+        const header = ref.current;
+        window.addEventListener("scroll", (e) => {
+            if (window.scrollY > 0) {
+                header.classList.add("scrolled");
+                setScrolled(true);
+            } else {
+                header.classList.remove("scrolled");
+                setScrolled(false);
+            }
+        });
+    }, [scrolled]);
     return (
         <>
-            <header id="app-header" class="top-app-bar small" style={{
+            <header ref={ref} id="app-header" class="top-app-bar small" style={{
                 minWidth: '400px',
             }}>
                 <button id="menu-toggle" class="icon leading" onClick={toggleMenu} >

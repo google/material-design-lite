@@ -17,8 +17,6 @@
 
 #content,
 #menu {
-  border-top: 1px solid var(--md-sys-color-outline-variant);
-
   position: fixed;
   top: var(--header-height);
   left: 0;
@@ -48,6 +46,7 @@
 article {
   max-width: 820px;
   margin: 0 auto;
+  padding-top: 40px;
 }
 
 #menu a {
