@@ -19,10 +19,10 @@ const Header: FunctionalComponent = () => {
     };
     return (
         <>
-            <header id="header" class="top-app-bar small" style={{
+            <header id="app-header" class="top-app-bar small" style={{
                 minWidth: '400px',
             }}>
-                <button id="menu" class="icon leading" onClick={toggleMenu}>
+                <button id="menu-toggle" class="icon leading" onClick={toggleMenu} >
                     <i class="material-symbols-outlined">{open ? 'close' : 'menu_open'}</i>
                 </button>
                 <div id="title" class="title" onClick={goHome} style={{

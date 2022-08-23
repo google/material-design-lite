@@ -22,11 +22,19 @@ const title = content.title
 	</head>
 
 	<body class="light-theme">
-		<Header {currentPage} client:only="preact" />
-		<main class="content">
-			<h1>{content.title}</h1>
-			<slot />
-		</main>
-		<Menu items={CONFIG.SIDEBAR} client:only="preact" />
+		<div id="header">
+			<Header {currentPage} client:only="preact" />
+		</div>
+		<div id="main">
+			<main id="content" class="content">
+				<article>
+					<h1>{content.title}</h1>
+					<slot />
+				</article>
+			</main>
+			<div id="menu">
+				<Menu items={CONFIG.SIDEBAR} client:only="preact" />
+			</div>
+		</div>
 	</body>
 </html>

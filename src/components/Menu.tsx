@@ -17,9 +17,13 @@ const Menu: FunctionalComponent<{ items: MenuItem[] }> = ({ items = [] }) => {
                             return <h2>{item.text}</h2>;
                         }
                         if (!item.draft) {
-                            return <a class="link" href={`/material-design-lite/${item.link}`}>{item.text}</a>;
+                            return <a class="link" href={`/material-design-lite/${item.link}`} style={{
+                                display: 'block'
+                            }}>{item.text}</a>;
                         } else {
-                            return <div class="link draft">{item.text}</div>;
+                            return <div class="link draft" style={{
+                                display: 'block'
+                            }}>{item.text}</div>;
                         }
                     })
                 }
