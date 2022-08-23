@@ -1,5 +1,0 @@
-.data-table.skipped {
-  & tbody tr:nth-child(odd) td {
-    background-color: rgba(var(--md-sys-color-outline-rgb), 0.67);
-  }
-}

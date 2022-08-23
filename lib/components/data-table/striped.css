@@ -1,0 +1,5 @@
+.data-table.striped {
+  & tr:nth-of-type(even) {
+    background-color: var(--md-surface-1);
+  }
+}

@@ -213,7 +213,6 @@ pre > code {
   font-size: 1em;
 }
 
-table,
 pre {
   position: relative;
   --padding-block: 1rem;
@@ -228,28 +227,6 @@ pre {
   font-size: 0.85em;
   overflow-y: hidden;
   overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  padding: var(--padding-block) 0;
-  margin: 0;
-  border-collapse: collapse;
-}
-
-/* Zebra striping */
-tr:nth-of-type(odd) {
-  background: var(--theme-bg-hover);
-}
-th {
-  background: var(--color-black);
-  color: var(--md-sys-color-primary);
-  font-weight: bold;
-}
-td,
-th {
-  padding: 6px;
-  text-align: left;
 }
 
 pre {
