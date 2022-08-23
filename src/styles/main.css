@@ -50,6 +50,14 @@ article {
   margin: 0 auto;
 }
 
+#menu a {
+  text-decoration: none;
+}
+
+#menu a:hover {
+  text-decoration: underline;
+}
+
 /* Desktop */
 
 @media (min-width: 768px) {
