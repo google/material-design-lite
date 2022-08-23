@@ -58,6 +58,22 @@ article {
   text-decoration: underline;
 }
 
+#menu .link {
+  opacity: 0.75;
+}
+
+#menu .link.draft {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+#menu h2 {
+  margin: 0;
+  padding: 10px 0;
+
+  @apply --title-large;
+}
+
 /* Desktop */
 
 @media (min-width: 768px) {
