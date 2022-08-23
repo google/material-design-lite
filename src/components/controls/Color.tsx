@@ -110,8 +110,6 @@ export function generateTokens(color: string) {
 
     output.push('}');
 
-    console.log(output.join('\n'));
-
     const result = output.join('\n');
     return result;
 }
