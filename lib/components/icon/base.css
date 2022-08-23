@@ -44,7 +44,7 @@
   }
 
   &[disabled] {
-    cursor: not-allowed;
+    cursor: default;
     color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
     box-shadow: var(--md-sys-elevation-0);
   }

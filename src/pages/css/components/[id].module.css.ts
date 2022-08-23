@@ -5,7 +5,9 @@ import type { APIContext } from 'astro';
 
 export function getStaticPaths() {
     const components = fs.readdirSync(`./lib/components`);
-    return components.map((component) => ({ params: { id: component } }));
+    return components
+        .map((c) => ({ params: { id: c } }))
+        .filter((c) => c.params.id !== ".template");
 }
 
 export async function get({ params, request }: APIContext) {

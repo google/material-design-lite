@@ -88,15 +88,15 @@ export function generateTokens(color: string) {
 
     const convertedTheme = JSON.parse(JSON.stringify(theme, convertColors, 2));
 
-    // Schemes
-    for (const [section, scheme] of Object.entries(convertedTheme.schemes)) {
-        output.push(`  /* ${section} */`);
-        for (const [key, value] of Object.entries(scheme)) {
-            const token = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-            const [r, g, b] = hexToRgb(value);
-            output.push(`  --md-sys-color-${token}-rgb-${section}: ${r}, ${g}, ${b};`);
-        }
-    }
+    // // Schemes
+    // for (const [section, scheme] of Object.entries(convertedTheme.schemes)) {
+    //     output.push(`  /* ${section} */`);
+    //     for (const [key, value] of Object.entries(scheme)) {
+    //         const token = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+    //         const [r, g, b] = hexToRgb(value);
+    //         output.push(`  --md-sys-color-${token}-rgb-${section}: ${r}, ${g}, ${b};`);
+    //     }
+    // }
 
     // Palettes
     for (const [section, palette] of Object.entries(convertedTheme.palettes)) {
