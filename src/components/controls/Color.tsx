@@ -55,6 +55,7 @@ function updateStyle(id: string, content: string) {
     }
     // Apply in chunks to avoid memory issues
     const chunks = content.match(/.{1,500}/g) || [];
+    style.innerHTML = '';
     for (const chunk of chunks) {
         style.appendChild(document.createTextNode(chunk));
     }
