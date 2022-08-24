@@ -129,7 +129,6 @@ export const SIDEBAR = [
   {
     text: "Divider",
     link: "components/data-table",
-    draft: true
   },
   {
     text: "Date picker",
@@ -197,7 +196,6 @@ export const SIDEBAR = [
   {
     text: "Radio button",
     link: "components/radio-button",
-    draft: true
   },
   {
     text: "Ripple",

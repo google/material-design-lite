@@ -1,0 +1,36 @@
+:where(input[type="radio"], .radio-button) {
+  accent-color: var(--md-sys-color-primary);
+
+  display: grid;
+  place-content: center;
+
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  background-color: var(--md-sys-color-surface);
+
+  &::before {
+    /* Material Icons */
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+
+    content: "radio_button_unchecked";
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  &:checked::before {
+    content: "radio_button_checked";
+    color: var(--md-sys-color-primary);
+  }
+}

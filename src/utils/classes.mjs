@@ -1,4 +1,20 @@
 export const CLASSES = {
+  // Icons
+  "material-icons": {
+    "font-family": `"Material Icons"`,
+    "font-weight": "normal",
+    "font-style": "normal",
+    "font-size": "24px",
+    "line-height": "1",
+    "letter-spacing": "normal",
+    "text-transform": "none",
+    "white-space": "nowrap",
+    "word-wrap": "normal",
+    direction: "ltr",
+    "font-feature-settings": `"liga"`,
+    "-webkit-font-feature-settings": `"liga"`,
+    "-webkit-font-smoothing": "antialiased",
+  },
   // Typography
   "label-small": {
     "font-family": "var(--md-sys-typescale-label-small-font-family-name)",
