@@ -11,49 +11,48 @@
 
   border-radius: 20px;
   border: 1px solid var(--md-sys-color-outline);
-  color: var(--md-sys-color-on-surface);
   background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
 
   @apply --label-large;
 
-  & input {
-    display: none;
-    pointer-events: none;
-
-    & + label {
-      min-width: 40px;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      padding: 0 40px;
-      margin: 0;
-
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-      z-index: 1;
-
-      & i {
-        margin-right: 8px;
-      }
-    }
+  & .option {
+    width: 100%;
+    height: 100%;
+    flex: 1;
   }
 
-  & label:last-of-type {
+  & label {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+  }
+
+  & .option:last-of-type label {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
   }
 
-  & label:first-of-type {
+  & .option:first-of-type label {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
   }
 
-  & label:not(:last-child) {
+  & :where(.option):not(:last-child) {
     border-right: 1px solid var(--md-sys-color-outline);
+  }
+
+  & input {
+    display: none;
+    pointer-events: none;
+  }
+
+  & i {
+    margin-right: 8px;
+  }
+
+  & input:checked .option {
   }
 
   & input:checked + label {
@@ -83,6 +82,25 @@
 
     & i {
       display: none;
+    }
+  }
+
+  &:not(.multi) {
+    & input + label {
+      min-width: 40px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 0 40px;
+      margin: 0;
+
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      z-index: 1;
     }
   }
 }
