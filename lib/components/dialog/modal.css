@@ -1,5 +1,6 @@
 :where(.dialog, dialog).modal {
   &[open] {
+    margin: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -7,6 +8,6 @@
     right: 0;
   }
   &::backdrop {
-    background-color: var(--md-sys-color-scrim);
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }
