@@ -128,11 +128,11 @@ export const SIDEBAR = [
   },
   {
     text: "Divider",
-    link: "components/data-table",
+    link: "components/divider",
   },
   {
     text: "Date picker",
-    link: "components/divider",
+    link: "components/date-picker",
     draft: true
   },
   {
