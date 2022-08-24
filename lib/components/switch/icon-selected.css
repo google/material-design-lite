@@ -1,0 +1,7 @@
+/* Codepen: https://codepen.io/finnhvman/pen/pOeyjE */
+
+:where(.switch).icon-selected {
+  & > input:checked + span::after {
+    content: "check";
+  }
+}

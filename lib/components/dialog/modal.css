@@ -9,5 +9,7 @@
   }
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.4);
+    /* background-color: rgba(var(--md-sys-color-scrim), 0.4); */
+    pointer-events: none !important;
   }
 }
