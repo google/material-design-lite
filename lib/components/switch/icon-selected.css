@@ -1,7 +1,15 @@
 /* Codepen: https://codepen.io/finnhvman/pen/pOeyjE */
 
 :where(.switch).icon-selected {
-  & > input:checked + span::after {
+  --thumb-size: 24px;
+
+  &::after {
+    left: var(--border-width);
+  }
+
+  &:checked::after {
     content: "check";
+
+    left: calc(100% - var(--thumb-size) - var(--border-width));
   }
 }

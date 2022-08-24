@@ -1,154 +1,92 @@
-/* Codepen: https://codepen.io/finnhvman/pen/pOeyjE */
-
 :where(.switch) {
-  z-index: 0;
-  position: relative;
-  display: inline-block;
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
-  line-height: 1.5;
+  --thumb-size: 16px;
+  --track-width: 52px;
+  --track-height: 32px;
+  --border-width: 2px;
 
-  /* Input */
-  & > input {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    z-index: -1;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  width: var(--track-width);
+  height: var(--track-height);
+  border-radius: 20px;
+
+  background-color: var(--md-sys-color-surface-variant);
+  border: var(--border-width) solid var(--md-sys-color-outline);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Thumb */
+  &::after {
+    content: "";
+
+    /* Material Icons */
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    border-radius: inherit;
+
+    background-color: var(--md-sys-color-outline);
+    color: var(--md-sys-color-surface-variant);
+
     position: absolute;
-    right: 6px;
-    top: -8px;
-    display: block;
-    margin: 0;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-    outline: none;
-    opacity: 0;
-    transform: scale(1);
-    pointer-events: none;
-    transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
+
+    left: calc(var(--thumb-size) / 2 - var(--border-width));
+    transition: left 0.2s ease-in-out;
   }
 
-  /* Span */
-  & > span {
-    display: inline-block;
-    width: 100%;
-    cursor: pointer;
+  &:checked {
+    --thumb-size: 28px;
 
-    /* Track */
-    &::before {
-      content: "";
-      float: right;
-      display: inline-block;
-      margin: 5px 0 5px 10px;
-      border-radius: 7px;
-      width: 36px;
-      height: 14px;
-      vertical-align: top;
-      background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-      transition: background-color 0.2s, opacity 0.2s;
-    }
-
-    /* Thumb */
-    &::after {
-      content: "";
-      position: absolute;
-      top: 2px;
-      right: 16px;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      background-color: var(--md-sys-color-on-primary);
-      box-shadow: var(--md-sys-elevation-1);
-      transition: background-color 0.2s, transform 0.2s;
-      z-index: 2;
-
-      /* Material Icons */
-      font-family: "Material Icons";
-      font-weight: normal;
-      font-style: normal;
-      font-size: 16px;
-      line-height: 1;
-      letter-spacing: normal;
-      text-transform: none;
-      white-space: nowrap;
-      word-wrap: normal;
-      direction: ltr;
-      font-feature-settings: "liga";
-      -webkit-font-feature-settings: "liga";
-      -webkit-font-smoothing: antialiased;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  /* Checked */
-  & > input:checked {
-    right: -10px;
     background-color: var(--md-sys-color-primary);
+    border-color: var(--md-sys-color-primary);
 
-    & + span::before {
-      background-color: rgba(var(--md-sys-color-primary-rgb), 0.6);
-    }
-
-    & + span::after {
-      transform: translateX(16px);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    &::after {
+      left: calc(100% - var(--thumb-size));
 
       background-color: var(--md-sys-color-on-primary);
       color: var(--md-sys-color-on-primary-container);
     }
   }
 
-  /* Hover, Focus */
-  &:hover > input {
-    opacity: 0.04;
-  }
+  &:disabled {
+    background-color: rgba(var(--md-sys-color-surface-variant-rgb), 0.12);
+    border-color: var(--md-sys-color-surface-variant);
 
-  & > input:focus {
-    opacity: 0.12;
-  }
-
-  &:hover > input:focus {
-    opacity: 0.16;
-  }
-
-  /* Active */
-  & > input:active {
-    opacity: 1;
-    transform: scale(0);
-    transition: transform 0s, opacity 0s;
-  }
-
-  & > input:active + span::before {
-    background-color: rgba(var(--md-sys-color-primary-rgb), 0.6);
-  }
-
-  & > input:checked:active + span::before {
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-  }
-
-  /* Disabled */
-  & > input:disabled {
-    opacity: 0;
-
-    & + span {
-      color: var(--md-sys-color-on-surface);
+    &::after {
       opacity: 0.38;
-      cursor: default;
+      background-color: var(--md-sys-color-on-surface);
     }
 
-    & + span::before {
-      background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-    }
-  }
+    &:selected {
+      background-color: var(--md-sys-color-on-surface);
+      border-color: var(--md-sys-color-on-surface);
+      color: var(--md-sys-color-on-surface);
 
-  & > input:checked:disabled + span::before {
-    background-color: rgba(var(--md-sys-color-primary-rgb), 0.6);
+      &::after {
+        opacity: 1;
+        background-color: var(--md-sys-color-surface);
+      }
+    }
   }
 }
