@@ -1,0 +1,17 @@
+:where(dialog, .dialog) {
+  &[open] {
+    border-radius: 28px;
+    border: none;
+    box-shadow: var(--md-sys-elevation-3);
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface-variant);
+
+    min-width: 280px;
+    max-width: 560px;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

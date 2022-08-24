@@ -138,7 +138,6 @@ export const SIDEBAR = [
   {
     text: "Dialog",
     link: "components/dialog",
-    draft: true
   },
   {
     text: "Expansion Panel",

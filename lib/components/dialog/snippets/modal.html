@@ -1,0 +1,19 @@
+<dialog id="modal-dialog" class="dialog modal">
+    <p>Greetings, one and all!</p>
+    <form method="dialog">
+        <button>OK</button>
+    </form>
+</dialog>
+<button id="modal-dialog-btn">Open Dialog</button>
+<script>
+    document.getElementById('modal-dialog-btn').addEventListener('click', (e) => {
+        const btn = e.target;
+        const dialog = document.getElementById('modal-dialog');
+        // Move to root
+        dialog.showModal();
+        btn.style.display = 'none';
+        dialog.addEventListener('close', () => {
+            btn.style.display = 'block';
+        });
+    });
+</script>

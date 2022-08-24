@@ -1,0 +1,12 @@
+:where(.dialog, dialog).modal {
+  &[open] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &::backdrop {
+    background-color: var(--md-sys-color-scrim);
+  }
+}
