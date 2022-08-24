@@ -1,4 +1,4 @@
-:where(input[type="radio"], .radio-button) {
+:where(.radio-button) {
   accent-color: var(--md-sys-color-primary);
 
   display: grid;
