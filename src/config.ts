@@ -176,7 +176,6 @@ export const SIDEBAR = [
   {
     text: "Progress indicator",
     link: "components/progress-indicator",
-    draft: true
   },
   {
     text: "Navigation bar",

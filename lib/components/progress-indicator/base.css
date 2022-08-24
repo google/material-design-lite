@@ -1,0 +1,25 @@
+:where(.progress, progress) {
+  height: 4px;
+  border-radius: none;
+  color: var(--md-sys-color-primary);
+  accent-color: var(--md-sys-color-primary);
+  transition: all 0.2s ease-in-out;
+
+  &:not(:indeterminate) {
+    background-color: var(--md-sys-color-surface-variant);
+  }
+
+  &:indeterminate {
+    color: var(--md-sys-color-primary);
+  }
+
+  &::-webkit-progress-bar {
+    background-color: var(--md-sys-color-surface-variant);
+    width: 100%;
+  }
+
+  &::-webkit-progress-value {
+    background-color: var(--md-sys-color-primary);
+    width: 100%;
+  }
+}
