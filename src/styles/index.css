@@ -25,11 +25,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: var(--font-body);
   font-size: 1rem;
   font-size: clamp(0.9rem, 0.75rem + 0.375vw + var(--user-font-scale), 1rem);
   line-height: 1.5;
   max-width: 100vw;
+  font-family: "Roboto", sans-serif;
 }
 
 nav ul {
