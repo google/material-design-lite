@@ -27,13 +27,13 @@ const BrightnessToggle: FunctionalComponent = () => {
 
     if (dark) {
         return (<>
-            <button class="icon" onClick={toggle}>
+            <button class="icon button" onClick={toggle}>
                 <i class="material-symbols-outlined">light_mode</i>
             </button>
         </>);
     } else {
         return (<>
-            <button class="icon" onClick={toggle}>
+            <button class="icon button" onClick={toggle}>
                 <i class="material-symbols-outlined">dark_mode</i>
             </button>
         </>);

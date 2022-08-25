@@ -1,4 +1,4 @@
-:where(dialog, .dialog) {
+:where(.dialog) {
   &[open] {
     border-radius: 28px;
     border: none;
@@ -9,9 +9,34 @@
     min-width: 280px;
     max-width: 560px;
     padding: 24px;
+    gap: 16px;
 
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    justify-content: center;
+    align-items: center;
+
+    & i {
+      pointer-events: none;
+    }
+
+    & .title {
+      @apply --headline-small;
+      text-align: center;
+    }
+
+    & .content {
+      @apply --body-medium;
+      text-align: start;
+    }
+
+    & .actions {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 4px;
+    }
   }
 }

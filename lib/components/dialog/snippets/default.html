@@ -1,18 +1,15 @@
-<dialog id="default-dialog" class="dialog">
-    <p>Greetings, one and all!</p>
-    <form method="dialog">
-        <button>OK</button>
-    </form>
+<dialog class="dialog" open>
+    <div class="icon">
+        <i class="material-icons">add</i>
+    </div>
+    <div class="title">Dialog with hero icon</div>
+    <div class="content">
+        A dialog is a type of modal window that appears in front of app content to provide critical information, or
+        prompt for a
+        decision to be made.
+    </div>
+    <div class="actions">
+        <button class="button text">Action 1</button>
+        <button class="button text">Action 2</button>
+    </div>
 </dialog>
-<button id="default-dialog-btn">Open Dialog</button>
-<script>
-    document.getElementById('default-dialog-btn').addEventListener('click', (e) => {
-        const btn = e.target;
-        const dialog = document.getElementById('default-dialog');
-        dialog.show();
-        btn.style.display = 'none';
-        dialog.addEventListener('close', () => {
-            btn.style.display = 'block';
-        });
-    });
-</script>

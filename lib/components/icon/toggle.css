@@ -1,4 +1,4 @@
-.icon.toggle {
+:where(.button).icon.toggle {
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-primary);
 

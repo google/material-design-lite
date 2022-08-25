@@ -3,7 +3,7 @@ import type { FunctionalComponent } from 'preact';
 const DownloadButton: FunctionalComponent = () => {
     return (<>
         <a
-            class="icon surface"
+            class="icon button surface"
             href="/material-design-lite/css/mdl.css"
             download
         >

@@ -1,4 +1,4 @@
-:where(.dialog, dialog).modal {
+:where(.dialog).modal {
   &[open] {
     margin: auto;
     position: fixed;
@@ -8,8 +8,9 @@
     right: 0;
   }
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.4);
+    /* Tokens not avaliable in backdrop (above document) */
     /* background-color: rgba(var(--md-sys-color-scrim), 0.4); */
+    background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none !important;
   }
 }

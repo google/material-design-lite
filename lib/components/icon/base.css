@@ -1,4 +1,4 @@
-.icon {
+:where(.button).icon {
   outline: none;
   border: none;
 
@@ -13,7 +13,6 @@
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
-
   box-shadow: var(--md-sys-elevation-1);
 
   padding: 4px;
@@ -31,15 +30,18 @@
     color: var(--md-sys-color-primary);
   }
 
-  &:hover, .hover {
+  &:hover,
+  .hover {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:focus, .focus {
+  &:focus,
+  .focus {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-  &:active, .active {
+  &:active,
+  .active {
     box-shadow: var(--md-sys-elevation-1);
   }
 
