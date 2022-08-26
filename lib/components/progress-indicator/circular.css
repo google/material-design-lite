@@ -28,7 +28,6 @@
     animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
   }
 
-  &:-ms-lang(x),
   &:indeterminate {
     animation: none;
   }
