@@ -2,12 +2,9 @@
   background-color: transparent;
   color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-0);
-  outline: rgba(
-    var(--md-sys-color-primary-rgb),
-    var(--md-sys-state-hover-state-layer-opacity)
-  );
 
-  &:hover, .hover {
+  &:hover,
+  .hover {
     box-shadow: var(--md-sys-elevation-1);
     background-color: rgba(
       var(--md-sys-color-primary-rgb),
@@ -15,7 +12,8 @@
     );
   }
 
-  &:focus, .focus {
+  &:focus,
+  .focus {
     box-shadow: var(--md-sys-elevation-1);
     background-color: rgba(
       var(--md-sys-color-primary-rgb),
@@ -23,7 +21,8 @@
     );
   }
 
-  &:active, .active {
+  &:active,
+  .active {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgba(
       var(--md-sys-color-primary-rgb),

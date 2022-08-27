@@ -6,11 +6,6 @@
   margin: 0;
 }
 
-/* Global focus outline reset */
-*:focus:not(:focus-visible) {
-  outline: none;
-}
-
 :root {
   --user-font-scale: 1rem - 16px;
   --max-width: calc(100% - 1rem);
@@ -179,11 +174,6 @@ a:focus {
   text-decoration: underline;
 }
 
-a:focus {
-  outline: 2px solid currentColor;
-  outline-offset: 0.25em;
-}
-
 strong {
   font-weight: 600;
   color: inherit;
@@ -295,41 +285,6 @@ h2.heading {
   font-size: 1rem;
   padding: 0.1rem 0 0.1rem 1rem;
   border-left: 4px solid var(--theme-divider);
-}
-
-.heading-link:hover,
-.heading-link:focus {
-  border-left-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-primary);
-}
-.heading-link:focus-within {
-  color: var(--md-sys-color-on-surface);
-  border-left-color: hsla(var(--color-gray-40), 1);
-}
-.heading-link svg {
-  opacity: 0.6;
-}
-.heading-link:hover svg {
-  opacity: 0.8;
-}
-.heading-link a {
-  display: inline-flex;
-  gap: 0.5em;
-  width: 100%;
-  padding: 0.15em 0 0.15em 0;
-}
-
-.heading-link.depth-3 {
-  padding-left: 2rem;
-}
-.heading-link.depth-4 {
-  padding-left: 3rem;
-}
-
-.heading-link a {
-  font: inherit;
-  color: inherit;
-  text-decoration: none;
 }
 
 /* Screenreader Only Text */
