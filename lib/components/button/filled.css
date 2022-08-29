@@ -6,7 +6,8 @@
   &:hover,
   &.hover {
     box-shadow: var(--md-sys-elevation-1);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
       var(--md-sys-state-hover-state-layer-opacity)
     );
@@ -15,7 +16,8 @@
   &:focus,
   &.focus {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
       var(--md-sys-state-focus-state-layer-opacity)
     );
@@ -24,7 +26,8 @@
   &:active,
   &.active {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
       var(--md-sys-state-pressed-state-layer-opacity)
     );
@@ -35,9 +38,9 @@
     background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
     color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
   }
-}
 
-.button.filled.ripple {
-  --ripple-bg: rgba(var(--md-sys-color-primary-rgb), 0.4);
-  --ripple-fg: rgba(var(--md-sys-color-on-primary-rgb), 0.6);
+  &.ripple {
+    --ripple-bg: rgba(var(--md-sys-color-primary-rgb), 0.4);
+    --ripple-fg: rgba(var(--md-sys-color-on-primary-rgb), 0.6);
+  }
 }

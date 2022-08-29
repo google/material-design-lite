@@ -86,7 +86,7 @@
   --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
 }
 
-:where(.light-theme, .dark-theme) {
+* {
   --md-sys-color-primary: rgba(var(--md-sys-color-primary-rgb), 1);
   --md-sys-color-primary-container: rgba(
     var(--md-sys-color-primary-container-rgb),

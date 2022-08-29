@@ -1,7 +1,6 @@
 :where(.top-app-bar) {
   --top-app-bar-padding: 16px;
   padding: var(--top-app-bar-padding);
-  /* width: calc(100% - var(--top-app-bar-padding) * 2); */
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
@@ -40,6 +39,7 @@
 
     @apply --title-large;
   }
+  
   & .leading {
     grid-area: leading;
     padding: unset;

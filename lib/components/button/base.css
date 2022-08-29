@@ -21,6 +21,26 @@
 
   box-shadow: var(--md-sys-elevation-1);
 
+  --tint-color: transparent;
+
+  &::after {
+    content: " ";
+    border-radius: inherit;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: var(--tint-color);
+  }
+
+  &[label] {
+    content: attr(label);
+    @apply --label-large;
+  }
+
   & i {
     margin-right: 8px;
   }
