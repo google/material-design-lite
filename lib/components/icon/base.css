@@ -25,6 +25,21 @@
 
   box-shadow: none;
 
+  --tint-color: transparent;
+
+  &::after {
+    content: " ";
+    border-radius: inherit;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: var(--tint-color);
+  }
+
   &[selected] {
     color: var(--md-sys-color-primary);
   }

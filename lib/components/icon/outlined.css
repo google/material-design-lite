@@ -5,27 +5,33 @@
   border: 1px solid var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
 
-  &:hover, .hover {
+  &:hover,
+  .hover {
     box-shadow: var(--md-sys-elevation-1);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
       var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-  &:focus, .focus {
+  &:focus,
+  .focus {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
       var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-  &:active, .active {
+  &:active,
+  .active {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
       var(--md-sys-state-pressed-state-layer-opacity)
     );

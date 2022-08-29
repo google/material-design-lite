@@ -2,9 +2,9 @@
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-primary);
 
-  &[selected] {
-    background-color: var(--md-sys-color-primary);
+  &[checked] {
     color: var(--md-sys-color-on-primary);
+    background-color: var(--md-sys-color-primary);
   }
 
   &[disabled] {
