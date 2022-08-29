@@ -1,18 +1,36 @@
 .ripple {
   --ripple-bg: rgba(var(--md-sys-color-surface-rgb), 0.4);
   --ripple-fg: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+  --ripple-start-x: 50%;
+  --ripple-start-y: 50%;
+  position: relative;
 
   &:not([disabled]) {
-    & {
-      background-position: center;
-      transition: background 0.8s;
+    &::after {
+      content: " ";
+      border-radius: inherit;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      background-position-x: var(--ripple-start-x);
+      background-position-y: var(--ripple-start-y);
+
+      background-repeat: no-repeat;
+      transition: background 0s;
     }
-    &:hover {
+
+    &:hover::after {
+      transition: background 0.8s;
       background: var(--ripple-bg)
         radial-gradient(circle, transparent 1%, var(--ripple-bg) 1%)
         center/15000%;
     }
-    &:active {
+    
+    &:active::after {
       background-color: var(--ripple-fg);
       background-size: 100%;
       transition: background 0s;

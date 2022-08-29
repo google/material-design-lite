@@ -15,7 +15,7 @@
 
   &:focus,
   .focus {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
