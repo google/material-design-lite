@@ -17,7 +17,7 @@
   &:focus,
   &.focus {
     border: 1px solid var(--md-sys-color-primary);
-    box-shadow: var(--md-sys-elevation-0);
+    box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgba(
       var(--md-sys-color-primary-rgb),
