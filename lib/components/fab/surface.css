@@ -1,28 +1,40 @@
-.fab.surface {
+:where(.button).fab.surface {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 
-  &:hover, .hover {
+  &:hover,
+  .hover {
     box-shadow: var(--md-sys-elevation-4);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-on-surface-rgb),
       var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-  &:focus, .focus {
+  &:focus,
+  .focus {
     box-shadow: var(--md-sys-elevation-2);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-on-surface-rgb),
       var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-  &:active, .active {
+  &:active,
+  .active {
     box-shadow: var(--md-sys-elevation-2);
-    background-color: rgba(
+
+    --tint-color: rgba(
       var(--md-sys-color-on-surface-rgb),
       var(--md-sys-state-pressed-state-layer-opacity)
     );
+  }
+
+  &[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
   }
 }

@@ -75,9 +75,19 @@ for (const snippet of groupSnippets) {
         margin: 2rem;
         gap: 1rem;
     }
-    .render[data-outline] {
-        outline: 1px solid var(--md-sys-color-outline);
-        border-radius: var(--md-sys-shape-small);
+    .render[data-outline]::before {
+        content: " ";
+        --outline-width: -10px;
+
+        position: absolute;
+        top: var(--outline-width);
+        left: var(--outline-width);
+        right: var(--outline-width);
+        bottom: var(--outline-width);
+
+        background-color: var(--md-sys-color-surface-variant);
+
+        border-radius: inherit;
     }
     .snippet {
         padding: 1rem;

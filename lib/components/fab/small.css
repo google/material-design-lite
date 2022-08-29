@@ -1,4 +1,4 @@
-.fab.small {
+:where(.button).fab.small {
   padding: 16px;
   font-size: 24px;
   border-radius: 12px;
