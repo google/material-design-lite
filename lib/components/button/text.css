@@ -1,4 +1,4 @@
-:where(.button).text {
+:where(.button, button).text {
   background-color: transparent;
   color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-0);

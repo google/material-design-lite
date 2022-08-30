@@ -1,4 +1,4 @@
-:where(.button).filled {
+:where(.button, button).filled {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   box-shadow: var(--md-sys-elevation-0);

@@ -1,4 +1,4 @@
-:where(.data-table, table) {
+:where(.table, table) {
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--md-sys-color-outline-variant);

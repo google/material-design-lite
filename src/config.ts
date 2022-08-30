@@ -123,8 +123,8 @@ export const SIDEBAR = [
     link: "components/checkbox",
   },
   {
-    text: "Data Table",
-    link: "components/data-table",
+    text: "Table",
+    link: "components/table",
   },
   {
     text: "Divider",
