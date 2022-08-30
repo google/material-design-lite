@@ -1,0 +1,20 @@
+.navigation-drawer.modal {
+  &[open] {
+    position: fixed;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+
+    height: 100%;
+    border: none;
+
+    overflow-y: auto;
+
+    &::backdrop {
+      /* Tokens not avaliable in backdrop (above document) */
+      /* background-color: rgba(var(--md-sys-color-scrim), 0.4); */
+      background-color: rgba(0, 0, 0, 0.4);
+      pointer-events: none !important;
+    }
+  }
+}
