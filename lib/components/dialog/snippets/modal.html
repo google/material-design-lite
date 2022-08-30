@@ -20,9 +20,9 @@
         const btn = e.target;
         const dialog = document.getElementById('modal-dialog');
         dialog.showModal();
-        btn.style.display = 'none';
+        btn.disabled = true;
         dialog.addEventListener('close', () => {
-            btn.style.display = 'block';
+            btn.disabled = false;
         });
     });
 </script>

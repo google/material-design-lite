@@ -1,8 +1,8 @@
-:where(.button) {
-  padding: 8px 24px;
+.button {
+  padding: 10px 20px;
   border-radius: 20px;
   border: none;
-  height: var(--button-height, 40px);
+  height: 40px;
 
   position: relative;
   cursor: pointer;
@@ -20,6 +20,7 @@
   @apply --label-large;
 
   box-shadow: var(--md-sys-elevation-1);
+  transition: box-shadow 0.2s ease-in-out;
 
   --tint-color: transparent;
 
@@ -42,7 +43,9 @@
   }
 
   & i {
-    margin-right: 8px;
+    margin-right: 4px;
+
+    font-size: 18px;
   }
 
   & i:only-child {
