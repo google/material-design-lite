@@ -1,4 +1,4 @@
-:where(.button).fab.extended {
+:where(.button, button).fab.extended {
   border-radius: var(--md-sys-shape-medium);
   height: 56px;
   font-size: 16px;

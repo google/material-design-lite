@@ -1,4 +1,4 @@
-:where(.button).fab.surface {
+:where(.button, button).fab.surface {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 

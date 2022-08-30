@@ -1,4 +1,4 @@
-:where(.button).fab.secondary {
+:where(.button, button).fab.secondary {
   background-color: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
 

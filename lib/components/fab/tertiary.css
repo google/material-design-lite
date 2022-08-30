@@ -1,4 +1,4 @@
-:where(.button).fab.tertiary {
+:where(.button, button).fab.tertiary {
   background-color: var(--md-sys-color-tertiary);
   color: var(--md-sys-color-on-tertiary);
 

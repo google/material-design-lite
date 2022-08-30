@@ -1,4 +1,4 @@
-:where(.button).icon {
+:where(.button, button).icon {
   border: none;
 
   cursor: pointer;

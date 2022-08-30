@@ -1,4 +1,4 @@
-:where(.button).icon.contained.outlined {
+:where(.button, button).icon.contained.outlined {
   background-color: transparent;
   color: var(--md-sys-color-primary);
 

@@ -1,4 +1,4 @@
-:where(.button).fab {
+:where(.button, button).fab {
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
