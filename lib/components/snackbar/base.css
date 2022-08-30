@@ -1,0 +1,26 @@
+.snackbar {
+  width: 344px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  padding: 16px 14px;
+  border-radius: 4px;
+
+  white-space: wrap;
+
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+
+  @apply --body-medium;
+
+  & :first-child {
+    flex: 1;
+  }
+
+  & .button {
+    align-self: end;
+  }
+}

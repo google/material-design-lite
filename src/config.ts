@@ -223,7 +223,6 @@ export const SIDEBAR = [
   {
     text: "Snackbar",
     link: "components/snackbar",
-    draft: true
   },
   {
     text: "Switch",
