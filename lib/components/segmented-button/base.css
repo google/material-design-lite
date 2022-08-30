@@ -52,30 +52,14 @@
     margin-right: 8px;
   }
 
-  & input:checked .option {
-  }
-
   & input:checked + label {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
 
-    &:before {
+    &::before {
       content: "check";
 
-      /* Material Icons */
-      font-family: "Material Icons";
-      font-weight: normal;
-      font-style: normal;
-      font-size: 24px;
-      line-height: 1;
-      letter-spacing: normal;
-      text-transform: none;
-      white-space: nowrap;
-      word-wrap: normal;
-      direction: ltr;
-      font-feature-settings: "liga";
-      -webkit-font-feature-settings: "liga";
-      -webkit-font-smoothing: antialiased;
+      @apply --material-icons;
 
       padding-right: 8px;
     }
@@ -94,7 +78,7 @@
       justify-content: center;
       width: 100%;
       height: 100%;
-      padding: 0 40px;
+      padding: 0 20px;
       margin: 0;
 
       cursor: pointer;
