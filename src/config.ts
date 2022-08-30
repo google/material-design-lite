@@ -179,7 +179,6 @@ export const SIDEBAR = [
   {
     text: "Navigation bar",
     link: "components/navigation-bar",
-    draft: true
   },
   {
     text: "Navigation drawer",
@@ -189,7 +188,6 @@ export const SIDEBAR = [
   {
     text: "Navigation rail",
     link: "components/navigation-rail",
-    draft: true
   },
   {
     text: "Radio button",

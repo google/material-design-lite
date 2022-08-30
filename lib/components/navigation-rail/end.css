@@ -1,0 +1,5 @@
+.navigation-rail.end {
+  & nav {
+    justify-content: flex-end;
+  }
+}

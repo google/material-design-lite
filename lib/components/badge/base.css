@@ -19,8 +19,8 @@
     text-align: center;
     line-height: 23px;
 
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
+    background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
 
     width: var(--badge-size, var(--_badge-size));
     height: var(--badge-size, var(--_badge-size));
