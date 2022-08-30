@@ -8,13 +8,13 @@
 
   box-shadow: var(--md-sys-elevation-1);
 
-  background-color: var(--md-surface-1);
+  background-color: var(--md-sys-color-surface-1);
   color: var(--md-sys-color-on-surface);
 
   padding-top: 56px;
   padding-bottom: 56px;
 
-  & .button {
+  & :where(button, .button) {
     background-color: transparent;
     color: var(--md-sys-color-on-surface-variant);
 

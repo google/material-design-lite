@@ -1,5 +1,5 @@
 :where(.table, table).zebra {
   & tr:nth-of-type(even) {
-    background-color: var(--md-surface-1);
+    background-color: var(--md-sys-color-surface-1);
   }
 }

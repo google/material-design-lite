@@ -179,7 +179,6 @@ export const SIDEBAR = [
   {
     text: "Navigation drawer",
     link: "components/navigation-drawer",
-    draft: true
   },
   {
     text: "Navigation rail",
