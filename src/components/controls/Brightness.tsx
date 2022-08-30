@@ -3,7 +3,8 @@ import { useState, useEffect } from 'preact/hooks';
 
 const BrightnessToggle: FunctionalComponent = () => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    const [dark, setDark] = useState<boolean>(prefersDark.matches);
+    const localDark = localStorage.getItem('theme-dark') ?? '';
+    const [dark, setDark] = useState<boolean>(localDark !== '' ? localDark === 'true' : prefersDark.matches);
 
     useEffect(() => {
         prefersDark.addEventListener('change', (e) => setDark(e.matches));
@@ -23,6 +24,7 @@ const BrightnessToggle: FunctionalComponent = () => {
     const toggle = () => {
         setDark(!dark);
         updateClass();
+        localStorage.setItem('theme-dark', String(!dark));
     };
 
     if (dark) {

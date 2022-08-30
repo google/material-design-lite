@@ -123,10 +123,6 @@ export const SIDEBAR = [
     link: "components/checkbox",
   },
   {
-    text: "Table",
-    link: "components/table",
-  },
-  {
     text: "Divider",
     link: "components/divider",
   },
@@ -227,6 +223,10 @@ export const SIDEBAR = [
   {
     text: "Switch",
     link: "components/switch",
+  },
+  {
+    text: "Table",
+    link: "components/table",
   },
   {
     text: "Text field",
