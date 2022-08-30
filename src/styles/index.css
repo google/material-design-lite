@@ -113,42 +113,6 @@ a {
   gap: 0.5rem;
 }
 
-article > section :is(ul, ol) > * + * {
-  margin-top: 0.75rem;
-}
-
-article > section nav :is(ul, ol) > * + * {
-  margin-top: inherit;
-}
-
-article > section li > :is(p, pre, blockquote):not(:first-child) {
-  margin-top: 1rem;
-}
-
-article > section :is(ul, ol) {
-  padding-left: 1em;
-}
-
-article > section nav :is(ul, ol) {
-  padding-left: inherit;
-}
-
-article > section nav {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-
-article > section ::marker {
-  font-weight: bold;
-  color: var(--md-sys-color-on-surface);
-}
-
-article > section iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-}
-
 a > code {
   position: relative;
   color: var(--theme-text-accent);

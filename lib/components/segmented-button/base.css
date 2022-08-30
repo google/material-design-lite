@@ -20,6 +20,16 @@
     width: 100%;
     height: 100%;
     flex: 1;
+
+    & &:last-of-type label {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    & &:first-of-type label {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
   }
 
   & label {
@@ -27,16 +37,6 @@
     width: 100%;
     height: 100%;
     flex: 1;
-  }
-
-  & .option:last-of-type label {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  & .option:first-of-type label {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
   }
 
   & :where(.option):not(:last-child) {
@@ -55,6 +55,8 @@
   & input:checked + label {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
+
+    @apply --title-small;
 
     &::before {
       content: "check";

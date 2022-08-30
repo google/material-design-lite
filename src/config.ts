@@ -245,9 +245,8 @@ export const SIDEBAR = [
     link: "components/focus-ring",
   },
   {
-    text: "Tab",
-    link: "components/tab",
-    draft: true
+    text: "Tabs",
+    link: "components/tabs",
   },
   {
     text: "Top app bar",

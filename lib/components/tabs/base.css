@@ -1,0 +1,72 @@
+:where(.tabs) {
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  user-select: none;
+
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+
+  @apply --label-large;
+
+  & .tab {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & label {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+  }
+
+  & input {
+    display: none;
+    pointer-events: none;
+
+    &:checked {
+      & ~ label {
+        color: var(--md-sys-color-primary);
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: var(--md-sys-color-primary);
+        }
+      }
+    }
+
+    & ~ label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 0 20px;
+      margin: 0;
+
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  & i {
+    margin-right: 8px;
+  }
+}
