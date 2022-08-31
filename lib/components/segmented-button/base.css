@@ -21,14 +21,14 @@
     height: 100%;
     flex: 1;
 
-    & &:last-of-type label {
-      border-top-right-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
-
-    & &:first-of-type label {
+    &:first-of-type label {
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
+    }
+
+    &:last-of-type label {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
     }
   }
 

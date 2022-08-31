@@ -8,7 +8,7 @@
   min-width: 300px;
 
   & .list-item {
-    padding: 8px 12px;
+    padding: 12px;
     box-sizing: border-box;
 
     @apply --label-large;
@@ -27,7 +27,7 @@
       justify-content: center;
 
       padding-right: 12px;
-      opacity: 0.8;
+      opacity: 0.67;
     }
 
     & .trailing {
@@ -37,7 +37,7 @@
       justify-content: center;
 
       padding-left: 12px;
-      opacity: 0.8;
+      opacity: 0.67;
     }
 
     & .title {
@@ -49,9 +49,8 @@
       grid-area: subtitle;
 
       @apply --label-large;
-
       font-size: 14px;
-      opacity: 0.8;
+      opacity: 0.67;
 
       padding-top: 4px;
     }
