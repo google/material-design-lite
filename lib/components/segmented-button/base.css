@@ -7,7 +7,7 @@
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: relative;
-  user-select: none;
+  /* user-select: none; */
 
   border-radius: 20px;
   border: 1px solid var(--md-sys-color-outline);
@@ -16,36 +16,88 @@
 
   @apply --label-large;
 
-  & .option {
-    width: 100%;
-    height: 100%;
-    flex: 1;
-
-    &:first-of-type label {
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-    }
-
-    &:last-of-type label {
-      border-top-right-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
-  }
-
   & label {
     border-radius: 0;
     width: 100%;
     height: 100%;
     flex: 1;
-  }
 
-  & :where(.option):not(:last-child) {
-    border-right: 1px solid var(--md-sys-color-outline);
+    min-width: 40px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    margin: 0;
+
+    cursor: pointer;
+    /* user-select: none; */
+    visibility: visible;
+    position: relative;
+    z-index: 1;
+
+    &:first-of-type {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid var(--md-sys-color-outline);
+    }
   }
 
   & input {
-    display: none;
-    pointer-events: none;
+    /* display: none; */
+    /* pointer-events: none; */
+    opacity: 0;
+    position: absolute;
+
+    &:focus:not(:checked) + label {
+      background-color: var(--md-sys-color-surface-2);
+    }
+
+    --tint-color: transparent;
+
+    & + label::after {
+      content: " ";
+      border-radius: inherit;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background-color: var(--tint-color);
+    }
+
+    &:hover + label {
+      --tint-color: rgba(
+        var(--md-sys-color-primary-rgb),
+        var(--md-sys-state-hover-state-layer-opacity)
+      );
+    }
+
+    &:focus + label {
+      --tint-color: rgba(
+        var(--md-sys-color-primary-rgb),
+        var(--md-sys-state-focus-state-layer-opacity)
+      );
+    }
+
+    &:active + label {
+      --tint-color: rgba(
+        var(--md-sys-color-primary-rgb),
+        var(--md-sys-state-pressed-state-layer-opacity)
+      );
+    }
   }
 
   & i {
@@ -68,25 +120,6 @@
 
     & i {
       display: none;
-    }
-  }
-
-  &:not(.multi) {
-    & input + label {
-      min-width: 40px;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      padding: 0 20px;
-      margin: 0;
-
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-      z-index: 1;
     }
   }
 }

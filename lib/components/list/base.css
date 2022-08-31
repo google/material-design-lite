@@ -1,5 +1,5 @@
 .list {
-  &:is(ul, ol) {
+  &:where(ul, ol) {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -7,7 +7,12 @@
 
   min-width: 300px;
 
-  & .list-item {
+  & .list-tile {
+    &:where(li) {
+      margin: 0;
+      padding: 0;
+    }
+
     padding: 12px;
     box-sizing: border-box;
 
@@ -57,6 +62,45 @@
 
     & i {
       font-size: 24px;
+    }
+
+    --tint-color: transparent;
+
+    &::after {
+      content: " ";
+      border-radius: inherit;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background-color: var(--tint-color);
+    }
+
+    &:hover,
+    .hover {
+      --tint-color: rgba(
+        var(--md-sys-color-primary-rgb),
+        var(--md-sys-state-hover-state-layer-opacity)
+      );
+    }
+
+    &:focus,
+    .focus {
+      --tint-color: rgba(
+        var(--md-sys-color-primary-rgb),
+        var(--md-sys-state-focus-state-layer-opacity)
+      );
+    }
+
+    &:active,
+    .active {
+      --tint-color: rgba(
+        var(--md-sys-color-primary-rgb),
+        var(--md-sys-state-pressed-state-layer-opacity)
+      );
     }
   }
 }
