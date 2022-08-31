@@ -44,86 +44,80 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
     gap: 12px;
     margin-top: 40px;
     margin-bottom: 40px;
 
-    & .option {
+    & input {
+      opacity: 0;
+      position: absolute;
+
+      &:checked + label i {
+        background-color: var(--md-sys-color-secondary-container);
+        color: var(--md-sys-color-on-secondary-container);
+      }
+
+      --tint-color: transparent;
+
+      & + label::after {
+        content: " ";
+        border-radius: inherit;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background-color: var(--tint-color);
+      }
+
+      &:hover + label {
+        --tint-color: rgba(
+          var(--md-sys-color-primary-rgb),
+          var(--md-sys-state-hover-state-layer-opacity)
+        );
+      }
+
+      &:focus + label {
+        --tint-color: rgba(
+          var(--md-sys-color-primary-rgb),
+          var(--md-sys-state-focus-state-layer-opacity)
+        );
+      }
+
+      &:active + label {
+        --tint-color: rgba(
+          var(--md-sys-color-primary-rgb),
+          var(--md-sys-state-pressed-state-layer-opacity)
+        );
+      }
+    }
+
+    & label {
       height: 56px;
+
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
 
-      & input {
-        display: none;
-        pointer-events: none;
+      gap: 4px;
 
-        &:checked ~ label i {
-          background-color: var(--md-sys-color-secondary-container);
-          color: var(--md-sys-color-on-secondary-container);
-        }
-      }
+      @apply --label-medium;
+    }
 
-      & label {
-        align-items: center;
-        justify-content: center;
+    & i {
+      font-size: 24px;
 
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+      width: 64px;
+      height: 32px;
+      border-radius: 16px;
 
-        @apply --label-medium;
-
-        --tint-color: transparent;
-
-        &::after {
-          content: " ";
-          border-radius: inherit;
-
-          position: absolute;
-          top: 0px;
-          bottom: 0px;
-          left: -8px;
-          right: -8px;
-
-          background-color: var(--tint-color);
-        }
-
-        &:hover,
-        &.hover {
-          --tint-color: rgba(
-            var(--md-sys-color-primary-rgb),
-            var(--md-sys-state-hover-state-layer-opacity)
-          );
-        }
-
-        &:focus,
-        .focus {
-          --tint-color: rgba(
-            var(--md-sys-color-primary-rgb),
-            var(--md-sys-state-focus-state-layer-opacity)
-          );
-        }
-
-        &:active,
-        .active {
-          --tint-color: rgba(
-            var(--md-sys-color-primary-rgb),
-            var(--md-sys-state-pressed-state-layer-opacity)
-          );
-        }
-      }
-
-      & i {
-        font-size: 24px;
-
-        width: 64px;
-        height: 32px;
-        border-radius: 16px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
