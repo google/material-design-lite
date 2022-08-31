@@ -23,14 +23,18 @@
 
       background-repeat: no-repeat;
       transition: background 0.8s;
+    }
 
-      background: var(--ripple-bg)
-        radial-gradient(
-          circle at var(--ripple-start),
-          transparent 1%,
-          var(--ripple-bg) 1%
-        )
-        var(--ripple-start) / var(--ripple-end-size);
+    &:hover {
+      &::before {
+        background: var(--ripple-bg)
+          radial-gradient(
+            circle at var(--ripple-start),
+            transparent 1%,
+            var(--ripple-bg) 1%
+          )
+          var(--ripple-start) / var(--ripple-end-size);
+      }
     }
 
     &:active {

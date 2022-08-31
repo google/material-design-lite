@@ -161,7 +161,6 @@ export const SIDEBAR = [
   {
     text: "List",
     link: "components/list",
-    draft: true
   },
   {
     text: "Menu",

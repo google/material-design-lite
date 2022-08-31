@@ -1,0 +1,63 @@
+.list {
+  &:is(ul, ol) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  min-width: 300px;
+
+  & .list-item {
+    padding: 8px 12px;
+    box-sizing: border-box;
+
+    @apply --label-large;
+
+    display: grid;
+    grid-template-areas:
+      "leading title trailing"
+      "leading subtitle trailing";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+
+    & .leading {
+      grid-area: leading;
+      display: flex;
+      align-items: start;
+      justify-content: center;
+
+      padding-right: 12px;
+      opacity: 0.8;
+    }
+
+    & .trailing {
+      grid-area: trailing;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding-left: 12px;
+      opacity: 0.8;
+    }
+
+    & .title {
+      grid-area: title;
+      @apply --label-large;
+    }
+
+    & .subtitle {
+      grid-area: subtitle;
+
+      @apply --label-large;
+
+      font-size: 14px;
+      opacity: 0.8;
+
+      padding-top: 4px;
+    }
+
+    & i {
+      font-size: 24px;
+    }
+  }
+}
