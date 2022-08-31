@@ -5,8 +5,18 @@
 
   box-shadow: var(--md-sys-elevation-1);
 
-  background-color: var(--md-sys-color-surface-1);
+  background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--md-sys-color-surface-1);
+  }
 
   & .option {
     flex: 1;
