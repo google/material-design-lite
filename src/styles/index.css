@@ -56,11 +56,6 @@ ul:not(.list) li {
   }
 }
 
-p,
-.content ul {
-  color: var(--md-sys-color-on-surface);
-}
-
 small,
 .text_small {
   font-size: 0.833rem;

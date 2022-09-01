@@ -35,32 +35,7 @@
       padding: 16px 18px;
     }
 
-    & .drawer-item {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      box-sizing: border-box;
-
-      padding: 0 24px;
-      gap: 16px;
-
-      & .title {
-        flex: 1;
-        white-space: nowrap;
-        text-align: start;
-        padding: 16px 0;
-      }
-
-      & .leading {
-        display: flex;
-        align-items: center;
-      }
-
-      & .trailing {
-        display: flex;
-        align-items: center;
-      }
-
+    & .list-tile {
       &[selected] {
         &::before {
           content: "";
