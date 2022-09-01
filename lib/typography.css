@@ -1,45 +1,45 @@
-.label-small {
-  @apply --label-small;
-}
-.label-medium {
-  @apply --label-medium;
-}
-.label-large {
-  @apply --label-large;
-}
-.body-small {
-  @apply --body-small;
-}
-.body-medium {
-  @apply --body-medium;
-}
-.body-large {
-  @apply --body-large;
-}
-.headline-small {
-  @apply --headline-small;
-}
-.headline-medium {
-  @apply --headline-medium;
-}
-.headline-large {
-  @apply --headline-large;
-}
-.display-small {
-  @apply --display-small;
-}
-.display-medium {
-  @apply --display-medium;
-}
-.display-large {
+:where(.display-large, .display2-text) {
   @apply --display-large;
 }
-.title-small {
-  @apply --title-small;
+:where(.display-medium, .display3text) {
+  @apply --display-medium;
 }
-.title-medium {
+:where(.display-small, .headline1-text, h1) {
+  @apply --display-small;
+}
+:where(.headline-large, .headline2-text, h2) {
+  @apply --headline-large;
+}
+:where(.headline-medium, .headline3-text, h3) {
+  @apply --headline-medium;
+}
+:where(.headline-small, .headline4-text, h4) {
+  @apply --headline-small;
+}
+:where(.title-large, .headline5-text, h5) {
+  @apply --title-large;
+}
+:where(.title-medium, .headline6-text, .subhead1-text, h6) {
   @apply --title-medium;
 }
-.title-large {
-  @apply --title-large;
+:where(.title-small, .subhead2-text) {
+  @apply --title-small;
+}
+:where(.body-large, .body1-text, p) {
+  @apply --body-large;
+}
+:where(.body-medium, .body2-text) {
+  @apply --body-medium;
+}
+:where(.body-small, .caption-text) {
+  @apply --body-small;
+}
+:where(.label-large, .button-text) {
+  @apply --label-large;
+}
+:where(.label-medium, .overline) {
+  @apply --label-medium;
+}
+:where(.label-small) {
+  @apply --label-small;
 }
