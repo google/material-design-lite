@@ -20,7 +20,7 @@ const Menu: FunctionalComponent<{ items: NavItem[] }> = ({ items = [] }) => {
                     <>
                         <h2>{item.text}</h2>
                         {item.children.map((child) => {
-                            if (child.draft) {
+                            if (!child.draft) {
                                 return (
                                     <a
                                         class="link"

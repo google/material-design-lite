@@ -10,7 +10,7 @@
   padding: 0.25em;
   width: 3em;
   height: 3em;
-  color: rgb(var(--md-sys-color-primary-rgb));
+  color: var(--md-sys-color-primary);
   background-color: transparent;
   font-size: 16px;
   overflow: hidden;
@@ -20,7 +20,7 @@
   }
 
   /* Indeterminate */
-  &:indeterminate {
+  &[indeterminate] {
     -webkit-mask-image: linear-gradient(transparent 50%, black 50%),
       linear-gradient(to right, transparent 50%, black 50%);
     mask-image: linear-gradient(transparent 50%, black 50%),
@@ -28,12 +28,12 @@
     animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
   }
 
-  &:indeterminate {
+  &[indeterminate] {
     animation: none;
   }
 
-  &:indeterminate::before,
-  &:indeterminate::-webkit-progress-value {
+  &[indeterminate]::before,
+  &[indeterminate]::-webkit-progress-value {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -47,7 +47,7 @@
     animation: circular-pseudo 0.75s infinite linear alternate;
   }
 
-  &:indeterminate::-moz-progress-bar {
+  &[indeterminate]::-moz-progress-bar {
     box-sizing: border-box;
     border: solid 0.25em transparent;
     border-top-color: currentColor;
@@ -58,7 +58,7 @@
     animation: circular-pseudo 0.75s infinite linear alternate;
   }
 
-  &:indeterminate::-ms-fill {
+  &[indeterminate]::-ms-fill {
     animation-name: -ms-ring;
   }
 }

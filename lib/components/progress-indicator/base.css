@@ -1,25 +1,34 @@
-:where(.progress, progress) {
-  height: 4px;
-  border-radius: none;
-  color: var(--md-sys-color-primary);
-  accent-color: var(--md-sys-color-primary);
-  transition: all 0.2s ease-in-out;
+/* CSS progress indicator at value 75% */
+:where(progress, .progress).linear {
+  --progress-fg: var(--md-sys-color-primary);
+  --progress-bg: var(--md-sys-color-surface-variant);
+  --progress-value: 20%;
 
-  &:not(:indeterminate) {
-    background-color: var(--md-sys-color-surface-variant);
+  height: 4px;
+  border-radius: 4px;
+
+  &::-webkit-progress-value {
+    background: var(--progress-fg);
   }
 
-  &:indeterminate {
-    color: var(--md-sys-color-primary);
+  &::-moz-progress-bar {
+    background: var(--progress-fg);
   }
 
   &::-webkit-progress-bar {
-    background-color: var(--md-sys-color-surface-variant);
-    width: 100%;
+    background: var(--progress-bg);
   }
 
-  &::-webkit-progress-value {
-    background-color: var(--md-sys-color-primary);
-    width: 100%;
+  &[indeterminate] {
+    animation: linear-progress-indeterminate 2s infinite;
+  }
+}
+
+@keyframes linear-progress-indeterminate {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
