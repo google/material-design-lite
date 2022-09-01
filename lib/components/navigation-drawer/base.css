@@ -1,16 +1,14 @@
 .navigation-drawer {
   width: 360px;
   height: 100%;
-  box-sizing: border-box;
   padding: 12px;
   border-radius: 16px;
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
 
-  & * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+  position: relative;
 
   & .drawer-title {
     @apply --title-medium;
