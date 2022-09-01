@@ -1,33 +1,53 @@
-import type { FunctionalComponent } from 'preact';
+import type { FunctionalComponent } from "preact";
+
+interface NavItem {
+    text: string;
+    header?: boolean;
+    children: MenuItem[];
+}
 
 interface MenuItem {
     text: string;
-    header?: boolean;
     draft?: boolean;
     link?: string;
 }
 
-const Menu: FunctionalComponent<{ items: MenuItem[] }> = ({ items = [] }) => {
+const Menu: FunctionalComponent<{ items: NavItem[] }> = ({ items = [] }) => {
     return (
-        <>
-            <nav class="menu">
-                {
-                    items.map((item) => {
-                        if (item.header) {
-                            return <h2>{item.text}</h2>;
-                        }
-                        if (!item.draft) {
-                            return <a class="link" href={`/material-design-lite/${item.link}`} style={{
-                                display: 'block'
-                            }}>{item.text}</a>;
-                        } else {
-                            return <div class="link draft" style={{
-                                display: 'block'
-                            }}>{item.text}</div>;
-                        }
-                    })
-                }
-            </nav>
-        </>
+        <nav class="menu">
+            {items.map((item) => {
+                return (
+                    <>
+                        <h2>{item.text}</h2>
+                        {item.children.map((child) => {
+                            if (child.draft) {
+                                return (
+                                    <a
+                                        class="link"
+                                        href={`/material-design-lite/${child.link}`}
+                                        style={{
+                                            display: "block",
+                                        }}
+                                    >
+                                        {child.text}
+                                    </a>
+                                );
+                            }
+                            return (
+                                <div
+                                    class="link draft"
+                                    style={{
+                                        display: "block",
+                                    }}
+                                >
+                                    {child.text}
+                                </div>
+                            );
+                        })}
+                    </>
+                );
+            })}
+        </nav>
     );
-}; export default Menu;
+};
+export default Menu;
