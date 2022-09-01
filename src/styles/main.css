@@ -15,6 +15,31 @@
   height: var(--header-height);
 }
 
+.header-title {
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  display: inline-block;
+}
+
+h1 + a {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
 #content,
 #menu {
   position: fixed;
