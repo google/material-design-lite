@@ -7,6 +7,8 @@
     "moduleResolution": "node",
     // Enable JSON imports.
     "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     // Enable stricter transpilation for better output.
