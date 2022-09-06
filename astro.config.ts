@@ -1,4 +1,5 @@
-import { defineConfig } from "astro/config";
+/// <reference types="vitest" />
+import { getViteConfig } from "astro/config";
 import preact from "@astrojs/preact";
 import lit from "@astrojs/lit";
 import mdx from "@astrojs/mdx";
@@ -12,7 +13,7 @@ import pluginApply from "postcss-apply";
 import { CLASSES } from "./src/utils/classes.mjs";
 
 // https://astro.build/config
-export default defineConfig({
+export default getViteConfig({
   base: "/material-design-lite/",
   integrations: [preact(), lit(), mdx()],
   markdown: {
@@ -31,5 +32,9 @@ export default defineConfig({
         ],
       },
     },
+  },
+  test: {
+    /* for example, use global to avoid globals imports (describe, test, expect): */
+    // globals: true,
   },
 });

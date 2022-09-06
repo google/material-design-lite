@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@algolia/client-search": "^4.13.1",
@@ -27,9 +29,9 @@
     "@astrojs/mdx": "^0.4.0",
     "@astrojs/preact": "^0.5.2",
     "@astrojs/react": "^0.4.2",
+    "@material/web": "^0.1.0-alpha.0",
     "@types/node": "^18.6.3",
     "@web/dev-server": "^0.1.34",
-    "@material/web": "^0.1.0-alpha.0",
     "astro": "^1.0.6",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.14",
@@ -39,6 +41,7 @@
     "postcss-import": "^14.1.0",
     "postcss-minify": "^1.1.0",
     "postcss-nested": "^5.0.6",
-    "stylefmt": "^6.0.3"
+    "stylefmt": "^6.0.3",
+    "vitest": "^0.23.1"
   }
 }
