@@ -3,20 +3,12 @@
 
 <head>
     <style>
-        .card {
-            background: rgb(0, 255, 0);
-        }
-
-        @media screen and (min-width: 1024px) {
-            .card {
-                background: rgb(255, 0, 0);
-            }
-        }
+        @import url(../../dist/css/mdl.css);
     </style>
 </head>
 
 <body>
-    <div class="card"></div>
+    <button class="button">Button</button>
 
     <script type="module">
         import { runTests } from '@web/test-runner-mocha';
@@ -26,16 +18,9 @@
         runTests(() => {
             it('mobile has a green background', async () => {
                 await setViewport({ width: 360, height: 640 });
-                const el = document.querySelector('.card');
+                const el = document.querySelector('.button');
                 const color = getComputedStyle(el).backgroundColor;
-                expect(color).to.equal('rgb(0, 255, 0)');
-            });
-
-            it('desktop has a red background', async () => {
-                await setViewport({ width: 1200, height: 1000 });
-                const el = document.querySelector('.card');
-                const color = getComputedStyle(el).backgroundColor;
-                expect(color).to.equal('rgb(255, 0, 0)');
+                expect(color).to.equal('rgb(239, 239, 239)');
             });
         });
     </script>

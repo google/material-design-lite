@@ -17,5 +17,11 @@
     "types": [
       "astro/client"
     ]
-  }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

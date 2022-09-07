@@ -14,13 +14,17 @@ import { CLASSES } from "./src/utils/classes.mjs";
 // https://astro.build/config
 export default defineConfig({
   base: "/material-design-lite/",
-  // @ts-ignore
   integrations: [preact(), lit(), mdx()],
   markdown: {
     syntaxHighlight: "prism",
   },
-  site: `https://getmdl.io/`,
+  site: `https://rodydavis.github.io/`,
   vite: {
+    optimizeDeps: {
+      exclude: [
+        "/__web-dev-server__web-socket.js",
+      ],
+    },
     css: {
       postcss: {
         plugins: [
