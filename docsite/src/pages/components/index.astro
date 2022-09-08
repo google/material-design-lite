@@ -1,0 +1,18 @@
+---
+import Root from "../../layouts/Root.astro";
+import { COMPONENTS } from "../../utils/menu";
+
+const frontmatter = { title: "Components", tab: "components" };
+---
+
+<Root {frontmatter}>
+  <ul>
+    {
+      COMPONENTS.map((item, index) => (
+        <a href={`/${item.link}`}>
+          <li id={`comp-${index}`}>{item.text}</li>
+        </a>
+      ))
+    }
+  </ul>
+</Root>

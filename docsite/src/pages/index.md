@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/Root.astro
 title: Overview
+tab: "overview"
 description: Lightweight implementation of Material Design.
 ---
 

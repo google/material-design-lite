@@ -24,7 +24,7 @@ const { frontmatter } = Astro.props;
       @import url(../styles/global.css);
     </style>
 
-    <Navigation title={frontmatter.title} tab="Overview">
+    <Navigation title={frontmatter.title} tab={frontmatter.tab}>
       <section>
         <slot />
       </section>

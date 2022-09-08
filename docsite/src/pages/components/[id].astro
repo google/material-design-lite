@@ -1,0 +1,20 @@
+---
+import Root from "../../layouts/Root.astro";
+import { COMPONENTS } from "../../utils/menu";
+
+const { id } = Astro.props;
+const comp = COMPONENTS.find((c) => c.id === id)!;
+const frontmatter = { title: comp.text, tab: "components" };
+
+export function getStaticPaths() {
+  return COMPONENTS.map((component) => {
+    const parts = component.link.split("/");
+    const id = parts[parts.length - 1];
+    return { params: { id }, props: { id } };
+  });
+}
+---
+
+<Root {frontmatter}>
+  {comp.link}
+</Root>
