@@ -1,24 +1,13 @@
-export const SITE = {
-  title: "Material Design Lite",
-  description: "Material Design Components in CSS, JS and HTML.",
-  defaultLanguage: "en_US",
-};
+---
+import Github from './Github.astro';
+import Options from './Options.astro';
 
-export const OPEN_GRAPH = {
-  image: {
-    src: "https://lh3.googleusercontent.com/duWOVI3UUvSetaNEnlx7ggDF5acg7ADmRCSVbWd4MOW8Bo0uPRBhClXhdadmfzqaJ-jeCh-MfS5hnXu7hu2NbrlMuqDabNlVdnoQVBfCU1JSs0miCHEn=w1200-rj",
-    alt: "green and red color gradient",
-  },
-  twitter: "materialdesign",
-};
+const { title, tab, article} = Astro.props;
 
-export const KNOWN_LANGUAGES = {
-  English: "en",
-};
-
-export const SIDEBAR = [
+const MENU = [
   {
     text: "Overview",
+    icon: "home",
     header: true,
     children: [
       {
@@ -57,6 +46,7 @@ export const SIDEBAR = [
   },
   {
     text: "Demos",
+    icon: "play_circle_outline",
     header: true,
     children: [
       {
@@ -66,12 +56,13 @@ export const SIDEBAR = [
       {
         text: "Sticker sheet",
         link: "demos/sticker-sheet",
-        draft: true
+        draft: true,
       },
-    ]
+    ],
   },
   {
     text: "Components",
+    icon: "widgets",
     header: true,
     children: [
       {
@@ -79,11 +70,13 @@ export const SIDEBAR = [
         link: "components/autocomplete",
       },
       {
-        text: "Badge", link: "components/badge",
+        text: "Badge",
+        link: "components/badge",
       },
       {
-        text: "Banner", link: "components/banner",
-        draft: true
+        text: "Banner",
+        link: "components/banner",
+        draft: true,
       },
       {
         text: "Button",
@@ -96,7 +89,7 @@ export const SIDEBAR = [
       {
         text: "Bottom sheet",
         link: "components/bottom-sheet",
-        draft: true
+        draft: true,
       },
       {
         text: "Card",
@@ -117,7 +110,7 @@ export const SIDEBAR = [
       {
         text: "Date picker",
         link: "components/date-picker",
-        draft: true
+        draft: true,
       },
       {
         text: "Dialog",
@@ -126,12 +119,12 @@ export const SIDEBAR = [
       {
         text: "Expansion Panel",
         link: "components/expansion-panel",
-        draft: true
+        draft: true,
       },
       {
         text: "Image list",
         link: "components/image-list",
-        draft: true
+        draft: true,
       },
       {
         text: "Floating action button",
@@ -144,7 +137,7 @@ export const SIDEBAR = [
       {
         text: "Grid list",
         link: "components/grid-list",
-        draft: true
+        draft: true,
       },
       {
         text: "List",
@@ -153,7 +146,7 @@ export const SIDEBAR = [
       {
         text: "Menu",
         link: "components/menu",
-        draft: true
+        draft: true,
       },
       {
         text: "Progress indicator",
@@ -186,7 +179,7 @@ export const SIDEBAR = [
       {
         text: "Select",
         link: "components/select",
-        draft: true
+        draft: true,
       },
       {
         text: "Segmented Button",
@@ -195,12 +188,12 @@ export const SIDEBAR = [
       {
         text: "Stepper",
         link: "components/stepper",
-        draft: true
+        draft: true,
       },
       {
         text: "Sort header",
         link: "components/sort-header",
-        draft: true
+        draft: true,
       },
       {
         text: "Snackbar",
@@ -221,7 +214,7 @@ export const SIDEBAR = [
       {
         text: "Tree",
         link: "components/tree",
-        draft: true
+        draft: true,
       },
       {
         text: "Tooltip",
@@ -242,3 +235,116 @@ export const SIDEBAR = [
     ],
   },
 ];
+---
+
+<main>
+  <aside class="navigation-rail" style="min-height: 600px">
+    <button class="icon">
+      <i class="material-icons">menu</i>
+    </button>
+
+    <button class="fab">
+        <i class="material-icons">file_download</i>
+    </button>
+
+    <nav>
+        {
+            MENU.map((item) => {
+                return (
+                <input type="radio" name="nav-rail" value={item.text} id={item.text} checked={item.text === tab} />
+                <label for={item.text}>
+                    <i class="material-icons">{item.icon}</i>
+                    <span>{item.text}</span>
+                </label>
+                )
+            })
+        }
+    </nav>
+  </aside>
+
+  <section>
+    <header id="header" class="top-app-bar">
+      <span class="title">{title}</span>
+      <div class="actions">
+         <button class="icon button">
+          <Github />
+        </button>
+         <button id="options" class="icon button">
+          <i class="material-icons">palette</i>
+        </button>
+      </div>
+    </header>
+
+    <article>
+      <slot />
+    </article>
+  </section>
+
+  <aside class="options">
+    <Options/>
+  </aside>
+</main>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  article {
+    flex: 1;
+    overflow: auto;
+  }
+
+  .top-app-bar.scrolled {
+    box-shadow: none;
+  }
+
+  .options {
+    display: none;
+  }
+
+  .options.open {
+    display: block;
+    min-width: 250px;
+    height: 100vh;
+    overflow: auto;
+
+    border-left: 1px solid var(--md-sys-color-outline-variant);
+  }
+</style>
+
+<script>
+  // App bar scrolling
+  const header = document.querySelector("#header")!;
+  const article = document.querySelector("article")!;
+  article.addEventListener("scroll", (e) => {
+    if (article.scrollTop > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
+  // Options toggle
+  const options = document.querySelector(".options")!;
+  const optionsBtn = document.querySelector("#options")!;
+  optionsBtn.addEventListener("click", (e) => {
+    const isOpen = options.classList.contains("open");
+    const icon = optionsBtn.children[0];
+    if (isOpen) {
+      options.classList.remove("open");
+      icon.innerHTML  = 'palette';
+    } else {
+      options.classList.add("open");
+      icon.innerHTML  = 'close';
+    }
+  });
+</script>

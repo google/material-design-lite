@@ -1,6 +1,6 @@
 ---
-layout: ../layouts/MainLayout.astro
-title: Introduction
+layout: ../layouts/Root.astro
+title: Overview
 description: Lightweight implementation of Material Design.
 ---
 

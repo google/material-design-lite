@@ -20,11 +20,6 @@ export default defineConfig({
   },
   site: `https://rodydavis.github.io/`,
   vite: {
-    optimizeDeps: {
-      exclude: [
-        "/__web-dev-server__web-socket.js",
-      ],
-    },
     css: {
       postcss: {
         plugins: [
