@@ -16,17 +16,14 @@ const { frontmatter, links, link } = Astro.props as {
 
 <Root {frontmatter}>
   <div id="root">
-    <aside>
+    <aside class="left-nav">
       <div class="navigation-drawer">
         <section>
           {
             links.map((item, index) => {
               if (item.draft) {
                 return (
-                  <div
-                    class="list-tile graft"
-                    data-selected={link === item.link}
-                  >
+                  <div class="list-tile draft">
                     <span class="title">{item.text}</span>
                   </div>
                 );
@@ -34,7 +31,7 @@ const { frontmatter, links, link } = Astro.props as {
               return (
                 <a
                   href={`/${item.link}`}
-                  class="list-tile"
+                  class="nav-link list-tile"
                   data-selected={link === item.link}
                 >
                   <span class="title">{item.text}</span>
@@ -52,6 +49,8 @@ const { frontmatter, links, link } = Astro.props as {
 </Root>
 
 <style>
+  @custom-media --breakpoint (max-width: 1200px);
+
   #root {
     display: flex;
     flex-direction: row;
@@ -86,11 +85,17 @@ const { frontmatter, links, link } = Astro.props as {
     padding: 0;
     margin: 0;
   }
+
+  @media (--breakpoint) {
+    .left-nav {
+      display: none;
+    }
+  }
 </style>
 
 <script>
   // Scroll to selected link
-  const selected = document.querySelectorAll("a[data-selected]");
+  const selected = document.querySelectorAll(".nav-link[data-selected]");
   if (selected) {
     // Animated scroll to selected link
     selected[0].scrollIntoView({

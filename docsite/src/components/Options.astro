@@ -1,5 +1,8 @@
 <section>
-  <h2 class="display-small">Material Theme</h2>
+  <div class="header">
+    <h2 class="display-small">Material Theme</h2>
+    <slot />
+  </div>
 
   <h3 class="title-large">Color</h3>
 
@@ -43,16 +46,21 @@
 <!-- Copy code for current theme / Download -->
 
 <style>
-  h2 {
-    padding-bottom: 20px;
-  }
-
   .option {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     margin-bottom: 20px;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+  h2 {
+     font-size: 1.5rem;
   }
 </style>
 
@@ -103,26 +111,23 @@
   const sSmall = document.querySelector("#shape-small") as HTMLInputElement;
   const sMedium = document.querySelector("#shape-medium") as HTMLInputElement;
   const sLarge = document.querySelector("#shape-large") as HTMLInputElement;
-  sSmall.addEventListener("input", (e) => {
-    console.log(sSmall.value + "%");
-    root.style.setProperty("--md-sys-shape-corner-small", sSmall.value + "px");
+  const shape = "--md-sys-shape-corner";
+  sSmall.addEventListener("input", () => {
+    root.style.setProperty(`${shape}-small`, sSmall.value + "px");
   });
   sMedium.addEventListener("input", () => {
-    root.style.setProperty(
-      "--md-sys-shape-corner-medium",
-      sMedium.value + "px"
-    );
+    root.style.setProperty(`${shape}-medium`, sMedium.value + "px");
   });
   sLarge.addEventListener("input", () => {
-    root.style.setProperty("--md-sys-shape-corner-large", sLarge.value + "px");
+    root.style.setProperty(`${shape}-large`, sLarge.value + "px");
   });
   sSmall.valueAsNumber = Number(
-    s.getPropertyValue("--md-sys-shape-corner-small").replace("px", "")
+    s.getPropertyValue(`${shape}-small`).replace("px", "")
   );
   sMedium.valueAsNumber = Number(
-    s.getPropertyValue("--md-sys-shape-corner-medium").replace("px", "")
+    s.getPropertyValue(`${shape}-medium`).replace("px", "")
   );
   sLarge.valueAsNumber = Number(
-    s.getPropertyValue("--md-sys-shape-corner-large").replace("px", "")
+    s.getPropertyValue(`${shape}-large`).replace("px", "")
   );
 </script>

@@ -31,7 +31,7 @@ const {title, tab} = Astro.props;
     </nav>
   </aside>
 
-  <section>
+  <section class="content-body">
     <header id="header" class="top-app-bar">
       <span class="title">{title}</span>
       <div class="actions">
@@ -54,16 +54,24 @@ const {title, tab} = Astro.props;
 
   <aside class="options">
     <div class="controls">
-      <Options/>
+      <Options>
+        <button class="close-options icon">
+          <i class="material-icons">close</i>
+        </button>
+      </Options>
     </div>
   </aside>
 </main>
 
 <style>
+  @custom-media --breakpoint (max-width: 1400px);
+
   main {
     display: flex;
     flex-direction: row;
     height: 100vh;
+    width: 100%;
+    position: relative;
   }
   section {
     flex: 1;
@@ -77,9 +85,10 @@ const {title, tab} = Astro.props;
   .top-app-bar.scrolled {
     box-shadow: none;
   }
-  .options {
+  .options, .close-options {
     display: none;
   }
+
   .options.open {
     display: block;
     width: 250px;
@@ -88,12 +97,42 @@ const {title, tab} = Astro.props;
 
     border-left: 1px solid var(--md-sys-color-outline-variant);
   }
+
   .controls {
     padding: 16px;
   }
   .actions a:hover {
     text-decoration: none;
   }
+
+  @media (--breakpoint) {
+    /* Modal options */
+    .options.open  {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 250px;
+      height: 100%;
+      z-index: 100;
+      overflow-y: auto;
+      background-color: var(--md-sys-color-background);
+      box-shadow: var(--md-sys-elevation-4);
+      animation: slide-in 0.3s ease-out;
+      border-left: none;
+    }
+      /* Animate the options panel from the right */
+    @keyframes slide-in {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  }
+  
 </style>
 
 <script>
@@ -112,6 +151,7 @@ const {title, tab} = Astro.props;
 
   // Options toggle
   const options = document.querySelector(".options")!;
+  const closeBtn = document.querySelector(".close-options")!;
   const optionsBtn = document.querySelector("#options")!;
   optionsBtn.addEventListener("click", (e) => {
     const isOpen = options.classList.contains("open");
@@ -123,6 +163,11 @@ const {title, tab} = Astro.props;
       options.classList.add("open");
       icon.innerHTML  = 'close';
     }
+  });
+  closeBtn.addEventListener("click", () => {
+      const icon = optionsBtn.children[0];
+      options.classList.remove("open");
+      icon.innerHTML  = 'palette';
   });
 
   // Navigation links

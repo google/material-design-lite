@@ -1,54 +1,30 @@
-:is(code, pre) {
+:root {
   --code-border-radius: 4px;
-  --code-background: var(--md-ref-palette-neutral99);
-  --code-foreground: var(--md-sys-color-on-surface);
-  --code-border: 2px solid var(--md-sys-color-outline);
+  --code-background: #283237;
+  --code-foreground: #f1feff;
 
-  --code-comment: #b362ff;
+  --code-comment: #596d79;
   --code-delimiter: #ff9d00;
-  --code-operator: rgb(255, 180, 84);
-  --code-punctuation: #ffffff;
-  --code-boolean: rgb(255, 98, 140);
-  --code-tag: #dd7700;
+  --code-operator: #bf94e4;
+  --code-punctuation: #f1feff;
+  --code-boolean: #efa0ac;
+  --code-tag: #e0787b;
   --code-entity: #6897bb;
   --code-number: #b4c5ff;
-  --code-property: #ff628c;
-  --code-string: #a5ff90;
-  --code-attr-value-punctuation: #008800;
-  --code-attr-value-punctuation--first: #a9b7c6;
+  --code-property: #efa0ac;
+  --code-string: #cae797;
+  --code-attr-value-punctuation: #cae797;
+  --code-attr-value-punctuation--first: #b7cbd5;
   --token-url: #287bde;
   --code-function: rgb(250, 208, 0);
   --code-regex: #364135;
   --code-inserted: #00ff00;
-  --code-deleted: #ff000d;
-  --code-language-css-property: #a9b7c6;
-  --code-language-css-token-id: #ffc66d;
-  --code-language-css-selector: #ffc66d;
-  --code-class-name: #fb94ff;
+  --code-deleted: #ff0000;
+  --code-language-css-property: #b7cbd5;
+  --code-language-css-token-id: #f7cd7a;
+  --code-language-css-selector: #f7cd7a;
+  --code-class-name: #bf94e4;
   --code-line-highlight: rgba(179, 98, 255, 0.17);
-
-  --md-custom-color-keyword: #c75779;
-  --md-custom-color-operator: #008800;
-  --md-custom-color-variable: #90ccff;
-  --md-custom-color-variable-2: #dd7700;
-  --md-custom-color-variable-3: #3333bb;
-  --md-custom-color-variable-3: #decb6b;
-  --md-custom-color-builtin: #003388;
-  --md-custom-color-atom: #bb4646;
-  --md-custom-color-number: #b4c5ff;
-  --md-custom-color-def: #82aaff;
-  --md-custom-color-string: #ffb4a9;
-  --md-custom-color-string-2: #ffb4a9;
-  --md-custom-color-comment: #888888;
-  --md-custom-color-tag: #000080;
-  --md-custom-color-meta: #a9c7ff;
-  --md-custom-color-attribute: #008080;
-  --md-custom-color-property: #336699;
-  --md-custom-color-qualifier: #690;
-}
-
-.dark-theme :is(code, pre) {
-  --code-background: var(--md-ref-palette-neutral20);
 }
 
 code[class*="language-"],
@@ -85,10 +61,9 @@ pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
-  color: inherit;
+  color: var(--code-foreground);
   background-color: var(--code-background);
   border-radius: var(--code-border-radius);
-  border: var(--code-border);
 }
 
 /* Code blocks. */
@@ -102,7 +77,6 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   background-color: var(--code-background);
   border-radius: var(--code-border-radius);
-  border: var(--code-border);
 }
 
 /* Inline code */
