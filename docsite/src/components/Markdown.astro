@@ -1,0 +1,57 @@
+---
+import Demo from "./Demo.astro";
+const { source, id } = Astro.props;
+---
+
+{
+  source.split("\n").map((line: string) => {
+    if (line.includes("group=")) {
+      // Find group value between quotes
+      let idx = line.indexOf("group=") + 7;
+      let group = "";
+      while (line[idx] !== '"') {
+          group += line[idx];
+          idx++;
+      }
+      return <Demo 
+        group={group}
+        root={`components/${id}/snippets`}
+        outline={line.includes("outline")} 
+      />;
+    }
+    return <div set:html={line} />;
+  })
+}
+
+<style>
+  .preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    gap: 1rem;
+  }
+  .render[data-outline] {
+    outline: 2px solid var(--md-sys-color-on-surface-variant);
+    outline-offset: 5px;
+  }
+  .snippet {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .label {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    opacity: 0.5;
+    text-align: center;
+  }
+  .code {
+    position: relative;
+    width: 100%;
+  }
+</style>

@@ -17,27 +17,36 @@ const { frontmatter, links, link } = Astro.props as {
 <Root {frontmatter}>
   <div id="root">
     <aside>
-      <ul>
-        {
-          links.map((item, index) => {
-            if (item.draft) {
+      <div class="navigation-drawer">
+        <section>
+          {
+            links.map((item, index) => {
+              if (item.draft) {
+                return (
+                  <div
+                    class="list-tile graft"
+                    data-selected={link === item.link}
+                  >
+                    <span class="title">{item.text}</span>
+                  </div>
+                );
+              }
               return (
-                <li class="draft" id={`comp-${index}`}>
-                  {item.text}
-                </li>
+                <a
+                  href={`/${item.link}`}
+                  class="list-tile"
+                  data-selected={link === item.link}
+                >
+                  <span class="title">{item.text}</span>
+                </a>
               );
-            }
-            return (
-              <a href={`/${item.link}`} data-selected={link === item.link}>
-                <li id={`link-${index}`}>{item.text}</li>
-              </a>
-            );
-          })
-        }
-      </ul>
+            })
+          }
+        </section>
+      </div>
     </aside>
-    <section>
-      <slot />
+    <section class="content">
+      <div class="article"><slot /></div>
     </section>
   </div>
 </Root>
@@ -50,24 +59,44 @@ const { frontmatter, links, link } = Astro.props as {
     height: 100%;
   }
   aside {
-    width: 250px;
     height: 100%;
     border-right: 1px solid var(--md-sys-color-outline-variant);
-    padding: 0 1rem;
     overflow-y: auto;
   }
-  section {
+  .content {
     flex: 1;
-    padding: 1rem;
-    max-width: 860px;
-    margin: 0 auto;
+    width: 100%;
     overflow-y: auto;
   }
-  a[data-selected] {
-    text-decoration: underline;
+  .article {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 860px;
   }
   .draft {
-    opacity: 0.5;
     color: var(--md-sys-color-on-surface);
+    opacity: 0.2;
+  }
+  .navigation-drawer {
+    padding: 0 1rem;
+    width: 280px;
+  }
+  .list-tile {
+    padding: 0;
+    margin: 0;
   }
 </style>
+
+<script>
+  // Scroll to selected link
+  const selected = document.querySelectorAll("a[data-selected]");
+  if (selected) {
+    // Animated scroll to selected link
+    selected[0].scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    });
+  }
+</script>

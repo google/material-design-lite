@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/prism": "^1.0.1",
     "@material/material-color-utilities": "file:../third_party/material-color-utilities/typescript",
     "astro": "^1.1.7"
   },
   "devDependencies": {
-    "postcss-preset-env": "^7.8.1",
     "cssnano": "^5.1.13",
     "postcss": "^8.4.14",
     "postcss-apply": "^0.12.0",
@@ -23,6 +23,7 @@
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-import": "^14.1.0",
     "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.8.1",
     "stylefmt": "^6.0.3"
   }
 }

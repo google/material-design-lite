@@ -6,24 +6,20 @@ tab: "overview"
 
 ## Small
 
-<div class="shape-small">
-  Small
-</div>
-
-<div class="shape-small"></div>
+<div class="box shape-small"></div>
 
 ## Medium
 
-<div class="shape-medium">
-  Medium
-</div>
-
-<div class="shape-medium"></div>
+<div class="box shape-medium"></div>
 
 ## Large
 
-<div class="shape-large">
-  Large
-</div>
+<div class="box shape-large"></div>
 
-<div class="shape-large"></div>
+<style>
+  .box {
+    width: 180px;
+    aspect-ratio: 16 / 9;
+    background: var(--md-sys-color-surface-variant);
+  }
+</style>

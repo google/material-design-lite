@@ -11,6 +11,9 @@ import { CLASSES } from "../lib/classes.mjs";
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    syntaxHighlight: "prism",
+  },
   vite: {
     css: {
       postcss: {

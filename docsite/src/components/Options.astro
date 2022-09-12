@@ -1,5 +1,7 @@
 <section>
-  <h2 class="title-large">Theme Options</h2>
+  <h2 class="display-small">Material Theme</h2>
+
+  <h3 class="title-large">Color</h3>
 
   <div class="option">
     <label for="source">Source Color</label>
@@ -19,16 +21,28 @@
       <span>Dark</span>
     </label>
   </div>
+
+  <h3 class="title-large">Shape</h3>
+
+  <label class="slider">
+    <input id="shape-small" type="range" min="0" max="100" />
+    <span>Small</span>
+  </label>
+
+  <label class="slider">
+    <input id="shape-medium" type="range" min="0" max="100" />
+    <span>Medium</span>
+  </label>
+
+  <label class="slider">
+    <input id="shape-large" type="range" min="0" max="100" />
+    <span>Large</span>
+  </label>
 </section>
 
+<!-- Copy code for current theme / Download -->
+
 <style>
-  section {
-    padding: 20px;
-
-    width: 100%;
-    height: 100%;
-  }
-
   h2 {
     padding-bottom: 20px;
   }
@@ -44,6 +58,8 @@
 
 <script>
   import { generateTheme } from "../utils/color";
+  const root = document.body;
+  const s = getComputedStyle(root);
   // Source
   const source = document.querySelector("#source") as HTMLInputElement;
   const themeMeta = document.querySelector('meta[name="theme-color"]')!;
@@ -57,7 +73,7 @@
   }
   source.addEventListener("input", () => {
     const color = source.value;
-    document.documentElement.style.setProperty("--md-source", color);
+    root.style.setProperty("--md-source", color);
     themeMeta.setAttribute("content", color);
     generateTheme(color, styleTarget!);
   });
@@ -82,4 +98,31 @@
   } else {
     document.body.classList.add("light-theme");
   }
+
+  // Shape
+  const sSmall = document.querySelector("#shape-small") as HTMLInputElement;
+  const sMedium = document.querySelector("#shape-medium") as HTMLInputElement;
+  const sLarge = document.querySelector("#shape-large") as HTMLInputElement;
+  sSmall.addEventListener("input", (e) => {
+    console.log(sSmall.value + "%");
+    root.style.setProperty("--md-sys-shape-corner-small", sSmall.value + "px");
+  });
+  sMedium.addEventListener("input", () => {
+    root.style.setProperty(
+      "--md-sys-shape-corner-medium",
+      sMedium.value + "px"
+    );
+  });
+  sLarge.addEventListener("input", () => {
+    root.style.setProperty("--md-sys-shape-corner-large", sLarge.value + "px");
+  });
+  sSmall.valueAsNumber = Number(
+    s.getPropertyValue("--md-sys-shape-corner-small").replace("px", "")
+  );
+  sMedium.valueAsNumber = Number(
+    s.getPropertyValue("--md-sys-shape-corner-medium").replace("px", "")
+  );
+  sLarge.valueAsNumber = Number(
+    s.getPropertyValue("--md-sys-shape-corner-large").replace("px", "")
+  );
 </script>

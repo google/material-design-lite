@@ -5,6 +5,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
+html {
+  smooth-scrolling: auto;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--md-sys-color-background);

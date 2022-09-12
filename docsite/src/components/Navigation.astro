@@ -53,7 +53,9 @@ const {title, tab} = Astro.props;
   </section>
 
   <aside class="options">
-    <Options/>
+    <div class="controls">
+      <Options/>
+    </div>
   </aside>
 </main>
 
@@ -63,35 +65,32 @@ const {title, tab} = Astro.props;
     flex-direction: row;
     height: 100vh;
   }
-
   section {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
-
   article {
     flex: 1;
     overflow: auto;
   }
-
   .top-app-bar.scrolled {
     box-shadow: none;
   }
-
   .options {
     display: none;
   }
-
   .options.open {
     display: block;
-    min-width: 250px;
-    height: 100vh;
-    overflow: auto;
+    width: 250px;
+    height: 100%;
+    overflow-y: auto;
 
     border-left: 1px solid var(--md-sys-color-outline-variant);
   }
-
+  .controls {
+    padding: 16px;
+  }
   .actions a:hover {
     text-decoration: none;
   }

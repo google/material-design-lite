@@ -1,4 +1,4 @@
-.navigation-drawer {
+:where(.navigation-drawer) {
   width: 360px;
   height: 100%;
   padding: 12px;
@@ -34,7 +34,15 @@
     }
 
     & .list-tile {
-      &[selected] {
+      position: relative;
+
+      &:where([selected], [data-selected]) {
+        color: var(--md-sys-color-on-secondary-container);
+
+        & * {
+          z-index: 1;
+        }
+
         &::before {
           content: "";
           position: absolute;
