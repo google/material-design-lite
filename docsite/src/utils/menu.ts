@@ -3,6 +3,7 @@ interface Component {
     text: string;
     link: string;
     id: string;
+    draft?: boolean;
 }
 
 export const COMPONENTS = [

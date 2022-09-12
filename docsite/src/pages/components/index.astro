@@ -1,18 +1,20 @@
 ---
 import Root from "../../layouts/Root.astro";
-import { COMPONENTS } from "../../utils/menu";
-
+import CardGrid from "../../components/CardGrid.astro";
+const posts = await Astro.glob("../../data/components/*.md");
 const frontmatter = { title: "Components", tab: "components" };
+const links = posts.map((post) => {
+  const data = post.frontmatter;
+  const parts = post.file.split("/");
+  const id = parts[parts.length - 1].split(".")[0];
+  return {
+    link: `components/${id}`,
+    title: data.title,
+    subtitle: data.description,
+  };
+});
 ---
 
 <Root {frontmatter}>
-  <ul>
-    {
-      COMPONENTS.map((item, index) => (
-        <a href={`/${item.link}`}>
-          <li id={`comp-${index}`}>{item.text}</li>
-        </a>
-      ))
-    }
-  </ul>
+  <CardGrid {links} />
 </Root>

@@ -1,0 +1,19 @@
+---
+import Root from "./Root.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Root {frontmatter}>
+  <section>
+    <slot />
+  </section>
+</Root>
+
+<style>
+  section {
+    padding: 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+</style>

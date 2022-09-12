@@ -1,5 +1,6 @@
 ---
-import Root from "../../layouts/Root.astro";
+import SideNav from "../../layouts/SideNav.astro";
+import { COMPONENTS } from "../../utils/menu";
 
 export async function getStaticPaths() {
   const posts = await Astro.glob("../../data/components/*.md");
@@ -16,6 +17,6 @@ const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
 const { frontmatter, Content } = post;
 ---
 
-<Root {frontmatter}>
+<SideNav {frontmatter} links={COMPONENTS} link={`components/${id}`}>
   <Content />
-</Root>
+</SideNav>

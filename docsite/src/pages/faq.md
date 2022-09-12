@@ -2,7 +2,7 @@
 title: FAQ
 description: Questions and answers about Material Design Lite.
 tab: 'overview'
-layout: ../layouts/Root.astro
+layout: ../layouts/Article.astro
 ---
 
 ## Where should I use Material Design Lite (MDL)?
