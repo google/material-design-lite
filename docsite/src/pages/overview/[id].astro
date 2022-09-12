@@ -2,7 +2,7 @@
 import Root from "../../layouts/Root.astro";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../../data/components/*.md");
+  const posts = await Astro.glob("../../data/overview/*.md");
   return posts.map((component) => {
     const parts = component.file.split("/");
     const id = parts[parts.length - 1].split(".")[0];
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { id } = Astro.props;
-const posts = await Astro.glob("../../data/components/*.md");
+const posts = await Astro.glob("../../data/overview/*.md");
 const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
 const { frontmatter, Content } = post;
 ---
