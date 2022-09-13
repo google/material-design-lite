@@ -108,7 +108,7 @@ const {title, tab} = Astro.props;
   .top-app-bar.scrolled {
     box-shadow: none;
   }
-  .options, .close-options {
+  .options {
     display: none;
   }
   .close-options {
@@ -170,9 +170,7 @@ const {title, tab} = Astro.props;
       box-shadow: none;
     }
     .close-options {
-      opacity: 0;
-      pointer-events: none;
-      user-select: none;
+      display: none;
     }
   }
 
@@ -227,11 +225,11 @@ const {title, tab} = Astro.props;
  for (const item of MENU) {
     const link = document.querySelector(`#${item.text}`)!;
     link.addEventListener("change", (e) => {
-      window.location.href = item.href;
+      window.location.href = '/material-design-lite/' + item.href;
     });
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = item.href;
+      window.location.href = '/material-design-lite/' + item.href;
     });
  }
 
@@ -240,7 +238,7 @@ const {title, tab} = Astro.props;
   downloadBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const a = document.createElement("a");
-      a.href = "/css/mdl.min.css";
+      a.href = "/material-design-lite/css/mdl.min.css";
       a.download = "mdl.min.css";
       a.click();
       a.remove();

@@ -21,13 +21,13 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm i
+        run: cd docsite && npm i
 
       - name: Build
         run: |
-          npm run build
+          cd docsite && npm run build
       - name: Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+          publish_dir: ./docsite/dist
