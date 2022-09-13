@@ -3,6 +3,7 @@ interface Component {
     text: string;
     link: string;
     id: string;
+    draft?: boolean;
 }
 
 export const COMPONENTS = [
@@ -179,46 +180,51 @@ export const COMPONENTS = [
     return comp;
 }) as Component[];
 
+export const OVERVIEW = [
+    {
+        text: "Typography",
+        link: "overview/typography",
+    },
+    {
+        text: "Color",
+        link: "overview/color",
+    },
+    {
+        text: "Icons",
+        link: "overview/icons",
+    },
+    {
+        text: "Shape",
+        link: "overview/shape",
+    },
+    {
+        text: "Elevation",
+        link: "overview/elevation",
+    },
+    {
+        text: "Themes",
+        link: "overview/themes",
+    },
+    {
+        text: "FAQ",
+        link: "faq",
+    },
+];
+
 export const MENU = [
     {
-        text: "Overview",
+        text: "Home",
         icon: "home",
         href: "/",
         header: true,
-        children: [
-            {
-                text: "Introduction",
-                link: "introduction",
-            },
-            {
-                text: "Typography",
-                link: "overview/typography",
-            },
-            {
-                text: "Color",
-                link: "overview/color",
-            },
-            {
-                text: "Icons",
-                link: "overview/icons",
-            },
-            {
-                text: "Shape",
-                link: "overview/shape",
-            },
-            {
-                text: "Elevation",
-                link: "overview/elevation",
-            },
-            {
-                text: "Themes",
-                link: "overview/themes",
-            },
-            {
-                text: "FAQ",
-                link: "faq",
-            },
-        ],
+        children: [],
+    },
+    {
+        text: "Overview",
+        icon: "palette",
+        href: "/overview",
+        header: true,
+        children: OVERVIEW,
     },
     {
         text: "Demos",

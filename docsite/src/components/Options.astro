@@ -1,5 +1,10 @@
 <section>
-  <h2 class="title-large">Theme Options</h2>
+  <div class="header">
+    <h2 class="display-small">Material Theme</h2>
+    <slot />
+  </div>
+
+  <h3 class="title-large">Color</h3>
 
   <div class="option">
     <label for="source">Source Color</label>
@@ -19,20 +24,28 @@
       <span>Dark</span>
     </label>
   </div>
+
+  <h3 class="title-large">Shape</h3>
+
+  <label class="slider">
+    <input id="shape-small" type="range" min="0" max="100" />
+    <span>Small</span>
+  </label>
+
+  <label class="slider">
+    <input id="shape-medium" type="range" min="0" max="100" />
+    <span>Medium</span>
+  </label>
+
+  <label class="slider">
+    <input id="shape-large" type="range" min="0" max="100" />
+    <span>Large</span>
+  </label>
 </section>
 
+<!-- Copy code for current theme / Download -->
+
 <style>
-  section {
-    padding: 20px;
-
-    width: 100%;
-    height: 100%;
-  }
-
-  h2 {
-    padding-bottom: 20px;
-  }
-
   .option {
     display: flex;
     align-items: center;
@@ -40,12 +53,24 @@
 
     margin-bottom: 20px;
   }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    display: inline-block;
+  }
 </style>
 
 <script>
   import { generateTheme } from "../utils/color";
-  // Source
-  const source = document.querySelector("#source") as HTMLInputElement;
+  const root = document.body;
+  const s = getComputedStyle(root);
+  const shape = "--md-sys-shape-corner";
+
   const themeMeta = document.querySelector('meta[name="theme-color"]')!;
   let styleTarget = document.head.querySelector(
     "style[data-theme]"
@@ -55,31 +80,78 @@
     styleTarget.setAttribute("data-theme", "");
     document.head.appendChild(styleTarget);
   }
+
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const settingsKey = "theme-settings";
+  const defaultSettings = {
+    source: themeMeta.getAttribute("content")!,
+    brightness: prefersDark.matches ? "dark" : "light",
+    shape: {
+      small: Number(s.getPropertyValue(`${shape}-small`).replace("px", "")),
+      medium: Number(s.getPropertyValue(`${shape}-medium`).replace("px", "")),
+      large: Number(s.getPropertyValue(`${shape}-large`).replace("px", "")),
+    },
+  };
+  const localSettings = localStorage.getItem(settingsKey);
+  const settings = localSettings ? JSON.parse(localSettings) : defaultSettings;
+  save();
+
+  function save() {
+    localStorage.setItem(settingsKey, JSON.stringify(settings));
+  }
+
+  // Source
+  const source = document.querySelector("#source") as HTMLInputElement;
+
   source.addEventListener("input", () => {
     const color = source.value;
-    document.documentElement.style.setProperty("--md-source", color);
+    root.style.setProperty("--md-source", color);
     themeMeta.setAttribute("content", color);
     generateTheme(color, styleTarget!);
+    save();
   });
-  const color = themeMeta.getAttribute("content")!;
-  source.value = color;
-  generateTheme(color, styleTarget);
+  source.value = settings.source;
+  generateTheme(settings.source, styleTarget);
 
   // Brightness
   const light = document.querySelector("#light") as HTMLInputElement;
   const dark = document.querySelector("#dark") as HTMLInputElement;
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
   light.addEventListener("change", () => {
     document.body.classList.remove("dark-theme");
     document.body.classList.add("light-theme");
+    save();
   });
   dark.addEventListener("change", () => {
     document.body.classList.remove("light-theme");
     document.body.classList.add("dark-theme");
+    save();
   });
-  if (prefersDark.matches) {
+  if (settings.brightness === "dark") {
+    dark.checked = true;
     document.body.classList.add("dark-theme");
   } else {
+    light.checked = true;
     document.body.classList.add("light-theme");
   }
+
+  // Shape
+  const sSmall = document.querySelector("#shape-small") as HTMLInputElement;
+  const sMedium = document.querySelector("#shape-medium") as HTMLInputElement;
+  const sLarge = document.querySelector("#shape-large") as HTMLInputElement;
+  sSmall.addEventListener("input", () => {
+    root.style.setProperty(`${shape}-small`, sSmall.value + "px");
+    save();
+  });
+  sMedium.addEventListener("input", () => {
+    root.style.setProperty(`${shape}-medium`, sMedium.value + "px");
+    save();
+  });
+  sLarge.addEventListener("input", () => {
+    root.style.setProperty(`${shape}-large`, sLarge.value + "px");
+    save();
+  });
+  sSmall.valueAsNumber = settings.shape.small;
+  sMedium.valueAsNumber = settings.shape.medium;
+  sLarge.valueAsNumber = settings.shape.large;
 </script>

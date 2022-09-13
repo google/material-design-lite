@@ -1,7 +1,7 @@
 ---
-layout: ../layouts/Root.astro
-title: Overview
-tab: "overview"
+layout: ../layouts/Article.astro
+title: Material Design Lite
+tab: "home"
 description: Lightweight implementation of Material Design.
 ---
 

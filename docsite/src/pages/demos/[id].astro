@@ -1,0 +1,24 @@
+---
+import * as fs from "fs";
+import Raw from "../../layouts/Raw.astro";
+
+export async function getStaticPaths() {
+  const posts = fs.readdirSync("../lib/snippets");
+  return posts.map((f) => {
+    console.log(f);
+    const parts = f.split(".");
+    const id = parts[0];
+    return { params: { id }, props: { id } };
+  });
+}
+
+const { id } = Astro.props;
+const posts = fs.readdirSync("../lib/snippets");
+const post = posts.find((p) => p.endsWith(`${id}.html`))!;
+const source = fs.readFileSync(`../lib/snippets/${post}`, "utf-8");
+const frontmatter = { title: "Demo" };
+---
+
+<Raw {frontmatter}>
+  <div set:html={source}></div>
+</Raw>

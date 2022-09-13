@@ -7,10 +7,7 @@ const {title, tab} = Astro.props;
 ---
 
 <main>
-  <aside class="navigation-rail" style="min-height: 600px">
-    <button class="icon">
-      <i class="material-icons">menu</i>
-    </button>
+  <aside id="nav-rail" class="navigation-rail">
 
     <button class="fab">
         <i class="material-icons">file_download</i>
@@ -20,8 +17,8 @@ const {title, tab} = Astro.props;
         {
             MENU.map((item) => {
                 return (
-                <input type="radio" name="nav-rail" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
-                <label for={item.text}>
+                <input type="radio" name="side-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
+                <label class="tab-icon" for={item.text}>
                     <i class="material-icons">{item.icon}</i>
                     <span>{item.text}</span>
                 </label>
@@ -31,7 +28,7 @@ const {title, tab} = Astro.props;
     </nav>
   </aside>
 
-  <section>
+  <section class="content-body">
     <header id="header" class="top-app-bar">
       <span class="title">{title}</span>
       <div class="actions">
@@ -50,51 +47,143 @@ const {title, tab} = Astro.props;
     <article>
       <slot />
     </article>
+
+    <button class="fixed fab tertiary">
+        <i class="material-icons">file_download</i>
+    </button>
+
+    <nav id="nav-bar" class="navigation-bar">
+        {
+            MENU.map((item) => {
+                return (
+                <input type="radio" name="bottom-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
+                <label for={item.text}>
+                    <i class="material-icons">{item.icon}</i>
+                    <span>{item.text}</span>
+                </label>
+                )
+            })
+        }
+    </nav>
   </section>
 
   <aside class="options">
-    <Options/>
+    <div class="controls">
+      <Options>
+        <button class="close-options icon">
+          <i class="material-icons">close</i>
+        </button>
+      </Options>
+    </div>
   </aside>
 </main>
 
 <style>
+  /* @custom-media --nav-breakpoint (min-width: 1200px); */
+  @custom-media --tablet-breakpoint (min-width: 860px);
+  @custom-media --desktop-breakpoint (min-width: 1400px);
+
   main {
     display: flex;
     flex-direction: row;
     height: 100vh;
+    width: 100%;
+    position: relative;
   }
-
+  .content-body {
+    width: 100%;
+  }
+  #nav-rail {
+    display: none;
+  }
   section {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
-
   article {
     flex: 1;
     overflow: auto;
   }
-
   .top-app-bar.scrolled {
     box-shadow: none;
   }
-
   .options {
     display: none;
   }
-
-  .options.open {
-    display: block;
-    min-width: 250px;
-    height: 100vh;
-    overflow: auto;
-
-    border-left: 1px solid var(--md-sys-color-outline-variant);
+  .close-options {
+    opacity: 1;
   }
-
+  .options.open  {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 100;
+    overflow-y: auto;
+    background-color: var(--md-sys-color-background);
+    box-shadow: var(--md-sys-elevation-4);
+    animation: slide-in 0.3s ease-out;
+  }
+  .controls {
+    padding: 16px;
+  }
   .actions a:hover {
     text-decoration: none;
   }
+  .fab.fixed {
+    position: fixed;
+    bottom: 95px;
+    right: 28px;
+    z-index: 1;
+  }
+
+  @media (--tablet-breakpoint) {
+    #nav-rail {
+      display: flex;
+    }
+    #nav-bar {
+      display: none;
+    }
+    main {
+      flex-direction: row;
+    }
+    .fab.fixed {
+      display: none;
+    }
+  }
+
+  @media (--desktop-breakpoint) {
+    /* Modal options */
+    .options.open {
+      display: block;
+      position: unset;
+      width: 250px;
+      height: 100%;
+      overflow-y: auto;
+
+      border-left: 1px solid var(--md-sys-color-outline-variant);
+      animation: none;
+      box-shadow: none;
+    }
+    .close-options {
+      display: none;
+    }
+  }
+
+  /* Animate the options panel from the right */
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
 </style>
 
 <script>
@@ -113,6 +202,7 @@ const {title, tab} = Astro.props;
 
   // Options toggle
   const options = document.querySelector(".options")!;
+  const closeBtn = document.querySelector(".close-options")!;
   const optionsBtn = document.querySelector("#options")!;
   optionsBtn.addEventListener("click", (e) => {
     const isOpen = options.classList.contains("open");
@@ -125,16 +215,33 @@ const {title, tab} = Astro.props;
       icon.innerHTML  = 'close';
     }
   });
+  closeBtn.addEventListener("click", () => {
+      const icon = optionsBtn.children[0];
+      options.classList.remove("open");
+      icon.innerHTML  = 'palette';
+  });
 
   // Navigation links
  for (const item of MENU) {
     const link = document.querySelector(`#${item.text}`)!;
     link.addEventListener("change", (e) => {
-      window.location.href = item.href;
+      window.location.href = '' + item.href;
     });
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = item.href;
+      window.location.href = '' + item.href;
     });
  }
+
+ // Download Button
+  const downloadBtn = document.querySelectorAll(".fab")!;
+  downloadBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const a = document.createElement("a");
+      a.href = "/material-design-lite/css/mdl.min.css";
+      a.download = "mdl.min.css";
+      a.click();
+      a.remove();
+    });
+  });
 </script>

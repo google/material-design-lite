@@ -1,20 +1,24 @@
 ---
-import Root from "../../layouts/Root.astro";
+import SideNav from "../../layouts/SideNav.astro";
+import Markdown from "../../components/Markdown.astro";
 import { COMPONENTS } from "../../utils/menu";
 
-const { id } = Astro.props;
-const comp = COMPONENTS.find((c) => c.id === id)!;
-const frontmatter = { title: comp.text, tab: "components" };
-
-export function getStaticPaths() {
-  return COMPONENTS.map((component) => {
-    const parts = component.link.split("/");
-    const id = parts[parts.length - 1];
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../data/components/*.md");
+  return posts.map((component) => {
+    const parts = component.file.split("/");
+    const id = parts[parts.length - 1].split(".")[0];
     return { params: { id }, props: { id } };
   });
 }
+
+const { id } = Astro.props;
+const posts = await Astro.glob("../../data/components/*.md");
+const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
+const { frontmatter } = post;
+const source = post.compiledContent();
 ---
 
-<Root {frontmatter}>
-  {comp.link}
-</Root>
+<SideNav {frontmatter} links={COMPONENTS} link={`components/${id}`}>
+  <Markdown source={source} {id} />
+</SideNav>
