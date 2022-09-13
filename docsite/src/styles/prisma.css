@@ -32,7 +32,7 @@
 .dark-theme :is(code, pre) {
   --code-background: var(--md-sys-color-surface-variant);
   --code-foreground: var(--md-sys-color-on-surface-variant);
-  --code-comment: #596d79;
+  --code-comment: #e5e5e5;
   --code-delimiter: #ff9d00;
   --code-operator: #bf94e4;
   --code-punctuation: #f1feff;
