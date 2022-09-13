@@ -130,115 +130,115 @@ tab: "overview"
 ### Primary
 
 <div class="row tonal-palette">
-  <div class="box white" style="background-color: var(--md-ref-palette-primary0">0</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-primary5">5</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-primary10">10</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-primary20">20</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-primary30">30</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-primary40">40</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-primary50">50</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-primary60">60</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-primary70">70</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-primary80">80</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-primary90">90</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-primary95">95</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-primary99">99</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-primary100">100</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-primary0)">0</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-primary5)">5</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-primary10)">10</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-primary20)">20</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-primary30)">30</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-primary40)">40</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-primary50)">50</div>
+  <div class="box black" style="background-color: var(--md-ref-palette-primary60)">60</div>
+  <div class="box black" style="background-color: var(--md-ref-palette-primary70)">70</div>
+  <div class="box black" style="background-color: var(--md-ref-palette-primary80)">80</div>
+  <div class="box black" style="background-color: var(--md-ref-palette-primary90)">90</div>
+  <div class="box black" style="background-color: var(--md-ref-palette-primary95)">95</div>
+  <div class="box black" style="background-color: var(--md-ref-palette-primary99)">99</div>
+  <div class="box black" style="background-color: var(--md-ref-palette-primary100)">100</div>
 </div>
 
 ### Secondary
 
 <div class="row tonal-palette">
-  <div class="box white" style="background-color: var(--md-ref-palette-secondary0">0</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-secondary5">5</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-secondary10">10</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-secondary20">20</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-secondary30">30</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-secondary40">40</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-secondary50">50</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-secondary60">60</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-secondary70">70</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-secondary80">80</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-secondary90">90</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-secondary95">95</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-secondary99">99</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-secondary100">100</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-secondary0)">0</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-secondary5)">5</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-secondary10)">10</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-secondary20)">20</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-secondary30)">30</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-secondary40)">40</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-secondary50)">50</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-secondary60)">60</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-secondary70)">70</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-secondary80)">80</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-secondary90)">90</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-secondary95)">95</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-secondary99)">99</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-secondary100)">100</div>
 </div>
 
 ### Tertiary
 
 <div class="row tonal-palette">
-  <div class="box white" style="background-color: var(--md-ref-palette-tertiary0">0</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-tertiary5">5</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-tertiary10">10</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-tertiary20">20</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-tertiary30">30</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-tertiary40">40</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-tertiary50">50</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-tertiary60">60</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-tertiary70">70</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-tertiary80">80</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-tertiary90">90</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-tertiary95">95</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-tertiary99">99</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-tertiary100">100</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-tertiary0)">0</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-tertiary5)">5</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-tertiary10)">10</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-tertiary20)">20</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-tertiary30)">30</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-tertiary40)">40</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-tertiary50)">50</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-tertiary60)">60</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-tertiary70)">70</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-tertiary80)">80</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-tertiary90)">90</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-tertiary95)">95</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-tertiary99)">99</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-tertiary100)">100</div>
 </div>
 
 ### Neutral
 
 <div class="row tonal-palette">
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral0">0</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral5">5</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral10">10</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral20">20</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral30">30</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral40">40</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral50">50</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral60">60</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral70">70</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral80">80</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral90">90</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral95">95</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral99">99</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral100">100</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral0)">0</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral5)">5</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral10)">10</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral20)">20</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral30)">30</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral40)">40</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral50)">50</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral60)">60</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral70)">70</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral80)">80</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral90)">90</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral95)">95</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral99)">99</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral100)">100</div>
 </div>
 
 ### Neutral Variant
 
 <div class="row tonal-palette">
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral-variant0">0</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral-variant5">5</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral-variant10">10</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral-variant20">20</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral-variant30">30</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral-variant40">40</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-neutral-variant50">50</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral-variant60">60</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral-variant70">70</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral-variant80">80</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral-variant90">90</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral-variant95">95</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral-variant99">99</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-neutral-variant100">100</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral-variant0)">0</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral-variant5)">5</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral-variant10)">10</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral-variant20)">20</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral-variant30)">30</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral-variant40)">40</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-neutral-variant50)">50</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral-variant60)">60</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral-variant70)">70</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral-variant80)">80</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral-variant90)">90</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral-variant95)">95</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral-variant99)">99</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-neutral-variant100)">100</div>
 </div>
 
 ### Error
 
 <div class="row tonal-palette">
-  <div class="box white" style="background-color: var(--md-ref-palette-error0">0</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-error5">5</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-error10">10</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-error20">20</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-error30">30</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-error40">40</div>
-  <div class="box white" style="background-color: var(--md-ref-palette-error50">50</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-error60">60</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-error70">70</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-error80">80</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-error90">90</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-error95">95</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-error99">99</div>
-  <div class="box black" style="background-color: var(--md-ref-palette-error100">100</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-error0)">0</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-error5)">5</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-error10)">10</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-error20)">20</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-error30)">30</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-error40)">40</div>
+  <div class="box color-white-text" style="background-color: var(--md-ref-palette-error50)">50</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-error60)">60</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-error70)">70</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-error80)">80</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-error90)">90</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-error95)">95</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-error99)">99</div>
+  <div class="box color-black-text" style="background-color: var(--md-ref-palette-error100)">100</div>
 </div>
 
 ## Surfaces
@@ -282,13 +282,5 @@ tab: "overview"
     padding: 0.5rem;
     min-height: 3rem;
     border: 1px solid var(--md-sys-color-outline-variant);
-  }
-
-  .white {
-    color: #fff;
-  }
-
-  .black {
-    color: #000;
   }
 </style>

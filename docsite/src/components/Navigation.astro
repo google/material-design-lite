@@ -225,7 +225,7 @@ const {title, tab} = Astro.props;
  for (const item of MENU) {
     const link = document.querySelector(`#${item.text}`)!;
     link.addEventListener("change", (e) => {
-      window.location.href = '' + item.href;
+      window.location.href = '/material-design-lite' + item.href;
     });
     link.addEventListener("click", (e) => {
       e.preventDefault();
