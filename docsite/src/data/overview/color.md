@@ -113,10 +113,10 @@ tab: "overview"
   </div>
 
   <div class="row color-family">
-    <div class="box color-shadow color-surface-text">
+    <div class="box color-shadow color-white-text">
       Shadow
     </div>
-    <div class="box color-scrim color-surface-text">
+    <div class="box color-scrim color-white-text">
       Scrim
     </div>
     <div class="box color-surface-tint color-on-primary-text">
