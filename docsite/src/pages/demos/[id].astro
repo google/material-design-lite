@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
 const { id } = Astro.props;
 const posts = fs.readdirSync("../lib/snippets");
-const post = posts.find((p) => p.endsWith(`${id}.html`))!;
+const post = posts.find((p: string) => p.endsWith(`${id}.html`))!;
 const source = fs.readFileSync(`../lib/snippets/${post}`, "utf-8");
 const frontmatter = { title: "Demo" };
 ---
