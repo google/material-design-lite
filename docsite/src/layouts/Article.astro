@@ -13,7 +13,13 @@ const { frontmatter } = Astro.props;
 <style>
   section {
     padding: 1rem;
-    max-width: 860px;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    section {
+      max-width: 768px;
+    }
   }
 </style>

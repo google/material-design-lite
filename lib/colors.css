@@ -107,6 +107,7 @@
   @apply --on-background-text;
 }
 .color-surface {
+  @apply --surface;
 }
 .color-surface-text {
   @apply --surface-text;
@@ -158,6 +159,12 @@
 }
 .color-shadow-text {
   @apply --shadow-text;
+}
+.color-scrim {
+  @apply --scrim;
+}
+.color-scrim-text {
+  @apply --scrim-text;
 }
 .color-surface-tint {
   @apply --surface-tint;

@@ -7,7 +7,7 @@ const {title, tab} = Astro.props;
 ---
 
 <main>
-  <aside class="navigation-rail" style="min-height: 600px">
+  <aside id="nav-rail" class="navigation-rail">
     <!-- <button class="icon">
       <i class="material-icons">menu</i>
     </button> -->
@@ -21,7 +21,7 @@ const {title, tab} = Astro.props;
             MENU.map((item) => {
                 return (
                 <input type="radio" name="nav-rail" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
-                <label for={item.text}>
+                <label class="tab-icon" for={item.text}>
                     <i class="material-icons">{item.icon}</i>
                     <span>{item.text}</span>
                 </label>
@@ -50,6 +50,20 @@ const {title, tab} = Astro.props;
     <article>
       <slot />
     </article>
+
+    <nav id="nav-bar" class="navigation-bar">
+        {
+            MENU.map((item) => {
+                return (
+                <input type="radio" name="bottom-nav-icons" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
+                <label for={item.text}>
+                    <i class="material-icons">{item.icon}</i>
+                    <span>{item.text}</span>
+                </label>
+                )
+            })
+        }
+    </nav>
   </section>
 
   <aside class="options">
@@ -64,7 +78,9 @@ const {title, tab} = Astro.props;
 </main>
 
 <style>
-  @custom-media --breakpoint (max-width: 1400px);
+  /* @custom-media --nav-breakpoint (min-width: 1200px); */
+  @custom-media --tablet-breakpoint (min-width: 860px);
+  @custom-media --desktop-breakpoint (min-width: 1400px);
 
   main {
     display: flex;
@@ -72,6 +88,12 @@ const {title, tab} = Astro.props;
     height: 100vh;
     width: 100%;
     position: relative;
+  }
+  .content-body {
+    width: 100%;
+  }
+  #nav-rail {
+    display: none;
   }
   section {
     flex: 1;
@@ -88,7 +110,6 @@ const {title, tab} = Astro.props;
   .options, .close-options {
     display: none;
   }
-
   .options.open {
     display: block;
     width: 250px;
@@ -97,7 +118,6 @@ const {title, tab} = Astro.props;
 
     border-left: 1px solid var(--md-sys-color-outline-variant);
   }
-
   .controls {
     padding: 16px;
   }
@@ -105,7 +125,19 @@ const {title, tab} = Astro.props;
     text-decoration: none;
   }
 
-  @media (--breakpoint) {
+  @media (--tablet-breakpoint) {
+    #nav-rail {
+      display: flex;
+    }
+    #nav-bar {
+      display: none;
+    }
+    main {
+      flex-direction: row;
+    }
+  }
+
+  @media (--desktop-breakpoint) {
     /* Modal options */
     .options.open  {
       display: block;

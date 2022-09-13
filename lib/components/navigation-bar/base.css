@@ -31,6 +31,7 @@
     }
 
     --tint-color: transparent;
+    position: relative;
 
     & + label::after {
       content: " ";

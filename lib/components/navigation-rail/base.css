@@ -1,4 +1,4 @@
-.navigation-rail {
+:is(.navigation-rail) {
   height: 100%;
   width: 80px;
 
@@ -57,13 +57,13 @@
       opacity: 0;
       position: absolute;
 
-      &:checked + label i {
+      &:checked + :where(label, .tab-icon) i {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }
     }
 
-    & label {
+    & :where(label, .tab-icon) {
       height: 56px;
 
       display: flex;
@@ -78,18 +78,18 @@
       gap: 4px;
 
       @apply --label-medium;
-    }
 
-    & i {
-      font-size: 24px;
+      & i {
+        font-size: 24px;
 
-      width: 64px;
-      height: 32px;
-      border-radius: 16px;
+        width: 64px;
+        height: 32px;
+        border-radius: 16px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

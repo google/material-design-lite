@@ -87,6 +87,10 @@
 }
 
 * {
+  --md-sys-shape-small: var(--md-sys-shape-corner-small);
+  --md-sys-shape-medium: var(--md-sys-shape-corner-medium);
+  --md-sys-shape-large: var(--md-sys-shape-corner-large);
+
   --md-sys-color-primary: rgba(var(--md-sys-color-primary-rgb), 1);
   --md-sys-color-primary-container: rgba(
     var(--md-sys-color-primary-container-rgb),

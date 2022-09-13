@@ -4,6 +4,7 @@
   border-radius: 16px;
   width: 56px;
   height: 56px;
+  position: relative;
 
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
