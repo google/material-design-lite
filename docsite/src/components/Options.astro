@@ -60,7 +60,8 @@
     padding-bottom: 20px;
   }
   h2 {
-     font-size: 1.5rem;
+    font-size: 1.5rem;
+    display: inline-block;
   }
 </style>
 
@@ -68,8 +69,8 @@
   import { generateTheme } from "../utils/color";
   const root = document.body;
   const s = getComputedStyle(root);
-  // Source
-  const source = document.querySelector("#source") as HTMLInputElement;
+  const shape = "--md-sys-shape-corner";
+
   const themeMeta = document.querySelector('meta[name="theme-color"]')!;
   let styleTarget = document.head.querySelector(
     "style[data-theme]"
@@ -79,31 +80,58 @@
     styleTarget.setAttribute("data-theme", "");
     document.head.appendChild(styleTarget);
   }
+
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const settingsKey = "theme-settings";
+  const defaultSettings = {
+    source: themeMeta.getAttribute("content")!,
+    brightness: prefersDark.matches ? "dark" : "light",
+    shape: {
+      small: Number(s.getPropertyValue(`${shape}-small`).replace("px", "")),
+      medium: Number(s.getPropertyValue(`${shape}-medium`).replace("px", "")),
+      large: Number(s.getPropertyValue(`${shape}-large`).replace("px", "")),
+    },
+  };
+  const localSettings = localStorage.getItem(settingsKey);
+  const settings = localSettings ? JSON.parse(localSettings) : defaultSettings;
+  save();
+
+  function save() {
+    localStorage.setItem(settingsKey, JSON.stringify(settings));
+  }
+
+  // Source
+  const source = document.querySelector("#source") as HTMLInputElement;
+
   source.addEventListener("input", () => {
     const color = source.value;
     root.style.setProperty("--md-source", color);
     themeMeta.setAttribute("content", color);
     generateTheme(color, styleTarget!);
+    save();
   });
-  const color = themeMeta.getAttribute("content")!;
-  source.value = color;
-  generateTheme(color, styleTarget);
+  source.value = settings.source;
+  generateTheme(settings.source, styleTarget);
 
   // Brightness
   const light = document.querySelector("#light") as HTMLInputElement;
   const dark = document.querySelector("#dark") as HTMLInputElement;
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
   light.addEventListener("change", () => {
     document.body.classList.remove("dark-theme");
     document.body.classList.add("light-theme");
+    save();
   });
   dark.addEventListener("change", () => {
     document.body.classList.remove("light-theme");
     document.body.classList.add("dark-theme");
+    save();
   });
-  if (prefersDark.matches) {
+  if (settings.brightness === "dark") {
+    dark.checked = true;
     document.body.classList.add("dark-theme");
   } else {
+    light.checked = true;
     document.body.classList.add("light-theme");
   }
 
@@ -111,23 +139,19 @@
   const sSmall = document.querySelector("#shape-small") as HTMLInputElement;
   const sMedium = document.querySelector("#shape-medium") as HTMLInputElement;
   const sLarge = document.querySelector("#shape-large") as HTMLInputElement;
-  const shape = "--md-sys-shape-corner";
   sSmall.addEventListener("input", () => {
     root.style.setProperty(`${shape}-small`, sSmall.value + "px");
+    save();
   });
   sMedium.addEventListener("input", () => {
     root.style.setProperty(`${shape}-medium`, sMedium.value + "px");
+    save();
   });
   sLarge.addEventListener("input", () => {
     root.style.setProperty(`${shape}-large`, sLarge.value + "px");
+    save();
   });
-  sSmall.valueAsNumber = Number(
-    s.getPropertyValue(`${shape}-small`).replace("px", "")
-  );
-  sMedium.valueAsNumber = Number(
-    s.getPropertyValue(`${shape}-medium`).replace("px", "")
-  );
-  sLarge.valueAsNumber = Number(
-    s.getPropertyValue(`${shape}-large`).replace("px", "")
-  );
+  sSmall.valueAsNumber = settings.shape.small;
+  sMedium.valueAsNumber = settings.shape.medium;
+  sLarge.valueAsNumber = settings.shape.large;
 </script>

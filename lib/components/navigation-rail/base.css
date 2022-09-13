@@ -40,6 +40,13 @@
       color: var(--md-sys-color-on-tertiary-container);
       box-shadow: var(--md-sys-elevation-0);
       margin-top: 12px;
+
+      &:hover {
+        box-shadow: var(--md-sys-elevation-2);
+      }
+      &:active {
+        box-shadow: var(--md-sys-elevation-1);
+      }
     }
   }
 

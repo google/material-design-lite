@@ -55,6 +55,6 @@ Text buttons can be placed on a variety of backgrounds. Until the button is inte
 
 <code-preview group="text"></code-preview>
 
-## ARIA Resources
+## Useful Links
 
-https://static.corp.google.com/ariablueprints/button/button.html
+- [ARIA Resources](https://static.corp.google.com/ariablueprints/button/button.html)

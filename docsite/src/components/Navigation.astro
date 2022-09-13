@@ -8,9 +8,6 @@ const {title, tab} = Astro.props;
 
 <main>
   <aside id="nav-rail" class="navigation-rail">
-    <!-- <button class="icon">
-      <i class="material-icons">menu</i>
-    </button> -->
 
     <button class="fab">
         <i class="material-icons">file_download</i>
@@ -20,7 +17,7 @@ const {title, tab} = Astro.props;
         {
             MENU.map((item) => {
                 return (
-                <input type="radio" name="nav-rail" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
+                <input type="radio" name="side-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
                 <label class="tab-icon" for={item.text}>
                     <i class="material-icons">{item.icon}</i>
                     <span>{item.text}</span>
@@ -51,11 +48,15 @@ const {title, tab} = Astro.props;
       <slot />
     </article>
 
+    <button class="fixed fab tertiary">
+        <i class="material-icons">file_download</i>
+    </button>
+
     <nav id="nav-bar" class="navigation-bar">
         {
             MENU.map((item) => {
                 return (
-                <input type="radio" name="bottom-nav-icons" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
+                <input type="radio" name="bottom-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
                 <label for={item.text}>
                     <i class="material-icons">{item.icon}</i>
                     <span>{item.text}</span>
@@ -110,19 +111,34 @@ const {title, tab} = Astro.props;
   .options, .close-options {
     display: none;
   }
-  .options.open {
+  .close-options {
+    opacity: 1;
+  }
+  .options.open  {
     display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
     width: 250px;
     height: 100%;
+    z-index: 100;
     overflow-y: auto;
-
-    border-left: 1px solid var(--md-sys-color-outline-variant);
+    background-color: var(--md-sys-color-background);
+    box-shadow: var(--md-sys-elevation-4);
+    animation: slide-in 0.3s ease-out;
   }
   .controls {
     padding: 16px;
   }
   .actions a:hover {
     text-decoration: none;
+  }
+  .fab.fixed {
+    position: fixed;
+    bottom: 95px;
+    right: 28px;
+    z-index: 1;
   }
 
   @media (--tablet-breakpoint) {
@@ -135,33 +151,38 @@ const {title, tab} = Astro.props;
     main {
       flex-direction: row;
     }
+    .fab.fixed {
+      display: none;
+    }
   }
 
   @media (--desktop-breakpoint) {
     /* Modal options */
-    .options.open  {
+    .options.open {
       display: block;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      position: unset;
       width: 250px;
       height: 100%;
-      z-index: 100;
       overflow-y: auto;
-      background-color: var(--md-sys-color-background);
-      box-shadow: var(--md-sys-elevation-4);
-      animation: slide-in 0.3s ease-out;
-      border-left: none;
+
+      border-left: 1px solid var(--md-sys-color-outline-variant);
+      animation: none;
+      box-shadow: none;
     }
-      /* Animate the options panel from the right */
-    @keyframes slide-in {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(0);
-      }
+    .close-options {
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  /* Animate the options panel from the right */
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
     }
   }
   
@@ -213,4 +234,16 @@ const {title, tab} = Astro.props;
       window.location.href = item.href;
     });
  }
+
+ // Download Button
+  const downloadBtn = document.querySelectorAll(".fab")!;
+  downloadBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const a = document.createElement("a");
+      a.href = "/css/mdl.min.css";
+      a.download = "mdl.min.css";
+      a.click();
+      a.remove();
+    });
+  });
 </script>

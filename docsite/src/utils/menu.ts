@@ -182,10 +182,6 @@ export const COMPONENTS = [
 
 export const OVERVIEW = [
     {
-        text: "Introduction",
-        link: "introduction",
-    },
-    {
         text: "Typography",
         link: "overview/typography",
     },
@@ -225,7 +221,7 @@ export const MENU = [
     },
     {
         text: "Overview",
-        icon: "info",
+        icon: "palette",
         href: "/overview",
         header: true,
         children: OVERVIEW,

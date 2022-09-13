@@ -1,8 +1,37 @@
-:root {
+:is(code, pre) {
   --code-border-radius: 4px;
-  --code-background: #283237;
-  --code-foreground: #f1feff;
+}
 
+.light-theme :is(code, pre) {
+  --code-background: var(--md-sys-color-surface-variant);
+  --code-foreground: var(--md-sys-color-on-surface-variant);
+  --code-comment: #6a737d;
+  --code-delimiter: #6f42c1;
+  --code-operator: #d73a49;
+  --code-punctuation: #24292e;
+  --code-boolean: #6f42c1;
+  --code-tag: #6f42c1;
+  --code-entity: #005cc5;
+  --code-number: #005cc5;
+  --code-property: #6f42c1;
+  --code-string: #22863a;
+  --code-attr-value-punctuation: #22863a;
+  --code-attr-value-punctuation--first: #24292e;
+  --token-url: #032f62;
+  --code-function: rgb(36, 41, 46);
+  --code-regex: #032f62;
+  --code-inserted: #032f62;
+  --code-deleted: #d73a49;
+  --code-language-css-property: #24292e;
+  --code-language-css-token-id: #005cc5;
+  --code-language-css-selector: #005cc5;
+  --code-class-name: #6f42c1;
+  --code-line-highlight: rgba(27, 31, 35, 0.05);
+}
+
+.dark-theme :is(code, pre) {
+  --code-background: var(--md-sys-color-surface-variant);
+  --code-foreground: var(--md-sys-color-on-surface-variant);
   --code-comment: #596d79;
   --code-delimiter: #ff9d00;
   --code-operator: #bf94e4;

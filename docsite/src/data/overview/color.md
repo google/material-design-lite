@@ -291,20 +291,4 @@ tab: "overview"
   .black {
     color: #000;
   }
-
-  h2 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    margin-bottom: 0.5rem;
-    margin-top: 2rem;
-    font-size: 1.25rem;
-  }
-
-  .surfaces {
-    padding-bottom: 2rem;
-  }
 </style>

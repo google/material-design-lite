@@ -16,7 +16,7 @@ const { source, id } = Astro.props;
       return <Demo 
         group={group}
         root={`components/${id}/snippets`}
-        outline={line.includes("outline")} 
+        outline={line.includes(" outline")} 
       />;
     }
     return <div set:html={line} />;

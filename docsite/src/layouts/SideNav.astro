@@ -69,9 +69,7 @@ const { frontmatter, links, link } = Astro.props as {
   }
   .article {
     width: 100%;
-    height: 100%;
-    padding: 1rem;
-    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem 1.5rem;
   }
   .draft {
     color: var(--md-sys-color-on-surface);
@@ -85,9 +83,13 @@ const { frontmatter, links, link } = Astro.props as {
     padding: 0;
     margin: 0;
   }
+  .left-nav {
+    padding-top: 1rem;
+  }
   @media (min-width: 860px) {
     .article {
       max-width: 860px;
+      margin: 0 auto;
     }
   }
   @media (--nav-breakpoint) {
