@@ -1,0 +1,32 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#6750A4" />
+    <title>Material Design Lite - {frontmatter.title}</title>
+  </head>
+  <body>
+    <style is:global>
+      @import url(../styles/global.css);
+    </style>
+
+    <section>
+      <slot />
+    </section>
+
+    <style>
+      section {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </body>
+</html>

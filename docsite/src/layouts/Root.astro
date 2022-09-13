@@ -1,37 +1,20 @@
 ---
+import Raw from "./Raw.astro";
 import Navigation from "../components/Navigation.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#6750A4" />
-    <title>Material Design Lite - {frontmatter.title}</title>
-  </head>
-  <body>
-    <style is:global>
-      @import url(../styles/global.css);
-    </style>
+<Raw {frontmatter}>
+  <Navigation title={frontmatter.title} tab={frontmatter.tab}>
+    <section>
+      <slot />
+    </section>
+  </Navigation>
+</Raw>
 
-    <Navigation title={frontmatter.title} tab={frontmatter.tab}>
-      <section>
-        <slot />
-      </section>
-    </Navigation>
-
-    <style>
-      section {
-        width: 100%;
-        height: 100%;
-        border-top: 1px solid var(--md-sys-color-outline-variant);
-      }
-    </style>
-  </body>
-</html>
+<style>
+  section {
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+  }
+</style>
