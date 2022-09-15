@@ -3,6 +3,7 @@
   transition: outline-offset 0.25s ease;
   outline-color: var(--md-sys-color-on-surface-variant);
   outline-width: 2px;
+  position: relative;
 }
 :focus:not(:active) {
   outline-offset: 5px;

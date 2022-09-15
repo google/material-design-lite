@@ -1,4 +1,6 @@
 :where(.dialog) {
+  position: relative;
+  
   &[open] {
     border-radius: 28px;
     border: none;

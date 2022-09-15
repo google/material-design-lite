@@ -1,7 +1,7 @@
 .snackbar {
   width: 344px;
   box-sizing: border-box;
-
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 8px;

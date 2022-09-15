@@ -2,6 +2,7 @@
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  position: relative;
 
   --size: 24px;
   width: var(--size);

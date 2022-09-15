@@ -4,6 +4,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
   box-shadow: var(--md-sys-elevation-1);
 
@@ -11,7 +12,6 @@
   color: var(--md-sys-color-on-surface);
 
   box-sizing: border-box;
-  position: relative;
 
   &::before {
     content: "";

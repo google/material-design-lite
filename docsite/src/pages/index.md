@@ -11,7 +11,7 @@ Lightweight implementation of [Material Design](https://material.io/).
 
 - [x] Dynamic color
 - [x] Update demos
-- [x] Built-in [playground](/material-design-lite/playground/)
+- [x] Built-in [playground](https://lit.dev/playground/#gist=714c643074780b49afb80212f3638057)
 - [x] Download button
 - [ ] All components
 - [ ] Migrate old articles

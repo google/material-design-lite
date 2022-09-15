@@ -6,6 +6,7 @@
   --safari-helper3: rgba(var(--md-sys-color-primary-rgb), 0.16);
   --safari-helper4: rgba(var(--md-sys-color-primary-rgb), 0.24);
   display: inline-block;
+  position: relative;
   width: 100%;
   color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
 

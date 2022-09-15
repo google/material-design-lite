@@ -6,6 +6,7 @@
 
   height: 4px;
   border-radius: 4px;
+  position: relative;
 
   &::-webkit-progress-value {
     background: var(--progress-fg);

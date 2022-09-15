@@ -1,5 +1,6 @@
 :where(.top-app-bar) {
   --top-app-bar-padding: 16px;
+  position: relative;
   padding: var(--top-app-bar-padding);
   display: grid;
   align-items: center;
