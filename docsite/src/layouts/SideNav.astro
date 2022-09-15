@@ -99,7 +99,7 @@ const { frontmatter, links, link } = Astro.props as {
 <script>
   // Scroll to selected link
   const selected = document.querySelectorAll(".nav-link[data-selected]");
-  if (selected) {
+  if (selected.length > 0) {
     // Animated scroll to selected link
     selected[0].scrollIntoView({
       behavior: "smooth",
