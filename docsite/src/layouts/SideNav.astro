@@ -28,11 +28,13 @@ const { frontmatter, links, link } = Astro.props as {
                   </div>
                 );
               }
+              const navLink = `/material-design-lite/${item.link}/`;
+              console.log(link, navLink);
               return (
                 <a
-                  href={`/material-design-lite/${item.link}/`}
+                  href={navLink}
                   class="nav-link list-tile"
-                  data-selected={link === item.link}
+                  data-selected={link === navLink}
                 >
                   <span class="title">{item.text}</span>
                 </a>
