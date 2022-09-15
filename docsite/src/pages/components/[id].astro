@@ -19,6 +19,6 @@ const { frontmatter } = post;
 const source = post.compiledContent();
 ---
 
-<SideNav {frontmatter} links={COMPONENTS} link={`components/${id}`}>
+<SideNav {frontmatter} links={COMPONENTS} link={`/material-design-lite/components/${id}`}>
   <Markdown source={source} {id} />
 </SideNav>
