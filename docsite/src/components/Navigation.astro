@@ -9,7 +9,7 @@ const {title, tab} = Astro.props;
 <main>
   <aside id="nav-rail" class="navigation-rail">
 
-    <button class="fab">
+    <button id="download" class="fab">
         <i class="material-icons">file_download</i>
     </button>
 
@@ -48,7 +48,7 @@ const {title, tab} = Astro.props;
       <slot />
     </article>
 
-    <button class="fixed fab tertiary">
+    <button id="download" class="fixed fab tertiary">
         <i class="material-icons">file_download</i>
     </button>
 
@@ -234,7 +234,7 @@ const {title, tab} = Astro.props;
  }
 
  // Download Button
-  const downloadBtn = document.querySelectorAll(".fab")!;
+  const downloadBtn = document.querySelectorAll("#download")!;
   downloadBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const a = document.createElement("a");
