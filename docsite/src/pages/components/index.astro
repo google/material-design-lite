@@ -8,7 +8,7 @@ const links = posts.map((post) => {
   const parts = post.file.split("/");
   const id = parts[parts.length - 1].split(".")[0];
   return {
-    link: `components/${id}`,
+    link: `/material-design-lite/components/${id}`,
     title: data.title,
     subtitle: data.description,
   };
