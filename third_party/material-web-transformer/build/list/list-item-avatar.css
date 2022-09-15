@@ -1,0 +1,9 @@
+.list .list-item__avatar {
+  display: inline-flex;
+  margin-inline-start: 16px;
+}
+.list .list-item__avatar {
+  border-radius: var(--md-list-list-item-leading-avatar-shape, 9999px);
+  height: var(--md-list-list-item-leading-avatar-size, 40px);
+  width: var(--md-list-list-item-leading-avatar-size, 40px);
+} /*# sourceMappingURL=list-item-avatar-styles.css.map */

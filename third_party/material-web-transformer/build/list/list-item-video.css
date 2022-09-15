@@ -1,0 +1,14 @@
+.list {
+  display: inline-flex;
+}
+.list .list-item__video {
+  display: inline-flex;
+  margin-block-end: 12px;
+  margin-block-start: 12px;
+  object-fit: cover;
+}
+.list .list-item__video {
+  height: var(--md-list-item-video-list-item-leading-video-height, 64px);
+  width: var(--md-list-item-video-list-item-leading-video-width, 114px);
+  border-radius: var(--md-list-item-video-list-item-leading-video-shape, 0px);
+} /*# sourceMappingURL=list-item-video-styles.css.map */

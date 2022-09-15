@@ -1,0 +1,451 @@
+.field__outline {
+  display: flex;
+  pointer-events: none;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.field__outline-start::before,
+.field__outline-start::after,
+.field__outline-panel-inactive::before,
+.field__outline-panel-inactive::after,
+.field__outline-panel-active::before,
+.field__outline-panel-active::after,
+.field__outline-end::before,
+.field__outline-end::after {
+  border: inherit;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+.field__outline-start,
+.field__outline-end {
+  border: inherit;
+  border-radius: inherit;
+  box-sizing: border-box;
+  position: relative;
+}
+.field__outline-start::before,
+.field__outline-start::after,
+.field__outline-end::before,
+.field__outline-end::after {
+  border-bottom-style: solid;
+  border-top-style: solid;
+}
+.field__outline-start::after,
+.field__outline-end::after {
+  opacity: 0;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.field.focused .field__outline-start::after,
+.field.focused .field__outline-end::after {
+  opacity: 1;
+}
+.field__outline-start::before,
+.field__outline-start::after {
+  border-inline-start-style: solid;
+  border-inline-end-style: none;
+  border-start-start-radius: inherit;
+  border-start-end-radius: 0;
+  border-end-start-radius: inherit;
+  border-end-end-radius: 0;
+}
+.field__outline-end {
+  flex-grow: 1;
+}
+.field__outline-end::before,
+.field__outline-end::after {
+  border-inline-start-style: none;
+  border-inline-end-style: solid;
+  border-start-start-radius: 0;
+  border-start-end-radius: inherit;
+  border-end-start-radius: 0;
+  border-end-end-radius: inherit;
+}
+.field__outline-notch {
+  align-items: flex-start;
+  border: inherit;
+  display: flex;
+  position: relative;
+}
+.field.no-label .field__outline-notch {
+  display: none;
+}
+.field__outline-panel-inactive,
+.field__outline-panel-active {
+  border: inherit;
+  border-bottom-style: solid;
+  inset: 0;
+  position: absolute;
+}
+.field__outline-panel-inactive::before,
+.field__outline-panel-inactive::after,
+.field__outline-panel-active::before,
+.field__outline-panel-active::after {
+  border-top-style: solid;
+  border-bottom: none;
+  bottom: auto;
+  transform: scaleX(1);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.field__outline-panel-inactive::before,
+.field__outline-panel-active::before {
+  right: 50%;
+  transform-origin: top left;
+}
+.field__outline-panel-inactive::after,
+.field__outline-panel-active::after {
+  left: 50%;
+  transform-origin: top right;
+}
+.field.populated .field__outline-panel-inactive::before,
+.field.populated .field__outline-panel-inactive::after,
+.field.focused .field__outline-panel-inactive::before,
+.field.focused .field__outline-panel-inactive::after,
+.field.populated .field__outline-panel-active::before,
+.field.populated .field__outline-panel-active::after,
+.field.focused .field__outline-panel-active::before,
+.field.focused .field__outline-panel-active::after {
+  transform: scaleX(0);
+}
+.field__outline-panel-active {
+  opacity: 0;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.field.focused .field__outline-panel-active {
+  opacity: 1;
+}
+.field.outlined .field__container {
+  flex-basis: var(--md-outlined-field-container-height, 56px);
+}
+.field.outlined .field__content {
+  color: var(
+    --md-outlined-field-content-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined:hover .field__content {
+  color: var(
+    --md-outlined-field-hover-content-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined.focused .field__content {
+  color: var(
+    --md-outlined-field-focus-content-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined.disabled .field__content {
+  color: var(
+    --md-outlined-field-disabled-content-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined:not(.field.disabled).field.error .field__content {
+  color: var(
+    --md-outlined-field-error-content-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined:not(.field.disabled).field.error:hover .field__content {
+  color: var(
+    --md-outlined-field-error-hover-content-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined:not(.field.disabled).field.error.field.focused .field__content {
+  color: var(
+    --md-outlined-field-error-focus-content-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined.disabled.field.no-label .field__content,
+.field.outlined.disabled.field.focused .field__content,
+.field.outlined.disabled.field.populated .field__content {
+  opacity: var(--md-outlined-field-disabled-content-opacity, 0.38);
+}
+.field.outlined .field__label {
+  color: var(
+    --md-outlined-field-label-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.field.outlined:hover .field__label {
+  color: var(
+    --md-outlined-field-hover-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined.focused .field__label {
+  color: var(
+    --md-outlined-field-focus-label-text-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.field.outlined.disabled .field__label {
+  color: var(
+    --md-outlined-field-disabled-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined:not(.field.disabled).field.error .field__label {
+  color: var(
+    --md-outlined-field-error-label-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.field.outlined:not(.field.disabled).field.error:hover .field__label {
+  color: var(
+    --md-outlined-field-error-hover-label-text-color,
+    var(--md-sys-color-on-error-container, #410e0b)
+  );
+}
+.field.outlined:not(.field.disabled).field.error.field.focused .field__label {
+  color: var(
+    --md-outlined-field-error-focus-label-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.field.outlined .field__label {
+  font-family: var(--md-outlined-field-label-text-font, Roboto);
+  font-weight: var(--md-outlined-field-label-text-weight, 400);
+  letter-spacing: var(--md-outlined-field-label-text-tracking, 0.03125rem);
+}
+.field.outlined .field__label--resting {
+  font-size: var(--md-outlined-field-label-text-size, 1rem);
+  line-height: var(--md-outlined-field-label-text-line-height, 1.5rem);
+}
+.field.outlined .field__label--floating {
+  font-size: var(--md-outlined-field-label-text-populated-size, 0.75rem);
+  line-height: var(--md-outlined-field-label-text-populated-line-height, 1rem);
+}
+.field.outlined.disabled .field__label:not(.field__label--hidden) {
+  opacity: var(--md-outlined-field-disabled-label-text-opacity, 0.38);
+}
+.field.outlined .field__supporting-text {
+  color: var(
+    --md-outlined-field-supporting-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.field.outlined:hover .field__supporting-text {
+  color: var(
+    --md-outlined-field-hover-supporting-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.field.outlined.focus .field__supporting-text {
+  color: var(
+    --md-outlined-field-focus-supporting-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.field.outlined.disabled .field__supporting-text {
+  color: var(
+    --md-outlined-field-disabled-supporting-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined:not(.field.disabled).field.error .field__supporting-text {
+  color: var(
+    --md-outlined-field-error-supporting-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.field.outlined:not(.field.disabled).field.error:hover .field__supporting-text {
+  color: var(
+    --md-outlined-field-error-hover-supporting-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.field.outlined:not(.field.disabled).field.error.field.focus
+  .field__supporting-text {
+  color: var(
+    --md-outlined-field-error-focus-supporting-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.field.outlined .field__supporting-text {
+  font-family: var(--md-outlined-field-supporting-text-font, Roboto);
+  font-size: var(--md-outlined-field-supporting-text-size, 0.75rem);
+  font-weight: var(--md-outlined-field-supporting-text-weight, 400);
+  letter-spacing: var(--md-outlined-field-supporting-text-tracking, 0.025rem);
+  line-height: var(--md-outlined-field-supporting-text-line-height, 1rem);
+}
+.field.outlined.disabled .field__supporting-text {
+  opacity: var(--md-outlined-field-disabled-supporting-text-opacity, 0.38);
+}
+.field.outlined .field__supporting-text {
+  padding: 0 var(--md-outlined-field-supporting-text-padding, 16px);
+}
+.field.outlined .field__supporting-text-start ::slotted(:not(:empty)),
+.field.outlined .field__supporting-text-end ::slotted(:not(:empty)) {
+  padding-top: var(--md-outlined-field-supporting-text-padding-top, 4px);
+}
+.field.outlined .field__supporting-text-end ::slotted(:not(:empty)) {
+  padding-inline-start: var(--md-outlined-field-supporting-text-padding, 16px);
+}
+.field.outlined .field__label--floating {
+  transform: translateY(
+    calc(-100% + var(--md-outlined-field-label-text-padding-bottom, 8px))
+  );
+}
+.field.outlined .field__outline-start,
+.field.outlined:not(.field.with-start) .field__start {
+  padding-inline-start: max(
+    var(--md-outlined-field-container-padding-horizontal, 16px),
+    max(
+        var(--md-outlined-field-container-shape-start-start, 4px),
+        var(--md-outlined-field-container-shape-end-start, 4px)
+      ) + var(--md-outlined-field-outline-label-padding, 4px)
+  );
+}
+.field.outlined:not(.field.with-end) .field__end {
+  padding-inline-end: max(
+    var(--md-outlined-field-container-padding-horizontal, 16px),
+    max(
+      var(--md-outlined-field-container-shape-start-end, 4px),
+      var(--md-outlined-field-container-shape-end-end, 4px)
+    )
+  );
+}
+.field.outlined .field__outline {
+  border-start-start-radius: var(
+    --md-outlined-field-container-shape-start-start,
+    4px
+  );
+  border-start-end-radius: var(
+    --md-outlined-field-container-shape-start-end,
+    4px
+  );
+  border-end-end-radius: var(--md-outlined-field-container-shape-end-end, 4px);
+  border-end-start-radius: var(
+    --md-outlined-field-container-shape-end-start,
+    4px
+  );
+}
+.field.outlined .field__outline {
+  border-color: var(
+    --md-outlined-field-outline-color,
+    var(--md-sys-color-outline, #79747e)
+  );
+  color: var(
+    --md-outlined-field-outline-color,
+    var(--md-sys-color-outline, #79747e)
+  );
+}
+.field.outlined:hover .field__outline {
+  border-color: var(
+    --md-outlined-field-hover-outline-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  color: var(
+    --md-outlined-field-hover-outline-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined.focused .field__outline {
+  border-color: var(
+    --md-outlined-field-focus-outline-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+  color: var(
+    --md-outlined-field-focus-outline-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.field.outlined.disabled .field__outline {
+  border-color: var(
+    --md-outlined-field-disabled-outline-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  color: var(
+    --md-outlined-field-disabled-outline-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.field.outlined:not(.field.disabled).field.error .field__outline {
+  border-color: var(
+    --md-outlined-field-error-outline-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  color: var(
+    --md-outlined-field-error-outline-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.field.outlined:not(.field.disabled).field.error:hover .field__outline {
+  border-color: var(
+    --md-outlined-field-error-hover-outline-color,
+    var(--md-sys-color-on-error-container, #410e0b)
+  );
+  color: var(
+    --md-outlined-field-error-hover-outline-color,
+    var(--md-sys-color-on-error-container, #410e0b)
+  );
+}
+.field.outlined:not(.field.disabled).field.error.field.focused .field__outline {
+  border-color: var(
+    --md-outlined-field-error-focus-outline-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  color: var(
+    --md-outlined-field-error-focus-outline-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.field.outlined .field__outline-start::before,
+.field.outlined .field__outline-start::after {
+  margin-inline-end: var(--md-outlined-field-outline-label-padding, 4px);
+}
+.field.outlined .field__outline-notch {
+  padding: 0 var(--md-outlined-field-outline-label-padding, 4px);
+  margin-inline-start: calc(
+    -1 * var(--md-outlined-field-outline-label-padding, 4px)
+  );
+  margin-inline-end: var(--md-outlined-field-outline-label-padding, 4px);
+}
+.field.outlined .field__outline-end {
+  margin-inline-start: calc(
+    -1 * var(--md-outlined-field-outline-label-padding, 4px)
+  );
+}
+.field.outlined.disabled .field__outline-start,
+.field.outlined.disabled .field__outline-end,
+.field.outlined.disabled .field__outline-panel-inactive {
+  opacity: var(--md-outlined-field-disabled-outline-opacity, 0.12);
+}
+.field.outlined .field__outline-notch {
+  max-width: calc(
+    100% - 2 * var(--md-outlined-field-container-padding-horizontal, 16px)
+  );
+}
+.field.outlined .field__outline-start::before,
+.field.outlined .field__outline-end::before,
+.field.outlined .field__outline-panel-inactive,
+.field.outlined .field__outline-panel-inactive::before,
+.field.outlined .field__outline-panel-inactive::after {
+  border-width: var(--md-outlined-field-outline-width, 1px);
+}
+.field.outlined:hover .field__outline-start::before,
+.field.outlined:hover .field__outline-end::before,
+.field.outlined:hover .field__outline-panel-inactive,
+.field.outlined:hover .field__outline-panel-inactive::before,
+.field.outlined:hover .field__outline-panel-inactive::after {
+  border-width: var(--md-outlined-field-hover-outline-width, 1px);
+}
+.field.outlined .field__outline-start::after,
+.field.outlined .field__outline-end::after,
+.field.outlined .field__outline-panel-active,
+.field.outlined .field__outline-panel-active::before,
+.field.outlined .field__outline-panel-active::after {
+  border-width: var(--md-outlined-field-focus-outline-width, 2px);
+}
+.field.outlined.disabled .field__outline-start::before,
+.field.outlined.disabled .field__outline-end::before,
+.field.outlined.disabled .field__outline-panel-inactive,
+.field.outlined.disabled .field__outline-panel-inactive::before,
+.field.outlined.disabled .field__outline-panel-inactive::after {
+  border-width: var(--md-outlined-field-disabled-outline-width, 1px);
+} /*# sourceMappingURL=outlined-styles.css.map */

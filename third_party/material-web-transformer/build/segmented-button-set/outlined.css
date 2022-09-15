@@ -1,0 +1,14 @@
+.segmented-button-set.outlined {
+  height: var(--md-segmented-button-container-height, 40px);
+}
+.segmented-button-set.outlined ::slotted(:first-child) {
+  border-start-start-radius: var(
+    --md-segmented-button-shape-start-start,
+    9999px
+  );
+  border-end-start-radius: var(--md-segmented-button-shape-end-start, 9999px);
+}
+.segmented-button-set.outlined ::slotted(:last-child) {
+  border-start-end-radius: var(--md-segmented-button-shape-start-end, 9999px);
+  border-end-end-radius: var(--md-segmented-button-shape-end-end, 9999px);
+} /*# sourceMappingURL=outlined-styles.css.map */

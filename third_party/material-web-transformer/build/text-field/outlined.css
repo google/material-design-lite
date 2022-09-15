@@ -1,0 +1,428 @@
+.text-field.outlined {
+  --md-outlined-field-container-shape-start-start: var(
+    --md-outlined-text-field-container-shape-start-start,
+    4px
+  );
+  --md-outlined-field-container-shape-start-end: var(
+    --md-outlined-text-field-container-shape-start-end,
+    4px
+  );
+  --md-outlined-field-container-shape-end-end: var(
+    --md-outlined-text-field-container-shape-end-end,
+    4px
+  );
+  --md-outlined-field-container-shape-end-start: var(
+    --md-outlined-text-field-container-shape-end-start,
+    4px
+  );
+  --md-outlined-field-container-height: var(
+    --md-outlined-text-field-container-height,
+    56px
+  );
+  --md-outlined-field-disabled-content-color: var(
+    --md-outlined-text-field-disabled-input-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-disabled-content-opacity: var(
+    --md-outlined-text-field-disabled-input-text-opacity,
+    0.38
+  );
+  --md-outlined-field-disabled-label-text-color: var(
+    --md-outlined-text-field-disabled-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-disabled-label-text-opacity: var(
+    --md-outlined-text-field-disabled-label-text-opacity,
+    0.38
+  );
+  --md-outlined-field-disabled-leading-icon-color: var(
+    --md-outlined-text-field-disabled-leading-icon-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-disabled-leading-icon-opacity: var(
+    --md-outlined-text-field-disabled-leading-icon-opacity,
+    0.38
+  );
+  --md-outlined-field-disabled-outline-color: var(
+    --md-outlined-text-field-disabled-outline-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-disabled-outline-opacity: var(
+    --md-outlined-text-field-disabled-outline-opacity,
+    0.12
+  );
+  --md-outlined-field-disabled-outline-width: var(
+    --md-outlined-text-field-disabled-outline-width,
+    1px
+  );
+  --md-outlined-field-disabled-supporting-text-color: var(
+    --md-outlined-text-field-disabled-supporting-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-disabled-supporting-text-opacity: var(
+    --md-outlined-text-field-disabled-supporting-text-opacity,
+    0.38
+  );
+  --md-outlined-field-disabled-trailing-icon-color: var(
+    --md-outlined-text-field-disabled-trailing-icon-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-disabled-trailing-icon-opacity: var(
+    --md-outlined-text-field-disabled-trailing-icon-opacity,
+    0.38
+  );
+  --md-outlined-field-error-focus-content-color: var(
+    --md-outlined-text-field-error-focus-input-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-error-focus-label-text-color: var(
+    --md-outlined-text-field-error-focus-label-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-focus-leading-icon-color: var(
+    --md-outlined-text-field-error-focus-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-error-focus-outline-color: var(
+    --md-outlined-text-field-error-focus-outline-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-focus-supporting-text-color: var(
+    --md-outlined-text-field-error-focus-supporting-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-focus-trailing-icon-color: var(
+    --md-outlined-text-field-error-focus-trailing-icon-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-hover-content-color: var(
+    --md-outlined-text-field-error-hover-input-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-error-hover-label-text-color: var(
+    --md-outlined-text-field-error-hover-label-text-color,
+    var(--md-sys-color-on-error-container, #410e0b)
+  );
+  --md-outlined-field-error-hover-leading-icon-color: var(
+    --md-outlined-text-field-error-hover-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-error-hover-outline-color: var(
+    --md-outlined-text-field-error-hover-outline-color,
+    var(--md-sys-color-on-error-container, #410e0b)
+  );
+  --md-outlined-field-error-hover-supporting-text-color: var(
+    --md-outlined-text-field-error-hover-supporting-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-hover-trailing-icon-color: var(
+    --md-outlined-text-field-error-hover-trailing-icon-color,
+    var(--md-sys-color-on-error-container, #410e0b)
+  );
+  --md-outlined-field-error-content-color: var(
+    --md-outlined-text-field-error-input-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-error-label-text-color: var(
+    --md-outlined-text-field-error-label-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-leading-icon-color: var(
+    --md-outlined-text-field-error-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-error-outline-color: var(
+    --md-outlined-text-field-error-outline-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-supporting-text-color: var(
+    --md-outlined-text-field-error-supporting-text-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-error-trailing-icon-color: var(
+    --md-outlined-text-field-error-trailing-icon-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-outlined-field-focus-content-color: var(
+    --md-outlined-text-field-focus-input-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-focus-label-text-color: var(
+    --md-outlined-text-field-focus-label-text-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+  --md-outlined-field-focus-leading-icon-color: var(
+    --md-outlined-text-field-focus-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-focus-outline-color: var(
+    --md-outlined-text-field-focus-outline-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+  --md-outlined-field-focus-outline-width: var(
+    --md-outlined-text-field-focus-outline-width,
+    2px
+  );
+  --md-outlined-field-focus-supporting-text-color: var(
+    --md-outlined-text-field-focus-supporting-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-focus-trailing-icon-color: var(
+    --md-outlined-text-field-focus-trailing-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-hover-content-color: var(
+    --md-outlined-text-field-hover-input-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-hover-label-text-color: var(
+    --md-outlined-text-field-hover-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-hover-leading-icon-color: var(
+    --md-outlined-text-field-hover-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-hover-outline-color: var(
+    --md-outlined-text-field-hover-outline-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-hover-outline-width: var(
+    --md-outlined-text-field-hover-outline-width,
+    1px
+  );
+  --md-outlined-field-hover-supporting-text-color: var(
+    --md-outlined-text-field-hover-supporting-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-hover-trailing-icon-color: var(
+    --md-outlined-text-field-hover-trailing-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-content-color: var(
+    --md-outlined-text-field-input-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-outlined-field-label-text-color: var(
+    --md-outlined-text-field-label-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-label-text-font: var(
+    --md-outlined-text-field-label-text-font,
+    Roboto
+  );
+  --md-outlined-field-label-text-line-height: var(
+    --md-outlined-text-field-label-text-line-height,
+    1.5rem
+  );
+  --md-outlined-field-label-text-populated-line-height: var(
+    --md-outlined-text-field-label-text-populated-line-height,
+    16px
+  );
+  --md-outlined-field-label-text-populated-size: var(
+    --md-outlined-text-field-label-text-populated-size,
+    12px
+  );
+  --md-outlined-field-label-text-size: var(
+    --md-outlined-text-field-label-text-size,
+    1rem
+  );
+  --md-outlined-field-label-text-tracking: var(
+    --md-outlined-text-field-label-text-tracking,
+    0.03125rem
+  );
+  --md-outlined-field-label-text-weight: var(
+    --md-outlined-text-field-label-text-weight,
+    400
+  );
+  --md-outlined-field-leading-icon-color: var(
+    --md-outlined-text-field-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-leading-icon-size: var(
+    --md-outlined-text-field-leading-icon-size,
+    24px
+  );
+  --md-outlined-field-outline-color: var(
+    --md-outlined-text-field-outline-color,
+    var(--md-sys-color-outline, #79747e)
+  );
+  --md-outlined-field-outline-width: var(
+    --md-outlined-text-field-outline-width,
+    1px
+  );
+  --md-outlined-field-supporting-text-color: var(
+    --md-outlined-text-field-supporting-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-supporting-text-font: var(
+    --md-outlined-text-field-supporting-text-font,
+    Roboto
+  );
+  --md-outlined-field-supporting-text-line-height: var(
+    --md-outlined-text-field-supporting-text-line-height,
+    1rem
+  );
+  --md-outlined-field-supporting-text-size: var(
+    --md-outlined-text-field-supporting-text-size,
+    0.75rem
+  );
+  --md-outlined-field-supporting-text-tracking: var(
+    --md-outlined-text-field-supporting-text-tracking,
+    0.025rem
+  );
+  --md-outlined-field-supporting-text-weight: var(
+    --md-outlined-text-field-supporting-text-weight,
+    400
+  );
+  --md-outlined-field-trailing-icon-color: var(
+    --md-outlined-text-field-trailing-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-outlined-field-trailing-icon-size: var(
+    --md-outlined-text-field-trailing-icon-size,
+    24px
+  );
+}
+.text-field.outlined .text-field__input {
+  caret-color: var(
+    --md-outlined-text-field-caret-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.text-field.outlined.error:focus-within .text-field__input {
+  caret-color: var(
+    --md-outlined-text-field-error-focus-caret-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.text-field.outlined .text-field__input,
+.text-field.outlined .text-field__prefix,
+.text-field.outlined .text-field__suffix {
+  font-family: var(--md-outlined-text-field-input-text-font, Roboto);
+  font-size: var(--md-outlined-text-field-input-text-size, 1rem);
+  font-weight: var(--md-outlined-text-field-input-text-weight, 400);
+  letter-spacing: var(--md-outlined-text-field-input-text-tracking, 0.03125rem);
+  line-height: var(--md-outlined-text-field-input-text-line-height, 1.5rem);
+}
+.text-field.outlined:not(.text-field.disabled) .text-field__prefix,
+.text-field.outlined:not(.text-field.disabled) .text-field__suffix {
+  color: var(
+    --md-outlined-text-field-input-text-prefix-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined:not(.text-field.disabled) .text-field__input::placeholder {
+  color: var(
+    --md-outlined-text-field-input-text-placeholder-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined .text-field__prefix {
+  padding-inline-end: var(
+    --md-outlined-text-field-input-text-prefix-padding,
+    2px
+  );
+}
+.text-field.outlined .text-field__suffix {
+  padding-inline-start: var(
+    --md-outlined-text-field-input-text-suffix-padding,
+    2px
+  );
+}
+.text-field.outlined .text-field__icon--leading {
+  color: var(
+    --md-outlined-text-field-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined:hover .text-field__icon--leading {
+  color: var(
+    --md-outlined-text-field-hover-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined:focus-within .text-field__icon--leading {
+  color: var(
+    --md-outlined-text-field-focus-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined.disabled .text-field__icon--leading {
+  color: var(
+    --md-outlined-text-field-disabled-leading-icon-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.text-field.outlined .text-field__icon--trailing {
+  color: var(
+    --md-outlined-text-field-trailing-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined:hover .text-field__icon--trailing {
+  color: var(
+    --md-outlined-text-field-hover-trailing-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined:focus-within .text-field__icon--trailing {
+  color: var(
+    --md-outlined-text-field-focus-trailing-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined.disabled .text-field__icon--trailing {
+  color: var(
+    --md-outlined-text-field-disabled-trailing-icon-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.text-field.outlined.error:not(.text-field.disabled)
+  .text-field__icon--leading {
+  color: var(
+    --md-outlined-text-field-error-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined.error:not(.text-field.disabled):hover
+  .text-field__icon--leading {
+  color: var(
+    --md-outlined-text-field-error-hover-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined.error:not(.text-field.disabled):focus-within
+  .text-field__icon--leading {
+  color: var(
+    --md-outlined-text-field-error-focus-leading-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.text-field.outlined.error:not(.text-field.disabled)
+  .text-field__icon--trailing {
+  color: var(
+    --md-outlined-text-field-error-trailing-icon-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.text-field.outlined.error:not(.text-field.disabled):hover
+  .text-field__icon--trailing {
+  color: var(
+    --md-outlined-text-field-error-hover-trailing-icon-color,
+    var(--md-sys-color-on-error-container, #410e0b)
+  );
+}
+.text-field.outlined.error:not(.text-field.disabled):focus-within
+  .text-field__icon--trailing {
+  color: var(
+    --md-outlined-text-field-error-focus-trailing-icon-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+}
+.text-field.outlined.disabled .text-field__icon--leading {
+  opacity: var(--md-outlined-text-field-disabled-leading-icon-opacity, 0.38);
+}
+.text-field.outlined.disabled .text-field__icon--trailing {
+  opacity: var(--md-outlined-text-field-disabled-trailing-icon-opacity, 0.38);
+} /*# sourceMappingURL=outlined-styles.css.map */

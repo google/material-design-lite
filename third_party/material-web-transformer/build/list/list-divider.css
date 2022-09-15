@@ -1,0 +1,8 @@
+.list .list__divider {
+  background-clip: content-box;
+  padding: 0;
+}
+.list .list__divider {
+  background-color: var(--md-list-divider-list-divider-color, #000);
+  height: var(--md-list-divider-list-divider-height, 0);
+} /*# sourceMappingURL=list-divider-styles.css.map */

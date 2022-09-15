@@ -1,0 +1,58 @@
+.icon-button {
+  display: inline-flex;
+  outline: none;
+  --md-focus-ring-container-outer-padding-vertical: 0px;
+  --md-focus-ring-container-outer-padding-horizontal: 0px;
+}
+.icon-button[disabled] {
+  pointer-events: none;
+}
+.icon-button {
+  align-items: center;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  fill: currentColor;
+  justify-content: center;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  z-index: 0;
+}
+.icon-button i,
+.icon-button svg,
+.icon-button img,
+.icon-button ::slotted(*) {
+  display: block;
+}
+.icon-button.flip-icon .icon-button__icon {
+  transform: scaleX(-1);
+}
+.icon-button__icon {
+  display: inline-flex;
+}
+.icon-button__icon.icon-button__icon--on {
+  display: none;
+}
+.icon-button.on .icon-button__icon {
+  display: none;
+}
+.icon-button.on .icon-button__icon.icon-button__icon--on {
+  display: inline-flex;
+}
+.icon-button__link {
+  height: 100%;
+  outline: none;
+  position: absolute;
+  width: 100%;
+}
+.icon-button__touch {
+  position: absolute;
+  top: 50%;
+  height: 48px;
+  left: 50%;
+  width: 48px;
+  transform: translate(-50%, -50%);
+} /*# sourceMappingURL=icon-button-styles.css.map */

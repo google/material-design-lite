@@ -1,0 +1,26 @@
+{
+  "name": "material-design-lite",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodydavis/material-design-lite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodydavis/material-design-lite/issues"
+  },
+  "homepage": "https://github.com/rodydavis/material-design-lite#readme",
+  "devDependencies": {
+    "@material/web": "^0.1.0-alpha.0",
+    "@types/node": "^18.7.17",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "lit": "^2.3.1"
+  }
+}

@@ -12,7 +12,7 @@
     overflow-y: auto;
 
     &::backdrop {
-      /* Tokens not avaliable in backdrop (above document) */
+      /* Tokens not available in backdrop (above document) */
       /* background-color: rgba(var(--md-sys-color-scrim), 0.4); */
       background-color: rgba(0, 0, 0, 0.4);
       pointer-events: none !important;

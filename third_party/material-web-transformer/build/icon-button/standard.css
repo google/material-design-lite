@@ -1,0 +1,123 @@
+.icon-button.standard {
+  background-color: rgba(0, 0, 0, 0);
+}
+.icon-button.standard {
+  font-size: var(--md-icon-button-icon-size, 24px);
+  height: var(--md-icon-button-state-layer-size, 40px);
+  width: var(--md-icon-button-state-layer-size, 40px);
+  margin: max(0px, (48px - var(--md-icon-button-state-layer-size, 40px))/2);
+  color: var(
+    --md-icon-button-unselected-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-ripple-focus-state-layer-color: var(
+    --md-icon-button-unselected-focus-state-layer-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-ripple-focus-state-layer-opacity: var(
+    --md-icon-button-unselected-focus-state-layer-opacity,
+    0.08
+  );
+  --md-ripple-hover-state-layer-color: var(
+    --md-icon-button-unselected-hover-state-layer-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-ripple-hover-state-layer-opacity: var(
+    --md-icon-button-unselected-hover-state-layer-opacity,
+    0.08
+  );
+  --md-ripple-pressed-state-layer-color: var(
+    --md-icon-button-unselected-pressed-state-layer-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --md-ripple-pressed-state-layer-opacity: var(
+    --md-icon-button-unselected-pressed-state-layer-opacity,
+    0.12
+  );
+}
+.icon-button.standard i,
+.icon-button.standard svg,
+.icon-button.standard img {
+  height: var(--md-icon-button-icon-size, 24px);
+  width: var(--md-icon-button-icon-size, 24px);
+}
+.icon-button.standard:disabled {
+  color: var(
+    --md-icon-button-disabled-icon-color,
+    rgb(var(--md-sys-color-on-surface-rgb, 28, 27, 31), 0.38)
+  );
+}
+.icon-button.standard:focus {
+  color: var(
+    --md-icon-button-unselected-focus-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.icon-button.standard:hover {
+  color: var(
+    --md-icon-button-unselected-hover-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.icon-button.standard:not(:disabled):active {
+  color: var(
+    --md-icon-button-unselected-pressed-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.icon-button.standard.on {
+  color: var(
+    --md-icon-button-selected-icon-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.icon-button.standard.on:disabled {
+  color: var(
+    --md-icon-button-disabled-icon-color,
+    rgb(var(--md-sys-color-on-surface-rgb, 28, 27, 31), 0.38)
+  );
+}
+.icon-button.standard.on:focus {
+  color: var(
+    --md-icon-button-selected-focus-icon-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.icon-button.standard.on:hover {
+  color: var(
+    --md-icon-button-selected-hover-icon-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.icon-button.standard.on:not(:disabled):active {
+  color: var(
+    --md-icon-button-selected-pressed-icon-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.icon-button.standard.on {
+  --md-ripple-focus-state-layer-color: var(
+    --md-icon-button-selected-focus-state-layer-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+  --md-ripple-focus-state-layer-opacity: var(
+    --md-icon-button-selected-focus-state-layer-opacity,
+    0.12
+  );
+  --md-ripple-hover-state-layer-color: var(
+    --md-icon-button-selected-hover-state-layer-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+  --md-ripple-hover-state-layer-opacity: var(
+    --md-icon-button-selected-hover-state-layer-opacity,
+    0.08
+  );
+  --md-ripple-pressed-state-layer-color: var(
+    --md-icon-button-selected-pressed-state-layer-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+  --md-ripple-pressed-state-layer-opacity: var(
+    --md-icon-button-selected-pressed-state-layer-opacity,
+    0.12
+  );
+} /*# sourceMappingURL=standard-styles.css.map */

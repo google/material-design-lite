@@ -1,0 +1,197 @@
+.button.filled {
+  font-family: var(--md-filled-button-label-text-font, Roboto);
+  font-size: var(--md-filled-button-label-text-size, 0.875rem);
+  letter-spacing: var(--md-filled-button-label-text-tracking, 0.00625rem);
+  font-weight: var(--md-filled-button-label-text-weight, 500);
+  --md-ripple-hover-state-layer-color: var(
+    --md-filled-button-hover-state-layer-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+  --md-ripple-focus-state-layer-color: var(
+    --md-filled-button-focus-state-layer-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+  --md-ripple-pressed-state-layer-color: var(
+    --md-filled-button-pressed-state-layer-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+  --md-ripple-hover-state-layer-opacity: var(
+    --md-filled-button-hover-state-layer-opacity,
+    0.08
+  );
+  --md-ripple-focus-state-layer-opacity: var(
+    --md-filled-button-focus-state-layer-opacity,
+    0.12
+  );
+  --md-ripple-pressed-state-layer-opacity: var(
+    --md-filled-button-pressed-state-layer-opacity,
+    0.12
+  );
+  block-size: var(--md-filled-button-container-height, 40px);
+  padding-inline-start: var(--md-filled-button-spacing-leading, 24px);
+  padding-inline-end: var(--md-filled-button-spacing-trailing, 24px);
+}
+.button.filled:not(:disabled) {
+  background-color: var(
+    --md-filled-button-container-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.button.filled:disabled {
+  background-color: var(
+    --md-filled-button-disabled-container-color,
+    rgb(var(--md-sys-color-on-surface-rgb, 28, 27, 31), 0.12)
+  );
+}
+.button.filled:not(:disabled) {
+  color: var(
+    --md-filled-button-label-text-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:not(:disabled):hover:not(:focus):not(:active) {
+  color: var(
+    --md-filled-button-hover-label-text-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:not(:disabled):focus:not(:active) {
+  color: var(
+    --md-filled-button-focus-label-text-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:not(:disabled):active {
+  color: var(
+    --md-filled-button-pressed-label-text-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:disabled {
+  color: var(
+    --md-filled-button-disabled-label-text-color,
+    rgb(var(--md-sys-color-on-surface-rgb, 28, 27, 31), 0.38)
+  );
+}
+.button.filled,
+.button.filled .button__ripple {
+  border-radius: var(--md-filled-button-container-shape, 9999px);
+}
+.button.filled.button.icon-leading {
+  padding-inline-start: var(--md-filled-button-with-icon-spacing-leading, 16px);
+  padding-inline-end: var(--md-filled-button-with-icon-spacing-trailing, 24px);
+}
+.button.filled.button.icon-trailing {
+  padding-inline-start: var(
+    --md-filled-button-with-trailing-icon-spacing-leading,
+    24px
+  );
+  padding-inline-end: var(
+    --md-filled-button-with-trailing-icon-spacing-trailing,
+    16px
+  );
+}
+.button.filled:not(:disabled) ::slotted([slot="icon"]),
+.button.filled:not(:disabled) .button__icon {
+  color: var(
+    --md-filled-button-with-icon-icon-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:not(:disabled):hover:not(:focus):not(:active)
+  ::slotted([slot="icon"]),
+.button.filled:not(:disabled):hover:not(:focus):not(:active) .button__icon {
+  color: var(
+    --md-filled-button-with-icon-hover-icon-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:not(:disabled):focus:not(:active) ::slotted([slot="icon"]),
+.button.filled:not(:disabled):focus:not(:active) .button__icon {
+  color: var(
+    --md-filled-button-with-icon-focus-icon-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:not(:disabled):active ::slotted([slot="icon"]),
+.button.filled:not(:disabled):active .button__icon {
+  color: var(
+    --md-filled-button-with-icon-pressed-icon-color,
+    var(--md-sys-color-on-primary, #fff)
+  );
+}
+.button.filled:disabled ::slotted([slot="icon"]),
+.button.filled:disabled .button__icon {
+  color: var(
+    --md-filled-button-with-icon-disabled-icon-color,
+    rgb(var(--md-sys-color-on-surface-rgb, 28, 27, 31), 0.38)
+  );
+}
+.button.filled ::slotted([slot="icon"]),
+.button.filled .button__icon {
+  font-size: var(--md-filled-button-with-icon-icon-size, 18px);
+  inline-size: var(--md-filled-button-with-icon-icon-size, 18px);
+  block-size: var(--md-filled-button-with-icon-icon-size, 18px);
+}
+.button.filled:not(:disabled) {
+  --md-elevation-box-shadow-for-gss: none;
+  box-shadow: var(
+    --md-filled-button-container-elevation-shadow,
+    var(--md-elevation-box-shadow-for-gss)
+  );
+}
+.button.filled:not(:disabled) .elevation-overlay {
+  opacity: var(--md-filled-button-container-elevation-overlay-opacity, 0);
+}
+.button.filled:not(:disabled):hover:not(:focus):not(:active) {
+  --md-elevation-box-shadow-for-gss: 0px 1px 2px 0px
+      rgb(var(--md-sys-color-shadow-rgb, 0, 0, 0), 0.3),
+    0px 1px 3px 1px rgb(var(--md-sys-color-shadow-rgb, 0, 0, 0), 0.15);
+  box-shadow: var(
+    --md-filled-button-hover-container-elevation-shadow,
+    var(--md-elevation-box-shadow-for-gss)
+  );
+}
+.button.filled:not(:disabled):hover:not(:focus):not(:active)
+  .elevation-overlay {
+  opacity: var(
+    --md-filled-button-hover-container-elevation-overlay-opacity,
+    0.05
+  );
+}
+.button.filled:not(:disabled):focus:not(:active) {
+  --md-elevation-box-shadow-for-gss: none;
+  box-shadow: var(
+    --md-filled-button-focus-container-elevation-shadow,
+    var(--md-elevation-box-shadow-for-gss)
+  );
+}
+.button.filled:not(:disabled):focus:not(:active) .elevation-overlay {
+  opacity: var(--md-filled-button-focus-container-elevation-overlay-opacity, 0);
+}
+.button.filled:not(:disabled):active {
+  --md-elevation-box-shadow-for-gss: none;
+  box-shadow: var(
+    --md-filled-button-pressed-container-elevation-shadow,
+    var(--md-elevation-box-shadow-for-gss)
+  );
+}
+.button.filled:not(:disabled):active .elevation-overlay {
+  opacity: var(
+    --md-filled-button-pressed-container-elevation-overlay-opacity,
+    0
+  );
+}
+.button.filled:disabled {
+  --md-elevation-box-shadow-for-gss: none;
+  box-shadow: var(
+    --md-filled-button-disabled-container-elevation-shadow,
+    var(--md-elevation-box-shadow-for-gss)
+  );
+}
+.button.filled:disabled .elevation-overlay {
+  opacity: var(
+    --md-filled-button-disabled-container-elevation-overlay-opacity,
+    0
+  );
+} /*# sourceMappingURL=filled-styles.css.map */

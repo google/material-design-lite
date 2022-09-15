@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Web Demo</title>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Material Web -->
+    <link rel="stylesheet" href="build/index.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .button {
+            inline-size: unset !important;
+        }
+
+        .fab.extended {
+            width: auto !important;
+        }
+
+        .list {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Buttons</h2>
+    <section>
+        <button class="button">Regular</button>
+        <button class="button outlined">
+            <div class="button__outline"></div>
+            Outlined
+        </button>
+        <button class="button filled">Filled</button>
+        <button class="button tonal">Tonal</button>
+        <button class="button elevated">Elevated</button>
+        <button class="button text">Text</button>
+    </section>
+
+    <h2>Fab</h2>
+    <section>
+        <button class="fab">
+            <i class="material-icons">add</i>
+        </button>
+        <button class="fab lowered">
+            <i class="material-icons">add</i>
+        </button>
+        <button class="fab extended">
+            <i class="material-icons">add</i>
+            <span>Extended</span>
+        </button>
+    </section>
+
+    <h2>Icon</h2>
+    <section>
+        <i class="icon">edit</i>
+        <i class="icon">add</i>
+        <i class="icon">share</i>
+        <i class="icon">download</i>
+        <i class="icon">visibility</i>
+        <i class="icon">visibility_off</i>
+        <i class="icon">delete</i>
+        <i class="icon">close</i>
+    </section>
+
+    <h2>Icon Button</h2>
+    <section>
+        <div class="icon-button">
+            <i class="material-icons">edit</i>
+        </div>
+        <div class="icon-button standard">
+            <i class="material-icons">edit</i>
+        </div>
+        <div class="icon-button filled">
+            <i class="material-icons">edit</i>
+        </div>
+        <div class="icon-button filled-tonal">
+            <i class="material-icons">edit</i>
+        </div>
+        <div class="icon-button outlined">
+            <i class="material-icons">edit</i>
+        </div>
+    </section>
+
+    <h2>List</h2>
+    <section>
+        <ul class="list">
+            <li class="list-item list-item--enabled list-item--with-two-line">
+                <div class="list-item__start">
+                    <i class="material-icons">edit</i>
+                </div>
+                <div class="list-item__body">
+                    <div class="list-item__label-text">Label</div>
+                    <div class="list-item__supporting-text">Supporting</div>
+                </div>
+                <div class="list-item__end">
+                    <i class="material-icons">chevron_right</i>
+                </div>
+            </li>
+            <li class="list-item list-item--enabled list-item--with-one-line">
+                <div class="list-item__start">
+                    <i class="material-icons">edit</i>
+                </div>
+                <div class="list-item__body">
+                    <div class="list-item__label-text">Label</div>
+                </div>
+                <div class="list-item__end">
+                    <i class="material-icons">chevron_right</i>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <h2>Navigation Bar</h2>
+    <section>
+        <div class="navigation-bar">
+            <div class="navigation-tab navigation-tab__icon-content">
+                <i class="material-icons navigation-tab__icon">home</i>
+                <span class="navigation-tab__label-text">Home</span>
+            </div>
+            <div class="navigation-tab">
+                <i class="material-icons navigation-tab__icon">person</i>
+                <span class="navigation-tab__label-text">Profile</span>
+            </div>
+            <div class="navigation-tab">
+                <i class="material-icons navigation-tab__icon">settings</i>
+                <span class="navigation-tab__label-text">Settings</span>
+            </div>
+        </div>
+    </section>
+
+    <h2>Switch</h2>
+    <section>
+        <button class="switch unselected">
+            <div class="switch__track">
+                <div class="switch__handle-container">
+                    <div class="switch__handle"></div>
+                </div>
+            </div>
+        </button>
+        <button class="switch selected">
+            <div class="switch__track">
+                <div class="switch__handle-container">
+                    <div class="switch__handle"></div>
+                </div>
+            </div>
+        </button>
+    </section>
+</body>
+
+</html>

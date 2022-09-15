@@ -1,0 +1,11 @@
+.segmented-button-set {
+  display: flex;
+  outline: none;
+}
+.segmented-button-set {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  grid-auto-rows: auto;
+  width: 100%;
+} /*# sourceMappingURL=shared-styles.css.map */

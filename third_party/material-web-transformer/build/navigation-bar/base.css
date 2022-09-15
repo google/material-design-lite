@@ -1,0 +1,287 @@
+.elevation-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -2;
+}
+.navigation-bar {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+.navigation-bar .elevation-overlay {
+  z-index: 0;
+}
+.navigation-bar .navigation-bar__tabs-slot-container {
+  display: inherit;
+  width: inherit;
+}
+.navigation-bar {
+  width: 100%;
+}
+.navigation-bar {
+  background-color: var(
+    --md-navigation-bar-container-color,
+    var(--md-sys-color-surface, #fffbfe)
+  );
+  border-radius: var(--md-navigation-bar-container-shape, 0);
+  height: var(--md-navigation-bar-container-height, 80px);
+  --md-elevation-box-shadow-for-gss: 0px 1px 2px 0px
+      rgb(var(--md-sys-color-shadow-rgb, 0, 0, 0), 0.3),
+    0px 2px 6px 2px rgb(var(--md-sys-color-shadow-rgb, 0, 0, 0), 0.15);
+  box-shadow: var(
+    --md-navigation-bar-container-elevation-shadow,
+    var(--md-elevation-box-shadow-for-gss)
+  );
+}
+.navigation-bar .navigation-tab {
+  font-family: var(--md-navigation-bar-label-text-font, Roboto);
+  font-size: var(--md-navigation-bar-label-text-size, 12px);
+  letter-spacing: var(--md-navigation-bar-label-text-tracking, 0.5px);
+  font-weight: var(--md-navigation-bar-label-text-weight, 500);
+  --md-ripple-hover-state-layer-color: var(
+    --md-navigation-bar-inactive-hover-state-layer-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-ripple-focus-state-layer-color: var(
+    --md-navigation-bar-inactive-focus-state-layer-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-ripple-pressed-state-layer-color: var(
+    --md-navigation-bar-inactive-pressed-state-layer-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-ripple-hover-state-layer-opacity: var(
+    --md-navigation-bar-hover-state-layer-opacity,
+    0.08
+  );
+  --md-ripple-focus-state-layer-opacity: var(
+    --md-navigation-bar-focus-state-layer-opacity,
+    0.12
+  );
+  --md-ripple-pressed-state-layer-opacity: var(
+    --md-navigation-bar-pressed-state-layer-opacity,
+    0.12
+  );
+  --md-focus-ring-container-outer-padding-vertical: -4px;
+  --md-focus-ring-container-outer-padding-horizontal: -4px;
+  --md-badge-color: var(
+    --md-navigation-bar-badge-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-badge-size: var(--md-navigation-bar-badge-size, 6px);
+  --md-badge-shape: var(--md-navigation-bar-badge-shape, 3px);
+  --md-badge-large-color: var(
+    --md-navigation-bar-large-badge-color,
+    var(--md-sys-color-error, #b3261e)
+  );
+  --md-badge-large-size: var(--md-navigation-bar-large-badge-size, 16px);
+  --md-badge-large-shape: var(--md-navigation-bar-large-badge-shape, 8px);
+}
+.navigation-bar .navigation-tab .navigation-tab__icon {
+  width: var(--md-navigation-bar-icon-size, 24px);
+  height: var(--md-navigation-bar-icon-size, 24px);
+  font-size: var(--md-navigation-bar-icon-size, 24px);
+}
+.navigation-bar
+  .navigation-tab:not(:disabled).navigation-tab--active
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-active-icon-color,
+    var(--md-sys-color-on-secondary-container, #1d192b)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):hover.navigation-tab--active
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-active-hover-icon-color,
+    var(--md-sys-color-on-secondary-container, #1d192b)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):focus.navigation-tab--active
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-active-focus-icon-color,
+    var(--md-sys-color-on-secondary-container, #1d192b)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):active.navigation-tab--active
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-active-pressed-icon-color,
+    var(--md-sys-color-on-secondary-container, #1d192b)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:disabled.navigation-tab--active
+  .navigation-tab__icon {
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):not(.navigation-tab--active)
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-inactive-icon-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):hover:not(.navigation-tab--active)
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-inactive-hover-icon-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):focus:not(.navigation-tab--active)
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-inactive-focus-icon-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):active:not(.navigation-tab--active)
+  .navigation-tab__icon {
+  color: var(
+    --md-navigation-bar-inactive-pressed-icon-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:disabled:not(.navigation-tab--active)
+  .navigation-tab__icon {
+  fill: currentColor;
+}
+.navigation-bar
+  .navigation-tab:not(:disabled).navigation-tab--active
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-active-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):hover.navigation-tab--active
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-active-hover-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):focus.navigation-tab--active
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-active-focus-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):active.navigation-tab--active
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-active-pressed-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):not(.navigation-tab--active)
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-inactive-label-text-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):hover:not(.navigation-tab--active)
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-inactive-hover-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):focus:not(.navigation-tab--active)
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-inactive-focus-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.navigation-bar
+  .navigation-tab:not(:disabled):active:not(.navigation-tab--active)
+  .navigation-tab__label-text {
+  color: var(
+    --md-navigation-bar-inactive-pressed-label-text-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+}
+.navigation-bar .navigation-tab .navigation-tab__active-indicator {
+  background-color: var(
+    --md-navigation-bar-active-indicator-color,
+    var(--md-sys-color-secondary-container, #e8def8)
+  );
+}
+.navigation-bar .navigation-tab .navigation-tab__active-indicator,
+.navigation-bar .navigation-tab .navigation-tab__icon-content {
+  height: var(--md-navigation-bar-active-indicator-height, 32px);
+}
+.navigation-bar
+  .navigation-tab.navigation-tab--active
+  .navigation-tab__active-indicator,
+.navigation-bar .navigation-tab .navigation-tab__icon-content {
+  width: var(--md-navigation-bar-active-indicator-width, 64px);
+}
+.navigation-bar .navigation-tab .navigation-tab__active-indicator {
+  border-radius: var(--md-navigation-bar-active-indicator-shape, 9999px);
+}
+.navigation-bar .navigation-tab.navigation-tab--active {
+  --md-ripple-hover-state-layer-color: var(
+    --md-navigation-bar-active-hover-state-layer-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-ripple-focus-state-layer-color: var(
+    --md-navigation-bar-active-focus-state-layer-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-ripple-pressed-state-layer-color: var(
+    --md-navigation-bar-active-pressed-state-layer-color,
+    var(--md-sys-color-on-surface, #1c1b1f)
+  );
+  --md-ripple-hover-state-layer-opacity: var(
+    --md-navigation-bar-hover-state-layer-opacity,
+    0.08
+  );
+  --md-ripple-focus-state-layer-opacity: var(
+    --md-navigation-bar-focus-state-layer-opacity,
+    0.12
+  );
+  --md-ripple-pressed-state-layer-opacity: var(
+    --md-navigation-bar-pressed-state-layer-opacity,
+    0.12
+  );
+}
+.navigation-bar .elevation-overlay {
+  background-color: var(
+    --md-navigation-bar-container-surface-tint-layer-color,
+    var(--md-sys-color-primary, #6750a4)
+  );
+}
+.navigation-bar .elevation-overlay {
+  opacity: var(--md-navigation-bar-container-elevation-overlay-opacity, 0.08);
+} /*# sourceMappingURL=navigation-bar-styles.css.map */

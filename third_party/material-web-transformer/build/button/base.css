@@ -1,0 +1,83 @@
+.button {
+  display: inline-flex;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  vertical-align: top;
+}
+.button[disabled] {
+  cursor: default;
+  pointer-events: none;
+}
+.button {
+  position: relative;
+  transition: border 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  --mdc-ripple-z-index: -1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-inline-size: 64px;
+  border: none;
+  outline: none;
+  line-height: inherit;
+  user-select: none;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  background: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  inline-size: 100%;
+}
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+.button:active {
+  outline: none;
+}
+.button:hover {
+  cursor: pointer;
+}
+@media (forced-colors: active) {
+  .button::before {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: inherit;
+    content: "";
+    pointer-events: none;
+  }
+}
+.link-button-wrapper {
+  inline-size: 100%;
+}
+.button__icon-slot-container {
+  display: inline-flex;
+}
+.button__icon-slot-container ::slotted([slot="icon"]),
+.button__icon-slot-container .button__icon {
+  display: inline-flex;
+  position: relative;
+  writing-mode: horizontal-tb;
+}
+.button__icon--leading ::slotted([slot="icon"]),
+.button__icon--leading .button__icon {
+  margin-inline-end: 8px;
+}
+.button__icon--trailing ::slotted([slot="icon"]),
+.button__icon--trailing .button__icon {
+  margin-inline-start: 8px;
+}
+.button__touch {
+  position: absolute;
+  top: 50%;
+  height: 48px;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+} /*# sourceMappingURL=shared-styles.css.map */

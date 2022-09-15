@@ -1,0 +1,123 @@
+@keyframes mdl-segmented-button-checkmark-selection-draw-in {
+  from {
+    stroke-dashoffset: 29.7833385;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes mdl-segmented-button-simple-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mdl-segmented-button-simple-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.segmented-button {
+  display: inline-flex;
+  outline: none;
+}
+.segmented-button {
+  align-items: center;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: inherit;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  outline: none;
+  position: relative;
+  vertical-align: middle;
+}
+.segmented-button:enabled {
+  cursor: pointer;
+}
+.segmented-button__focus-ring {
+  z-index: 1;
+}
+.segmented-button__ripple {
+  border-radius: inherit;
+  z-index: 0;
+}
+.segmented-button__touch {
+  position: absolute;
+  top: 50%;
+  height: 48px;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+.segmented-button__leading,
+.segmented-button__graphic {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.segmented-button__graphic {
+  position: relative;
+  overflow: hidden;
+}
+.segmented-button__graphic {
+  transition: width 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.segmented-button.unselected.segmented-button.with-label
+  .segmented-button__graphic,
+.segmented-button.unselected.segmented-button.without-label
+  .segmented-button__graphic,
+.segmented-button.selected.segmented-button.without-checkmark
+  .segmented-button__graphic {
+  width: 0;
+}
+.segmented-button.unselected .segmented-button__checkmark {
+  opacity: 0;
+}
+.segmented-button.selected.segmented-button.with-label .segmented-button__icon {
+  opacity: 0;
+}
+.segmented-button.with-label .segmented-button__checkmark {
+  display: inline-flex;
+  position: absolute;
+}
+.segmented-button__checkmark-path {
+  stroke-width: 2px;
+  stroke-dasharray: 29.7833385;
+}
+.segmented-button.selecting .segmented-button__checkmark-path {
+  stroke-dashoffset: 29.7833385;
+  animation: mdl-segmented-button-checkmark-selection-draw-in;
+  animation-duration: 150ms;
+  animation-delay: 50ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.segmented-button.selecting.segmented-button.with-label
+  .segmented-button__icon {
+  animation: mdl-segmented-button-simple-fade-out;
+  animation-duration: 75ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.segmented-button.deselecting .segmented-button__checkmark {
+  animation: mdl-segmented-button-simple-fade-out;
+  animation-duration: 50ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.segmented-button.deselecting.segmented-button.with-label
+  .segmented-button__icon {
+  opacity: 0;
+  animation: mdl-segmented-button-simple-fade-in;
+  animation-delay: 50ms;
+  animation-duration: 150ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+} /*# sourceMappingURL=segmented-button-styles.css.map */
