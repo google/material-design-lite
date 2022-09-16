@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 
-import postcssPresetEnv from "postcss-preset-env";
 import pluginImport from "postcss-import";
 import pluginNested from "postcss-nested";
 import pluginHct from "postcss-color-hct";
@@ -20,21 +19,6 @@ export default defineConfig({
     css: {
       postcss: {
         plugins: [
-          postcssPresetEnv({
-            stage: 0,
-            autoprefixer: false,
-            features: {
-              "logical-properties-and-values": false,
-              "prefers-color-scheme-query": false,
-              "gap-properties": false,
-              "custom-properties": false,
-              "place-properties": false,
-              "not-pseudo-class": false,
-              "focus-visible-pseudo-class": false,
-              "focus-within-pseudo-class": false,
-              "color-functional-notation": false,
-            },
-          }),
           pluginImport(),
           pluginNested(),
           pluginApply({ sets: CLASSES }),

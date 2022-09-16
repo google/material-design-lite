@@ -17,3 +17,4 @@ Lightweight implementation of [Material Design](https://material.io/).
 - [ ] Migrate old articles
 - [ ] Scaffold component
 - [ ] Copy code / open in codepen for code blocks
+- [ ] Svg components

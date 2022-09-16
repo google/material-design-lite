@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../dist/material-design-lite.css">
+</head>
+
+<body>
+    <script type="module">
+        import { html, fixture, expect } from "@open-wc/testing";
+        import { runTests } from "@web/test-runner-mocha";
+        const el = await fixture(html` <button>My Button</button> `);
+
+        runTests(async () => {
+            describe('button tests', () => {
+                it('should have text', async () => {
+                    expect(el.innerHTML).to.equal('My Button');
+                });
+                it('check accessibility', async () => {
+                    expect(el).to.be.accessible();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
