@@ -1,8 +1,8 @@
 :where(html),
 .tokens {
-  --md-sys-color-surface-1: rgba(var(--md-sys-color-primary-rgb), 0.05);
-  --md-sys-color-surface-2: rgba(var(--md-sys-color-primary-rgb), 0.08);
-  --md-sys-color-surface-3: rgba(var(--md-sys-color-primary-rgb), 0.11);
-  --md-sys-color-surface-4: rgba(var(--md-sys-color-primary-rgb), 0.12);
-  --md-sys-color-surface-5: rgba(var(--md-sys-color-primary-rgb), 0.14);
+  --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
+  --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
+  --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
+  --md-sys-color-surface-4: rgb(var(--md-sys-color-primary-rgb) / 0.12);
+  --md-sys-color-surface-5: rgb(var(--md-sys-color-primary-rgb) / 0.14);
 }

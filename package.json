@@ -4,6 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
+    "copy:tokens": "cp -a third_party/tokens/css/. lib/tokens/ && rm -rf lib/tokens/components",
     "build": "npx postcss lib/styles.css --output dist/material-design-lite.css",
     "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
     "test:watch": "wtr \"test/**/*.test.html\" --node-resolve --playwright --browsers chromium firefox webkit --watch"

@@ -15,12 +15,14 @@
 */
 
 :where(html), .tokens {
-  /* Hover state layer opacity */
-  --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
-  /* Focus state layer opacity */
-  --md-sys-state-focus-state-layer-opacity: 0.11999999731779099;
-  /* Pressed state layer opacity */
-  --md-sys-state-pressed-state-layer-opacity: 0.11999999731779099;
-  /* Dragged state layer opacity */
-  --md-sys-state-dragged-state-layer-opacity: 0.1599999964237213;
+  /* Plain typeface */
+  --md-ref-typeface-plain: Roboto;
+  /* Brand typeface */
+  --md-ref-typeface-brand: Roboto;
+  /* Bold weight */
+  --md-ref-typeface-weight-bold: 700;
+  /* Medium weight */
+  --md-ref-typeface-weight-medium: 500;
+  /* Regular weight */
+  --md-ref-typeface-weight-regular: 400;
 }
