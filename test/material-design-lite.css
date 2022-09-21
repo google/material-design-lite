@@ -2274,7 +2274,7 @@ button {
     right: 0;
     bottom: 0;
 
-    /* background-color: var(--tint-color); */
+    background-color: var(--tint-color);
   }
 
 .button[label], button[label] {
@@ -2312,15 +2312,15 @@ button {
     text-decoration: none;
   }
 
-.button:is(:hover, .hover), button:is(:hover, .hover) {
+.button:where(:hover, .hover), button:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-.button:is(:focus, .focus), button:is(:focus, .focus) {
+.button:where(:focus, .focus), button:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-.button:is(:active, .active), button:is(:active, .active) {
+.button:where(:active, .active), button:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
@@ -2341,39 +2341,36 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
-:where(.button, button).text:hover,
-  :where(.button, button).text .hover {
+.text:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-:where(.button, button).text:focus,
-  :where(.button, button).text .focus {
+.text:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-:where(.button, button).text:active,
-  :where(.button, button).text .active {
+.text:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
 .text[disabled]:where(.button, button) {
     box-shadow: none;
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
 :where(.button, button).filled {
@@ -2382,8 +2379,7 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.filled:where(.button, button):hover,
-  .filled.hover:where(.button, button) {
+.filled:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2392,8 +2388,7 @@ button {
     );
   }
 
-.filled:where(.button, button):focus,
-  .filled.focus:where(.button, button) {
+.filled:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2402,8 +2397,7 @@ button {
     );
   }
 
-.filled:where(.button, button):active,
-  .filled.active:where(.button, button) {
+.filled:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2429,40 +2423,37 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.filled-tonal:where(.button, button):hover,
-  .filled-tonal.hover:where(.button, button) {
+.filled-tonal:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-on-secondary-container-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-.filled-tonal:where(.button, button):focus,
-  .filled-tonal.focus:where(.button, button) {
+.filled-tonal:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-on-secondary-container-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-.filled-tonal:where(.button, button):active,
-  .filled-tonal.active:where(.button, button) {
+.filled-tonal:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-on-secondary-container-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
 .filled-tonal[disabled]:where(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
 :where(.button, button).outlined {
@@ -2472,8 +2463,7 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.outlined:where(.button, button):hover,
-  .outlined.hover:where(.button, button) {
+.outlined:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2482,8 +2472,7 @@ button {
     );
   }
 
-.outlined:where(.button, button):focus,
-  .outlined.focus:where(.button, button) {
+.outlined:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2492,8 +2481,7 @@ button {
     );
   }
 
-.outlined:where(.button, button):active,
-  .outlined.active:where(.button, button) {
+.outlined:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2514,7 +2502,7 @@ button {
   color: var(--md-sys-color-primary);
 }
 
-.elevated:where(.button, button):is(:hover, .hover) {
+.elevated:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -2523,7 +2511,7 @@ button {
     );
   }
 
-.elevated:where(.button, button):is(:focus, .focus) {
+.elevated:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -2532,7 +2520,7 @@ button {
     );
   }
 
-.elevated:where(.button, button):is(:active, .active) {
+.elevated:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2603,31 +2591,28 @@ button {
     right: 0;
     bottom: 0;
 
-    /* background-color: var(--tint-color); */
+    background-color: var(--tint-color);
   }
 
 .icon[selected]:where(.button, button) {
     color: var(--md-sys-color-primary);
   }
 
-:where(.button, button).icon:hover,
-  :where(.button, button).icon .hover {
+.icon:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:where(.button, button).icon:focus,
-  :where(.button, button).icon .focus {
+.icon:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:where(.button, button).icon:active,
-  :where(.button, button).icon .active {
+.icon:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 .icon[disabled]:where(.button, button) {
     cursor: default;
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
   }
 
@@ -2642,40 +2627,37 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
-:where(.button, button).icon.contained.filled:hover,
-  :where(.button, button).icon.contained.filled .hover {
+.icon.contained.filled:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-:where(.button, button).icon.contained.filled:focus,
-  :where(.button, button).icon.contained.filled .focus {
+.icon.contained.filled:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-:where(.button, button).icon.contained.filled:active,
-  :where(.button, button).icon.contained.filled .active {
+.icon.contained.filled:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
 .icon.contained.filled[disabled]:where(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
 :where(.button, button).icon.contained.filled-tonal {
@@ -2684,40 +2666,37 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
-:where(.button, button).icon.contained.filled-tonal:hover,
-  :where(.button, button).icon.contained.filled-tonal .hover {
+.icon.contained.filled-tonal:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-on-secondary-container-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-:where(.button, button).icon.contained.filled-tonal:focus,
-  :where(.button, button).icon.contained.filled-tonal .focus {
+.icon.contained.filled-tonal:where(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-on-secondary-container-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-:where(.button, button).icon.contained.filled-tonal:active,
-  :where(.button, button).icon.contained.filled-tonal .active {
+.icon.contained.filled-tonal:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-on-secondary-container-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
 .icon.contained.filled-tonal[disabled]:where(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
 :where(.button, button).icon.contained.outlined {
@@ -2728,42 +2707,39 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
-:where(.button, button).icon.contained.outlined:hover,
-  :where(.button, button).icon.contained.outlined .hover {
+.icon.contained.outlined:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-:where(.button, button).icon.contained.outlined:focus,
-  :where(.button, button).icon.contained.outlined .focus {
+.icon.contained.outlined:where(.button, button):where(:focus, .focus) {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-:where(.button, button).icon.contained.outlined:active,
-  :where(.button, button).icon.contained.outlined .active {
+.icon.contained.outlined:where(.button, button):where(:active, .active) {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
 .icon.contained.outlined[disabled]:where(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
-    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
 :where(.button, button).icon.toggle {
@@ -3198,35 +3174,43 @@ button {
     /* background-color: var(--tint-color); */
   }
 
-.chip:hover,
-  .chip .hover {
+.chip:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-.chip:focus,
-  .chip .focus {
+.chip:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-.chip:active,
-  .chip .active {
+.chip:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
+
+.chip[disabled] {
+    cursor: default;
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+.chip[disabled] > i {
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
 
 .chip > i {
     color: var(--md-sys-color-primary);
@@ -3245,11 +3229,51 @@ button {
   border: 1px solid var(--md-sys-color-outline);
 }
 
+.chip.assist[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
 .chip.filter {
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-on-surface-variant);
   border: 1px solid var(--md-sys-color-outline);
 }
+
+.chip.filter:where(:hover, .hover) {
+    box-shadow: var(--md-sys-elevation-2);
+
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
+
+.chip.filter:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-2);
+
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
+
+.chip.filter:where(:active, .active) {
+    box-shadow: var(--md-sys-elevation-1);
+
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
+
+.chip.filter[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+  }
 
 .chip.input {
   background-color: var(--md-sys-color-surface);
@@ -3257,11 +3281,23 @@ button {
   border: 1px solid var(--md-sys-color-outline);
 }
 
+.chip.input[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
 .chip.suggestion {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
   border: 1px solid var(--md-sys-color-outline);
 }
+
+.chip.suggestion[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
 
 :where(.top-app-bar) {
   --top-app-bar-padding: 16px;

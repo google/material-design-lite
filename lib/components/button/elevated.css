@@ -3,7 +3,7 @@
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
 
-  &:is(:hover, .hover) {
+  &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -12,7 +12,7 @@
     );
   }
 
-  &:is(:focus, .focus) {
+  &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -21,7 +21,7 @@
     );
   }
 
-  &:is(:active, .active) {
+  &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(

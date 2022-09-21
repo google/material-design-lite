@@ -35,7 +35,7 @@ button {
     right: 0;
     bottom: 0;
 
-    /* background-color: var(--tint-color); */
+    background-color: var(--tint-color);
   }
 
   &[label] {
@@ -65,15 +65,15 @@ button {
     text-decoration: none;
   }
 
-  &:is(:hover, .hover) {
+  &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:is(:focus, .focus) {
+  &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:is(:active, .active) {
+  &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
