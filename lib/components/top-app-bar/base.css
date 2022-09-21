@@ -54,7 +54,7 @@
   &.scrolled {
     --tint-opacity: 0.09;
     --tint-color-rgb: var(--md-sys-color-primary-rgb);
-    --tint-color: rgba(var(--md-sys-color-primary-rgb), var(--tint-opacity));
+    --tint-color: rgb(var(--md-sys-color-primary-rgb) /  var(--tint-opacity));
     box-shadow: var(--md-sys-elevation-2);
     background: linear-gradient(var(--tint-color), var(--tint-color)) no-repeat,
       linear-gradient(var(--md-sys-color-surface), var(--md-sys-color-surface))

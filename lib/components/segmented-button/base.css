@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
 
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgb(0, 0, 0, 0);
 
   border-radius: 20px;
   border: 1px solid var(--md-sys-color-outline);
@@ -74,23 +74,23 @@
     }
 
     &:hover + label {
-      --tint-color: rgba(
-        var(--md-sys-color-primary-rgb),
-        var(--md-sys-state-hover-state-layer-opacity)
+      --tint-color: rgb(
+        var(--md-sys-color-primary-rgb) /
+          var(--md-sys-state-hover-state-layer-opacity)
       );
     }
 
     &:focus + label {
-      --tint-color: rgba(
-        var(--md-sys-color-primary-rgb),
-        var(--md-sys-state-focus-state-layer-opacity)
+      --tint-color: rgb(
+        var(--md-sys-color-primary-rgb) /
+          var(--md-sys-state-focus-state-layer-opacity)
       );
     }
 
     &:active + label {
-      --tint-color: rgba(
-        var(--md-sys-color-primary-rgb),
-        var(--md-sys-state-pressed-state-layer-opacity)
+      --tint-color: rgb(
+        var(--md-sys-color-primary-rgb) /
+          var(--md-sys-state-pressed-state-layer-opacity)
       );
     }
   }

@@ -9,13 +9,13 @@
     margin: 0;
     border: none;
     border-top: solid 27px transparent;
-    border-bottom: solid 1px rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+    border-bottom: solid 1px rgb(var(--md-sys-color-on-surface-rgb) /  0.6);
     border-radius: 4px 4px 0 0;
     padding: 0 12px 10px;
     width: 100%;
     height: inherit;
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.04);
+    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.87);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.04);
     box-shadow: none; /* Firefox */
     font-family: inherit;
     font-size: inherit;
@@ -35,7 +35,7 @@
     display: block;
     box-sizing: border-box;
     padding: 7px 12px 0;
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.6);
     font-size: 75%;
     line-height: 18px;
     pointer-events: none;
@@ -61,8 +61,8 @@
   /* Hover */
   & > input:hover,
   & > textarea:hover {
-    border-bottom-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.08);
+    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.87);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.08);
   }
 
   /* Placeholder-shown */
@@ -96,14 +96,14 @@
   /* Disabled */
   & > input:disabled,
   & > textarea:disabled {
-    border-bottom-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.24);
+    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.24);
   }
 
   & > input:disabled + span,
   & > textarea:disabled + span {
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
   }
 
   /* Faster transition in Safari for less noticable fractional font-size issue */

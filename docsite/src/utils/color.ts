@@ -45,7 +45,7 @@ export function generateTokens(color: string) {
         for (const [tone, value] of Object.entries(palette!)) {
             const token = section.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
             const [r, g, b] = hexToRgb(value);
-            output.push(`  --md-ref-palette-${token}${tone}-rgb: ${r}, ${g}, ${b};`);
+            output.push(`  --md-ref-palette-${token}${tone}-rgb: ${r} ${g} ${b};`);
         }
     }
 

@@ -1,5 +1,4 @@
-@import url(tokens.css);
-@import url(adapter.css);
+@import url(tokens/themes/auto.css);
 @import url(colors.css);
 @import url(typography.css);
 @import url(shape.css);
@@ -8,3 +7,4 @@
 @import url(motion.css);
 @import url(state.css);
 @import url(elevation.css);
+@import url(adapter.css);

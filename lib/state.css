@@ -1,3 +1,5 @@
+@import url(tokens/state.css);
+
 .hover-state-layer {
   opacity: var(--md-sys-state-hover-state-layer-opacity);
 }

@@ -6,8 +6,8 @@
   .hover {
     box-shadow: var(--md-sys-elevation-4);
 
-    --tint-color: rgba(
-      var(--md-sys-color-on-surface-rgb),
+    --tint-color: rgb(
+      var(--md-sys-color-on-surface-rgb) / 
       var(--md-sys-state-hover-state-layer-opacity)
     );
   }
@@ -16,8 +16,8 @@
   .focus {
     box-shadow: var(--md-sys-elevation-2);
 
-    --tint-color: rgba(
-      var(--md-sys-color-on-surface-rgb),
+    --tint-color: rgb(
+      var(--md-sys-color-on-surface-rgb) / 
       var(--md-sys-state-focus-state-layer-opacity)
     );
   }
@@ -26,15 +26,15 @@
   .active {
     box-shadow: var(--md-sys-elevation-2);
 
-    --tint-color: rgba(
-      var(--md-sys-color-on-surface-rgb),
+    --tint-color: rgb(
+      var(--md-sys-color-on-surface-rgb) / 
       var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
   &[disabled] {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
   }
 }

@@ -33,8 +33,8 @@
   .hover {
     box-shadow: var(--md-sys-elevation-1);
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) / 
       var(--md-sys-state-hover-state-layer-opacity)
     );
   }
@@ -43,8 +43,8 @@
   .focus {
     box-shadow: var(--md-sys-elevation-1);
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) / 
       var(--md-sys-state-focus-state-layer-opacity)
     );
   }
@@ -53,8 +53,8 @@
   .active {
     box-shadow: var(--md-sys-elevation-0);
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) / 
       var(--md-sys-state-pressed-state-layer-opacity)
     );
   }

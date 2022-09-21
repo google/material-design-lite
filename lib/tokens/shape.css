@@ -15,16 +15,16 @@
 */
 
 :where(html), .tokens {
-  --md-sys-shape-corner-extra-small-top: 4pxpx 4pxpx 0pxpx 0pxpx;
-  --md-sys-shape-corner-extra-small: 4pxpx 4pxpx 4pxpx 4pxpx;
-  --md-sys-shape-corner-large: 16pxpx 16pxpx 16pxpx 16pxpx;
-  --md-sys-shape-corner-none: 0pxpx 0pxpx 0pxpx 0pxpx;
-  --md-sys-shape-corner-large-start: 16pxpx 0pxpx 0pxpx 16pxpx;
-  --md-sys-shape-corner-medium: 12pxpx 12pxpx 12pxpx 12pxpx;
-  --md-sys-shape-corner-small: 8pxpx 8pxpx 8pxpx 8pxpx;
-  --md-sys-shape-corner-large-end: 0pxpx 16pxpx 16pxpx 0pxpx;
-  --md-sys-shape-corner-large-top: 16pxpx 16pxpx 0pxpx 0pxpx;
-  --md-sys-shape-corner-extra-large: 28pxpx 28pxpx 28pxpx 28pxpx;
-  --md-sys-shape-corner-extra-large-top: 28pxpx 28pxpx 0pxpx 0pxpx;
+  --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
+  --md-sys-shape-corner-extra-small: 4px 4px 4px 4px;
+  --md-sys-shape-corner-large: 16px 16px 16px 16px;
+  --md-sys-shape-corner-none: 0px 0px 0px 0px;
+  --md-sys-shape-corner-large-start: 16px 0px 0px 16px;
+  --md-sys-shape-corner-medium: 12px 12px 12px 12px;
+  --md-sys-shape-corner-small: 8px 8px 8px 8px;
+  --md-sys-shape-corner-large-end: 0px 16px 16px 0px;
+  --md-sys-shape-corner-large-top: 16px 16px 0px 0px;
+  --md-sys-shape-corner-extra-large: 28px 28px 28px 28px;
+  --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
   --md-sys-shape-corner-full: 50%;
 }

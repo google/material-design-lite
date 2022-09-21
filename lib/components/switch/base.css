@@ -59,7 +59,7 @@
   }
 
   &:disabled {
-    background-color: rgba(var(--md-sys-color-surface-variant-rgb), 0.12);
+    background-color: rgb(var(--md-sys-color-surface-variant-rgb) /  0.12);
     border-color: var(--md-sys-color-surface-variant);
 
     &::after {

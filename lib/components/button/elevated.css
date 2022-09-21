@@ -3,38 +3,35 @@
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
 
-  &:hover,
-  .hover {
+  &:is(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
-      var(--md-sys-state-hover-state-layer-opacity)
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-  &:focus,
-  .focus {
+  &:is(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
-      var(--md-sys-state-focus-state-layer-opacity)
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-  &:active,
-  .active {
+  &:is(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
-      var(--md-sys-state-pressed-state-layer-opacity)
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
   &[disabled] {
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 }

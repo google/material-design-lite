@@ -1,3 +1,5 @@
+@import url(tokens/shape.css);
+
 .shape-none {
   border-radius: var(--md-sys-shape-corner-none);
 }
@@ -16,19 +18,18 @@
 .shape-extra-large {
   border-radius: var(--md-sys-shape-corner-extra-large);
 }
-.extra-small-top {
-  border-top-left-radius: var(--md-sys-shape-corner-extra-small-top-top-left);
-  border-top-right-radius: var(--md-sys-shape-corner-extra-small-top-top-right);
+.shape-extra-small-top {
+  border-radius: var(--md-sys-shape-corner-extra-small-top);
 }
-.large-end {
-  border-top-right-radius: var(--md-sys-shape-corner-large-end-top-right);
-  border-bottom-right-radius: var(--md-sys-shape-corner-large-end-bottom-right);
+.shape-large-end {
+  border-radius: var(--md-sys-shape-corner-large-end);
 }
-.large-top {
-  border-top-left-radius: var(--md-sys-shape-corner-large-top-top-left);
-  border-top-right-radius: var(--md-sys-shape-corner-large-top-top-right);
+.shape-large-top {
+  border-radius: var(--md-sys-shape-corner-large-top);
 }
-.extra-large-top {
-  border-top-left-radius: var(--md-sys-shape-corner-extra-large-top-top-left);
-  border-top-right-radius: var(--md-sys-shape-corner-extra-large-top-top-right);
+.shape-extra-large-top {
+  border-radius: var(--md-sys-shape-corner-extra-large-top);
+}
+.shape-full {
+  border-radius: var(--md-sys-shape-corner-full);
 }

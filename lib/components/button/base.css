@@ -1,4 +1,5 @@
-.button, button {
+.button,
+button {
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
@@ -64,25 +65,22 @@
     text-decoration: none;
   }
 
-  &:hover,
-  &.hover {
+  &:is(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:focus,
-  &.focus {
+  &:is(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:active,
-  &.active {
+  &:is(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
   &[disabled] {
     cursor: default;
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
   }
 

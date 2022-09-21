@@ -34,6 +34,6 @@
 
   &:disabled::after {
     cursor: default;
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
   }
 }

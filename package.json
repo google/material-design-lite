@@ -4,8 +4,10 @@
   "description": "",
   "type": "module",
   "scripts": {
+    "start": "web-dev-server --node-resolve --open --watch",
     "copy:tokens": "cp -a third_party/tokens/css/. lib/tokens/ && rm -rf lib/tokens/components",
-    "build": "npx postcss lib/styles.css --output dist/material-design-lite.css",
+    "build": "npx postcss lib/styles.css --output test/material-design-lite.css",
+    "dev": "npx postcss --watch lib/styles.css --output test/material-design-lite.css",
     "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
     "test:watch": "wtr \"test/**/*.test.html\" --node-resolve --playwright --browsers chromium firefox webkit --watch"
   },
@@ -25,6 +27,9 @@
     "@material/web": "^0.1.0-alpha.0",
     "@open-wc/testing": "^3.1.6",
     "@types/node": "^18.7.17",
+    "@web/dev-server": "^0.1.34",
+    "@web/test-runner": "^0.14.0",
+    "@web/test-runner-playwright": "^0.8.10",
     "cssnano": "^5.1.13",
     "postcss": "^8.4.14",
     "postcss-apply": "^0.12.0",
@@ -35,9 +40,6 @@
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.8.1",
     "stylefmt": "^6.0.3",
-    "@web/dev-server": "^0.1.34",
-    "@web/test-runner": "^0.14.0",
-    "@web/test-runner-playwright": "^0.8.10",
     "ts-node": "^10.9.1"
   },
   "dependencies": {

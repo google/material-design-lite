@@ -1,3 +1,6 @@
+@import url(tokens/typeface.css);
+@import url(tokens/typescale.css);
+
 :where(.display-large, .display2-text) {
   @apply --display-large;
 }

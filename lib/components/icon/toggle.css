@@ -9,8 +9,8 @@
 
   &[disabled] {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
   }
 
   &:is(input[type="checkbox"]) {

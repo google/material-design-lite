@@ -1,6 +1,6 @@
 .ripple {
-  --ripple-bg: rgba(var(--md-sys-color-surface-rgb), 0.4);
-  --ripple-fg: rgba(var(--md-sys-color-on-surface-rgb), 0.6);
+  --ripple-bg: rgb(var(--md-sys-color-surface-rgb) /  0.4);
+  --ripple-fg: rgb(var(--md-sys-color-on-surface-rgb) /  0.6);
   --ripple-start-x: 50%;
   --ripple-start-y: 50%;
   --ripple-start: var(--ripple-start-x) var(--ripple-start-y);
