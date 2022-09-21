@@ -248,7 +248,7 @@
           const el = await fixture(item.outerHTML);
           const s = getComputedStyle(el);
 
-          describe(`button ${item.classList} tests`, () => {
+          describe(`chip ${item.classList} tests`, () => {
             it("check padding", () => {
               expect(s.paddingLeft).to.equal("16px");
               expect(s.paddingRight).to.equal("16px");
