@@ -6,8 +6,8 @@
   "scripts": {
     "start": "web-dev-server --node-resolve --open --watch",
     "copy:tokens": "cp -a third_party/tokens/css/. lib/tokens/ && rm -rf lib/tokens/components",
-    "build": "npx postcss lib/styles.css --output test/material-design-lite.css",
-    "dev": "npx postcss --watch lib/styles.css --output test/material-design-lite.css",
+    "build": "npx postcss lib/styles.css --output dist/material-design-lite.css",
+    "dev": "npx postcss --watch lib/styles.css --output dist/material-design-lite.css",
     "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
     "test:watch": "wtr \"test/**/*.test.html\" --node-resolve --playwright --browsers chromium firefox webkit --watch"
   },

@@ -6,7 +6,7 @@ import pluginHct from "postcss-color-hct";
 import pluginAutoprefixer from "autoprefixer";
 import pluginApply from "postcss-apply";
 
-import { CLASSES } from "../lib/classes.mjs";
+import { CLASSES } from "../lib/utils/classes.mjs";
 
 // https://astro.build/config
 export default defineConfig({

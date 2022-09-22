@@ -50,7 +50,7 @@
   }
 
   &:where(:active, .active) {
-    box-shadow: var(--md-sys-elevation-2);
+    box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
       var(--md-sys-color-on-primary-container-rgb) /
