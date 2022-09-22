@@ -1,9 +1,9 @@
-.button,
-button {
-  padding: 10px 20px;
+:is(.button, button) {
+  padding: 0 24px;
   border-radius: 20px;
   border: none;
   height: 40px;
+  box-sizing: border-box;
 
   position: relative;
   cursor: pointer;
@@ -12,6 +12,8 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  gap: 8px;
 
   white-space: nowrap;
 
@@ -26,7 +28,7 @@ button {
   --tint-color: transparent;
 
   &::after {
-    content: " ";
+    content: "";
     border-radius: inherit;
 
     position: absolute;
@@ -44,13 +46,13 @@ button {
   }
 
   & i {
-    margin-right: 4px;
-
+    margin-left: -8px;
     font-size: 18px;
   }
 
   & i:only-child {
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   & a {

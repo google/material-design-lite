@@ -2220,12 +2220,12 @@
   );
 }
 
-.button,
-button {
-  padding: 10px 20px;
+:is(.button, button) {
+  padding: 0 24px;
   border-radius: 20px;
   border: none;
   height: 40px;
+  box-sizing: border-box;
 
   position: relative;
   cursor: pointer;
@@ -2234,6 +2234,8 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  gap: 8px;
 
   white-space: nowrap;
 
@@ -2264,8 +2266,8 @@ button {
   --tint-color: transparent;
 }
 
-.button::after, button::after {
-    content: " ";
+:is(.button, button)::after {
+    content: "";
     border-radius: inherit;
 
     position: absolute;
@@ -2277,7 +2279,7 @@ button {
     background-color: var(--tint-color);
   }
 
-.button[label], button[label] {
+[label]:is(.button, button) {
     content: attr(label);
     -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
             text-decoration: var(--md-sys-typescale-label-large-text-decoration);
@@ -2290,48 +2292,48 @@ button {
     font-family: var(--md-sys-typescale-label-large-font-family-name);
   }
 
-.button i, button i {
-    margin-right: 4px;
-
+:is(.button, button) i {
+    margin-left: -8px;
     font-size: 18px;
   }
 
-.button i:only-child, button i:only-child {
-    margin-right: 0px;
+:is(.button, button) i:only-child {
+    margin-left: 0;
+    margin-right: 0;
   }
 
-.button a, button a {
+:is(.button, button) a {
     text-decoration: none;
   }
 
-.button a:hover, button a:hover {
+:is(.button, button) a:hover {
     text-decoration: none;
   }
 
-.button a:focus, button a:focus {
+:is(.button, button) a:focus {
     text-decoration: none;
   }
 
-.button:where(:hover, .hover), button:where(:hover, .hover) {
+:is(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-.button:where(:focus, .focus), button:where(:focus, .focus) {
+:is(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-.button:where(:active, .active), button:where(:active, .active) {
+:is(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-.button[disabled], button[disabled] {
+[disabled]:is(.button, button) {
     cursor: default;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
   }
 
-.button:focus-within::before, button:focus-within::before {
+:is(.button, button):focus-within::before {
     border-radius: 40px;
   }
 
@@ -2463,12 +2465,20 @@ button {
   box-shadow: var(--md-sys-elevation-0);
 }
 
+.outlined:where(.button, button) i {
+    margin-left: -9px;
+  }
+
+.outlined:where(.button, button) i:only-child {
+    margin-left: 0;
+  }
+
 .outlined:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
@@ -2476,8 +2486,8 @@ button {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
@@ -2485,15 +2495,15 @@ button {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
 .outlined[disabled]:where(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
-    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
 :where(.button, button).elevated {
@@ -2582,7 +2592,7 @@ button {
 }
 
 .icon:where(.button, button)::after {
-    content: " ";
+    content: "";
     border-radius: inherit;
 
     position: absolute;
@@ -2600,14 +2610,29 @@ button {
 
 .icon:where(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
+
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
+    );
   }
 
 .icon:where(.button, button):where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
+
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
+    );
   }
 
 .icon:where(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
+
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
+    );
   }
 
 .icon[disabled]:where(.button, button) {
@@ -2823,7 +2848,7 @@ button {
 }
 
 .fab:where(.button, button)::after {
-    content: " ";
+    content: "";
     border-radius: inherit;
 
     position: absolute;
@@ -3162,7 +3187,7 @@ button {
 }
 
 .chip::after {
-    content: " ";
+    content: "";
     border-radius: inherit;
 
     position: absolute;
@@ -3840,7 +3865,7 @@ datalist {
 }
 
 .ripple:not([disabled])::before {
-      content: " ";
+      content: "";
       border-radius: inherit;
 
       position: absolute;
@@ -4659,7 +4684,7 @@ datalist {
   }
 
 .segmented-button input + label::after {
-      content: " ";
+      content: "";
       border-radius: inherit;
 
       position: absolute;
@@ -5625,7 +5650,7 @@ datalist {
 }
 
 .list-tile::after {
-    content: " ";
+    content: "";
     border-radius: inherit;
 
     position: absolute;

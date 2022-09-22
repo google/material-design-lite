@@ -8,7 +8,7 @@
     format("woff2");
 }
 
-.material-icons {
+:where(.material-icons) {
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
@@ -33,19 +33,19 @@
   --material-symbols-opsz: 48;
 }
 
-.material-symbols-sharp {
+:where(.material-symbols-sharp) {
   font-variation-settings: "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
 
-.material-symbols-rounded {
+:where(.material-symbols-rounded) {
   font-variation-settings: "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
 
-.material-symbols-outlined {
+:where(.material-symbols-outlined) {
   font-variation-settings: "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);

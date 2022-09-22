@@ -31,7 +31,7 @@
   --tint-color: transparent;
 
   &::after {
-    content: " ";
+    content: "";
     border-radius: inherit;
 
     position: absolute;

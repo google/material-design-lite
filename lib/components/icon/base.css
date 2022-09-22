@@ -29,7 +29,7 @@
   --tint-color: transparent;
 
   &::after {
-    content: " ";
+    content: "";
     border-radius: inherit;
 
     position: absolute;
@@ -46,7 +46,6 @@
   }
 
   &:where(:hover, .hover) {
-    &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(

@@ -61,7 +61,7 @@
     --tint-color: transparent;
 
     & + label::after {
-      content: " ";
+      content: "";
       border-radius: inherit;
 
       position: absolute;

@@ -1,310 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Button</title>
     <style>
-      @import url(./material-design-lite.css);
-      @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
-      @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+        @import url(./material-design-lite.css);
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+        @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
-      body {
-        font-family: "Roboto";
-        background-color: var(--md-sys-color-background);
-        color: var(--md-sys-color-on-background);
-      }
+        body {
+            font-family: "Roboto";
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-background);
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Default</th>
-          <th>Hover</th>
-          <th>Active</th>
-          <th>Focus</th>
-          <th>Disabled</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Default</td>
-          <td><button>Button</button></td>
-          <td><button class="hover">Button</button></td>
-          <td><button class="active">Button</button></td>
-          <td><button class="focus">Button</button></td>
-          <td><button disabled>Button</button></td>
-        </tr>
-        <tr>
-          <td>Default + Icon</td>
-          <td>
-            <button>
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="hover">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="active">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="focus">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button disabled>
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Elevated</td>
-          <td><button class="elevated">Button</button></td>
-          <td><button class="elevated hover">Button</button></td>
-          <td><button class="elevated active">Button</button></td>
-          <td><button class="elevated focus">Button</button></td>
-          <td><button class="elevated" disabled>Button</button></td>
-        </tr>
-        <tr>
-          <td>Elevated + Icon</td>
-          <td>
-            <button class="elevated">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="elevated hover">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="elevated active">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="elevated focus">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="elevated" disabled>
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Filled</td>
-          <td><button class="filled">Button</button></td>
-          <td><button class="filled hover">Button</button></td>
-          <td><button class="filled active">Button</button></td>
-          <td><button class="filled focus">Button</button></td>
-          <td><button class="filled" disabled>Button</button></td>
-        </tr>
-        <tr>
-          <td>Filled + Icon</td>
-          <td>
-            <button class="filled">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled hover">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled active">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled focus">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled" disabled>
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Filled Tonal</td>
-          <td><button class="filled-tonal">Button</button></td>
-          <td><button class="filled-tonal hover">Button</button></td>
-          <td><button class="filled-tonal active">Button</button></td>
-          <td><button class="filled-tonal focus">Button</button></td>
-          <td><button class="filled-tonal" disabled>Button</button></td>
-        </tr>
-        <tr>
-          <td>Filled Tonal + Icon</td>
-          <td>
-            <button class="filled-tonal">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled-tonal hover">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled-tonal active">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled-tonal focus">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="filled-tonal" disabled>
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Outlined</td>
-          <td><button class="text">Button</button></td>
-          <td><button class="text hover">Button</button></td>
-          <td><button class="text active">Button</button></td>
-          <td><button class="text focus">Button</button></td>
-          <td><button class="text" disabled>Button</button></td>
-        </tr>
-        <tr>
-          <td>Outlined + Icon</td>
-          <td>
-            <button class="outlined">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="outlined hover">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="outlined active">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="outlined focus">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="outlined" disabled>
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Text</td>
-          <td><button class="outlined">Button</button></td>
-          <td><button class="outlined hover">Button</button></td>
-          <td><button class="outlined active">Button</button></td>
-          <td><button class="outlined focus">Button</button></td>
-          <td><button class="outlined" disabled>Button</button></td>
-        </tr>
-        <tr>
-          <td>Text + Icon</td>
-          <td>
-            <button class="text">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="text hover">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="text active">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="text focus">
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-          <td>
-            <button class="text" disabled>
-              <i class="material-icons">add</i>
-              <span>Button</span>
-            </button>
-          </td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Default</th>
+                <th>Hover</th>
+                <th>Active</th>
+                <th>Focus</th>
+                <th>Disabled</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Default</td>
+                <td><button>Button</button></td>
+                <td><button class="hover">Button</button></td>
+                <td><button class="active">Button</button></td>
+                <td><button class="focus">Button</button></td>
+                <td><button disabled>Button</button></td>
+            </tr>
+            <tr>
+                <td>Default + Icon</td>
+                <td>
+                    <button>
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="hover">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="active">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="focus">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button disabled>
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Elevated</td>
+                <td><button class="elevated">Button</button></td>
+                <td><button class="elevated hover">Button</button></td>
+                <td><button class="elevated active">Button</button></td>
+                <td><button class="elevated focus">Button</button></td>
+                <td><button class="elevated" disabled>Button</button></td>
+            </tr>
+            <tr>
+                <td>Elevated + Icon</td>
+                <td>
+                    <button class="elevated">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="elevated hover">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="elevated active">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="elevated focus">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="elevated" disabled>
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Filled</td>
+                <td><button class="filled">Button</button></td>
+                <td><button class="filled hover">Button</button></td>
+                <td><button class="filled active">Button</button></td>
+                <td><button class="filled focus">Button</button></td>
+                <td><button class="filled" disabled>Button</button></td>
+            </tr>
+            <tr>
+                <td>Filled + Icon</td>
+                <td>
+                    <button class="filled">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled hover">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled active">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled focus">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled" disabled>
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Filled Tonal</td>
+                <td><button class="filled-tonal">Button</button></td>
+                <td><button class="filled-tonal hover">Button</button></td>
+                <td><button class="filled-tonal active">Button</button></td>
+                <td><button class="filled-tonal focus">Button</button></td>
+                <td><button class="filled-tonal" disabled>Button</button></td>
+            </tr>
+            <tr>
+                <td>Filled Tonal + Icon</td>
+                <td>
+                    <button class="filled-tonal">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled-tonal hover">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled-tonal active">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled-tonal focus">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="filled-tonal" disabled>
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Outlined</td>
+                <td><button class="outlined">Button</button></td>
+                <td><button class="outlined hover">Button</button></td>
+                <td><button class="outlined active">Button</button></td>
+                <td><button class="outlined focus">Button</button></td>
+                <td><button class="outlined" disabled>Button</button></td>
+            </tr>
+            <tr>
+                <td>Outlined + Icon</td>
+                <td>
+                    <button class="outlined">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="outlined hover">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="outlined active">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="outlined focus">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="outlined" disabled>
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Text</td>
+                <td><button class="text">Button</button></td>
+                <td><button class="text hover">Button</button></td>
+                <td><button class="text active">Button</button></td>
+                <td><button class="text focus">Button</button></td>
+                <td><button class="text" disabled>Button</button></td>
+            </tr>
+            <tr>
+                <td>Text + Icon</td>
+                <td>
+                    <button class="text">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="text hover">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="text active">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="text focus">
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="text" disabled>
+                        <i class="material-icons">add</i>
+                        <span>Button</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
     </table>
 
     <script type="module">
-      import { html, fixture, expect } from "@open-wc/testing";
-      import { runTests } from "@web/test-runner-mocha";
+        import { html, fixture, expect } from "@open-wc/testing";
+        import { runTests } from "@web/test-runner-mocha";
 
-      runTests(async () => {
-        for (const item of document.querySelectorAll("button")) {
-          const el = await fixture(item.outerHTML);
-          const s = getComputedStyle(el);
+        runTests(async () => {
+            for (const item of document.querySelectorAll("button")) {
+                const el = await fixture(item.outerHTML);
+                const s = getComputedStyle(el);
+                const icon = el.querySelector("i");
 
-          describe(`button ${item.classList} tests`, () => {
-            it("check padding", () => {
-              expect(s.paddingLeft).to.equal("20px");
-              expect(s.paddingRight).to.equal("20px");
-              expect(s.paddingTop).to.equal("10px");
-              expect(s.paddingBottom).to.equal("10px");
-            });
-            it("check size", () => {
-              expect(s.height).to.equal("40px");
-            });
-            it("check accessibility", async () => {
-              await expect(el).to.be.accessible();
-            });
-          });
-        }
-      });
+                describe(`button ${item.classList} tests`, () => {
+                    it("check size", () => {
+                        expect(s.height).to.equal("40px");
+                    });
+                    it("check accessibility", async () => {
+                        await expect(el).to.be.accessible();
+                    });
+                    it("check text", () => {
+                        expect(s.textAlign).to.equal("center");
+                    });
+                    it("check border radius", () => {
+                        expect(s.borderRadius).to.equal("20px");
+                    });
+                    if (el.querySelector("i")) {
+                        describe('icon tests', () => {
+                            const icon = el.querySelector("i");
+                            const iconS = getComputedStyle(icon);
+
+                            it("check size", () => {
+                                expect(iconS.fontSize).to.equal("18px");
+                            });
+                        });
+                        it("check gap", () => {
+                            expect(s.gap.includes('8px')).to.equal(true);
+                        });
+                        it("check padding", () => {
+                            const elX = el.getBoundingClientRect().x;
+                            const iconX = icon.getBoundingClientRect().x;
+                            
+                            const iconDist = iconX - elX;
+
+                            expect(`${iconDist}px`).to.equal("16px");
+                            expect(s.paddingRight).to.equal("24px");
+                        });
+                    } else {
+                        it("check padding", () => {
+                            const hPadding = s.paddingLeft && s.paddingRight;
+
+                            expect(hPadding).to.equal("24px");
+                        });
+                    }
+
+                });
+
+
+            }
+        });
     </script>
-  </body>
+</body>
+
 </html>
