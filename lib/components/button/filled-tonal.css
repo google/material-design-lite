@@ -1,4 +1,4 @@
-:where(.button, button).filled-tonal {
+:where(.button, button):not(.icon).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
   box-shadow: var(--md-sys-elevation-0);

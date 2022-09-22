@@ -5,7 +5,7 @@
 
   width: 300px;
 
-  border-radius: var(--md-sys-shape-medium);
+  border-radius: var(--md-sys-shape-corner-medium);
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
@@ -15,7 +15,7 @@
 
   & img {
     padding: 0;
-    border-radius: var(--md-sys-shape-medium);
+    border-radius: var(--md-sys-shape-corner-medium);
   }
 
   & .title {

@@ -1,4 +1,4 @@
-:where(.button, button).icon.toggle {
+:where(.icon).toggle {
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-primary);
 
@@ -7,13 +7,7 @@
     background-color: var(--md-sys-color-primary);
   }
 
-  &[disabled] {
-    box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
-  }
-
-  &:is(input[type="checkbox"]) {
+  &:where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -52,5 +46,11 @@
         }
       }
     }
+  }
+
+  &[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 }

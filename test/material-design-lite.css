@@ -2006,10 +2006,6 @@
 }
 
 * {
-  --md-sys-shape-small: var(--md-sys-shape-corner-small);
-  --md-sys-shape-medium: var(--md-sys-shape-corner-medium);
-  --md-sys-shape-large: var(--md-sys-shape-corner-large);
-
   --md-sys-color-primary: rgb(var(--md-sys-color-primary-rgb) / 1);
   --md-sys-color-primary-container: rgb(
     var(--md-sys-color-primary-container-rgb) / 1
@@ -2220,7 +2216,7 @@
   );
 }
 
-:is(.button, button) {
+:where(.button, button):not(.icon) {
   padding: 0 24px;
   border-radius: 20px;
   border: none;
@@ -2266,7 +2262,7 @@
   --tint-color: transparent;
 }
 
-:is(.button, button)::after {
+:where(.button, button):not(.icon)::after {
     content: "";
     border-radius: inherit;
 
@@ -2279,7 +2275,7 @@
     background-color: var(--tint-color);
   }
 
-[label]:is(.button, button) {
+[label]:where(.button, button):not(.icon) {
     content: attr(label);
     -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
             text-decoration: var(--md-sys-typescale-label-large-text-decoration);
@@ -2292,58 +2288,58 @@
     font-family: var(--md-sys-typescale-label-large-font-family-name);
   }
 
-:is(.button, button) i {
+:where(.button, button):not(.icon) i {
     margin-left: -8px;
     font-size: 18px;
   }
 
-:is(.button, button) i:only-child {
+:where(.button, button):not(.icon) i:only-child {
     margin-left: 0;
     margin-right: 0;
   }
 
-:is(.button, button) a {
+:where(.button, button):not(.icon) a {
     text-decoration: none;
   }
 
-:is(.button, button) a:hover {
+:where(.button, button):not(.icon) a:hover {
     text-decoration: none;
   }
 
-:is(.button, button) a:focus {
+:where(.button, button):not(.icon) a:focus {
     text-decoration: none;
   }
 
-:is(.button, button):where(:hover, .hover) {
+:where(.button, button):not(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button, button):where(:focus, .focus) {
+:where(.button, button):not(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button, button):where(:active, .active) {
+:where(.button, button):not(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-[disabled]:is(.button, button) {
+[disabled]:where(.button, button):not(.icon) {
     cursor: default;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button, button):focus-within::before {
+:where(.button, button):not(.icon):focus-within::before {
     border-radius: 40px;
   }
 
-:where(.button, button).text {
+:where(.button, button):not(.icon).text {
   background-color: transparent;
   color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.text:where(.button, button):where(:hover, .hover) {
+.text:where(.button, button):not(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2352,7 +2348,7 @@
     );
   }
 
-.text:where(.button, button):where(:focus, .focus) {
+.text:where(.button, button):not(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2361,7 +2357,7 @@
     );
   }
 
-.text:where(.button, button):where(:active, .active) {
+.text:where(.button, button):not(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2370,18 +2366,18 @@
     );
   }
 
-.text[disabled]:where(.button, button) {
+.text[disabled]:where(.button, button):not(.icon) {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.button, button).filled {
+:where(.button, button):not(.icon).filled {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.filled:where(.button, button):where(:hover, .hover) {
+.filled:where(.button, button):not(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2390,7 +2386,7 @@
     );
   }
 
-.filled:where(.button, button):where(:focus, .focus) {
+.filled:where(.button, button):not(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2399,7 +2395,7 @@
     );
   }
 
-.filled:where(.button, button):where(:active, .active) {
+.filled:where(.button, button):not(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2408,24 +2404,24 @@
     );
   }
 
-.filled[disabled]:where(.button, button) {
+.filled[disabled]:where(.button, button):not(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
   }
 
-.filled.ripple:where(.button, button) {
+.filled.ripple:where(.button, button):not(.icon) {
     --ripple-bg: rgb(var(--md-sys-color-primary-rgb) /  0.4);
     --ripple-fg: rgb(var(--md-sys-color-on-primary-rgb) /  0.6);
   }
 
-:where(.button, button).filled-tonal {
+:where(.button, button):not(.icon).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.filled-tonal:where(.button, button):where(:hover, .hover) {
+.filled-tonal:where(.button, button):not(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2434,7 +2430,7 @@
     );
   }
 
-.filled-tonal:where(.button, button):where(:focus, .focus) {
+.filled-tonal:where(.button, button):not(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2443,7 +2439,7 @@
     );
   }
 
-.filled-tonal:where(.button, button):where(:active, .active) {
+.filled-tonal:where(.button, button):not(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2452,24 +2448,24 @@
     );
   }
 
-.filled-tonal[disabled]:where(.button, button) {
+.filled-tonal[disabled]:where(.button, button):not(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.button, button).outlined {
+:where(.button, button):not(.icon).outlined {
   background-color: transparent;
   color: var(--md-sys-color-primary);
   border: 1px solid var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.outlined:where(.button, button) i {
+.outlined:where(.button, button):not(.icon) i {
     margin-left: -9px;
   }
 
-.outlined:where(.button, button):where(:hover, .hover) {
+.outlined:where(.button, button):not(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2478,7 +2474,7 @@
     );
   }
 
-.outlined:where(.button, button):where(:focus, .focus) {
+.outlined:where(.button, button):not(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2487,7 +2483,7 @@
     );
   }
 
-.outlined:where(.button, button):where(:active, .active) {
+.outlined:where(.button, button):not(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2496,19 +2492,19 @@
     );
   }
 
-.outlined[disabled]:where(.button, button) {
+.outlined[disabled]:where(.button, button):not(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.button, button).elevated {
+:where(.button, button):not(.icon).elevated {
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
 }
 
-.elevated:where(.button, button):where(:hover, .hover) {
+.elevated:where(.button, button):not(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -2517,7 +2513,7 @@
     );
   }
 
-.elevated:where(.button, button):where(:focus, .focus) {
+.elevated:where(.button, button):not(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -2526,7 +2522,7 @@
     );
   }
 
-.elevated:where(.button, button):where(:active, .active) {
+.elevated:where(.button, button):not(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2535,12 +2531,12 @@
     );
   }
 
-.elevated[disabled]:where(.button, button) {
+.elevated[disabled]:where(.button, button):not(.icon) {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.button, button).icon {
+:where(.icon) {
   border: none;
 
   cursor: pointer;
@@ -2550,6 +2546,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 0;
 
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
 
@@ -2568,6 +2567,7 @@
   font-style: var(--md-sys-typescale-label-large-font-family-style);
 
   font-family: var(--md-sys-typescale-label-large-font-family-name);
+  font-size: 24px;
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
@@ -2587,7 +2587,7 @@
   --tint-color: transparent;
 }
 
-.icon:where(.button, button)::after {
+:where(.icon)::after {
     content: "";
     border-radius: inherit;
 
@@ -2600,11 +2600,11 @@
     background-color: var(--tint-color);
   }
 
-.icon[selected]:where(.button, button) {
+:where(.icon):where([selected], [checked]) {
     color: var(--md-sys-color-primary);
   }
 
-.icon:where(.button, button):where(:hover, .hover) {
+:where(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -2613,7 +2613,7 @@
     );
   }
 
-.icon:where(.button, button):where(:focus, .focus) {
+:where(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
@@ -2622,7 +2622,7 @@
     );
   }
 
-.icon:where(.button, button):where(:active, .active) {
+:where(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2631,24 +2631,24 @@
     );
   }
 
-.icon[disabled]:where(.button, button) {
+[disabled]:where(.icon) {
     cursor: default;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
   }
 
-.icon:where(.button, button) i {
+:where(.icon) i {
     font-size: 24px;
     vertical-align: middle;
   }
 
-:where(.button, button).icon.contained.filled {
+:where(.icon).icon.contained.filled {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.icon.contained.filled:where(.button, button):where(:hover, .hover) {
+.icon.contained.filled:where(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2657,7 +2657,7 @@
     );
   }
 
-.icon.contained.filled:where(.button, button):where(:focus, .focus) {
+.icon.contained.filled:where(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2666,7 +2666,7 @@
     );
   }
 
-.icon.contained.filled:where(.button, button):where(:active, .active) {
+.icon.contained.filled:where(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2675,19 +2675,19 @@
     );
   }
 
-.icon.contained.filled[disabled]:where(.button, button) {
+.icon.contained.filled[disabled]:where(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.button, button).icon.contained.filled-tonal {
+:where(.icon).icon.contained.filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.icon.contained.filled-tonal:where(.button, button):where(:hover, .hover) {
+.icon.contained.filled-tonal:where(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2696,7 +2696,7 @@
     );
   }
 
-.icon.contained.filled-tonal:where(.button, button):where(:focus, .focus) {
+.icon.contained.filled-tonal:where(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2705,7 +2705,7 @@
     );
   }
 
-.icon.contained.filled-tonal:where(.button, button):where(:active, .active) {
+.icon.contained.filled-tonal:where(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
 
     --tint-color: rgb(
@@ -2714,13 +2714,13 @@
     );
   }
 
-.icon.contained.filled-tonal[disabled]:where(.button, button) {
+.icon.contained.filled-tonal[disabled]:where(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.button, button).icon.contained.outlined {
+:where(.icon).icon.contained.outlined {
   background-color: transparent;
   color: var(--md-sys-color-primary);
 
@@ -2728,7 +2728,7 @@
   box-shadow: var(--md-sys-elevation-0);
 }
 
-.icon.contained.outlined:where(.button, button):where(:hover, .hover) {
+.icon.contained.outlined:where(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2737,7 +2737,7 @@
     );
   }
 
-.icon.contained.outlined:where(.button, button):where(:focus, .focus) {
+.icon.contained.outlined:where(.icon):where(:focus, .focus) {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
 
@@ -2747,7 +2747,7 @@
     );
   }
 
-.icon.contained.outlined:where(.button, button):where(:active, .active) {
+.icon.contained.outlined:where(.icon):where(:active, .active) {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
 
@@ -2757,29 +2757,23 @@
     );
   }
 
-.icon.contained.outlined[disabled]:where(.button, button) {
+.icon.contained.outlined[disabled]:where(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.button, button).icon.toggle {
+:where(.icon).toggle {
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-primary);
 }
 
-.icon.toggle[checked]:where(.button, button) {
+.toggle[checked]:where(.icon) {
     color: var(--md-sys-color-on-primary);
     background-color: var(--md-sys-color-primary);
   }
 
-.icon.toggle[disabled]:where(.button, button) {
-    box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
-  }
-
-.icon.toggle:where(.button, button):is(input[type="checkbox"]) {
+.toggle:where(.icon):where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -2788,7 +2782,7 @@
     color: var(--md-sys-color-primary);
   }
 
-.icon.toggle:where(.button, button):is(input[type="checkbox"])::after {
+.toggle:where(.icon):where(input[type="checkbox"])::after {
       -webkit-font-smoothing: antialiased;
       font-feature-settings: "liga";
       direction: ltr;
@@ -2810,22 +2804,28 @@
       justify-content: center;
     }
 
-.icon.toggle[off-icon]:where(.button, button):is(input[type="checkbox"])::after {
+.toggle[off-icon]:where(.icon):where(input[type="checkbox"])::after {
         content: attr(off-icon);
       }
 
-.icon.toggle:where(.button, button):is(input[type="checkbox"]):checked {
+.toggle:where(.icon):where(input[type="checkbox"]):checked {
       color: var(--md-sys-color-on-primary);
       background-color: var(--md-sys-color-primary);
     }
 
-.icon.toggle:where(.button, button):is(input[type="checkbox"]):checked::after {
+.toggle:where(.icon):where(input[type="checkbox"]):checked::after {
         content: "check";
       }
 
-.icon.toggle[on-icon]:where(.button, button):is(input[type="checkbox"]):checked::after {
+.toggle[on-icon]:where(.icon):where(input[type="checkbox"]):checked::after {
           content: attr(on-icon);
         }
+
+.toggle[disabled]:where(.icon) {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
 
 :where(.button, button).fab {
   padding: 16px;
@@ -2911,7 +2911,7 @@
 :where(.button, button).fab.large {
   padding: 16px;
   font-size: 36px;
-  border-radius: var(--md-sys-shape-medium);
+  border-radius: var(--md-sys-shape-corner-medium);
   width: 96px;
   height: 96px;
 }
@@ -2921,7 +2921,7 @@
   }
 
 :where(.button, button).fab.extended {
-  border-radius: var(--md-sys-shape-medium);
+  border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;
   width: auto;
@@ -3063,7 +3063,7 @@
 
   width: 300px;
 
-  border-radius: var(--md-sys-shape-medium);
+  border-radius: var(--md-sys-shape-corner-medium);
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
@@ -3074,7 +3074,7 @@
 
 .card img {
     padding: 0;
-    border-radius: var(--md-sys-shape-medium);
+    border-radius: var(--md-sys-shape-corner-medium);
   }
 
 .card .title {
@@ -3951,7 +3951,7 @@ datalist {
     font-style: var(--md-sys-typescale-label-small-font-family-style);
 
     font-family: var(--md-sys-typescale-label-small-font-family-name);
-    border-radius: var(--md-sys-shape-small);
+    border-radius: var(--md-sys-shape-corner-small);
 
     background-color: var(--md-sys-color-inverse-surface);
     color: var(--md-sys-color-inverse-on-surface);
@@ -4516,36 +4516,12 @@ datalist {
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--md-sys-shape-medium);
+  border-radius: var(--md-sys-shape-corner-medium);
 
   margin: 0;
   padding: 0;
   position: relative;
 }
-
-:where(.table, table) :where(td:first-child, th:first-child) {
-    border-left: none;
-  }
-
-:where(.table, table) thead:first-child tr:first-child th,
-  :where(.table, table) tbody:first-child tr:first-child td {
-    border-top: none;
-  }
-
-:where(.table, table) thead tr th:first-of-type {
-    border-top-left-radius: var(--md-sys-shape-medium);
-  }
-
-:where(.table, table) thead tr th:last-of-type {
-    border-top-right-radius: var(--md-sys-shape-medium);
-  }
-
-:where(.table, table) :where(th) {
-    border-top: none;
-    background-color: var(--md-sys-color-surface-2);
-    color: var(--md-sys-color-on-surface-variant);
-    font-weight: 500;
-  }
 
 :where(.table, table) :where(td, th) {
     padding: 16px 24px;
@@ -4553,6 +4529,42 @@ datalist {
     border-left: 1px solid var(--md-sys-color-surface-variant);
     vertical-align: middle;
   }
+
+:where(.table, table) thead tr th {
+      background-color: var(--md-sys-color-surface-2);
+      color: var(--md-sys-color-on-surface-variant);
+
+      border-top: none;
+      font-weight: 500;
+    }
+
+:where(.table, table) thead tr th:first-of-type {
+        border-radius: var(--md-sys-shape-corner-medium);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+:where(.table, table) thead tr th:last-of-type {
+        border-radius: var(--md-sys-shape-corner-medium);
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+:where(.table, table) tbody tr:last-of-type td:first-of-type {
+          border-radius: var(--md-sys-shape-corner-medium);
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+:where(.table, table) tbody tr:last-of-type td:last-of-type {
+          border-radius: var(--md-sys-shape-corner-medium);
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
 
 .zebra:where(.table, table) tr:nth-of-type(even) {
     background-color: var(--md-sys-color-surface-1);

@@ -1,4 +1,4 @@
-:where(.button, button).elevated {
+:where(.button, button):not(.icon).elevated {
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);

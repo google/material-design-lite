@@ -16,6 +16,10 @@
             background-color: var(--md-sys-color-background);
             color: var(--md-sys-color-on-background);
         }
+
+        table {
+            margin: 8px;
+        }
     </style>
 </head>
 
@@ -29,7 +33,6 @@
                 <th>Active</th>
                 <th>Focus</th>
                 <th>Disabled</th>
-                <th>Checked</th>
             </tr>
         </thead>
         <tbody>
@@ -60,7 +63,6 @@
                         <i class="material-icons">add</i>
                     </button>
                 </td>
-                <td></td>
             </tr>
             <tr>
                 <td>Filled</td>
@@ -89,7 +91,6 @@
                         <i class="material-icons">add</i>
                     </button>
                 </td>
-                <td></td>
             </tr>
             <tr>
                 <td>Filled Tonal</td>
@@ -118,7 +119,6 @@
                         <i class="material-icons">add</i>
                     </button>
                 </td>
-                <td></td>
             </tr>
             <tr>
                 <td>Outlined</td>
@@ -147,7 +147,55 @@
                         <i class="material-icons">add</i>
                     </button>
                 </td>
-                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Default</th>
+                <th>Hover</th>
+                <th>Active</th>
+                <th>Focus</th>
+                <th>Selected</th>
+                <th>Disabled</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Selected</td>
+                <td>
+                    <button class="icon">
+                        <i class="material-icons">check</i>
+                    </button>
+                </td>
+                <td>
+                    <button class="icon hover">
+                        <i class="material-icons">check</i>
+                    </button>
+                </td>
+                <td>
+                    <button class="icon active">
+                        <i class="material-icons">check</i>
+                    </button>
+                </td>
+                <td>
+                    <button class="icon focus">
+                        <i class="material-icons">check</i>
+                    </button>
+                </td>
+                <td>
+                    <button class="icon" checked>
+                        <i class="material-icons">check</i>
+                    </button>
+                </td>
+                <td>
+                    <button class="icon" disabled>
+                        <i class="material-icons">check</i>
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>Toggle</td>
@@ -172,14 +220,35 @@
                     </button>
                 </td>
                 <td>
-                    <button class="icon toggle" disabled>
+                    <button class="icon toggle" checked>
                         <i class="material-icons">check</i>
                     </button>
                 </td>
                 <td>
-                    <button class="icon toggle" checked>
+                    <button class="icon toggle" disabled>
                         <i class="material-icons">check</i>
                     </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Toggle Input</td>
+                <td>
+                    <input aria-label="toggle input" class="icon toggle" type="checkbox">
+                </td>
+                <td>
+                    <input aria-label="toggle input" class="icon toggle hover" type="checkbox">
+                </td>
+                <td>
+                    <input aria-label="toggle input" class="icon toggle active" type="checkbox">
+                </td>
+                <td>
+                    <input aria-label="toggle input" class="icon toggle focus" type="checkbox">
+                </td>
+                <td>
+                    <input aria-label="toggle input" class="icon toggle" type="checkbox" checked>
+                </td>
+                <td>
+                    <input aria-label="toggle input" class="icon toggle" type="checkbox" disabled>
                 </td>
             </tr>
         </tbody>
@@ -190,9 +259,10 @@
         import { runTests } from "@web/test-runner-mocha";
 
         runTests(async () => {
-            for (const item of document.querySelectorAll("button")) {
+            for (const item of document.querySelectorAll(".icon")) {
                 const el = await fixture(item.outerHTML);
                 const s = getComputedStyle(el);
+                const icon = el.querySelector("i");
 
                 describe(`icon button ${item.classList} tests`, () => {
                     it("check padding", () => {
@@ -200,6 +270,9 @@
                     });
                     it("check size", () => {
                         expect(s.height).to.equal("40px");
+                    });
+                    it("check font size", () => {
+                        expect(s.fontSize).to.equal("24px");
                     });
                     it("check accessibility", async () => {
                         await expect(el).to.be.accessible();

@@ -1,4 +1,4 @@
-:is(.button, button) {
+:where(.button, button):not(.icon) {
   padding: 0 24px;
   border-radius: 20px;
   border: none;

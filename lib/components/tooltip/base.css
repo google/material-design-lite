@@ -17,7 +17,7 @@
     transform-origin: top;
 
     @apply --label-small;
-    border-radius: var(--md-sys-shape-small);
+    border-radius: var(--md-sys-shape-corner-small);
 
     background-color: var(--md-sys-color-inverse-surface);
     color: var(--md-sys-color-inverse-on-surface);
