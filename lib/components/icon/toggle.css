@@ -2,11 +2,6 @@
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-primary);
 
-  &[checked] {
-    color: var(--md-sys-color-on-primary);
-    background-color: var(--md-sys-color-primary);
-  }
-
   &:where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
@@ -48,9 +43,29 @@
     }
   }
 
+  &[checked] {
+    color: var(--md-sys-color-on-primary);
+    background-color: var(--md-sys-color-primary);
+  }
+
+  &.outlined {
+    color: var(--md-sys-color-on-surface-variant);
+    background-color: transparent;
+    border: 1px solid var(--md-sys-color-outline);
+
+    &:where([selected], [checked]) {
+      color: var(--md-sys-color-inverse-on-surface);
+      background-color: var(--md-sys-color-inverse-surface);
+    }
+  }
+
   &[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+
+    &.outlined {
+      border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    }
   }
 }

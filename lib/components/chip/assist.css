@@ -9,7 +9,11 @@
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-  & i {
+  & i:first-child {
     margin-left: -9px;
+  }
+
+  & i:last-child {
+    margin-right: -9px;
   }
 }

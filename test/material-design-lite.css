@@ -2720,15 +2720,20 @@
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.icon).icon.contained.outlined {
+:where(.icon).contained.outlined {
   background-color: transparent;
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-surface-variant);
 
   border: 1px solid var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
+  border-radius: var(--md-sys-shape-corner-full);
 }
 
-.icon.contained.outlined:where(.icon):where(:hover, .hover) {
+.contained.outlined:where(.icon):where([selected], [checked]) {
+    color: var(--md-sys-color-inverse-surface);
+  }
+
+.contained.outlined:where(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
     --tint-color: rgb(
@@ -2737,7 +2742,7 @@
     );
   }
 
-.icon.contained.outlined:where(.icon):where(:focus, .focus) {
+.contained.outlined:where(.icon):where(:focus, .focus) {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
 
@@ -2747,7 +2752,7 @@
     );
   }
 
-.icon.contained.outlined:where(.icon):where(:active, .active) {
+.contained.outlined:where(.icon):where(:active, .active) {
     border: 1px solid var(--md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-0);
 
@@ -2757,7 +2762,7 @@
     );
   }
 
-.icon.contained.outlined[disabled]:where(.icon) {
+.contained.outlined[disabled]:where(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2767,11 +2772,6 @@
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-primary);
 }
-
-.toggle[checked]:where(.icon) {
-    color: var(--md-sys-color-on-primary);
-    background-color: var(--md-sys-color-primary);
-  }
 
 .toggle:where(.icon):where(input[type="checkbox"]) {
     appearance: none;
@@ -2821,11 +2821,31 @@
           content: attr(on-icon);
         }
 
+.toggle[checked]:where(.icon) {
+    color: var(--md-sys-color-on-primary);
+    background-color: var(--md-sys-color-primary);
+  }
+
+.toggle.outlined:where(.icon) {
+    color: var(--md-sys-color-on-surface-variant);
+    background-color: transparent;
+    border: 1px solid var(--md-sys-color-outline);
+  }
+
+.toggle.outlined:where(.icon):where([selected], [checked]) {
+      color: var(--md-sys-color-inverse-on-surface);
+      background-color: var(--md-sys-color-inverse-surface);
+    }
+
 .toggle[disabled]:where(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+
+.toggle.outlined[disabled]:where(.icon) {
+      border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    }
 
 :where(.button, button).fab {
   padding: 16px;
@@ -3240,9 +3260,19 @@
 
 .chip i {
     color: var(--md-sys-color-primary);
-
     font-size: 18px;
+  }
+
+/* Leading Icon */
+
+.chip i:first-child {
     margin-left: -8px;
+  }
+
+/* Trailing Icon */
+
+.chip i:last-child {
+    margin-right: -8px;
   }
 
 .chip i:only-child {
@@ -3262,8 +3292,12 @@
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-.chip.assist i {
+.chip.assist i:first-child {
     margin-left: -9px;
+  }
+
+.chip.assist i:last-child {
+    margin-right: -9px;
   }
 
 .chip.filter {
@@ -3299,8 +3333,12 @@
     );
   }
 
-.chip.filter i {
+.chip.filter i:first-child {
     margin-left: -9px;
+  }
+
+.chip.filter i:last-child {
+    margin-right: -9px;
   }
 
 .chip.filter[disabled] {
@@ -3316,8 +3354,12 @@
   border: 1px solid var(--md-sys-color-outline);
 }
 
-.chip.input i {
+.chip.input i:first-child {
     margin-left: -9px;
+  }
+
+.chip.input i:last-child {
+    margin-right: -9px;
   }
 
 .chip.input[disabled] {
@@ -3332,8 +3374,12 @@
   border: 1px solid var(--md-sys-color-outline);
 }
 
-.chip.suggestion i {
+.chip.suggestion i:first-child {
     margin-left: -9px;
+  }
+
+.chip.suggestion i:last-child {
+    margin-right: -9px;
   }
 
 .chip.suggestion[disabled] {

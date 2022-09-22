@@ -74,9 +74,17 @@
 
   & i {
     color: var(--md-sys-color-primary);
-
     font-size: 18px;
+  }
+
+  /* Leading Icon */
+  & i:first-child {
     margin-left: -8px;
+  }
+
+  /* Trailing Icon */
+  & i:last-child {
+    margin-right: -8px;
   }
 
   & i:only-child {
