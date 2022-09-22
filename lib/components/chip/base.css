@@ -62,6 +62,7 @@
   }
 
   &[disabled] {
+    --tint-color: transparent;
     cursor: default;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);

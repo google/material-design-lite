@@ -31,6 +31,7 @@
   }
 
   &[disabled] {
+    --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);

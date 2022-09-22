@@ -1,4 +1,4 @@
-:where(.button, button).fab {
+:where(.button).fab {
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
@@ -23,46 +23,45 @@
     right: 0;
     bottom: 0;
 
-    /* background-color: var(--tint-color); */
+    background-color: var(--tint-color);
   }
 
-  & > i {
+  & i {
     font-size: 24px;
+    margin-left: 0;
   }
 
-  &:hover,
-  .hover {
+  &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-4);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-primary-container-rgb) / 
-      var(--md-sys-state-hover-state-layer-opacity)
+      var(--md-sys-color-on-primary-container-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
     );
   }
 
-  &:focus,
-  .focus {
+  &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-primary-container-rgb) / 
-      var(--md-sys-state-focus-state-layer-opacity)
+      var(--md-sys-color-on-primary-container-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
     );
   }
 
-  &:active,
-  .active {
+  &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-2);
 
     --tint-color: rgb(
-      var(--md-sys-color-on-primary-container-rgb) / 
-      var(--md-sys-state-pressed-state-layer-opacity)
+      var(--md-sys-color-on-primary-container-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
 
   &[disabled] {
+    --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 }

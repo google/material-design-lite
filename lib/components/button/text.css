@@ -31,6 +31,7 @@
   }
 
   &[disabled] {
+    --tint-color: transparent;
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }

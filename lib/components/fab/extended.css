@@ -1,10 +1,10 @@
-:where(.button, button).fab.extended {
+:where(.button).fab.extended {
   border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;
   width: unset;
 
-  & > i {
+  & i {
     font-size: 24px;
     margin-right: 8px;
   }
