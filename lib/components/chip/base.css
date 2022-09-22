@@ -10,7 +10,12 @@
   height: 32px;
   gap: 8px;
 
+  box-sizing: border-box;
+
   cursor: pointer;
+
+  text-align: start;
+  vertical-align: middle;
 
   @apply --label-large;
 
@@ -26,7 +31,7 @@
     right: 0;
     bottom: 0;
 
-    /* background-color: var(--tint-color); */
+    background-color: var(--tint-color);
   }
 
   &:where(:hover, .hover) {
@@ -67,13 +72,14 @@
     }
   }
 
-  & > i {
+  & i {
     color: var(--md-sys-color-primary);
 
     font-size: 18px;
+    margin-left: -8px;
   }
 
-  & > i:only-child {
+  & i:only-child {
     margin-right: 0;
     margin-left: 0;
   }

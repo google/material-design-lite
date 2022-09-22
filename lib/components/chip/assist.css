@@ -8,4 +8,8 @@
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+
+  & i {
+    margin-left: -9px;
+  }
 }

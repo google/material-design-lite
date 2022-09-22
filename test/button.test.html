@@ -306,7 +306,6 @@
                     });
                     if (el.querySelector("i")) {
                         describe('icon tests', () => {
-                            const icon = el.querySelector("i");
                             const iconS = getComputedStyle(icon);
 
                             it("check size", () => {
@@ -319,7 +318,7 @@
                         it("check padding", () => {
                             const elX = el.getBoundingClientRect().x;
                             const iconX = icon.getBoundingClientRect().x;
-                            
+
                             const iconDist = iconX - elX;
 
                             expect(`${iconDist}px`).to.equal("16px");
@@ -327,9 +326,8 @@
                         });
                     } else {
                         it("check padding", () => {
-                            const hPadding = s.paddingLeft && s.paddingRight;
-
-                            expect(hPadding).to.equal("24px");
+                            expect(s.paddingLeft).to.equal("24px");
+                            expect(s.paddingRight).to.equal("24px");
                         });
                     }
 

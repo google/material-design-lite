@@ -30,6 +30,10 @@
     );
   }
 
+  & i {
+    margin-left: -9px;
+  }
+
   &[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);

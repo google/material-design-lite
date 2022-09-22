@@ -8,10 +8,6 @@
     margin-left: -9px;
   }
 
-  & i:only-child {
-    margin-left: 0;
-  }
-
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
 
