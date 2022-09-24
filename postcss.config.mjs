@@ -25,7 +25,7 @@ export default {
         "has-pseudo-class": false,
       },
     }),
-    pluginImport(),
+    // pluginImport(),
     pluginNested(),
     pluginApply({ sets: CLASSES }),
     pluginHct(),
