@@ -1,5 +1,20 @@
-/* Codepen: https://codepen.io/finnhvman/pen/bxXPqN */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+/* Codepen: https://codepen.io/finnhvman/pen/bxXPqN */
 .text-field.filled {
   /* Input, Textarea */
   & > input,
@@ -9,13 +24,13 @@
     margin: 0;
     border: none;
     border-top: solid 27px transparent;
-    border-bottom: solid 1px rgb(var(--md-sys-color-on-surface-rgb) /  0.6);
+    border-bottom: solid 1px rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
     border-radius: 4px 4px 0 0;
     padding: 0 12px 10px;
     width: 100%;
     height: inherit;
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.87);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.04);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.04);
     box-shadow: none; /* Firefox */
     font-family: inherit;
     font-size: inherit;
@@ -23,7 +38,6 @@
     caret-color: var(--md-sys-color-primary);
     transition: border-bottom 0.2s, background-color 0.2s;
   }
-
   /* Span */
   & > input + span,
   & > textarea + span {
@@ -35,13 +49,12 @@
     display: block;
     box-sizing: border-box;
     padding: 7px 12px 0;
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.6);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
     font-size: 75%;
     line-height: 18px;
     pointer-events: none;
     transition: color 0.2s, font-size 0.2s, line-height 0.2s;
   }
-
   /* Underline */
   & > input + span::after,
   & > textarea + span::after {
@@ -57,55 +70,46 @@
     transform: scaleX(0);
     transition: transform 0.3s;
   }
-
   /* Hover */
   & > input:hover,
   & > textarea:hover {
-    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.87);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.08);
+    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
   }
-
   /* Placeholder-shown */
   & > input:not(:focus):placeholder-shown + span,
   & > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 48px;
   }
-
   /* Focus */
   & > input:focus,
   & > textarea:focus {
     outline: none;
   }
-
   & > input:focus + span,
   & > textarea:focus + span {
     color: var(--md-sys-color-primary);
   }
-
   & > input:focus + span::before,
   & > textarea:focus + span::before {
     opacity: 0.12;
   }
-
   & > input:focus + span::after,
   & > textarea:focus + span::after {
     transform: scale(1);
   }
-
   /* Disabled */
   & > input:disabled,
   & > textarea:disabled {
-    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) /  0.24);
+    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
   }
-
   & > input:disabled + span,
   & > textarea:disabled + span {
-    color: rgb(var(--md-sys-color-on-surface-rgb) /  0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
   /* Faster transition in Safari for less noticable fractional font-size issue */
   @media not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) {

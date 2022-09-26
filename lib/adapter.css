@@ -1,3 +1,19 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
 :where(html, .light-theme) {
   color-scheme: light;
   --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
@@ -41,7 +57,6 @@
   --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
   --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
 }
-
 :where(.dark-theme) {
   color-scheme: dark;
   --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
@@ -85,7 +100,6 @@
   --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
   --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
 }
-
 * {
   --md-sys-color-primary: rgb(var(--md-sys-color-primary-rgb) / 1);
   --md-sys-color-primary-container: rgb(
@@ -145,7 +159,6 @@
     var(--md-sys-color-inverse-primary-rgb) / 1
   );
   --md-sys-color-scrim: rgb(var(--md-sys-color-scrim-rgb) / 1);
-
   /* primary */
   --md-ref-palette-primary0: rgb(var(--md-ref-palette-primary0-rgb) / 1);
   --md-ref-palette-primary5: rgb(var(--md-ref-palette-primary5-rgb) / 1);
@@ -164,7 +177,6 @@
   --md-ref-palette-primary98: rgb(var(--md-ref-palette-primary98-rgb) / 1);
   --md-ref-palette-primary99: rgb(var(--md-ref-palette-primary99-rgb) / 1);
   --md-ref-palette-primary100: rgb(var(--md-ref-palette-primary100-rgb) / 1);
-
   /* secondary */
   --md-ref-palette-secondary0: rgb(var(--md-ref-palette-secondary0-rgb) / 1);
   --md-ref-palette-secondary5: rgb(var(--md-ref-palette-secondary5-rgb) / 1);
@@ -185,7 +197,6 @@
   --md-ref-palette-secondary100: rgb(
     var(--md-ref-palette-secondary100-rgb) / 1
   );
-
   /* tertiary */
   --md-ref-palette-tertiary0: rgb(var(--md-ref-palette-tertiary0-rgb) / 1);
   --md-ref-palette-tertiary5: rgb(var(--md-ref-palette-tertiary5-rgb) / 1);
@@ -204,7 +215,6 @@
   --md-ref-palette-tertiary98: rgb(var(--md-ref-palette-tertiary98-rgb) / 1);
   --md-ref-palette-tertiary99: rgb(var(--md-ref-palette-tertiary99-rgb) / 1);
   --md-ref-palette-tertiary100: rgb(var(--md-ref-palette-tertiary100-rgb) / 1);
-
   /* error */
   --md-ref-palette-error0: rgb(var(--md-ref-palette-error0-rgb) / 1);
   --md-ref-palette-error5: rgb(var(--md-ref-palette-error5-rgb) / 1);
@@ -223,7 +233,6 @@
   --md-ref-palette-error98: rgb(var(--md-ref-palette-error98-rgb) / 1);
   --md-ref-palette-error99: rgb(var(--md-ref-palette-error99-rgb) / 1);
   --md-ref-palette-error100: rgb(var(--md-ref-palette-error100-rgb) / 1);
-
   /* neutral */
   --md-ref-palette-neutral0: rgb(var(--md-ref-palette-neutral0-rgb) / 1);
   --md-ref-palette-neutral5: rgb(var(--md-ref-palette-neutral5-rgb) / 1);
@@ -242,7 +251,6 @@
   --md-ref-palette-neutral98: rgb(var(--md-ref-palette-neutral98-rgb) / 1);
   --md-ref-palette-neutral99: rgb(var(--md-ref-palette-neutral99-rgb) / 1);
   --md-ref-palette-neutral100: rgb(var(--md-ref-palette-neutral100-rgb) / 1);
-
   /* neutral-variant */
   --md-ref-palette-neutral-variant0: rgb(
     var(--md-ref-palette-neutral-variant0-rgb) / 1

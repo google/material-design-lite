@@ -1,178 +1,176 @@
 <main>
-    <header class="top-app-bar center-aligned fixed">
-        <button id="nav-button" class="icon leading">
-            <i class="material-icons">menu</i>
-        </button>
-        <span class="title">Scaffold Example</span>
-        <div class="actions">
-            <button class="icon button">
-                <i class="material-icons">search</i>
-            </button>
-        </div>
-    </header>
-
-    <div class="content">
-        <dialog id="drawer" class="navigation-drawer">
-            <div class="drawer-title">Drawer Header</div>
-            <section>
-                <label class="section-header">Mail</label>
-                <div class="drawer-item" selected>
-                    <i class="leading material-icons">inbox</i>
-                    <span class="title">Inbox</span>
-                    <div class="trailing">100+</div>
-                </div>
-                <div class="drawer-item">
-                    <i class="leading material-icons">send</i>
-                    <span class="title">Outbox</span>
-                </div>
-                <div class="drawer-item">
-                    <i class="leading material-icons">favorite</i>
-                    <span class="title">Favorites</span>
-                </div>
-                <div class="drawer-item">
-                    <i class="leading material-icons">delete</i>
-                    <span class="title">Trash</span>
-                </div>
-            </section>
-            <div class="divider"></div>
-            <section>
-                <label class="section-header">Section 2</label>
-                <div class="drawer-item">
-                    <span class="title">Label 1</span>
-                </div>
-                <div class="drawer-item">
-                    <span class="title">Label 2</span>
-                </div>
-            </section>
-        </dialog>
-
-        <div class="cards"></div>
+  <header class="top-app-bar center-aligned fixed">
+    <button id="nav-button" class="icon leading">
+      <i class="material-icons">menu</i>
+    </button>
+    <span class="title">Scaffold Example</span>
+    <div class="actions">
+      <button class="icon button">
+        <i class="material-icons">search</i>
+      </button>
     </div>
+  </header>
 
-    <footer class="bottom-app-bar" style="min-width: 400px">
-        <div class="actions">
-            <button class="icon button">
-                <i class="material-icons">search</i>
-            </button>
-            <button class="icon button">
-                <i class="material-icons">delete</i>
-            </button>
-            <button class="icon button">
-                <i class="material-icons">archive</i>
-            </button>
+  <div class="content">
+    <dialog id="drawer" class="navigation-drawer">
+      <div class="drawer-title">Drawer Header</div>
+      <section>
+        <label class="section-header">Mail</label>
+        <div class="drawer-item" selected>
+          <i class="leading material-icons">inbox</i>
+          <span class="title">Inbox</span>
+          <div class="trailing">100+</div>
         </div>
-        <button class="fab">
-            <i class="material-icons">add</i>
-        </button>
-    </footer>
+        <div class="drawer-item">
+          <i class="leading material-icons">send</i>
+          <span class="title">Outbox</span>
+        </div>
+        <div class="drawer-item">
+          <i class="leading material-icons">favorite</i>
+          <span class="title">Favorites</span>
+        </div>
+        <div class="drawer-item">
+          <i class="leading material-icons">delete</i>
+          <span class="title">Trash</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="drawer-item">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="drawer-item">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+    </dialog>
+
+    <div class="cards"></div>
+  </div>
+
+  <footer class="bottom-app-bar" style="min-width: 400px">
+    <div class="actions">
+      <button class="icon button">
+        <i class="material-icons">search</i>
+      </button>
+      <button class="icon button">
+        <i class="material-icons">delete</i>
+      </button>
+      <button class="icon button">
+        <i class="material-icons">archive</i>
+      </button>
+    </div>
+    <button class="fab">
+      <i class="material-icons">add</i>
+    </button>
+  </footer>
 </main>
 
-
-
 <style>
-    body {
-        background-color: var(--md-sys-color-background);
-        color: var(--md-sys-color-on-background);
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        height: 100vh;
-    }
+  body {
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+  }
 
-    main {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-    }
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
 
-    .content {
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-    }
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+  }
 
-    header {
-        position: sticky;
-        top: 0;
-        width: 100%;
-    }
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
 
-    footer {
-        position: sticky;
-        bottom: 0;
-        width: 100%;
-    }
+  footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+  }
 
-    .cards {
-        flex: 1;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 16px;
-        padding: 16px;
-        justify-items: center;
-        align-items: center;
-        background-color: var(--md-sys-color-surface-variant);
-    }
+  .cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 16px;
+    padding: 16px;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--md-sys-color-surface-variant);
+  }
 
-    #drawer:not(.modal) {
-        border: none;
-        position: sticky;
-        top: 68px;
-    }
+  #drawer:not(.modal) {
+    border: none;
+    position: sticky;
+    top: 68px;
+  }
 </style>
 
 <script>
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', (e) => {
-        if (window.scrollY > 0) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    const drawer = document.querySelector('#drawer');
-    const navButton = document.querySelector('#nav-button');
-    const tablet = window.matchMedia('(min-width: 800px)');
-
-    function checkDrawer(large) {
-        if (large) {
-            drawer.setAttribute('open', '');
-            drawer.classList.remove('modal');
-            navButton.style.display = 'none';
-        } else {
-            drawer.removeAttribute('open');
-            drawer.classList.add('modal');
-            navButton.style.display = 'block';
-            navButton.addEventListener('click', (e) => {
-                if (drawer.hasAttribute('open')) {
-                    drawer.close();
-                } else {
-                    drawer.showModal();
-                }
-            });
-        }
+  const header = document.querySelector("header");
+  window.addEventListener("scroll", (e) => {
+    if (window.scrollY > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
     }
+  });
 
-    tablet.addEventListener('change', (e) => {
-        checkDrawer(e.matches);
-    });
-    checkDrawer(tablet.matches);
+  const drawer = document.querySelector("#drawer");
+  const navButton = document.querySelector("#nav-button");
+  const tablet = window.matchMedia("(min-width: 800px)");
 
-    const cards = document.querySelector('.cards');
+  function checkDrawer(large) {
+    if (large) {
+      drawer.setAttribute("open", "");
+      drawer.classList.remove("modal");
+      navButton.style.display = "none";
+    } else {
+      drawer.removeAttribute("open");
+      drawer.classList.add("modal");
+      navButton.style.display = "block";
+      navButton.addEventListener("click", (e) => {
+        if (drawer.hasAttribute("open")) {
+          drawer.close();
+        } else {
+          drawer.showModal();
+        }
+      });
+    }
+  }
 
-    // Randomly generate 100 cards
-    for (let i = 0; i < 100; i++) {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML = `
+  tablet.addEventListener("change", (e) => {
+    checkDrawer(e.matches);
+  });
+  checkDrawer(tablet.matches);
+
+  const cards = document.querySelector(".cards");
+
+  // Randomly generate 100 cards
+  for (let i = 0; i < 100; i++) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
             <div class="title">Play relaxing songs</div>
             <div class="subtitle">From your recent favorites</div>
             <div class="actions">
                 <button class="filled">Get started</button>
             </div>
         `;
-        cards.appendChild(card);
-    }
+    cards.appendChild(card);
+  }
 </script>

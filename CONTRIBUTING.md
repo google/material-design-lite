@@ -1,15 +1,14 @@
-
 # Contributing to Material Design Lite
 
 We'd love for you to contribute to our source code and to make Material Design Lite even better than it is today! Here are the guidelines we'd like you to follow:
 
- - [Code of Conduct](#coc)
- - [Question or Problem?](#question)
- - [Issues and Bugs](#issue)
- - [Feature Requests](#feature)
- - [Submission Guidelines](#submit)
- - [Coding Rules](#rules)
- - [Signing the CLA](#cla)
+- [Code of Conduct](#coc)
+- [Question or Problem?](#question)
+- [Issues and Bugs](#issue)
+- [Feature Requests](#feature)
+- [Submission Guidelines](#submit)
+- [Coding Rules](#rules)
+- [Signing the CLA](#cla)
 
 ## <a name="coc"></a> Code of Conduct
 
@@ -51,6 +50,7 @@ Please provide any URLs to good examples of this type of page that you may have 
 ```
 
 ## <a name="issue"></a> Found an Issue?
+
 If you find a bug in the source code or a mistake in the documentation, you can help us by
 submitting an issue to our [GitHub Repository][github]. Even better you can submit a Pull Request
 with a fix.
@@ -58,6 +58,7 @@ with a fix.
 See [below](#submit) for some guidelines.
 
 ## <a name="feature"></a> Want a Feature?
+
 You can request a new feature by submitting an issue to our [GitHub Repository][github].
 
 Here is a template to get you started:
@@ -74,29 +75,30 @@ Please provide any URLs or screenshots of good examples of usage of this compone
 
 If you would like to implement a new feature then consider what kind of change it is:
 
-* **Major Changes** that you wish to contribute to the project should be discussed first on our
-[issue tracker][] so that we can better coordinate our efforts, prevent
-duplication of work, and help you to craft the change so that it is successfully accepted into the
-project.
-* **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull Request.
+- **Major Changes** that you wish to contribute to the project should be discussed first on our
+  [issue tracker][] so that we can better coordinate our efforts, prevent
+  duplication of work, and help you to craft the change so that it is successfully accepted into the
+  project.
+- **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull Request.
 
 ## <a name="submit"></a> Submission Guidelines
 
 ### Submitting an Issue
+
 Before you submit your issue search the archive, maybe your question was already answered.
 
 If your issue appears to be a bug, and hasn't been reported, open a new issue.
 Help us to maximize the effort we can spend fixing issues and adding new
-features, by not reporting duplicate issues.  Providing the following information will increase the
+features, by not reporting duplicate issues. Providing the following information will increase the
 chances of your issue being dealt with quickly:
 
-* **Overview of the Issue** - if an error is being thrown a non-minified stack trace helps
-* **Motivation for or Use Case** - explain why this is a bug for you
-* **Material Design Lite Version(s)** - is it a regression?
-* **Browsers and Operating System** - is this a problem with all browsers or only IE9?
-* **Reproduce the Error** - provide a live example (using JSBin) or a unambiguous set of steps.
-* **Related Issues** - has a similar issue been reported before?
-* **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
+- **Overview of the Issue** - if an error is being thrown a non-minified stack trace helps
+- **Motivation for or Use Case** - explain why this is a bug for you
+- **Material Design Lite Version(s)** - is it a regression?
+- **Browsers and Operating System** - is this a problem with all browsers or only IE9?
+- **Reproduce the Error** - provide a live example (using JSBin) or a unambiguous set of steps.
+- **Related Issues** - has a similar issue been reported before?
+- **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
   causing the problem (line of code or commit)
 
 **If you get help, help others. Good karma rules!**
@@ -124,48 +126,51 @@ Please provide any other information below, and attach a screenshot if possible.
 ```
 
 ### Submitting a Pull Request
+
 Before you submit your pull request consider the following guidelines:
 
-* Search [GitHub](https://github.com/google/material-design-lite/pulls) for an open or closed Pull Request
+- Search [GitHub](https://github.com/google/material-design-lite/pulls) for an open or closed Pull Request
   that relates to your submission. You don't want to duplicate effort.
-* Please sign our [Contributor License Agreement (CLA)](#cla) before sending pull
+- Please sign our [Contributor License Agreement (CLA)](#cla) before sending pull
   requests. We cannot accept code without this.
-* Make your changes in a new git branch:
+- Make your changes in a new git branch:
 
-     ```shell
-     git checkout -b my-fix-branch master
-     ```
+  ```shell
+  git checkout -b my-fix-branch master
+  ```
 
-* Create your patch, **including appropriate test cases**.
-* Follow our [Coding Rules](#rules).
-* Run the full Material Design Lite test suite (`gulp test`),
+- Create your patch, **including appropriate test cases**.
+- Follow our [Coding Rules](#rules).
+- Run the full Material Design Lite test suite (`gulp test`),
   and ensure that all tests pass.
-* Avoid checking in files that shouldn't be tracked (e.g `node_modules`, `gulp-cache`, `.tmp`, `.idea`). We recommend using a [global .gitignore](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) for this.
-* Make sure **not** to include a recompiled version of the files found in `/css` and `/js` as part of your PR. We will generate these automatically.
-* Commit your changes using a descriptive commit message.
+- Avoid checking in files that shouldn't be tracked (e.g `node_modules`, `gulp-cache`, `.tmp`, `.idea`). We recommend using a [global .gitignore](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) for this.
+- Make sure **not** to include a recompiled version of the files found in `/css` and `/js` as part of your PR. We will generate these automatically.
+- Commit your changes using a descriptive commit message.
 
-     ```shell
-     git commit -a
-     ```
+  ```shell
+  git commit -a
+  ```
+
   Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
 
-* Build your changes locally to ensure all the tests pass:
+- Build your changes locally to ensure all the tests pass:
 
-    ```shell
-   gulp
-    ```
+  ```shell
+  gulp
+  ```
 
-* Push your branch to GitHub:
+- Push your branch to GitHub:
 
-    ```shell
-    git push origin my-fix-branch
-    ```
+  ```shell
+  git push origin my-fix-branch
+  ```
 
-* In GitHub, send a pull request to `material-design-lite:master`.
-* If we suggest changes then:
-  * Make the required updates.
-  * Re-run the Material Design Lite test suite to ensure tests are still passing.
-  * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
+- In GitHub, send a pull request to `material-design-lite:master`.
+- If we suggest changes then:
+
+  - Make the required updates.
+  - Re-run the Material Design Lite test suite to ensure tests are still passing.
+  - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
     ```shell
     git rebase master -i
@@ -179,29 +184,29 @@ That's it! Thank you for your contribution!
 After your pull request is merged, you can safely delete your branch and pull the changes
 from the main (upstream) repository:
 
-* Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:
+- Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:
 
-    ```shell
-    git push origin --delete my-fix-branch
-    ```
+  ```shell
+  git push origin --delete my-fix-branch
+  ```
 
-* Check out the master branch:
+- Check out the master branch:
 
-    ```shell
-    git checkout master -f
-    ```
+  ```shell
+  git checkout master -f
+  ```
 
-* Delete the local branch:
+- Delete the local branch:
 
-    ```shell
-    git branch -D my-fix-branch
-    ```
+  ```shell
+  git branch -D my-fix-branch
+  ```
 
-* Update your master with the latest upstream version:
+- Update your master with the latest upstream version:
 
-    ```shell
-    git pull --ff upstream master
-    ```
+  ```shell
+  git pull --ff upstream master
+  ```
 
 ## <a name="rules"></a> Coding Rules
 
@@ -216,11 +221,11 @@ feature.
 Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code
 changes to be accepted, the CLA must be signed. It's a quick process, we promise!
 
-* For individuals we have a [simple click-through form][individual-cla].
-* For corporations we'll need you to
+- For individuals we have a [simple click-through form][individual-cla].
+- For corporations we'll need you to
   [print, sign and one of scan+email, fax or mail the form][corporate-cla].
 
-*This guide was inspired by the [AngularJS contribution guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md).*
+_This guide was inspired by the [AngularJS contribution guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md)._
 
 [github]: https://github.com/google/material-design-lite
 [issue tracker]: https://github.com/google/material-design-lite/issues

@@ -1,6 +1,21 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
 
-:where(html), .tokens {
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
   /* Error 0 */
   --md-ref-palette-error0-rgb: 0 0 0;
   --md-ref-palette-error0: rgb(var(--md-ref-palette-error0-rgb));
@@ -159,43 +174,69 @@
   --md-ref-palette-primary100: rgb(var(--md-ref-palette-primary100-rgb));
   /* Neutral Variant 0 */
   --md-ref-palette-neutral-variant0-rgb: 0 0 0;
-  --md-ref-palette-neutral-variant0: rgb(var(--md-ref-palette-neutral-variant0-rgb));
+  --md-ref-palette-neutral-variant0: rgb(
+    var(--md-ref-palette-neutral-variant0-rgb)
+  );
   /* Neutral Variant 10 */
   --md-ref-palette-neutral-variant10-rgb: 29 26 34;
-  --md-ref-palette-neutral-variant10: rgb(var(--md-ref-palette-neutral-variant10-rgb));
+  --md-ref-palette-neutral-variant10: rgb(
+    var(--md-ref-palette-neutral-variant10-rgb)
+  );
   /* Neutral Variant 20 */
   --md-ref-palette-neutral-variant20-rgb: 50 47 55;
-  --md-ref-palette-neutral-variant20: rgb(var(--md-ref-palette-neutral-variant20-rgb));
+  --md-ref-palette-neutral-variant20: rgb(
+    var(--md-ref-palette-neutral-variant20-rgb)
+  );
   /* Neutral Variant 30 */
   --md-ref-palette-neutral-variant30-rgb: 73 69 79;
-  --md-ref-palette-neutral-variant30: rgb(var(--md-ref-palette-neutral-variant30-rgb));
+  --md-ref-palette-neutral-variant30: rgb(
+    var(--md-ref-palette-neutral-variant30-rgb)
+  );
   /* Neutral Variant 40 */
   --md-ref-palette-neutral-variant40-rgb: 96 93 102;
-  --md-ref-palette-neutral-variant40: rgb(var(--md-ref-palette-neutral-variant40-rgb));
+  --md-ref-palette-neutral-variant40: rgb(
+    var(--md-ref-palette-neutral-variant40-rgb)
+  );
   /* Neutral Variant 50 */
   --md-ref-palette-neutral-variant50-rgb: 121 116 126;
-  --md-ref-palette-neutral-variant50: rgb(var(--md-ref-palette-neutral-variant50-rgb));
+  --md-ref-palette-neutral-variant50: rgb(
+    var(--md-ref-palette-neutral-variant50-rgb)
+  );
   /* Neutral Variant 60 */
   --md-ref-palette-neutral-variant60-rgb: 147 143 153;
-  --md-ref-palette-neutral-variant60: rgb(var(--md-ref-palette-neutral-variant60-rgb));
+  --md-ref-palette-neutral-variant60: rgb(
+    var(--md-ref-palette-neutral-variant60-rgb)
+  );
   /* Neutral Variant 70 */
   --md-ref-palette-neutral-variant70-rgb: 174 169 180;
-  --md-ref-palette-neutral-variant70: rgb(var(--md-ref-palette-neutral-variant70-rgb));
+  --md-ref-palette-neutral-variant70: rgb(
+    var(--md-ref-palette-neutral-variant70-rgb)
+  );
   /* Neutral Variant 80 */
   --md-ref-palette-neutral-variant80-rgb: 202 196 208;
-  --md-ref-palette-neutral-variant80: rgb(var(--md-ref-palette-neutral-variant80-rgb));
+  --md-ref-palette-neutral-variant80: rgb(
+    var(--md-ref-palette-neutral-variant80-rgb)
+  );
   /* Neutral Variant 90 */
   --md-ref-palette-neutral-variant90-rgb: 231 224 236;
-  --md-ref-palette-neutral-variant90: rgb(var(--md-ref-palette-neutral-variant90-rgb));
+  --md-ref-palette-neutral-variant90: rgb(
+    var(--md-ref-palette-neutral-variant90-rgb)
+  );
   /* Neutral Variant 95 */
   --md-ref-palette-neutral-variant95-rgb: 245 238 250;
-  --md-ref-palette-neutral-variant95: rgb(var(--md-ref-palette-neutral-variant95-rgb));
+  --md-ref-palette-neutral-variant95: rgb(
+    var(--md-ref-palette-neutral-variant95-rgb)
+  );
   /* Neutral Variant 99 */
   --md-ref-palette-neutral-variant99-rgb: 255 251 254;
-  --md-ref-palette-neutral-variant99: rgb(var(--md-ref-palette-neutral-variant99-rgb));
+  --md-ref-palette-neutral-variant99: rgb(
+    var(--md-ref-palette-neutral-variant99-rgb)
+  );
   /* Neutral Variant 100 */
   --md-ref-palette-neutral-variant100-rgb: 255 255 255;
-  --md-ref-palette-neutral-variant100: rgb(var(--md-ref-palette-neutral-variant100-rgb));
+  --md-ref-palette-neutral-variant100: rgb(
+    var(--md-ref-palette-neutral-variant100-rgb)
+  );
   /* Neutral 0 */
   --md-ref-palette-neutral0-rgb: 0 0 0;
   --md-ref-palette-neutral0: rgb(var(--md-ref-palette-neutral0-rgb));

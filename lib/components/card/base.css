@@ -1,38 +1,43 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
 .card {
   display: flex;
   flex-direction: column;
   position: relative;
-
   width: 300px;
-
   border-radius: var(--md-sys-shape-corner-medium);
-
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-1);
-
   text-align: start;
-
   & img {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }
-
   & .title {
     padding: 8px 16px;
-
     @apply --title-large;
   }
-
   & .subtitle {
     padding: 8px 16px;
-
     @apply --body-large;
   }
-
   & .actions {
     padding: 16px;
-
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

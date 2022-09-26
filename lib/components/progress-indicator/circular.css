@@ -1,5 +1,20 @@
-/* Codepen: https://codepen.io/finnhvman/pen/bmNdNr */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+/* Codepen: https://codepen.io/finnhvman/pen/bmNdNr */
 :where(progress, .progress).circular {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -14,11 +29,9 @@
   background-color: transparent;
   font-size: 16px;
   overflow: hidden;
-
   &::-webkit-progress-bar {
     background-color: transparent;
   }
-
   /* Indeterminate */
   &[indeterminate] {
     -webkit-mask-image: linear-gradient(transparent 50%, black 50%),
@@ -27,11 +40,9 @@
       linear-gradient(to right, transparent 50%, black 50%);
     animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
   }
-
   &[indeterminate] {
     animation: none;
   }
-
   &[indeterminate]::before,
   &[indeterminate]::-webkit-progress-value {
     content: "";
@@ -46,7 +57,6 @@
     background-color: transparent;
     animation: circular-pseudo 0.75s infinite linear alternate;
   }
-
   &[indeterminate]::-moz-progress-bar {
     box-sizing: border-box;
     border: solid 0.25em transparent;
@@ -57,12 +67,10 @@
     background-color: transparent;
     animation: circular-pseudo 0.75s infinite linear alternate;
   }
-
   &[indeterminate]::-ms-fill {
     animation-name: -ms-ring;
   }
 }
-
 @keyframes circular {
   0% {
     transform: rotate(0deg);
@@ -96,7 +104,6 @@
     transform: rotate(2520deg);
   }
 }
-
 @keyframes circular-pseudo {
   0% {
     transform: rotate(-30deg);

@@ -7,7 +7,7 @@ import pluginFormat from "stylefmt";
 import pluginMinify from "cssnano";
 import pluginAutoprefixer from "autoprefixer";
 import pluginApply from "postcss-apply";
-import { CLASSES } from '../../../lib/utils/classes.mjs';
+import { CLASSES } from "../../../lib/utils/classes.mjs";
 
 export function cssPlugins(options?: {
   import?: boolean;

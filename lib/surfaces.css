@@ -1,25 +1,36 @@
-@import url(tokens/surfaces.css);
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+@import url(tokens/surfaces.css);
 .surface-1 {
   background-color: var(--md-sys-color-surface-1);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-2 {
   background-color: var(--md-sys-color-surface-2);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-3 {
   background-color: var(--md-sys-color-surface-3);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-4 {
   background-color: var(--md-sys-color-surface-4);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-5 {
   background-color: var(--md-sys-color-surface-5);
   color: var(--md-sys-color-on-surface);

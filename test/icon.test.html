@@ -1,380 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Button</title>
     <style>
-        @import url(../dist/material-design-lite.css);
-        @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
-        @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+      @import url(../dist/material-design-lite.css);
+      @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+      @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
-        body {
-            font-family: "Roboto";
-            background-color: var(--md-sys-color-background);
-            color: var(--md-sys-color-on-background);
-        }
+      body {
+        font-family: "Roboto";
+        background-color: var(--md-sys-color-background);
+        color: var(--md-sys-color-on-background);
+      }
 
-        table {
-            margin: 8px;
-        }
+      table {
+        margin: 8px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Default</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Default</td>
-                <td>
-                    <i class="material-icons">add</i>
-                </td>
-            </tr>
-            <tr>
-                <td>Material Symbols Sharp</td>
-                <td>
-                    <i class="material-symbols-sharp">add</i>
-                </td>
-            </tr>
-            <tr>
-                <td>Material Symbols Rounded</td>
-                <td>
-                    <i class="material-symbols-rounded">add</i>
-                </td>
-            </tr>
-            <tr>
-                <td>Material Symbols Outlined</td>
-                <td>
-                    <i class="material-symbols-outlined">add</i>
-                </td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>
+            <i class="material-icons">add</i>
+          </td>
+        </tr>
+        <tr>
+          <td>Material Symbols Sharp</td>
+          <td>
+            <i class="material-symbols-sharp">add</i>
+          </td>
+        </tr>
+        <tr>
+          <td>Material Symbols Rounded</td>
+          <td>
+            <i class="material-symbols-rounded">add</i>
+          </td>
+        </tr>
+        <tr>
+          <td>Material Symbols Outlined</td>
+          <td>
+            <i class="material-symbols-outlined">add</i>
+          </td>
+        </tr>
+      </tbody>
     </table>
     <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Default</th>
-                <th>Hover</th>
-                <th>Active</th>
-                <th>Focus</th>
-                <th>Disabled</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Default</td>
-                <td>
-                    <button class="icon">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon hover">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon active">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon focus">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon" disabled>
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Filled</td>
-                <td>
-                    <button class="icon contained filled">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled hover">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled active">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled focus">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled" disabled>
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Filled Tonal</td>
-                <td>
-                    <button class="icon contained filled-tonal">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled-tonal hover">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled-tonal active">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled-tonal focus">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained filled-tonal" disabled>
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Outlined</td>
-                <td>
-                    <button class="icon contained outlined">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained outlined hover">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained outlined active">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained outlined focus">
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon contained outlined" disabled>
-                        <i class="material-icons">add</i>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Default</th>
+          <th>Hover</th>
+          <th>Active</th>
+          <th>Focus</th>
+          <th>Disabled</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>
+            <button class="icon">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon hover">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon active">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon focus">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon" disabled>
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Filled</td>
+          <td>
+            <button class="icon contained filled">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled hover">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled active">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled focus">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled" disabled>
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Filled Tonal</td>
+          <td>
+            <button class="icon contained filled-tonal">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled-tonal hover">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled-tonal active">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled-tonal focus">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained filled-tonal" disabled>
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Outlined</td>
+          <td>
+            <button class="icon contained outlined">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained outlined hover">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained outlined active">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained outlined focus">
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon contained outlined" disabled>
+              <i class="material-icons">add</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
 
     <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Default</th>
-                <th>Hover</th>
-                <th>Active</th>
-                <th>Focus</th>
-                <th>Selected</th>
-                <th>Disabled</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Selected</td>
-                <td>
-                    <button class="icon">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon hover">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon active">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon focus">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon" checked>
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon" disabled>
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Toggle</td>
-                <td>
-                    <button class="icon toggle">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle hover">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle active">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle focus">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle" checked>
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle" disabled>
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Outlined Toggle</td>
-                <td>
-                    <button class="icon toggle outlined">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle outlined hover">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle outlined active">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle outlined focus">
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle outlined" checked>
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-                <td>
-                    <button class="icon toggle outlined" disabled>
-                        <i class="material-icons">check</i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Toggle Input</td>
-                <td>
-                    <input aria-label="toggle input" class="icon toggle" type="checkbox">
-                </td>
-                <td>
-                    <input aria-label="toggle input" class="icon toggle hover" type="checkbox">
-                </td>
-                <td>
-                    <input aria-label="toggle input" class="icon toggle active" type="checkbox">
-                </td>
-                <td>
-                    <input aria-label="toggle input" class="icon toggle focus" type="checkbox">
-                </td>
-                <td>
-                    <input aria-label="toggle input" class="icon toggle" type="checkbox" checked>
-                </td>
-                <td>
-                    <input aria-label="toggle input" class="icon toggle" type="checkbox" disabled>
-                </td>
-            </tr>
-            <tr>
-                <td>Toggle Input Custom</td>
-                <td>
-                    <input class="icon toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite"
-                        aria-label="toggle input">
-                </td>
-                <td>
-                    <input class="icon toggle hover" type="checkbox" off-icon="favorite_outline" on-icon="favorite"
-                        aria-label="toggle input">
-                </td>
-                <td>
-                    <input class="icon toggle active" type="checkbox" off-icon="favorite_outline" on-icon="favorite"
-                        aria-label="toggle input">
-                </td>
-                <td>
-                    <input class="icon toggle focus" type="checkbox" off-icon="favorite_outline" on-icon="favorite"
-                        aria-label="toggle input">
-                </td>
-                <td>
-                    <input class="icon toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite"
-                        aria-label="toggle input" checked>
-                </td>
-                <td>
-                    <input class="icon toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite"
-                        aria-label="toggle input" disabled>
-                </td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Default</th>
+          <th>Hover</th>
+          <th>Active</th>
+          <th>Focus</th>
+          <th>Selected</th>
+          <th>Disabled</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selected</td>
+          <td>
+            <button class="icon">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon hover">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon active">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon focus">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon" checked>
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon" disabled>
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Toggle</td>
+          <td>
+            <button class="icon toggle">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle hover">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle active">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle focus">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle" checked>
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle" disabled>
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Outlined Toggle</td>
+          <td>
+            <button class="icon toggle outlined">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle outlined hover">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle outlined active">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle outlined focus">
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle outlined" checked>
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+          <td>
+            <button class="icon toggle outlined" disabled>
+              <i class="material-icons">check</i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Toggle Input</td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle hover"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle active"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle focus"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle"
+              type="checkbox"
+              checked
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle"
+              type="checkbox"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Toggle Input Outlined</td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle outlined"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle outlined hover"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle outlined active"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle outlined focus"
+              type="checkbox"
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle outlined"
+              type="checkbox"
+              checked
+            />
+          </td>
+          <td>
+            <input
+              aria-label="toggle input"
+              class="icon toggle outlined"
+              type="checkbox"
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Toggle Input Custom</td>
+          <td>
+            <input
+              class="icon toggle"
+              type="checkbox"
+              off-icon="favorite_outline"
+              on-icon="favorite"
+              aria-label="toggle input"
+            />
+          </td>
+          <td>
+            <input
+              class="icon toggle hover"
+              type="checkbox"
+              off-icon="favorite_outline"
+              on-icon="favorite"
+              aria-label="toggle input"
+            />
+          </td>
+          <td>
+            <input
+              class="icon toggle active"
+              type="checkbox"
+              off-icon="favorite_outline"
+              on-icon="favorite"
+              aria-label="toggle input"
+            />
+          </td>
+          <td>
+            <input
+              class="icon toggle focus"
+              type="checkbox"
+              off-icon="favorite_outline"
+              on-icon="favorite"
+              aria-label="toggle input"
+            />
+          </td>
+          <td>
+            <input
+              class="icon toggle"
+              type="checkbox"
+              off-icon="favorite_outline"
+              on-icon="favorite"
+              aria-label="toggle input"
+              checked
+            />
+          </td>
+          <td>
+            <input
+              class="icon toggle"
+              type="checkbox"
+              off-icon="favorite_outline"
+              on-icon="favorite"
+              aria-label="toggle input"
+              disabled
+            />
+          </td>
+        </tr>
+      </tbody>
     </table>
 
     <script type="module">
-        import { html, fixture, expect } from "@open-wc/testing";
-        import { runTests } from "@web/test-runner-mocha";
+      import { html, fixture, expect } from "@open-wc/testing";
+      import { runTests } from "@web/test-runner-mocha";
 
-        runTests(async () => {
-            for (const item of document.querySelectorAll(".icon")) {
-                const el = await fixture(item.outerHTML);
-                const s = getComputedStyle(el);
-                const icon = el.querySelector("i");
+      runTests(async () => {
+        for (const item of document.querySelectorAll(".icon")) {
+          const el = await fixture(item.outerHTML);
+          const s = getComputedStyle(el);
+          const icon = el.querySelector("i");
 
-                describe(`icon button ${item.classList} tests`, () => {
-                    it("check padding", () => {
-                        expect(s.padding).to.equal("4px");
-                    });
-                    it("check size", () => {
-                        expect(s.height).to.equal("40px");
-                    });
-                    it("check font size", () => {
-                        expect(s.fontSize).to.equal("24px");
-                    });
-                    it("check accessibility", async () => {
-                        await expect(el).to.be.accessible();
-                    });
-                });
-            }
-        });
+          describe(`icon button ${item.classList} tests`, () => {
+            it("check padding", () => {
+              expect(s.padding).to.equal("4px");
+            });
+            it("check size", () => {
+              expect(s.height).to.equal("40px");
+            });
+            it("check font size", () => {
+              expect(s.fontSize).to.equal("24px");
+            });
+            it("check accessibility", async () => {
+              await expect(el).to.be.accessible();
+            });
+          });
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>

@@ -5,7 +5,8 @@ tab: "overview"
 ---
 
 ```html
-<link 
-  rel="stylesheet" 
-  href="https://rodydavis.github.io/material-design-lite/css/themes/${name}.css">
+<link
+  rel="stylesheet"
+  href="https://rodydavis.github.io/material-design-lite/css/themes/${name}.css"
+/>
 ```

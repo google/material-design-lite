@@ -1,5 +1,20 @@
-@import url(tokens/palette.css);
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+@import url(tokens/palette.css);
 .palette-primary {
   background: linear-gradient(
     45deg,
@@ -18,7 +33,6 @@
     var(--md-ref-palette-primary100)
   );
 }
-
 .palette-secondary {
   background: linear-gradient(
     45deg,
@@ -37,7 +51,6 @@
     var(--md-ref-palette-secondary100)
   );
 }
-
 .palette-tertiary {
   background: linear-gradient(
     45deg,
@@ -56,7 +69,6 @@
     var(--md-ref-palette-tertiary100)
   );
 }
-
 .palette-error {
   background: linear-gradient(
     45deg,
@@ -75,7 +87,6 @@
     var(--md-ref-palette-error100)
   );
 }
-
 .palette-neutral {
   background: linear-gradient(
     45deg,
@@ -94,7 +105,6 @@
     var(--md-ref-palette-neutral100)
   );
 }
-
 .palette-neutral-variant {
   background: linear-gradient(
     45deg,
