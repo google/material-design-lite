@@ -14,21 +14,44 @@
  limitations under the License.
 */
 
+@import url(../../tokens/components/text-button.css);
+
 :where(.button, button):not(.icon).text {
   background-color: transparent;
   color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-0);
+  height: var(--md-comp-text-button-container-height);
+
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-text-button-container-shape); */
+  /* line-height: var(--md-comp-text-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-text-button-label-text-tracking); */
+  /* font-size: var(--md-comp-text-button-label-text-size); */
+  /* font-weight: var(--md-comp-text-button-label-text-weight); */
+  /* font-family: var(--md-comp-text-button-label-text-font); */
+
+  --state-hover-opacity: var(--md-comp-text-button-hover-state-layer-opacity);
+  --state-focus-opacity: var(--md-comp-text-button-focus-state-layer-opacity);
+  --state-active-opacity: var(
+    --md-comp-text-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-text-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-text-button-disabled-outline-opacity
+  );
 
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-  &:where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-1);
-  }
-
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
+  }
+
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
   &[disabled] {

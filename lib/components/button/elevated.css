@@ -14,16 +14,43 @@
  limitations under the License.
 */
 
+@import url(../../tokens/components/elevated-button.css);
+
 :where(.button, button):not(.icon).elevated {
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
+  height: var(--md-comp-elevated-button-container-height);
 
-  &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-2);
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-elevated-button-container-shape); */
+  /* line-height: var(--md-comp-elevated-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-elevated-button-label-text-tracking); */
+  /* font-size: var(--md-comp-elevated-button-label-text-size); */
+  /* font-weight: var(--md-comp-elevated-button-label-text-weight); */
+  /* font-family: var(--md-comp-elevated-button-label-text-font); */
+
+  --state-hover-opacity: var(
+    --md-comp-elevated-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-elevated-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-elevated-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-elevated-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-elevated-button-disabled-outline-opacity
+  );
+
+  & > i {
+    font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
 
-  &:where(:focus, .focus) {
+  &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
@@ -31,9 +58,19 @@
     box-shadow: var(--md-sys-elevation-1);
   }
 
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
   &[disabled] {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    background-color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-comp-elevated-button-disabled-container-opacity)
+    );
+    color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-comp-elevated-button-disabled-label-text-opacity)
+    );
   }
 }
