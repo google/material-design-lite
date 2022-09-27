@@ -15,6 +15,11 @@
 */
 
 :where(.button, button):not(.icon) {
+  --state-disabled-opacity: 0.3799999952316284;
+
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-primary);
+
   padding: 0 24px;
   border-radius: 20px;
   border: none;
@@ -28,22 +33,11 @@
   justify-content: center;
   gap: 8px;
   white-space: nowrap;
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-primary);
+
   @apply --label-large;
   box-shadow: var(--md-sys-elevation-1);
   transition: box-shadow 0.2s ease-in-out;
-  --tint-color: transparent;
-  &::after {
-    content: "";
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--tint-color);
-  }
+
   &[label] {
     content: attr(label);
     @apply --label-large;
@@ -65,23 +59,27 @@
   & a:focus {
     text-decoration: none;
   }
+
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
+
   &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
+
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-  &[disabled] {
-    --tint-color: transparent;
-    cursor: default;
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    box-shadow: var(--md-sys-elevation-0);
-  }
+
   &:focus-within::before {
     border-radius: 40px;
+  }
+
+  &[disabled] {
+    cursor: default;
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 }

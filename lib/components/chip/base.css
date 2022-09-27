@@ -71,20 +71,20 @@
       color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     }
   }
-  & i {
+  & > i {
     color: var(--md-sys-color-primary);
     font-size: 18px;
-  }
-  /* Leading Icon */
-  & i:first-child {
-    margin-left: -8px;
-  }
-  /* Trailing Icon */
-  & i:last-child {
-    margin-right: -8px;
-  }
-  & i:only-child {
-    margin-right: 0;
-    margin-left: 0;
+    /* Leading Icon */
+    &:first-child {
+      margin-left: -8px;
+    }
+    /* Trailing Icon */
+    &:last-child {
+      margin-right: -8px;
+    }
+    &:only-child {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 }

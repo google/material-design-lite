@@ -18,35 +18,22 @@
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   box-shadow: var(--md-sys-elevation-0);
+
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
-    );
   }
+
   &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
   }
+
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
   }
+
   &[disabled] {
-    --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-  }
-  &.ripple {
-    --ripple-bg: rgb(var(--md-sys-color-primary-rgb) / 0.4);
-    --ripple-fg: rgb(var(--md-sys-color-on-primary-rgb) / 0.6);
   }
 }

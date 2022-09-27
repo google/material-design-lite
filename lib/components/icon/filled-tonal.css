@@ -14,33 +14,57 @@
  limitations under the License.
 */
 
-:where(.icon).icon.contained.filled-tonal {
+@import url(../../tokens/components/filled-tonal-icon-button.css);
+
+:where(.icon).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
-  box-shadow: var(--md-sys-elevation-0);
-  &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
+
+  width: var(--md-comp-filled-tonal-icon-button-container-size);
+  height: var(--md-comp-filled-tonal-icon-button-container-size);
+  border-radius: var(--md-comp-filled-tonal-icon-button-container-shape);
+  font-size: var(--md-comp-filled-tonal-icon-button-icon-size);
+
+  --state-hover-opacity: var(
+    --md-comp-filled-tonal-icon-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-filled-tonal-icon-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-filled-tonal-icon-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-filled-tonal-icon-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-filled-tonal-icon-button-disabled-outline-opacity
+  );
+
+  &:where(.toggle) {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  &:where([selected], [checked], :checked) {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+
+    --state-hover-opacity: var(
+      --md-comp-filled-tonal-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-filled-tonal-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-filled-tonal-icon-button-selected-pressed-state-layer-opacity
+    );
+    --state-disabled-opacity: var(
+      --md-comp-filled-tonal-icon-button-disabled-selected-container-opacity
     );
   }
-  &:where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-0);
-    --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
-  }
-  &:where(:active, .active) {
-    box-shadow: var(--md-sys-elevation-0);
-    --tint-color: rgb(
-      var(--md-sys-color-on-secondary-container-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
-  }
+
   &[disabled] {
-    box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }

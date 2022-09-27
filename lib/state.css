@@ -15,6 +15,7 @@
 */
 
 @import url(tokens/state.css);
+
 .hover-state-layer {
   opacity: var(--md-sys-state-hover-state-layer-opacity);
 }
@@ -26,4 +27,47 @@
 }
 .focus-state-layer {
   opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
+
+:where(.button, button, .icon) {
+  --tint-color: transparent;
+  /* State colors */
+  --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);
+  --state-focus-opacity: var(--md-sys-state-focus-state-layer-opacity);
+  --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
+
+  position: relative;
+
+  &::after {
+    content: "";
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--tint-color);
+  }
+
+  &:where(:hover, .hover) {
+    --tint-color: rgb(
+      var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
+    );
+  }
+
+  &:where(:focus, .focus) {
+    --tint-color: rgb(
+      var(--md-sys-color-surface-tint-rgb) / var(--state-focus-opacity)
+    );
+  }
+
+  &:where(:active, .active) {
+    --tint-color: rgb(
+      var(--md-sys-color-surface-tint-rgb) / var(--state-active-opacity)
+    );
+  }
+
+  &[disabled] {
+    --tint-color: transparent;
+  }
 }

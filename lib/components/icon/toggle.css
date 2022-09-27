@@ -15,33 +15,31 @@
 */
 
 :where(.icon).toggle {
-  background-color: var(--md-sys-color-surface-variant);
-  color: var(--md-sys-color-primary);
   &:where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-primary);
+
     &::after {
       @apply --material-icons;
-      font-size: 24px;
+      font-size: var(--md-comp-icon-button-icon-size);
       content: "check";
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     &[off-icon] {
       &::after {
         content: attr(off-icon);
       }
     }
+
     &:checked {
-      color: var(--md-sys-color-on-primary);
-      background-color: var(--md-sys-color-primary);
       &::after {
         content: "check";
       }
+
       &[on-icon] {
         &::after {
           content: attr(on-icon);
@@ -49,13 +47,8 @@
       }
     }
   }
-  &[checked] {
-    color: var(--md-sys-color-on-primary);
-    background-color: var(--md-sys-color-primary);
-  }
+
   &[disabled] {
     box-shadow: var(--md-sys-elevation-0);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 }

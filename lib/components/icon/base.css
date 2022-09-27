@@ -15,9 +15,8 @@
 */
 
 @import url(../../tokens/components/icon-button.css);
+
 :where(.icon) {
-  --icon-container-color: var(--md-sys-color-surface);
-  --icon-on-container-color: var(--md-sys-color-primary);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -28,78 +27,49 @@
   gap: 0;
   border: none;
   cursor: pointer;
+  padding: 4px;
+  margin: 0;
+
   @apply --label-large;
   font-size: var(--md-comp-icon-button-icon-size);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
-  box-shadow: var(--md-sys-elevation-1);
-  padding: 4px;
-  margin: 0;
   width: var(--md-comp-icon-button-state-layer-size);
   height: var(--md-comp-icon-button-state-layer-size);
   border-radius: var(--md-comp-icon-button-state-layer-shape);
-  box-shadow: none;
-  --tint-color: transparent;
-  &::after {
-    content: "";
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--tint-color);
-  }
-  &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-2);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-comp-icon-button-unselected-hover-state-layer-opacity)
-    );
-  }
-  &:where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-2);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-comp-icon-button-unselected-focus-state-layer-opacity)
-    );
-  }
-  &:where(:active, .active) {
-    box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-comp-icon-button-unselected-pressed-state-layer-opacity)
-    );
-  }
-  &:where([selected], [checked]) {
+
+  --state-hover-opacity: var(
+    --md-comp-icon-button-unselected-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-icon-button-unselected-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-icon-button-unselected-pressed-state-layer-opacity
+  );
+
+  &:where([selected], [checked], :checked) {
     color: var(--md-sys-color-primary);
-    &:where(:hover, .hover) {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-comp-icon-button-selected-hover-state-layer-opacity)
-      );
-    }
-    &:where(:focus, .focus) {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-comp-icon-button-selected-focus-state-layer-opacity)
-      );
-    }
-    &:where(:active, .active) {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-comp-icon-button-selected-pressed-state-layer-opacity)
-      );
-    }
+
+    --state-hover-opacity: var(
+      --md-comp-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-icon-button-selected-pressed-state-layer-opacity
+    );
   }
+
   &[disabled] {
     cursor: default;
     color: rgb(
       var(--md-sys-color-on-surface-rgb) /
         var(--md-comp-icon-button-disabled-icon-opacity)
     );
-    box-shadow: var(--md-sys-elevation-0);
   }
+
   & i {
     font-size: var(--md-comp-icon-button-icon-size);
     vertical-align: middle;

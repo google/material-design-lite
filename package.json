@@ -7,14 +7,8 @@
     "start": "web-dev-server --node-resolve --open --watch",
     "copy:tokens": "cp -a third_party/tokens/css/. lib/tokens/",
     "format": "npx prettier --write .",
-    "build": "npm-run-all build:*",
-    "build:system": "npx postcss lib/*.css --base lib --dir dist",
-    "build:tokens:components": "npx postcss lib/tokens/**/*.css --base lib --dir dist",
-    "build:tokens": "npx postcss lib/**/*.css --base lib --dir dist",
-    "build:components": "npx postcss lib/**/**/*.css --base lib --dir dist",
-    "build:mdl": "npx postcss lib/styles.css --output dist/material-design-lite.css --use=postcss-import",
-    "build:mdl-min": "npx postcss lib/styles.css --output dist/material-design-lite.min.css --use=postcss-import --use=cssnano",
-    "dev": "npx postcss --watch lib/styles.css --output dist/material-design-lite.css --use=postcss-import",
+    "build": "node scripts/build.mjs",
+    "dev": "npx postcss --watch lib/styles.css --output dist/material-design-lite.css",
     "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
     "test:watch": "wtr \"test/**/*.test.html\" --node-resolve --playwright --browsers chromium firefox webkit --watch"
   },
@@ -47,7 +41,7 @@
     "postcss-import": "^14.1.0",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.8.1",
-    "stylefmt": "^6.0.3",
+    "postcss-prettify": "^0.3.4",
     "ts-node": "^10.9.1"
   },
   "dependencies": {

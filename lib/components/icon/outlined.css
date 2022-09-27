@@ -14,41 +14,61 @@
  limitations under the License.
 */
 
-:where(.icon).contained.outlined {
+@import url(../../tokens/components/outlined-icon-button.css);
+
+:where(.icon).outlined {
+  box-shadow: var(--md-sys-elevation-0);
   background-color: transparent;
   color: var(--md-sys-color-on-surface-variant);
-  border: 1px solid var(--md-sys-color-outline);
-  box-shadow: var(--md-sys-elevation-0);
-  border-radius: var(--md-sys-shape-corner-full);
-  &:where([selected], [checked]) {
-    color: var(--md-sys-color-inverse-surface);
-  }
-  &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
+
+  border: var(--md-comp-outlined-icon-button-unselected-outline-width) solid
+    var(--md-sys-color-outline);
+
+  width: var(--md-comp-outlined-icon-button-container-size);
+  height: var(--md-comp-outlined-icon-button-container-size);
+  border-radius: var(--md-comp-outlined-icon-button-container-shape);
+  font-size: var(--md-comp-outlined-icon-button-icon-size);
+
+  --state-hover-opacity: var(
+    --md-comp-outlined-icon-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-outlined-icon-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-outlined-icon-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-outlined-icon-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-outlined-icon-button-disabled-outline-opacity
+  );
+
+  &:where([selected], [checked], :checked) {
+    background-color: var(--md-sys-color-inverse-surface);
+    color: var(--md-sys-color-inverse-on-surface);
+
+    --state-hover-opacity: var(
+      --md-comp-outlined-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-outlined-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-outlined-icon-button-selected-pressed-state-layer-opacity
+    );
+    --state-disabled-opacity: var(
+      --md-comp-outlined-icon-button-disabled-selected-container-opacity
     );
   }
-  &:where(:focus, .focus) {
-    border: 1px solid var(--md-sys-color-primary);
-    box-shadow: var(--md-sys-elevation-0);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
-  }
-  &:where(:active, .active) {
-    border: 1px solid var(--md-sys-color-primary);
-    box-shadow: var(--md-sys-elevation-0);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
-  }
+
   &[disabled] {
-    box-shadow: var(--md-sys-elevation-0);
-    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    border-color: rgb(
+      var(--md-sys-color-on-surface-rgb) / var(--state-outline-disabled-opacity)
+    );
+    color: rgb(
+      var(--md-sys-color-on-surface-rgb) / var(--state-disabled-opacity)
+    );
   }
 }

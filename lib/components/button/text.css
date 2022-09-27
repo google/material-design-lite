@@ -18,29 +18,20 @@
   background-color: transparent;
   color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-0);
+
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
-    );
   }
+
   &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
   }
+
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
   }
+
   &[disabled] {
-    --tint-color: transparent;
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }

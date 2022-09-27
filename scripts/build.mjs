@@ -9,7 +9,7 @@ const outputDir = path.join("dist");
 
 // Remove the output directory if it exists.
 if (fs.existsSync(outputDir)) {
-  fs.rmdirSync(outputDir, { recursive: true });
+  fs.rmSync(outputDir, { recursive: true });
 }
 
 // Create the output directory.
