@@ -7,10 +7,6 @@ interface Component {
 
 export const COMPONENTS = [
   {
-    text: "Autocomplete",
-    link: "components/autocomplete",
-  },
-  {
     text: "Badge",
     link: "components/badge",
   },
