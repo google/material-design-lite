@@ -1,0 +1,26 @@
+name: Test
+
+on:
+  push:
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Set Node.js 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Test
+        run: |
+          npm i &&
+          npm run build &&
+          npm run test

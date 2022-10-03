@@ -20,12 +20,21 @@ jobs:
         with:
           node-version: 16
 
+      - name: Test
+        run: |
+          npm i &&
+          npm run build &&
+          npm run test
+        
       - name: Install dependencies
-        run: cd docsite && npm i
+        run: |
+          cd docsite && 
+          npm i
 
       - name: Build
         run: |
-          cd docsite && npm run build
+          cd docsite && 
+          npm run build
       - name: Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -6,6 +6,7 @@
   "scripts": {
     "copy:tokens": "cp -a third_party/tokens/css/. lib/tokens/",
     "format": "npx prettier --write .",
+    "build": "npm run css:build",
     "css:build": "node dist/css.js",
     "css:dev": "npx postcss --watch lib/styles.css --output docsite/public/css/mdl.css",
     "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
