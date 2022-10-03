@@ -1,0 +1,110 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  /* Filled icon button pressed state layer opacity */
+  --md-comp-filled-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled icon button focus state layer opacity */
+  --md-comp-filled-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled icon button hover state layer opacity */
+  --md-comp-filled-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled icon button disabled container opacity */
+  --md-comp-filled-icon-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled icon button disabled icon color */
+  --md-comp-filled-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled icon button container shape */
+  --md-comp-filled-icon-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Filled icon button container size */
+  --md-comp-filled-icon-button-container-size: 40px;
+  /* Filled icon button icon size */
+  --md-comp-filled-icon-button-icon-size: 24px;
+}
+
+:is(.icon).filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  width: var(--md-comp-filled-icon-button-container-size);
+  height: var(--md-comp-filled-icon-button-container-size);
+  border-radius: var(--md-comp-filled-icon-button-container-shape);
+  font-size: var(--md-comp-filled-icon-button-icon-size);
+  --state-hover-opacity: var(
+    --md-comp-filled-icon-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-filled-icon-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-filled-icon-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-filled-icon-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-filled-icon-button-disabled-outline-opacity
+  );
+}
+
+:is(.icon).filled:where(.toggle) {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-primary);
+  }
+
+:is(.icon).filled:where([selected],
+[checked],
+:checked) {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    --state-hover-opacity: var(
+      --md-comp-filled-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-filled-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-filled-icon-button-selected-pressed-state-layer-opacity
+    );
+    --state-disabled-opacity: var(
+      --md-comp-filled-icon-button-disabled-selected-container-opacity
+    );
+  }
+
+:is(.icon).filled:where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+:is(.icon).filled:where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+:is(.icon).filled:where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+:is(.icon).filled[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }

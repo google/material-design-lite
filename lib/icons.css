@@ -1,14 +1,28 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
-
 @font-face {
   font-family: "Material Icons";
   src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
     format("woff2");
 }
-
-.material-icons {
+:where(.material-icons) {
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
@@ -24,7 +38,6 @@
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
-
 :root,
 [class*="material-symbols-"] {
   --material-symbols-fill: 0;
@@ -32,20 +45,17 @@
   --material-symbols-grad: 0;
   --material-symbols-opsz: 48;
 }
-
-.material-symbols-sharp {
+:where(.material-symbols-sharp) {
   font-variation-settings: "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
-
-.material-symbols-rounded {
+:where(.material-symbols-rounded) {
   font-variation-settings: "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
-
-.material-symbols-outlined {
+:where(.material-symbols-outlined) {
   font-variation-settings: "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);

@@ -1,32 +1,29 @@
-:where(.button, button).icon.toggle {
-  background-color: var(--md-sys-color-surface-variant);
-  color: var(--md-sys-color-primary);
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-  &[checked] {
-    color: var(--md-sys-color-on-primary);
-    background-color: var(--md-sys-color-primary);
-  }
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
 
-  &[disabled] {
-    box-shadow: var(--md-sys-elevation-0);
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-  }
+     http://www.apache.org/licenses/LICENSE-2.0
 
-  &:is(input[type="checkbox"]) {
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:is(.icon).toggle {
+  &:where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
 
-    background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-primary);
-
     &::after {
       @apply --material-icons;
-      font-size: 24px;
-
+      font-size: var(--md-comp-icon-button-icon-size);
       content: "check";
-
       display: flex;
       align-items: center;
       justify-content: center;
@@ -39,9 +36,6 @@
     }
 
     &:checked {
-      color: var(--md-sys-color-on-primary);
-      background-color: var(--md-sys-color-primary);
-
       &::after {
         content: "check";
       }
@@ -52,5 +46,9 @@
         }
       }
     }
+  }
+
+  &[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
   }
 }

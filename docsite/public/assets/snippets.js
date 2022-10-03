@@ -15,22 +15,22 @@
  */
 
 function MaterialComponentsSnippets() {
-  'use strict';
+  "use strict";
 
   // Find all code snippets.
-  this.snippets = document.querySelectorAll('code.language-markup');
+  this.snippets = document.querySelectorAll("code.language-markup");
   this.init();
 }
 
 /**
  * Initializes the MaterialComponentsSnippets components.
  */
-MaterialComponentsSnippets.prototype.init = function() {
-  'use strict';
+MaterialComponentsSnippets.prototype.init = function () {
+  "use strict";
 
-  [].slice.call(this.snippets).forEach(function(snippet) {
-    snippet.addEventListener('click', this.onMouseClickHandler(snippet));
-    snippet.addEventListener('mouseout', this.onMouseOutHandler(snippet));
+  [].slice.call(this.snippets).forEach(function (snippet) {
+    snippet.addEventListener("click", this.onMouseClickHandler(snippet));
+    snippet.addEventListener("mouseout", this.onMouseOutHandler(snippet));
   }, this);
 };
 
@@ -42,8 +42,8 @@ MaterialComponentsSnippets.prototype.init = function() {
  * @private
  */
 MaterialComponentsSnippets.prototype.CssClasses_ = {
-  COPIED: 'copied',
-  NOT_SUPPORTED: 'nosupport'
+  COPIED: "copied",
+  NOT_SUPPORTED: "nosupport",
 };
 
 /**
@@ -54,8 +54,8 @@ MaterialComponentsSnippets.prototype.CssClasses_ = {
  * @param  {HTMLElement} snippet The <code> element containing the snippet code
  * @return {bool} whether the copy operation is succeeded
  */
-MaterialComponentsSnippets.prototype.copyToClipboard = function(snippet) {
-  'use strict';
+MaterialComponentsSnippets.prototype.copyToClipboard = function (snippet) {
+  "use strict";
 
   var sel = window.getSelection();
   var snipRange = document.createRange();
@@ -64,7 +64,7 @@ MaterialComponentsSnippets.prototype.copyToClipboard = function(snippet) {
   sel.addRange(snipRange);
   var res = false;
   try {
-    res = document.execCommand('copy');
+    res = document.execCommand("copy");
   } catch (err) {
     // copy command is not available
     console.error(err);
@@ -78,10 +78,10 @@ MaterialComponentsSnippets.prototype.copyToClipboard = function(snippet) {
  * @param  {HTMLElement} snippet The <code> element containing the snippet code
  * @return {function} the click handler
  */
-MaterialComponentsSnippets.prototype.onMouseClickHandler = function(snippet) {
-  'use strict';
+MaterialComponentsSnippets.prototype.onMouseClickHandler = function (snippet) {
+  "use strict";
 
-  return function() {
+  return function () {
     if (window.getSelection().toString().length > 0) {
       // user has selected some text manually
       // don't do anything
@@ -100,16 +100,16 @@ MaterialComponentsSnippets.prototype.onMouseClickHandler = function(snippet) {
  * @param  {HTMLElement} snippet The <code> element containing the snippet code
  * @return {function} the click handler
  */
-MaterialComponentsSnippets.prototype.onMouseOutHandler = function(snippet) {
-  'use strict';
+MaterialComponentsSnippets.prototype.onMouseOutHandler = function (snippet) {
+  "use strict";
 
-  return function() {
+  return function () {
     snippet.classList.remove(this.CssClasses_.COPIED);
   }.bind(this);
 };
 
-window.addEventListener('load', function() {
-  'use strict';
+window.addEventListener("load", function () {
+  "use strict";
 
   new MaterialComponentsSnippets();
 });

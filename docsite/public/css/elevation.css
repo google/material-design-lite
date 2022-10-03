@@ -1,0 +1,82 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  /* 0 */
+  --md-sys-elevation-level0: 0px;
+  /* +1 */
+  --md-sys-elevation-level1: 1px;
+  /* +2 */
+  --md-sys-elevation-level2: 3px;
+  /* +3 */
+  --md-sys-elevation-level3: 6px;
+  /* +4 */
+  --md-sys-elevation-level4: 8px;
+  /* +5 */
+  --md-sys-elevation-level5: 12px;
+}
+
+:where(html) {
+  --md-sys-elevation-0: 0px 0px 0px 0px
+      rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-1: 0px 3px 1px -2px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 2px 2px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 1px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-2: 0px 2px 4px -1px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 4px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 1px 10px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-3: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-4: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-5: 0px 8px 10px -6px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+}
+
+.elevation-0 {
+  box-shadow: var(--md-sys-elevation-0);
+}
+
+.elevation-1 {
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.elevation-2 {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+.elevation-3 {
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.elevation-4 {
+  box-shadow: var(--md-sys-elevation-4);
+}
+
+.elevation-5 {
+  box-shadow: var(--md-sys-elevation-5);
+}

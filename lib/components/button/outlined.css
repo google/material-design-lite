@@ -1,42 +1,67 @@
-:where(.button, button).outlined {
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+@import url(../../tokens/components/outlined-button.css);
+
+:is(.button, button).outlined {
   background-color: transparent;
   color: var(--md-sys-color-primary);
-  border: 1px solid var(--md-sys-color-outline);
+  border: var(--md-comp-outlined-button-outline-width) solid var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
+  height: var(--md-comp-outlined-button-container-height);
 
-  &:hover,
-  &.hover {
-    box-shadow: var(--md-sys-elevation-1);
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-outlined-button-container-shape); */
+  /* line-height: var(--md-comp-outlined-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-outlined-button-label-text-tracking); */
+  /* font-size: var(--md-comp-outlined-button-label-text-size); */
+  /* font-weight: var(--md-comp-outlined-button-label-text-weight); */
+  /* font-family: var(--md-comp-outlined-button-label-text-font); */
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
-      var(--md-sys-state-hover-state-layer-opacity)
-    );
+  --state-hover-opacity: var(--md-comp-outlined-button-hover-state-layer-opacity);
+  --state-focus-opacity: var(--md-comp-outlined-button-focus-state-layer-opacity);
+  --state-active-opacity: var(
+    --md-comp-outlined-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-outlined-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-outlined-button-disabled-outline-opacity
+  );
+
+  & i {
+    margin-left: -9px;
   }
 
-  &:focus,
-  &.focus {
+  &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
-
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
-      var(--md-sys-state-focus-state-layer-opacity)
-    );
   }
 
-  &:active,
-  &.active {
+  &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
+  }
 
-    --tint-color: rgba(
-      var(--md-sys-color-primary-rgb),
-      var(--md-sys-state-pressed-state-layer-opacity)
-    );
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
   &[disabled] {
     box-shadow: var(--md-sys-elevation-0);
-    border: 1px solid rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 }

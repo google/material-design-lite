@@ -1,73 +1,83 @@
-:where(.button, button).icon {
-  border: none;
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-  cursor: pointer;
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
 
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+@import url(../../tokens/components/icon-button.css);
+
+:is(.icon) {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   position: relative;
-
-  @apply --label-large;
-
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-primary);
-  box-shadow: var(--md-sys-elevation-1);
-
+  box-sizing: border-box;
+  text-align: center;
+  gap: 0;
+  border: none;
+  cursor: pointer;
   padding: 4px;
   margin: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  box-shadow: var(--md-sys-elevation-0);
 
-  background-color: transparent;
-  color: var(--md-sys-color-on-surface-variant);
+  @apply --label-large;
+  font-size: var(--md-comp-icon-button-icon-size);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-primary);
+  width: var(--md-comp-icon-button-state-layer-size);
+  height: var(--md-comp-icon-button-state-layer-size);
+  border-radius: var(--md-comp-icon-button-state-layer-shape);
 
-  box-shadow: none;
+  --state-hover-opacity: var(
+    --md-comp-icon-button-unselected-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-icon-button-unselected-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-icon-button-unselected-pressed-state-layer-opacity
+  );
 
-  --tint-color: transparent;
-
-  &::after {
-    content: " ";
-    border-radius: inherit;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    /* background-color: var(--tint-color); */
-  }
-
-  &[selected] {
+  &:where([selected], [checked], :checked) {
     color: var(--md-sys-color-primary);
-  }
 
-  &:hover,
-  .hover {
-    box-shadow: var(--md-sys-elevation-2);
-  }
-
-  &:focus,
-  .focus {
-    box-shadow: var(--md-sys-elevation-1);
-  }
-
-  &:active,
-  .active {
-    box-shadow: var(--md-sys-elevation-1);
+    --state-hover-opacity: var(
+      --md-comp-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-icon-button-selected-pressed-state-layer-opacity
+    );
   }
 
   &[disabled] {
     cursor: default;
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
-    box-shadow: var(--md-sys-elevation-0);
+    color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-comp-icon-button-disabled-icon-opacity)
+    );
   }
 
   & i {
-    font-size: 24px;
+    font-size: var(--md-comp-icon-button-icon-size);
     vertical-align: middle;
+
+    &:only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: FAQ
 description: Questions and answers about Material Design Lite.
-tab: 'overview'
+tab: "overview"
 layout: ../layouts/Article.astro
 ---
 

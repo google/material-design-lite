@@ -1,20 +1,31 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
 :is(.navigation-rail) {
   height: 100%;
   width: 80px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
   box-shadow: var(--md-sys-elevation-1);
-
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
-
   box-sizing: border-box;
   position: relative;
-
   &::before {
     content: "";
     position: absolute;
@@ -24,23 +35,18 @@
     right: 0;
     background-color: var(--md-sys-color-surface-1);
   }
-
   padding-top: 16px;
   padding-bottom: 56px;
-
   & :where(button, .button) {
     background-color: transparent;
     color: var(--md-sys-color-on-surface-variant);
-
     font-size: 24px;
     padding: 12px;
-
     &.fab {
       background-color: var(--md-sys-color-tertiary-container);
       color: var(--md-sys-color-on-tertiary-container);
       box-shadow: var(--md-sys-elevation-0);
       margin-top: 12px;
-
       &:hover {
         box-shadow: var(--md-sys-elevation-2);
       }
@@ -49,50 +55,38 @@
       }
     }
   }
-
   & nav {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     gap: 12px;
     margin-top: 40px;
     margin-bottom: 40px;
-
     & input {
       opacity: 0;
       position: absolute;
-
       &:checked + :where(label, .tab-icon) i {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }
     }
-
     & :where(label, .tab-icon) {
       height: 56px;
-
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
       cursor: pointer;
       visibility: visible;
       z-index: 1;
-
       gap: 4px;
-
       @apply --label-medium;
-
       & i {
         font-size: 24px;
-
         width: 64px;
         height: 32px;
         border-radius: 16px;
-
         display: flex;
         align-items: center;
         justify-content: center;

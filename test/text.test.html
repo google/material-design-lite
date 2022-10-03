@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Default</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Display Large</td>
+                <td>
+                    <span class="display-large">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Display Medium</td>
+                <td>
+                    <span class="display-medium">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Display Small</td>
+                <td>
+                    <span class="display-small">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Headline Large</td>
+                <td>
+                    <span class="headline-large">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Headline Medium</td>
+                <td>
+                    <span class="headline-medium">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Headline Small</td>
+                <td>
+                    <span class="headline-small">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Title Large</td>
+                <td>
+                    <span class="title-large">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Title Medium</td>
+                <td>
+                    <span class="title-medium">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Title Small</td>
+                <td>
+                    <span class="title-small">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Body Large</td>
+                <td>
+                    <span class="body-large">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Body Medium</td>
+                <td>
+                    <span class="body-medium">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Body Small</td>
+                <td>
+                    <span class="body-small">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Label Large</td>
+                <td>
+                    <span class="label-large">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Label Medium</td>
+                <td>
+                    <span class="label-medium">Text</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Label Small</td>
+                <td>
+                    <span class="label-small">Text</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="module">
+        import { html, fixture, expect } from "@open-wc/testing";
+        import { runTests } from "@web/test-runner-mocha";
+
+        runTests(() => {
+            function testFont(target, options) {
+                describe(`${target} tests`, async () => {
+                    const item = document.querySelector(`.${target}`);
+                    const el = await fixture(item.outerHTML);
+                    const s = getComputedStyle(el);
+
+                    it(`check font for ${target}`, () => {
+                        expect(s.fontFamily).to.equal(options.fontFamily);
+                    });
+                    it(`check line height for ${target}`, () => {
+                        expect(s.lineHeight).to.equal(options.lineHeight);
+                    });
+                    it(`check size for ${target}`, () => {
+                        expect(s.fontSize).to.equal(options.fontSize);
+                    });
+                    it(`check tracking for ${target}`, () => {
+                        if (options.letterSpacing === '0') {
+                            expect(['0', 'normal'].includes(s.letterSpacing)).to.equal(true);
+                        } else {
+                            expect(s.letterSpacing).to.equal(options.letterSpacing);
+                        }
+                    });
+                    it(`check weight for ${target}`, () => {
+                        expect(s.fontWeight || s.fontStyle).to.equal(options.fontStyle);
+                    });
+                });
+            }
+            testFont("display-large", {
+                fontFamily: "Roboto",
+                fontSize: "57px",
+                lineHeight: "64px",
+                letterSpacing: "-0.25px",
+                fontStyle: "400",
+            });
+            testFont("display-medium", {
+                fontFamily: "Roboto",
+                fontSize: "45px",
+                lineHeight: "52px",
+                letterSpacing: "0",
+                fontStyle: "400",
+            });
+            testFont("display-small", {
+                fontFamily: "Roboto",
+                fontSize: "36px",
+                lineHeight: "44px",
+                letterSpacing: "0",
+                fontStyle: "400",
+            });
+            testFont("headline-large", {
+                fontFamily: "Roboto",
+                fontSize: "32px",
+                lineHeight: "40px",
+                letterSpacing: "0",
+                fontStyle: "400",
+            });
+            testFont("headline-medium", {
+                fontFamily: "Roboto",
+                fontSize: "28px",
+                lineHeight: "36px",
+                letterSpacing: "0",
+                fontStyle: "400",
+            });
+            testFont("headline-small", {
+                fontFamily: "Roboto",
+                fontSize: "24px",
+                lineHeight: "32px",
+                letterSpacing: "0",
+                fontStyle: "400",
+            });
+            testFont("title-large", {
+                fontFamily: "Roboto",
+                fontSize: "22px",
+                lineHeight: "28px",
+                letterSpacing: "0",
+                fontStyle: "400",
+            });
+            testFont("title-medium", {
+                fontFamily: "Roboto",
+                fontSize: "16px",
+                lineHeight: "24px",
+                letterSpacing: "0.15px",
+                fontStyle: "500",
+            });
+            testFont("title-small", {
+                fontFamily: "Roboto",
+                fontSize: "14px",
+                lineHeight: "20px",
+                letterSpacing: "0.1px",
+                fontStyle: "500",
+            });
+            testFont("body-large", {
+                fontFamily: "Roboto",
+                fontSize: "16px",
+                lineHeight: "24px",
+                letterSpacing: "0.5px",
+                fontStyle: "400",
+            });
+            testFont("body-medium", {
+                fontFamily: "Roboto",
+                fontSize: "14px",
+                lineHeight: "20px",
+                letterSpacing: "0.25px",
+                fontStyle: "400",
+            });
+            testFont("body-small", {
+                fontFamily: "Roboto",
+                fontSize: "12px",
+                lineHeight: "16px",
+                letterSpacing: "0.4px",
+                fontStyle: "400",
+            });
+            testFont("label-large", {
+                fontFamily: "Roboto",
+                fontSize: "14px",
+                lineHeight: "20px",
+                letterSpacing: "0.1px",
+                fontStyle: "500",
+            });
+            testFont("label-medium", {
+                fontFamily: "Roboto",
+                fontSize: "12px",
+                lineHeight: "16px",
+                letterSpacing: "0.5px",
+                fontStyle: "500",
+            });
+            testFont("label-small", {
+                fontFamily: "Roboto",
+                fontSize: "11px",
+                lineHeight: "16px",
+                letterSpacing: "0.5px",
+                fontStyle: "500",
+            });
+        });
+    </script>
+</body>
+
+</html>

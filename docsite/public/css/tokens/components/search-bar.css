@@ -1,0 +1,73 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  /* Search bar avatar size */
+  --md-comp-search-bar-avatar-size: 30px;
+  /* Search bar container height */
+  --md-comp-search-bar-container-height: 56px;
+  /* Search bar pressed state layer opacity */
+  --md-comp-search-bar-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Search bar hover state layer opacity */
+  --md-comp-search-bar-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Search bar avatar shape */
+  --md-comp-search-bar-avatar-shape: var(--md-sys-shape-corner-full);
+  /* Search bar input text tracking */
+  --md-comp-search-bar-input-text-tracking: var(
+    --md-sys-typescale-body-large-tracking
+  );
+  /* Search bar input text weight */
+  --md-comp-search-bar-input-text-weight: var(
+    --md-sys-typescale-body-large-weight
+  );
+  /* Search bar input text size */
+  --md-comp-search-bar-input-text-size: var(--md-sys-typescale-body-large-size);
+  /* Search bar input text line height */
+  --md-comp-search-bar-input-text-line-height: var(
+    --md-sys-typescale-body-large-line-height
+  );
+  /* Search bar input text font */
+  --md-comp-search-bar-input-text-font: var(--md-sys-typescale-body-large-font);
+  /* Search bar supporting text tracking */
+  --md-comp-search-bar-supporting-text-tracking: var(
+    --md-sys-typescale-body-large-tracking
+  );
+  /* Search bar supporting text weight */
+  --md-comp-search-bar-supporting-text-weight: var(
+    --md-sys-typescale-body-large-weight
+  );
+  /* Search bar supporting text size */
+  --md-comp-search-bar-supporting-text-size: var(
+    --md-sys-typescale-body-large-size
+  );
+  /* Search bar supporting text line height */
+  --md-comp-search-bar-supporting-text-line-height: var(
+    --md-sys-typescale-body-large-line-height
+  );
+  /* Search bar supporting text font */
+  --md-comp-search-bar-supporting-text-font: var(
+    --md-sys-typescale-body-large-font
+  );
+  /* Search bar container shape */
+  --md-comp-search-bar-container-shape: var(--md-sys-shape-corner-full);
+  /* Search bar container elevation */
+  --md-comp-search-bar-container-elevation: var(--md-sys-elevation-level3);
+}

@@ -1,0 +1,219 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:is(.fab) {
+  padding: 16px;
+  font-size: 24px;
+  border-radius: 16px;
+  width: 56px;
+  height: 56px;
+  position: relative;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  box-shadow: var(--md-sys-elevation-1);
+  --tint-color: transparent;
+}
+
+:is(.fab)::after {
+    content: "";
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--tint-color);
+  }
+
+:is(.fab) i {
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+:is(.fab):where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-4);
+    --tint-color: rgb(
+      var(--md-sys-color-on-primary-container-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
+
+:is(.fab):where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-3);
+    --tint-color: rgb(
+      var(--md-sys-color-on-primary-container-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
+
+:is(.fab):where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-2);
+    --tint-color: rgb(
+      var(--md-sys-color-on-primary-container-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
+
+:is(.fab)[disabled] {
+    --tint-color: transparent;
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+:is(.fab).small {
+  padding: 16px;
+  font-size: 24px;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+}
+
+:is(.fab).small i {
+    font-size: 24px;
+  }
+
+:is(.fab).large {
+  padding: 16px;
+  font-size: 36px;
+  border-radius: var(--md-sys-shape-corner-medium);
+  width: 96px;
+  height: 96px;
+}
+
+:is(.fab).large > i {
+    font-size: 36px;
+  }
+
+:is(.fab).extended {
+  border-radius: var(--md-sys-shape-corner-medium);
+  height: 56px;
+  font-size: 16px;
+  width: unset;
+}
+
+:is(.fab).extended i {
+    font-size: 24px;
+    margin-right: 8px;
+  }
+
+:is(.fab).surface {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+}
+
+:is(.fab).surface:where(:hover,
+.hover) {
+    --tint-color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
+
+:is(.fab).surface:where(:focus,
+.focus) {
+    --tint-color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
+
+:is(.fab).surface:where(:active,
+.active) {
+    --tint-color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
+
+:is(.fab).surface[disabled] {
+    --tint-color: transparent;
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+:is(.fab).secondary {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+}
+
+:is(.fab).secondary:where(:hover,
+.hover) {
+    --tint-color: rgb(
+      var(--md-sys-color-secondary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
+
+:is(.fab).secondary:where(:focus,
+.focus) {
+    --tint-color: rgb(
+      var(--md-sys-color-secondary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
+
+:is(.fab).secondary:where(:active,
+.active) {
+    --tint-color: rgb(
+      var(--md-sys-color-secondary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
+
+:is(.fab).secondary[disabled] {
+    --tint-color: transparent;
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+:is(.fab).tertiary {
+  background-color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-on-tertiary);
+}
+
+:is(.fab).tertiary:where(:hover,
+.hover) {
+    --tint-color: rgb(
+      var(--md-sys-color-tertiary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
+
+:is(.fab).tertiary:where(:focus,
+.focus) {
+    --tint-color: rgb(
+      var(--md-sys-color-tertiary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
+
+:is(.fab).tertiary:where(:active,
+.active) {
+    --tint-color: rgb(
+      var(--md-sys-color-tertiary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
+
+:is(.fab).tertiary[disabled] {
+    --tint-color: transparent;
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }

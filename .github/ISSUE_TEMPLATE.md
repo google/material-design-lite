@@ -16,20 +16,14 @@ Please include the following information with your bug report:
 
 > What MDL Version are you using? (please be specific, e.g. _major.minor.patch_)
 
-
-> What browser(s) is this bug affecting (including version)? 
-
+> What browser(s) is this bug affecting (including version)?
 
 > What OS (and version) are you using?
 
-
 > What are the steps to reproduce the bug? Can you create a plunker/codepen/jsfiddle which reproduces it?
-
 
 > What is the expected behavior?
 
-
 > What is the actual behavior?
-
 
 > Any other information you believe would be useful?

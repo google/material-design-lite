@@ -1,15 +1,29 @@
-/* Codepen: https://codepen.io/finnhvman/pen/LJWJVR */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+/* Codepen: https://codepen.io/finnhvman/pen/LJWJVR */
 .slider {
-  --safari-helper1: rgba(var(--md-sys-color-primary-rgb), 0.04);
-  --safari-helper2: rgba(var(--md-sys-color-primary-rgb), 0.12);
-  --safari-helper3: rgba(var(--md-sys-color-primary-rgb), 0.16);
-  --safari-helper4: rgba(var(--md-sys-color-primary-rgb), 0.24);
+  --safari-helper1: rgb(var(--md-sys-color-primary-rgb) / 0.04);
+  --safari-helper2: rgb(var(--md-sys-color-primary-rgb) / 0.12);
+  --safari-helper3: rgb(var(--md-sys-color-primary-rgb) / 0.16);
+  --safari-helper4: rgb(var(--md-sys-color-primary-rgb) / 0.24);
   display: inline-block;
   position: relative;
   width: 100%;
-  color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
-
+  color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   /* Input */
   & > input {
     -webkit-appearance: none;
@@ -22,43 +36,36 @@
     background-color: transparent;
     cursor: pointer;
   }
-
   /* Without Span */
   & > input:last-child {
     position: static;
     margin: 0;
   }
-
   /* Span */
   & > span {
     display: inline-block;
     margin-bottom: 36px;
   }
-
   /* Focus */
   & > input:focus {
     outline: none;
   }
-
   /* Disabled */
   & > input:disabled {
     cursor: default;
     opacity: 0.38;
   }
-
   & > input:disabled + span {
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
   /* Webkit | Track */
   & > input::-webkit-slider-runnable-track {
     margin: 17px 0;
     border-radius: 1px;
     width: 100%;
     height: 2px;
-    background-color: rgba(var(--md-sys-color-primary-rgb), 0.24);
+    background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
   }
-
   /* Webkit | Thumb */
   & > input::-webkit-slider-thumb {
     appearance: none;
@@ -71,46 +78,38 @@
     transform: scale(6, 6);
     transition: box-shadow 0.2s;
   }
-
   /* Webkit | Hover, Focus */
   &:hover > input::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper1);
   }
-
   & > input:focus::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper2);
   }
-
   &:hover > input:focus::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper3);
   }
-
   /* Webkit | Active */
   & > input:active::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper4) !important;
   }
-
   /* Webkit | Disabled */
   & > input:disabled::-webkit-slider-runnable-track {
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
   & > input:disabled::-webkit-slider-thumb {
     background-color: rgb(var(--md-sys-color-on-surface-rgb));
     color: var(--md-sys-color-surface); /* Safari */
     box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
     transform: scale(4, 4);
   }
-
   /* Moz | Track */
   & > input::-moz-range-track {
     margin: 17px 0;
     border-radius: 1px;
     width: 100%;
     height: 2px;
-    background-color: rgba(var(--md-sys-color-primary-rgb), 0.24);
+    background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
   }
-
   /* Moz | Thumb */
   & > input::-moz-range-thumb {
     appearance: none;
@@ -123,51 +122,41 @@
     transform: scale(6, 6);
     transition: box-shadow 0.2s;
   }
-
   /* Moz | Progress */
   & > input::-moz-range-progress {
     border-radius: 1px;
     height: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb));
   }
-
   /* Moz | Hover, Focus */
   &:hover > input:hover::-moz-range-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.04);
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.04);
   }
-
   & > input:focus::-moz-range-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.12);
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.12);
   }
-
   &:hover > input:focus::-moz-range-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.16);
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.16);
   }
-
   /* Moz | Active */
   & > input:active::-moz-range-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.24) !important;
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.24) !important;
   }
-
   /* Moz | Disabled */
   & > input:disabled::-moz-range-track {
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
   & > input:disabled::-moz-range-progress {
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-
   & > input:disabled::-moz-range-thumb {
     background-color: rgb(var(--md-sys-color-on-surface-rgb));
     box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
     transform: scale(4, 4);
   }
-
   & > input::-moz-focus-outer {
     border: none;
   }
-
   /* MS | Track */
   & > input::-ms-track {
     box-sizing: border-box;
@@ -179,20 +168,17 @@
     height: 2px;
     background-color: transparent;
   }
-
   & > input::-ms-fill-lower {
     border-radius: 1px;
     height: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb));
   }
-
   /* MS | Progress */
   & > input::-ms-fill-upper {
     border-radius: 1px;
     height: 2px;
-    background-color: rgba(var(--md-sys-color-primary-rgb), 0.24);
+    background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
   }
-
   /* MS | Thumb */
   & > input::-ms-thumb {
     appearance: none;
@@ -205,35 +191,28 @@
     transform: scale(6, 6);
     transition: box-shadow 0.2s;
   }
-
   /* MS | Hover, Focus */
   &:hover > input::-ms-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.04);
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.04);
   }
-
   & > input:focus::-ms-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.12);
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.12);
   }
-
   &:hover > input:focus::-ms-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.16);
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.16);
   }
-
   /* MS | Active */
   & > input:active::-ms-thumb {
-    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.24) !important;
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.24) !important;
   }
-
   /* MS | Disabled */
   & > input:disabled::-ms-fill-lower {
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
   & > input:disabled::-ms-fill-upper {
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     opacity: 0.38;
   }
-
   & > input:disabled::-ms-thumb {
     background-color: rgb(var(--md-sys-color-on-surface-rgb));
     box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;

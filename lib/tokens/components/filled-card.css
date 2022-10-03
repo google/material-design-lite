@@ -1,0 +1,63 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  /* Filled card disabled container opacity */
+  --md-comp-filled-card-disabled-container-opacity: 0.3799999952316284;
+  /* Filled card disabled container elevation */
+  --md-comp-filled-card-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled card container shape */
+  --md-comp-filled-card-container-shape: var(--md-sys-shape-corner-medium);
+  /* Filled card icon size */
+  --md-comp-filled-card-icon-size: 24px;
+  /* Filled card focus state layer opacity */
+  --md-comp-filled-card-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled card focus container elevation */
+  --md-comp-filled-card-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled card hover state layer opacity */
+  --md-comp-filled-card-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled card hover container elevation */
+  --md-comp-filled-card-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Filled card container elevation */
+  --md-comp-filled-card-container-elevation: var(--md-sys-elevation-level0);
+  /* Filled card dragged state layer opacity */
+  --md-comp-filled-card-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  /* Filled card dragged container elevation */
+  --md-comp-filled-card-dragged-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+  /* Filled card pressed state layer opacity */
+  --md-comp-filled-card-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled card pressed container elevation */
+  --md-comp-filled-card-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+}

@@ -1,41 +1,69 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
 :where(.table, table) {
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--md-sys-shape-medium);
-
+  border-radius: var(--md-sys-shape-corner-medium);
   margin: 0;
   padding: 0;
   position: relative;
-
-  & :where(td:first-child, th:first-child) {
-    border-left: none;
-  }
-
-  & thead:first-child tr:first-child th,
-  & tbody:first-child tr:first-child td {
-    border-top: none;
-  }
-
-  & thead tr th:first-of-type {
-    border-top-left-radius: var(--md-sys-shape-medium);
-  }
-
-  & thead tr th:last-of-type {
-    border-top-right-radius: var(--md-sys-shape-medium);
-  }
-
-  & :where(th) {
-    border-top: none;
-    background-color: var(--md-sys-color-surface-2);
-    color: var(--md-sys-color-on-surface-variant);
-    font-weight: 500;
-  }
-
   & :where(td, th) {
     padding: 16px 24px;
     border-top: 1px solid var(--md-sys-color-surface-variant);
     border-left: 1px solid var(--md-sys-color-surface-variant);
     vertical-align: middle;
+  }
+  & thead tr {
+    & th {
+      background-color: var(--md-sys-color-surface-2);
+      color: var(--md-sys-color-on-surface-variant);
+      border-top: none;
+      font-weight: 500;
+      &:first-of-type {
+        border-radius: var(--md-sys-shape-corner-medium);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &:last-of-type {
+        border-radius: var(--md-sys-shape-corner-medium);
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+  & tbody tr {
+    &:last-of-type {
+      & td {
+        &:first-of-type {
+          border-radius: var(--md-sys-shape-corner-medium);
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+        &:last-of-type {
+          border-radius: var(--md-sys-shape-corner-medium);
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+    }
   }
 }

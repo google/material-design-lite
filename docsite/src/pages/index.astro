@@ -1,0 +1,47 @@
+---
+import Root from "../layouts/Root.astro";
+
+const frontmatter = { title: "Material Design Lite", tab: "home" };
+---
+
+<Root {frontmatter}>
+  <!-- Lightweight implementation of [Material Design](https://material.io/).
+
+## Todo
+
+- [x] Dynamic color
+- [x] Update demos
+- [x] Built-in [playground](https://lit.dev/playground/#gist=714c643074780b49afb80212f3638057)
+- [x] Download button
+- [ ] All components
+- [ ] Migrate old articles
+- [ ] Scaffold component
+- [ ] Copy code / open in codepen for code blocks
+- [ ] Svg components -->
+
+  <section class="rainbow">
+    <div class="center">
+      <h2>Material Design Lite</h2>
+      <p>
+        Lightweight implementation of <a href="https://material.io/"
+          >Material Design</a
+        >.
+      </p>
+    </div>
+  </section>
+</Root>
+
+<style>
+  section {
+    width: 100%;
+    height: 100%;
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+</style>

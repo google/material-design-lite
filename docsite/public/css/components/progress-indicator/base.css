@@ -1,0 +1,66 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+/* CSS progress indicator at value 75% */
+
+:where(progress,
+.progress).linear {
+  --progress-fg: var(--md-sys-color-primary);
+  --progress-bg: var(--md-sys-color-surface-variant);
+  --progress-value: 20%;
+  height: 4px;
+  border-radius: 4px;
+  position: relative;
+}
+
+:where(progress,
+.progress).linear::-webkit-progress-value {
+    background: var(--progress-fg);
+  }
+
+:where(progress,
+.progress).linear::-moz-progress-bar {
+    background: var(--progress-fg);
+  }
+
+:where(progress,
+.progress).linear::-webkit-progress-bar {
+    background: var(--progress-bg);
+  }
+
+:where(progress,
+.progress).linear[indeterminate] {
+    -webkit-animation: linear-progress-indeterminate 2s infinite;
+            animation: linear-progress-indeterminate 2s infinite;
+  }
+
+@-webkit-keyframes linear-progress-indeterminate {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes linear-progress-indeterminate {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

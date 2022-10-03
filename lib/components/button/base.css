@@ -1,41 +1,42 @@
-.button, button {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  height: 40px;
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-  position: relative;
-  cursor: pointer;
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+     http://www.apache.org/licenses/LICENSE-2.0
 
-  white-space: nowrap;
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:is(.button, button) {
+  --state-disabled-opacity: 0.3799999952316284;
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);
 
-  @apply --label-large;
+  padding: 0 24px;
+  border-radius: 20px;
+  border: none;
+  height: 40px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
 
+  @apply --label-large;
   box-shadow: var(--md-sys-elevation-1);
   transition: box-shadow 0.2s ease-in-out;
-
-  --tint-color: transparent;
-
-  &::after {
-    content: " ";
-    border-radius: inherit;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    /* background-color: var(--tint-color); */
-  }
 
   &[label] {
     content: attr(label);
@@ -43,50 +44,43 @@
   }
 
   & i {
-    margin-right: 4px;
-
+    margin-left: -8px;
     font-size: 18px;
-  }
 
-  & i:only-child {
-    margin-right: 0px;
+    &:only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   & a {
     text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
   }
 
-  & a:hover {
-    text-decoration: none;
-  }
-
-  & a:focus {
-    text-decoration: none;
-  }
-
-  &:hover,
-  &.hover {
+  &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:focus,
-  &.focus {
-    box-shadow: var(--md-sys-elevation-2);
-  }
-
-  &:active,
-  &.active {
+  &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
+  }
+
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-2);
   }
 
   &[disabled] {
     cursor: default;
-    background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
     box-shadow: var(--md-sys-elevation-0);
-  }
-
-  &:focus-within::before {
-    border-radius: 40px;
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 }

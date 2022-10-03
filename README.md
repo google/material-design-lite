@@ -8,7 +8,7 @@
 [![Demo](https://github.com/rodydavis/material-design-lite/actions/workflows/demo.yml/badge.svg)](https://github.com/rodydavis/material-design-lite/actions/workflows/demo.yml)
 
 > An implementation of [Material Design](https://material.io/design/introduction)
-components in vanilla CSS, JS, and HTML.
+> components in vanilla CSS, JS, and HTML.
 
 Material Design Lite (MDL) lets you add a Material Design look and feel to your
 static content websites. It doesn't rely on any JavaScript frameworks or
@@ -31,9 +31,8 @@ MDL. If you are looking to use MDL on your website or web app please head to
 
 ## Browser Support
 
-
 | IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
-|-----|------|------|--------|-------|---------|--------|------------------|---------------|
+| --- | ---- | ---- | ------ | ----- | ------- | ------ | ---------------- | ------------- |
 | B   | A    | A    | A      | A     | A       | A      | A                | A             |
 
 A-grade browsers are fully supported. B-grade browsers will gracefully degrade
@@ -62,7 +61,7 @@ git reset --hard
 ```
 
 > Remember, the master branch is considered unstable. Do not use this in
-production. Use a tagged state of the repository, npm, or bower for stability!
+> production. Use a tagged state of the repository, npm, or bower for stability!
 
 ## Feature requests
 

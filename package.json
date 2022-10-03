@@ -3,7 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "copy:tokens": "cp -a third_party/tokens/css/. lib/tokens/",
+    "format": "npx prettier --write .",
+    "css:build": "node dist/css.js",
+    "css:dev": "npx postcss --watch lib/styles.css --output docsite/public/css/mdl.css",
+    "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
+    "test:watch": "wtr \"test/**/*.test.html\" --node-resolve --playwright --browsers chromium firefox webkit --watch",
+    "test:ui": "wds --node-resolve --open --watch",
+    "tsc": "tsc",
+    "tsc:watch": "tsc -w"
+  },
+  "engines": {
+    "node": "^16.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rodydavis/material-design-lite.git"
@@ -16,8 +29,32 @@
   },
   "homepage": "https://github.com/rodydavis/material-design-lite#readme",
   "devDependencies": {
+    "@esm-bundle/chai": "^4.3.4-fix.0",
     "@material/web": "^0.1.0-alpha.0",
-    "@types/node": "^18.7.17",
+    "@open-wc/testing": "^3.1.6",
+    "@web/test-runner": "^0.14.0",
+    "@web/test-runner-playwright": "^0.8.10",
+    "@pkgjs/parseargs": "^0.10.0",
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^18.7.23",
+    "@web/dev-server": "^0.1.34",
+    "cssnano": "^5.1.13",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.14",
+    "postcss-apply": "^0.12.0",
+    "postcss-cli": "^10.0.0",
+    "postcss-color-hct": "^0.0.2",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.8.1",
+    "postcss-prettify": "^0.3.4",
+    "chokidar": "^3.5.3",
+    "highlight.js": "^11.6.0",
+    "html-format": "^1.0.2",
+    "markdown-it": "^13.0.1",
+    "parse5": "^7.1.1",
+    "typescript": "^4.8.4",
     "ts-node": "^10.9.1"
   },
   "dependencies": {
