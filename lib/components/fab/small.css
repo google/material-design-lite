@@ -14,12 +14,13 @@
  limitations under the License.
 */
 
-:where(.button).fab.small {
+:is(.fab).small {
   padding: 16px;
   font-size: 24px;
   border-radius: 12px;
   width: 40px;
   height: 40px;
+
   & i {
     font-size: 24px;
   }

@@ -1,0 +1,113 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:is(.button,
+button) {
+  --state-disabled-opacity: 0.3799999952316284;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-primary);
+  padding: 0 24px;
+  border-radius: 20px;
+  border: none;
+  height: 40px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+          text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+  text-transform: var(--md-sys-typescale-label-large-text-transform);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  font-style: var(--md-sys-typescale-label-large-font-family-style);
+  font-family: var(--md-sys-typescale-label-large-font);
+  box-shadow: var(--md-sys-elevation-1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+:is(.button,
+button)[label] {
+    content: attr(label);
+    -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+            text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+    text-transform: var(--md-sys-typescale-label-large-text-transform);
+    line-height: var(--md-sys-typescale-label-large-line-height);
+    letter-spacing: var(--md-sys-typescale-label-large-tracking);
+    font-size: var(--md-sys-typescale-label-large-size);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    font-style: var(--md-sys-typescale-label-large-font-family-style);
+    font-family: var(--md-sys-typescale-label-large-font);
+  }
+
+:is(.button,
+button) i {
+    margin-left: -8px;
+    font-size: 18px;
+  }
+
+:is(.button,
+button) i:only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+:is(.button,
+button) a {
+    text-decoration: none;
+  }
+
+:is(.button,
+button) a:hover {
+      text-decoration: none;
+    }
+
+:is(.button,
+button) a:focus {
+      text-decoration: none;
+    }
+
+:is(.button,
+button):where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+:is(.button,
+button):where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+:is(.button,
+button):where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+:is(.button,
+button)[disabled] {
+    cursor: default;
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }

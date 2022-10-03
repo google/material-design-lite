@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-.navigation-drawer.modal {
+:is(.navigation-drawer).modal {
   &[open] {
     position: fixed;
     left: 8px;

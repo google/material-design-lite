@@ -1,0 +1,133 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  /* Full screen dialog divider height */
+  --md-comp-full-screen-dialog-with-divider-divider-height: 1px;
+  /* Full screen dialog action bar pressed state layer opacity */
+  --md-comp-full-screen-dialog-action-bar-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Full screen dialog action bar focus state layer opacity */
+  --md-comp-full-screen-dialog-action-bar-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Full screen dialog action bar hover state layer opacity */
+  --md-comp-full-screen-dialog-action-bar-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Full screen dialog action bar label text tracking */
+  --md-comp-full-screen-dialog-action-bar-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Full screen dialog action bar label text weight */
+  --md-comp-full-screen-dialog-action-bar-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Full screen dialog action bar label text size */
+  --md-comp-full-screen-dialog-action-bar-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Full screen dialog action bar label text line height */
+  --md-comp-full-screen-dialog-action-bar-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Full screen dialog action bar label text font */
+  --md-comp-full-screen-dialog-action-bar-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Full screen dialog action bar on scroll container elevation */
+  --md-comp-full-screen-dialog-action-bar-on-scroll-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  /* Full screen dialog action bar container elevation */
+  --md-comp-full-screen-dialog-action-bar-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Full screen dialog action bar container height */
+  --md-comp-full-screen-dialog-action-bar-container-height: 56px;
+  /* Full screen dialog header action focus state layer opacity */
+  --md-comp-full-screen-dialog-header-action-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Full screen dialog header action hover state layer opacity */
+  --md-comp-full-screen-dialog-header-action-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Full screen dialog header action label text tracking */
+  --md-comp-full-screen-dialog-header-action-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Full screen dialog header action label text weight */
+  --md-comp-full-screen-dialog-header-action-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Full screen dialog header action label text size */
+  --md-comp-full-screen-dialog-header-action-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Full screen dialog header action label text line height */
+  --md-comp-full-screen-dialog-header-action-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Full screen dialog header action label text font */
+  --md-comp-full-screen-dialog-header-action-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Full screen dialog header headline tracking */
+  --md-comp-full-screen-dialog-header-headline-tracking: var(
+    --md-sys-typescale-title-large-tracking
+  );
+  /* Full screen dialog header headline weight */
+  --md-comp-full-screen-dialog-header-headline-weight: var(
+    --md-sys-typescale-title-large-weight
+  );
+  /* Full screen dialog header headline size */
+  --md-comp-full-screen-dialog-header-headline-size: var(
+    --md-sys-typescale-title-large-size
+  );
+  /* Full screen dialog header headline line height */
+  --md-comp-full-screen-dialog-header-headline-line-height: var(
+    --md-sys-typescale-title-large-line-height
+  );
+  /* Full screen dialog header headline font */
+  --md-comp-full-screen-dialog-header-headline-font: var(
+    --md-sys-typescale-title-large-font
+  );
+  /* Full screen dialog header icon size */
+  --md-comp-full-screen-dialog-header-icon-size: 24px;
+  /* Full screen dialog header on scroll container elevation */
+  --md-comp-full-screen-dialog-header-on-scroll-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  /* Full screen dialog header container elevation */
+  --md-comp-full-screen-dialog-header-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Full screen dialog header container height */
+  --md-comp-full-screen-dialog-header-container-height: 56px;
+  /* Full screen dialog container shape */
+  --md-comp-full-screen-dialog-container-shape: var(--md-sys-shape-corner-none);
+  /* Full screen dialog container elevation */
+  --md-comp-full-screen-dialog-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Full screen dialog header action pressed state layer opacity */
+  --md-comp-full-screen-dialog-header-action-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+}

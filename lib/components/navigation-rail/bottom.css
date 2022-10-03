@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-.navigation-rail.bottom {
+:is(.navigation-rail).bottom {
   & nav {
     justify-content: flex-end;
   }

@@ -14,12 +14,13 @@
  limitations under the License.
 */
 
-.chip {
+:is(.chip) {
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
   border-radius: 8px;
+  border: none;
   outline: none;
   padding: 8px 16px;
   height: 32px;
@@ -29,62 +30,37 @@
   text-align: start;
   vertical-align: middle;
   @apply --label-large;
-  --tint-color: transparent;
-  &::after {
-    content: "";
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--tint-color);
+  transition: box-shadow 0.2s ease-in-out;
+
+  & i {
+    color: var(--md-sys-color-primary);
+    font-size: 18px;
+
+    &:first-child {
+      margin-left: -8px;
+    }
+    
+    &:last-child {
+      margin-right: -8px;
+    }
   }
+
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
-    );
   }
-  &:where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-1);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
-  }
+
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
   }
+
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
   &[disabled] {
-    --tint-color: transparent;
     cursor: default;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
-    & > i {
-      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    }
-  }
-  & > i {
-    color: var(--md-sys-color-primary);
-    font-size: 18px;
-    /* Leading Icon */
-    &:first-child {
-      margin-left: -8px;
-    }
-    /* Trailing Icon */
-    &:last-child {
-      margin-right: -8px;
-    }
-    &:only-child {
-      margin-right: 0;
-      margin-left: 0;
-    }
   }
 }

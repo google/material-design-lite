@@ -80,10 +80,15 @@ const { frontmatter, links, link } = Astro.props as {
     padding: 0 1rem;
     width: 280px;
   }
-  .list-tile {
-    padding: 0;
-    margin: 0;
+  a {
+    text-decoration: none;
+    color: var(--md-sys-color-on-surface-variant);
   }
+  .list-tile {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   @media (min-width: 860px) {
     .article {
       max-width: 860px;

@@ -19,7 +19,7 @@ export function generateTokens(color: string) {
   const theme = themeFromSourceColor(argbFromHex(color));
   const output: string[] = [];
 
-  output.push(":where(.light-theme, .dark-theme) {");
+  output.push("* {");
   output.push(`--md-source: ${color};`);
 
   function convertColors(key: string, value: any) {

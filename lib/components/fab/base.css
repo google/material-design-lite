@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.button).fab {
+:is(.fab) {
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;

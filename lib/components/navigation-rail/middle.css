@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-.navigation-rail.middle {
+:is(.navigation-rail).middle {
   & nav {
     justify-content: center;
   }

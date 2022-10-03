@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/filled-tonal-button.css);
 
-:where(.button, button):not(.icon).filled-tonal {
+:is(.button, button).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
   box-shadow: var(--md-sys-elevation-0);

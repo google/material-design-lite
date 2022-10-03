@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/elevated-button.css);
 
-:where(.button, button):not(.icon).elevated {
+:is(.button, button).elevated {
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-primary);

@@ -214,7 +214,7 @@ export const MENU = [
   {
     text: "Home",
     icon: "home",
-    href: "/",
+    href: "",
     header: true,
     children: [],
   },

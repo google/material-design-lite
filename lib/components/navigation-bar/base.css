@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-.navigation-bar {
+:is(.navigation-bar) {
   display: flex;
   flex-direction: row;
   width: 100%;

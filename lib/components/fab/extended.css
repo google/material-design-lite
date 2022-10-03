@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.button).fab.extended {
+:is(.fab).extended {
   border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;

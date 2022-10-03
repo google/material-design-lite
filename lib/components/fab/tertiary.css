@@ -14,27 +14,31 @@
  limitations under the License.
 */
 
-:where(.button).fab.tertiary {
+:is(.fab).tertiary {
   background-color: var(--md-sys-color-tertiary);
   color: var(--md-sys-color-on-tertiary);
+
   &:where(:hover, .hover) {
     --tint-color: rgb(
       var(--md-sys-color-tertiary-rgb) /
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
+
   &:where(:focus, .focus) {
     --tint-color: rgb(
       var(--md-sys-color-tertiary-rgb) /
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
+
   &:where(:active, .active) {
     --tint-color: rgb(
       var(--md-sys-color-tertiary-rgb) /
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
+  
   &[disabled] {
     --tint-color: transparent;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);

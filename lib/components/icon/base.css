@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/icon-button.css);
 
-:where(.icon) {
+:is(.icon) {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,6 +29,7 @@
   cursor: pointer;
   padding: 4px;
   margin: 0;
+  box-shadow: var(--md-sys-elevation-0);
 
   @apply --label-large;
   font-size: var(--md-comp-icon-button-icon-size);
@@ -73,5 +74,10 @@
   & i {
     font-size: var(--md-comp-icon-button-icon-size);
     vertical-align: middle;
+
+    &:only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }

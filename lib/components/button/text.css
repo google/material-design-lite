@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/text-button.css);
 
-:where(.button, button):not(.icon).text {
+:is(.button, button).text {
   background-color: transparent;
   color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-0);

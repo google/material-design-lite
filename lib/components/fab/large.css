@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.button).fab.large {
+:is(.fab).large {
   padding: 16px;
   font-size: 36px;
   border-radius: var(--md-sys-shape-corner-medium);

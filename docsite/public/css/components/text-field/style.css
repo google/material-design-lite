@@ -1,0 +1,385 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+.text-field {
+  -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
+          text-decoration: var(--md-sys-typescale-body-large-text-decoration);
+  text-transform: var(--md-sys-typescale-body-large-text-transform);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  font-size: var(--md-sys-typescale-body-large-size);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  font-style: var(--md-sys-typescale-body-large-font-family-style);
+  font-family: var(--md-sys-typescale-body-large-font);
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Codepen: https://codepen.io/finnhvman/pen/xyOORQ */
+
+.text-field.outlined {
+  padding-top: 6px;
+}
+
+/* Input, Textarea */
+
+.text-field.outlined > input,
+  .text-field.outlined > textarea {
+    box-sizing: border-box;
+    margin: 0;
+    border: solid 1px; /* Safari */
+    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+    border-top-color: transparent;
+    border-radius: 4px;
+    padding: 15px 13px 15px;
+    width: 100%;
+    height: inherit;
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+    background-color: transparent;
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: var(--md-sys-color-primary);
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+
+/* Span */
+
+.text-field.outlined > input + span,
+  .text-field.outlined > textarea + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+    width: 100%;
+    max-height: 100%;
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+    font-size: 75%;
+    line-height: 15px;
+    cursor: text;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+  }
+
+/* Corners */
+
+.text-field.outlined > input + span::before,
+  .text-field.outlined > input + span::after,
+  .text-field.outlined > textarea + span::before,
+  .text-field.outlined > textarea + span::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    margin-top: 6px;
+    border-top: solid 1px;
+    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+    min-width: 10px;
+    height: 8px;
+    pointer-events: none;
+    box-shadow: inset 0 1px transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+.text-field.outlined > input + span::before,
+  .text-field.outlined > textarea + span::before {
+    margin-right: 4px;
+    border-left: solid 1px transparent;
+    border-radius: 4px 0;
+  }
+
+.text-field.outlined > input + span::after,
+  .text-field.outlined > textarea + span::after {
+    flex-grow: 1;
+    margin-left: 4px;
+    border-right: solid 1px transparent;
+    border-radius: 0 4px;
+  }
+
+/* Hover */
+
+.text-field.outlined:hover > input,
+  .text-field.outlined:hover > textarea {
+    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+    border-top-color: transparent;
+  }
+
+.text-field.outlined:hover > input + span::before,
+  .text-field.outlined:hover > textarea + span::before,
+  .text-field.outlined:hover > input + span::after,
+  .text-field.outlined:hover > textarea + span::after {
+    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+  }
+
+.text-field.outlined:hover > input:not(:focus):-moz-placeholder-shown, .text-field.outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
+    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+  }
+
+.text-field.outlined:hover > input:not(:focus):placeholder-shown,
+  .text-field.outlined:hover > textarea:not(:focus):placeholder-shown {
+    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+  }
+
+/* Placeholder-shown */
+
+.text-field.outlined > input:not(:focus):-moz-placeholder-shown, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown {
+    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+  }
+
+.text-field.outlined > input:not(:focus):placeholder-shown,
+  .text-field.outlined > textarea:not(:focus):placeholder-shown {
+    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+  }
+
+.text-field.outlined > input:not(:focus):-moz-placeholder-shown + span, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span {
+    font-size: inherit;
+    line-height: 68px;
+  }
+
+.text-field.outlined > input:not(:focus):placeholder-shown + span,
+  .text-field.outlined > textarea:not(:focus):placeholder-shown + span {
+    font-size: inherit;
+    line-height: 68px;
+  }
+
+.text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::after, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
+    border-top-color: transparent;
+  }
+
+.text-field.outlined > input:not(:focus):placeholder-shown + span::before,
+  .text-field.outlined > textarea:not(:focus):placeholder-shown + span::before,
+  .text-field.outlined > input:not(:focus):placeholder-shown + span::after,
+  .text-field.outlined > textarea:not(:focus):placeholder-shown + span::after {
+    border-top-color: transparent;
+  }
+
+/* Focus */
+
+.text-field.outlined > input:focus,
+  .text-field.outlined > textarea:focus {
+    border-color: var(--md-sys-color-primary);
+    border-top-color: transparent;
+    box-shadow: inset 1px 0 var(--md-sys-color-primary),
+      inset -1px 0 var(--md-sys-color-primary),
+      inset 0 -1px var(--md-sys-color-primary);
+    outline: none;
+  }
+
+.text-field.outlined > input:focus + span,
+  .text-field.outlined > textarea:focus + span {
+    color: var(--md-sys-color-primary);
+  }
+
+.text-field.outlined > input:focus + span::before,
+  .text-field.outlined > input:focus + span::after,
+  .text-field.outlined > textarea:focus + span::before,
+  .text-field.outlined > textarea:focus + span::after {
+    border-top-color: var(--md-sys-color-primary) !important;
+    box-shadow: inset 0 1px var(--md-sys-color-primary);
+  }
+
+/* Disabled */
+
+.text-field.outlined > input:disabled,
+  .text-field.outlined > input:disabled + span,
+  .text-field.outlined > textarea:disabled,
+  .text-field.outlined > textarea:disabled + span {
+    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
+    border-top-color: transparent !important;
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    pointer-events: none;
+  }
+
+.text-field.outlined > input:disabled + span::before,
+  .text-field.outlined > input:disabled + span::after,
+  .text-field.outlined > textarea:disabled + span::before,
+  .text-field.outlined > textarea:disabled + span::after {
+    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
+  }
+
+.text-field.outlined > input:disabled:-moz-placeholder-shown, .text-field.outlined > input:disabled:-moz-placeholder-shown + span, .text-field.outlined > textarea:disabled:-moz-placeholder-shown, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span {
+    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
+  }
+
+.text-field.outlined > input:disabled:placeholder-shown,
+  .text-field.outlined > input:disabled:placeholder-shown + span,
+  .text-field.outlined > textarea:disabled:placeholder-shown,
+  .text-field.outlined > textarea:disabled:placeholder-shown + span {
+    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
+  }
+
+.text-field.outlined > input:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > input:disabled:-moz-placeholder-shown + span::after, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::after {
+    border-top-color: transparent !important;
+  }
+
+.text-field.outlined > input:disabled:placeholder-shown + span::before,
+  .text-field.outlined > input:disabled:placeholder-shown + span::after,
+  .text-field.outlined > textarea:disabled:placeholder-shown + span::before,
+  .text-field.outlined > textarea:disabled:placeholder-shown + span::after {
+    border-top-color: transparent !important;
+  }
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+
+@media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      .text-field.outlined > input,
+      .text-field.outlined > input + span,
+      .text-field.outlined > textarea,
+      .text-field.outlined > textarea + span,
+      .text-field.outlined > input + span::before,
+      .text-field.outlined > input + span::after,
+      .text-field.outlined > textarea + span::before,
+      .text-field.outlined > textarea + span::after {
+        transition-duration: 0.1s;
+      }
+    }
+  }
+
+/* Codepen: https://codepen.io/finnhvman/pen/bxXPqN */
+
+/* Input, Textarea */
+
+.text-field.filled > input,
+  .text-field.filled > textarea {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    border-top: solid 27px transparent;
+    border-bottom: solid 1px rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+    border-radius: 4px 4px 0 0;
+    padding: 0 12px 10px;
+    width: 100%;
+    height: inherit;
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.04);
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: var(--md-sys-color-primary);
+    transition: border-bottom 0.2s, background-color 0.2s;
+  }
+
+/* Span */
+
+.text-field.filled > input + span,
+  .text-field.filled > textarea + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    box-sizing: border-box;
+    padding: 7px 12px 0;
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+    font-size: 75%;
+    line-height: 18px;
+    pointer-events: none;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+  }
+
+/* Underline */
+
+.text-field.filled > input + span::after,
+  .text-field.filled > textarea + span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--md-sys-color-primary);
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+/* Hover */
+
+.text-field.filled > input:hover,
+  .text-field.filled > textarea:hover {
+    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
+  }
+
+/* Placeholder-shown */
+
+.text-field.filled > input:not(:focus):-moz-placeholder-shown + span, .text-field.filled > textarea:not(:focus):-moz-placeholder-shown + span {
+    font-size: inherit;
+    line-height: 48px;
+  }
+
+.text-field.filled > input:not(:focus):placeholder-shown + span,
+  .text-field.filled > textarea:not(:focus):placeholder-shown + span {
+    font-size: inherit;
+    line-height: 48px;
+  }
+
+/* Focus */
+
+.text-field.filled > input:focus,
+  .text-field.filled > textarea:focus {
+    outline: none;
+  }
+
+.text-field.filled > input:focus + span,
+  .text-field.filled > textarea:focus + span {
+    color: var(--md-sys-color-primary);
+  }
+
+.text-field.filled > input:focus + span::before,
+  .text-field.filled > textarea:focus + span::before {
+    opacity: 0.12;
+  }
+
+.text-field.filled > input:focus + span::after,
+  .text-field.filled > textarea:focus + span::after {
+    transform: scale(1);
+  }
+
+/* Disabled */
+
+.text-field.filled > input:disabled,
+  .text-field.filled > textarea:disabled {
+    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
+  }
+
+.text-field.filled > input:disabled + span,
+  .text-field.filled > textarea:disabled + span {
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+
+@media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      .text-field.filled > input,
+      .text-field.filled > input + span,
+      .text-field.filled > input + span::after,
+      .text-field.filled > textarea,
+      .text-field.filled > textarea + span,
+      .text-field.filled > textarea + span::after {
+        transition-duration: 0.1s;
+      }
+    }
+  }

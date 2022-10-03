@@ -16,48 +16,49 @@
 
 @import url(tokens/typeface.css);
 @import url(tokens/typescale.css);
-:where(.display-large, .display2-text) {
+
+:is(.display-large, .display2-text) {
   @apply --display-large;
 }
-:where(.display-medium, .display3text) {
+:is(.display-medium, .display3text) {
   @apply --display-medium;
 }
-:where(.display-small, .headline1-text, h1) {
+:is(.display-small, .headline1-text, h1) {
   @apply --display-small;
 }
-:where(.headline-large, .headline2-text, h2) {
+:is(.headline-large, .headline2-text, h2) {
   @apply --headline-large;
 }
-:where(.headline-medium, .headline3-text, h3) {
+:is(.headline-medium, .headline3-text, h3) {
   @apply --headline-medium;
 }
-:where(.headline-small, .headline4-text, h4) {
+:is(.headline-small, .headline4-text, h4) {
   @apply --headline-small;
 }
-:where(.title-large, .headline5-text, h5) {
+:is(.title-large, .headline5-text, h5) {
   @apply --title-large;
 }
-:where(.title-medium, .headline6-text, .subhead1-text, h6) {
+:is(.title-medium, .headline6-text, .subhead1-text, h6) {
   @apply --title-medium;
 }
-:where(.title-small, .subhead2-text) {
+:is(.title-small, .subhead2-text) {
   @apply --title-small;
 }
-:where(.body-large, .body1-text, p) {
+:is(.body-large, .body1-text, p) {
   @apply --body-large;
 }
-:where(.body-medium, .body2-text) {
+:is(.body-medium, .body2-text) {
   @apply --body-medium;
 }
-:where(.body-small, .caption-text) {
+:is(.body-small, .caption-text) {
   @apply --body-small;
 }
-:where(.label-large, .button-text) {
+:is(.label-large, .button-text) {
   @apply --label-large;
 }
-:where(.label-medium, .overline) {
+:is(.label-medium, .overline) {
   @apply --label-medium;
 }
-:where(.label-small) {
+:is(.label-small) {
   @apply --label-small;
 }

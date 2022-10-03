@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/outlined-icon-button.css);
 
-:where(.icon).outlined {
+:is(.icon).outlined {
   box-shadow: var(--md-sys-elevation-0);
   background-color: transparent;
   color: var(--md-sys-color-on-surface-variant);

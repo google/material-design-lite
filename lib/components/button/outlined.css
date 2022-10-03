@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/outlined-button.css);
 
-:where(.button, button):not(.icon).outlined {
+:is(.button, button).outlined {
   background-color: transparent;
   color: var(--md-sys-color-primary);
   border: var(--md-comp-outlined-button-outline-width) solid var(--md-sys-color-outline);

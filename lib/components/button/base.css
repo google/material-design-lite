@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.button, button):not(.icon) {
+:is(.button, button) {
   --state-disabled-opacity: 0.3799999952316284;
 
   background-color: var(--md-sys-color-surface);
@@ -42,29 +42,30 @@
     content: attr(label);
     @apply --label-large;
   }
+
   & i {
     margin-left: -8px;
     font-size: 18px;
+
+    &:only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
-  & i:only-child {
-    margin-left: 0;
-    margin-right: 0;
-  }
+
   & a {
     text-decoration: none;
-  }
-  & a:hover {
-    text-decoration: none;
-  }
-  & a:focus {
-    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
   }
 
   &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-2);
-  }
-
-  &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
@@ -72,8 +73,8 @@
     box-shadow: var(--md-sys-elevation-1);
   }
 
-  &:focus-within::before {
-    border-radius: 40px;
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-2);
   }
 
   &[disabled] {
