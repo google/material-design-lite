@@ -22,6 +22,7 @@
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
+
   &::before {
     content: "";
     position: absolute;
@@ -31,24 +32,35 @@
     right: 0;
     background-color: var(--md-sys-color-surface-1);
   }
+
   & .actions {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex: 1;
     margin: 16px;
+    gap: 8px;
   }
+
+  & :where(.icon) {
+    background-color: transparent;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
   & :where(.fab) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
+
     &:hover {
       box-shadow: var(--md-sys-elevation-1);
     }
+
     &:focus {
       box-shadow: var(--md-sys-elevation-0);
     }
+
     &:active {
       box-shadow: var(--md-sys-elevation-0);
     }

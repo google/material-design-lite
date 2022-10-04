@@ -3,6 +3,7 @@ title: Buttons
 description: Variations on Material Design buttons.
 link: https://material.io/components/buttons
 tab: "components"
+playground: https://codepen.io/rodydavis/embed/OJZvWRQ?default-tab=html%2Cresult&editable=true
 ---
 
 Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
