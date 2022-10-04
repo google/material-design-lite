@@ -8,6 +8,25 @@ playground: https://codepen.io/rodydavis/embed/oNdMNWv?default-tab=html%2Cresult
 
 Bottom app bars provide access to a bottom navigation drawer and include multiple actions and an optional floating action button.
 
+## Preview
+
+<footer class="bottom-app-bar" style="min-width: 400px">
+  <div class="actions">
+    <button class="icon button">
+      <i class="material-icons">search</i>
+    </button>
+    <button class="icon button">
+      <i class="material-icons">delete</i>
+    </button>
+    <button class="icon button">
+      <i class="material-icons">archive</i>
+    </button>
+  </div>
+  <button class="fab">
+    <i class="material-icons">add</i>
+  </button>
+</footer>
+
 ## Installation
 
 To import just the component styles, copy the following into your project's `styles.css` file:
@@ -97,12 +116,12 @@ Since the bottom app bar is meant to be at the bottom of the screen, it is recom
 
 ### Design Tokens
 
-| Token                               | Description                                | Default                                                |
-|-------------------------------------|--------------------------------------------|--------------------------------------------------------|
-| `--md-sys-color-surface`            | The background color of the bottom app bar | <div class="token-box color-surface"></div>            |
-| `--md-sys-color-on-surface`         | The foreground color of the bottom app bar | <div class="token-box color-on-surface"></div>         |
-| `--md-sys-color-surface-variant`    | The background color of the fab            | <div class="token-box color-surface-variant"></div>    |
-| `--md-sys-color-on-surface-variant` | The foreground color of the icons          | <div class="token-box color-on-surface-variant"></div> |
+| Token                               | Description                                | Default                                                                                                         |
+|-------------------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| `--md-sys-color-surface`            | The background color of the bottom app bar | <div class="tooltip token-box color-surface" data-tooltip="--md-sys-color-surface"></div>                       |
+| `--md-sys-color-on-surface`         | The foreground color of the bottom app bar | <div class="tooltip token-box color-on-surface" data-tooltip="--md-sys-color-on-surface"></div>                 |
+| `--md-sys-color-surface-variant`    | The background color of the fab            | <div class="tooltip token-box color-surface-variant" data-tooltip="--md-sys-color-surface-variant"></div>       |
+| `--md-sys-color-on-surface-variant` | The foreground color of the icons          | <div class="tooltip token-box color-on-surface-variant" data-tooltip="--md-sys-color-on-surface-variant"></div> |
 
 
 ## Playground

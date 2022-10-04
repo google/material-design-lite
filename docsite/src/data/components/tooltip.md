@@ -6,4 +6,5 @@ tab: "components"
 
 ## Default
 
-<code-preview group="default"></code-preview>
+<a class="tooltip" href="#" aria-label="Tooltip contents here!">Hover Me!</a>
+

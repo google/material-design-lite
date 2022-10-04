@@ -14,14 +14,14 @@
  limitations under the License.
 */
 
-.bottom-app-bar {
+:is(.bottom-app-bar) {
   display: flex;
   flex-direction: row;
   width: 100%;
   position: relative;
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-on-surface-variant);
 
   &::before {
     content: "";
@@ -44,7 +44,7 @@
 
   & :where(.icon) {
     background-color: transparent;
-    color: var(--md-sys-color-on-surface-variant);
+    color: inherit;
   }
 
   & :where(.fab) {
