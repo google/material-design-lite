@@ -23,3 +23,7 @@
 @import url(motion.css);
 @import url(state.css);
 @import url(elevation.css);
+
+* {
+  -webkit-font-smoothing: antialiased;
+}

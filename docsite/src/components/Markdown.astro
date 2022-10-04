@@ -19,6 +19,7 @@ const { source, id } = Astro.props;
         outline={line.includes(" outline")} 
       />;
     }
+
     return <div set:html={line} />;
   })
 }
@@ -32,10 +33,12 @@ const { source, id } = Astro.props;
     margin: 2rem;
     gap: 1rem;
   }
+
   .render[data-outline] {
     outline: 2px solid var(--md-sys-color-on-surface-variant);
     outline-offset: 5px;
   }
+
   .snippet {
     padding: 1rem;
     display: flex;
@@ -43,6 +46,7 @@ const { source, id } = Astro.props;
     justify-content: center;
     align-items: center;
   }
+
   .label {
     font-size: 0.8rem;
     text-align: center;
@@ -50,6 +54,7 @@ const { source, id } = Astro.props;
     opacity: 0.5;
     text-align: center;
   }
+  
   .code {
     position: relative;
     width: 100%;

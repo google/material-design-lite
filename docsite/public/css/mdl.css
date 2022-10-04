@@ -2063,6 +2063,9 @@
 .elevation-5 {
   box-shadow: var(--md-sys-elevation-5);
 }
+* {
+  -webkit-font-smoothing: antialiased;
+}
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -7044,6 +7047,3 @@ datalist {
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
-* {
-  -webkit-font-smoothing: antialiased;
-}

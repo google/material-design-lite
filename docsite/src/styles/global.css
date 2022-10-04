@@ -13,3 +13,23 @@ body {
   background-color: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding-bottom: 0.8rem;
+  padding-top: 1rem;
+}
+
+.token-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin: 0 10px;
+  border: 1px solid var(--md-sys-color-on-background);
+  border-radius: 2px;
+}

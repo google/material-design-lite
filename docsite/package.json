@@ -12,7 +12,8 @@
   "dependencies": {
     "@astrojs/prism": "^1.0.1",
     "@material/material-color-utilities": "file:../third_party/material-color-utilities/typescript",
-    "astro": "^1.1.7"
+    "astro": "^1.1.7",
+    "lit": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "^18.7.17",
