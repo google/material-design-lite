@@ -1,7 +1,7 @@
 ---
 title: List
 description: Variations on Material Design lists.
-tab: "components"
+
 ---
 
 ## Default

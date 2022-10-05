@@ -1,7 +1,7 @@
 ---
 title: Fabs
 description: Variations on Material Design floating action buttons.
-tab: "components"
+
 ---
 
 ## Default

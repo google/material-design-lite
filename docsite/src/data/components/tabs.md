@@ -1,7 +1,7 @@
 ---
 title: Tabs
 description: Variations on Material Design tabs.
-tab: "components"
+
 ---
 
 ## Default

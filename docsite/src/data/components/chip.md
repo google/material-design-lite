@@ -1,7 +1,7 @@
 ---
 title: Chips
 description: Variations on Material Design chips.
-tab: "components"
+
 playground: https://codepen.io/rodydavis/embed/YzLjKRM?default-tab=html%2Cresult&editable=true
 ---
 

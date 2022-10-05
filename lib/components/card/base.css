@@ -14,11 +14,16 @@
  limitations under the License.
 */
 
-.card {
+:where(html),
+.tokens {
+  --md-sys-comp-card-width: 300px;
+}
+
+:is(.card) {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 300px;
+  min-width: var(--md-sys-comp-card-width);
   border-radius: var(--md-sys-shape-corner-medium);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);

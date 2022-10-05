@@ -1,7 +1,7 @@
 ---
 title: Dialog
 description: Implementation of Material Design dialog.
-tab: "components"
+
 ---
 
 ## Default

@@ -1,7 +1,7 @@
 ---
 title: Progress Indicator
 description: Variations on Material Design progress indicators.
-tab: "components"
+
 ---
 
 ## Default

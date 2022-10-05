@@ -1,7 +1,7 @@
 ---
 title: Slider
 description: Variations on Material Design sliders.
-tab: "components"
+
 ---
 
 ## Default

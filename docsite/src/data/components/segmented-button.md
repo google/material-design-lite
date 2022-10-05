@@ -1,7 +1,7 @@
 ---
 title: Segmented Button
 description: Implementation on Material Design segmented button.
-tab: "components"
+
 ---
 
 ## Default

@@ -1,7 +1,7 @@
 ---
 title: Radio Button
 description: Implementation on Material Design radio button.
-tab: "components"
+
 ---
 
 ## Default

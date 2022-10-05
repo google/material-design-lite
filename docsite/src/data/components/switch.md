@@ -1,7 +1,7 @@
 ---
 title: Switches
 description: Variations on Material Design switches.
-tab: "components"
+
 ---
 
 ## Default

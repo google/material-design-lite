@@ -1,7 +1,7 @@
 ---
 title: Icon button
 description: Variations on Material Design icon buttons.
-tab: "components"
+
 ---
 
 Icons visually communicate the button’s action. Their meaning should be clear and unambiguous. Icon buttons can be grouped **together** or they can **stand alone**.

@@ -16,6 +16,7 @@ const { id } = Astro.props;
 const posts = await Astro.glob("../../data/components/*.md");
 const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
 const { frontmatter, Content } = post;
+frontmatter.tab = "components";
 // const source = post.compiledContent();
 ---
 

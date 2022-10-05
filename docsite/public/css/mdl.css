@@ -3813,22 +3813,26 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.card {
+:where(html),
+.tokens {
+  --md-sys-comp-card-width: 300px;
+}
+:is(.card) {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 300px;
+  min-width: var(--md-sys-comp-card-width);
   border-radius: var(--md-sys-shape-corner-medium);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-1);
   text-align: start;
 }
-.card img {
+:is(.card) img {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }
-.card .title {
+:is(.card) .title {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
             text-decoration: var(--md-sys-typescale-title-large-text-decoration);
@@ -3839,7 +3843,7 @@
     font-weight: var(--md-sys-typescale-title-large-weight);
     font-family: var(--md-sys-typescale-title-large-font);
   }
-.card .subtitle {
+:is(.card) .subtitle {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
             text-decoration: var(--md-sys-typescale-body-large-text-decoration);
@@ -3850,7 +3854,7 @@
     font-weight: var(--md-sys-typescale-body-large-weight);
     font-family: var(--md-sys-typescale-body-large-font);
   }
-.card .actions {
+:is(.card) .actions {
     padding: 16px;
     display: flex;
     flex-direction: row;

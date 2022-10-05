@@ -1,7 +1,7 @@
 ---
 title: Top app bar
 description: Variations on Material Design top app bars.
-tab: "components"
+
 ---
 
 ## Default

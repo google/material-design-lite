@@ -9,6 +9,8 @@
     "format": "npx prettier --write .",
     "postinstall": "npm run tsc",
     "build": "npm run css:build",
+    "readme:watch": "node dist/readme.js --watch",
+    "readme:build": "node dist/readme.js",
     "css:build": "node dist/css.js",
     "css:watch": "npx postcss --watch lib/styles.css --output docsite/public/css/mdl.css",
     "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",

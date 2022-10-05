@@ -1,7 +1,7 @@
 ---
 title: Ripple
 description: Material Design ripple effect.
-tab: "components"
+
 ---
 
 ## Default

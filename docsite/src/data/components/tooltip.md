@@ -1,7 +1,7 @@
 ---
 title: Tooltip
 description: Variations on Material Design tooltips.
-tab: "components"
+
 ---
 
 ## Default

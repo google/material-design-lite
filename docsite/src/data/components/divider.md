@@ -1,7 +1,7 @@
 ---
 title: Divider
 description: Implementation on Material Design divider.
-tab: "components"
+
 ---
 
 ## Default

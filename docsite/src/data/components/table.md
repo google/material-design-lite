@@ -1,7 +1,7 @@
 ---
 title: Table
 description: Variations on Material Design tables.
-tab: "components"
+
 ---
 
 ## Default

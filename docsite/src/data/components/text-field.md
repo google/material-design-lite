@@ -1,7 +1,7 @@
 ---
 title: Text Field
 description: Variations of Material Design text fields.
-tab: "components"
+
 ---
 
 ## Filled

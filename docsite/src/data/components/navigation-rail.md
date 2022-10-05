@@ -1,7 +1,7 @@
 ---
 title: Navigation Rail
 description: Implementation of Material Design navigation rail.
-tab: "components"
+
 ---
 
 ## Default

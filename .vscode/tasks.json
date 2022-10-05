@@ -11,6 +11,14 @@
         },
         {
             "type": "shell",
+            "label": "Readme Watch",
+            "command": "nvm use node && npm run readme:watch",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "type": "shell",
             "label": "TS Watch",
             "command": "nvm use node && npm run tsc:watch",
             "presentation": {
@@ -45,6 +53,7 @@
             "label": "Dev",
             "dependsOn": [
                 "Site Watch",
+                "Readme Watch",
                 "CSS Watch",
                 "Test Watch",
                 "TS Watch",

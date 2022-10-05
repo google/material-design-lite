@@ -1,7 +1,7 @@
 ---
 title: Snackbar
 description: Variations pf Material Design snackbars.
-tab: "components"
+
 ---
 
 ## Default

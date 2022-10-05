@@ -1,7 +1,7 @@
 ---
 title: Navigation Drawer
 description: Implementation of Material Design navigation drawer.
-tab: "components"
+
 ---
 
 ## Default
