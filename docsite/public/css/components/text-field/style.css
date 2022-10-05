@@ -22,11 +22,14 @@
   letter-spacing: var(--md-sys-typescale-body-large-tracking);
   font-size: var(--md-sys-typescale-body-large-size);
   font-weight: var(--md-sys-typescale-body-large-weight);
-  font-style: var(--md-sys-typescale-body-large-font-family-style);
   font-family: var(--md-sys-typescale-body-large-font);
   position: relative;
   display: inline-block;
   overflow: hidden;
+}
+
+datalist {
+  display: none;
 }
 
 /* Codepen: https://codepen.io/finnhvman/pen/xyOORQ */

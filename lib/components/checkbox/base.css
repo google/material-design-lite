@@ -41,12 +41,12 @@
     color: var(--md-sys-comp-checkbox-unselected-color);
   }
 
-  &:where(:checked, .checked)::after {
+  &:is(:checked, .checked)::after {
     content: "check_box";
     color: var(--md-sys-comp-checkbox-selected-color);
   }
 
-  &:where(:indeterminate, .indeterminate)::after {
+  &:is(:indeterminate, .indeterminate)::after {
     content: "indeterminate_check_box";
     color: var(--md-sys-comp-checkbox-selected-color);
   }

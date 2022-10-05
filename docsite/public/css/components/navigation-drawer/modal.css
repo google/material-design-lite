@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-.navigation-drawer.modal[open] {
+:is(.navigation-drawer).modal[open] {
     position: fixed;
     left: 8px;
     top: 8px;
@@ -25,14 +25,14 @@
     overflow-y: auto;
   }
 
-.navigation-drawer.modal[open]::-webkit-backdrop {
+:is(.navigation-drawer).modal[open]::-webkit-backdrop {
       /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
     }
 
-.navigation-drawer.modal[open]::backdrop {
+:is(.navigation-drawer).modal[open]::backdrop {
       /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);

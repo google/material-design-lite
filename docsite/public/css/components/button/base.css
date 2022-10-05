@@ -14,11 +14,19 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: 40px;
+}
+
 :is(.button,
 button) {
   --state-disabled-opacity: 0.3799999952316284;
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-comp-button-background-color);
+  color: var(--md-sys-comp-button-color);
+  height: var(--md-comp-button-container-height);
   padding: 0 24px;
   border-radius: 20px;
   border: none;
@@ -39,7 +47,6 @@ button) {
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
-  font-style: var(--md-sys-typescale-label-large-font-family-style);
   font-family: var(--md-sys-typescale-label-large-font);
   box-shadow: var(--md-sys-elevation-1);
   transition: box-shadow 0.2s ease-in-out;
@@ -55,7 +62,6 @@ button)[label] {
     letter-spacing: var(--md-sys-typescale-label-large-tracking);
     font-size: var(--md-sys-typescale-label-large-size);
     font-weight: var(--md-sys-typescale-label-large-weight);
-    font-style: var(--md-sys-typescale-label-large-font-family-style);
     font-family: var(--md-sys-typescale-label-large-font);
   }
 

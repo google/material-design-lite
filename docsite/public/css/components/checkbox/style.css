@@ -14,6 +14,13 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-checkbox-size: 24px;
+  --md-sys-comp-checkbox-unselected-color: var(--md-sys-color-outline);
+  --md-sys-comp-checkbox-selected-color: var(--md-sys-color-primary);
+}
+
 :where(input[type="checkbox"],
 .checkbox):not(:where(.switch,
 .segmented-button,
@@ -22,9 +29,8 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
-  --size: 24px;
-  width: var(--size);
-  height: var(--size);
+  width: var(--md-sys-comp-checkbox-size);
+  height: var(--md-sys-comp-checkbox-size);
   position: relative;
 }
 
@@ -46,27 +52,28 @@
     letter-spacing: normal;
     line-height: 1;
     font-size: 24px;
-    font-style: normal;
     font-weight: normal;
     font-family: "Material Icons";
     content: "check_box_outline_blank";
-    color: var(--md-sys-color-outline);
+    color: var(--md-sys-comp-checkbox-unselected-color);
   }
 
 :where(input[type="checkbox"],
 .checkbox):not(:where(.switch,
 .segmented-button,
-.toggle)):checked::after {
+.toggle)):is(:checked,
+.checked)::after {
     content: "check_box";
-    color: var(--md-sys-color-primary);
+    color: var(--md-sys-comp-checkbox-selected-color);
   }
 
 :where(input[type="checkbox"],
 .checkbox):not(:where(.switch,
 .segmented-button,
-.toggle)):indeterminate::after {
+.toggle)):is(:indeterminate,
+.indeterminate)::after {
     content: "indeterminate_check_box";
-    color: var(--md-sys-color-primary);
+    color: var(--md-sys-comp-checkbox-selected-color);
   }
 
 :where(input[type="checkbox"],

@@ -19,12 +19,7 @@
   position: relative;
 }
 
-.tooltip[aria-label] {
-    position: relative;
-  }
-
-.tooltip[aria-label]:before {
-    content: attr(aria-label);
+.tooltip:before {
     position: absolute;
     bottom: -80px;
     left: 50%;
@@ -39,7 +34,6 @@
     letter-spacing: var(--md-sys-typescale-label-small-tracking);
     font-size: var(--md-sys-typescale-label-small-size);
     font-weight: var(--md-sys-typescale-label-small-weight);
-    font-style: var(--md-sys-typescale-label-small-font-family-style);
     font-family: var(--md-sys-typescale-label-small-font);
     border-radius: var(--md-sys-shape-corner-small);
     background-color: var(--md-sys-color-inverse-surface);
@@ -48,6 +42,14 @@
     box-shadow: var(--md-sys-elevation-2);
   }
 
-.tooltip[aria-label]:hover:before {
+.tooltip[aria-label]:before {
+    content: attr(aria-label);
+  }
+
+.tooltip[data-tooltip]:before {
+    content: attr(data-tooltip);
+  }
+
+.tooltip:hover:before {
     transform: translateX(-50%) scale(1);
   }

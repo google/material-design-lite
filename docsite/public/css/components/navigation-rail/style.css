@@ -108,7 +108,6 @@
       letter-spacing: var(--md-sys-typescale-label-medium-tracking);
       font-size: var(--md-sys-typescale-label-medium-size);
       font-weight: var(--md-sys-typescale-label-medium-weight);
-      font-style: var(--md-sys-typescale-label-medium-font-family-style);
       font-family: var(--md-sys-typescale-label-medium-font);
     }
 
@@ -123,10 +122,10 @@
         justify-content: center;
       }
 
-.navigation-rail.middle nav {
+:is(.navigation-rail).middle nav {
     justify-content: center;
   }
 
-.navigation-rail.bottom nav {
+:is(.navigation-rail).bottom nav {
     justify-content: flex-end;
   }

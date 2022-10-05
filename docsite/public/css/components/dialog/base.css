@@ -47,7 +47,6 @@
       letter-spacing: var(--md-sys-typescale-headline-small-tracking);
       font-size: var(--md-sys-typescale-headline-small-size);
       font-weight: var(--md-sys-typescale-headline-small-weight);
-      font-style: var(--md-sys-typescale-headline-small-font-family-style);
       font-family: var(--md-sys-typescale-headline-small-font);
       text-align: center;
     }
@@ -60,7 +59,6 @@
       letter-spacing: var(--md-sys-typescale-body-medium-tracking);
       font-size: var(--md-sys-typescale-body-medium-size);
       font-weight: var(--md-sys-typescale-body-medium-weight);
-      font-style: var(--md-sys-typescale-body-medium-font-family-style);
       font-family: var(--md-sys-typescale-body-medium-font);
       text-align: start;
     }

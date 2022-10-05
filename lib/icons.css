@@ -22,6 +22,7 @@
   src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
     format("woff2");
 }
+
 :where(.material-icons) {
   font-family: "Material Icons";
   font-weight: normal;
@@ -38,25 +39,36 @@
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
-:root,
+
+:where(html),
+.tokens,
 [class*="material-symbols-"] {
   --material-symbols-fill: 0;
   --material-symbols-wght: 400;
   --material-symbols-grad: 0;
   --material-symbols-opsz: 48;
 }
+
 :where(.material-symbols-sharp) {
-  font-variation-settings: "FILL" var(--material-symbols-fill),
-    "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght),
+    "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
+
 :where(.material-symbols-rounded) {
-  font-variation-settings: "FILL" var(--material-symbols-fill),
-    "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght),
+    "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
+
 :where(.material-symbols-outlined) {
-  font-variation-settings: "FILL" var(--material-symbols-fill),
-    "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght),
+    "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }

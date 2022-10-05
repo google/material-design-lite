@@ -51,7 +51,7 @@ Start with a **button** or **div** element and add the **button** class name:
 
 The **button** class name is implicit when using the **button** element.
 
-### Optional Icon
+### Icon (Optional)
 
 <div class="preview">
   <button>

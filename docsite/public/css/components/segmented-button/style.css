@@ -31,7 +31,6 @@
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
-  font-style: var(--md-sys-typescale-label-large-font-family-style);
   font-family: var(--md-sys-typescale-label-large-font);
 }
 
@@ -128,7 +127,6 @@
     letter-spacing: var(--md-sys-typescale-title-small-tracking);
     font-size: var(--md-sys-typescale-title-small-size);
     font-weight: var(--md-sys-typescale-title-small-weight);
-    font-style: var(--md-sys-typescale-title-small-font-family-style);
     font-family: var(--md-sys-typescale-title-small-font);
   }
 
@@ -143,7 +141,6 @@
       letter-spacing: normal;
       line-height: 1;
       font-size: 24px;
-      font-style: normal;
       font-weight: normal;
       font-family: "Material Icons";
       padding-right: 8px;

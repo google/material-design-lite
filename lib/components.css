@@ -14,6 +14,7 @@
  limitations under the License.
 */
 
+@import url(components/typography/style.css);
 @import url(components/button/style.css);
 @import url(components/icon/style.css);
 @import url(components/fab/style.css);
@@ -21,7 +22,6 @@
 @import url(components/chip/style.css);
 @import url(components/top-app-bar/style.css);
 @import url(components/text-field/style.css);
-@import url(components/autocomplete/style.css);
 @import url(components/ripple/style.css);
 @import url(components/tooltip/style.css);
 @import url(components/switch/style.css);

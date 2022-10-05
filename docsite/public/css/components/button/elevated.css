@@ -83,8 +83,6 @@
 :is(.button,
 button).elevated {
   box-shadow: var(--md-sys-elevation-1);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-primary);
   height: var(--md-comp-elevated-button-container-height);
 
   /* BUG: Tokens breaking render */

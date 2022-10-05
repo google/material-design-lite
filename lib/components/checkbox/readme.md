@@ -12,8 +12,8 @@ Variations on Material Design checkboxes.
 <div class="preview">
     <input type="checkbox" />
     <input type="checkbox" checked />
-    <input type="checkbox" disabled />
     <input class="indeterminate" type="checkbox" />
+    <input type="checkbox" disabled />
 </div>
 
 ## Installation
