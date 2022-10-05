@@ -2,7 +2,7 @@
 title: Dividers
 description: Variations on Material Design dividers.
 link: https://m3.material.io/components/divider
-codepen: YzLjKRM
+codepen: YzLjdOr
 ---
 
 Dividers can reinforce tapability, such as when used to separate list items or define tappable regions in an accordion.

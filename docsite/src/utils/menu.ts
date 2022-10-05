@@ -68,6 +68,10 @@ export const COMPONENTS = [
     link: "components/fab",
   },
   {
+    text: "Focus Ring",
+    link: "components/focus-ring",
+  },
+  {
     text: "Icon",
     link: "components/icon",
   },
@@ -156,10 +160,6 @@ export const COMPONENTS = [
   {
     text: "Tooltip",
     link: "components/tooltip",
-  },
-  {
-    text: "Focus Ring",
-    link: "components/focus-ring",
   },
   {
     text: "Tabs",
