@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dialog</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <dialog class="dialog" open>
+            <div class="icon">
+              <i class="material-icons">add</i>
+            </div>
+            <div class="title">Dialog with hero icon</div>
+            <div class="content">
+              A dialog is a type of modal window that appears in front of app content to
+              provide critical information, or prompt for a decision to be made.
+            </div>
+            <div class="actions">
+              <button class="text">Action 1</button>
+              <button class="text">Action 2</button>
+            </div>
+          </dialog>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".dialog")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el, "::after");
+
+        describe(`dialog ${item.classList} tests`, () => {
+          it('check actions', () => {
+            expect(el.querySelector('.actions')).to.exist;
+          });
+          it('check title', () => {
+            expect(el.querySelector('.title')).to.exist;
+          });
+          it('check icon', () => {
+            expect(el.querySelector('.icon')).to.exist;
+          });
+          it('check content', () => {
+            expect(el.querySelector('.content')).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -170,3 +170,7 @@ Since the bottom app bar is meant to be at the bottom of the screen, it is recom
 | `--md-sys-color-on-surface`         | The foreground color of the bottom app bar | <div class="tooltip token-box color-on-surface" data-tooltip="--md-sys-color-on-surface"></div>                 |
 | `--md-sys-color-surface-variant`    | The background color of the fab            | <div class="tooltip token-box color-surface-variant" data-tooltip="--md-sys-color-surface-variant"></div>       |
 | `--md-sys-color-on-surface-variant` | The foreground color of the icons          | <div class="tooltip token-box color-on-surface-variant" data-tooltip="--md-sys-color-on-surface-variant"></div> |
+
+## Resources
+
+- [Material Design](https://m3.material.io/components/bottom-app-bar)

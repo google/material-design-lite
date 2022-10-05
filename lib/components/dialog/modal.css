@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.dialog).modal {
+:is(.dialog, dialog).modal {
   &[open] {
     margin: auto;
     position: fixed;

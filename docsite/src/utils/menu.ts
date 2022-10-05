@@ -41,6 +41,10 @@ export const COMPONENTS = [
     link: "components/chip",
   },
   {
+    text: "Dialog",
+    link: "components/dialog",
+  },
+  {
     text: "Divider",
     link: "components/divider",
   },
@@ -48,10 +52,6 @@ export const COMPONENTS = [
     text: "Date picker",
     link: "components/date-picker",
     draft: true,
-  },
-  {
-    text: "Dialog",
-    link: "components/dialog",
   },
   {
     text: "Expansion Panel",

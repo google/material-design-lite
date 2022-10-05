@@ -1,7 +1,7 @@
 ---
 title: Chips
 description: Variations on Material Design chips.
-link: https://material.io/components/chips
+link: https://m3.material.io/components/chips
 codepen: YzLjKRM
 ---
 
@@ -271,6 +271,8 @@ Suggestion chip styling.
 | `--md-sys-comp-chip-color`            | The foreground color of the chip | <div class="tooltip token-box color-primary" data-tooltip="--md-sys-color-primary"></div> |
 | `--md-comp-button-container-height`     | The height of the container        | `32px`                                                                                    |
 
-## Accessibility
+## Resources
 
 - [ARIA Resources](https://static.corp.google.com/ariablueprints/button/button.html)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
+- [Material Design](https://m3.material.io/components/chips)

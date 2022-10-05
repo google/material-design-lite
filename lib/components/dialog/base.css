@@ -14,17 +14,25 @@
  limitations under the License.
 */
 
-:where(.dialog) {
+:where(html),
+.tokens {
+  --md-sys-comp-dialog-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-dialog-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-dialog-container-min-width: 280px;
+  --md-comp-dialog-container-max-width: 560px;
+}
+
+:is(.dialog, dialog) {
   position: relative;
   &[open] {
     border-radius: 28px;
     border: none;
     box-shadow: var(--md-sys-elevation-3);
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-on-surface-variant);
+    background-color: var(--md-sys-comp-dialog-background-color);
+    color: var(--md-sys-comp-dialog-color);
     position: relative;
-    min-width: 280px;
-    max-width: 560px;
+    min-width: var(--md-comp-dialog-container-min-width);
+    max-width: var(--md-comp-dialog-container-max-width);
     padding: 24px;
     gap: 16px;
     display: flex;

@@ -3,7 +3,7 @@ import SideNav from "./SideNav.astro";
 
 const props = Astro.props;
 const { frontmatter } = props;
-const { codepen, link } = frontmatter;
+const { codepen, link, title } = frontmatter;
 ---
 
 <SideNav {...props}>
@@ -26,7 +26,7 @@ const { codepen, link } = frontmatter;
         <p
           id="codepen"
           class="codepen"
-          data-height="400"
+          data-height="500"
           data-theme-id="light"
           data-default-tab="html,result"
           data-slug-hash={codepen}
@@ -35,7 +35,7 @@ const { codepen, link } = frontmatter;
         >
           <span>
             See the Pen{" "}
-            <a href="https://codepen.io/rodydavis/pen/OJZvWRQ">Buttons</a> by
+            <a href={`https://codepen.io/rodydavis/pen/${codepen}`}>{title}</a> by
             Rody Davis (<a href="https://codepen.io/rodydavis">@rodydavis</a>)
             on <a href="https://codepen.io">CodePen</a>.
           </span>
@@ -49,7 +49,7 @@ const { codepen, link } = frontmatter;
 <style>
   .codepen {
     width: 100%;
-    height: 400px;
+    height: 500px;
     box-sizing: border-box;
     display: flex;
     align-items: center;

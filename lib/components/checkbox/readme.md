@@ -1,7 +1,7 @@
 ---
 title: Checkbox
 description: Variations on Material Design checkboxes.
-link: https://material.io/components/checkboxes
+link: https://m3.material.io/components/checkboxes
 codepen: YzLjjwo
 ---
 
@@ -105,6 +105,12 @@ elements.forEach((element) => {
 | `--md-sys-comp-checkbox-unselected-color`    | Unselected outline color   | <div class="tooltip token-box color-outline" data-tooltip="--md-sys-color-outline"></div>       |
 | `--md-sys-comp-checkbox-selected-color` | Selected color of the checkbox | <div class="tooltip token-box color-primary" data-tooltip="--md-sys-color-primary"></div> |
 | `--md-sys-comp-checkbox-size`  | The size of the container         | `24px`                                                                                         |
+
+## Resources
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
+- [ARIA Blueprints](https://static.corp.google.com/ariablueprints/checkbox/checkbox-dual.html)
+- [Material Design](https://m3.material.io/components/checkboxes)
 
 <script>
   const elements = document.querySelectorAll(".indeterminate");

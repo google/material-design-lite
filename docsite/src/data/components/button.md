@@ -1,7 +1,7 @@
 ---
 title: Buttons
 description: Variations on Material Design buttons.
-link: https://material.io/components/buttons
+link: https://m3.material.io/components/buttons
 codepen: OJZvWRQ
 ---
 
@@ -179,6 +179,8 @@ Text buttons can be placed on a variety of backgrounds. Until the button is inte
 | `--md-sys-comp-button-color`            | The foreground color of the button | <div class="tooltip token-box color-primary" data-tooltip="--md-sys-color-primary"></div> |
 | `--md-comp-button-container-height`     | The height of the container        | `40px`                                                                                    |
 
-## Accessibility
+## Resources
 
 - [ARIA Resources](https://static.corp.google.com/ariablueprints/button/button.html)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
+- [Material Design](https://m3.material.io/components/buttons)

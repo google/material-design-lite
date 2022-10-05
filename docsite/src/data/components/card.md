@@ -1,7 +1,7 @@
 ---
 title: Cards
 description: Variations on Material Design cards.
-link: https://material.io/components/cards
+link: https://m3.material.io/components/cards
 codepen: BaxPVdg
 ---
 
@@ -172,3 +172,9 @@ To add an image to a card add a **img** element at the top of the card:
 | `--md-sys-color-surface` | The background color of the card | <div class="tooltip token-box color-surface" data-tooltip="--md-sys-color-surface"></div> |
 | `--md-sys-color-on-surface`            | The foreground color of the button | <div class="tooltip token-box color-on-surface" data-tooltip="--md-sys-color-on-surface"></div> |
 | `--md-sys-comp-card-width`     | The width of the container        | `300px`                                                                                    |
+
+## Resources
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Card)
+- [Material Design](https://m3.material.io/components/cards)
+
