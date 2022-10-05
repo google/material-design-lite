@@ -153,6 +153,12 @@
 .color-outline-text {
   @apply --outline-text;
 }
+.color-outline-variant {
+  @apply --outline-variant;
+}
+.color-outline-variant-text {
+  @apply --outline-variant-text;
+}
 .color-inverse-on-surface {
   @apply --inverse-on-surface;
 }

@@ -50,6 +50,11 @@ p {
   justify-content: center;
 }
 
+.preview.alt {
+  background-color: transparent;
+  border: 1px solid var(--md-sys-color-outline);
+}
+
 a:not(.nav-link) {
   color: var(--md-sys-color-primary);
 }

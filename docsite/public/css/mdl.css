@@ -1,3 +1,8 @@
+
+
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -13,13 +18,36 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp: opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
 
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded: opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+     http://www.apache.org/licenses/LICENSE-2.0
 
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined: opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html) {
   /* Scrim */
   --md-sys-color-scrim: var(--md-ref-palette-neutral0);
@@ -125,7 +153,6 @@
   --md-sys-color-primary: var(--md-ref-palette-primary40);
   --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
 }
-
 :where(html) .dark-theme {
   /* Scrim */
   --md-sys-color-scrim: var(--md-ref-palette-neutral0);
@@ -231,7 +258,6 @@
   --md-sys-color-primary: var(--md-ref-palette-primary80);
   --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
 }
-
 @media (prefers-color-scheme: dark) {
   :where(html) {
     /* Scrim */
@@ -452,7 +478,36 @@
     --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
   }
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Scrim */
@@ -518,263 +573,234 @@
   /* Primary */
   --md-sys-color-primary: var(--md-ref-palette-primary40);
 }
-
 .color-primary {
   background-color: var(--md-sys-color-primary);
 }
-
 .color-primary-text {
   color: var(--md-sys-color-primary);
 }
-
 .color-on-primary {
   background-color: var(--md-sys-color-on-primary);
 }
-
 .color-on-primary-text {
   color: var(--md-sys-color-on-primary);
 }
-
 .color-primary-container {
   background-color: var(--md-sys-color-primary-container);
 }
-
 .color-primary-container-text {
   color: var(--md-sys-color-primary-container);
 }
-
 .color-on-primary-container {
   background-color: var(--md-sys-color-on-primary-container);
 }
-
 .color-on-primary-container-text {
   color: var(--md-sys-color-on-primary-container);
 }
-
 .color-secondary {
   background-color: var(--md-sys-color-secondary);
 }
-
 .color-secondary-text {
   color: var(--md-sys-color-secondary);
 }
-
 .color-on-secondary {
   background-color: var(--md-sys-color-on-secondary);
 }
-
 .color-on-secondary-text {
   color: var(--md-sys-color-on-secondary);
 }
-
 .color-secondary-container {
   background-color: var(--md-sys-color-secondary-container);
 }
-
 .color-secondary-container-text {
   color: var(--md-sys-color-secondary-container);
 }
-
 .color-on-secondary-container {
   background-color: var(--md-sys-color-on-secondary-container);
 }
-
 .color-on-secondary-container-text {
   color: var(--md-sys-color-on-secondary-container);
 }
-
 .color-tertiary {
   background-color: var(--md-sys-color-tertiary);
 }
-
 .color-tertiary-text {
   color: var(--md-sys-color-tertiary);
 }
-
 .color-on-tertiary {
   background-color: var(--md-sys-color-on-tertiary);
 }
-
 .color-on-tertiary-text {
   color: var(--md-sys-color-on-tertiary);
 }
-
 .color-tertiary-container {
   background-color: var(--md-sys-color-tertiary-container);
 }
-
 .color-tertiary-container-text {
   color: var(--md-sys-color-tertiary-container);
 }
-
 .color-on-tertiary-container {
   background-color: var(--md-sys-color-on-tertiary-container);
 }
-
 .color-on-tertiary-container-text {
   color: var(--md-sys-color-on-tertiary-container);
 }
-
 .color-error {
   background-color: var(--md-sys-color-error);
 }
-
 .color-error-text {
   color: var(--md-sys-color-error);
 }
-
 .color-error-container {
   background-color: var(--md-sys-color-error-container);
 }
-
 .color-error-container-text {
   color: var(--md-sys-color-error-container);
 }
-
 .color-on-error {
   background-color: var(--md-sys-color-on-error);
 }
-
 .color-on-error-text {
   color: var(--md-sys-color-on-error);
 }
-
 .color-on-error-container {
   background-color: var(--md-sys-color-on-error-container);
 }
-
 .color-on-error-container-text {
   color: var(--md-sys-color-on-error-container);
 }
-
 .color-background {
   background-color: var(--md-sys-color-background);
 }
-
 .color-background-text {
   color: var(--md-sys-color-background);
 }
-
 .color-on-background {
   background-color: var(--md-sys-color-on-background);
 }
-
 .color-on-background-text {
   color: var(--md-sys-color-on-background);
 }
-
 .color-surface {
   background-color: var(--md-sys-color-surface);
 }
-
 .color-surface-text {
   color: var(--md-sys-color-surface);
 }
-
 .color-on-surface {
   background-color: var(--md-sys-color-on-surface);
 }
-
 .color-on-surface-text {
   color: var(--md-sys-color-on-surface);
 }
-
 .color-surface-variant {
   background-color: var(--md-sys-color-surface-variant);
 }
-
 .color-surface-variant-text {
   color: var(--md-sys-color-surface-variant);
 }
-
 .color-on-surface-variant {
   background-color: var(--md-sys-color-on-surface-variant);
 }
-
 .color-on-surface-variant-text {
   color: var(--md-sys-color-on-surface-variant);
 }
-
 .color-outline {
   background-color: var(--md-sys-color-outline);
 }
-
 .color-outline-text {
   color: var(--md-sys-color-outline);
 }
-
+.color-outline-variant {
+  background-color: var(--md-sys-color-outline-variant);
+}
+.color-outline-variant-text {
+  color: var(--md-sys-color-outline-variant);
+}
 .color-inverse-on-surface {
   background-color: var(--md-sys-color-inverse-on-surface);
 }
-
 .color-inverse-on-surface-text {
   color: var(--md-sys-color-inverse-on-surface);
 }
-
 .color-inverse-surface {
   background-color: var(--md-sys-color-inverse-surface);
 }
-
 .color-inverse-surface-text {
   color: var(--md-sys-color-inverse-surface);
 }
-
 .color-inverse-primary {
   background-color: var(--md-sys-color-inverse-primary);
 }
-
 .color-inverse-primary-text {
   color: var(--md-sys-color-inverse-primary);
 }
-
 .color-shadow {
   background-color: var(--md-sys-color-shadow);
 }
-
 .color-shadow-text {
   color: var(--md-sys-color-shadow);
 }
-
 .color-scrim {
   background-color: var(--md-sys-color-scrim);
 }
-
 .color-scrim-text {
   color: var(--md-sys-color-scrim);
 }
-
 .color-surface-tint {
   background-color: var(--md-sys-color-surface-tint);
 }
-
 .color-surface-tint-text {
   color: var(--md-sys-color-surface-tint);
 }
-
 .color-surface-tint-color {
   background-color: var(--md-sys-color-surface-tint-color);
 }
-
 .color-surface-tint-color-text {
   color: var(--md-sys-color-surface-tint-color);
 }
-
 .color-black {
   background-color: var(--md-ref-palette-black, #000);
 }
-
 .color-black-text {
   color: var(--md-ref-palette-black, #000);
 }
-
 .color-white {
   background-color: var(--md-ref-palette-white, #fff);
 }
-
 .color-white-text {
   color: var(--md-ref-palette-white, #fff);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
@@ -790,51 +816,69 @@
   --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
   --md-sys-shape-corner-full: 50%;
 }
-
 .shape-none {
   border-radius: var(--md-sys-shape-corner-none);
 }
-
 .shape-extra-small {
   border-radius: var(--md-sys-shape-corner-extra-small);
 }
-
 .shape-small {
   border-radius: var(--md-sys-shape-corner-small);
 }
-
 .shape-medium {
   border-radius: var(--md-sys-shape-corner-medium);
 }
-
 .shape-large {
   border-radius: var(--md-sys-shape-corner-large);
 }
-
 .shape-extra-large {
   border-radius: var(--md-sys-shape-corner-extra-large);
 }
-
 .shape-extra-small-top {
   border-radius: var(--md-sys-shape-corner-extra-small-top);
 }
-
 .shape-large-end {
   border-radius: var(--md-sys-shape-corner-large-end);
 }
-
 .shape-large-top {
   border-radius: var(--md-sys-shape-corner-large-top);
 }
-
 .shape-extra-large-top {
   border-radius: var(--md-sys-shape-corner-extra-large-top);
 }
-
 .shape-full {
   border-radius: var(--md-sys-shape-corner-full);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Error 0 */
@@ -1104,7 +1148,6 @@
   --md-ref-palette-white-rgb: 255 255 255;
   --md-ref-palette-white: rgb(var(--md-ref-palette-white-rgb));
 }
-
 .palette-primary {
   background: linear-gradient(
     45deg,
@@ -1123,7 +1166,6 @@
     var(--md-ref-palette-primary100)
   );
 }
-
 .palette-secondary {
   background: linear-gradient(
     45deg,
@@ -1142,7 +1184,6 @@
     var(--md-ref-palette-secondary100)
   );
 }
-
 .palette-tertiary {
   background: linear-gradient(
     45deg,
@@ -1161,7 +1202,6 @@
     var(--md-ref-palette-tertiary100)
   );
 }
-
 .palette-error {
   background: linear-gradient(
     45deg,
@@ -1180,7 +1220,6 @@
     var(--md-ref-palette-error100)
   );
 }
-
 .palette-neutral {
   background: linear-gradient(
     45deg,
@@ -1199,7 +1238,6 @@
     var(--md-ref-palette-neutral100)
   );
 }
-
 .palette-neutral-variant {
   background: linear-gradient(
     45deg,
@@ -1218,7 +1256,36 @@
     var(--md-ref-palette-neutral-variant100)
   );
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
@@ -1227,32 +1294,56 @@
   --md-sys-color-surface-4: rgb(var(--md-sys-color-primary-rgb) / 0.12);
   --md-sys-color-surface-5: rgb(var(--md-sys-color-primary-rgb) / 0.14);
 }
-
 .surface-1 {
   background-color: var(--md-sys-color-surface-1);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-2 {
   background-color: var(--md-sys-color-surface-2);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-3 {
   background-color: var(--md-sys-color-surface-3);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-4 {
   background-color: var(--md-sys-color-surface-4);
   color: var(--md-sys-color-on-surface);
 }
-
 .surface-5 {
   background-color: var(--md-sys-color-surface-5);
   color: var(--md-sys-color-on-surface);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Linear */
@@ -1336,71 +1427,54 @@
     1
   );
 }
-
 .duration-50 {
   transition-duration: var(--md-sys-motion-duration-50);
 }
-
 .duration-100 {
   transition-duration: var(--md-sys-motion-duration-100);
 }
-
 .duration-150 {
   transition-duration: var(--md-sys-motion-duration-150);
 }
-
 .duration-200 {
   transition-duration: var(--md-sys-motion-duration-200);
 }
-
 .duration-250 {
   transition-duration: var(--md-sys-motion-duration-250);
 }
-
 .duration-300 {
   transition-duration: var(--md-sys-motion-duration-300);
 }
-
 .duration-350 {
   transition-duration: var(--md-sys-motion-duration-350);
 }
-
 .duration-400 {
   transition-duration: var(--md-sys-motion-duration-400);
 }
-
 .duration-450 {
   transition-duration: var(--md-sys-motion-duration-450);
 }
-
 .duration-500 {
   transition-duration: var(--md-sys-motion-duration-500);
 }
-
 .duration-550 {
   transition-duration: var(--md-sys-motion-duration-550);
 }
-
 .duration-600 {
   transition-duration: var(--md-sys-motion-duration-600);
 }
-
 .duration-700 {
   transition-duration: var(--md-sys-motion-duration-700);
 }
-
 .duration-800 {
   transition-duration: var(--md-sys-motion-duration-800);
 }
-
 .duration-900 {
   transition-duration: var(--md-sys-motion-duration-900);
 }
-
 .duration-1000 {
   transition-duration: var(--md-sys-motion-duration-1000);
 }
-
 .easing-standard {
   transition-timing-function: cubic-bezier(
     var(--md-sys-motion-easing-standard-x0),
@@ -1409,7 +1483,6 @@
     var(--md-sys-motion-easing-standard-y1)
   );
 }
-
 .easing-linear {
   transition-timing-function: cubic-bezier(
     var(--md-sys-motion-easing-linear-x0),
@@ -1418,7 +1491,6 @@
     var(--md-sys-motion-easing-linear-y1)
   );
 }
-
 .easing-standard-accelerate {
   transition-timing-function: cubic-bezier(
     var(--md-sys-motion-easing-standard-accelerate-x0),
@@ -1427,7 +1499,6 @@
     var(--md-sys-motion-easing-standard-accelerate-y1)
   );
 }
-
 .easing-standard-decelerate {
   transition-timing-function: cubic-bezier(
     var(--md-sys-motion-easing-standard-decelerate-x0),
@@ -1436,7 +1507,6 @@
     var(--md-sys-motion-easing-standard-decelerate-y1)
   );
 }
-
 .easing-emphasized {
   transition-timing-function: cubic-bezier(
     var(--md-sys-motion-easing-emphasized-x0),
@@ -1445,7 +1515,36 @@
     var(--md-sys-motion-easing-emphasized-y1)
   );
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Hover state layer opacity */
@@ -1457,39 +1556,28 @@
   /* Dragged state layer opacity */
   --md-sys-state-dragged-state-layer-opacity: 0.1599999964237213;
 }
-
 .hover-state-layer {
   opacity: var(--md-sys-state-hover-state-layer-opacity);
 }
-
 .pressed-state-layer {
   opacity: var(--md-sys-state-pressed-state-layer-opacity);
 }
-
 .dragged-state-layer {
   opacity: var(--md-sys-state-dragged-state-layer-opacity);
 }
-
 .focus-state-layer {
   opacity: var(--md-sys-state-focus-state-layer-opacity);
 }
-
-:where(.button,
-button,
-.icon,
-.chip) {
+:where(.button, button, .icon, .chip) {
   --tint-color: transparent;
   /* State colors */
   --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-sys-state-focus-state-layer-opacity);
   --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
+
   position: relative;
 }
-
-:where(.button,
-button,
-.icon,
-.chip)::after {
+:where(.button, button, .icon, .chip)::after {
     content: "";
     border-radius: inherit;
     position: absolute;
@@ -1499,44 +1587,54 @@ button,
     bottom: 0;
     background-color: var(--tint-color);
   }
-
-:where(.button,
-button,
-.icon,
-.chip):where(:hover,
-.hover) {
+:where(.button, button, .icon, .chip):where(:hover, .hover) {
     --tint-color: rgb(
       var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
     );
   }
-
-:where(.button,
-button,
-.icon,
-.chip):where(:focus,
-.focus) {
+:where(.button, button, .icon, .chip):where(:focus, .focus) {
     --tint-color: rgb(
       var(--md-sys-color-surface-tint-rgb) / var(--state-focus-opacity)
     );
   }
-
-:where(.button,
-button,
-.icon,
-.chip):where(:active,
-.active) {
+:where(.button, button, .icon, .chip):where(:active, .active) {
     --tint-color: rgb(
       var(--md-sys-color-surface-tint-rgb) / var(--state-active-opacity)
     );
   }
-
-:where(.button,
-button,
-.icon,
-.chip)[disabled] {
+[disabled]:where(.button, button, .icon, .chip) {
     --tint-color: transparent;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* 0 */
@@ -1552,7 +1650,6 @@ button,
   /* +5 */
   --md-sys-elevation-level5: 12px;
 }
-
 :where(html) {
   --md-sys-elevation-0: 0px 0px 0px 0px
       rgb(var(--md-sys-color-shadow-rgb) / 0.2),
@@ -1579,41 +1676,47 @@ button,
     0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
     0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
 }
-
 .elevation-0 {
   box-shadow: var(--md-sys-elevation-0);
 }
-
 .elevation-1 {
   box-shadow: var(--md-sys-elevation-1);
 }
-
 .elevation-2 {
   box-shadow: var(--md-sys-elevation-2);
 }
-
 .elevation-3 {
   box-shadow: var(--md-sys-elevation-3);
 }
-
 .elevation-4 {
   box-shadow: var(--md-sys-elevation-4);
 }
-
 .elevation-5 {
   box-shadow: var(--md-sys-elevation-5);
 }
-
 * {
   -webkit-font-smoothing: antialiased;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 @font-face {
   font-family: "Material Icons";
   src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
     format("woff2");
 }
-
 :where(.material-icons) {
   font-family: "Material Icons";
   font-weight: normal;
@@ -1630,7 +1733,6 @@ button,
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
-
 :where(html),
 .tokens,
 [class*="material-symbols-"] {
@@ -1639,28 +1741,72 @@ button,
   --material-symbols-grad: 0;
   --material-symbols-opsz: 48;
 }
-
 :where(.material-symbols-sharp) {
-  font-variation-settings: "FILL" var(--material-symbols-fill),
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght),
     "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
-
 :where(.material-symbols-rounded) {
-  font-variation-settings: "FILL" var(--material-symbols-fill),
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght),
     "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
-
 :where(.material-symbols-outlined) {
-  font-variation-settings: "FILL" var(--material-symbols-fill),
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
     "wght" var(--material-symbols-wght),
     "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Plain typeface */
@@ -1674,7 +1820,21 @@ button,
   /* Regular weight */
   --md-ref-typeface-weight-regular: 400;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Label Medium text transform */
@@ -1842,9 +2002,7 @@ button,
   /* Display Large font name */
   --md-sys-typescale-display-large-font: var(--md-ref-typeface-brand);
 }
-
-:is(.display-large,
-.display2-text) {
+:is(.display-large, .display2-text) {
   -webkit-text-decoration: var(--md-sys-typescale-display-large-text-decoration);
           text-decoration: var(--md-sys-typescale-display-large-text-decoration);
   text-transform: var(--md-sys-typescale-display-large-text-transform);
@@ -1854,9 +2012,7 @@ button,
   font-weight: var(--md-sys-typescale-display-large-weight);
   font-family: var(--md-sys-typescale-display-large-font);
 }
-
-:is(.display-medium,
-.display3text) {
+:is(.display-medium, .display3text) {
   -webkit-text-decoration: var(--md-sys-typescale-display-medium-text-decoration);
           text-decoration: var(--md-sys-typescale-display-medium-text-decoration);
   text-transform: var(--md-sys-typescale-display-medium-text-transform);
@@ -1866,10 +2022,7 @@ button,
   font-weight: var(--md-sys-typescale-display-medium-weight);
   font-family: var(--md-sys-typescale-display-medium-font);
 }
-
-:is(.display-small,
-.headline1-text,
-h1) {
+:is(.display-small, .headline1-text, h1) {
   -webkit-text-decoration: var(--md-sys-typescale-display-small-text-decoration);
           text-decoration: var(--md-sys-typescale-display-small-text-decoration);
   text-transform: var(--md-sys-typescale-display-small-text-transform);
@@ -1879,10 +2032,7 @@ h1) {
   font-weight: var(--md-sys-typescale-display-small-weight);
   font-family: var(--md-sys-typescale-display-small-font);
 }
-
-:is(.headline-large,
-.headline2-text,
-h2) {
+:is(.headline-large, .headline2-text, h2) {
   -webkit-text-decoration: var(--md-sys-typescale-headline-large-text-decoration);
           text-decoration: var(--md-sys-typescale-headline-large-text-decoration);
   text-transform: var(--md-sys-typescale-headline-large-text-transform);
@@ -1892,10 +2042,7 @@ h2) {
   font-weight: var(--md-sys-typescale-headline-large-weight);
   font-family: var(--md-sys-typescale-headline-large-font);
 }
-
-:is(.headline-medium,
-.headline3-text,
-h3) {
+:is(.headline-medium, .headline3-text, h3) {
   -webkit-text-decoration: var(--md-sys-typescale-headline-medium-text-decoration);
           text-decoration: var(--md-sys-typescale-headline-medium-text-decoration);
   text-transform: var(--md-sys-typescale-headline-medium-text-transform);
@@ -1905,10 +2052,7 @@ h3) {
   font-weight: var(--md-sys-typescale-headline-medium-weight);
   font-family: var(--md-sys-typescale-headline-medium-font);
 }
-
-:is(.headline-small,
-.headline4-text,
-h4) {
+:is(.headline-small, .headline4-text, h4) {
   -webkit-text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
           text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
   text-transform: var(--md-sys-typescale-headline-small-text-transform);
@@ -1918,10 +2062,7 @@ h4) {
   font-weight: var(--md-sys-typescale-headline-small-weight);
   font-family: var(--md-sys-typescale-headline-small-font);
 }
-
-:is(.title-large,
-.headline5-text,
-h5) {
+:is(.title-large, .headline5-text, h5) {
   -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
           text-decoration: var(--md-sys-typescale-title-large-text-decoration);
   text-transform: var(--md-sys-typescale-title-large-text-transform);
@@ -1931,11 +2072,7 @@ h5) {
   font-weight: var(--md-sys-typescale-title-large-weight);
   font-family: var(--md-sys-typescale-title-large-font);
 }
-
-:is(.title-medium,
-.headline6-text,
-.subhead1-text,
-h6) {
+:is(.title-medium, .headline6-text, .subhead1-text, h6) {
   -webkit-text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
           text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
   text-transform: var(--md-sys-typescale-title-medium-text-transform);
@@ -1945,9 +2082,7 @@ h6) {
   font-weight: var(--md-sys-typescale-title-medium-weight);
   font-family: var(--md-sys-typescale-title-medium-font);
 }
-
-:is(.title-small,
-.subhead2-text) {
+:is(.title-small, .subhead2-text) {
   -webkit-text-decoration: var(--md-sys-typescale-title-small-text-decoration);
           text-decoration: var(--md-sys-typescale-title-small-text-decoration);
   text-transform: var(--md-sys-typescale-title-small-text-transform);
@@ -1957,10 +2092,7 @@ h6) {
   font-weight: var(--md-sys-typescale-title-small-weight);
   font-family: var(--md-sys-typescale-title-small-font);
 }
-
-:is(.body-large,
-.body1-text,
-p) {
+:is(.body-large, .body1-text, p) {
   -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
           text-decoration: var(--md-sys-typescale-body-large-text-decoration);
   text-transform: var(--md-sys-typescale-body-large-text-transform);
@@ -1970,9 +2102,7 @@ p) {
   font-weight: var(--md-sys-typescale-body-large-weight);
   font-family: var(--md-sys-typescale-body-large-font);
 }
-
-:is(.body-medium,
-.body2-text) {
+:is(.body-medium, .body2-text) {
   -webkit-text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
           text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
   text-transform: var(--md-sys-typescale-body-medium-text-transform);
@@ -1982,9 +2112,7 @@ p) {
   font-weight: var(--md-sys-typescale-body-medium-weight);
   font-family: var(--md-sys-typescale-body-medium-font);
 }
-
-:is(.body-small,
-.caption-text) {
+:is(.body-small, .caption-text) {
   -webkit-text-decoration: var(--md-sys-typescale-body-small-text-decoration);
           text-decoration: var(--md-sys-typescale-body-small-text-decoration);
   text-transform: var(--md-sys-typescale-body-small-text-transform);
@@ -1994,9 +2122,7 @@ p) {
   font-weight: var(--md-sys-typescale-body-small-weight);
   font-family: var(--md-sys-typescale-body-small-font);
 }
-
-:is(.label-large,
-.button-text) {
+:is(.label-large, .button-text) {
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
           text-decoration: var(--md-sys-typescale-label-large-text-decoration);
   text-transform: var(--md-sys-typescale-label-large-text-transform);
@@ -2006,9 +2132,7 @@ p) {
   font-weight: var(--md-sys-typescale-label-large-weight);
   font-family: var(--md-sys-typescale-label-large-font);
 }
-
-:is(.label-medium,
-.overline) {
+:is(.label-medium, .overline) {
   -webkit-text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
           text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
   text-transform: var(--md-sys-typescale-label-medium-text-transform);
@@ -2018,7 +2142,6 @@ p) {
   font-weight: var(--md-sys-typescale-label-medium-weight);
   font-family: var(--md-sys-typescale-label-medium-font);
 }
-
 :is(.label-small) {
   -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
           text-decoration: var(--md-sys-typescale-label-small-text-decoration);
@@ -2029,20 +2152,49 @@ p) {
   font-weight: var(--md-sys-typescale-label-small-weight);
   font-family: var(--md-sys-typescale-label-small-font);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   --md-sys-comp-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
 }
-
-:is(.button,
-button) {
+:is(.button, button) {
   --state-disabled-opacity: 0.3799999952316284;
+
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
   height: var(--md-comp-button-container-height);
+
   padding: 0 24px;
   border-radius: 20px;
   border: none;
@@ -2056,20 +2208,26 @@ button) {
   justify-content: center;
   gap: 8px;
   white-space: nowrap;
+
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+
           text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+
   text-transform: var(--md-sys-typescale-label-large-text-transform);
+
   line-height: var(--md-sys-typescale-label-large-line-height);
+
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
+
   font-size: var(--md-sys-typescale-label-large-size);
+
   font-weight: var(--md-sys-typescale-label-large-weight);
+
   font-family: var(--md-sys-typescale-label-large-font);
   box-shadow: var(--md-sys-elevation-1);
   transition: box-shadow 0.2s ease-in-out;
 }
-
-:is(.button,
-button)[label] {
+[label]:is(.button, button) {
     content: attr(label);
     -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
             text-decoration: var(--md-sys-typescale-label-large-text-decoration);
@@ -2080,60 +2238,68 @@ button)[label] {
     font-weight: var(--md-sys-typescale-label-large-weight);
     font-family: var(--md-sys-typescale-label-large-font);
   }
-
-:is(.button,
-button) i {
+:is(.button, button) i {
     margin-left: -8px;
     font-size: 18px;
   }
-
-:is(.button,
-button) i:only-child {
+:is(.button, button) i:only-child {
       margin-left: 0;
       margin-right: 0;
     }
-
-:is(.button,
-button) a {
+:is(.button, button) a {
     text-decoration: none;
   }
-
-:is(.button,
-button) a:hover {
+:is(.button, button) a:hover {
       text-decoration: none;
     }
-
-:is(.button,
-button) a:focus {
+:is(.button, button) a:focus {
       text-decoration: none;
     }
-
-:is(.button,
-button):where(:hover,
-.hover) {
+:is(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-
-:is(.button,
-button):where(:active,
-.active) {
+:is(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button):where(:focus,
-.focus) {
+:is(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-
-:is(.button,
-button)[disabled] {
+[disabled]:is(.button, button) {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Text button container elevation */
@@ -2181,11 +2347,10 @@ button)[disabled] {
   /* Text button disabled label opacity */
   --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
 }
-
-:is(.button,
-button).text {
+:is(.button, button).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
+
   --md-sys-comp-button-background-color: transparent;
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: var(
@@ -2199,6 +2364,7 @@ button).text {
   /* font-size: var(--md-comp-text-button-label-text-size); */
   /* font-weight: var(--md-comp-text-button-label-text-weight); */
   /* font-family: var(--md-comp-text-button-label-text-font); */
+
   --state-hover-opacity: var(--md-comp-text-button-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-text-button-focus-state-layer-opacity);
   --state-active-opacity: var(
@@ -2211,31 +2377,49 @@ button).text {
     --md-comp-text-button-disabled-outline-opacity
   );
 }
-
-:is(.button,
-button).text:where(:hover,
-.hover) {
+.text:is(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).text:where(:active,
-.active) {
+.text:is(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.button,
-button).text:where(:focus,
-.focus) {
+.text:is(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).text[disabled] {
+.text[disabled]:is(.button, button) {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Filled button dragged state layer opacity */
@@ -2309,10 +2493,9 @@ button).text[disabled] {
     --md-sys-elevation-level0
   );
 }
-
-:is(.button,
-button).filled {
+:is(.button, button).filled {
   box-shadow: var(--md-sys-elevation-0);
+
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);
   --md-sys-comp-button-color: var(--md-sys-color-on-primary);
   --md-comp-button-container-height: var(
@@ -2326,6 +2509,7 @@ button).filled {
   /* font-size: var(--md-comp-filled-button-label-text-size); */
   /* font-weight: var(--md-comp-filled-button-label-text-weight); */
   /* font-family: var(--md-comp-filled-button-label-text-font); */
+
   --state-hover-opacity: var(--md-comp-filled-button-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-filled-button-focus-state-layer-opacity);
   --state-active-opacity: var(
@@ -2338,32 +2522,50 @@ button).filled {
     --md-comp-filled-button-disabled-outline-opacity
   );
 }
-
-:is(.button,
-button).filled:where(:hover,
-.hover) {
+.filled:is(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).filled:where(:active,
-.active) {
+.filled:is(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.button,
-button).filled:where(:focus,
-.focus) {
+.filled:is(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).filled[disabled] {
+.filled[disabled]:is(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Filled tonal button pressed container elevation */
@@ -2433,9 +2635,7 @@ button).filled[disabled] {
     --md-sys-elevation-level0
   );
 }
-
-:is(.button,
-button).filled-tonal {
+:is(.button, button).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -2443,6 +2643,7 @@ button).filled-tonal {
   --md-comp-button-container-height: var(
     --md-comp-filled-tonal-button-container-height
   );
+
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
   box-shadow: var(--md-sys-elevation-0);
@@ -2454,6 +2655,7 @@ button).filled-tonal {
   /* font-size: var(--md-comp-filled-tonal-button-label-text-size); */
   /* font-weight: var(--md-comp-filled-tonal-button-label-text-weight); */
   /* font-family: var(--md-comp-filled-tonal-button-label-text-font); */
+
   --state-hover-opacity: var(
     --md-comp-filled-tonal-button-hover-state-layer-opacity
   );
@@ -2470,33 +2672,51 @@ button).filled-tonal {
     --md-comp-filled-tonal-button-disabled-outline-opacity
   );
 }
-
-:is(.button,
-button).filled-tonal:where(:hover,
-.hover) {
+.filled-tonal:is(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).filled-tonal:where(:focus,
-.focus) {
+.filled-tonal:is(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).filled-tonal:where(:active,
-.active) {
+.filled-tonal:is(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.button,
-button).filled-tonal[disabled] {
+.filled-tonal[disabled]:is(.button, button) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Outlined button container elevation */
@@ -2548,13 +2768,12 @@ button).filled-tonal[disabled] {
   /* Outlined button disabled outline opacity */
   --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
 }
-
-:is(.button,
-button).outlined {
+:is(.button, button).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-outlined-button-container-height);
+
   --md-sys-comp-button-background-color: transparent;
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: var(
@@ -2568,6 +2787,7 @@ button).outlined {
   /* font-size: var(--md-comp-outlined-button-label-text-size); */
   /* font-weight: var(--md-comp-outlined-button-label-text-weight); */
   /* font-family: var(--md-comp-outlined-button-label-text-font); */
+
   --state-hover-opacity: var(
     --md-comp-outlined-button-hover-state-layer-opacity
   );
@@ -2584,37 +2804,53 @@ button).outlined {
     --md-comp-outlined-button-disabled-outline-opacity
   );
 }
-
-:is(.button,
-button).outlined i {
+.outlined:is(.button, button) i {
     margin-left: -9px;
   }
-
-:is(.button,
-button).outlined:where(:hover,
-.hover) {
+.outlined:is(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).outlined:where(:active,
-.active) {
+.outlined:is(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.button,
-button).outlined:where(:focus,
-.focus) {
+.outlined:is(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).outlined[disabled] {
+.outlined[disabled]:is(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Elevated button focus container elevation */
@@ -2680,9 +2916,7 @@ button).outlined[disabled] {
   /* Elevated button disabled container opacity */
   --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
 }
-
-:is(.button,
-button).elevated {
+:is(.button, button).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
 
@@ -2693,6 +2927,7 @@ button).elevated {
   /* font-size: var(--md-comp-elevated-button-label-text-size); */
   /* font-weight: var(--md-comp-elevated-button-label-text-weight); */
   /* font-family: var(--md-comp-elevated-button-label-text-font); */
+
   --state-hover-opacity: var(
     --md-comp-elevated-button-hover-state-layer-opacity
   );
@@ -2709,32 +2944,19 @@ button).elevated {
     --md-comp-elevated-button-disabled-outline-opacity
   );
 }
-
-:is(.button,
-button).elevated > i {
+.elevated:is(.button, button) > i {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
-
-:is(.button,
-button).elevated:where(:hover,
-.hover) {
+.elevated:is(.button, button):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-
-:is(.button,
-button).elevated:where(:active,
-.active) {
+.elevated:is(.button, button):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.button,
-button).elevated:where(:focus,
-.focus) {
+.elevated:is(.button, button):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-
-:is(.button,
-button).elevated[disabled] {
+.elevated[disabled]:is(.button, button) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /
@@ -2745,7 +2967,51 @@ button).elevated[disabled] {
         var(--md-comp-elevated-button-disabled-label-text-opacity)
     );
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Icon button selected pressed state layer opacity */
@@ -2781,7 +3047,6 @@ button).elevated[disabled] {
   /* Icon button disabled icon opacity */
   --md-comp-icon-button-disabled-icon-opacity: 0.3799999952316284;
 }
-
 :is(.icon) {
   display: flex;
   flex-direction: row;
@@ -2796,13 +3061,21 @@ button).elevated[disabled] {
   padding: 4px;
   margin: 0;
   box-shadow: var(--md-sys-elevation-0);
+
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+
           text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+
   text-transform: var(--md-sys-typescale-label-large-text-transform);
+
   line-height: var(--md-sys-typescale-label-large-line-height);
+
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
+
   font-size: var(--md-sys-typescale-label-large-size);
+
   font-weight: var(--md-sys-typescale-label-large-weight);
+
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--md-comp-icon-button-icon-size);
   background-color: var(--md-sys-color-surface);
@@ -2810,6 +3083,7 @@ button).elevated[disabled] {
   width: var(--md-comp-icon-button-state-layer-size);
   height: var(--md-comp-icon-button-state-layer-size);
   border-radius: var(--md-comp-icon-button-state-layer-shape);
+
   --state-hover-opacity: var(
     --md-comp-icon-button-unselected-hover-state-layer-opacity
   );
@@ -2820,11 +3094,9 @@ button).elevated[disabled] {
     --md-comp-icon-button-unselected-pressed-state-layer-opacity
   );
 }
-
-:is(.icon):where([selected],
-[checked],
-:checked) {
+:is(.icon):where([selected], [checked], :checked) {
     color: var(--md-sys-color-primary);
+
     --state-hover-opacity: var(
       --md-comp-icon-button-selected-hover-state-layer-opacity
     );
@@ -2835,25 +3107,51 @@ button).elevated[disabled] {
       --md-comp-icon-button-selected-pressed-state-layer-opacity
     );
   }
-
-:is(.icon)[disabled] {
+[disabled]:is(.icon) {
     cursor: default;
     color: rgb(
       var(--md-sys-color-on-surface-rgb) /
         var(--md-comp-icon-button-disabled-icon-opacity)
     );
   }
-
 :is(.icon) i {
     font-size: var(--md-comp-icon-button-icon-size);
     vertical-align: middle;
   }
-
 :is(.icon) i:only-child {
       margin-left: 0;
       margin-right: 0;
     }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Filled icon button pressed state layer opacity */
@@ -2879,14 +3177,15 @@ button).elevated[disabled] {
   /* Filled icon button icon size */
   --md-comp-filled-icon-button-icon-size: 24px;
 }
-
 :is(.icon).filled {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
+
   width: var(--md-comp-filled-icon-button-container-size);
   height: var(--md-comp-filled-icon-button-container-size);
   border-radius: var(--md-comp-filled-icon-button-container-shape);
   font-size: var(--md-comp-filled-icon-button-icon-size);
+
   --state-hover-opacity: var(
     --md-comp-filled-icon-button-hover-state-layer-opacity
   );
@@ -2903,17 +3202,14 @@ button).elevated[disabled] {
     --md-comp-filled-icon-button-disabled-outline-opacity
   );
 }
-
-:is(.icon).filled:where(.toggle) {
+.filled:is(.icon):where(.toggle) {
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-primary);
   }
-
-:is(.icon).filled:where([selected],
-[checked],
-:checked) {
+.filled:is(.icon):where([selected], [checked], :checked) {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
+
     --state-hover-opacity: var(
       --md-comp-filled-icon-button-selected-hover-state-layer-opacity
     );
@@ -2927,28 +3223,50 @@ button).elevated[disabled] {
       --md-comp-filled-icon-button-disabled-selected-container-opacity
     );
   }
-
-:is(.icon).filled:where(:hover,
-.hover) {
+.filled:is(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.icon).filled:where(:focus,
-.focus) {
+.filled:is(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.icon).filled:where(:active,
-.active) {
+.filled:is(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.icon).filled[disabled] {
+.filled[disabled]:is(.icon) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Filled tonal icon button pressed state layer opacity */
@@ -2976,14 +3294,15 @@ button).elevated[disabled] {
   /* Filled tonal icon button icon size */
   --md-comp-filled-tonal-icon-button-icon-size: 24px;
 }
-
 :is(.icon).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
+
   width: var(--md-comp-filled-tonal-icon-button-container-size);
   height: var(--md-comp-filled-tonal-icon-button-container-size);
   border-radius: var(--md-comp-filled-tonal-icon-button-container-shape);
   font-size: var(--md-comp-filled-tonal-icon-button-icon-size);
+
   --state-hover-opacity: var(
     --md-comp-filled-tonal-icon-button-hover-state-layer-opacity
   );
@@ -3000,17 +3319,14 @@ button).elevated[disabled] {
     --md-comp-filled-tonal-icon-button-disabled-outline-opacity
   );
 }
-
-:is(.icon).filled-tonal:where(.toggle) {
+.filled-tonal:is(.icon):where(.toggle) {
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
   }
-
-:is(.icon).filled-tonal:where([selected],
-[checked],
-:checked) {
+.filled-tonal:is(.icon):where([selected], [checked], :checked) {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
+
     --state-hover-opacity: var(
       --md-comp-filled-tonal-icon-button-selected-hover-state-layer-opacity
     );
@@ -3024,12 +3340,40 @@ button).elevated[disabled] {
       --md-comp-filled-tonal-icon-button-disabled-selected-container-opacity
     );
   }
-
-:is(.icon).filled-tonal[disabled] {
+.filled-tonal[disabled]:is(.icon) {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Outlined icon button disabled outline opacity */
@@ -3063,17 +3407,19 @@ button).elevated[disabled] {
   /* Outlined icon button icon size */
   --md-comp-outlined-icon-button-icon-size: 24px;
 }
-
 :is(.icon).outlined {
   box-shadow: var(--md-sys-elevation-0);
   background-color: transparent;
   color: var(--md-sys-color-on-surface-variant);
+
   border: var(--md-comp-outlined-icon-button-unselected-outline-width) solid
     var(--md-sys-color-outline);
+
   width: var(--md-comp-outlined-icon-button-container-size);
   height: var(--md-comp-outlined-icon-button-container-size);
   border-radius: var(--md-comp-outlined-icon-button-container-shape);
   font-size: var(--md-comp-outlined-icon-button-icon-size);
+
   --state-hover-opacity: var(
     --md-comp-outlined-icon-button-hover-state-layer-opacity
   );
@@ -3090,12 +3436,10 @@ button).elevated[disabled] {
     --md-comp-outlined-icon-button-disabled-outline-opacity
   );
 }
-
-:is(.icon).outlined:where([selected],
-[checked],
-:checked) {
+.outlined:is(.icon):where([selected], [checked], :checked) {
     background-color: var(--md-sys-color-inverse-surface);
     color: var(--md-sys-color-inverse-on-surface);
+
     --state-hover-opacity: var(
       --md-comp-outlined-icon-button-selected-hover-state-layer-opacity
     );
@@ -3109,8 +3453,7 @@ button).elevated[disabled] {
       --md-comp-outlined-icon-button-disabled-selected-container-opacity
     );
   }
-
-:is(.icon).outlined[disabled] {
+.outlined[disabled]:is(.icon) {
     border-color: rgb(
       var(--md-sys-color-on-surface-rgb) / var(--state-outline-disabled-opacity)
     );
@@ -3118,14 +3461,27 @@ button).elevated[disabled] {
       var(--md-sys-color-on-surface-rgb) / var(--state-disabled-opacity)
     );
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:is(.icon).toggle:where(input[type="checkbox"]) {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.toggle:is(.icon):where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
   }
-
-:is(.icon).toggle:where(input[type="checkbox"])::after {
+.toggle:is(.icon):where(input[type="checkbox"])::after {
       -webkit-font-smoothing: antialiased;
       font-feature-settings: "liga";
       direction: ltr;
@@ -3143,23 +3499,48 @@ button).elevated[disabled] {
       align-items: center;
       justify-content: center;
     }
-
-:is(.icon).toggle:where(input[type="checkbox"])[off-icon]::after {
+.toggle[off-icon]:is(.icon):where(input[type="checkbox"])::after {
         content: attr(off-icon);
       }
-
-:is(.icon).toggle:where(input[type="checkbox"]):checked::after {
+.toggle:is(.icon):where(input[type="checkbox"]):checked::after {
         content: "check";
       }
-
-:is(.icon).toggle:where(input[type="checkbox"]):checked[on-icon]::after {
+.toggle[on-icon]:is(.icon):where(input[type="checkbox"]):checked::after {
           content: attr(on-icon);
         }
-
-:is(.icon).toggle[disabled] {
+.toggle[disabled]:is(.icon) {
     box-shadow: var(--md-sys-elevation-0);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab) {
   padding: 16px;
   font-size: 24px;
@@ -3172,7 +3553,6 @@ button).elevated[disabled] {
   box-shadow: var(--md-sys-elevation-1);
   --tint-color: transparent;
 }
-
 :is(.fab)::after {
     content: "";
     border-radius: inherit;
@@ -3183,46 +3563,52 @@ button).elevated[disabled] {
     bottom: 0;
     background-color: var(--tint-color);
   }
-
 :is(.fab) i {
     font-size: 24px;
     margin-left: 0;
   }
-
-:is(.fab):where(:hover,
-.hover) {
+:is(.fab):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-4);
     --tint-color: rgb(
       var(--md-sys-color-on-primary-container-rgb) /
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
-
-:is(.fab):where(:focus,
-.focus) {
+:is(.fab):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-3);
     --tint-color: rgb(
       var(--md-sys-color-on-primary-container-rgb) /
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
-
-:is(.fab):where(:active,
-.active) {
+:is(.fab):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-2);
     --tint-color: rgb(
       var(--md-sys-color-on-primary-container-rgb) /
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
-
-:is(.fab)[disabled] {
+[disabled]:is(.fab) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab).small {
   padding: 16px;
   font-size: 24px;
@@ -3230,11 +3616,24 @@ button).elevated[disabled] {
   width: 40px;
   height: 40px;
 }
-
-:is(.fab).small i {
+.small:is(.fab) i {
     font-size: 24px;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab).large {
   padding: 16px;
   font-size: 36px;
@@ -3242,133 +3641,195 @@ button).elevated[disabled] {
   width: 96px;
   height: 96px;
 }
-
-:is(.fab).large > i {
+.large:is(.fab) > i {
     font-size: 36px;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab).extended {
   border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;
-  width: unset;
+  width: auto;
+  width: initial;
 }
-
-:is(.fab).extended i {
+.extended:is(.fab) i {
     font-size: 24px;
     margin-right: 8px;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab).surface {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 }
-
-:is(.fab).surface:where(:hover,
-.hover) {
+.surface:is(.fab):where(:hover, .hover) {
     --tint-color: rgb(
       var(--md-sys-color-on-surface-rgb) /
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
-
-:is(.fab).surface:where(:focus,
-.focus) {
+.surface:is(.fab):where(:focus, .focus) {
     --tint-color: rgb(
       var(--md-sys-color-on-surface-rgb) /
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
-
-:is(.fab).surface:where(:active,
-.active) {
+.surface:is(.fab):where(:active, .active) {
     --tint-color: rgb(
       var(--md-sys-color-on-surface-rgb) /
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
-
-:is(.fab).surface[disabled] {
+.surface[disabled]:is(.fab) {
     --tint-color: transparent;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab).secondary {
   background-color: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
 }
-
-:is(.fab).secondary:where(:hover,
-.hover) {
+.secondary:is(.fab):where(:hover, .hover) {
     --tint-color: rgb(
       var(--md-sys-color-secondary-rgb) /
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
-
-:is(.fab).secondary:where(:focus,
-.focus) {
+.secondary:is(.fab):where(:focus, .focus) {
     --tint-color: rgb(
       var(--md-sys-color-secondary-rgb) /
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
-
-:is(.fab).secondary:where(:active,
-.active) {
+.secondary:is(.fab):where(:active, .active) {
     --tint-color: rgb(
       var(--md-sys-color-secondary-rgb) /
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
-
-:is(.fab).secondary[disabled] {
+.secondary[disabled]:is(.fab) {
     --tint-color: transparent;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab).tertiary {
   background-color: var(--md-sys-color-tertiary);
   color: var(--md-sys-color-on-tertiary);
 }
-
-:is(.fab).tertiary:where(:hover,
-.hover) {
+.tertiary:is(.fab):where(:hover, .hover) {
     --tint-color: rgb(
       var(--md-sys-color-tertiary-rgb) /
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
-
-:is(.fab).tertiary:where(:focus,
-.focus) {
+.tertiary:is(.fab):where(:focus, .focus) {
     --tint-color: rgb(
       var(--md-sys-color-tertiary-rgb) /
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
-
-:is(.fab).tertiary:where(:active,
-.active) {
+.tertiary:is(.fab):where(:active, .active) {
     --tint-color: rgb(
       var(--md-sys-color-tertiary-rgb) /
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
-
-:is(.fab).tertiary[disabled] {
+.tertiary[disabled]:is(.fab) {
     --tint-color: transparent;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   --md-sys-comp-card-width: 300px;
 }
-
 :is(.card) {
   display: flex;
   flex-direction: column;
@@ -3380,12 +3841,10 @@ button).elevated[disabled] {
   box-shadow: var(--md-sys-elevation-1);
   text-align: start;
 }
-
 :is(.card) img {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }
-
 :is(.card) .title {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
@@ -3397,7 +3856,6 @@ button).elevated[disabled] {
     font-weight: var(--md-sys-typescale-title-large-weight);
     font-family: var(--md-sys-typescale-title-large-font);
   }
-
 :is(.card) .subtitle {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
@@ -3409,32 +3867,108 @@ button).elevated[disabled] {
     font-weight: var(--md-sys-typescale-body-large-weight);
     font-family: var(--md-sys-typescale-body-large-font);
   }
-
 :is(.card) .actions {
     padding: 16px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.card).filled {
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-on-surface-variant);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.card).elevated {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-1);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.card).outlined {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   border: 1px solid var(--md-sys-color-outline);
   box-shadow: none;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-chip-color: var(--md-sys-color-primary);
+  --md-comp-chip-container-height: 32px;
+}
 :is(.chip) {
   display: flex;
   flex-direction: row;
@@ -3459,43 +3993,64 @@ button).elevated[disabled] {
   font-weight: var(--md-sys-typescale-label-large-weight);
   font-family: var(--md-sys-typescale-label-large-font);
   transition: box-shadow 0.2s ease-in-out;
+  ackground-color: var(--md-sys-comp-chip-background-color);
+  color: var(--md-sys-comp-chip-color);
 }
-
 :is(.chip) i {
     color: var(--md-sys-color-primary);
     font-size: 18px;
   }
-
 :is(.chip) i:first-child {
       margin-left: -8px;
     }
-
 :is(.chip) i:last-child {
       margin-right: -8px;
     }
-
-:is(.chip):where(:hover,
-.hover) {
+:is(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.chip):where(:active,
-.active) {
+:is(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.chip):where(:focus,
-.focus) {
+:is(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.chip)[disabled] {
+[disabled]:is(.chip) {
     cursor: default;
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   /* Assist chip dragged state layer opacity */
@@ -3579,7 +4134,6 @@ button).elevated[disabled] {
   /* Assist chip container shape */
   --md-comp-assist-chip-container-shape: var(--md-sys-shape-corner-small);
 }
-
 :is(.chip).assist {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
@@ -3593,6 +4147,7 @@ button).elevated[disabled] {
   /* font-size: var(--md-comp-assist-chip-label-text-size); */
   /* font-weight: var(--md-comp-assist-chip-label-text-weight); */
   /* font-family: var(--md-comp-assist-chip-label-text-font); */
+
   --state-hover-opacity: var(--md-comp-assist-chip-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-assist-chip-focus-state-layer-opacity);
   --state-active-opacity: var(
@@ -3605,131 +4160,177 @@ button).elevated[disabled] {
     --md-comp-assist-chip-disabled-outline-opacity
   );
 }
-
-:is(.chip).assist > i {
+.assist:is(.chip) > i {
     font-size: var(--md-comp-assist-chip-with-icon-icon-size);
   }
-
-:is(.chip).assist > i:first-child {
+.assist:is(.chip) > i:first-child {
       margin-left: -9px;
     }
-
-:is(.chip).assist > i:last-child {
+.assist:is(.chip) > i:last-child {
       margin-right: -9px;
     }
-
-:is(.chip).assist:where(:hover,
-.hover) {
+.assist:is(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.chip).assist:where(:active,
-.active) {
+.assist:is(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-
-:is(.chip).assist:where(:focus,
-.focus) {
+.assist:is(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-
-:is(.chip).assist[disabled] {
+.assist[disabled]:is(.chip) {
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.chip).filter {
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-on-surface-variant);
   border: 1px solid var(--md-sys-color-outline);
 }
-
-:is(.chip).filter:where(:hover,
-.hover) {
+.filter:is(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
     --tint-color: rgb(
       var(--md-sys-color-primary-rgb) /
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
-
-:is(.chip).filter:where(:focus,
-.focus) {
+.filter:is(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
     --tint-color: rgb(
       var(--md-sys-color-primary-rgb) /
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
-
-:is(.chip).filter:where(:active,
-.active) {
+.filter:is(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
     --tint-color: rgb(
       var(--md-sys-color-primary-rgb) /
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
-
-:is(.chip).filter i:first-child {
+.filter:is(.chip) i:first-child {
     margin-left: -9px;
   }
-
-:is(.chip).filter i:last-child {
+.filter:is(.chip) i:last-child {
     margin-right: -9px;
   }
-
-:is(.chip).filter[disabled] {
+.filter[disabled]:is(.chip) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.chip).input {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
   border: 1px solid var(--md-sys-color-outline);
 }
-
-:is(.chip).input i:first-child {
+.input:is(.chip) i:first-child {
     margin-left: -9px;
   }
-
-:is(.chip).input i:last-child {
+.input:is(.chip) i:last-child {
     margin-right: -9px;
   }
-
-:is(.chip).input[disabled] {
+.input[disabled]:is(.chip) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.chip).suggestion {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
   border: 1px solid var(--md-sys-color-outline);
 }
-
-:is(.chip).suggestion i:first-child {
+.suggestion:is(.chip) i:first-child {
     margin-left: -9px;
   }
-
-:is(.chip).suggestion i:last-child {
+.suggestion:is(.chip) i:last-child {
     margin-right: -9px;
   }
-
-:is(.chip).suggestion[disabled] {
+.suggestion[disabled]:is(.chip) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.top-app-bar) {
   --top-app-bar-padding: 16px;
   position: relative;
@@ -3748,7 +4349,6 @@ button).elevated[disabled] {
   grid-template-areas: "leading title actions";
   z-index: 1;
 }
-
 :where(.top-app-bar) .actions {
     grid-area: actions;
     display: flex;
@@ -3757,13 +4357,13 @@ button).elevated[disabled] {
     align-items: center;
     gap: 8px;
   }
-
 :where(.top-app-bar) .icon {
-    background-color: unset;
-    color: unset;
-    padding: unset;
+    background-color: transparent;
+    background-color: initial;
+    color: inherit;
+    padding: 0;
+    padding: initial;
   }
-
 :where(.top-app-bar) .title {
     grid-area: title;
     flex: 1;
@@ -3776,18 +4376,16 @@ button).elevated[disabled] {
     font-weight: var(--md-sys-typescale-title-large-weight);
     font-family: var(--md-sys-typescale-title-large-font);
   }
-
 :where(.top-app-bar) .leading {
     grid-area: leading;
-    padding: unset;
+    padding: 0;
+    padding: initial;
   }
-
-:where(.top-app-bar).fixed {
+.fixed:where(.top-app-bar) {
     transition: background 0.8s;
     z-index: 1000;
   }
-
-:where(.top-app-bar).scrolled {
+.scrolled:where(.top-app-bar) {
     --tint-opacity: 0.09;
     --tint-color-rgb: var(--md-sys-color-primary-rgb);
     --tint-color: rgb(var(--md-sys-color-primary-rgb) / var(--tint-opacity));
@@ -3796,23 +4394,49 @@ button).elevated[disabled] {
       linear-gradient(var(--md-sys-color-surface), var(--md-sys-color-surface))
         no-repeat;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.top-app-bar.small) {
   display: flex;
   align-items: center;
 }
-
 :where(.top-app-bar.small) .title {
     text-align: start;
     padding-left: 16px;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.top-app-bar.medium) {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "leading actions" "title title";
 }
-
 :where(.top-app-bar.medium) .title {
     padding-top: 16px;
     margin-left: 8px;
@@ -3825,13 +4449,26 @@ button).elevated[disabled] {
     font-weight: var(--md-sys-typescale-headline-small-weight);
     font-family: var(--md-sys-typescale-headline-small-font);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.top-app-bar.large) {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "leading actions" "title title";
 }
-
 :where(.top-app-bar.large) .title {
     padding-top: 20px;
     margin-left: 8px;
@@ -3844,11 +4481,54 @@ button).elevated[disabled] {
     font-weight: var(--md-sys-typescale-headline-medium-weight);
     font-family: var(--md-sys-typescale-headline-medium-font);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.top-app-bar.center-aligned) .title {
     text-align: center;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .text-field {
   -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
           text-decoration: var(--md-sys-typescale-body-large-text-decoration);
@@ -3862,19 +4542,29 @@ button).elevated[disabled] {
   display: inline-block;
   overflow: hidden;
 }
-
 datalist {
   display: none;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* Codepen: https://codepen.io/finnhvman/pen/xyOORQ */
-
 .text-field.outlined {
   padding-top: 6px;
+  /* Input, Textarea */
 }
-
-/* Input, Textarea */
-
 .text-field.outlined > input,
   .text-field.outlined > textarea {
     box-sizing: border-box;
@@ -3895,9 +4585,7 @@ datalist {
     caret-color: var(--md-sys-color-primary);
     transition: border 0.2s, box-shadow 0.2s;
   }
-
 /* Span */
-
 .text-field.outlined > input + span,
   .text-field.outlined > textarea + span {
     position: absolute;
@@ -3913,9 +4601,7 @@ datalist {
     cursor: text;
     transition: color 0.2s, font-size 0.2s, line-height 0.2s;
   }
-
 /* Corners */
-
 .text-field.outlined > input + span::before,
   .text-field.outlined > input + span::after,
   .text-field.outlined > textarea + span::before,
@@ -3932,14 +4618,12 @@ datalist {
     box-shadow: inset 0 1px transparent;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-
 .text-field.outlined > input + span::before,
   .text-field.outlined > textarea + span::before {
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: 4px 0;
   }
-
 .text-field.outlined > input + span::after,
   .text-field.outlined > textarea + span::after {
     flex-grow: 1;
@@ -3947,66 +4631,52 @@ datalist {
     border-right: solid 1px transparent;
     border-radius: 0 4px;
   }
-
 /* Hover */
-
 .text-field.outlined:hover > input,
   .text-field.outlined:hover > textarea {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
     border-top-color: transparent;
   }
-
 .text-field.outlined:hover > input + span::before,
   .text-field.outlined:hover > textarea + span::before,
   .text-field.outlined:hover > input + span::after,
   .text-field.outlined:hover > textarea + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-
 .text-field.outlined:hover > input:not(:focus):-moz-placeholder-shown, .text-field.outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-
 .text-field.outlined:hover > input:not(:focus):placeholder-shown,
   .text-field.outlined:hover > textarea:not(:focus):placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-
 /* Placeholder-shown */
-
 .text-field.outlined > input:not(:focus):-moz-placeholder-shown, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
-
 .text-field.outlined > input:not(:focus):placeholder-shown,
   .text-field.outlined > textarea:not(:focus):placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
-
 .text-field.outlined > input:not(:focus):-moz-placeholder-shown + span, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
-
 .text-field.outlined > input:not(:focus):placeholder-shown + span,
   .text-field.outlined > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
-
 .text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::after, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
     border-top-color: transparent;
   }
-
 .text-field.outlined > input:not(:focus):placeholder-shown + span::before,
   .text-field.outlined > textarea:not(:focus):placeholder-shown + span::before,
   .text-field.outlined > input:not(:focus):placeholder-shown + span::after,
   .text-field.outlined > textarea:not(:focus):placeholder-shown + span::after {
     border-top-color: transparent;
   }
-
 /* Focus */
-
 .text-field.outlined > input:focus,
   .text-field.outlined > textarea:focus {
     border-color: var(--md-sys-color-primary);
@@ -4016,12 +4686,10 @@ datalist {
       inset 0 -1px var(--md-sys-color-primary);
     outline: none;
   }
-
 .text-field.outlined > input:focus + span,
   .text-field.outlined > textarea:focus + span {
     color: var(--md-sys-color-primary);
   }
-
 .text-field.outlined > input:focus + span::before,
   .text-field.outlined > input:focus + span::after,
   .text-field.outlined > textarea:focus + span::before,
@@ -4029,9 +4697,7 @@ datalist {
     border-top-color: var(--md-sys-color-primary) !important;
     box-shadow: inset 0 1px var(--md-sys-color-primary);
   }
-
 /* Disabled */
-
 .text-field.outlined > input:disabled,
   .text-field.outlined > input:disabled + span,
   .text-field.outlined > textarea:disabled,
@@ -4041,38 +4707,31 @@ datalist {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     pointer-events: none;
   }
-
 .text-field.outlined > input:disabled + span::before,
   .text-field.outlined > input:disabled + span::after,
   .text-field.outlined > textarea:disabled + span::before,
   .text-field.outlined > textarea:disabled + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-
 .text-field.outlined > input:disabled:-moz-placeholder-shown, .text-field.outlined > input:disabled:-moz-placeholder-shown + span, .text-field.outlined > textarea:disabled:-moz-placeholder-shown, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-
 .text-field.outlined > input:disabled:placeholder-shown,
   .text-field.outlined > input:disabled:placeholder-shown + span,
   .text-field.outlined > textarea:disabled:placeholder-shown,
   .text-field.outlined > textarea:disabled:placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-
 .text-field.outlined > input:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > input:disabled:-moz-placeholder-shown + span::after, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::after {
     border-top-color: transparent !important;
   }
-
 .text-field.outlined > input:disabled:placeholder-shown + span::before,
   .text-field.outlined > input:disabled:placeholder-shown + span::after,
   .text-field.outlined > textarea:disabled:placeholder-shown + span::before,
   .text-field.outlined > textarea:disabled:placeholder-shown + span::after {
     border-top-color: transparent !important;
   }
-
 /* Faster transition in Safari for less noticable fractional font-size issue */
-
 @media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) {
       .text-field.outlined > input,
@@ -4087,11 +4746,23 @@ datalist {
       }
     }
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* Codepen: https://codepen.io/finnhvman/pen/bxXPqN */
-
 /* Input, Textarea */
-
 .text-field.filled > input,
   .text-field.filled > textarea {
     display: block;
@@ -4113,9 +4784,7 @@ datalist {
     caret-color: var(--md-sys-color-primary);
     transition: border-bottom 0.2s, background-color 0.2s;
   }
-
 /* Span */
-
 .text-field.filled > input + span,
   .text-field.filled > textarea + span {
     position: absolute;
@@ -4132,9 +4801,7 @@ datalist {
     pointer-events: none;
     transition: color 0.2s, font-size 0.2s, line-height 0.2s;
   }
-
 /* Underline */
-
 .text-field.filled > input + span::after,
   .text-field.filled > textarea + span::after {
     content: "";
@@ -4149,66 +4816,51 @@ datalist {
     transform: scaleX(0);
     transition: transform 0.3s;
   }
-
 /* Hover */
-
 .text-field.filled > input:hover,
   .text-field.filled > textarea:hover {
     border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
   }
-
 /* Placeholder-shown */
-
 .text-field.filled > input:not(:focus):-moz-placeholder-shown + span, .text-field.filled > textarea:not(:focus):-moz-placeholder-shown + span {
     font-size: inherit;
     line-height: 48px;
   }
-
 .text-field.filled > input:not(:focus):placeholder-shown + span,
   .text-field.filled > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 48px;
   }
-
 /* Focus */
-
 .text-field.filled > input:focus,
   .text-field.filled > textarea:focus {
     outline: none;
   }
-
 .text-field.filled > input:focus + span,
   .text-field.filled > textarea:focus + span {
     color: var(--md-sys-color-primary);
   }
-
 .text-field.filled > input:focus + span::before,
   .text-field.filled > textarea:focus + span::before {
     opacity: 0.12;
   }
-
 .text-field.filled > input:focus + span::after,
   .text-field.filled > textarea:focus + span::after {
     transform: scale(1);
   }
-
 /* Disabled */
-
 .text-field.filled > input:disabled,
   .text-field.filled > textarea:disabled {
     border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
   }
-
 .text-field.filled > input:disabled + span,
   .text-field.filled > textarea:disabled + span {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
 /* Faster transition in Safari for less noticable fractional font-size issue */
-
 @media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) {
       .text-field.filled > input,
@@ -4221,7 +4873,36 @@ datalist {
       }
     }
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .ripple {
   --ripple-bg: rgb(var(--md-sys-color-surface-rgb) / 0.4);
   --ripple-fg: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
@@ -4231,7 +4912,6 @@ datalist {
   --ripple-end-size: 15000%;
   position: relative;
 }
-
 .ripple:not([disabled])::before {
       content: "";
       border-radius: inherit;
@@ -4245,7 +4925,6 @@ datalist {
       background-repeat: no-repeat;
       transition: background 0.8s;
     }
-
 .ripple:not([disabled]):hover::before {
         background: var(--ripple-bg)
           radial-gradient(
@@ -4255,18 +4934,45 @@ datalist {
           )
           var(--ripple-start) / var(--ripple-end-size);
       }
-
 .ripple:not([disabled]):active::before {
         background-color: var(--ripple-fg);
         background-size: 100%;
         transition: background 0s;
       }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .tooltip {
   text-decoration: none;
   position: relative;
 }
-
 .tooltip:before {
     position: absolute;
     bottom: -80px;
@@ -4289,19 +4995,45 @@ datalist {
     z-index: 1;
     box-shadow: var(--md-sys-elevation-2);
   }
-
 .tooltip[aria-label]:before {
     content: attr(aria-label);
   }
-
 .tooltip[data-tooltip]:before {
     content: attr(data-tooltip);
   }
-
 .tooltip:hover:before {
     transform: translateX(-50%) scale(1);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.switch) {
   --thumb-size: 16px;
   --track-width: 52px;
@@ -4319,10 +5051,8 @@ datalist {
   align-items: center;
   justify-content: center;
   position: relative;
+  /* Thumb */
 }
-
-/* Thumb */
-
 :where(.switch)::after {
     content: "";
     -webkit-font-smoothing: antialiased;
@@ -4349,71 +5079,116 @@ datalist {
     left: calc(var(--thumb-size) / 2 - var(--border-width));
     transition: left 0.2s ease-in-out;
   }
-
 :where(.switch):checked {
     --thumb-size: 28px;
     background-color: var(--md-sys-color-primary);
     border-color: var(--md-sys-color-primary);
   }
-
 :where(.switch):checked::after {
       left: calc(100% - var(--thumb-size));
       background-color: var(--md-sys-color-on-primary);
       color: var(--md-sys-color-on-primary-container);
     }
-
 :where(.switch):disabled {
     background-color: rgb(var(--md-sys-color-surface-variant-rgb) / 0.12);
     border-color: var(--md-sys-color-surface-variant);
   }
-
 :where(.switch):disabled::after {
       opacity: 0.38;
       background-color: var(--md-sys-color-on-surface);
     }
-
 :where(.switch):disabled:selected {
       background-color: var(--md-sys-color-on-surface);
       border-color: var(--md-sys-color-on-surface);
       color: var(--md-sys-color-on-surface);
     }
-
 :where(.switch):disabled:selected::after {
         opacity: 1;
         background-color: var(--md-sys-color-surface);
       }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* Codepen: https://codepen.io/finnhvman/pen/pOeyjE */
-
 :where(.switch).icon-selected {
   --thumb-size: 24px;
 }
-
-:where(.switch).icon-selected::after {
+.icon-selected:where(.switch)::after {
     left: var(--border-width);
   }
-
-:where(.switch).icon-selected:checked::after {
+.icon-selected:where(.switch):checked::after {
     content: "check";
     left: calc(100% - var(--thumb-size) - var(--border-width));
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* Codepen: https://codepen.io/finnhvman/pen/pOeyjE */
-
 :where(.switch).icon-unselected {
   --thumb-size: 24px;
 }
-
-:where(.switch).icon-unselected::after {
+.icon-unselected:where(.switch)::after {
     content: "close";
     left: var(--border-width);
   }
-
-:where(.switch).icon-unselected:checked::after {
+.icon-unselected:where(.switch):checked::after {
     content: "check";
     left: calc(100% - var(--thumb-size) - var(--border-width));
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   --md-sys-comp-badge-size: 22px;
@@ -4421,25 +5196,32 @@ datalist {
   --md-sys-comp-badge-background-color: var(--md-sys-color-error);
   --md-sys-comp-badge-color: var(--md-sys-color-on-error);
 }
-
 :is(.badge) {
   position: relative;
 }
-
 :is(.badge):after {
     position: absolute;
+
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
+
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
+
     text-transform: var(--md-sys-typescale-label-small-text-transform);
+
     line-height: var(--md-sys-typescale-label-small-line-height);
+
     letter-spacing: var(--md-sys-typescale-label-small-tracking);
+
     font-size: var(--md-sys-typescale-label-small-size);
+
     font-weight: var(--md-sys-typescale-label-small-weight);
+
     font-family: var(--md-sys-typescale-label-small-font);
     font-size: 11px;
     font-weight: 600;
     text-align: center;
     line-height: 23px;
+
     background-color: var(--md-sys-comp-badge-background-color);
     color: var(--md-sys-comp-badge-color);
     width: var(--md-sys-comp-badge-size);
@@ -4450,58 +5232,149 @@ datalist {
     right: calc((-1 * var(--md-sys-comp-badge-size) / 2));
     border-radius: 50%;
   }
-
-:is(.badge)[data-badge]:after {
+[data-badge]:is(.badge):after {
     content: attr(data-badge);
   }
-
-:is(.badge)[data-badge=""]:after {
+[data-badge=""]:is(.badge):after {
     --md-sys-comp-badge-size: var(--md-sys-comp-badge-dot-size);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .badge.elevated[data-badge]:after {
     box-shadow: var(--md-sys-elevation-2);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .badge.secondary[data-badge]:after {
     background-color: var(--md-sys-color-secondary);
     color: var(--md-sys-color-on-secondary);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .badge.tertiary[data-badge]:after {
     background-color: var(--md-sys-color-tertiary);
     color: var(--md-sys-color-on-tertiary);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* Codepen: https://codepen.io/argyleink/pen/eYGaPEM */
-
 :focus {
   transition: outline-offset 0.25s ease;
   outline-color: var(--md-sys-color-on-surface-variant);
   outline-width: 2px;
   position: relative;
 }
-
 :focus:not(:active) {
   outline-offset: 5px;
 }
-
 .focus-ring {
   outline: 2px solid var(--md-sys-color-on-surface-variant);
   outline-offset: 5px;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(html),
 .tokens {
   --md-sys-comp-checkbox-size: 24px;
   --md-sys-comp-checkbox-unselected-color: var(--md-sys-color-outline);
   --md-sys-comp-checkbox-selected-color: var(--md-sys-color-primary);
 }
-
-:where(input[type="checkbox"],
-.checkbox):not(:where(.switch,
-.segmented-button,
-.toggle)) {
+:where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle)) {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -4510,11 +5383,7 @@ datalist {
   height: var(--md-sys-comp-checkbox-size);
   position: relative;
 }
-
-:where(input[type="checkbox"],
-.checkbox):not(:where(.switch,
-.segmented-button,
-.toggle))::after {
+:where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle))::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -4534,35 +5403,49 @@ datalist {
     content: "check_box_outline_blank";
     color: var(--md-sys-comp-checkbox-unselected-color);
   }
-
-:where(input[type="checkbox"],
-.checkbox):not(:where(.switch,
-.segmented-button,
-.toggle)):is(:checked,
-.checked)::after {
+:where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle)):is(:checked, .checked)::after {
     content: "check_box";
     color: var(--md-sys-comp-checkbox-selected-color);
   }
-
-:where(input[type="checkbox"],
-.checkbox):not(:where(.switch,
-.segmented-button,
-.toggle)):is(:indeterminate,
-.indeterminate)::after {
+:where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle)):is(:indeterminate, .indeterminate)::after {
     content: "indeterminate_check_box";
     color: var(--md-sys-comp-checkbox-selected-color);
   }
-
-:where(input[type="checkbox"],
-.checkbox):not(:where(.switch,
-.segmented-button,
-.toggle)):disabled::after {
+:where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle)):disabled::after {
     cursor: default;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* Codepen: https://codepen.io/finnhvman/pen/LJWJVR */
-
 .slider {
   --safari-helper1: rgb(var(--md-sys-color-primary-rgb) / 0.04);
   --safari-helper2: rgb(var(--md-sys-color-primary-rgb) / 0.12);
@@ -4572,10 +5455,8 @@ datalist {
   position: relative;
   width: 100%;
   color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+  /* Input */
 }
-
-/* Input */
-
 .slider > input {
     -webkit-appearance: none;
     position: relative;
@@ -4587,40 +5468,29 @@ datalist {
     background-color: transparent;
     cursor: pointer;
   }
-
 /* Without Span */
-
 .slider > input:last-child {
     position: static;
     margin: 0;
   }
-
 /* Span */
-
 .slider > span {
     display: inline-block;
     margin-bottom: 36px;
   }
-
 /* Focus */
-
 .slider > input:focus {
     outline: none;
   }
-
 /* Disabled */
-
 .slider > input:disabled {
     cursor: default;
     opacity: 0.38;
   }
-
 .slider > input:disabled + span {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
 /* Webkit | Track */
-
 .slider > input::-webkit-slider-runnable-track {
     margin: 17px 0;
     border-radius: 1px;
@@ -4628,9 +5498,7 @@ datalist {
     height: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
   }
-
 /* Webkit | Thumb */
-
 .slider > input::-webkit-slider-thumb {
     appearance: none;
     -webkit-appearance: none;
@@ -4643,42 +5511,31 @@ datalist {
     -webkit-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
   }
-
 /* Webkit | Hover, Focus */
-
 .slider:hover > input::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper1);
   }
-
 .slider > input:focus::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper2);
   }
-
 .slider:hover > input:focus::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper3);
   }
-
 /* Webkit | Active */
-
 .slider > input:active::-webkit-slider-thumb {
     box-shadow: 0 0 0 2px var(--safari-helper4) !important;
   }
-
 /* Webkit | Disabled */
-
 .slider > input:disabled::-webkit-slider-runnable-track {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
 .slider > input:disabled::-webkit-slider-thumb {
     background-color: rgb(var(--md-sys-color-on-surface-rgb));
     color: var(--md-sys-color-surface); /* Safari */
     box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
     transform: scale(4, 4);
   }
-
 /* Moz | Track */
-
 .slider > input::-moz-range-track {
     margin: 17px 0;
     border-radius: 1px;
@@ -4686,9 +5543,7 @@ datalist {
     height: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
   }
-
 /* Moz | Thumb */
-
 .slider > input::-moz-range-thumb {
     appearance: none;
     -moz-appearance: none;
@@ -4701,57 +5556,42 @@ datalist {
     -moz-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
   }
-
 /* Moz | Progress */
-
 .slider > input::-moz-range-progress {
     border-radius: 1px;
     height: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb));
   }
-
 /* Moz | Hover, Focus */
-
 .slider:hover > input:hover::-moz-range-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.04);
   }
-
 .slider > input:focus::-moz-range-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.12);
   }
-
 .slider:hover > input:focus::-moz-range-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.16);
   }
-
 /* Moz | Active */
-
 .slider > input:active::-moz-range-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.24) !important;
   }
-
 /* Moz | Disabled */
-
 .slider > input:disabled::-moz-range-track {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
 .slider > input:disabled::-moz-range-progress {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-
 .slider > input:disabled::-moz-range-thumb {
     background-color: rgb(var(--md-sys-color-on-surface-rgb));
     box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
     transform: scale(4, 4);
   }
-
 .slider > input::-moz-focus-outer {
     border: none;
   }
-
 /* MS | Track */
-
 .slider > input::-ms-track {
     box-sizing: border-box;
     margin: 17px 0;
@@ -4762,23 +5602,18 @@ datalist {
     height: 2px;
     background-color: transparent;
   }
-
 .slider > input::-ms-fill-lower {
     border-radius: 1px;
     height: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb));
   }
-
 /* MS | Progress */
-
 .slider > input::-ms-fill-upper {
     border-radius: 1px;
     height: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
   }
-
 /* MS | Thumb */
-
 .slider > input::-ms-thumb {
     appearance: none;
     margin: 0 17px;
@@ -4791,46 +5626,64 @@ datalist {
     -ms-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
   }
-
 /* MS | Hover, Focus */
-
 .slider:hover > input::-ms-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.04);
   }
-
 .slider > input:focus::-ms-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.12);
   }
-
 .slider:hover > input:focus::-ms-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.16);
   }
-
 /* MS | Active */
-
 .slider > input:active::-ms-thumb {
     box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.24) !important;
   }
-
 /* MS | Disabled */
-
 .slider > input:disabled::-ms-fill-lower {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
-
 .slider > input:disabled::-ms-fill-upper {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     opacity: 0.38;
   }
-
 .slider > input:disabled::-ms-thumb {
     background-color: rgb(var(--md-sys-color-on-surface-rgb));
     box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
     transform: scale(4, 4);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:where(.table,
-table) {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(.table, table) {
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--md-sys-color-outline-variant);
@@ -4839,61 +5692,90 @@ table) {
   padding: 0;
   position: relative;
 }
-
-:where(.table,
-table) :where(td,
-th) {
+:where(.table, table) :where(td, th) {
     padding: 16px 24px;
     border-top: 1px solid var(--md-sys-color-surface-variant);
     border-left: 1px solid var(--md-sys-color-surface-variant);
     vertical-align: middle;
   }
-
-:where(.table,
-table) thead tr th {
+:where(.table, table) thead tr th {
       background-color: var(--md-sys-color-surface-2);
       color: var(--md-sys-color-on-surface-variant);
       border-top: none;
       font-weight: 500;
     }
-
-:where(.table,
-table) thead tr th:first-of-type {
+:where(.table, table) thead tr th:first-of-type {
         border-radius: var(--md-sys-shape-corner-medium);
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
-
-:where(.table,
-table) thead tr th:last-of-type {
+:where(.table, table) thead tr th:last-of-type {
         border-radius: var(--md-sys-shape-corner-medium);
         border-top-left-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
-
-:where(.table,
-table) tbody tr:last-of-type td:first-of-type {
+:where(.table, table) tbody tr:last-of-type td:first-of-type {
           border-radius: var(--md-sys-shape-corner-medium);
           border-bottom-right-radius: 0;
           border-top-right-radius: 0;
           border-top-left-radius: 0;
         }
-
-:where(.table,
-table) tbody tr:last-of-type td:last-of-type {
+:where(.table, table) tbody tr:last-of-type td:last-of-type {
           border-radius: var(--md-sys-shape-corner-medium);
           border-bottom-left-radius: 0;
           border-top-right-radius: 0;
           border-top-left-radius: 0;
         }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:where(.table,
-table).zebra tr:nth-of-type(even) {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.zebra:where(.table, table) tr:nth-of-type(even) {
     background-color: var(--md-sys-color-surface-1);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.bottom-app-bar) {
   display: flex;
   flex-direction: row;
@@ -4903,7 +5785,6 @@ table).zebra tr:nth-of-type(even) {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
 }
-
 :is(.bottom-app-bar)::before {
     content: "";
     position: absolute;
@@ -4913,7 +5794,6 @@ table).zebra tr:nth-of-type(even) {
     right: 0;
     background-color: var(--md-sys-color-surface-1);
   }
-
 :is(.bottom-app-bar) .actions {
     display: flex;
     flex-direction: row;
@@ -4922,38 +5802,96 @@ table).zebra tr:nth-of-type(even) {
     margin: 16px;
     gap: 8px;
   }
-
 :is(.bottom-app-bar) :where(.icon) {
     background-color: transparent;
     color: inherit;
   }
-
 :is(.bottom-app-bar) :where(.fab) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
   }
-
 :is(.bottom-app-bar) :where(.fab):hover {
       box-shadow: var(--md-sys-elevation-1);
     }
-
 :is(.bottom-app-bar) :where(.fab):focus {
       box-shadow: var(--md-sys-elevation-0);
     }
-
 :is(.bottom-app-bar) :where(.fab):active {
       box-shadow: var(--md-sys-elevation-0);
     }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-.divider {
-  height: 1px;
-  width: 100%;
-  background-color: var(--md-sys-color-outline-variant);
-  position: relative;
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  --md-sys-comp-divider-color: var(--md-sys-color-outline-variant);
+  --md-sys-comp-divider-container-height: 1px;
+  --md-sys-comp-divider-container-width: 100%;
 }
+:is(hr, .divider) {
+  height: var(--md-sys-comp-divider-container-height);
+  width: var(--md-sys-comp-divider-container-width);
+  background-color: var(--md-sys-comp-divider-color);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .segmented-button {
   width: 100%;
   height: 40px;
@@ -4973,7 +5911,6 @@ table).zebra tr:nth-of-type(even) {
   font-weight: var(--md-sys-typescale-label-large-weight);
   font-family: var(--md-sys-typescale-label-large-font);
 }
-
 .segmented-button label {
     border-radius: 0;
     width: 100%;
@@ -4993,34 +5930,27 @@ table).zebra tr:nth-of-type(even) {
     position: relative;
     z-index: 1;
   }
-
 .segmented-button label:first-of-type {
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
     }
-
 .segmented-button label:last-of-type {
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
     }
-
 .segmented-button label:not(:last-child) {
       border-right: 1px solid var(--md-sys-color-outline);
     }
-
 .segmented-button input {
     opacity: 0;
     position: absolute;
   }
-
 .segmented-button input:focus:not(:checked) + label {
       background-color: var(--md-sys-color-surface-2);
     }
-
-.segmented-button input{
+.segmented-button input {
     --tint-color: transparent;
-}
-
+  }
 .segmented-button input + label::after {
       content: "";
       border-radius: inherit;
@@ -5031,32 +5961,27 @@ table).zebra tr:nth-of-type(even) {
       right: 0;
       /* background-color: var(--tint-color); */
     }
-
 .segmented-button input:hover + label {
       --tint-color: rgb(
         var(--md-sys-color-primary-rgb) /
           var(--md-sys-state-hover-state-layer-opacity)
       );
     }
-
 .segmented-button input:focus + label {
       --tint-color: rgb(
         var(--md-sys-color-primary-rgb) /
           var(--md-sys-state-focus-state-layer-opacity)
       );
     }
-
 .segmented-button input:active + label {
       --tint-color: rgb(
         var(--md-sys-color-primary-rgb) /
           var(--md-sys-state-pressed-state-layer-opacity)
       );
     }
-
 .segmented-button i {
     margin-right: 8px;
   }
-
 .segmented-button input:checked + label {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
@@ -5069,7 +5994,6 @@ table).zebra tr:nth-of-type(even) {
     font-weight: var(--md-sys-typescale-title-small-weight);
     font-family: var(--md-sys-typescale-title-small-font);
   }
-
 .segmented-button input:checked + label::before {
       content: "check";
       -webkit-font-smoothing: antialiased;
@@ -5085,14 +6009,44 @@ table).zebra tr:nth-of-type(even) {
       font-family: "Material Icons";
       padding-right: 8px;
     }
-
 .segmented-button input:checked + label i {
       display: none;
     }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.radio-button) {
   accent-color: var(--md-sys-color-primary);
   display: grid;
+  align-content: center;
+  justify-content: center;
   place-content: center;
   position: relative;
   -webkit-appearance: none;
@@ -5101,7 +6055,6 @@ table).zebra tr:nth-of-type(even) {
   margin: 0;
   background-color: var(--md-sys-color-surface);
 }
-
 :where(.radio-button)::before {
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "liga";
@@ -5118,16 +6071,42 @@ table).zebra tr:nth-of-type(even) {
     content: "radio_button_unchecked";
     color: var(--md-sys-color-on-surface-variant);
   }
-
 :where(.radio-button):checked::before {
     content: "radio_button_checked";
     color: var(--md-sys-color-primary);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* CSS progress indicator at value 75% */
-
-:where(progress,
-.progress).linear {
+:where(progress, .progress).linear {
   --progress-fg: var(--md-sys-color-primary);
   --progress-bg: var(--md-sys-color-surface-variant);
   --progress-value: 20%;
@@ -5135,28 +6114,19 @@ table).zebra tr:nth-of-type(even) {
   border-radius: 4px;
   position: relative;
 }
-
-:where(progress,
-.progress).linear::-webkit-progress-value {
+.linear:where(progress, .progress)::-webkit-progress-value {
     background: var(--progress-fg);
   }
-
-:where(progress,
-.progress).linear::-moz-progress-bar {
+.linear:where(progress, .progress)::-moz-progress-bar {
     background: var(--progress-fg);
   }
-
-:where(progress,
-.progress).linear::-webkit-progress-bar {
+.linear:where(progress, .progress)::-webkit-progress-bar {
     background: var(--progress-bg);
   }
-
-:where(progress,
-.progress).linear[indeterminate] {
+.linear[indeterminate]:where(progress, .progress) {
     -webkit-animation: linear-progress-indeterminate 2s infinite;
             animation: linear-progress-indeterminate 2s infinite;
   }
-
 @-webkit-keyframes linear-progress-indeterminate {
   0% {
     background-position: -200% 0;
@@ -5165,7 +6135,6 @@ table).zebra tr:nth-of-type(even) {
     background-position: 200% 0;
   }
 }
-
 @keyframes linear-progress-indeterminate {
   0% {
     background-position: -200% 0;
@@ -5174,11 +6143,23 @@ table).zebra tr:nth-of-type(even) {
     background-position: 200% 0;
   }
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* Codepen: https://codepen.io/finnhvman/pen/bmNdNr */
-
-:where(progress,
-.progress).circular {
+:where(progress, .progress).circular {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -5193,16 +6174,11 @@ table).zebra tr:nth-of-type(even) {
   font-size: 16px;
   overflow: hidden;
 }
-
-:where(progress,
-.progress).circular::-webkit-progress-bar {
+.circular:where(progress, .progress)::-webkit-progress-bar {
     background-color: transparent;
   }
-
 /* Indeterminate */
-
-:where(progress,
-.progress).circular[indeterminate] {
+.circular[indeterminate]:where(progress, .progress) {
     -webkit-mask-image: linear-gradient(transparent 50%, black 50%),
       linear-gradient(to right, transparent 50%, black 50%);
     mask-image: linear-gradient(transparent 50%, black 50%),
@@ -5210,17 +6186,12 @@ table).zebra tr:nth-of-type(even) {
     -webkit-animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
             animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
   }
-
-:where(progress,
-.progress).circular[indeterminate] {
+.circular[indeterminate]:where(progress, .progress) {
     -webkit-animation: none;
             animation: none;
   }
-
-:where(progress,
-.progress).circular[indeterminate]::before,
-  :where(progress,
-.progress).circular[indeterminate]::-webkit-progress-value {
+.circular[indeterminate]:where(progress, .progress)::before,
+  .circular[indeterminate]:where(progress, .progress)::-webkit-progress-value {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -5234,9 +6205,7 @@ table).zebra tr:nth-of-type(even) {
     -webkit-animation: circular-pseudo 0.75s infinite linear alternate;
             animation: circular-pseudo 0.75s infinite linear alternate;
   }
-
-:where(progress,
-.progress).circular[indeterminate]::-moz-progress-bar {
+.circular[indeterminate]:where(progress, .progress)::-moz-progress-bar {
     box-sizing: border-box;
     border: solid 0.25em transparent;
     border-top-color: currentColor;
@@ -5246,12 +6215,9 @@ table).zebra tr:nth-of-type(even) {
     background-color: transparent;
     animation: circular-pseudo 0.75s infinite linear alternate;
   }
-
-:where(progress,
-.progress).circular[indeterminate]::-ms-fill {
+.circular[indeterminate]:where(progress, .progress)::-ms-fill {
     animation-name: -ms-ring;
   }
-
 @-webkit-keyframes circular {
   0% {
     transform: rotate(0deg);
@@ -5289,7 +6255,6 @@ table).zebra tr:nth-of-type(even) {
     transform: rotate(2520deg);
   }
 }
-
 @keyframes circular {
   0% {
     transform: rotate(0deg);
@@ -5327,7 +6292,6 @@ table).zebra tr:nth-of-type(even) {
     transform: rotate(2520deg);
   }
 }
-
 @-webkit-keyframes circular-pseudo {
   0% {
     transform: rotate(-30deg);
@@ -5350,7 +6314,6 @@ table).zebra tr:nth-of-type(even) {
     transform: rotate(225deg);
   }
 }
-
 @keyframes circular-pseudo {
   0% {
     transform: rotate(-30deg);
@@ -5373,20 +6336,55 @@ table).zebra tr:nth-of-type(even) {
     transform: rotate(225deg);
   }
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:where(.dialog) {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  --md-sys-comp-dialog-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-dialog-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-dialog-container-min-width: 280px;
+  --md-comp-dialog-container-max-width: 560px;
+}
+:is(.dialog, dialog) {
   position: relative;
 }
-
-:where(.dialog)[open] {
+[open]:is(.dialog, dialog) {
     border-radius: 28px;
     border: none;
     box-shadow: var(--md-sys-elevation-3);
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-on-surface-variant);
+    background-color: var(--md-sys-comp-dialog-background-color);
+    color: var(--md-sys-comp-dialog-color);
     position: relative;
-    min-width: 280px;
-    max-width: 560px;
+    min-width: var(--md-comp-dialog-container-min-width);
+    max-width: var(--md-comp-dialog-container-max-width);
     padding: 24px;
     gap: 16px;
     display: flex;
@@ -5394,12 +6392,10 @@ table).zebra tr:nth-of-type(even) {
     justify-content: center;
     align-items: center;
   }
-
-:where(.dialog)[open] i {
+[open]:is(.dialog, dialog) i {
       pointer-events: none;
     }
-
-:where(.dialog)[open] .title {
+[open]:is(.dialog, dialog) .title {
       -webkit-text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
               text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
       text-transform: var(--md-sys-typescale-headline-small-text-transform);
@@ -5410,8 +6406,7 @@ table).zebra tr:nth-of-type(even) {
       font-family: var(--md-sys-typescale-headline-small-font);
       text-align: center;
     }
-
-:where(.dialog)[open] .content {
+[open]:is(.dialog, dialog) .content {
       -webkit-text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
               text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
       text-transform: var(--md-sys-typescale-body-medium-text-transform);
@@ -5422,8 +6417,7 @@ table).zebra tr:nth-of-type(even) {
       font-family: var(--md-sys-typescale-body-medium-font);
       text-align: start;
     }
-
-:where(.dialog)[open] .actions {
+[open]:is(.dialog, dialog) .actions {
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -5431,8 +6425,22 @@ table).zebra tr:nth-of-type(even) {
       align-items: center;
       gap: 4px;
     }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:where(.dialog).modal[open] {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.modal[open]:is(.dialog, dialog) {
     margin: auto;
     position: fixed;
     top: 0;
@@ -5440,21 +6448,48 @@ table).zebra tr:nth-of-type(even) {
     bottom: 0;
     right: 0;
   }
-
-:where(.dialog).modal::-webkit-backdrop {
+.modal:is(.dialog, dialog)::-webkit-backdrop {
     /* Tokens not available in backdrop (above document) */
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;
   }
-
-:where(.dialog).modal::backdrop {
+.modal:is(.dialog, dialog)::backdrop {
     /* Tokens not available in backdrop (above document) */
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.navigation-bar) {
   display: flex;
   flex-direction: row;
@@ -5467,7 +6502,6 @@ table).zebra tr:nth-of-type(even) {
   color: var(--md-sys-color-on-surface);
   box-sizing: border-box;
 }
-
 :is(.navigation-bar)::before {
     content: "";
     position: absolute;
@@ -5477,19 +6511,16 @@ table).zebra tr:nth-of-type(even) {
     right: 0;
     background-color: var(--md-sys-color-surface-1);
   }
-
 :is(.navigation-bar) input {
     opacity: 0;
     position: absolute;
     width: 0;
     height: 0;
   }
-
 :is(.navigation-bar) input:checked + label i {
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
     }
-
 :is(.navigation-bar) label {
     flex: 1;
     padding-bottom: 16px;
@@ -5511,7 +6542,6 @@ table).zebra tr:nth-of-type(even) {
     font-weight: var(--md-sys-typescale-label-medium-weight);
     font-family: var(--md-sys-typescale-label-medium-font);
   }
-
 :is(.navigation-bar) i {
     font-size: 24px;
     width: 64px;
@@ -5521,7 +6551,36 @@ table).zebra tr:nth-of-type(even) {
     align-items: center;
     justify-content: center;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.navigation-rail) {
   height: 100%;
   width: 80px;
@@ -5535,7 +6594,6 @@ table).zebra tr:nth-of-type(even) {
   box-sizing: border-box;
   position: relative;
 }
-
 :is(.navigation-rail)::before {
     content: "";
     position: absolute;
@@ -5545,38 +6603,28 @@ table).zebra tr:nth-of-type(even) {
     right: 0;
     background-color: var(--md-sys-color-surface-1);
   }
-
-:is(.navigation-rail){
+:is(.navigation-rail) {
   padding-top: 16px;
   padding-bottom: 56px;
 }
-
-:is(.navigation-rail) :where(button,
-.button) {
+:is(.navigation-rail) :where(button, .button) {
     background-color: transparent;
     color: var(--md-sys-color-on-surface-variant);
     font-size: 24px;
     padding: 12px;
   }
-
-:is(.navigation-rail) :where(button,
-.button).fab {
+:is(.navigation-rail) .fab:where(button, .button) {
       background-color: var(--md-sys-color-tertiary-container);
       color: var(--md-sys-color-on-tertiary-container);
       box-shadow: var(--md-sys-elevation-0);
       margin-top: 12px;
     }
-
-:is(.navigation-rail) :where(button,
-.button).fab:hover {
+:is(.navigation-rail) .fab:where(button, .button):hover {
         box-shadow: var(--md-sys-elevation-2);
       }
-
-:is(.navigation-rail) :where(button,
-.button).fab:active {
+:is(.navigation-rail) .fab:where(button, .button):active {
         box-shadow: var(--md-sys-elevation-1);
       }
-
 :is(.navigation-rail) nav {
     flex: 1;
     display: flex;
@@ -5586,20 +6634,15 @@ table).zebra tr:nth-of-type(even) {
     margin-top: 40px;
     margin-bottom: 40px;
   }
-
 :is(.navigation-rail) nav input {
       opacity: 0;
       position: absolute;
     }
-
-:is(.navigation-rail) nav input:checked + :where(label,
-.tab-icon) i {
+:is(.navigation-rail) nav input:checked + :where(label, .tab-icon) i {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }
-
-:is(.navigation-rail) nav :where(label,
-.tab-icon) {
+:is(.navigation-rail) nav :where(label, .tab-icon) {
       height: 56px;
       display: flex;
       flex-direction: column;
@@ -5618,9 +6661,7 @@ table).zebra tr:nth-of-type(even) {
       font-weight: var(--md-sys-typescale-label-medium-weight);
       font-family: var(--md-sys-typescale-label-medium-font);
     }
-
-:is(.navigation-rail) nav :where(label,
-.tab-icon) i {
+:is(.navigation-rail) nav :where(label, .tab-icon) i {
         font-size: 24px;
         width: 64px;
         height: 32px;
@@ -5629,15 +6670,72 @@ table).zebra tr:nth-of-type(even) {
         align-items: center;
         justify-content: center;
       }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:is(.navigation-rail).middle nav {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.middle:is(.navigation-rail) nav {
     justify-content: center;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:is(.navigation-rail).bottom nav {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.bottom:is(.navigation-rail) nav {
     justify-content: flex-end;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.navigation-drawer) {
   width: 360px;
   height: 100%;
@@ -5648,7 +6746,6 @@ table).zebra tr:nth-of-type(even) {
   box-sizing: border-box;
   position: relative;
 }
-
 :is(.navigation-drawer) .drawer-title {
     -webkit-text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
             text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
@@ -5660,7 +6757,6 @@ table).zebra tr:nth-of-type(even) {
     font-family: var(--md-sys-typescale-title-medium-font);
     padding: 16px 18px;
   }
-
 :is(.navigation-drawer) .section-header {
     -webkit-text-decoration: var(--md-sys-typescale-title-small-text-decoration);
             text-decoration: var(--md-sys-typescale-title-small-text-decoration);
@@ -5672,37 +6768,27 @@ table).zebra tr:nth-of-type(even) {
     font-family: var(--md-sys-typescale-title-small-font);
     padding: 16px 18px;
   }
-
 :is(.navigation-drawer) .divider {
     margin-top: 2px;
     margin-bottom: 2px;
   }
-
 :is(.navigation-drawer) section {
     display: flex;
     flex-direction: column;
   }
-
 :is(.navigation-drawer) section .section-header {
       padding: 16px 18px;
     }
-
 :is(.navigation-drawer) section .list-tile {
       position: relative;
     }
-
-:is(.navigation-drawer) section .list-tile:where([selected],
-[data-selected]) {
+:is(.navigation-drawer) section .list-tile:where([selected], [data-selected]) {
         color: var(--md-sys-color-on-secondary-container);
       }
-
-:is(.navigation-drawer) section .list-tile:where([selected],
-[data-selected]) * {
+:is(.navigation-drawer) section .list-tile:where([selected], [data-selected]) * {
           z-index: 1;
         }
-
-:is(.navigation-drawer) section .list-tile:where([selected],
-[data-selected])::before {
+:is(.navigation-drawer) section .list-tile:where([selected], [data-selected])::before {
           content: "";
           position: absolute;
           top: 0;
@@ -5713,8 +6799,22 @@ table).zebra tr:nth-of-type(even) {
           background-color: var(--md-sys-color-secondary-container);
           color: var(--md-sys-color-on-secondary-container);
         }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
-:is(.navigation-drawer).modal[open] {
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.modal[open]:is(.navigation-drawer) {
     position: fixed;
     left: 8px;
     top: 8px;
@@ -5724,21 +6824,48 @@ table).zebra tr:nth-of-type(even) {
     border: none;
     overflow-y: auto;
   }
-
-:is(.navigation-drawer).modal[open]::-webkit-backdrop {
+.modal[open]:is(.navigation-drawer)::-webkit-backdrop {
       /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
     }
-
-:is(.navigation-drawer).modal[open]::backdrop {
+.modal[open]:is(.navigation-drawer)::backdrop {
       /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
     }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .snackbar {
   width: 344px;
   box-sizing: border-box;
@@ -5760,17 +6887,43 @@ table).zebra tr:nth-of-type(even) {
   font-weight: var(--md-sys-typescale-body-medium-weight);
   font-family: var(--md-sys-typescale-body-medium-font);
 }
-
 .snackbar :first-child {
     flex: 1;
   }
-
-.snackbar :where(button,
-.button) {
+.snackbar :where(button, .button) {
     align-self: end;
     color: var(--md-sys-color-inverse-primary);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.tabs) {
   width: 100%;
   height: 40px;
@@ -5791,7 +6944,6 @@ table).zebra tr:nth-of-type(even) {
   font-weight: var(--md-sys-typescale-label-large-weight);
   font-family: var(--md-sys-typescale-label-large-font);
 }
-
 :where(.tabs) .tab {
     width: 100%;
     height: 100%;
@@ -5800,23 +6952,19 @@ table).zebra tr:nth-of-type(even) {
     align-items: center;
     justify-content: center;
   }
-
 :where(.tabs) label {
     border-radius: 0;
     width: 100%;
     height: 100%;
     flex: 1;
   }
-
 :where(.tabs) input {
     display: none;
     pointer-events: none;
   }
-
 :where(.tabs) input:checked ~ label {
         color: var(--md-sys-color-primary);
       }
-
 :where(.tabs) input:checked ~ label::before {
           content: "";
           position: absolute;
@@ -5826,7 +6974,6 @@ table).zebra tr:nth-of-type(even) {
           height: 2px;
           background-color: var(--md-sys-color-primary);
         }
-
 :where(.tabs) input ~ label {
       flex: 1;
       display: flex;
@@ -5843,26 +6990,65 @@ table).zebra tr:nth-of-type(even) {
       position: relative;
       z-index: 1;
     }
-
 :where(.tabs) i {
     margin-right: 8px;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .list {
   position: relative;
 }
-
-.list:where(ul,
-ol) {
+.list:where(ul, ol) {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-
-.list{
+.list {
   min-width: 300px;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .list-tile {
   display: flex;
   flex-direction: row;
@@ -5872,29 +7058,24 @@ ol) {
   padding: 16px 24px;
   gap: 16px;
 }
-
 .list-tile .title {
     flex: 1;
     white-space: nowrap;
     text-align: start;
   }
-
 .list-tile .leading {
     display: flex;
     align-items: center;
     opacity: 0.8;
   }
-
 .list-tile .trailing {
     display: flex;
     align-items: center;
     opacity: 0.8;
   }
-
-.list-tile{
+.list-tile {
   --tint-color: transparent;
 }
-
 .list-tile::after {
     content: "";
     border-radius: inherit;
@@ -5905,7 +7086,6 @@ ol) {
     right: 0;
     /* background-color: var(--tint-color); */
   }
-
 .list-tile:hover,
   .list-tile .hover {
     --tint-color: rgb(
@@ -5913,7 +7093,6 @@ ol) {
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
-
 .list-tile:focus,
   .list-tile .focus {
     --tint-color: rgb(
@@ -5921,7 +7100,6 @@ ol) {
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
-
 .list-tile:active,
   .list-tile .active {
     --tint-color: rgb(
