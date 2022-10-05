@@ -33,3 +33,14 @@ h6 {
   border: 1px solid var(--md-sys-color-on-background);
   border-radius: 2px;
 }
+
+.preview {
+  padding: 2rem;
+  background-color: var(--md-sys-color-surface-1);
+  border-radius: var(--md-sys-shape-corner-medium);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}

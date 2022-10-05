@@ -1,0 +1,51 @@
+---
+import SideNav from "./SideNav.astro";
+
+const props = Astro.props;
+const { frontmatter } = props;
+const codepen = frontmatter.codepen;
+---
+
+<SideNav {...props}>
+  <slot />
+  {
+    codepen && (
+      <div>
+        <h2>Playground</h2>
+
+        <p
+          id="codepen"
+          class="codepen"
+          data-height="400"
+          data-theme-id="light"
+          data-default-tab="html,result"
+          data-slug-hash={codepen}
+          data-editable="true"
+          data-user="rodydavis"
+        >
+          <span>
+            See the Pen{" "}
+            <a href="https://codepen.io/rodydavis/pen/OJZvWRQ">Buttons</a> by
+            Rody Davis (<a href="https://codepen.io/rodydavis">@rodydavis</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js" />
+      </div>
+    )
+  }
+</SideNav>
+
+<style>
+  .codepen {
+    width: 100%;
+    height: 400px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    margin: 1em 0;
+    padding: 1em;
+  }
+</style>

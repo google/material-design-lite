@@ -14,11 +14,19 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: 40px;
+}
+
 :is(.button, button) {
   --state-disabled-opacity: 0.3799999952316284;
 
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-comp-button-background-color);
+  color: var(--md-sys-comp-button-color);
+  height: var(--md-comp-button-container-height);
 
   padding: 0 24px;
   border-radius: 20px;

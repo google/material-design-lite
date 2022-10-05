@@ -14,24 +14,42 @@
  limitations under the License.
 */
 
-/* Codepen: https://codepen.io/ittik/pen/ZNppPQ */
-.badge {
+:where(html),
+.tokens {
+  --md-sys-comp-badge-size: 22px;
+  --md-sys-comp-badge-dot-size: calc(var(--md-sys-comp-badge-size) / 2);
+  --md-sys-comp-badge-background-color: var(--md-sys-color-error);
+  --md-sys-comp-badge-color: var(--md-sys-color-on-error);
+}
+
+:is(.badge) {
   position: relative;
-  --_badge-size: 22px;
-  &[data-badge]:after {
-    content: attr(data-badge);
+
+  &:after {
     position: absolute;
-    top: -15px;
-    right: -18px;
+
     @apply --label-small;
     font-size: 11px;
     font-weight: 600;
     text-align: center;
     line-height: 23px;
-    background-color: var(--md-sys-color-error);
-    color: var(--md-sys-color-on-error);
-    width: var(--badge-size, var(--_badge-size));
-    height: var(--badge-size, var(--_badge-size));
+
+    background-color: var(--md-sys-comp-badge-background-color);
+    color: var(--md-sys-comp-badge-color);
+    width: var(--md-sys-comp-badge-size);
+    height: var(--md-sys-comp-badge-size);
+    top: calc(
+      (-1 * var(--md-sys-comp-badge-size)) + var(--md-sys-comp-badge-size) / 2
+    );
+    right: calc((-1 * var(--md-sys-comp-badge-size) / 2));
     border-radius: 50%;
+  }
+
+  &[data-badge]:after {
+    content: attr(data-badge);
+  }
+
+  &[data-badge=""]:after {
+    --md-sys-comp-badge-size: var(--md-sys-comp-badge-dot-size);
   }
 }

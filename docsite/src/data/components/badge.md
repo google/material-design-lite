@@ -2,29 +2,79 @@
 title: Badges
 description: Variations on Material Design badges.
 tab: "components"
-playground: https://codepen.io/rodydavis/embed/VwxBwKZ?default-tab=html%2Cresult&editable=true
+codepen: VwxBwKZ
 ---
 
-## Default
+Badges are small, discrete pieces of information that can be attached to other elements.
 
-<code-preview group="default"></code-preview>
+## Preview
 
-## Elevated
+<div class="preview">
+  <a href="#" class="badge" data-badge="10">Default</a>
+  <a href="#" class="badge elevated" data-badge="2">Elevated</a>
+  <a href="#" class="badge secondary" data-badge="3">Secondary</a>
+  <a href="#" class="badge tertiary" data-badge="4">Tertiary</a>
+  <a href="#" class="badge tertiary" data-badge="">Tertiary</a>
+</div>
 
-<code-preview group="elevated"></code-preview>
+## Installation
 
-## Secondary
+To import just the component styles, copy the following into your project's `styles.css` file:
 
-<code-preview group="secondary"></code-preview>
+```css
+/* Core Styles */
+@import url('https://rodydavis.github.io/material-design-lite/css/core.css');
+/* Material Icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* Roboto Font */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap');
+/* Component Styles */
+@import url('https://rodydavis.github.io/material-design-lite/css/components/badge/style.css');
+```
 
-## Tertiary
+## Usage
 
-<code-preview group="tertiary"></code-preview>
+Start with a `a` or `div` element and add the `tooltip` class name and `data-badge` attribute:
 
-## Playground
+```html
+<a href="#" class="tooltip" data-badge="1">Link</a>
+```
 
-<iframe height="400" style="width: 100%;" scrolling="no" title="Badges" src="https://codepen.io/rodydavis/embed/VwxBwKZ?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/rodydavis/pen/VwxBwKZ">
-  Badges</a> by Rody Davis (<a href="https://codepen.io/rodydavis">@rodydavis</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+The `data-badge` attribute is required and can be any number or string.
+
+If the string is empty, the badge will be displayed as a dot.
+
+## Variants
+
+### Default
+
+```html
+<a href="#" class="badge" data-badge="1">Link</a>
+```
+
+### Elevated
+
+```html
+<a href="#" class="badge elevated" data-badge="1">Link</a>
+```
+
+### Secondary
+
+```html
+<a href="#" class="badge secondary" data-badge="1">Link</a>
+```
+
+### Tertiary
+
+```html
+<a href="#" class="badge tertiary" data-badge="1">Link</a>
+```
+
+## Design Tokens
+
+| Token                               | Description                               | Default                                                                                                         |
+|-------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| `--md-sys-comp-badge-size`          | The container size of the badge indicator | 22px                                                                                                            |
+| `--md-sys-comp-badge-dot-size`      | The empty badge dot container size        | 11px                                                                                                            |
+| `--md-sys-comp-badge-background-color` | The background color of the badge indicator | <div class="tooltip token-box color-error" data-tooltip="--md-sys-color-error"></div> |
+| `--md-sys-comp-badge-color` | The foreground color of the badge indicator | <div class="tooltip token-box color-on-error" data-tooltip="--md-sys-color-on-error"></div> |

@@ -2169,11 +2169,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+:where(html),
+.tokens {
+  --md-sys-comp-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: 40px;
+}
 :is(.button, button) {
   --state-disabled-opacity: 0.3799999952316284;
 
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-comp-button-background-color);
+  color: var(--md-sys-comp-button-color);
+  height: var(--md-comp-button-container-height);
 
   padding: 0 24px;
   border-radius: 20px;
@@ -2328,10 +2335,14 @@
   --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
 }
 :is(.button, button).text {
-  background-color: transparent;
-  color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
+
+  --md-sys-comp-button-background-color: transparent;
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: var(
+    --md-comp-text-button-container-height
+  );
 
   /* BUG: Tokens breaking render */
   /* border-radius: var(--md-comp-text-button-container-shape); */
@@ -2470,10 +2481,13 @@
   );
 }
 :is(.button, button).filled {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
   box-shadow: var(--md-sys-elevation-0);
-  height: var(--md-comp-filled-button-container-height);
+
+  --md-sys-comp-button-background-color: var(--md-sys-color-primary);
+  --md-sys-comp-button-color: var(--md-sys-color-on-primary);
+  --md-comp-button-container-height: var(
+    --md-comp-filled-button-container-height
+  );
 
   /* BUG: Tokens breaking render */
   /* border-radius: var(--md-comp-filled-button-container-shape); */
@@ -2609,10 +2623,17 @@
   );
 }
 :is(.button, button).filled-tonal {
-  background-color: var(--md-sys-color-secondary-container);
-  color: var(--md-sys-color-on-secondary-container);
+  --md-sys-comp-button-background-color: var(
+    --md-sys-color-secondary-container
+  );
+  --md-sys-comp-button-color: var(--md-sys-color-on-secondary-container);
+  --md-comp-button-container-height: var(
+    --md-comp-filled-tonal-button-container-height
+  );
+
+  background-color: var(--md-sys-comp-button-background-color);
+  color: var(--md-sys-comp-button-color);
   box-shadow: var(--md-sys-elevation-0);
-  height: var(--md-comp-filled-tonal-button-container-height);
 
   /* BUG: Tokens breaking render */
   /* border-radius: var(--md-comp-filled-tonal-button-container-shape); */
@@ -2735,11 +2756,16 @@
   --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
 }
 :is(.button, button).outlined {
-  background-color: transparent;
-  color: var(--md-sys-color-primary);
-  border: var(--md-comp-outlined-button-outline-width) solid var(--md-sys-color-outline);
+  border: var(--md-comp-outlined-button-outline-width) solid
+    var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-outlined-button-container-height);
+
+  --md-sys-comp-button-background-color: transparent;
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: var(
+    --md-comp-outlined-button-container-height
+  );
 
   /* BUG: Tokens breaking render */
   /* border-radius: var(--md-comp-outlined-button-container-shape); */
@@ -2749,8 +2775,12 @@
   /* font-weight: var(--md-comp-outlined-button-label-text-weight); */
   /* font-family: var(--md-comp-outlined-button-label-text-font); */
 
-  --state-hover-opacity: var(--md-comp-outlined-button-hover-state-layer-opacity);
-  --state-focus-opacity: var(--md-comp-outlined-button-focus-state-layer-opacity);
+  --state-hover-opacity: var(
+    --md-comp-outlined-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-outlined-button-focus-state-layer-opacity
+  );
   --state-active-opacity: var(
     --md-comp-outlined-button-pressed-state-layer-opacity
   );
@@ -2875,8 +2905,6 @@
 }
 :is(.button, button).elevated {
   box-shadow: var(--md-sys-elevation-1);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-primary);
   height: var(--md-comp-elevated-button-container-height);
 
   /* BUG: Tokens breaking render */
@@ -5169,33 +5197,54 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-/* Codepen: https://codepen.io/ittik/pen/ZNppPQ */
-.badge {
-  position: relative;
-  --_badge-size: 22px;
+:where(html),
+.tokens {
+  --md-sys-comp-badge-size: 22px;
+  --md-sys-comp-badge-dot-size: calc(var(--md-sys-comp-badge-size) / 2);
+  --md-sys-comp-badge-background-color: var(--md-sys-color-error);
+  --md-sys-comp-badge-color: var(--md-sys-color-on-error);
 }
-.badge[data-badge]:after {
-    content: attr(data-badge);
+:is(.badge) {
+  position: relative;
+}
+:is(.badge):after {
     position: absolute;
-    top: -15px;
-    right: -18px;
+
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
+
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
+
     text-transform: var(--md-sys-typescale-label-small-text-transform);
+
     line-height: var(--md-sys-typescale-label-small-line-height);
+
     letter-spacing: var(--md-sys-typescale-label-small-tracking);
+
     font-size: var(--md-sys-typescale-label-small-size);
+
     font-weight: var(--md-sys-typescale-label-small-weight);
+
     font-family: var(--md-sys-typescale-label-small-font);
     font-size: 11px;
     font-weight: 600;
     text-align: center;
     line-height: 23px;
-    background-color: var(--md-sys-color-error);
-    color: var(--md-sys-color-on-error);
-    width: var(--badge-size, var(--_badge-size));
-    height: var(--badge-size, var(--_badge-size));
+
+    background-color: var(--md-sys-comp-badge-background-color);
+    color: var(--md-sys-comp-badge-color);
+    width: var(--md-sys-comp-badge-size);
+    height: var(--md-sys-comp-badge-size);
+    top: calc(
+      (-1 * var(--md-sys-comp-badge-size)) + var(--md-sys-comp-badge-size) / 2
+    );
+    right: calc((-1 * var(--md-sys-comp-badge-size) / 2));
     border-radius: 50%;
+  }
+[data-badge]:is(.badge):after {
+    content: attr(data-badge);
+  }
+[data-badge=""]:is(.badge):after {
+    --md-sys-comp-badge-size: var(--md-sys-comp-badge-dot-size);
   }
 /*
  Copyright 2016 Google Inc. All rights reserved.

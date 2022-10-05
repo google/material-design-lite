@@ -114,17 +114,29 @@
   source.value = settings.source;
   generateTheme(settings.source, styleTarget);
 
+  function setCodepenBrightness(theme: string) {
+    const codepen = document.querySelectorAll(".cp_embed_iframe");
+    for (let i = 0; i < codepen.length; i++) {
+      const iframe = codepen[i] as HTMLIFrameElement;
+      const url = new URL(iframe.src);
+      url.searchParams.set("theme-id", theme);
+      iframe.src = url.toString();
+    }
+  }
+
   // Brightness
   const light = document.querySelector("#light") as HTMLInputElement;
   const dark = document.querySelector("#dark") as HTMLInputElement;
   light.addEventListener("change", () => {
     document.body.classList.remove("dark-theme");
     document.body.classList.add("light-theme");
+    setCodepenBrightness("light");
     save();
   });
   dark.addEventListener("change", () => {
     document.body.classList.remove("light-theme");
     document.body.classList.add("dark-theme");
+    setCodepenBrightness("dark");
     save();
   });
   if (settings.brightness === "dark") {
@@ -134,6 +146,7 @@
     light.checked = true;
     document.body.classList.add("light-theme");
   }
+  setCodepenBrightness(settings.brightness === "dark" ? "dark" : "light");
 
   // Shape
   const sSmall = document.querySelector("#shape-small") as HTMLInputElement;

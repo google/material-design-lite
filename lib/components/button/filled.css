@@ -17,10 +17,13 @@
 @import url(../../tokens/components/filled-button.css);
 
 :is(.button, button).filled {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
   box-shadow: var(--md-sys-elevation-0);
-  height: var(--md-comp-filled-button-container-height);
+
+  --md-sys-comp-button-background-color: var(--md-sys-color-primary);
+  --md-sys-comp-button-color: var(--md-sys-color-on-primary);
+  --md-comp-button-container-height: var(
+    --md-comp-filled-button-container-height
+  );
 
   /* BUG: Tokens breaking render */
   /* border-radius: var(--md-comp-filled-button-container-shape); */

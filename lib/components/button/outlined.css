@@ -17,11 +17,16 @@
 @import url(../../tokens/components/outlined-button.css);
 
 :is(.button, button).outlined {
-  background-color: transparent;
-  color: var(--md-sys-color-primary);
-  border: var(--md-comp-outlined-button-outline-width) solid var(--md-sys-color-outline);
+  border: var(--md-comp-outlined-button-outline-width) solid
+    var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-outlined-button-container-height);
+
+  --md-sys-comp-button-background-color: transparent;
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: var(
+    --md-comp-outlined-button-container-height
+  );
 
   /* BUG: Tokens breaking render */
   /* border-radius: var(--md-comp-outlined-button-container-shape); */
@@ -31,8 +36,12 @@
   /* font-weight: var(--md-comp-outlined-button-label-text-weight); */
   /* font-family: var(--md-comp-outlined-button-label-text-font); */
 
-  --state-hover-opacity: var(--md-comp-outlined-button-hover-state-layer-opacity);
-  --state-focus-opacity: var(--md-comp-outlined-button-focus-state-layer-opacity);
+  --state-hover-opacity: var(
+    --md-comp-outlined-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-outlined-button-focus-state-layer-opacity
+  );
   --state-active-opacity: var(
     --md-comp-outlined-button-pressed-state-layer-opacity
   );
