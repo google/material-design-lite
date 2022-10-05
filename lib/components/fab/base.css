@@ -14,17 +14,25 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
+  --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
+  --md-comp-fab-container-size: 56px;
+}
+
 :is(.fab) {
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
-  width: 56px;
-  height: 56px;
+  width: var(--md-comp-fab-container-size);
+  height: var(--md-comp-fab-container-size);
   position: relative;
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-comp-fab-background-color);
+  color: var(--md-sys-comp-fab-color);
   box-shadow: var(--md-sys-elevation-1);
   --tint-color: transparent;
+  
   &::after {
     content: "";
     border-radius: inherit;
@@ -35,10 +43,12 @@
     bottom: 0;
     background-color: var(--tint-color);
   }
+  
   & i {
     font-size: 24px;
     margin-left: 0;
   }
+  
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-4);
     --tint-color: rgb(
@@ -46,6 +56,7 @@
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
+  
   &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-3);
     --tint-color: rgb(
@@ -53,6 +64,7 @@
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
+  
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-2);
     --tint-color: rgb(
@@ -60,6 +72,7 @@
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
+  
   &[disabled] {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
