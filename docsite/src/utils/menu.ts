@@ -33,12 +33,12 @@ export const COMPONENTS = [
     link: "components/card",
   },
   {
-    text: "Chip",
-    link: "components/chip",
-  },
-  {
     text: "Checkbox",
     link: "components/checkbox",
+  },
+  {
+    text: "Chip",
+    link: "components/chip",
   },
   {
     text: "Divider",

@@ -18,7 +18,7 @@ Badges are small, discrete pieces of information that can be attached to other e
 
 ## Installation
 
-To import just the component styles, copy the following into your project's `styles.css` file:
+To import just the component styles, copy the following into your project's **styles.css** file:
 
 ```css
 /* Core Styles */
@@ -33,7 +33,7 @@ To import just the component styles, copy the following into your project's `sty
 
 ## Usage
 
-Start with a `a` or `div` element and add the `tooltip` class name and `data-badge` attribute:
+Start with a **a** or **div** element and add the **tooltip** class name and **data-badge** attribute:
 
 ```html
 <a href="#" class="tooltip" data-badge="1">Link</a>

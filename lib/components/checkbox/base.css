@@ -14,15 +14,22 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-checkbox-size: 24px;
+  --md-sys-comp-checkbox-unselected-color: var(--md-sys-color-outline);
+  --md-sys-comp-checkbox-selected-color: var(--md-sys-color-primary);
+}
+
 :where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle)) {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
-  --size: 24px;
-  width: var(--size);
-  height: var(--size);
+  width: var(--md-sys-comp-checkbox-size);
+  height: var(--md-sys-comp-checkbox-size);
   position: relative;
+
   &::after {
     position: absolute;
     top: 0;
@@ -31,16 +38,19 @@
     right: 0;
     @apply --material-icons;
     content: "check_box_outline_blank";
-    color: var(--md-sys-color-outline);
+    color: var(--md-sys-comp-checkbox-unselected-color);
   }
-  &:checked::after {
+
+  &:where(:checked, .checked)::after {
     content: "check_box";
-    color: var(--md-sys-color-primary);
+    color: var(--md-sys-comp-checkbox-selected-color);
   }
-  &:indeterminate::after {
+
+  &:where(:indeterminate, .indeterminate)::after {
     content: "indeterminate_check_box";
-    color: var(--md-sys-color-primary);
+    color: var(--md-sys-comp-checkbox-selected-color);
   }
+
   &:disabled::after {
     cursor: default;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);

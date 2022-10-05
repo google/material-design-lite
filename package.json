@@ -13,8 +13,8 @@
     "readme:build": "node dist/readme.js",
     "css:build": "node dist/css.js",
     "css:watch": "npx postcss --watch lib/styles.css --output docsite/public/css/mdl.css",
-    "test": "wtr \"test/**/*.test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
-    "test:watch": "wtr \"test/**/*.test.html\" --node-resolve --playwright --browsers chromium firefox webkit --watch",
+    "test": "wtr \"lib/components/**/test.html\" --node-resolve --coverage --playwright --browsers chromium firefox webkit",
+    "test:watch": "wtr \"lib/components/**/test.html\" --node-resolve --playwright --browsers chromium firefox webkit --watch",
     "test:ui": "wds --node-resolve --watch",
     "tsc": "tsc",
     "tsc:watch": "tsc -w"

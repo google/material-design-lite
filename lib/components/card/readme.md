@@ -44,7 +44,7 @@ Cards should be easy to scan for relevant and actionable information. Elements l
 
 ## Installation
 
-To import just the component styles, copy the following into your project's `styles.css` file:
+To import just the component styles, copy the following into your project's **styles.css** file:
 
 ```css
 /* Core Styles */
@@ -59,7 +59,7 @@ To import just the component styles, copy the following into your project's `sty
 
 ## Usage
 
-Start with a `div` element and add the `card` class name:
+Start with a **div** element and add the **card** class name:
 
 ```html
 <div class="card"></div>
@@ -67,7 +67,7 @@ Start with a `div` element and add the `card` class name:
 
 ### Optional Image
 
-To add an image to a card add a `img` element at the top of the card:
+To add an image to a card add a **img** element at the top of the card:
 
 ```html
 <div class="card">

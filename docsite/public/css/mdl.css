@@ -3875,7 +3875,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.card.filled {
+:is(.card).filled {
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-on-surface-variant);
 }
@@ -3894,7 +3894,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.card.elevated {
+:is(.card).elevated {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-1);
@@ -3914,7 +3914,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.card.outlined {
+:is(.card).outlined {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   border: 1px solid var(--md-sys-color-outline);
@@ -5380,14 +5380,17 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+:where(html),
+.tokens {
+  --md-sys-comp-checkbox-size: 24px;
+}
 :where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle)) {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
-  --size: 24px;
-  width: var(--size);
-  height: var(--size);
+  width: var(--md-sys-comp-checkbox-size);
+  height: var(--md-sys-comp-checkbox-size);
   position: relative;
 }
 :where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle))::after {

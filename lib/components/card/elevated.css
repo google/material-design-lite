@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-.card.elevated {
+:is(.card).elevated {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-1);
