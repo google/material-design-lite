@@ -92,26 +92,16 @@ code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
   color: var(--code-foreground);
   background-color: var(--code-background);
-  border-radius: var(--code-border-radius);
 }
 
 /* Code blocks. */
 pre[class*="language-"] {
-  padding: 2em;
-  margin: 0.5em 0;
   overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background-color: var(--code-background);
-  border-radius: var(--code-border-radius);
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
 }
 
 .token {

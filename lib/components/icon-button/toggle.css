@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:is(.icon).toggle {
+:is(.icon-button).toggle {
   background-color: transparent;
   color: var(--md-sys-color-on-surface-variant);
 

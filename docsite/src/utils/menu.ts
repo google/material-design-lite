@@ -72,8 +72,8 @@ export const COMPONENTS = [
     link: "components/focus-ring",
   },
   {
-    text: "Icon",
-    link: "components/icon",
+    text: "Icon Button",
+    link: "components/icon-button",
   },
   {
     text: "List",

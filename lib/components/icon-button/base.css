@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/icon-button.css);
 
-:is(.icon) {
+:is(.icon-button) {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -34,7 +34,7 @@
   @apply --label-large;
   font-size: var(--md-comp-icon-button-icon-size);
   background-color: transparent;
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-surface);
   width: var(--md-comp-icon-button-state-layer-size);
   height: var(--md-comp-icon-button-state-layer-size);
   border-radius: var(--md-comp-icon-button-state-layer-shape);

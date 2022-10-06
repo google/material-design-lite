@@ -16,13 +16,13 @@ Icons visually communicate the button’s action. Their meaning should be clear 
 ## Preview
 
 <div class="preview">
-    <button class="icon"><i class="material-icons">add</i></button>
-    <button class="icon toggle"><i class="material-icons">info</i></button>
-    <input class="icon toggle" type="checkbox" aria-label="toggle input" />
-    <input class="icon toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" />
-    <button class="icon filled"><i class="material-icons">add</i></button>
-    <button class="icon filled-tonal"><i class="material-icons">add</i></button>
-    <button class="icon outlined"><i class="material-icons">add</i></button>
+    <button class="icon-button"><i class="material-icons">add</i></button>
+    <button class="icon-button toggle"><i class="material-icons">info</i></button>
+    <input class="icon-button toggle" type="checkbox" aria-label="toggle input" />
+    <input class="icon-button toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" />
+    <button class="icon-button filled"><i class="material-icons">add</i></button>
+    <button class="icon-button filled-tonal"><i class="material-icons">add</i></button>
+    <button class="icon-button outlined"><i class="material-icons">add</i></button>
 </div>
 
 ## Installation
@@ -42,10 +42,10 @@ To import just the component styles, copy the following into your project's **st
 
 ## Usage
 
-Start with a **button** or **div** element and add the **fab** class name:
+Start with a **button** or **div** element and add the **icon-button** class name:
 
 ```html
-<button class="fab"></button>
+<button class="icon-button"></button>
 ```
 
 ## Variants
@@ -55,25 +55,25 @@ Start with a **button** or **div** element and add the **fab** class name:
 Default icon styling.
 
 <div class="preview">
-  <button class="icon">
+  <button class="icon-button">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon hover">
+  <button class="icon-button hover">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon active">
+  <button class="icon-button active">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon focus">
+  <button class="icon-button focus">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon" disabled>
+  <button class="icon-button" disabled>
     <i class="material-icons">add</i>
   </button>
 </div>
 
 ```html
-<button class="icon">
+<button class="icon-button">
   <i class="material-icons">add</i>
 </button>
 ```
@@ -83,25 +83,25 @@ Default icon styling.
 Filled icon buttons have higher visual impact and are best for high emphasis actions.
 
 <div class="preview">
-  <button class="icon filled">
+  <button class="icon-button filled">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled hover">
+  <button class="icon-button filled hover">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled active">
+  <button class="icon-button filled active">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled focus">
+  <button class="icon-button filled focus">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled" disabled>
+  <button class="icon-button filled" disabled>
     <i class="material-icons">add</i>
   </button>
 </div>
   
 ```html
-<button class="icon filled">
+<button class="icon-button filled">
   <i class="material-icons">add</i>
 </button>
 ```
@@ -111,25 +111,25 @@ Filled icon buttons have higher visual impact and are best for high emphasis act
 Filled tonal icon buttons are a middle ground between filled and outlined icon buttons. They’re useful in contexts where the button requires slightly more emphasis than an outline would give, such as a secondary action paired with a high emphasis action.
 
 <div class="preview">
-  <button class="icon filled-tonal">
+  <button class="icon-button filled-tonal">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled-tonal hover">
+  <button class="icon-button filled-tonal hover">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled-tonal active">
+  <button class="icon-button filled-tonal active">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled-tonal focus">
+  <button class="icon-button filled-tonal focus">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon filled-tonal" disabled>
+  <button class="icon-button filled-tonal" disabled>
     <i class="material-icons">add</i>
   </button>
 </div>
   
 ```html
-<button class="icon filled-tonal">
+<button class="icon-button filled-tonal">
   <i class="material-icons">add</i>
 </button>
 ```
@@ -139,25 +139,25 @@ Filled tonal icon buttons are a middle ground between filled and outlined icon b
 Outlined icon buttons are medium-emphasis buttons. They’re useful when an icon button needs more emphasis than a standard icon button but less than a filled or filled tonal icon button.
 
 <div class="preview">
-  <button class="icon outlined">
+  <button class="icon-button outlined">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon outlined hover">
+  <button class="icon-button outlined hover">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon outlined active">
+  <button class="icon-button outlined active">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon outlined focus">
+  <button class="icon-button outlined focus">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon outlined" disabled>
+  <button class="icon-button outlined" disabled>
     <i class="material-icons">add</i>
   </button>
 </div>
   
 ```html
-<button class="icon outlined">
+<button class="icon-button outlined">
   <i class="material-icons">add</i>
 </button>
 ```
@@ -167,25 +167,33 @@ Outlined icon buttons are medium-emphasis buttons. They’re useful when an icon
 Toggle icon styling.
 
 <div class="preview">
-  <button class="icon toggle">
+  <button class="icon-button toggle">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon toggle hover">
+  <button class="icon-button toggle hover">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon toggle active">
+  <button class="icon-button toggle active">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon toggle focus">
+  <button class="icon-button toggle focus">
     <i class="material-icons">add</i>
   </button>
-  <button class="icon toggle" disabled>
+  <button class="icon-button toggle" disabled>
     <i class="material-icons">add</i>
   </button>
 </div>
   
 ```html
-<button class="icon toggle">
+<button class="icon-button toggle">
+  <i class="material-icons">add</i>
+</button>
+```
+
+To show the checked state, add the **checked** class name or **checked** attribute to the button.
+
+```html
+<button class="icon-button toggle checked">
   <i class="material-icons">add</i>
 </button>
 ```
@@ -195,20 +203,20 @@ Toggle icon styling.
 Toggle icon styling for input elements.
 
 <div class="preview">
-  <input class="icon toggle" type="checkbox" aria-label="toggle input" />
-  <input class="icon toggle" type="checkbox" aria-label="toggle input" checked />
-  <input class="icon toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" />
-  <input class="icon toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" checked/>
+  <input class="icon-button toggle" type="checkbox" aria-label="toggle input" />
+  <input class="icon-button toggle" type="checkbox" aria-label="toggle input" checked />
+  <input class="icon-button toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" />
+  <input class="icon-button toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" checked/>
 </div>
 
 ```html
-<input class="icon toggle" type="checkbox" aria-label="toggle input" />
+<input class="icon-button toggle" type="checkbox" aria-label="toggle input" />
 ```
 
 For custom icons, use the **off-icon** and **on-icon** attributes.
 
 ```html
-<input class="icon toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" />
+<input class="icon-button toggle" type="checkbox" off-icon="favorite_outline" on-icon="favorite" aria-label="toggle input" />
 ```
 
 #### Toggle Filled
@@ -216,12 +224,12 @@ For custom icons, use the **off-icon** and **on-icon** attributes.
 Toggle filled icon styling.
 
 <div class="preview">
-  <input class="icon toggle filled" type="checkbox" aria-label="toggle input" />
-  <input class="icon toggle filled" type="checkbox" aria-label="toggle input" checked />
+  <input class="icon-button toggle filled" type="checkbox" aria-label="toggle input" />
+  <input class="icon-button toggle filled" type="checkbox" aria-label="toggle input" checked />
 </div>
   
 ```html
-<input class="icon toggle filled" type="checkbox" aria-label="toggle input" />
+<input class="icon-button toggle filled" type="checkbox" aria-label="toggle input" />
 ```
 
 #### Toggle Filled Tonal
@@ -229,19 +237,19 @@ Toggle filled icon styling.
 Toggle filled tonal icon styling.
 
 <div class="preview">
-  <input class="icon toggle filled-tonal" type="checkbox" aria-label="toggle input" />
-  <input class="icon toggle filled-tonal" type="checkbox" aria-label="toggle input" checked />
+  <input class="icon-button toggle filled-tonal" type="checkbox" aria-label="toggle input" />
+  <input class="icon-button toggle filled-tonal" type="checkbox" aria-label="toggle input" checked />
 </div>
   
 ```html
-<input class="icon toggle filled-tonal" type="checkbox" aria-label="toggle input" />
+<input class="icon-button toggle filled-tonal" type="checkbox" aria-label="toggle input" />
 ```
 
 ## Design Tokens
 
 | Token                                | Description                     | Default                                                                                                             |
 |--------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| `--md-sys-color-primary` | The foreground color of the fab | <div class="tooltip token-box color-primary" data-tooltip="--md-sys-color-primary"></div>       |
+| `--md-sys-color-primary` | The foreground color of the icon-button | <div class="tooltip token-box color-primary" data-tooltip="--md-sys-color-primary"></div>       |
 | `--md-comp-icon-button-state-layer-size`       | The size of the container     | `40px`                                                                                                              |
 
 ## Resources

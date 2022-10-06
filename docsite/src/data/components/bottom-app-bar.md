@@ -12,13 +12,13 @@ Bottom app bars provide access to a bottom navigation drawer and include multipl
 <div class="preview">
   <footer class="bottom-app-bar" style="min-width: 400px">
     <div class="actions">
-      <button class="icon button">
+      <button class="icon-button">
         <i class="material-icons">search</i>
       </button>
-      <button class="icon button">
+      <button class="icon-button">
         <i class="material-icons">delete</i>
       </button>
-      <button class="icon button">
+      <button class="icon-button">
         <i class="material-icons">archive</i>
       </button>
     </div>
@@ -56,13 +56,13 @@ Start with a `div` or `footer` element and add the `bottom-app-bar` class name:
 <div class="preview">
   <footer class="bottom-app-bar">
     <div class="actions">
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">search</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">delete</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">archive</i>
       </button>
     </div>
@@ -74,13 +74,13 @@ To add actions to the bottom app bar, add a div with the `actions` class name wi
 ```html
 <footer class="bottom-app-bar">
   <div class="actions">
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">search</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">delete</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">archive</i>
     </button>
   </div>
@@ -116,13 +116,13 @@ To add a floating action button to the bottom app bar, add a `button` element wi
 <div class="preview">
   <footer class="bottom-app-bar">
     <div class="actions">
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">search</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">delete</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">archive</i>
       </button>
     </div>
@@ -135,13 +135,13 @@ To add a floating action button to the bottom app bar, add a `button` element wi
 ```html
 <footer class="bottom-app-bar">
   <div class="actions">
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">search</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">delete</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">archive</i>
     </button>
   </div>

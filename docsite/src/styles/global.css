@@ -62,3 +62,42 @@ a:not(.nav-link) {
 a:not(.nav-link):visited {
   color: var(--md-sys-color-on-surface);
 }
+
+.code {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--md-sys-shape-corner-medium);
+  margin: 1rem 0;
+}
+
+.code > pre {
+  border-radius: inherit;
+  margin: 0;
+  padding: 2em;
+}
+
+.code-copy {
+  box-sizing: border-box;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  right: -100px;
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  opacity: 0.4;
+  border-radius: 0;
+  border-bottom-left-radius: 20%;
+  z-index: 1;
+}
+
+.code:hover .code-copy {
+  right: 0;
+}
+
+.code-copy:hover {
+  opacity: 1;
+}

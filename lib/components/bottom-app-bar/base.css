@@ -42,7 +42,7 @@
     gap: 8px;
   }
 
-  & :where(.icon) {
+  & :where(.icon-button) {
     background-color: transparent;
     color: inherit;
   }

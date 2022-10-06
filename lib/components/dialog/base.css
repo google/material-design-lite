@@ -24,6 +24,7 @@
 
 :is(.dialog, dialog) {
   position: relative;
+  
   &[open] {
     border-radius: 28px;
     border: none;
@@ -39,17 +40,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     & i {
       pointer-events: none;
     }
+
     & .title {
       @apply --headline-small;
       text-align: center;
     }
+
     & .content {
       @apply --body-medium;
       text-align: start;
     }
+
     & .actions {
       width: 100%;
       display: flex;
