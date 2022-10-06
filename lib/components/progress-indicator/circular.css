@@ -14,115 +14,69 @@
  limitations under the License.
 */
 
-/* Codepen: https://codepen.io/finnhvman/pen/bmNdNr */
-:where(progress, .progress).circular {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 50%;
-  padding: 0.25em;
-  width: 3em;
-  height: 3em;
-  color: var(--md-sys-color-primary);
-  background-color: transparent;
-  font-size: 16px;
-  overflow: hidden;
-  &::-webkit-progress-bar {
-    background-color: transparent;
-  }
-  /* Indeterminate */
-  &[indeterminate] {
-    -webkit-mask-image: linear-gradient(transparent 50%, black 50%),
-      linear-gradient(to right, transparent 50%, black 50%);
-    mask-image: linear-gradient(transparent 50%, black 50%),
-      linear-gradient(to right, transparent 50%, black 50%);
-    animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
-  }
-  &[indeterminate] {
-    animation: none;
-  }
-  &[indeterminate]::before,
-  &[indeterminate]::-webkit-progress-value {
+/* Create a conic-gradient for the circular progress */
+:is(.progress).circular {
+  position: relative;
+  display: inline-block;
+  width: var(--md-sys-comp-progress-circular-size);
+  height: var(--md-sys-comp-progress-circular-size);
+  position: relative;
+
+  /* Convert percent (0-100) to degrees */
+  --progress: calc(var(--progress) * 3.6deg);
+
+  &::before {
     content: "";
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 0.25em;
-    border: solid 0.25em transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    width: 100% !important;
-    height: 100%;
-    background-color: transparent;
-    animation: circular-pseudo 0.75s infinite linear alternate;
-  }
-  &[indeterminate]::-moz-progress-bar {
-    box-sizing: border-box;
-    border: solid 0.25em transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: transparent;
-    animation: circular-pseudo 0.75s infinite linear alternate;
+    font-size: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--md-sys-comp-progress-color) var(--progress),
+      var(--md-sys-comp-progress-background-color) 0deg
+    );
   }
-  &[indeterminate]::-ms-fill {
-    animation-name: -ms-ring;
+
+  &::after {
+    --b: var(--md-sys-comp-progress-size);
+    content: "";
+    border-radius: 50%;
+    background-color: var(--md-sys-comp-progress-circular-center-color);
+    position: absolute;
+    top: var(--b);
+    left: var(--b);
+    width: calc(100% - var(--b) * 2);
+    height: calc(100% - var(--b) * 2);
+  }
+
+  &.indeterminate {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid var(--md-sys-comp-progress-color);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      animation: circular-progress-indeterminate-animation 1.4s linear infinite;
+    }
   }
 }
-@keyframes circular {
+
+@keyframes circular-progress-indeterminate-animation {
   0% {
     transform: rotate(0deg);
   }
-  12.5% {
-    transform: rotate(180deg);
-    animation-timing-function: linear;
-  }
-  25% {
-    transform: rotate(630deg);
-  }
-  37.5% {
-    transform: rotate(810deg);
-    animation-timing-function: linear;
-  }
   50% {
-    transform: rotate(1260deg);
-  }
-  62.5% {
-    transform: rotate(1440deg);
-    animation-timing-function: linear;
-  }
-  75% {
-    transform: rotate(1890deg);
-  }
-  87.5% {
-    transform: rotate(2070deg);
-    animation-timing-function: linear;
+    transform: rotate(180deg);
   }
   100% {
-    transform: rotate(2520deg);
-  }
-}
-@keyframes circular-pseudo {
-  0% {
-    transform: rotate(-30deg);
-  }
-  29.4% {
-    border-left-color: transparent;
-  }
-  29.41% {
-    border-left-color: currentColor;
-  }
-  64.7% {
-    border-bottom-color: transparent;
-  }
-  64.71% {
-    border-bottom-color: currentColor;
-  }
-  100% {
-    border-left-color: currentColor;
-    border-bottom-color: currentColor;
-    transform: rotate(225deg);
+    transform: rotate(360deg);
   }
 }

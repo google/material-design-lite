@@ -14,32 +14,23 @@
  limitations under the License.
 */
 
-/* CSS progress indicator at value 75% */
-:where(progress, .progress).linear {
-  --progress-fg: var(--md-sys-color-primary);
-  --progress-bg: var(--md-sys-color-surface-variant);
-  --progress-value: 20%;
-  height: 4px;
-  border-radius: 4px;
-  position: relative;
-  &::-webkit-progress-value {
-    background: var(--progress-fg);
-  }
-  &::-moz-progress-bar {
-    background: var(--progress-fg);
-  }
-  &::-webkit-progress-bar {
-    background: var(--progress-bg);
-  }
-  &[indeterminate] {
-    animation: linear-progress-indeterminate 2s infinite;
-  }
+:where(html),
+.tokens {
+  --md-sys-comp-progress-background-color: var(--md-sys-color-surface-variant);
+  --md-sys-comp-progress-color: var(--md-sys-color-primary);
+  --md-sys-comp-progress-size: 4px;
+  --md-sys-comp-progress-circular-size: 32px;
+  --md-sys-comp-progress-circular-center-color: var(--md-sys-color-surface);
 }
-@keyframes linear-progress-indeterminate {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
+
+progress {
+  accent-color: var(--md-sys-comp-progress-color);
+  height: 8px;
+  outline: none;
+}
+
+:is(.progress) {
+  & progress {
+    opacity: 0;
   }
 }

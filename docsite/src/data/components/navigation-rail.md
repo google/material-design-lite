@@ -341,5 +341,5 @@ An icon button can be added to the navigation rail by adding a **button** elemen
 
 ## Resources
 
-- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
 - [Material Design](https://m3.material.io/components/navigation-rail)

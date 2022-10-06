@@ -18,11 +18,33 @@ const headings: MarkdownHeading[] = Astro.props.headings ?? [];
           <h2 class="headline-small">On This Page</h2>
           <ul>
             {
-              headings.map((heading) => (
-                <li>
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
-                </li>
-              ))
+              headings.map((heading) => {
+                function getHTag(depth: number, text: string) {
+                  switch (depth) {
+                    case 1:
+                      return <h1>{text}</h1>;
+                    case 2:
+                      return <h2>{text}</h2>;
+                    case 3:
+                      return <h3>{text}</h3>;
+                    case 4:
+                      return <h4>{text}</h4>;
+                    case 5:
+                      return <h5>{text}</h5>;
+                    case 6:
+                      return <h6>{text}</h6>;
+                    default:
+                      return <h1>{text}</h1>;
+                  }
+                }
+                return (
+                  <li>
+                    <a class="heading" href={`#${heading.slug}`}>
+                      {getHTag(heading.depth, heading.text)}
+                    </a>
+                  </li>
+                );
+              })
             }
           </ul>
         </nav>
@@ -64,5 +86,32 @@ const headings: MarkdownHeading[] = Astro.props.headings ?? [];
     aside {
       display: none;
     }
+  }
+  .heading {
+    --level: 0.4rem;
+  }
+  .heading :is(h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .heading h1 {
+    margin-left: 0;
+  }
+  .heading h2 {
+    margin-left: var(--level);
+  }
+  .heading h3 {
+    margin-left: calc(var(--level) * 2);
+  }
+  .heading h4 {
+    margin-left: calc(var(--level) * 3);
+  }
+  .heading h5 {
+    margin-left: calc(var(--level) * 4);
+  }
+  .heading h6 {
+    margin-left: calc(var(--level) * 5);
   }
 </style>
