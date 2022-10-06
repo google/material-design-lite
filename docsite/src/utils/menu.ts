@@ -90,10 +90,6 @@ export const COMPONENTS = [
     draft: true,
   },
   {
-    text: "Progress indicator",
-    link: "components/progress-indicator",
-  },
-  {
     text: "Navigation bar",
     link: "components/navigation-bar",
   },
@@ -104,6 +100,10 @@ export const COMPONENTS = [
   {
     text: "Navigation rail",
     link: "components/navigation-rail",
+  },
+  {
+    text: "Progress indicator",
+    link: "components/progress-indicator",
   },
   {
     text: "Radio button",

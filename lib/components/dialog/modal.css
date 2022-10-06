@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:is(.dialog, dialog).modal {
+:is(.dialog, dialog):not(.navigation-drawer).modal {
   &[open] {
     margin: auto;
     position: fixed;

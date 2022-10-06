@@ -1,22 +1,68 @@
 ---
 import Raw from "./Raw.astro";
 import Navigation from "../components/Navigation.astro";
+import type { MarkdownHeading } from "astro";
 
 const { frontmatter } = Astro.props;
+const headings: MarkdownHeading[] = Astro.props.headings ?? [];
 ---
 
 <Raw {frontmatter}>
   <Navigation title={frontmatter.title} tab={frontmatter.tab}>
-    <section>
-      <slot />
-    </section>
+    <main>
+      <section>
+        <slot />
+      </section>
+      <aside class="headings">
+        <nav>
+          <h2 class="headline-small">On This Page</h2>
+          <ul>
+            {
+              headings.map((heading) => (
+                <li>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </aside>
+    </main>
   </Navigation>
 </Raw>
 
 <style>
-  section {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  main {
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    grid-template-areas: "content headings";
     border-top: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  section {
+    grid-area: content;
+    overflow: auto;
+  }
+
+  aside {
+    grid-area: headings;
+    border-left: 1px solid var(--md-sys-color-outline-variant);
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+      grid-template-areas: "content";
+    }
+    aside {
+      display: none;
+    }
   }
 </style>

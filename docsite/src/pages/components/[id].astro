@@ -1,6 +1,5 @@
 ---
 import Components from "../../layouts/Components.astro";
-// import Markdown from "../../components/Markdown.astro";
 import { COMPONENTS } from "../../utils/menu";
 
 export async function getStaticPaths() {
@@ -17,14 +16,15 @@ const posts = await Astro.glob("../../data/components/*.md");
 const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
 const { frontmatter, Content } = post;
 frontmatter.tab = "components";
-// const source = post.compiledContent();
+const headings = post.getHeadings();
+const props = {
+  frontmatter,
+  headings,
+  links: COMPONENTS,
+  link: `/material-design-lite/components/${id}/`,
+};
 ---
 
-<Components
-  {frontmatter}
-  links={COMPONENTS}
-  link={`/material-design-lite/components/${id}/`}
->
-  <!-- <Markdown source={source} {id} /> -->
+<Components {...props}>
   <Content />
 </Components>

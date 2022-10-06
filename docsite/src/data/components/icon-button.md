@@ -37,7 +37,7 @@ To import just the component styles, copy the following into your project's **st
 /* Roboto Font */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap');
 /* Component Styles */
-@import url('https://rodydavis.github.io/material-design-lite/css/components/icon/style.css');
+@import url('https://rodydavis.github.io/material-design-lite/css/components/icon-button/style.css');
 ```
 
 ## Usage

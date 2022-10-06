@@ -24,14 +24,14 @@
   Releated Codepen:
   https://codepen.io/argyleink/pen/eYGaPEM
  */
-:focus {
+:focus-visible {
   transition: outline-offset 0.25s ease;
   outline-color: var(--md-sys-comp-focus-ring-color);
   outline-width: var(--md-sys-comp-focus-ring-width);
   position: relative;
 }
 
-:focus:not(:active) {
+:focus-visible:not(:active) {
   outline-offset: 5px;
 }
 

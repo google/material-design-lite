@@ -6,15 +6,14 @@ interface Link {
   link: string;
   draft?: boolean;
 }
-
-const { frontmatter, links, link } = Astro.props as {
-  frontmatter: any;
+const props = Astro.props;
+const { links, link } = props as {
   link: string;
   links: Link[];
 };
 ---
 
-<Root {frontmatter}>
+<Root {...props}>
   <div id="root">
     <aside class="left-nav">
       <div class="navigation-drawer">

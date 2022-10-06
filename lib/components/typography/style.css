@@ -17,6 +17,10 @@
 @import url(../../tokens/typeface.css);
 @import url(../../tokens/typescale.css);
 
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
 :is(.display-large, .display2-text) {
   @apply --display-large;
 }

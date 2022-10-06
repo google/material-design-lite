@@ -15,8 +15,15 @@ const { id } = Astro.props;
 const posts = await Astro.glob("../../data/overview/*.md");
 const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
 const { frontmatter, Content } = post;
+const headings = post.getHeadings();
+const props = {
+  frontmatter,
+  headings,
+  links: OVERVIEW,
+  link: `/material-design-lite/overview/${id}/`,
+};
 ---
 
-<SideNav {frontmatter} links={OVERVIEW} link={`/material-design-lite/overview/${id}/`}>
+<SideNav {...props}>
   <Content />
 </SideNav>

@@ -14,57 +14,40 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-bar-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-bar-color: var(--md-sys-color-on-surface);
+  --md-comp-navigation-bar-container-width: 100%;
+}
+
 :is(.navigation-bar) {
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
   position: relative;
   box-shadow: var(--md-sys-elevation-1);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-navigation-bar-background-color);
+  color: var(--md-sys-comp-navigation-bar-color);
+  width: var(--md-comp-navigation-bar-container-width);
   box-sizing: border-box;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: var(--md-sys-color-surface-1);
-  }
+
   & input {
     opacity: 0;
     position: absolute;
     width: 0;
     height: 0;
-    &:checked + label i {
+
+    &:checked + .navigation-icon i {
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
     }
-  }
-  & label {
-    flex: 1;
-    padding-bottom: 16px;
-    padding-top: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    visibility: visible;
-    z-index: 1;
-    gap: 4px;
-    @apply --label-medium;
-  }
-  & i {
-    font-size: 24px;
-    width: 64px;
-    height: 32px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    &:focus-visible + .navigation-icon {
+      outline: var(--md-sys-comp-focus-ring-width) solid
+        var(--md-sys-comp-focus-ring-color);
+      outline-offset: 5px;
+    }
   }
 }

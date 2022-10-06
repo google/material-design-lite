@@ -29,7 +29,7 @@
   opacity: var(--md-sys-state-focus-state-layer-opacity);
 }
 
-:where(.button, button, .icon-button, .chip, .list-tile) {
+:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon) {
   --tint-color: transparent;
   /* State colors */
   --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);

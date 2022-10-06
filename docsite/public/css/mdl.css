@@ -48,822 +48,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html) {
-  /* Scrim */
-  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
-  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
-  /* Outline Variant */
-  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
-  --md-sys-color-outline-variant-rgb: var(
-    --md-ref-palette-neutral-variant80-rgb
-  );
-  /* Surface tint */
-  --md-sys-color-surface-tint: var(--md-sys-color-primary);
-  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
-  /* Surface tint color */
-  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
-  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
-  /* On error container */
-  --md-sys-color-on-error-container: var(--md-ref-palette-error10);
-  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);
-  /* On error */
-  --md-sys-color-on-error: var(--md-ref-palette-error100);
-  --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);
-  /* Error container */
-  --md-sys-color-error-container: var(--md-ref-palette-error90);
-  --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);
-  /* On tertiary container */
-  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
-  --md-sys-color-on-tertiary-container-rgb: var(
-    --md-ref-palette-tertiary10-rgb
-  );
-  /* On tertiary */
-  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
-  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);
-  /* Tertiary container */
-  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
-  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);
-  /* Tertiary */
-  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
-  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);
-  /* Shadow */
-  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
-  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
-  /* Error */
-  --md-sys-color-error: var(--md-ref-palette-error40);
-  --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);
-  /* Outline */
-  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
-  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);
-  /* On background */
-  --md-sys-color-on-background: var(--md-ref-palette-neutral10);
-  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);
-  /* Background */
-  --md-sys-color-background: var(--md-ref-palette-neutral99);
-  --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);
-  /* Inverse on surface */
-  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
-  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);
-  /* Inverse surface */
-  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
-  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);
-  /* On surface variant */
-  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
-  --md-sys-color-on-surface-variant-rgb: var(
-    --md-ref-palette-neutral-variant30-rgb
-  );
-  /* On surface */
-  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
-  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);
-  /* Surface Variant */
-  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
-  --md-sys-color-surface-variant-rgb: var(
-    --md-ref-palette-neutral-variant90-rgb
-  );
-  /* Surface */
-  --md-sys-color-surface: var(--md-ref-palette-neutral99);
-  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);
-  /* On secondary container */
-  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
-  --md-sys-color-on-secondary-container-rgb: var(
-    --md-ref-palette-secondary10-rgb
-  );
-  /* On secondary */
-  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
-  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);
-  /* Secondary container */
-  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
-  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary90-rgb);
-  /* Secondary */
-  --md-sys-color-secondary: var(--md-ref-palette-secondary40);
-  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);
-  /* Inverse primary */
-  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
-  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);
-  /* On primary container */
-  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
-  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary10-rgb);
-  /* On primary */
-  --md-sys-color-on-primary: var(--md-ref-palette-primary100);
-  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);
-  /* Primary container */
-  --md-sys-color-primary-container: var(--md-ref-palette-primary90);
-  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
-  /* Primary */
-  --md-sys-color-primary: var(--md-ref-palette-primary40);
-  --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
-}
-:where(html) .dark-theme {
-  /* Scrim */
-  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
-  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
-  /* Outline Variant */
-  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
-  --md-sys-color-outline-variant-rgb: var(
-    --md-ref-palette-neutral-variant30-rgb
-  );
-  /* Surface tint */
-  --md-sys-color-surface-tint: var(--md-sys-color-primary);
-  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
-  /* Surface tint color */
-  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
-  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
-  /* On error container */
-  --md-sys-color-on-error-container: var(--md-ref-palette-error90);
-  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error90-rgb);
-  /* On error */
-  --md-sys-color-on-error: var(--md-ref-palette-error20);
-  --md-sys-color-on-error-rgb: var(--md-ref-palette-error20-rgb);
-  /* Error container */
-  --md-sys-color-error-container: var(--md-ref-palette-error30);
-  --md-sys-color-error-container-rgb: var(--md-ref-palette-error30-rgb);
-  /* On tertiary container */
-  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary90);
-  --md-sys-color-on-tertiary-container-rgb: var(
-    --md-ref-palette-tertiary90-rgb
-  );
-  /* On tertiary */
-  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary20);
-  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary20-rgb);
-  /* Tertiary container */
-  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary30);
-  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary30-rgb);
-  /* Tertiary */
-  --md-sys-color-tertiary: var(--md-ref-palette-tertiary80);
-  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary80-rgb);
-  /* Shadow */
-  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
-  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
-  /* Error */
-  --md-sys-color-error: var(--md-ref-palette-error80);
-  --md-sys-color-error-rgb: var(--md-ref-palette-error80-rgb);
-  /* Outline */
-  --md-sys-color-outline: var(--md-ref-palette-neutral-variant60);
-  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant60-rgb);
-  /* On background */
-  --md-sys-color-on-background: var(--md-ref-palette-neutral90);
-  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral90-rgb);
-  /* Background */
-  --md-sys-color-background: var(--md-ref-palette-neutral10);
-  --md-sys-color-background-rgb: var(--md-ref-palette-neutral10-rgb);
-  /* Inverse on surface */
-  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral20);
-  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral20-rgb);
-  /* Inverse surface */
-  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral90);
-  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral90-rgb);
-  /* On surface variant */
-  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant80);
-  --md-sys-color-on-surface-variant-rgb: var(
-    --md-ref-palette-neutral-variant80-rgb
-  );
-  /* On surface */
-  --md-sys-color-on-surface: var(--md-ref-palette-neutral90);
-  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral90-rgb);
-  /* Surface Variant */
-  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant30);
-  --md-sys-color-surface-variant-rgb: var(
-    --md-ref-palette-neutral-variant30-rgb
-  );
-  /* Surface */
-  --md-sys-color-surface: var(--md-ref-palette-neutral10);
-  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral10-rgb);
-  /* On secondary container */
-  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary90);
-  --md-sys-color-on-secondary-container-rgb: var(
-    --md-ref-palette-secondary90-rgb
-  );
-  /* On secondary */
-  --md-sys-color-on-secondary: var(--md-ref-palette-secondary20);
-  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary20-rgb);
-  /* Secondary container */
-  --md-sys-color-secondary-container: var(--md-ref-palette-secondary30);
-  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary30-rgb);
-  /* Secondary */
-  --md-sys-color-secondary: var(--md-ref-palette-secondary80);
-  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary80-rgb);
-  /* Inverse primary */
-  --md-sys-color-inverse-primary: var(--md-ref-palette-primary40);
-  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary40-rgb);
-  /* On primary container */
-  --md-sys-color-on-primary-container: var(--md-ref-palette-primary90);
-  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
-  /* On primary */
-  --md-sys-color-on-primary: var(--md-ref-palette-primary20);
-  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary20-rgb);
-  /* Primary container */
-  --md-sys-color-primary-container: var(--md-ref-palette-primary30);
-  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary30-rgb);
-  /* Primary */
-  --md-sys-color-primary: var(--md-ref-palette-primary80);
-  --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
-}
-@media (prefers-color-scheme: dark) {
-  :where(html) {
-    /* Scrim */
-    --md-sys-color-scrim: var(--md-ref-palette-neutral0);
-    --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
-    /* Outline Variant */
-    --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
-    --md-sys-color-outline-variant-rgb: var(
-      --md-ref-palette-neutral-variant30-rgb
-    );
-    /* Surface tint */
-    --md-sys-color-surface-tint: var(--md-sys-color-primary);
-    --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
-    /* Surface tint color */
-    --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
-    --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
-    /* On error container */
-    --md-sys-color-on-error-container: var(--md-ref-palette-error90);
-    --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error90-rgb);
-    /* On error */
-    --md-sys-color-on-error: var(--md-ref-palette-error20);
-    --md-sys-color-on-error-rgb: var(--md-ref-palette-error20-rgb);
-    /* Error container */
-    --md-sys-color-error-container: var(--md-ref-palette-error30);
-    --md-sys-color-error-container-rgb: var(--md-ref-palette-error30-rgb);
-    /* On tertiary container */
-    --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary90);
-    --md-sys-color-on-tertiary-container-rgb: var(
-      --md-ref-palette-tertiary90-rgb
-    );
-    /* On tertiary */
-    --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary20);
-    --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary20-rgb);
-    /* Tertiary container */
-    --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary30);
-    --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary30-rgb);
-    /* Tertiary */
-    --md-sys-color-tertiary: var(--md-ref-palette-tertiary80);
-    --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary80-rgb);
-    /* Shadow */
-    --md-sys-color-shadow: var(--md-ref-palette-neutral0);
-    --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
-    /* Error */
-    --md-sys-color-error: var(--md-ref-palette-error80);
-    --md-sys-color-error-rgb: var(--md-ref-palette-error80-rgb);
-    /* Outline */
-    --md-sys-color-outline: var(--md-ref-palette-neutral-variant60);
-    --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant60-rgb);
-    /* On background */
-    --md-sys-color-on-background: var(--md-ref-palette-neutral90);
-    --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral90-rgb);
-    /* Background */
-    --md-sys-color-background: var(--md-ref-palette-neutral10);
-    --md-sys-color-background-rgb: var(--md-ref-palette-neutral10-rgb);
-    /* Inverse on surface */
-    --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral20);
-    --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral20-rgb);
-    /* Inverse surface */
-    --md-sys-color-inverse-surface: var(--md-ref-palette-neutral90);
-    --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral90-rgb);
-    /* On surface variant */
-    --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant80);
-    --md-sys-color-on-surface-variant-rgb: var(
-      --md-ref-palette-neutral-variant80-rgb
-    );
-    /* On surface */
-    --md-sys-color-on-surface: var(--md-ref-palette-neutral90);
-    --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral90-rgb);
-    /* Surface Variant */
-    --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant30);
-    --md-sys-color-surface-variant-rgb: var(
-      --md-ref-palette-neutral-variant30-rgb
-    );
-    /* Surface */
-    --md-sys-color-surface: var(--md-ref-palette-neutral10);
-    --md-sys-color-surface-rgb: var(--md-ref-palette-neutral10-rgb);
-    /* On secondary container */
-    --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary90);
-    --md-sys-color-on-secondary-container-rgb: var(
-      --md-ref-palette-secondary90-rgb
-    );
-    /* On secondary */
-    --md-sys-color-on-secondary: var(--md-ref-palette-secondary20);
-    --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary20-rgb);
-    /* Secondary container */
-    --md-sys-color-secondary-container: var(--md-ref-palette-secondary30);
-    --md-sys-color-secondary-container-rgb: var(
-      --md-ref-palette-secondary30-rgb
-    );
-    /* Secondary */
-    --md-sys-color-secondary: var(--md-ref-palette-secondary80);
-    --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary80-rgb);
-    /* Inverse primary */
-    --md-sys-color-inverse-primary: var(--md-ref-palette-primary40);
-    --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary40-rgb);
-    /* On primary container */
-    --md-sys-color-on-primary-container: var(--md-ref-palette-primary90);
-    --md-sys-color-on-primary-container-rgb: var(
-      --md-ref-palette-primary90-rgb
-    );
-    /* On primary */
-    --md-sys-color-on-primary: var(--md-ref-palette-primary20);
-    --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary20-rgb);
-    /* Primary container */
-    --md-sys-color-primary-container: var(--md-ref-palette-primary30);
-    --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary30-rgb);
-    /* Primary */
-    --md-sys-color-primary: var(--md-ref-palette-primary80);
-    --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
-  }
-  :where(html) .light-theme {
-    /* Scrim */
-    --md-sys-color-scrim: var(--md-ref-palette-neutral0);
-    --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
-    /* Outline Variant */
-    --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
-    --md-sys-color-outline-variant-rgb: var(
-      --md-ref-palette-neutral-variant80-rgb
-    );
-    /* Surface tint */
-    --md-sys-color-surface-tint: var(--md-sys-color-primary);
-    --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
-    /* Surface tint color */
-    --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
-    --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
-    /* On error container */
-    --md-sys-color-on-error-container: var(--md-ref-palette-error10);
-    --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);
-    /* On error */
-    --md-sys-color-on-error: var(--md-ref-palette-error100);
-    --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);
-    /* Error container */
-    --md-sys-color-error-container: var(--md-ref-palette-error90);
-    --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);
-    /* On tertiary container */
-    --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
-    --md-sys-color-on-tertiary-container-rgb: var(
-      --md-ref-palette-tertiary10-rgb
-    );
-    /* On tertiary */
-    --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
-    --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);
-    /* Tertiary container */
-    --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
-    --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);
-    /* Tertiary */
-    --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
-    --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);
-    /* Shadow */
-    --md-sys-color-shadow: var(--md-ref-palette-neutral0);
-    --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
-    /* Error */
-    --md-sys-color-error: var(--md-ref-palette-error40);
-    --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);
-    /* Outline */
-    --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
-    --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);
-    /* On background */
-    --md-sys-color-on-background: var(--md-ref-palette-neutral10);
-    --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);
-    /* Background */
-    --md-sys-color-background: var(--md-ref-palette-neutral99);
-    --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);
-    /* Inverse on surface */
-    --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
-    --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);
-    /* Inverse surface */
-    --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
-    --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);
-    /* On surface variant */
-    --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
-    --md-sys-color-on-surface-variant-rgb: var(
-      --md-ref-palette-neutral-variant30-rgb
-    );
-    /* On surface */
-    --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
-    --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);
-    /* Surface Variant */
-    --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
-    --md-sys-color-surface-variant-rgb: var(
-      --md-ref-palette-neutral-variant90-rgb
-    );
-    /* Surface */
-    --md-sys-color-surface: var(--md-ref-palette-neutral99);
-    --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);
-    /* On secondary container */
-    --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
-    --md-sys-color-on-secondary-container-rgb: var(
-      --md-ref-palette-secondary10-rgb
-    );
-    /* On secondary */
-    --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
-    --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);
-    /* Secondary container */
-    --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
-    --md-sys-color-secondary-container-rgb: var(
-      --md-ref-palette-secondary90-rgb
-    );
-    /* Secondary */
-    --md-sys-color-secondary: var(--md-ref-palette-secondary40);
-    --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);
-    /* Inverse primary */
-    --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
-    --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);
-    /* On primary container */
-    --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
-    --md-sys-color-on-primary-container-rgb: var(
-      --md-ref-palette-primary10-rgb
-    );
-    /* On primary */
-    --md-sys-color-on-primary: var(--md-ref-palette-primary100);
-    --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);
-    /* Primary container */
-    --md-sys-color-primary-container: var(--md-ref-palette-primary90);
-    --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
-    /* Primary */
-    --md-sys-color-primary: var(--md-ref-palette-primary40);
-    --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
-  }
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html),
-.tokens {
-  /* Scrim */
-  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
-  /* Outline Variant */
-  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
-  /* Surface tint */
-  --md-sys-color-surface-tint: var(--md-sys-color-primary);
-  /* Surface tint color */
-  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
-  /* On error container */
-  --md-sys-color-on-error-container: var(--md-ref-palette-error10);
-  /* On error */
-  --md-sys-color-on-error: var(--md-ref-palette-error100);
-  /* Error container */
-  --md-sys-color-error-container: var(--md-ref-palette-error90);
-  /* On tertiary container */
-  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
-  /* On tertiary */
-  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
-  /* Tertiary container */
-  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
-  /* Tertiary */
-  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
-  /* Shadow */
-  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
-  /* Error */
-  --md-sys-color-error: var(--md-ref-palette-error40);
-  /* Outline */
-  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
-  /* On background */
-  --md-sys-color-on-background: var(--md-ref-palette-neutral10);
-  /* Background */
-  --md-sys-color-background: var(--md-ref-palette-neutral99);
-  /* Inverse on surface */
-  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
-  /* Inverse surface */
-  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
-  /* On surface variant */
-  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
-  /* On surface */
-  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
-  /* Surface Variant */
-  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
-  /* Surface */
-  --md-sys-color-surface: var(--md-ref-palette-neutral99);
-  /* On secondary container */
-  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
-  /* On secondary */
-  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
-  /* Secondary container */
-  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
-  /* Secondary */
-  --md-sys-color-secondary: var(--md-ref-palette-secondary40);
-  /* Inverse primary */
-  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
-  /* On primary container */
-  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
-  /* On primary */
-  --md-sys-color-on-primary: var(--md-ref-palette-primary100);
-  /* Primary container */
-  --md-sys-color-primary-container: var(--md-ref-palette-primary90);
-  /* Primary */
-  --md-sys-color-primary: var(--md-ref-palette-primary40);
-}
-.color-primary {
-  background-color: var(--md-sys-color-primary);
-}
-.color-primary-text {
-  color: var(--md-sys-color-primary);
-}
-.color-on-primary {
-  background-color: var(--md-sys-color-on-primary);
-}
-.color-on-primary-text {
-  color: var(--md-sys-color-on-primary);
-}
-.color-primary-container {
-  background-color: var(--md-sys-color-primary-container);
-}
-.color-primary-container-text {
-  color: var(--md-sys-color-primary-container);
-}
-.color-on-primary-container {
-  background-color: var(--md-sys-color-on-primary-container);
-}
-.color-on-primary-container-text {
-  color: var(--md-sys-color-on-primary-container);
-}
-.color-secondary {
-  background-color: var(--md-sys-color-secondary);
-}
-.color-secondary-text {
-  color: var(--md-sys-color-secondary);
-}
-.color-on-secondary {
-  background-color: var(--md-sys-color-on-secondary);
-}
-.color-on-secondary-text {
-  color: var(--md-sys-color-on-secondary);
-}
-.color-secondary-container {
-  background-color: var(--md-sys-color-secondary-container);
-}
-.color-secondary-container-text {
-  color: var(--md-sys-color-secondary-container);
-}
-.color-on-secondary-container {
-  background-color: var(--md-sys-color-on-secondary-container);
-}
-.color-on-secondary-container-text {
-  color: var(--md-sys-color-on-secondary-container);
-}
-.color-tertiary {
-  background-color: var(--md-sys-color-tertiary);
-}
-.color-tertiary-text {
-  color: var(--md-sys-color-tertiary);
-}
-.color-on-tertiary {
-  background-color: var(--md-sys-color-on-tertiary);
-}
-.color-on-tertiary-text {
-  color: var(--md-sys-color-on-tertiary);
-}
-.color-tertiary-container {
-  background-color: var(--md-sys-color-tertiary-container);
-}
-.color-tertiary-container-text {
-  color: var(--md-sys-color-tertiary-container);
-}
-.color-on-tertiary-container {
-  background-color: var(--md-sys-color-on-tertiary-container);
-}
-.color-on-tertiary-container-text {
-  color: var(--md-sys-color-on-tertiary-container);
-}
-.color-error {
-  background-color: var(--md-sys-color-error);
-}
-.color-error-text {
-  color: var(--md-sys-color-error);
-}
-.color-error-container {
-  background-color: var(--md-sys-color-error-container);
-}
-.color-error-container-text {
-  color: var(--md-sys-color-error-container);
-}
-.color-on-error {
-  background-color: var(--md-sys-color-on-error);
-}
-.color-on-error-text {
-  color: var(--md-sys-color-on-error);
-}
-.color-on-error-container {
-  background-color: var(--md-sys-color-on-error-container);
-}
-.color-on-error-container-text {
-  color: var(--md-sys-color-on-error-container);
-}
-.color-background {
-  background-color: var(--md-sys-color-background);
-}
-.color-background-text {
-  color: var(--md-sys-color-background);
-}
-.color-on-background {
-  background-color: var(--md-sys-color-on-background);
-}
-.color-on-background-text {
-  color: var(--md-sys-color-on-background);
-}
-.color-surface {
-  background-color: var(--md-sys-color-surface);
-}
-.color-surface-text {
-  color: var(--md-sys-color-surface);
-}
-.color-on-surface {
-  background-color: var(--md-sys-color-on-surface);
-}
-.color-on-surface-text {
-  color: var(--md-sys-color-on-surface);
-}
-.color-surface-variant {
-  background-color: var(--md-sys-color-surface-variant);
-}
-.color-surface-variant-text {
-  color: var(--md-sys-color-surface-variant);
-}
-.color-on-surface-variant {
-  background-color: var(--md-sys-color-on-surface-variant);
-}
-.color-on-surface-variant-text {
-  color: var(--md-sys-color-on-surface-variant);
-}
-.color-outline {
-  background-color: var(--md-sys-color-outline);
-}
-.color-outline-text {
-  color: var(--md-sys-color-outline);
-}
-.color-outline-variant {
-  background-color: var(--md-sys-color-outline-variant);
-}
-.color-outline-variant-text {
-  color: var(--md-sys-color-outline-variant);
-}
-.color-inverse-on-surface {
-  background-color: var(--md-sys-color-inverse-on-surface);
-}
-.color-inverse-on-surface-text {
-  color: var(--md-sys-color-inverse-on-surface);
-}
-.color-inverse-surface {
-  background-color: var(--md-sys-color-inverse-surface);
-}
-.color-inverse-surface-text {
-  color: var(--md-sys-color-inverse-surface);
-}
-.color-inverse-primary {
-  background-color: var(--md-sys-color-inverse-primary);
-}
-.color-inverse-primary-text {
-  color: var(--md-sys-color-inverse-primary);
-}
-.color-shadow {
-  background-color: var(--md-sys-color-shadow);
-}
-.color-shadow-text {
-  color: var(--md-sys-color-shadow);
-}
-.color-scrim {
-  background-color: var(--md-sys-color-scrim);
-}
-.color-scrim-text {
-  color: var(--md-sys-color-scrim);
-}
-.color-surface-tint {
-  background-color: var(--md-sys-color-surface-tint);
-}
-.color-surface-tint-text {
-  color: var(--md-sys-color-surface-tint);
-}
-.color-surface-tint-color {
-  background-color: var(--md-sys-color-surface-tint-color);
-}
-.color-surface-tint-color-text {
-  color: var(--md-sys-color-surface-tint-color);
-}
-.color-black {
-  background-color: var(--md-ref-palette-black, #000);
-}
-.color-black-text {
-  color: var(--md-ref-palette-black, #000);
-}
-.color-white {
-  background-color: var(--md-ref-palette-white, #fff);
-}
-.color-white-text {
-  color: var(--md-ref-palette-white, #fff);
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html),
-.tokens {
-  --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
-  --md-sys-shape-corner-extra-small: 4px 4px 4px 4px;
-  --md-sys-shape-corner-large: 16px 16px 16px 16px;
-  --md-sys-shape-corner-none: 0px 0px 0px 0px;
-  --md-sys-shape-corner-large-start: 16px 0px 0px 16px;
-  --md-sys-shape-corner-medium: 12px 12px 12px 12px;
-  --md-sys-shape-corner-small: 8px 8px 8px 8px;
-  --md-sys-shape-corner-large-end: 0px 16px 16px 0px;
-  --md-sys-shape-corner-large-top: 16px 16px 0px 0px;
-  --md-sys-shape-corner-extra-large: 28px 28px 28px 28px;
-  --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
-  --md-sys-shape-corner-full: 50%;
-}
-.shape-none {
-  border-radius: var(--md-sys-shape-corner-none);
-}
-.shape-extra-small {
-  border-radius: var(--md-sys-shape-corner-extra-small);
-}
-.shape-small {
-  border-radius: var(--md-sys-shape-corner-small);
-}
-.shape-medium {
-  border-radius: var(--md-sys-shape-corner-medium);
-}
-.shape-large {
-  border-radius: var(--md-sys-shape-corner-large);
-}
-.shape-extra-large {
-  border-radius: var(--md-sys-shape-corner-extra-large);
-}
-.shape-extra-small-top {
-  border-radius: var(--md-sys-shape-corner-extra-small-top);
-}
-.shape-large-end {
-  border-radius: var(--md-sys-shape-corner-large-end);
-}
-.shape-large-top {
-  border-radius: var(--md-sys-shape-corner-large-top);
-}
-.shape-extra-large-top {
-  border-radius: var(--md-sys-shape-corner-extra-large-top);
-}
-.shape-full {
-  border-radius: var(--md-sys-shape-corner-full);
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -1148,650 +332,6 @@
   --md-ref-palette-white-rgb: 255 255 255;
   --md-ref-palette-white: rgb(var(--md-ref-palette-white-rgb));
 }
-.palette-primary {
-  background: linear-gradient(
-    45deg,
-    var(--md-ref-palette-primary0),
-    var(--md-ref-palette-primary10),
-    var(--md-ref-palette-primary20),
-    var(--md-ref-palette-primary30),
-    var(--md-ref-palette-primary40),
-    var(--md-ref-palette-primary50),
-    var(--md-ref-palette-primary60),
-    var(--md-ref-palette-primary70),
-    var(--md-ref-palette-primary80),
-    var(--md-ref-palette-primary90),
-    var(--md-ref-palette-primary98),
-    var(--md-ref-palette-primary99),
-    var(--md-ref-palette-primary100)
-  );
-}
-.palette-secondary {
-  background: linear-gradient(
-    45deg,
-    var(--md-ref-palette-secondary0),
-    var(--md-ref-palette-secondary10),
-    var(--md-ref-palette-secondary20),
-    var(--md-ref-palette-secondary30),
-    var(--md-ref-palette-secondary40),
-    var(--md-ref-palette-secondary50),
-    var(--md-ref-palette-secondary60),
-    var(--md-ref-palette-secondary70),
-    var(--md-ref-palette-secondary80),
-    var(--md-ref-palette-secondary90),
-    var(--md-ref-palette-secondary98),
-    var(--md-ref-palette-secondary99),
-    var(--md-ref-palette-secondary100)
-  );
-}
-.palette-tertiary {
-  background: linear-gradient(
-    45deg,
-    var(--md-ref-palette-tertiary0),
-    var(--md-ref-palette-tertiary10),
-    var(--md-ref-palette-tertiary20),
-    var(--md-ref-palette-tertiary30),
-    var(--md-ref-palette-tertiary40),
-    var(--md-ref-palette-tertiary50),
-    var(--md-ref-palette-tertiary60),
-    var(--md-ref-palette-tertiary70),
-    var(--md-ref-palette-tertiary80),
-    var(--md-ref-palette-tertiary90),
-    var(--md-ref-palette-tertiary98),
-    var(--md-ref-palette-tertiary99),
-    var(--md-ref-palette-tertiary100)
-  );
-}
-.palette-error {
-  background: linear-gradient(
-    45deg,
-    var(--md-ref-palette-error0),
-    var(--md-ref-palette-error10),
-    var(--md-ref-palette-error20),
-    var(--md-ref-palette-error30),
-    var(--md-ref-palette-error40),
-    var(--md-ref-palette-error50),
-    var(--md-ref-palette-error60),
-    var(--md-ref-palette-error70),
-    var(--md-ref-palette-error80),
-    var(--md-ref-palette-error90),
-    var(--md-ref-palette-error98),
-    var(--md-ref-palette-error99),
-    var(--md-ref-palette-error100)
-  );
-}
-.palette-neutral {
-  background: linear-gradient(
-    45deg,
-    var(--md-ref-palette-neutral0),
-    var(--md-ref-palette-neutral10),
-    var(--md-ref-palette-neutral20),
-    var(--md-ref-palette-neutral30),
-    var(--md-ref-palette-neutral40),
-    var(--md-ref-palette-neutral50),
-    var(--md-ref-palette-neutral60),
-    var(--md-ref-palette-neutral70),
-    var(--md-ref-palette-neutral80),
-    var(--md-ref-palette-neutral90),
-    var(--md-ref-palette-neutral98),
-    var(--md-ref-palette-neutral99),
-    var(--md-ref-palette-neutral100)
-  );
-}
-.palette-neutral-variant {
-  background: linear-gradient(
-    45deg,
-    var(--md-ref-palette-neutral-variant0),
-    var(--md-ref-palette-neutral-variant10),
-    var(--md-ref-palette-neutral-variant20),
-    var(--md-ref-palette-neutral-variant30),
-    var(--md-ref-palette-neutral-variant40),
-    var(--md-ref-palette-neutral-variant50),
-    var(--md-ref-palette-neutral-variant60),
-    var(--md-ref-palette-neutral-variant70),
-    var(--md-ref-palette-neutral-variant80),
-    var(--md-ref-palette-neutral-variant90),
-    var(--md-ref-palette-neutral-variant98),
-    var(--md-ref-palette-neutral-variant99),
-    var(--md-ref-palette-neutral-variant100)
-  );
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html),
-.tokens {
-  --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
-  --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
-  --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
-  --md-sys-color-surface-4: rgb(var(--md-sys-color-primary-rgb) / 0.12);
-  --md-sys-color-surface-5: rgb(var(--md-sys-color-primary-rgb) / 0.14);
-}
-.surface-1 {
-  background-color: var(--md-sys-color-surface-1);
-  color: var(--md-sys-color-on-surface);
-}
-.surface-2 {
-  background-color: var(--md-sys-color-surface-2);
-  color: var(--md-sys-color-on-surface);
-}
-.surface-3 {
-  background-color: var(--md-sys-color-surface-3);
-  color: var(--md-sys-color-on-surface);
-}
-.surface-4 {
-  background-color: var(--md-sys-color-surface-4);
-  color: var(--md-sys-color-on-surface);
-}
-.surface-5 {
-  background-color: var(--md-sys-color-surface-5);
-  color: var(--md-sys-color-on-surface);
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html),
-.tokens {
-  /* Linear */
-  --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
-  /* Standard */
-  --md-sys-motion-easing-standard: cubic-bezier(0.20000000298023224, 0, 0, 1);
-  /* Short 1 */
-  --md-sys-motion-duration-short1: 50;
-  /* Short 2 */
-  --md-sys-motion-duration-short2: 100;
-  /* Short 3 */
-  --md-sys-motion-duration-short3: 150;
-  /* Short 4 */
-  --md-sys-motion-duration-short4: 200;
-  /* Medium 1 */
-  --md-sys-motion-duration-medium1: 250;
-  /* Medium 2 */
-  --md-sys-motion-duration-medium2: 300;
-  /* Medium 3 */
-  --md-sys-motion-duration-medium3: 350;
-  /* Medium 4 */
-  --md-sys-motion-duration-medium4: 400;
-  /* Long 1 */
-  --md-sys-motion-duration-long1: 450;
-  /* Long 2 */
-  --md-sys-motion-duration-long2: 500;
-  /* Long 3 */
-  --md-sys-motion-duration-long3: 550;
-  /* Long 4 */
-  --md-sys-motion-duration-long4: 600;
-  /* Extra long 1 */
-  --md-sys-motion-duration-extra-long1: 700;
-  /* Extra long 2 */
-  --md-sys-motion-duration-extra-long2: 800;
-  /* Extra long 3 */
-  --md-sys-motion-duration-extra-long3: 900;
-  /* Extra long 4 */
-  --md-sys-motion-duration-extra-long4: 1000;
-  /* Standard accelerate */
-  --md-sys-motion-easing-standard-accelerate: cubic-bezier(
-    0.30000001192092896,
-    0,
-    1,
-    1
-  );
-  /* Standard decelerate */
-  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
-  /* Emphasized accelerate */
-  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(
-    0.30000001192092896,
-    0,
-    0.800000011920929,
-    0.15000000596046448
-  );
-  /* Emphasized decelerate */
-  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(
-    0.05000000074505806,
-    0.699999988079071,
-    0.10000000149011612,
-    1
-  );
-  /* Legacy */
-  --md-sys-motion-easing-legacy: cubic-bezier(
-    0.4000000059604645,
-    0,
-    0.20000000298023224,
-    1
-  );
-  /* Legacy accelerate */
-  --md-sys-motion-easing-legacy-accelerate: cubic-bezier(
-    0.4000000059604645,
-    0,
-    1,
-    1
-  );
-  /* Legacy decelerate */
-  --md-sys-motion-easing-legacy-decelerate: cubic-bezier(
-    0,
-    0,
-    0.20000000298023224,
-    1
-  );
-}
-.duration-50 {
-  transition-duration: var(--md-sys-motion-duration-50);
-}
-.duration-100 {
-  transition-duration: var(--md-sys-motion-duration-100);
-}
-.duration-150 {
-  transition-duration: var(--md-sys-motion-duration-150);
-}
-.duration-200 {
-  transition-duration: var(--md-sys-motion-duration-200);
-}
-.duration-250 {
-  transition-duration: var(--md-sys-motion-duration-250);
-}
-.duration-300 {
-  transition-duration: var(--md-sys-motion-duration-300);
-}
-.duration-350 {
-  transition-duration: var(--md-sys-motion-duration-350);
-}
-.duration-400 {
-  transition-duration: var(--md-sys-motion-duration-400);
-}
-.duration-450 {
-  transition-duration: var(--md-sys-motion-duration-450);
-}
-.duration-500 {
-  transition-duration: var(--md-sys-motion-duration-500);
-}
-.duration-550 {
-  transition-duration: var(--md-sys-motion-duration-550);
-}
-.duration-600 {
-  transition-duration: var(--md-sys-motion-duration-600);
-}
-.duration-700 {
-  transition-duration: var(--md-sys-motion-duration-700);
-}
-.duration-800 {
-  transition-duration: var(--md-sys-motion-duration-800);
-}
-.duration-900 {
-  transition-duration: var(--md-sys-motion-duration-900);
-}
-.duration-1000 {
-  transition-duration: var(--md-sys-motion-duration-1000);
-}
-.easing-standard {
-  transition-timing-function: cubic-bezier(
-    var(--md-sys-motion-easing-standard-x0),
-    var(--md-sys-motion-easing-standard-y0),
-    var(--md-sys-motion-easing-standard-x1),
-    var(--md-sys-motion-easing-standard-y1)
-  );
-}
-.easing-linear {
-  transition-timing-function: cubic-bezier(
-    var(--md-sys-motion-easing-linear-x0),
-    var(--md-sys-motion-easing-linear-y0),
-    var(--md-sys-motion-easing-linear-x1),
-    var(--md-sys-motion-easing-linear-y1)
-  );
-}
-.easing-standard-accelerate {
-  transition-timing-function: cubic-bezier(
-    var(--md-sys-motion-easing-standard-accelerate-x0),
-    var(--md-sys-motion-easing-standard-accelerate-y0),
-    var(--md-sys-motion-easing-standard-accelerate-x1),
-    var(--md-sys-motion-easing-standard-accelerate-y1)
-  );
-}
-.easing-standard-decelerate {
-  transition-timing-function: cubic-bezier(
-    var(--md-sys-motion-easing-standard-decelerate-x0),
-    var(--md-sys-motion-easing-standard-decelerate-y0),
-    var(--md-sys-motion-easing-standard-decelerate-x1),
-    var(--md-sys-motion-easing-standard-decelerate-y1)
-  );
-}
-.easing-emphasized {
-  transition-timing-function: cubic-bezier(
-    var(--md-sys-motion-easing-emphasized-x0),
-    var(--md-sys-motion-easing-emphasized-y0),
-    var(--md-sys-motion-easing-emphasized-x1),
-    var(--md-sys-motion-easing-emphasized-y1)
-  );
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html),
-.tokens {
-  /* Hover state layer opacity */
-  --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
-  /* Focus state layer opacity */
-  --md-sys-state-focus-state-layer-opacity: 0.11999999731779099;
-  /* Pressed state layer opacity */
-  --md-sys-state-pressed-state-layer-opacity: 0.11999999731779099;
-  /* Dragged state layer opacity */
-  --md-sys-state-dragged-state-layer-opacity: 0.1599999964237213;
-}
-.hover-state-layer {
-  opacity: var(--md-sys-state-hover-state-layer-opacity);
-}
-.pressed-state-layer {
-  opacity: var(--md-sys-state-pressed-state-layer-opacity);
-}
-.dragged-state-layer {
-  opacity: var(--md-sys-state-dragged-state-layer-opacity);
-}
-.focus-state-layer {
-  opacity: var(--md-sys-state-focus-state-layer-opacity);
-}
-:where(.button, button, .icon-button, .chip, .list-tile) {
-  --tint-color: transparent;
-  /* State colors */
-  --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);
-  --state-focus-opacity: var(--md-sys-state-focus-state-layer-opacity);
-  --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
-
-  position: relative;
-}
-:where(.button, button, .icon-button, .chip, .list-tile)::after {
-    content: "";
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--tint-color);
-  }
-:where(.button, button, .icon-button, .chip, .list-tile):where(:hover, .hover) {
-    --tint-color: rgb(
-      var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
-    );
-  }
-:where(.button, button, .icon-button, .chip, .list-tile):where(:focus, .focus) {
-    --tint-color: rgb(
-      var(--md-sys-color-surface-tint-rgb) / var(--state-focus-opacity)
-    );
-  }
-:where(.button, button, .icon-button, .chip, .list-tile):where(:active, .active) {
-    --tint-color: rgb(
-      var(--md-sys-color-surface-tint-rgb) / var(--state-active-opacity)
-    );
-  }
-[disabled]:where(.button, button, .icon-button, .chip, .list-tile) {
-    --tint-color: transparent;
-  }
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html),
-.tokens {
-  /* 0 */
-  --md-sys-elevation-level0: 0px;
-  /* +1 */
-  --md-sys-elevation-level1: 1px;
-  /* +2 */
-  --md-sys-elevation-level2: 3px;
-  /* +3 */
-  --md-sys-elevation-level3: 6px;
-  /* +4 */
-  --md-sys-elevation-level4: 8px;
-  /* +5 */
-  --md-sys-elevation-level5: 12px;
-}
-:where(html) {
-  --md-sys-elevation-0: 0px 0px 0px 0px
-      rgb(var(--md-sys-color-shadow-rgb) / 0.2),
-    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-1: 0px 3px 1px -2px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 2px 2px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 1px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-2: 0px 2px 4px -1px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 4px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 1px 10px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-3: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-4: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-5: 0px 8px 10px -6px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-}
-.elevation-0 {
-  box-shadow: var(--md-sys-elevation-0);
-}
-.elevation-1 {
-  box-shadow: var(--md-sys-elevation-1);
-}
-.elevation-2 {
-  box-shadow: var(--md-sys-elevation-2);
-}
-.elevation-3 {
-  box-shadow: var(--md-sys-elevation-3);
-}
-.elevation-4 {
-  box-shadow: var(--md-sys-elevation-4);
-}
-.elevation-5 {
-  box-shadow: var(--md-sys-elevation-5);
-}
-* {
-  -webkit-font-smoothing: antialiased;
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-@font-face {
-  font-family: "Material Icons";
-  src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
-    format("woff2");
-}
-:where(.material-icons) {
-  font-family: "Material Icons";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  font-feature-settings: "liga";
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-}
-:where(html),
-.tokens,
-[class*="material-symbols-"] {
-  --material-symbols-fill: 0;
-  --material-symbols-wght: 400;
-  --material-symbols-grad: 0;
-  --material-symbols-opsz: 48;
-}
-:where(.material-symbols-sharp) {
-  font-variation-settings: 
-    "FILL" var(--material-symbols-fill),
-    "wght" var(--material-symbols-wght),
-    "GRAD" var(--material-symbols-grad),
-    "opsz" var(--material-symbols-opsz);
-}
-:where(.material-symbols-rounded) {
-  font-variation-settings: 
-    "FILL" var(--material-symbols-fill),
-    "wght" var(--material-symbols-wght),
-    "GRAD" var(--material-symbols-grad),
-    "opsz" var(--material-symbols-opsz);
-}
-:where(.material-symbols-outlined) {
-  font-variation-settings: 
-    "FILL" var(--material-symbols-fill),
-    "wght" var(--material-symbols-wght),
-    "GRAD" var(--material-symbols-grad),
-    "opsz" var(--material-symbols-opsz);
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -2002,6 +542,1036 @@
   /* Display Large font name */
   --md-sys-typescale-display-large-font: var(--md-ref-typeface-brand);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  /* Scrim */
+  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+  /* Outline Variant */
+  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
+  /* Surface tint */
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+  /* Surface tint color */
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+  /* On error container */
+  --md-sys-color-on-error-container: var(--md-ref-palette-error10);
+  /* On error */
+  --md-sys-color-on-error: var(--md-ref-palette-error100);
+  /* Error container */
+  --md-sys-color-error-container: var(--md-ref-palette-error90);
+  /* On tertiary container */
+  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
+  /* On tertiary */
+  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
+  /* Tertiary container */
+  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
+  /* Tertiary */
+  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
+  /* Shadow */
+  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+  /* Error */
+  --md-sys-color-error: var(--md-ref-palette-error40);
+  /* Outline */
+  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
+  /* On background */
+  --md-sys-color-on-background: var(--md-ref-palette-neutral10);
+  /* Background */
+  --md-sys-color-background: var(--md-ref-palette-neutral99);
+  /* Inverse on surface */
+  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
+  /* Inverse surface */
+  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
+  /* On surface variant */
+  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
+  /* On surface */
+  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
+  /* Surface Variant */
+  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
+  /* Surface */
+  --md-sys-color-surface: var(--md-ref-palette-neutral99);
+  /* On secondary container */
+  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
+  /* On secondary */
+  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
+  /* Secondary container */
+  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
+  /* Secondary */
+  --md-sys-color-secondary: var(--md-ref-palette-secondary40);
+  /* Inverse primary */
+  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
+  /* On primary container */
+  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
+  /* On primary */
+  --md-sys-color-on-primary: var(--md-ref-palette-primary100);
+  /* Primary container */
+  --md-sys-color-primary-container: var(--md-ref-palette-primary90);
+  /* Primary */
+  --md-sys-color-primary: var(--md-ref-palette-primary40);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
+  --md-sys-shape-corner-extra-small: 4px 4px 4px 4px;
+  --md-sys-shape-corner-large: 16px 16px 16px 16px;
+  --md-sys-shape-corner-none: 0px 0px 0px 0px;
+  --md-sys-shape-corner-large-start: 16px 0px 0px 16px;
+  --md-sys-shape-corner-medium: 12px 12px 12px 12px;
+  --md-sys-shape-corner-small: 8px 8px 8px 8px;
+  --md-sys-shape-corner-large-end: 0px 16px 16px 0px;
+  --md-sys-shape-corner-large-top: 16px 16px 0px 0px;
+  --md-sys-shape-corner-extra-large: 28px 28px 28px 28px;
+  --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
+  --md-sys-shape-corner-full: 50%;
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  /* Linear */
+  --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+  /* Standard */
+  --md-sys-motion-easing-standard: cubic-bezier(0.20000000298023224, 0, 0, 1);
+  /* Short 1 */
+  --md-sys-motion-duration-short1: 50;
+  /* Short 2 */
+  --md-sys-motion-duration-short2: 100;
+  /* Short 3 */
+  --md-sys-motion-duration-short3: 150;
+  /* Short 4 */
+  --md-sys-motion-duration-short4: 200;
+  /* Medium 1 */
+  --md-sys-motion-duration-medium1: 250;
+  /* Medium 2 */
+  --md-sys-motion-duration-medium2: 300;
+  /* Medium 3 */
+  --md-sys-motion-duration-medium3: 350;
+  /* Medium 4 */
+  --md-sys-motion-duration-medium4: 400;
+  /* Long 1 */
+  --md-sys-motion-duration-long1: 450;
+  /* Long 2 */
+  --md-sys-motion-duration-long2: 500;
+  /* Long 3 */
+  --md-sys-motion-duration-long3: 550;
+  /* Long 4 */
+  --md-sys-motion-duration-long4: 600;
+  /* Extra long 1 */
+  --md-sys-motion-duration-extra-long1: 700;
+  /* Extra long 2 */
+  --md-sys-motion-duration-extra-long2: 800;
+  /* Extra long 3 */
+  --md-sys-motion-duration-extra-long3: 900;
+  /* Extra long 4 */
+  --md-sys-motion-duration-extra-long4: 1000;
+  /* Standard accelerate */
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(
+    0.30000001192092896,
+    0,
+    1,
+    1
+  );
+  /* Standard decelerate */
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  /* Emphasized accelerate */
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(
+    0.30000001192092896,
+    0,
+    0.800000011920929,
+    0.15000000596046448
+  );
+  /* Emphasized decelerate */
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(
+    0.05000000074505806,
+    0.699999988079071,
+    0.10000000149011612,
+    1
+  );
+  /* Legacy */
+  --md-sys-motion-easing-legacy: cubic-bezier(
+    0.4000000059604645,
+    0,
+    0.20000000298023224,
+    1
+  );
+  /* Legacy accelerate */
+  --md-sys-motion-easing-legacy-accelerate: cubic-bezier(
+    0.4000000059604645,
+    0,
+    1,
+    1
+  );
+  /* Legacy decelerate */
+  --md-sys-motion-easing-legacy-decelerate: cubic-bezier(
+    0,
+    0,
+    0.20000000298023224,
+    1
+  );
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  /* Hover state layer opacity */
+  --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
+  /* Focus state layer opacity */
+  --md-sys-state-focus-state-layer-opacity: 0.11999999731779099;
+  /* Pressed state layer opacity */
+  --md-sys-state-pressed-state-layer-opacity: 0.11999999731779099;
+  /* Dragged state layer opacity */
+  --md-sys-state-dragged-state-layer-opacity: 0.1599999964237213;
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  /* 0 */
+  --md-sys-elevation-level0: 0px;
+  /* +1 */
+  --md-sys-elevation-level1: 1px;
+  /* +2 */
+  --md-sys-elevation-level2: 3px;
+  /* +3 */
+  --md-sys-elevation-level3: 6px;
+  /* +4 */
+  --md-sys-elevation-level4: 8px;
+  /* +5 */
+  --md-sys-elevation-level5: 12px;
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.color-primary {
+  background-color: var(--md-sys-color-primary);
+}
+.color-primary-text {
+  color: var(--md-sys-color-primary);
+}
+.color-on-primary {
+  background-color: var(--md-sys-color-on-primary);
+}
+.color-on-primary-text {
+  color: var(--md-sys-color-on-primary);
+}
+.color-primary-container {
+  background-color: var(--md-sys-color-primary-container);
+}
+.color-primary-container-text {
+  color: var(--md-sys-color-primary-container);
+}
+.color-on-primary-container {
+  background-color: var(--md-sys-color-on-primary-container);
+}
+.color-on-primary-container-text {
+  color: var(--md-sys-color-on-primary-container);
+}
+.color-secondary {
+  background-color: var(--md-sys-color-secondary);
+}
+.color-secondary-text {
+  color: var(--md-sys-color-secondary);
+}
+.color-on-secondary {
+  background-color: var(--md-sys-color-on-secondary);
+}
+.color-on-secondary-text {
+  color: var(--md-sys-color-on-secondary);
+}
+.color-secondary-container {
+  background-color: var(--md-sys-color-secondary-container);
+}
+.color-secondary-container-text {
+  color: var(--md-sys-color-secondary-container);
+}
+.color-on-secondary-container {
+  background-color: var(--md-sys-color-on-secondary-container);
+}
+.color-on-secondary-container-text {
+  color: var(--md-sys-color-on-secondary-container);
+}
+.color-tertiary {
+  background-color: var(--md-sys-color-tertiary);
+}
+.color-tertiary-text {
+  color: var(--md-sys-color-tertiary);
+}
+.color-on-tertiary {
+  background-color: var(--md-sys-color-on-tertiary);
+}
+.color-on-tertiary-text {
+  color: var(--md-sys-color-on-tertiary);
+}
+.color-tertiary-container {
+  background-color: var(--md-sys-color-tertiary-container);
+}
+.color-tertiary-container-text {
+  color: var(--md-sys-color-tertiary-container);
+}
+.color-on-tertiary-container {
+  background-color: var(--md-sys-color-on-tertiary-container);
+}
+.color-on-tertiary-container-text {
+  color: var(--md-sys-color-on-tertiary-container);
+}
+.color-error {
+  background-color: var(--md-sys-color-error);
+}
+.color-error-text {
+  color: var(--md-sys-color-error);
+}
+.color-error-container {
+  background-color: var(--md-sys-color-error-container);
+}
+.color-error-container-text {
+  color: var(--md-sys-color-error-container);
+}
+.color-on-error {
+  background-color: var(--md-sys-color-on-error);
+}
+.color-on-error-text {
+  color: var(--md-sys-color-on-error);
+}
+.color-on-error-container {
+  background-color: var(--md-sys-color-on-error-container);
+}
+.color-on-error-container-text {
+  color: var(--md-sys-color-on-error-container);
+}
+.color-background {
+  background-color: var(--md-sys-color-background);
+}
+.color-background-text {
+  color: var(--md-sys-color-background);
+}
+.color-on-background {
+  background-color: var(--md-sys-color-on-background);
+}
+.color-on-background-text {
+  color: var(--md-sys-color-on-background);
+}
+.color-surface {
+  background-color: var(--md-sys-color-surface);
+}
+.color-surface-text {
+  color: var(--md-sys-color-surface);
+}
+.color-on-surface {
+  background-color: var(--md-sys-color-on-surface);
+}
+.color-on-surface-text {
+  color: var(--md-sys-color-on-surface);
+}
+.color-surface-variant {
+  background-color: var(--md-sys-color-surface-variant);
+}
+.color-surface-variant-text {
+  color: var(--md-sys-color-surface-variant);
+}
+.color-on-surface-variant {
+  background-color: var(--md-sys-color-on-surface-variant);
+}
+.color-on-surface-variant-text {
+  color: var(--md-sys-color-on-surface-variant);
+}
+.color-outline {
+  background-color: var(--md-sys-color-outline);
+}
+.color-outline-text {
+  color: var(--md-sys-color-outline);
+}
+.color-outline-variant {
+  background-color: var(--md-sys-color-outline-variant);
+}
+.color-outline-variant-text {
+  color: var(--md-sys-color-outline-variant);
+}
+.color-inverse-on-surface {
+  background-color: var(--md-sys-color-inverse-on-surface);
+}
+.color-inverse-on-surface-text {
+  color: var(--md-sys-color-inverse-on-surface);
+}
+.color-inverse-surface {
+  background-color: var(--md-sys-color-inverse-surface);
+}
+.color-inverse-surface-text {
+  color: var(--md-sys-color-inverse-surface);
+}
+.color-inverse-primary {
+  background-color: var(--md-sys-color-inverse-primary);
+}
+.color-inverse-primary-text {
+  color: var(--md-sys-color-inverse-primary);
+}
+.color-shadow {
+  background-color: var(--md-sys-color-shadow);
+}
+.color-shadow-text {
+  color: var(--md-sys-color-shadow);
+}
+.color-scrim {
+  background-color: var(--md-sys-color-scrim);
+}
+.color-scrim-text {
+  color: var(--md-sys-color-scrim);
+}
+.color-surface-tint {
+  background-color: var(--md-sys-color-surface-tint);
+}
+.color-surface-tint-text {
+  color: var(--md-sys-color-surface-tint);
+}
+.color-surface-tint-color {
+  background-color: var(--md-sys-color-surface-tint-color);
+}
+.color-surface-tint-color-text {
+  color: var(--md-sys-color-surface-tint-color);
+}
+.color-black {
+  background-color: var(--md-ref-palette-black, #000);
+}
+.color-black-text {
+  color: var(--md-ref-palette-black, #000);
+}
+.color-white {
+  background-color: var(--md-ref-palette-white, #fff);
+}
+.color-white-text {
+  color: var(--md-ref-palette-white, #fff);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.shape-none {
+  border-radius: var(--md-sys-shape-corner-none);
+}
+.shape-extra-small {
+  border-radius: var(--md-sys-shape-corner-extra-small);
+}
+.shape-small {
+  border-radius: var(--md-sys-shape-corner-small);
+}
+.shape-medium {
+  border-radius: var(--md-sys-shape-corner-medium);
+}
+.shape-large {
+  border-radius: var(--md-sys-shape-corner-large);
+}
+.shape-extra-large {
+  border-radius: var(--md-sys-shape-corner-extra-large);
+}
+.shape-extra-small-top {
+  border-radius: var(--md-sys-shape-corner-extra-small-top);
+}
+.shape-large-end {
+  border-radius: var(--md-sys-shape-corner-large-end);
+}
+.shape-large-top {
+  border-radius: var(--md-sys-shape-corner-large-top);
+}
+.shape-extra-large-top {
+  border-radius: var(--md-sys-shape-corner-extra-large-top);
+}
+.shape-full {
+  border-radius: var(--md-sys-shape-corner-full);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.palette-primary {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-primary0),
+    var(--md-ref-palette-primary10),
+    var(--md-ref-palette-primary20),
+    var(--md-ref-palette-primary30),
+    var(--md-ref-palette-primary40),
+    var(--md-ref-palette-primary50),
+    var(--md-ref-palette-primary60),
+    var(--md-ref-palette-primary70),
+    var(--md-ref-palette-primary80),
+    var(--md-ref-palette-primary90),
+    var(--md-ref-palette-primary98),
+    var(--md-ref-palette-primary99),
+    var(--md-ref-palette-primary100)
+  );
+}
+.palette-secondary {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-secondary0),
+    var(--md-ref-palette-secondary10),
+    var(--md-ref-palette-secondary20),
+    var(--md-ref-palette-secondary30),
+    var(--md-ref-palette-secondary40),
+    var(--md-ref-palette-secondary50),
+    var(--md-ref-palette-secondary60),
+    var(--md-ref-palette-secondary70),
+    var(--md-ref-palette-secondary80),
+    var(--md-ref-palette-secondary90),
+    var(--md-ref-palette-secondary98),
+    var(--md-ref-palette-secondary99),
+    var(--md-ref-palette-secondary100)
+  );
+}
+.palette-tertiary {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-tertiary0),
+    var(--md-ref-palette-tertiary10),
+    var(--md-ref-palette-tertiary20),
+    var(--md-ref-palette-tertiary30),
+    var(--md-ref-palette-tertiary40),
+    var(--md-ref-palette-tertiary50),
+    var(--md-ref-palette-tertiary60),
+    var(--md-ref-palette-tertiary70),
+    var(--md-ref-palette-tertiary80),
+    var(--md-ref-palette-tertiary90),
+    var(--md-ref-palette-tertiary98),
+    var(--md-ref-palette-tertiary99),
+    var(--md-ref-palette-tertiary100)
+  );
+}
+.palette-error {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-error0),
+    var(--md-ref-palette-error10),
+    var(--md-ref-palette-error20),
+    var(--md-ref-palette-error30),
+    var(--md-ref-palette-error40),
+    var(--md-ref-palette-error50),
+    var(--md-ref-palette-error60),
+    var(--md-ref-palette-error70),
+    var(--md-ref-palette-error80),
+    var(--md-ref-palette-error90),
+    var(--md-ref-palette-error98),
+    var(--md-ref-palette-error99),
+    var(--md-ref-palette-error100)
+  );
+}
+.palette-neutral {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-neutral0),
+    var(--md-ref-palette-neutral10),
+    var(--md-ref-palette-neutral20),
+    var(--md-ref-palette-neutral30),
+    var(--md-ref-palette-neutral40),
+    var(--md-ref-palette-neutral50),
+    var(--md-ref-palette-neutral60),
+    var(--md-ref-palette-neutral70),
+    var(--md-ref-palette-neutral80),
+    var(--md-ref-palette-neutral90),
+    var(--md-ref-palette-neutral98),
+    var(--md-ref-palette-neutral99),
+    var(--md-ref-palette-neutral100)
+  );
+}
+.palette-neutral-variant {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-neutral-variant0),
+    var(--md-ref-palette-neutral-variant10),
+    var(--md-ref-palette-neutral-variant20),
+    var(--md-ref-palette-neutral-variant30),
+    var(--md-ref-palette-neutral-variant40),
+    var(--md-ref-palette-neutral-variant50),
+    var(--md-ref-palette-neutral-variant60),
+    var(--md-ref-palette-neutral-variant70),
+    var(--md-ref-palette-neutral-variant80),
+    var(--md-ref-palette-neutral-variant90),
+    var(--md-ref-palette-neutral-variant98),
+    var(--md-ref-palette-neutral-variant99),
+    var(--md-ref-palette-neutral-variant100)
+  );
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
+  --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
+  --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
+  --md-sys-color-surface-4: rgb(var(--md-sys-color-primary-rgb) / 0.12);
+  --md-sys-color-surface-5: rgb(var(--md-sys-color-primary-rgb) / 0.14);
+}
+.surface-1 {
+  background-color: var(--md-sys-color-surface-1);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-2 {
+  background-color: var(--md-sys-color-surface-2);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-3 {
+  background-color: var(--md-sys-color-surface-3);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-4 {
+  background-color: var(--md-sys-color-surface-4);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-5 {
+  background-color: var(--md-sys-color-surface-5);
+  color: var(--md-sys-color-on-surface);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.duration-50 {
+  transition-duration: var(--md-sys-motion-duration-50);
+}
+.duration-100 {
+  transition-duration: var(--md-sys-motion-duration-100);
+}
+.duration-150 {
+  transition-duration: var(--md-sys-motion-duration-150);
+}
+.duration-200 {
+  transition-duration: var(--md-sys-motion-duration-200);
+}
+.duration-250 {
+  transition-duration: var(--md-sys-motion-duration-250);
+}
+.duration-300 {
+  transition-duration: var(--md-sys-motion-duration-300);
+}
+.duration-350 {
+  transition-duration: var(--md-sys-motion-duration-350);
+}
+.duration-400 {
+  transition-duration: var(--md-sys-motion-duration-400);
+}
+.duration-450 {
+  transition-duration: var(--md-sys-motion-duration-450);
+}
+.duration-500 {
+  transition-duration: var(--md-sys-motion-duration-500);
+}
+.duration-550 {
+  transition-duration: var(--md-sys-motion-duration-550);
+}
+.duration-600 {
+  transition-duration: var(--md-sys-motion-duration-600);
+}
+.duration-700 {
+  transition-duration: var(--md-sys-motion-duration-700);
+}
+.duration-800 {
+  transition-duration: var(--md-sys-motion-duration-800);
+}
+.duration-900 {
+  transition-duration: var(--md-sys-motion-duration-900);
+}
+.duration-1000 {
+  transition-duration: var(--md-sys-motion-duration-1000);
+}
+.easing-standard {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-x0),
+    var(--md-sys-motion-easing-standard-y0),
+    var(--md-sys-motion-easing-standard-x1),
+    var(--md-sys-motion-easing-standard-y1)
+  );
+}
+.easing-linear {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-linear-x0),
+    var(--md-sys-motion-easing-linear-y0),
+    var(--md-sys-motion-easing-linear-x1),
+    var(--md-sys-motion-easing-linear-y1)
+  );
+}
+.easing-standard-accelerate {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-accelerate-x0),
+    var(--md-sys-motion-easing-standard-accelerate-y0),
+    var(--md-sys-motion-easing-standard-accelerate-x1),
+    var(--md-sys-motion-easing-standard-accelerate-y1)
+  );
+}
+.easing-standard-decelerate {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-decelerate-x0),
+    var(--md-sys-motion-easing-standard-decelerate-y0),
+    var(--md-sys-motion-easing-standard-decelerate-x1),
+    var(--md-sys-motion-easing-standard-decelerate-y1)
+  );
+}
+.easing-emphasized {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-emphasized-x0),
+    var(--md-sys-motion-easing-emphasized-y0),
+    var(--md-sys-motion-easing-emphasized-x1),
+    var(--md-sys-motion-easing-emphasized-y1)
+  );
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+.hover-state-layer {
+  opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+.pressed-state-layer {
+  opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+.dragged-state-layer {
+  opacity: var(--md-sys-state-dragged-state-layer-opacity);
+}
+.focus-state-layer {
+  opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
+:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon) {
+  --tint-color: transparent;
+  /* State colors */
+  --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);
+  --state-focus-opacity: var(--md-sys-state-focus-state-layer-opacity);
+  --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
+
+  position: relative;
+}
+:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon)::after {
+    content: "";
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--tint-color);
+  }
+:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon):where(:hover, .hover) {
+    --tint-color: rgb(
+      var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
+    );
+  }
+:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon):where(:focus, .focus) {
+    --tint-color: rgb(
+      var(--md-sys-color-surface-tint-rgb) / var(--state-focus-opacity)
+    );
+  }
+:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon):where(:active, .active) {
+    --tint-color: rgb(
+      var(--md-sys-color-surface-tint-rgb) / var(--state-active-opacity)
+    );
+  }
+[disabled]:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon) {
+    --tint-color: transparent;
+  }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html) {
+  --md-sys-elevation-0: 0px 0px 0px 0px
+      rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-1: 0px 3px 1px -2px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 2px 2px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 1px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-2: 0px 2px 4px -1px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 4px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 1px 10px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-3: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-4: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-5: 0px 8px 10px -6px rgb(var(--md-sys-color-shadow-rgb) /
+          0.2),
+    0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
+    0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+}
+.elevation-0 {
+  box-shadow: var(--md-sys-elevation-0);
+}
+.elevation-1 {
+  box-shadow: var(--md-sys-elevation-1);
+}
+.elevation-2 {
+  box-shadow: var(--md-sys-elevation-2);
+}
+.elevation-3 {
+  box-shadow: var(--md-sys-elevation-3);
+}
+.elevation-4 {
+  box-shadow: var(--md-sys-elevation-4);
+}
+.elevation-5 {
+  box-shadow: var(--md-sys-elevation-5);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+@font-face {
+  font-family: "Material Icons";
+  src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
+    format("woff2");
+}
+:where(.material-icons) {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+:where(html),
+.tokens,
+[class*="material-symbols-"] {
+  --material-symbols-fill: 0;
+  --material-symbols-wght: 400;
+  --material-symbols-grad: 0;
+  --material-symbols-opsz: 48;
+}
+:where(.material-symbols-sharp) {
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght),
+    "GRAD" var(--material-symbols-grad),
+    "opsz" var(--material-symbols-opsz);
+}
+:where(.material-symbols-rounded) {
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght),
+    "GRAD" var(--material-symbols-grad),
+    "opsz" var(--material-symbols-opsz);
+}
+:where(.material-symbols-outlined) {
+  font-variation-settings: 
+    "FILL" var(--material-symbols-fill),
+    "wght" var(--material-symbols-wght),
+    "GRAD" var(--material-symbols-grad),
+    "opsz" var(--material-symbols-opsz);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+* {
+  -webkit-font-smoothing: antialiased;
+}
 :is(.display-large, .display2-text) {
   -webkit-text-decoration: var(--md-sys-typescale-display-large-text-decoration);
           text-decoration: var(--md-sys-typescale-display-large-text-decoration);
@@ -2152,6 +1722,182 @@
   font-weight: var(--md-sys-typescale-label-small-weight);
   font-family: var(--md-sys-typescale-label-small-font);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html),
+.tokens {
+  --md-sys-comp-focus-ring-color: var(--md-sys-color-on-surface-variant);
+  --md-sys-comp-focus-ring-width: 2px;
+}
+/* 
+  Releated Codepen:
+  https://codepen.io/argyleink/pen/eYGaPEM
+ */
+:focus-visible {
+  transition: outline-offset 0.25s ease;
+  outline-color: var(--md-sys-comp-focus-ring-color);
+  outline-width: var(--md-sys-comp-focus-ring-width);
+  position: relative;
+}
+:focus-visible:not(:active) {
+  outline-offset: 5px;
+}
+:is(.focus-ring) {
+  outline: var(--md-sys-comp-focus-ring-width) solid
+    var(--md-sys-comp-focus-ring-color);
+  outline-offset: 5px;
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:is(.list-tile) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  padding: 16px 24px;
+  gap: 16px;
+}
+:is(.list-tile) .title {
+    flex: 1;
+    white-space: nowrap;
+    text-align: start;
+  }
+:is(.list-tile) .leading {
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+  }
+:is(.list-tile) .trailing {
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+  }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:is(.navigation-icon) {
+  flex: 1;
+  padding-bottom: 16px;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  visibility: visible;
+  z-index: 1;
+  gap: 4px;
+  -webkit-text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
+          text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
+  text-transform: var(--md-sys-typescale-label-medium-text-transform);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+  font-family: var(--md-sys-typescale-label-medium-font);
+}
+:is(.navigation-icon) i {
+    font-size: 24px;
+    width: 64px;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.checked:is(.navigation-icon) {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+  }
+.focus:is(.navigation-icon) {
+    outline: var(--md-sys-comp-focus-ring-width) solid
+      var(--md-sys-comp-focus-ring-color);
+    outline-offset: 5px;
+  }
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -5347,59 +5093,6 @@ datalist {
 */
 :where(html),
 .tokens {
-  --md-sys-comp-focus-ring-color: var(--md-sys-color-on-surface-variant);
-  --md-sys-comp-focus-ring-width: 2px;
-}
-/* 
-  Releated Codepen:
-  https://codepen.io/argyleink/pen/eYGaPEM
- */
-:focus {
-  transition: outline-offset 0.25s ease;
-  outline-color: var(--md-sys-comp-focus-ring-color);
-  outline-width: var(--md-sys-comp-focus-ring-width);
-  position: relative;
-}
-:focus:not(:active) {
-  outline-offset: 5px;
-}
-:is(.focus-ring) {
-  outline: var(--md-sys-comp-focus-ring-width) solid
-    var(--md-sys-comp-focus-ring-color);
-  outline-offset: 5px;
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html),
-.tokens {
   --md-sys-comp-checkbox-size: 24px;
   --md-sys-comp-checkbox-unselected-color: var(--md-sys-color-outline);
   --md-sys-comp-checkbox-selected-color: var(--md-sys-color-primary);
@@ -6403,10 +6096,10 @@ datalist {
   --md-comp-dialog-container-min-width: 280px;
   --md-comp-dialog-container-max-width: 560px;
 }
-:is(.dialog, dialog) {
+:is(.dialog, dialog):not(.navigation-drawer) {
   position: relative;
 }
-[open]:is(.dialog, dialog) {
+[open]:is(.dialog, dialog):not(.navigation-drawer) {
     border-radius: 28px;
     border: none;
     box-shadow: var(--md-sys-elevation-3);
@@ -6422,10 +6115,10 @@ datalist {
     justify-content: center;
     align-items: center;
   }
-[open]:is(.dialog, dialog) i {
+[open]:is(.dialog, dialog):not(.navigation-drawer) i {
       pointer-events: none;
     }
-[open]:is(.dialog, dialog) .title {
+[open]:is(.dialog, dialog):not(.navigation-drawer) .title {
       -webkit-text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
               text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
       text-transform: var(--md-sys-typescale-headline-small-text-transform);
@@ -6436,7 +6129,7 @@ datalist {
       font-family: var(--md-sys-typescale-headline-small-font);
       text-align: center;
     }
-[open]:is(.dialog, dialog) .content {
+[open]:is(.dialog, dialog):not(.navigation-drawer) .content {
       -webkit-text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
               text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
       text-transform: var(--md-sys-typescale-body-medium-text-transform);
@@ -6447,7 +6140,7 @@ datalist {
       font-family: var(--md-sys-typescale-body-medium-font);
       text-align: start;
     }
-[open]:is(.dialog, dialog) .actions {
+[open]:is(.dialog, dialog):not(.navigation-drawer) .actions {
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -6470,7 +6163,7 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.modal[open]:is(.dialog, dialog) {
+.modal[open]:is(.dialog, dialog):not(.navigation-drawer) {
     margin: auto;
     position: fixed;
     top: 0;
@@ -6478,13 +6171,13 @@ datalist {
     bottom: 0;
     right: 0;
   }
-.modal:is(.dialog, dialog)::-webkit-backdrop {
+.modal:is(.dialog, dialog):not(.navigation-drawer)::-webkit-backdrop {
     /* Tokens not available in backdrop (above document) */
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;
   }
-.modal:is(.dialog, dialog)::backdrop {
+.modal:is(.dialog, dialog):not(.navigation-drawer)::backdrop {
     /* Tokens not available in backdrop (above document) */
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
@@ -6520,67 +6213,39 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-bar-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-bar-color: var(--md-sys-color-on-surface);
+  --md-comp-navigation-bar-container-width: 100%;
+}
 :is(.navigation-bar) {
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
   position: relative;
   box-shadow: var(--md-sys-elevation-1);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-navigation-bar-background-color);
+  color: var(--md-sys-comp-navigation-bar-color);
+  width: var(--md-comp-navigation-bar-container-width);
   box-sizing: border-box;
 }
-:is(.navigation-bar)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: var(--md-sys-color-surface-1);
-  }
 :is(.navigation-bar) input {
     opacity: 0;
     position: absolute;
     width: 0;
     height: 0;
   }
-:is(.navigation-bar) input:checked + label i {
+:is(.navigation-bar) input:checked + .navigation-icon i {
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
     }
-:is(.navigation-bar) label {
-    flex: 1;
-    padding-bottom: 16px;
-    padding-top: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    visibility: visible;
-    z-index: 1;
-    gap: 4px;
-    -webkit-text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
-            text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
-    text-transform: var(--md-sys-typescale-label-medium-text-transform);
-    line-height: var(--md-sys-typescale-label-medium-line-height);
-    letter-spacing: var(--md-sys-typescale-label-medium-tracking);
-    font-size: var(--md-sys-typescale-label-medium-size);
-    font-weight: var(--md-sys-typescale-label-medium-weight);
-    font-family: var(--md-sys-typescale-label-medium-font);
-  }
-:is(.navigation-bar) i {
-    font-size: 24px;
-    width: 64px;
-    height: 32px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+:is(.navigation-bar) input:focus-visible + .navigation-icon {
+      outline: var(--md-sys-comp-focus-ring-width) solid
+        var(--md-sys-comp-focus-ring-color);
+      outline-offset: 5px;
+    }
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -6766,16 +6431,26 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-navigation-drawer-container-height: 100%;
+  --md-comp-navigation-drawer-container-width: 360px;
+}
 :is(.navigation-drawer) {
-  width: 360px;
-  height: 100%;
   padding: 12px;
   border-radius: 16px;
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface-variant);
+  background-color: var(--md-sys-comp-navigation-drawer-background-color);
+  color: var(--md-sys-comp-navigation-drawer-color);
+  width: var(--md-comp-navigation-drawer-container-width);
+  height: var(--md-comp-navigation-drawer-container-height);
   box-sizing: border-box;
   position: relative;
 }
+:is(.navigation-drawer) .drawer-spacer {
+    flex: 1;
+  }
 :is(.navigation-drawer) .drawer-title {
     -webkit-text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
             text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
@@ -6786,6 +6461,7 @@ datalist {
     font-weight: var(--md-sys-typescale-title-medium-weight);
     font-family: var(--md-sys-typescale-title-medium-font);
     padding: 16px 18px;
+    width: 100%;
   }
 :is(.navigation-drawer) .section-header {
     -webkit-text-decoration: var(--md-sys-typescale-title-small-text-decoration);
@@ -6805,6 +6481,7 @@ datalist {
 :is(.navigation-drawer) section {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 :is(.navigation-drawer) section .section-header {
       padding: 16px 18px;
@@ -6812,13 +6489,13 @@ datalist {
 :is(.navigation-drawer) section .list-tile {
       position: relative;
     }
-:is(.navigation-drawer) section .list-tile:where([selected], [data-selected]) {
+:is(.navigation-drawer) section .list-tile:where([selected], [checked], [data-selected]) {
         color: var(--md-sys-color-on-secondary-container);
       }
-:is(.navigation-drawer) section .list-tile:where([selected], [data-selected]) * {
+:is(.navigation-drawer) section .list-tile:where([selected], [checked], [data-selected]) * {
           z-index: 1;
         }
-:is(.navigation-drawer) section .list-tile:where([selected], [data-selected])::before {
+:is(.navigation-drawer) section .list-tile:where([selected], [checked], [data-selected])::before {
           content: "";
           position: absolute;
           top: 0;
@@ -6853,7 +6530,18 @@ datalist {
     max-height: calc(100% - 16px);
     border: none;
     overflow-y: auto;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
   }
+.modal[open]:is(.navigation-drawer) form {
+      display: flex;
+      flex-direction: row;
+    }
+.modal[open]:is(.navigation-drawer) form button {
+        flex: 1;
+      }
 .modal[open]:is(.navigation-drawer)::-webkit-backdrop {
       /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
@@ -7081,27 +6769,448 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:is(.list-tile) {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-  padding: 16px 24px;
-  gap: 16px;
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html) {
+  /* Scrim */
+  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+  /* Outline Variant */
+  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
+  --md-sys-color-outline-variant-rgb: var(
+    --md-ref-palette-neutral-variant80-rgb
+  );
+  /* Surface tint */
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+  /* Surface tint color */
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+  /* On error container */
+  --md-sys-color-on-error-container: var(--md-ref-palette-error10);
+  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);
+  /* On error */
+  --md-sys-color-on-error: var(--md-ref-palette-error100);
+  --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);
+  /* Error container */
+  --md-sys-color-error-container: var(--md-ref-palette-error90);
+  --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);
+  /* On tertiary container */
+  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
+  --md-sys-color-on-tertiary-container-rgb: var(
+    --md-ref-palette-tertiary10-rgb
+  );
+  /* On tertiary */
+  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
+  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);
+  /* Tertiary container */
+  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
+  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);
+  /* Tertiary */
+  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
+  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);
+  /* Shadow */
+  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+  /* Error */
+  --md-sys-color-error: var(--md-ref-palette-error40);
+  --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);
+  /* Outline */
+  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
+  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);
+  /* On background */
+  --md-sys-color-on-background: var(--md-ref-palette-neutral10);
+  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);
+  /* Background */
+  --md-sys-color-background: var(--md-ref-palette-neutral99);
+  --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);
+  /* Inverse on surface */
+  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
+  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);
+  /* Inverse surface */
+  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
+  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+  /* On surface variant */
+  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-on-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant30-rgb
+  );
+  /* On surface */
+  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
+  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+  /* Surface Variant */
+  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
+  --md-sys-color-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant90-rgb
+  );
+  /* Surface */
+  --md-sys-color-surface: var(--md-ref-palette-neutral99);
+  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);
+  /* On secondary container */
+  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
+  --md-sys-color-on-secondary-container-rgb: var(
+    --md-ref-palette-secondary10-rgb
+  );
+  /* On secondary */
+  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
+  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);
+  /* Secondary container */
+  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
+  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary90-rgb);
+  /* Secondary */
+  --md-sys-color-secondary: var(--md-ref-palette-secondary40);
+  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);
+  /* Inverse primary */
+  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
+  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);
+  /* On primary container */
+  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
+  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary10-rgb);
+  /* On primary */
+  --md-sys-color-on-primary: var(--md-ref-palette-primary100);
+  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);
+  /* Primary container */
+  --md-sys-color-primary-container: var(--md-ref-palette-primary90);
+  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
+  /* Primary */
+  --md-sys-color-primary: var(--md-ref-palette-primary40);
+  --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
 }
-:is(.list-tile) .title {
-    flex: 1;
-    white-space: nowrap;
-    text-align: start;
+:where(html) .dark-theme {
+  /* Scrim */
+  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+  /* Outline Variant */
+  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-outline-variant-rgb: var(
+    --md-ref-palette-neutral-variant30-rgb
+  );
+  /* Surface tint */
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+  /* Surface tint color */
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+  /* On error container */
+  --md-sys-color-on-error-container: var(--md-ref-palette-error90);
+  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error90-rgb);
+  /* On error */
+  --md-sys-color-on-error: var(--md-ref-palette-error20);
+  --md-sys-color-on-error-rgb: var(--md-ref-palette-error20-rgb);
+  /* Error container */
+  --md-sys-color-error-container: var(--md-ref-palette-error30);
+  --md-sys-color-error-container-rgb: var(--md-ref-palette-error30-rgb);
+  /* On tertiary container */
+  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary90);
+  --md-sys-color-on-tertiary-container-rgb: var(
+    --md-ref-palette-tertiary90-rgb
+  );
+  /* On tertiary */
+  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary20);
+  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary20-rgb);
+  /* Tertiary container */
+  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary30);
+  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary30-rgb);
+  /* Tertiary */
+  --md-sys-color-tertiary: var(--md-ref-palette-tertiary80);
+  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary80-rgb);
+  /* Shadow */
+  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+  /* Error */
+  --md-sys-color-error: var(--md-ref-palette-error80);
+  --md-sys-color-error-rgb: var(--md-ref-palette-error80-rgb);
+  /* Outline */
+  --md-sys-color-outline: var(--md-ref-palette-neutral-variant60);
+  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant60-rgb);
+  /* On background */
+  --md-sys-color-on-background: var(--md-ref-palette-neutral90);
+  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral90-rgb);
+  /* Background */
+  --md-sys-color-background: var(--md-ref-palette-neutral10);
+  --md-sys-color-background-rgb: var(--md-ref-palette-neutral10-rgb);
+  /* Inverse on surface */
+  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral20);
+  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+  /* Inverse surface */
+  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral90);
+  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+  /* On surface variant */
+  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant80);
+  --md-sys-color-on-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant80-rgb
+  );
+  /* On surface */
+  --md-sys-color-on-surface: var(--md-ref-palette-neutral90);
+  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+  /* Surface Variant */
+  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant30-rgb
+  );
+  /* Surface */
+  --md-sys-color-surface: var(--md-ref-palette-neutral10);
+  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+  /* On secondary container */
+  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary90);
+  --md-sys-color-on-secondary-container-rgb: var(
+    --md-ref-palette-secondary90-rgb
+  );
+  /* On secondary */
+  --md-sys-color-on-secondary: var(--md-ref-palette-secondary20);
+  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary20-rgb);
+  /* Secondary container */
+  --md-sys-color-secondary-container: var(--md-ref-palette-secondary30);
+  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary30-rgb);
+  /* Secondary */
+  --md-sys-color-secondary: var(--md-ref-palette-secondary80);
+  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary80-rgb);
+  /* Inverse primary */
+  --md-sys-color-inverse-primary: var(--md-ref-palette-primary40);
+  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary40-rgb);
+  /* On primary container */
+  --md-sys-color-on-primary-container: var(--md-ref-palette-primary90);
+  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
+  /* On primary */
+  --md-sys-color-on-primary: var(--md-ref-palette-primary20);
+  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary20-rgb);
+  /* Primary container */
+  --md-sys-color-primary-container: var(--md-ref-palette-primary30);
+  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary30-rgb);
+  /* Primary */
+  --md-sys-color-primary: var(--md-ref-palette-primary80);
+  --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
+}
+@media (prefers-color-scheme: dark) {
+  :where(html) {
+    /* Scrim */
+    --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+    --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+    /* Outline Variant */
+    --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
+    --md-sys-color-outline-variant-rgb: var(
+      --md-ref-palette-neutral-variant30-rgb
+    );
+    /* Surface tint */
+    --md-sys-color-surface-tint: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+    /* Surface tint color */
+    --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+    /* On error container */
+    --md-sys-color-on-error-container: var(--md-ref-palette-error90);
+    --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error90-rgb);
+    /* On error */
+    --md-sys-color-on-error: var(--md-ref-palette-error20);
+    --md-sys-color-on-error-rgb: var(--md-ref-palette-error20-rgb);
+    /* Error container */
+    --md-sys-color-error-container: var(--md-ref-palette-error30);
+    --md-sys-color-error-container-rgb: var(--md-ref-palette-error30-rgb);
+    /* On tertiary container */
+    --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary90);
+    --md-sys-color-on-tertiary-container-rgb: var(
+      --md-ref-palette-tertiary90-rgb
+    );
+    /* On tertiary */
+    --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary20);
+    --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary20-rgb);
+    /* Tertiary container */
+    --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary30);
+    --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary30-rgb);
+    /* Tertiary */
+    --md-sys-color-tertiary: var(--md-ref-palette-tertiary80);
+    --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary80-rgb);
+    /* Shadow */
+    --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+    --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+    /* Error */
+    --md-sys-color-error: var(--md-ref-palette-error80);
+    --md-sys-color-error-rgb: var(--md-ref-palette-error80-rgb);
+    /* Outline */
+    --md-sys-color-outline: var(--md-ref-palette-neutral-variant60);
+    --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant60-rgb);
+    /* On background */
+    --md-sys-color-on-background: var(--md-ref-palette-neutral90);
+    --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral90-rgb);
+    /* Background */
+    --md-sys-color-background: var(--md-ref-palette-neutral10);
+    --md-sys-color-background-rgb: var(--md-ref-palette-neutral10-rgb);
+    /* Inverse on surface */
+    --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral20);
+    --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+    /* Inverse surface */
+    --md-sys-color-inverse-surface: var(--md-ref-palette-neutral90);
+    --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+    /* On surface variant */
+    --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant80);
+    --md-sys-color-on-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant80-rgb
+    );
+    /* On surface */
+    --md-sys-color-on-surface: var(--md-ref-palette-neutral90);
+    --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+    /* Surface Variant */
+    --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant30);
+    --md-sys-color-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant30-rgb
+    );
+    /* Surface */
+    --md-sys-color-surface: var(--md-ref-palette-neutral10);
+    --md-sys-color-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+    /* On secondary container */
+    --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary90);
+    --md-sys-color-on-secondary-container-rgb: var(
+      --md-ref-palette-secondary90-rgb
+    );
+    /* On secondary */
+    --md-sys-color-on-secondary: var(--md-ref-palette-secondary20);
+    --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary20-rgb);
+    /* Secondary container */
+    --md-sys-color-secondary-container: var(--md-ref-palette-secondary30);
+    --md-sys-color-secondary-container-rgb: var(
+      --md-ref-palette-secondary30-rgb
+    );
+    /* Secondary */
+    --md-sys-color-secondary: var(--md-ref-palette-secondary80);
+    --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary80-rgb);
+    /* Inverse primary */
+    --md-sys-color-inverse-primary: var(--md-ref-palette-primary40);
+    --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary40-rgb);
+    /* On primary container */
+    --md-sys-color-on-primary-container: var(--md-ref-palette-primary90);
+    --md-sys-color-on-primary-container-rgb: var(
+      --md-ref-palette-primary90-rgb
+    );
+    /* On primary */
+    --md-sys-color-on-primary: var(--md-ref-palette-primary20);
+    --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary20-rgb);
+    /* Primary container */
+    --md-sys-color-primary-container: var(--md-ref-palette-primary30);
+    --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary30-rgb);
+    /* Primary */
+    --md-sys-color-primary: var(--md-ref-palette-primary80);
+    --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
   }
-:is(.list-tile) .leading {
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
+  :where(html) .light-theme {
+    /* Scrim */
+    --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+    --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+    /* Outline Variant */
+    --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
+    --md-sys-color-outline-variant-rgb: var(
+      --md-ref-palette-neutral-variant80-rgb
+    );
+    /* Surface tint */
+    --md-sys-color-surface-tint: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+    /* Surface tint color */
+    --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+    /* On error container */
+    --md-sys-color-on-error-container: var(--md-ref-palette-error10);
+    --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);
+    /* On error */
+    --md-sys-color-on-error: var(--md-ref-palette-error100);
+    --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);
+    /* Error container */
+    --md-sys-color-error-container: var(--md-ref-palette-error90);
+    --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);
+    /* On tertiary container */
+    --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
+    --md-sys-color-on-tertiary-container-rgb: var(
+      --md-ref-palette-tertiary10-rgb
+    );
+    /* On tertiary */
+    --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
+    --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);
+    /* Tertiary container */
+    --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
+    --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);
+    /* Tertiary */
+    --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
+    --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);
+    /* Shadow */
+    --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+    --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+    /* Error */
+    --md-sys-color-error: var(--md-ref-palette-error40);
+    --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);
+    /* Outline */
+    --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
+    --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);
+    /* On background */
+    --md-sys-color-on-background: var(--md-ref-palette-neutral10);
+    --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);
+    /* Background */
+    --md-sys-color-background: var(--md-ref-palette-neutral99);
+    --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);
+    /* Inverse on surface */
+    --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
+    --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);
+    /* Inverse surface */
+    --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
+    --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+    /* On surface variant */
+    --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
+    --md-sys-color-on-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant30-rgb
+    );
+    /* On surface */
+    --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
+    --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+    /* Surface Variant */
+    --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
+    --md-sys-color-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant90-rgb
+    );
+    /* Surface */
+    --md-sys-color-surface: var(--md-ref-palette-neutral99);
+    --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);
+    /* On secondary container */
+    --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
+    --md-sys-color-on-secondary-container-rgb: var(
+      --md-ref-palette-secondary10-rgb
+    );
+    /* On secondary */
+    --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
+    --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);
+    /* Secondary container */
+    --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
+    --md-sys-color-secondary-container-rgb: var(
+      --md-ref-palette-secondary90-rgb
+    );
+    /* Secondary */
+    --md-sys-color-secondary: var(--md-ref-palette-secondary40);
+    --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);
+    /* Inverse primary */
+    --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
+    --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);
+    /* On primary container */
+    --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
+    --md-sys-color-on-primary-container-rgb: var(
+      --md-ref-palette-primary10-rgb
+    );
+    /* On primary */
+    --md-sys-color-on-primary: var(--md-ref-palette-primary100);
+    --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);
+    /* Primary container */
+    --md-sys-color-primary-container: var(--md-ref-palette-primary90);
+    --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
+    /* Primary */
+    --md-sys-color-primary: var(--md-ref-palette-primary40);
+    --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
   }
-:is(.list-tile) .trailing {
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-  }
+}

@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(tokens/themes/auto.css);
+@import url(tokens.css);
 @import url(colors.css);
 @import url(shape.css);
 @import url(palettes.css);
@@ -22,7 +22,3 @@
 @import url(motion.css);
 @import url(state.css);
 @import url(elevation.css);
-
-* {
-  -webkit-font-smoothing: antialiased;
-}

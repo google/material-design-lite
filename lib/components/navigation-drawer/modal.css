@@ -24,6 +24,20 @@
     max-height: calc(100% - 16px);
     border: none;
     overflow-y: auto;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    & form {
+      display: flex;
+      flex-direction: row;
+
+      & button {
+        flex: 1;
+      }
+    }
+
     &::backdrop {
       /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */

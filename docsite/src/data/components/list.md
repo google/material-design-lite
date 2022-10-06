@@ -40,6 +40,7 @@ To import just the component styles, copy the following into your project's **st
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap');
 /* Component Styles */
 @import url('https://rodydavis.github.io/material-design-lite/css/components/list/style.css');
+@import url('https://rodydavis.github.io/material-design-lite/css/components/list-tile/style.css');
 ```
 
 ## Usage

@@ -57,7 +57,7 @@ const {title, tab} = Astro.props;
             MENU.map((item) => {
                 return (
                 <input type="radio" name="bottom-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
-                <label for={item.text}>
+                <label class="navigation-icon" for={item.text}>
                     <i class="material-icons">{item.icon}</i>
                     <span>{item.text}</span>
                 </label>

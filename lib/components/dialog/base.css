@@ -22,9 +22,9 @@
   --md-comp-dialog-container-max-width: 560px;
 }
 
-:is(.dialog, dialog) {
+:is(.dialog, dialog):not(.navigation-drawer) {
   position: relative;
-  
+
   &[open] {
     border-radius: 28px;
     border: none;

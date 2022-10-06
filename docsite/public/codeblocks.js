@@ -1,6 +1,6 @@
 const highlights = document.querySelectorAll("pre");
 highlights.forEach((div) => {
-  div.setAttribute("tabindex", "0");
+  div.querySelector("code").setAttribute("tabindex", "0");
 
   // Code copy button
   const copy = document.createElement("button");

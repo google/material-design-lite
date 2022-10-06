@@ -14,19 +14,32 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-navigation-drawer-container-height: 100%;
+  --md-comp-navigation-drawer-container-width: 360px;
+}
+
 :is(.navigation-drawer) {
-  width: 360px;
-  height: 100%;
   padding: 12px;
   border-radius: 16px;
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface-variant);
+  background-color: var(--md-sys-comp-navigation-drawer-background-color);
+  color: var(--md-sys-comp-navigation-drawer-color);
+  width: var(--md-comp-navigation-drawer-container-width);
+  height: var(--md-comp-navigation-drawer-container-height);
   box-sizing: border-box;
   position: relative;
+
+  & .drawer-spacer {
+    flex: 1;
+  }
 
   & .drawer-title {
     @apply --title-medium;
     padding: 16px 18px;
+    width: 100%;
   }
 
   & .section-header {
@@ -42,6 +55,7 @@
   & section {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     & .section-header {
       padding: 16px 18px;
@@ -50,7 +64,7 @@
     & .list-tile {
       position: relative;
 
-      &:where([selected], [data-selected]) {
+      &:where([selected], [checked], [data-selected]) {
         color: var(--md-sys-color-on-secondary-container);
 
         & * {
