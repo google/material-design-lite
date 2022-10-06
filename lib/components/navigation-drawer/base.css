@@ -31,8 +31,15 @@
   height: var(--md-comp-navigation-drawer-container-height);
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   & .drawer-spacer {
+    flex: 1;
+  }
+
+  & .drawer-scrollable {
+    overflow-y: auto;
     flex: 1;
   }
 
@@ -52,7 +59,7 @@
     margin-bottom: 2px;
   }
 
-  & section {
+  & :where(section, .drawer-section) {
     display: flex;
     flex-direction: column;
     width: 100%;

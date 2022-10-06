@@ -87,7 +87,7 @@ To add a header to the navigation drawer, add a **div** element with the **drawe
 
 <div class="preview">
   <div class="navigation-drawer">
-    <section>
+    <section class="drawer-section">
       <label class="section-header">Section Header</label>
       <div class="list-tile">
         <i class="leading material-icons">info</i>
@@ -109,7 +109,7 @@ To add a section to the navigation drawer, add a **section** element with the **
 
 ```html
 <div class="navigation-drawer">
-  <section>
+  <section class="drawer-section">
     <label class="section-header">Section Header</label>
     <div class="list-tile">
       <i class="leading material-icons">info</i>
@@ -126,6 +126,8 @@ To add a section to the navigation drawer, add a **section** element with the **
   </section>
 </div>
 ```
+
+The **drawer-section** class name is implicit when using the **section** element.
 
 Multiple sections can be added to the navigation drawer.
 
@@ -367,7 +369,156 @@ To create a modal navigation drawer, add the **modal** class name to the **dialo
 </script>
 ```
 
-To close the modal, call the **close()** method on the **dialog** element or hit the **esc** key.
+The **drawer-spacer** element is used to push the button to the bottom of the drawer.
+
+```html
+<div class="drawer-spacer"></div>
+```
+
+To close the modal, call the **close()** method on the **dialog** element, hit the **esc** key.
+
+```javascript
+const dialog = document.getElementById("drawer-dialog");
+dialog.close();
+```
+
+#### Scrolling
+
+<div class="preview">
+ <dialog id="drawer-dialog-scroll" class="navigation-drawer modal">
+    <div class="drawer-title">Really long drawer</div>
+    <div class="drawer-scrollable">
+      <section>
+        <label class="section-header">Mail</label>
+        <div class="list-tile" selected>
+          <i class="leading material-icons">inbox</i>
+          <span class="title">Inbox</span>
+          <div class="trailing">100+</div>
+        </div>
+        <div class="list-tile">
+          <i class="leading material-icons">send</i>
+          <span class="title">Outbox</span>
+        </div>
+        <div class="list-tile">
+          <i class="leading material-icons">favorite</i>
+          <span class="title">Favorites</span>
+        </div>
+        <div class="list-tile">
+          <i class="leading material-icons">delete</i>
+          <span class="title">Trash</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="list-tile">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="list-tile">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="list-tile">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="list-tile">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="list-tile">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="list-tile">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="list-tile">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="list-tile">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="list-tile">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="list-tile">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="list-tile">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="list-tile">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <label class="section-header">Section 2</label>
+        <div class="list-tile">
+          <span class="title">Label 1</span>
+        </div>
+        <div class="list-tile">
+          <span class="title">Label 2</span>
+        </div>
+      </section>
+    </div>
+    <form method="dialog">
+      <button class="text">
+        <i class="material-icons">close</i>
+        <label>Close Drawer</label>
+      </button>
+    </form>
+  </dialog>
+  <button id="drawer-dialog-scroll-btn">Open Drawer</button>
+  <script>
+    document
+      .getElementById("drawer-dialog-scroll-btn")
+      .addEventListener("click", (e) => {
+        const btn = e.target;
+        const dialog = document.getElementById("drawer-dialog-scroll");
+        dialog.showModal();
+        btn.disabled = true;
+        dialog.addEventListener("close", () => {
+          btn.disabled = false;
+        });
+      });
+  </script>
+</div>
+
+
+If the modal drawer is too large to fit on the screen, it will scroll. To make the modal scrollable, add a **drawer-scrollable** class name to the content inside the **dialog** element:
+
+```html
+<dialog id="drawer-dialog-scroll" class="navigation-drawer modal">
+  <div class="drawer-title">Drawer title</div>
+  <div class="drawer-scrollable">
+    <!-- content -->
+  </div>
+  <form method="dialog">
+    <button class="text">
+      <i class="material-icons">close</i>
+      <label>Close Drawer</label>
+    </button>
+  </form>
+</dialog>
+```
 
 ## Design Tokens
 

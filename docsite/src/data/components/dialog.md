@@ -11,7 +11,7 @@ Dialogs can require an action, communicate information, or help users accomplish
 
 <div class="preview">
   <dialog class="dialog" open>
-    <div class="icon-button">
+    <div class="icon">
       <i class="material-icons">add</i>
     </div>
     <div class="title">Dialog with hero icon</div>
@@ -55,7 +55,7 @@ The **dialog** class name is implicit when using the **dialog** element.
 
 <div class="preview">
   <dialog class="dialog" open>
-    <div class="icon-button">
+    <div class="icon">
       <i class="material-icons">add</i>
     </div>
   </dialog>
@@ -65,7 +65,7 @@ To add a hero icon to a dialog add a **i** element with the **material-icons** c
 
 ```html
 <dialog class="dialog">
-  <div class="icon-button">
+  <div class="icon">
     <i class="material-icons">add</i>
   </div>
 </dialog>
@@ -164,7 +164,7 @@ Default dialog styling.
 
 <div class="preview">
   <dialog class="dialog" open>
-    <div class="icon-button">
+    <div class="icon">
       <i class="material-icons">add</i>
     </div>
     <div class="title">Dialog with hero icon</div>
@@ -181,7 +181,7 @@ Default dialog styling.
 
 ```html
 <dialog class="dialog" open>
-  <div class="icon-button">
+  <div class="icon">
     <i class="material-icons">add</i>
   </div>
   <div class="title">Dialog with hero icon</div>

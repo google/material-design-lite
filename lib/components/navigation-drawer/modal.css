@@ -15,7 +15,10 @@
 */
 
 :is(.navigation-drawer).modal {
+  display: none;
+
   &[open] {
+    display: flex;
     position: fixed;
     left: 8px;
     top: 8px;
@@ -25,9 +28,6 @@
     border: none;
     overflow-y: auto;
     margin: 0;
-
-    display: flex;
-    flex-direction: column;
 
     & form {
       display: flex;

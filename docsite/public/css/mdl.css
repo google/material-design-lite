@@ -6447,8 +6447,14 @@ datalist {
   height: var(--md-comp-navigation-drawer-container-height);
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 :is(.navigation-drawer) .drawer-spacer {
+    flex: 1;
+  }
+:is(.navigation-drawer) .drawer-scrollable {
+    overflow-y: auto;
     flex: 1;
   }
 :is(.navigation-drawer) .drawer-title {
@@ -6478,24 +6484,24 @@ datalist {
     margin-top: 2px;
     margin-bottom: 2px;
   }
-:is(.navigation-drawer) section {
+:is(.navigation-drawer) :where(section, .drawer-section) {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-:is(.navigation-drawer) section .section-header {
+:is(.navigation-drawer) :where(section, .drawer-section) .section-header {
       padding: 16px 18px;
     }
-:is(.navigation-drawer) section .list-tile {
+:is(.navigation-drawer) :where(section, .drawer-section) .list-tile {
       position: relative;
     }
-:is(.navigation-drawer) section .list-tile:where([selected], [checked], [data-selected]) {
+:is(.navigation-drawer) :where(section, .drawer-section) .list-tile:where([selected], [checked], [data-selected]) {
         color: var(--md-sys-color-on-secondary-container);
       }
-:is(.navigation-drawer) section .list-tile:where([selected], [checked], [data-selected]) * {
+:is(.navigation-drawer) :where(section, .drawer-section) .list-tile:where([selected], [checked], [data-selected]) * {
           z-index: 1;
         }
-:is(.navigation-drawer) section .list-tile:where([selected], [checked], [data-selected])::before {
+:is(.navigation-drawer) :where(section, .drawer-section) .list-tile:where([selected], [checked], [data-selected])::before {
           content: "";
           position: absolute;
           top: 0;
@@ -6521,7 +6527,11 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+:is(.navigation-drawer).modal {
+  display: none;
+}
 .modal[open]:is(.navigation-drawer) {
+    display: flex;
     position: fixed;
     left: 8px;
     top: 8px;
@@ -6531,9 +6541,6 @@ datalist {
     border: none;
     overflow-y: auto;
     margin: 0;
-
-    display: flex;
-    flex-direction: column;
   }
 .modal[open]:is(.navigation-drawer) form {
       display: flex;
