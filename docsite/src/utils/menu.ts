@@ -72,12 +72,12 @@ export const COMPONENTS = [
     link: "components/focus-ring",
   },
   {
-    text: "List",
-    link: "components/list",
-  },
-  {
     text: "Icon",
     link: "components/icon",
+  },
+  {
+    text: "List",
+    link: "components/list",
   },
   {
     text: "Grid list",

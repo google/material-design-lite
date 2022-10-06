@@ -33,7 +33,7 @@
 
   @apply --label-large;
   font-size: var(--md-comp-icon-button-icon-size);
-  background-color: var(--md-sys-color-surface);
+  background-color: transparent;
   color: var(--md-sys-color-primary);
   width: var(--md-comp-icon-button-state-layer-size);
   height: var(--md-comp-icon-button-state-layer-size);

@@ -41,14 +41,14 @@
     --md-comp-filled-tonal-icon-button-disabled-outline-opacity
   );
 
-  &:where(.toggle) {
+  &:is(.toggle) {
     background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--md-sys-color-primary);
   }
 
-  &:where([selected], [checked], :checked) {
+  &:where([selected], [checked], :checked, .checked) {
     background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
+    color: var(--md-sys-color-on-surface-variant);
 
     --state-hover-opacity: var(
       --md-comp-filled-tonal-icon-button-selected-hover-state-layer-opacity
@@ -62,6 +62,11 @@
     --state-disabled-opacity: var(
       --md-comp-filled-tonal-icon-button-disabled-selected-container-opacity
     );
+
+    &:is(.toggle) {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
   }
 
   &[disabled] {

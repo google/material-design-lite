@@ -45,7 +45,7 @@
     --md-comp-outlined-icon-button-disabled-outline-opacity
   );
 
-  &:where([selected], [checked], :checked) {
+  &:where([selected], [checked], :checked, .checked) {
     background-color: var(--md-sys-color-inverse-surface);
     color: var(--md-sys-color-inverse-on-surface);
 

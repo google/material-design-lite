@@ -15,6 +15,9 @@
 */
 
 :is(.icon).toggle {
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+
   &:where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
@@ -29,6 +32,12 @@
       justify-content: center;
     }
 
+    &[icon] {
+      &::after {
+        content: attr(icon);
+      }
+    }
+
     &[off-icon] {
       &::after {
         content: attr(off-icon);
@@ -36,16 +45,16 @@
     }
 
     &:checked {
-      &::after {
-        content: "check";
-      }
-
       &[on-icon] {
         &::after {
           content: attr(on-icon);
         }
       }
     }
+  }
+
+  &:where([selected], [checked], :checked, .checked) {
+    color: var(--md-sys-color-primary);
   }
 
   &[disabled] {

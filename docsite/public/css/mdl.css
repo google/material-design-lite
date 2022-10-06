@@ -3078,7 +3078,7 @@
 
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--md-comp-icon-button-icon-size);
-  background-color: var(--md-sys-color-surface);
+  background-color: transparent;
   color: var(--md-sys-color-primary);
   width: var(--md-comp-icon-button-state-layer-size);
   height: var(--md-comp-icon-button-state-layer-size);
@@ -3202,11 +3202,11 @@
     --md-comp-filled-icon-button-disabled-outline-opacity
   );
 }
-.filled:is(.icon):where(.toggle) {
+.filled:is(.icon):is(.toggle) {
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-primary);
   }
-.filled:is(.icon):where([selected], [checked], :checked) {
+.filled:is(.icon):where([selected], [checked], :checked, .checked) {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
 
@@ -3223,13 +3223,17 @@
       --md-comp-filled-icon-button-disabled-selected-container-opacity
     );
   }
+.filled:is(.icon):where([selected], [checked], :checked, .checked):is(.toggle) {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
 .filled:is(.icon):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled:is(.icon):where(:focus, .focus) {
+.filled:is(.icon):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.filled:is(.icon):where(:active, .active) {
+.filled:is(.icon):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-0);
   }
 .filled[disabled]:is(.icon) {
@@ -3319,13 +3323,13 @@
     --md-comp-filled-tonal-icon-button-disabled-outline-opacity
   );
 }
-.filled-tonal:is(.icon):where(.toggle) {
+.filled-tonal:is(.icon):is(.toggle) {
     background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--md-sys-color-primary);
   }
-.filled-tonal:is(.icon):where([selected], [checked], :checked) {
+.filled-tonal:is(.icon):where([selected], [checked], :checked, .checked) {
     background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
+    color: var(--md-sys-color-on-surface-variant);
 
     --state-hover-opacity: var(
       --md-comp-filled-tonal-icon-button-selected-hover-state-layer-opacity
@@ -3340,6 +3344,10 @@
       --md-comp-filled-tonal-icon-button-disabled-selected-container-opacity
     );
   }
+.filled-tonal:is(.icon):where([selected], [checked], :checked, .checked):is(.toggle) {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
 .filled-tonal[disabled]:is(.icon) {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -3436,7 +3444,7 @@
     --md-comp-outlined-icon-button-disabled-outline-opacity
   );
 }
-.outlined:is(.icon):where([selected], [checked], :checked) {
+.outlined:is(.icon):where([selected], [checked], :checked, .checked) {
     background-color: var(--md-sys-color-inverse-surface);
     color: var(--md-sys-color-inverse-on-surface);
 
@@ -3476,6 +3484,10 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+:is(.icon).toggle {
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+}
 .toggle:is(.icon):where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
@@ -3499,15 +3511,18 @@
       align-items: center;
       justify-content: center;
     }
+.toggle[icon]:is(.icon):where(input[type="checkbox"])::after {
+        content: attr(icon);
+      }
 .toggle[off-icon]:is(.icon):where(input[type="checkbox"])::after {
         content: attr(off-icon);
-      }
-.toggle:is(.icon):where(input[type="checkbox"]):checked::after {
-        content: "check";
       }
 .toggle[on-icon]:is(.icon):where(input[type="checkbox"]):checked::after {
           content: attr(on-icon);
         }
+.toggle:is(.icon):where([selected], [checked], :checked, .checked) {
+    color: var(--md-sys-color-primary);
+  }
 .toggle[disabled]:is(.icon) {
     box-shadow: var(--md-sys-elevation-0);
   }
@@ -7040,11 +7055,11 @@ datalist {
 */
 :where(html),
 .tokens {
-  --md-comp-list-container-width: 300px;
+  --md-comp-list-container-min-width: 300px;
 }
 :is(.list) {
   position: relative;
-  min-width: var(--md-comp-list-container-width);
+  min-width: var(--md-comp-list-container-min-width);
 }
 :is(.list):where(ul, ol) {
     list-style: none;

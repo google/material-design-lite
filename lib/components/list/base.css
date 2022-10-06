@@ -16,12 +16,12 @@
 
 :where(html),
 .tokens {
-  --md-comp-list-container-width: 300px;
+  --md-comp-list-container-min-width: 300px;
 }
 
 :is(.list) {
   position: relative;
-  min-width: var(--md-comp-list-container-width);
+  min-width: var(--md-comp-list-container-min-width);
 
   &:where(ul, ol) {
     list-style: none;

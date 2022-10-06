@@ -70,7 +70,7 @@ Default list tile styling.
 
 | Token                                | Description                 | Default                                                                                                   |
 |--------------------------------------|-----------------------------|-----------------------------------------------------------------------------------------------------------|
-| `--md-comp-list-container-width`  | The min width of the container  | `300px`                                                                                                    |
+| `--md-comp-list-container-min-width`  | The min width of the container  | `300px`                                                                                                    |
 
 ## Resources
 
