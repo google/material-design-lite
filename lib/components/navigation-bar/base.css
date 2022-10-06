@@ -33,6 +33,22 @@
   width: var(--md-comp-navigation-bar-container-width);
   box-sizing: border-box;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--md-sys-color-surface-1);
+  }
+
+  & .navigation-icon {
+    flex: 1;
+    padding-bottom: 16px;
+    padding-top: 12px;
+  }
+
   & input {
     opacity: 0;
     position: absolute;

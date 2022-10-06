@@ -15,9 +15,6 @@
 */
 
 :is(.navigation-icon) {
-  flex: 1;
-  padding-bottom: 16px;
-  padding-top: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;

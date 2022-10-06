@@ -14,18 +14,29 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-rail-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-rail-color: var(--md-sys-color-on-surface);
+  --md-comp-navigation-rail-container-width: 80px;
+  --md-comp-navigation-rail-container-height: 100%;
+}
+
 :is(.navigation-rail) {
-  height: 100%;
-  width: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-shadow: var(--md-sys-elevation-1);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-navigation-rail-background-color);
+  color: var(--md-sys-comp-navigation-rail-color);
+  height: var(--md-comp-navigation-rail-container-height);
+  width: var(--md-comp-navigation-rail-container-width);
   box-sizing: border-box;
   position: relative;
+  padding-top: 16px;
+  padding-bottom: 56px;
+
   &::before {
     content: "";
     position: absolute;
@@ -35,27 +46,28 @@
     right: 0;
     background-color: var(--md-sys-color-surface-1);
   }
-  padding-top: 16px;
-  padding-bottom: 56px;
-  & :where(button, .button) {
-    background-color: transparent;
-    color: var(--md-sys-color-on-surface-variant);
-    font-size: 24px;
-    padding: 12px;
-    &.fab {
-      background-color: var(--md-sys-color-tertiary-container);
-      color: var(--md-sys-color-on-tertiary-container);
-      box-shadow: var(--md-sys-elevation-0);
-      margin-top: 12px;
-      &:hover {
-        box-shadow: var(--md-sys-elevation-2);
-      }
-      &:active {
-        box-shadow: var(--md-sys-elevation-1);
-      }
+
+  & :where(.fab) {
+    background-color: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+    box-shadow: var(--md-sys-elevation-0);
+    margin-top: 12px;
+
+    &:hover {
+      box-shadow: var(--md-sys-elevation-2);
+    }
+
+    &:active {
+      box-shadow: var(--md-sys-elevation-1);
     }
   }
-  & nav {
+
+  & :where(.icon-button) {
+    background-color: transparent;
+    color: inherit;
+  }
+
+  & :where(nav, .navigation-rail-destinations) {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -63,33 +75,20 @@
     gap: 12px;
     margin-top: 40px;
     margin-bottom: 40px;
+
     & input {
       opacity: 0;
       position: absolute;
-      &:checked + :where(label, .tab-icon) i {
+
+      &:checked + .navigation-icon i {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }
-    }
-    & :where(label, .tab-icon) {
-      height: 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      visibility: visible;
-      z-index: 1;
-      gap: 4px;
-      @apply --label-medium;
-      & i {
-        font-size: 24px;
-        width: 64px;
-        height: 32px;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+      &:focus-visible + .navigation-icon {
+        outline: var(--md-sys-comp-focus-ring-width) solid
+          var(--md-sys-comp-focus-ring-color);
+        outline-offset: 5px;
       }
     }
   }
