@@ -14,12 +14,18 @@
  limitations under the License.
 */
 
-.list {
+:where(html),
+.tokens {
+  --md-comp-list-container-width: 300px;
+}
+
+:is(.list) {
   position: relative;
+  min-width: var(--md-comp-list-container-width);
+
   &:where(ul, ol) {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  min-width: 300px;
 }

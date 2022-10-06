@@ -1568,7 +1568,7 @@
 .focus-state-layer {
   opacity: var(--md-sys-state-focus-state-layer-opacity);
 }
-:where(.button, button, .icon, .chip) {
+:where(.button, button, .icon, .chip, .list-tile) {
   --tint-color: transparent;
   /* State colors */
   --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);
@@ -1577,7 +1577,7 @@
 
   position: relative;
 }
-:where(.button, button, .icon, .chip)::after {
+:where(.button, button, .icon, .chip, .list-tile)::after {
     content: "";
     border-radius: inherit;
     position: absolute;
@@ -1587,22 +1587,22 @@
     bottom: 0;
     background-color: var(--tint-color);
   }
-:where(.button, button, .icon, .chip):where(:hover, .hover) {
+:where(.button, button, .icon, .chip, .list-tile):where(:hover, .hover) {
     --tint-color: rgb(
       var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
     );
   }
-:where(.button, button, .icon, .chip):where(:focus, .focus) {
+:where(.button, button, .icon, .chip, .list-tile):where(:focus, .focus) {
     --tint-color: rgb(
       var(--md-sys-color-surface-tint-rgb) / var(--state-focus-opacity)
     );
   }
-:where(.button, button, .icon, .chip):where(:active, .active) {
+:where(.button, button, .icon, .chip, .list-tile):where(:active, .active) {
     --tint-color: rgb(
       var(--md-sys-color-surface-tint-rgb) / var(--state-active-opacity)
     );
   }
-[disabled]:where(.button, button, .icon, .chip) {
+[disabled]:where(.button, button, .icon, .chip, .list-tile) {
     --tint-color: transparent;
   }
 /*
@@ -7038,17 +7038,19 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.list {
-  position: relative;
+:where(html),
+.tokens {
+  --md-comp-list-container-width: 300px;
 }
-.list:where(ul, ol) {
+:is(.list) {
+  position: relative;
+  min-width: var(--md-comp-list-container-width);
+}
+:is(.list):where(ul, ol) {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-.list {
-  min-width: 300px;
-}
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -7064,7 +7066,7 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.list-tile {
+:is(.list-tile) {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7073,52 +7075,18 @@ datalist {
   padding: 16px 24px;
   gap: 16px;
 }
-.list-tile .title {
+:is(.list-tile) .title {
     flex: 1;
     white-space: nowrap;
     text-align: start;
   }
-.list-tile .leading {
+:is(.list-tile) .leading {
     display: flex;
     align-items: center;
     opacity: 0.8;
   }
-.list-tile .trailing {
+:is(.list-tile) .trailing {
     display: flex;
     align-items: center;
     opacity: 0.8;
-  }
-.list-tile {
-  --tint-color: transparent;
-}
-.list-tile::after {
-    content: "";
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* background-color: var(--tint-color); */
-  }
-.list-tile:hover,
-  .list-tile .hover {
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
-    );
-  }
-.list-tile:focus,
-  .list-tile .focus {
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
-  }
-.list-tile:active,
-  .list-tile .active {
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
   }

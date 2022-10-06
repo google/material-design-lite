@@ -72,6 +72,10 @@ export const COMPONENTS = [
     link: "components/focus-ring",
   },
   {
+    text: "List",
+    link: "components/list",
+  },
+  {
     text: "Icon",
     link: "components/icon",
   },
@@ -79,10 +83,6 @@ export const COMPONENTS = [
     text: "Grid list",
     link: "components/grid-list",
     draft: true,
-  },
-  {
-    text: "List",
-    link: "components/list",
   },
   {
     text: "Menu",
