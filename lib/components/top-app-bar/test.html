@@ -21,9 +21,83 @@
       <tr>
         <td>Default</td>
         <td>
-          <div class="list">
-            <li class="list-tile">List Item</li>
-          </div>
+          <header class="top-app-bar center-aligned">
+            <button class="icon-button leading">
+              <i class="material-icons">menu</i>
+            </button>
+            <span class="title">Title Large</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">search</i>
+              </button>
+            </div>
+          </header>
+        </td>
+      </tr>
+      <tr>
+        <td>Small</td>
+        <td>
+          <header class="top-app-bar small">
+            <button class="icon-button leading">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <span class="title">Title Large</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">info</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">filter_list</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">settings</i>
+              </button>
+            </div>
+          </header>
+        </td>
+      </tr>
+      <tr>
+        <td>Medium</td>
+        <td>
+          <header class="top-app-bar medium">
+            <button class="icon-button leading">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <span class="title">Headline Small</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">info</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">filter_list</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">settings</i>
+              </button>
+            </div>
+          </header>
+        </td>
+      </tr>
+      <tr>
+        <td>Large</td>
+        <td>
+          <header class="top-app-bar large">
+            <button class="icon-button leading">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <span class="title">Headline Medium</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">info</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">filter_list</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">settings</i>
+              </button>
+            </div>
+          </header>
         </td>
       </tr>
     </tbody>
@@ -34,13 +108,13 @@
     import { runTests } from "@web/test-runner-mocha";
 
     runTests(async () => {
-      for (const item of document.querySelectorAll(".list")) {
+      for (const item of document.querySelectorAll(".top-app-bar")) {
         const el = await fixture(item.outerHTML);
         const s = getComputedStyle(el);
 
         describe(`${item.classList} tests`, () => {
-          it('check list tile', () => {
-            const t = el.querySelector('.list-tile');
+          it('check actions', () => {
+            const t = el.querySelector('.actions');
 
             expect(t).to.exist;
           });
