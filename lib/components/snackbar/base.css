@@ -14,8 +14,13 @@
  limitations under the License.
 */
 
-.snackbar {
-  width: 344px;
+*,
+.tokens {
+  --md-sys-comp-snackbar-container-width: 344px;
+}
+
+:is(.snackbar) {
+  width: var(--md-sys-comp-snackbar-container-width);
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -27,9 +32,11 @@
   background-color: var(--md-sys-color-inverse-surface);
   color: var(--md-sys-color-inverse-on-surface);
   @apply --body-medium;
+
   & :first-child {
     flex: 1;
   }
+  
   & :where(button, .button) {
     align-self: end;
     color: var(--md-sys-color-inverse-primary);

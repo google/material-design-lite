@@ -6477,8 +6477,12 @@ progress {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.snackbar {
-  width: 344px;
+*,
+.tokens {
+  --md-sys-comp-snackbar-container-width: 344px;
+}
+:is(.snackbar) {
+  width: var(--md-sys-comp-snackbar-container-width);
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -6498,10 +6502,10 @@ progress {
   font-weight: var(--md-sys-typescale-body-medium-weight);
   font-family: var(--md-sys-typescale-body-medium-font);
 }
-.snackbar :first-child {
+:is(.snackbar) :first-child {
     flex: 1;
   }
-.snackbar :where(button, .button) {
+:is(.snackbar) :where(button, .button) {
     align-self: end;
     color: var(--md-sys-color-inverse-primary);
   }
