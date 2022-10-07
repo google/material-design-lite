@@ -62,7 +62,7 @@
         const el = await fixture(item.outerHTML);
         const s = getComputedStyle(el);
 
-        describe(`divider ${item.classList} tests`, () => {
+        describe(`${item.classList} tests`, () => {
           it('check progress', () => {
             const t = el.querySelector('progress');
 

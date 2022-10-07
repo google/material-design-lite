@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Switches</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+        <th>Checked</th>
+        <th>Disabled</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <input class="switch" type="checkbox" />
+        </td>
+        <td>
+          <input class="switch" type="checkbox" checked />
+        </td>
+        <td>
+          <input class="switch" type="checkbox" disabled />
+        </td>
+      </tr>
+      <tr>
+        <td>Icon Selected</td>
+        <td>
+          <input class="switch icon-selected" type="checkbox" />
+        </td>
+        <td>
+          <input class="switch icon-selected" type="checkbox" checked />
+        </td>
+        <td>
+          <input class="switch icon-selected" type="checkbox" disabled />
+        </td>
+      </tr>
+      <tr>
+        <td>Icon Unselected</td>
+        <td>
+          <input class="switch icon-unselected" type="checkbox" />
+        </td>
+        <td>
+          <input class="switch icon-unselected" type="checkbox" checked />
+        </td>
+        <td>
+          <input class="switch icon-unselected" type="checkbox" disabled />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".snackbar")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+
+        describe(`${item.classList} tests`, () => {
+          it('check type', () => {
+            const t = el.type;
+
+            expect(t).to.equal('checkbox');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -36,7 +36,7 @@
         const el = await fixture(item.outerHTML);
         const s = getComputedStyle(el);
 
-        describe(`slider ${item.classList} tests`, () => {
+        describe(`${item.classList} tests`, () => {
           it('check type', () => {
             const t = el.type;
 

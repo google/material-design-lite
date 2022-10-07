@@ -17,10 +17,12 @@
 /* Codepen: https://codepen.io/finnhvman/pen/pOeyjE */
 :where(.switch).icon-unselected {
   --thumb-size: 24px;
+  
   &::after {
     content: "close";
     left: var(--border-width);
   }
+
   &:checked::after {
     content: "check";
     left: calc(100% - var(--thumb-size) - var(--border-width));

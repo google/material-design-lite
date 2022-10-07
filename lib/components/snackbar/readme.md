@@ -1,5 +1,5 @@
 ---
-title: snackbars
+title: Snackbar
 description: Variations on Material Design snackbars.
 link: https://material.io/components/snackbars
 codepen: oNdPPXg
@@ -58,11 +58,13 @@ To add an action button, add a **button** element with the **text** class name:
 
 ### Default
 
-Default slider styling.
+Default snackbar styling.
 
-<div class="snackbar">
-  <span>Default snackbar with action</span>
-  <button class="text">Action</button>
+<div class="preview">
+  <div class="snackbar">
+    <span>Default snackbar with action</span>
+    <button class="text">Action</button>
+  </div>
 </div>
 
 ```html

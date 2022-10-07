@@ -36,7 +36,7 @@
         const el = await fixture(item.outerHTML);
         const s = getComputedStyle(el);
 
-        describe(`divider ${item.classList} tests`, () => {
+        describe(`${item.classList} tests`, () => {
           it('check height', () => {
             expect(s.height).to.equal("1px");
           });

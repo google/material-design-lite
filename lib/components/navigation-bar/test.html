@@ -47,7 +47,7 @@
         const el = await fixture(item.outerHTML);
         const s = getComputedStyle(el);
 
-        describe(`divider ${item.classList} tests`, () => {
+        describe(`${item.classList} tests`, () => {
           it('check navigation icon', () => {
             const t = el.querySelector('.navigation-icon');
 

@@ -14,11 +14,19 @@
  limitations under the License.
 */
 
-:where(.switch) {
-  --thumb-size: 16px;
-  --track-width: 52px;
-  --track-height: 32px;
-  --border-width: 2px;
+*,
+.tokens {
+  --md-sys-comp-switch-thumb-size: 16px;
+  --md-sys-comp-switch-track-width: 52px;
+  --md-sys-comp-switch-track-height: 32px;
+  --md-sys-comp-switch-border-width: 2px;
+}
+
+:is(.switch) {
+  --thumb-size: var(--md-sys-comp-switch-thumb-size);
+  --track-width: var(--md-sys-comp-switch-track-width);
+  --track-height: var(--md-sys-comp-switch-track-height);
+  --border-width: var(--md-sys-comp-switch-border-width);
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -31,6 +39,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+
   /* Thumb */
   &::after {
     content: "";
@@ -48,27 +57,42 @@
     left: calc(var(--thumb-size) / 2 - var(--border-width));
     transition: left 0.2s ease-in-out;
   }
+
+  /* &:hover {
+    --thumb-size: 24px;
+
+    &::after {
+      transition: left 0s ease-in-out;
+      left: var(--border-width);
+    }
+  } */
+
   &:checked {
     --thumb-size: 28px;
     background-color: var(--md-sys-color-primary);
     border-color: var(--md-sys-color-primary);
+
     &::after {
       left: calc(100% - var(--thumb-size));
       background-color: var(--md-sys-color-on-primary);
       color: var(--md-sys-color-on-primary-container);
     }
   }
+
   &:disabled {
     background-color: rgb(var(--md-sys-color-surface-variant-rgb) / 0.12);
     border-color: var(--md-sys-color-surface-variant);
+
     &::after {
       opacity: 0.38;
       background-color: var(--md-sys-color-on-surface);
     }
+
     &:selected {
       background-color: var(--md-sys-color-on-surface);
       border-color: var(--md-sys-color-on-surface);
       color: var(--md-sys-color-on-surface);
+
       &::after {
         opacity: 1;
         background-color: var(--md-sys-color-surface);
