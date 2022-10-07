@@ -176,9 +176,11 @@
     if (prefersDark.matches) {
       dark.checked = true;
       light.checked = false;
+      document.body.classList.add("dark-theme");
     } else {
       dark.checked = false;
       light.checked = true;
+      document.body.classList.add("light-theme");
     }
     function getShape(key: string) {
       const val = s.getPropertyValue(`${shape}-${key}`);

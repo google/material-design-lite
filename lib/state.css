@@ -46,7 +46,8 @@
 }
 
 :where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option),
-:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr) {
+:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr),
+:where(.tabs) :where(labal, .tab) {
   --tint-color: transparent;
 
   position: relative;

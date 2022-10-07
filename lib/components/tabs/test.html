@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabs</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <nav class="tabs" style="min-width: 400px">
+            <input type="radio" name="tab-nav" value="tab-1" id="tab-1" checked />
+            <label class="tab" for="tab-1">Tab 1</label>
+            <input type="radio" name="tab-nav" value="tab-2" id="tab-2" />
+            <label class="tab" for="tab-2">Tab 2</label>
+            <input type="radio" name="tab-nav" value="tab-3" id="tab-3" />
+            <label class="tab" for="tab-3">Tab 3</label>
+          </nav>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".tabs")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+
+        describe(`${item.classList} tests`, () => {
+          it('check tab', () => {
+            const t = el.querySelector('.tab');
+
+            expect(t).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
