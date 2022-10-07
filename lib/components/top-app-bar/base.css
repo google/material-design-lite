@@ -18,12 +18,12 @@
 .tokens {
   --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
   --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
+  --md-sys-comp-top-app-bar-padding: 16px;
 }
 
-:is(.top-app-bar) {
-  --top-app-bar-padding: 16px;
+:is(.top-app-bar, header) {
   position: relative;
-  padding: var(--top-app-bar-padding);
+  padding: var(--md-sys-comp-top-app-bar-padding);
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
@@ -47,7 +47,7 @@
     gap: 8px;
   }
 
-  & .icon {
+  & .icon-button {
     background-color: unset;
     color: unset;
     padding: unset;

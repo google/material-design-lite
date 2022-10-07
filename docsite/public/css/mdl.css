@@ -4105,11 +4105,11 @@
 .tokens {
   --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
   --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
+  --md-sys-comp-top-app-bar-padding: 16px;
 }
-:is(.top-app-bar) {
-  --top-app-bar-padding: 16px;
+:is(.top-app-bar, header) {
   position: relative;
-  padding: var(--top-app-bar-padding);
+  padding: var(--md-sys-comp-top-app-bar-padding);
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
@@ -4124,7 +4124,7 @@
   grid-template-areas: "leading title actions";
   z-index: 1;
 }
-:is(.top-app-bar) .actions {
+:is(.top-app-bar, header) .actions {
     grid-area: actions;
     display: flex;
     flex-direction: row;
@@ -4132,14 +4132,14 @@
     align-items: center;
     gap: 8px;
   }
-:is(.top-app-bar) .icon {
+:is(.top-app-bar, header) .icon-button {
     background-color: transparent;
     background-color: initial;
     color: inherit;
     padding: 0;
     padding: initial;
   }
-:is(.top-app-bar) .title {
+:is(.top-app-bar, header) .title {
     grid-area: title;
     flex: 1;
     -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
@@ -4151,16 +4151,16 @@
     font-weight: var(--md-sys-typescale-title-large-weight);
     font-family: var(--md-sys-typescale-title-large-font);
   }
-:is(.top-app-bar) .leading {
+:is(.top-app-bar, header) .leading {
     grid-area: leading;
     padding: 0;
     padding: initial;
   }
-.fixed:is(.top-app-bar) {
+.fixed:is(.top-app-bar, header) {
     transition: background 0.8s;
     z-index: 1000;
   }
-.scrolled:is(.top-app-bar) {
+.scrolled:is(.top-app-bar, header) {
     --tint-opacity: 0.09;
     --tint-color-rgb: var(--md-sys-color-primary-rgb);
     --tint-color: rgb(var(--md-sys-color-primary-rgb) / var(--tint-opacity));
@@ -4184,11 +4184,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.top-app-bar.small) {
+:is(.top-app-bar, header).small {
   display: flex;
   align-items: center;
 }
-:where(.top-app-bar.small) .title {
+.small:is(.top-app-bar, header) .title {
     text-align: start;
     padding-left: 16px;
   }
@@ -4207,12 +4207,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.top-app-bar.medium) {
+:is(.top-app-bar, header).medium {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "leading actions" "title title";
 }
-:where(.top-app-bar.medium) .title {
+.medium:is(.top-app-bar, header) .title {
     padding-top: 16px;
     margin-left: 8px;
     -webkit-text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
@@ -4239,12 +4239,12 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.top-app-bar.large) {
+:is(.top-app-bar, header).large {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "leading actions" "title title";
 }
-:where(.top-app-bar.large) .title {
+.large:is(.top-app-bar, header) .title {
     padding-top: 20px;
     margin-left: 8px;
     -webkit-text-decoration: var(--md-sys-typescale-headline-medium-text-decoration);
@@ -4271,7 +4271,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.top-app-bar.center-aligned) .title {
+.center-aligned:is(.top-app-bar, header) .title {
     text-align: center;
   }
 /*

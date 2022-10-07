@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.top-app-bar.center-aligned) {
+:is(.top-app-bar, header).center-aligned {
   & .title {
     text-align: center;
   }

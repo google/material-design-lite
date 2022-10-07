@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.top-app-bar.large) {
+:is(.top-app-bar, header).large {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "leading actions" "title title";
