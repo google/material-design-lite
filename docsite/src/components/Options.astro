@@ -106,9 +106,6 @@
         light.checked = true;
       }
     });
-    document.body.classList.add(
-      prefersDark.matches ? "dark-theme" : "light-theme"
-    );
     // Shape
     sSmall.addEventListener("input", () => {
       root.style.setProperty(`${shape}-small`, sSmall.value + "px");
@@ -176,14 +173,12 @@
     } else {
       source.value = themeMeta.getAttribute("content")!;
     }
-    if (brightness) {
-      const isLight = brightness === "light";
-      light.checked = isLight;
-      dark.checked = !isLight;
+    if (prefersDark.matches) {
+      dark.checked = true;
+      light.checked = false;
     } else {
-      const isLight = !prefersDark.matches;
-      light.checked = isLight;
-      dark.checked = !isLight;
+      dark.checked = false;
+      light.checked = true;
     }
     if (shapeSmall) {
       sSmall.valueAsNumber = Number(shapeSmall);
