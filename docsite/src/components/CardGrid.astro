@@ -14,7 +14,7 @@ const { links } = Astro.props as {
 <div class="cards">
   {
     links.map((link) => (
-      <a class="card" href={link.link}>
+      <a class="card outlined" href={link.link}>
         <div class="title">{link.title}</div>
         <div class="subtitle">{link.subtitle}</div>
       </a>
@@ -28,6 +28,7 @@ const { links } = Astro.props as {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1rem;
     padding: 1rem;
+    width: 100%;
   }
   .card {
     width: unset;

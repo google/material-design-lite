@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+*,
 .tokens {
   --md-sys-comp-badge-size: 22px;
   --md-sys-comp-badge-dot-size: calc(var(--md-sys-comp-badge-size) / 2);

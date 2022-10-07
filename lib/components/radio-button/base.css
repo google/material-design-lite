@@ -14,21 +14,29 @@
  limitations under the License.
 */
 
-:where(.radio-button) {
-  accent-color: var(--md-sys-color-primary);
+*,
+.tokens {
+  --md-sys-comp-radio-button-unselected-color: var(
+    --md-sys-color-on-surface-variant
+  );
+  --md-sys-comp-radio-button-selected-color: var(--md-sys-color-primary);
+}
+
+:is(.radio-button, [type="radio"]) {
   display: grid;
   place-content: center;
   position: relative;
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
-  background-color: var(--md-sys-color-surface);
+
   &::before {
     @apply --material-icons;
     font-size: 24px;
     content: "radio_button_unchecked";
     color: var(--md-sys-color-on-surface-variant);
   }
+
   &:checked::before {
     content: "radio_button_checked";
     color: var(--md-sys-color-primary);

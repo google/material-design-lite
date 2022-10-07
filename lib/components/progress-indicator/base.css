@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+*,
 .tokens {
   --md-sys-comp-progress-background-color: var(--md-sys-color-surface-variant);
   --md-sys-comp-progress-color: var(--md-sys-color-primary);

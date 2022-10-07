@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:root {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
   --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
   --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);

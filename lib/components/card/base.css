@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+*,
 .tokens {
   --md-sys-comp-card-width: 300px;
 }

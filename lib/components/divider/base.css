@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+*,
 .tokens {
   --md-sys-comp-divider-color: var(--md-sys-color-outline-variant);
   --md-sys-comp-divider-container-height: 1px;

@@ -112,19 +112,20 @@ export const COMPONENTS = [
   {
     text: "Ripple",
     link: "components/ripple",
+    draft: true,
   },
   {
     text: "Slider",
     link: "components/slider",
   },
   {
+    text: "Segmented Button",
+    link: "components/segmented-button",
+  },
+  {
     text: "Select",
     link: "components/select",
     draft: true,
-  },
-  {
-    text: "Segmented Button",
-    link: "components/segmented-button",
   },
   {
     text: "Stepper",

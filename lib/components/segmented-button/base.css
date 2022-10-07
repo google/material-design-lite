@@ -14,24 +14,28 @@
  limitations under the License.
 */
 
-.segmented-button {
+*,
+.tokens {
+  --md-sys-comp-segmented-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-segmented-button-color: var(--md-sys-color-on-surface);
+}
+
+:is(.segmented-button) {
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
-  -webkit-tap-highlight-color: rgb(0, 0, 0, 0);
   border-radius: 20px;
+  position: relative;
   border: 1px solid var(--md-sys-color-outline);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-segmented-button-background-color);
+  color: var(--md-sys-comp-segmented-button-color);
   @apply --label-large;
-  & label {
+
+  & :where(.navigation-icon, label) {
     border-radius: 0;
-    width: 100%;
-    height: 100%;
     flex: 1;
     min-width: 40px;
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,66 +47,48 @@
     visibility: visible;
     position: relative;
     z-index: 1;
+
     &:first-of-type {
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
     }
+
     &:last-of-type {
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
     }
+
     &:not(:last-child) {
       border-right: 1px solid var(--md-sys-color-outline);
     }
   }
+
   & input {
     opacity: 0;
     position: absolute;
-    &:focus:not(:checked) + label {
-      background-color: var(--md-sys-color-surface-2);
-    }
-    --tint-color: transparent;
-    & + label::after {
-      content: "";
-      border-radius: inherit;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      /* background-color: var(--tint-color); */
-    }
-    &:hover + label {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-sys-state-hover-state-layer-opacity)
-      );
-    }
-    &:focus + label {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-sys-state-focus-state-layer-opacity)
-      );
-    }
-    &:active + label {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-sys-state-pressed-state-layer-opacity)
-      );
+
+    &:focus-visible + :where(.navigation-icon, label) {
+      outline: var(--md-sys-comp-focus-ring-width) solid
+        var(--md-sys-comp-focus-ring-color);
+      outline-offset: 5px;
     }
   }
+
   & i {
     margin-right: 8px;
   }
-  & input:checked + label {
+
+  & input:checked + :where(.navigation-icon, label) {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
     @apply --title-small;
+
     &::before {
       content: "check";
       @apply --material-icons;
       padding-right: 8px;
     }
+
     & i {
       display: none;
     }

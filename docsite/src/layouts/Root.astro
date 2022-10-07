@@ -9,7 +9,7 @@ const headings: MarkdownHeading[] = Astro.props.headings ?? [];
 
 <Raw {frontmatter}>
   <Navigation title={frontmatter.title} tab={frontmatter.tab}>
-    <main>
+    <main data-headings={headings.length}>
       <section>
         <slot />
       </section>
@@ -19,28 +19,14 @@ const headings: MarkdownHeading[] = Astro.props.headings ?? [];
           <ul>
             {
               headings.map((heading) => {
-                function getHTag(depth: number, text: string) {
-                  switch (depth) {
-                    case 1:
-                      return <h1>{text}</h1>;
-                    case 2:
-                      return <h2>{text}</h2>;
-                    case 3:
-                      return <h3>{text}</h3>;
-                    case 4:
-                      return <h4>{text}</h4>;
-                    case 5:
-                      return <h5>{text}</h5>;
-                    case 6:
-                      return <h6>{text}</h6>;
-                    default:
-                      return <h1>{text}</h1>;
-                  }
-                }
                 return (
                   <li>
-                    <a class="heading" href={`#${heading.slug}`}>
-                      {getHTag(heading.depth, heading.text)}
+                    <a
+                      class="heading"
+                      href={`#${heading.slug}`}
+                      style={`--depth: ${heading.depth}`}
+                    >
+                      {heading.text}
                     </a>
                   </li>
                 );
@@ -63,19 +49,30 @@ const headings: MarkdownHeading[] = Astro.props.headings ?? [];
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 240px;
+    grid-template-rows: 1fr;
     grid-template-areas: "content headings";
     border-top: 1px solid var(--md-sys-color-outline-variant);
+    overflow: hidden;
   }
 
+  main[data-headings="0"] {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content";
+  }
+  main[data-headings="0"] aside {
+    display: none;
+  }
   section {
     grid-area: content;
     overflow: auto;
+    width: 100%;
   }
 
   aside {
     grid-area: headings;
     border-left: 1px solid var(--md-sys-color-outline-variant);
     padding: 1rem;
+    overflow: auto;
   }
 
   @media (max-width: 768px) {
@@ -87,31 +84,29 @@ const headings: MarkdownHeading[] = Astro.props.headings ?? [];
       display: none;
     }
   }
-  .heading {
-    --level: 0.4rem;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
-  .heading :is(h1, h2, h3, h4, h5, h6) {
+  .heading {
     margin: 0;
     padding: 0;
     font-size: 1rem;
     line-height: 1.5rem;
+    text-decoration: none;
+    margin-left: calc(var(--depth) * 0.42rem);
   }
-  .heading h1 {
-    margin-left: 0;
+  .heading::before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--md-sys-color-outline);
+    margin-right: 0.5rem;
   }
-  .heading h2 {
-    margin-left: var(--level);
-  }
-  .heading h3 {
-    margin-left: calc(var(--level) * 2);
-  }
-  .heading h4 {
-    margin-left: calc(var(--level) * 3);
-  }
-  .heading h5 {
-    margin-left: calc(var(--level) * 4);
-  }
-  .heading h6 {
-    margin-left: calc(var(--level) * 5);
+  .heading:hover {
+    text-decoration: underline;
   }
 </style>

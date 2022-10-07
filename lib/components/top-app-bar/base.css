@@ -14,7 +14,13 @@
  limitations under the License.
 */
 
-:where(.top-app-bar) {
+*,
+.tokens {
+  --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
+}
+
+:is(.top-app-bar) {
   --top-app-bar-padding: 16px;
   position: relative;
   padding: var(--top-app-bar-padding);
@@ -23,14 +29,15 @@
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-top-app-bar-background-color);
+  color: var(--md-sys-comp-top-app-bar-color);
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
   z-index: 1;
+
   & .actions {
     grid-area: actions;
     display: flex;
@@ -39,24 +46,29 @@
     align-items: center;
     gap: 8px;
   }
+
   & .icon {
     background-color: unset;
     color: unset;
     padding: unset;
   }
+
   & .title {
     grid-area: title;
     flex: 1;
     @apply --title-large;
   }
+
   & .leading {
     grid-area: leading;
     padding: unset;
   }
+
   &.fixed {
     transition: background 0.8s;
     z-index: 1000;
   }
+
   &.scrolled {
     --tint-opacity: 0.09;
     --tint-color-rgb: var(--md-sys-color-primary-rgb);

@@ -18,6 +18,10 @@
 @import url(theme.css);
 @import url(components.css);
 
+* {
+  accent-color: var(--md-sys-color-primary);
+}
+
 a {
   text-decoration: none;
   color: var(--md-sys-color-primary);

@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+*,
 .tokens {
   --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
   --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
