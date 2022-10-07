@@ -14,22 +14,29 @@
  limitations under the License.
 */
 
-:where(.table, table) {
+*,
+.tokens {
+  --md-sys-comp-table-border-color: var(--md-sys-color-outline-variant);
+}
+
+:is(.table, table) {
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid var(--md-sys-color-outline-variant);
+  border: 1px solid var(--md-sys-comp-table-border-color);
   border-radius: var(--md-sys-shape-corner-medium);
   margin: 0;
   padding: 0;
   position: relative;
-  & :where(td, th) {
+
+  & :is(td, th, .table-cell) {
     padding: 16px 24px;
     border-top: 1px solid var(--md-sys-color-surface-variant);
     border-left: 1px solid var(--md-sys-color-surface-variant);
     vertical-align: middle;
   }
-  & thead tr {
-    & th {
+
+  & :is(thead, .table-head) :is(tr, .table-row) {
+    & :is(th, .table-cell) {
       background-color: var(--md-sys-color-surface-2);
       color: var(--md-sys-color-on-surface-variant);
       border-top: none;
@@ -48,9 +55,10 @@
       }
     }
   }
-  & tbody tr {
+
+  & :is(tbody, .table-body) :is(tr, .table-row) {
     &:last-of-type {
-      & td {
+      & :is(td, .table-cell) {
         &:first-of-type {
           border-radius: var(--md-sys-shape-corner-medium);
           border-bottom-right-radius: 0;

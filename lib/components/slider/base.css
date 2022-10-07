@@ -28,7 +28,6 @@
   -webkit-appearance: none;
   position: relative;
   display: block;
-  margin: 0 0 -36px;
   height: var(--md-sys-comp-slider-container-height);
   width: var(--md-sys-comp-slider-container-width);
   cursor: pointer;
@@ -179,10 +178,6 @@
   &:disabled {
     cursor: default;
     opacity: 0.38;
-
-    & + span {
-      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    }
 
     &::-webkit-slider-runnable-track {
       background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);

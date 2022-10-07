@@ -20,6 +20,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   padding-bottom: 0.8rem;
   padding-top: 1rem;
 }
@@ -92,6 +93,11 @@ a:not(.nav-link):visited {
   border-radius: 0;
   border-bottom-left-radius: 20%;
   z-index: 1;
+}
+
+.dark-theme .code-copy {
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
 }
 
 .code:hover .code-copy {

@@ -40,10 +40,10 @@
         const s = getComputedStyle(el);
 
         describe(`${item.classList} tests`, () => {
-          it('check type', () => {
-            const t = el.type;
+          it('check child', () => {
+            const t = el.querySelector('span');
 
-            expect(t).to.equal('range');
+            expect(t).to.exist;
           });
         });
       }

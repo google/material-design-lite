@@ -45,7 +45,8 @@
   --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
 }
 
-:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon, .segmented-option) {
+:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option),
+:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr) {
   --tint-color: transparent;
 
   position: relative;

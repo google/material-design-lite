@@ -346,7 +346,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html),
+*,
 .tokens {
   /* Plain typeface */
   --md-ref-typeface-plain: Roboto;
@@ -374,7 +374,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html),
+*,
 .tokens {
   /* Label Medium text transform */
   --md-sys-typescale-label-medium-text-transform: none;
@@ -636,7 +636,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html),
+*,
 .tokens {
   --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
   --md-sys-shape-corner-extra-small: 4px 4px 4px 4px;
@@ -666,7 +666,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html),
+*,
 .tokens {
   /* Linear */
   --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
@@ -764,7 +764,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html),
+*,
 .tokens {
   /* Hover state layer opacity */
   --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
@@ -790,7 +790,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html),
+*,
 .tokens {
   /* 0 */
   --md-sys-elevation-level0: 0px;
@@ -1219,7 +1219,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:root {
+*,
+.tokens {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
   --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
   --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
@@ -1391,12 +1392,13 @@
   --state-focus-opacity: var(--md-sys-state-focus-state-layer-opacity);
   --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
 }
-:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon, .segmented-option) {
+:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option),
+:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr) {
   --tint-color: transparent;
 
   position: relative;
 }
-:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon, .segmented-option)::after {
+:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option)::after, :where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr)::after {
     content: "";
     border-radius: inherit;
     position: absolute;
@@ -1406,16 +1408,16 @@
     bottom: 0;
     background-color: var(--tint-color);
   }
-:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon, .segmented-option):where(:hover, .hover) {
+:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:hover, .hover), :where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:hover, .hover) {
     --tint-color: var(--md-sys-state-hover-color);
   }
-:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon, .segmented-option):where(:active, .active) {
+:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:active, .active), :where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:active, .active) {
     --tint-color: var(--md-sys-state-active-color);
   }
-:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon, .segmented-option):where(:focus, .focus) {
+:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:focus, .focus), :where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:focus, .focus) {
     --tint-color: var(--md-sys-state-focus-color);
   }
-[disabled]:where(.button, button, .icon-button, .chip, .list-tile, .navigation-icon, .segmented-option) {
+[disabled]:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option), :where(.activatable, .navigation-drawer) [disabled]:where(.list-tile, .table-row, tr) {
     --tint-color: transparent;
   }
 /*
@@ -5202,7 +5204,6 @@ datalist {
   -webkit-appearance: none;
   position: relative;
   display: block;
-  margin: 0 0 -36px;
   height: var(--md-sys-comp-slider-container-height);
   width: var(--md-sys-comp-slider-container-width);
   cursor: pointer;
@@ -5330,9 +5331,6 @@ datalist {
     cursor: default;
     opacity: 0.38;
   }
-:is(.slider, input[type="range"]):disabled + span {
-      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    }
 :is(.slider, input[type="range"]):disabled::-webkit-slider-runnable-track {
       background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     }
@@ -5395,46 +5393,50 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.table, table) {
+*,
+.tokens {
+  --md-sys-comp-table-border-color: var(--md-sys-color-outline-variant);
+}
+:is(.table, table) {
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid var(--md-sys-color-outline-variant);
+  border: 1px solid var(--md-sys-comp-table-border-color);
   border-radius: var(--md-sys-shape-corner-medium);
   margin: 0;
   padding: 0;
   position: relative;
 }
-:where(.table, table) :where(td, th) {
+:is(.table, table) :is(td, th, .table-cell) {
     padding: 16px 24px;
     border-top: 1px solid var(--md-sys-color-surface-variant);
     border-left: 1px solid var(--md-sys-color-surface-variant);
     vertical-align: middle;
   }
-:where(.table, table) thead tr th {
+:is(.table, table) :is(thead, .table-head) :is(tr, .table-row) :is(th, .table-cell) {
       background-color: var(--md-sys-color-surface-2);
       color: var(--md-sys-color-on-surface-variant);
       border-top: none;
       font-weight: 500;
     }
-:where(.table, table) thead tr th:first-of-type {
+:is(.table, table) :is(thead, .table-head) :is(tr, .table-row) :is(th, .table-cell):first-of-type {
         border-radius: var(--md-sys-shape-corner-medium);
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
-:where(.table, table) thead tr th:last-of-type {
+:is(.table, table) :is(thead, .table-head) :is(tr, .table-row) :is(th, .table-cell):last-of-type {
         border-radius: var(--md-sys-shape-corner-medium);
         border-top-left-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
-:where(.table, table) tbody tr:last-of-type td:first-of-type {
+:is(.table, table) :is(tbody, .table-body) :is(tr, .table-row):last-of-type :is(td, .table-cell):first-of-type {
           border-radius: var(--md-sys-shape-corner-medium);
           border-bottom-right-radius: 0;
           border-top-right-radius: 0;
           border-top-left-radius: 0;
         }
-:where(.table, table) tbody tr:last-of-type td:last-of-type {
+:is(.table, table) :is(tbody, .table-body) :is(tr, .table-row):last-of-type :is(td, .table-cell):last-of-type {
           border-radius: var(--md-sys-shape-corner-medium);
           border-bottom-left-radius: 0;
           border-top-right-radius: 0;
@@ -5455,7 +5457,7 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.zebra:where(.table, table) tr:nth-of-type(even) {
+.zebra:is(.table, table) :is(tbody, .table-body) :is(tr, .table-row):nth-of-type(even) {
     background-color: var(--md-sys-color-surface-1);
   }
 /*

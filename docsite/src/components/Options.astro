@@ -27,20 +27,20 @@
 
   <h3 class="title-large">Shape</h3>
 
-  <label class="slider">
-    <input id="shape-small" type="range" min="0" max="100" />
-    <span>Small</span>
-  </label>
+  <div>
+    <label for="shape-small">Small</label>
+    <input class="slider" id="shape-small" type="range" min="0" max="100" />
+  </div>
 
-  <label class="slider">
-    <input id="shape-medium" type="range" min="0" max="100" />
-    <span>Medium</span>
-  </label>
+  <div>
+    <label for="shape-medium">Medium</label>
+    <input class="slider" id="shape-medium" type="range" min="0" max="100" />
+  </div>
 
-  <label class="slider">
-    <input id="shape-large" type="range" min="0" max="100" />
-    <span>Large</span>
-  </label>
+  <div>
+    <label for="shape-large">Large</label>
+    <input class="slider" id="shape-large" type="range" min="0" max="100" />
+  </div>
 </section>
 
 <!-- Copy code for current theme / Download -->
@@ -180,26 +180,28 @@
       dark.checked = false;
       light.checked = true;
     }
+    function getShape(key: string) {
+      const val = s.getPropertyValue(`${shape}-${key}`);
+      let single = val.split(" ")[0];
+      if (single.endsWith("px")) {
+        single = single.slice(0, -2);
+      }
+      return Number(single);
+    }
     if (shapeSmall) {
       sSmall.valueAsNumber = Number(shapeSmall);
     } else {
-      sSmall.valueAsNumber = Number(
-        s.getPropertyValue(`${shape}-small`).replace("px", "")
-      );
+      sSmall.valueAsNumber = getShape("small");
     }
     if (shapeMedium) {
       sMedium.valueAsNumber = Number(shapeMedium);
     } else {
-      sMedium.valueAsNumber = Number(
-        s.getPropertyValue(`${shape}-medium`).replace("px", "")
-      );
+      sMedium.valueAsNumber = getShape("medium");
     }
     if (shapeLarge) {
       sLarge.valueAsNumber = Number(shapeLarge);
     } else {
-      sLarge.valueAsNumber = Number(
-        s.getPropertyValue(`${shape}-large`).replace("px", "")
-      );
+      sLarge.valueAsNumber = getShape("large");
     }
   }
 </script>

@@ -51,7 +51,9 @@ Start with a **div** element and add the **list** class name:
 <div class="list"></div>
 ```
 
-### List Tile
+## Variants
+
+### Default
 
 Default list tile styling.
 
@@ -63,6 +65,22 @@ Default list tile styling.
 
 ```html
 <div class="list">
+  <li class="list-tile">List Item</li>
+</div>
+```
+
+### Activatable
+
+To make a list tile activatable, add the **activatable** class name:
+
+<div class="preview">
+  <div class="list activatable">
+    <li class="list-tile">List Item</li>
+  </div>
+</div>
+
+```html
+<div class="list activatable">
   <li class="list-tile">List Item</li>
 </div>
 ```
