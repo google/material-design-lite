@@ -14,7 +14,12 @@
  limitations under the License.
 */
 
-.text-field {
+*,
+.tokens {
+  --md-sys-comp-text-field-caret-color: var(--md-sys-color-primary);
+}
+
+:is(.text-field) {
   @apply --body-large;
   position: relative;
   display: inline-block;

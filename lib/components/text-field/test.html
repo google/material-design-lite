@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabs</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Filled</td>
+        <td>
+          <label class="text-field filled">
+            <input placeholder=" " />
+            <span>Textfield</span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Filled Textarea</td>
+        <td>
+          <label class="text-field filled">
+            <textarea placeholder=" "></textarea>
+            <span>Textfield</span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Filled Autocomplete</td>
+        <td>
+          <label class="text-field filled">
+            <input placeholder=" " list="browsers" />
+            <span>Textfield</span>
+          </label>
+          <datalist id="browsers">
+            <option value="Edge"></option>
+            <option value="Firefox"></option>
+            <option value="Chrome"></option>
+            <option value="Opera"></option>
+            <option value="Safari"></option>
+          </datalist>
+        </td>
+      </tr>
+      <tr>
+        <td>Outlined</td>
+        <td>
+          <label class="text-field outlined">
+            <input placeholder=" " />
+            <span>Textfield</span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Outlined Textarea</td>
+        <td>
+          <label class="text-field outlined">
+            <textarea placeholder=" "></textarea>
+            <span>Textfield</span>
+          </label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".text-field")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+
+        describe(`${item.classList} tests`, () => {
+          it('check label', () => {
+            const t = el.querySelector('span');
+
+            expect(t).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

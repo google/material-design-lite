@@ -4304,7 +4304,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.text-field {
+*,
+.tokens {
+  --md-sys-comp-text-field-caret-color: var(--md-sys-color-primary);
+}
+:is(.text-field) {
   -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
           text-decoration: var(--md-sys-typescale-body-large-text-decoration);
   text-transform: var(--md-sys-typescale-body-large-text-transform);
@@ -4336,12 +4340,12 @@ datalist {
  limitations under the License.
 */
 /* Codepen: https://codepen.io/finnhvman/pen/xyOORQ */
-.text-field.outlined {
+:is(.text-field).outlined {
   padding-top: 6px;
   /* Input, Textarea */
 }
-.text-field.outlined > input,
-  .text-field.outlined > textarea {
+.outlined:is(.text-field) > input,
+  .outlined:is(.text-field) > textarea {
     box-sizing: border-box;
     margin: 0;
     border: solid 1px; /* Safari */
@@ -4357,12 +4361,12 @@ datalist {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: var(--md-sys-color-primary);
+    caret-color: var(--md-sys-comp-text-field-caret-color);
     transition: border 0.2s, box-shadow 0.2s;
   }
 /* Span */
-.text-field.outlined > input + span,
-  .text-field.outlined > textarea + span {
+.outlined:is(.text-field) > input + span,
+  .outlined:is(.text-field) > textarea + span {
     position: absolute;
     top: 0;
     left: 0;
@@ -4377,10 +4381,10 @@ datalist {
     transition: color 0.2s, font-size 0.2s, line-height 0.2s;
   }
 /* Corners */
-.text-field.outlined > input + span::before,
-  .text-field.outlined > input + span::after,
-  .text-field.outlined > textarea + span::before,
-  .text-field.outlined > textarea + span::after {
+.outlined:is(.text-field) > input + span::before,
+  .outlined:is(.text-field) > input + span::after,
+  .outlined:is(.text-field) > textarea + span::before,
+  .outlined:is(.text-field) > textarea + span::after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -4393,67 +4397,67 @@ datalist {
     box-shadow: inset 0 1px transparent;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-.text-field.outlined > input + span::before,
-  .text-field.outlined > textarea + span::before {
+.outlined:is(.text-field) > input + span::before,
+  .outlined:is(.text-field) > textarea + span::before {
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: 4px 0;
   }
-.text-field.outlined > input + span::after,
-  .text-field.outlined > textarea + span::after {
+.outlined:is(.text-field) > input + span::after,
+  .outlined:is(.text-field) > textarea + span::after {
     flex-grow: 1;
     margin-left: 4px;
     border-right: solid 1px transparent;
     border-radius: 0 4px;
   }
 /* Hover */
-.text-field.outlined:hover > input,
-  .text-field.outlined:hover > textarea {
+.outlined:is(.text-field):hover > input,
+  .outlined:is(.text-field):hover > textarea {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
     border-top-color: transparent;
   }
-.text-field.outlined:hover > input + span::before,
-  .text-field.outlined:hover > textarea + span::before,
-  .text-field.outlined:hover > input + span::after,
-  .text-field.outlined:hover > textarea + span::after {
+.outlined:is(.text-field):hover > input + span::before,
+  .outlined:is(.text-field):hover > textarea + span::before,
+  .outlined:is(.text-field):hover > input + span::after,
+  .outlined:is(.text-field):hover > textarea + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-.text-field.outlined:hover > input:not(:focus):-moz-placeholder-shown, .text-field.outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
+.outlined:is(.text-field):hover > input:not(:focus):-moz-placeholder-shown, .outlined:is(.text-field):hover > textarea:not(:focus):-moz-placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-.text-field.outlined:hover > input:not(:focus):placeholder-shown,
-  .text-field.outlined:hover > textarea:not(:focus):placeholder-shown {
+.outlined:is(.text-field):hover > input:not(:focus):placeholder-shown,
+  .outlined:is(.text-field):hover > textarea:not(:focus):placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
 /* Placeholder-shown */
-.text-field.outlined > input:not(:focus):-moz-placeholder-shown, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown {
+.outlined:is(.text-field) > input:not(:focus):-moz-placeholder-shown, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
-.text-field.outlined > input:not(:focus):placeholder-shown,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown {
+.outlined:is(.text-field) > input:not(:focus):placeholder-shown,
+  .outlined:is(.text-field) > textarea:not(:focus):placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
-.text-field.outlined > input:not(:focus):-moz-placeholder-shown + span, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span {
+.outlined:is(.text-field) > input:not(:focus):-moz-placeholder-shown + span, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
-.text-field.outlined > input:not(:focus):placeholder-shown + span,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown + span {
+.outlined:is(.text-field) > input:not(:focus):placeholder-shown + span,
+  .outlined:is(.text-field) > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
-.text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::after, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
+.outlined:is(.text-field) > input:not(:focus):-moz-placeholder-shown + span::before, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown + span::before, .outlined:is(.text-field) > input:not(:focus):-moz-placeholder-shown + span::after, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown + span::after {
     border-top-color: transparent;
   }
-.text-field.outlined > input:not(:focus):placeholder-shown + span::before,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown + span::before,
-  .text-field.outlined > input:not(:focus):placeholder-shown + span::after,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown + span::after {
+.outlined:is(.text-field) > input:not(:focus):placeholder-shown + span::before,
+  .outlined:is(.text-field) > textarea:not(:focus):placeholder-shown + span::before,
+  .outlined:is(.text-field) > input:not(:focus):placeholder-shown + span::after,
+  .outlined:is(.text-field) > textarea:not(:focus):placeholder-shown + span::after {
     border-top-color: transparent;
   }
 /* Focus */
-.text-field.outlined > input:focus,
-  .text-field.outlined > textarea:focus {
+.outlined:is(.text-field) > input:focus,
+  .outlined:is(.text-field) > textarea:focus {
     border-color: var(--md-sys-color-primary);
     border-top-color: transparent;
     box-shadow: inset 1px 0 var(--md-sys-color-primary),
@@ -4461,65 +4465,50 @@ datalist {
       inset 0 -1px var(--md-sys-color-primary);
     outline: none;
   }
-.text-field.outlined > input:focus + span,
-  .text-field.outlined > textarea:focus + span {
+.outlined:is(.text-field) > input:focus + span,
+  .outlined:is(.text-field) > textarea:focus + span {
     color: var(--md-sys-color-primary);
   }
-.text-field.outlined > input:focus + span::before,
-  .text-field.outlined > input:focus + span::after,
-  .text-field.outlined > textarea:focus + span::before,
-  .text-field.outlined > textarea:focus + span::after {
+.outlined:is(.text-field) > input:focus + span::before,
+  .outlined:is(.text-field) > input:focus + span::after,
+  .outlined:is(.text-field) > textarea:focus + span::before,
+  .outlined:is(.text-field) > textarea:focus + span::after {
     border-top-color: var(--md-sys-color-primary) !important;
     box-shadow: inset 0 1px var(--md-sys-color-primary);
   }
 /* Disabled */
-.text-field.outlined > input:disabled,
-  .text-field.outlined > input:disabled + span,
-  .text-field.outlined > textarea:disabled,
-  .text-field.outlined > textarea:disabled + span {
+.outlined:is(.text-field) > input:disabled,
+  .outlined:is(.text-field) > input:disabled + span,
+  .outlined:is(.text-field) > textarea:disabled,
+  .outlined:is(.text-field) > textarea:disabled + span {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
     border-top-color: transparent !important;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     pointer-events: none;
   }
-.text-field.outlined > input:disabled + span::before,
-  .text-field.outlined > input:disabled + span::after,
-  .text-field.outlined > textarea:disabled + span::before,
-  .text-field.outlined > textarea:disabled + span::after {
+.outlined:is(.text-field) > input:disabled + span::before,
+  .outlined:is(.text-field) > input:disabled + span::after,
+  .outlined:is(.text-field) > textarea:disabled + span::before,
+  .outlined:is(.text-field) > textarea:disabled + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-.text-field.outlined > input:disabled:-moz-placeholder-shown, .text-field.outlined > input:disabled:-moz-placeholder-shown + span, .text-field.outlined > textarea:disabled:-moz-placeholder-shown, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span {
+.outlined:is(.text-field) > input:disabled:-moz-placeholder-shown, .outlined:is(.text-field) > input:disabled:-moz-placeholder-shown + span, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-.text-field.outlined > input:disabled:placeholder-shown,
-  .text-field.outlined > input:disabled:placeholder-shown + span,
-  .text-field.outlined > textarea:disabled:placeholder-shown,
-  .text-field.outlined > textarea:disabled:placeholder-shown + span {
+.outlined:is(.text-field) > input:disabled:placeholder-shown,
+  .outlined:is(.text-field) > input:disabled:placeholder-shown + span,
+  .outlined:is(.text-field) > textarea:disabled:placeholder-shown,
+  .outlined:is(.text-field) > textarea:disabled:placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-.text-field.outlined > input:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > input:disabled:-moz-placeholder-shown + span::after, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::after {
+.outlined:is(.text-field) > input:disabled:-moz-placeholder-shown + span::before, .outlined:is(.text-field) > input:disabled:-moz-placeholder-shown + span::after, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown + span::before, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown + span::after {
     border-top-color: transparent !important;
   }
-.text-field.outlined > input:disabled:placeholder-shown + span::before,
-  .text-field.outlined > input:disabled:placeholder-shown + span::after,
-  .text-field.outlined > textarea:disabled:placeholder-shown + span::before,
-  .text-field.outlined > textarea:disabled:placeholder-shown + span::after {
+.outlined:is(.text-field) > input:disabled:placeholder-shown + span::before,
+  .outlined:is(.text-field) > input:disabled:placeholder-shown + span::after,
+  .outlined:is(.text-field) > textarea:disabled:placeholder-shown + span::before,
+  .outlined:is(.text-field) > textarea:disabled:placeholder-shown + span::after {
     border-top-color: transparent !important;
-  }
-/* Faster transition in Safari for less noticable fractional font-size issue */
-@media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) {
-      .text-field.outlined > input,
-      .text-field.outlined > input + span,
-      .text-field.outlined > textarea,
-      .text-field.outlined > textarea + span,
-      .text-field.outlined > input + span::before,
-      .text-field.outlined > input + span::after,
-      .text-field.outlined > textarea + span::before,
-      .text-field.outlined > textarea + span::after {
-        transition-duration: 0.1s;
-      }
-    }
   }
 /*
  Copyright 2016 Google Inc. All rights reserved.
@@ -4538,8 +4527,7 @@ datalist {
 */
 /* Codepen: https://codepen.io/finnhvman/pen/bxXPqN */
 /* Input, Textarea */
-.text-field.filled > input,
-  .text-field.filled > textarea {
+.filled:is(.text-field) > :where(input, textarea) {
     display: block;
     box-sizing: border-box;
     margin: 0;
@@ -4556,98 +4544,76 @@ datalist {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: var(--md-sys-color-primary);
+    caret-color: var(--md-sys-comp-text-field-caret-color);
     transition: border-bottom 0.2s, background-color 0.2s;
+
+    /* Span */
   }
-/* Span */
-.text-field.filled > input + span,
-  .text-field.filled > textarea + span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
-    box-sizing: border-box;
-    padding: 7px 12px 0;
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
-    font-size: 75%;
-    line-height: 18px;
-    pointer-events: none;
-    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-  }
-/* Underline */
-.text-field.filled > input + span::after,
-  .text-field.filled > textarea + span::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--md-sys-color-primary);
-    transform-origin: bottom center;
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
-/* Hover */
-.text-field.filled > input:hover,
-  .text-field.filled > textarea:hover {
-    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
-  }
-/* Placeholder-shown */
-.text-field.filled > input:not(:focus):-moz-placeholder-shown + span, .text-field.filled > textarea:not(:focus):-moz-placeholder-shown + span {
-    font-size: inherit;
-    line-height: 48px;
-  }
-.text-field.filled > input:not(:focus):placeholder-shown + span,
-  .text-field.filled > textarea:not(:focus):placeholder-shown + span {
-    font-size: inherit;
-    line-height: 48px;
-  }
-/* Focus */
-.text-field.filled > input:focus,
-  .text-field.filled > textarea:focus {
-    outline: none;
-  }
-.text-field.filled > input:focus + span,
-  .text-field.filled > textarea:focus + span {
-    color: var(--md-sys-color-primary);
-  }
-.text-field.filled > input:focus + span::before,
-  .text-field.filled > textarea:focus + span::before {
-    opacity: 0.12;
-  }
-.text-field.filled > input:focus + span::after,
-  .text-field.filled > textarea:focus + span::after {
-    transform: scale(1);
-  }
-/* Disabled */
-.text-field.filled > input:disabled,
-  .text-field.filled > textarea:disabled {
-    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
-  }
-.text-field.filled > input:disabled + span,
-  .text-field.filled > textarea:disabled + span {
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-  }
-/* Faster transition in Safari for less noticable fractional font-size issue */
-@media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) {
-      .text-field.filled > input,
-      .text-field.filled > input + span,
-      .text-field.filled > input + span::after,
-      .text-field.filled > textarea,
-      .text-field.filled > textarea + span,
-      .text-field.filled > textarea + span::after {
-        transition-duration: 0.1s;
-      }
+.filled:is(.text-field) > :where(input, textarea) + span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      box-sizing: border-box;
+      padding: 7px 12px 0;
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+      font-size: 75%;
+      line-height: 18px;
+      pointer-events: none;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+
+      /* Underline */
     }
-  }
+.filled:is(.text-field) > :where(input, textarea) + span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--md-sys-color-primary);
+        transform-origin: bottom center;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+/* Hover */
+.filled:is(.text-field) > :where(input, textarea):hover {
+      border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
+    }
+/* Placeholder-shown */
+.filled:is(.text-field) > :where(input, textarea):not(:focus):-moz-placeholder-shown + span {
+      font-size: inherit;
+      line-height: 48px;
+    }
+.filled:is(.text-field) > :where(input, textarea):not(:focus):placeholder-shown + span {
+      font-size: inherit;
+      line-height: 48px;
+    }
+/* Focus */
+.filled:is(.text-field) > :where(input, textarea):focus {
+      outline: none;
+    }
+.filled:is(.text-field) > :where(input, textarea):focus + span {
+        color: var(--md-sys-color-primary);
+      }
+.filled:is(.text-field) > :where(input, textarea):focus + span::before {
+          opacity: 0.12;
+        }
+.filled:is(.text-field) > :where(input, textarea):focus + span::after {
+          transform: scale(1);
+        }
+.filled:is(.text-field) > :where(input, textarea):disabled {
+      border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
+    }
+.filled:is(.text-field) > :where(input, textarea):disabled + span {
+        color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+      }
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
