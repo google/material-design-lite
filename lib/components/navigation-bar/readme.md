@@ -93,6 +93,17 @@ A navigation bar needs a minimum of 2 destinations. Each destination is represen
 </div>
 ```
 
+## Styling
+
+Since the bottom app bar is meant to be at the bottom of the screen, it is recommended to use a `div` or `footer` element with position `fixed` or `sticky`  and `bottom: 0` to keep it at the bottom of the screen.
+
+```css
+.bottom-app-bar {
+  position: fixed; /* or sticky */
+  bottom: 0;
+}
+```
+
 It is recommended to set the **checked** attribute on the default tab.
 
 ## Design Tokens

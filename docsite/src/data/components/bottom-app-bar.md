@@ -51,6 +51,8 @@ Start with a `div` or `footer` element and add the `bottom-app-bar` class name:
 <footer class="bottom-app-bar"></footer>
 ```
 
+The **bottom-app-bar** class is implicit when using the `footer` element.
+
 ### Actions
 
 <div class="preview">

@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:is(.bottom-app-bar) {
+:is(.bottom-app-bar, footer) {
   display: flex;
   flex-direction: row;
   width: 100%;
