@@ -17,6 +17,8 @@
 *,
 .tokens {
   --md-sys-comp-snackbar-container-width: 344px;
+  --md-sys-comp-snackbar-container-background-color: var(--md-sys-color-inverse-surface);
+  --md-sys-comp-snackbar-container-color: var(--md-sys-color-inverse-on-surface);
 }
 
 :is(.snackbar) {
@@ -29,14 +31,14 @@
   padding: 16px 14px;
   border-radius: 4px;
   white-space: wrap;
-  background-color: var(--md-sys-color-inverse-surface);
-  color: var(--md-sys-color-inverse-on-surface);
+  background-color: var(--md-sys-comp-snackbar-container-background-color);
+  color: var(--md-sys-comp-snackbar-container-color);
   @apply --body-medium;
 
   & :first-child {
     flex: 1;
   }
-  
+
   & :where(button, .button) {
     align-self: end;
     color: var(--md-sys-color-inverse-primary);

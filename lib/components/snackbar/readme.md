@@ -79,6 +79,8 @@ Default snackbar styling.
 | Token                                   | Description                 | Default |
 |-----------------------------------------|-----------------------------|---------|
 | `--md-sys-comp-snackbar-container-width` | The width of the container | `344px`  |
+| `--md-sys-comp-snackbar-background-color`            | The background color of the container | <div class="tooltip token-box color-inverse-surface" data-tooltip="--md-sys-color-inverse-surface"></div> |
+| `--md-sys-comp-snackbar-color`            | The foreground color of the container | <div class="tooltip token-box color-inverse-on-surface" data-tooltip="--md-sys-color-inverse-on-surface"></div> |
 
 ## Resources
 

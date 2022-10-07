@@ -4710,17 +4710,25 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-.tooltip {
+*,
+.tokens {
+  --md-sys-comp-tooltip-container-background-color: var(
+    --md-sys-color-inverse-surface
+  );
+  --md-sys-comp-tooltip-container-color: var(--md-sys-color-inverse-on-surface);
+  --md-sys-comp-tooltip-delay: 0.3s;
+}
+:is(.tooltip) {
   text-decoration: none;
   position: relative;
 }
-.tooltip:before {
+:is(.tooltip)::before {
     position: absolute;
     bottom: -80px;
     left: 50%;
     padding: 8px;
     transform: translateX(-50%) scale(0);
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--md-sys-comp-tooltip-delay) ease-in-out;
     transform-origin: top;
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
@@ -4731,18 +4739,18 @@ datalist {
     font-weight: var(--md-sys-typescale-label-small-weight);
     font-family: var(--md-sys-typescale-label-small-font);
     border-radius: var(--md-sys-shape-corner-small);
-    background-color: var(--md-sys-color-inverse-surface);
-    color: var(--md-sys-color-inverse-on-surface);
+    background-color: var(--md-sys-comp-tooltip-container-background-color);
+    color: var(--md-sys-comp-tooltip-container-color);
     z-index: 1;
     box-shadow: var(--md-sys-elevation-2);
   }
-.tooltip[aria-label]:before {
+[aria-label]:is(.tooltip):before {
     content: attr(aria-label);
   }
-.tooltip[data-tooltip]:before {
+[data-tooltip]:is(.tooltip):before {
     content: attr(data-tooltip);
   }
-.tooltip:hover:before {
+:is(.tooltip):hover:before {
     transform: translateX(-50%) scale(1);
   }
 /*
@@ -6465,6 +6473,8 @@ progress {
 *,
 .tokens {
   --md-sys-comp-snackbar-container-width: 344px;
+  --md-sys-comp-snackbar-container-background-color: var(--md-sys-color-inverse-surface);
+  --md-sys-comp-snackbar-container-color: var(--md-sys-color-inverse-on-surface);
 }
 :is(.snackbar) {
   width: var(--md-sys-comp-snackbar-container-width);
@@ -6476,8 +6486,8 @@ progress {
   padding: 16px 14px;
   border-radius: 4px;
   white-space: wrap;
-  background-color: var(--md-sys-color-inverse-surface);
-  color: var(--md-sys-color-inverse-on-surface);
+  background-color: var(--md-sys-comp-snackbar-container-background-color);
+  color: var(--md-sys-comp-snackbar-container-color);
   -webkit-text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
           text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
   text-transform: var(--md-sys-typescale-body-medium-text-transform);
