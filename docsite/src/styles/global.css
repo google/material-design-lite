@@ -107,3 +107,16 @@ a:not(.nav-link):visited {
 .code-copy:hover {
   opacity: 1;
 }
+
+* {
+  accent-color: var(--md-sys-color-primary);
+}
+
+a {
+  text-decoration: none;
+  color: var(--md-sys-color-primary);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
