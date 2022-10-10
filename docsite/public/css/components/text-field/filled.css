@@ -18,8 +18,8 @@
 
 /* Input, Textarea */
 
-.text-field.filled > input,
-  .text-field.filled > textarea {
+:is(.text-field).filled > :where(input,
+textarea) {
     display: block;
     box-sizing: border-box;
     margin: 0;
@@ -36,114 +36,98 @@
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: var(--md-sys-color-primary);
+    caret-color: var(--md-sys-comp-text-field-caret-color);
     transition: border-bottom 0.2s, background-color 0.2s;
   }
 
 /* Span */
 
-.text-field.filled > input + span,
-  .text-field.filled > textarea + span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
-    box-sizing: border-box;
-    padding: 7px 12px 0;
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
-    font-size: 75%;
-    line-height: 18px;
-    pointer-events: none;
-    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-  }
+:is(.text-field).filled > :where(input,
+textarea) + span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      box-sizing: border-box;
+      padding: 7px 12px 0;
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
+      font-size: 75%;
+      line-height: 18px;
+      pointer-events: none;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+    }
 
 /* Underline */
 
-.text-field.filled > input + span::after,
-  .text-field.filled > textarea + span::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--md-sys-color-primary);
-    transform-origin: bottom center;
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
+:is(.text-field).filled > :where(input,
+textarea) + span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--md-sys-color-primary);
+        transform-origin: bottom center;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
 
 /* Hover */
 
-.text-field.filled > input:hover,
-  .text-field.filled > textarea:hover {
-    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
-  }
+:is(.text-field).filled > :where(input,
+textarea):hover {
+      border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
+    }
 
 /* Placeholder-shown */
 
-.text-field.filled > input:not(:focus):-moz-placeholder-shown + span, .text-field.filled > textarea:not(:focus):-moz-placeholder-shown + span {
-    font-size: inherit;
-    line-height: 48px;
-  }
+:is(.text-field).filled > :where(input,
+textarea):not(:focus):-moz-placeholder-shown + span {
+      font-size: inherit;
+      line-height: 48px;
+    }
 
-.text-field.filled > input:not(:focus):placeholder-shown + span,
-  .text-field.filled > textarea:not(:focus):placeholder-shown + span {
-    font-size: inherit;
-    line-height: 48px;
-  }
+:is(.text-field).filled > :where(input,
+textarea):not(:focus):placeholder-shown + span {
+      font-size: inherit;
+      line-height: 48px;
+    }
 
 /* Focus */
 
-.text-field.filled > input:focus,
-  .text-field.filled > textarea:focus {
-    outline: none;
-  }
-
-.text-field.filled > input:focus + span,
-  .text-field.filled > textarea:focus + span {
-    color: var(--md-sys-color-primary);
-  }
-
-.text-field.filled > input:focus + span::before,
-  .text-field.filled > textarea:focus + span::before {
-    opacity: 0.12;
-  }
-
-.text-field.filled > input:focus + span::after,
-  .text-field.filled > textarea:focus + span::after {
-    transform: scale(1);
-  }
-
-/* Disabled */
-
-.text-field.filled > input:disabled,
-  .text-field.filled > textarea:disabled {
-    border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
-  }
-
-.text-field.filled > input:disabled + span,
-  .text-field.filled > textarea:disabled + span {
-    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
-  }
-
-/* Faster transition in Safari for less noticable fractional font-size issue */
-
-@media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) {
-      .text-field.filled > input,
-      .text-field.filled > input + span,
-      .text-field.filled > input + span::after,
-      .text-field.filled > textarea,
-      .text-field.filled > textarea + span,
-      .text-field.filled > textarea + span::after {
-        transition-duration: 0.1s;
-      }
+:is(.text-field).filled > :where(input,
+textarea):focus {
+      outline: none;
     }
-  }
+
+:is(.text-field).filled > :where(input,
+textarea):focus + span {
+        color: var(--md-sys-color-primary);
+      }
+
+:is(.text-field).filled > :where(input,
+textarea):focus + span::before {
+          opacity: 0.12;
+        }
+
+:is(.text-field).filled > :where(input,
+textarea):focus + span::after {
+          transform: scale(1);
+        }
+
+:is(.text-field).filled > :where(input,
+textarea):disabled {
+      border-bottom-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
+    }
+
+:is(.text-field).filled > :where(input,
+textarea):disabled + span {
+        color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+      }

@@ -14,84 +14,19 @@
  limitations under the License.
 */
 
-.list {
-  position: relative;
+:where(html),
+.tokens {
+  --md-comp-list-container-min-width: 300px;
 }
 
-.list:where(ul,
+:is(.list) {
+  position: relative;
+  min-width: var(--md-comp-list-container-min-width);
+}
+
+:is(.list):where(ul,
 ol) {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-
-.list {
-  min-width: 300px;
-}
-
-.list-tile {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-  padding: 16px 24px;
-  gap: 16px;
-}
-
-.list-tile .title {
-    flex: 1;
-    white-space: nowrap;
-    text-align: start;
-  }
-
-.list-tile .leading {
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-  }
-
-.list-tile .trailing {
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-  }
-
-.list-tile {
-  --tint-color: transparent;
-}
-
-.list-tile::after {
-    content: "";
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* background-color: var(--tint-color); */
-  }
-
-.list-tile:hover,
-  .list-tile .hover {
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
-    );
-  }
-
-.list-tile:focus,
-  .list-tile .focus {
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
-  }
-
-.list-tile:active,
-  .list-tile .active {
-    --tint-color: rgb(
-      var(--md-sys-color-primary-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
   }

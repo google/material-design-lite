@@ -14,13 +14,15 @@
  limitations under the License.
 */
 
-:where(.top-app-bar.medium) {
+:is(.top-app-bar,
+header).medium {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "leading actions" "title title";
 }
 
-:where(.top-app-bar.medium) .title {
+:is(.top-app-bar,
+header).medium .title {
     padding-top: 16px;
     margin-left: 8px;
     -webkit-text-decoration: var(--md-sys-typescale-headline-small-text-decoration);

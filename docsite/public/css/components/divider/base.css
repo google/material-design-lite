@@ -14,9 +14,16 @@
  limitations under the License.
 */
 
-.divider {
-  height: 1px;
-  width: 100%;
-  background-color: var(--md-sys-color-outline-variant);
-  position: relative;
+:where(html),
+.tokens {
+  --md-sys-comp-divider-color: var(--md-sys-color-outline-variant);
+  --md-sys-comp-divider-container-height: 1px;
+  --md-sys-comp-divider-container-width: 100%;
+}
+
+:is(hr,
+.divider) {
+  height: var(--md-sys-comp-divider-container-height);
+  width: var(--md-sys-comp-divider-container-width);
+  background-color: var(--md-sys-comp-divider-color);
 }

@@ -14,18 +14,27 @@
  limitations under the License.
 */
 
-.tooltip {
+:where(html),
+.tokens {
+  --md-sys-comp-tooltip-container-background-color: var(
+    --md-sys-color-inverse-surface
+  );
+  --md-sys-comp-tooltip-container-color: var(--md-sys-color-inverse-on-surface);
+  --md-sys-comp-tooltip-delay: 0.3s;
+}
+
+:is(.tooltip) {
   text-decoration: none;
   position: relative;
 }
 
-.tooltip:before {
+:is(.tooltip)::before {
     position: absolute;
     bottom: -80px;
     left: 50%;
     padding: 8px;
     transform: translateX(-50%) scale(0);
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--md-sys-comp-tooltip-delay) ease-in-out;
     transform-origin: top;
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
@@ -36,20 +45,20 @@
     font-weight: var(--md-sys-typescale-label-small-weight);
     font-family: var(--md-sys-typescale-label-small-font);
     border-radius: var(--md-sys-shape-corner-small);
-    background-color: var(--md-sys-color-inverse-surface);
-    color: var(--md-sys-color-inverse-on-surface);
+    background-color: var(--md-sys-comp-tooltip-container-background-color);
+    color: var(--md-sys-comp-tooltip-container-color);
     z-index: 1;
     box-shadow: var(--md-sys-elevation-2);
   }
 
-.tooltip[aria-label]:before {
+:is(.tooltip)[aria-label]:before {
     content: attr(aria-label);
   }
 
-.tooltip[data-tooltip]:before {
+:is(.tooltip)[data-tooltip]:before {
     content: attr(data-tooltip);
   }
 
-.tooltip:hover:before {
+:is(.tooltip):hover:before {
     transform: translateX(-50%) scale(1);
   }

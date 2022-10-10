@@ -13,11 +13,12 @@ const { frontmatter } = Astro.props;
     <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#6750A4" />
     <title>Material Design Lite - {frontmatter.title}</title>
-    <link rel="stylesheet" href="/material-design-lite/css/mdl.css" />
+    <!-- <link rel="stylesheet" href="/material-design-lite/css/mdl.css" /> -->
   </head>
   <body>
     <style is:global>
       @import url(../styles/global.css);
+      @import url(/css/mdl.css);
 
       body {
         margin: 0;

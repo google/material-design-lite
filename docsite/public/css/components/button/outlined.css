@@ -16,51 +16,36 @@
 
 :where(html),
 .tokens {
-  /* Outlined button container elevation */
   --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
-  /* Outlined button focus state layer opacity */
   --md-comp-outlined-button-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
-  /* Outlined button hover state layer opacity */
   --md-comp-outlined-button-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
-  /* Outlined button label tracking */
   --md-comp-outlined-button-label-text-tracking: var(
     --md-sys-typescale-label-large-tracking
   );
-  /* Outlined button label weight */
   --md-comp-outlined-button-label-text-weight: var(
     --md-sys-typescale-label-large-weight
   );
-  /* Outlined button label size */
   --md-comp-outlined-button-label-text-size: var(
     --md-sys-typescale-label-large-size
   );
-  /* Outlined button label line height */
   --md-comp-outlined-button-label-text-line-height: var(
     --md-sys-typescale-label-large-line-height
   );
-  /* Outlined button label font */
   --md-comp-outlined-button-label-text-font: var(
     --md-sys-typescale-label-large-font
   );
-  /* Outlined button with icon icon size */
   --md-comp-outlined-button-with-icon-icon-size: 18px;
-  /* Outlined button outline width */
   --md-comp-outlined-button-outline-width: 1px;
-  /* Outlined button container height */
   --md-comp-outlined-button-container-height: 40px;
-  /* Outlined button container shape */
   --md-comp-outlined-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Outlined button pressed state layer opacity */
   --md-comp-outlined-button-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
-  /* Outlined button with icon disabled icon opacity */
   --md-comp-outlined-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Outlined button disabled label opacity */
   --md-comp-outlined-button-disabled-label-text-opacity: 0.3799999952316284;
   /* Outlined button disabled outline opacity */
   --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
@@ -77,13 +62,6 @@ button).outlined {
   --md-comp-button-container-height: var(
     --md-comp-outlined-button-container-height
   );
-
-  /* BUG: Tokens breaking render */
-  /* border-radius: var(--md-comp-outlined-button-container-shape); */
-  /* line-height: var(--md-comp-outlined-button-label-text-line-height); */
-  /* letter-spacing: var(--md-comp-outlined-button-label-text-tracking); */
-  /* font-size: var(--md-comp-outlined-button-label-text-size); */
-  /* font-weight: var(--md-comp-outlined-button-label-text-weight); */
   /* font-family: var(--md-comp-outlined-button-label-text-font); */
   --state-hover-opacity: var(
     --md-comp-outlined-button-hover-state-layer-opacity

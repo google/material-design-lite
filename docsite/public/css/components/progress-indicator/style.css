@@ -14,252 +14,157 @@
  limitations under the License.
 */
 
-/* CSS progress indicator at value 75% */
+:where(html),
+.tokens {
+  --md-sys-comp-progress-background-color: var(--md-sys-color-surface-variant);
+  --md-sys-comp-progress-color: var(--md-sys-color-primary);
+  --md-sys-comp-progress-size: 4px;
+  --md-sys-comp-progress-circular-size: 32px;
+  --md-sys-comp-progress-circular-center-color: var(--md-sys-color-surface);
+}
 
-:where(progress,
-.progress).linear {
-  --progress-fg: var(--md-sys-color-primary);
-  --progress-bg: var(--md-sys-color-surface-variant);
-  --progress-value: 20%;
-  height: 4px;
-  border-radius: 4px;
+progress {
+  accent-color: var(--md-sys-comp-progress-color);
+  height: 8px;
+  outline: none;
+}
+
+:is(.progress) progress {
+    opacity: 0;
+  }
+
+/* Create a conic-gradient for the circular progress */
+
+:is(.progress).circular {
+  display: inline-block;
+  width: var(--md-sys-comp-progress-circular-size);
+  height: var(--md-sys-comp-progress-circular-size);
   position: relative;
+
+  /* Convert percent (0-100) to degrees */
+  --progress: calc(var(--progress) * 3.6deg);
 }
 
-:where(progress,
-.progress).linear::-webkit-progress-value {
-    background: var(--progress-fg);
+:is(.progress).circular::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--md-sys-comp-progress-color) var(--progress),
+      var(--md-sys-comp-progress-background-color) 0deg
+    );
   }
 
-:where(progress,
-.progress).linear::-moz-progress-bar {
-    background: var(--progress-fg);
+:is(.progress).circular::after {
+    --b: var(--md-sys-comp-progress-size);
+    content: "";
+    border-radius: 50%;
+    background-color: var(--md-sys-comp-progress-circular-center-color);
+    position: absolute;
+    top: var(--b);
+    left: var(--b);
+    width: calc(100% - var(--b) * 2);
+    height: calc(100% - var(--b) * 2);
   }
 
-:where(progress,
-.progress).linear::-webkit-progress-bar {
-    background: var(--progress-bg);
-  }
+:is(.progress).circular.indeterminate::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid var(--md-sys-comp-progress-color);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      -webkit-animation: circular-progress-indeterminate-animation 1.4s linear infinite;
+              animation: circular-progress-indeterminate-animation 1.4s linear infinite;
+    }
 
-:where(progress,
-.progress).linear[indeterminate] {
-    -webkit-animation: linear-progress-indeterminate 2s infinite;
-            animation: linear-progress-indeterminate 2s infinite;
-  }
-
-@-webkit-keyframes linear-progress-indeterminate {
+@-webkit-keyframes circular-progress-indeterminate-animation {
   0% {
-    background-position: -200% 0;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
   }
   100% {
-    background-position: 200% 0;
+    transform: rotate(360deg);
   }
 }
 
-@keyframes linear-progress-indeterminate {
+@keyframes circular-progress-indeterminate-animation {
   0% {
-    background-position: -200% 0;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
   }
   100% {
-    background-position: 200% 0;
+    transform: rotate(360deg);
   }
 }
 
-/* Codepen: https://codepen.io/finnhvman/pen/bmNdNr */
-
-:where(progress,
-.progress).circular {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 50%;
-  padding: 0.25em;
-  width: 3em;
-  height: 3em;
-  color: var(--md-sys-color-primary);
-  background-color: transparent;
-  font-size: 16px;
+:is(.progress).linear {
+  position: relative;
+  display: inline-block;
+  background-color: var(--md-sys-comp-progress-background-color);
+  height: var(--md-sys-comp-progress-size);
+  border-radius: 6px;
   overflow: hidden;
 }
 
-:where(progress,
-.progress).circular::-webkit-progress-bar {
-    background-color: transparent;
-  }
-
-/* Indeterminate */
-
-:where(progress,
-.progress).circular[indeterminate] {
-    -webkit-mask-image: linear-gradient(transparent 50%, black 50%),
-      linear-gradient(to right, transparent 50%, black 50%);
-    mask-image: linear-gradient(transparent 50%, black 50%),
-      linear-gradient(to right, transparent 50%, black 50%);
-    -webkit-animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
-            animation: circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
-  }
-
-:where(progress,
-.progress).circular[indeterminate] {
-    -webkit-animation: none;
-            animation: none;
-  }
-
-:where(progress,
-.progress).circular[indeterminate]::before,
-  :where(progress,
-.progress).circular[indeterminate]::-webkit-progress-value {
+:is(.progress).linear::before {
     content: "";
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 0.25em;
-    border: solid 0.25em transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    width: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    background-color: transparent;
-    -webkit-animation: circular-pseudo 0.75s infinite linear alternate;
-            animation: circular-pseudo 0.75s infinite linear alternate;
+    width: var(--progress);
+    background-color: var(--md-sys-comp-progress-color);
   }
 
-:where(progress,
-.progress).circular[indeterminate]::-moz-progress-bar {
-    box-sizing: border-box;
-    border: solid 0.25em transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    animation: circular-pseudo 0.75s infinite linear alternate;
-  }
+:is(.progress).linear.indeterminate::before {
+      --progress-duration: 2.1s;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: var(--md-sys-comp-progress-color);
+      will-change: left, right;
+      -webkit-animation: linear-progress-indeterminate-animation
+        var(--progress-duration)
+        var(--md-sys-motion-easing-emphasized-accelerate) infinite;
+              animation: linear-progress-indeterminate-animation
+        var(--progress-duration)
+        var(--md-sys-motion-easing-emphasized-accelerate) infinite;
+    }
 
-:where(progress,
-.progress).circular[indeterminate]::-ms-fill {
-    animation-name: -ms-ring;
-  }
-
-@-webkit-keyframes circular {
+@-webkit-keyframes linear-progress-indeterminate-animation {
   0% {
-    transform: rotate(0deg);
-  }
-  12.5% {
-    transform: rotate(180deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  25% {
-    transform: rotate(630deg);
-  }
-  37.5% {
-    transform: rotate(810deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  50% {
-    transform: rotate(1260deg);
-  }
-  62.5% {
-    transform: rotate(1440deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  75% {
-    transform: rotate(1890deg);
-  }
-  87.5% {
-    transform: rotate(2070deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
+    left: -35%;
+    right: 100%;
   }
   100% {
-    transform: rotate(2520deg);
+    left: 100%;
+    right: -90%;
   }
 }
 
-@keyframes circular {
+@keyframes linear-progress-indeterminate-animation {
   0% {
-    transform: rotate(0deg);
-  }
-  12.5% {
-    transform: rotate(180deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  25% {
-    transform: rotate(630deg);
-  }
-  37.5% {
-    transform: rotate(810deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  50% {
-    transform: rotate(1260deg);
-  }
-  62.5% {
-    transform: rotate(1440deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  75% {
-    transform: rotate(1890deg);
-  }
-  87.5% {
-    transform: rotate(2070deg);
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
+    left: -35%;
+    right: 100%;
   }
   100% {
-    transform: rotate(2520deg);
-  }
-}
-
-@-webkit-keyframes circular-pseudo {
-  0% {
-    transform: rotate(-30deg);
-  }
-  29.4% {
-    border-left-color: transparent;
-  }
-  29.41% {
-    border-left-color: currentColor;
-  }
-  64.7% {
-    border-bottom-color: transparent;
-  }
-  64.71% {
-    border-bottom-color: currentColor;
-  }
-  100% {
-    border-left-color: currentColor;
-    border-bottom-color: currentColor;
-    transform: rotate(225deg);
-  }
-}
-
-@keyframes circular-pseudo {
-  0% {
-    transform: rotate(-30deg);
-  }
-  29.4% {
-    border-left-color: transparent;
-  }
-  29.41% {
-    border-left-color: currentColor;
-  }
-  64.7% {
-    border-bottom-color: transparent;
-  }
-  64.71% {
-    border-bottom-color: currentColor;
-  }
-  100% {
-    border-left-color: currentColor;
-    border-bottom-color: currentColor;
-    transform: rotate(225deg);
+    left: 100%;
+    right: -90%;
   }
 }

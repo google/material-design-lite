@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/filled-icon-button.css);
 
-:is(.icon-button).filled {
+:where(.icon-button).filled {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
 

@@ -14,19 +14,29 @@
  limitations under the License.
 */
 
-:where(.dialog) {
+:where(html),
+.tokens {
+  --md-sys-comp-dialog-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-dialog-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-dialog-container-min-width: 280px;
+  --md-comp-dialog-container-max-width: 560px;
+}
+
+:is(.dialog,
+dialog):not(.navigation-drawer) {
   position: relative;
 }
 
-:where(.dialog)[open] {
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] {
     border-radius: 28px;
     border: none;
     box-shadow: var(--md-sys-elevation-3);
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-on-surface-variant);
+    background-color: var(--md-sys-comp-dialog-background-color);
+    color: var(--md-sys-comp-dialog-color);
     position: relative;
-    min-width: 280px;
-    max-width: 560px;
+    min-width: var(--md-comp-dialog-container-min-width);
+    max-width: var(--md-comp-dialog-container-max-width);
     padding: 24px;
     gap: 16px;
     display: flex;
@@ -35,11 +45,13 @@
     align-items: center;
   }
 
-:where(.dialog)[open] i {
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] i {
       pointer-events: none;
     }
 
-:where(.dialog)[open] .title {
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] .title {
       -webkit-text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
               text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
       text-transform: var(--md-sys-typescale-headline-small-text-transform);
@@ -51,7 +63,8 @@
       text-align: center;
     }
 
-:where(.dialog)[open] .content {
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] .content {
       -webkit-text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
               text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
       text-transform: var(--md-sys-typescale-body-medium-text-transform);
@@ -63,7 +76,8 @@
       text-align: start;
     }
 
-:where(.dialog)[open] .actions {
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] .actions {
       width: 100%;
       display: flex;
       flex-direction: row;

@@ -14,20 +14,30 @@
  limitations under the License.
 */
 
-/* Codepen: https://codepen.io/argyleink/pen/eYGaPEM */
+:where(html),
+.tokens {
+  --md-sys-comp-focus-ring-color: var(--md-sys-color-on-surface-variant);
+  --md-sys-comp-focus-ring-width: 2px;
+}
 
-:focus {
+/* 
+  Releated Codepen:
+  https://codepen.io/argyleink/pen/eYGaPEM
+ */
+
+:focus-visible {
   transition: outline-offset 0.25s ease;
-  outline-color: var(--md-sys-color-on-surface-variant);
-  outline-width: 2px;
+  outline-color: var(--md-sys-comp-focus-ring-color);
+  outline-width: var(--md-sys-comp-focus-ring-width);
   position: relative;
 }
 
-:focus:not(:active) {
+:focus-visible:not(:active) {
   outline-offset: 5px;
 }
 
-.focus-ring {
-  outline: 2px solid var(--md-sys-color-on-surface-variant);
+:is(.focus-ring) {
+  outline: var(--md-sys-comp-focus-ring-width) solid
+    var(--md-sys-comp-focus-ring-color);
   outline-offset: 5px;
 }

@@ -14,7 +14,8 @@
  limitations under the License.
 */
 
-:where(.dialog).modal[open] {
+:is(.dialog,
+dialog):not(.navigation-drawer).modal[open] {
     margin: auto;
     position: fixed;
     top: 0;
@@ -23,15 +24,15 @@
     right: 0;
   }
 
-:where(.dialog).modal::-webkit-backdrop {
-    /* Tokens not available in backdrop (above document) */
+:is(.dialog,
+dialog):not(.navigation-drawer).modal::-webkit-backdrop {
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;
   }
 
-:where(.dialog).modal::backdrop {
-    /* Tokens not available in backdrop (above document) */
+:is(.dialog,
+dialog):not(.navigation-drawer).modal::backdrop {
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;

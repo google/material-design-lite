@@ -14,16 +14,22 @@
  limitations under the License.
 */
 
-.segmented-button {
+:where(html),
+.tokens {
+  --md-sys-comp-segmented-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-segmented-button-color: var(--md-sys-color-on-surface);
+}
+
+:is(.segmented-button) {
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
-  -webkit-tap-highlight-color: rgb(0, 0, 0, 0);
   border-radius: 20px;
+  position: relative;
   border: 1px solid var(--md-sys-color-outline);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-segmented-button-background-color);
+  color: var(--md-sys-comp-segmented-button-color);
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
           text-decoration: var(--md-sys-typescale-label-large-text-decoration);
   text-transform: var(--md-sys-typescale-label-large-text-transform);
@@ -34,13 +40,11 @@
   font-family: var(--md-sys-typescale-label-large-font);
 }
 
-.segmented-button label {
+:is(.segmented-button) :where(.navigation-icon,
+label) {
     border-radius: 0;
-    width: 100%;
-    height: 100%;
     flex: 1;
     min-width: 40px;
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,70 +58,41 @@
     z-index: 1;
   }
 
-.segmented-button label:first-of-type {
+:is(.segmented-button) :where(.navigation-icon,
+label):first-of-type {
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
     }
 
-.segmented-button label:last-of-type {
+:is(.segmented-button) :where(.navigation-icon,
+label):last-of-type {
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
     }
 
-.segmented-button label:not(:last-child) {
+:is(.segmented-button) :where(.navigation-icon,
+label):not(:last-child) {
       border-right: 1px solid var(--md-sys-color-outline);
     }
 
-.segmented-button input {
+:is(.segmented-button) input {
     opacity: 0;
     position: absolute;
   }
 
-.segmented-button input:focus:not(:checked) + label {
-      background-color: var(--md-sys-color-surface-2);
+:is(.segmented-button) input:focus-visible + :where(.navigation-icon,
+label) {
+      outline: var(--md-sys-comp-focus-ring-width) solid
+        var(--md-sys-comp-focus-ring-color);
+      outline-offset: 5px;
     }
 
-.segmented-button input {
-    --tint-color: transparent;
-}
-
-.segmented-button input + label::after {
-      content: "";
-      border-radius: inherit;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      /* background-color: var(--tint-color); */
-    }
-
-.segmented-button input:hover + label {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-sys-state-hover-state-layer-opacity)
-      );
-    }
-
-.segmented-button input:focus + label {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-sys-state-focus-state-layer-opacity)
-      );
-    }
-
-.segmented-button input:active + label {
-      --tint-color: rgb(
-        var(--md-sys-color-primary-rgb) /
-          var(--md-sys-state-pressed-state-layer-opacity)
-      );
-    }
-
-.segmented-button i {
+:is(.segmented-button) i {
     margin-right: 8px;
   }
 
-.segmented-button input:checked + label {
+:is(.segmented-button) input:checked + :where(.navigation-icon,
+label) {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
     -webkit-text-decoration: var(--md-sys-typescale-title-small-text-decoration);
@@ -130,7 +105,8 @@
     font-family: var(--md-sys-typescale-title-small-font);
   }
 
-.segmented-button input:checked + label::before {
+:is(.segmented-button) input:checked + :where(.navigation-icon,
+label)::before {
       content: "check";
       -webkit-font-smoothing: antialiased;
       font-feature-settings: "liga";
@@ -146,6 +122,7 @@
       padding-right: 8px;
     }
 
-.segmented-button input:checked + label i {
+:is(.segmented-button) input:checked + :where(.navigation-icon,
+label) i {
       display: none;
     }

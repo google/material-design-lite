@@ -14,7 +14,14 @@
  limitations under the License.
 */
 
-:where(.tabs) {
+:where(html),
+.tokens {
+  --md-sys-comp-tabs-container-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-tabs-container-color: var(--md-sys-color-on-surface);
+  --md-comp-tabs-container-min-width: 100px;
+}
+
+:is(.tabs) {
   width: 100%;
   height: 40px;
   display: flex;
@@ -23,8 +30,8 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-tabs-container-background-color);
+  color: var(--md-sys-comp-tabs-container-color);
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
           text-decoration: var(--md-sys-typescale-label-large-text-decoration);
   text-transform: var(--md-sys-typescale-label-large-text-transform);
@@ -35,58 +42,60 @@
   font-family: var(--md-sys-typescale-label-large-font);
 }
 
-:where(.tabs) .tab {
-    width: 100%;
-    height: 100%;
+:is(.tabs) :where(label,
+.tab) {
+    border-radius: 0;
+    box-sizing: border-box;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-:where(.tabs) label {
-    border-radius: 0;
     width: 100%;
     height: 100%;
-    flex: 1;
+    padding: 0 20px;
+    margin: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 2px;
   }
 
-:where(.tabs) input {
+:is(.tabs) :where(label,
+.tab) i {
+      margin-right: 8px;
+    }
+
+:is(.tabs) :where(label,
+.tab):where([selected],
+[checked],
+[data-selected]) {
+      color: var(--md-sys-color-primary);
+      padding-bottom: 0;
+      border-bottom: 2px solid var(--md-sys-color-primary);
+    }
+
+:is(.tabs) input {
     display: none;
     pointer-events: none;
   }
 
-:where(.tabs) input:checked ~ label {
+:is(.tabs) input:checked + :where(label,
+.tab) {
+        padding-bottom: 0;
         color: var(--md-sys-color-primary);
+        border-bottom: 2px solid var(--md-sys-color-primary);
       }
 
-:where(.tabs) input:checked ~ label::before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background-color: var(--md-sys-color-primary);
-        }
+:is(.tabs).scrollable {
+  overflow-y: scroll;
+  width: 100%;
+}
 
-:where(.tabs) input ~ label {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      padding: 0 20px;
-      margin: 0;
-      cursor: pointer;
-      -webkit-user-select: none;
-         -moz-user-select: none;
-              user-select: none;
-      position: relative;
-      z-index: 1;
-    }
-
-:where(.tabs) i {
-    margin-right: 8px;
+:is(.tabs).scrollable :where(.tab,
+label) {
+    min-width: var(--md-comp-tabs-container-min-width);
+    white-space: nowrap;
   }

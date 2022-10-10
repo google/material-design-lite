@@ -14,12 +14,14 @@
  limitations under the License.
 */
 
-:where(.top-app-bar.small) {
+:is(.top-app-bar,
+header).small {
   display: flex;
   align-items: center;
 }
 
-:where(.top-app-bar.small) .title {
+:is(.top-app-bar,
+header).small .title {
     text-align: start;
     padding-left: 16px;
   }

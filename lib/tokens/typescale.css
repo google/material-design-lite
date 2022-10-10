@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   /* Label Medium text transform */
   --md-sys-typescale-label-medium-text-transform: none;
   /* Label Small line height */

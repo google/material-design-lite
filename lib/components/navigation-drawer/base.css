@@ -14,15 +14,14 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
   --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
   --md-comp-navigation-drawer-container-height: 100%;
   --md-comp-navigation-drawer-container-width: 360px;
 }
 
-:is(.navigation-drawer) {
+:where(.navigation-drawer) {
   padding: 12px;
   border-radius: 16px;
   background-color: var(--md-sys-comp-navigation-drawer-background-color);

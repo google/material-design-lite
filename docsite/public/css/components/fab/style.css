@@ -14,15 +14,22 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
+  --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
+  --md-comp-fab-container-size: 56px;
+}
+
 :is(.fab) {
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
-  width: 56px;
-  height: 56px;
+  width: var(--md-comp-fab-container-size);
+  height: var(--md-comp-fab-container-size);
   position: relative;
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-comp-fab-background-color);
+  color: var(--md-sys-comp-fab-color);
   box-shadow: var(--md-sys-elevation-1);
   --tint-color: transparent;
 }

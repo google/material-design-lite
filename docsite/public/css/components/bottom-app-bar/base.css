@@ -14,7 +14,8 @@
  limitations under the License.
 */
 
-:is(.bottom-app-bar) {
+:is(.bottom-app-bar,
+footer) {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -24,7 +25,8 @@
   color: var(--md-sys-color-on-surface-variant);
 }
 
-:is(.bottom-app-bar)::before {
+:is(.bottom-app-bar,
+footer)::before {
     content: "";
     position: absolute;
     top: 0;
@@ -34,7 +36,8 @@
     background-color: var(--md-sys-color-surface-1);
   }
 
-:is(.bottom-app-bar) .actions {
+:is(.bottom-app-bar,
+footer) .actions {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -43,26 +46,31 @@
     gap: 8px;
   }
 
-:is(.bottom-app-bar) :where(.icon) {
+:is(.bottom-app-bar,
+footer) :where(.icon-button) {
     background-color: transparent;
     color: inherit;
   }
 
-:is(.bottom-app-bar) :where(.fab) {
+:is(.bottom-app-bar,
+footer) :where(.fab) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
   }
 
-:is(.bottom-app-bar) :where(.fab):hover {
+:is(.bottom-app-bar,
+footer) :where(.fab):hover {
       box-shadow: var(--md-sys-elevation-1);
     }
 
-:is(.bottom-app-bar) :where(.fab):focus {
+:is(.bottom-app-bar,
+footer) :where(.fab):focus {
       box-shadow: var(--md-sys-elevation-0);
     }
 
-:is(.bottom-app-bar) :where(.fab):active {
+:is(.bottom-app-bar,
+footer) :where(.fab):active {
       box-shadow: var(--md-sys-elevation-0);
     }

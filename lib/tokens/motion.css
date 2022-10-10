@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   /* Linear */
   --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
   /* Standard */

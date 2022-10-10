@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   /* Hover state layer opacity */
   --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
   /* Focus state layer opacity */

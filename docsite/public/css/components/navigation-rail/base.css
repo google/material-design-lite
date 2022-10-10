@@ -14,18 +14,28 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-rail-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-rail-color: var(--md-sys-color-on-surface);
+  --md-comp-navigation-rail-container-width: 80px;
+  --md-comp-navigation-rail-container-height: 100%;
+}
+
 :is(.navigation-rail) {
-  height: 100%;
-  width: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-shadow: var(--md-sys-elevation-1);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-navigation-rail-background-color);
+  color: var(--md-sys-comp-navigation-rail-color);
+  height: var(--md-comp-navigation-rail-container-height);
+  width: var(--md-comp-navigation-rail-container-width);
   box-sizing: border-box;
   position: relative;
+  padding-top: 16px;
+  padding-bottom: 56px;
 }
 
 :is(.navigation-rail)::before {
@@ -38,38 +48,28 @@
     background-color: var(--md-sys-color-surface-1);
   }
 
-:is(.navigation-rail) {
-  padding-top: 16px;
-  padding-bottom: 56px;
-}
-
-:is(.navigation-rail) :where(button,
-.button) {
-    background-color: transparent;
-    color: var(--md-sys-color-on-surface-variant);
-    font-size: 24px;
-    padding: 12px;
+:is(.navigation-rail) :where(.fab) {
+    background-color: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+    box-shadow: var(--md-sys-elevation-0);
+    margin-top: 12px;
   }
 
-:is(.navigation-rail) :where(button,
-.button).fab {
-      background-color: var(--md-sys-color-tertiary-container);
-      color: var(--md-sys-color-on-tertiary-container);
-      box-shadow: var(--md-sys-elevation-0);
-      margin-top: 12px;
+:is(.navigation-rail) :where(.fab):hover {
+      box-shadow: var(--md-sys-elevation-2);
     }
 
-:is(.navigation-rail) :where(button,
-.button).fab:hover {
-        box-shadow: var(--md-sys-elevation-2);
-      }
+:is(.navigation-rail) :where(.fab):active {
+      box-shadow: var(--md-sys-elevation-1);
+    }
 
-:is(.navigation-rail) :where(button,
-.button).fab:active {
-        box-shadow: var(--md-sys-elevation-1);
-      }
+:is(.navigation-rail) :where(.icon-button) {
+    background-color: transparent;
+    color: inherit;
+  }
 
-:is(.navigation-rail) nav {
+:is(.navigation-rail) :where(nav,
+.navigation-rail-destinations) {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -79,45 +79,21 @@
     margin-bottom: 40px;
   }
 
-:is(.navigation-rail) nav input {
+:is(.navigation-rail) :where(nav,
+.navigation-rail-destinations) input {
       opacity: 0;
       position: absolute;
     }
 
-:is(.navigation-rail) nav input:checked + :where(label,
-.tab-icon) i {
+:is(.navigation-rail) :where(nav,
+.navigation-rail-destinations) input:checked + .navigation-icon i {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }
 
-:is(.navigation-rail) nav :where(label,
-.tab-icon) {
-      height: 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      visibility: visible;
-      z-index: 1;
-      gap: 4px;
-      -webkit-text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
-              text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
-      text-transform: var(--md-sys-typescale-label-medium-text-transform);
-      line-height: var(--md-sys-typescale-label-medium-line-height);
-      letter-spacing: var(--md-sys-typescale-label-medium-tracking);
-      font-size: var(--md-sys-typescale-label-medium-size);
-      font-weight: var(--md-sys-typescale-label-medium-weight);
-      font-family: var(--md-sys-typescale-label-medium-font);
-    }
-
-:is(.navigation-rail) nav :where(label,
-.tab-icon) i {
-        font-size: 24px;
-        width: 64px;
-        height: 32px;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+:is(.navigation-rail) :where(nav,
+.navigation-rail-destinations) input:focus-visible + .navigation-icon {
+        outline: var(--md-sys-comp-focus-ring-width) solid
+          var(--md-sys-comp-focus-ring-color);
+        outline-offset: 5px;
       }

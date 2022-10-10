@@ -16,17 +16,17 @@
 
 /* Codepen: https://codepen.io/finnhvman/pen/xyOORQ */
 
-.text-field.outlined {
+:is(.text-field).outlined {
   padding-top: 6px;
 }
 
 /* Input, Textarea */
 
-.text-field.outlined > input,
-  .text-field.outlined > textarea {
+:is(.text-field).outlined > input,
+  :is(.text-field).outlined > textarea {
     box-sizing: border-box;
     margin: 0;
-    border: solid 1px; /* Safari */
+    border: solid 1px;
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
     border-top-color: transparent;
     border-radius: 4px;
@@ -39,14 +39,14 @@
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: var(--md-sys-color-primary);
+    caret-color: var(--md-sys-comp-text-field-caret-color);
     transition: border 0.2s, box-shadow 0.2s;
   }
 
 /* Span */
 
-.text-field.outlined > input + span,
-  .text-field.outlined > textarea + span {
+:is(.text-field).outlined > input + span,
+  :is(.text-field).outlined > textarea + span {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,10 +63,10 @@
 
 /* Corners */
 
-.text-field.outlined > input + span::before,
-  .text-field.outlined > input + span::after,
-  .text-field.outlined > textarea + span::before,
-  .text-field.outlined > textarea + span::after {
+:is(.text-field).outlined > input + span::before,
+  :is(.text-field).outlined > input + span::after,
+  :is(.text-field).outlined > textarea + span::before,
+  :is(.text-field).outlined > textarea + span::after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -80,15 +80,15 @@
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-.text-field.outlined > input + span::before,
-  .text-field.outlined > textarea + span::before {
+:is(.text-field).outlined > input + span::before,
+  :is(.text-field).outlined > textarea + span::before {
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: 4px 0;
   }
 
-.text-field.outlined > input + span::after,
-  .text-field.outlined > textarea + span::after {
+:is(.text-field).outlined > input + span::after,
+  :is(.text-field).outlined > textarea + span::after {
     flex-grow: 1;
     margin-left: 4px;
     border-right: solid 1px transparent;
@@ -97,65 +97,65 @@
 
 /* Hover */
 
-.text-field.outlined:hover > input,
-  .text-field.outlined:hover > textarea {
+:is(.text-field).outlined:hover > input,
+  :is(.text-field).outlined:hover > textarea {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
     border-top-color: transparent;
   }
 
-.text-field.outlined:hover > input + span::before,
-  .text-field.outlined:hover > textarea + span::before,
-  .text-field.outlined:hover > input + span::after,
-  .text-field.outlined:hover > textarea + span::after {
+:is(.text-field).outlined:hover > input + span::before,
+  :is(.text-field).outlined:hover > textarea + span::before,
+  :is(.text-field).outlined:hover > input + span::after,
+  :is(.text-field).outlined:hover > textarea + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
 
-.text-field.outlined:hover > input:not(:focus):-moz-placeholder-shown, .text-field.outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
+:is(.text-field).outlined:hover > input:not(:focus):-moz-placeholder-shown, :is(.text-field).outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
 
-.text-field.outlined:hover > input:not(:focus):placeholder-shown,
-  .text-field.outlined:hover > textarea:not(:focus):placeholder-shown {
+:is(.text-field).outlined:hover > input:not(:focus):placeholder-shown,
+  :is(.text-field).outlined:hover > textarea:not(:focus):placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
 
 /* Placeholder-shown */
 
-.text-field.outlined > input:not(:focus):-moz-placeholder-shown, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown {
+:is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
 
-.text-field.outlined > input:not(:focus):placeholder-shown,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown {
+:is(.text-field).outlined > input:not(:focus):placeholder-shown,
+  :is(.text-field).outlined > textarea:not(:focus):placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
 
-.text-field.outlined > input:not(:focus):-moz-placeholder-shown + span, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span {
+:is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
 
-.text-field.outlined > input:not(:focus):placeholder-shown + span,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown + span {
+:is(.text-field).outlined > input:not(:focus):placeholder-shown + span,
+  :is(.text-field).outlined > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
 
-.text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, .text-field.outlined > input:not(:focus):-moz-placeholder-shown + span::after, .text-field.outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
+:is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
     border-top-color: transparent;
   }
 
-.text-field.outlined > input:not(:focus):placeholder-shown + span::before,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown + span::before,
-  .text-field.outlined > input:not(:focus):placeholder-shown + span::after,
-  .text-field.outlined > textarea:not(:focus):placeholder-shown + span::after {
+:is(.text-field).outlined > input:not(:focus):placeholder-shown + span::before,
+  :is(.text-field).outlined > textarea:not(:focus):placeholder-shown + span::before,
+  :is(.text-field).outlined > input:not(:focus):placeholder-shown + span::after,
+  :is(.text-field).outlined > textarea:not(:focus):placeholder-shown + span::after {
     border-top-color: transparent;
   }
 
 /* Focus */
 
-.text-field.outlined > input:focus,
-  .text-field.outlined > textarea:focus {
+:is(.text-field).outlined > input:focus,
+  :is(.text-field).outlined > textarea:focus {
     border-color: var(--md-sys-color-primary);
     border-top-color: transparent;
     box-shadow: inset 1px 0 var(--md-sys-color-primary),
@@ -164,73 +164,56 @@
     outline: none;
   }
 
-.text-field.outlined > input:focus + span,
-  .text-field.outlined > textarea:focus + span {
+:is(.text-field).outlined > input:focus + span,
+  :is(.text-field).outlined > textarea:focus + span {
     color: var(--md-sys-color-primary);
   }
 
-.text-field.outlined > input:focus + span::before,
-  .text-field.outlined > input:focus + span::after,
-  .text-field.outlined > textarea:focus + span::before,
-  .text-field.outlined > textarea:focus + span::after {
+:is(.text-field).outlined > input:focus + span::before,
+  :is(.text-field).outlined > input:focus + span::after,
+  :is(.text-field).outlined > textarea:focus + span::before,
+  :is(.text-field).outlined > textarea:focus + span::after {
     border-top-color: var(--md-sys-color-primary) !important;
     box-shadow: inset 0 1px var(--md-sys-color-primary);
   }
 
 /* Disabled */
 
-.text-field.outlined > input:disabled,
-  .text-field.outlined > input:disabled + span,
-  .text-field.outlined > textarea:disabled,
-  .text-field.outlined > textarea:disabled + span {
+:is(.text-field).outlined > input:disabled,
+  :is(.text-field).outlined > input:disabled + span,
+  :is(.text-field).outlined > textarea:disabled,
+  :is(.text-field).outlined > textarea:disabled + span {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
     border-top-color: transparent !important;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     pointer-events: none;
   }
 
-.text-field.outlined > input:disabled + span::before,
-  .text-field.outlined > input:disabled + span::after,
-  .text-field.outlined > textarea:disabled + span::before,
-  .text-field.outlined > textarea:disabled + span::after {
+:is(.text-field).outlined > input:disabled + span::before,
+  :is(.text-field).outlined > input:disabled + span::after,
+  :is(.text-field).outlined > textarea:disabled + span::before,
+  :is(.text-field).outlined > textarea:disabled + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
 
-.text-field.outlined > input:disabled:-moz-placeholder-shown, .text-field.outlined > input:disabled:-moz-placeholder-shown + span, .text-field.outlined > textarea:disabled:-moz-placeholder-shown, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span {
+:is(.text-field).outlined > input:disabled:-moz-placeholder-shown, :is(.text-field).outlined > input:disabled:-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
 
-.text-field.outlined > input:disabled:placeholder-shown,
-  .text-field.outlined > input:disabled:placeholder-shown + span,
-  .text-field.outlined > textarea:disabled:placeholder-shown,
-  .text-field.outlined > textarea:disabled:placeholder-shown + span {
+:is(.text-field).outlined > input:disabled:placeholder-shown,
+  :is(.text-field).outlined > input:disabled:placeholder-shown + span,
+  :is(.text-field).outlined > textarea:disabled:placeholder-shown,
+  :is(.text-field).outlined > textarea:disabled:placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
 
-.text-field.outlined > input:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > input:disabled:-moz-placeholder-shown + span::after, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::before, .text-field.outlined > textarea:disabled:-moz-placeholder-shown + span::after {
+:is(.text-field).outlined > input:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined > input:disabled:-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::after {
     border-top-color: transparent !important;
   }
 
-.text-field.outlined > input:disabled:placeholder-shown + span::before,
-  .text-field.outlined > input:disabled:placeholder-shown + span::after,
-  .text-field.outlined > textarea:disabled:placeholder-shown + span::before,
-  .text-field.outlined > textarea:disabled:placeholder-shown + span::after {
+:is(.text-field).outlined > input:disabled:placeholder-shown + span::before,
+  :is(.text-field).outlined > input:disabled:placeholder-shown + span::after,
+  :is(.text-field).outlined > textarea:disabled:placeholder-shown + span::before,
+  :is(.text-field).outlined > textarea:disabled:placeholder-shown + span::after {
     border-top-color: transparent !important;
-  }
-
-/* Faster transition in Safari for less noticable fractional font-size issue */
-
-@media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) {
-      .text-field.outlined > input,
-      .text-field.outlined > input + span,
-      .text-field.outlined > textarea,
-      .text-field.outlined > textarea + span,
-      .text-field.outlined > input + span::before,
-      .text-field.outlined > input + span::after,
-      .text-field.outlined > textarea + span::before,
-      .text-field.outlined > textarea + span::after {
-        transition-duration: 0.1s;
-      }
-    }
   }

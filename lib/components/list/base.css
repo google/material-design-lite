@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   --md-comp-list-container-min-width: 300px;
 }
 

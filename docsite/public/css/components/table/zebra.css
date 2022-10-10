@@ -14,7 +14,9 @@
  limitations under the License.
 */
 
-:where(.table,
-table).zebra tr:nth-of-type(even) {
+:is(.table,
+table).zebra :is(tbody,
+.table-body) :is(tr,
+.table-row):nth-of-type(even) {
     background-color: var(--md-sys-color-surface-1);
   }

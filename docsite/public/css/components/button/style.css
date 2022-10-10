@@ -19,6 +19,208 @@
   --md-sys-comp-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
+  --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);
+  --md-comp-text-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-text-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-text-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-text-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-text-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-text-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-text-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-text-button-with-icon-icon-size: 18px;
+  --md-comp-text-button-container-height: 40px;
+  --md-comp-text-button-container-shape: var(--md-sys-shape-corner-full);
+  --md-comp-text-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-text-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-filled-button-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  --md-comp-filled-button-dragged-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+  --md-comp-filled-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-filled-button-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-filled-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-filled-button-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-filled-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-filled-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-filled-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-filled-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-filled-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-filled-button-with-icon-icon-size: 18px;
+  --md-comp-filled-button-container-elevation: var(--md-sys-elevation-level0);
+  --md-comp-filled-button-container-height: 40px;
+  --md-comp-filled-button-container-shape: var(--md-sys-shape-corner-full);
+  --md-comp-filled-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-filled-button-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-filled-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-filled-button-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-filled-button-disabled-container-opacity: 0.11999999731779099;
+  --md-comp-filled-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-filled-tonal-button-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-filled-tonal-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-filled-tonal-button-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-filled-tonal-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-filled-tonal-button-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-filled-tonal-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-filled-tonal-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-filled-tonal-button-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-filled-tonal-button-disabled-container-opacity: 0.11999999731779099;
+  --md-comp-filled-tonal-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-filled-tonal-button-with-icon-icon-size: 18px;
+  --md-comp-filled-tonal-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-filled-tonal-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-filled-tonal-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-filled-tonal-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-filled-tonal-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-filled-tonal-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  --md-comp-filled-tonal-button-container-height: 40px;
+  --md-comp-filled-tonal-button-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
+  --md-comp-outlined-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-outlined-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-outlined-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-outlined-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-outlined-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-outlined-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-outlined-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-outlined-button-with-icon-icon-size: 18px;
+  --md-comp-outlined-button-outline-width: 1px;
+  --md-comp-outlined-button-container-height: 40px;
+  --md-comp-outlined-button-container-shape: var(--md-sys-shape-corner-full);
+  --md-comp-outlined-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-outlined-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-outlined-button-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
+  --md-comp-elevated-button-focus-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-elevated-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-elevated-button-hover-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  --md-comp-elevated-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-elevated-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-elevated-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-elevated-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-elevated-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-elevated-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-elevated-button-with-icon-icon-size: 18px;
+  --md-comp-elevated-button-container-elevation: var(--md-sys-elevation-level1);
+  --md-comp-elevated-button-container-height: 40px;
+  --md-comp-elevated-button-container-shape: var(--md-sys-shape-corner-full);
+  --md-comp-elevated-button-pressed-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-elevated-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-elevated-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-elevated-button-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-elevated-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Elevated button disabled container opacity */
+  --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
 }
 
 :is(.button,
@@ -26,7 +228,6 @@ button) {
   --state-disabled-opacity: 0.3799999952316284;
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
-  height: var(--md-comp-button-container-height);
   padding: 0 24px;
   border-radius: 20px;
   border: none;
@@ -118,54 +319,6 @@ button)[disabled] {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(html),
-.tokens {
-  /* Text button container elevation */
-  --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);
-  /* Text button focus state layer opacity */
-  --md-comp-text-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Text button hover state layer opacity */
-  --md-comp-text-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Text button label tracking */
-  --md-comp-text-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Text button label weight */
-  --md-comp-text-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Text button label size */
-  --md-comp-text-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Text button label line height */
-  --md-comp-text-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Text button label font */
-  --md-comp-text-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Text button with icon icon size */
-  --md-comp-text-button-with-icon-icon-size: 18px;
-  /* Text button container height */
-  --md-comp-text-button-container-height: 40px;
-  /* Text button container shape */
-  --md-comp-text-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Text button pressed state layer opacity */
-  --md-comp-text-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Text button with icon disabled icon opacity */
-  --md-comp-text-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Text button disabled label opacity */
-  --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
-}
-
 :is(.button,
 button).text {
   box-shadow: var(--md-sys-elevation-0);
@@ -175,13 +328,6 @@ button).text {
   --md-comp-button-container-height: var(
     --md-comp-text-button-container-height
   );
-
-  /* BUG: Tokens breaking render */
-  /* border-radius: var(--md-comp-text-button-container-shape); */
-  /* line-height: var(--md-comp-text-button-label-text-line-height); */
-  /* letter-spacing: var(--md-comp-text-button-label-text-tracking); */
-  /* font-size: var(--md-comp-text-button-label-text-size); */
-  /* font-weight: var(--md-comp-text-button-label-text-weight); */
   /* font-family: var(--md-comp-text-button-label-text-font); */
   --state-hover-opacity: var(--md-comp-text-button-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-text-button-focus-state-layer-opacity);
@@ -220,80 +366,6 @@ button).text[disabled] {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(html),
-.tokens {
-  /* Filled button dragged state layer opacity */
-  --md-comp-filled-button-dragged-state-layer-opacity: var(
-    --md-sys-state-dragged-state-layer-opacity
-  );
-  /* Filled button dragged container elevation */
-  --md-comp-filled-button-dragged-container-elevation: var(
-    --md-sys-elevation-level3
-  );
-  /* Filled button focus state layer opacity */
-  --md-comp-filled-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Filled button focus container elevation */
-  --md-comp-filled-button-focus-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled button hover state layer opacity */
-  --md-comp-filled-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Filled button hover container elevation */
-  --md-comp-filled-button-hover-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Filled button label tracking */
-  --md-comp-filled-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Filled button label weight */
-  --md-comp-filled-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Filled button label size */
-  --md-comp-filled-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Filled button label line height */
-  --md-comp-filled-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Filled button label font */
-  --md-comp-filled-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Filled button with icon icon size */
-  --md-comp-filled-button-with-icon-icon-size: 18px;
-  /* Filled button container elevation */
-  --md-comp-filled-button-container-elevation: var(--md-sys-elevation-level0);
-  /* Filled button container height */
-  --md-comp-filled-button-container-height: 40px;
-  /* Filled button container shape */
-  --md-comp-filled-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Filled button pressed state layer opacity */
-  --md-comp-filled-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Filled button pressed container elevation */
-  --md-comp-filled-button-pressed-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled button with icon disabled icon opacity */
-  --md-comp-filled-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Filled button disabled label opacity */
-  --md-comp-filled-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Filled button disabled container opacity */
-  --md-comp-filled-button-disabled-container-opacity: 0.11999999731779099;
-  /* Filled button disabled container elevation */
-  --md-comp-filled-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-}
-
 :is(.button,
 button).filled {
   box-shadow: var(--md-sys-elevation-0);
@@ -302,13 +374,6 @@ button).filled {
   --md-comp-button-container-height: var(
     --md-comp-filled-button-container-height
   );
-
-  /* BUG: Tokens breaking render */
-  /* border-radius: var(--md-comp-filled-button-container-shape); */
-  /* line-height: var(--md-comp-filled-button-label-text-line-height); */
-  /* letter-spacing: var(--md-comp-filled-button-label-text-tracking); */
-  /* font-size: var(--md-comp-filled-button-label-text-size); */
-  /* font-weight: var(--md-comp-filled-button-label-text-weight); */
   /* font-family: var(--md-comp-filled-button-label-text-font); */
   --state-hover-opacity: var(--md-comp-filled-button-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-filled-button-focus-state-layer-opacity);
@@ -348,76 +413,6 @@ button).filled[disabled] {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(html),
-.tokens {
-  /* Filled tonal button pressed container elevation */
-  --md-comp-filled-tonal-button-pressed-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled tonal button pressed state layer opacity */
-  --md-comp-filled-tonal-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Filled tonal button focus container elevation */
-  --md-comp-filled-tonal-button-focus-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled tonal button focus state layer opacity */
-  --md-comp-filled-tonal-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Filled tonal button hover container elevation */
-  --md-comp-filled-tonal-button-hover-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Filled tonal button hover state layer opacity */
-  --md-comp-filled-tonal-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Filled tonal button disabled icon opacity */
-  --md-comp-filled-tonal-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Filled tonal button disabled label text opacity */
-  --md-comp-filled-tonal-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Filled tonal button disabled container opacity */
-  --md-comp-filled-tonal-button-disabled-container-opacity: 0.11999999731779099;
-  /* Filled tonal button disabled container elevation */
-  --md-comp-filled-tonal-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled tonal button icon size */
-  --md-comp-filled-tonal-button-with-icon-icon-size: 18px;
-  /* Filled tonal button label text weight */
-  --md-comp-filled-tonal-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Filled tonal button label text tracking */
-  --md-comp-filled-tonal-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Filled tonal button label text size */
-  --md-comp-filled-tonal-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Filled tonal button label text line height */
-  --md-comp-filled-tonal-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Filled tonal button label text font */
-  --md-comp-filled-tonal-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Filled tonal button container shape */
-  --md-comp-filled-tonal-button-container-shape: var(
-    --md-sys-shape-corner-full
-  );
-  /* Filled tonal button container height */
-  --md-comp-filled-tonal-button-container-height: 40px;
-  /* Filled tonal button container elevation */
-  --md-comp-filled-tonal-button-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-}
-
 :is(.button,
 button).filled-tonal {
   --md-sys-comp-button-background-color: var(
@@ -430,13 +425,6 @@ button).filled-tonal {
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
   box-shadow: var(--md-sys-elevation-0);
-
-  /* BUG: Tokens breaking render */
-  /* border-radius: var(--md-comp-filled-tonal-button-container-shape); */
-  /* line-height: var(--md-comp-filled-tonal-button-label-text-line-height); */
-  /* letter-spacing: var(--md-comp-filled-tonal-button-label-text-tracking); */
-  /* font-size: var(--md-comp-filled-tonal-button-label-text-size); */
-  /* font-weight: var(--md-comp-filled-tonal-button-label-text-weight); */
   /* font-family: var(--md-comp-filled-tonal-button-label-text-font); */
   --state-hover-opacity: var(
     --md-comp-filled-tonal-button-hover-state-layer-opacity
@@ -481,58 +469,6 @@ button).filled-tonal[disabled] {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(html),
-.tokens {
-  /* Outlined button container elevation */
-  --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
-  /* Outlined button focus state layer opacity */
-  --md-comp-outlined-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Outlined button hover state layer opacity */
-  --md-comp-outlined-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Outlined button label tracking */
-  --md-comp-outlined-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Outlined button label weight */
-  --md-comp-outlined-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Outlined button label size */
-  --md-comp-outlined-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Outlined button label line height */
-  --md-comp-outlined-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Outlined button label font */
-  --md-comp-outlined-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Outlined button with icon icon size */
-  --md-comp-outlined-button-with-icon-icon-size: 18px;
-  /* Outlined button outline width */
-  --md-comp-outlined-button-outline-width: 1px;
-  /* Outlined button container height */
-  --md-comp-outlined-button-container-height: 40px;
-  /* Outlined button container shape */
-  --md-comp-outlined-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Outlined button pressed state layer opacity */
-  --md-comp-outlined-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Outlined button with icon disabled icon opacity */
-  --md-comp-outlined-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Outlined button disabled label opacity */
-  --md-comp-outlined-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Outlined button disabled outline opacity */
-  --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
-}
-
 :is(.button,
 button).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
@@ -544,13 +480,6 @@ button).outlined {
   --md-comp-button-container-height: var(
     --md-comp-outlined-button-container-height
   );
-
-  /* BUG: Tokens breaking render */
-  /* border-radius: var(--md-comp-outlined-button-container-shape); */
-  /* line-height: var(--md-comp-outlined-button-label-text-line-height); */
-  /* letter-spacing: var(--md-comp-outlined-button-label-text-tracking); */
-  /* font-size: var(--md-comp-outlined-button-label-text-size); */
-  /* font-weight: var(--md-comp-outlined-button-label-text-weight); */
   /* font-family: var(--md-comp-outlined-button-label-text-font); */
   --state-hover-opacity: var(
     --md-comp-outlined-button-hover-state-layer-opacity
@@ -599,83 +528,10 @@ button).outlined[disabled] {
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(html),
-.tokens {
-  /* Elevated button focus container elevation */
-  --md-comp-elevated-button-focus-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Elevated button focus state layer opacity */
-  --md-comp-elevated-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Elevated button hover container elevation */
-  --md-comp-elevated-button-hover-container-elevation: var(
-    --md-sys-elevation-level2
-  );
-  /* Elevated button hover state layer opacity */
-  --md-comp-elevated-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Elevated button label tracking */
-  --md-comp-elevated-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Elevated button label weight */
-  --md-comp-elevated-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Elevated button label size */
-  --md-comp-elevated-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Elevated button label line height */
-  --md-comp-elevated-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Elevated button label font */
-  --md-comp-elevated-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Elevated button with icon icon size */
-  --md-comp-elevated-button-with-icon-icon-size: 18px;
-  /* Elevated button container elevation */
-  --md-comp-elevated-button-container-elevation: var(--md-sys-elevation-level1);
-  /* Elevated button container height */
-  --md-comp-elevated-button-container-height: 40px;
-  /* Elevated button container shape */
-  --md-comp-elevated-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Elevated button pressed container elevation */
-  --md-comp-elevated-button-pressed-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Elevated button pressed state layer opacity */
-  --md-comp-elevated-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Elevated button with icon disabled icon opacity */
-  --md-comp-elevated-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Elevated button disabled label opacity */
-  --md-comp-elevated-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Elevated button disabled container elevation */
-  --md-comp-elevated-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Elevated button disabled container opacity */
-  --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
-}
-
 :is(.button,
 button).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
-
-  /* BUG: Tokens breaking render */
-  /* border-radius: var(--md-comp-elevated-button-container-shape); */
-  /* line-height: var(--md-comp-elevated-button-label-text-line-height); */
-  /* letter-spacing: var(--md-comp-elevated-button-label-text-tracking); */
-  /* font-size: var(--md-comp-elevated-button-label-text-size); */
-  /* font-weight: var(--md-comp-elevated-button-label-text-weight); */
   /* font-family: var(--md-comp-elevated-button-label-text-font); */
   --state-hover-opacity: var(
     --md-comp-elevated-button-hover-state-layer-opacity

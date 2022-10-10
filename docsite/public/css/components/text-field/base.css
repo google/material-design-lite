@@ -14,7 +14,12 @@
  limitations under the License.
 */
 
-.text-field {
+:where(html),
+.tokens {
+  --md-sys-comp-text-field-caret-color: var(--md-sys-color-primary);
+}
+
+:is(.text-field) {
   -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
           text-decoration: var(--md-sys-typescale-body-large-text-decoration);
   text-transform: var(--md-sys-typescale-body-large-text-transform);

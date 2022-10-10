@@ -14,7 +14,12 @@
  limitations under the License.
 */
 
+:is(.navigation-drawer).modal {
+  display: none;
+}
+
 :is(.navigation-drawer).modal[open] {
+    display: flex;
     position: fixed;
     left: 8px;
     top: 8px;
@@ -23,17 +28,25 @@
     max-height: calc(100% - 16px);
     border: none;
     overflow-y: auto;
+    margin: 0;
   }
 
+:is(.navigation-drawer).modal[open] form {
+      display: flex;
+      flex-direction: row;
+    }
+
+:is(.navigation-drawer).modal[open] form button {
+        flex: 1;
+      }
+
 :is(.navigation-drawer).modal[open]::-webkit-backdrop {
-      /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
     }
 
 :is(.navigation-drawer).modal[open]::backdrop {
-      /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;

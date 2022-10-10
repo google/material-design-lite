@@ -16,14 +16,23 @@
 
 :where(html),
 .tokens {
-  /* Hover state layer opacity */
   --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
-  /* Focus state layer opacity */
   --md-sys-state-focus-state-layer-opacity: 0.11999999731779099;
-  /* Pressed state layer opacity */
   --md-sys-state-pressed-state-layer-opacity: 0.11999999731779099;
   /* Dragged state layer opacity */
   --md-sys-state-dragged-state-layer-opacity: 0.1599999964237213;
+  --md-sys-state-hover-color: rgb(
+    var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
+  );
+  --md-sys-state-active-color: rgb(
+    var(--md-sys-color-surface-tint-rgb) / var(--state-active-opacity)
+  );
+  --md-sys-state-focus-color: rgb(
+    var(--md-sys-color-surface-tint-rgb) / var(--state-focus-opacity)
+  );
+  --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);
+  --state-focus-opacity: var(--md-sys-state-focus-state-layer-opacity);
+  --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
 }
 
 .hover-state-layer {
@@ -44,20 +53,30 @@
 
 :where(.button,
 button,
-.icon,
-.chip) {
+.icon-button,
+.chip,
+.navigation-icon,
+.segmented-option),
+:where(.activatable,
+.navigation-drawer) :where(.list-tile,
+.table-row,
+tr),
+:where(.tabs) :where(labal,
+.tab) {
   --tint-color: transparent;
-  /* State colors */
-  --state-hover-opacity: var(--md-sys-state-hover-state-layer-opacity);
-  --state-focus-opacity: var(--md-sys-state-focus-state-layer-opacity);
-  --state-active-opacity: var(--md-sys-state-pressed-state-layer-opacity);
   position: relative;
 }
 
 :where(.button,
 button,
-.icon,
-.chip)::after {
+.icon-button,
+.chip,
+.navigation-icon,
+.segmented-option)::after, :where(.activatable,
+.navigation-drawer) :where(.list-tile,
+.table-row,
+tr)::after, :where(.tabs) :where(labal,
+.tab)::after {
     content: "";
     border-radius: inherit;
     position: absolute;
@@ -70,37 +89,67 @@ button,
 
 :where(.button,
 button,
-.icon,
-.chip):where(:hover,
+.icon-button,
+.chip,
+.navigation-icon,
+.segmented-option):where(:hover,
+.hover),
+:where(.activatable,
+.navigation-drawer) :where(.list-tile,
+.table-row,
+tr):where(:hover,
+.hover),
+:where(.tabs) :where(labal,
+.tab):where(:hover,
 .hover) {
-    --tint-color: rgb(
-      var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
-    );
+    --tint-color: var(--md-sys-state-hover-color);
   }
 
 :where(.button,
 button,
-.icon,
-.chip):where(:focus,
-.focus) {
-    --tint-color: rgb(
-      var(--md-sys-color-surface-tint-rgb) / var(--state-focus-opacity)
-    );
-  }
-
-:where(.button,
-button,
-.icon,
-.chip):where(:active,
+.icon-button,
+.chip,
+.navigation-icon,
+.segmented-option):where(:active,
+.active),
+:where(.activatable,
+.navigation-drawer) :where(.list-tile,
+.table-row,
+tr):where(:active,
+.active),
+:where(.tabs) :where(labal,
+.tab):where(:active,
 .active) {
-    --tint-color: rgb(
-      var(--md-sys-color-surface-tint-rgb) / var(--state-active-opacity)
-    );
+    --tint-color: var(--md-sys-state-active-color);
   }
 
 :where(.button,
 button,
-.icon,
-.chip)[disabled] {
+.icon-button,
+.chip,
+.navigation-icon,
+.segmented-option):where(:focus,
+.focus),
+:where(.activatable,
+.navigation-drawer) :where(.list-tile,
+.table-row,
+tr):where(:focus,
+.focus),
+:where(.tabs) :where(labal,
+.tab):where(:focus,
+.focus) {
+    --tint-color: var(--md-sys-state-focus-color);
+  }
+
+:where(.button,
+button,
+.icon-button,
+.chip,
+.navigation-icon,
+.segmented-option)[disabled], :where(.activatable,
+.navigation-drawer) :where(.list-tile,
+.table-row,
+tr)[disabled], :where(.tabs) :where(labal,
+.tab)[disabled] {
     --tint-color: transparent;
   }

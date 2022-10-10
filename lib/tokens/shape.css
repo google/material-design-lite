@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
   --md-sys-shape-corner-extra-small: 4px 4px 4px 4px;
   --md-sys-shape-corner-large: 16px 16px 16px 16px;

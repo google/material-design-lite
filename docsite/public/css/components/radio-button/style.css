@@ -14,8 +14,16 @@
  limitations under the License.
 */
 
-:where(.radio-button) {
-  accent-color: var(--md-sys-color-primary);
+:where(html),
+.tokens {
+  --md-sys-comp-radio-button-unselected-color: var(
+    --md-sys-color-on-surface-variant
+  );
+  --md-sys-comp-radio-button-selected-color: var(--md-sys-color-primary);
+}
+
+:is(.radio-button,
+[type="radio"]) {
   display: grid;
   place-content: center;
   position: relative;
@@ -23,10 +31,10 @@
   -moz-appearance: none;
        appearance: none;
   margin: 0;
-  background-color: var(--md-sys-color-surface);
 }
 
-:where(.radio-button)::before {
+:is(.radio-button,
+[type="radio"])::before {
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "liga";
     direction: ltr;
@@ -35,7 +43,6 @@
     text-transform: none;
     letter-spacing: normal;
     line-height: 1;
-    font-size: 24px;
     font-weight: normal;
     font-family: "Material Icons";
     font-size: 24px;
@@ -43,7 +50,8 @@
     color: var(--md-sys-color-on-surface-variant);
   }
 
-:where(.radio-button):checked::before {
+:is(.radio-button,
+[type="radio"]):checked::before {
     content: "radio_button_checked";
     color: var(--md-sys-color-primary);
   }

@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   --md-sys-comp-segmented-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-segmented-button-color: var(--md-sys-color-on-surface);
 }

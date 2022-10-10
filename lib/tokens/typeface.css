@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+:where(html), .tokens {
   /* Plain typeface */
   --md-ref-typeface-plain: Roboto;
   /* Brand typeface */

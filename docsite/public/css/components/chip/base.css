@@ -14,6 +14,13 @@
  limitations under the License.
 */
 
+*,
+.tokens {
+  --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-chip-color: var(--md-sys-color-primary);
+  --md-comp-chip-container-height: 32px;
+}
+
 :is(.chip) {
   display: flex;
   flex-direction: row;
@@ -38,6 +45,8 @@
   font-weight: var(--md-sys-typescale-label-large-weight);
   font-family: var(--md-sys-typescale-label-large-font);
   transition: box-shadow 0.2s ease-in-out;
+  background-color: var(--md-sys-comp-chip-background-color);
+  color: var(--md-sys-comp-chip-color);
 }
 
 :is(.chip) i {

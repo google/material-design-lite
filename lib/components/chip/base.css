@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-*,
-.tokens {
+*, .tokens {
   --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
   --md-sys-comp-chip-color: var(--md-sys-color-primary);
   --md-comp-chip-container-height: 32px;
@@ -38,7 +37,7 @@
   vertical-align: middle;
   @apply --label-large;
   transition: box-shadow 0.2s ease-in-out;
-  ackground-color: var(--md-sys-comp-chip-background-color);
+  background-color: var(--md-sys-comp-chip-background-color);
   color: var(--md-sys-comp-chip-color);
 
   & i {

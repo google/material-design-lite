@@ -14,16 +14,23 @@
  limitations under the License.
 */
 
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-bar-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-bar-color: var(--md-sys-color-on-surface);
+  --md-comp-navigation-bar-container-width: 100%;
+}
+
 :is(.navigation-bar) {
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
   position: relative;
   box-shadow: var(--md-sys-elevation-1);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-comp-navigation-bar-background-color);
+  color: var(--md-sys-comp-navigation-bar-color);
+  width: var(--md-comp-navigation-bar-container-width);
   box-sizing: border-box;
 }
 
@@ -37,6 +44,12 @@
     background-color: var(--md-sys-color-surface-1);
   }
 
+:is(.navigation-bar) .navigation-icon {
+    flex: 1;
+    padding-bottom: 16px;
+    padding-top: 12px;
+  }
+
 :is(.navigation-bar) input {
     opacity: 0;
     position: absolute;
@@ -44,39 +57,13 @@
     height: 0;
   }
 
-:is(.navigation-bar) input:checked + label i {
+:is(.navigation-bar) input:checked + .navigation-icon i {
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
     }
 
-:is(.navigation-bar) label {
-    flex: 1;
-    padding-bottom: 16px;
-    padding-top: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    visibility: visible;
-    z-index: 1;
-    gap: 4px;
-    -webkit-text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
-            text-decoration: var(--md-sys-typescale-label-medium-text-decoration);
-    text-transform: var(--md-sys-typescale-label-medium-text-transform);
-    line-height: var(--md-sys-typescale-label-medium-line-height);
-    letter-spacing: var(--md-sys-typescale-label-medium-tracking);
-    font-size: var(--md-sys-typescale-label-medium-size);
-    font-weight: var(--md-sys-typescale-label-medium-weight);
-    font-family: var(--md-sys-typescale-label-medium-font);
-  }
-
-:is(.navigation-bar) i {
-    font-size: 24px;
-    width: 64px;
-    height: 32px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+:is(.navigation-bar) input:focus-visible + .navigation-icon {
+      outline: var(--md-sys-comp-focus-ring-width) solid
+        var(--md-sys-comp-focus-ring-color);
+      outline-offset: 5px;
+    }

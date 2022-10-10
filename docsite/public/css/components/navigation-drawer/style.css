@@ -14,18 +14,37 @@
  limitations under the License.
 */
 
-:is(.navigation-drawer) {
-  width: 360px;
-  height: 100%;
-  padding: 12px;
-  border-radius: 16px;
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface-variant);
-  box-sizing: border-box;
-  position: relative;
+:where(html),
+.tokens {
+  --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-navigation-drawer-container-height: 100%;
+  --md-comp-navigation-drawer-container-width: 360px;
 }
 
-:is(.navigation-drawer) .drawer-title {
+:where(.navigation-drawer) {
+  padding: 12px;
+  border-radius: 16px;
+  background-color: var(--md-sys-comp-navigation-drawer-background-color);
+  color: var(--md-sys-comp-navigation-drawer-color);
+  width: var(--md-comp-navigation-drawer-container-width);
+  height: var(--md-comp-navigation-drawer-container-height);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+:where(.navigation-drawer) .drawer-spacer {
+    flex: 1;
+  }
+
+:where(.navigation-drawer) .drawer-scrollable {
+    overflow-y: auto;
+    flex: 1;
+  }
+
+:where(.navigation-drawer) .drawer-title {
     -webkit-text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
             text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
     text-transform: var(--md-sys-typescale-title-medium-text-transform);
@@ -35,9 +54,10 @@
     font-weight: var(--md-sys-typescale-title-medium-weight);
     font-family: var(--md-sys-typescale-title-medium-font);
     padding: 16px 18px;
+    width: 100%;
   }
 
-:is(.navigation-drawer) .section-header {
+:where(.navigation-drawer) .section-header {
     -webkit-text-decoration: var(--md-sys-typescale-title-small-text-decoration);
             text-decoration: var(--md-sys-typescale-title-small-text-decoration);
     text-transform: var(--md-sys-typescale-title-small-text-transform);
@@ -49,35 +69,45 @@
     padding: 16px 18px;
   }
 
-:is(.navigation-drawer) .divider {
+:where(.navigation-drawer) .divider {
     margin-top: 2px;
     margin-bottom: 2px;
   }
 
-:is(.navigation-drawer) section {
+:where(.navigation-drawer) :where(section,
+.drawer-section) {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
-:is(.navigation-drawer) section .section-header {
+:where(.navigation-drawer) :where(section,
+.drawer-section) .section-header {
       padding: 16px 18px;
     }
 
-:is(.navigation-drawer) section .list-tile {
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile {
       position: relative;
     }
 
-:is(.navigation-drawer) section .list-tile:where([selected],
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile:where([selected],
+[checked],
 [data-selected]) {
         color: var(--md-sys-color-on-secondary-container);
       }
 
-:is(.navigation-drawer) section .list-tile:where([selected],
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile:where([selected],
+[checked],
 [data-selected]) * {
           z-index: 1;
         }
 
-:is(.navigation-drawer) section .list-tile:where([selected],
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile:where([selected],
+[checked],
 [data-selected])::before {
           content: "";
           position: absolute;
@@ -90,7 +120,12 @@
           color: var(--md-sys-color-on-secondary-container);
         }
 
+:is(.navigation-drawer).modal {
+  display: none;
+}
+
 :is(.navigation-drawer).modal[open] {
+    display: flex;
     position: fixed;
     left: 8px;
     top: 8px;
@@ -99,17 +134,25 @@
     max-height: calc(100% - 16px);
     border: none;
     overflow-y: auto;
+    margin: 0;
   }
 
+:is(.navigation-drawer).modal[open] form {
+      display: flex;
+      flex-direction: row;
+    }
+
+:is(.navigation-drawer).modal[open] form button {
+        flex: 1;
+      }
+
 :is(.navigation-drawer).modal[open]::-webkit-backdrop {
-      /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
     }
 
 :is(.navigation-drawer).modal[open]::backdrop {
-      /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;

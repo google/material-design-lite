@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:root {
+:is(html), .tokens {
   /* Scrim */
   --md-sys-color-scrim: var(--md-ref-palette-neutral0);
   --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
