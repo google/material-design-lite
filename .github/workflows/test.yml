@@ -14,10 +14,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set Node.js 16
+      - name: Set Node.js 17
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 17
         
       - uses: microsoft/playwright-github-action@v1
       - name: Test
