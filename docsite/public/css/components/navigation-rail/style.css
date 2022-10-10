@@ -50,7 +50,8 @@
 
 :is(.navigation-rail) :where(.button,
 button):not(.icon-button,
-.fab) {
+.fab,
+.chip) {
     background-color: var(--md-sys-color-tertiary-container);
     color: var(--md-sys-color-on-tertiary-container);
     box-shadow: var(--md-sys-elevation-0);
@@ -59,13 +60,15 @@ button):not(.icon-button,
 
 :is(.navigation-rail) :where(.button,
 button):not(.icon-button,
-.fab):hover {
+.fab,
+.chip):hover {
       box-shadow: var(--md-sys-elevation-2);
     }
 
 :is(.navigation-rail) :where(.button,
 button):not(.icon-button,
-.fab):active {
+.fab,
+.chip):active {
       box-shadow: var(--md-sys-elevation-1);
     }
 
@@ -92,7 +95,8 @@ button):not(.icon-button,
     }
 
 :is(.navigation-rail) :is(nav,
-.navigation-rail-destinations) input:checked + .navigation-icon i {
+.navigation-rail-destinations) input:checked + .navigation-icon :where(i,
+.material-icons) {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }

@@ -79,13 +79,14 @@
 }
 
 :is(.chip) {
+  /* Remove default button styles */
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
-  border-radius: 8px;
+  justify-content: center;
   border: none;
-  outline: none;
+  position: relative;
   padding: 8px 16px;
   height: 32px;
   gap: 8px;
@@ -104,37 +105,39 @@
   transition: box-shadow 0.2s ease-in-out;
   background-color: var(--md-sys-comp-chip-background-color);
   color: var(--md-sys-comp-chip-color);
+  border-radius: var(--md-sys-shape-corner-small);
+  box-shadow: var(--md-sys-elevation-1);
 }
 
-:is(.chip) :where(i,
+:is(.chip) :is(i,
 .material-icons) {
     color: var(--md-sys-color-primary);
     font-size: 18px;
   }
 
-:is(.chip) :where(i,
+:is(.chip) :is(i,
 .material-icons):first-child {
       margin-left: -8px;
     }
 
-:is(.chip) :where(i,
+:is(.chip) :is(i,
 .material-icons):last-child {
       margin-right: -8px;
     }
 
 :is(.chip):where(:hover,
 .hover) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
 :is(.chip):where(:active,
 .active) {
-    box-shadow: var(--md-sys-elevation-0);
+    box-shadow: var(--md-sys-elevation-1);
   }
 
 :is(.chip):where(:focus,
 .focus) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
 :is(.chip)[disabled] {
@@ -144,12 +147,18 @@
     box-shadow: var(--md-sys-elevation-0);
   }
 
+:is(.chip)[disabled] :where(i,
+.material-icons) {
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
+
 :is(.chip).assist {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   border: 1px solid var(--md-sys-color-outline);
   height: var(--md-comp-assist-chip-container-height);
   border-radius: var(--md-comp-assist-chip-container-shape);
+  box-shadow: var(--md-sys-elevation-0);
   /* font-family: var(--md-comp-assist-chip-label-text-font); */
   --state-hover-opacity: var(--md-comp-assist-chip-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-assist-chip-focus-state-layer-opacity);

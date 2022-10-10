@@ -68,7 +68,8 @@
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal {
+.fab,
+.chip).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -99,28 +100,32 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal:where(:hover,
+.fab,
+.chip).filled-tonal:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal:where(:focus,
+.fab,
+.chip).filled-tonal:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal:where(:active,
+.fab,
+.chip).filled-tonal:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal[disabled] {
+.fab,
+.chip).filled-tonal[disabled] {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);

@@ -53,7 +53,8 @@
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined {
+.fab,
+.chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -83,35 +84,40 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined :where(i,
+.fab,
+.chip).outlined :where(i,
 .material-icons) {
     margin-left: -9px;
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined:where(:hover,
+.fab,
+.chip).outlined:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined:where(:active,
+.fab,
+.chip).outlined:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined:where(:focus,
+.fab,
+.chip).outlined:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined[disabled] {
+.fab,
+.chip).outlined[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);

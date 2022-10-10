@@ -55,7 +55,8 @@ footer) :where(.icon-button) {
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab) {
+.fab,
+.chip) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
@@ -65,20 +66,23 @@ button):not(.icon-button,
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab):hover {
+.fab,
+.chip):hover {
       box-shadow: var(--md-sys-elevation-1);
     }
 
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab):focus {
+.fab,
+.chip):focus {
       box-shadow: var(--md-sys-elevation-0);
     }
 
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab):active {
+.fab,
+.chip):active {
       box-shadow: var(--md-sys-elevation-0);
     }

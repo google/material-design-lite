@@ -14,12 +14,12 @@
  limitations under the License.
 */
 
-:where(.fab).secondary {
+:is(.fab).secondary {
   background-color: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
 }
 
-:where(.fab).secondary[disabled] {
+:is(.fab).secondary[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }

@@ -64,7 +64,8 @@
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated {
+.fab,
+.chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
   /* font-family: var(--md-comp-elevated-button-label-text-font); */
@@ -87,35 +88,40 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated :where(i,
+.fab,
+.chip).elevated :where(i,
 .material-icons) {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated:where(:hover,
+.fab,
+.chip).elevated:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated:where(:active,
+.fab,
+.chip).elevated:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated:where(:focus,
+.fab,
+.chip).elevated:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated[disabled] {
+.fab,
+.chip).elevated[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /

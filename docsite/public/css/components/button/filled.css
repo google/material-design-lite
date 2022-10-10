@@ -70,7 +70,8 @@
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled {
+.fab,
+.chip).filled {
   box-shadow: var(--md-sys-elevation-0);
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);
   --md-sys-comp-button-color: var(--md-sys-color-on-primary);
@@ -93,28 +94,32 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled:where(:hover,
+.fab,
+.chip).filled:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled:where(:active,
+.fab,
+.chip).filled:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled:where(:focus,
+.fab,
+.chip).filled:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled[disabled] {
+.fab,
+.chip).filled[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);

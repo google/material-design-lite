@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(.fab).small {
+:is(.fab).small {
   padding: 16px;
   font-size: 24px;
   border-radius: 12px;
@@ -22,7 +22,7 @@
   height: 40px;
 }
 
-:where(.fab).small :where(i,
+:is(.fab).small :where(i,
 .material-icons) {
     font-size: 24px;
   }

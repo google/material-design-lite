@@ -394,6 +394,7 @@
   --md-sys-comp-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
+  --md-comp-button-container-shape: 20px;
   --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);
   --md-comp-text-button-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
@@ -2119,22 +2120,29 @@ p) {
 
 :where(.button,
 button):not(.icon-button,
-.fab) {
+.fab,
+.chip) {
   --state-disabled-opacity: 0.3799999952316284;
+  --_bg-color: var(--md-sys-comp-button-background-color);
+  --_fg-color: var(--md-sys-comp-button-color);
+  --_height: var(--md-comp-button-container-height);
+  --_shape: var(--md-comp-button-container-shape);
+  
+  /* Remove default button styles */
   -webkit-tap-highlight-color: transparent;
-  background-color: var(--md-sys-comp-button-background-color);
-  color: var(--md-sys-comp-button-color);
-  padding: 0 24px;
-  border-radius: 20px;
-  border: none;
-  height: 40px;
-  box-sizing: border-box;
-  position: relative;
-  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: var(--_bg-color);
+  color: var(--_fg-color);
+  height: var(--_height);
+  padding: 0 24px;
+  border-radius: var(--_shape);
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
   gap: 8px;
   white-space: nowrap;
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
@@ -2151,21 +2159,15 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab)[label] {
+.fab,
+.chip)[label] {
     content: attr(label);
-    -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
-            text-decoration: var(--md-sys-typescale-label-large-text-decoration);
-    text-transform: var(--md-sys-typescale-label-large-text-transform);
-    line-height: var(--md-sys-typescale-label-large-line-height);
-    letter-spacing: var(--md-sys-typescale-label-large-tracking);
-    font-size: var(--md-sys-typescale-label-large-size);
-    font-weight: var(--md-sys-typescale-label-large-weight);
-    font-family: var(--md-sys-typescale-label-large-font);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab) :where(i,
+.fab,
+.chip) :where(i,
 .material-icons) {
     margin-left: -8px;
     font-size: 18px;
@@ -2173,7 +2175,8 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab) :where(i,
+.fab,
+.chip) :where(i,
 .material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
@@ -2181,46 +2184,53 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab) a {
+.fab,
+.chip) a {
     text-decoration: none;
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab) a:hover {
+.fab,
+.chip) a:hover {
       text-decoration: none;
     }
 
 :where(.button,
 button):not(.icon-button,
-.fab) a:focus {
+.fab,
+.chip) a:focus {
       text-decoration: none;
     }
 
 :where(.button,
 button):not(.icon-button,
-.fab):where(:hover,
+.fab,
+.chip):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab):where(:active,
+.fab,
+.chip):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab):where(:focus,
+.fab,
+.chip):where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab)[disabled] {
+.fab,
+.chip)[disabled] {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2229,7 +2239,8 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).text {
+.fab,
+.chip).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
   --md-sys-comp-button-background-color: transparent;
@@ -2253,35 +2264,40 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).text:where(:hover,
+.fab,
+.chip).text:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).text:where(:active,
+.fab,
+.chip).text:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).text:where(:focus,
+.fab,
+.chip).text:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).text[disabled] {
+.fab,
+.chip).text[disabled] {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled {
+.fab,
+.chip).filled {
   box-shadow: var(--md-sys-elevation-0);
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);
   --md-sys-comp-button-color: var(--md-sys-color-on-primary);
@@ -2304,28 +2320,32 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled:where(:hover,
+.fab,
+.chip).filled:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled:where(:active,
+.fab,
+.chip).filled:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled:where(:focus,
+.fab,
+.chip).filled:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled[disabled] {
+.fab,
+.chip).filled[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2333,7 +2353,8 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal {
+.fab,
+.chip).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -2364,28 +2385,32 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal:where(:hover,
+.fab,
+.chip).filled-tonal:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal:where(:focus,
+.fab,
+.chip).filled-tonal:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal:where(:active,
+.fab,
+.chip).filled-tonal:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).filled-tonal[disabled] {
+.fab,
+.chip).filled-tonal[disabled] {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2394,7 +2419,8 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined {
+.fab,
+.chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -2424,35 +2450,40 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined :where(i,
+.fab,
+.chip).outlined :where(i,
 .material-icons) {
     margin-left: -9px;
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined:where(:hover,
+.fab,
+.chip).outlined:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined:where(:active,
+.fab,
+.chip).outlined:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined:where(:focus,
+.fab,
+.chip).outlined:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).outlined[disabled] {
+.fab,
+.chip).outlined[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2460,7 +2491,8 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated {
+.fab,
+.chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
   /* font-family: var(--md-comp-elevated-button-label-text-font); */
@@ -2483,35 +2515,40 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated :where(i,
+.fab,
+.chip).elevated :where(i,
 .material-icons) {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated:where(:hover,
+.fab,
+.chip).elevated:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated:where(:active,
+.fab,
+.chip).elevated:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated:where(:focus,
+.fab,
+.chip).elevated:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab).elevated[disabled] {
+.fab,
+.chip).elevated[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /
@@ -2844,13 +2881,14 @@ button):not(.icon-button,
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:where(.fab) {
+:is(.fab) {
   /* Remove default button styles */
-  border: none;
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: none;
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
@@ -2862,34 +2900,34 @@ button):not(.icon-button,
   box-shadow: var(--md-sys-elevation-1);
 }
 
-:where(.fab) :where(i,
+:is(.fab) :where(i,
 .material-icons) {
     font-size: 24px;
     margin-left: 0;
   }
 
-:where(.fab):where(:hover,
+:is(.fab):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-4);
   }
 
-:where(.fab):where(:active,
+:is(.fab):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:where(.fab):where(:focus,
+:is(.fab):where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-3);
   }
 
-:where(.fab)[disabled] {
+:is(.fab)[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.fab).small {
+:is(.fab).small {
   padding: 16px;
   font-size: 24px;
   border-radius: 12px;
@@ -2897,12 +2935,12 @@ button):not(.icon-button,
   height: 40px;
 }
 
-:where(.fab).small :where(i,
+:is(.fab).small :where(i,
 .material-icons) {
     font-size: 24px;
   }
 
-:where(.fab).large {
+:is(.fab).large {
   padding: 16px;
   font-size: 36px;
   border-radius: var(--md-sys-shape-corner-medium);
@@ -2910,50 +2948,50 @@ button):not(.icon-button,
   height: 96px;
 }
 
-:where(.fab).large :where(i,
+:is(.fab).large :where(i,
 .material-icons) {
     font-size: 36px;
   }
 
-:where(.fab).extended {
+:is(.fab).extended {
   border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;
   width: unset;
 }
 
-:where(.fab).extended :where(i,
+:is(.fab).extended :where(i,
 .material-icons) {
     font-size: 24px;
     margin-right: 8px;
   }
 
-:where(.fab).surface {
+:is(.fab).surface {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 }
 
-:where(.fab).surface[disabled] {
+:is(.fab).surface[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.fab).secondary {
+:is(.fab).secondary {
   background-color: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
 }
 
-:where(.fab).secondary[disabled] {
+:is(.fab).secondary[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.fab).tertiary {
+:is(.fab).tertiary {
   background-color: var(--md-sys-color-tertiary);
   color: var(--md-sys-color-on-tertiary);
 }
 
-:where(.fab).tertiary[disabled] {
+:is(.fab).tertiary[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
@@ -3026,13 +3064,14 @@ button):not(.icon-button,
 }
 
 :is(.chip) {
+  /* Remove default button styles */
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
-  border-radius: 8px;
+  justify-content: center;
   border: none;
-  outline: none;
+  position: relative;
   padding: 8px 16px;
   height: 32px;
   gap: 8px;
@@ -3051,37 +3090,39 @@ button):not(.icon-button,
   transition: box-shadow 0.2s ease-in-out;
   background-color: var(--md-sys-comp-chip-background-color);
   color: var(--md-sys-comp-chip-color);
+  border-radius: var(--md-sys-shape-corner-small);
+  box-shadow: var(--md-sys-elevation-1);
 }
 
-:is(.chip) :where(i,
+:is(.chip) :is(i,
 .material-icons) {
     color: var(--md-sys-color-primary);
     font-size: 18px;
   }
 
-:is(.chip) :where(i,
+:is(.chip) :is(i,
 .material-icons):first-child {
       margin-left: -8px;
     }
 
-:is(.chip) :where(i,
+:is(.chip) :is(i,
 .material-icons):last-child {
       margin-right: -8px;
     }
 
 :is(.chip):where(:hover,
 .hover) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
 :is(.chip):where(:active,
 .active) {
-    box-shadow: var(--md-sys-elevation-0);
+    box-shadow: var(--md-sys-elevation-1);
   }
 
 :is(.chip):where(:focus,
 .focus) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
 :is(.chip)[disabled] {
@@ -3091,12 +3132,18 @@ button):not(.icon-button,
     box-shadow: var(--md-sys-elevation-0);
   }
 
+:is(.chip)[disabled] :where(i,
+.material-icons) {
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
+
 :is(.chip).assist {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   border: 1px solid var(--md-sys-color-outline);
   height: var(--md-comp-assist-chip-container-height);
   border-radius: var(--md-comp-assist-chip-container-shape);
+  box-shadow: var(--md-sys-elevation-0);
   /* font-family: var(--md-comp-assist-chip-label-text-font); */
   --state-hover-opacity: var(--md-comp-assist-chip-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-assist-chip-focus-state-layer-opacity);
@@ -4366,7 +4413,8 @@ footer) :where(.icon-button) {
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab) {
+.fab,
+.chip) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
@@ -4376,21 +4424,24 @@ button):not(.icon-button,
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab):hover {
+.fab,
+.chip):hover {
       box-shadow: var(--md-sys-elevation-1);
     }
 
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab):focus {
+.fab,
+.chip):focus {
       box-shadow: var(--md-sys-elevation-0);
     }
 
 :is(.bottom-app-bar,
 footer) :where(.button,
 button):not(.icon-button,
-.fab):active {
+.fab,
+.chip):active {
       box-shadow: var(--md-sys-elevation-0);
     }
 
@@ -4853,7 +4904,8 @@ dialog):not(.navigation-drawer).modal::backdrop {
 
 :is(.navigation-rail) :where(.button,
 button):not(.icon-button,
-.fab) {
+.fab,
+.chip) {
     background-color: var(--md-sys-color-tertiary-container);
     color: var(--md-sys-color-on-tertiary-container);
     box-shadow: var(--md-sys-elevation-0);
@@ -4862,13 +4914,15 @@ button):not(.icon-button,
 
 :is(.navigation-rail) :where(.button,
 button):not(.icon-button,
-.fab):hover {
+.fab,
+.chip):hover {
       box-shadow: var(--md-sys-elevation-2);
     }
 
 :is(.navigation-rail) :where(.button,
 button):not(.icon-button,
-.fab):active {
+.fab,
+.chip):active {
       box-shadow: var(--md-sys-elevation-1);
     }
 
@@ -4895,7 +4949,8 @@ button):not(.icon-button,
     }
 
 :is(.navigation-rail) :is(nav,
-.navigation-rail-destinations) input:checked + .navigation-icon i {
+.navigation-rail-destinations) input:checked + .navigation-icon :where(i,
+.material-icons) {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }

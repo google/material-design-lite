@@ -21,13 +21,14 @@
   --md-comp-fab-container-size: 56px;
 }
 
-:where(.fab) {
+:is(.fab) {
   /* Remove default button styles */
-  border: none;
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: none;
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
@@ -39,34 +40,34 @@
   box-shadow: var(--md-sys-elevation-1);
 }
 
-:where(.fab) :where(i,
+:is(.fab) :where(i,
 .material-icons) {
     font-size: 24px;
     margin-left: 0;
   }
 
-:where(.fab):where(:hover,
+:is(.fab):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-4);
   }
 
-:where(.fab):where(:active,
+:is(.fab):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:where(.fab):where(:focus,
+:is(.fab):where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-3);
   }
 
-:where(.fab)[disabled] {
+:is(.fab)[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.fab).small {
+:is(.fab).small {
   padding: 16px;
   font-size: 24px;
   border-radius: 12px;
@@ -74,12 +75,12 @@
   height: 40px;
 }
 
-:where(.fab).small :where(i,
+:is(.fab).small :where(i,
 .material-icons) {
     font-size: 24px;
   }
 
-:where(.fab).large {
+:is(.fab).large {
   padding: 16px;
   font-size: 36px;
   border-radius: var(--md-sys-shape-corner-medium);
@@ -87,50 +88,50 @@
   height: 96px;
 }
 
-:where(.fab).large :where(i,
+:is(.fab).large :where(i,
 .material-icons) {
     font-size: 36px;
   }
 
-:where(.fab).extended {
+:is(.fab).extended {
   border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;
   width: unset;
 }
 
-:where(.fab).extended :where(i,
+:is(.fab).extended :where(i,
 .material-icons) {
     font-size: 24px;
     margin-right: 8px;
   }
 
-:where(.fab).surface {
+:is(.fab).surface {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 }
 
-:where(.fab).surface[disabled] {
+:is(.fab).surface[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.fab).secondary {
+:is(.fab).secondary {
   background-color: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
 }
 
-:where(.fab).secondary[disabled] {
+:is(.fab).secondary[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:where(.fab).tertiary {
+:is(.fab).tertiary {
   background-color: var(--md-sys-color-tertiary);
   color: var(--md-sys-color-on-tertiary);
 }
 
-:where(.fab).tertiary[disabled] {
+:is(.fab).tertiary[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }

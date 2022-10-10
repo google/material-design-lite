@@ -19,26 +19,34 @@
   --md-sys-comp-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
+  --md-comp-button-container-shape: 20px;
 }
 
 :where(.button,
 button):not(.icon-button,
-.fab) {
+.fab,
+.chip) {
   --state-disabled-opacity: 0.3799999952316284;
+  --_bg-color: var(--md-sys-comp-button-background-color);
+  --_fg-color: var(--md-sys-comp-button-color);
+  --_height: var(--md-comp-button-container-height);
+  --_shape: var(--md-comp-button-container-shape);
+  
+  /* Remove default button styles */
   -webkit-tap-highlight-color: transparent;
-  background-color: var(--md-sys-comp-button-background-color);
-  color: var(--md-sys-comp-button-color);
-  padding: 0 24px;
-  border-radius: 20px;
-  border: none;
-  height: 40px;
-  box-sizing: border-box;
-  position: relative;
-  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: var(--_bg-color);
+  color: var(--_fg-color);
+  height: var(--_height);
+  padding: 0 24px;
+  border-radius: var(--_shape);
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
   gap: 8px;
   white-space: nowrap;
   -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
@@ -55,21 +63,15 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab)[label] {
+.fab,
+.chip)[label] {
     content: attr(label);
-    -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
-            text-decoration: var(--md-sys-typescale-label-large-text-decoration);
-    text-transform: var(--md-sys-typescale-label-large-text-transform);
-    line-height: var(--md-sys-typescale-label-large-line-height);
-    letter-spacing: var(--md-sys-typescale-label-large-tracking);
-    font-size: var(--md-sys-typescale-label-large-size);
-    font-weight: var(--md-sys-typescale-label-large-weight);
-    font-family: var(--md-sys-typescale-label-large-font);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab) :where(i,
+.fab,
+.chip) :where(i,
 .material-icons) {
     margin-left: -8px;
     font-size: 18px;
@@ -77,7 +79,8 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab) :where(i,
+.fab,
+.chip) :where(i,
 .material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
@@ -85,46 +88,53 @@ button):not(.icon-button,
 
 :where(.button,
 button):not(.icon-button,
-.fab) a {
+.fab,
+.chip) a {
     text-decoration: none;
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab) a:hover {
+.fab,
+.chip) a:hover {
       text-decoration: none;
     }
 
 :where(.button,
 button):not(.icon-button,
-.fab) a:focus {
+.fab,
+.chip) a:focus {
       text-decoration: none;
     }
 
 :where(.button,
 button):not(.icon-button,
-.fab):where(:hover,
+.fab,
+.chip):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab):where(:active,
+.fab,
+.chip):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab):where(:focus,
+.fab,
+.chip):where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
 :where(.button,
 button):not(.icon-button,
-.fab)[disabled] {
+.fab,
+.chip)[disabled] {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);

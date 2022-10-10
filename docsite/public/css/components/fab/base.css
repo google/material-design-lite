@@ -21,13 +21,14 @@
   --md-comp-fab-container-size: 56px;
 }
 
-:where(.fab) {
+:is(.fab) {
   /* Remove default button styles */
-  border: none;
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: none;
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
@@ -39,28 +40,28 @@
   box-shadow: var(--md-sys-elevation-1);
 }
 
-:where(.fab) :where(i,
+:is(.fab) :where(i,
 .material-icons) {
     font-size: 24px;
     margin-left: 0;
   }
 
-:where(.fab):where(:hover,
+:is(.fab):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-4);
   }
 
-:where(.fab):where(:active,
+:is(.fab):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:where(.fab):where(:focus,
+:is(.fab):where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-3);
   }
 
-:where(.fab)[disabled] {
+:is(.fab)[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
