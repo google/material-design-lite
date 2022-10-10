@@ -23,11 +23,12 @@
 
 :is(.fab) {
   /* Remove default button styles */
-  border: none;
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: none;
 
   padding: 16px;
   font-size: 24px;

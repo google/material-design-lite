@@ -22,13 +22,16 @@
 }
 
 :is(.chip) {
+  /* Remove default button styles */
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  border: none;
+
   position: relative;
   border-radius: 8px;
-  border: none;
-  outline: none;
   padding: 8px 16px;
   height: 32px;
   gap: 8px;
@@ -41,7 +44,7 @@
   background-color: var(--md-sys-comp-chip-background-color);
   color: var(--md-sys-comp-chip-color);
   border-radius: var(--md-sys-shape-corner-small);
-   box-shadow: var(--md-sys-elevation-1);
+  box-shadow: var(--md-sys-elevation-1);
 
   & :is(i, .material-icons) {
     color: var(--md-sys-color-primary);
