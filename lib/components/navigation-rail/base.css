@@ -46,7 +46,7 @@
     background-color: var(--md-sys-color-surface-1);
   }
 
-  & :where(.button, button):not(.icon-button, .fab, .chip) {
+  & :where(.fab) {
     background-color: var(--md-sys-color-tertiary-container);
     color: var(--md-sys-color-on-tertiary-container);
     box-shadow: var(--md-sys-elevation-0);
