@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/outlined-button.css);
 
-:is(.button, button).outlined {
+:where(.button, button):not(.icon-button, .fab, .chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -52,7 +52,7 @@
     --md-comp-outlined-button-disabled-outline-opacity
   );
 
-  & i {
+  & :where(i, .material-icons)  {
     margin-left: -9px;
   }
 

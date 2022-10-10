@@ -14,18 +14,18 @@
  limitations under the License.
 */
 
-:is(.icon-button).toggle {
+:where(.icon-button).toggle {
   background-color: transparent;
   color: var(--md-sys-color-on-surface-variant);
 }
 
-:is(.icon-button).toggle:where(input[type="checkbox"]) {
+:where(.icon-button).toggle:where(input[type="checkbox"]) {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
   }
 
-:is(.icon-button).toggle:where(input[type="checkbox"])::after {
+:where(.icon-button).toggle:where(input[type="checkbox"])::after {
       -webkit-font-smoothing: antialiased;
       font-feature-settings: "liga";
       direction: ltr;
@@ -43,25 +43,25 @@
       justify-content: center;
     }
 
-:is(.icon-button).toggle:where(input[type="checkbox"])[icon]::after {
+:where(.icon-button).toggle:where(input[type="checkbox"])[icon]::after {
         content: attr(icon);
       }
 
-:is(.icon-button).toggle:where(input[type="checkbox"])[off-icon]::after {
+:where(.icon-button).toggle:where(input[type="checkbox"])[off-icon]::after {
         content: attr(off-icon);
       }
 
-:is(.icon-button).toggle:where(input[type="checkbox"]):checked[on-icon]::after {
+:where(.icon-button).toggle:where(input[type="checkbox"]):checked[on-icon]::after {
           content: attr(on-icon);
         }
 
-:is(.icon-button).toggle:where([selected],
+:where(.icon-button).toggle:where([selected],
 [checked],
 :checked,
 .checked) {
     color: var(--md-sys-color-primary);
   }
 
-:is(.icon-button).toggle[disabled] {
+:where(.icon-button).toggle[disabled] {
     box-shadow: var(--md-sys-elevation-0);
   }

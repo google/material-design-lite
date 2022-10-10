@@ -20,7 +20,8 @@
   border-radius: var(--md-sys-shape-corner-medium);
   width: 96px;
   height: 96px;
-  & > i {
+
+  & :where(i, .material-icons)  {
     font-size: 36px;
   }
 }

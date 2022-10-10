@@ -41,7 +41,7 @@
   --md-comp-icon-button-disabled-icon-opacity: 0.3799999952316284;
 }
 
-:is(.icon-button) {
+:where(.icon-button) {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -79,7 +79,7 @@
   );
 }
 
-:is(.icon-button):where([selected],
+:where(.icon-button):where([selected],
 [checked],
 :checked) {
     color: var(--md-sys-color-primary);
@@ -94,7 +94,7 @@
     );
   }
 
-:is(.icon-button)[disabled] {
+:where(.icon-button)[disabled] {
     cursor: default;
     color: rgb(
       var(--md-sys-color-on-surface-rgb) /
@@ -102,12 +102,14 @@
     );
   }
 
-:is(.icon-button) i {
+:where(.icon-button) :where(i,
+.material-icons) {
     font-size: var(--md-comp-icon-button-icon-size);
     vertical-align: middle;
   }
 
-:is(.icon-button) i:only-child {
+:where(.icon-button) :where(i,
+.material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
     }

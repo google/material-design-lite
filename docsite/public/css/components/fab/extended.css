@@ -14,14 +14,15 @@
  limitations under the License.
 */
 
-:is(.fab).extended {
+:where(.fab).extended {
   border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;
   width: unset;
 }
 
-:is(.fab).extended i {
+:where(.fab).extended :where(i,
+.material-icons) {
     font-size: 24px;
     margin-right: 8px;
   }

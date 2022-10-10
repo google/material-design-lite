@@ -1,0 +1,52 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-comp-outlined-card-disabled-outline-opacity: 0.11999999731779099;
+  --md-comp-outlined-card-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-outlined-card-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-outlined-card-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-outlined-card-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-outlined-card-icon-size: 24px;
+  --md-comp-outlined-card-outline-width: 1px;
+  --md-comp-outlined-card-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-outlined-card-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-outlined-card-container-shape: var(--md-sys-shape-corner-medium);
+  --md-comp-outlined-card-container-elevation: var(--md-sys-elevation-level0);
+  --md-comp-outlined-card-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  --md-comp-outlined-card-dragged-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+  /* Outlined card pressed state layer opacity */
+  --md-comp-outlined-card-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+}

@@ -28,7 +28,7 @@
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-1);
   text-align: start;
-  & img {
+  & :where(i, .material-icons) mg {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }

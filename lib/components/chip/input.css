@@ -18,12 +18,15 @@
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
   border: 1px solid var(--md-sys-color-outline);
-  & i:first-child {
+  
+  & :where(i, .material-icons) :first-child {
     margin-left: -9px;
   }
-  & i:last-child {
+  
+  & :where(i, .material-icons) :last-child {
     margin-right: -9px;
   }
+  
   &[disabled] {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);

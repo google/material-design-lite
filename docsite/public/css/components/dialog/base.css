@@ -46,7 +46,8 @@ dialog):not(.navigation-drawer)[open] {
   }
 
 :is(.dialog,
-dialog):not(.navigation-drawer)[open] i {
+dialog):not(.navigation-drawer)[open] :where(i,
+.material-icons) {
       pointer-events: none;
     }
 

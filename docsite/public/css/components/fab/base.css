@@ -21,7 +21,13 @@
   --md-comp-fab-container-size: 56px;
 }
 
-:is(.fab) {
+:where(.fab) {
+  /* Remove default button styles */
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
@@ -31,54 +37,30 @@
   background-color: var(--md-sys-comp-fab-background-color);
   color: var(--md-sys-comp-fab-color);
   box-shadow: var(--md-sys-elevation-1);
-  --tint-color: transparent;
 }
 
-:is(.fab)::after {
-    content: "";
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--tint-color);
-  }
-
-:is(.fab) i {
+:where(.fab) :where(i,
+.material-icons) {
     font-size: 24px;
     margin-left: 0;
   }
 
-:is(.fab):where(:hover,
+:where(.fab):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-4);
-    --tint-color: rgb(
-      var(--md-sys-color-on-primary-container-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
-    );
   }
 
-:is(.fab):where(:focus,
-.focus) {
-    box-shadow: var(--md-sys-elevation-3);
-    --tint-color: rgb(
-      var(--md-sys-color-on-primary-container-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
-  }
-
-:is(.fab):where(:active,
+:where(.fab):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-2);
-    --tint-color: rgb(
-      var(--md-sys-color-on-primary-container-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
   }
 
-:is(.fab)[disabled] {
-    --tint-color: transparent;
+:where(.fab):where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-3);
+  }
+
+:where(.fab)[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);

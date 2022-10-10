@@ -14,37 +14,13 @@
  limitations under the License.
 */
 
-:is(.fab).surface {
+:where(.fab).surface {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 }
 
-:is(.fab).surface:where(:hover,
-.hover) {
-    --tint-color: rgb(
-      var(--md-sys-color-on-surface-rgb) /
-        var(--md-sys-state-hover-state-layer-opacity)
-    );
-  }
-
-:is(.fab).surface:where(:focus,
-.focus) {
-    --tint-color: rgb(
-      var(--md-sys-color-on-surface-rgb) /
-        var(--md-sys-state-focus-state-layer-opacity)
-    );
-  }
-
-:is(.fab).surface:where(:active,
-.active) {
-    --tint-color: rgb(
-      var(--md-sys-color-on-surface-rgb) /
-        var(--md-sys-state-pressed-state-layer-opacity)
-    );
-  }
-
-:is(.fab).surface[disabled] {
-    --tint-color: transparent;
+:where(.fab).surface[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+

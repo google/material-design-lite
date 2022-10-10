@@ -1,0 +1,73 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-comp-snackbar-icon-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-snackbar-icon-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-snackbar-icon-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-snackbar-icon-size: 24px;
+  --md-comp-snackbar-with-two-lines-container-height: 68px;
+  --md-comp-snackbar-with-single-line-container-height: 48px;
+  --md-comp-snackbar-action-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-snackbar-action-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-snackbar-action-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-snackbar-action-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-snackbar-action-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-snackbar-action-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-snackbar-action-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-snackbar-action-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-snackbar-supporting-text-weight: var(
+    --md-sys-typescale-body-medium-weight
+  );
+  --md-comp-snackbar-supporting-text-tracking: var(
+    --md-sys-typescale-body-medium-tracking
+  );
+  --md-comp-snackbar-supporting-text-size: var(
+    --md-sys-typescale-body-medium-size
+  );
+  --md-comp-snackbar-supporting-text-line-height: var(
+    --md-sys-typescale-body-medium-line-height
+  );
+  --md-comp-snackbar-supporting-text-font: var(
+    --md-sys-typescale-body-medium-font
+  );
+  --md-comp-snackbar-container-shape: var(--md-sys-shape-corner-extra-small);
+  /* Snackbar container elevation */
+  --md-comp-snackbar-container-elevation: var(--md-sys-elevation-level3);
+}

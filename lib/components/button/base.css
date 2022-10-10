@@ -14,14 +14,16 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html),
+.tokens {
   --md-sys-comp-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
 }
 
-:is(.button, button) {
+:where(.button, button):not(.icon-button, .fab, .chip) {
   --state-disabled-opacity: 0.3799999952316284;
+  -webkit-tap-highlight-color: transparent;
 
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
@@ -50,7 +52,7 @@
     @apply --label-large;
   }
 
-  & i {
+  & :where(i, .material-icons) {
     margin-left: -8px;
     font-size: 18px;
 

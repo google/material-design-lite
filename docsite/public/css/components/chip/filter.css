@@ -47,11 +47,13 @@
     );
   }
 
-:is(.chip).filter i:first-child {
+:is(.chip).filter :where(i,
+.material-icons) :first-child {
     margin-left: -9px;
   }
 
-:is(.chip).filter i:last-child {
+:is(.chip).filter :where(i,
+.material-icons) :last-child {
     margin-right: -9px;
   }
 

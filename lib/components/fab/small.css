@@ -21,7 +21,7 @@
   width: 40px;
   height: 40px;
 
-  & i {
+  & :where(i, .material-icons)  {
     font-size: 24px;
   }
 }

@@ -51,8 +51,9 @@
   --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
 }
 
-:is(.button,
-button).outlined {
+:where(.button,
+button):not(.icon-button,
+.fab).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -80,31 +81,37 @@ button).outlined {
   );
 }
 
-:is(.button,
-button).outlined i {
+:where(.button,
+button):not(.icon-button,
+.fab).outlined :where(i,
+.material-icons) {
     margin-left: -9px;
   }
 
-:is(.button,
-button).outlined:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).outlined:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).outlined:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).outlined:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button,
-button).outlined:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).outlined:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).outlined[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).outlined[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);

@@ -21,9 +21,11 @@
   --md-comp-button-container-height: 40px;
 }
 
-:is(.button,
-button) {
+:where(.button,
+button):not(.icon-button,
+.fab) {
   --state-disabled-opacity: 0.3799999952316284;
+  -webkit-tap-highlight-color: transparent;
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
   padding: 0 24px;
@@ -51,8 +53,9 @@ button) {
   transition: box-shadow 0.2s ease-in-out;
 }
 
-:is(.button,
-button)[label] {
+:where(.button,
+button):not(.icon-button,
+.fab)[label] {
     content: attr(label);
     -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
             text-decoration: var(--md-sys-typescale-label-large-text-decoration);
@@ -64,53 +67,64 @@ button)[label] {
     font-family: var(--md-sys-typescale-label-large-font);
   }
 
-:is(.button,
-button) i {
+:where(.button,
+button):not(.icon-button,
+.fab) :where(i,
+.material-icons) {
     margin-left: -8px;
     font-size: 18px;
   }
 
-:is(.button,
-button) i:only-child {
+:where(.button,
+button):not(.icon-button,
+.fab) :where(i,
+.material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
     }
 
-:is(.button,
-button) a {
+:where(.button,
+button):not(.icon-button,
+.fab) a {
     text-decoration: none;
   }
 
-:is(.button,
-button) a:hover {
+:where(.button,
+button):not(.icon-button,
+.fab) a:hover {
       text-decoration: none;
     }
 
-:is(.button,
-button) a:focus {
+:where(.button,
+button):not(.icon-button,
+.fab) a:focus {
       text-decoration: none;
     }
 
-:is(.button,
-button):where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button):where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button):where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab):where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button)[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab)[disabled] {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);

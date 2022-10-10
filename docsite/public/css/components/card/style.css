@@ -31,7 +31,8 @@
   text-align: start;
 }
 
-:is(.card) img {
+:is(.card) :where(i,
+.material-icons) mg {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }

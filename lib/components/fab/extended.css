@@ -19,7 +19,8 @@
   height: 56px;
   font-size: 16px;
   width: unset;
-  & i {
+
+  & :where(i, .material-icons)  {
     font-size: 24px;
     margin-right: 8px;
   }

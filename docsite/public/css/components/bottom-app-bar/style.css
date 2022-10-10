@@ -53,7 +53,9 @@ footer) :where(.icon-button) {
   }
 
 :is(.bottom-app-bar,
-footer) :where(.fab) {
+footer) :where(.button,
+button):not(.icon-button,
+.fab) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
@@ -61,16 +63,22 @@ footer) :where(.fab) {
   }
 
 :is(.bottom-app-bar,
-footer) :where(.fab):hover {
+footer) :where(.button,
+button):not(.icon-button,
+.fab):hover {
       box-shadow: var(--md-sys-elevation-1);
     }
 
 :is(.bottom-app-bar,
-footer) :where(.fab):focus {
+footer) :where(.button,
+button):not(.icon-button,
+.fab):focus {
       box-shadow: var(--md-sys-elevation-0);
     }
 
 :is(.bottom-app-bar,
-footer) :where(.fab):active {
+footer) :where(.button,
+button):not(.icon-button,
+.fab):active {
       box-shadow: var(--md-sys-elevation-0);
     }

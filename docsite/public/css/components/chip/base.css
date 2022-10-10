@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-*,
+:where(html),
 .tokens {
   --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
   --md-sys-comp-chip-color: var(--md-sys-color-primary);
@@ -49,16 +49,19 @@
   color: var(--md-sys-comp-chip-color);
 }
 
-:is(.chip) i {
+:is(.chip) :where(i,
+.material-icons) {
     color: var(--md-sys-color-primary);
     font-size: 18px;
   }
 
-:is(.chip) i:first-child {
+:is(.chip) :where(i,
+.material-icons):first-child {
       margin-left: -8px;
     }
 
-:is(.chip) i:last-child {
+:is(.chip) :where(i,
+.material-icons):last-child {
       margin-right: -8px;
     }
 

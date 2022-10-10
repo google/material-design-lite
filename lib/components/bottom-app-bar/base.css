@@ -47,7 +47,7 @@
     color: inherit;
   }
 
-  & :where(.fab) {
+  & :where(.button, button):not(.icon-button, .fab, .chip) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);

@@ -1,7 +1,7 @@
 import postcssPresetEnv from "postcss-preset-env";
 import pluginImport from "postcss-import";
 import pluginNested from "postcss-nested";
-import pluginSimplify from "postcss-combine-duplicated-selectors";
+// import pluginSimplify from "postcss-combine-duplicated-selectors";
 import pluginHct from "postcss-color-hct";
 import pluginAutoprefixer from "autoprefixer";
 import pluginApply from "postcss-apply";
@@ -31,6 +31,6 @@ export default {
     pluginApply({ sets: CLASSES }),
     pluginHct(),
     pluginAutoprefixer(),
-    pluginSimplify({ removeDuplicatedProperties: true }),
+    // pluginSimplify({ removeDuplicatedProperties: true }),
   ],
 };

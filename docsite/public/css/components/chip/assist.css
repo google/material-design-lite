@@ -95,15 +95,18 @@
   );
 }
 
-:is(.chip).assist > i {
+:is(.chip).assist :where(i,
+.material-icons) {
     font-size: var(--md-comp-assist-chip-with-icon-icon-size);
   }
 
-:is(.chip).assist > i:first-child {
+:is(.chip).assist :where(i,
+.material-icons):first-child {
       margin-left: -9px;
     }
 
-:is(.chip).assist > i:last-child {
+:is(.chip).assist :where(i,
+.material-icons):last-child {
       margin-right: -9px;
     }
 

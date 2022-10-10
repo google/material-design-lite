@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/filled-button.css);
 
-:is(.button, button).filled {
+:where(.button, button):not(.icon-button, .fab, .chip).filled {
   box-shadow: var(--md-sys-elevation-0);
 
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);

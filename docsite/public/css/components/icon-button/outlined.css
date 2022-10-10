@@ -38,7 +38,7 @@
   --md-comp-outlined-icon-button-icon-size: 24px;
 }
 
-:is(.icon-button).outlined {
+:where(.icon-button).outlined {
   box-shadow: var(--md-sys-elevation-0);
   background-color: transparent;
   color: var(--md-sys-color-on-surface-variant);
@@ -65,7 +65,7 @@
   );
 }
 
-:is(.icon-button).outlined:where([selected],
+:where(.icon-button).outlined:where([selected],
 [checked],
 :checked,
 .checked) {
@@ -85,7 +85,7 @@
     );
   }
 
-:is(.icon-button).outlined[disabled] {
+:where(.icon-button).outlined[disabled] {
     border-color: rgb(
       var(--md-sys-color-on-surface-rgb) / var(--state-outline-disabled-opacity)
     );

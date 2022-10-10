@@ -33,7 +33,7 @@
   --md-comp-filled-icon-button-icon-size: 24px;
 }
 
-:is(.icon-button).filled {
+:where(.icon-button).filled {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   width: var(--md-comp-filled-icon-button-container-size);
@@ -57,12 +57,12 @@
   );
 }
 
-:is(.icon-button).filled:is(.toggle) {
+:where(.icon-button).filled:is(.toggle) {
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-primary);
   }
 
-:is(.icon-button).filled:where([selected],
+:where(.icon-button).filled:where([selected],
 [checked],
 :checked,
 .checked) {
@@ -82,7 +82,7 @@
     );
   }
 
-:is(.icon-button).filled:where([selected],
+:where(.icon-button).filled:where([selected],
 [checked],
 :checked,
 .checked):is(.toggle) {
@@ -90,22 +90,22 @@
       color: var(--md-sys-color-on-primary);
     }
 
-:is(.icon-button).filled:where(:hover,
+:where(.icon-button).filled:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.icon-button).filled:where(:active,
+:where(.icon-button).filled:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.icon-button).filled:where(:focus,
+:where(.icon-button).filled:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.icon-button).filled[disabled] {
+:where(.icon-button).filled[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);

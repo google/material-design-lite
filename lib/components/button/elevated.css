@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/elevated-button.css);
 
-:is(.button, button).elevated {
+:where(.button, button):not(.icon-button, .fab, .chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
 
@@ -44,7 +44,7 @@
     --md-comp-elevated-button-disabled-outline-opacity
   );
 
-  & > i {
+  & :where(i, .material-icons)  {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
 

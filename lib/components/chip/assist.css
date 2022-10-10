@@ -22,6 +22,7 @@
   border: 1px solid var(--md-sys-color-outline);
   height: var(--md-comp-assist-chip-container-height);
   border-radius: var(--md-comp-assist-chip-container-shape);
+  box-shadow: var(--md-sys-elevation-0);
 
   /* BUG: Tokens breaking render */
   /* line-height: var(--md-comp-assist-chip-label-text-line-height); */
@@ -42,7 +43,7 @@
     --md-comp-assist-chip-disabled-outline-opacity
   );
 
-  & > i {
+  & :where(i, .material-icons) {
     font-size: var(--md-comp-assist-chip-with-icon-icon-size);
 
     &:first-child {

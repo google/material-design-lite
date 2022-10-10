@@ -21,7 +21,7 @@
   --md-sys-comp-radio-button-selected-color: var(--md-sys-color-primary);
 }
 
-:is(.radio-button, [type="radio"]) {
+:where(.radio-button, [type="radio"]) {
   display: grid;
   place-content: center;
   position: relative;

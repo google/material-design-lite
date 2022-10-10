@@ -35,7 +35,7 @@
   --md-comp-filled-tonal-icon-button-icon-size: 24px;
 }
 
-:is(.icon-button).filled-tonal {
+:where(.icon-button).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
   width: var(--md-comp-filled-tonal-icon-button-container-size);
@@ -59,12 +59,12 @@
   );
 }
 
-:is(.icon-button).filled-tonal:is(.toggle) {
+:where(.icon-button).filled-tonal:is(.toggle) {
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-primary);
   }
 
-:is(.icon-button).filled-tonal:where([selected],
+:where(.icon-button).filled-tonal:where([selected],
 [checked],
 :checked,
 .checked) {
@@ -84,7 +84,7 @@
     );
   }
 
-:is(.icon-button).filled-tonal:where([selected],
+:where(.icon-button).filled-tonal:where([selected],
 [checked],
 :checked,
 .checked):is(.toggle) {
@@ -92,7 +92,7 @@
       color: var(--md-sys-color-on-secondary-container);
     }
 
-:is(.icon-button).filled-tonal[disabled] {
+:where(.icon-button).filled-tonal[disabled] {
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }

@@ -66,8 +66,9 @@
   );
 }
 
-:is(.button,
-button).filled-tonal {
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -96,26 +97,30 @@ button).filled-tonal {
   );
 }
 
-:is(.button,
-button).filled-tonal:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).filled-tonal:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).filled-tonal:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button,
-button).filled-tonal[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal[disabled] {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);

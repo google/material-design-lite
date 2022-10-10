@@ -22,7 +22,7 @@
   --md-sys-comp-radio-button-selected-color: var(--md-sys-color-primary);
 }
 
-:is(.radio-button,
+:where(.radio-button,
 [type="radio"]) {
   display: grid;
   place-content: center;
@@ -33,7 +33,7 @@
   margin: 0;
 }
 
-:is(.radio-button,
+:where(.radio-button,
 [type="radio"])::before {
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "liga";
@@ -50,7 +50,7 @@
     color: var(--md-sys-color-on-surface-variant);
   }
 
-:is(.radio-button,
+:where(.radio-button,
 [type="radio"]):checked::before {
     content: "radio_button_checked";
     color: var(--md-sys-color-primary);

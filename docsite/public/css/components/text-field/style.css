@@ -45,7 +45,7 @@ datalist {
 
 /* Input, Textarea */
 
-:is(.text-field).outlined > input,
+:is(.text-field).outlined input,
   :is(.text-field).outlined > textarea {
     box-sizing: border-box;
     margin: 0;
@@ -68,7 +68,7 @@ datalist {
 
 /* Span */
 
-:is(.text-field).outlined > input + span,
+:is(.text-field).outlined input + span,
   :is(.text-field).outlined > textarea + span {
     position: absolute;
     top: 0;
@@ -86,8 +86,8 @@ datalist {
 
 /* Corners */
 
-:is(.text-field).outlined > input + span::before,
-  :is(.text-field).outlined > input + span::after,
+:is(.text-field).outlined input + span::before,
+  :is(.text-field).outlined input + span::after,
   :is(.text-field).outlined > textarea + span::before,
   :is(.text-field).outlined > textarea + span::after {
     content: "";
@@ -103,14 +103,14 @@ datalist {
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-:is(.text-field).outlined > input + span::before,
+:is(.text-field).outlined input + span::before,
   :is(.text-field).outlined > textarea + span::before {
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: 4px 0;
   }
 
-:is(.text-field).outlined > input + span::after,
+:is(.text-field).outlined input + span::after,
   :is(.text-field).outlined > textarea + span::after {
     flex-grow: 1;
     margin-left: 4px;
@@ -144,40 +144,40 @@ datalist {
 
 /* Placeholder-shown */
 
-:is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown {
+:is(.text-field).outlined input:not(:focus):-moz-placeholder-shown, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
 
-:is(.text-field).outlined > input:not(:focus):placeholder-shown,
+:is(.text-field).outlined input:not(:focus):placeholder-shown,
   :is(.text-field).outlined > textarea:not(:focus):placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
 
-:is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span {
+:is(.text-field).outlined input:not(:focus):-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
 
-:is(.text-field).outlined > input:not(:focus):placeholder-shown + span,
+:is(.text-field).outlined input:not(:focus):placeholder-shown + span,
   :is(.text-field).outlined > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
 
-:is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined > input:not(:focus):-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
+:is(.text-field).outlined input:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined input:not(:focus):-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
     border-top-color: transparent;
   }
 
-:is(.text-field).outlined > input:not(:focus):placeholder-shown + span::before,
+:is(.text-field).outlined input:not(:focus):placeholder-shown + span::before,
   :is(.text-field).outlined > textarea:not(:focus):placeholder-shown + span::before,
-  :is(.text-field).outlined > input:not(:focus):placeholder-shown + span::after,
+  :is(.text-field).outlined input:not(:focus):placeholder-shown + span::after,
   :is(.text-field).outlined > textarea:not(:focus):placeholder-shown + span::after {
     border-top-color: transparent;
   }
 
 /* Focus */
 
-:is(.text-field).outlined > input:focus,
+:is(.text-field).outlined input:focus,
   :is(.text-field).outlined > textarea:focus {
     border-color: var(--md-sys-color-primary);
     border-top-color: transparent;
@@ -187,13 +187,13 @@ datalist {
     outline: none;
   }
 
-:is(.text-field).outlined > input:focus + span,
+:is(.text-field).outlined input:focus + span,
   :is(.text-field).outlined > textarea:focus + span {
     color: var(--md-sys-color-primary);
   }
 
-:is(.text-field).outlined > input:focus + span::before,
-  :is(.text-field).outlined > input:focus + span::after,
+:is(.text-field).outlined input:focus + span::before,
+  :is(.text-field).outlined input:focus + span::after,
   :is(.text-field).outlined > textarea:focus + span::before,
   :is(.text-field).outlined > textarea:focus + span::after {
     border-top-color: var(--md-sys-color-primary) !important;
@@ -202,8 +202,8 @@ datalist {
 
 /* Disabled */
 
-:is(.text-field).outlined > input:disabled,
-  :is(.text-field).outlined > input:disabled + span,
+:is(.text-field).outlined input:disabled,
+  :is(.text-field).outlined input:disabled + span,
   :is(.text-field).outlined > textarea:disabled,
   :is(.text-field).outlined > textarea:disabled + span {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
@@ -212,30 +212,30 @@ datalist {
     pointer-events: none;
   }
 
-:is(.text-field).outlined > input:disabled + span::before,
-  :is(.text-field).outlined > input:disabled + span::after,
+:is(.text-field).outlined input:disabled + span::before,
+  :is(.text-field).outlined input:disabled + span::after,
   :is(.text-field).outlined > textarea:disabled + span::before,
   :is(.text-field).outlined > textarea:disabled + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
 
-:is(.text-field).outlined > input:disabled:-moz-placeholder-shown, :is(.text-field).outlined > input:disabled:-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span {
+:is(.text-field).outlined input:disabled:-moz-placeholder-shown, :is(.text-field).outlined input:disabled:-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
 
-:is(.text-field).outlined > input:disabled:placeholder-shown,
-  :is(.text-field).outlined > input:disabled:placeholder-shown + span,
+:is(.text-field).outlined input:disabled:placeholder-shown,
+  :is(.text-field).outlined input:disabled:placeholder-shown + span,
   :is(.text-field).outlined > textarea:disabled:placeholder-shown,
   :is(.text-field).outlined > textarea:disabled:placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
 
-:is(.text-field).outlined > input:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined > input:disabled:-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::after {
+:is(.text-field).outlined input:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined input:disabled:-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::after {
     border-top-color: transparent !important;
   }
 
-:is(.text-field).outlined > input:disabled:placeholder-shown + span::before,
-  :is(.text-field).outlined > input:disabled:placeholder-shown + span::after,
+:is(.text-field).outlined input:disabled:placeholder-shown + span::before,
+  :is(.text-field).outlined input:disabled:placeholder-shown + span::after,
   :is(.text-field).outlined > textarea:disabled:placeholder-shown + span::before,
   :is(.text-field).outlined > textarea:disabled:placeholder-shown + span::after {
     border-top-color: transparent !important;

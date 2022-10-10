@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/filled-tonal-button.css);
 
-:is(.button, button).filled-tonal {
+:where(.button, button):not(.icon-button, .fab, .chip).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );

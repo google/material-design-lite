@@ -20,11 +20,13 @@
   border: 1px solid var(--md-sys-color-outline);
 }
 
-:is(.chip).input i:first-child {
+:is(.chip).input :where(i,
+.material-icons) :first-child {
     margin-left: -9px;
   }
 
-:is(.chip).input i:last-child {
+:is(.chip).input :where(i,
+.material-icons) :last-child {
     margin-right: -9px;
   }
 

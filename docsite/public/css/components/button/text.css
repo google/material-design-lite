@@ -49,8 +49,9 @@
   --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
 }
 
-:is(.button,
-button).text {
+:where(.button,
+button):not(.icon-button,
+.fab).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
   --md-sys-comp-button-background-color: transparent;
@@ -72,26 +73,30 @@ button).text {
   );
 }
 
-:is(.button,
-button).text:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).text:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).text:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).text:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button,
-button).text:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).text:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).text[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).text[disabled] {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }

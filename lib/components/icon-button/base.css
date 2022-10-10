@@ -71,7 +71,7 @@
     );
   }
 
-  & i {
+  & :where(i, .material-icons)  {
     font-size: var(--md-comp-icon-button-icon-size);
     vertical-align: middle;
 

@@ -15,6 +15,7 @@
 */
 
 @import url(tokens/shape.css);
+
 .shape-none {
   border-radius: var(--md-sys-shape-corner-none);
 }

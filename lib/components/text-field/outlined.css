@@ -18,7 +18,7 @@
 :is(.text-field).outlined {
   padding-top: 6px;
   /* Input, Textarea */
-  & > input,
+  & input,
   & > textarea {
     box-sizing: border-box;
     margin: 0;
@@ -39,7 +39,7 @@
     transition: border 0.2s, box-shadow 0.2s;
   }
   /* Span */
-  & > input + span,
+  & input + span,
   & > textarea + span {
     position: absolute;
     top: 0;
@@ -55,8 +55,8 @@
     transition: color 0.2s, font-size 0.2s, line-height 0.2s;
   }
   /* Corners */
-  & > input + span::before,
-  & > input + span::after,
+  & input + span::before,
+  & input + span::after,
   & > textarea + span::before,
   & > textarea + span::after {
     content: "";
@@ -71,13 +71,13 @@
     box-shadow: inset 0 1px transparent;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-  & > input + span::before,
+  & input + span::before,
   & > textarea + span::before {
     margin-right: 4px;
     border-left: solid 1px transparent;
     border-radius: 4px 0;
   }
-  & > input + span::after,
+  & input + span::after,
   & > textarea + span::after {
     flex-grow: 1;
     margin-left: 4px;
@@ -101,23 +101,23 @@
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
   /* Placeholder-shown */
-  & > input:not(:focus):placeholder-shown,
+  & input:not(:focus):placeholder-shown,
   & > textarea:not(:focus):placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
   }
-  & > input:not(:focus):placeholder-shown + span,
+  & input:not(:focus):placeholder-shown + span,
   & > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
   }
-  & > input:not(:focus):placeholder-shown + span::before,
+  & input:not(:focus):placeholder-shown + span::before,
   & > textarea:not(:focus):placeholder-shown + span::before,
-  & > input:not(:focus):placeholder-shown + span::after,
+  & input:not(:focus):placeholder-shown + span::after,
   & > textarea:not(:focus):placeholder-shown + span::after {
     border-top-color: transparent;
   }
   /* Focus */
-  & > input:focus,
+  & input:focus,
   & > textarea:focus {
     border-color: var(--md-sys-color-primary);
     border-top-color: transparent;
@@ -126,20 +126,20 @@
       inset 0 -1px var(--md-sys-color-primary);
     outline: none;
   }
-  & > input:focus + span,
+  & input:focus + span,
   & > textarea:focus + span {
     color: var(--md-sys-color-primary);
   }
-  & > input:focus + span::before,
-  & > input:focus + span::after,
+  & input:focus + span::before,
+  & input:focus + span::after,
   & > textarea:focus + span::before,
   & > textarea:focus + span::after {
     border-top-color: var(--md-sys-color-primary) !important;
     box-shadow: inset 0 1px var(--md-sys-color-primary);
   }
   /* Disabled */
-  & > input:disabled,
-  & > input:disabled + span,
+  & input:disabled,
+  & input:disabled + span,
   & > textarea:disabled,
   & > textarea:disabled + span {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
@@ -147,20 +147,20 @@
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     pointer-events: none;
   }
-  & > input:disabled + span::before,
-  & > input:disabled + span::after,
+  & input:disabled + span::before,
+  & input:disabled + span::after,
   & > textarea:disabled + span::before,
   & > textarea:disabled + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-  & > input:disabled:placeholder-shown,
-  & > input:disabled:placeholder-shown + span,
+  & input:disabled:placeholder-shown,
+  & input:disabled:placeholder-shown + span,
   & > textarea:disabled:placeholder-shown,
   & > textarea:disabled:placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-  & > input:disabled:placeholder-shown + span::before,
-  & > input:disabled:placeholder-shown + span::after,
+  & input:disabled:placeholder-shown + span::before,
+  & input:disabled:placeholder-shown + span::after,
   & > textarea:disabled:placeholder-shown + span::before,
   & > textarea:disabled:placeholder-shown + span::after {
     border-top-color: transparent !important;

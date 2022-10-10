@@ -64,7 +64,8 @@
   }
 
 :is(.tabs) :where(label,
-.tab) i {
+.tab) :where(i,
+.material-icons) {
       margin-right: 8px;
     }
 

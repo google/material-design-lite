@@ -223,9 +223,11 @@
   --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
 }
 
-:is(.button,
-button) {
+:where(.button,
+button):not(.icon-button,
+.fab) {
   --state-disabled-opacity: 0.3799999952316284;
+  -webkit-tap-highlight-color: transparent;
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
   padding: 0 24px;
@@ -253,8 +255,9 @@ button) {
   transition: box-shadow 0.2s ease-in-out;
 }
 
-:is(.button,
-button)[label] {
+:where(.button,
+button):not(.icon-button,
+.fab)[label] {
     content: attr(label);
     -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
             text-decoration: var(--md-sys-typescale-label-large-text-decoration);
@@ -266,61 +269,73 @@ button)[label] {
     font-family: var(--md-sys-typescale-label-large-font);
   }
 
-:is(.button,
-button) i {
+:where(.button,
+button):not(.icon-button,
+.fab) :where(i,
+.material-icons) {
     margin-left: -8px;
     font-size: 18px;
   }
 
-:is(.button,
-button) i:only-child {
+:where(.button,
+button):not(.icon-button,
+.fab) :where(i,
+.material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
     }
 
-:is(.button,
-button) a {
+:where(.button,
+button):not(.icon-button,
+.fab) a {
     text-decoration: none;
   }
 
-:is(.button,
-button) a:hover {
+:where(.button,
+button):not(.icon-button,
+.fab) a:hover {
       text-decoration: none;
     }
 
-:is(.button,
-button) a:focus {
+:where(.button,
+button):not(.icon-button,
+.fab) a:focus {
       text-decoration: none;
     }
 
-:is(.button,
-button):where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab):where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button):where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab):where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button):where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab):where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button)[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab)[disabled] {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:is(.button,
-button).text {
+:where(.button,
+button):not(.icon-button,
+.fab).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
   --md-sys-comp-button-background-color: transparent;
@@ -342,32 +357,37 @@ button).text {
   );
 }
 
-:is(.button,
-button).text:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).text:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).text:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).text:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button,
-button).text:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).text:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).text[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).text[disabled] {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:is(.button,
-button).filled {
+:where(.button,
+button):not(.icon-button,
+.fab).filled {
   box-shadow: var(--md-sys-elevation-0);
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);
   --md-sys-comp-button-color: var(--md-sys-color-on-primary);
@@ -388,33 +408,38 @@ button).filled {
   );
 }
 
-:is(.button,
-button).filled:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).filled:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).filled:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).filled:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button,
-button).filled:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).filled:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).filled[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).filled[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:is(.button,
-button).filled-tonal {
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -443,34 +468,39 @@ button).filled-tonal {
   );
 }
 
-:is(.button,
-button).filled-tonal:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).filled-tonal:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).filled-tonal:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button,
-button).filled-tonal[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).filled-tonal[disabled] {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:is(.button,
-button).outlined {
+:where(.button,
+button):not(.icon-button,
+.fab).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -498,38 +528,45 @@ button).outlined {
   );
 }
 
-:is(.button,
-button).outlined i {
+:where(.button,
+button):not(.icon-button,
+.fab).outlined :where(i,
+.material-icons) {
     margin-left: -9px;
   }
 
-:is(.button,
-button).outlined:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).outlined:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).outlined:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).outlined:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-:is(.button,
-button).outlined:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).outlined:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).outlined[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).outlined[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
 
-:is(.button,
-button).elevated {
+:where(.button,
+button):not(.icon-button,
+.fab).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
   /* font-family: var(--md-comp-elevated-button-label-text-font); */
@@ -550,31 +587,37 @@ button).elevated {
   );
 }
 
-:is(.button,
-button).elevated > i {
+:where(.button,
+button):not(.icon-button,
+.fab).elevated :where(i,
+.material-icons) {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
 
-:is(.button,
-button).elevated:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).elevated:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button).elevated:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).elevated:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).elevated:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).elevated:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button).elevated[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).elevated[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /

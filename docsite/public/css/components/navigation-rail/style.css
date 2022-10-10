@@ -48,18 +48,24 @@
     background-color: var(--md-sys-color-surface-1);
   }
 
-:is(.navigation-rail) :where(.fab) {
+:is(.navigation-rail) :where(.button,
+button):not(.icon-button,
+.fab) {
     background-color: var(--md-sys-color-tertiary-container);
     color: var(--md-sys-color-on-tertiary-container);
     box-shadow: var(--md-sys-elevation-0);
     margin-top: 12px;
   }
 
-:is(.navigation-rail) :where(.fab):hover {
+:is(.navigation-rail) :where(.button,
+button):not(.icon-button,
+.fab):hover {
       box-shadow: var(--md-sys-elevation-2);
     }
 
-:is(.navigation-rail) :where(.fab):active {
+:is(.navigation-rail) :where(.button,
+button):not(.icon-button,
+.fab):active {
       box-shadow: var(--md-sys-elevation-1);
     }
 
@@ -68,7 +74,7 @@
     color: inherit;
   }
 
-:is(.navigation-rail) :where(nav,
+:is(.navigation-rail) :is(nav,
 .navigation-rail-destinations) {
     flex: 1;
     display: flex;
@@ -79,19 +85,19 @@
     margin-bottom: 40px;
   }
 
-:is(.navigation-rail) :where(nav,
+:is(.navigation-rail) :is(nav,
 .navigation-rail-destinations) input {
       opacity: 0;
       position: absolute;
     }
 
-:is(.navigation-rail) :where(nav,
+:is(.navigation-rail) :is(nav,
 .navigation-rail-destinations) input:checked + .navigation-icon i {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }
 
-:is(.navigation-rail) :where(nav,
+:is(.navigation-rail) :is(nav,
 .navigation-rail-destinations) input:focus-visible + .navigation-icon {
         outline: var(--md-sys-comp-focus-ring-width) solid
           var(--md-sys-comp-focus-ring-color);

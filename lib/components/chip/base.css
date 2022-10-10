@@ -40,8 +40,10 @@
   transition: box-shadow 0.2s ease-in-out;
   background-color: var(--md-sys-comp-chip-background-color);
   color: var(--md-sys-comp-chip-color);
+  border-radius: var(--md-sys-shape-corner-small);
+   box-shadow: var(--md-sys-elevation-1);
 
-  & i {
+  & :is(i, .material-icons) {
     color: var(--md-sys-color-primary);
     font-size: 18px;
 
@@ -55,15 +57,15 @@
   }
 
   &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
   &:where(:active, .active) {
-    box-shadow: var(--md-sys-elevation-0);
+    box-shadow: var(--md-sys-elevation-1);
   }
 
   &:where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
   &[disabled] {
@@ -71,5 +73,9 @@
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
     box-shadow: var(--md-sys-elevation-0);
+
+    & :where(i, .material-icons) {
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
   }
 }

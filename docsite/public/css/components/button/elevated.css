@@ -62,8 +62,9 @@
   --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
 }
 
-:is(.button,
-button).elevated {
+:where(.button,
+button):not(.icon-button,
+.fab).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
   /* font-family: var(--md-comp-elevated-button-label-text-font); */
@@ -84,31 +85,37 @@ button).elevated {
   );
 }
 
-:is(.button,
-button).elevated > i {
+:where(.button,
+button):not(.icon-button,
+.fab).elevated :where(i,
+.material-icons) {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
 
-:is(.button,
-button).elevated:where(:hover,
+:where(.button,
+button):not(.icon-button,
+.fab).elevated:where(:hover,
 .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button).elevated:where(:active,
+:where(.button,
+button):not(.icon-button,
+.fab).elevated:where(:active,
 .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-:is(.button,
-button).elevated:where(:focus,
+:where(.button,
+button):not(.icon-button,
+.fab).elevated:where(:focus,
 .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
 
-:is(.button,
-button).elevated[disabled] {
+:where(.button,
+button):not(.icon-button,
+.fab).elevated[disabled] {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /

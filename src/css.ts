@@ -5,7 +5,7 @@ import postcss from "postcss";
 // @ts-ignore
 import { cssPlugins } from "../lib/utils/css-plugins.mjs";
 
-const inputDir ="lib";
+const inputDir = "lib";
 const outputDir = "./docsite/public/css";
 
 // Remove the output directory if it exists.
@@ -79,6 +79,7 @@ async function buildFile(inputPath: string, outputPath: string, options: {
     import?: boolean,
     comments?: boolean,
 } = defaultOptions) {
+    const now = performance.now();
     const css = fs.readFileSync(inputPath, "utf8");
     let processed = await processCss(css, inputPath, outputPath, options);
     processed = addHeader(processed);
@@ -93,49 +94,57 @@ async function buildFile(inputPath: string, outputPath: string, options: {
     }
     // Write the file.
     fs.writeFileSync(outputPath, processed);
+    console.log(`Built ${outputPath} in ${(performance.now() - now).toFixed(2)} ms`);
 }
 
 async function buildDir(inDir: string, outDir: string, options = defaultOptions) {
     const files = fs.readdirSync(inDir);
+    const promises = [];
     for (const file of files) {
         // Skip .dotfiles
         if (file.startsWith(".")) continue;
+        if (file.endsWith("test.css")) continue;
         const current = path.join(inDir, file);
         const target = path.join(outDir, file);
         const stat = fs.statSync(current);
         if (stat.isDirectory()) {
-            await buildDir(current, target, options);
+            promises.push(buildDir(current, target, options));
         } else {
             const ext = path.extname(file);
             if (ext === ".css") {
-                await buildFile(current, target, options);
+                promises.push(buildFile(current, target, options));
             }
         }
     }
+    await Promise.all(promises);
 }
 
 async function build() {
     console.log("Building CSS...");
+    const now = performance.now();
 
     const mdl = path.join(inputDir, "styles.css");
+    const promises = [];
     // Create `mdl.css`
-    await buildFile(mdl, path.join(outputDir, "mdl.css"), {
+    promises.push(buildFile(mdl, path.join(outputDir, "mdl.css"), {
         import: true,
-    });
+    }));
     // Create `mdl.min.css`
-    await buildFile(mdl, path.join(outputDir, "mdl.min.css"), {
+    promises.push(buildFile(mdl, path.join(outputDir, "mdl.min.css"), {
         ...defaultOptions,
         minify: true,
         import: true,
         comments: false,
-    });
+    }));
 
-    // Recursively build all files in the  directory.
-    addHeaderFile(inputDir);
-    await buildDir(inputDir, outputDir);
+    promises.push(buildDir(inputDir, outputDir));
+
+    await Promise.all(promises);
+
     addHeaderFile(outputDir);
 
-    console.log("Complete!");
+    console.log(`Built CSS in ${(performance.now() - now).toFixed(2)} ms`);
+
 }
 
 build();

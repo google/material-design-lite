@@ -18,6 +18,7 @@
   background-color: var(--md-sys-color-surface-variant);
   color: var(--md-sys-color-on-surface-variant);
   border: 1px solid var(--md-sys-color-outline);
+  
   &:where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
     --tint-color: rgb(
@@ -25,6 +26,7 @@
         var(--md-sys-state-hover-state-layer-opacity)
     );
   }
+  
   &:where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
     --tint-color: rgb(
@@ -32,6 +34,7 @@
         var(--md-sys-state-focus-state-layer-opacity)
     );
   }
+  
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
     --tint-color: rgb(
@@ -39,12 +42,15 @@
         var(--md-sys-state-pressed-state-layer-opacity)
     );
   }
-  & i:first-child {
+  
+  & :where(i, .material-icons) :first-child {
     margin-left: -9px;
   }
-  & i:last-child {
+  
+  & :where(i, .material-icons) :last-child {
     margin-right: -9px;
   }
+  
   &[disabled] {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);

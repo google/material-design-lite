@@ -87,7 +87,8 @@ label) {
       outline-offset: 5px;
     }
 
-:is(.segmented-button) i {
+:is(.segmented-button) :where(i,
+.material-icons) {
     margin-right: 8px;
   }
 
@@ -116,13 +117,13 @@ label)::before {
       text-transform: none;
       letter-spacing: normal;
       line-height: 1;
-      font-size: 24px;
       font-weight: normal;
       font-family: "Material Icons";
       padding-right: 8px;
     }
 
 :is(.segmented-button) input:checked + :where(.navigation-icon,
-label) i {
+label) :where(i,
+.material-icons) {
       display: none;
     }

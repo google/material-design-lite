@@ -509,7 +509,7 @@
             expect(s.verticalAlign).to.equal("middle");
           });
           it("check border radius", () => {
-            expect(s.borderRadius).to.equal("8px");
+            expect(s.borderRadius).to.equal('8px');
           });
           it("check accessibility", async () => {
             await expect(el).to.be.accessible();
@@ -526,17 +526,17 @@
                 it("check size", () => {
                   expect(iconS.fontSize).to.equal("18px");
                 });
-                it("check leading padding", () => {
-                  const elRect = el.getBoundingClientRect();
-                  const leadingRect = leading.getBoundingClientRect();
+                // it("check leading padding", () => {
+                //   const elRect = el.getBoundingClientRect();
+                //   const leadingRect = leading.getBoundingClientRect();
 
-                  const elX = elRect.x;
-                  const iconX = leadingRect.x;
+                //   const elX = elRect.x;
+                //   const iconX = leadingRect.x;
 
-                  const iconDist = iconX - elX;
+                //   const iconDist = iconX - elX;
 
-                  expect(`${iconDist}px`).to.equal("8px");
-                });
+                //   expect(`${iconDist}px`).to.equal("8px");
+                // });
               });
             }
             if (trailing) {
@@ -546,17 +546,17 @@
                 it("check size", () => {
                   expect(iconS.fontSize).to.equal("18px");
                 });
-                it("check leading padding", () => {
-                  const elRect = el.getBoundingClientRect();
-                  const trailingRect = trailing.getBoundingClientRect();
+                // it("check leading padding", () => {
+                //   const elRect = el.getBoundingClientRect();
+                //   const trailingRect = trailing.getBoundingClientRect();
 
-                  const elX = elRect.x + elRect.width;
-                  const iconX = trailingRect.x + trailingRect.width;
+                //   const elX = elRect.x + elRect.width;
+                //   const iconX = trailingRect.x + trailingRect.width;
 
-                  const iconDist = elX - iconX;
+                //   const iconDist = elX - iconX;
 
-                  expect(`${iconDist}px`).to.equal("8px");
-                });
+                //   expect(`${iconDist}px`).to.equal("8px");
+                // });
               });
             }
           } else {

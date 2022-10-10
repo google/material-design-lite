@@ -14,6 +14,8 @@
  limitations under the License.
 */
 
+@import url(tokens/themes/auto.css);
+
 .color-primary {
   @apply --primary;
 }

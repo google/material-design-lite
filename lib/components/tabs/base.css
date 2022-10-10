@@ -40,7 +40,7 @@
     align-items: center;
     justify-content: center;
 
-    & i {
+    & :where(i, .material-icons)  {
       margin-right: 8px;
     }
   }

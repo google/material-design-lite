@@ -25,7 +25,7 @@
   gap: 4px;
   @apply --label-medium;
 
-  & i {
+  & :is(i, .material-icons)  {
     font-size: 24px;
     width: 64px;
     height: 32px;

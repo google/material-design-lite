@@ -1,0 +1,93 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-comp-input-chip-selected-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  --md-comp-input-chip-unselected-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  --md-comp-input-chip-selected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-input-chip-unselected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-input-chip-selected-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-input-chip-unselected-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-input-chip-selected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-input-chip-unselected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-input-chip-disabled-selected-container-opacity: 0.11999999731779099;
+  --md-comp-input-chip-disabled-unselected-outline-opacity: 0.11999999731779099;
+  --md-comp-input-chip-selected-outline-width: 0px;
+  --md-comp-input-chip-unselected-outline-width: 1px;
+  --md-comp-input-chip-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  --md-comp-input-chip-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-input-chip-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-input-chip-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-input-chip-disabled-outline-opacity: 0.11999999731779099;
+  --md-comp-input-chip-outline-width: 1px;
+  --md-comp-input-chip-dragged-container-elevation: var(
+    --md-sys-elevation-level4
+  );
+  --md-comp-input-chip-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-input-chip-with-leading-icon-disabled-leading-icon-opacity: 0.3799999952316284;
+  --md-comp-input-chip-with-trailing-icon-disabled-trailing-icon-opacity: 0.3799999952316284;
+  --md-comp-input-chip-with-avatar-disabled-avatar-opacity: 0.3799999952316284;
+  --md-comp-input-chip-with-avatar-avatar-size: 24px;
+  --md-comp-input-chip-with-avatar-avatar-shape: var(
+    --md-sys-shape-corner-full
+  );
+  --md-comp-input-chip-container-shape: var(--md-sys-shape-corner-small);
+  --md-comp-input-chip-container-height: 32px;
+  --md-comp-input-chip-container-elevation: var(--md-sys-elevation-level0);
+  --md-comp-input-chip-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-input-chip-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-input-chip-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-input-chip-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-input-chip-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-input-chip-with-leading-icon-leading-icon-size: 18px;
+  /* Input chip trailing icon size */
+  --md-comp-input-chip-with-trailing-icon-trailing-icon-size: 18px;
+}
