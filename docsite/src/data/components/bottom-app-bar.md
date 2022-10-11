@@ -58,13 +58,13 @@ The **bottom-app-bar** class is implicit when using the `footer` element.
 <div class="preview">
   <footer class="bottom-app-bar">
     <div class="actions">
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">search</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">delete</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">archive</i>
       </button>
     </div>
@@ -76,13 +76,13 @@ To add actions to the bottom app bar, add a div with the `actions` class name wi
 ```html
 <footer class="bottom-app-bar">
   <div class="actions">
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">search</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">delete</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">archive</i>
     </button>
   </div>
@@ -118,13 +118,13 @@ To add a floating action button to the bottom app bar, add a `button` element wi
 <div class="preview">
   <footer class="bottom-app-bar">
     <div class="actions">
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">search</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">delete</i>
       </button>
-      <button class="icon">
+      <button class="icon-button">
         <i class="material-icons">archive</i>
       </button>
     </div>
@@ -137,13 +137,13 @@ To add a floating action button to the bottom app bar, add a `button` element wi
 ```html
 <footer class="bottom-app-bar">
   <div class="actions">
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">search</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">delete</i>
     </button>
-    <button class="icon">
+    <button class="icon-button">
       <i class="material-icons">archive</i>
     </button>
   </div>
