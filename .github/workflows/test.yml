@@ -14,14 +14,17 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set Node.js 17
+      - name: Install Node
         uses: actions/setup-node@v1
         with:
           node-version: 17
-        
+
+      - name: Build CSS
+        run: |
+          npm i &&
+          npm run build
+
       - uses: microsoft/playwright-github-action@v1
       - name: Test
         run: |
-          npm i &&
-          npm run build &&
           npm run test
