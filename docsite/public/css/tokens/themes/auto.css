@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-:is(html),
-.tokens {
+ :where(html) :not(.dark-theme) {
   --md-sys-color-scrim: var(--md-ref-palette-neutral0);
   --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
   --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
@@ -91,7 +90,7 @@
   --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
 }
 
-.dark-theme {
+ :where(html) .dark-theme {
   --md-sys-color-scrim: var(--md-ref-palette-neutral0);
   --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
   --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
@@ -168,8 +167,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :is(html),
-.tokens {
+  :where(html) :not(.light-theme) {
     --md-sys-color-scrim: var(--md-ref-palette-neutral0);
     --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
     --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
@@ -248,7 +246,7 @@
     --md-sys-color-primary: var(--md-ref-palette-primary80);
     --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
   }
-  .light-theme {
+  :where(html) .light-theme {
     --md-sys-color-scrim: var(--md-ref-palette-neutral0);
     --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
     --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);

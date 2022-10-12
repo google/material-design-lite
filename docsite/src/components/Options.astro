@@ -85,25 +85,29 @@
 
   function setup() {
     // Brightness
-    light.addEventListener("change", () => {
+    function setLight() {
+      dark.checked = false;
+      light.checked = true;
       document.body.classList.remove("dark-theme");
       document.body.classList.add("light-theme");
       setCodepenBrightness("light");
       saveSettings();
-    });
-    dark.addEventListener("change", () => {
+    }
+    function setDark() {
+      dark.checked = true;
+      light.checked = false;
       document.body.classList.remove("light-theme");
       document.body.classList.add("dark-theme");
       setCodepenBrightness("dark");
       saveSettings();
-    });
+    }
+    light.addEventListener("change", () => setLight());
+    dark.addEventListener("change", () => setDark());
     prefersDark.addEventListener("change", (e) => {
       if (e.matches) {
-        dark.checked = true;
-        light.checked = false;
+        setDark();
       } else {
-        dark.checked = false;
-        light.checked = true;
+        setLight();
       }
     });
     // Shape
