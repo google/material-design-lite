@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html, .light-theme, .dark-theme), .tokens {
   --md-sys-comp-slider-background-color: transparent;
   --md-sys-comp-slider-color: var(--md-sys-color-surface-1);
   --md-sys-comp-slider-container-height: 36px;

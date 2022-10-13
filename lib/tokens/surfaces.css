@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:is(html, .light-theme, .dark-theme),
+:where(html, .light-theme, .dark-theme),
 .tokens {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
   --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);

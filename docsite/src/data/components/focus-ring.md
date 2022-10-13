@@ -7,7 +7,7 @@ codepen: BaxPvbq
 ## Preview
 
 <div class="preview">
-  <button class="focus-ring">Focus Ring</button>
+  <button class="focus-ring">Button</button>
 </div>
 
 ## Installation

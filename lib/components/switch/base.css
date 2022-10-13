@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html, .light-theme, .dark-theme), .tokens {
   --md-sys-comp-switch-thumb-size: 16px;
   --md-sys-comp-switch-track-width: 52px;
   --md-sys-comp-switch-track-height: 32px;

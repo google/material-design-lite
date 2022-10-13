@@ -14,8 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html, .light-theme, .dark-theme), .tokens {
   --md-sys-comp-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;

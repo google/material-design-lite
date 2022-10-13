@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html, .light-theme, .dark-theme), .tokens {
   --md-sys-comp-card-width: 300px;
 }
 

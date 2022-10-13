@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html, .light-theme, .dark-theme), .tokens {
   --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
   --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
   --md-comp-navigation-drawer-container-height: 100%;

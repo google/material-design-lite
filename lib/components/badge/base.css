@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html, .light-theme, .dark-theme), .tokens {
   --md-sys-comp-badge-size: 22px;
   --md-sys-comp-badge-dot-size: calc(var(--md-sys-comp-badge-size) / 2);
   --md-sys-comp-badge-background-color: var(--md-sys-color-error);
