@@ -77,9 +77,13 @@ and help improve the Material Design Lite. For more information visit our
 
 Please use the default branch, `mdl-3.x`.
 
-Take note that [Material Components for Web](https://github.com/material-components/material-components-web), which is MDL v2, is under early Alpha stages (which means everything is a moving target, and we can change anything at any moment). Use with caution.
+The documentation site is built using [Astro](https://github.com/withastro/astro).\
 
-However, we would absolutely love to have people testing MCW and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
+Web components for the documentation site are built with [Lit](https://lit.dev/).
+
+The CSS is bundled using [PostCSS](https://postcss.org/).
+
+The components are tested with [Web Test Runner](https://modern-web.dev/docs/test-runner/overview/).
 
 ## Looking for the old version?
 
