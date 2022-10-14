@@ -2,26 +2,25 @@
 
 [![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)
 [![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
-[![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
-[![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
 [![Test](https://github.com/rodydavis/material-design-lite/actions/workflows/test.yml/badge.svg)](https://github.com/rodydavis/material-design-lite/actions/workflows/test.yml)
 [![Demo](https://github.com/rodydavis/material-design-lite/actions/workflows/demo.yml/badge.svg)](https://github.com/rodydavis/material-design-lite/actions/workflows/demo.yml)
 
-> An implementation of [Material Design](https://material.io/design/introduction)
-> components in vanilla CSS, JS, and HTML.
+> An implementation of [Material Design](https://m3.material.io/)
+> components in vanilla CSS, and HTML.
 
 Material Design Lite (MDL) lets you add a Material Design look and feel to your
 static content websites. It doesn't rely on any JavaScript frameworks or
 libraries. Optimized for cross-device use, gracefully degrades in older
 browsers, and offers an experience that is accessible from the get-go.
 
-> ### Limited support
+![](/docs/images/components-1.png)
+![](/docs/images/components-2.png)
+![](/docs/images/components-3.png)
 
-> Material Design Lite is now in limited support, with development having moved to the
-> [Material Components for the web](https://github.com/material-components/material-components-web) repository.
+### Limited support
 
-> No further development is taking place in MDL by the core team, but we are happy to review PRs, fix critical bugs and
-> push out new releases. No breaking changes will be accepted.
+Material Design Lite is now in community support, with development having moved to the
+[Material Components for the web](https://github.com/material-components/material-components-web) repository.
 
 ## Use MDL on your site?
 
@@ -31,9 +30,9 @@ MDL. If you are looking to use MDL on your website or web app please head to
 
 ## Browser Support
 
-| IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
-| --- | ---- | ---- | ------ | ----- | ------- | ------ | ---------------- | ------------- |
-| B   | A    | A    | A      | A     | A       | A      | A                | A             |
+| Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
+|--------|-------|---------|--------|------------------|---------------|
+| A      | A     | A       | A      | A                | A             |
 
 A-grade browsers are fully supported. B-grade browsers will gracefully degrade
 to our CSS-only experience.
@@ -76,11 +75,17 @@ If you found a bug, have any questions or want to contribute. Follow our
 and help improve the Material Design Lite. For more information visit our
 [wiki](https://github.com/google/material-design-lite/wiki).
 
-Please use the default branch, `mdl-1.x`.
+Please use the default branch, `mdl-3.x`.
 
 Take note that [Material Components for Web](https://github.com/material-components/material-components-web), which is MDL v2, is under early Alpha stages (which means everything is a moving target, and we can change anything at any moment). Use with caution.
 
 However, we would absolutely love to have people testing MCW and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
+
+## Looking for the old version?
+
+The old version of MDL is available on the `mdl-1.x` branch. It is no longer
+actively developed, but we will continue to accept pull requests for critical
+bugs and security issues.
 
 ## License
 
