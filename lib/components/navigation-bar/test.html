@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation Bar</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <nav class="navigation-bar" style="min-width: 400px">
+            <input type="radio" name="bottom-nav-icons-2" value="tab-1" id="tab-1" checked />
+            <label class="navigation-icon" for="tab-1">
+              <i class="material-icons">info</i>
+              <span>Tab 1</span>
+            </label>
+            <input type="radio" name="bottom-nav-icons-2" value="tab-2" id="tab-2" />
+            <label class="navigation-icon" for="tab-2">
+              <i class="material-icons">info</i>
+              <span>Tab 2</span>
+            </label>
+          </nav>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".navigation-bar")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+
+        describe(`${item.classList} tests`, () => {
+          it('check navigation icon', () => {
+            const t = el.querySelector('.navigation-icon');
+
+            expect(t).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

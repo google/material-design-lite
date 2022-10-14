@@ -1,0 +1,349 @@
+---
+import Github from './Github.astro';
+import Options from './Options.astro';
+import {MENU} from '../utils/menu';
+
+const {title, tab} = Astro.props;
+---
+
+<main>
+  <dialog id="nav-drawer" class="navigation-drawer modal">
+    <div class="drawer-title">Material Design Lite</div>
+     <div class="drawer-scrollable">
+      {
+        MENU.map((group, index) => (<>
+          <section>
+            <label class="section-header">{group.text}</label>
+            {
+              group.children!.map((item) => {
+                if (item.draft) {
+                    return <div class="list-tile draft">
+                      <span class="title">{item.text}</span>
+                    </div>;
+                }
+                return  <div class="list-tile nav-link" id={item.link.split('/').join('_')}>
+                  {item.icon && <i class="leading material-icons">{item.icon}</i>}
+                  <span class="title">{item.text}</span>
+                  <i class="trailing material-icons">chevron_right</i>
+                </div>;
+              })
+            }
+          </section>
+          {index < MENU.length - 1 && <div class="divider"></div>}
+          </>))
+      }
+     </div>
+    <form method="dialog">
+      <button class="text">
+        <i class="material-icons">close</i>
+        <label>Close Drawer</label>
+      </button>
+    </form>
+  </dialog>
+
+  <aside id="nav-rail" class="navigation-rail">
+
+    <button id="drawer-btn" class="icon-button">
+      <i class="material-icons">menu</i>
+    </button>
+
+    <button id="download" class="fab">
+        <i class="material-icons">file_download</i>
+    </button>
+
+    <nav>
+        {
+            MENU.map((item) => {
+                return (
+                <input type="radio" name="side-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} data-link={item.link} />
+                <label class="navigation-icon" for={item.text}>
+                    <i class="material-icons">{item.icon}</i>
+                    <span>{item.text}</span>
+                </label>
+                )
+            })
+        }
+    </nav>
+  </aside>
+
+  <section class="content-body">
+    <header id="header" class="top-app-bar">
+      <button id="drawer-btn" class="icon-button leading">
+        <i class="material-icons">menu</i>
+      </button>
+      <span class="title">{title}</span>
+      <div class="actions">
+        <a class="icon-button" href="/material-design-lite/overview/faq">
+          <i class="material-icons">help</i>
+        </a>
+         <a class="icon-button" href="https://github.com/rodydavis/material-design-lite" target="_blank" rel="noopener">
+          <Github />
+         </a>
+         <button id="options" class="icon-button">
+          <i class="material-icons">palette</i>
+        </button>
+      </div>
+    </header>
+
+    <article>
+      <slot />
+    </article>
+
+    <button id="download" class="fixed fab tertiary">
+        <i class="material-icons">file_download</i>
+    </button>
+
+    <nav id="nav-bar" class="navigation-bar">
+        {
+            MENU.map((item) => {
+                return (
+                <input type="radio" name="bottom-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} data-link={item.link} />
+                <label class="navigation-icon" for={item.text}>
+                    <i class="material-icons">{item.icon}</i>
+                    <span>{item.text}</span>
+                </label>
+                )
+            })
+        }
+    </nav>
+  </section>
+
+  <aside class="options">
+    <div class="controls">
+      <Options>
+        <button class="close-options icon-button">
+          <i class="material-icons">close</i>
+        </button>
+      </Options>
+    </div>
+  </aside>
+</main>
+
+<style>
+  /* @custom-media --nav-breakpoint (min-width: 1200px); */
+  @custom-media --tablet-breakpoint (min-width: 860px);
+  @custom-media --desktop-breakpoint (min-width: 1400px);
+
+  main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+  .content-body {
+    width: 100%;
+  }
+  #nav-rail {
+    display: none;
+  }
+  section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  article {
+    flex: 1;
+    overflow: auto;
+  }
+  .top-app-bar.scrolled {
+    box-shadow: none;
+  }
+  #header #drawer-btn {
+    margin-right: 0.5rem;
+  }
+  .options {
+    display: none;
+  }
+  .close-options {
+    opacity: 1;
+  }
+  .options.open  {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 100;
+    overflow-y: auto;
+    background-color: var(--md-sys-color-background);
+    box-shadow: var(--md-sys-elevation-4);
+    animation: slide-in 0.3s ease-out;
+  }
+  .controls {
+    padding: 16px;
+  }
+  .actions a:hover {
+    text-decoration: none;
+  }
+  .fab.fixed {
+    position: fixed;
+    bottom: 95px;
+    right: 28px;
+    z-index: 1;
+  }
+
+  @media (--tablet-breakpoint) {
+    #nav-rail {
+      display: flex;
+    }
+    #nav-bar {
+      display: none;
+    }
+    main {
+      flex-direction: row;
+    }
+    .fab.fixed {
+      display: none;
+    }
+    #header #drawer-btn  {
+      display: none;
+    }
+  }
+
+  @media (--desktop-breakpoint) {
+    /* Modal options */
+    .options.open {
+      display: block;
+      position: unset;
+      width: 250px;
+      height: 100%;
+      overflow-y: auto;
+
+      border-left: 1px solid var(--md-sys-color-outline-variant);
+      animation: none;
+      box-shadow: none;
+    }
+    .close-options {
+      display: none;
+    }
+  }
+
+  /* Animate the options panel from the right */
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .navigation-drawer .list-tile {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .navigation-drawer .draft {
+    color: var(--md-sys-color-on-surface);
+    opacity: 0.2;
+  }
+</style>
+
+<script>
+  import {MENU, Component} from '../utils/menu';
+
+  // App bar scrolling
+  const header = document.querySelector("#header")!;
+  const article = document.querySelector("article")!;
+  article.addEventListener("scroll", (e) => {
+    if (article.scrollTop > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }, {passive: true});
+
+  // Navigation drawer
+  const drawer = document.querySelector("#nav-drawer") as HTMLDialogElement;
+  const drawerBtns = document.querySelectorAll("#drawer-btn") as NodeListOf<HTMLButtonElement>;
+   drawerBtns.forEach
+    (btn => btn.addEventListener("click", (e) => {
+      drawer.showModal();
+       // Scroll to selected link
+      const selected = document.querySelectorAll(".nav-link[data-selected]");
+      if (selected.length > 0) {
+        // Animated scroll to selected link
+        selected[0].scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+      }
+
+      btn.disabled = true;
+      drawer.addEventListener("close", () => {
+        btn.disabled = false;
+      });
+    }));
+
+  // Options toggle
+  const options = document.querySelector(".options")!;
+  const closeBtn = document.querySelector(".close-options")!;
+  const optionsBtn = document.querySelector("#options")!;
+  optionsBtn.addEventListener("click", (e) => {
+    const isOpen = options.classList.contains("open");
+    const icon = optionsBtn.children[0];
+    if (isOpen) {
+      options.classList.remove("open");
+      icon.innerHTML  = 'palette';
+    } else {
+      options.classList.add("open");
+      icon.innerHTML  = 'close';
+    }
+  });
+  closeBtn.addEventListener("click", () => {
+      const icon = optionsBtn.children[0];
+      options.classList.remove("open");
+      icon.innerHTML  = 'palette';
+  });
+
+  // Navigation links
+ MENU.forEach(setupLink);
+
+ function setupLink(item: Component) {
+    item.children?.forEach(setupLink);
+   const link = document.querySelector(`#${item.link.split('/').join('_')}`);
+   if (link === null) {
+    //  console.warn(`Link not found for ${item.text}`);
+     return;
+    }
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = `/material-design-lite/${item.link}/`;
+    });
+    // Check if selected
+    const path = window.location.pathname;
+    if (path.endsWith(`${item.link}/`)) {
+      link.setAttribute("data-selected", "true");
+    }
+ }
+
+ // Download Button
+  const downloadBtn = document.querySelectorAll("#download")!;
+  downloadBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+     const downloadLink = '/material-design-lite/overview/download/';
+      window.location.href = downloadLink;
+    });
+  });
+
+  // Radio links
+  const radios = document.querySelectorAll("input[type=radio]") as NodeListOf<HTMLInputElement>;
+  radios.forEach((radio) => {
+    const goToLink = () => {
+      const link = radio.getAttribute("data-link");
+      if (link) {
+          window.location.href = `/material-design-lite${link}/`;
+      }
+    };
+    radio.addEventListener("change", (e) => {
+      goToLink();
+    });
+    radio.addEventListener("click", (e) => {
+      e.stopPropagation();
+       goToLink();
+    });
+  });
+</script>

@@ -1,0 +1,412 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-comp-icon-button-selected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-icon-button-unselected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-icon-button-selected-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-icon-button-unselected-focus-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-icon-button-selected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-icon-button-unselected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-icon-button-state-layer-shape: var(--md-sys-shape-corner-full);
+  --md-comp-icon-button-state-layer-size: 40px;
+  --md-comp-icon-button-icon-size: 24px;
+  --md-comp-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-filled-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-filled-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-filled-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-filled-icon-button-disabled-container-opacity: 0.11999999731779099;
+  --md-comp-filled-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-filled-icon-button-container-shape: var(--md-sys-shape-corner-full);
+  --md-comp-filled-icon-button-container-size: 40px;
+  --md-comp-filled-icon-button-icon-size: 24px;
+  --md-comp-filled-tonal-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-filled-tonal-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-filled-tonal-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-filled-tonal-icon-button-disabled-container-opacity: 0.11999999731779099;
+  --md-comp-filled-tonal-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-filled-tonal-icon-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  --md-comp-filled-tonal-icon-button-container-size: 40px;
+  --md-comp-filled-tonal-icon-button-icon-size: 24px;
+  --md-comp-outlined-icon-button-disabled-outline-opacity: 0.11999999731779099;
+  --md-comp-outlined-icon-button-disabled-selected-container-opacity: 0.11999999731779099;
+  --md-comp-outlined-icon-button-disabled-unselected-outline-opacity: 0.11999999731779099;
+  --md-comp-outlined-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-outlined-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-outlined-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-outlined-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-outlined-icon-button-container-size: 40px;
+  --md-comp-outlined-icon-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  --md-comp-outlined-icon-button-unselected-outline-width: 1px;
+  /* Outlined icon button icon size */
+  --md-comp-outlined-icon-button-icon-size: 24px;
+}
+
+:where(.icon-button) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 0;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin: 0;
+  box-shadow: var(--md-sys-elevation-0);
+  -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+          text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+  text-transform: var(--md-sys-typescale-label-large-text-transform);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-comp-icon-button-icon-size);
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface);
+  width: var(--md-comp-icon-button-state-layer-size);
+  height: var(--md-comp-icon-button-state-layer-size);
+  border-radius: var(--md-comp-icon-button-state-layer-shape);
+  --state-hover-opacity: var(
+    --md-comp-icon-button-unselected-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-icon-button-unselected-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-icon-button-unselected-pressed-state-layer-opacity
+  );
+}
+
+:where(.icon-button):where([selected],
+[checked],
+:checked) {
+    color: var(--md-sys-color-primary);
+    --state-hover-opacity: var(
+      --md-comp-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-icon-button-selected-pressed-state-layer-opacity
+    );
+  }
+
+:where(.icon-button)[disabled] {
+    cursor: default;
+    color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-comp-icon-button-disabled-icon-opacity)
+    );
+  }
+
+:where(.icon-button) :where(i,
+.material-icons) {
+    font-size: var(--md-comp-icon-button-icon-size);
+    vertical-align: middle;
+  }
+
+:where(.icon-button) :where(i,
+.material-icons):only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+:where(.icon-button).filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  width: var(--md-comp-filled-icon-button-container-size);
+  height: var(--md-comp-filled-icon-button-container-size);
+  border-radius: var(--md-comp-filled-icon-button-container-shape);
+  font-size: var(--md-comp-filled-icon-button-icon-size);
+  --state-hover-opacity: var(
+    --md-comp-filled-icon-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-filled-icon-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-filled-icon-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-filled-icon-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-filled-icon-button-disabled-outline-opacity
+  );
+}
+
+:where(.icon-button).filled:is(.toggle) {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-primary);
+  }
+
+:where(.icon-button).filled:where([selected],
+[checked],
+:checked,
+.checked) {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    --state-hover-opacity: var(
+      --md-comp-filled-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-filled-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-filled-icon-button-selected-pressed-state-layer-opacity
+    );
+    --state-disabled-opacity: var(
+      --md-comp-filled-icon-button-disabled-selected-container-opacity
+    );
+  }
+
+:where(.icon-button).filled:where([selected],
+[checked],
+:checked,
+.checked):is(.toggle) {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+:where(.icon-button).filled:where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+:where(.icon-button).filled:where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+:where(.icon-button).filled:where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+:where(.icon-button).filled[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+:where(.icon-button).filled-tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  width: var(--md-comp-filled-tonal-icon-button-container-size);
+  height: var(--md-comp-filled-tonal-icon-button-container-size);
+  border-radius: var(--md-comp-filled-tonal-icon-button-container-shape);
+  font-size: var(--md-comp-filled-tonal-icon-button-icon-size);
+  --state-hover-opacity: var(
+    --md-comp-filled-tonal-icon-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-filled-tonal-icon-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-filled-tonal-icon-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-filled-tonal-icon-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-filled-tonal-icon-button-disabled-outline-opacity
+  );
+}
+
+:where(.icon-button).filled-tonal:is(.toggle) {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-primary);
+  }
+
+:where(.icon-button).filled-tonal:where([selected],
+[checked],
+:checked,
+.checked) {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-surface-variant);
+    --state-hover-opacity: var(
+      --md-comp-filled-tonal-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-filled-tonal-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-filled-tonal-icon-button-selected-pressed-state-layer-opacity
+    );
+    --state-disabled-opacity: var(
+      --md-comp-filled-tonal-icon-button-disabled-selected-container-opacity
+    );
+  }
+
+:where(.icon-button).filled-tonal:where([selected],
+[checked],
+:checked,
+.checked):is(.toggle) {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
+
+:where(.icon-button).filled-tonal[disabled] {
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+:where(.icon-button).outlined {
+  box-shadow: var(--md-sys-elevation-0);
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  border: var(--md-comp-outlined-icon-button-unselected-outline-width) solid
+    var(--md-sys-color-outline);
+  width: var(--md-comp-outlined-icon-button-container-size);
+  height: var(--md-comp-outlined-icon-button-container-size);
+  border-radius: var(--md-comp-outlined-icon-button-container-shape);
+  font-size: var(--md-comp-outlined-icon-button-icon-size);
+  --state-hover-opacity: var(
+    --md-comp-outlined-icon-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-outlined-icon-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-outlined-icon-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-outlined-icon-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-outlined-icon-button-disabled-outline-opacity
+  );
+}
+
+:where(.icon-button).outlined:where([selected],
+[checked],
+:checked,
+.checked) {
+    background-color: var(--md-sys-color-inverse-surface);
+    color: var(--md-sys-color-inverse-on-surface);
+    --state-hover-opacity: var(
+      --md-comp-outlined-icon-button-selected-hover-state-layer-opacity
+    );
+    --state-focus-opacity: var(
+      --md-comp-outlined-icon-button-selected-focus-state-layer-opacity
+    );
+    --state-active-opacity: var(
+      --md-comp-outlined-icon-button-selected-pressed-state-layer-opacity
+    );
+    --state-disabled-opacity: var(
+      --md-comp-outlined-icon-button-disabled-selected-container-opacity
+    );
+  }
+
+:where(.icon-button).outlined[disabled] {
+    border-color: rgb(
+      var(--md-sys-color-on-surface-rgb) / var(--state-outline-disabled-opacity)
+    );
+    color: rgb(
+      var(--md-sys-color-on-surface-rgb) / var(--state-disabled-opacity)
+    );
+  }
+
+:where(.icon-button).toggle {
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+:where(.icon-button).toggle:where(input[type="checkbox"]) {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+:where(.icon-button).toggle:where(input[type="checkbox"])::after {
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "liga";
+      direction: ltr;
+      word-wrap: normal;
+      white-space: nowrap;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1;
+      font-weight: normal;
+      font-family: "Material Icons";
+      font-size: var(--md-comp-icon-button-icon-size);
+      content: "check";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+:where(.icon-button).toggle:where(input[type="checkbox"])[icon]::after {
+        content: attr(icon);
+      }
+
+:where(.icon-button).toggle:where(input[type="checkbox"])[off-icon]::after {
+        content: attr(off-icon);
+      }
+
+:where(.icon-button).toggle:where(input[type="checkbox"]):checked[on-icon]::after {
+          content: attr(on-icon);
+        }
+
+:where(.icon-button).toggle:where([selected],
+[checked],
+:checked,
+.checked) {
+    color: var(--md-sys-color-primary);
+  }
+
+:where(.icon-button).toggle[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+  }

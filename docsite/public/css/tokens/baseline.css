@@ -1,0 +1,691 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-ref-palette-error0-rgb: 0 0 0;
+  --md-ref-palette-error0: rgb(var(--md-ref-palette-error0-rgb));
+  --md-ref-palette-error10-rgb: 65 14 11;
+  --md-ref-palette-error10: rgb(var(--md-ref-palette-error10-rgb));
+  --md-ref-palette-error20-rgb: 96 20 16;
+  --md-ref-palette-error20: rgb(var(--md-ref-palette-error20-rgb));
+  --md-ref-palette-error30-rgb: 140 29 24;
+  --md-ref-palette-error30: rgb(var(--md-ref-palette-error30-rgb));
+  --md-ref-palette-error40-rgb: 179 38 30;
+  --md-ref-palette-error40: rgb(var(--md-ref-palette-error40-rgb));
+  --md-ref-palette-error50-rgb: 220 54 46;
+  --md-ref-palette-error50: rgb(var(--md-ref-palette-error50-rgb));
+  --md-ref-palette-error60-rgb: 228 105 98;
+  --md-ref-palette-error60: rgb(var(--md-ref-palette-error60-rgb));
+  --md-ref-palette-error70-rgb: 236 146 142;
+  --md-ref-palette-error70: rgb(var(--md-ref-palette-error70-rgb));
+  --md-ref-palette-error80-rgb: 242 184 181;
+  --md-ref-palette-error80: rgb(var(--md-ref-palette-error80-rgb));
+  --md-ref-palette-error90-rgb: 249 222 220;
+  --md-ref-palette-error90: rgb(var(--md-ref-palette-error90-rgb));
+  --md-ref-palette-error95-rgb: 252 238 238;
+  --md-ref-palette-error95: rgb(var(--md-ref-palette-error95-rgb));
+  --md-ref-palette-error99-rgb: 255 251 249;
+  --md-ref-palette-error99: rgb(var(--md-ref-palette-error99-rgb));
+  --md-ref-palette-error100-rgb: 255 255 255;
+  --md-ref-palette-error100: rgb(var(--md-ref-palette-error100-rgb));
+  --md-ref-palette-tertiary0-rgb: 0 0 0;
+  --md-ref-palette-tertiary0: rgb(var(--md-ref-palette-tertiary0-rgb));
+  --md-ref-palette-tertiary10-rgb: 49 17 29;
+  --md-ref-palette-tertiary10: rgb(var(--md-ref-palette-tertiary10-rgb));
+  --md-ref-palette-tertiary20-rgb: 73 37 50;
+  --md-ref-palette-tertiary20: rgb(var(--md-ref-palette-tertiary20-rgb));
+  --md-ref-palette-tertiary30-rgb: 99 59 72;
+  --md-ref-palette-tertiary30: rgb(var(--md-ref-palette-tertiary30-rgb));
+  --md-ref-palette-tertiary40-rgb: 125 82 96;
+  --md-ref-palette-tertiary40: rgb(var(--md-ref-palette-tertiary40-rgb));
+  --md-ref-palette-tertiary50-rgb: 152 105 119;
+  --md-ref-palette-tertiary50: rgb(var(--md-ref-palette-tertiary50-rgb));
+  --md-ref-palette-tertiary60-rgb: 181 131 146;
+  --md-ref-palette-tertiary60: rgb(var(--md-ref-palette-tertiary60-rgb));
+  --md-ref-palette-tertiary70-rgb: 210 157 172;
+  --md-ref-palette-tertiary70: rgb(var(--md-ref-palette-tertiary70-rgb));
+  --md-ref-palette-tertiary80-rgb: 239 184 200;
+  --md-ref-palette-tertiary80: rgb(var(--md-ref-palette-tertiary80-rgb));
+  --md-ref-palette-tertiary90-rgb: 255 216 228;
+  --md-ref-palette-tertiary90: rgb(var(--md-ref-palette-tertiary90-rgb));
+  --md-ref-palette-tertiary95-rgb: 255 236 241;
+  --md-ref-palette-tertiary95: rgb(var(--md-ref-palette-tertiary95-rgb));
+  --md-ref-palette-tertiary99-rgb: 255 251 250;
+  --md-ref-palette-tertiary99: rgb(var(--md-ref-palette-tertiary99-rgb));
+  --md-ref-palette-tertiary100-rgb: 255 255 255;
+  --md-ref-palette-tertiary100: rgb(var(--md-ref-palette-tertiary100-rgb));
+  --md-ref-palette-secondary0-rgb: 0 0 0;
+  --md-ref-palette-secondary0: rgb(var(--md-ref-palette-secondary0-rgb));
+  --md-ref-palette-secondary10-rgb: 29 25 43;
+  --md-ref-palette-secondary10: rgb(var(--md-ref-palette-secondary10-rgb));
+  --md-ref-palette-secondary20-rgb: 51 45 65;
+  --md-ref-palette-secondary20: rgb(var(--md-ref-palette-secondary20-rgb));
+  --md-ref-palette-secondary30-rgb: 74 68 88;
+  --md-ref-palette-secondary30: rgb(var(--md-ref-palette-secondary30-rgb));
+  --md-ref-palette-secondary40-rgb: 98 91 113;
+  --md-ref-palette-secondary40: rgb(var(--md-ref-palette-secondary40-rgb));
+  --md-ref-palette-secondary50-rgb: 122 114 137;
+  --md-ref-palette-secondary50: rgb(var(--md-ref-palette-secondary50-rgb));
+  --md-ref-palette-secondary60-rgb: 149 141 165;
+  --md-ref-palette-secondary60: rgb(var(--md-ref-palette-secondary60-rgb));
+  --md-ref-palette-secondary70-rgb: 176 167 192;
+  --md-ref-palette-secondary70: rgb(var(--md-ref-palette-secondary70-rgb));
+  --md-ref-palette-secondary80-rgb: 204 194 220;
+  --md-ref-palette-secondary80: rgb(var(--md-ref-palette-secondary80-rgb));
+  --md-ref-palette-secondary90-rgb: 232 222 248;
+  --md-ref-palette-secondary90: rgb(var(--md-ref-palette-secondary90-rgb));
+  --md-ref-palette-secondary95-rgb: 246 237 255;
+  --md-ref-palette-secondary95: rgb(var(--md-ref-palette-secondary95-rgb));
+  --md-ref-palette-secondary99-rgb: 255 251 254;
+  --md-ref-palette-secondary99: rgb(var(--md-ref-palette-secondary99-rgb));
+  --md-ref-palette-secondary100-rgb: 255 255 255;
+  --md-ref-palette-secondary100: rgb(var(--md-ref-palette-secondary100-rgb));
+  --md-ref-palette-primary0-rgb: 0 0 0;
+  --md-ref-palette-primary0: rgb(var(--md-ref-palette-primary0-rgb));
+  --md-ref-palette-primary10-rgb: 33 0 93;
+  --md-ref-palette-primary10: rgb(var(--md-ref-palette-primary10-rgb));
+  --md-ref-palette-primary20-rgb: 56 30 114;
+  --md-ref-palette-primary20: rgb(var(--md-ref-palette-primary20-rgb));
+  --md-ref-palette-primary30-rgb: 79 55 139;
+  --md-ref-palette-primary30: rgb(var(--md-ref-palette-primary30-rgb));
+  --md-ref-palette-primary40-rgb: 103 80 164;
+  --md-ref-palette-primary40: rgb(var(--md-ref-palette-primary40-rgb));
+  --md-ref-palette-primary50-rgb: 127 103 190;
+  --md-ref-palette-primary50: rgb(var(--md-ref-palette-primary50-rgb));
+  --md-ref-palette-primary60-rgb: 154 130 219;
+  --md-ref-palette-primary60: rgb(var(--md-ref-palette-primary60-rgb));
+  --md-ref-palette-primary70-rgb: 182 157 248;
+  --md-ref-palette-primary70: rgb(var(--md-ref-palette-primary70-rgb));
+  --md-ref-palette-primary80-rgb: 208 188 255;
+  --md-ref-palette-primary80: rgb(var(--md-ref-palette-primary80-rgb));
+  --md-ref-palette-primary90-rgb: 234 221 255;
+  --md-ref-palette-primary90: rgb(var(--md-ref-palette-primary90-rgb));
+  --md-ref-palette-primary95-rgb: 246 237 255;
+  --md-ref-palette-primary95: rgb(var(--md-ref-palette-primary95-rgb));
+  --md-ref-palette-primary99-rgb: 255 251 254;
+  --md-ref-palette-primary99: rgb(var(--md-ref-palette-primary99-rgb));
+  --md-ref-palette-primary100-rgb: 255 255 255;
+  --md-ref-palette-primary100: rgb(var(--md-ref-palette-primary100-rgb));
+  --md-ref-palette-neutral-variant0-rgb: 0 0 0;
+  --md-ref-palette-neutral-variant0: rgb(
+    var(--md-ref-palette-neutral-variant0-rgb)
+  );
+  --md-ref-palette-neutral-variant10-rgb: 29 26 34;
+  --md-ref-palette-neutral-variant10: rgb(
+    var(--md-ref-palette-neutral-variant10-rgb)
+  );
+  --md-ref-palette-neutral-variant20-rgb: 50 47 55;
+  --md-ref-palette-neutral-variant20: rgb(
+    var(--md-ref-palette-neutral-variant20-rgb)
+  );
+  --md-ref-palette-neutral-variant30-rgb: 73 69 79;
+  --md-ref-palette-neutral-variant30: rgb(
+    var(--md-ref-palette-neutral-variant30-rgb)
+  );
+  --md-ref-palette-neutral-variant40-rgb: 96 93 102;
+  --md-ref-palette-neutral-variant40: rgb(
+    var(--md-ref-palette-neutral-variant40-rgb)
+  );
+  --md-ref-palette-neutral-variant50-rgb: 121 116 126;
+  --md-ref-palette-neutral-variant50: rgb(
+    var(--md-ref-palette-neutral-variant50-rgb)
+  );
+  --md-ref-palette-neutral-variant60-rgb: 147 143 153;
+  --md-ref-palette-neutral-variant60: rgb(
+    var(--md-ref-palette-neutral-variant60-rgb)
+  );
+  --md-ref-palette-neutral-variant70-rgb: 174 169 180;
+  --md-ref-palette-neutral-variant70: rgb(
+    var(--md-ref-palette-neutral-variant70-rgb)
+  );
+  --md-ref-palette-neutral-variant80-rgb: 202 196 208;
+  --md-ref-palette-neutral-variant80: rgb(
+    var(--md-ref-palette-neutral-variant80-rgb)
+  );
+  --md-ref-palette-neutral-variant90-rgb: 231 224 236;
+  --md-ref-palette-neutral-variant90: rgb(
+    var(--md-ref-palette-neutral-variant90-rgb)
+  );
+  --md-ref-palette-neutral-variant95-rgb: 245 238 250;
+  --md-ref-palette-neutral-variant95: rgb(
+    var(--md-ref-palette-neutral-variant95-rgb)
+  );
+  --md-ref-palette-neutral-variant99-rgb: 255 251 254;
+  --md-ref-palette-neutral-variant99: rgb(
+    var(--md-ref-palette-neutral-variant99-rgb)
+  );
+  --md-ref-palette-neutral-variant100-rgb: 255 255 255;
+  --md-ref-palette-neutral-variant100: rgb(
+    var(--md-ref-palette-neutral-variant100-rgb)
+  );
+  --md-ref-palette-neutral0-rgb: 0 0 0;
+  --md-ref-palette-neutral0: rgb(var(--md-ref-palette-neutral0-rgb));
+  --md-ref-palette-neutral10-rgb: 28 27 31;
+  --md-ref-palette-neutral10: rgb(var(--md-ref-palette-neutral10-rgb));
+  --md-ref-palette-neutral20-rgb: 49 48 51;
+  --md-ref-palette-neutral20: rgb(var(--md-ref-palette-neutral20-rgb));
+  --md-ref-palette-neutral30-rgb: 72 70 73;
+  --md-ref-palette-neutral30: rgb(var(--md-ref-palette-neutral30-rgb));
+  --md-ref-palette-neutral40-rgb: 96 93 98;
+  --md-ref-palette-neutral40: rgb(var(--md-ref-palette-neutral40-rgb));
+  --md-ref-palette-neutral50-rgb: 120 117 121;
+  --md-ref-palette-neutral50: rgb(var(--md-ref-palette-neutral50-rgb));
+  --md-ref-palette-neutral60-rgb: 147 144 148;
+  --md-ref-palette-neutral60: rgb(var(--md-ref-palette-neutral60-rgb));
+  --md-ref-palette-neutral70-rgb: 174 170 174;
+  --md-ref-palette-neutral70: rgb(var(--md-ref-palette-neutral70-rgb));
+  --md-ref-palette-neutral80-rgb: 201 197 202;
+  --md-ref-palette-neutral80: rgb(var(--md-ref-palette-neutral80-rgb));
+  --md-ref-palette-neutral90-rgb: 230 225 229;
+  --md-ref-palette-neutral90: rgb(var(--md-ref-palette-neutral90-rgb));
+  --md-ref-palette-neutral95-rgb: 244 239 244;
+  --md-ref-palette-neutral95: rgb(var(--md-ref-palette-neutral95-rgb));
+  --md-ref-palette-neutral99-rgb: 255 251 254;
+  --md-ref-palette-neutral99: rgb(var(--md-ref-palette-neutral99-rgb));
+  --md-ref-palette-neutral100-rgb: 255 255 255;
+  --md-ref-palette-neutral100: rgb(var(--md-ref-palette-neutral100-rgb));
+  --md-ref-palette-black-rgb: 0 0 0;
+  --md-ref-palette-black: rgb(var(--md-ref-palette-black-rgb));
+  --md-ref-palette-white-rgb: 255 255 255;
+  --md-ref-palette-white: rgb(var(--md-ref-palette-white-rgb));
+  --md-ref-typeface-plain: Roboto;
+  --md-ref-typeface-brand: Roboto;
+  --md-ref-typeface-weight-bold: 700;
+  --md-ref-typeface-weight-medium: 500;
+  --md-ref-typeface-weight-regular: 400;
+  --md-sys-typescale-label-medium-text-transform: none;
+  --md-sys-typescale-label-small-line-height: 16px;
+  --md-sys-typescale-label-small-tracking: 0.5px;
+  --md-sys-typescale-label-small-size: 11px;
+  --md-sys-typescale-label-small-weight: var(--md-ref-typeface-weight-medium);
+  --md-sys-typescale-label-small-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-label-medium-line-height: 16px;
+  --md-sys-typescale-label-medium-tracking: 0.5px;
+  --md-sys-typescale-label-medium-size: 12px;
+  --md-sys-typescale-label-medium-weight: var(--md-ref-typeface-weight-medium);
+  --md-sys-typescale-label-medium-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-label-large-line-height: 20px;
+  --md-sys-typescale-label-large-tracking: 0.10000000149011612px;
+  --md-sys-typescale-label-large-size: 14px;
+  --md-sys-typescale-label-large-weight: var(--md-ref-typeface-weight-medium);
+  --md-sys-typescale-label-large-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-body-small-line-height: 16px;
+  --md-sys-typescale-body-small-tracking: 0.4000000059604645px;
+  --md-sys-typescale-body-small-size: 12px;
+  --md-sys-typescale-body-small-weight: var(--md-ref-typeface-weight-regular);
+  --md-sys-typescale-body-small-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-medium-tracking: 0.25px;
+  --md-sys-typescale-body-medium-size: 14px;
+  --md-sys-typescale-body-medium-weight: var(--md-ref-typeface-weight-regular);
+  --md-sys-typescale-body-medium-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-body-large-line-height: 24px;
+  --md-sys-typescale-body-large-tracking: 0.5px;
+  --md-sys-typescale-body-large-size: 16px;
+  --md-sys-typescale-body-large-weight: var(--md-ref-typeface-weight-regular);
+  --md-sys-typescale-body-large-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-title-small-line-height: 20px;
+  --md-sys-typescale-title-small-tracking: 0.10000000149011612px;
+  --md-sys-typescale-title-small-size: 14px;
+  --md-sys-typescale-title-small-weight: var(--md-ref-typeface-weight-medium);
+  --md-sys-typescale-title-small-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-tracking: 0.15000000596046448px;
+  --md-sys-typescale-title-medium-size: 16px;
+  --md-sys-typescale-title-medium-weight: var(--md-ref-typeface-weight-medium);
+  --md-sys-typescale-title-medium-font: var(--md-ref-typeface-plain);
+  --md-sys-typescale-title-large-line-height: 28px;
+  --md-sys-typescale-title-large-tracking: 0px;
+  --md-sys-typescale-title-large-size: 22px;
+  --md-sys-typescale-title-large-weight: var(--md-ref-typeface-weight-regular);
+  --md-sys-typescale-title-large-font: var(--md-ref-typeface-brand);
+  --md-sys-typescale-headline-small-line-height: 32px;
+  --md-sys-typescale-headline-small-tracking: 0px;
+  --md-sys-typescale-headline-small-size: 24px;
+  --md-sys-typescale-headline-small-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  --md-sys-typescale-headline-small-font: var(--md-ref-typeface-brand);
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  --md-sys-typescale-headline-medium-tracking: 0px;
+  --md-sys-typescale-headline-medium-size: 28px;
+  --md-sys-typescale-headline-medium-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  --md-sys-typescale-headline-medium-font: var(--md-ref-typeface-brand);
+  --md-sys-typescale-headline-large-line-height: 40px;
+  --md-sys-typescale-headline-large-tracking: 0px;
+  --md-sys-typescale-headline-large-size: 32px;
+  --md-sys-typescale-headline-large-font: var(--md-ref-typeface-brand);
+  --md-sys-typescale-headline-large-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  --md-sys-typescale-display-small-line-height: 44px;
+  --md-sys-typescale-display-small-tracking: 0px;
+  --md-sys-typescale-display-small-size: 36px;
+  --md-sys-typescale-display-small-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  --md-sys-typescale-display-small-font: var(--md-ref-typeface-brand);
+  --md-sys-typescale-display-medium-line-height: 52px;
+  --md-sys-typescale-display-medium-tracking: 0px;
+  --md-sys-typescale-display-medium-size: 45px;
+  --md-sys-typescale-display-medium-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  --md-sys-typescale-display-medium-font: var(--md-ref-typeface-brand);
+  --md-sys-typescale-display-large-line-height: 64px;
+  --md-sys-typescale-display-large-tracking: -0.25px;
+  --md-sys-typescale-display-large-size: 57px;
+  --md-sys-typescale-display-large-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  --md-sys-typescale-display-large-font: var(--md-ref-typeface-brand);
+  --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
+  --md-sys-shape-corner-extra-small: 4px 4px 4px 4px;
+  --md-sys-shape-corner-large: 16px 16px 16px 16px;
+  --md-sys-shape-corner-none: 0px 0px 0px 0px;
+  --md-sys-shape-corner-large-start: 16px 0px 0px 16px;
+  --md-sys-shape-corner-medium: 12px 12px 12px 12px;
+  --md-sys-shape-corner-small: 8px 8px 8px 8px;
+  --md-sys-shape-corner-large-end: 0px 16px 16px 0px;
+  --md-sys-shape-corner-large-top: 16px 16px 0px 0px;
+  --md-sys-shape-corner-extra-large: 28px 28px 28px 28px;
+  --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
+  --md-sys-shape-corner-full: 50%;
+  --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+  --md-sys-motion-easing-standard: cubic-bezier(0.20000000298023224, 0, 0, 1);
+  --md-sys-motion-duration-short1: 50;
+  --md-sys-motion-duration-short2: 100;
+  --md-sys-motion-duration-short3: 150;
+  --md-sys-motion-duration-short4: 200;
+  --md-sys-motion-duration-medium1: 250;
+  --md-sys-motion-duration-medium2: 300;
+  --md-sys-motion-duration-medium3: 350;
+  --md-sys-motion-duration-medium4: 400;
+  --md-sys-motion-duration-long1: 450;
+  --md-sys-motion-duration-long2: 500;
+  --md-sys-motion-duration-long3: 550;
+  --md-sys-motion-duration-long4: 600;
+  --md-sys-motion-duration-extra-long1: 700;
+  --md-sys-motion-duration-extra-long2: 800;
+  --md-sys-motion-duration-extra-long3: 900;
+  --md-sys-motion-duration-extra-long4: 1000;
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(
+    0.30000001192092896,
+    0,
+    1,
+    1
+  );
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(
+    0.30000001192092896,
+    0,
+    0.800000011920929,
+    0.15000000596046448
+  );
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(
+    0.05000000074505806,
+    0.699999988079071,
+    0.10000000149011612,
+    1
+  );
+  --md-sys-motion-easing-legacy: cubic-bezier(
+    0.4000000059604645,
+    0,
+    0.20000000298023224,
+    1
+  );
+  --md-sys-motion-easing-legacy-accelerate: cubic-bezier(
+    0.4000000059604645,
+    0,
+    1,
+    1
+  );
+  --md-sys-motion-easing-legacy-decelerate: cubic-bezier(
+    0,
+    0,
+    0.20000000298023224,
+    1
+  );
+  --md-sys-state-hover-state-layer-opacity: 0.07999999821186066;
+  --md-sys-state-focus-state-layer-opacity: 0.11999999731779099;
+  --md-sys-state-pressed-state-layer-opacity: 0.11999999731779099;
+  --md-sys-state-dragged-state-layer-opacity: 0.1599999964237213;
+  --md-sys-elevation-level0: 0px;
+  --md-sys-elevation-level1: 1px;
+  --md-sys-elevation-level2: 3px;
+  --md-sys-elevation-level3: 6px;
+  --md-sys-elevation-level4: 8px;
+  /* +5 */
+  --md-sys-elevation-level5: 12px;
+}
+
+:is(html),
+.tokens {
+  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
+  --md-sys-color-outline-variant-rgb: var(
+    --md-ref-palette-neutral-variant80-rgb
+  );
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+  --md-sys-color-on-error-container: var(--md-ref-palette-error10);
+  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);
+  --md-sys-color-on-error: var(--md-ref-palette-error100);
+  --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);
+  --md-sys-color-error-container: var(--md-ref-palette-error90);
+  --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);
+  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
+  --md-sys-color-on-tertiary-container-rgb: var(
+    --md-ref-palette-tertiary10-rgb
+  );
+  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
+  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);
+  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
+  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);
+  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
+  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);
+  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+  --md-sys-color-error: var(--md-ref-palette-error40);
+  --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);
+  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
+  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);
+  --md-sys-color-on-background: var(--md-ref-palette-neutral10);
+  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);
+  --md-sys-color-background: var(--md-ref-palette-neutral99);
+  --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);
+  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
+  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);
+  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
+  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-on-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant30-rgb
+  );
+  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
+  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
+  --md-sys-color-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant90-rgb
+  );
+  --md-sys-color-surface: var(--md-ref-palette-neutral99);
+  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);
+  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
+  --md-sys-color-on-secondary-container-rgb: var(
+    --md-ref-palette-secondary10-rgb
+  );
+  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
+  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);
+  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
+  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary90-rgb);
+  --md-sys-color-secondary: var(--md-ref-palette-secondary40);
+  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);
+  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
+  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);
+  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
+  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary10-rgb);
+  --md-sys-color-on-primary: var(--md-ref-palette-primary100);
+  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);
+  --md-sys-color-primary-container: var(--md-ref-palette-primary90);
+  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
+  /* Primary */
+  --md-sys-color-primary: var(--md-ref-palette-primary40);
+  --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
+}
+
+.dark-theme {
+  --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-outline-variant-rgb: var(
+    --md-ref-palette-neutral-variant30-rgb
+  );
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+  --md-sys-color-on-error-container: var(--md-ref-palette-error90);
+  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error90-rgb);
+  --md-sys-color-on-error: var(--md-ref-palette-error20);
+  --md-sys-color-on-error-rgb: var(--md-ref-palette-error20-rgb);
+  --md-sys-color-error-container: var(--md-ref-palette-error30);
+  --md-sys-color-error-container-rgb: var(--md-ref-palette-error30-rgb);
+  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary90);
+  --md-sys-color-on-tertiary-container-rgb: var(
+    --md-ref-palette-tertiary90-rgb
+  );
+  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary20);
+  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary20-rgb);
+  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary30);
+  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary30-rgb);
+  --md-sys-color-tertiary: var(--md-ref-palette-tertiary80);
+  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary80-rgb);
+  --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+  --md-sys-color-error: var(--md-ref-palette-error80);
+  --md-sys-color-error-rgb: var(--md-ref-palette-error80-rgb);
+  --md-sys-color-outline: var(--md-ref-palette-neutral-variant60);
+  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant60-rgb);
+  --md-sys-color-on-background: var(--md-ref-palette-neutral90);
+  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral90-rgb);
+  --md-sys-color-background: var(--md-ref-palette-neutral10);
+  --md-sys-color-background-rgb: var(--md-ref-palette-neutral10-rgb);
+  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral20);
+  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral90);
+  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant80);
+  --md-sys-color-on-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant80-rgb
+  );
+  --md-sys-color-on-surface: var(--md-ref-palette-neutral90);
+  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-surface-variant-rgb: var(
+    --md-ref-palette-neutral-variant30-rgb
+  );
+  --md-sys-color-surface: var(--md-ref-palette-neutral10);
+  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary90);
+  --md-sys-color-on-secondary-container-rgb: var(
+    --md-ref-palette-secondary90-rgb
+  );
+  --md-sys-color-on-secondary: var(--md-ref-palette-secondary20);
+  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary20-rgb);
+  --md-sys-color-secondary-container: var(--md-ref-palette-secondary30);
+  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary30-rgb);
+  --md-sys-color-secondary: var(--md-ref-palette-secondary80);
+  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary80-rgb);
+  --md-sys-color-inverse-primary: var(--md-ref-palette-primary40);
+  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary40-rgb);
+  --md-sys-color-on-primary-container: var(--md-ref-palette-primary90);
+  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
+  --md-sys-color-on-primary: var(--md-ref-palette-primary20);
+  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary20-rgb);
+  --md-sys-color-primary-container: var(--md-ref-palette-primary30);
+  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary30-rgb);
+  /* Primary */
+  --md-sys-color-primary: var(--md-ref-palette-primary80);
+  --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
+}
+
+@media (prefers-color-scheme: dark) {
+  :is(html),
+.tokens {
+    --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+    --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+    --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant30);
+    --md-sys-color-outline-variant-rgb: var(
+      --md-ref-palette-neutral-variant30-rgb
+    );
+    --md-sys-color-surface-tint: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+    --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+    --md-sys-color-on-error-container: var(--md-ref-palette-error90);
+    --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error90-rgb);
+    --md-sys-color-on-error: var(--md-ref-palette-error20);
+    --md-sys-color-on-error-rgb: var(--md-ref-palette-error20-rgb);
+    --md-sys-color-error-container: var(--md-ref-palette-error30);
+    --md-sys-color-error-container-rgb: var(--md-ref-palette-error30-rgb);
+    --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary90);
+    --md-sys-color-on-tertiary-container-rgb: var(
+      --md-ref-palette-tertiary90-rgb
+    );
+    --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary20);
+    --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary20-rgb);
+    --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary30);
+    --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary30-rgb);
+    --md-sys-color-tertiary: var(--md-ref-palette-tertiary80);
+    --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary80-rgb);
+    --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+    --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+    --md-sys-color-error: var(--md-ref-palette-error80);
+    --md-sys-color-error-rgb: var(--md-ref-palette-error80-rgb);
+    --md-sys-color-outline: var(--md-ref-palette-neutral-variant60);
+    --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant60-rgb);
+    --md-sys-color-on-background: var(--md-ref-palette-neutral90);
+    --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral90-rgb);
+    --md-sys-color-background: var(--md-ref-palette-neutral10);
+    --md-sys-color-background-rgb: var(--md-ref-palette-neutral10-rgb);
+    --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral20);
+    --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+    --md-sys-color-inverse-surface: var(--md-ref-palette-neutral90);
+    --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+    --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant80);
+    --md-sys-color-on-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant80-rgb
+    );
+    --md-sys-color-on-surface: var(--md-ref-palette-neutral90);
+    --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral90-rgb);
+    --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant30);
+    --md-sys-color-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant30-rgb
+    );
+    --md-sys-color-surface: var(--md-ref-palette-neutral10);
+    --md-sys-color-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+    --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary90);
+    --md-sys-color-on-secondary-container-rgb: var(
+      --md-ref-palette-secondary90-rgb
+    );
+    --md-sys-color-on-secondary: var(--md-ref-palette-secondary20);
+    --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary20-rgb);
+    --md-sys-color-secondary-container: var(--md-ref-palette-secondary30);
+    --md-sys-color-secondary-container-rgb: var(
+      --md-ref-palette-secondary30-rgb
+    );
+    --md-sys-color-secondary: var(--md-ref-palette-secondary80);
+    --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary80-rgb);
+    --md-sys-color-inverse-primary: var(--md-ref-palette-primary40);
+    --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary40-rgb);
+    --md-sys-color-on-primary-container: var(--md-ref-palette-primary90);
+    --md-sys-color-on-primary-container-rgb: var(
+      --md-ref-palette-primary90-rgb
+    );
+    --md-sys-color-on-primary: var(--md-ref-palette-primary20);
+    --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary20-rgb);
+    --md-sys-color-primary-container: var(--md-ref-palette-primary30);
+    --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary30-rgb);
+    /* Primary */
+    --md-sys-color-primary: var(--md-ref-palette-primary80);
+    --md-sys-color-primary-rgb: var(--md-ref-palette-primary80-rgb);
+  }
+  .light-theme {
+    --md-sys-color-scrim: var(--md-ref-palette-neutral0);
+    --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);
+    --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);
+    --md-sys-color-outline-variant-rgb: var(
+      --md-ref-palette-neutral-variant80-rgb
+    );
+    --md-sys-color-surface-tint: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);
+    --md-sys-color-surface-tint-color: var(--md-sys-color-primary);
+    --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);
+    --md-sys-color-on-error-container: var(--md-ref-palette-error10);
+    --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);
+    --md-sys-color-on-error: var(--md-ref-palette-error100);
+    --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);
+    --md-sys-color-error-container: var(--md-ref-palette-error90);
+    --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);
+    --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);
+    --md-sys-color-on-tertiary-container-rgb: var(
+      --md-ref-palette-tertiary10-rgb
+    );
+    --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);
+    --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);
+    --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);
+    --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);
+    --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);
+    --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);
+    --md-sys-color-shadow: var(--md-ref-palette-neutral0);
+    --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);
+    --md-sys-color-error: var(--md-ref-palette-error40);
+    --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);
+    --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);
+    --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);
+    --md-sys-color-on-background: var(--md-ref-palette-neutral10);
+    --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);
+    --md-sys-color-background: var(--md-ref-palette-neutral99);
+    --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);
+    --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);
+    --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);
+    --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);
+    --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);
+    --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);
+    --md-sys-color-on-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant30-rgb
+    );
+    --md-sys-color-on-surface: var(--md-ref-palette-neutral10);
+    --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);
+    --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);
+    --md-sys-color-surface-variant-rgb: var(
+      --md-ref-palette-neutral-variant90-rgb
+    );
+    --md-sys-color-surface: var(--md-ref-palette-neutral99);
+    --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);
+    --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);
+    --md-sys-color-on-secondary-container-rgb: var(
+      --md-ref-palette-secondary10-rgb
+    );
+    --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);
+    --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);
+    --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);
+    --md-sys-color-secondary-container-rgb: var(
+      --md-ref-palette-secondary90-rgb
+    );
+    --md-sys-color-secondary: var(--md-ref-palette-secondary40);
+    --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);
+    --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);
+    --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);
+    --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);
+    --md-sys-color-on-primary-container-rgb: var(
+      --md-ref-palette-primary10-rgb
+    );
+    --md-sys-color-on-primary: var(--md-ref-palette-primary100);
+    --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);
+    --md-sys-color-primary-container: var(--md-ref-palette-primary90);
+    --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);
+    /* Primary */
+    --md-sys-color-primary: var(--md-ref-palette-primary40);
+    --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);
+  }
+}

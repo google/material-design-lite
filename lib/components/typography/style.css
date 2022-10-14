@@ -1,0 +1,68 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+@import url(../../tokens/typeface.css);
+@import url(../../tokens/typescale.css);
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+:is(.display-large, .display2-text) {
+  @apply --display-large;
+}
+:is(.display-medium, .display3text) {
+  @apply --display-medium;
+}
+:is(.display-small, .headline1-text, h1) {
+  @apply --display-small;
+}
+:is(.headline-large, .headline2-text, h2) {
+  @apply --headline-large;
+}
+:is(.headline-medium, .headline3-text, h3) {
+  @apply --headline-medium;
+}
+:is(.headline-small, .headline4-text, h4) {
+  @apply --headline-small;
+}
+:is(.title-large, .headline5-text, h5) {
+  @apply --title-large;
+}
+:is(.title-medium, .headline6-text, .subhead1-text, h6) {
+  @apply --title-medium;
+}
+:is(.title-small, .subhead2-text) {
+  @apply --title-small;
+}
+:is(.body-large, .body1-text, p) {
+  @apply --body-large;
+}
+:is(.body-medium, .body2-text) {
+  @apply --body-medium;
+}
+:is(.body-small, .caption-text) {
+  @apply --body-small;
+}
+:is(.label-large, .button-text) {
+  @apply --label-large;
+}
+:is(.label-medium, .overline) {
+  @apply --label-medium;
+}
+:is(.label-small) {
+  @apply --label-small;
+}

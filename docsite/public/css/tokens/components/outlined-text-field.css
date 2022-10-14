@@ -1,0 +1,87 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-comp-outlined-text-field-container-height: 56px;
+  --md-comp-outlined-text-field-hover-outline-width: 1px;
+  --md-comp-outlined-text-field-focus-outline-width: 2px;
+  --md-comp-outlined-text-field-disabled-trailing-icon-opacity: 0.3799999952316284;
+  --md-comp-outlined-text-field-disabled-leading-icon-opacity: 0.3799999952316284;
+  --md-comp-outlined-text-field-disabled-supporting-text-opacity: 0.3799999952316284;
+  --md-comp-outlined-text-field-disabled-input-text-opacity: 0.3799999952316284;
+  --md-comp-outlined-text-field-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-outlined-text-field-disabled-outline-opacity: 0.11999999731779099;
+  --md-comp-outlined-text-field-disabled-outline-width: 1px;
+  --md-comp-outlined-text-field-trailing-icon-size: 24px;
+  --md-comp-outlined-text-field-leading-icon-size: 24px;
+  --md-comp-outlined-text-field-supporting-text-tracking: var(
+    --md-sys-typescale-body-small-tracking
+  );
+  --md-comp-outlined-text-field-supporting-text-weight: var(
+    --md-sys-typescale-body-small-weight
+  );
+  --md-comp-outlined-text-field-supporting-text-size: var(
+    --md-sys-typescale-body-small-size
+  );
+  --md-comp-outlined-text-field-supporting-text-line-height: var(
+    --md-sys-typescale-body-small-line-height
+  );
+  --md-comp-outlined-text-field-supporting-text-font: var(
+    --md-sys-typescale-body-small-font
+  );
+  --md-comp-outlined-text-field-label-text-populated-size: var(
+    --md-sys-typescale-body-small-size
+  );
+  --md-comp-outlined-text-field-label-text-populated-line-height: var(
+    --md-sys-typescale-body-small-line-height
+  );
+  --md-comp-outlined-text-field-label-text-tracking: var(
+    --md-sys-typescale-body-large-tracking
+  );
+  --md-comp-outlined-text-field-label-text-weight: var(
+    --md-sys-typescale-body-large-weight
+  );
+  --md-comp-outlined-text-field-label-text-size: var(
+    --md-sys-typescale-body-large-size
+  );
+  --md-comp-outlined-text-field-label-text-line-height: var(
+    --md-sys-typescale-body-large-line-height
+  );
+  --md-comp-outlined-text-field-label-text-font: var(
+    --md-sys-typescale-body-large-font
+  );
+  --md-comp-outlined-text-field-input-text-tracking: var(
+    --md-sys-typescale-body-large-tracking
+  );
+  --md-comp-outlined-text-field-input-text-weight: var(
+    --md-sys-typescale-body-large-weight
+  );
+  --md-comp-outlined-text-field-input-text-size: var(
+    --md-sys-typescale-body-large-size
+  );
+  --md-comp-outlined-text-field-input-text-line-height: var(
+    --md-sys-typescale-body-large-line-height
+  );
+  --md-comp-outlined-text-field-input-text-font: var(
+    --md-sys-typescale-body-large-font
+  );
+  --md-comp-outlined-text-field-outline-width: 1px;
+  /* Outlined text field container shape */
+  --md-comp-outlined-text-field-container-shape: var(
+    --md-sys-shape-corner-extra-small
+  );
+}

@@ -1,0 +1,91 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens, :host {
+  /* Branded extended FAB lowered focus container elevation */
+  --md-comp-extended-fab-branded-lowered-focus-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Branded extended FAB focus container elevation */
+  --md-comp-extended-fab-branded-focus-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+  /* Extended FAB (branded) focus state layer opacity */
+  --md-comp-extended-fab-branded-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Branded extended FAB lowered hover container elevation */
+  --md-comp-extended-fab-branded-lowered-hover-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  /* Extended FAB (branded) hover state layer opacity */
+  --md-comp-extended-fab-branded-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Extended FAB (branded) hover container elevation */
+  --md-comp-extended-fab-branded-hover-container-elevation: var(
+    --md-sys-elevation-level4
+  );
+  /* Extended FAB (branded) tracking */
+  --md-comp-extended-fab-branded-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Extended FAB (branded) weight */
+  --md-comp-extended-fab-branded-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Extended FAB (branded) size */
+  --md-comp-extended-fab-branded-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Extended FAB (branded) height */
+  --md-comp-extended-fab-branded-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Extended FAB (branded) font */
+  --md-comp-extended-fab-branded-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Extended FAB (branded) icon size */
+  --md-comp-extended-fab-branded-icon-size: 36px;
+  /* Branded extended FAB lowered container elevation */
+  --md-comp-extended-fab-branded-lowered-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Extended FAB (branded) container elevation */
+  --md-comp-extended-fab-branded-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+  /* Extended FAB (branded) container height */
+  --md-comp-extended-fab-branded-container-height: 56px;
+  /* Extended FAB (branded) container shape */
+  --md-comp-extended-fab-branded-container-shape: var(
+    --md-sys-shape-corner-large
+  );
+  /* Branded extended FAB lowered pressed container elevation */
+  --md-comp-extended-fab-branded-lowered-pressed-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Extended FAB (branded) pressed state layer opacity */
+  --md-comp-extended-fab-branded-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Extended FAB (branded) pressed container elevation */
+  --md-comp-extended-fab-branded-pressed-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+}

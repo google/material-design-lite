@@ -1,0 +1,67 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens, :host {
+  /* Standard menu button pressed state layer opacity */
+  --md-comp-standard-menu-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Standard menu button focus state layer opacity */
+  --md-comp-standard-menu-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Standard menu button hover state layer opacity */
+  --md-comp-standard-menu-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Standard menu button disabled trailing icon opacity */
+  --md-comp-standard-menu-button-disabled-trailing-icon-opacity: 0.3799999952316284;
+  /* Standard menu button with icon disabled leading icon opacity */
+  --md-comp-standard-menu-button-with-icon-disabled-leading-icon-opacity: 0.3799999952316284;
+  /* Standard menu button disabled label text opacity */
+  --md-comp-standard-menu-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Standard menu button trailing icon size */
+  --md-comp-standard-menu-button-trailing-icon-size: 18px;
+  /* Standard menu button with icon leading icon size */
+  --md-comp-standard-menu-button-with-icon-leading-icon-size: 18px;
+  /* Standard menu button label text weight */
+  --md-comp-standard-menu-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Standard menu button label text tracking */
+  --md-comp-standard-menu-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Standard menu button label text size */
+  --md-comp-standard-menu-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Standard menu button label text line height */
+  --md-comp-standard-menu-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Standard menu button label text font */
+  --md-comp-standard-menu-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Standard menu button container shape */
+  --md-comp-standard-menu-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  /* Standard menu button container height */
+  --md-comp-standard-menu-button-container-height: 40px;
+}

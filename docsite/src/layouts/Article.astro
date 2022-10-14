@@ -1,0 +1,25 @@
+---
+import Root from "./Root.astro";
+
+const props = Astro.props;
+---
+
+<Root {...props}>
+  <section>
+    <slot />
+  </section>
+</Root>
+
+<style>
+  section {
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    section {
+      max-width: 768px;
+    }
+  }
+</style>

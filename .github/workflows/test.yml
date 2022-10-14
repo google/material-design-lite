@@ -1,0 +1,30 @@
+name: Test
+
+on:
+  push:
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17
+
+      - name: Build CSS
+        run: |
+          npm i &&
+          npm run build
+
+      - uses: microsoft/playwright-github-action@v1
+      - name: Test
+        run: |
+          npm run test

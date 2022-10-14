@@ -1,0 +1,112 @@
+---
+import Raw from "./Raw.astro";
+import Navigation from "../components/Navigation.astro";
+import type { MarkdownHeading } from "astro";
+
+const { frontmatter } = Astro.props;
+const headings: MarkdownHeading[] = Astro.props.headings ?? [];
+---
+
+<Raw {frontmatter}>
+  <Navigation title={frontmatter.title} tab={frontmatter.tab}>
+    <main data-headings={headings.length}>
+      <section>
+        <slot />
+      </section>
+      <aside class="headings">
+        <nav>
+          <h2 class="headline-small">On This Page</h2>
+          <ul>
+            {
+              headings.map((heading) => {
+                return (
+                  <li>
+                    <a
+                      class="heading"
+                      href={`#${heading.slug}`}
+                      style={`--depth: ${heading.depth}`}
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+      </aside>
+    </main>
+  </Navigation>
+</Raw>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    grid-template-rows: 1fr;
+    grid-template-areas: "content headings";
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    overflow: hidden;
+  }
+
+  main[data-headings="0"] {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content";
+  }
+  main[data-headings="0"] aside {
+    display: none;
+  }
+  section {
+    grid-area: content;
+    overflow: auto;
+    width: 100%;
+  }
+
+  aside {
+    grid-area: headings;
+    border-left: 1px solid var(--md-sys-color-outline-variant);
+    padding: 1rem;
+    overflow: auto;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+      grid-template-areas: "content";
+    }
+    aside {
+      display: none;
+    }
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .heading {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-decoration: none;
+    margin-left: calc(var(--depth) * 0.42rem);
+  }
+  .heading::before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--md-sys-color-outline);
+    margin-right: 0.5rem;
+  }
+  .heading:hover {
+    text-decoration: underline;
+  }
+</style>

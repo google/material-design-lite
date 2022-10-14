@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "CSS Watch",
+            "command": "nvm use node && npm run css:watch",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Readme Watch",
+            "command": "nvm use node && npm run readme:watch",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "TS Watch",
+            "command": "nvm use node && npm run tsc:watch",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Test Watch",
+            "command": "nvm use node && npm run test:watch",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Test UI",
+            "command": "nvm use node && npm run test:ui",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Site Watch",
+            "command": "nvm use node && npm run dev",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "Dev",
+            "dependsOn": [
+                "Site Watch",
+                "Readme Watch",
+                "CSS Watch",
+                "Test Watch",
+                "TS Watch",
+                "Test UI"
+            ]
+        }
+    ]
+}

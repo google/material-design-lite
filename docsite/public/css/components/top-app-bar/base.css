@@ -1,0 +1,90 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
+  --md-sys-comp-top-app-bar-padding: 16px;
+}
+
+:is(.top-app-bar,
+header) {
+  position: relative;
+  padding: var(--md-sys-comp-top-app-bar-padding);
+  background-color: var(--md-sys-comp-top-app-bar-background-color);
+  color: var(--md-sys-comp-top-app-bar-color);
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto;
+  grid-template-areas: "leading title actions";
+  z-index: 1;
+}
+
+:is(.top-app-bar,
+header) .actions {
+    grid-area: actions;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+  }
+
+:is(.top-app-bar,
+header) .icon-button {
+    background-color: unset;
+    color: unset;
+    padding: unset;
+  }
+
+:is(.top-app-bar,
+header) .title {
+    grid-area: title;
+    flex: 1;
+    -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
+            text-decoration: var(--md-sys-typescale-title-large-text-decoration);
+    text-transform: var(--md-sys-typescale-title-large-text-transform);
+    line-height: var(--md-sys-typescale-title-large-line-height);
+    letter-spacing: var(--md-sys-typescale-title-large-tracking);
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    font-family: var(--md-sys-typescale-title-large-font);
+  }
+
+:is(.top-app-bar,
+header) .leading {
+    grid-area: leading;
+    padding: unset;
+  }
+
+:is(.top-app-bar,
+header).fixed {
+    transition: background 0.8s;
+    z-index: 1000;
+  }
+
+:is(.top-app-bar,
+header).scrolled {
+    --tint-opacity: 0.09;
+    --tint-color-rgb: var(--md-sys-color-primary-rgb);
+    --tint-color: rgb(var(--md-sys-color-primary-rgb) / var(--tint-opacity));
+    box-shadow: var(--md-sys-elevation-2);
+    background: linear-gradient(var(--tint-color), var(--tint-color)) no-repeat,
+      linear-gradient(var(--md-sys-color-surface), var(--md-sys-color-surface))
+        no-repeat;
+  }

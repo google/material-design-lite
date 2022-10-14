@@ -1,0 +1,112 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-sys-comp-dialog-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-dialog-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-dialog-container-min-width: 280px;
+  --md-comp-dialog-container-max-width: 560px;
+}
+
+:is(.dialog,
+dialog):not(.navigation-drawer) {
+  position: relative;
+}
+
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] {
+    border-radius: 28px;
+    border: none;
+    box-shadow: var(--md-sys-elevation-3);
+    background-color: var(--md-sys-comp-dialog-background-color);
+    color: var(--md-sys-comp-dialog-color);
+    position: relative;
+    min-width: var(--md-comp-dialog-container-min-width);
+    max-width: var(--md-comp-dialog-container-max-width);
+    padding: 24px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] :where(i,
+.material-icons) {
+      pointer-events: none;
+    }
+
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] .title {
+      -webkit-text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
+              text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
+      text-transform: var(--md-sys-typescale-headline-small-text-transform);
+      line-height: var(--md-sys-typescale-headline-small-line-height);
+      letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+      font-size: var(--md-sys-typescale-headline-small-size);
+      font-weight: var(--md-sys-typescale-headline-small-weight);
+      font-family: var(--md-sys-typescale-headline-small-font);
+      text-align: center;
+    }
+
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] .content {
+      -webkit-text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
+              text-decoration: var(--md-sys-typescale-body-medium-text-decoration);
+      text-transform: var(--md-sys-typescale-body-medium-text-transform);
+      line-height: var(--md-sys-typescale-body-medium-line-height);
+      letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+      font-size: var(--md-sys-typescale-body-medium-size);
+      font-weight: var(--md-sys-typescale-body-medium-weight);
+      font-family: var(--md-sys-typescale-body-medium-font);
+      text-align: start;
+    }
+
+:is(.dialog,
+dialog):not(.navigation-drawer)[open] .actions {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 4px;
+    }
+
+:is(.dialog,
+dialog):not(.navigation-drawer).modal[open] {
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+:is(.dialog,
+dialog):not(.navigation-drawer).modal::-webkit-backdrop {
+    /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
+    background-color: rgb(0, 0, 0, 0.32);
+    pointer-events: none !important;
+  }
+
+:is(.dialog,
+dialog):not(.navigation-drawer).modal::backdrop {
+    /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
+    background-color: rgb(0, 0, 0, 0.32);
+    pointer-events: none !important;
+  }

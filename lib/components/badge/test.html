@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Badge</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td><a href="#" class="badge" data-badge="1">Link</a></td>
+      </tr>
+      <tr>
+        <td>Elevated</td>
+        <td><a href="#" class="badge elevated" data-badge="1">Link</a></td>
+      </tr>
+      <tr>
+        <td>Secondary</td>
+        <td><a href="#" class="badge secondary" data-badge="1">Link</a></td>
+      </tr>
+      <tr>
+        <td>Tertiary</td>
+        <td><a href="#" class="badge tertiary" data-badge="1">Link</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".badge")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el, "::after");
+
+        describe(`badge ${item.classList} tests`, () => {
+          it("check size", () => {
+            expect(s.height).to.equal("22px");
+            expect(s.width).to.equal("22px");
+          });
+          it("check accessibility", async () => {
+            await expect(el).to.be.accessible();
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

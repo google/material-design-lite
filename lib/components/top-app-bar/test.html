@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lists</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <header class="top-app-bar center-aligned">
+            <button class="icon-button leading">
+              <i class="material-icons">menu</i>
+            </button>
+            <span class="title">Title Large</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">search</i>
+              </button>
+            </div>
+          </header>
+        </td>
+      </tr>
+      <tr>
+        <td>Small</td>
+        <td>
+          <header class="top-app-bar small">
+            <button class="icon-button leading">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <span class="title">Title Large</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">info</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">filter_list</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">settings</i>
+              </button>
+            </div>
+          </header>
+        </td>
+      </tr>
+      <tr>
+        <td>Medium</td>
+        <td>
+          <header class="top-app-bar medium">
+            <button class="icon-button leading">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <span class="title">Headline Small</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">info</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">filter_list</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">settings</i>
+              </button>
+            </div>
+          </header>
+        </td>
+      </tr>
+      <tr>
+        <td>Large</td>
+        <td>
+          <header class="top-app-bar large">
+            <button class="icon-button leading">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <span class="title">Headline Medium</span>
+            <div class="actions">
+              <button class="icon-button">
+                <i class="material-icons">info</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">filter_list</i>
+              </button>
+              <button class="icon-button">
+                <i class="material-icons">settings</i>
+              </button>
+            </div>
+          </header>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".top-app-bar")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+
+        describe(`${item.classList} tests`, () => {
+          it('check actions', () => {
+            const t = el.querySelector('.actions');
+
+            expect(t).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

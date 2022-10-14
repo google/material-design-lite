@@ -1,0 +1,30 @@
+---
+import Components from "../../layouts/Components.astro";
+import { COMPONENTS } from "../../utils/menu";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../data/components/*.md");
+  return posts.map((component) => {
+    const parts = component.file.split("/");
+    const id = parts[parts.length - 1].split(".")[0];
+    return { params: { id }, props: { id } };
+  });
+}
+
+const { id } = Astro.props;
+const posts = await Astro.glob("../../data/components/*.md");
+const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
+const { frontmatter, Content } = post;
+frontmatter.tab = "components";
+const headings = post.getHeadings();
+const props = {
+  frontmatter,
+  headings,
+  links: COMPONENTS,
+  link: `/material-design-lite/components/${id}/`,
+};
+---
+
+<Components {...props}>
+  <Content />
+</Components>

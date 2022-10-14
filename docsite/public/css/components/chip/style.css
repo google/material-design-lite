@@ -1,0 +1,307 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-chip-color: var(--md-sys-color-primary);
+  --md-comp-chip-container-height: 32px;
+  --md-comp-assist-chip-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  --md-comp-assist-chip-dragged-container-elevation: var(
+    --md-sys-elevation-level4
+  );
+  --md-comp-assist-chip-elevated-pressed-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-assist-chip-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  --md-comp-assist-chip-elevated-focus-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-assist-chip-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  --md-comp-assist-chip-elevated-hover-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  --md-comp-assist-chip-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  --md-comp-assist-chip-elevated-disabled-container-opacity: 0.11999999731779099;
+  --md-comp-assist-chip-elevated-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-assist-chip-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  --md-comp-assist-chip-disabled-label-text-opacity: 0.3799999952316284;
+  --md-comp-assist-chip-flat-disabled-outline-opacity: 0.11999999731779099;
+  --md-comp-assist-chip-with-icon-icon-size: 18px;
+  --md-comp-assist-chip-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  --md-comp-assist-chip-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  --md-comp-assist-chip-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  --md-comp-assist-chip-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  --md-comp-assist-chip-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  --md-comp-assist-chip-elevated-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  --md-comp-assist-chip-flat-outline-width: 1px;
+  --md-comp-assist-chip-flat-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  --md-comp-assist-chip-container-height: 32px;
+  /* Assist chip container shape */
+  --md-comp-assist-chip-container-shape: var(--md-sys-shape-corner-small);
+}
+
+:is(.chip) {
+  /* Remove default button styles */
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  position: relative;
+  padding: 8px 16px;
+  height: 32px;
+  gap: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: start;
+  vertical-align: middle;
+  -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+          text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+  text-transform: var(--md-sys-typescale-label-large-text-transform);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  font-family: var(--md-sys-typescale-label-large-font);
+  transition: box-shadow 0.2s ease-in-out;
+  background-color: var(--md-sys-comp-chip-background-color);
+  color: var(--md-sys-comp-chip-color);
+  border-radius: var(--md-sys-shape-corner-small);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+:is(.chip) :is(i,
+.material-icons) {
+    color: var(--md-sys-color-primary);
+    font-size: 18px;
+  }
+
+:is(.chip) :is(i,
+.material-icons):first-child {
+      margin-left: -8px;
+    }
+
+:is(.chip) :is(i,
+.material-icons):last-child {
+      margin-right: -8px;
+    }
+
+:is(.chip):where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+:is(.chip):where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+:is(.chip):where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+:is(.chip)[disabled] {
+    cursor: default;
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+:is(.chip)[disabled] :where(i,
+.material-icons) {
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
+
+:is(.chip).assist {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  height: var(--md-comp-assist-chip-container-height);
+  border-radius: var(--md-comp-assist-chip-container-shape);
+  box-shadow: var(--md-sys-elevation-0);
+  /* font-family: var(--md-comp-assist-chip-label-text-font); */
+  --state-hover-opacity: var(--md-comp-assist-chip-hover-state-layer-opacity);
+  --state-focus-opacity: var(--md-comp-assist-chip-focus-state-layer-opacity);
+  --state-active-opacity: var(
+    --md-comp-assist-chip-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-assist-chip-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-assist-chip-disabled-outline-opacity
+  );
+}
+
+:is(.chip).assist :where(i,
+.material-icons) {
+    font-size: var(--md-comp-assist-chip-with-icon-icon-size);
+  }
+
+:is(.chip).assist :where(i,
+.material-icons):first-child {
+      margin-left: -9px;
+    }
+
+:is(.chip).assist :where(i,
+.material-icons):last-child {
+      margin-right: -9px;
+    }
+
+:is(.chip).assist:where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+:is(.chip).assist:where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+:is(.chip).assist:where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+:is(.chip).assist[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+:is(.chip).filter {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+:is(.chip).filter:where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-2);
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-hover-state-layer-opacity)
+    );
+  }
+
+:is(.chip).filter:where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-2);
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-focus-state-layer-opacity)
+    );
+  }
+
+:is(.chip).filter:where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-1);
+    --tint-color: rgb(
+      var(--md-sys-color-primary-rgb) /
+        var(--md-sys-state-pressed-state-layer-opacity)
+    );
+  }
+
+:is(.chip).filter :where(i,
+.material-icons) :first-child {
+    margin-left: -9px;
+  }
+
+:is(.chip).filter :where(i,
+.material-icons) :last-child {
+    margin-right: -9px;
+  }
+
+:is(.chip).filter[disabled] {
+    --tint-color: transparent;
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+  }
+
+:is(.chip).input {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+:is(.chip).input :where(i,
+.material-icons) :first-child {
+    margin-left: -9px;
+  }
+
+:is(.chip).input :where(i,
+.material-icons) :last-child {
+    margin-right: -9px;
+  }
+
+:is(.chip).input[disabled] {
+    --tint-color: transparent;
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }
+
+:is(.chip).suggestion {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+:is(.chip).suggestion :where(i,
+.material-icons) :first-child {
+    margin-left: -9px;
+  }
+
+:is(.chip).suggestion :where(i,
+.material-icons) :last-child {
+    margin-right: -9px;
+  }
+
+:is(.chip).suggestion[disabled] {
+    --tint-color: transparent;
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }

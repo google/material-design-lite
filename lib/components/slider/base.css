@@ -1,0 +1,221 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html, .light-theme, .dark-theme), .tokens, :host {
+  --md-sys-comp-slider-background-color: transparent;
+  --md-sys-comp-slider-color: var(--md-sys-color-surface-1);
+  --md-sys-comp-slider-container-height: 36px;
+  --md-sys-comp-slider-container-width: 100%;
+}
+
+:is(.slider, input[type="range"]) {
+  color: var(--md-sys-comp-slider-color);
+  background-color: var(--md-sys-comp-slider-background-color);
+  -webkit-appearance: none;
+  position: relative;
+  display: block;
+  height: var(--md-sys-comp-slider-container-height);
+  width: var(--md-sys-comp-slider-container-width);
+  cursor: pointer;
+
+  &:last-child {
+    position: static;
+    margin: 0;
+  }
+
+  &::-webkit-slider-thumb {
+    box-shadow: 0 0 0 2px transparent;
+  }
+
+  &::-ms-thumb {
+    box-shadow: 0 0 0 2px rgb(var(--md-sys-color-primary-rgb) / 0.04);
+    appearance: none;
+    margin: 0 17px;
+    border: none;
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb));
+    transform: scale(6, 6);
+    transition: box-shadow 0.2s;
+  }
+
+  &::-moz-range-track {
+    margin: 17px 0;
+    border-radius: 1px;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
+  }
+
+  &::-moz-range-thumb {
+    appearance: none;
+    -moz-appearance: none;
+    border: none;
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb));
+    transform: scale(6, 6);
+    transition: box-shadow 0.2s;
+  }
+
+  &::-moz-range-progress {
+    border-radius: 1px;
+    height: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb));
+  }
+
+  &::-moz-focus-outer {
+    border: none;
+  }
+
+  &::-ms-track {
+    box-sizing: border-box;
+    margin: 17px 0;
+    border: none;
+    border-radius: 1px;
+    padding: 0 17px;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    border-radius: 1px;
+    height: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb));
+  }
+
+  &::-ms-fill-upper {
+    border-radius: 1px;
+    height: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
+  }
+
+  &::-webkit-slider-runnable-track {
+    margin: 17px 0;
+    border-radius: 1px;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb) / 0.24);
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+    background-color: rgb(var(--md-sys-color-primary-rgb));
+    transform: scale(6, 6);
+    transition: box-shadow 0.2s;
+  }
+
+  &::-webkit-slider-thumb {
+    box-shadow: 0 0 0 2px transparent;
+  }
+
+  &:hover {
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-hover-color);
+    }
+
+    &::-moz-range-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-hover-color);
+    }
+
+    &::-ms-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-hover-color);
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-focus-color);
+    }
+
+    &::-moz-range-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-focus-color);
+    }
+
+    &::-ms-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-focus-color);
+    }
+  }
+
+  &:active {
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-active-color);
+    }
+
+    &::-moz-range-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-active-color);
+    }
+
+    &::-ms-thumb {
+      box-shadow: 0 0 0 2px var(--md-sys-state-active-color);
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.38;
+
+    &::-webkit-slider-runnable-track {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
+
+    &::-webkit-slider-thumb {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb));
+      color: var(--md-sys-color-surface); /* Safari */
+      box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
+      transform: scale(4, 4);
+    }
+
+    &::-moz-range-track {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
+
+    &::-moz-range-progress {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
+    }
+
+    &::-moz-range-thumb {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb));
+      box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
+      transform: scale(4, 4);
+    }
+
+    &::-ms-fill-lower {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
+
+    &::-ms-fill-upper {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+      opacity: 0.38;
+    }
+
+    &::-ms-thumb {
+      background-color: rgb(var(--md-sys-color-on-surface-rgb));
+      box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
+      transform: scale(4, 4);
+    }
+  }
+}

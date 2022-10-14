@@ -1,0 +1,84 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html, .light-theme, .dark-theme), .tokens, :host {
+  --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-chip-color: var(--md-sys-color-primary);
+  --md-comp-chip-container-height: 32px;
+}
+
+:is(.chip) {
+  /* Remove default button styles */
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+
+  position: relative;
+  border-radius: 8px;
+  padding: 8px 16px;
+  height: 32px;
+  gap: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: start;
+  vertical-align: middle;
+  @apply --label-large;
+  transition: box-shadow 0.2s ease-in-out;
+  background-color: var(--md-sys-comp-chip-background-color);
+  color: var(--md-sys-comp-chip-color);
+  border-radius: var(--md-sys-shape-corner-small);
+  box-shadow: var(--md-sys-elevation-1);
+
+  & :is(i, .material-icons) {
+    color: var(--md-sys-color-primary);
+    font-size: 18px;
+
+    &:first-child {
+      margin-left: -8px;
+    }
+
+    &:last-child {
+      margin-right: -8px;
+    }
+  }
+
+  &:where(:hover, .hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &:where(:active, .active) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &[disabled] {
+    cursor: default;
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    box-shadow: var(--md-sys-elevation-0);
+
+    & :where(i, .material-icons) {
+      color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    }
+  }
+}

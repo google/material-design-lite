@@ -1,0 +1,36 @@
+---
+import Article from "../../layouts/Article.astro";
+import { OVERVIEW } from "../../utils/menu";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../data/overview/*.md");
+  return posts.map((component) => {
+    const parts = component.file.split("/");
+    const id = parts[parts.length - 1].split(".")[0];
+    return { params: { id }, props: { id } };
+  });
+}
+
+const { id } = Astro.props;
+const posts = await Astro.glob("../../data/overview/*.md");
+const post = posts.find((p) => p.file.endsWith(`${id}.md`))!;
+const { frontmatter, Content } = post;
+const headings = post.getHeadings();
+const props = {
+  frontmatter,
+  headings,
+  links: OVERVIEW,
+  link: `/material-design-lite/overview/${id}/`,
+};
+---
+
+<Article {...props}>
+  <Content />
+</Article>
+
+<script>
+  import "../../components/color-scheme.ts";
+  import "../../components/color-palette.ts";
+  import "../../components/color-box.ts";
+  import "../../components/icons-preview.ts";
+</script>

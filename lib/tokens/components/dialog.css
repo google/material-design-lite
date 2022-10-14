@@ -1,0 +1,111 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens, :host {
+  /* Dialog divider color */
+  --md-comp-dialog-with-divider-divider-height: 1px;
+  /* Dialog subhead tracking */
+  --md-comp-dialog-subhead-tracking: var(
+    --md-sys-typescale-headline-small-tracking
+  );
+  /* Dialog subhead weight */
+  --md-comp-dialog-subhead-weight: var(
+    --md-sys-typescale-headline-small-weight
+  );
+  /* Dialog subhead size */
+  --md-comp-dialog-subhead-size: var(--md-sys-typescale-headline-small-size);
+  /* Dialog subhead line height */
+  --md-comp-dialog-subhead-line-height: var(
+    --md-sys-typescale-headline-small-line-height
+  );
+  /* Dialog subhead font */
+  --md-comp-dialog-subhead-font: var(--md-sys-typescale-headline-small-font);
+  /* Dialog headline tracking */
+  --md-comp-dialog-headline-tracking: var(
+    --md-sys-typescale-headline-small-tracking
+  );
+  /* Dialog headline weight */
+  --md-comp-dialog-headline-weight: var(
+    --md-sys-typescale-headline-small-weight
+  );
+  /* Dialog headline size */
+  --md-comp-dialog-headline-size: var(--md-sys-typescale-headline-small-size);
+  /* Dialog headline line height */
+  --md-comp-dialog-headline-line-height: var(
+    --md-sys-typescale-headline-small-line-height
+  );
+  /* Dialog headline font */
+  --md-comp-dialog-headline-font: var(--md-sys-typescale-headline-small-font);
+  /* Dialog action focus stte layer opacity */
+  --md-comp-dialog-action-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Dialog action hover state layer opacity */
+  --md-comp-dialog-action-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Dialog action label text tracking */
+  --md-comp-dialog-action-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Dialog action label text weight */
+  --md-comp-dialog-action-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Dialog action label text size */
+  --md-comp-dialog-action-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Dialog action label text line height */
+  --md-comp-dialog-action-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Dialog action label text font */
+  --md-comp-dialog-action-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Dialog supporting text tracking */
+  --md-comp-dialog-supporting-text-tracking: var(
+    --md-sys-typescale-body-medium-tracking
+  );
+  /* Dialog supporting text weight */
+  --md-comp-dialog-supporting-text-weight: var(
+    --md-sys-typescale-body-medium-weight
+  );
+  /* Dialog supporting text size */
+  --md-comp-dialog-supporting-text-size: var(
+    --md-sys-typescale-body-medium-size
+  );
+  /* Dialog supporting text line height */
+  --md-comp-dialog-supporting-text-line-height: var(
+    --md-sys-typescale-body-medium-line-height
+  );
+  /* Dialog supporting text font */
+  --md-comp-dialog-supporting-text-font: var(
+    --md-sys-typescale-body-medium-font
+  );
+  /* Dialog icon size */
+  --md-comp-dialog-with-icon-icon-size: 24px;
+  /* Dialog container shape */
+  --md-comp-dialog-container-shape: var(--md-sys-shape-corner-extra-large);
+  /* Dialog container elevation */
+  --md-comp-dialog-container-elevation: var(--md-sys-elevation-level3);
+  /* Dialog action pressed state layer opacity */
+  --md-comp-dialog-action-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+}

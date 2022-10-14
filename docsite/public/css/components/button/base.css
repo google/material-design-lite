@@ -1,0 +1,142 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-sys-comp-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: 40px;
+  --md-comp-button-container-shape: 20px;
+}
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip) {
+  --state-disabled-opacity: 0.3799999952316284;
+  --_bg-color: var(--md-sys-comp-button-background-color);
+  --_fg-color: var(--md-sys-comp-button-color);
+  --_height: var(--md-comp-button-container-height);
+  --_shape: var(--md-comp-button-container-shape);
+  
+  /* Remove default button styles */
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--_bg-color);
+  color: var(--_fg-color);
+  height: var(--_height);
+  padding: 0 24px;
+  border-radius: var(--_shape);
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  gap: 8px;
+  white-space: nowrap;
+  -webkit-text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+          text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+  text-transform: var(--md-sys-typescale-label-large-text-transform);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  font-family: var(--md-sys-typescale-label-large-font);
+  box-shadow: var(--md-sys-elevation-1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip)[label] {
+    content: attr(label);
+  }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip) :where(i,
+.material-icons) {
+    margin-left: -8px;
+    font-size: 18px;
+  }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip) :where(i,
+.material-icons):only-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip) a {
+    text-decoration: none;
+  }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip) a:hover {
+      text-decoration: none;
+    }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip) a:focus {
+      text-decoration: none;
+    }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip):where(:hover,
+.hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip):where(:active,
+.active) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip):where(:focus,
+.focus) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+:where(.button,
+button):not(.icon-button,
+.fab,
+.chip)[disabled] {
+    cursor: default;
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+  }

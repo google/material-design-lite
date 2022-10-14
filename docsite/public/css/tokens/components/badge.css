@@ -1,0 +1,39 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-comp-badge-large-label-text-weight: var(
+    --md-sys-typescale-label-small-weight
+  );
+  --md-comp-badge-large-label-text-tracking: var(
+    --md-sys-typescale-label-small-tracking
+  );
+  --md-comp-badge-large-label-text-size: var(
+    --md-sys-typescale-label-small-size
+  );
+  --md-comp-badge-large-label-text-line-height: var(
+    --md-sys-typescale-label-small-line-height
+  );
+  --md-comp-badge-large-label-text-font: var(
+    --md-sys-typescale-label-small-font
+  );
+  --md-comp-badge-large-size: 16px;
+  --md-comp-badge-large-shape: var(--md-sys-shape-corner-full);
+  --md-comp-badge-size: 6px;
+  /* Badge shape */
+  --md-comp-badge-shape: var(--md-sys-shape-corner-full);
+}

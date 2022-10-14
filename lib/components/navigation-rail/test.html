@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation Rail</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <aside class="navigation-rail" style="min-height: 600px">
+            <button class="icon-button">
+              <i class="material-icons">menu</i>
+            </button>
+            <button class="fab">
+              <i class="material-icons">add</i>
+            </button>
+            <nav>
+              <input type="radio" name="nav-rail" value="home" id="home" checked />
+              <label class="navigation-icon" for="home">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+              </label>
+              <input type="radio" name="nav-rail" value="profile" id="profile" />
+              <label class="navigation-icon" for="profile">
+                <i class="material-icons">person</i>
+                <span>Profile</span>
+              </label>
+              <input type="radio" name="nav-rail" value="settings" id="settings" />
+              <label class="navigation-icon" for="settings">
+                <i class="material-icons">settings</i>
+                <span>Settings</span>
+              </label>
+            </nav>
+          </aside>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".navigation-rail")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+
+        describe(`${item.classList} tests`, () => {
+          it('check nav', () => {
+            const t = el.querySelector('nav');
+
+            expect(t).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

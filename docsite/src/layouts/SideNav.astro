@@ -1,0 +1,115 @@
+---
+import Root from "./Root.astro";
+
+interface Link {
+  text: string;
+  link: string;
+  draft?: boolean;
+}
+const props = Astro.props;
+const { links, link } = props as {
+  link: string;
+  links: Link[];
+};
+---
+
+<Root {...props}>
+  <div id="root">
+    <aside class="left-nav">
+      <div class="navigation-drawer">
+        <section>
+          {
+            links.map((item, index) => {
+              if (item.draft) {
+                return (
+                  <div class="list-tile draft">
+                    <span class="title">{item.text}</span>
+                  </div>
+                );
+              }
+              const navLink = `/material-design-lite/${item.link}/`;
+              return (
+                <a
+                  href={navLink}
+                  class="nav-link list-tile"
+                  data-selected={link === navLink}
+                >
+                  <span class="title">{item.text}</span>
+                </a>
+              );
+            })
+          }
+        </section>
+      </div>
+    </aside>
+    <section class="content">
+      <div class="article"><slot /></div>
+    </section>
+  </div>
+</Root>
+
+<style>
+  @custom-media --nav-breakpoint (max-width: 1200px);
+
+  #root {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+  .left-nav {
+    height: 100%;
+    border-right: 1px solid var(--md-sys-color-outline-variant);
+    overflow-y: auto;
+    padding-top: 1rem;
+  }
+  .content {
+    flex: 1;
+    overflow-y: auto;
+  }
+  .article {
+    width: 100%;
+    padding: 2rem 1.5rem 4rem 1.5rem;
+  }
+  .draft {
+    color: var(--md-sys-color-on-surface);
+    opacity: 0.2;
+  }
+  .navigation-drawer {
+    padding: 0 1rem;
+    width: 280px;
+  }
+  a {
+    text-decoration: none;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  .list-tile {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+  }
+  @media (--nav-breakpoint) {
+    .left-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Scroll to selected link
+  const selected = document.querySelectorAll(".nav-link[data-selected]");
+  if (selected.length > 0) {
+    // Animated scroll to selected link
+    selected[0].scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    });
+  }
+</script>

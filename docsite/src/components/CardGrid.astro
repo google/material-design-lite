@@ -1,0 +1,39 @@
+---
+interface Link {
+  link: string;
+  title: string;
+  subtitle?: string;
+  draft?: boolean;
+}
+
+const { links } = Astro.props as {
+  links: Link[];
+};
+---
+
+<div class="cards">
+  {
+    links.map((link) => (
+      <a class="card outlined" href={link.link}>
+        <div class="title">{link.title}</div>
+        <div class="subtitle">{link.subtitle}</div>
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .card {
+    width: unset;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+</style>

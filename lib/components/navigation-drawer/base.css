@@ -1,0 +1,94 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html, .light-theme, .dark-theme), .tokens, :host {
+  --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-navigation-drawer-container-height: 100%;
+  --md-comp-navigation-drawer-container-width: 360px;
+}
+
+:where(.navigation-drawer) {
+  padding: 12px;
+  border-radius: 16px;
+  background-color: var(--md-sys-comp-navigation-drawer-background-color);
+  color: var(--md-sys-comp-navigation-drawer-color);
+  width: var(--md-comp-navigation-drawer-container-width);
+  height: var(--md-comp-navigation-drawer-container-height);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  & .drawer-spacer {
+    flex: 1;
+  }
+
+  & .drawer-scrollable {
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  & .drawer-title {
+    @apply --title-medium;
+    padding: 16px 18px;
+    width: 100%;
+  }
+
+  & .section-header {
+    @apply --title-small;
+    padding: 16px 18px;
+  }
+
+  & .divider {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  & :where(section, .drawer-section) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    & .section-header {
+      padding: 16px 18px;
+    }
+
+    & .list-tile {
+      position: relative;
+
+      &:where([selected], [checked], [data-selected]) {
+        color: var(--md-sys-color-on-secondary-container);
+
+        & * {
+          z-index: 1;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 100px;
+          background-color: var(--md-sys-color-secondary-container);
+          color: var(--md-sys-color-on-secondary-container);
+        }
+      }
+    }
+  }
+}

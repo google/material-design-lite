@@ -1,0 +1,112 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-sys-comp-switch-thumb-size: 16px;
+  --md-sys-comp-switch-track-width: 52px;
+  --md-sys-comp-switch-track-height: 32px;
+  --md-sys-comp-switch-border-width: 2px;
+}
+
+:is(.switch) {
+  --thumb-size: var(--md-sys-comp-switch-thumb-size);
+  --track-width: var(--md-sys-comp-switch-track-width);
+  --track-height: var(--md-sys-comp-switch-track-height);
+  --border-width: var(--md-sys-comp-switch-border-width);
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: var(--track-width);
+  height: var(--track-height);
+  border-radius: 20px;
+  background-color: var(--md-sys-color-surface-variant);
+  border: var(--border-width) solid var(--md-sys-color-outline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Thumb */
+
+:is(.switch)::after {
+    content: "";
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "liga";
+    direction: ltr;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1;
+    font-weight: normal;
+    font-family: "Material Icons";
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    border-radius: inherit;
+    background-color: var(--md-sys-color-outline);
+    color: var(--md-sys-color-surface-variant);
+    position: absolute;
+    left: calc(var(--thumb-size) / 2 - var(--border-width));
+    transition: left 0.2s ease-in-out;
+  }
+
+/* &:hover {
+    --thumb-size: 24px;
+
+    &::after {
+      transition: left 0s ease-in-out;
+      left: var(--border-width);
+    }
+  } */
+
+:is(.switch):checked {
+    --thumb-size: 28px;
+    background-color: var(--md-sys-color-primary);
+    border-color: var(--md-sys-color-primary);
+  }
+
+:is(.switch):checked::after {
+      left: calc(100% - var(--thumb-size));
+      background-color: var(--md-sys-color-on-primary);
+      color: var(--md-sys-color-on-primary-container);
+    }
+
+:is(.switch):disabled {
+    background-color: rgb(var(--md-sys-color-surface-variant-rgb) / 0.12);
+    border-color: var(--md-sys-color-surface-variant);
+  }
+
+:is(.switch):disabled::after {
+      opacity: 0.38;
+      background-color: var(--md-sys-color-on-surface);
+    }
+
+:is(.switch):disabled:selected {
+      background-color: var(--md-sys-color-on-surface);
+      border-color: var(--md-sys-color-on-surface);
+      color: var(--md-sys-color-on-surface);
+    }
+
+:is(.switch):disabled:selected::after {
+        opacity: 1;
+        background-color: var(--md-sys-color-surface);
+      }

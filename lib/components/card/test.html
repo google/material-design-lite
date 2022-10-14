@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <div class="card">
+            <div class="title">Play relaxing songs</div>
+            <div class="subtitle">From your recent favorites</div>
+            <div class="actions">
+              <button class="filled">Get started</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Filled</td>
+        <td>
+          <div class="card filled">
+            <div class="title">Play relaxing songs</div>
+            <div class="subtitle">From your recent favorites</div>
+            <div class="actions">
+              <button class="filled">Get started</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Outlined</td>
+        <td>
+          <div class="card outlined">
+            <div class="title">Play relaxing songs</div>
+            <div class="subtitle">From your recent favorites</div>
+            <div class="actions">
+              <button class="filled">Get started</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Elevated</td>
+        <td>
+          <div class="card elevated">
+            <div class="title">Play relaxing songs</div>
+            <div class="subtitle">From your recent favorites</div>
+            <div class="actions">
+              <button class="filled">Get started</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".card")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el, "::after");
+
+        describe(`card ${item.classList} tests`, () => {
+          it('check actions', () => {
+            expect(el.querySelector('.actions')).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

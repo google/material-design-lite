@@ -1,0 +1,62 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:is(.progress).linear {
+  position: relative;
+  display: inline-block;
+  background-color: var(--md-sys-comp-progress-background-color);
+  height: var(--md-sys-comp-progress-size);
+  border-radius: 6px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress);
+    background-color: var(--md-sys-comp-progress-color);
+  }
+
+  &.indeterminate {
+    &::before {
+      --progress-duration: 2.1s;
+      content: "";
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: var(--md-sys-comp-progress-color);
+      will-change: left, right;
+      animation: linear-progress-indeterminate-animation
+        var(--progress-duration)
+        var(--md-sys-motion-easing-emphasized-accelerate) infinite;
+    }
+  }
+}
+
+@keyframes linear-progress-indeterminate-animation {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}

@@ -1,0 +1,10 @@
+<div id="ripple" class="ripple" style="width: 100px; height: 100px"></div>
+<script>
+  const ripple = document.getElementById("ripple");
+  ripple.addEventListener("mousemove", (e) => {
+    const x = parseInt(ripple.style.width) - e.offsetX;
+    const y = parseInt(ripple.style.height) - e.offsetY;
+    ripple.style.setProperty("--ripple-start-x", 100 - x + "%");
+    ripple.style.setProperty("--ripple-start-y", 100 - y + "%");
+  });
+</script>

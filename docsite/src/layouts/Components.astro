@@ -1,0 +1,59 @@
+---
+import Article from "./Article.astro";
+
+const props = Astro.props;
+const { frontmatter } = props;
+const { codepen, link, title } = frontmatter;
+const imageUrl = `https://img.shields.io/badge/docs-material.io-black.svg?style=flat-square&logo=data:image/png;base64,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`;
+---
+
+<Article {...props}>
+  {
+    link && (
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <img alt="View on Material.io" src={imageUrl} />
+      </a>
+    )
+  }
+  <slot />
+  {
+    codepen && (
+      <div>
+        <h2>Playground</h2>
+
+        <p
+          id="codepen"
+          class="codepen"
+          data-height="500"
+          data-theme-id="light"
+          data-default-tab="html,result"
+          data-slug-hash={codepen}
+          data-editable="true"
+          data-user="rodydavis"
+        >
+          <span>
+            See the Pen{" "}
+            <a href={`https://codepen.io/rodydavis/pen/${codepen}`}>{title}</a>{" "}
+            by Rody Davis (<a href="https://codepen.io/rodydavis">@rodydavis</a>
+            ) on <a href="https://codepen.io">CodePen</a>.
+          </span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js" />
+      </div>
+    )
+  }
+</Article>
+
+<style>
+  .codepen {
+    width: 100%;
+    height: 500px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    margin: 1em 0;
+    padding: 1em;
+  }
+</style>

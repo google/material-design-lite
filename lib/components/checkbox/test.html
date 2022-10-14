@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkbox</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+        <th>Checked</th>
+        <th>Indeterminate</th>
+        <th>Disabled</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>
+          <input class="checkbox" type="checkbox" aria-label="Checkbox" />
+        </td>
+        <td>
+          <input class="checkbox" type="checkbox" checked aria-label="Checkbox" />
+        </td>
+        <td>
+          <input class="checkbox indeterminate" type="checkbox" aria-label="Checkbox" />
+        </td>
+        <td>
+          <input class="checkbox" type="checkbox" disabled aria-label="Checkbox" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".checkbox")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+        const icon = el.querySelector("i");
+
+        if (item.classList.contains('indeterminate')) {
+          item.indeterminate = true;
+        }
+
+        describe(`checkbox ${item.classList} tests`, () => {
+          it("check size", () => {
+            expect(s.width).to.equal("24px");
+            expect(s.height).to.equal("24px");
+          });
+          it("check accessibility", async () => {
+            await expect(el).to.be.accessible();
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

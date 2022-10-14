@@ -1,0 +1,74 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+@import url(../../tokens/components/elevated-button.css);
+
+:is(.button, button):not(.icon-button, .fab, .chip).elevated {
+  box-shadow: var(--md-sys-elevation-1);
+  height: var(--md-comp-elevated-button-container-height);
+
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-elevated-button-container-shape); */
+  /* line-height: var(--md-comp-elevated-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-elevated-button-label-text-tracking); */
+  /* font-size: var(--md-comp-elevated-button-label-text-size); */
+  /* font-weight: var(--md-comp-elevated-button-label-text-weight); */
+  /* font-family: var(--md-comp-elevated-button-label-text-font); */
+
+  --state-hover-opacity: var(
+    --md-comp-elevated-button-hover-state-layer-opacity
+  );
+  --state-focus-opacity: var(
+    --md-comp-elevated-button-focus-state-layer-opacity
+  );
+  --state-active-opacity: var(
+    --md-comp-elevated-button-pressed-state-layer-opacity
+  );
+  --state-disabled-opacity: var(
+    --md-comp-elevated-button-disabled-unselected-outline-opacity
+  );
+  --state-outline-disabled-opacity: var(
+    --md-comp-elevated-button-disabled-outline-opacity
+  );
+
+  & :where(i, .material-icons)  {
+    font-size: var(--md-comp-elevated-button-with-icon-icon-size);
+  }
+
+  &:where(:hover, .hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &:where(:active, .active) {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+  &:where(:focus, .focus) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+    background-color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-comp-elevated-button-disabled-container-opacity)
+    );
+    color: rgb(
+      var(--md-sys-color-on-surface-rgb) /
+        var(--md-comp-elevated-button-disabled-label-text-opacity)
+    );
+  }
+}

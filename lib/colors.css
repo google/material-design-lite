@@ -1,0 +1,214 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+.color-primary {
+  @apply --primary;
+}
+.color-primary-text {
+  @apply --primary-text;
+}
+.color-on-primary {
+  @apply --on-primary;
+}
+.color-on-primary-text {
+  @apply --on-primary-text;
+}
+.color-primary-container {
+  @apply --primary-container;
+}
+.color-primary-container-text {
+  @apply --primary-container-text;
+}
+.color-on-primary-container {
+  @apply --on-primary-container;
+}
+.color-on-primary-container-text {
+  @apply --on-primary-container-text;
+}
+.color-secondary {
+  @apply --secondary;
+}
+.color-secondary-text {
+  @apply --secondary-text;
+}
+.color-on-secondary {
+  @apply --on-secondary;
+}
+.color-on-secondary-text {
+  @apply --on-secondary-text;
+}
+.color-secondary-container {
+  @apply --secondary-container;
+}
+.color-secondary-container-text {
+  @apply --secondary-container-text;
+}
+.color-on-secondary-container {
+  @apply --on-secondary-container;
+}
+.color-on-secondary-container-text {
+  @apply --on-secondary-container-text;
+}
+.color-tertiary {
+  @apply --tertiary;
+}
+.color-tertiary-text {
+  @apply --tertiary-text;
+}
+.color-on-tertiary {
+  @apply --on-tertiary;
+}
+.color-on-tertiary-text {
+  @apply --on-tertiary-text;
+}
+.color-tertiary-container {
+  @apply --tertiary-container;
+}
+.color-tertiary-container-text {
+  @apply --tertiary-container-text;
+}
+.color-on-tertiary-container {
+  @apply --on-tertiary-container;
+}
+.color-on-tertiary-container-text {
+  @apply --on-tertiary-container-text;
+}
+.color-error {
+  @apply --error;
+}
+.color-error-text {
+  @apply --error-text;
+}
+.color-error-container {
+  @apply --error-container;
+}
+.color-error-container-text {
+  @apply --error-container-text;
+}
+.color-on-error {
+  @apply --on-error;
+}
+.color-on-error-text {
+  @apply --on-error-text;
+}
+.color-on-error-container {
+  @apply --on-error-container;
+}
+.color-on-error-container-text {
+  @apply --on-error-container-text;
+}
+.color-background {
+  @apply --background;
+}
+.color-background-text {
+  @apply --background-text;
+}
+.color-on-background {
+  @apply --on-background;
+}
+.color-on-background-text {
+  @apply --on-background-text;
+}
+.color-surface {
+  @apply --surface;
+}
+.color-surface-text {
+  @apply --surface-text;
+}
+.color-on-surface {
+  @apply --on-surface;
+}
+.color-on-surface-text {
+  @apply --on-surface-text;
+}
+.color-surface-variant {
+  @apply --surface-variant;
+}
+.color-surface-variant-text {
+  @apply --surface-variant-text;
+}
+.color-on-surface-variant {
+  @apply --on-surface-variant;
+}
+.color-on-surface-variant-text {
+  @apply --on-surface-variant-text;
+}
+.color-outline {
+  @apply --outline;
+}
+.color-outline-text {
+  @apply --outline-text;
+}
+.color-outline-variant {
+  @apply --outline-variant;
+}
+.color-outline-variant-text {
+  @apply --outline-variant-text;
+}
+.color-inverse-on-surface {
+  @apply --inverse-on-surface;
+}
+.color-inverse-on-surface-text {
+  @apply --inverse-on-surface-text;
+}
+.color-inverse-surface {
+  @apply --inverse-surface;
+}
+.color-inverse-surface-text {
+  @apply --inverse-surface-text;
+}
+.color-inverse-primary {
+  @apply --inverse-primary;
+}
+.color-inverse-primary-text {
+  @apply --inverse-primary-text;
+}
+.color-shadow {
+  @apply --shadow;
+}
+.color-shadow-text {
+  @apply --shadow-text;
+}
+.color-scrim {
+  @apply --scrim;
+}
+.color-scrim-text {
+  @apply --scrim-text;
+}
+.color-surface-tint {
+  @apply --surface-tint;
+}
+.color-surface-tint-text {
+  @apply --surface-tint-text;
+}
+.color-surface-tint-color {
+  @apply --surface-tint-color;
+}
+.color-surface-tint-color-text {
+  @apply --surface-tint-color-text;
+}
+.color-black {
+  @apply --black;
+}
+.color-black-text {
+  @apply --black-text;
+}
+.color-white {
+  @apply --white;
+}
+.color-white-text {
+  @apply --white-text;
+}

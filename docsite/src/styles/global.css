@@ -1,0 +1,122 @@
+@import url(./reset.css);
+@import url(./prisma.css);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+html {
+  smooth-scrolling: auto;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding-bottom: 0.8rem;
+  padding-top: 1rem;
+}
+
+p {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.token-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin: 0 10px;
+  border: 1px solid var(--md-sys-color-on-background);
+  border-radius: 2px;
+}
+
+.preview {
+  padding: 2rem;
+  background-color: var(--md-sys-color-surface-1);
+  border-radius: var(--md-sys-shape-corner-medium);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview.alt {
+  background-color: transparent;
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+.code {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--md-sys-shape-corner-medium);
+  margin: 1rem 0;
+}
+
+.code > pre {
+  border-radius: inherit;
+  margin: 0;
+  padding: 2em;
+}
+
+.icon-button.code-copy {
+  box-sizing: border-box;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  right: -100px;
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  opacity: 0.4;
+  border-radius: 0;
+  border-bottom-left-radius: 20%;
+  z-index: 1;
+}
+
+.dark-theme .code-copy {
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+}
+
+.code:hover .code-copy {
+  right: 0;
+}
+
+.code-copy:hover {
+  opacity: 1;
+}
+
+* {
+  accent-color: var(--md-sys-color-primary);
+}
+
+:where(a):not(.nav-link, .icon-button, .fab, .button) {
+  text-decoration: none;
+  font-weight: 500;
+
+  &:not(.card) {
+    color: var(--md-sys-color-primary);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: var(--md-sys-color-tertiary);
+    }
+  }
+}

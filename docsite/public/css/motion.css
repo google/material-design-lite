@@ -1,0 +1,184 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html),
+.tokens {
+  --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+  --md-sys-motion-easing-standard: cubic-bezier(0.20000000298023224, 0, 0, 1);
+  --md-sys-motion-duration-short1: 50;
+  --md-sys-motion-duration-short2: 100;
+  --md-sys-motion-duration-short3: 150;
+  --md-sys-motion-duration-short4: 200;
+  --md-sys-motion-duration-medium1: 250;
+  --md-sys-motion-duration-medium2: 300;
+  --md-sys-motion-duration-medium3: 350;
+  --md-sys-motion-duration-medium4: 400;
+  --md-sys-motion-duration-long1: 450;
+  --md-sys-motion-duration-long2: 500;
+  --md-sys-motion-duration-long3: 550;
+  --md-sys-motion-duration-long4: 600;
+  --md-sys-motion-duration-extra-long1: 700;
+  --md-sys-motion-duration-extra-long2: 800;
+  --md-sys-motion-duration-extra-long3: 900;
+  --md-sys-motion-duration-extra-long4: 1000;
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(
+    0.30000001192092896,
+    0,
+    1,
+    1
+  );
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(
+    0.30000001192092896,
+    0,
+    0.800000011920929,
+    0.15000000596046448
+  );
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(
+    0.05000000074505806,
+    0.699999988079071,
+    0.10000000149011612,
+    1
+  );
+  --md-sys-motion-easing-legacy: cubic-bezier(
+    0.4000000059604645,
+    0,
+    0.20000000298023224,
+    1
+  );
+  --md-sys-motion-easing-legacy-accelerate: cubic-bezier(
+    0.4000000059604645,
+    0,
+    1,
+    1
+  );
+  /* Legacy decelerate */
+  --md-sys-motion-easing-legacy-decelerate: cubic-bezier(
+    0,
+    0,
+    0.20000000298023224,
+    1
+  );
+}
+
+.duration-50 {
+  transition-duration: var(--md-sys-motion-duration-50);
+}
+
+.duration-100 {
+  transition-duration: var(--md-sys-motion-duration-100);
+}
+
+.duration-150 {
+  transition-duration: var(--md-sys-motion-duration-150);
+}
+
+.duration-200 {
+  transition-duration: var(--md-sys-motion-duration-200);
+}
+
+.duration-250 {
+  transition-duration: var(--md-sys-motion-duration-250);
+}
+
+.duration-300 {
+  transition-duration: var(--md-sys-motion-duration-300);
+}
+
+.duration-350 {
+  transition-duration: var(--md-sys-motion-duration-350);
+}
+
+.duration-400 {
+  transition-duration: var(--md-sys-motion-duration-400);
+}
+
+.duration-450 {
+  transition-duration: var(--md-sys-motion-duration-450);
+}
+
+.duration-500 {
+  transition-duration: var(--md-sys-motion-duration-500);
+}
+
+.duration-550 {
+  transition-duration: var(--md-sys-motion-duration-550);
+}
+
+.duration-600 {
+  transition-duration: var(--md-sys-motion-duration-600);
+}
+
+.duration-700 {
+  transition-duration: var(--md-sys-motion-duration-700);
+}
+
+.duration-800 {
+  transition-duration: var(--md-sys-motion-duration-800);
+}
+
+.duration-900 {
+  transition-duration: var(--md-sys-motion-duration-900);
+}
+
+.duration-1000 {
+  transition-duration: var(--md-sys-motion-duration-1000);
+}
+
+.easing-standard {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-x0),
+    var(--md-sys-motion-easing-standard-y0),
+    var(--md-sys-motion-easing-standard-x1),
+    var(--md-sys-motion-easing-standard-y1)
+  );
+}
+
+.easing-linear {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-linear-x0),
+    var(--md-sys-motion-easing-linear-y0),
+    var(--md-sys-motion-easing-linear-x1),
+    var(--md-sys-motion-easing-linear-y1)
+  );
+}
+
+.easing-standard-accelerate {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-accelerate-x0),
+    var(--md-sys-motion-easing-standard-accelerate-y0),
+    var(--md-sys-motion-easing-standard-accelerate-x1),
+    var(--md-sys-motion-easing-standard-accelerate-y1)
+  );
+}
+
+.easing-standard-decelerate {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-decelerate-x0),
+    var(--md-sys-motion-easing-standard-decelerate-y0),
+    var(--md-sys-motion-easing-standard-decelerate-x1),
+    var(--md-sys-motion-easing-standard-decelerate-y1)
+  );
+}
+
+.easing-emphasized {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-emphasized-x0),
+    var(--md-sys-motion-easing-emphasized-y0),
+    var(--md-sys-motion-easing-emphasized-x1),
+    var(--md-sys-motion-easing-emphasized-y1)
+  );
+}

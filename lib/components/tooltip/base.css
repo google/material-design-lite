@@ -1,0 +1,57 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
+  --md-sys-comp-tooltip-container-background-color: var(
+    --md-sys-color-inverse-surface
+  );
+  --md-sys-comp-tooltip-container-color: var(--md-sys-color-inverse-on-surface);
+  --md-sys-comp-tooltip-delay: 0.3s;
+}
+
+:is(.tooltip) {
+  text-decoration: none;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    padding: 8px;
+    transform: translateX(-50%) scale(0);
+    transition: transform var(--md-sys-comp-tooltip-delay) ease-in-out;
+    transform-origin: top;
+    @apply --label-small;
+    border-radius: var(--md-sys-shape-corner-small);
+    background-color: var(--md-sys-comp-tooltip-container-background-color);
+    color: var(--md-sys-comp-tooltip-container-color);
+    z-index: 1;
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &[aria-label]:before {
+    content: attr(aria-label);
+  }
+
+  &[data-tooltip]:before {
+    content: attr(data-tooltip);
+  }
+
+  &:is(:hover, [data-visible]):before {
+    transform: translateX(-50%) translateY(-10%) scale(1);
+  }
+}

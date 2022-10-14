@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress Indicators</title>
+  <link rel="stylesheet" href="../../utils/test.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Linear Determinate</td>
+        <td>
+          <div class="progress linear" style="--progress: 75%">
+            <progress value="75" max="100">75%</progress>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Linear Indeterminate</td>
+        <td>
+          <div class="progress linear indeterminate">
+            <progress indeterminate>75%</progress>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Circular Determinate</td>
+        <td>
+          <div class="progress circular" style="--progress: 75%">
+            <progress value="75" max="100">75%</progress>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Circular Indeterminate</td>
+        <td>
+          <div class="progress circular indeterminate">
+            <progress indeterminate>75%</progress>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="module">
+    import { html, fixture, expect } from "@open-wc/testing";
+    import { runTests } from "@web/test-runner-mocha";
+
+    runTests(async () => {
+      for (const item of document.querySelectorAll(".progress")) {
+        const el = await fixture(item.outerHTML);
+        const s = getComputedStyle(el);
+
+        describe(`${item.classList} tests`, () => {
+          it('check progress', () => {
+            const t = el.querySelector('progress');
+
+            expect(t).to.exist;
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

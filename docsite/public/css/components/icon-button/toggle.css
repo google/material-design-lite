@@ -1,0 +1,67 @@
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+:where(.icon-button).toggle {
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+:where(.icon-button).toggle:where(input[type="checkbox"]) {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+:where(.icon-button).toggle:where(input[type="checkbox"])::after {
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "liga";
+      direction: ltr;
+      word-wrap: normal;
+      white-space: nowrap;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1;
+      font-weight: normal;
+      font-family: "Material Icons";
+      font-size: var(--md-comp-icon-button-icon-size);
+      content: "check";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+:where(.icon-button).toggle:where(input[type="checkbox"])[icon]::after {
+        content: attr(icon);
+      }
+
+:where(.icon-button).toggle:where(input[type="checkbox"])[off-icon]::after {
+        content: attr(off-icon);
+      }
+
+:where(.icon-button).toggle:where(input[type="checkbox"]):checked[on-icon]::after {
+          content: attr(on-icon);
+        }
+
+:where(.icon-button).toggle:where([selected],
+[checked],
+:checked,
+.checked) {
+    color: var(--md-sys-color-primary);
+  }
+
+:where(.icon-button).toggle[disabled] {
+    box-shadow: var(--md-sys-elevation-0);
+  }
