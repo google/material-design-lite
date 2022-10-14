@@ -77,7 +77,7 @@ and help improve the Material Design Lite. For more information visit our
 
 Please use the default branch, `mdl-3.x`.
 
-The documentation site is built using [Astro](https://github.com/withastro/astro).\
+The documentation site is built using [Astro](https://github.com/withastro/astro).
 
 Web components for the documentation site are built with [Lit](https://lit.dev/).
 
