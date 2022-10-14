@@ -2439,7 +2439,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
   --state-disabled-opacity: 0.3799999952316284;
   --_bg-color: var(--md-sys-comp-button-background-color);
   --_fg-color: var(--md-sys-comp-button-color);
@@ -2485,36 +2485,36 @@
   box-shadow: var(--md-sys-elevation-1);
   transition: box-shadow 0.2s ease-in-out;
 }
-[label]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+[label]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
     content: attr(label);
   }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons) {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons) {
     margin-left: -8px;
     font-size: 18px;
   }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons):only-child {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
     }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip) a {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip) a {
     text-decoration: none;
   }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip) a:hover {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip) a:hover {
       text-decoration: none;
     }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip) a:focus {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip) a:focus {
       text-decoration: none;
     }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2550,7 +2550,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:is(.button, button):not(.icon-button):not(.fab):not(.chip).text {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
 
@@ -2580,16 +2580,16 @@
     --md-comp-text-button-disabled-outline-opacity
   );
 }
-.text:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.text:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.text:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.text[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.text[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
@@ -2623,7 +2623,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:is(.button, button):not(.icon-button):not(.fab):not(.chip).filled {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip).filled {
   box-shadow: var(--md-sys-elevation-0);
 
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);
@@ -2652,16 +2652,16 @@
     --md-comp-filled-button-disabled-outline-opacity
   );
 }
-.filled:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.filled:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.filled[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2696,7 +2696,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:is(.button, button):not(.icon-button):not(.fab):not(.chip).filled-tonal {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -2733,16 +2733,16 @@
     --md-comp-filled-tonal-button-disabled-outline-opacity
   );
 }
-.filled-tonal:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled-tonal:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled-tonal:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.filled-tonal[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.filled-tonal[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2778,7 +2778,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:is(.button, button):not(.icon-button):not(.fab):not(.chip).outlined {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -2814,19 +2814,19 @@
     --md-comp-outlined-button-disabled-outline-opacity
   );
 }
-.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
+.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
     margin-left: -9px;
   }
-.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.outlined[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.outlined[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2861,7 +2861,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:is(.button, button):not(.icon-button):not(.fab):not(.chip).elevated {
+:where(.button, button):not(.icon-button):not(.fab):not(.chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
 
@@ -2889,19 +2889,19 @@
     --md-comp-elevated-button-disabled-outline-opacity
   );
 }
-.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
+.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
-.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-.elevated[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.elevated[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /

@@ -21,7 +21,7 @@
   --md-comp-button-container-shape: 20px;
 }
 
-:is(.button, button):not(.icon-button, .fab, .chip) {
+:where(.button, button):not(.icon-button, .fab, .chip) {
   --state-disabled-opacity: 0.3799999952316284;
   --_bg-color: var(--md-sys-comp-button-background-color);
   --_fg-color: var(--md-sys-comp-button-color);
