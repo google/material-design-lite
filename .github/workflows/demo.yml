@@ -2,7 +2,7 @@ name: Demo
 
 on:
   push:
-    branches: [dev]
+    branches: [mdl-3.x]
 
   workflow_dispatch:
 
