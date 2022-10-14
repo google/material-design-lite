@@ -1968,7 +1968,6 @@
   --md-sys-comp-progress-color: var(--md-sys-color-primary);
   --md-sys-comp-progress-size: 4px;
   --md-sys-comp-progress-circular-size: 32px;
-  --md-sys-comp-progress-circular-center-color: var(--md-sys-color-surface);
   --md-sys-comp-dialog-background-color: var(--md-sys-color-surface);
   --md-sys-comp-dialog-color: var(--md-sys-color-on-surface-variant);
   --md-comp-dialog-container-min-width: 280px;
@@ -5661,17 +5660,8 @@ progress {
       var(--md-sys-comp-progress-color) var(--progress),
       var(--md-sys-comp-progress-background-color) 0deg
     );
-  }
-.circular:is(.progress)::after {
-    --b: var(--md-sys-comp-progress-size);
-    content: "";
-    border-radius: 50%;
-    background-color: var(--md-sys-comp-progress-circular-center-color);
-    position: absolute;
-    top: var(--b);
-    left: var(--b);
-    width: calc(100% - var(--b) * 2);
-    height: calc(100% - var(--b) * 2);
+    -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 55%, #000 0);
+            mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 55%, #000 0);
   }
 .circular.indeterminate:is(.progress)::after {
       content: "";

@@ -135,7 +135,6 @@ To make a circular progress indicator indeterminate add the **indeterminate** at
 | `--md-sys-comp-progress-color`                 | The foreground color of the bar            | <div class="tooltip token-box color-primary" data-tooltip="--md-sys-color-primary"></div>                 |
 | `--md-sys-comp-progress-size`                  | The size of the bar                        | `4px`                                                                                                     |
 | `--md-sys-comp-progress-circular-size`         | The size of the circular indicator         | `32px`                                                                                                    |
-| `--md-sys-comp-progress-circular-center-color` | The center color of the circular indicator | <div class="tooltip token-box color-surface" data-tooltip="--md-sys-color-surface"></div>                 |
 
 ## Resources
 

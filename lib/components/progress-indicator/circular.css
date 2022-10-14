@@ -38,18 +38,7 @@
       var(--md-sys-comp-progress-color) var(--progress),
       var(--md-sys-comp-progress-background-color) 0deg
     );
-  }
-
-  &::after {
-    --b: var(--md-sys-comp-progress-size);
-    content: "";
-    border-radius: 50%;
-    background-color: var(--md-sys-comp-progress-circular-center-color);
-    position: absolute;
-    top: var(--b);
-    left: var(--b);
-    width: calc(100% - var(--b) * 2);
-    height: calc(100% - var(--b) * 2);
+    mask: radial-gradient(circle at center, #0000 0 55%, #000 0);
   }
 
   &.indeterminate {
