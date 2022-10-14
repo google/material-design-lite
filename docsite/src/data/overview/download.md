@@ -4,22 +4,34 @@ description: Download the latest version of Material Design Lite.
 tab: "overview"
 ---
 
-## Download
-
 Download the latest version of Material Design Lite.
 
-### CSS Import
+## CSS Import
 
-```css
-/* MDL Styles */
-@import url('https://rodydavis.github.io/material-design-lite/css/mdl.css');
-/* Material Icons */
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-/* Roboto Font */
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap');
+To import the CSS in a **style** tag, use the following:
+
+```html
+<style>
+  /* MDL Styles */
+  @import url('https://rodydavis.github.io/material-design-lite/css/mdl.css');
+  /* Material Icons */
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+  /* Roboto Font */
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap');
+</style>
 ```
 
-### CSS Download
+To import the CSS in a **link** tag, use the following:
+
+```html
+<link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/mdl.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+```
+
+## Download Files
+
+The files are hosted on GitHub Pages. You can also download the files and host them yourself.
 
 <div class="row">
     <a 
