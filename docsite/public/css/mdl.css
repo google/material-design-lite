@@ -5660,8 +5660,8 @@ progress {
       var(--md-sys-comp-progress-color) var(--progress),
       var(--md-sys-comp-progress-background-color) 0deg
     );
-    -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 55%, #000 0);
-            mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 55%, #000 0);
+    -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 54%, #000 55% 0);
+            mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 54%, #000 55% 0);
   }
 .circular.indeterminate:is(.progress)::after {
       content: "";
