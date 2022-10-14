@@ -73,7 +73,7 @@ const {title, tab} = Astro.props;
       </button>
       <span class="title">{title}</span>
       <div class="actions">
-        <a class="icon-button" href="/material-design-lite/faq">
+        <a class="icon-button" href="/material-design-lite/overview/faq">
           <i class="material-icons">help</i>
         </a>
          <a class="icon-button" href="https://github.com/rodydavis/material-design-lite" target="_blank" rel="noopener">
@@ -306,7 +306,7 @@ const {title, tab} = Astro.props;
     item.children?.forEach(setupLink);
    const link = document.querySelector(`#${item.link.split('/').join('_')}`);
    if (link === null) {
-     console.warn(`Link not found for ${item.text}`);
+    //  console.warn(`Link not found for ${item.text}`);
      return;
     }
     link.addEventListener("click", (e) => {
@@ -315,7 +315,6 @@ const {title, tab} = Astro.props;
     });
     // Check if selected
     const path = window.location.pathname;
-    console.log(path, item.link);
     if (path.endsWith(`${item.link}/`)) {
       link.setAttribute("data-selected", "true");
     }
