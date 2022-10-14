@@ -16,7 +16,7 @@
 
 @import url(../../tokens/components/text-button.css);
 
-:is(.button, button):not(.icon-button, .fab, .chip).text {
+:where(.button, button):not(.icon-button, .fab, .chip).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
 
