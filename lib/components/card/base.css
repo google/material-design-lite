@@ -14,7 +14,8 @@
  limitations under the License.
 */
 
-:where(html, .light-theme, .dark-theme), .tokens {
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
   --md-sys-comp-card-width: 300px;
 }
 
@@ -28,19 +29,19 @@
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-1);
   text-align: start;
-  & :where(i, .material-icons) mg {
+  & > img {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }
-  & .title {
+  & > .title {
     padding: 8px 16px;
     @apply --title-large;
   }
-  & .subtitle {
+  & > .subtitle {
     padding: 8px 16px;
     @apply --body-large;
   }
-  & .actions {
+  & > .actions {
     padding: 16px;
     display: flex;
     flex-direction: row;

@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Filled text field container height */
   --md-comp-filled-text-field-container-height: 56px;
   /* Filled text field label text tracking */

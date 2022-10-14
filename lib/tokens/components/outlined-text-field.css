@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Outlined text field container height */
   --md-comp-outlined-text-field-container-height: 56px;
   /* Outlined text field hover outline width */

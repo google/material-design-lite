@@ -13,7 +13,7 @@ link: https://material.io/components/progress-indicators
   <div class="progress linear" style="--progress: 75%">
     <progress value="75" max="100">75%</progress>
   </div>
-   <div class="progress linear indeterminate">
+  <div class="progress linear indeterminate">
     <progress indeterminate>75%</progress>
   </div>
   <div class="progress circular" style="--progress: 35%">

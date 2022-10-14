@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Outlined button container elevation */
   --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
   /* Outlined button focus state layer opacity */

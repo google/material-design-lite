@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html), .tokens, :host {
   /* Plain typeface */
   --md-ref-typeface-plain: Roboto;
   /* Brand typeface */

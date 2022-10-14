@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Secondary navigation tab with icon icon size */
   --md-comp-secondary-navigation-tab-with-icon-icon-size: 24px;
   /* Secondary navigation tab focus state layer opacity */

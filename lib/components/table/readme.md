@@ -2,7 +2,7 @@
 title: Data Table
 description: Variations on Material Design tables.
 link: https://material.io/components/data-tables
-codepen: JjvaaBG
+codepen: dyeqgWJ
 ---
 
 ## Preview
@@ -375,6 +375,7 @@ To make a table row activatable, add the **activatable** class name to the **tab
     </tr>
   </tbody>
 </table>
+```
 
 ## Design Tokens
 

@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   --md-comp-navigation-bar-large-badge-shape: 8px 8px 8px 8px;
   /* Size */
   --md-comp-navigation-bar-large-badge-size: 16px;

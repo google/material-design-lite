@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Banner supporting text tracking */
   --md-comp-banner-supporting-text-tracking: var(
     --md-sys-typescale-body-medium-tracking

@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Radio button unselected focus state layer opacity */
   --md-comp-radio-button-unselected-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity

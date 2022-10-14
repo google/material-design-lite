@@ -41,11 +41,18 @@
     <label for="shape-large">Large</label>
     <input class="slider" id="shape-large" type="range" min="0" max="100" />
   </div>
+
+  <div>
+    <button id="reset-theme" class="outlined">Reset Theme</button>
+  </div>
 </section>
 
 <!-- Copy code for current theme / Download -->
 
 <style>
+  #reset-theme {
+    color: var(--md-sys-color-error);
+  }
   .option {
     display: flex;
     align-items: center;
@@ -79,6 +86,18 @@
   const sLarge = document.querySelector("#shape-large") as HTMLInputElement;
   const light = document.querySelector("#light") as HTMLInputElement;
   const dark = document.querySelector("#dark") as HTMLInputElement;
+  const resetTheme = document.querySelector(
+    "#reset-theme"
+  ) as HTMLButtonElement;
+
+  let styleTarget = document.head.querySelector(
+    "style[data-theme]"
+  ) as HTMLStyleElement | null;
+  if (!styleTarget) {
+    styleTarget = document.createElement("style");
+    styleTarget.setAttribute("data-theme", "");
+    document.head.appendChild(styleTarget);
+  }
 
   setup();
   loadSettings();
@@ -129,18 +148,28 @@
       const color = source.value;
       root.style.setProperty("--md-source", color);
       themeMeta.setAttribute("content", color);
+      localStorage.setItem("source-color", color);
       generateTheme(color, styleTarget!);
       saveSettings();
     });
 
-    let styleTarget = document.head.querySelector(
-      "style[data-theme]"
-    ) as HTMLStyleElement | null;
-    if (!styleTarget) {
-      styleTarget = document.createElement("style");
-      styleTarget.setAttribute("data-theme", "");
-      document.head.appendChild(styleTarget);
-    }
+    // Reset theme
+    resetTheme.addEventListener("click", () => {
+      localStorage.removeItem("source-color");
+      localStorage.removeItem("shape-small");
+      localStorage.removeItem("shape-medium");
+      localStorage.removeItem("shape-large");
+      localStorage.removeItem("brightness");
+      // Remove query params
+      const url = new URL(window.location.href);
+      url.searchParams.delete("source");
+      url.searchParams.delete("shape-small");
+      url.searchParams.delete("shape-medium");
+      url.searchParams.delete("shape-large");
+      url.searchParams.delete("brightness");
+      window.history.replaceState({}, "", url.toString());
+      location.reload();
+    });
   }
 
   function setCodepenBrightness(theme: string) {
@@ -167,16 +196,16 @@
   function loadSettings() {
     // Get settings from url query paramaters
     const url = new URL(window.location.href);
-    const sourceVal = url.searchParams.get("source");
-    const brightness = url.searchParams.get("brightness");
+    const sourceVal = decodeURIComponent(
+      url.searchParams.get("source") ??
+        localStorage.getItem("source-color") ??
+        "#6750A4"
+    );
     const shapeSmall = url.searchParams.get("shape-small");
     const shapeMedium = url.searchParams.get("shape-medium");
     const shapeLarge = url.searchParams.get("shape-large");
-    if (sourceVal) {
-      source.value = sourceVal;
-    } else {
-      source.value = themeMeta.getAttribute("content")!;
-    }
+    source.value = sourceVal;
+    generateTheme(sourceVal, styleTarget!);
     if (prefersDark.matches) {
       dark.checked = true;
       light.checked = false;

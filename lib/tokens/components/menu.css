@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Menu divider height */
   --md-comp-menu-divider-height: 1px;
   /* Menu list item focus state layer opacity */

@@ -29,7 +29,7 @@
   opacity: var(--md-sys-state-focus-state-layer-opacity);
 }
 
-:where(html), .tokens {
+:where(html), .tokens, :host {
   --md-sys-state-hover-color: rgb(
     var(--md-sys-color-surface-tint-rgb) / var(--state-hover-opacity)
   );

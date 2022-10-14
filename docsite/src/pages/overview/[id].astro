@@ -1,5 +1,5 @@
 ---
-import SideNav from "../../layouts/SideNav.astro";
+import Article from "../../layouts/Article.astro";
 import { OVERVIEW } from "../../utils/menu";
 
 export async function getStaticPaths() {
@@ -24,6 +24,13 @@ const props = {
 };
 ---
 
-<SideNav {...props}>
+<Article {...props}>
   <Content />
-</SideNav>
+</Article>
+
+<script>
+  import "../../components/color-scheme.ts";
+  import "../../components/color-palette.ts";
+  import "../../components/color-box.ts";
+  import "../../components/icons-preview.ts";
+</script>

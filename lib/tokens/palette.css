@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html), .tokens {
+:where(html), .tokens, :host {
   /* Error 0 */
   --md-ref-palette-error0-rgb: 0 0 0;
   --md-ref-palette-error0: rgb(var(--md-ref-palette-error0-rgb));

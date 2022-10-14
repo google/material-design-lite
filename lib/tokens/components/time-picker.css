@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Time picker clock dial selector track container width */
   --md-comp-time-picker-clock-dial-selector-track-container-width: 2px;
   /* Time picker clock dial selector center container size */

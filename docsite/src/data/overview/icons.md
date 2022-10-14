@@ -4,9 +4,17 @@ description: Material Design icons.
 tab: "overview"
 ---
 
+## Material Icons
+
 Material Design uses the [Material Icons](https://fonts.google.com/icons) from Google fonts in the components.
 
-<icons-preview type="material-icons"></icons-preview>
+### Default
+
+<icons-preview variant="material-icons"></icons-preview>
+
+```html
+<i class="material-icons">edit<i>
+```
 
 ## Material Symbols
 
@@ -25,12 +33,25 @@ It is possible to use the variable font for [Material Symbols](https://developer
 
 ### Rounded
 
-<icons-preview type="material-symbols-rounded"></icons-preview>
+<icons-preview variant="material-symbols-rounded"></icons-preview>
+
+```html
+<i class="material-symbols-rounded">edit<i>
+```
 
 ### Sharp
 
-<icons-preview type="material-symbols-sharp"></icons-preview>
+<icons-preview variant="material-symbols-sharp"></icons-preview>
+
+```html
+<i class="material-symbols-sharp">edit<i>
+```
 
 ### Outlined
 
-<icons-preview type="material-symbols-outlined"></icons-preview>
+<icons-preview variant="material-symbols-outlined"></icons-preview>
+
+
+```html
+<i class="material-symbols-outlined">edit<i>
+```

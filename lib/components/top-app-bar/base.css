@@ -14,7 +14,8 @@
  limitations under the License.
 */
 
-:where(html, .light-theme, .dark-theme), .tokens {
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
   --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
   --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
   --md-sys-comp-top-app-bar-padding: 16px;
@@ -25,17 +26,16 @@
   padding: var(--md-sys-comp-top-app-bar-padding);
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: auto;
-  grid-template-areas: "leading title actions";
   background-color: var(--md-sys-comp-top-app-bar-background-color);
   color: var(--md-sys-comp-top-app-bar-color);
+  gap: var(--md-sys-comp-top-app-bar-padding);
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
   z-index: 1;
+  box-sizing: border-box;
 
   & .actions {
     grid-area: actions;

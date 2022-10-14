@@ -14,7 +14,8 @@
  limitations under the License.
 */
 
-:where(html, .light-theme, .dark-theme), .tokens {
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
   --md-sys-comp-tooltip-container-background-color: var(
     --md-sys-color-inverse-surface
   );
@@ -50,7 +51,7 @@
     content: attr(data-tooltip);
   }
 
-  &:hover:before {
-    transform: translateX(-50%) scale(1);
+  &:is(:hover, [data-visible]):before {
+    transform: translateX(-50%) translateY(-10%) scale(1);
   }
 }

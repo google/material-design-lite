@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Elevated card disabled container opacity */
   --md-comp-elevated-card-disabled-container-opacity: 0.3799999952316284;
   /* Elevated card disabled container elevation */

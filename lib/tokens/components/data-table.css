@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Data table row item outline width */
   --md-comp-data-table-row-item-outline-width: 1px;
   /* Data table row item divider thickness */

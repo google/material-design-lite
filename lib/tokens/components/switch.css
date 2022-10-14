@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Switch track shape */
   --md-comp-switch-track-shape: var(--md-sys-shape-corner-full);
   /* Switch track outline width */

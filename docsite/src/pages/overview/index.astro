@@ -1,20 +1,194 @@
 ---
 import Root from "../../layouts/Root.astro";
-import CardGrid from "../../components/CardGrid.astro";
-const posts = await Astro.glob("../../data/overview/*.md");
 const frontmatter = { title: "Overview", tab: "overview" };
-const links = posts.map((post) => {
-  const data = post.frontmatter;
-  const parts = post.file.split("/");
-  const id = parts[parts.length - 1].split(".")[0];
-  return {
-    link: `/material-design-lite/overview/${id}`,
-    title: data.title,
-    subtitle: data.description,
-  };
-});
 ---
 
 <Root {frontmatter}>
-  <CardGrid {links} />
+  <div class="cards">
+    <a class="card outlined" href="/material-design-lite/overview/color/">
+      <div class="page-preview" inert>
+        <div class="row">
+          <color-box
+            name="Primary"
+            background="--md-sys-color-primary"
+            foreground="--md-sys-color-on-primary"
+          />
+          <color-box
+            name="Secondary"
+            background="--md-sys-color-secondary"
+            foreground="--md-sys-color-on-secondary"
+          />
+          <color-box
+            name="Tertiary"
+            background="--md-sys-color-tertiary"
+            foreground="--md-sys-color-on-tertiary"
+          />
+        </div>
+      </div>
+      <div class="title">Color</div>
+      <div class="subtitle">Color system based on HCT</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/overview/elevation/">
+      <div class="page-preview" inert>
+        <div class="row">
+          <color-box
+            name="Level 1"
+            background="--md-sys-color-surface-variant"
+            foreground="--md-sys-color-on-surface-variant"
+            style="--box-shadow: var(--md-sys-elevation-1)"
+          />
+          <color-box
+            name="Level 2"
+            background="--md-sys-color-surface-variant"
+            foreground="--md-sys-color-on-surface-variant"
+            style="--box-shadow: var(--md-sys-elevation-2)"
+          />
+          <color-box
+            name="Level 3"
+            background="--md-sys-color-surface-variant"
+            foreground="--md-sys-color-on-surface-variant"
+            style="--box-shadow: var(--md-sys-elevation-3)"
+          />
+        </div>
+      </div>
+      <div class="title">Elevation</div>
+      <div class="subtitle">Elevation system</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/overview/shape/">
+      <div class="page-preview" inert>
+        <div class="row">
+          <color-box
+            name="Small"
+            background="--md-sys-color-surface-variant"
+            foreground="--md-sys-color-on-surface-variant"
+            style="--border-radius: var(--md-sys-shape-corner-small)"
+          />
+          <color-box
+            name="Medium"
+            background="--md-sys-color-surface-variant"
+            foreground="--md-sys-color-on-surface-variant"
+            style="--border-radius: var(--md-sys-shape-corner-medium)"
+          />
+          <color-box
+            name="Large"
+            background="--md-sys-color-surface-variant"
+            foreground="--md-sys-color-on-surface-variant"
+            style="--border-radius: var(--md-sys-shape-corner-large)"
+          />
+        </div>
+      </div>
+      <div class="title">Shape</div>
+      <div class="subtitle">Shape system</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/overview/icons/">
+      <div class="page-preview" inert>
+        <div class="row">
+          <i class="material-icons">add</i>
+          <i class="material-icons">edit</i>
+          <i class="material-icons">settings</i>
+          <i class="material-icons">home</i>
+        </div>
+      </div>
+      <div class="title">Icons</div>
+      <div class="subtitle">Material Design icons</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/overview/typography/">
+      <div class="page-preview" inert>
+        <div class="column">
+          <div class="headline-large">Headline Large</div>
+          <div class="headline-medium">Headline Medium</div>
+          <div class="headline-small">Headline Small</div>
+        </div>
+      </div>
+      <div class="title">Typography</div>
+      <div class="subtitle">Typography system</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/overview/themes/">
+      <div class="page-preview" inert>
+        <div class="row">
+          <color-box name="Red" background="red" foreground="white" />
+          <color-box name="Green" background="green" foreground="white" />
+          <color-box name="Blue" background="blue" foreground="white" />
+        </div>
+      </div>
+      <div class="title">Themes</div>
+      <div class="subtitle">
+        Generated Material Themes based on CSS color names
+      </div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/overview/faq/">
+      <div class="page-preview" inert>
+        <div class="column">
+          <div class="headline-large">Q & A</div>
+        </div>
+      </div>
+      <div class="title">FAQ</div>
+      <div class="subtitle">Answers to common questions</div>
+    </a>
+  </div>
 </Root>
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .card {
+    width: unset;
+  }
+  .page-preview {
+    min-height: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+    flex: 1;
+    border: none;
+    padding: 1.5rem;
+    background-color: var(--md-sys-color-surface-1);
+    border-radius: var(--md-sys-shape-corner-medium);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .row * {
+    flex: 1;
+    margin: 0 0.5rem;
+  }
+  i {
+    text-align: center;
+  }
+  color-box {
+    --border-radius: 0.5rem;
+  }
+  :is(a):hover {
+    text-decoration: none;
+  }
+  :is(a):hover > .title {
+    text-decoration: underline;
+  }
+  :is(a).card:hover {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+</style>
+
+<script>
+  import "../../components/color-box.ts";
+</script>

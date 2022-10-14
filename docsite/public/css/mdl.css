@@ -63,7 +63,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html), .tokens {
+:where(html), .tokens, :host {
   /* Error 0 */
   --md-ref-palette-error0-rgb: 0 0 0;
   --md-ref-palette-error0: rgb(var(--md-ref-palette-error0-rgb));
@@ -1911,7 +1911,7 @@
  limitations under the License.
 */
 :where(html, .light-theme, .dark-theme),
-.tokens {
+.tokens, :host {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
   --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
   --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
@@ -2440,7 +2440,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
   --state-disabled-opacity: 0.3799999952316284;
   --_bg-color: var(--md-sys-comp-button-background-color);
   --_fg-color: var(--md-sys-comp-button-color);
@@ -2454,6 +2454,7 @@
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
 
   background-color: var(--_bg-color);
   color: var(--_fg-color);
@@ -2485,36 +2486,36 @@
   box-shadow: var(--md-sys-elevation-1);
   transition: box-shadow 0.2s ease-in-out;
 }
-[label]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+[label]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
     content: attr(label);
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons) {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons) {
     margin-left: -8px;
     font-size: 18px;
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons):only-child {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
     }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) a {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip) a {
     text-decoration: none;
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) a:hover {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip) a:hover {
       text-decoration: none;
     }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) a:focus {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip) a:focus {
       text-decoration: none;
     }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2550,7 +2551,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).text {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
 
@@ -2580,16 +2581,16 @@
     --md-comp-text-button-disabled-outline-opacity
   );
 }
-.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.text:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.text:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.text:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.text[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.text[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
@@ -2623,7 +2624,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).filled {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip).filled {
   box-shadow: var(--md-sys-elevation-0);
 
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);
@@ -2652,16 +2653,16 @@
     --md-comp-filled-button-disabled-outline-opacity
   );
 }
-.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.filled:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.filled:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.filled:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.filled[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2696,7 +2697,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).filled-tonal {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -2733,16 +2734,16 @@
     --md-comp-filled-tonal-button-disabled-outline-opacity
   );
 }
-.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.filled-tonal:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.filled-tonal:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.filled-tonal:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.filled-tonal[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.filled-tonal[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2778,7 +2779,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).outlined {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -2814,19 +2815,19 @@
     --md-comp-outlined-button-disabled-outline-opacity
   );
 }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
+.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
     margin-left: -9px;
   }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.outlined:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.outlined[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.outlined[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2861,7 +2862,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).elevated {
+:is(.button, button):not(.icon-button):not(.fab):not(.chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
 
@@ -2889,19 +2890,19 @@
     --md-comp-elevated-button-disabled-outline-opacity
   );
 }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
+.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.elevated:is(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-.elevated[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.elevated[disabled]:is(.button, button):not(.icon-button):not(.fab):not(.chip) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /
@@ -2965,6 +2966,7 @@
   position: relative;
   box-sizing: border-box;
   text-align: center;
+  text-decoration: none;
   gap: 0;
   border: none;
   cursor: pointer;
@@ -3388,6 +3390,7 @@
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
 
   padding: 16px;
   font-size: 24px;
@@ -3603,11 +3606,11 @@
   box-shadow: var(--md-sys-elevation-1);
   text-align: start;
 }
-:is(.card) :where(i, .material-icons) mg {
+:is(.card) > img {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }
-:is(.card) .title {
+:is(.card) > .title {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
             text-decoration: var(--md-sys-typescale-title-large-text-decoration);
@@ -3618,7 +3621,7 @@
     font-weight: var(--md-sys-typescale-title-large-weight);
     font-family: var(--md-sys-typescale-title-large-font);
   }
-:is(.card) .subtitle {
+:is(.card) > .subtitle {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
             text-decoration: var(--md-sys-typescale-body-large-text-decoration);
@@ -3629,7 +3632,7 @@
     font-weight: var(--md-sys-typescale-body-large-weight);
     font-family: var(--md-sys-typescale-body-large-font);
   }
-:is(.card) .actions {
+:is(.card) > .actions {
     padding: 16px;
     display: flex;
     flex-direction: row;
@@ -3733,6 +3736,7 @@
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
 
   position: relative;
   border-radius: 8px;
@@ -4018,17 +4022,16 @@
   padding: var(--md-sys-comp-top-app-bar-padding);
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: auto;
-  grid-template-areas: "leading title actions";
   background-color: var(--md-sys-comp-top-app-bar-background-color);
   color: var(--md-sys-comp-top-app-bar-color);
+  gap: var(--md-sys-comp-top-app-bar-padding);
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
   z-index: 1;
+  box-sizing: border-box;
 }
 :is(.top-app-bar, header) .actions {
     grid-area: actions;
@@ -4644,8 +4647,8 @@ datalist {
 [data-tooltip]:is(.tooltip):before {
     content: attr(data-tooltip);
   }
-:is(.tooltip):hover:before {
-    transform: translateX(-50%) scale(1);
+:is(.tooltip):is(:hover, [data-visible]):before {
+    transform: translateX(-50%) translateY(-10%) scale(1);
   }
 /*
  Copyright 2016 Google Inc. All rights reserved.
@@ -5325,8 +5328,10 @@ datalist {
 :is(.bottom-app-bar, footer) {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   position: relative;
+  box-sizing: border-box;
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
@@ -6296,7 +6301,7 @@ progress {
 :is(.snackbar) :first-child {
     flex: 1;
   }
-:is(.snackbar) :where(button, .button) {
+:is(.snackbar) .text:is(button, .button) {
     align-self: end;
     color: var(--md-sys-color-inverse-primary);
   }

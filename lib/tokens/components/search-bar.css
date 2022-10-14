@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Search bar avatar size */
   --md-comp-search-bar-avatar-size: 30px;
   /* Search bar container height */

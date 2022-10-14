@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* FAB (large branded) focus state layer opacity */
   --md-comp-fab-branded-large-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity

@@ -29,7 +29,7 @@
 }
 
 :where(html),
-.tokens {
+.tokens, :host {
   --material-symbols-fill: 0;
   --material-symbols-wght: 400;
   --material-symbols-grad: 0;

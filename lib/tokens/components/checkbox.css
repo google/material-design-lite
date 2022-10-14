@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Checkbox disabled unselected icon opacity */
   --md-comp-checkbox-disabled-unselected-icon-opacity: 0.3799999952316284;
   /* Checkbox disabled selected icon opacity */

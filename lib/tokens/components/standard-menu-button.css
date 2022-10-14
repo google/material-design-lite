@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Standard menu button pressed state layer opacity */
   --md-comp-standard-menu-button-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity

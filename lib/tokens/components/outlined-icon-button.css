@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Outlined icon button disabled outline opacity */
   --md-comp-outlined-icon-button-disabled-outline-opacity: 0.11999999731779099;
   /* Outlined icon button disabled selected container opacity */

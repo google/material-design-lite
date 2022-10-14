@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Outlined select text field container height */
   --md-comp-outlined-select-text-field-container-height: 56px;
   /* Outlined select text field error hover state layer opacity */

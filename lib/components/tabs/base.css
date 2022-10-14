@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html, .light-theme, .dark-theme), .tokens {
+:where(html, .light-theme, .dark-theme), .tokens, :host {
   --md-sys-comp-tabs-container-background-color: var(--md-sys-color-surface);
   --md-sys-comp-tabs-container-color: var(--md-sys-color-on-surface);
   --md-comp-tabs-container-min-width: 100px;

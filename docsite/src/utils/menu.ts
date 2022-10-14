@@ -1,11 +1,13 @@
-interface Component {
+export interface Component {
   text: string;
   link: string;
-  id: string;
+  id?: string;
+  icon?: string;
   draft?: boolean;
+  children?: Component[];
 }
 
-export const COMPONENTS = [
+export const COMPONENTS: Component[] = [
   {
     text: "Badge",
     link: "components/badge",
@@ -150,6 +152,10 @@ export const COMPONENTS = [
     link: "components/table",
   },
   {
+    text: "Tabs",
+    link: "components/tabs",
+  },
+  {
     text: "Text field",
     link: "components/text-field",
   },
@@ -163,10 +169,6 @@ export const COMPONENTS = [
     link: "components/tooltip",
   },
   {
-    text: "Tabs",
-    link: "components/tabs",
-  },
-  {
     text: "Top app bar",
     link: "components/top-app-bar",
   },
@@ -176,57 +178,55 @@ export const COMPONENTS = [
   return comp;
 }) as Component[];
 
-export const OVERVIEW = [
+export const OVERVIEW: Component[] = [
   {
     text: "Typography",
     link: "overview/typography",
+    icon: "text_fields",
   },
   {
     text: "Color",
     link: "overview/color",
+    icon: "palette",
   },
   {
     text: "Icons",
     link: "overview/icons",
+    icon: "insert_emoticon",
   },
   {
     text: "Shape",
     link: "overview/shape",
+    icon: "crop_square",
   },
   {
     text: "Elevation",
     link: "overview/elevation",
+    icon: "layers",
   },
   {
     text: "Themes",
     link: "overview/themes",
+    icon: "style",
   },
   {
     text: "FAQ",
     link: "faq",
+    icon: "help",
   },
 ];
 
-export const MENU = [
-  {
-    text: "Home",
-    icon: "home",
-    href: "",
-    header: true,
-    children: [],
-  },
+export const MENU: Component[] = [
   {
     text: "Overview",
     icon: "palette",
-    href: "/overview",
-    header: true,
+    link: "/overview",
     children: OVERVIEW,
   },
   {
     text: "Demos",
     icon: "play_circle_outline",
-    href: "/demos",
-    header: true,
+    link: "/demos",
     children: [
       {
         text: "Scaffold",
@@ -242,8 +242,7 @@ export const MENU = [
   {
     text: "Components",
     icon: "widgets",
-    href: "/components",
-    header: true,
+    link: "/components",
     children: COMPONENTS,
   },
 ];

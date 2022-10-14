@@ -1,10 +1,10 @@
 ---
 import Root from "./Root.astro";
 
-const { frontmatter } = Astro.props;
+const props = Astro.props;
 ---
 
-<Root {frontmatter}>
+<Root {...props}>
   <section>
     <slot />
   </section>

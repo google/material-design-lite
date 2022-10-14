@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Full screen dialog divider height */
   --md-comp-full-screen-dialog-with-divider-divider-height: 1px;
   /* Full screen dialog action bar pressed state layer opacity */

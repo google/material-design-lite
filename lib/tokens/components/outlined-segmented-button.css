@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Outlined segmented button shape */
   --md-comp-outlined-segmented-button-shape: var(--md-sys-shape-corner-full);
   /* Outlined segmented button container height */

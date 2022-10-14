@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html, .light-theme, .dark-theme), .tokens {
+:where(html, .light-theme, .dark-theme), .tokens, :host {
   --md-comp-list-container-min-width: 300px;
 }
 

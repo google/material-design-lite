@@ -1,20 +1,510 @@
 ---
 import Root from "../../layouts/Root.astro";
-import CardGrid from "../../components/CardGrid.astro";
-const posts = await Astro.glob("../../data/components/*.md");
 const frontmatter = { title: "Components", tab: "components" };
-const links = posts.map((post) => {
-  const data = post.frontmatter;
-  const parts = post.file.split("/");
-  const id = parts[parts.length - 1].split(".")[0];
-  return {
-    link: `/material-design-lite/components/${id}`,
-    title: data.title,
-    subtitle: data.description,
-  };
-});
 ---
 
 <Root {frontmatter}>
-  <CardGrid {links} />
+  <div class="cards">
+    <a class="card outlined" href="/material-design-lite/components/badge/">
+      <div class="page-preview center" inert>
+        <div class="wrap center">
+          <div class="badge" data-badge="10">Default</div>
+          <div class="badge elevated" data-badge="2">Elevated</div>
+          <div class="badge secondary" data-badge="3">Secondary</div>
+          <div class="badge tertiary" data-badge="4">Tertiary</div>
+          <div class="badge tertiary" data-badge="">Tertiary</div>
+        </div>
+      </div>
+      <div class="title">Badge</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/button/">
+      <div class="page-preview center" inert>
+        <div class="wrap center">
+          <button class="elevated">Elevated</button>
+          <button class="filled">Filled</button>
+          <button class="filled-tonal">Filled Tonal</button>
+          <button class="outlined">Outlined</button>
+          <button class="text">Text</button>
+        </div>
+      </div>
+      <div class="title">Button</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/navigation-bar/"
+    >
+      <div class="page-preview center" inert>
+        <footer class="bottom-app-bar">
+          <div class="actions">
+            <button class="icon-button">
+              <i class="material-icons">search</i>
+            </button>
+            <button class="icon-button">
+              <i class="material-icons">delete</i>
+            </button>
+            <button class="icon-button">
+              <i class="material-icons">archive</i>
+            </button>
+          </div>
+          <button class="fab">
+            <i class="material-icons">add</i>
+          </button>
+        </footer>
+      </div>
+      <div class="title">Navigation Bar</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/card/">
+      <div class="page-preview center" inert>
+        <div class="card filled">
+          <div class="title">Play relaxing songs</div>
+          <div class="subtitle">From your recent favorites</div>
+          <div class="actions">
+            <button class="filled">Get started</button>
+          </div>
+        </div>
+      </div>
+      <div class="title">Card</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/checkbox/">
+      <div class="page-preview center" inert>
+        <div class="row center">
+          <input type="checkbox" checked />
+          <input type="checkbox" />
+        </div>
+      </div>
+      <div class="title">Checkbox</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/chip/">
+      <div class="page-preview center" inert>
+        <div class="wrap center">
+          <button class="chip">
+            <i class="material-icons">add</i>
+            <label>Default</label>
+          </button>
+          <button class="chip assist">
+            <i class="material-icons">info</i>
+            <label>Assist</label>
+          </button>
+          <button class="chip filter">
+            <i class="material-icons">filter_list</i>
+            <label>Filter</label>
+          </button>
+          <button class="chip input">
+            <i class="material-icons">edit</i>
+            <label>Input</label>
+          </button>
+          <button class="chip suggestion">
+            <i class="material-icons">help</i>
+            <label>Suggestion</label>
+          </button>
+        </div>
+      </div>
+      <div class="title">Chip</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/dialog/">
+      <div class="page-preview center" inert>
+        <dialog class="dialog" open>
+          <div class="title">Dialog title</div>
+          <div class="content">Dialog message.</div>
+        </dialog>
+      </div>
+      <div class="title">Dialog</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/divider/">
+      <div class="page-preview center" inert>
+        <hr class="divider" />
+      </div>
+      <div class="title">Divider</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/fab/">
+      <div class="page-preview center" inert>
+        <div class="wrap center">
+          <button class="fab">
+            <i class="material-icons">add</i>
+          </button>
+          <button class="fab small">
+            <i class="material-icons">add</i>
+          </button>
+          <button class="fab large">
+            <i class="material-icons">add</i>
+          </button>
+          <button class="fab extended">Extended</button>
+          <button class="fab surface">
+            <i class="material-icons">add</i>
+          </button>
+          <button class="fab secondary">
+            <i class="material-icons">add</i>
+          </button>
+          <button class="fab tertiary">
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+      </div>
+      <div class="title">Floating Action Button</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/focus-ring/"
+    >
+      <div class="page-preview center" inert>
+        <button class="focus-ring">Button</button>
+      </div>
+      <div class="title">Focus Ring</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/icon-button/"
+    >
+      <div class="page-preview center" inert>
+        <div class="wrap center">
+          <button class="icon-button"><i class="material-icons">add</i></button>
+          <button class="icon-button toggle"
+            ><i class="material-icons">info</i>
+          </button>
+          <input
+            class="icon-button toggle"
+            type="checkbox"
+            aria-label="toggle input"
+          />
+          <input
+            class="icon-button toggle"
+            type="checkbox"
+            off-icon="favorite_outline"
+            on-icon="favorite"
+            aria-label="toggle input"
+          />
+          <button class="icon-button filled"
+            ><i class="material-icons">add</i>
+          </button>
+          <button class="icon-button filled-tonal"
+            ><i class="material-icons">add</i>
+          </button>
+          <button class="icon-button outlined"
+            ><i class="material-icons">add</i>
+          </button>
+        </div>
+      </div>
+      <div class="title">Icon Button</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/list/">
+      <div class="page-preview center" inert>
+        <div class="list">
+          <li class="list-tile">List Item 1</li>
+          <div class="divider"></div>
+          <li class="list-tile">List Item 2</li>
+        </div>
+      </div>
+      <div class="title">List</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/navigation-bar/"
+    >
+      <div class="page-preview center" inert>
+        <nav class="navigation-bar">
+          <input
+            type="radio"
+            name="navigation-bar"
+            value="tab-1"
+            id="tab-1"
+            checked
+          />
+          <label class="navigation-icon" for="tab-1">
+            <i class="material-icons">info</i>
+            <span>Tab 1</span>
+          </label>
+          <input type="radio" name="navigation-bar" value="tab-2" id="tab-2" />
+          <label class="navigation-icon" for="tab-2">
+            <i class="material-icons">info</i>
+            <span>Tab 2</span>
+          </label>
+        </nav>
+      </div>
+      <div class="title">Navigation Bar</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/navigation-drawer/"
+    >
+      <div class="page-preview center" inert>
+        <div class="navigation-drawer">
+          <section class="drawer-section">
+            <label class="section-header">Section Header</label>
+            <div class="list-tile">
+              <i class="leading material-icons">info</i>
+              <span class="title">Label 1</span>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="title">Navigation Drawer</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/navigation-rail/"
+    >
+      <div class="page-preview center" inert>
+        <aside class="navigation-rail" style="min-height: 200px">
+          <nav>
+            <input
+              type="radio"
+              name="nav-rail-2"
+              value="tab-1"
+              id="tab-1"
+              checked
+            />
+            <label class="navigation-icon" for="tab-1">
+              <i class="material-icons">info</i>
+              <span>Tab 1</span>
+            </label>
+            <input type="radio" name="nav-rail-2" value="tab-2" id="tab-2" />
+            <label class="navigation-icon" for="tab-2">
+              <i class="material-icons">info</i>
+              <span>Tab 2</span>
+            </label>
+          </nav>
+        </aside>
+      </div>
+      <div class="title">Navigation Rail</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/progress-indicator/"
+    >
+      <div class="page-preview center" inert>
+        <div class="wrap center">
+          <div class="progress linear" style="--progress: 75%">
+            <progress value="75" max="100">75%</progress>
+          </div>
+          <div class="progress linear indeterminate">
+            <progress>75%</progress>
+          </div>
+          <div class="progress circular" style="--progress: 35%">
+            <progress value="35" max="100">35%</progress>
+          </div>
+          <div class="progress circular indeterminate">
+            <progress>75%</progress>
+          </div>
+        </div>
+      </div>
+      <div class="title">Progress Indicator</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/radio-button/"
+    >
+      <div class="page-preview center" inert>
+        <div class="row center">
+          <input class="radio-button" type="radio" checked />
+          <input class="radio-button" type="radio" />
+        </div>
+      </div>
+      <div class="title">Radio Button</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/slider/">
+      <div class="page-preview center" inert>
+        <input class="slider" type="range" />
+      </div>
+      <div class="title">Slider</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/segmented-button/"
+    >
+      <div class="page-preview center" inert>
+        <div class="segmented-button" style="min-width: 200px">
+          <input
+            type="radio"
+            name="option"
+            value="option-1"
+            id="option-1"
+            checked
+          />
+          <label class="segmented-option" for="option-1">Option 1</label>
+          <input type="radio" name="option" value="option-2" id="option-2" />
+          <label class="segmented-option" for="option-2">Option 2</label>
+        </div>
+      </div>
+      <div class="title">Segmented Button</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/snackbar/">
+      <div class="page-preview center" inert>
+        <div class="snackbar">
+          <span>Default snackbar with action</span>
+          <button class="text">Action</button>
+        </div>
+      </div>
+      <div class="title">Snackbar</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/switch/">
+      <div class="page-preview center" inert>
+        <div class="row center">
+          <input class="switch" type="checkbox" />
+          <input class="switch" type="checkbox" checked />
+        </div>
+      </div>
+      <div class="title">Switch</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/table/">
+      <div class="page-preview center" inert>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Joe</td>
+              <td>Smith</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jane</td>
+              <td>Doe</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="title">Table</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/tabs/">
+      <div class="page-preview center" inert>
+        <nav class="tabs">
+          <input type="radio" name="tab-nav" value="tab-1" id="tab-1" checked />
+          <label class="tab" for="tab-1">Tab 1</label>
+          <input type="radio" name="tab-nav" value="tab-2" id="tab-2" />
+          <label class="tab" for="tab-2">Tab 2</label>
+        </nav>
+      </div>
+      <div class="title">Tab</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/text-field/"
+    >
+      <div class="page-preview center" inert>
+        <div class="column">
+          <label class="text-field filled">
+            <input placeholder=" " />
+            <span>Textfield</span>
+          </label>
+          <label class="text-field outlined">
+            <input placeholder=" " />
+            <span>Textfield</span>
+          </label>
+        </div>
+      </div>
+      <div class="title">Text Field</div>
+    </a>
+    <a class="card outlined" href="/material-design-lite/components/tooltip/">
+      <div class="page-preview center" inert>
+        <div class="tooltip" data-tooltip="Tooltip contents here!" data-visible>
+          Tooltip target
+        </div>
+      </div>
+      <div class="title">Tooltip</div>
+    </a>
+    <a
+      class="card outlined"
+      href="/material-design-lite/components/top-app-bar/"
+    >
+      <div class="page-preview center" inert>
+        <header class="top-app-bar center-aligned">
+          <button class="icon-button leading">
+            <i class="material-icons">menu</i>
+          </button>
+          <span class="title">Title Large</span>
+          <div class="actions">
+            <button class="icon-button">
+              <i class="material-icons">search</i>
+            </button>
+          </div>
+        </header>
+      </div>
+      <div class="title">Top App Bar</div>
+    </a>
+  </div>
+
+  <style>
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 1rem;
+      padding: 1rem;
+      width: 100%;
+    }
+    .card {
+      width: unset;
+    }
+    .page-preview {
+      min-height: 200px;
+      max-height: 200px;
+      object-fit: cover;
+      overflow: hidden;
+      flex: 1;
+      border: none;
+      padding: 1.5rem;
+      background-color: var(--md-sys-color-surface-1);
+      border-radius: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .wrap {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 1rem;
+    }
+    .center {
+      justify-content: center;
+      align-items: center;
+    }
+    i {
+      text-align: center;
+    }
+    color-box {
+      --border-radius: 0.5rem;
+    }
+    .card {
+      border-radius: var(--md-sys-shape-corner-large);
+      transition: all 0.2s ease-in-out;
+    }
+    .card .title {
+      margin: 0.5rem 0;
+    }
+    :is(a):hover {
+      text-decoration: none;
+    }
+    :is(a):hover > .title {
+      text-decoration: underline;
+    }
+    :is(a).card:hover {
+      box-shadow: var(--md-sys-elevation-2);
+      border-radius: var(--md-sys-shape-corner-medium);
+      border: none;
+    }
+  </style>
+
+  <script>
+    import "../../components/color-box.ts";
+  </script>
 </Root>

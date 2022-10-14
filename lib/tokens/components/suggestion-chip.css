@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Suggestion chip disabled leading icon opacity */
   --md-comp-suggestion-chip-with-leading-icon-disabled-leading-icon-opacity: 0.3799999952316284;
   /* Suggestion chip leading icon size */

@@ -59,13 +59,15 @@ Default list tile styling.
 
 <div class="preview">
   <div class="list">
-    <li class="list-tile">List Item</li>
+    <li class="list-tile">List Item 1</li>
+    <li class="list-tile">List Item 2</li>
   </div>
 </div>
 
 ```html
 <div class="list">
-  <li class="list-tile">List Item</li>
+  <li class="list-tile">List Item 1</li>
+  <li class="list-tile">List Item 2</li>
 </div>
 ```
 
@@ -75,13 +77,15 @@ To make a list tile activatable, add the **activatable** class name:
 
 <div class="preview">
   <div class="list activatable">
-    <li class="list-tile">List Item</li>
+    <li class="list-tile">List Item 1</li>
+    <li class="list-tile">List Item 2</li>
   </div>
 </div>
 
 ```html
 <div class="list activatable">
-  <li class="list-tile">List Item</li>
+  <li class="list-tile">List Item 1</li>
+  <li class="list-tile">List Item 2</li>
 </div>
 ```
 

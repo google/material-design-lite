@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Circular progress indicator active indicator shape */
   --md-comp-circular-progress-indicator-active-indicator-shape: var(
     --md-sys-shape-corner-none

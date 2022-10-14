@@ -7,7 +7,45 @@ const {title, tab} = Astro.props;
 ---
 
 <main>
+  <dialog id="nav-drawer" class="navigation-drawer modal">
+    <div class="drawer-title">Material Design Lite</div>
+     <div class="drawer-scrollable">
+      {
+        MENU.map((group, index) => (<>
+          <section>
+            <label class="section-header">{group.text}</label>
+            {
+              group.children!.map((item) => {
+                if (item.draft) {
+                    return <div class="list-tile draft">
+                      <span class="title">{item.text}</span>
+                    </div>;
+                }
+                return  <div class="list-tile nav-link" id={item.link.split('/').join('_')}>
+                  {item.icon && <i class="leading material-icons">{item.icon}</i>}
+                  <span class="title">{item.text}</span>
+                  <i class="trailing material-icons">chevron_right</i>
+                </div>;
+              })
+            }
+          </section>
+          {index < MENU.length - 1 && <div class="divider"></div>}
+          </>))
+      }
+     </div>
+    <form method="dialog">
+      <button class="text">
+        <i class="material-icons">close</i>
+        <label>Close Drawer</label>
+      </button>
+    </form>
+  </dialog>
+
   <aside id="nav-rail" class="navigation-rail">
+
+    <button id="drawer-btn" class="icon-button">
+      <i class="material-icons">menu</i>
+    </button>
 
     <button id="download" class="fab">
         <i class="material-icons">file_download</i>
@@ -17,7 +55,7 @@ const {title, tab} = Astro.props;
         {
             MENU.map((item) => {
                 return (
-                <input type="radio" name="side-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
+                <input type="radio" name="side-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} data-link={item.link} />
                 <label class="navigation-icon" for={item.text}>
                     <i class="material-icons">{item.icon}</i>
                     <span>{item.text}</span>
@@ -30,6 +68,9 @@ const {title, tab} = Astro.props;
 
   <section class="content-body">
     <header id="header" class="top-app-bar">
+      <button id="drawer-btn" class="icon-button leading">
+        <i class="material-icons">menu</i>
+      </button>
       <span class="title">{title}</span>
       <div class="actions">
         <a class="icon-button" href="/material-design-lite/faq">
@@ -56,7 +97,7 @@ const {title, tab} = Astro.props;
         {
             MENU.map((item) => {
                 return (
-                <input type="radio" name="bottom-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} />
+                <input type="radio" name="bottom-navigation" value={item.text} id={item.text} checked={item.text.toLowerCase() === tab} data-link={item.link} />
                 <label class="navigation-icon" for={item.text}>
                     <i class="material-icons">{item.icon}</i>
                     <span>{item.text}</span>
@@ -108,6 +149,9 @@ const {title, tab} = Astro.props;
   .top-app-bar.scrolled {
     box-shadow: none;
   }
+  #header #drawer-btn {
+    margin-right: 0.5rem;
+  }
   .options {
     display: none;
   }
@@ -154,6 +198,9 @@ const {title, tab} = Astro.props;
     .fab.fixed {
       display: none;
     }
+    #header #drawer-btn  {
+      display: none;
+    }
   }
 
   @media (--desktop-breakpoint) {
@@ -184,10 +231,18 @@ const {title, tab} = Astro.props;
     }
   }
   
+  .navigation-drawer .list-tile {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .navigation-drawer .draft {
+    color: var(--md-sys-color-on-surface);
+    opacity: 0.2;
+  }
 </style>
 
 <script>
-  import {MENU} from '../utils/menu';
+  import {MENU, Component} from '../utils/menu';
 
   // App bar scrolling
   const header = document.querySelector("#header")!;
@@ -198,7 +253,30 @@ const {title, tab} = Astro.props;
     } else {
       header.classList.remove("scrolled");
     }
-  });
+  }, {passive: true});
+
+  // Navigation drawer
+  const drawer = document.querySelector("#nav-drawer") as HTMLDialogElement;
+  const drawerBtns = document.querySelectorAll("#drawer-btn") as NodeListOf<HTMLButtonElement>;
+   drawerBtns.forEach
+    (btn => btn.addEventListener("click", (e) => {
+      drawer.showModal();
+       // Scroll to selected link
+      const selected = document.querySelectorAll(".nav-link[data-selected]");
+      if (selected.length > 0) {
+        // Animated scroll to selected link
+        selected[0].scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+      }
+
+      btn.disabled = true;
+      drawer.addEventListener("close", () => {
+        btn.disabled = false;
+      });
+    }));
 
   // Options toggle
   const options = document.querySelector(".options")!;
@@ -222,26 +300,51 @@ const {title, tab} = Astro.props;
   });
 
   // Navigation links
- for (const item of MENU) {
-    const link = document.querySelector(`#${item.text}`)!;
-    link.addEventListener("change", (e) => {
-      window.location.href = `/material-design-lite${item.href}/`;
-    });
+ MENU.forEach(setupLink);
+
+ function setupLink(item: Component) {
+    item.children?.forEach(setupLink);
+   const link = document.querySelector(`#${item.link.split('/').join('_')}`);
+   if (link === null) {
+     console.warn(`Link not found for ${item.text}`);
+     return;
+    }
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = `/material-design-lite${item.href}/`;
+      window.location.href = `/material-design-lite/${item.link}/`;
     });
+    // Check if selected
+    const path = window.location.pathname;
+    console.log(path, item.link);
+    if (path.endsWith(`${item.link}/`)) {
+      link.setAttribute("data-selected", "true");
+    }
  }
 
  // Download Button
   const downloadBtn = document.querySelectorAll("#download")!;
   downloadBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const a = document.createElement("a");
-      a.href = "/material-design-lite/css/mdl.min.css";
-      a.download = "mdl.min.css";
-      a.click();
-      a.remove();
+     const downloadLink = '/material-design-lite/overview/download/';
+      window.location.href = downloadLink;
+    });
+  });
+
+  // Radio links
+  const radios = document.querySelectorAll("input[type=radio]") as NodeListOf<HTMLInputElement>;
+  radios.forEach((radio) => {
+    const goToLink = () => {
+      const link = radio.getAttribute("data-link");
+      if (link) {
+          window.location.href = `/material-design-lite${link}/`;
+      }
+    };
+    radio.addEventListener("change", (e) => {
+      goToLink();
+    });
+    radio.addEventListener("click", (e) => {
+      e.stopPropagation();
+       goToLink();
     });
   });
 </script>

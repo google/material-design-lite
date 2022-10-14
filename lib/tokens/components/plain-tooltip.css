@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Plain tooltip supporting text tracking */
   --md-comp-plain-tooltip-supporting-text-tracking: var(
     --md-sys-typescale-body-small-tracking

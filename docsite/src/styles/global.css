@@ -56,14 +56,6 @@ p {
   border: 1px solid var(--md-sys-color-outline);
 }
 
-a:not(.nav-link) {
-  color: var(--md-sys-color-primary);
-}
-
-a:not(.nav-link):visited {
-  color: var(--md-sys-color-on-surface);
-}
-
 .code {
   position: relative;
   width: 100%;
@@ -112,11 +104,19 @@ a:not(.nav-link):visited {
   accent-color: var(--md-sys-color-primary);
 }
 
-a {
+:where(a):not(.nav-link, .icon-button, .fab, .button) {
   text-decoration: none;
-  color: var(--md-sys-color-primary);
+  font-weight: 500;
 
-  &:hover {
-    text-decoration: underline;
+  &:not(.card) {
+    color: var(--md-sys-color-primary);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: var(--md-sys-color-tertiary);
+    }
   }
 }

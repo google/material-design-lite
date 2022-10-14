@@ -8,13 +8,31 @@ tab: "overview"
 
 <div class="box shape-small"></div>
 
+```html
+<div class="shape-small">
+  Shape Small
+</div>
+```
+
 ## Medium
 
 <div class="box shape-medium"></div>
 
+```html
+<div class="shape-medium">
+  Shape Medium
+</div>
+```
+
 ## Large
 
 <div class="box shape-large"></div>
+
+```html
+<div class="shape-large">
+  Shape Large
+</div>
+```
 
 <style>
   .box {

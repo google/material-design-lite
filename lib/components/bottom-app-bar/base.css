@@ -17,8 +17,10 @@
 :is(.bottom-app-bar, footer) {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   position: relative;
+  box-sizing: border-box;
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);

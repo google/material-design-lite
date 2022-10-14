@@ -15,7 +15,7 @@
 */
 
 :where(html),
-.tokens {
+.tokens, :host {
   /* Bottom app bar with FAB container height */
   --md-comp-bottom-app-bar-with-fab-container-height: 72px;
   /* Bottom app bar container height */
