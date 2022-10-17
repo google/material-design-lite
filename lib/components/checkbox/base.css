@@ -38,6 +38,7 @@
     @apply --material-icons;
     content: "check_box_outline_blank";
     color: var(--md-sys-comp-checkbox-unselected-color);
+    font-size: 24px;
   }
 
   &:is(:checked, .checked)::after {
