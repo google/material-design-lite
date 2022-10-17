@@ -874,304 +874,6 @@
   --md-comp-filled-tonal-button-container-elevation: var(
     --md-sys-elevation-level0
   );
-  /* Outlined button container elevation */
-  --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
-  /* Outlined button focus state layer opacity */
-  --md-comp-outlined-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Outlined button hover state layer opacity */
-  --md-comp-outlined-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Outlined button label tracking */
-  --md-comp-outlined-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Outlined button label weight */
-  --md-comp-outlined-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Outlined button label size */
-  --md-comp-outlined-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Outlined button label line height */
-  --md-comp-outlined-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Outlined button label font */
-  --md-comp-outlined-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Outlined button with icon icon size */
-  --md-comp-outlined-button-with-icon-icon-size: 18px;
-  /* Outlined button outline width */
-  --md-comp-outlined-button-outline-width: 1px;
-  /* Outlined button container height */
-  --md-comp-outlined-button-container-height: 40px;
-  /* Outlined button container shape */
-  --md-comp-outlined-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Outlined button pressed state layer opacity */
-  --md-comp-outlined-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Outlined button with icon disabled icon opacity */
-  --md-comp-outlined-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Outlined button disabled label opacity */
-  --md-comp-outlined-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Outlined button disabled outline opacity */
-  --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
-  /* Elevated button focus container elevation */
-  --md-comp-elevated-button-focus-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Elevated button focus state layer opacity */
-  --md-comp-elevated-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Elevated button hover container elevation */
-  --md-comp-elevated-button-hover-container-elevation: var(
-    --md-sys-elevation-level2
-  );
-  /* Elevated button hover state layer opacity */
-  --md-comp-elevated-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Elevated button label tracking */
-  --md-comp-elevated-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Elevated button label weight */
-  --md-comp-elevated-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Elevated button label size */
-  --md-comp-elevated-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Elevated button label line height */
-  --md-comp-elevated-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Elevated button label font */
-  --md-comp-elevated-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Elevated button with icon icon size */
-  --md-comp-elevated-button-with-icon-icon-size: 18px;
-  /* Elevated button container elevation */
-  --md-comp-elevated-button-container-elevation: var(--md-sys-elevation-level1);
-  /* Elevated button container height */
-  --md-comp-elevated-button-container-height: 40px;
-  /* Elevated button container shape */
-  --md-comp-elevated-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Elevated button pressed container elevation */
-  --md-comp-elevated-button-pressed-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Elevated button pressed state layer opacity */
-  --md-comp-elevated-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Elevated button with icon disabled icon opacity */
-  --md-comp-elevated-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Elevated button disabled label opacity */
-  --md-comp-elevated-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Elevated button disabled container elevation */
-  --md-comp-elevated-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Elevated button disabled container opacity */
-  --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
-  /* Icon button selected pressed state layer opacity */
-  --md-comp-icon-button-selected-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Icon button unselected pressed state layer opacity */
-  --md-comp-icon-button-unselected-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Icon button selected focus state layer opacity */
-  --md-comp-icon-button-selected-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Icon button unselected focus state layer opacity */
-  --md-comp-icon-button-unselected-focus-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Icon button selected hover state layer opacity */
-  --md-comp-icon-button-selected-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Icon button icon unselected hover state layer opacity */
-  --md-comp-icon-button-unselected-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Icon button state layer shape */
-  --md-comp-icon-button-state-layer-shape: var(--md-sys-shape-corner-full);
-  /* Icon button state layer size */
-  --md-comp-icon-button-state-layer-size: 40px;
-  /* Icon button icon size */
-  --md-comp-icon-button-icon-size: 24px;
-  /* Icon button disabled icon opacity */
-  --md-comp-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  /* Filled icon button pressed state layer opacity */
-  --md-comp-filled-icon-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Filled icon button focus state layer opacity */
-  --md-comp-filled-icon-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Filled icon button hover state layer opacity */
-  --md-comp-filled-icon-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Filled icon button disabled container opacity */
-  --md-comp-filled-icon-button-disabled-container-opacity: 0.11999999731779099;
-  /* Filled icon button disabled icon color */
-  --md-comp-filled-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  /* Filled icon button container shape */
-  --md-comp-filled-icon-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Filled icon button container size */
-  --md-comp-filled-icon-button-container-size: 40px;
-  /* Filled icon button icon size */
-  --md-comp-filled-icon-button-icon-size: 24px;
-  /* Filled tonal icon button pressed state layer opacity */
-  --md-comp-filled-tonal-icon-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Filled tonal icon button focus state layer opacity */
-  --md-comp-filled-tonal-icon-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Filled tonal icon button hover state layer opacity */
-  --md-comp-filled-tonal-icon-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Filled tonal icon button disabled container opacity */
-  --md-comp-filled-tonal-icon-button-disabled-container-opacity: 0.11999999731779099;
-  /* Filled tonal icon button disabled icon opacity */
-  --md-comp-filled-tonal-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  /* Filled tonal icon button container shape */
-  --md-comp-filled-tonal-icon-button-container-shape: var(
-    --md-sys-shape-corner-full
-  );
-  /* Filled tonal icon button container size */
-  --md-comp-filled-tonal-icon-button-container-size: 40px;
-  /* Filled tonal icon button icon size */
-  --md-comp-filled-tonal-icon-button-icon-size: 24px;
-  /* Outlined icon button disabled outline opacity */
-  --md-comp-outlined-icon-button-disabled-outline-opacity: 0.11999999731779099;
-  /* Outlined icon button disabled selected container opacity */
-  --md-comp-outlined-icon-button-disabled-selected-container-opacity: 0.11999999731779099;
-  /* Outlined icon button disabled unselected outline opacity */
-  --md-comp-outlined-icon-button-disabled-unselected-outline-opacity: 0.11999999731779099;
-  /* Outlined icon button pressed state layer opacity */
-  --md-comp-outlined-icon-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Outlined icon button focus state layer opacity */
-  --md-comp-outlined-icon-button-focus-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Outlined icon button hover state layer opacity */
-  --md-comp-outlined-icon-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Outlined icon button disabled icon opacity */
-  --md-comp-outlined-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  /* Outlined icon button container size */
-  --md-comp-outlined-icon-button-container-size: 40px;
-  /* Outlined icon button container shape */
-  --md-comp-outlined-icon-button-container-shape: var(
-    --md-sys-shape-corner-full
-  );
-  /* Outlined icon button unselected outline width */
-  --md-comp-outlined-icon-button-unselected-outline-width: 1px;
-  /* Outlined icon button icon size */
-  --md-comp-outlined-icon-button-icon-size: 24px;
-  /* Assist chip dragged state layer opacity */
-  --md-comp-assist-chip-dragged-state-layer-opacity: var(
-    --md-sys-state-dragged-state-layer-opacity
-  );
-  /* Assist chip dragged container elevation */
-  --md-comp-assist-chip-dragged-container-elevation: var(
-    --md-sys-elevation-level4
-  );
-  /* Assist chip (Elevated style) pressed container elevation */
-  --md-comp-assist-chip-elevated-pressed-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Assist chip pressed state layer opacity */
-  --md-comp-assist-chip-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Assist chip (Elevated style) focus container elevation */
-  --md-comp-assist-chip-elevated-focus-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Assist chip focus state layer opacity */
-  --md-comp-assist-chip-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Assist chip (Elevated style) hover container elevation */
-  --md-comp-assist-chip-elevated-hover-container-elevation: var(
-    --md-sys-elevation-level2
-  );
-  /* Assist chip hover state layer opacity */
-  --md-comp-assist-chip-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Assist chip (Elevated style)  disabled container opacity */
-  --md-comp-assist-chip-elevated-disabled-container-opacity: 0.11999999731779099;
-  /* Assist chip (Elevated style)  disabled container elevation */
-  --md-comp-assist-chip-elevated-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Assist chip with icon disabled icon opacity */
-  --md-comp-assist-chip-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Assist chip disabled label text opacity */
-  --md-comp-assist-chip-disabled-label-text-opacity: 0.3799999952316284;
-  /* Assist chip flat diabled outline opacity */
-  --md-comp-assist-chip-flat-disabled-outline-opacity: 0.11999999731779099;
-  /* Assist chip icon size */
-  --md-comp-assist-chip-with-icon-icon-size: 18px;
-  /* Assist chip label text tracking */
-  --md-comp-assist-chip-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Assist chip label text weight */
-  --md-comp-assist-chip-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Assist chip label text size */
-  --md-comp-assist-chip-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Assist chip label text line height */
-  --md-comp-assist-chip-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Assist chip label text font */
-  --md-comp-assist-chip-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* (Elevated style) Assist chip container elevation */
-  --md-comp-assist-chip-elevated-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Assist chip container outline width */
-  --md-comp-assist-chip-flat-outline-width: 1px;
-  /* Assist chip container elevation */
-  --md-comp-assist-chip-flat-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Assist chip container height */
-  --md-comp-assist-chip-container-height: 32px;
-  /* Assist chip container shape */
-  --md-comp-assist-chip-container-shape: var(--md-sys-shape-corner-small);
 }
 /*
  Copyright 2016 Google Inc. All rights reserved.
@@ -1836,8 +1538,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html, .light-theme, .dark-theme),
-.tokens, :host {
+:where(html) {
   --md-sys-elevation-0: 0px 0px 0px 0px
       rgb(var(--md-sys-color-shadow-rgb) / 0.2),
     0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
@@ -1862,6 +1563,57 @@
           0.2),
     0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
     0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+}
+.elevation-0 {
+  box-shadow: var(--md-sys-elevation-0);
+}
+.elevation-1 {
+  box-shadow: var(--md-sys-elevation-1);
+}
+.elevation-2 {
+  box-shadow: var(--md-sys-elevation-2);
+}
+.elevation-3 {
+  box-shadow: var(--md-sys-elevation-3);
+}
+.elevation-4 {
+  box-shadow: var(--md-sys-elevation-4);
+}
+.elevation-5 {
+  box-shadow: var(--md-sys-elevation-5);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
   --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
   --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
@@ -1873,6 +1625,224 @@
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
   --md-comp-button-container-shape: 20px;
+  /* Outlined button container elevation */
+  --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
+  /* Outlined button focus state layer opacity */
+  --md-comp-outlined-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Outlined button hover state layer opacity */
+  --md-comp-outlined-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Outlined button label tracking */
+  --md-comp-outlined-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Outlined button label weight */
+  --md-comp-outlined-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Outlined button label size */
+  --md-comp-outlined-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Outlined button label line height */
+  --md-comp-outlined-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Outlined button label font */
+  --md-comp-outlined-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Outlined button with icon icon size */
+  --md-comp-outlined-button-with-icon-icon-size: 18px;
+  /* Outlined button outline width */
+  --md-comp-outlined-button-outline-width: 1px;
+  /* Outlined button container height */
+  --md-comp-outlined-button-container-height: 40px;
+  /* Outlined button container shape */
+  --md-comp-outlined-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Outlined button pressed state layer opacity */
+  --md-comp-outlined-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Outlined button with icon disabled icon opacity */
+  --md-comp-outlined-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Outlined button disabled label opacity */
+  --md-comp-outlined-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Outlined button disabled outline opacity */
+  --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
+  /* Elevated button focus container elevation */
+  --md-comp-elevated-button-focus-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Elevated button focus state layer opacity */
+  --md-comp-elevated-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Elevated button hover container elevation */
+  --md-comp-elevated-button-hover-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  /* Elevated button hover state layer opacity */
+  --md-comp-elevated-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Elevated button label tracking */
+  --md-comp-elevated-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Elevated button label weight */
+  --md-comp-elevated-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Elevated button label size */
+  --md-comp-elevated-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Elevated button label line height */
+  --md-comp-elevated-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Elevated button label font */
+  --md-comp-elevated-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Elevated button with icon icon size */
+  --md-comp-elevated-button-with-icon-icon-size: 18px;
+  /* Elevated button container elevation */
+  --md-comp-elevated-button-container-elevation: var(--md-sys-elevation-level1);
+  /* Elevated button container height */
+  --md-comp-elevated-button-container-height: 40px;
+  /* Elevated button container shape */
+  --md-comp-elevated-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Elevated button pressed container elevation */
+  --md-comp-elevated-button-pressed-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Elevated button pressed state layer opacity */
+  --md-comp-elevated-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Elevated button with icon disabled icon opacity */
+  --md-comp-elevated-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Elevated button disabled label opacity */
+  --md-comp-elevated-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Elevated button disabled container elevation */
+  --md-comp-elevated-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Elevated button disabled container opacity */
+  --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
+  /* Icon button selected pressed state layer opacity */
+  --md-comp-icon-button-selected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Icon button unselected pressed state layer opacity */
+  --md-comp-icon-button-unselected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Icon button selected focus state layer opacity */
+  --md-comp-icon-button-selected-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Icon button unselected focus state layer opacity */
+  --md-comp-icon-button-unselected-focus-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Icon button selected hover state layer opacity */
+  --md-comp-icon-button-selected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Icon button icon unselected hover state layer opacity */
+  --md-comp-icon-button-unselected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Icon button state layer shape */
+  --md-comp-icon-button-state-layer-shape: var(--md-sys-shape-corner-full);
+  /* Icon button state layer size */
+  --md-comp-icon-button-state-layer-size: 40px;
+  /* Icon button icon size */
+  --md-comp-icon-button-icon-size: 24px;
+  /* Icon button disabled icon opacity */
+  --md-comp-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled icon button pressed state layer opacity */
+  --md-comp-filled-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled icon button focus state layer opacity */
+  --md-comp-filled-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled icon button hover state layer opacity */
+  --md-comp-filled-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled icon button disabled container opacity */
+  --md-comp-filled-icon-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled icon button disabled icon color */
+  --md-comp-filled-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled icon button container shape */
+  --md-comp-filled-icon-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Filled icon button container size */
+  --md-comp-filled-icon-button-container-size: 40px;
+  /* Filled icon button icon size */
+  --md-comp-filled-icon-button-icon-size: 24px;
+  /* Filled tonal icon button pressed state layer opacity */
+  --md-comp-filled-tonal-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled tonal icon button focus state layer opacity */
+  --md-comp-filled-tonal-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled tonal icon button hover state layer opacity */
+  --md-comp-filled-tonal-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled tonal icon button disabled container opacity */
+  --md-comp-filled-tonal-icon-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled tonal icon button disabled icon opacity */
+  --md-comp-filled-tonal-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled tonal icon button container shape */
+  --md-comp-filled-tonal-icon-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  /* Filled tonal icon button container size */
+  --md-comp-filled-tonal-icon-button-container-size: 40px;
+  /* Filled tonal icon button icon size */
+  --md-comp-filled-tonal-icon-button-icon-size: 24px;
+  /* Outlined icon button disabled outline opacity */
+  --md-comp-outlined-icon-button-disabled-outline-opacity: 0.11999999731779099;
+  /* Outlined icon button disabled selected container opacity */
+  --md-comp-outlined-icon-button-disabled-selected-container-opacity: 0.11999999731779099;
+  /* Outlined icon button disabled unselected outline opacity */
+  --md-comp-outlined-icon-button-disabled-unselected-outline-opacity: 0.11999999731779099;
+  /* Outlined icon button pressed state layer opacity */
+  --md-comp-outlined-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Outlined icon button focus state layer opacity */
+  --md-comp-outlined-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Outlined icon button hover state layer opacity */
+  --md-comp-outlined-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Outlined icon button disabled icon opacity */
+  --md-comp-outlined-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Outlined icon button container size */
+  --md-comp-outlined-icon-button-container-size: 40px;
+  /* Outlined icon button container shape */
+  --md-comp-outlined-icon-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  /* Outlined icon button unselected outline width */
+  --md-comp-outlined-icon-button-unselected-outline-width: 1px;
+  /* Outlined icon button icon size */
+  --md-comp-outlined-icon-button-icon-size: 24px;
   --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
   --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
   --md-comp-fab-container-size: 56px;
@@ -1880,6 +1850,86 @@
   --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
   --md-sys-comp-chip-color: var(--md-sys-color-primary);
   --md-comp-chip-container-height: 32px;
+  /* Assist chip dragged state layer opacity */
+  --md-comp-assist-chip-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  /* Assist chip dragged container elevation */
+  --md-comp-assist-chip-dragged-container-elevation: var(
+    --md-sys-elevation-level4
+  );
+  /* Assist chip (Elevated style) pressed container elevation */
+  --md-comp-assist-chip-elevated-pressed-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Assist chip pressed state layer opacity */
+  --md-comp-assist-chip-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Assist chip (Elevated style) focus container elevation */
+  --md-comp-assist-chip-elevated-focus-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Assist chip focus state layer opacity */
+  --md-comp-assist-chip-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Assist chip (Elevated style) hover container elevation */
+  --md-comp-assist-chip-elevated-hover-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  /* Assist chip hover state layer opacity */
+  --md-comp-assist-chip-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Assist chip (Elevated style)  disabled container opacity */
+  --md-comp-assist-chip-elevated-disabled-container-opacity: 0.11999999731779099;
+  /* Assist chip (Elevated style)  disabled container elevation */
+  --md-comp-assist-chip-elevated-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Assist chip with icon disabled icon opacity */
+  --md-comp-assist-chip-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Assist chip disabled label text opacity */
+  --md-comp-assist-chip-disabled-label-text-opacity: 0.3799999952316284;
+  /* Assist chip flat diabled outline opacity */
+  --md-comp-assist-chip-flat-disabled-outline-opacity: 0.11999999731779099;
+  /* Assist chip icon size */
+  --md-comp-assist-chip-with-icon-icon-size: 18px;
+  /* Assist chip label text tracking */
+  --md-comp-assist-chip-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Assist chip label text weight */
+  --md-comp-assist-chip-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Assist chip label text size */
+  --md-comp-assist-chip-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Assist chip label text line height */
+  --md-comp-assist-chip-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Assist chip label text font */
+  --md-comp-assist-chip-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* (Elevated style) Assist chip container elevation */
+  --md-comp-assist-chip-elevated-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Assist chip container outline width */
+  --md-comp-assist-chip-flat-outline-width: 1px;
+  /* Assist chip container elevation */
+  --md-comp-assist-chip-flat-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Assist chip container height */
+  --md-comp-assist-chip-container-height: 32px;
+  /* Assist chip container shape */
+  --md-comp-assist-chip-container-shape: var(--md-sys-shape-corner-small);
   --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
   --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
   --md-sys-comp-top-app-bar-padding: 16px;
@@ -1941,54 +1991,6 @@
   --md-comp-tabs-container-min-width: 100px;
   --md-comp-list-container-min-width: 300px;
 }
-.elevation-0 {
-  box-shadow: var(--md-sys-elevation-0);
-}
-.elevation-1 {
-  box-shadow: var(--md-sys-elevation-1);
-}
-.elevation-2 {
-  box-shadow: var(--md-sys-elevation-2);
-}
-.elevation-3 {
-  box-shadow: var(--md-sys-elevation-3);
-}
-.elevation-4 {
-  box-shadow: var(--md-sys-elevation-4);
-}
-.elevation-5 {
-  box-shadow: var(--md-sys-elevation-5);
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
 .surface-1 {
   background-color: var(--md-sys-color-surface-1);
   color: var(--md-sys-color-on-surface);

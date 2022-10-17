@@ -1,19 +1,20 @@
 {
   "name": "material-design-lite",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lightweight Material Design CSS framework",
   "type": "module",
   "scripts": {
     "dev": "cd docsite && npm run dev",
     "copy:tokens": "cp -a third_party/tokens/css/. lib/tokens/",
     "format": "npx prettier --write .",
-    "postinstall": "npm run tsc",
+    "postinstall": "npm run tsc && npm run css:bundle",
     "build": "npm run css:build",
     "readme:watch": "node dist/readme.js --watch",
     "readme:build": "node dist/readme.js",
     "css:lint": "npx stylelint 'lib/**/*.css'",
     "css:build": "node dist/css.js",
     "css:watch": "npx postcss --watch lib/styles.css --output docsite/public/css/mdl.css",
+    "css:bundle": "npx postcss lib/styles.css",
     "test": "wtr \"lib/components/**/test.html\" --node-resolve --coverage --playwright --timeout 3000 --browsers chromium firefox webkit",
     "test:watch": "wtr \"lib/components/**/test.html\" --node-resolve --playwright --timeout 3000 --browsers chromium firefox webkit --watch",
     "test:ui": "wds --node-resolve --watch --port 8001",
@@ -21,7 +22,7 @@
     "tsc:watch": "tsc -w"
   },
   "engines": {
-    "node": "^16.x"
+    "node": "^18.x"
   },
   "repository": {
     "type": "git",
@@ -67,7 +68,22 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   },
+  "exports": {
+    "./style": "./dist/mdl.css"
+  },
   "dependencies": {
     "lit": "^2.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

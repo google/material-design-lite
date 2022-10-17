@@ -1,0 +1,37 @@
+/* MDL Styles */
+@import url("https://rodydavis.github.io/material-design-lite/css/mdl.css");
+/* Material Icons */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/* Roboto Font */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap");
+
+:root {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
+  text-decoration: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}

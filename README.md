@@ -13,9 +13,9 @@ static content websites. It doesn't rely on any JavaScript frameworks or
 libraries. Optimized for cross-device use, gracefully degrades in older
 browsers, and offers an experience that is accessible from the get-go.
 
-![](/docs/images/components-1.png)
-![](/docs/images/components-2.png)
-![](/docs/images/components-3.png)
+![](/screenshots/components-1.png)
+![](/screenshots/components-2.png)
+![](/screenshots/components-3.png)
 
 ### Limited support
 
