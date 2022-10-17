@@ -30,18 +30,6 @@ jobs:
       - name: Test
         run: |
           npm run test
-        
-      - name: Build Site
-        run: |
-          cd docsite && 
-          npm i &&
-          npm run build
-
-      - name: Deploy Site
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docsite/dist
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
