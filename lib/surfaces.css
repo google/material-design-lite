@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(tokens/surfaces.css);
+@import url('tokens/surfaces.css');
 
 .surface-1 {
   background-color: var(--md-sys-color-surface-1);

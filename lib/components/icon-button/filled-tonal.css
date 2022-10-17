@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(../../tokens/components/filled-tonal-icon-button.css);
+@import url('../../tokens/components/filled-tonal-icon-button.css');
 
 :where(.icon-button).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);

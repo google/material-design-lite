@@ -14,6 +14,6 @@
  limitations under the License.
 */
 
-:where(html), .tokens, :host {
+:where(html, .dark-theme), .tokens, :host {
   @apply --dark-theme;
 }

@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(../../tokens/components/elevated-button.css);
+@import url('../../tokens/components/elevated-button.css');
 
 :where(.button, button):not(.icon-button, .fab, .chip).elevated {
   box-shadow: var(--md-sys-elevation-1);

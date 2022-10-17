@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(tokens/shape.css);
+@import url('tokens/shape.css');
 
 .shape-none {
   border-radius: var(--md-sys-shape-corner-none);

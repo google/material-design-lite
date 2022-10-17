@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(../../tokens/components/filled-icon-button.css);
+@import url('../../tokens/components/filled-icon-button.css');
 
 :where(.icon-button).filled {
   background-color: var(--md-sys-color-primary);

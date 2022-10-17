@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(tokens/elevation.css);
+@import url('tokens/elevation.css');
 
 :where(html, .light-theme, .dark-theme),
 .tokens, :host {

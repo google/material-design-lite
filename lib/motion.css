@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(tokens/motion.css);
+@import url('tokens/motion.css');
 
 .duration-50 {
   transition-duration: var(--md-sys-motion-duration-50);

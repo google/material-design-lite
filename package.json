@@ -11,7 +11,7 @@
     "build": "npm run css:build",
     "readme:watch": "node dist/readme.js --watch",
     "readme:build": "node dist/readme.js",
-    "css:lint": "npx stylelint 'lib/styles.css'",
+    "css:lint": "npx stylelint 'lib/**/*.css'",
     "css:build": "node dist/css.js",
     "css:watch": "npx postcss --watch lib/styles.css --output docsite/public/css/mdl.css",
     "test": "wtr \"lib/components/**/test.html\" --node-resolve --coverage --playwright --timeout 3000 --browsers chromium firefox webkit",

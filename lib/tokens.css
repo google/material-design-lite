@@ -14,11 +14,11 @@
  limitations under the License.
 */
 
-@import url(tokens/palette.css);
-@import url(tokens/themes/light.css);
-@import url(tokens/typeface.css);
-@import url(tokens/typescale.css);
-@import url(tokens/shape.css);
-@import url(tokens/motion.css);
-@import url(tokens/state.css);
-@import url(tokens/elevation.css);
+@import url('tokens/palette.css');
+@import url('tokens/themes/light.css');
+@import url('tokens/typeface.css');
+@import url('tokens/typescale.css');
+@import url('tokens/shape.css');
+@import url('tokens/motion.css');
+@import url('tokens/state.css');
+@import url('tokens/elevation.css');

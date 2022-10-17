@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url(../../tokens/components/outlined-button.css);
+@import url('../../tokens/components/outlined-button.css');
 
 :where(.button, button):not(.icon-button, .fab, .chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
