@@ -1,8 +1,9 @@
-name: Demo
+name: Release
 
 on:
   push:
-    branches: [mdl-3.x]
+    tags:
+      - "v*"
 
   workflow_dispatch:
 
@@ -45,7 +46,7 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          prerelease: false
           files: |
             LICENSE
             docsite/dist/css/*.css
