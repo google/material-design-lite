@@ -10,15 +10,13 @@ Download the latest version of Material Design Lite.
 
 To import the CSS in a **style** tag, use the following:
 
-```html
-<style>
-  /* MDL Styles */
-  @import url('https://rodydavis.github.io/material-design-lite/css/mdl.css');
-  /* Material Icons */
-  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-  /* Roboto Font */
-  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap');
-</style>
+```css
+/* MDL Styles */
+@import url('https://rodydavis.github.io/material-design-lite/css/mdl.css');
+/* Material Icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* Roboto Font */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap');
 ```
 
 To import the CSS in a **link** tag, use the following:
