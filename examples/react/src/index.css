@@ -1,13 +1,22 @@
+/* MDL Styles */
+@import url("https://rodydavis.github.io/material-design-lite/css/mdl.css");
+/* Material Icons */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/* Roboto Font */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light dark;
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
