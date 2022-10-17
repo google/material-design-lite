@@ -47,7 +47,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "CSS Output"
           files: |
             docsite/dist/css/*.css
-            docsite/dist/css/components/**/*.css
+            docsite/dist/css/components/**/style.css
