@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Checkbox disabled unselected icon opacity */
   --md-comp-checkbox-disabled-unselected-icon-opacity: 0.3799999952316284;

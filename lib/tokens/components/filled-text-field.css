@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Filled text field container height */
   --md-comp-filled-text-field-container-height: 56px;

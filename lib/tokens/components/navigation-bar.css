@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   --md-comp-navigation-bar-large-badge-shape: 8px 8px 8px 8px;
   /* Size */

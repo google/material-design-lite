@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Text button container elevation */
   --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);

@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* FAB (large branded) focus state layer opacity */
   --md-comp-fab-branded-large-focus-state-layer-opacity: var(

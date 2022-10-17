@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Search bar avatar size */
   --md-comp-search-bar-avatar-size: 30px;

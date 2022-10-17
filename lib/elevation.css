@@ -16,7 +16,8 @@
 
 @import url(tokens/elevation.css);
 
-:where(html) {
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
   --md-sys-elevation-0: 0px 0px 0px 0px
       rgb(var(--md-sys-color-shadow-rgb) / 0.2),
     0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),

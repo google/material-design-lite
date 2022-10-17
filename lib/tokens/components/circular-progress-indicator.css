@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Circular progress indicator active indicator shape */
   --md-comp-circular-progress-indicator-active-indicator-shape: var(

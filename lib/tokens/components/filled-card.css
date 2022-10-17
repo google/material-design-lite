@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Filled card disabled container opacity */
   --md-comp-filled-card-disabled-container-opacity: 0.3799999952316284;

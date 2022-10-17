@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Bottom app bar with FAB container height */
   --md-comp-bottom-app-bar-with-fab-container-height: 72px;

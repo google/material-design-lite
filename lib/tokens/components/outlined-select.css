@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Outlined select text field container height */
   --md-comp-outlined-select-text-field-container-height: 56px;

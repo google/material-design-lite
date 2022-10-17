@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Snackbar icon pressed state layer opacity */
   --md-comp-snackbar-icon-pressed-state-layer-opacity: var(

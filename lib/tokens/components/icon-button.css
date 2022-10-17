@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Icon button selected pressed state layer opacity */
   --md-comp-icon-button-selected-pressed-state-layer-opacity: var(

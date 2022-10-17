@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Branded extended FAB lowered focus container elevation */
   --md-comp-extended-fab-branded-lowered-focus-container-elevation: var(

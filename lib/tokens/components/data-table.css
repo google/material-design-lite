@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Data table row item outline width */
   --md-comp-data-table-row-item-outline-width: 1px;

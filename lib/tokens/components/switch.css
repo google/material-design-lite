@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Switch track shape */
   --md-comp-switch-track-shape: var(--md-sys-shape-corner-full);

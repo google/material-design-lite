@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Plain tooltip supporting text tracking */
   --md-comp-plain-tooltip-supporting-text-tracking: var(

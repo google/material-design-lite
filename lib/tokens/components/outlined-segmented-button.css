@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Outlined segmented button shape */
   --md-comp-outlined-segmented-button-shape: var(--md-sys-shape-corner-full);

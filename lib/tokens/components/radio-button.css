@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Radio button unselected focus state layer opacity */
   --md-comp-radio-button-unselected-focus-state-layer-opacity: var(

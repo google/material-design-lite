@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-:where(html),
+:where(html, .light-theme, .dark-theme),
 .tokens, :host {
   /* Assist chip dragged state layer opacity */
   --md-comp-assist-chip-dragged-state-layer-opacity: var(

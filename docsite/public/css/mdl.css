@@ -1836,7 +1836,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html) {
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
   --md-sys-elevation-0: 0px 0px 0px 0px
       rgb(var(--md-sys-color-shadow-rgb) / 0.2),
     0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
@@ -1861,57 +1862,6 @@
           0.2),
     0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
     0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-}
-.elevation-0 {
-  box-shadow: var(--md-sys-elevation-0);
-}
-.elevation-1 {
-  box-shadow: var(--md-sys-elevation-1);
-}
-.elevation-2 {
-  box-shadow: var(--md-sys-elevation-2);
-}
-.elevation-3 {
-  box-shadow: var(--md-sys-elevation-3);
-}
-.elevation-4 {
-  box-shadow: var(--md-sys-elevation-4);
-}
-.elevation-5 {
-  box-shadow: var(--md-sys-elevation-5);
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html, .light-theme, .dark-theme),
-.tokens, :host {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
   --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
   --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
@@ -1991,6 +1941,54 @@
   --md-comp-tabs-container-min-width: 100px;
   --md-comp-list-container-min-width: 300px;
 }
+.elevation-0 {
+  box-shadow: var(--md-sys-elevation-0);
+}
+.elevation-1 {
+  box-shadow: var(--md-sys-elevation-1);
+}
+.elevation-2 {
+  box-shadow: var(--md-sys-elevation-2);
+}
+.elevation-3 {
+  box-shadow: var(--md-sys-elevation-3);
+}
+.elevation-4 {
+  box-shadow: var(--md-sys-elevation-4);
+}
+.elevation-5 {
+  box-shadow: var(--md-sys-elevation-5);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .surface-1 {
   background-color: var(--md-sys-color-surface-1);
   color: var(--md-sys-color-on-surface);
