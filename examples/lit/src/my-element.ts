@@ -32,6 +32,9 @@ export class MyElement extends LitElement {
         <a href="https://lit.dev" target="_blank">
           <img src=${litLogo} class="logo lit" alt="Lit logo" />
         </a>
+        <a href="https://m3.material.io.dev" target="_blank">
+          <img src="https://m3.material.io/static/assets/m3-favicon.svg" class="logo material" alt="Material logo" />
+        </a>
       </div>
       <slot></slot>
       <div class="card">
