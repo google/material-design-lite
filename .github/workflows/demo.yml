@@ -50,5 +50,4 @@ jobs:
           title: "CSS Output"
           files: |
             docsite/dist/css/*.css
-            docsite/dist/css/**/*.css
-            docsite/dist/css/**/**/*.css
+            docsite/dist/css/components/**/*.css
