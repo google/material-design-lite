@@ -20,8 +20,7 @@
   display: grid;
   place-content: center;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   margin: 0;
   background-color: var(--md-sys-color-surface);
   font: inherit;
@@ -47,12 +46,16 @@
     width: 0.65em;
     height: 0.65em;
     border-radius: 50%;
-    transform: scale(0);
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    transition: 120ms -webkit-transform ease-in-out;
     transition: 120ms transform ease-in-out;
+    transition: 120ms transform ease-in-out, 120ms -webkit-transform ease-in-out;
     box-shadow: inset 1em 1em var(--md-sys-color-primary);
   }
 
 :where(input[type="radio"],
 .radio-button):checked::before {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }

@@ -14,41 +14,58 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Search view docked header container height */
   --md-comp-search-view-docked-header-container-height: 56px;
+  /* Search view full screen header container height */
   --md-comp-search-view-full-screen-header-container-height: 72px;
+  /* Search view header input text tracking */
   --md-comp-search-view-header-input-text-tracking: var(
     --md-sys-typescale-body-large-tracking
   );
+  /* Search view header input text weight */
   --md-comp-search-view-header-input-text-weight: var(
     --md-sys-typescale-body-large-weight
   );
+  /* Search view header input text size */
   --md-comp-search-view-header-input-text-size: var(
     --md-sys-typescale-body-large-size
   );
+  /* Search view header input text line height */
   --md-comp-search-view-header-input-text-line-height: var(
     --md-sys-typescale-body-large-line-height
   );
+  /* Search view header input text font */
   --md-comp-search-view-header-input-text-font: var(
     --md-sys-typescale-body-large-font
   );
+  /* Search view header supporting text tracking */
   --md-comp-search-view-header-supporting-text-tracking: var(
     --md-sys-typescale-body-large-tracking
   );
+  /* Search view header supporting text weight */
   --md-comp-search-view-header-supporting-text-weight: var(
     --md-sys-typescale-body-large-weight
   );
+  /* Search view header supporting text size */
   --md-comp-search-view-header-supporting-text-size: var(
     --md-sys-typescale-body-large-size
   );
+  /* Search view header supporting text line height */
   --md-comp-search-view-header-supporting-text-line-height: var(
     --md-sys-typescale-body-large-line-height
   );
+  /* Search view header supporting text font */
   --md-comp-search-view-header-supporting-text-font: var(
     --md-sys-typescale-body-large-font
   );
+  /* Search view container elevation */
   --md-comp-search-view-container-elevation: var(--md-sys-elevation-level3);
+  /* Search view docked container shape */
   --md-comp-search-view-docked-container-shape: var(
     --md-sys-shape-corner-extra-large
   );

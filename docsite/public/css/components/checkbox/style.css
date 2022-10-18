@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-checkbox-size: 24px;
   --md-sys-comp-checkbox-unselected-color: var(--md-sys-color-outline);
   --md-sys-comp-checkbox-selected-color: var(--md-sys-color-primary);
@@ -28,6 +31,7 @@
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  position: relative;
   width: var(--md-sys-comp-checkbox-size);
   height: var(--md-sys-comp-checkbox-size);
   position: relative;
@@ -43,6 +47,7 @@
     bottom: 0;
     right: 0;
     -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: "liga";
     font-feature-settings: "liga";
     direction: ltr;
     word-wrap: normal;
@@ -54,6 +59,7 @@
     font-family: "Material Icons";
     content: "check_box_outline_blank";
     color: var(--md-sys-comp-checkbox-unselected-color);
+    font-size: var(--md-sys-comp-checkbox-size);
   }
 
 :where(input[type="checkbox"],

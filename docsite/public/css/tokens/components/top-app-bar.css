@@ -14,31 +14,44 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Top app bar (small) on scroll container elevation */
   --md-comp-top-app-bar-small-on-scroll-container-elevation: var(
     --md-sys-elevation-level2
   );
+  /* Top app bar (small) trailing icon size */
   --md-comp-top-app-bar-small-trailing-icon-size: 24px;
+  /* Top app bar (small) leading icon size */
   --md-comp-top-app-bar-small-leading-icon-size: 24px;
+  /* Top app bar (small) headline weight */
   --md-comp-top-app-bar-small-headline-weight: var(
     --md-sys-typescale-title-large-weight
   );
+  /* Top app bar (small) headline tracking */
   --md-comp-top-app-bar-small-headline-tracking: var(
     --md-sys-typescale-title-large-tracking
   );
+  /* Top app bar (small) headline size */
   --md-comp-top-app-bar-small-headline-size: var(
     --md-sys-typescale-title-large-size
   );
+  /* Top app bar (small) headline height */
   --md-comp-top-app-bar-small-headline-line-height: var(
     --md-sys-typescale-title-large-line-height
   );
+  /* Top app bar (small) headline font */
   --md-comp-top-app-bar-small-headline-font: var(
     --md-sys-typescale-title-large-font
   );
+  /* Top app bar (small) container elevation */
   --md-comp-top-app-bar-small-container-elevation: var(
     --md-sys-elevation-level0
   );
+  /* Top app bar (small) container height */
   --md-comp-top-app-bar-small-container-height: 64px;
   /* Top app bar (small) container shape */
   --md-comp-top-app-bar-small-container-shape: var(--md-sys-shape-corner-none);

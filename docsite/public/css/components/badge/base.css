@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-badge-size: 22px;
   --md-sys-comp-badge-dot-size: calc(var(--md-sys-comp-badge-size) / 2);
   --md-sys-comp-badge-background-color: var(--md-sys-color-error);
@@ -31,7 +34,10 @@
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
     text-transform: var(--md-sys-typescale-label-small-text-transform);
+    line-height: var(--md-sys-typescale-label-small-line-height);
     letter-spacing: var(--md-sys-typescale-label-small-tracking);
+    font-size: var(--md-sys-typescale-label-small-size);
+    font-weight: var(--md-sys-typescale-label-small-weight);
     font-family: var(--md-sys-typescale-label-small-font);
     font-size: 11px;
     font-weight: 600;

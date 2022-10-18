@@ -14,20 +14,28 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Plain tooltip supporting text tracking */
   --md-comp-plain-tooltip-supporting-text-tracking: var(
     --md-sys-typescale-body-small-tracking
   );
+  /* Plain tooltip supporting text weight */
   --md-comp-plain-tooltip-supporting-text-weight: var(
     --md-sys-typescale-body-small-weight
   );
+  /* Plain tooltip supporting text size */
   --md-comp-plain-tooltip-supporting-text-size: var(
     --md-sys-typescale-body-small-size
   );
+  /* Plain tooltip supporting text line height */
   --md-comp-plain-tooltip-supporting-text-line-height: var(
     --md-sys-typescale-body-small-line-height
   );
+  /* Plain tooltip supporting text font */
   --md-comp-plain-tooltip-supporting-text-font: var(
     --md-sys-typescale-body-small-font
   );

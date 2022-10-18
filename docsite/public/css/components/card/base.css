@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-card-width: 300px;
 }
 
@@ -31,13 +34,12 @@
   text-align: start;
 }
 
-:is(.card) :where(i,
-.material-icons) mg {
+:is(.card) > img {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }
 
-:is(.card) .title {
+:is(.card) > .title {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
             text-decoration: var(--md-sys-typescale-title-large-text-decoration);
@@ -49,7 +51,7 @@
     font-family: var(--md-sys-typescale-title-large-font);
   }
 
-:is(.card) .subtitle {
+:is(.card) > .subtitle {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
             text-decoration: var(--md-sys-typescale-body-large-text-decoration);
@@ -61,7 +63,7 @@
     font-family: var(--md-sys-typescale-body-large-font);
   }
 
-:is(.card) .actions {
+:is(.card) > .actions {
     padding: 16px;
     display: flex;
     flex-direction: row;

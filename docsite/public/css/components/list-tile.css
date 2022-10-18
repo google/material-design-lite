@@ -14,16 +14,30 @@
  limitations under the License.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('../../docsite/public/css/mdl.css');
-
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: var(--md-sys-color-background);
-  color: var(--md-sys-color-on-background);
+:is(.list-tile) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  padding: 16px 24px;
+  gap: 16px;
 }
 
-table {
-  margin: 8px;
-}
+:is(.list-tile) .title {
+    flex: 1;
+    white-space: nowrap;
+    text-align: start;
+  }
+
+:is(.list-tile) .leading {
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+  }
+
+:is(.list-tile) .trailing {
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+  }

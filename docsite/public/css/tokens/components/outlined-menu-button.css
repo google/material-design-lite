@@ -14,39 +14,58 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Outlined menu button pressed state layer opacity */
   --md-comp-outlined-menu-button-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Outlined menu button focus state layer opacity */
   --md-comp-outlined-menu-button-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Outlined menu button hover state layer opacity */
   --md-comp-outlined-menu-button-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Outlined menu button disabled trailing icon opacity */
   --md-comp-outlined-menu-button-disabled-trailing-icon-opacity: 0.3799999952316284;
+  /* Outlined menu button with icon disabled icon opacity */
   --md-comp-outlined-menu-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Outlined menu button disabled label text opacity */
   --md-comp-outlined-menu-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Outlined menu button disabled container opacity */
   --md-comp-outlined-menu-button-disabled-container-opacity: 0.11999999731779099;
+  /* Outlined menu button trailing icon size */
   --md-comp-outlined-menu-button-trailing-icon-size: 18px;
+  /* Outlined menu button with icon leading icon size */
   --md-comp-outlined-menu-button-with-icon-leading-icon-size: 18px;
+  /* Outlined menu button label text weight */
   --md-comp-outlined-menu-button-label-text-weight: var(
     --md-sys-typescale-label-large-weight
   );
+  /* Outlined menu button label text tracking */
   --md-comp-outlined-menu-button-label-text-tracking: var(
     --md-sys-typescale-label-large-tracking
   );
+  /* Outlined menu button label text size */
   --md-comp-outlined-menu-button-label-text-size: var(
     --md-sys-typescale-label-large-size
   );
+  /* Outlined menu button label text line height */
   --md-comp-outlined-menu-button-label-text-line-height: var(
     --md-sys-typescale-label-large-line-height
   );
+  /* Outlined menu button label text font */
   --md-comp-outlined-menu-button-label-text-font: var(
     --md-sys-typescale-label-large-font
   );
+  /* Outlined menu button shape ignore */
   --md-comp-outlined-menu-button-shape: var(--md-sys-shape-corner-full);
+  /* Outlined menu button container height */
   --md-comp-outlined-menu-button-container-height: 40px;
   /* Outlined menu button outline width */
   --md-comp-outlined-menu-button-outline-width: 1px;

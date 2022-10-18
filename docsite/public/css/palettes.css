@@ -15,189 +15,269 @@
 */
 
 :where(html),
-.tokens {
+.tokens,
+:host {
+  /* Error 0 */
   --md-ref-palette-error0-rgb: 0 0 0;
   --md-ref-palette-error0: rgb(var(--md-ref-palette-error0-rgb));
+  /* Error 10 */
   --md-ref-palette-error10-rgb: 65 14 11;
   --md-ref-palette-error10: rgb(var(--md-ref-palette-error10-rgb));
+  /* Error 20 */
   --md-ref-palette-error20-rgb: 96 20 16;
   --md-ref-palette-error20: rgb(var(--md-ref-palette-error20-rgb));
+  /* Error 30 */
   --md-ref-palette-error30-rgb: 140 29 24;
   --md-ref-palette-error30: rgb(var(--md-ref-palette-error30-rgb));
+  /* Error 40 */
   --md-ref-palette-error40-rgb: 179 38 30;
   --md-ref-palette-error40: rgb(var(--md-ref-palette-error40-rgb));
+  /* Error 50 */
   --md-ref-palette-error50-rgb: 220 54 46;
   --md-ref-palette-error50: rgb(var(--md-ref-palette-error50-rgb));
+  /* Error 60 */
   --md-ref-palette-error60-rgb: 228 105 98;
   --md-ref-palette-error60: rgb(var(--md-ref-palette-error60-rgb));
+  /* Error 70 */
   --md-ref-palette-error70-rgb: 236 146 142;
   --md-ref-palette-error70: rgb(var(--md-ref-palette-error70-rgb));
+  /* Error 80 */
   --md-ref-palette-error80-rgb: 242 184 181;
   --md-ref-palette-error80: rgb(var(--md-ref-palette-error80-rgb));
+  /* Error 90 */
   --md-ref-palette-error90-rgb: 249 222 220;
   --md-ref-palette-error90: rgb(var(--md-ref-palette-error90-rgb));
+  /* Error 95 */
   --md-ref-palette-error95-rgb: 252 238 238;
   --md-ref-palette-error95: rgb(var(--md-ref-palette-error95-rgb));
+  /* Error 99 */
   --md-ref-palette-error99-rgb: 255 251 249;
   --md-ref-palette-error99: rgb(var(--md-ref-palette-error99-rgb));
+  /* Error 100 */
   --md-ref-palette-error100-rgb: 255 255 255;
   --md-ref-palette-error100: rgb(var(--md-ref-palette-error100-rgb));
+  /* Tertiary 0 */
   --md-ref-palette-tertiary0-rgb: 0 0 0;
   --md-ref-palette-tertiary0: rgb(var(--md-ref-palette-tertiary0-rgb));
+  /* Tertiary 10 */
   --md-ref-palette-tertiary10-rgb: 49 17 29;
   --md-ref-palette-tertiary10: rgb(var(--md-ref-palette-tertiary10-rgb));
+  /* Tertiary 20 */
   --md-ref-palette-tertiary20-rgb: 73 37 50;
   --md-ref-palette-tertiary20: rgb(var(--md-ref-palette-tertiary20-rgb));
+  /* Tertiary 30 */
   --md-ref-palette-tertiary30-rgb: 99 59 72;
   --md-ref-palette-tertiary30: rgb(var(--md-ref-palette-tertiary30-rgb));
+  /* Tertiary 40 */
   --md-ref-palette-tertiary40-rgb: 125 82 96;
   --md-ref-palette-tertiary40: rgb(var(--md-ref-palette-tertiary40-rgb));
+  /* Tertiary 50 */
   --md-ref-palette-tertiary50-rgb: 152 105 119;
   --md-ref-palette-tertiary50: rgb(var(--md-ref-palette-tertiary50-rgb));
+  /* Tertiary 60 */
   --md-ref-palette-tertiary60-rgb: 181 131 146;
   --md-ref-palette-tertiary60: rgb(var(--md-ref-palette-tertiary60-rgb));
+  /* Tertiary 70 */
   --md-ref-palette-tertiary70-rgb: 210 157 172;
   --md-ref-palette-tertiary70: rgb(var(--md-ref-palette-tertiary70-rgb));
+  /* Tertiary 80 */
   --md-ref-palette-tertiary80-rgb: 239 184 200;
   --md-ref-palette-tertiary80: rgb(var(--md-ref-palette-tertiary80-rgb));
+  /* Tertiary 90 */
   --md-ref-palette-tertiary90-rgb: 255 216 228;
   --md-ref-palette-tertiary90: rgb(var(--md-ref-palette-tertiary90-rgb));
+  /* Tertiary 95 */
   --md-ref-palette-tertiary95-rgb: 255 236 241;
   --md-ref-palette-tertiary95: rgb(var(--md-ref-palette-tertiary95-rgb));
+  /* Tertiary 99 */
   --md-ref-palette-tertiary99-rgb: 255 251 250;
   --md-ref-palette-tertiary99: rgb(var(--md-ref-palette-tertiary99-rgb));
+  /* Tertiary 100 */
   --md-ref-palette-tertiary100-rgb: 255 255 255;
   --md-ref-palette-tertiary100: rgb(var(--md-ref-palette-tertiary100-rgb));
+  /* Secondary 0 */
   --md-ref-palette-secondary0-rgb: 0 0 0;
   --md-ref-palette-secondary0: rgb(var(--md-ref-palette-secondary0-rgb));
+  /* Secondary 10 */
   --md-ref-palette-secondary10-rgb: 29 25 43;
   --md-ref-palette-secondary10: rgb(var(--md-ref-palette-secondary10-rgb));
+  /* Secondary 20 */
   --md-ref-palette-secondary20-rgb: 51 45 65;
   --md-ref-palette-secondary20: rgb(var(--md-ref-palette-secondary20-rgb));
+  /* Secondary 30 */
   --md-ref-palette-secondary30-rgb: 74 68 88;
   --md-ref-palette-secondary30: rgb(var(--md-ref-palette-secondary30-rgb));
+  /* Secondary 40 */
   --md-ref-palette-secondary40-rgb: 98 91 113;
   --md-ref-palette-secondary40: rgb(var(--md-ref-palette-secondary40-rgb));
+  /* Secondary 50 */
   --md-ref-palette-secondary50-rgb: 122 114 137;
   --md-ref-palette-secondary50: rgb(var(--md-ref-palette-secondary50-rgb));
+  /* Secondary 60 */
   --md-ref-palette-secondary60-rgb: 149 141 165;
   --md-ref-palette-secondary60: rgb(var(--md-ref-palette-secondary60-rgb));
+  /* Secondary 70 */
   --md-ref-palette-secondary70-rgb: 176 167 192;
   --md-ref-palette-secondary70: rgb(var(--md-ref-palette-secondary70-rgb));
+  /* Secondary 80 */
   --md-ref-palette-secondary80-rgb: 204 194 220;
   --md-ref-palette-secondary80: rgb(var(--md-ref-palette-secondary80-rgb));
+  /* Secondary 90 */
   --md-ref-palette-secondary90-rgb: 232 222 248;
   --md-ref-palette-secondary90: rgb(var(--md-ref-palette-secondary90-rgb));
+  /* Secondary 95 */
   --md-ref-palette-secondary95-rgb: 246 237 255;
   --md-ref-palette-secondary95: rgb(var(--md-ref-palette-secondary95-rgb));
+  /* Secondary 99 */
   --md-ref-palette-secondary99-rgb: 255 251 254;
   --md-ref-palette-secondary99: rgb(var(--md-ref-palette-secondary99-rgb));
+  /* Secondary 100 */
   --md-ref-palette-secondary100-rgb: 255 255 255;
   --md-ref-palette-secondary100: rgb(var(--md-ref-palette-secondary100-rgb));
+  /* Primary 0 */
   --md-ref-palette-primary0-rgb: 0 0 0;
   --md-ref-palette-primary0: rgb(var(--md-ref-palette-primary0-rgb));
+  /* Primary 10 */
   --md-ref-palette-primary10-rgb: 33 0 93;
   --md-ref-palette-primary10: rgb(var(--md-ref-palette-primary10-rgb));
+  /* Primary 20 */
   --md-ref-palette-primary20-rgb: 56 30 114;
   --md-ref-palette-primary20: rgb(var(--md-ref-palette-primary20-rgb));
+  /* Primary 30 */
   --md-ref-palette-primary30-rgb: 79 55 139;
   --md-ref-palette-primary30: rgb(var(--md-ref-palette-primary30-rgb));
+  /* Primary 40 */
   --md-ref-palette-primary40-rgb: 103 80 164;
   --md-ref-palette-primary40: rgb(var(--md-ref-palette-primary40-rgb));
+  /* Primary 50 */
   --md-ref-palette-primary50-rgb: 127 103 190;
   --md-ref-palette-primary50: rgb(var(--md-ref-palette-primary50-rgb));
+  /* Primary 60 */
   --md-ref-palette-primary60-rgb: 154 130 219;
   --md-ref-palette-primary60: rgb(var(--md-ref-palette-primary60-rgb));
+  /* Primary 70 */
   --md-ref-palette-primary70-rgb: 182 157 248;
   --md-ref-palette-primary70: rgb(var(--md-ref-palette-primary70-rgb));
+  /* Primary 80 */
   --md-ref-palette-primary80-rgb: 208 188 255;
   --md-ref-palette-primary80: rgb(var(--md-ref-palette-primary80-rgb));
+  /* Primary 90 */
   --md-ref-palette-primary90-rgb: 234 221 255;
   --md-ref-palette-primary90: rgb(var(--md-ref-palette-primary90-rgb));
+  /* Primary 95 */
   --md-ref-palette-primary95-rgb: 246 237 255;
   --md-ref-palette-primary95: rgb(var(--md-ref-palette-primary95-rgb));
+  /* Primary 99 */
   --md-ref-palette-primary99-rgb: 255 251 254;
   --md-ref-palette-primary99: rgb(var(--md-ref-palette-primary99-rgb));
+  /* Primary 100 */
   --md-ref-palette-primary100-rgb: 255 255 255;
   --md-ref-palette-primary100: rgb(var(--md-ref-palette-primary100-rgb));
+  /* Neutral Variant 0 */
   --md-ref-palette-neutral-variant0-rgb: 0 0 0;
   --md-ref-palette-neutral-variant0: rgb(
     var(--md-ref-palette-neutral-variant0-rgb)
   );
+  /* Neutral Variant 10 */
   --md-ref-palette-neutral-variant10-rgb: 29 26 34;
   --md-ref-palette-neutral-variant10: rgb(
     var(--md-ref-palette-neutral-variant10-rgb)
   );
+  /* Neutral Variant 20 */
   --md-ref-palette-neutral-variant20-rgb: 50 47 55;
   --md-ref-palette-neutral-variant20: rgb(
     var(--md-ref-palette-neutral-variant20-rgb)
   );
+  /* Neutral Variant 30 */
   --md-ref-palette-neutral-variant30-rgb: 73 69 79;
   --md-ref-palette-neutral-variant30: rgb(
     var(--md-ref-palette-neutral-variant30-rgb)
   );
+  /* Neutral Variant 40 */
   --md-ref-palette-neutral-variant40-rgb: 96 93 102;
   --md-ref-palette-neutral-variant40: rgb(
     var(--md-ref-palette-neutral-variant40-rgb)
   );
+  /* Neutral Variant 50 */
   --md-ref-palette-neutral-variant50-rgb: 121 116 126;
   --md-ref-palette-neutral-variant50: rgb(
     var(--md-ref-palette-neutral-variant50-rgb)
   );
+  /* Neutral Variant 60 */
   --md-ref-palette-neutral-variant60-rgb: 147 143 153;
   --md-ref-palette-neutral-variant60: rgb(
     var(--md-ref-palette-neutral-variant60-rgb)
   );
+  /* Neutral Variant 70 */
   --md-ref-palette-neutral-variant70-rgb: 174 169 180;
   --md-ref-palette-neutral-variant70: rgb(
     var(--md-ref-palette-neutral-variant70-rgb)
   );
+  /* Neutral Variant 80 */
   --md-ref-palette-neutral-variant80-rgb: 202 196 208;
   --md-ref-palette-neutral-variant80: rgb(
     var(--md-ref-palette-neutral-variant80-rgb)
   );
+  /* Neutral Variant 90 */
   --md-ref-palette-neutral-variant90-rgb: 231 224 236;
   --md-ref-palette-neutral-variant90: rgb(
     var(--md-ref-palette-neutral-variant90-rgb)
   );
+  /* Neutral Variant 95 */
   --md-ref-palette-neutral-variant95-rgb: 245 238 250;
   --md-ref-palette-neutral-variant95: rgb(
     var(--md-ref-palette-neutral-variant95-rgb)
   );
+  /* Neutral Variant 99 */
   --md-ref-palette-neutral-variant99-rgb: 255 251 254;
   --md-ref-palette-neutral-variant99: rgb(
     var(--md-ref-palette-neutral-variant99-rgb)
   );
+  /* Neutral Variant 100 */
   --md-ref-palette-neutral-variant100-rgb: 255 255 255;
   --md-ref-palette-neutral-variant100: rgb(
     var(--md-ref-palette-neutral-variant100-rgb)
   );
+  /* Neutral 0 */
   --md-ref-palette-neutral0-rgb: 0 0 0;
   --md-ref-palette-neutral0: rgb(var(--md-ref-palette-neutral0-rgb));
+  /* Neutral 10 */
   --md-ref-palette-neutral10-rgb: 28 27 31;
   --md-ref-palette-neutral10: rgb(var(--md-ref-palette-neutral10-rgb));
+  /* Neutral 20 */
   --md-ref-palette-neutral20-rgb: 49 48 51;
   --md-ref-palette-neutral20: rgb(var(--md-ref-palette-neutral20-rgb));
+  /* Neutral 30 */
   --md-ref-palette-neutral30-rgb: 72 70 73;
   --md-ref-palette-neutral30: rgb(var(--md-ref-palette-neutral30-rgb));
+  /* Neutral 40 */
   --md-ref-palette-neutral40-rgb: 96 93 98;
   --md-ref-palette-neutral40: rgb(var(--md-ref-palette-neutral40-rgb));
+  /* Neutral 50 */
   --md-ref-palette-neutral50-rgb: 120 117 121;
   --md-ref-palette-neutral50: rgb(var(--md-ref-palette-neutral50-rgb));
+  /* Neutral 60 */
   --md-ref-palette-neutral60-rgb: 147 144 148;
   --md-ref-palette-neutral60: rgb(var(--md-ref-palette-neutral60-rgb));
+  /* Neutral 70 */
   --md-ref-palette-neutral70-rgb: 174 170 174;
   --md-ref-palette-neutral70: rgb(var(--md-ref-palette-neutral70-rgb));
+  /* Neutral 80 */
   --md-ref-palette-neutral80-rgb: 201 197 202;
   --md-ref-palette-neutral80: rgb(var(--md-ref-palette-neutral80-rgb));
+  /* Neutral 90 */
   --md-ref-palette-neutral90-rgb: 230 225 229;
   --md-ref-palette-neutral90: rgb(var(--md-ref-palette-neutral90-rgb));
+  /* Neutral 95 */
   --md-ref-palette-neutral95-rgb: 244 239 244;
   --md-ref-palette-neutral95: rgb(var(--md-ref-palette-neutral95-rgb));
+  /* Neutral 99 */
   --md-ref-palette-neutral99-rgb: 255 251 254;
   --md-ref-palette-neutral99: rgb(var(--md-ref-palette-neutral99-rgb));
+  /* Neutral 100 */
   --md-ref-palette-neutral100-rgb: 255 255 255;
   --md-ref-palette-neutral100: rgb(var(--md-ref-palette-neutral100-rgb));
+  /* Black */
   --md-ref-palette-black-rgb: 0 0 0;
   --md-ref-palette-black: rgb(var(--md-ref-palette-black-rgb));
   /* White */

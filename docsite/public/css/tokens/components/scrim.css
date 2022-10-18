@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   /* Scrim container opacity */
   --md-comp-scrim-container-opacity: 0.3199999928474426;
 }

@@ -14,47 +14,68 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Elevated button focus container elevation */
   --md-comp-elevated-button-focus-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* Elevated button focus state layer opacity */
   --md-comp-elevated-button-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Elevated button hover container elevation */
   --md-comp-elevated-button-hover-container-elevation: var(
     --md-sys-elevation-level2
   );
+  /* Elevated button hover state layer opacity */
   --md-comp-elevated-button-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Elevated button label tracking */
   --md-comp-elevated-button-label-text-tracking: var(
     --md-sys-typescale-label-large-tracking
   );
+  /* Elevated button label weight */
   --md-comp-elevated-button-label-text-weight: var(
     --md-sys-typescale-label-large-weight
   );
+  /* Elevated button label size */
   --md-comp-elevated-button-label-text-size: var(
     --md-sys-typescale-label-large-size
   );
+  /* Elevated button label line height */
   --md-comp-elevated-button-label-text-line-height: var(
     --md-sys-typescale-label-large-line-height
   );
+  /* Elevated button label font */
   --md-comp-elevated-button-label-text-font: var(
     --md-sys-typescale-label-large-font
   );
+  /* Elevated button with icon icon size */
   --md-comp-elevated-button-with-icon-icon-size: 18px;
+  /* Elevated button container elevation */
   --md-comp-elevated-button-container-elevation: var(--md-sys-elevation-level1);
+  /* Elevated button container height */
   --md-comp-elevated-button-container-height: 40px;
+  /* Elevated button container shape */
   --md-comp-elevated-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Elevated button pressed container elevation */
   --md-comp-elevated-button-pressed-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* Elevated button pressed state layer opacity */
   --md-comp-elevated-button-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Elevated button with icon disabled icon opacity */
   --md-comp-elevated-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Elevated button disabled label opacity */
   --md-comp-elevated-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Elevated button disabled container elevation */
   --md-comp-elevated-button-disabled-container-elevation: var(
     --md-sys-elevation-level0
   );

@@ -14,10 +14,16 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Bottom app bar with FAB container height */
   --md-comp-bottom-app-bar-with-fab-container-height: 72px;
+  /* Bottom app bar container height */
   --md-comp-bottom-app-bar-container-height: 80px;
+  /* Bottom app bar container elevation */
   --md-comp-bottom-app-bar-container-elevation: var(--md-sys-elevation-level2);
   /* Bottom app bar container shape */
   --md-comp-bottom-app-bar-container-shape: var(--md-sys-shape-corner-none);

@@ -14,7 +14,11 @@
  limitations under the License.
 */
 
-:root {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
   --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
   --md-comp-navigation-drawer-container-height: 100%;
@@ -35,81 +39,86 @@
 }
 
 :where(.navigation-drawer) .drawer-spacer {
-  flex: 1;
-}
+    flex: 1;
+  }
 
 :where(.navigation-drawer) .drawer-scrollable {
-  overflow-y: auto;
-  flex: 1;
-}
+    overflow-y: auto;
+    flex: 1;
+  }
 
 :where(.navigation-drawer) .drawer-title {
-  -webkit-text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
-  text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
-  text-transform: var(--md-sys-typescale-title-medium-text-transform);
-  line-height: var(--md-sys-typescale-title-medium-line-height);
-  letter-spacing: var(--md-sys-typescale-title-medium-tracking);
-  font-size: var(--md-sys-typescale-title-medium-size);
-  font-weight: var(--md-sys-typescale-title-medium-weight);
-  font-family: var(--md-sys-typescale-title-medium-font);
-  padding: 16px 18px;
-  width: 100%;
-}
+    -webkit-text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
+            text-decoration: var(--md-sys-typescale-title-medium-text-decoration);
+    text-transform: var(--md-sys-typescale-title-medium-text-transform);
+    line-height: var(--md-sys-typescale-title-medium-line-height);
+    letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+    font-size: var(--md-sys-typescale-title-medium-size);
+    font-weight: var(--md-sys-typescale-title-medium-weight);
+    font-family: var(--md-sys-typescale-title-medium-font);
+    padding: 16px 18px;
+    width: 100%;
+  }
 
 :where(.navigation-drawer) .section-header {
-  -webkit-text-decoration: var(--md-sys-typescale-title-small-text-decoration);
-  text-decoration: var(--md-sys-typescale-title-small-text-decoration);
-  text-transform: var(--md-sys-typescale-title-small-text-transform);
-  line-height: var(--md-sys-typescale-title-small-line-height);
-  letter-spacing: var(--md-sys-typescale-title-small-tracking);
-  font-size: var(--md-sys-typescale-title-small-size);
-  font-weight: var(--md-sys-typescale-title-small-weight);
-  font-family: var(--md-sys-typescale-title-small-font);
-  padding: 16px 18px;
-}
+    -webkit-text-decoration: var(--md-sys-typescale-title-small-text-decoration);
+            text-decoration: var(--md-sys-typescale-title-small-text-decoration);
+    text-transform: var(--md-sys-typescale-title-small-text-transform);
+    line-height: var(--md-sys-typescale-title-small-line-height);
+    letter-spacing: var(--md-sys-typescale-title-small-tracking);
+    font-size: var(--md-sys-typescale-title-small-size);
+    font-weight: var(--md-sys-typescale-title-small-weight);
+    font-family: var(--md-sys-typescale-title-small-font);
+    padding: 16px 18px;
+  }
 
 :where(.navigation-drawer) .divider {
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
 
-:where(.navigation-drawer) :where(section, .drawer-section) {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
+:where(.navigation-drawer) :where(section,
+.drawer-section) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
-:where(.navigation-drawer) :where(section, .drawer-section) .section-header {
-  padding: 16px 18px;
-}
+:where(.navigation-drawer) :where(section,
+.drawer-section) .section-header {
+      padding: 16px 18px;
+    }
 
-:where(.navigation-drawer) :where(section, .drawer-section) .list-tile {
-  position: relative;
-}
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile {
+      position: relative;
+    }
 
-:where(.navigation-drawer)
-  :where(section, .drawer-section)
-  .list-tile:where([selected], [checked], [data-selected]) {
-  color: var(--md-sys-color-on-secondary-container);
-}
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile:where([selected],
+[checked],
+[data-selected]) {
+        color: var(--md-sys-color-on-secondary-container);
+      }
 
-:where(.navigation-drawer)
-  :where(section, .drawer-section)
-  .list-tile:where([selected], [checked], [data-selected])
-  * {
-  z-index: 1;
-}
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile:where([selected],
+[checked],
+[data-selected]) * {
+          z-index: 1;
+        }
 
-:where(.navigation-drawer)
-  :where(section, .drawer-section)
-  .list-tile:where([selected], [checked], [data-selected])::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 100px;
-  background-color: var(--md-sys-color-secondary-container);
-  color: var(--md-sys-color-on-secondary-container);
-}
+:where(.navigation-drawer) :where(section,
+.drawer-section) .list-tile:where([selected],
+[checked],
+[data-selected])::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 100px;
+          background-color: var(--md-sys-color-secondary-container);
+          color: var(--md-sys-color-on-secondary-container);
+        }

@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-radio-button-unselected-color: var(
     --md-sys-color-on-surface-variant
   );
@@ -28,14 +31,14 @@
   place-content: center;
   position: relative;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   margin: 0;
 }
 
 :where(.radio-button,
 [type="radio"])::before {
     -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: "liga";
     font-feature-settings: "liga";
     direction: ltr;
     word-wrap: normal;

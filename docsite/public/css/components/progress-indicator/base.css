@@ -14,13 +14,15 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-progress-background-color: var(--md-sys-color-surface-variant);
   --md-sys-comp-progress-color: var(--md-sys-color-primary);
   --md-sys-comp-progress-size: 4px;
   --md-sys-comp-progress-circular-size: 32px;
-  --md-sys-comp-progress-circular-center-color: var(--md-sys-color-surface);
 }
 
 progress {

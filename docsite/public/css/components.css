@@ -15,503 +15,182 @@
 */
 
 :where(html),
-.tokens {
+.tokens,
+:host {
+  /* Plain typeface */
   --md-ref-typeface-plain: Roboto;
+  /* Brand typeface */
   --md-ref-typeface-brand: Roboto;
+  /* Bold weight */
   --md-ref-typeface-weight-bold: 700;
+  /* Medium weight */
   --md-ref-typeface-weight-medium: 500;
+  /* Regular weight */
   --md-ref-typeface-weight-regular: 400;
+  /* Label Medium text transform */
   --md-sys-typescale-label-medium-text-transform: none;
+  /* Label Small line height */
   --md-sys-typescale-label-small-line-height: 16px;
+  /* Label Small font tracking */
   --md-sys-typescale-label-small-tracking: 0.5px;
+  /* Label Small font size */
   --md-sys-typescale-label-small-size: 11px;
+  /* Label Small font weight */
   --md-sys-typescale-label-small-weight: var(--md-ref-typeface-weight-medium);
+  /* Label Small font name */
   --md-sys-typescale-label-small-font: var(--md-ref-typeface-plain);
+  /* Label Medium line height */
   --md-sys-typescale-label-medium-line-height: 16px;
+  /* Label Medium font tracking */
   --md-sys-typescale-label-medium-tracking: 0.5px;
+  /* Label Medium font size */
   --md-sys-typescale-label-medium-size: 12px;
+  /* Label Medium font weight */
   --md-sys-typescale-label-medium-weight: var(--md-ref-typeface-weight-medium);
+  /* Label Medium font name */
   --md-sys-typescale-label-medium-font: var(--md-ref-typeface-plain);
+  /* Label Large line height */
   --md-sys-typescale-label-large-line-height: 20px;
+  /* Label Large font tracking */
   --md-sys-typescale-label-large-tracking: 0.10000000149011612px;
+  /* Label Large font size */
   --md-sys-typescale-label-large-size: 14px;
+  /* Label Large font weight */
   --md-sys-typescale-label-large-weight: var(--md-ref-typeface-weight-medium);
+  /* Label Large font name */
   --md-sys-typescale-label-large-font: var(--md-ref-typeface-plain);
+  /* Body Small line height */
   --md-sys-typescale-body-small-line-height: 16px;
+  /* Body Small font tracking */
   --md-sys-typescale-body-small-tracking: 0.4000000059604645px;
+  /* Body Small font size */
   --md-sys-typescale-body-small-size: 12px;
+  /* Body Small font weight */
   --md-sys-typescale-body-small-weight: var(--md-ref-typeface-weight-regular);
+  /* Body Small font name */
   --md-sys-typescale-body-small-font: var(--md-ref-typeface-plain);
+  /* Body Medium line height */
   --md-sys-typescale-body-medium-line-height: 20px;
+  /* Body Medium font tracking */
   --md-sys-typescale-body-medium-tracking: 0.25px;
+  /* Body Medium font size */
   --md-sys-typescale-body-medium-size: 14px;
+  /* Body Medium font weight */
   --md-sys-typescale-body-medium-weight: var(--md-ref-typeface-weight-regular);
+  /* Body Medium font name */
   --md-sys-typescale-body-medium-font: var(--md-ref-typeface-plain);
+  /* Body Large line height */
   --md-sys-typescale-body-large-line-height: 24px;
+  /* Body Large font tracking */
   --md-sys-typescale-body-large-tracking: 0.5px;
+  /* Body Large font size */
   --md-sys-typescale-body-large-size: 16px;
+  /* Body Large font weight */
   --md-sys-typescale-body-large-weight: var(--md-ref-typeface-weight-regular);
+  /* Body Large font name */
   --md-sys-typescale-body-large-font: var(--md-ref-typeface-plain);
+  /* Title Small line height */
   --md-sys-typescale-title-small-line-height: 20px;
+  /* Title Small font tracking */
   --md-sys-typescale-title-small-tracking: 0.10000000149011612px;
+  /* Title Small font size */
   --md-sys-typescale-title-small-size: 14px;
+  /* Title Small font weight */
   --md-sys-typescale-title-small-weight: var(--md-ref-typeface-weight-medium);
+  /* Title Small font name */
   --md-sys-typescale-title-small-font: var(--md-ref-typeface-plain);
+  /* Title Medium line height */
   --md-sys-typescale-title-medium-line-height: 24px;
+  /* Title Medium font tracking */
   --md-sys-typescale-title-medium-tracking: 0.15000000596046448px;
+  /* Title Medium font size */
   --md-sys-typescale-title-medium-size: 16px;
+  /* Title Medium font weight */
   --md-sys-typescale-title-medium-weight: var(--md-ref-typeface-weight-medium);
+  /* Title Medium font name */
   --md-sys-typescale-title-medium-font: var(--md-ref-typeface-plain);
+  /* Title Large line height */
   --md-sys-typescale-title-large-line-height: 28px;
+  /* Title Large font tracking */
   --md-sys-typescale-title-large-tracking: 0px;
+  /* Title Large font size */
   --md-sys-typescale-title-large-size: 22px;
+  /* Title Large font weight */
   --md-sys-typescale-title-large-weight: var(--md-ref-typeface-weight-regular);
+  /* Title Large font name */
   --md-sys-typescale-title-large-font: var(--md-ref-typeface-brand);
+  /* Headline Small line height */
   --md-sys-typescale-headline-small-line-height: 32px;
+  /* Headline Small font tracking */
   --md-sys-typescale-headline-small-tracking: 0px;
+  /* Headline Small font size */
   --md-sys-typescale-headline-small-size: 24px;
+  /* Headline Small font weight */
   --md-sys-typescale-headline-small-weight: var(
     --md-ref-typeface-weight-regular
   );
+  /* Headline Small font name */
   --md-sys-typescale-headline-small-font: var(--md-ref-typeface-brand);
+  /* Headline Medium line height */
   --md-sys-typescale-headline-medium-line-height: 36px;
+  /* Headline Medium font tracking */
   --md-sys-typescale-headline-medium-tracking: 0px;
+  /* Headline Medium font size */
   --md-sys-typescale-headline-medium-size: 28px;
+  /* Headline Medium font weight */
   --md-sys-typescale-headline-medium-weight: var(
     --md-ref-typeface-weight-regular
   );
+  /* Headline Medium font name */
   --md-sys-typescale-headline-medium-font: var(--md-ref-typeface-brand);
+  /* Headline Large line height */
   --md-sys-typescale-headline-large-line-height: 40px;
+  /* Headline Large font tracking */
   --md-sys-typescale-headline-large-tracking: 0px;
+  /* Headline Large font size */
   --md-sys-typescale-headline-large-size: 32px;
+  /* Headline Large font name */
   --md-sys-typescale-headline-large-font: var(--md-ref-typeface-brand);
+  /* Headline Large font weight */
   --md-sys-typescale-headline-large-weight: var(
     --md-ref-typeface-weight-regular
   );
+  /* Display Small line height */
   --md-sys-typescale-display-small-line-height: 44px;
+  /* Display Small font tracking */
   --md-sys-typescale-display-small-tracking: 0px;
+  /* Display Small font size */
   --md-sys-typescale-display-small-size: 36px;
+  /* Display Small font weight */
   --md-sys-typescale-display-small-weight: var(
     --md-ref-typeface-weight-regular
   );
+  /* Display Small font name */
   --md-sys-typescale-display-small-font: var(--md-ref-typeface-brand);
+  /* Display Medium line height */
   --md-sys-typescale-display-medium-line-height: 52px;
+  /* Display Medium font tracking */
   --md-sys-typescale-display-medium-tracking: 0px;
+  /* Display Medium font size */
   --md-sys-typescale-display-medium-size: 45px;
+  /* Display Medium font weight */
   --md-sys-typescale-display-medium-weight: var(
     --md-ref-typeface-weight-regular
   );
+  /* Display Medium font name */
   --md-sys-typescale-display-medium-font: var(--md-ref-typeface-brand);
+  /* Display Large line height */
   --md-sys-typescale-display-large-line-height: 64px;
+  /* Display Large font tracking */
   --md-sys-typescale-display-large-tracking: -0.25px;
+  /* Display Large font size */
   --md-sys-typescale-display-large-size: 57px;
+  /* Display Large font weight */
   --md-sys-typescale-display-large-weight: var(
     --md-ref-typeface-weight-regular
   );
+  /* Display Large font name */
   --md-sys-typescale-display-large-font: var(--md-ref-typeface-brand);
-  --md-sys-comp-focus-ring-color: var(--md-sys-color-on-surface-variant);
-  --md-sys-comp-focus-ring-width: 2px;
-  --md-sys-comp-button-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-button-color: var(--md-sys-color-primary);
-  --md-comp-button-container-height: 40px;
-  --md-comp-button-container-shape: 20px;
-  --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);
-  --md-comp-text-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-text-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-text-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  --md-comp-text-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  --md-comp-text-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  --md-comp-text-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  --md-comp-text-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  --md-comp-text-button-with-icon-icon-size: 18px;
-  --md-comp-text-button-container-height: 40px;
-  --md-comp-text-button-container-shape: var(--md-sys-shape-corner-full);
-  --md-comp-text-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-text-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
-  --md-comp-filled-button-dragged-state-layer-opacity: var(
-    --md-sys-state-dragged-state-layer-opacity
-  );
-  --md-comp-filled-button-dragged-container-elevation: var(
-    --md-sys-elevation-level3
-  );
-  --md-comp-filled-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-filled-button-focus-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-filled-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-filled-button-hover-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  --md-comp-filled-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  --md-comp-filled-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  --md-comp-filled-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  --md-comp-filled-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  --md-comp-filled-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  --md-comp-filled-button-with-icon-icon-size: 18px;
-  --md-comp-filled-button-container-elevation: var(--md-sys-elevation-level0);
-  --md-comp-filled-button-container-height: 40px;
-  --md-comp-filled-button-container-shape: var(--md-sys-shape-corner-full);
-  --md-comp-filled-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-filled-button-pressed-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-filled-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-filled-button-disabled-label-text-opacity: 0.3799999952316284;
-  --md-comp-filled-button-disabled-container-opacity: 0.11999999731779099;
-  --md-comp-filled-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-filled-tonal-button-pressed-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-filled-tonal-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-filled-tonal-button-focus-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-filled-tonal-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-filled-tonal-button-hover-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  --md-comp-filled-tonal-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-filled-tonal-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-filled-tonal-button-disabled-label-text-opacity: 0.3799999952316284;
-  --md-comp-filled-tonal-button-disabled-container-opacity: 0.11999999731779099;
-  --md-comp-filled-tonal-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-filled-tonal-button-with-icon-icon-size: 18px;
-  --md-comp-filled-tonal-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  --md-comp-filled-tonal-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  --md-comp-filled-tonal-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  --md-comp-filled-tonal-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  --md-comp-filled-tonal-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  --md-comp-filled-tonal-button-container-shape: var(
-    --md-sys-shape-corner-full
-  );
-  --md-comp-filled-tonal-button-container-height: 40px;
-  --md-comp-filled-tonal-button-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
-  --md-comp-outlined-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-outlined-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-outlined-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  --md-comp-outlined-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  --md-comp-outlined-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  --md-comp-outlined-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  --md-comp-outlined-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  --md-comp-outlined-button-with-icon-icon-size: 18px;
-  --md-comp-outlined-button-outline-width: 1px;
-  --md-comp-outlined-button-container-height: 40px;
-  --md-comp-outlined-button-container-shape: var(--md-sys-shape-corner-full);
-  --md-comp-outlined-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-outlined-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-outlined-button-disabled-label-text-opacity: 0.3799999952316284;
-  --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
-  --md-comp-elevated-button-focus-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  --md-comp-elevated-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-elevated-button-hover-container-elevation: var(
-    --md-sys-elevation-level2
-  );
-  --md-comp-elevated-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-elevated-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  --md-comp-elevated-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  --md-comp-elevated-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  --md-comp-elevated-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  --md-comp-elevated-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  --md-comp-elevated-button-with-icon-icon-size: 18px;
-  --md-comp-elevated-button-container-elevation: var(--md-sys-elevation-level1);
-  --md-comp-elevated-button-container-height: 40px;
-  --md-comp-elevated-button-container-shape: var(--md-sys-shape-corner-full);
-  --md-comp-elevated-button-pressed-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  --md-comp-elevated-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-elevated-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-elevated-button-disabled-label-text-opacity: 0.3799999952316284;
-  --md-comp-elevated-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
-  --md-comp-icon-button-selected-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-icon-button-unselected-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-icon-button-selected-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-icon-button-unselected-focus-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-icon-button-selected-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-icon-button-unselected-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-icon-button-state-layer-shape: var(--md-sys-shape-corner-full);
-  --md-comp-icon-button-state-layer-size: 40px;
-  --md-comp-icon-button-icon-size: 24px;
-  --md-comp-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-filled-icon-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-filled-icon-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-filled-icon-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-filled-icon-button-disabled-container-opacity: 0.11999999731779099;
-  --md-comp-filled-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-filled-icon-button-container-shape: var(--md-sys-shape-corner-full);
-  --md-comp-filled-icon-button-container-size: 40px;
-  --md-comp-filled-icon-button-icon-size: 24px;
-  --md-comp-filled-tonal-icon-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-filled-tonal-icon-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-filled-tonal-icon-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-filled-tonal-icon-button-disabled-container-opacity: 0.11999999731779099;
-  --md-comp-filled-tonal-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-filled-tonal-icon-button-container-shape: var(
-    --md-sys-shape-corner-full
-  );
-  --md-comp-filled-tonal-icon-button-container-size: 40px;
-  --md-comp-filled-tonal-icon-button-icon-size: 24px;
-  --md-comp-outlined-icon-button-disabled-outline-opacity: 0.11999999731779099;
-  --md-comp-outlined-icon-button-disabled-selected-container-opacity: 0.11999999731779099;
-  --md-comp-outlined-icon-button-disabled-unselected-outline-opacity: 0.11999999731779099;
-  --md-comp-outlined-icon-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-outlined-icon-button-focus-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-outlined-icon-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-outlined-icon-button-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-outlined-icon-button-container-size: 40px;
-  --md-comp-outlined-icon-button-container-shape: var(
-    --md-sys-shape-corner-full
-  );
-  --md-comp-outlined-icon-button-unselected-outline-width: 1px;
-  --md-comp-outlined-icon-button-icon-size: 24px;
-  --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
-  --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
-  --md-comp-fab-container-size: 56px;
-  --md-sys-comp-card-width: 300px;
-  --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-chip-color: var(--md-sys-color-primary);
-  --md-comp-chip-container-height: 32px;
-  --md-comp-assist-chip-dragged-state-layer-opacity: var(
-    --md-sys-state-dragged-state-layer-opacity
-  );
-  --md-comp-assist-chip-dragged-container-elevation: var(
-    --md-sys-elevation-level4
-  );
-  --md-comp-assist-chip-elevated-pressed-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  --md-comp-assist-chip-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  --md-comp-assist-chip-elevated-focus-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  --md-comp-assist-chip-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  --md-comp-assist-chip-elevated-hover-container-elevation: var(
-    --md-sys-elevation-level2
-  );
-  --md-comp-assist-chip-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  --md-comp-assist-chip-elevated-disabled-container-opacity: 0.11999999731779099;
-  --md-comp-assist-chip-elevated-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-assist-chip-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  --md-comp-assist-chip-disabled-label-text-opacity: 0.3799999952316284;
-  --md-comp-assist-chip-flat-disabled-outline-opacity: 0.11999999731779099;
-  --md-comp-assist-chip-with-icon-icon-size: 18px;
-  --md-comp-assist-chip-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  --md-comp-assist-chip-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  --md-comp-assist-chip-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  --md-comp-assist-chip-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  --md-comp-assist-chip-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  --md-comp-assist-chip-elevated-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  --md-comp-assist-chip-flat-outline-width: 1px;
-  --md-comp-assist-chip-flat-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  --md-comp-assist-chip-container-height: 32px;
-  /* Assist chip container shape */
-  --md-comp-assist-chip-container-shape: var(--md-sys-shape-corner-small);
-  --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
-  --md-sys-comp-top-app-bar-padding: 16px;
-  --md-sys-comp-text-field-caret-color: var(--md-sys-color-primary);
-  --md-sys-comp-tooltip-container-background-color: var(
-    --md-sys-color-inverse-surface
-  );
-  --md-sys-comp-tooltip-container-color: var(--md-sys-color-inverse-on-surface);
-  --md-sys-comp-tooltip-delay: 0.3s;
-  --md-sys-comp-switch-thumb-size: 16px;
-  --md-sys-comp-switch-track-width: 52px;
-  --md-sys-comp-switch-track-height: 32px;
-  --md-sys-comp-switch-border-width: 2px;
-  --md-sys-comp-badge-size: 22px;
-  --md-sys-comp-badge-dot-size: calc(var(--md-sys-comp-badge-size) / 2);
-  --md-sys-comp-badge-background-color: var(--md-sys-color-error);
-  --md-sys-comp-badge-color: var(--md-sys-color-on-error);
-  --md-sys-comp-checkbox-size: 24px;
-  --md-sys-comp-checkbox-unselected-color: var(--md-sys-color-outline);
-  --md-sys-comp-checkbox-selected-color: var(--md-sys-color-primary);
-  --md-sys-comp-slider-background-color: transparent;
-  --md-sys-comp-slider-color: var(--md-sys-color-surface-1);
-  --md-sys-comp-slider-container-height: 36px;
-  --md-sys-comp-slider-container-width: 100%;
-  --md-sys-comp-table-border-color: var(--md-sys-color-outline-variant);
-  --md-sys-comp-divider-color: var(--md-sys-color-outline-variant);
-  --md-sys-comp-divider-container-height: 1px;
-  --md-sys-comp-divider-container-width: 100%;
-  --md-sys-comp-segmented-button-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-segmented-button-color: var(--md-sys-color-on-surface);
-  --md-sys-comp-radio-button-unselected-color: var(
-    --md-sys-color-on-surface-variant
-  );
-  --md-sys-comp-radio-button-selected-color: var(--md-sys-color-primary);
-  --md-sys-comp-progress-background-color: var(--md-sys-color-surface-variant);
-  --md-sys-comp-progress-color: var(--md-sys-color-primary);
-  --md-sys-comp-progress-size: 4px;
-  --md-sys-comp-progress-circular-size: 32px;
-  --md-sys-comp-progress-circular-center-color: var(--md-sys-color-surface);
-  --md-sys-comp-dialog-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-dialog-color: var(--md-sys-color-on-surface-variant);
-  --md-comp-dialog-container-min-width: 280px;
-  --md-comp-dialog-container-max-width: 560px;
-  --md-sys-comp-navigation-bar-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-navigation-bar-color: var(--md-sys-color-on-surface);
-  --md-comp-navigation-bar-container-width: 100%;
-  --md-sys-comp-navigation-rail-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-navigation-rail-color: var(--md-sys-color-on-surface);
-  --md-comp-navigation-rail-container-width: 80px;
-  --md-comp-navigation-rail-container-height: 100%;
-  --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
-  --md-comp-navigation-drawer-container-height: 100%;
-  --md-comp-navigation-drawer-container-width: 360px;
-  --md-sys-comp-snackbar-container-width: 344px;
-  --md-sys-comp-snackbar-container-background-color: var(--md-sys-color-inverse-surface);
-  --md-sys-comp-snackbar-container-color: var(--md-sys-color-inverse-on-surface);
-  --md-sys-comp-tabs-container-background-color: var(--md-sys-color-surface);
-  --md-sys-comp-tabs-container-color: var(--md-sys-color-on-surface);
-  --md-comp-tabs-container-min-width: 100px;
-  --md-comp-list-container-min-width: 300px;
 }
 
 * {
@@ -705,6 +384,564 @@ p) {
   font-family: var(--md-sys-typescale-label-small-font);
 }
 
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  --md-sys-comp-focus-ring-color: var(--md-sys-color-on-surface-variant);
+  --md-sys-comp-focus-ring-width: 2px;
+  --md-sys-comp-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-button-color: var(--md-sys-color-primary);
+  --md-comp-button-container-height: 40px;
+  --md-comp-button-container-shape: 20px;
+  /* Text button container elevation */
+  --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);
+  /* Text button focus state layer opacity */
+  --md-comp-text-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Text button hover state layer opacity */
+  --md-comp-text-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Text button label tracking */
+  --md-comp-text-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Text button label weight */
+  --md-comp-text-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Text button label size */
+  --md-comp-text-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Text button label line height */
+  --md-comp-text-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Text button label font */
+  --md-comp-text-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Text button with icon icon size */
+  --md-comp-text-button-with-icon-icon-size: 18px;
+  /* Text button container height */
+  --md-comp-text-button-container-height: 40px;
+  /* Text button container shape */
+  --md-comp-text-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Text button pressed state layer opacity */
+  --md-comp-text-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Text button with icon disabled icon opacity */
+  --md-comp-text-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Text button disabled label opacity */
+  --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Filled button dragged state layer opacity */
+  --md-comp-filled-button-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  /* Filled button dragged container elevation */
+  --md-comp-filled-button-dragged-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+  /* Filled button focus state layer opacity */
+  --md-comp-filled-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled button focus container elevation */
+  --md-comp-filled-button-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled button hover state layer opacity */
+  --md-comp-filled-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled button hover container elevation */
+  --md-comp-filled-button-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Filled button label tracking */
+  --md-comp-filled-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Filled button label weight */
+  --md-comp-filled-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Filled button label size */
+  --md-comp-filled-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Filled button label line height */
+  --md-comp-filled-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Filled button label font */
+  --md-comp-filled-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Filled button with icon icon size */
+  --md-comp-filled-button-with-icon-icon-size: 18px;
+  /* Filled button container elevation */
+  --md-comp-filled-button-container-elevation: var(--md-sys-elevation-level0);
+  /* Filled button container height */
+  --md-comp-filled-button-container-height: 40px;
+  /* Filled button container shape */
+  --md-comp-filled-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Filled button pressed state layer opacity */
+  --md-comp-filled-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled button pressed container elevation */
+  --md-comp-filled-button-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled button with icon disabled icon opacity */
+  --md-comp-filled-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled button disabled label opacity */
+  --md-comp-filled-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Filled button disabled container opacity */
+  --md-comp-filled-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled button disabled container elevation */
+  --md-comp-filled-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button pressed container elevation */
+  --md-comp-filled-tonal-button-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button pressed state layer opacity */
+  --md-comp-filled-tonal-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled tonal button focus container elevation */
+  --md-comp-filled-tonal-button-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button focus state layer opacity */
+  --md-comp-filled-tonal-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled tonal button hover container elevation */
+  --md-comp-filled-tonal-button-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Filled tonal button hover state layer opacity */
+  --md-comp-filled-tonal-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled tonal button disabled icon opacity */
+  --md-comp-filled-tonal-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled tonal button disabled label text opacity */
+  --md-comp-filled-tonal-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Filled tonal button disabled container opacity */
+  --md-comp-filled-tonal-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled tonal button disabled container elevation */
+  --md-comp-filled-tonal-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button icon size */
+  --md-comp-filled-tonal-button-with-icon-icon-size: 18px;
+  /* Filled tonal button label text weight */
+  --md-comp-filled-tonal-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Filled tonal button label text tracking */
+  --md-comp-filled-tonal-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Filled tonal button label text size */
+  --md-comp-filled-tonal-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Filled tonal button label text line height */
+  --md-comp-filled-tonal-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Filled tonal button label text font */
+  --md-comp-filled-tonal-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Filled tonal button container shape */
+  --md-comp-filled-tonal-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  /* Filled tonal button container height */
+  --md-comp-filled-tonal-button-container-height: 40px;
+  /* Filled tonal button container elevation */
+  --md-comp-filled-tonal-button-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Outlined button container elevation */
+  --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
+  /* Outlined button focus state layer opacity */
+  --md-comp-outlined-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Outlined button hover state layer opacity */
+  --md-comp-outlined-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Outlined button label tracking */
+  --md-comp-outlined-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Outlined button label weight */
+  --md-comp-outlined-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Outlined button label size */
+  --md-comp-outlined-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Outlined button label line height */
+  --md-comp-outlined-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Outlined button label font */
+  --md-comp-outlined-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Outlined button with icon icon size */
+  --md-comp-outlined-button-with-icon-icon-size: 18px;
+  /* Outlined button outline width */
+  --md-comp-outlined-button-outline-width: 1px;
+  /* Outlined button container height */
+  --md-comp-outlined-button-container-height: 40px;
+  /* Outlined button container shape */
+  --md-comp-outlined-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Outlined button pressed state layer opacity */
+  --md-comp-outlined-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Outlined button with icon disabled icon opacity */
+  --md-comp-outlined-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Outlined button disabled label opacity */
+  --md-comp-outlined-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Outlined button disabled outline opacity */
+  --md-comp-outlined-button-disabled-outline-opacity: 0.11999999731779099;
+  /* Elevated button focus container elevation */
+  --md-comp-elevated-button-focus-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Elevated button focus state layer opacity */
+  --md-comp-elevated-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Elevated button hover container elevation */
+  --md-comp-elevated-button-hover-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  /* Elevated button hover state layer opacity */
+  --md-comp-elevated-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Elevated button label tracking */
+  --md-comp-elevated-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Elevated button label weight */
+  --md-comp-elevated-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Elevated button label size */
+  --md-comp-elevated-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Elevated button label line height */
+  --md-comp-elevated-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Elevated button label font */
+  --md-comp-elevated-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Elevated button with icon icon size */
+  --md-comp-elevated-button-with-icon-icon-size: 18px;
+  /* Elevated button container elevation */
+  --md-comp-elevated-button-container-elevation: var(--md-sys-elevation-level1);
+  /* Elevated button container height */
+  --md-comp-elevated-button-container-height: 40px;
+  /* Elevated button container shape */
+  --md-comp-elevated-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Elevated button pressed container elevation */
+  --md-comp-elevated-button-pressed-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Elevated button pressed state layer opacity */
+  --md-comp-elevated-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Elevated button with icon disabled icon opacity */
+  --md-comp-elevated-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Elevated button disabled label opacity */
+  --md-comp-elevated-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Elevated button disabled container elevation */
+  --md-comp-elevated-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Elevated button disabled container opacity */
+  --md-comp-elevated-button-disabled-container-opacity: 0.11999999731779099;
+  /* Icon button selected pressed state layer opacity */
+  --md-comp-icon-button-selected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Icon button unselected pressed state layer opacity */
+  --md-comp-icon-button-unselected-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Icon button selected focus state layer opacity */
+  --md-comp-icon-button-selected-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Icon button unselected focus state layer opacity */
+  --md-comp-icon-button-unselected-focus-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Icon button selected hover state layer opacity */
+  --md-comp-icon-button-selected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Icon button icon unselected hover state layer opacity */
+  --md-comp-icon-button-unselected-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Icon button state layer shape */
+  --md-comp-icon-button-state-layer-shape: var(--md-sys-shape-corner-full);
+  /* Icon button state layer size */
+  --md-comp-icon-button-state-layer-size: 40px;
+  /* Icon button icon size */
+  --md-comp-icon-button-icon-size: 24px;
+  /* Icon button disabled icon opacity */
+  --md-comp-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled icon button pressed state layer opacity */
+  --md-comp-filled-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled icon button focus state layer opacity */
+  --md-comp-filled-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled icon button hover state layer opacity */
+  --md-comp-filled-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled icon button disabled container opacity */
+  --md-comp-filled-icon-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled icon button disabled icon color */
+  --md-comp-filled-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled icon button container shape */
+  --md-comp-filled-icon-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Filled icon button container size */
+  --md-comp-filled-icon-button-container-size: 40px;
+  /* Filled icon button icon size */
+  --md-comp-filled-icon-button-icon-size: 24px;
+  /* Filled tonal icon button pressed state layer opacity */
+  --md-comp-filled-tonal-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled tonal icon button focus state layer opacity */
+  --md-comp-filled-tonal-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled tonal icon button hover state layer opacity */
+  --md-comp-filled-tonal-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled tonal icon button disabled container opacity */
+  --md-comp-filled-tonal-icon-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled tonal icon button disabled icon opacity */
+  --md-comp-filled-tonal-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled tonal icon button container shape */
+  --md-comp-filled-tonal-icon-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  /* Filled tonal icon button container size */
+  --md-comp-filled-tonal-icon-button-container-size: 40px;
+  /* Filled tonal icon button icon size */
+  --md-comp-filled-tonal-icon-button-icon-size: 24px;
+  /* Outlined icon button disabled outline opacity */
+  --md-comp-outlined-icon-button-disabled-outline-opacity: 0.11999999731779099;
+  /* Outlined icon button disabled selected container opacity */
+  --md-comp-outlined-icon-button-disabled-selected-container-opacity: 0.11999999731779099;
+  /* Outlined icon button disabled unselected outline opacity */
+  --md-comp-outlined-icon-button-disabled-unselected-outline-opacity: 0.11999999731779099;
+  /* Outlined icon button pressed state layer opacity */
+  --md-comp-outlined-icon-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Outlined icon button focus state layer opacity */
+  --md-comp-outlined-icon-button-focus-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Outlined icon button hover state layer opacity */
+  --md-comp-outlined-icon-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Outlined icon button disabled icon opacity */
+  --md-comp-outlined-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Outlined icon button container size */
+  --md-comp-outlined-icon-button-container-size: 40px;
+  /* Outlined icon button container shape */
+  --md-comp-outlined-icon-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  /* Outlined icon button unselected outline width */
+  --md-comp-outlined-icon-button-unselected-outline-width: 1px;
+  /* Outlined icon button icon size */
+  --md-comp-outlined-icon-button-icon-size: 24px;
+  --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
+  --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
+  --md-comp-fab-container-size: 56px;
+  --md-sys-comp-card-width: 300px;
+  --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-chip-color: var(--md-sys-color-primary);
+  --md-comp-chip-container-height: 32px;
+  /* Assist chip dragged state layer opacity */
+  --md-comp-assist-chip-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  /* Assist chip dragged container elevation */
+  --md-comp-assist-chip-dragged-container-elevation: var(
+    --md-sys-elevation-level4
+  );
+  /* Assist chip (Elevated style) pressed container elevation */
+  --md-comp-assist-chip-elevated-pressed-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Assist chip pressed state layer opacity */
+  --md-comp-assist-chip-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Assist chip (Elevated style) focus container elevation */
+  --md-comp-assist-chip-elevated-focus-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Assist chip focus state layer opacity */
+  --md-comp-assist-chip-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Assist chip (Elevated style) hover container elevation */
+  --md-comp-assist-chip-elevated-hover-container-elevation: var(
+    --md-sys-elevation-level2
+  );
+  /* Assist chip hover state layer opacity */
+  --md-comp-assist-chip-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Assist chip (Elevated style)  disabled container opacity */
+  --md-comp-assist-chip-elevated-disabled-container-opacity: 0.11999999731779099;
+  /* Assist chip (Elevated style)  disabled container elevation */
+  --md-comp-assist-chip-elevated-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Assist chip with icon disabled icon opacity */
+  --md-comp-assist-chip-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Assist chip disabled label text opacity */
+  --md-comp-assist-chip-disabled-label-text-opacity: 0.3799999952316284;
+  /* Assist chip flat diabled outline opacity */
+  --md-comp-assist-chip-flat-disabled-outline-opacity: 0.11999999731779099;
+  /* Assist chip icon size */
+  --md-comp-assist-chip-with-icon-icon-size: 18px;
+  /* Assist chip label text tracking */
+  --md-comp-assist-chip-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Assist chip label text weight */
+  --md-comp-assist-chip-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Assist chip label text size */
+  --md-comp-assist-chip-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Assist chip label text line height */
+  --md-comp-assist-chip-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Assist chip label text font */
+  --md-comp-assist-chip-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* (Elevated style) Assist chip container elevation */
+  --md-comp-assist-chip-elevated-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Assist chip container outline width */
+  --md-comp-assist-chip-flat-outline-width: 1px;
+  /* Assist chip container elevation */
+  --md-comp-assist-chip-flat-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Assist chip container height */
+  --md-comp-assist-chip-container-height: 32px;
+  /* Assist chip container shape */
+  --md-comp-assist-chip-container-shape: var(--md-sys-shape-corner-small);
+  --md-sys-comp-top-app-bar-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-top-app-bar-color: var(--md-sys-color-on-surface);
+  --md-sys-comp-top-app-bar-padding: 16px;
+  --md-sys-comp-text-field-caret-color: var(--md-sys-color-primary);
+  --md-sys-comp-tooltip-container-background-color: var(
+    --md-sys-color-inverse-surface
+  );
+  --md-sys-comp-tooltip-container-color: var(--md-sys-color-inverse-on-surface);
+  --md-sys-comp-tooltip-delay: 0.3s;
+  --md-sys-comp-switch-thumb-size: 16px;
+  --md-sys-comp-switch-track-width: 52px;
+  --md-sys-comp-switch-track-height: 32px;
+  --md-sys-comp-switch-border-width: 2px;
+  --md-sys-comp-badge-size: 22px;
+  --md-sys-comp-badge-dot-size: calc(var(--md-sys-comp-badge-size) / 2);
+  --md-sys-comp-badge-background-color: var(--md-sys-color-error);
+  --md-sys-comp-badge-color: var(--md-sys-color-on-error);
+  --md-sys-comp-checkbox-size: 24px;
+  --md-sys-comp-checkbox-unselected-color: var(--md-sys-color-outline);
+  --md-sys-comp-checkbox-selected-color: var(--md-sys-color-primary);
+  --md-sys-comp-slider-background-color: transparent;
+  --md-sys-comp-slider-color: var(--md-sys-color-surface-1);
+  --md-sys-comp-slider-container-height: 36px;
+  --md-sys-comp-slider-container-width: 100%;
+  --md-sys-comp-table-border-color: var(--md-sys-color-outline-variant);
+  --md-sys-comp-divider-color: var(--md-sys-color-outline-variant);
+  --md-sys-comp-divider-container-height: 1px;
+  --md-sys-comp-divider-container-width: 100%;
+  --md-sys-comp-segmented-button-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-segmented-button-color: var(--md-sys-color-on-surface);
+  --md-sys-comp-radio-button-unselected-color: var(
+    --md-sys-color-on-surface-variant
+  );
+  --md-sys-comp-radio-button-selected-color: var(--md-sys-color-primary);
+  --md-sys-comp-progress-background-color: var(--md-sys-color-surface-variant);
+  --md-sys-comp-progress-color: var(--md-sys-color-primary);
+  --md-sys-comp-progress-size: 4px;
+  --md-sys-comp-progress-circular-size: 32px;
+  --md-sys-comp-dialog-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-dialog-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-dialog-container-min-width: 280px;
+  --md-comp-dialog-container-max-width: 560px;
+  --md-sys-comp-navigation-bar-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-bar-color: var(--md-sys-color-on-surface);
+  --md-comp-navigation-bar-container-width: 100%;
+  --md-sys-comp-navigation-rail-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-rail-color: var(--md-sys-color-on-surface);
+  --md-comp-navigation-rail-container-width: 80px;
+  --md-comp-navigation-rail-container-height: 100%;
+  --md-sys-comp-navigation-drawer-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-navigation-drawer-color: var(--md-sys-color-on-surface-variant);
+  --md-comp-navigation-drawer-container-height: 100%;
+  --md-comp-navigation-drawer-container-width: 360px;
+  --md-sys-comp-snackbar-container-width: 344px;
+  --md-sys-comp-snackbar-container-background-color: var(--md-sys-color-inverse-surface);
+  --md-sys-comp-snackbar-container-color: var(--md-sys-color-inverse-on-surface);
+  --md-sys-comp-tabs-container-background-color: var(--md-sys-color-surface);
+  --md-sys-comp-tabs-container-color: var(--md-sys-color-on-surface);
+  --md-comp-tabs-container-min-width: 100px;
+  --md-comp-list-container-min-width: 300px;
+}
+
 /* 
   Releated Codepen:
   https://codepen.io/argyleink/pen/eYGaPEM
@@ -813,6 +1050,7 @@ button):not(.icon-button,
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
   background-color: var(--_bg-color);
   color: var(--_fg-color);
   height: var(--_height);
@@ -926,6 +1164,13 @@ button):not(.icon-button,
   --md-comp-button-container-height: var(
     --md-comp-text-button-container-height
   );
+
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-text-button-container-shape); */
+  /* line-height: var(--md-comp-text-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-text-button-label-text-tracking); */
+  /* font-size: var(--md-comp-text-button-label-text-size); */
+  /* font-weight: var(--md-comp-text-button-label-text-weight); */
   /* font-family: var(--md-comp-text-button-label-text-font); */
   --state-hover-opacity: var(--md-comp-text-button-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-text-button-focus-state-layer-opacity);
@@ -982,6 +1227,13 @@ button):not(.icon-button,
   --md-comp-button-container-height: var(
     --md-comp-filled-button-container-height
   );
+
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-filled-button-container-shape); */
+  /* line-height: var(--md-comp-filled-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-filled-button-label-text-tracking); */
+  /* font-size: var(--md-comp-filled-button-label-text-size); */
+  /* font-weight: var(--md-comp-filled-button-label-text-weight); */
   /* font-family: var(--md-comp-filled-button-label-text-font); */
   --state-hover-opacity: var(--md-comp-filled-button-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-filled-button-focus-state-layer-opacity);
@@ -1043,6 +1295,13 @@ button):not(.icon-button,
   background-color: var(--md-sys-comp-button-background-color);
   color: var(--md-sys-comp-button-color);
   box-shadow: var(--md-sys-elevation-0);
+
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-filled-tonal-button-container-shape); */
+  /* line-height: var(--md-comp-filled-tonal-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-filled-tonal-button-label-text-tracking); */
+  /* font-size: var(--md-comp-filled-tonal-button-label-text-size); */
+  /* font-weight: var(--md-comp-filled-tonal-button-label-text-weight); */
   /* font-family: var(--md-comp-filled-tonal-button-label-text-font); */
   --state-hover-opacity: var(
     --md-comp-filled-tonal-button-hover-state-layer-opacity
@@ -1108,6 +1367,13 @@ button):not(.icon-button,
   --md-comp-button-container-height: var(
     --md-comp-outlined-button-container-height
   );
+
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-outlined-button-container-shape); */
+  /* line-height: var(--md-comp-outlined-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-outlined-button-label-text-tracking); */
+  /* font-size: var(--md-comp-outlined-button-label-text-size); */
+  /* font-weight: var(--md-comp-outlined-button-label-text-weight); */
   /* font-family: var(--md-comp-outlined-button-label-text-font); */
   --state-hover-opacity: var(
     --md-comp-outlined-button-hover-state-layer-opacity
@@ -1173,6 +1439,13 @@ button):not(.icon-button,
 .chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
+
+  /* BUG: Tokens breaking render */
+  /* border-radius: var(--md-comp-elevated-button-container-shape); */
+  /* line-height: var(--md-comp-elevated-button-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-elevated-button-label-text-tracking); */
+  /* font-size: var(--md-comp-elevated-button-label-text-size); */
+  /* font-weight: var(--md-comp-elevated-button-label-text-weight); */
   /* font-family: var(--md-comp-elevated-button-label-text-font); */
   --state-hover-opacity: var(
     --md-comp-elevated-button-hover-state-layer-opacity
@@ -1246,6 +1519,7 @@ button):not(.icon-button,
   position: relative;
   box-sizing: border-box;
   text-align: center;
+  text-decoration: none;
   gap: 0;
   border: none;
   cursor: pointer;
@@ -1257,6 +1531,7 @@ button):not(.icon-button,
   text-transform: var(--md-sys-typescale-label-large-text-transform);
   line-height: var(--md-sys-typescale-label-large-line-height);
   letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
   font-family: var(--md-sys-typescale-label-large-font);
   font-size: var(--md-comp-icon-button-icon-size);
@@ -1520,6 +1795,7 @@ button):not(.icon-button,
 
 :where(.icon-button).toggle:where(input[type="checkbox"])::after {
       -webkit-font-smoothing: antialiased;
+      -webkit-font-feature-settings: "liga";
       font-feature-settings: "liga";
       direction: ltr;
       word-wrap: normal;
@@ -1567,6 +1843,7 @@ button):not(.icon-button,
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;
@@ -1686,13 +1963,12 @@ button):not(.icon-button,
   text-align: start;
 }
 
-:is(.card) :where(i,
-.material-icons) mg {
+:is(.card) > img {
     padding: 0;
     border-radius: var(--md-sys-shape-corner-medium);
   }
 
-:is(.card) .title {
+:is(.card) > .title {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-title-large-text-decoration);
             text-decoration: var(--md-sys-typescale-title-large-text-decoration);
@@ -1704,7 +1980,7 @@ button):not(.icon-button,
     font-family: var(--md-sys-typescale-title-large-font);
   }
 
-:is(.card) .subtitle {
+:is(.card) > .subtitle {
     padding: 8px 16px;
     -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
             text-decoration: var(--md-sys-typescale-body-large-text-decoration);
@@ -1716,7 +1992,7 @@ button):not(.icon-button,
     font-family: var(--md-sys-typescale-body-large-font);
   }
 
-:is(.card) .actions {
+:is(.card) > .actions {
     padding: 16px;
     display: flex;
     flex-direction: row;
@@ -1749,7 +2025,9 @@ button):not(.icon-button,
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
   position: relative;
+  border-radius: 8px;
   padding: 8px 16px;
   height: 32px;
   gap: 8px;
@@ -1822,6 +2100,12 @@ button):not(.icon-button,
   height: var(--md-comp-assist-chip-container-height);
   border-radius: var(--md-comp-assist-chip-container-shape);
   box-shadow: var(--md-sys-elevation-0);
+
+  /* BUG: Tokens breaking render */
+  /* line-height: var(--md-comp-assist-chip-label-text-line-height); */
+  /* letter-spacing: var(--md-comp-assist-chip-label-text-tracking); */
+  /* font-size: var(--md-comp-assist-chip-label-text-size); */
+  /* font-weight: var(--md-comp-assist-chip-label-text-weight); */
   /* font-family: var(--md-comp-assist-chip-label-text-font); */
   --state-hover-opacity: var(--md-comp-assist-chip-hover-state-layer-opacity);
   --state-focus-opacity: var(--md-comp-assist-chip-focus-state-layer-opacity);
@@ -1973,14 +2257,18 @@ button):not(.icon-button,
 header) {
   position: relative;
   padding: var(--md-sys-comp-top-app-bar-padding);
+  display: grid;
+  align-items: center;
   background-color: var(--md-sys-comp-top-app-bar-background-color);
   color: var(--md-sys-comp-top-app-bar-color);
+  gap: var(--md-sys-comp-top-app-bar-padding);
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto;
   grid-template-areas: "leading title actions";
   z-index: 1;
+  box-sizing: border-box;
 }
 
 :is(.top-app-bar,
@@ -2126,7 +2414,7 @@ datalist {
   :is(.text-field).outlined > textarea {
     box-sizing: border-box;
     margin: 0;
-    border: solid 1px;
+    border: solid 1px; /* Safari */
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
     border-top-color: transparent;
     border-radius: 4px;
@@ -2210,10 +2498,6 @@ datalist {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
 
-:is(.text-field).outlined:hover > input:not(:focus):-moz-placeholder-shown, :is(.text-field).outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
-    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
-  }
-
 :is(.text-field).outlined:hover > input:not(:focus):placeholder-shown,
   :is(.text-field).outlined:hover > textarea:not(:focus):placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
@@ -2221,28 +2505,15 @@ datalist {
 
 /* Placeholder-shown */
 
-:is(.text-field).outlined input:not(:focus):-moz-placeholder-shown, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown {
-    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
-  }
-
 :is(.text-field).outlined input:not(:focus):placeholder-shown,
   :is(.text-field).outlined > textarea:not(:focus):placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
-  }
-
-:is(.text-field).outlined input:not(:focus):-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span {
-    font-size: inherit;
-    line-height: 68px;
   }
 
 :is(.text-field).outlined input:not(:focus):placeholder-shown + span,
   :is(.text-field).outlined > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
-  }
-
-:is(.text-field).outlined input:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::before, :is(.text-field).outlined input:not(:focus):-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:not(:focus):-moz-placeholder-shown + span::after {
-    border-top-color: transparent;
   }
 
 :is(.text-field).outlined input:not(:focus):placeholder-shown + span::before,
@@ -2296,19 +2567,11 @@ datalist {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
 
-:is(.text-field).outlined input:disabled:-moz-placeholder-shown, :is(.text-field).outlined input:disabled:-moz-placeholder-shown + span, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span {
-    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
-  }
-
 :is(.text-field).outlined input:disabled:placeholder-shown,
   :is(.text-field).outlined input:disabled:placeholder-shown + span,
   :is(.text-field).outlined > textarea:disabled:placeholder-shown,
   :is(.text-field).outlined > textarea:disabled:placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
-  }
-
-:is(.text-field).outlined input:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined input:disabled:-moz-placeholder-shown + span::after, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::before, :is(.text-field).outlined > textarea:disabled:-moz-placeholder-shown + span::after {
-    border-top-color: transparent !important;
   }
 
 :is(.text-field).outlined input:disabled:placeholder-shown + span::before,
@@ -2375,9 +2638,13 @@ textarea) + span::after {
         width: 100%;
         height: 2px;
         background-color: var(--md-sys-color-primary);
-        transform-origin: bottom center;
-        transform: scaleX(0);
+        -webkit-transform-origin: bottom center;
+                transform-origin: bottom center;
+        -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+        transition: -webkit-transform 0.3s;
         transition: transform 0.3s;
+        transition: transform 0.3s, -webkit-transform 0.3s;
       }
 
 /* Hover */
@@ -2389,12 +2656,6 @@ textarea):hover {
     }
 
 /* Placeholder-shown */
-
-:is(.text-field).filled > :where(input,
-textarea):not(:focus):-moz-placeholder-shown + span {
-      font-size: inherit;
-      line-height: 48px;
-    }
 
 :is(.text-field).filled > :where(input,
 textarea):not(:focus):placeholder-shown + span {
@@ -2421,7 +2682,8 @@ textarea):focus + span::before {
 
 :is(.text-field).filled > :where(input,
 textarea):focus + span::after {
-          transform: scale(1);
+          -webkit-transform: scale(1);
+                  transform: scale(1);
         }
 
 :is(.text-field).filled > :where(input,
@@ -2486,9 +2748,13 @@ textarea):disabled + span {
     bottom: -80px;
     left: 50%;
     padding: 8px;
-    transform: translateX(-50%) scale(0);
+    -webkit-transform: translateX(-50%) scale(0);
+            transform: translateX(-50%) scale(0);
+    transition: -webkit-transform var(--md-sys-comp-tooltip-delay) ease-in-out;
     transition: transform var(--md-sys-comp-tooltip-delay) ease-in-out;
-    transform-origin: top;
+    transition: transform var(--md-sys-comp-tooltip-delay) ease-in-out, -webkit-transform var(--md-sys-comp-tooltip-delay) ease-in-out;
+    -webkit-transform-origin: top;
+            transform-origin: top;
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
     text-transform: var(--md-sys-typescale-label-small-text-transform);
@@ -2512,8 +2778,10 @@ textarea):disabled + span {
     content: attr(data-tooltip);
   }
 
-:is(.tooltip):hover:before {
-    transform: translateX(-50%) scale(1);
+:is(.tooltip):is(:hover,
+[data-visible]):before {
+    -webkit-transform: translateX(-50%) translateY(-10%) scale(1);
+            transform: translateX(-50%) translateY(-10%) scale(1);
   }
 
 :is(.switch) {
@@ -2540,6 +2808,7 @@ textarea):disabled + span {
 :is(.switch)::after {
     content: "";
     -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: "liga";
     font-feature-settings: "liga";
     direction: ltr;
     word-wrap: normal;
@@ -2645,7 +2914,10 @@ textarea):disabled + span {
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
     text-transform: var(--md-sys-typescale-label-small-text-transform);
+    line-height: var(--md-sys-typescale-label-small-line-height);
     letter-spacing: var(--md-sys-typescale-label-small-tracking);
+    font-size: var(--md-sys-typescale-label-small-size);
+    font-weight: var(--md-sys-typescale-label-small-weight);
     font-family: var(--md-sys-typescale-label-small-font);
     font-size: 11px;
     font-weight: 600;
@@ -2691,6 +2963,7 @@ textarea):disabled + span {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  position: relative;
   width: var(--md-sys-comp-checkbox-size);
   height: var(--md-sys-comp-checkbox-size);
   position: relative;
@@ -2706,6 +2979,7 @@ textarea):disabled + span {
     bottom: 0;
     right: 0;
     -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: "liga";
     font-feature-settings: "liga";
     direction: ltr;
     word-wrap: normal;
@@ -2717,6 +2991,7 @@ textarea):disabled + span {
     font-family: "Material Icons";
     content: "check_box_outline_blank";
     color: var(--md-sys-comp-checkbox-unselected-color);
+    font-size: var(--md-sys-comp-checkbox-size);
   }
 
 :where(input[type="checkbox"],
@@ -2765,6 +3040,7 @@ input[type="range"]):last-child {
 
 :is(.slider,
 input[type="range"])::-webkit-slider-thumb {
+    box-shadow: 0 0 0 2px transparent;
     appearance: none;
     -webkit-appearance: none;
     border: none;
@@ -2772,7 +3048,8 @@ input[type="range"])::-webkit-slider-thumb {
     height: 2px;
     width: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb));
-    transform: scale(6, 6);
+    -webkit-transform: scale(6, 6);
+            transform: scale(6, 6);
     -webkit-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
     box-shadow: 0 0 0 2px transparent;
@@ -2929,7 +3206,8 @@ input[type="range"]):disabled::-webkit-slider-thumb {
       background-color: rgb(var(--md-sys-color-on-surface-rgb));
       color: var(--md-sys-color-surface); /* Safari */
       box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
-      transform: scale(4, 4);
+      -webkit-transform: scale(4, 4);
+              transform: scale(4, 4);
     }
 
 :is(.slider,
@@ -3054,8 +3332,10 @@ table).zebra :is(tbody,
 footer) {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   position: relative;
+  box-sizing: border-box;
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
@@ -3089,10 +3369,7 @@ footer) :where(.icon-button) {
   }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip) {
+footer) :where(.fab) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
@@ -3100,26 +3377,17 @@ button):not(.icon-button,
   }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):hover {
+footer) :where(.fab):hover {
       box-shadow: var(--md-sys-elevation-1);
     }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):focus {
+footer) :where(.fab):focus {
       box-shadow: var(--md-sys-elevation-0);
     }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):active {
+footer) :where(.fab):active {
       box-shadow: var(--md-sys-elevation-0);
     }
 
@@ -3220,6 +3488,7 @@ label) {
 label)::before {
       content: "check";
       -webkit-font-smoothing: antialiased;
+      -webkit-font-feature-settings: "liga";
       font-feature-settings: "liga";
       direction: ltr;
       word-wrap: normal;
@@ -3244,14 +3513,14 @@ label) :where(i,
   place-content: center;
   position: relative;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   margin: 0;
 }
 
 :where(.radio-button,
 [type="radio"])::before {
     -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: "liga";
     font-feature-settings: "liga";
     direction: ltr;
     word-wrap: normal;
@@ -3285,6 +3554,7 @@ progress {
 /* Create a conic-gradient for the circular progress */
 
 :is(.progress).circular {
+  position: relative;
   display: inline-block;
   width: var(--md-sys-comp-progress-circular-size);
   height: var(--md-sys-comp-progress-circular-size);
@@ -3307,18 +3577,8 @@ progress {
       var(--md-sys-comp-progress-color) var(--progress),
       var(--md-sys-comp-progress-background-color) 0deg
     );
-  }
-
-:is(.progress).circular::after {
-    --b: var(--md-sys-comp-progress-size);
-    content: "";
-    border-radius: 50%;
-    background-color: var(--md-sys-comp-progress-circular-center-color);
-    position: absolute;
-    top: var(--b);
-    left: var(--b);
-    width: calc(100% - var(--b) * 2);
-    height: calc(100% - var(--b) * 2);
+    -webkit-mask: radial-gradient(circle at center, #0000 0 54%, #000 55% 0);
+            mask: radial-gradient(circle at center, #0000 0 54%, #000 55% 0);
   }
 
 :is(.progress).circular.indeterminate::after {
@@ -3338,25 +3598,31 @@ progress {
 
 @-webkit-keyframes circular-progress-indeterminate-animation {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   50% {
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
 @keyframes circular-progress-indeterminate-animation {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   50% {
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -3383,6 +3649,7 @@ progress {
       --progress-duration: 2.1s;
       content: "";
       position: absolute;
+      background-color: inherit;
       top: 0;
       left: 0;
       bottom: 0;
@@ -3495,6 +3762,7 @@ dialog):not(.navigation-drawer).modal[open] {
 
 :is(.dialog,
 dialog):not(.navigation-drawer).modal::-webkit-backdrop {
+    /* Tokens not available in backdrop (above document) */
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;
@@ -3502,6 +3770,7 @@ dialog):not(.navigation-drawer).modal::-webkit-backdrop {
 
 :is(.dialog,
 dialog):not(.navigation-drawer).modal::backdrop {
+    /* Tokens not available in backdrop (above document) */
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;
@@ -3580,27 +3849,18 @@ dialog):not(.navigation-drawer).modal::backdrop {
     background-color: var(--md-sys-color-surface-1);
   }
 
-:is(.navigation-rail) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip) {
+:is(.navigation-rail) :where(.fab) {
     background-color: var(--md-sys-color-tertiary-container);
     color: var(--md-sys-color-on-tertiary-container);
     box-shadow: var(--md-sys-elevation-0);
     margin-top: 12px;
   }
 
-:is(.navigation-rail) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):hover {
+:is(.navigation-rail) :where(.fab):hover {
       box-shadow: var(--md-sys-elevation-2);
     }
 
-:is(.navigation-rail) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):active {
+:is(.navigation-rail) :where(.fab):active {
       box-shadow: var(--md-sys-elevation-1);
     }
 
@@ -3773,12 +4033,14 @@ button):not(.icon-button,
       }
 
 :is(.navigation-drawer).modal[open]::-webkit-backdrop {
+      /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
     }
 
 :is(.navigation-drawer).modal[open]::backdrop {
+      /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
@@ -3810,8 +4072,8 @@ button):not(.icon-button,
     flex: 1;
   }
 
-:is(.snackbar) :where(button,
-.button) {
+:is(.snackbar) :is(button,
+.button).text {
     align-self: end;
     color: var(--md-sys-color-inverse-primary);
   }
@@ -3823,7 +4085,6 @@ button):not(.icon-button,
   align-items: center;
   position: relative;
   -webkit-user-select: none;
-     -moz-user-select: none;
           user-select: none;
   background-color: var(--md-sys-comp-tabs-container-background-color);
   color: var(--md-sys-comp-tabs-container-color);
@@ -3840,6 +4101,12 @@ button):not(.icon-button,
 :is(.tabs) :where(label,
 .tab) {
     border-radius: 0;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     flex: 1;
     display: flex;
@@ -3851,7 +4118,6 @@ button):not(.icon-button,
     margin: 0;
     cursor: pointer;
     -webkit-user-select: none;
-       -moz-user-select: none;
             user-select: none;
     position: relative;
     z-index: 1;

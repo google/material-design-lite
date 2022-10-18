@@ -14,78 +14,114 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Filled text field container height */
   --md-comp-filled-text-field-container-height: 56px;
+  /* Filled text field label text tracking */
   --md-comp-filled-text-field-label-text-tracking: var(
     --md-sys-typescale-body-large-tracking
   );
+  /* Filled text field label text weight */
   --md-comp-filled-text-field-label-text-weight: var(
     --md-sys-typescale-body-large-weight
   );
+  /* Filled text field label text size */
   --md-comp-filled-text-field-label-text-size: var(
     --md-sys-typescale-body-large-size
   );
+  /* Filled text field label text line height */
   --md-comp-filled-text-field-label-text-line-height: var(
     --md-sys-typescale-body-large-line-height
   );
+  /* Filled text field label text font */
   --md-comp-filled-text-field-label-text-font: var(
     --md-sys-typescale-body-large-font
   );
+  /* Filled text field error hover state layer opacity */
   --md-comp-filled-text-field-error-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Filled text field hover state layer opacity */
   --md-comp-filled-text-field-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Filled text field hover active indicator height */
   --md-comp-filled-text-field-hover-active-indicator-height: 1px;
+  /* Filled text field focus active indicator height */
   --md-comp-filled-text-field-focus-active-indicator-height: 2px;
+  /* Filled text field disabled trailing icon opacity */
   --md-comp-filled-text-field-disabled-trailing-icon-opacity: 0.3799999952316284;
+  /* Filled text field disabled leading icon opacity */
   --md-comp-filled-text-field-disabled-leading-icon-opacity: 0.3799999952316284;
+  /* Filled text field disabled supporting text opacity */
   --md-comp-filled-text-field-disabled-supporting-text-opacity: 0.3799999952316284;
+  /* Filled text field disabled input text opacity */
   --md-comp-filled-text-field-disabled-input-text-opacity: 0.3799999952316284;
+  /* Filled text field disabled label text opacity */
   --md-comp-filled-text-field-disabled-label-text-opacity: 0.3799999952316284;
+  /* Filled text field disabled active indicator opacity */
   --md-comp-filled-text-field-disabled-active-indicator-opacity: 0.3799999952316284;
+  /* Filled text field disabled active indicator height */
   --md-comp-filled-text-field-disabled-active-indicator-height: 1px;
+  /* Filled text field disabled container opacity */
   --md-comp-filled-text-field-disabled-container-opacity: 0.03999999910593033;
+  /* Filled text field trailing icon size */
   --md-comp-filled-text-field-trailing-icon-size: 24px;
+  /* Filled text field leading icon size */
   --md-comp-filled-text-field-leading-icon-size: 20px;
+  /* Filled text field supporting text tracking */
   --md-comp-filled-text-field-supporting-text-tracking: var(
     --md-sys-typescale-body-small-tracking
   );
+  /* Filled text field supporting text weight */
   --md-comp-filled-text-field-supporting-text-weight: var(
     --md-sys-typescale-body-small-weight
   );
+  /* Filled text field supporting text size */
   --md-comp-filled-text-field-supporting-text-size: var(
     --md-sys-typescale-body-small-size
   );
+  /* Filled text field supporting text line height */
   --md-comp-filled-text-field-supporting-text-line-height: var(
     --md-sys-typescale-body-small-line-height
   );
+  /* Filled text field supporting text font */
   --md-comp-filled-text-field-supporting-text-font: var(
     --md-sys-typescale-body-small-font
   );
+  /* Filled text field label text populated size */
   --md-comp-filled-text-field-label-text-populated-size: var(
     --md-sys-typescale-body-small-size
   );
+  /* Filled text field label text populated line height */
   --md-comp-filled-text-field-label-text-populated-line-height: var(
     --md-sys-typescale-body-small-line-height
   );
+  /* Filled text field input text tracking */
   --md-comp-filled-text-field-input-text-tracking: var(
     --md-sys-typescale-body-large-tracking
   );
+  /* Filled text field input text weight */
   --md-comp-filled-text-field-input-text-weight: var(
     --md-sys-typescale-body-large-weight
   );
+  /* Filled text field input text size */
   --md-comp-filled-text-field-input-text-size: var(
     --md-sys-typescale-body-large-size
   );
+  /* Filled text field input text line height */
   --md-comp-filled-text-field-input-text-line-height: var(
     --md-sys-typescale-body-large-line-height
   );
+  /* Filled text field input text font */
   --md-comp-filled-text-field-input-text-font: var(
     --md-sys-typescale-body-large-font
   );
+  /* Filled text field active indicator height */
   --md-comp-filled-text-field-active-indicator-height: 1px;
   /* Filled text field container shape */
   --md-comp-filled-text-field-container-shape: var(

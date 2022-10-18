@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
   --md-sys-comp-chip-color: var(--md-sys-color-primary);
   --md-comp-chip-container-height: 32px;
@@ -29,7 +32,9 @@
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
   position: relative;
+  border-radius: 8px;
   padding: 8px 16px;
   height: 32px;
   gap: 8px;

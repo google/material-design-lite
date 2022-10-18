@@ -17,6 +17,7 @@
 /* Create a conic-gradient for the circular progress */
 
 :is(.progress).circular {
+  position: relative;
   display: inline-block;
   width: var(--md-sys-comp-progress-circular-size);
   height: var(--md-sys-comp-progress-circular-size);
@@ -39,18 +40,8 @@
       var(--md-sys-comp-progress-color) var(--progress),
       var(--md-sys-comp-progress-background-color) 0deg
     );
-  }
-
-:is(.progress).circular::after {
-    --b: var(--md-sys-comp-progress-size);
-    content: "";
-    border-radius: 50%;
-    background-color: var(--md-sys-comp-progress-circular-center-color);
-    position: absolute;
-    top: var(--b);
-    left: var(--b);
-    width: calc(100% - var(--b) * 2);
-    height: calc(100% - var(--b) * 2);
+    -webkit-mask: radial-gradient(circle at center, #0000 0 54%, #000 55% 0);
+            mask: radial-gradient(circle at center, #0000 0 54%, #000 55% 0);
   }
 
 :is(.progress).circular.indeterminate::after {
@@ -70,24 +61,30 @@
 
 @-webkit-keyframes circular-progress-indeterminate-animation {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   50% {
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
 @keyframes circular-progress-indeterminate-animation {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   50% {
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }

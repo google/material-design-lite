@@ -14,51 +14,86 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Switch track shape */
   --md-comp-switch-track-shape: var(--md-sys-shape-corner-full);
+  /* Switch track outline width */
   --md-comp-switch-track-outline-width: 2px;
+  /* Switch handle width */
   --md-comp-switch-handle-width: 20px;
+  /* Switch handle height */
   --md-comp-switch-handle-height: 20px;
+  /* Switch disabled handle elevation */
   --md-comp-switch-disabled-handle-elevation: var(--md-sys-elevation-level0);
+  /* Switch disabled handle opacity */
   --md-comp-switch-disabled-handle-opacity: 0.3799999952316284;
+  /* Switch handle elevation */
   --md-comp-switch-handle-elevation: var(--md-sys-elevation-level1);
+  /* Switch unselected pressed state layer opacity */
   --md-comp-switch-unselected-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Switch selected pressed state layer opacity */
   --md-comp-switch-selected-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Switch unselected focus state layer opacity */
   --md-comp-switch-unselected-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Switch selected focus state layer opacity */
   --md-comp-switch-selected-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Switch unselected hover state layer opacity */
   --md-comp-switch-unselected-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Switch selected hover state layer opacity */
   --md-comp-switch-selected-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Switch disabled selected handle opacity */
   --md-comp-switch-disabled-selected-handle-opacity: 1;
+  /* Switch disabled unselected handle opacity */
   --md-comp-switch-disabled-unselected-handle-opacity: 0.3799999952316284;
+  /* Switch state layer shape */
   --md-comp-switch-state-layer-shape: var(--md-sys-shape-corner-full);
+  /* Switch handle shape */
   --md-comp-switch-handle-shape: var(--md-sys-shape-corner-full);
+  /* Switch pressed handle width */
   --md-comp-switch-pressed-handle-width: 28px;
+  /* Switch selected handle width */
   --md-comp-switch-selected-handle-width: 24px;
+  /* Switch with icon handle width */
   --md-comp-switch-with-icon-handle-width: 24px;
+  /* Switch unselected handle width */
   --md-comp-switch-unselected-handle-width: 16px;
+  /* Switch pressed handle height */
   --md-comp-switch-pressed-handle-height: 28px;
+  /* Switch selected handle height */
   --md-comp-switch-selected-handle-height: 24px;
+  /* Switch with icon handle height */
   --md-comp-switch-with-icon-handle-height: 24px;
+  /* Switch unselected handle height */
   --md-comp-switch-unselected-handle-height: 16px;
+  /* Switch unselected icon size */
   --md-comp-switch-unselected-icon-size: 16px;
+  /* Switch selected icon size */
   --md-comp-switch-selected-icon-size: 16px;
+  /* Switch state layer size */
   --md-comp-switch-state-layer-size: 40px;
+  /* Switch track width */
   --md-comp-switch-track-width: 52px;
+  /* Switch track height */
   --md-comp-switch-track-height: 32px;
+  /* Switch disabled unselected icon opacity */
   --md-comp-switch-disabled-unselected-icon-opacity: 0.3799999952316284;
+  /* Switch disabled selected icon opacity */
   --md-comp-switch-disabled-selected-icon-opacity: 0.3799999952316284;
   /* Switch disabled track opacity */
   --md-comp-switch-disabled-track-opacity: 0.11999999731779099;

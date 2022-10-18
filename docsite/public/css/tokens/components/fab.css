@@ -14,41 +14,58 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* FAB (large branded) focus state layer opacity */
   --md-comp-fab-branded-large-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* FAB (large branded) hover state layer opacity */
   --md-comp-fab-branded-large-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* FAB (large branded) hover container elevation */
   --md-comp-fab-branded-large-hover-container-elevation: var(
     --md-sys-elevation-level4
   );
+  /* FAB (large branded) icon size */
   --md-comp-fab-branded-large-icon-size: 48px;
+  /* FAB (large branded) lowered focus container elevation */
   --md-comp-fab-branded-large-lowered-focus-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* FAB (large branded) focus focus container elevation */
   --md-comp-fab-branded-large-focus-container-elevation: var(
     --md-sys-elevation-level3
   );
+  /* FAB (large branded) lowered hover container elevation */
   --md-comp-fab-branded-large-lowered-hover-container-elevation: var(
     --md-sys-elevation-level2
   );
+  /* FAB (large branded) lowered container elevation */
   --md-comp-fab-branded-large-lowered-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* FAB (large branded) container elevation */
   --md-comp-fab-branded-large-container-elevation: var(
     --md-sys-elevation-level3
   );
+  /* FAB (large branded) container height */
   --md-comp-fab-branded-large-container-height: 96px;
+  /* FAB (large branded) container width */
   --md-comp-fab-branded-large-container-width: 96px;
+  /* FAB (large branded) container shape */
   --md-comp-fab-branded-large-container-shape: var(
     --md-sys-shape-corner-extra-large
   );
+  /* FAB (large branded) pressed state layer opacity */
   --md-comp-fab-branded-large-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* FAB (large branded) pressed container elevation */
   --md-comp-fab-branded-large-pressed-container-elevation: var(
     --md-sys-elevation-level3
   );

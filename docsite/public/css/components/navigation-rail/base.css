@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-navigation-rail-background-color: var(--md-sys-color-surface);
   --md-sys-comp-navigation-rail-color: var(--md-sys-color-on-surface);
   --md-comp-navigation-rail-container-width: 80px;
@@ -48,27 +51,18 @@
     background-color: var(--md-sys-color-surface-1);
   }
 
-:is(.navigation-rail) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip) {
+:is(.navigation-rail) :where(.fab) {
     background-color: var(--md-sys-color-tertiary-container);
     color: var(--md-sys-color-on-tertiary-container);
     box-shadow: var(--md-sys-elevation-0);
     margin-top: 12px;
   }
 
-:is(.navigation-rail) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):hover {
+:is(.navigation-rail) :where(.fab):hover {
       box-shadow: var(--md-sys-elevation-2);
     }
 
-:is(.navigation-rail) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):active {
+:is(.navigation-rail) :where(.fab):active {
       box-shadow: var(--md-sys-elevation-1);
     }
 

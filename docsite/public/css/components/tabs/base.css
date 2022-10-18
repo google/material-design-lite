@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-tabs-container-background-color: var(--md-sys-color-surface);
   --md-sys-comp-tabs-container-color: var(--md-sys-color-on-surface);
   --md-comp-tabs-container-min-width: 100px;
@@ -28,7 +31,6 @@
   align-items: center;
   position: relative;
   -webkit-user-select: none;
-     -moz-user-select: none;
           user-select: none;
   background-color: var(--md-sys-comp-tabs-container-background-color);
   color: var(--md-sys-comp-tabs-container-color);
@@ -45,6 +47,12 @@
 :is(.tabs) :where(label,
 .tab) {
     border-radius: 0;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     flex: 1;
     display: flex;
@@ -56,7 +64,6 @@
     margin: 0;
     cursor: pointer;
     -webkit-user-select: none;
-       -moz-user-select: none;
             user-select: none;
     position: relative;
     z-index: 1;
