@@ -14,28 +14,40 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Radio button unselected focus state layer opacity */
   --md-comp-radio-button-unselected-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Radio button selected focus state layer opacity */
   --md-comp-radio-button-selected-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Radio button unselected hover state layer opacity */
   --md-comp-radio-button-unselected-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Radio button selected hover state layer opacity */
   --md-comp-radio-button-selected-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Radio button state layer size */
   --md-comp-radio-button-state-layer-size: 40px;
+  /* Radio button icon size */
   --md-comp-radio-button-icon-size: 20px;
+  /* Radio button unselected pressed state layer opacity */
   --md-comp-radio-button-unselected-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Radio button selected pressed state layer opacity */
   --md-comp-radio-button-selected-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Radio button disabled unselected icon opacity */
   --md-comp-radio-button-disabled-unselected-icon-opacity: 0.3799999952316284;
   /* Radio button disabled selected icon opacity */
   --md-comp-radio-button-disabled-selected-icon-opacity: 0.3799999952316284;

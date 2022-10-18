@@ -15,17 +15,27 @@
 */
 
 :where(html),
-.tokens {
+.tokens,
+:host {
+  /* 0 */
   --md-sys-elevation-level0: 0px;
+  /* +1 */
   --md-sys-elevation-level1: 1px;
+  /* +2 */
   --md-sys-elevation-level2: 3px;
+  /* +3 */
   --md-sys-elevation-level3: 6px;
+  /* +4 */
   --md-sys-elevation-level4: 8px;
   /* +5 */
   --md-sys-elevation-level5: 12px;
 }
 
-:where(html) {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-elevation-0: 0px 0px 0px 0px
       rgb(var(--md-sys-color-shadow-rgb) / 0.2),
     0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),

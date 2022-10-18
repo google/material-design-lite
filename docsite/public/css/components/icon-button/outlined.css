@@ -14,25 +14,38 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Outlined icon button disabled outline opacity */
   --md-comp-outlined-icon-button-disabled-outline-opacity: 0.11999999731779099;
+  /* Outlined icon button disabled selected container opacity */
   --md-comp-outlined-icon-button-disabled-selected-container-opacity: 0.11999999731779099;
+  /* Outlined icon button disabled unselected outline opacity */
   --md-comp-outlined-icon-button-disabled-unselected-outline-opacity: 0.11999999731779099;
+  /* Outlined icon button pressed state layer opacity */
   --md-comp-outlined-icon-button-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Outlined icon button focus state layer opacity */
   --md-comp-outlined-icon-button-focus-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Outlined icon button hover state layer opacity */
   --md-comp-outlined-icon-button-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Outlined icon button disabled icon opacity */
   --md-comp-outlined-icon-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Outlined icon button container size */
   --md-comp-outlined-icon-button-container-size: 40px;
+  /* Outlined icon button container shape */
   --md-comp-outlined-icon-button-container-shape: var(
     --md-sys-shape-corner-full
   );
+  /* Outlined icon button unselected outline width */
   --md-comp-outlined-icon-button-unselected-outline-width: 1px;
   /* Outlined icon button icon size */
   --md-comp-outlined-icon-button-icon-size: 24px;

@@ -14,32 +14,46 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Carousel item disabled outline opacity */
   --md-comp-carousel-item-with-outline-disabled-outline-opacity: 0.11999999731779099;
+  /* Carousel item outline width */
   --md-comp-carousel-item-with-outline-outline-width: 1px;
+  /* Carousel item container shape */
   --md-comp-carousel-item-container-shape: var(
     --md-sys-shape-corner-extra-large
   );
+  /* Carousel item container elevation */
   --md-comp-carousel-item-container-elevation: var(--md-sys-elevation-level0);
+  /* Carousel item hover state layer opacity */
   --md-comp-carousel-item-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Carousel item hover container elevation */
   --md-comp-carousel-item-hover-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* Carousel item focus state layer opacity */
   --md-comp-carousel-item-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Carousel item focus container elevation */
   --md-comp-carousel-item-focus-container-elevation: var(
     --md-sys-elevation-level0
   );
+  /* Carousel item pressed state layer opacity */
   --md-comp-carousel-item-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Carousel item pressed container elevation */
   --md-comp-carousel-item-pressed-container-elevation: var(
     --md-sys-elevation-level0
   );
+  /* Carousel item disabled container elevation */
   --md-comp-carousel-item-disabled-container-elevation: var(
     --md-sys-elevation-level0
   );

@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-segmented-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-segmented-button-color: var(--md-sys-color-on-surface);
 }
@@ -110,6 +113,7 @@ label) {
 label)::before {
       content: "check";
       -webkit-font-smoothing: antialiased;
+      -webkit-font-feature-settings: "liga";
       font-feature-settings: "liga";
       direction: ltr;
       word-wrap: normal;

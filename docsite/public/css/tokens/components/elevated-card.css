@@ -14,33 +14,48 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Elevated card disabled container opacity */
   --md-comp-elevated-card-disabled-container-opacity: 0.3799999952316284;
+  /* Elevated card disabled container elevation */
   --md-comp-elevated-card-disabled-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* Elevated card icon size */
   --md-comp-elevated-card-icon-size: 24px;
+  /* Elevated card focus state layer opacity */
   --md-comp-elevated-card-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Elevated card focus container elevation */
   --md-comp-elevated-card-focus-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* Elevated card hover state layer opacity */
   --md-comp-elevated-card-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Elevated card hover container elevation */
   --md-comp-elevated-card-hover-container-elevation: var(
     --md-sys-elevation-level2
   );
+  /* Elevated card container shape */
   --md-comp-elevated-card-container-shape: var(--md-sys-shape-corner-medium);
+  /* Elevated card container elevation */
   --md-comp-elevated-card-container-elevation: var(--md-sys-elevation-level1);
+  /* Elevated card dragged state layer opacity */
   --md-comp-elevated-card-dragged-state-layer-opacity: var(
     --md-sys-state-dragged-state-layer-opacity
   );
+  /* Elevated card dragged container elevation */
   --md-comp-elevated-card-dragged-container-elevation: var(
     --md-sys-elevation-level4
   );
+  /* Elevated card pressed state layer opacity */
   --md-comp-elevated-card-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );

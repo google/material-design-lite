@@ -14,42 +14,60 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Header container height */
   --md-comp-date-input-modal-header-container-height: 120px;
+  /* Header container width */
   --md-comp-date-input-modal-header-container-width: 328px;
+  /* Container height */
   --md-comp-date-input-modal-container-height: 512px;
+  /* Container width */
   --md-comp-date-input-modal-container-width: 328px;
+  /* Header headline tracking */
   --md-comp-date-input-modal-header-headline-tracking: var(
     --md-sys-typescale-headline-large-tracking
   );
+  /* Header headline weight */
   --md-comp-date-input-modal-header-headline-weight: var(
     --md-sys-typescale-headline-large-weight
   );
+  /* Header headline size */
   --md-comp-date-input-modal-header-headline-size: var(
     --md-sys-typescale-headline-large-size
   );
+  /* Header headline line height */
   --md-comp-date-input-modal-header-headline-line-height: var(
     --md-sys-typescale-headline-large-line-height
   );
+  /* Header headline font */
   --md-comp-date-input-modal-header-headline-font: var(
     --md-sys-typescale-headline-large-font
   );
+  /* Header supporting text tracking */
   --md-comp-date-input-modal-header-supporting-text-tracking: var(
     --md-sys-typescale-label-medium-tracking
   );
+  /* Header supporting text weight */
   --md-comp-date-input-modal-header-supporting-text-weight: var(
     --md-sys-typescale-label-medium-weight
   );
+  /* Header supporting text size */
   --md-comp-date-input-modal-header-supporting-text-size: var(
     --md-sys-typescale-label-medium-size
   );
+  /* Header supporting text line height */
   --md-comp-date-input-modal-header-supporting-text-line-height: var(
     --md-sys-typescale-label-medium-line-height
   );
+  /* Header supporting text font */
   --md-comp-date-input-modal-header-supporting-text-font: var(
     --md-sys-typescale-label-medium-font
   );
+  /* Container shape */
   --md-comp-date-input-modal-container-shape: var(
     --md-sys-shape-corner-extra-large
   );

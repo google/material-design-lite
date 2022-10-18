@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-tooltip-container-background-color: var(
     --md-sys-color-inverse-surface
   );
@@ -33,9 +36,13 @@
     bottom: -80px;
     left: 50%;
     padding: 8px;
-    transform: translateX(-50%) scale(0);
+    -webkit-transform: translateX(-50%) scale(0);
+            transform: translateX(-50%) scale(0);
+    transition: -webkit-transform var(--md-sys-comp-tooltip-delay) ease-in-out;
     transition: transform var(--md-sys-comp-tooltip-delay) ease-in-out;
-    transform-origin: top;
+    transition: transform var(--md-sys-comp-tooltip-delay) ease-in-out, -webkit-transform var(--md-sys-comp-tooltip-delay) ease-in-out;
+    -webkit-transform-origin: top;
+            transform-origin: top;
     -webkit-text-decoration: var(--md-sys-typescale-label-small-text-decoration);
             text-decoration: var(--md-sys-typescale-label-small-text-decoration);
     text-transform: var(--md-sys-typescale-label-small-text-transform);
@@ -59,6 +66,8 @@
     content: attr(data-tooltip);
   }
 
-:is(.tooltip):hover:before {
-    transform: translateX(-50%) scale(1);
+:is(.tooltip):is(:hover,
+[data-visible]):before {
+    -webkit-transform: translateX(-50%) translateY(-10%) scale(1);
+            transform: translateX(-50%) translateY(-10%) scale(1);
   }

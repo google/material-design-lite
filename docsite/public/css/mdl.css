@@ -1,8 +1,8 @@
 
 
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -330,68 +330,6 @@
   /* White */
   --md-ref-palette-white-rgb: 255 255 255;
   --md-ref-palette-white: rgb(var(--md-ref-palette-white-rgb));
-  --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);;
-  --md-sys-color-primary: var(--md-ref-palette-primary40);;
-  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);;
-  --md-sys-color-primary-container: var(--md-ref-palette-primary90);;
-  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);;
-  --md-sys-color-on-primary: var(--md-ref-palette-primary100);;
-  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary10-rgb);;
-  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);;
-  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);;
-  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);;
-  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);;
-  --md-sys-color-secondary: var(--md-ref-palette-secondary40);;
-  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary90-rgb);;
-  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);;
-  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);;
-  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);;
-  --md-sys-color-on-secondary-container-rgb: var(--md-ref-palette-secondary10-rgb);;
-  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);;
-  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);;
-  --md-sys-color-surface: var(--md-ref-palette-neutral99);;
-  --md-sys-color-surface-variant-rgb: var(--md-ref-palette-neutral-variant90-rgb);;
-  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);;
-  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);;
-  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);;
-  --md-sys-color-on-surface-variant-rgb: var(--md-ref-palette-neutral-variant30-rgb);;
-  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);;
-  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);;
-  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);;
-  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);;
-  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);;
-  --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);;
-  --md-sys-color-background: var(--md-ref-palette-neutral99);;
-  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);;
-  --md-sys-color-on-background: var(--md-ref-palette-neutral10);;
-  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);;
-  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);;
-  --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);;
-  --md-sys-color-error: var(--md-ref-palette-error40);;
-  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);;
-  --md-sys-color-shadow: var(--md-ref-palette-neutral0);;
-  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);;
-  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);;
-  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);;
-  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);;
-  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);;
-  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);;
-  --md-sys-color-on-tertiary-container-rgb: var(--md-ref-palette-tertiary10-rgb);;
-  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);;
-  --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);;
-  --md-sys-color-error-container: var(--md-ref-palette-error90);;
-  --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);;
-  --md-sys-color-on-error: var(--md-ref-palette-error100);;
-  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);;
-  --md-sys-color-on-error-container: var(--md-ref-palette-error10);;
-  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);;
-  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);;
-  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);;
-  --md-sys-color-surface-tint: var(--md-sys-color-primary);;
-  --md-sys-color-outline-variant-rgb: var(--md-ref-palette-neutral-variant80-rgb);;
-  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);;
-  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);;
-  --md-sys-color-scrim: var(--md-ref-palette-neutral0);;
   /* Plain typeface */
   --md-ref-typeface-plain: Roboto;
   /* Brand typeface */
@@ -694,186 +632,6 @@
   --material-symbols-wght: 400;
   --material-symbols-grad: 0;
   --material-symbols-opsz: 48;
-  /* Text button container elevation */
-  --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);
-  /* Text button focus state layer opacity */
-  --md-comp-text-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Text button hover state layer opacity */
-  --md-comp-text-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Text button label tracking */
-  --md-comp-text-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Text button label weight */
-  --md-comp-text-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Text button label size */
-  --md-comp-text-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Text button label line height */
-  --md-comp-text-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Text button label font */
-  --md-comp-text-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Text button with icon icon size */
-  --md-comp-text-button-with-icon-icon-size: 18px;
-  /* Text button container height */
-  --md-comp-text-button-container-height: 40px;
-  /* Text button container shape */
-  --md-comp-text-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Text button pressed state layer opacity */
-  --md-comp-text-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Text button with icon disabled icon opacity */
-  --md-comp-text-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Text button disabled label opacity */
-  --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Filled button dragged state layer opacity */
-  --md-comp-filled-button-dragged-state-layer-opacity: var(
-    --md-sys-state-dragged-state-layer-opacity
-  );
-  /* Filled button dragged container elevation */
-  --md-comp-filled-button-dragged-container-elevation: var(
-    --md-sys-elevation-level3
-  );
-  /* Filled button focus state layer opacity */
-  --md-comp-filled-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Filled button focus container elevation */
-  --md-comp-filled-button-focus-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled button hover state layer opacity */
-  --md-comp-filled-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Filled button hover container elevation */
-  --md-comp-filled-button-hover-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Filled button label tracking */
-  --md-comp-filled-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Filled button label weight */
-  --md-comp-filled-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Filled button label size */
-  --md-comp-filled-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Filled button label line height */
-  --md-comp-filled-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Filled button label font */
-  --md-comp-filled-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Filled button with icon icon size */
-  --md-comp-filled-button-with-icon-icon-size: 18px;
-  /* Filled button container elevation */
-  --md-comp-filled-button-container-elevation: var(--md-sys-elevation-level0);
-  /* Filled button container height */
-  --md-comp-filled-button-container-height: 40px;
-  /* Filled button container shape */
-  --md-comp-filled-button-container-shape: var(--md-sys-shape-corner-full);
-  /* Filled button pressed state layer opacity */
-  --md-comp-filled-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Filled button pressed container elevation */
-  --md-comp-filled-button-pressed-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled button with icon disabled icon opacity */
-  --md-comp-filled-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Filled button disabled label opacity */
-  --md-comp-filled-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Filled button disabled container opacity */
-  --md-comp-filled-button-disabled-container-opacity: 0.11999999731779099;
-  /* Filled button disabled container elevation */
-  --md-comp-filled-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled tonal button pressed container elevation */
-  --md-comp-filled-tonal-button-pressed-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled tonal button pressed state layer opacity */
-  --md-comp-filled-tonal-button-pressed-state-layer-opacity: var(
-    --md-sys-state-pressed-state-layer-opacity
-  );
-  /* Filled tonal button focus container elevation */
-  --md-comp-filled-tonal-button-focus-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled tonal button focus state layer opacity */
-  --md-comp-filled-tonal-button-focus-state-layer-opacity: var(
-    --md-sys-state-focus-state-layer-opacity
-  );
-  /* Filled tonal button hover container elevation */
-  --md-comp-filled-tonal-button-hover-container-elevation: var(
-    --md-sys-elevation-level1
-  );
-  /* Filled tonal button hover state layer opacity */
-  --md-comp-filled-tonal-button-hover-state-layer-opacity: var(
-    --md-sys-state-hover-state-layer-opacity
-  );
-  /* Filled tonal button disabled icon opacity */
-  --md-comp-filled-tonal-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
-  /* Filled tonal button disabled label text opacity */
-  --md-comp-filled-tonal-button-disabled-label-text-opacity: 0.3799999952316284;
-  /* Filled tonal button disabled container opacity */
-  --md-comp-filled-tonal-button-disabled-container-opacity: 0.11999999731779099;
-  /* Filled tonal button disabled container elevation */
-  --md-comp-filled-tonal-button-disabled-container-elevation: var(
-    --md-sys-elevation-level0
-  );
-  /* Filled tonal button icon size */
-  --md-comp-filled-tonal-button-with-icon-icon-size: 18px;
-  /* Filled tonal button label text weight */
-  --md-comp-filled-tonal-button-label-text-weight: var(
-    --md-sys-typescale-label-large-weight
-  );
-  /* Filled tonal button label text tracking */
-  --md-comp-filled-tonal-button-label-text-tracking: var(
-    --md-sys-typescale-label-large-tracking
-  );
-  /* Filled tonal button label text size */
-  --md-comp-filled-tonal-button-label-text-size: var(
-    --md-sys-typescale-label-large-size
-  );
-  /* Filled tonal button label text line height */
-  --md-comp-filled-tonal-button-label-text-line-height: var(
-    --md-sys-typescale-label-large-line-height
-  );
-  /* Filled tonal button label text font */
-  --md-comp-filled-tonal-button-label-text-font: var(
-    --md-sys-typescale-label-large-font
-  );
-  /* Filled tonal button container shape */
-  --md-comp-filled-tonal-button-container-shape: var(
-    --md-sys-shape-corner-full
-  );
-  /* Filled tonal button container height */
-  --md-comp-filled-tonal-button-container-height: 40px;
-  /* Filled tonal button container elevation */
-  --md-comp-filled-tonal-button-container-elevation: var(
-    --md-sys-elevation-level0
-  );
 }
 /*
  Copyright 2016 Google Inc. All rights reserved.
@@ -890,6 +648,70 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+:where(html, .light-theme), .tokens, :host {
+  --md-sys-color-primary-rgb: var(--md-ref-palette-primary40-rgb);;
+  --md-sys-color-primary: var(--md-ref-palette-primary40);;
+  --md-sys-color-primary-container-rgb: var(--md-ref-palette-primary90-rgb);;
+  --md-sys-color-primary-container: var(--md-ref-palette-primary90);;
+  --md-sys-color-on-primary-rgb: var(--md-ref-palette-primary100-rgb);;
+  --md-sys-color-on-primary: var(--md-ref-palette-primary100);;
+  --md-sys-color-on-primary-container-rgb: var(--md-ref-palette-primary10-rgb);;
+  --md-sys-color-on-primary-container: var(--md-ref-palette-primary10);;
+  --md-sys-color-inverse-primary-rgb: var(--md-ref-palette-primary80-rgb);;
+  --md-sys-color-inverse-primary: var(--md-ref-palette-primary80);;
+  --md-sys-color-secondary-rgb: var(--md-ref-palette-secondary40-rgb);;
+  --md-sys-color-secondary: var(--md-ref-palette-secondary40);;
+  --md-sys-color-secondary-container-rgb: var(--md-ref-palette-secondary90-rgb);;
+  --md-sys-color-secondary-container: var(--md-ref-palette-secondary90);;
+  --md-sys-color-on-secondary-rgb: var(--md-ref-palette-secondary100-rgb);;
+  --md-sys-color-on-secondary: var(--md-ref-palette-secondary100);;
+  --md-sys-color-on-secondary-container-rgb: var(--md-ref-palette-secondary10-rgb);;
+  --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary10);;
+  --md-sys-color-surface-rgb: var(--md-ref-palette-neutral99-rgb);;
+  --md-sys-color-surface: var(--md-ref-palette-neutral99);;
+  --md-sys-color-surface-variant-rgb: var(--md-ref-palette-neutral-variant90-rgb);;
+  --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant90);;
+  --md-sys-color-on-surface-rgb: var(--md-ref-palette-neutral10-rgb);;
+  --md-sys-color-on-surface: var(--md-ref-palette-neutral10);;
+  --md-sys-color-on-surface-variant-rgb: var(--md-ref-palette-neutral-variant30-rgb);;
+  --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant30);;
+  --md-sys-color-inverse-surface-rgb: var(--md-ref-palette-neutral20-rgb);;
+  --md-sys-color-inverse-surface: var(--md-ref-palette-neutral20);;
+  --md-sys-color-inverse-on-surface-rgb: var(--md-ref-palette-neutral95-rgb);;
+  --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral95);;
+  --md-sys-color-background-rgb: var(--md-ref-palette-neutral99-rgb);;
+  --md-sys-color-background: var(--md-ref-palette-neutral99);;
+  --md-sys-color-on-background-rgb: var(--md-ref-palette-neutral10-rgb);;
+  --md-sys-color-on-background: var(--md-ref-palette-neutral10);;
+  --md-sys-color-outline-rgb: var(--md-ref-palette-neutral-variant50-rgb);;
+  --md-sys-color-outline: var(--md-ref-palette-neutral-variant50);;
+  --md-sys-color-error-rgb: var(--md-ref-palette-error40-rgb);;
+  --md-sys-color-error: var(--md-ref-palette-error40);;
+  --md-sys-color-shadow-rgb: var(--md-ref-palette-neutral0-rgb);;
+  --md-sys-color-shadow: var(--md-ref-palette-neutral0);;
+  --md-sys-color-tertiary-rgb: var(--md-ref-palette-tertiary40-rgb);;
+  --md-sys-color-tertiary: var(--md-ref-palette-tertiary40);;
+  --md-sys-color-tertiary-container-rgb: var(--md-ref-palette-tertiary90-rgb);;
+  --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary90);;
+  --md-sys-color-on-tertiary-rgb: var(--md-ref-palette-tertiary100-rgb);;
+  --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary100);;
+  --md-sys-color-on-tertiary-container-rgb: var(--md-ref-palette-tertiary10-rgb);;
+  --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary10);;
+  --md-sys-color-error-container-rgb: var(--md-ref-palette-error90-rgb);;
+  --md-sys-color-error-container: var(--md-ref-palette-error90);;
+  --md-sys-color-on-error-rgb: var(--md-ref-palette-error100-rgb);;
+  --md-sys-color-on-error: var(--md-ref-palette-error100);;
+  --md-sys-color-on-error-container-rgb: var(--md-ref-palette-error10-rgb);;
+  --md-sys-color-on-error-container: var(--md-ref-palette-error10);;
+  --md-sys-color-surface-tint-color-rgb: var(--md-sys-color-primary-rgb);;
+  --md-sys-color-surface-tint-color: var(--md-sys-color-primary);;
+  --md-sys-color-surface-tint-rgb: var(--md-sys-color-primary-rgb);;
+  --md-sys-color-surface-tint: var(--md-sys-color-primary);;
+  --md-sys-color-outline-variant-rgb: var(--md-ref-palette-neutral-variant80-rgb);;
+  --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant80);;
+  --md-sys-color-scrim-rgb: var(--md-ref-palette-neutral0-rgb);;
+  --md-sys-color-scrim: var(--md-ref-palette-neutral0);;
+}
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -1538,7 +1360,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(html) {
+:where(html, .light-theme, .dark-theme),
+.tokens, :host {
   --md-sys-elevation-0: 0px 0px 0px 0px
       rgb(var(--md-sys-color-shadow-rgb) / 0.2),
     0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
@@ -1563,57 +1386,6 @@
           0.2),
     0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
     0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-}
-.elevation-0 {
-  box-shadow: var(--md-sys-elevation-0);
-}
-.elevation-1 {
-  box-shadow: var(--md-sys-elevation-1);
-}
-.elevation-2 {
-  box-shadow: var(--md-sys-elevation-2);
-}
-.elevation-3 {
-  box-shadow: var(--md-sys-elevation-3);
-}
-.elevation-4 {
-  box-shadow: var(--md-sys-elevation-4);
-}
-.elevation-5 {
-  box-shadow: var(--md-sys-elevation-5);
-}
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-/*
- Copyright 2016 Google Inc. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-:where(html, .light-theme, .dark-theme),
-.tokens, :host {
   --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
   --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
   --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
@@ -1625,6 +1397,186 @@
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
   --md-comp-button-container-shape: 20px;
+  /* Text button container elevation */
+  --md-comp-text-button-container-elevation: var(--md-sys-elevation-level0);
+  /* Text button focus state layer opacity */
+  --md-comp-text-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Text button hover state layer opacity */
+  --md-comp-text-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Text button label tracking */
+  --md-comp-text-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Text button label weight */
+  --md-comp-text-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Text button label size */
+  --md-comp-text-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Text button label line height */
+  --md-comp-text-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Text button label font */
+  --md-comp-text-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Text button with icon icon size */
+  --md-comp-text-button-with-icon-icon-size: 18px;
+  /* Text button container height */
+  --md-comp-text-button-container-height: 40px;
+  /* Text button container shape */
+  --md-comp-text-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Text button pressed state layer opacity */
+  --md-comp-text-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Text button with icon disabled icon opacity */
+  --md-comp-text-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Text button disabled label opacity */
+  --md-comp-text-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Filled button dragged state layer opacity */
+  --md-comp-filled-button-dragged-state-layer-opacity: var(
+    --md-sys-state-dragged-state-layer-opacity
+  );
+  /* Filled button dragged container elevation */
+  --md-comp-filled-button-dragged-container-elevation: var(
+    --md-sys-elevation-level3
+  );
+  /* Filled button focus state layer opacity */
+  --md-comp-filled-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled button focus container elevation */
+  --md-comp-filled-button-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled button hover state layer opacity */
+  --md-comp-filled-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled button hover container elevation */
+  --md-comp-filled-button-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Filled button label tracking */
+  --md-comp-filled-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Filled button label weight */
+  --md-comp-filled-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Filled button label size */
+  --md-comp-filled-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Filled button label line height */
+  --md-comp-filled-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Filled button label font */
+  --md-comp-filled-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Filled button with icon icon size */
+  --md-comp-filled-button-with-icon-icon-size: 18px;
+  /* Filled button container elevation */
+  --md-comp-filled-button-container-elevation: var(--md-sys-elevation-level0);
+  /* Filled button container height */
+  --md-comp-filled-button-container-height: 40px;
+  /* Filled button container shape */
+  --md-comp-filled-button-container-shape: var(--md-sys-shape-corner-full);
+  /* Filled button pressed state layer opacity */
+  --md-comp-filled-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled button pressed container elevation */
+  --md-comp-filled-button-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled button with icon disabled icon opacity */
+  --md-comp-filled-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled button disabled label opacity */
+  --md-comp-filled-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Filled button disabled container opacity */
+  --md-comp-filled-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled button disabled container elevation */
+  --md-comp-filled-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button pressed container elevation */
+  --md-comp-filled-tonal-button-pressed-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button pressed state layer opacity */
+  --md-comp-filled-tonal-button-pressed-state-layer-opacity: var(
+    --md-sys-state-pressed-state-layer-opacity
+  );
+  /* Filled tonal button focus container elevation */
+  --md-comp-filled-tonal-button-focus-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button focus state layer opacity */
+  --md-comp-filled-tonal-button-focus-state-layer-opacity: var(
+    --md-sys-state-focus-state-layer-opacity
+  );
+  /* Filled tonal button hover container elevation */
+  --md-comp-filled-tonal-button-hover-container-elevation: var(
+    --md-sys-elevation-level1
+  );
+  /* Filled tonal button hover state layer opacity */
+  --md-comp-filled-tonal-button-hover-state-layer-opacity: var(
+    --md-sys-state-hover-state-layer-opacity
+  );
+  /* Filled tonal button disabled icon opacity */
+  --md-comp-filled-tonal-button-with-icon-disabled-icon-opacity: 0.3799999952316284;
+  /* Filled tonal button disabled label text opacity */
+  --md-comp-filled-tonal-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Filled tonal button disabled container opacity */
+  --md-comp-filled-tonal-button-disabled-container-opacity: 0.11999999731779099;
+  /* Filled tonal button disabled container elevation */
+  --md-comp-filled-tonal-button-disabled-container-elevation: var(
+    --md-sys-elevation-level0
+  );
+  /* Filled tonal button icon size */
+  --md-comp-filled-tonal-button-with-icon-icon-size: 18px;
+  /* Filled tonal button label text weight */
+  --md-comp-filled-tonal-button-label-text-weight: var(
+    --md-sys-typescale-label-large-weight
+  );
+  /* Filled tonal button label text tracking */
+  --md-comp-filled-tonal-button-label-text-tracking: var(
+    --md-sys-typescale-label-large-tracking
+  );
+  /* Filled tonal button label text size */
+  --md-comp-filled-tonal-button-label-text-size: var(
+    --md-sys-typescale-label-large-size
+  );
+  /* Filled tonal button label text line height */
+  --md-comp-filled-tonal-button-label-text-line-height: var(
+    --md-sys-typescale-label-large-line-height
+  );
+  /* Filled tonal button label text font */
+  --md-comp-filled-tonal-button-label-text-font: var(
+    --md-sys-typescale-label-large-font
+  );
+  /* Filled tonal button container shape */
+  --md-comp-filled-tonal-button-container-shape: var(
+    --md-sys-shape-corner-full
+  );
+  /* Filled tonal button container height */
+  --md-comp-filled-tonal-button-container-height: 40px;
+  /* Filled tonal button container elevation */
+  --md-comp-filled-tonal-button-container-elevation: var(
+    --md-sys-elevation-level0
+  );
   /* Outlined button container elevation */
   --md-comp-outlined-button-container-elevation: var(--md-sys-elevation-level0);
   /* Outlined button focus state layer opacity */
@@ -1991,6 +1943,54 @@
   --md-comp-tabs-container-min-width: 100px;
   --md-comp-list-container-min-width: 300px;
 }
+.elevation-0 {
+  box-shadow: var(--md-sys-elevation-0);
+}
+.elevation-1 {
+  box-shadow: var(--md-sys-elevation-1);
+}
+.elevation-2 {
+  box-shadow: var(--md-sys-elevation-2);
+}
+.elevation-3 {
+  box-shadow: var(--md-sys-elevation-3);
+}
+.elevation-4 {
+  box-shadow: var(--md-sys-elevation-4);
+}
+.elevation-5 {
+  box-shadow: var(--md-sys-elevation-5);
+}
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 .surface-1 {
   background-color: var(--md-sys-color-surface-1);
   color: var(--md-sys-color-on-surface);
@@ -2058,6 +2058,21 @@
     "wght" var(--material-symbols-wght), "GRAD" var(--material-symbols-grad),
     "opsz" var(--material-symbols-opsz);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -2271,6 +2286,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /* 
   Releated Codepen:
   https://codepen.io/argyleink/pen/eYGaPEM
@@ -2289,6 +2319,21 @@
     var(--md-sys-comp-focus-ring-color);
   outline-offset: 5px;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -2343,6 +2388,21 @@
     align-items: center;
     opacity: 0.8;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -2439,7 +2499,22 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+:where(.button, button):not(.icon-button, .fab, .chip) {
   --state-disabled-opacity: 0.3799999952316284;
   --_bg-color: var(--md-sys-comp-button-background-color);
   --_fg-color: var(--md-sys-comp-button-color);
@@ -2485,36 +2560,36 @@
   box-shadow: var(--md-sys-elevation-1);
   transition: box-shadow 0.2s ease-in-out;
 }
-[label]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+[label]:where(.button, button):not(.icon-button, .fab, .chip) {
     content: attr(label);
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons) {
+:where(.button, button):not(.icon-button, .fab, .chip) :where(i, .material-icons) {
     margin-left: -8px;
     font-size: 18px;
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons):only-child {
+:where(.button, button):not(.icon-button, .fab, .chip) :where(i, .material-icons):only-child {
       margin-left: 0;
       margin-right: 0;
     }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) a {
+:where(.button, button):not(.icon-button, .fab, .chip) a {
     text-decoration: none;
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) a:hover {
+:where(.button, button):not(.icon-button, .fab, .chip) a:hover {
       text-decoration: none;
     }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip) a:focus {
+:where(.button, button):not(.icon-button, .fab, .chip) a:focus {
       text-decoration: none;
     }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+:where(.button, button):not(.icon-button, .fab, .chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+:where(.button, button):not(.icon-button, .fab, .chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+:where(.button, button):not(.icon-button, .fab, .chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+[disabled]:where(.button, button):not(.icon-button, .fab, .chip) {
     cursor: default;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2550,7 +2625,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).text {
+:where(.button, button):not(.icon-button, .fab, .chip).text {
   box-shadow: var(--md-sys-elevation-0);
   height: var(--md-comp-text-button-container-height);
 
@@ -2580,16 +2655,16 @@
     --md-comp-text-button-disabled-outline-opacity
   );
 }
-.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.text:where(.button, button):not(.icon-button, .fab, .chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.text:where(.button, button):not(.icon-button, .fab, .chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.text:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.text:where(.button, button):not(.icon-button, .fab, .chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.text[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.text[disabled]:where(.button, button):not(.icon-button, .fab, .chip) {
     box-shadow: none;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
@@ -2623,7 +2698,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).filled {
+:where(.button, button):not(.icon-button, .fab, .chip).filled {
   box-shadow: var(--md-sys-elevation-0);
 
   --md-sys-comp-button-background-color: var(--md-sys-color-primary);
@@ -2652,16 +2727,16 @@
     --md-comp-filled-button-disabled-outline-opacity
   );
 }
-.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.filled:where(.button, button):not(.icon-button, .fab, .chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.filled:where(.button, button):not(.icon-button, .fab, .chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.filled:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.filled:where(.button, button):not(.icon-button, .fab, .chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.filled[disabled]:where(.button, button):not(.icon-button, .fab, .chip) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2696,7 +2771,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).filled-tonal {
+:where(.button, button):not(.icon-button, .fab, .chip).filled-tonal {
   --md-sys-comp-button-background-color: var(
     --md-sys-color-secondary-container
   );
@@ -2733,16 +2808,16 @@
     --md-comp-filled-tonal-button-disabled-outline-opacity
   );
 }
-.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.filled-tonal:where(.button, button):not(.icon-button, .fab, .chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.filled-tonal:where(.button, button):not(.icon-button, .fab, .chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.filled-tonal:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.filled-tonal:where(.button, button):not(.icon-button, .fab, .chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.filled-tonal[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.filled-tonal[disabled]:where(.button, button):not(.icon-button, .fab, .chip) {
     --tint-color: transparent;
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
@@ -2778,7 +2853,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).outlined {
+:where(.button, button):not(.icon-button, .fab, .chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
     var(--md-sys-color-outline);
   box-shadow: var(--md-sys-elevation-0);
@@ -2814,19 +2889,19 @@
     --md-comp-outlined-button-disabled-outline-opacity
   );
 }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
+.outlined:where(.button, button):not(.icon-button, .fab, .chip) :where(i, .material-icons)  {
     margin-left: -9px;
   }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.outlined:where(.button, button):not(.icon-button, .fab, .chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.outlined:where(.button, button):not(.icon-button, .fab, .chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
-.outlined:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.outlined:where(.button, button):not(.icon-button, .fab, .chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.outlined[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.outlined[disabled]:where(.button, button):not(.icon-button, .fab, .chip) {
     box-shadow: var(--md-sys-elevation-0);
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
@@ -2861,7 +2936,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-:where(.button, button):not(.icon-button):not(.fab):not(.chip).elevated {
+:where(.button, button):not(.icon-button, .fab, .chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
   height: var(--md-comp-elevated-button-container-height);
 
@@ -2889,19 +2964,19 @@
     --md-comp-elevated-button-disabled-outline-opacity
   );
 }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip) :where(i, .material-icons)  {
+.elevated:where(.button, button):not(.icon-button, .fab, .chip) :where(i, .material-icons)  {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:hover, .hover) {
+.elevated:where(.button, button):not(.icon-button, .fab, .chip):where(:hover, .hover) {
     box-shadow: var(--md-sys-elevation-2);
   }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:active, .active) {
+.elevated:where(.button, button):not(.icon-button, .fab, .chip):where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
-.elevated:where(.button, button):not(.icon-button):not(.fab):not(.chip):where(:focus, .focus) {
+.elevated:where(.button, button):not(.icon-button, .fab, .chip):where(:focus, .focus) {
     box-shadow: var(--md-sys-elevation-2);
   }
-.elevated[disabled]:where(.button, button):not(.icon-button):not(.fab):not(.chip) {
+.elevated[disabled]:where(.button, button):not(.icon-button, .fab, .chip) {
     box-shadow: var(--md-sys-elevation-0);
     background-color: rgb(
       var(--md-sys-color-on-surface-rgb) /
@@ -2912,6 +2987,21 @@
         var(--md-comp-elevated-button-disabled-label-text-opacity)
     );
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -3381,6 +3471,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.fab) {
   /* Remove default button styles */
   -webkit-tap-highlight-color: transparent;
@@ -3488,8 +3593,7 @@
   border-radius: var(--md-sys-shape-corner-medium);
   height: 56px;
   font-size: 16px;
-  width: auto;
-  width: initial;
+  width: unset;
 }
 .extended:is(.fab) :where(i, .material-icons)  {
     font-size: 24px;
@@ -3564,6 +3668,21 @@
     background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -3697,6 +3816,21 @@
   border: 1px solid var(--md-sys-color-outline);
   box-shadow: none;
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -4016,6 +4150,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.top-app-bar, header) {
   position: relative;
   padding: var(--md-sys-comp-top-app-bar-padding);
@@ -4041,11 +4190,9 @@
     gap: 8px;
   }
 :is(.top-app-bar, header) .icon-button {
-    background-color: transparent;
-    background-color: initial;
-    color: inherit;
-    padding: 0;
-    padding: initial;
+    background-color: unset;
+    color: unset;
+    padding: unset;
   }
 :is(.top-app-bar, header) .title {
     grid-area: title;
@@ -4061,8 +4208,7 @@
   }
 :is(.top-app-bar, header) .leading {
     grid-area: leading;
-    padding: 0;
-    padding: initial;
+    padding: unset;
   }
 .fixed:is(.top-app-bar, header) {
     transition: background 0.8s;
@@ -4212,6 +4358,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.text-field) {
   -webkit-text-decoration: var(--md-sys-typescale-body-large-text-decoration);
           text-decoration: var(--md-sys-typescale-body-large-text-decoration);
@@ -4326,32 +4487,19 @@ datalist {
   .outlined:is(.text-field):hover > textarea + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
-.outlined:is(.text-field):hover > input:not(:focus):-moz-placeholder-shown, .outlined:is(.text-field):hover > textarea:not(:focus):-moz-placeholder-shown {
-    border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
-  }
 .outlined:is(.text-field):hover > input:not(:focus):placeholder-shown,
   .outlined:is(.text-field):hover > textarea:not(:focus):placeholder-shown {
     border-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.87);
   }
 /* Placeholder-shown */
-.outlined:is(.text-field) input:not(:focus):-moz-placeholder-shown, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown {
-    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
-  }
 .outlined:is(.text-field) input:not(:focus):placeholder-shown,
   .outlined:is(.text-field) > textarea:not(:focus):placeholder-shown {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
-  }
-.outlined:is(.text-field) input:not(:focus):-moz-placeholder-shown + span, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown + span {
-    font-size: inherit;
-    line-height: 68px;
   }
 .outlined:is(.text-field) input:not(:focus):placeholder-shown + span,
   .outlined:is(.text-field) > textarea:not(:focus):placeholder-shown + span {
     font-size: inherit;
     line-height: 68px;
-  }
-.outlined:is(.text-field) input:not(:focus):-moz-placeholder-shown + span::before, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown + span::before, .outlined:is(.text-field) input:not(:focus):-moz-placeholder-shown + span::after, .outlined:is(.text-field) > textarea:not(:focus):-moz-placeholder-shown + span::after {
-    border-top-color: transparent;
   }
 .outlined:is(.text-field) input:not(:focus):placeholder-shown + span::before,
   .outlined:is(.text-field) > textarea:not(:focus):placeholder-shown + span::before,
@@ -4396,17 +4544,11 @@ datalist {
   .outlined:is(.text-field) > textarea:disabled + span::after {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
   }
-.outlined:is(.text-field) input:disabled:-moz-placeholder-shown, .outlined:is(.text-field) input:disabled:-moz-placeholder-shown + span, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown + span {
-    border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
-  }
 .outlined:is(.text-field) input:disabled:placeholder-shown,
   .outlined:is(.text-field) input:disabled:placeholder-shown + span,
   .outlined:is(.text-field) > textarea:disabled:placeholder-shown,
   .outlined:is(.text-field) > textarea:disabled:placeholder-shown + span {
     border-top-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38) !important;
-  }
-.outlined:is(.text-field) input:disabled:-moz-placeholder-shown + span::before, .outlined:is(.text-field) input:disabled:-moz-placeholder-shown + span::after, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown + span::before, .outlined:is(.text-field) > textarea:disabled:-moz-placeholder-shown + span::after {
-    border-top-color: transparent !important;
   }
 .outlined:is(.text-field) input:disabled:placeholder-shown + span::before,
   .outlined:is(.text-field) input:disabled:placeholder-shown + span::after,
@@ -4453,7 +4595,7 @@ datalist {
 
     /* Span */
   }
-.filled:is(.text-field) > :where(input, textarea) + span {
+:is(.filled:is(.text-field) > :where(input, textarea)) + span {
       position: absolute;
       top: 0;
       left: 0;
@@ -4470,7 +4612,7 @@ datalist {
 
       /* Underline */
     }
-.filled:is(.text-field) > :where(input, textarea) + span::after {
+:is(.filled:is(.text-field) > :where(input, textarea)) + span::after {
         content: "";
         position: absolute;
         left: 0;
@@ -4489,11 +4631,7 @@ datalist {
       background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.08);
     }
 /* Placeholder-shown */
-.filled:is(.text-field) > :where(input, textarea):not(:focus):-moz-placeholder-shown + span {
-      font-size: inherit;
-      line-height: 48px;
-    }
-.filled:is(.text-field) > :where(input, textarea):not(:focus):placeholder-shown + span {
+:is(.filled:is(.text-field) > :where(input, textarea)):not(:focus):placeholder-shown + span {
       font-size: inherit;
       line-height: 48px;
     }
@@ -4501,13 +4639,13 @@ datalist {
 .filled:is(.text-field) > :where(input, textarea):focus {
       outline: none;
     }
-.filled:is(.text-field) > :where(input, textarea):focus + span {
+:is(.filled:is(.text-field) > :where(input, textarea):focus) + span {
         color: var(--md-sys-color-primary);
       }
-.filled:is(.text-field) > :where(input, textarea):focus + span::before {
+:is(.filled:is(.text-field) > :where(input, textarea):focus) + span::before {
           opacity: 0.12;
         }
-.filled:is(.text-field) > :where(input, textarea):focus + span::after {
+:is(.filled:is(.text-field) > :where(input, textarea):focus) + span::after {
           transform: scale(1);
         }
 .filled:is(.text-field) > :where(input, textarea):disabled {
@@ -4515,9 +4653,24 @@ datalist {
       color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
       background-color: rgb(var(--md-sys-color-on-surface-rgb) / 0.24);
     }
-.filled:is(.text-field) > :where(input, textarea):disabled + span {
+:is(.filled:is(.text-field) > :where(input, textarea):disabled) + span {
         color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
       }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -4614,6 +4767,21 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.tooltip) {
   text-decoration: none;
   position: relative;
@@ -4649,6 +4817,21 @@ datalist {
 :is(.tooltip):is(:hover, [data-visible]):before {
     transform: translateX(-50%) translateY(-10%) scale(1);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -4842,6 +5025,21 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.badge) {
   position: relative;
 }
@@ -4970,6 +5168,21 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(input[type="checkbox"], .checkbox):not(:where(.switch, .segmented-button, .toggle)) {
   appearance: none;
   -moz-appearance: none;
@@ -5011,6 +5224,21 @@ datalist {
     cursor: default;
     color: rgb(var(--md-sys-color-on-surface-rgb) / 0.12);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -5232,6 +5460,21 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.table, table) {
   border-collapse: separate;
   border-spacing: 0;
@@ -5295,6 +5538,21 @@ datalist {
 .zebra:is(.table, table) :is(tbody, .table-body) :is(tr, .table-row):nth-of-type(even) {
     background-color: var(--md-sys-color-surface-1);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -5402,11 +5660,41 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(hr, .divider) {
   height: var(--md-sys-comp-divider-container-height);
   width: var(--md-sys-comp-divider-container-width);
   background-color: var(--md-sys-comp-divider-color);
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -5487,7 +5775,7 @@ datalist {
     opacity: 0;
     position: absolute;
   }
-:is(.segmented-button) input:focus-visible + :where(.navigation-icon, label) {
+:is(:is(.segmented-button) input):focus-visible + :where(.navigation-icon, label) {
       outline: var(--md-sys-comp-focus-ring-width) solid
         var(--md-sys-comp-focus-ring-color);
       outline-offset: 5px;
@@ -5554,15 +5842,26 @@ datalist {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :where(.radio-button, [type="radio"]) {
   display: grid;
-  align-content: center;
-  justify-content: center;
   place-content: center;
   position: relative;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   margin: 0;
 }
 :where(.radio-button, [type="radio"])::before {
@@ -5584,6 +5883,21 @@ datalist {
     content: "radio_button_checked";
     color: var(--md-sys-color-primary);
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -5661,8 +5975,8 @@ progress {
       var(--md-sys-comp-progress-color) var(--progress),
       var(--md-sys-comp-progress-background-color) 0deg
     );
-    -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 54%, #000 55% 0);
-            mask: radial-gradient(circle at center, rgba(0,0,0,0) 0 54%, #000 55% 0);
+    -webkit-mask: radial-gradient(circle at center, #0000 0 54%, #000 55% 0);
+            mask: radial-gradient(circle at center, #0000 0 54%, #000 55% 0);
   }
 .circular.indeterminate:is(.progress)::after {
       content: "";
@@ -5675,20 +5989,8 @@ progress {
       border: 3px solid var(--md-sys-comp-progress-color);
       border-right-color: transparent;
       border-bottom-color: transparent;
-      -webkit-animation: circular-progress-indeterminate-animation 1.4s linear infinite;
-              animation: circular-progress-indeterminate-animation 1.4s linear infinite;
+      animation: circular-progress-indeterminate-animation 1.4s linear infinite;
     }
-@-webkit-keyframes circular-progress-indeterminate-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 @keyframes circular-progress-indeterminate-animation {
   0% {
     transform: rotate(0deg);
@@ -5742,23 +6044,10 @@ progress {
       bottom: 0;
       background-color: var(--md-sys-comp-progress-color);
       will-change: left, right;
-      -webkit-animation: linear-progress-indeterminate-animation
-        var(--progress-duration)
-        var(--md-sys-motion-easing-emphasized-accelerate) infinite;
-              animation: linear-progress-indeterminate-animation
+      animation: linear-progress-indeterminate-animation
         var(--progress-duration)
         var(--md-sys-motion-easing-emphasized-accelerate) infinite;
     }
-@-webkit-keyframes linear-progress-indeterminate-animation {
-  0% {
-    left: -35%;
-    right: 100%;
-  }
-  100% {
-    left: 100%;
-    right: -90%;
-  }
-}
 @keyframes linear-progress-indeterminate-animation {
   0% {
     left: -35%;
@@ -5769,6 +6058,21 @@ progress {
     right: -90%;
   }
 }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -5874,18 +6178,27 @@ progress {
     bottom: 0;
     right: 0;
   }
-.modal:is(.dialog, dialog):not(.navigation-drawer)::-webkit-backdrop {
-    /* Tokens not available in backdrop (above document) */
-    /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
-    background-color: rgb(0, 0, 0, 0.32);
-    pointer-events: none !important;
-  }
 .modal:is(.dialog, dialog):not(.navigation-drawer)::backdrop {
     /* Tokens not available in backdrop (above document) */
     /* background-color: rgb(var(--md-sys-color-scrim), 0.32); */
     background-color: rgb(0, 0, 0, 0.32);
     pointer-events: none !important;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -5948,15 +6261,30 @@ progress {
     width: 0;
     height: 0;
   }
-:is(.navigation-bar) input:checked + .navigation-icon i {
+:is(:is(.navigation-bar) input):checked + .navigation-icon i {
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
     }
-:is(.navigation-bar) input:focus-visible + .navigation-icon {
+:is(:is(.navigation-bar) input):focus-visible + .navigation-icon {
       outline: var(--md-sys-comp-focus-ring-width) solid
         var(--md-sys-comp-focus-ring-color);
       outline-offset: 5px;
     }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -6040,11 +6368,11 @@ progress {
       opacity: 0;
       position: absolute;
     }
-:is(.navigation-rail) :is(nav, .navigation-rail-destinations) input:checked + .navigation-icon :where(i, .material-icons) {
+:is(:is(.navigation-rail) :is(nav, .navigation-rail-destinations) input):checked + .navigation-icon :where(i, .material-icons) {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
       }
-:is(.navigation-rail) :is(nav, .navigation-rail-destinations) input:focus-visible + .navigation-icon {
+:is(:is(.navigation-rail) :is(nav, .navigation-rail-destinations) input):focus-visible + .navigation-icon {
         outline: var(--md-sys-comp-focus-ring-width) solid
           var(--md-sys-comp-focus-ring-color);
         outline-offset: 5px;
@@ -6085,6 +6413,21 @@ progress {
 .bottom:is(.navigation-rail) nav {
     justify-content: flex-end;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -6226,18 +6569,27 @@ progress {
 .modal[open]:is(.navigation-drawer) form button {
         flex: 1;
       }
-.modal[open]:is(.navigation-drawer)::-webkit-backdrop {
-      /* Tokens not available in backdrop (above document) */
-      /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
-      background-color: rgb(0, 0, 0, 0.4);
-      pointer-events: none !important;
-    }
 .modal[open]:is(.navigation-drawer)::backdrop {
       /* Tokens not available in backdrop (above document) */
       /* background-color: rgb(var(--md-sys-color-scrim), 0.4); */
       background-color: rgb(0, 0, 0, 0.4);
       pointer-events: none !important;
     }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 
@@ -6326,6 +6678,21 @@ progress {
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 :is(.tabs) {
   width: 100%;
   height: 40px;
@@ -6333,7 +6700,6 @@ progress {
   align-items: center;
   position: relative;
   -webkit-user-select: none;
-     -moz-user-select: none;
           user-select: none;
   background-color: var(--md-sys-comp-tabs-container-background-color);
   color: var(--md-sys-comp-tabs-container-color);
@@ -6365,7 +6731,6 @@ progress {
     margin: 0;
     cursor: pointer;
     -webkit-user-select: none;
-       -moz-user-select: none;
             user-select: none;
     position: relative;
     z-index: 1;
@@ -6383,7 +6748,7 @@ progress {
     display: none;
     pointer-events: none;
   }
-:is(.tabs) input:checked + :where(label, .tab) {
+:is(:is(.tabs) input:checked) + :where(label, .tab) {
         padding-bottom: 0;
         color: var(--md-sys-color-primary);
         border-bottom: 2px solid var(--md-sys-color-primary);
@@ -6411,6 +6776,21 @@ progress {
     min-width: var(--md-comp-tabs-container-min-width);
     white-space: nowrap;
   }
+/*
+ Copyright 2016 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
 /*
  Copyright 2016 Google Inc. All rights reserved.
 

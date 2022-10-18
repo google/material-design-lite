@@ -14,33 +14,50 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Outlined segmented button shape */
   --md-comp-outlined-segmented-button-shape: var(--md-sys-shape-corner-full);
+  /* Outlined segmented button container height */
   --md-comp-outlined-segmented-button-container-height: 40px;
+  /* Outlined segmented button outline width */
   --md-comp-outlined-segmented-button-outline-width: 1px;
+  /* Outlined segmented button pressed state layer opacity */
   --md-comp-outlined-segmented-button-pressed-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Outlined segmented button focus state layer opacity */
   --md-comp-outlined-segmented-button-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Outlined segmented button hover state layer opacity */
   --md-comp-outlined-segmented-button-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Outlined segmented button disabled icon opacity */
   --md-comp-outlined-segmented-button-disabled-icon-opacity: 0.3799999952316284;
+  /* Outlined segmented button disabled label text opacity */
   --md-comp-outlined-segmented-button-disabled-label-text-opacity: 0.3799999952316284;
+  /* Outlined segmented button disabled outline opacity */
   --md-comp-outlined-segmented-button-disabled-outline-opacity: 0.11999999731779099;
+  /* Outlined segmented button icon size */
   --md-comp-outlined-segmented-button-with-icon-icon-size: 18px;
+  /* Outlined segmented button label text weight */
   --md-comp-outlined-segmented-button-label-text-weight: var(
     --md-sys-typescale-label-large-weight
   );
+  /* Outlined segmented button label text tracking */
   --md-comp-outlined-segmented-button-label-text-tracking: var(
     --md-sys-typescale-label-large-tracking
   );
+  /* Outlined segmented button label text size */
   --md-comp-outlined-segmented-button-label-text-size: var(
     --md-sys-typescale-label-large-size
   );
+  /* Outlined segmented button label text line height */
   --md-comp-outlined-segmented-button-label-text-line-height: var(
     --md-sys-typescale-label-large-line-height
   );

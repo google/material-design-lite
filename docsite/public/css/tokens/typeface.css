@@ -15,10 +15,15 @@
 */
 
 :where(html),
-.tokens {
+.tokens,
+:host {
+  /* Plain typeface */
   --md-ref-typeface-plain: Roboto;
+  /* Brand typeface */
   --md-ref-typeface-brand: Roboto;
+  /* Bold weight */
   --md-ref-typeface-weight-bold: 700;
+  /* Medium weight */
   --md-ref-typeface-weight-medium: 500;
   /* Regular weight */
   --md-ref-typeface-weight-regular: 400;

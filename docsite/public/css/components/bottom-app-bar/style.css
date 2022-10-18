@@ -18,8 +18,10 @@
 footer) {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   position: relative;
+  box-sizing: border-box;
   box-shadow: var(--md-sys-elevation-1);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
@@ -53,10 +55,7 @@ footer) :where(.icon-button) {
   }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip) {
+footer) :where(.fab) {
     margin: 16px;
     box-shadow: var(--md-sys-elevation-0);
     background-color: var(--md-sys-color-surface-variant);
@@ -64,25 +63,16 @@ button):not(.icon-button,
   }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):hover {
+footer) :where(.fab):hover {
       box-shadow: var(--md-sys-elevation-1);
     }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):focus {
+footer) :where(.fab):focus {
       box-shadow: var(--md-sys-elevation-0);
     }
 
 :is(.bottom-app-bar,
-footer) :where(.button,
-button):not(.icon-button,
-.fab,
-.chip):active {
+footer) :where(.fab):active {
       box-shadow: var(--md-sys-elevation-0);
     }

@@ -15,11 +15,17 @@
 */
 
 :where(html),
-.tokens {
+.tokens,
+:host {
+  /* 0 */
   --md-sys-elevation-level0: 0px;
+  /* +1 */
   --md-sys-elevation-level1: 1px;
+  /* +2 */
   --md-sys-elevation-level2: 3px;
+  /* +3 */
   --md-sys-elevation-level3: 6px;
+  /* +4 */
   --md-sys-elevation-level4: 8px;
   /* +5 */
   --md-sys-elevation-level5: 12px;

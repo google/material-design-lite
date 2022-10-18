@@ -14,25 +14,36 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Badge large label text weight */
   --md-comp-badge-large-label-text-weight: var(
     --md-sys-typescale-label-small-weight
   );
+  /* Badge large label text tracking */
   --md-comp-badge-large-label-text-tracking: var(
     --md-sys-typescale-label-small-tracking
   );
+  /* Badge large label text size */
   --md-comp-badge-large-label-text-size: var(
     --md-sys-typescale-label-small-size
   );
+  /* Badge large label text line height */
   --md-comp-badge-large-label-text-line-height: var(
     --md-sys-typescale-label-small-line-height
   );
+  /* Badge large label text font */
   --md-comp-badge-large-label-text-font: var(
     --md-sys-typescale-label-small-font
   );
+  /* Badge large size */
   --md-comp-badge-large-size: 16px;
+  /* Badge large shape */
   --md-comp-badge-large-shape: var(--md-sys-shape-corner-full);
+  /* Badge size */
   --md-comp-badge-size: 6px;
   /* Badge shape */
   --md-comp-badge-shape: var(--md-sys-shape-corner-full);

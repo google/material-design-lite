@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
   --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
   --md-comp-fab-container-size: 56px;
@@ -29,6 +32,7 @@
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
   padding: 16px;
   font-size: 24px;
   border-radius: 16px;

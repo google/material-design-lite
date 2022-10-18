@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-button-background-color: var(--md-sys-color-surface);
   --md-sys-comp-button-color: var(--md-sys-color-primary);
   --md-comp-button-container-height: 40px;
@@ -39,6 +42,7 @@ button):not(.icon-button,
   align-items: center;
   justify-content: center;
   border: none;
+  text-decoration: none;
   background-color: var(--_bg-color);
   color: var(--_fg-color);
   height: var(--_height);

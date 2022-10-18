@@ -14,8 +14,11 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
   --md-sys-comp-slider-background-color: transparent;
   --md-sys-comp-slider-color: var(--md-sys-color-surface-1);
   --md-sys-comp-slider-container-height: 36px;
@@ -42,6 +45,7 @@ input[type="range"]):last-child {
 
 :is(.slider,
 input[type="range"])::-webkit-slider-thumb {
+    box-shadow: 0 0 0 2px transparent;
     appearance: none;
     -webkit-appearance: none;
     border: none;
@@ -49,7 +53,8 @@ input[type="range"])::-webkit-slider-thumb {
     height: 2px;
     width: 2px;
     background-color: rgb(var(--md-sys-color-primary-rgb));
-    transform: scale(6, 6);
+    -webkit-transform: scale(6, 6);
+            transform: scale(6, 6);
     -webkit-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
     box-shadow: 0 0 0 2px transparent;
@@ -206,7 +211,8 @@ input[type="range"]):disabled::-webkit-slider-thumb {
       background-color: rgb(var(--md-sys-color-on-surface-rgb));
       color: var(--md-sys-color-surface); /* Safari */
       box-shadow: 0 0 0 1px var(--md-sys-color-surface) !important;
-      transform: scale(4, 4);
+      -webkit-transform: scale(4, 4);
+              transform: scale(4, 4);
     }
 
 :is(.slider,

@@ -14,34 +14,50 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Outlined card disabled outline opacity */
   --md-comp-outlined-card-disabled-outline-opacity: 0.11999999731779099;
+  /* Outlined card disabled container elevation */
   --md-comp-outlined-card-disabled-container-elevation: var(
     --md-sys-elevation-level0
   );
+  /* Outlined card pressed container elevation */
   --md-comp-outlined-card-pressed-container-elevation: var(
     --md-sys-elevation-level0
   );
+  /* Outlined card focus container elevation */
   --md-comp-outlined-card-focus-container-elevation: var(
     --md-sys-elevation-level0
   );
+  /* Outlined card hover container elevation */
   --md-comp-outlined-card-hover-container-elevation: var(
     --md-sys-elevation-level1
   );
+  /* Outlined card icon size */
   --md-comp-outlined-card-icon-size: 24px;
+  /* Outlined card outline width */
   --md-comp-outlined-card-outline-width: 1px;
+  /* Outlined card focus state layer opacity */
   --md-comp-outlined-card-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Outlined card hover state layer opacity */
   --md-comp-outlined-card-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Outlined card container shape */
   --md-comp-outlined-card-container-shape: var(--md-sys-shape-corner-medium);
+  /* Outlined card container elevation */
   --md-comp-outlined-card-container-elevation: var(--md-sys-elevation-level0);
+  /* Outlined card dragged state layer opacity */
   --md-comp-outlined-card-dragged-state-layer-opacity: var(
     --md-sys-state-dragged-state-layer-opacity
   );
+  /* Outlined card dragged container elevation */
   --md-comp-outlined-card-dragged-container-elevation: var(
     --md-sys-elevation-level3
   );

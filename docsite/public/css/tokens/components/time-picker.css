@@ -14,128 +14,180 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* Time picker clock dial selector track container width */
   --md-comp-time-picker-clock-dial-selector-track-container-width: 2px;
+  /* Time picker clock dial selector center container size */
   --md-comp-time-picker-clock-dial-selector-center-container-size: 8px;
+  /* Time picker clock dial selector handle container size */
   --md-comp-time-picker-clock-dial-selector-handle-container-size: 48px;
+  /* Time picker clock dial container size */
   --md-comp-time-picker-clock-dial-container-size: 256px;
+  /* Time picker period selector horizontal container height */
   --md-comp-time-picker-period-selector-horizontal-container-height: 38px;
+  /* Time picker period selector horizontal container width */
   --md-comp-time-picker-period-selector-horizontal-container-width: 216px;
+  /* Time picker period selector vertical container height */
   --md-comp-time-picker-period-selector-vertical-container-height: 80px;
+  /* Time picker period selector vertical container width */
   --md-comp-time-picker-period-selector-vertical-container-width: 52px;
+  /* Time picker time selector container height */
   --md-comp-time-picker-time-selector-container-height: 80px;
+  /* Time picker time selector 24h vertical container width */
   --md-comp-time-picker-time-selector-24h-vertical-container-width: 114px;
+  /* Time picker time selector container width */
   --md-comp-time-picker-time-selector-container-width: 96px;
+  /* Time picker period selector pressed state layer opacity */
   --md-comp-time-picker-period-selector-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Time picker time selector pressed state layer opacity */
   --md-comp-time-picker-time-selector-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* Time picker period selector focus state layer opacity */
   --md-comp-time-picker-period-selector-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Time picker time selector focus state layer opacity */
   --md-comp-time-picker-time-selector-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* Time picker period selector hover state layer opacity */
   --md-comp-time-picker-period-selector-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Time picker time selector hover state layer opacity */
   --md-comp-time-picker-time-selector-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* Time picker clock dial selector center container shape */
   --md-comp-time-picker-clock-dial-selector-center-container-shape: var(
     --md-sys-shape-corner-full
   );
+  /* Time picker clock dial selector handle container shape */
   --md-comp-time-picker-clock-dial-selector-handle-container-shape: var(
     --md-sys-shape-corner-full
   );
+  /* Time picker clock dial label text tracking */
   --md-comp-time-picker-clock-dial-label-text-tracking: var(
     --md-sys-typescale-body-large-tracking
   );
+  /* Time picker clock dial label text weight */
   --md-comp-time-picker-clock-dial-label-text-weight: var(
     --md-sys-typescale-body-large-weight
   );
+  /* Time picker clock dial label text size */
   --md-comp-time-picker-clock-dial-label-text-size: var(
     --md-sys-typescale-body-large-size
   );
+  /* Time picker clock dial label text line height */
   --md-comp-time-picker-clock-dial-label-text-line-height: var(
     --md-sys-typescale-body-large-line-height
   );
+  /* Time picker clock dial label text font */
   --md-comp-time-picker-clock-dial-label-text-font: var(
     --md-sys-typescale-body-large-font
   );
+  /* Time picker clock dial shape ignore */
   --md-comp-time-picker-clock-dial-shape-ignore: var(
     --md-sys-shape-corner-full
   );
+  /* Time picker period selector label text tracking */
   --md-comp-time-picker-period-selector-label-text-tracking: var(
     --md-sys-typescale-title-medium-tracking
   );
+  /* Time picker period selector label text weight */
   --md-comp-time-picker-period-selector-label-text-weight: var(
     --md-sys-typescale-title-medium-weight
   );
+  /* Time picker period selector label text size */
   --md-comp-time-picker-period-selector-label-text-size: var(
     --md-sys-typescale-title-medium-size
   );
+  /* Time picker period selector label text line height */
   --md-comp-time-picker-period-selector-label-text-line-height: var(
     --md-sys-typescale-title-medium-line-height
   );
+  /* Time picker period selector label text font */
   --md-comp-time-picker-period-selector-label-text-font: var(
     --md-sys-typescale-title-medium-font
   );
+  /* Time picker period selector outline width */
   --md-comp-time-picker-period-selector-outline-width: 1px;
+  /* Time picker period selector container shape */
   --md-comp-time-picker-period-selector-container-shape: var(
     --md-sys-shape-corner-small
   );
+  /* Time picker time selector separator tracking */
   --md-comp-time-picker-time-selector-separator-tracking: var(
     --md-sys-typescale-display-large-tracking
   );
+  /* Time picker time selector separator weight */
   --md-comp-time-picker-time-selector-separator-weight: var(
     --md-sys-typescale-display-large-weight
   );
+  /* Time picker time selector separator size */
   --md-comp-time-picker-time-selector-separator-size: var(
     --md-sys-typescale-display-large-size
   );
+  /* Time picker time selector separator line height */
   --md-comp-time-picker-time-selector-separator-line-height: var(
     --md-sys-typescale-display-large-line-height
   );
+  /* Time picker time selector separator font */
   --md-comp-time-picker-time-selector-separator-font: var(
     --md-sys-typescale-display-large-font
   );
+  /* Time picker time selector label text tracking */
   --md-comp-time-picker-time-selector-label-text-tracking: var(
     --md-sys-typescale-display-large-tracking
   );
+  /* Time picker time selector label text weight */
   --md-comp-time-picker-time-selector-label-text-weight: var(
     --md-sys-typescale-display-large-weight
   );
+  /* Time picker time selector label text size */
   --md-comp-time-picker-time-selector-label-text-size: var(
     --md-sys-typescale-display-large-size
   );
+  /* Time picker time selector label text line height */
   --md-comp-time-picker-time-selector-label-text-line-height: var(
     --md-sys-typescale-display-large-line-height
   );
+  /* Time picker time selector label text font */
   --md-comp-time-picker-time-selector-label-text-font: var(
     --md-sys-typescale-display-large-font
   );
+  /* Time picker time selector container shape */
   --md-comp-time-picker-time-selector-container-shape: var(
     --md-sys-shape-corner-small
   );
+  /* Time picker headline tracking */
   --md-comp-time-picker-headline-tracking: var(
     --md-sys-typescale-label-medium-tracking
   );
+  /* Time picker headline weight */
   --md-comp-time-picker-headline-weight: var(
     --md-sys-typescale-label-medium-weight
   );
+  /* Time picker headline size */
   --md-comp-time-picker-headline-size: var(
     --md-sys-typescale-label-medium-size
   );
+  /* Time picker headline line height */
   --md-comp-time-picker-headline-line-height: var(
     --md-sys-typescale-label-medium-line-height
   );
+  /* Time picker headline font */
   --md-comp-time-picker-headline-font: var(
     --md-sys-typescale-label-medium-font
   );
+  /* Time picker container shape */
   --md-comp-time-picker-container-shape: var(--md-sys-shape-corner-extra-large);
   /* Time picker container elevation */
   --md-comp-time-picker-container-elevation: var(--md-sys-elevation-level3);

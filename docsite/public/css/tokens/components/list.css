@@ -14,122 +14,176 @@
  limitations under the License.
 */
 
-:where(html),
-.tokens {
+:where(html,
+.light-theme,
+.dark-theme),
+.tokens,
+:host {
+  /* List list item container height */
   --md-comp-list-list-item-container-height: 56px;
+  /* Three lines list item container height */
   --md-comp-list-md-comp-list-list-item-three-line-container-height: 88px;
+  /* Two lines list item container height */
   --md-comp-list-md-comp-list-list-item-two-line-container-height: 72px;
+  /* One line list item container height */
   --md-comp-list-md-comp-list-list-item-one-line-container-height: 56px;
+  /* List list item divider height */
   --md-comp-list-divider-height: 1px;
+  /* List list item dragged container color */
   --md-comp-list-list-item-dragged-container-elevation: var(
     --md-sys-elevation-level4
   );
+  /* List list item dragged state layer opacity */
   --md-comp-list-list-item-dragged-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* List list item pressed state layer opacity */
   --md-comp-list-list-item-pressed-state-layer-opacity: var(
     --md-sys-state-pressed-state-layer-opacity
   );
+  /* List list item focus state layer opacity */
   --md-comp-list-list-item-focus-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* List list item hover state layer opacity */
   --md-comp-list-list-item-hover-state-layer-opacity: var(
     --md-sys-state-hover-state-layer-opacity
   );
+  /* List list item disabled trailing icon opacity */
   --md-comp-list-list-item-disabled-trailing-icon-opacity: 0.3799999952316284;
+  /* List list item disabled leading icon opacity */
   --md-comp-list-list-item-disabled-leading-icon-opacity: 0.3799999952316284;
+  /* List list item disabled state layer opacity */
   --md-comp-list-list-item-disabled-state-layer-opacity: var(
     --md-sys-state-focus-state-layer-opacity
   );
+  /* List list item disabled label text opacity */
   --md-comp-list-list-item-disabled-label-text-opacity: 0.30000001192092896;
+  /* List list item trailing icon size */
   --md-comp-list-list-item-trailing-icon-size: 24px;
+  /* List list item trailing supporting text weight */
   --md-comp-list-list-item-trailing-supporting-text-weight: var(
     --md-sys-typescale-label-small-weight
   );
+  /* List list item trailing supporting text tracking */
   --md-comp-list-list-item-trailing-supporting-text-tracking: var(
     --md-sys-typescale-label-small-tracking
   );
+  /* List list item trailing supporting text size */
   --md-comp-list-list-item-trailing-supporting-text-size: var(
     --md-sys-typescale-label-small-size
   );
+  /* List list item trailing supporting text line height */
   --md-comp-list-list-item-trailing-supporting-text-line-height: var(
     --md-sys-typescale-label-small-line-height
   );
+  /* List list item trailing supporting text font */
   --md-comp-list-list-item-trailing-supporting-text-font: var(
     --md-sys-typescale-label-small-font
   );
+  /* List list item leading-image shape */
   --md-comp-list-list-item-leading-image-shape: var(--md-sys-shape-corner-none);
+  /* List list item leading-image height */
   --md-comp-list-list-item-leading-image-height: 56px;
+  /* List list item leading-image width */
   --md-comp-list-list-item-leading-image-width: 56px;
+  /* List list item leading avatar label weight */
   --md-comp-list-list-item-leading-avatar-label-weight: var(
     --md-sys-typescale-title-medium-weight
   );
+  /* List list item leading avatar label tracking */
   --md-comp-list-list-item-leading-avatar-label-tracking: var(
     --md-sys-typescale-title-medium-tracking
   );
+  /* List list item leadingavatar label size */
   --md-comp-list-list-item-leading-avatar-label-size: var(
     --md-sys-typescale-title-medium-size
   );
+  /* List list item leadingavatar label line height */
   --md-comp-list-list-item-leading-avatar-label-line-height: var(
     --md-sys-typescale-title-medium-line-height
   );
+  /* List list item leading avatar label font */
   --md-comp-list-list-item-leading-avatar-label-font: var(
     --md-sys-typescale-title-medium-font
   );
+  /* List list item leading-avatar size */
   --md-comp-list-list-item-leading-avatar-size: 40px;
+  /* List list item leading-avatar shape */
   --md-comp-list-list-item-leading-avatar-shape: var(
     --md-sys-shape-corner-full
   );
+  /* List list item leading-icon shape */
   --md-comp-list-list-item-leading-video-shape: var(--md-sys-shape-corner-none);
+  /* List list item large leading-icon color */
   --md-comp-list-list-item-large-leading-video-height: 69px;
+  /* List list item small leading-icon height */
   --md-comp-list-list-item-small-leading-video-height: 56px;
+  /* List list item leading-icon width */
   --md-comp-list-list-item-leading-video-width: 100px;
+  /* List list item leading-icon size */
   --md-comp-list-list-item-leading-icon-size: 18px;
+  /* List list item overline weight */
   --md-comp-list-list-item-overline-weight: var(
     --md-sys-typescale-label-small-weight
   );
+  /* List list item overline tracking */
   --md-comp-list-list-item-overline-tracking: var(
     --md-sys-typescale-label-small-tracking
   );
+  /* List list item overline size */
   --md-comp-list-list-item-overline-size: var(
     --md-sys-typescale-label-small-size
   );
+  /* List list item overline line height */
   --md-comp-list-list-item-overline-line-height: var(
     --md-sys-typescale-label-small-line-height
   );
+  /* List list item overline font */
   --md-comp-list-list-item-overline-font: var(
     --md-sys-typescale-label-small-font
   );
+  /* List list item supporting text weight */
   --md-comp-list-list-item-supporting-text-weight: var(
     --md-sys-typescale-body-medium-weight
   );
+  /* List list item supporting text tracking */
   --md-comp-list-list-item-supporting-text-tracking: var(
     --md-sys-typescale-body-medium-tracking
   );
+  /* List list item supporting text size */
   --md-comp-list-list-item-supporting-text-size: var(
     --md-sys-typescale-body-medium-size
   );
+  /* List list item supporting text line height */
   --md-comp-list-list-item-supporting-text-line-height: var(
     --md-sys-typescale-body-medium-line-height
   );
+  /* List list item supporting text font */
   --md-comp-list-list-item-supporting-text-font: var(
     --md-sys-typescale-body-medium-font
   );
+  /* List list item label text weight */
   --md-comp-list-list-item-label-text-weight: var(
     --md-sys-typescale-body-large-weight
   );
+  /* List list item label text tracking */
   --md-comp-list-list-item-label-text-tracking: var(
     --md-sys-typescale-body-large-tracking
   );
+  /* List list item label text size */
   --md-comp-list-list-item-label-text-size: var(
     --md-sys-typescale-body-large-size
   );
+  /* List list item label text line height */
   --md-comp-list-list-item-label-text-line-height: var(
     --md-sys-typescale-body-large-line-height
   );
+  /* List list item label text font */
   --md-comp-list-list-item-label-text-font: var(
     --md-sys-typescale-body-large-font
   );
+  /* List list item container elevation */
   --md-comp-list-list-item-container-elevation: var(--md-sys-elevation-level0);
   /* List list item container shape */
   --md-comp-list-list-item-container-shape: var(--md-sys-shape-corner-none);
