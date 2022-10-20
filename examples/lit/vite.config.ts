@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,7 +9,9 @@ export default defineConfig({
       formats: ['es']
     },
     rollupOptions: {
-      external: /^lit/
-    }
+      input: {
+        main: resolve(__dirname, "index.html"),
+      },
+    },
   }
 })

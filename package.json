@@ -12,9 +12,9 @@
     "readme:watch": "node dist/readme.js --watch",
     "readme:build": "node dist/readme.js",
     "css:lint": "npx stylelint 'lib/**/*.css'",
-    "css:build": "node dist/css.js",
+    "css:build": "node dist/css.js ./docsite/public/css",
     "css:watch": "npx postcss --watch lib/styles.css --output docsite/public/css/mdl.css",
-    "css:bundle": "npx postcss lib/styles.css",
+    "css:bundle": "node dist/css.js css",
     "test": "wtr \"lib/components/**/test.html\" --node-resolve --coverage --playwright --timeout 3000 --browsers chromium firefox webkit",
     "test:watch": "wtr \"lib/components/**/test.html\" --node-resolve --playwright --timeout 3000 --browsers chromium firefox webkit --watch",
     "test:ui": "wds --node-resolve --watch --port 8001",
@@ -22,7 +22,7 @@
     "tsc:watch": "tsc -w"
   },
   "engines": {
-    "node": "^18.x"
+    "node": ">=16"
   },
   "repository": {
     "type": "git",
@@ -66,14 +66,12 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^29.0.0",
     "ts-node": "^10.9.1",
+    "lit": "^2.3.1",
     "typescript": "^4.8.4"
   },
-  "exports": {
-    "./style": "./dist/mdl.css"
-  },
-  "dependencies": {
-    "lit": "^2.3.1"
-  },
+  "files": [
+    "css"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

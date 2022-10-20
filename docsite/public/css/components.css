@@ -842,7 +842,7 @@ p) {
   --md-comp-assist-chip-with-icon-disabled-icon-opacity: 0.3799999952316284;
   /* Assist chip disabled label text opacity */
   --md-comp-assist-chip-disabled-label-text-opacity: 0.3799999952316284;
-  /* Assist chip flat diabled outline opacity */
+  /* Assist chip flat disabled outline opacity */
   --md-comp-assist-chip-flat-disabled-outline-opacity: 0.11999999731779099;
   /* Assist chip icon size */
   --md-comp-assist-chip-with-icon-icon-size: 18px;
@@ -943,7 +943,7 @@ p) {
 }
 
 /* 
-  Releated Codepen:
+  Related Codepen:
   https://codepen.io/argyleink/pen/eYGaPEM
  */
 
@@ -1803,6 +1803,7 @@ button):not(.icon-button,
       text-transform: none;
       letter-spacing: normal;
       line-height: 1;
+      font-style: normal;
       font-weight: normal;
       font-family: "Material Icons";
       font-size: var(--md-comp-icon-button-icon-size);
@@ -2816,6 +2817,7 @@ textarea):disabled + span {
     text-transform: none;
     letter-spacing: normal;
     line-height: 1;
+    font-style: normal;
     font-weight: normal;
     font-family: "Material Icons";
     font-size: 16px;
@@ -2987,6 +2989,7 @@ textarea):disabled + span {
     text-transform: none;
     letter-spacing: normal;
     line-height: 1;
+    font-style: normal;
     font-weight: normal;
     font-family: "Material Icons";
     content: "check_box_outline_blank";
@@ -3496,6 +3499,7 @@ label)::before {
       text-transform: none;
       letter-spacing: normal;
       line-height: 1;
+      font-style: normal;
       font-weight: normal;
       font-family: "Material Icons";
       padding-right: 8px;
@@ -3528,6 +3532,7 @@ label) :where(i,
     text-transform: none;
     letter-spacing: normal;
     line-height: 1;
+    font-style: normal;
     font-weight: normal;
     font-family: "Material Icons";
     font-size: 24px;

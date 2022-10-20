@@ -1,6 +1,7 @@
-import { LitElement, css, html } from 'lit'
+import { LitElement, css, html, unsafeCSS } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import litLogo from './assets/lit.svg'
+import buttonStyles from 'material-design-lite/css/components/button.css?inline';
 
 /**
  * An example element.
@@ -24,7 +25,6 @@ export class MyElement extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="https://rodydavis.github.io/material-design-lite/css/components/button/style.css">
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -51,6 +51,7 @@ export class MyElement extends LitElement {
   }
 
   static styles = css`
+    ${unsafeCSS(buttonStyles)}
     :host {
       max-width: 1280px;
       margin: 0 auto;
