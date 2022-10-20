@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import "material-design-lite/css/core.css";
+import "material-design-lite/css/tokens/themes/auto.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
