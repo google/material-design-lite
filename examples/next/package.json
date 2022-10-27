@@ -11,7 +11,8 @@
   "dependencies": {
     "next": "13.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "material-design-lite": "file:../.."
   },
   "devDependencies": {
     "eslint": "8.26.0",
