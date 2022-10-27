@@ -1,0 +1,32 @@
+{
+  "name": "vue-example",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.27.1",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@types/node": "^16.11.68",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@vue/tsconfig": "^0.1.3",
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "typescript": "~4.7.4",
+    "vite": "^3.1.8",
+    "vue-tsc": "^1.0.8"
+  }
+}

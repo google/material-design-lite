@@ -105,6 +105,7 @@ async function buildFile(inputPath: string, outputPath: string, options: {
         const modulePath = outputPath.replace(/\.css$/, ".module.css");
         fs.writeFileSync(modulePath, processed);
     }
+    // TODO: Create export in package.json
     console.log(`Built ${outputPath} in ${(performance.now() - now).toFixed(2)} ms`);
 }
 
