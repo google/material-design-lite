@@ -70,15 +70,15 @@
   }
 
   &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-  &:where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-0);
+  &:where(:focus, .focus):not(:active) {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
   &[disabled] {

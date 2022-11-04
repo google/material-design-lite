@@ -4,7 +4,7 @@ const frontmatter = { title: "Components", tab: "components" };
 ---
 
 <Root {frontmatter}>
-  <div class="cards">
+  <div class="adaptive-grid">
     <a class="card outlined" href="/material-design-lite/components/badge/">
       <div class="page-preview center" inert>
         <div class="wrap center">
@@ -437,8 +437,15 @@ const frontmatter = { title: "Components", tab: "components" };
       padding: 1rem;
       width: 100%;
     }
+    .adaptive-grid {
+      box-sizing: border-box;
+      gap: 1rem;
+      padding: 1rem;
+      margin: auto;
+    }
     .card {
       width: unset;
+      grid-column: span 4;
     }
     .page-preview {
       min-height: 200px;

@@ -14,7 +14,9 @@
  limitations under the License.
 */
 
-:where(html, .light-theme, .dark-theme), .tokens, :host {
+:where(html, .light-theme, .dark-theme),
+.tokens,
+:host {
   --md-sys-comp-fab-background-color: var(--md-sys-color-primary-container);
   --md-sys-comp-fab-color: var(--md-sys-color-on-primary-container);
   --md-comp-fab-container-size: 56px;
@@ -39,6 +41,7 @@
   background-color: var(--md-sys-comp-fab-background-color);
   color: var(--md-sys-comp-fab-color);
   box-shadow: var(--md-sys-elevation-1);
+  transition: box-shadow 0.2s ease-in-out;
 
   & :where(i, .material-icons) {
     font-size: 24px;
@@ -53,7 +56,7 @@
     box-shadow: var(--md-sys-elevation-2);
   }
 
-  &:where(:focus, .focus) {
+  &:where(:focus, .focus):not(:active) {
     box-shadow: var(--md-sys-elevation-3);
   }
 

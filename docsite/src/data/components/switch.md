@@ -71,23 +71,23 @@ Switch with icon selected styling.
 Switch with icon unselected styling.
 
 <div class="preview">
-  <input class="switch icon-unselected" type="checkbox"/>
-  <input class="switch icon-unselected" type="checkbox" checked/>
-  <input class="switch icon-unselected" type="checkbox" disabled/>
+  <input class="switch icon-selected icon-unselected" type="checkbox"/>
+  <input class="switch icon-selected icon-unselected" type="checkbox" checked/>
+  <input class="switch icon-selected icon-unselected" type="checkbox" disabled/>
 </div>
 
 ```html
-<input class="switch icon-unselected" type="checkbox" />
+<input class="switch icon-selected icon-unselected" type="checkbox" />
 ```
 
 ## Design Tokens
 
-| Token                                    | Description                | Default |
-|------------------------------------------|----------------------------|---------|
-| `--md-sys-comp-switch-thumb-size` | The size of the thumb | `16px` |
-| `--md-sys-comp-switch-track-width` | The width of the track | `52px` |
-| `--md-sys-comp-switch-track-height` | The height of the track | `32px` |
-| `--md-sys-comp-switch-border-width` | The width of the border | `2px` |
+| Token                               | Description             | Default |
+|-------------------------------------|-------------------------|---------|
+| `--md-sys-comp-switch-thumb-size`   | The size of the thumb   | `16px`  |
+| `--md-sys-comp-switch-track-width`  | The width of the track  | `52px`  |
+| `--md-sys-comp-switch-track-height` | The height of the track | `32px`  |
+| `--md-sys-comp-switch-border-width` | The width of the border | `2px`   |
 
 ## Resources
 

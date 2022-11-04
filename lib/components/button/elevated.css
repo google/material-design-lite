@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url('../../tokens/components/elevated-button.css');
+@import url("../../tokens/components/elevated-button.css");
 
 :where(.button, button):not(.icon-button, .fab, .chip).elevated {
   box-shadow: var(--md-sys-elevation-1);
@@ -44,19 +44,19 @@
     --md-comp-elevated-button-disabled-outline-opacity
   );
 
-  & :where(i, .material-icons)  {
+  & :where(i, .material-icons) {
     font-size: var(--md-comp-elevated-button-with-icon-icon-size);
   }
 
   &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-2);
+    box-shadow: var(--md-sys-elevation-3);
   }
 
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-  &:where(:focus, .focus) {
+  &:where(:focus, .focus):not(:active) {
     box-shadow: var(--md-sys-elevation-2);
   }
 

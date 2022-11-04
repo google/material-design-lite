@@ -54,21 +54,43 @@ To import just the component styles, copy the following into your project's **st
 
 ## Usage
 
-Start with a **nav** element and add the **tabs** class name:
+Start with a **label** element and add the **text-field** class name:
 
 ```html
-<nav class="tabs"></nav>
+<label class="text-field"></div>
 ```
 
-Tabs need at least two tabs to work.
+Next, add an **input** or **textarea** element:
 
 ```html
-<nav class="tabs">
-  <input type="radio" name="tab-nav" value="tab-1" id="tab-1" checked />
-  <label class="tab" for="tab-1">Tab 1</label>
-  <input type="radio" name="tab-nav" value="tab-2" id="tab-2" />
-  <label class="tab" for="tab-2">Tab 2</label>
-</nav>
+<label class="text-field">
+  <input placeholder=" " />
+</label>
+```
+
+Finally, add a **span** element with the text you want to display:
+
+```html
+<label class="text-field">
+  <input placeholder=" " />
+  <span>Textfield</span>
+</label>
+```
+
+To make an auto-complete text field, add a **datalist** element:
+
+```html
+<label class="text-field">
+  <input placeholder=" " list="browsers" />
+  <span>Textfield</span>
+</label>
+<datalist>
+  <option value="Edge"></option>
+  <option value="Firefox"></option>
+  <option value="Chrome"></option>
+  <option value="Opera"></option>
+  <option value="Safari"></option>
+</datalist>
 ```
 
 ## Variants

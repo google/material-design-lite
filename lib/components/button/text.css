@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url('../../tokens/components/text-button.css');
+@import url("../../tokens/components/text-button.css");
 
 :where(.button, button):not(.icon-button, .fab, .chip).text {
   box-shadow: var(--md-sys-elevation-0);
@@ -47,14 +47,14 @@
   );
 
   &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-  &:where(:focus, .focus) {
+  &:where(:focus, .focus):not(:active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 

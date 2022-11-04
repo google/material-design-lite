@@ -14,34 +14,51 @@
  limitations under the License.
 */
 
-@import url('tokens/elevation.css');
+@import url("tokens/elevation.css");
 
 :where(html, .light-theme, .dark-theme),
-.tokens, :host {
-  --md-sys-elevation-0: 0px 0px 0px 0px
-      rgb(var(--md-sys-color-shadow-rgb) / 0.2),
-    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-1: 0px 3px 1px -2px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 2px 2px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 1px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-2: 0px 2px 4px -1px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 4px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 1px 10px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-3: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-4: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
-  --md-sys-elevation-5: 0px 8px 10px -6px rgb(var(--md-sys-color-shadow-rgb) /
-          0.2),
-    0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14),
-    0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+.tokens,
+:host {
+  --md-sys-elevation-0-opacity: 0;
+  --md-sys-elevation-1-opacity: 0.05;
+  --md-sys-elevation-2-opacity: 0.08;
+  --md-sys-elevation-3-opacity: 0.11;
+  --md-sys-elevation-4-opacity: 0.12;
+  --md-sys-elevation-5-opacity: 0.14;
+  --md-sys-elevation-key-opacity: 0.3;
+  --md-sys-elevation-ambient-opacity: 0.15;
+  
+  --md-sys-elevation-0-key: 0px 0px 0px 0px;
+  --md-sys-elevation-0-ambient: 0px 0px 0px 0px;
+  --md-sys-elevation-1-key: 0px 1px 2px 0px;
+  --md-sys-elevation-1-ambient: 0px 1px 2px 0px;
+  --md-sys-elevation-2-key: 0px 1px 3px 0px;
+  --md-sys-elevation-2-ambient: 0px 2px 6px 2px;
+  --md-sys-elevation-3-key: 0px 1px 3px 0px;
+  --md-sys-elevation-3-ambient: 0px 4px 8px 3px;
+  --md-sys-elevation-4-key: 0px 2px 3px 0px;
+  --md-sys-elevation-4-ambient: 0px 6px 10px 4px;
+  --md-sys-elevation-5-key: 0px 4px 4px 0px;
+  --md-sys-elevation-5-ambient: 0px 8px 12px 6px;
+
+  --md-sys-elevation-0: 
+    var(--md-sys-elevation-0-key) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-key-opacity)),
+    var(--md-sys-elevation-0-ambient) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-ambient-opacity));
+  --md-sys-elevation-1:
+    var(--md-sys-elevation-1-key) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-key-opacity)),
+    var(--md-sys-elevation-1-ambient) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-ambient-opacity));
+  --md-sys-elevation-2:
+    var(--md-sys-elevation-2-key) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-key-opacity)),
+    var(--md-sys-elevation-2-ambient) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-ambient-opacity));
+  --md-sys-elevation-3:
+    var(--md-sys-elevation-3-key) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-key-opacity)),
+    var(--md-sys-elevation-3-ambient) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-ambient-opacity));
+  --md-sys-elevation-4:
+    var(--md-sys-elevation-4-key) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-key-opacity)),
+    var(--md-sys-elevation-4-ambient) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-ambient-opacity));
+  --md-sys-elevation-5:
+    var(--md-sys-elevation-5-key) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-key-opacity)),
+    var(--md-sys-elevation-5-ambient) rgb(var(--md-sys-color-shadow-rgb) / var(--md-sys-elevation-ambient-opacity));
 }
 .elevation-0 {
   box-shadow: var(--md-sys-elevation-0);

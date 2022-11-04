@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url('../../tokens/components/outlined-button.css');
+@import url("../../tokens/components/outlined-button.css");
 
 :where(.button, button):not(.icon-button, .fab, .chip).outlined {
   border: var(--md-comp-outlined-button-outline-width) solid
@@ -52,19 +52,19 @@
     --md-comp-outlined-button-disabled-outline-opacity
   );
 
-  & :where(i, .material-icons)  {
+  & :where(i, .material-icons) {
     margin-left: -9px;
   }
 
   &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-2);
   }
 
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-0);
   }
 
-  &:where(:focus, .focus) {
+  &:where(:focus, .focus):not(:active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 

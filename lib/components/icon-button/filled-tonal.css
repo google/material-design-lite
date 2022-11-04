@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url('../../tokens/components/filled-tonal-icon-button.css');
+@import url("../../tokens/components/filled-tonal-icon-button.css");
 
 :where(.icon-button).filled-tonal {
   background-color: var(--md-sys-color-secondary-container);
@@ -67,6 +67,18 @@
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
     }
+  }
+
+  &:where(:hover, .hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &:where(:active, .active) {
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+  &:where(:focus, .focus):not(:active) {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
   &[disabled] {

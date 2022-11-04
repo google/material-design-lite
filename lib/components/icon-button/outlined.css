@@ -14,7 +14,7 @@
  limitations under the License.
 */
 
-@import url('../../tokens/components/outlined-icon-button.css');
+@import url("../../tokens/components/outlined-icon-button.css");
 
 :where(.icon-button).outlined {
   box-shadow: var(--md-sys-elevation-0);
@@ -61,6 +61,18 @@
     --state-disabled-opacity: var(
       --md-comp-outlined-icon-button-disabled-selected-container-opacity
     );
+  }
+
+  &:where(:hover, .hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &:where(:active, .active) {
+    box-shadow: var(--md-sys-elevation-0);
+  }
+
+  &:where(:focus, .focus):not(:active) {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
   &[disabled] {

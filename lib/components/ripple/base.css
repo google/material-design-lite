@@ -14,45 +14,63 @@
  limitations under the License.
 */
 
-.ripple {
-  --ripple-bg: rgb(var(--md-sys-color-surface-rgb) / 0.4);
-  --ripple-fg: rgb(var(--md-sys-color-on-surface-rgb) / 0.6);
-  --ripple-start-x: 50%;
-  --ripple-start-y: 50%;
-  --ripple-start: var(--ripple-start-x) var(--ripple-start-y);
-  --ripple-end-size: 15000%;
+:is(.ripple, .button, button, .fab, .chip, .icon-button, .navigation-icon, .tab, .clickable) {
+  --ripple-color: rgb(var(--md-sys-color-surface-tint-rgb) / 0.2);
   position: relative;
-  &:not([disabled]) {
+  overflow: hidden;
+
+  &:active {
     &::before {
       content: "";
-      border-radius: inherit;
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-position-x: var(--ripple-start-x);
-      background-position-y: var(--ripple-start-y);
-      background-repeat: no-repeat;
-      transition: background 0.8s;
+      inset: 0;
+      animation: ripple 375ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 200ms;
     }
-    &:hover {
-      &::before {
-        background: var(--ripple-bg)
-          radial-gradient(
-            circle at var(--ripple-start),
-            transparent 1%,
-            var(--ripple-bg) 1%
-          )
-          var(--ripple-start) / var(--ripple-end-size);
-      }
-    }
-    &:active {
-      &::before {
-        background-color: var(--ripple-fg);
-        background-size: 100%;
-        transition: background 0s;
-      }
-    }
+  }
+}
+
+@keyframes ripple {
+  0% {
+    background: radial-gradient(circle, transparent 0%, transparent 0%);
+    opacity: 1;
+  }
+  20% {
+    background: radial-gradient(
+      circle,
+      var(--ripple-color) 0%,
+      transparent 10%
+    );
+    opacity: 1;
+  }
+  30% {
+    background: radial-gradient(
+      circle,
+      var(--ripple-color) 0%,
+      transparent 30%
+    );
+    opacity: 1;
+  }
+  50% {
+    background: radial-gradient(
+      circle,
+      var(--ripple-color) 0%,
+      transparent 50%
+    );
+    opacity: 0.8;
+  }
+  75% {
+    background: radial-gradient(
+      circle,
+      var(--ripple-color) 0%,
+      transparent 100%
+    );
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    background: radial-gradient(circle, transparent 0%, transparent 100%);
+    transform: scale(2);
+    opacity: 1;
   }
 }

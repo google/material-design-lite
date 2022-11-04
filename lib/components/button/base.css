@@ -80,14 +80,14 @@
   }
 
   &:where(:hover, .hover) {
-    box-shadow: var(--md-sys-elevation-2);
+    box-shadow: var(--md-sys-elevation-3);
   }
 
   &:where(:active, .active) {
     box-shadow: var(--md-sys-elevation-1);
   }
 
-  &:where(:focus, .focus) {
+  &:where(:focus, .focus):not(:active) {
     box-shadow: var(--md-sys-elevation-2);
   }
 

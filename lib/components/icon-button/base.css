@@ -31,6 +31,7 @@
   padding: 4px;
   margin: 0;
   box-shadow: var(--md-sys-elevation-0);
+  transition: box-shadow 0.2s ease-in-out;
 
   @apply --label-large;
   font-size: var(--md-comp-icon-button-icon-size);

@@ -90,8 +90,8 @@ async function buildFile(inputPath: string, outputPath: string, options: {
     let processed = await processCss(css, inputPath, outputPath, options);
     processed = addHeader(processed);
     if (options.comments === false) {
-        // Remove all comments.
-        processed = processed.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, "");
+        // Remove all multi line comments.
+        processed = processed.replace(/\/\*[\s\S]*?\*\//gm, "");
     }
     // Create parent directory if it doesn't exist.
     const parentDir = path.dirname(outputPath);

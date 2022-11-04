@@ -14,7 +14,9 @@
  limitations under the License.
 */
 
-:where(html, .light-theme, .dark-theme), .tokens, :host {
+:where(html, .light-theme, .dark-theme),
+.tokens,
+:host {
   --md-sys-comp-chip-background-color: var(--md-sys-color-surface);
   --md-sys-comp-chip-color: var(--md-sys-color-primary);
   --md-comp-chip-container-height: 32px;
@@ -45,6 +47,7 @@
   color: var(--md-sys-comp-chip-color);
   border-radius: var(--md-sys-shape-corner-small);
   box-shadow: var(--md-sys-elevation-1);
+  transition: box-shadow 0.2s ease-in-out;
 
   & :is(i, .material-icons) {
     color: var(--md-sys-color-primary);
@@ -64,11 +67,11 @@
   }
 
   &:where(:active, .active) {
-    box-shadow: var(--md-sys-elevation-1);
+    box-shadow: var(--md-sys-elevation-0);
   }
 
-  &:where(:focus, .focus) {
-    box-shadow: var(--md-sys-elevation-2);
+  &:where(:focus, .focus):not(:active) {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
   &[disabled] {
