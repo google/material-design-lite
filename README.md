@@ -38,6 +38,8 @@ MDL. If you are looking to use MDL on your website or web app please head to
 A-grade browsers are fully supported. B-grade browsers will gracefully degrade
 to our CSS-only experience.
 
+> NOTE: IE has been deprecated by Microsoft so might not function very well in the future.
+
 ### Download / Clone
 
 Clone the repo using Git:
@@ -78,12 +80,11 @@ and help improve the Material Design Lite. For more information visit our
 
 Please use the default branch, `mdl-1.x`.
 
-Take note that [Material Components for Web](https://github.com/material-components/material-components-web), which is MDL v2, is under early Alpha stages (which means everything is a moving target, and we can change anything at any moment). Use with caution.
+Take note that [Material Components for Web](https://github.com/material-components/material-components-web), which is `MDL v2`, is under early Alpha stages (which means everything is a moving target, and we can change anything at any moment). USE WITH CAUTION.
 
-However, we would absolutely love to have people testing MCW and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
+However, we would absolutely love to have people testing `MCW` and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
 
 ## License
 
-© Google, 2015. Licensed under an
-[Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE)
-license.
+© Google 2023. Licensed under the
+[Apache 2.0 license](https://github.com/google/material-design-lite/blob/master/LICENSE).
