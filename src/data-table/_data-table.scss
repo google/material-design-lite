@@ -118,3 +118,9 @@
 .mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
   text-align: left;
 }
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f9f9f9; /* Set the desired background color for the sticky header */
+}
