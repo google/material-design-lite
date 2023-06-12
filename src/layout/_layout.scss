@@ -165,7 +165,7 @@
       }
     }
 
-    @media screen and (min-width: $layout-screen-size-threshold + 1px) {
+    @media screen and (min-width: #{ $layout-screen-size-threshold + 1px }) {
       .mdl-layout--fixed-drawer > & {
         transform: translateX(0);
       }
@@ -213,7 +213,7 @@
       color: rgba(0, 0, 0, 0.5);
     }
 
-    @media screen and (min-width: $layout-screen-size-threshold + 1px) {
+    @media screen and (min-width: #{ $layout-screen-size-threshold + 1px }) {
       line-height: 54px;
 
       .mdl-layout--no-desktop-drawer-button &,
@@ -256,7 +256,7 @@
       width: calc(100% - #{$layout-drawer-width});
     }
 
-    @media screen and (min-width: $layout-screen-size-threshold + 1px) {
+    @media screen and (min-width: #{ $layout-screen-size-threshold + 1px }) {
       .mdl-layout--fixed-drawer > & {
         .mdl-layout__header-row {
           padding-left: 40px;
@@ -353,7 +353,7 @@
         padding-left: $layout-header-desktop-indent;
       }
 
-      @media screen and (min-width: $layout-screen-size-threshold + 1px) {
+      @media screen and (min-width: #{ $layout-screen-size-threshold + 1px }) {
         .mdl-layout--no-desktop-drawer-button & {
           padding-left: $layout-header-desktop-indent;
         }
@@ -436,8 +436,8 @@
   // Content.
   .mdl-layout__content {
     // Fix IE10 bug.
-    -ms-flex: 0 1 auto;
-
+    // -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
     position: relative;
     display: inline-block;
     overflow-y: auto;
@@ -489,7 +489,7 @@
           #{(($layout-header-desktop-indent - $layout-tab-desktop-padding) * 2)});
     }
 
-    @media screen and (min-width: $layout-screen-size-threshold + 1px) {
+    @media screen and (min-width: #{ $layout-screen-size-threshold + 1px }) {
       .mdl-layout--no-desktop-drawer-button & {
         padding-left: $layout-header-desktop-indent - $layout-tab-desktop-padding;
         width: calc(100% -
