@@ -152,7 +152,8 @@
 .mdl-checkbox__ripple-container {
   position: absolute;
   z-index: 2;
-  top: -(($checkbox-ripple-size - $checkbox-label-height) / 2);
+  // top: -(($checkbox-ripple-size - $checkbox-label-height) / 2);
+  top: -(($checkbox-ripple-size - $checkbox-label-height) / 2) + 1px;
   left: -(($checkbox-ripple-size - $checkbox-button-size) / 2);
 
   box-sizing: border-box;
@@ -163,7 +164,7 @@
   cursor: pointer;
 
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+  mask-image: -webkit-radial-gradient(circle, white, black);
 
   & .mdl-ripple {
     background: $checkbox-color;
