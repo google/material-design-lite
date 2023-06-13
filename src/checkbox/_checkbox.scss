@@ -119,6 +119,8 @@
   height: 100%;
   width: 100%;
   mask: url("#{$checkbox-image-path}/tick-mask.svg?embed");
+  -webkit-mask:none;
+  mask:none;
 
   background: transparent;
   @include material-animation-default(0.28s);
