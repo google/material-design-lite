@@ -150,6 +150,11 @@
     cursor: auto;
   }
 }
+.custom-checkbox {
+  @extend .mdl-checkbox;
+  @extend .mdl-js-checkbox;
+  @extend .mdl-js-ripple-effect;
+}
 
 .mdl-checkbox__ripple-container {
   position: absolute;
