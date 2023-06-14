@@ -119,6 +119,8 @@
   height: 100%;
   width: 100%;
   mask: url("#{$checkbox-image-path}/tick-mask.svg?embed");
+  -webkit-mask:none;
+  mask:none;
 
   background: transparent;
   @include material-animation-default(0.28s);
@@ -148,11 +150,17 @@
     cursor: auto;
   }
 }
+.custom-checkbox {
+  @extend .mdl-checkbox;
+  @extend .mdl-js-checkbox;
+  @extend .mdl-js-ripple-effect;
+}
 
 .mdl-checkbox__ripple-container {
   position: absolute;
   z-index: 2;
-  top: -(($checkbox-ripple-size - $checkbox-label-height) / 2);
+  // top: -(($checkbox-ripple-size - $checkbox-label-height) / 2);
+  top: -(($checkbox-ripple-size - $checkbox-label-height) / 2) + 1px;
   left: -(($checkbox-ripple-size - $checkbox-button-size) / 2);
 
   box-sizing: border-box;
@@ -163,7 +171,7 @@
   cursor: pointer;
 
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+  mask-image: -webkit-radial-gradient(circle, white, black);
 
   & .mdl-ripple {
     background: $checkbox-color;

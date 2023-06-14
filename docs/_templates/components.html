@@ -78,11 +78,11 @@
           <!-- Adding the demo page -->
         {% set demo_css = "../../dist/components/" + component.name + "/demo.css" %}
           <style>
-            {% include demo_css ignore missing %}
+            /* {% include demo_css ignore missing %} */
           </style>
           {% set demo_js = "../../dist/components/" + component.name + "/demo.js" %}
           <script>
-            {% include demo_js ignore missing %}
+            // {% include demo.js ignore missing %}
           </script>
           {% set demo = "../../src/" + component.name + "/demo.html" %}
           {% include demo ignore missing %}

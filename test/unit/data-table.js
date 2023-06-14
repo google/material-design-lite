@@ -35,7 +35,7 @@ var TABLE_TEMPLATE = '<table class="mdl-data-table mdl-js-data-table mdl-data-ta
       '  </tr>' +
       '</tbody>' +
     '</table>';
-
+componentHandler.upgradeAllRegistered();
 describe('MaterialDataTable', function () {
 
   it('should be globally available', function () {
