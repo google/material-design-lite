@@ -1,4 +1,4 @@
-# Material Design Lite
+# 🎨 Material Design Lite
 
 [![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)
 [![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
@@ -6,52 +6,55 @@
 [![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
 [![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
 
-> An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
-components in vanilla CSS, JS, and HTML.
+> ✨ A lightweight implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in vanilla **CSS**, **JS**, and **HTML**.
 
-Material Design Lite (MDL) lets you add a Material Design look and feel to your
-static content websites. It doesn't rely on any JavaScript frameworks or
-libraries. Optimized for cross-device use, gracefully degrades in older
-browsers, and offers an experience that is accessible from the get-go.
+---
 
-> ### Limited support
+## 🚀 What is MDL?
 
-> Material Design Lite is now in limited support, with development having moved to the
-> [Material Components for the web](https://github.com/material-components/material-components-web) repository.
+Material Design Lite (MDL) lets you add a **Material Design look and feel** to your static content websites.  
+✅ No frameworks required  
+✅ Cross-device optimized  
+✅ Accessible and responsive  
+✅ Graceful degradation in older browsers
 
-> No further development is taking place in MDL by the core team, but we are happy to review PRs, fix critical bugs and
-> push out new releases. No breaking changes will be accepted.
+---
 
-## Use MDL on your site?
+> ⚠️ **Limited Support Notice**  
+> MDL is in **limited support**. Development has moved to 👉 [Material Components for the Web](https://github.com/material-components/material-components-web).  
+> PRs are welcome, but no **breaking changes** will be accepted.
 
-**This document is targeted at developers that will contribute to or compile
-MDL. If you are looking to use MDL on your website or web app please head to
-[getmdl.io](http://getmdl.io).**
+---
 
-## Browser Support
+## 🧑‍💻 Use MDL on your site?
 
+This guide is intended for developers contributing to or compiling MDL.  
+If you're just looking to use MDL on your project, visit 👉 [getmdl.io](http://getmdl.io)
+
+---
+
+## 🌐 Browser Support
 
 | IE9 | IE10 | IE11 | Chrome | Opera | Firefox | Safari | Chrome (Android) | Mobile Safari |
 |-----|------|------|--------|-------|---------|--------|------------------|---------------|
-| B   | A    | A    | A      | A     | A       | A      | A                | A             |
+| 🟡 B | 🟢 A | 🟢 A | 🟢 A  | 🟢 A | 🟢 A   | 🟢 A  | 🟢 A            | 🟢 A         |
 
-A-grade browsers are fully supported. B-grade browsers will gracefully degrade
-to our CSS-only experience.
+- 🟢 **A-grade**: Fully supported  
+- 🟡 **B-grade**: CSS-only fallback
 
-### Download / Clone
+---
 
-Clone the repo using Git:
+## 📦 Download / Clone
+
+Clone using Git:
 
 ```bash
 git clone https://github.com/google/material-design-lite.git
 ```
 
-Alternatively you can [download](https://github.com/google/material-design-lite/archive/master.zip)
-this repository.
+Or download it directly 👉 [Download ZIP](https://github.com/google/material-design-lite/archive/master.zip)
 
-Windows users, if you have trouble compiling due to line endings then make sure
-you configure git to checkout the repository with `lf` (unix) line endings. This
-can be achieved by setting `core.eol`.
+🪟 **Windows Users**: Fix line endings issues:
 
 ```bash
 git config core.eol lf
@@ -60,30 +63,38 @@ git rm --cached -r .
 git reset --hard
 ```
 
-> Remember, the master branch is considered unstable. Do not use this in
-production. Use a tagged state of the repository, npm, or bower for stability!
+> 🛑 The `master` branch is **unstable**. Use a **tagged release**, **npm**, or **bower** for stable builds.
 
-## Feature requests
+---
 
-MDL is currently in limited support mode, with no further development taking place by the core team.
-We are happy to accept and review pull requests for new functionality, however, as long as there are no breaking
-changes.
+## 💡 Feature Requests
 
-## Want to contribute?
+MDL is in limited support.  
+✅ We **accept PRs** for enhancements  
+⛔ No breaking changes will be merged
 
-If you found a bug, have any questions or want to contribute. Follow our
-[guidelines](https://github.com/google/material-design-lite/blob/mdl-1.x/CONTRIBUTING.md),
-and help improve the Material Design Lite. For more information visit our
-[wiki](https://github.com/google/material-design-lite/wiki).
+---
 
-Please use the default branch, `mdl-1.x`.
+## 🤝 Want to Contribute?
 
-Take note that [Material Components for Web](https://github.com/material-components/material-components-web), which is MDL v2, is under early Alpha stages (which means everything is a moving target, and we can change anything at any moment). Use with caution.
+Found a bug 🐞? Have a cool feature 💡? Want to contribute 👨‍🔧?
 
-However, we would absolutely love to have people testing MCW and provide feedback about their experiences using it, especially integrating with other frameworks and libraries.
+Check our 👉 [Contributing Guidelines](https://github.com/google/material-design-lite/blob/mdl-1.x/CONTRIBUTING.md)  
+More info here 👉 [MDL Wiki](https://github.com/google/material-design-lite/wiki)
 
-## License
+> Use the `mdl-1.x` branch for your PRs.
 
-© Google, 2015. Licensed under an
-[Apache-2](https://github.com/google/material-design-lite/blob/master/LICENSE)
-license.
+---
+
+### 🧪 Looking Ahead
+
+Check out [Material Components for Web](https://github.com/material-components/material-components-web) — MDL v2!  
+🚧 **Still in Alpha**: Everything is a moving target.  
+We'd ❤️ your feedback on integration and usage!
+
+---
+
+## 📄 License
+
+© Google, 2015  
+Licensed under the [Apache-2.0 License](https://github.com/google/material-design-lite/blob/master/LICENSE)
