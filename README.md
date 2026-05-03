@@ -1,10 +1,6 @@
 # Material Design Lite
 
-[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)
-[![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
-[![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
-[![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
-[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
+[![npm version](https://img.shields.io/npm/v/material-design-lite.svg)](https://www.npmjs.com/package/material-design-lite)
 
 > An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 components in vanilla CSS, JS, and HTML.
@@ -22,11 +18,25 @@ browsers, and offers an experience that is accessible from the get-go.
 > No further development is taking place in MDL by the core team, but we are happy to review PRs, fix critical bugs and
 > push out new releases. No breaking changes will be accepted.
 
+> **Heads up:** the old `getmdl.io` site is gone, and the documentation and component gallery
+> that used to live there are no longer available. MDL itself still works fine as a vanilla
+> set of Material Design CSS, JS, and HTML you can drop into any project — only the hosted
+> docs site has been retired.
+
 ## Use MDL on your site?
 
-**This document is targeted at developers that will contribute to or compile
-MDL. If you are looking to use MDL on your website or web app please head to
-[getmdl.io](http://getmdl.io).**
+This document is targeted at developers that will contribute to or compile MDL.
+If you just want to use MDL on a website or web app, the safest bet is to
+**self-host the v1.3.0 release**, since the previously-recommended
+`getmdl.io`-hosted assets are no longer available.
+
+- Grab the prebuilt CSS and JS from the
+  [v1.3.0 release on GitHub](https://github.com/google/material-design-lite/releases)
+  and serve them from your own origin.
+- Or, if you need a drop-in CDN alternative, MDL is mirrored on
+  [CDNJS](https://cdnjs.com/libraries/material-design-lite).
+- The package is also still published on npm as
+  [`material-design-lite`](https://www.npmjs.com/package/material-design-lite).
 
 ## Browser Support
 
