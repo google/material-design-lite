@@ -136,7 +136,9 @@
         this.boundMouseLeaveAndScrollHandler = this.hideTooltip_.bind(this);
         this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener('touchend', this.boundMouseEnterHandler, false);
+        this.forElement_.addEventListener('focus', this.boundMouseEnterHandler, false);
         this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveAndScrollHandler, false);
+        this.forElement_.addEventListener('blur', this.boundMouseLeaveAndScrollHandler, false);
         window.addEventListener('scroll', this.boundMouseLeaveAndScrollHandler, true);
         window.addEventListener('touchstart', this.boundMouseLeaveAndScrollHandler);
       }
