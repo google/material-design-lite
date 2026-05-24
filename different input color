@@ -1,0 +1,6 @@
+I wanted to use a different color in input element when we click it. What's the easiest way to do that?
+
+in that case you can query selector 
+body > app-root > div:nth-child(1) > app-main-header > header > div > app-desktop-header-type-2 > div > div:nth-child(1) > div > input{
+color: #fff;
+}
