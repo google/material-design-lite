@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/material-design-lite.svg)](https://www.npmjs.com/package/material-design-lite)
 
-> An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
+> An implementation of [Material Design](http://www.google.com/design/spec/introduction)
 components in vanilla CSS, JS, and HTML.
 
 Material Design Lite (MDL) lets you add a Material Design look and feel to your
