@@ -227,7 +227,7 @@
           this.CssClasses_.RADIO_BTN);
 
       this.boundChangeHandler_ = this.onChange_.bind(this);
-      this.boundFocusHandler_ = this.onChange_.bind(this);
+      this.boundFocusHandler_ = this.onFocus_.bind(this);
       this.boundBlurHandler_ = this.onBlur_.bind(this);
       this.boundMouseUpHandler_ = this.onMouseup_.bind(this);
 
