@@ -56,6 +56,7 @@
    * @private
    */
   MaterialMenu.prototype.Keycodes_ = {
+    TAB: 9,
     ENTER: 13,
     ESCAPE: 27,
     SPACE: 32,
@@ -235,6 +236,11 @@
         } else if (evt.keyCode === this.Keycodes_.DOWN_ARROW) {
           evt.preventDefault();
           items[0].focus();
+        } else if (evt.keyCode === this.Keycodes_.ESCAPE) {
+          evt.preventDefault();
+          this.hide();
+        } else if (evt.keyCode === this.Keycodes_.TAB) {
+          this.hide();
         }
       }
     }
@@ -281,6 +287,8 @@
           evt.target.click();
         } else if (evt.keyCode === this.Keycodes_.ESCAPE) {
           evt.preventDefault();
+          this.hide();
+        } else if (evt.keyCode === this.Keycodes_.TAB) {
           this.hide();
         }
       }
